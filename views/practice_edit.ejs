@@ -1,0 +1,118 @@
+<% this.title = practice.id ? '编辑练习' : '新建练习' %>
+<% include header %>
+<div class="padding">
+        <form action="<%= syzoj.utils.makeUrl(['practice', practice.id, 'edit']) %>" method="post">
+          <div class="ui form">
+              <div class="field">
+                <label>练习名称</label>
+                <input type="text" name="title" value="<%= practice.title %>">
+              </div>
+              <div class="field">
+                <label>练习描述</label>
+                <input type="text" name="subtitle" class="markdown-edit" value="<%= practice.subtitle %>">
+              </div>
+
+            <div class="field">
+                <label>练习分组(可以用'|'分隔同时开放给多组;'all'表示完全公开;'chk'表示可被申请)</label>
+                <input type="text" name="group_id" class="markdown-edit" value="<%= practice.group_id %>">
+            </div>
+
+            <div class="field">
+                <label>试题列表</label>
+                <select class="ui fluid search dropdown" multiple="" id="search_problems" name="problems">
+                <% for (let problem of problems) { %>
+                <option value="<%= problem.id %>" selected>#<%= problem.id %>. <%= problem.title %></option>
+                <% } %>
+                </select>
+            </div>
+            <div class="field">
+                <label>练习管理员</label>
+                <select class="ui fluid search dropdown" multiple="" id="search_admins" name="admins">
+                <% for (let admin of admins) { %>
+                <option value="<%= admin.id %>" selected><%= admin.username %></option>
+                <% } %>
+                </select>
+            </div>
+            <div class="inline fields">
+              <label>赛制</label>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <input <% if (practice.id) { %>disabled <% } %>type="radio" name="type" id="type-ioi" value="ioi"<% if (practice.type === 'ioi') { %> checked="checked"<% } %>>
+                  <label for="type-ioi">IOI</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <input <% if (practice.id) { %>disabled <% } %>type="radio" name="type" id="type-acm" value="acm"<% if (practice.type === 'acm') { %> checked="checked"<% } %>>
+                  <label for="type-acm">ICPC</label>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+                <label>排行参数（格式：<code>{ "题目 ID": 分值倍数 }</code>）</label>
+                <input type="text" name="ranking_params" value="<%= practice.ranklist ? JSON.stringify(practice.ranklist.ranking_params) : '' %>">
+            </div>
+            <div class="field">
+                <label>练习公告</label>
+                <textarea rows="5" name="information" class="markdown-edit"><%= practice.information %></textarea>
+            </div>
+            <div class="field">
+                <label>开始时间</label>
+                <input type="text" name="start_time" value="<%= syzoj.utils.formatDate(practice.start_time || syzoj.utils.getCurrentDate()) %>">
+            </div>
+            <div class="field">
+                <label>结束时间</label>
+                <input type="text" name="end_time" value="<%= practice.end_time ? syzoj.utils.formatDate(practice.end_time) : '2038-01-01 00:00:00' %>">
+            </div>
+            <div class="inline field">
+              <label class="ui header">公开</label>
+              <div class="ui toggle checkbox">
+                <input type="checkbox"<% if (practice.is_public) { %> checked<% } %> name="is_public">
+                <label><span style="visibility: hidden; ">　</span></label>
+              </div>
+            </div>
+            <div class="inline field">
+              <label class="ui header">隐藏统计信息</label>
+              <div class="ui toggle checkbox">
+                <input type="checkbox"<% if (practice.hide_statistics) { %> checked<% } %> name="hide_statistics">
+                <label><span style="visibility: hidden; ">　</span></label>
+              </div>
+            </div>
+            <div style="text-align: center; "><button id="submit_button" type="submit" class="ui labeled icon blue button"><i class="ui edit icon"></i>提交</button></div>
+          </div>
+        </form>
+<script>
+$(function () {
+  $('#search_admins')
+    .dropdown({
+      debug: true,
+      apiSettings: {
+        url: '/api/v2/search/users/{query}',
+        onResponse: function (response) {
+          var a = $('#search_admins').val().map(function (x) { return parseInt(x) });
+          if (response.results) {
+            response.results = response.results.filter(function(x){ return !a.includes(parseInt(x.value))});
+          }
+          return response;
+        },
+        cache: false
+      }
+    });
+  $('#search_problems')
+    .dropdown({
+      debug: true,
+      apiSettings: {
+        url: '/api/v2/search/problems/{query}',
+        onResponse: function (response) {
+          var a = $('#search_problems').val().map(function (x) { return parseInt(x) });
+          if (response.results) {
+            response.results = response.results.filter(function(x) {return !a.includes(parseInt(x.value));});
+          }
+          return response;
+        },
+        cache: false
+      }
+    });
+});
+</script>
+<% include footer %>

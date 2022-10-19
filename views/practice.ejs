@@ -1,0 +1,174 @@
+<% this.title = practice.title + ' - 练习' %>
+<style>
+.ui.label.pointing.below.left::before { left: 12%; }
+.ui.label.pointing.below.right::before { left: 88%; }
+.ui.label.pointing.below.left { margin-bottom: 0; }
+.ui.label.pointing.below.right { margin-bottom: 0; float: right; }
+#back_to_practice { display: none;  }
+</style>
+<% include header %>
+<div class="padding">
+  <h1><%= practice.title %></h1>
+  <div style="margin-bottom: 30px;"><%- practice.subtitle %></div>
+  <% let unveiled = (isSupervisior || syzoj.utils.getCurrentDate() >= practice.start_time); %>
+  <% const seeResult = (isSupervisior || practice.ended); %>
+  <% const seeRanklist = seeResult || (practice.allowedSeeingResult() && practice.allowedSeeingOthers()); %>
+  <% let start = syzoj.utils.formatDate(practice.start_time), end = syzoj.utils.formatDate(practice.end_time); %>
+  <% if (practice.running && start.split(' ')[0] === end.split(' ')[0]) {
+    start = start.split(' ')[1]; end = end.split(' ')[1];
+  } %>
+  <div class="ui pointing below left label"><%= start %></div>
+  <div class="ui pointing below right label"><%= end %></div>
+  <% let timePercentage = Math.floor(Math.min(1, (syzoj.utils.getCurrentDate() - practice.start_time) / (practice.end_time - practice.start_time)) * 100); %>
+  <div id="timer-progress" class="ui tiny indicating progress<% if (timePercentage == 100) { %> success<% } %>" data-percent="<%= timePercentage %>">
+    <div class="bar" style="width: <%= timePercentage %>%;"></div>
+  </div>
+  <div class="ui grid">
+    <div class="row">
+      <div class="column">
+        <div class="ui buttons">
+          <% if(seeRanklist) { %>
+            <a class="ui small blue button" href="<%= syzoj.utils.makeUrl(['practice', practice.id, 'ranklist']) %>">排行榜</a>
+          <% } %>
+          <% let submissionsUrl = seeResult ?
+            syzoj.utils.makeUrl(['submissions'], {practice: practice.id}) :
+            syzoj.utils.makeUrl(['practice', practice.id, 'submissions']); %>
+          <a class="ui small positive button" href="<%= submissionsUrl %>">提交记录</a>
+          <% if (isSupervisior) { %>
+            <a class="ui small button" href="<%= syzoj.utils.makeUrl(['practice', practice.id, 'edit']) %>">编辑练习</a>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  <% if (practice.information) { %>
+    <div class="row">
+      <div class="column">
+        <h4 class="ui top attached block header">信息与公告</h4>
+        <div class="ui bottom attached segment font-content">
+          <%- practice.information %>
+        </div>
+      </div>
+    </div>
+  <% } %>
+  <% if (unveiled) { %>
+    <div class="row">
+      <div class="column">
+         <table class="ui selectable celled table">
+            <thead>
+              <tr>
+
+
+                <% if(practice.ended){ %><th class="one wide" style="text-align: center">补题</th><% } %>
+
+
+                <th class="one wide" style="text-align: center">状态</th>
+                <th>题目</th>
+                <% if (hasStatistics) { %>
+                  <th class="one wide center aligned">统计</th>
+                <% } %>
+              </tr>
+            </thead>
+            <tbody>
+              <%
+              let i = 0;
+              for (let problem of problems) {
+                i++;
+              %>
+              <tr>
+
+
+                <% if(practice.ended){ %><td>
+                    <% if (problem.buti_judge) { %>
+                      <a href="<%= syzoj.utils.makeUrl(['submission', problem.buti_judge.id]) %>">
+                        <span class="status <%= problem.buti_judge.status.toLowerCase().split(' ').join('_') %>">
+                          <i class="<%= icon[problem.buti_judge.status] || 'remove' %> icon"></i>
+                        </span>
+                      </a>
+                    <% } %>
+                </td><% } %>
+
+
+                <td class="center aligned" style="white-space: nowrap; ">
+                <% if (problem.judge_id) { %>
+                  <a href="<%= syzoj.utils.makeUrl(['practice', 'submission', problem.judge_id]) %>">
+                  <% if (typeof problem.status === 'string') { %>
+                    <span class="status <%= problem.status.toLowerCase().split(' ').join('_') %>">
+                      <b>
+                      <%= problem.feedback || problem.status %>
+                      </b>
+                    </span>
+                  <% } else if (typeof problem.status === 'object') { %>
+                    <% if (problem.status.accepted) { %>
+                      <span class="score score_10">
+                        <% if (problem.status.unacceptedCount === 0) { %>
+                          +
+                        <% } else { %>
+                          +<%= problem.status.unacceptedCount %>
+                        <% } %>
+                      </span>
+                    <% } else { %>
+                      <span class="score score_0">
+                        <% if (problem.status.unacceptedCount !== 0) { %>
+                          -<%= problem.status.unacceptedCount %>
+                        <% } %>
+                      </span>
+                    <% } %>
+                  <% } %>
+                <% } %>
+                </td>
+                <td><a href="<%= syzoj.utils.makeUrl(['practice', practice.id, 'problem', i]) %>"><%= "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[(i - 1) % 26] + ". " + syzoj.utils.removeTitleTag(problem.problem.title) %></a>
+
+                <% if (seeResult || (problem.status && problem.status.accepted)) { %>
+                <div class="show_tag_controled" style="float: right; ">
+                    <%
+                    if (problem.tags) {
+                        for (let tag of problem.tags) {
+                            let url = syzoj.utils.makeUrl(['problems', 'tag', tag.id]) ;
+                    %>
+                    <span class="ui header">
+                        <a href="<%= url %>" class="ui tiny <%= tag.color %> label">
+                            <%= tag.name %>
+                        </a>
+                    </span>
+                    <%
+                        }
+                    }else{
+                        %>    <%
+                    }
+                    %>
+                </div>
+                <% } %>
+
+                </td>
+                <% if (hasStatistics) { %>
+                  <td class="center aligned" style="white-space: nowrap; ">
+                  <a href="<%= syzoj.utils.makeUrl(['practice', practice.id, 'submissions'], { problem_id: i, status: 'Accepted' }) %>"><%= problem.statistics.accepted %></a>
+                  /
+                    <a href="<%= syzoj.utils.makeUrl(['practice', practice.id, 'submissions'], { problem_id: i, min_score: 1 }) %>"><%= problem.statistics.partially %></a>
+                    <% if (practice.type === 'noi' || practice.type === 'ioi') { %>
+                    /
+                  <% } %>
+                  <a href="<%= syzoj.utils.makeUrl(['practice', practice.id, 'submissions'], { problem_id: i }) %>"><%= problem.statistics.attempt %></a>
+                  </td>
+                <% } %>
+              </tr>
+            <% } %>
+            </tbody>
+        </table>
+      </div>
+    </div>
+  <% } %>
+  </div>
+</div>
+
+<script>
+$(function () {
+  setInterval(function () {
+    $('#timer-progress').progress({
+      value: Date.now() / 1000 - <%= practice.start_time %>,
+      total: <%= practice.end_time - practice.start_time %>
+    });
+  }, 5000);
+});
+</script>
+<% include footer %>
