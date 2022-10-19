@@ -372,17 +372,13 @@ app.post('/problem/:id/edit', async (req, res) => {
     if (!req.body.title.trim()) throw new ErrorMessage('题目名不能为空。');
 
     const source = req.body.source.trim()
-    console.log(req.body)
-    console.log(problem)
     if (req.body.type === syzoj.ProblemType.Remote) {
       if(problem.type !== syzoj.ProblemType.Remote || problem.source !== source) {
         const info = syzoj.vjBasics.parseSource(source)
         const oj = syzoj.vj[info.vjName]
         if(oj == null) throw new ErrorMessage('找不到远程 OJ : ' + info.vjName)
         try {
-          console.log("....................")
           const p = await oj.getProblem(info.problemId)
-          console.log(p)
           if(p == null) throw ""
           problem.type = syzoj.ProblemType.Remote
           problem.time_limit = p.time_limit
