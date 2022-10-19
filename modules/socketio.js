@@ -235,13 +235,17 @@ exports.updateCompileStatus = updateCompileStatus;
 function updateProgress(taskId, data) {
     if (debug) winston.verbose(`Updating progress for #${taskId}`);
     currentJudgeList[taskId] = data;
-    const finalResult = judgeResult.convertResult(taskId, data);
-    const roughResult = {
-        result: "Running",
-        time: finalResult.time,
-        memory: finalResult.memory,
-        score: finalResult.score
-    };
+    let roughResult
+    if(data.type === syzoj.ProblemType.Remote) roughResult = {result: data.info, type: data.type}
+    else {
+        const finalResult = judgeResult.convertResult(taskId, data);
+        roughResult = {
+            result: "Running",
+            time: finalResult.time,
+            memory: finalResult.memory,
+            score: finalResult.score
+        };
+    }
     forAllClients(detailProgressNamespace, taskId, (client) => {
         try {
             if (debug) winston.debug(`Pushing progress update to ${client}`);
@@ -282,6 +286,7 @@ function updateResult(taskId, data) {
         memory: finalResult.memory,
         score: finalResult.score
     };
+    console.log(roughResult)
     finishedJudgeList[taskId] = roughResult;
     forAllClients(roughProgressNamespace, taskId, (client) => {
         if (debug) winston.debug(`Pushing rough result to ${client}`);

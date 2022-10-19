@@ -22,7 +22,7 @@ const userUrl = <%- serializejs(syzoj.utils.makeUrl(['user', '20000528'])) %>;
 
 Vue.component('submission-item', {
   template: '#submissionItemTemplate',
-  props: ['data', 'config', 'showRejudge', 'progress', 'compiling', 'rough'],
+  props: ['data', 'config', 'showRejudge', 'progress', 'compiling', 'rough', 'remote'],
   computed: {
     statusString() {
       const data = this.data;
@@ -60,7 +60,7 @@ Vue.component('submission-item', {
 </script>
 
 <script id="submissionItemTemplate" type="text/x-template">
-<tr>
+<tr :style="remote ? {background: '#FFFFE0'} : {}">
   <% if (active === 'submissions' || active === 'contest') { %>
   <td><a :href="submissionLink"><b>#{{ data.info.submissionId }}</b></a></td>
   <% } else { %>

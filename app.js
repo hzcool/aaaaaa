@@ -31,6 +31,14 @@ global.syzoj = {
   models: [],
   modules: [],
   db: null,
+  ProblemType:  {
+    Traditional : "traditional",
+    SubmitAnswer : "submit-answer",
+    Interaction : "interaction",
+    Remote : "remote"
+  },
+  vjBasics: require('./remote-judge/basic'),
+  vj: require('./remote-judge/vj'),
   serviceID: UUID(),
   log(obj) {
     if (obj instanceof ErrorMessage) return;

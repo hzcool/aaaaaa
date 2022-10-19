@@ -25,7 +25,8 @@ const problemTagCache = new LRUCache<number, number[]>({
 enum ProblemType {
   Traditional = "traditional",
   SubmitAnswer = "submit-answer",
-  Interaction = "interaction"
+  Interaction = "interaction",
+  Remote = "remote"
 }
 
 const statisticsTypes = {

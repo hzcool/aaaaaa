@@ -25,10 +25,39 @@
 
             <div style="margin-top: 15px; "></div>
           <% } %>
+
+          <div style="margin-top: 15px"> </div>
+
+          <div style="margin-top: 30px"> </div>
+          <div class="inline field">
+            <div class="ui checkbox">
+              <input type="checkbox" id="remote-judge-checkbox" onclick="remoteJudgeToggleClickHandle()" <%= problem.type === 'remote' ? 'checked' : ''%>>
+              <label style="font-weight: bold;font-size: 16px">remote judge</label>
+            </div>
+          </div>
+          <div class="two fields" id="remote-judge-config" style="display: <%= problem.type === 'remote' ? '' : 'none'%>">
+            <div class="field">
+              <label>OJ</label>
+              <select class="ui dropdown" id="oj-select">
+                <option value="Codeforces" selected="selected">Codeforces</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>
+                题号
+                <span style="color: red; display: none" id="remote-search-span">
+                    <i class="icon" id="remote-search-icon"></i>
+                </span>
+              </label>
+              <input type="text" id="remoteProblemId" placeholder="1230A" onblur="remoteJudgeOnblur()" value="<%= problem.type === 'remote' ? syzoj.vjBasics.parseSource(problem.source).problemId: ''%>">
+            </div>
+          </div>
+          <input type="hidden" name="type" id="type" value="<%= problem.type === 'remote' ? 'remote' : ''%>">
+          <div style="margin-top: 30px"> </div>
           <label for="title">题目名称</label>
           <input class="font-content" type="text" id="title" name="title" value="<%= problem.title %>">
           <label style="margin-top: 15px; " for="source">题目来源</label>
-          <input class="font-content" type="text" id="source" name="source" value="<%= problem.source %>">
+          <input class="font-content" type="text" id="source" name="source" value="<%= problem.source %>" <%= problem.type === 'remote' ? 'readonly' : ''%>>
         
           <label style="margin-top: 15px; " for="description">题目描述</label>
           <textarea class="markdown-edit" rows="15" id="description" name="description"><%= problem.description %></textarea>
@@ -113,5 +142,51 @@ $(function () {
       }
     });
 });
+</script>
+
+<script>
+const remoteJudgeToggleClickHandle = () => {
+  if($('#remote-judge-checkbox').prop("checked")) {
+    $('#remote-judge-config').show()
+    $('#source').attr("readonly", true)
+    $('#type').val("remote")
+  } else {
+    $('#remote-judge-config').hide()
+    $('#source').attr("readonly", false)
+    $('#type').val("")
+  }
+}
+const remoteJudgeOnblur = () => {
+  let pid = $('#remoteProblemId').val().trim()
+  if(pid === "") {
+    $('#remote-search-span').hide()
+    return
+  }
+  let source = $('#source')
+  if(source.val().indexOf(pid) === -1) {
+    let oj = $('#oj-select').val()
+    $('#remote-search-span').show()
+    let $icon = $('#remote-search-icon')
+    $icon.removeClass('ban')
+    $icon.addClass('spinner')
+
+
+    $.get("/api/vj/oj/" + oj + "/problem/" + pid, (res) => {
+      if(res.error) {
+        $icon.removeClass('spinner')
+        $icon.addClass('ban')
+        return
+      }
+      source.val($('#oj-select').val() + "-" + pid)
+      $('#title').val(res.title)
+      $('#description').val(res.description)
+      $('#input').val(res.input_format)
+      $('#output').val(res.output_format)
+      $('#example').val(res.example)
+      $('#hint').val(res.limit_and_hint)
+      $('#remote-search-span').hide()
+    })
+  }
+}
 </script>
 <% include footer %>

@@ -183,6 +183,7 @@ app.get('/submissions', async (req, res) => {
           displayConfig: displayConfig
         }, syzoj.config.session_secret) : null,
         result: getRoughResult(x, displayConfig, true),
+        remote: x.result && x.result.type === syzoj.ProblemType.Remote,
         running: false,
       })),
       paginate: paginate,
@@ -251,6 +252,7 @@ app.get('/submission/:id', async (req, res) => {
       local_is_admin: res.locals.user.is_admin,
       info: getSubmissionInfo(judge, displayConfig),
       roughResult: getRoughResult(judge, displayConfig, false),
+      remote: judge.result && judge.result.type === syzoj.ProblemType.Remote,
       code: (judge.problem.type !== 'submit-answer') ? judge.code.toString("utf8") : '',
       formattedCode: judge.formattedCode ? judge.formattedCode.toString("utf8") : null,
       preferFormattedCode: res.locals.user ? res.locals.user.prefer_formatted_code : true,

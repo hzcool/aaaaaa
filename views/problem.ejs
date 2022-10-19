@@ -50,8 +50,12 @@ if (contest) {
     <% } %>
     <% if (problem.type !== 'interaction') { %>
       <div class="row" style="margin-top: -<%= problem.type === 'submit-answer' ? 15 : 23 %>px">
-          <span class="ui label">题目类型：<%= { 'submit-answer': '答案提交', 'interaction': '交互', 'traditional': '传统' }[problem.type] %></span>
-          <span class="ui label">评测方式：<%= (testcases && !testcases.error) ? (testcases.spj ? 'Special Judge' : '文本比较') : '无测试数据' %></span>
+          <span class="ui label">题目类型：<%= { 'submit-answer': '答案提交', 'interaction': '交互', 'traditional': '传统', 'remote': '远程评测'}[problem.type] %></span>
+          <% if(problem.type !== 'remote')  { %>
+              <span class="ui label">评测方式：<%= (testcases && !testcases.error) ? (testcases.spj ? 'Special Judge' : '文本比较') : '无测试数据' %></span>
+          <% } else { %>
+              <span class="ui label"> 评测方式： remote judge </span>
+          <% } %>
       </div>
     <% } %>
     <% if (!contest && !practice) { %>
@@ -230,7 +234,7 @@ if (contest) {
   <% } %>
     <% let noSubmit = false; %>
     <%
-    if ( !testcases || testcases.error ) {
+    if (problem.type !== 'remote' && (!testcases || testcases.error)) {
       noSubmit = true;
     }
     %>
@@ -323,15 +327,16 @@ if (contest) {
                 <div class="four wide column" style="margin-right: -25px; ">
                   <div class="ui attached vertical fluid pointing menu" id="languages-menu" style="height: 370px; overflow-y: scroll; overflow-x: hidden; ">
                     <%
-                    let language = syzoj.config.enabled_languages[0];
+                    let enable_languages = problem.type === 'remote' ? syzoj.vjBasics.getVjBasicFromSource(problem.source).enabled_languages : syzoj.config.enabled_languages
+                    let language = enable_languages[0]
                     if (state) {
                       language = state.language;
                     } else if (lastLanguage) language = lastLanguage;
-                    if (syzoj.config.enabled_languages.indexOf(language)==-1){
-                        language = syzoj.config.enabled_languages[0];
+                    if (enable_languages.indexOf(language)==-1){
+                        language = enable_languages[0];
                     }
                     %>
-                    <% for (lang of syzoj.config.enabled_languages) { %>
+                    <% for (lang of (problem.type === 'remote-judge' ? syzoj.vjBasics.getVjBasicFromSource(problem.source).enabled_languages : syzoj.config.enabled_languages)) { %>
                       <a style="border-radius: 0; " class="item<%= lang === language ? ' active' : '' %>" data-value="<%= lang %>" data-mode="<%= syzoj.languages[lang].editor %>">
                         <%= syzoj.languages[lang].show %>
                         <div class="ui right floated" style="opacity: 0.4; margin-top: 8px; font-size: 0.7em; "><%= syzoj.languages[lang].version %></div>

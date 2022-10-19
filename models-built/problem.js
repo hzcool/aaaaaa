@@ -80,6 +80,7 @@ var ProblemType;
     ProblemType["Traditional"] = "traditional";
     ProblemType["SubmitAnswer"] = "submit-answer";
     ProblemType["Interaction"] = "interaction";
+    ProblemType["Remote"] = "remote";
 })(ProblemType || (ProblemType = {}));
 var statisticsTypes = {
     fastest: ['total_time', 'ASC'],

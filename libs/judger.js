@@ -209,6 +209,19 @@ module.exports.judge = async function (judge_state, problem, priority) {
         memoryLimit: problem.memory_limit,
       }
       break;
+    case syzoj.ProblemType.Remote:
+      const info = syzoj.vjBasics.parseSource(problem.source)
+      const oj = syzoj.vj[info.vjName]
+      const callback = async (error, submissionId) => {
+        if(error !== null) {
+          remote_judge_fail(judge_state)
+          return
+        }
+        progressPusher.createTask(judge_state.task_id);
+        remote_judge_polling(judge_state, oj, submissionId)
+      }
+      oj.submitCode(judge_state.code, info.problemId, syzoj.vjBasics.getLangId(info.vjName, judge_state.language), callback)
+      return
     default:
       type = enums.ProblemType.Standard;
       param = {
@@ -238,6 +251,55 @@ module.exports.judge = async function (judge_state, problem, priority) {
   }, content.realPriority);
 
   winston.warn(`Judge task ${content.taskId} enqueued.`);
+}
+
+const remote_judge_polling = async (judge_state, oj, submissionId) => {
+  let k = 0
+  let waitTime = 2000
+  let vjInfo = ""
+  while(k < 50) {
+    try {
+      const result = await oj.getSubmissionStatus(submissionId)
+      if(result) {
+        if(result.is_over) {
+          judge_state.status = result.status
+          judge_state.score = (result.status === 'Accepted') ? 100 : 0
+          judge_state.pending = false;
+          judge_state.total_time = result.time
+          judge_state.max_memory = result.memory
+          judge_state.result = result
+          await judge_state.save()
+          progressPusher.updateResult(judge_state.task_id, result)
+          break
+        } else {
+          if(vjInfo !== result.info) {
+            vjInfo = result.info
+            progressPusher.updateProgress(judge_state.task_id, result)
+            waitTime = 2000
+          } else {
+            waitTime = Math.min(waitTime * 2, 16000)
+          }
+        }
+      }
+    } catch (e) {
+      winston.warn(`remote-judge task error : ${e}`);
+    }
+    k++
+    await syzoj.vjBasics.sleep(waitTime)
+  }
+  if(k >= 50) await remote_judge_fail(judge_state)
+  progressPusher.cleanupProgress(judge_state.task_id)
+  await judge_state.updateRelatedInfo(false);
+}
+
+const remote_judge_fail = async (judge_state) => {
+  judge_state.status = 'Judgement Failed'
+  judge_state.pending = false
+  await judge_state.save()
+  progressPusher.updateResult(judge_state.task_id, {
+    vjInfo: judge_state.status,
+    statusString: judge_state.status,
+  })
 }
 
 module.exports.getCachedJudgeState = taskId => judgeStateCache.get(taskId);
