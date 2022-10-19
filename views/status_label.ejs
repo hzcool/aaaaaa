@@ -38,7 +38,8 @@ Vue.component('status-label', {
       return (this.indetail ? 'status_detail ' : '') + x.toLowerCase().split(' ').join('_');
     },
     displayStatus() {
-      return this.status.startsWith('Running') ? 'Running' : this.status;
+      return this.status
+      // return this.status.startsWith('Running') ? 'Running' : this.status;
     },
     getProgress() {
       if (this.status.startsWith('Running ')) {

@@ -26,6 +26,19 @@ function firstNonAC(t) {
 exports.firstNonAC = firstNonAC;
 function convertResult(taskId, source) {
     winston.debug(`Converting result for ${taskId}`, source);
+
+    if(source.type === syzoj.ProblemType.Remote) {
+        return {
+            taskId: taskId,
+            time: source.time,
+            memory: source.memory,
+            score: source.score,
+            statusNumber: interfaces.TaskStatus.Done,
+            statusString: source.status,
+            result: source
+        }
+    }
+
     let time = null, memory = null, score = null, done = true, statusString = null;
     if (source.compile && source.compile.status === interfaces.TaskStatus.Failed) {
         statusString = compileError;

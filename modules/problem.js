@@ -370,8 +370,33 @@ app.post('/problem/:id/edit', async (req, res) => {
     }
 
     if (!req.body.title.trim()) throw new ErrorMessage('题目名不能为空。');
+
+    const source = req.body.source.trim()
+    console.log(req.body)
+    console.log(problem)
+    if (req.body.type === syzoj.ProblemType.Remote) {
+      if(problem.type !== syzoj.ProblemType.Remote || problem.source !== source) {
+        const info = syzoj.vjBasics.parseSource(source)
+        const oj = syzoj.vj[info.vjName]
+        if(oj == null) throw new ErrorMessage('找不到远程 OJ : ' + info.vjName)
+        try {
+          console.log("....................")
+          const p = await oj.getProblem(info.problemId)
+          console.log(p)
+          if(p == null) throw ""
+          problem.type = syzoj.ProblemType.Remote
+          problem.time_limit = p.time_limit
+          problem.memory_limit = p.memory_limit
+        } catch (e) {
+          throw new ErrorMessage('找到不题目: ' + source)
+        }
+      }
+    } else if (problem.type === syzoj.ProblemType.Remote) {
+      problem.type = syzoj.ProblemType.Traditional
+    }
+
+    problem.source = source
     problem.title = req.body.title;
-    problem.source = req.body.source;
     problem.description = req.body.description;
     problem.input_format = req.body.input_format;
     problem.output_format = req.body.output_format;
@@ -567,6 +592,7 @@ app.post('/problem/:id/manage', app.multer.fields([{ name: 'testdata', maxCount:
     if (!await problem.isAllowedEditBy(res.locals.user)) throw new ErrorMessage('您没有权限进行此操作。');
 
     await problem.loadRelationships();
+    if(problem.type ===  syzoj.ProblemType.Remote || req.body.type === syzoj.ProblemType.Remote)  throw new ErrorMessage('远程测评的配置无法修改, 请在题目编辑页面进行修改。');
 
     problem.time_limit = req.body.time_limit;
     problem.memory_limit = req.body.memory_limit;
@@ -743,7 +769,7 @@ app.post('/problem/:id/submit', app.multer.fields([{ name: 'answer', maxCount: 1
       });
     } else {
       let code;
-      if (req.files['answer']) {
+      if (req.files && req.files['answer']) {
         if (req.files['answer'][0].size > syzoj.config.limit.submit_code) throw new ErrorMessage('代码文件太大。');
         code = (await fs.readFile(req.files['answer'][0].path)).toString();
       } else {
@@ -761,7 +787,8 @@ app.post('/problem/:id/submit', app.multer.fields([{ name: 'answer', maxCount: 1
         language: req.body.language,
         user_id: curUser.id,
         problem_id: id,
-        is_public: problem.is_public
+        is_public: problem.is_public,
+        result: problem.type === syzoj.ProblemType.Remote ? {type: problem.type} : null // 用来标记是否是remote-judge的提交
       });
     }
 
@@ -904,6 +931,7 @@ app.post('/problem/:id/testdata/upload', app.multer.array('file'), async (req, r
     if (!problem) throw new ErrorMessage('无此题目。');
     if (!await problem.isAllowedEditBy(res.locals.user)) throw new ErrorMessage('您没有权限进行此操作。');
     if (!await problem.isAllowedEditBy(res.locals.user)) throw new ErrorMessage('您没有权限进行此操作。');
+    if(problem.type === syzoj.ProblemType.Remote) throw new ErrorMessage('远程评测的题目不允许测试数据上传。');
 
     if (req.files) {
       for (let file of req.files) {
