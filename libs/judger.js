@@ -5,6 +5,7 @@ const msgPack = require('msgpack-lite');
 const fs = require('fs-extra');
 const interface = require('./judger_interfaces');
 const judgeResult = require('./judgeResult');
+const retry = require('async-retry')
 
 const judgeStateCache = new Map();
 const progressPusher = require('../modules/socketio');
@@ -260,36 +261,33 @@ const remote_judge_polling = async (judge_state, oj, submissionId) => {
   while(k < 50) {
     try {
       const result = await oj.getSubmissionStatus(submissionId)
-      if(result) {
-        if(result.is_over) {
-          judge_state.status = result.status
-          judge_state.score = (result.status === 'Accepted') ? 100 : 0
-          judge_state.pending = false;
-          judge_state.total_time = result.time
-          judge_state.max_memory = result.memory
-          judge_state.result = result
-          await judge_state.save()
-          progressPusher.updateResult(judge_state.task_id, result)
-          break
-        } else {
-          if(vjInfo !== result.info) {
-            vjInfo = result.info
-            progressPusher.updateProgress(judge_state.task_id, result)
-            waitTime = 2000
-          } else {
-            waitTime = Math.min(waitTime * 2, 16000)
-          }
-        }
+      if(!result) throw -1
+      if(result.is_over) {
+        judge_state.status = result.status
+        judge_state.score = (result.status === 'Accepted') ? 100 : 0
+        judge_state.pending = false;
+        judge_state.total_time = result.time
+        judge_state.max_memory = result.memory
+        judge_state.result = result
+        await judge_state.save()
+        progressPusher.updateResult(judge_state.task_id, judge_state.result)
+        progressPusher.cleanupProgress(judge_state.task_id)
+        await judge_state.updateRelatedInfo(false);
+        return
+      } else {
+        if(vjInfo !== result.info) {
+          vjInfo = result.info
+          progressPusher.updateProgress(judge_state.task_id, result)
+          waitTime = 2000
+        } else waitTime = Math.min(waitTime * 2, 16000)
       }
     } catch (e) {
-      winston.warn(`remote-judge task error : ${e}`);
+      winston.warn(`remote-judge task error : ${e}`)
     }
     k++
     await syzoj.vjBasics.sleep(waitTime)
   }
-  if(k >= 50) await remote_judge_fail(judge_state)
-  progressPusher.cleanupProgress(judge_state.task_id)
-  await judge_state.updateRelatedInfo(false);
+  remote_judge_fail(judge_state)
 }
 
 const remote_judge_fail = async (judge_state) => {
@@ -297,9 +295,10 @@ const remote_judge_fail = async (judge_state) => {
   judge_state.pending = false
   await judge_state.save()
   progressPusher.updateResult(judge_state.task_id, {
-    vjInfo: judge_state.status,
+    type: syzoj.ProblemType.Remote,
     statusString: judge_state.status,
   })
+  progressPusher.cleanupProgress(judge_state.task_id)
 }
 
 module.exports.getCachedJudgeState = taskId => judgeStateCache.get(taskId);

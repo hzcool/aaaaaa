@@ -1,6 +1,8 @@
 
 // Sat, 14-Oct-2023 02:23:55 GMT
 // X-User-Sha1=489080dc9a804734744547afe1cf85e5615cb300; Max-Age=31536000; Expires=Sat, 14-Oct-2023 02:23:55 GMT; Path=/
+const winston = require('winston')
+const retry = require('async-retry')
 const cookie = require("cookie")
 const request = require('request')
 
@@ -88,19 +90,24 @@ class Request {
 
     async doRequest(opts) {
         this.doRequestBeforeList.forEach(func => func(opts))
-        return new Promise((resolve, reject) => {
-            try {
-                request(opts, (e, r) => {
-                    if(e != null) reject(e)
-                    else {
-                        this.doRequestAfterList.forEach(func => func(r))
-                        resolve(r)
+        return retry(async () => await new Promise((resolve, reject) => {
+            request(opts, (e, r) => {
+                if(!e) {
+                    if(r.statusCode >= 400) {
+                        winston.error(`request fail, statusCode ${r.statusCode}`)
+                        if(r.statusCode === 404 || r.statusCode === 408 || r.statusCode >= 500) {
+                            reject(-1)
+                            return
+                        }
                     }
-                })
-            } catch (e) {
-                reject(e)
-            }
-        })
+                    this.doRequestAfterList.forEach(func => func(r))
+                    resolve(r)
+                } else {
+                    winston.error(`request fail, ${e}`)
+                    reject(e)
+                }
+            })
+        }), {retries: 5, minTimeout: 2000})
     }
 }
 

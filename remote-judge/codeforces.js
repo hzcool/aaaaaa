@@ -1,8 +1,8 @@
 const cheerio = require("cheerio")
 const req = require("./request")
 const basic = require("./basic")
-const retry = require('async-retry')
 const interfaces = require('../libs/judger_interfaces')
+const Deque = require("./deque")
 
 const TurndownService = require('turndown')
 const {TaskStatus} = require("../libs/judger_interfaces");
@@ -82,7 +82,7 @@ class Handler {
         this.xCsrfToken = ''
         this.handleOrEmail = handleOrEmail
         this.password = password
-        this.queue = []
+        this.deque = new Deque()
         this.inPolling = false
 
         // 自动更新 xCsrfToken
@@ -127,26 +127,22 @@ class Handler {
     }
 
     // 获取 html 第一份代码的 id
-    async getSubmissionID(contestId, isGym = false, retries = 3) {
+    async getSubmissionID(contestId, isGym = false) {
         await this.loginIfNotLogin()
         let opts = {
             url: (isGym ? 'gym/' : "contest/") + contestId + "/my",
-            method: 'GET',
         }
-        return await retry(async () => {
-            const res = await this.req.doRequest(opts)
-            const $ = cheerio.load(res.body)
-            let submissionId = $('tr[data-submission-id]').prop("data-submission-id")
-            if(submissionId === null || submissionId === undefined || submissionId === "") throw "获取失败 submission id fail"
-            return submissionId
-        }, { retries: retries })
+        const res = await this.req.doRequest(opts)
+        const $ = cheerio.load(res.body)
+        let submissionId = $('tr[data-submission-id]').prop("data-submission-id")
+        if(submissionId === null || submissionId === undefined || submissionId === "") throw "获取失败 submission id fail"
+        return submissionId
     }
 
 
     async getGymSubmissionUsage(gymId ,submissionId) {
         let opts = {
             url: 'gym/' + gymId + '/submission/' + submissionId,
-            method: 'GET'
         }
         const res = await this.req.doRequest(opts)
         const $ = cheerio.load(res.body)
@@ -155,8 +151,8 @@ class Handler {
         const time = tr(tr('td').get(5)).text().trim().split(' ')[0]
         const memory = tr(tr('td').get(6)).text().trim().split(' ')[0]
         return {
-            time: parseInt(time),
-            memory: parseInt(memory),
+            time: parseInt(time), // second
+            memory: parseInt(memory), //MB
         }
     }
 
@@ -195,7 +191,7 @@ class Handler {
         const res = await this.req.doRequest(opts)
         const result = JSON.parse(res.body)
         const verdict = cheerio.load(result['verdict']).text().trim()
-        if(verdict === '') throw "获取submission status 失败"
+        if(!verdict || verdict === '') throw "获取submission status 失败"
         const is_over = !inJudging(verdict)
         let ret = {
             status: changeToSyzOjStatus(verdict),
@@ -252,8 +248,9 @@ class Handler {
             this.xCsrfToken = ''
             try { await this.login() } catch (e) {}
         }
-        while (this.queue.length > 0) {
-            const {source, problemID, langId, callback, isGym} = this.queue.shift()
+        let item
+        while (item = this.deque.shift()) {
+            const {source, problemID, langId, callback, isGym} = item
             try {
                 const {contestId, submittedProblemIndex} =  parseProblemId(problemID)
                 let opts = {
@@ -269,39 +266,69 @@ class Handler {
                         programTypeId: langId, //C++20
                     }
                 }
-                const res = await retry( async () => {
-                    return await this.req.doRequest(opts)
-                }, { retries: 3 })
+                const res = await this.req.doRequest(opts)
                 if (res.statusCode !== 302) throw '提交失败'
                 const submissionId = await this.getSubmissionID(contestId, isGym)
                 callback(null, submissionId)
             } catch (e) {
-                callback(e, 0)
+                callback("执行失败", 0)
             }
         }
         this.inPolling = false
     }
 
     async submitCode(source, problemID, langId, callback, isGym = false){ //cb => function(err, submissionId)
-        this.queue.push({source, problemID, langId, callback, isGym})
+        this.deque.push({source, problemID, langId, callback, isGym})
         if(!this.inPolling) {
             this.inPolling = true
             this.polling()
         }
     }
 
-
     async getProblem(problemId, isGym = false) {
         const {contestId, submittedProblemIndex} = parseProblemId(problemId)
         if(contestId === '') return null
         let opts = {
             url: (isGym ? 'gym/' : "contest/") + contestId + "/problem/" +  submittedProblemIndex,
-            method: 'GET'
         }
         const res = await this.req.doRequest(opts)
-        if(res.statusCode !== 200) throw "获取 problem 失败, status code = " + res.statusCode
         const $ = cheerio.load(res.body)
-        if(isGym) {
+
+        try {
+            const maincontent = cheerio.load($('div[class="problem-statement"]').html())
+            const title = maincontent('div[class="title"]').eq(0).html().split(". ")[1]
+            const time_limit = Number(maincontent('div[class="time-limit"]').text().match(/\d+(.\d+)?/g)[0]) * 1000
+            const memory_limit = Number(maincontent('div[class="memory-limit"]').text().match(/\d+(.\d+)?/g)[0])
+            const description = statementProcess(maincontent('div').eq(10).html())
+
+            const __input = maincontent('div[class="input-specification"]').html()
+            const input_format = __input == null ? "" : statementProcess(__input.substring(__input.indexOf("<p>")))
+
+
+            const __output = maincontent('div[class="output-specification"]').html()
+            const output_format = __output == null ? "" : statementProcess(__output.substring(__output.indexOf("<p>")))
+
+
+            const __note = maincontent('div[class="note"]').html()
+            const limit_and_hint = __note == null ? "" : statementProcess(__note.substring(__note.indexOf("<p>")))
+
+
+            const examplesInput = examplesProcess(maincontent, "input")
+            const examplesOutput = examplesProcess(maincontent, "output")
+
+            return {
+                title,
+                time_limit,
+                memory_limit,
+                description,
+                input_format,
+                output_format,
+                limit_and_hint,
+                example: basic.changeExampleArrToMarkDown(examplesInput, examplesOutput)
+            }
+
+        } catch (e) {
+            if(!isGym) throw "题目不存在"
             try {
                 const link  = $('div[class="datatable"] table td a').prop('href')
                 if(link && link !== '') {
@@ -315,41 +342,10 @@ class Handler {
                         limit_and_hint: '',
                         example: ''
                     }
-                }
-            } catch (e) {}
-        }
-
-        const maincontent = cheerio.load($('div[class="problem-statement"]').html())
-
-        const title = maincontent('div[class="title"]').eq(0).html().split(". ")[1]
-        const time_limit = Number(maincontent('div[class="time-limit"]').text().match(/\d+(.\d+)?/g)[0]) * 1000
-        const memory_limit = Number(maincontent('div[class="memory-limit"]').text().match(/\d+(.\d+)?/g)[0])
-        const description = statementProcess(maincontent('div').eq(10).html())
-
-        const __input = maincontent('div[class="input-specification"]').html()
-        const input_format = __input == null ? "" : statementProcess(__input.substring(__input.indexOf("<p>")))
-
-
-        const __output = maincontent('div[class="output-specification"]').html()
-        const output_format = __output == null ? "" : statementProcess(__output.substring(__output.indexOf("<p>")))
-
-
-        const __note = maincontent('div[class="note"]').html()
-        const limit_and_hint = __note == null ? "" : statementProcess(__note.substring(__note.indexOf("<p>")))
-
-
-        const examplesInput = examplesProcess(maincontent, "input")
-        const examplesOutput = examplesProcess(maincontent, "output")
-
-        return {
-            title,
-            time_limit,
-            memory_limit,
-            description,
-            input_format,
-            output_format,
-            limit_and_hint,
-            example: basic.changeExampleArrToMarkDown(examplesInput, examplesOutput)
+                } else throw ""
+            } catch (e) {
+                throw "题目不存在"
+            }
         }
     }
 }
@@ -373,11 +369,9 @@ class Codeforces {
     }
 }
 
-
 module.exports = {
     Codeforces: new Codeforces(),
     statementProcess,
     examplesProcess,
     parseProblemId
 }
-

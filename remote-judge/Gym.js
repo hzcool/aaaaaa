@@ -32,16 +32,14 @@ class Gym {
                         break
                     }
                 }
-            } catch (e) {
-                console.log(e)
-            }
+            } catch (e) {}
         }
         return res
     }
 
     async getSubmissionStatus(submissionId) {
         const r = this.records[submissionId]
-        if (r === undefined) throw "not found submissionId : " + submissionId
+        if (!r)  throw "not found submissionId : " + submissionId
         await this.handlers[r.idx].loginIfNotLogin()
         const ret = await this.handlers[r.idx].getSubmissionStatus(submissionId, true)
         if(ret.is_over) {
