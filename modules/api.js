@@ -19,7 +19,7 @@ app.post('/api/login', async (req, res) => {
     else if (user.isEnded ()) throw 2022;
     else if (user.password == null || user.password === '') res.send({ error_code: 1003 });
     else if (user.password !== req.body.password) res.send({ error_code: 1002 });
-    // else if (user.group_id == null || user.group_id === '0') res.send({ error_code: 2020});
+    else if (user.group_id == null || user.group_id === '0') res.send({ error_code: 2020});
     else {
       req.session.user_id = user.id;
       setLoginCookie(user.username, user.password, res);
