@@ -27,7 +27,6 @@
           <% } %>
 
           <div style="margin-top: 15px"> </div>
-
           <div style="margin-top: 30px"> </div>
           <div class="inline field">
             <div class="ui checkbox">
@@ -39,7 +38,9 @@
             <div class="field">
               <label>OJ</label>
               <select class="ui dropdown" id="oj-select">
-                <option value="Codeforces" selected="selected">Codeforces</option>
+                <% for(let item of syzoj.vjBasics.EnableVJs) {%>
+                  <option value="<%= item%>"  <%= (problem.type === syzoj.ProblemType.Remote && (item === problem.source.split('-')[0])) ? 'selected': ''%>> <%= item%> </option>
+                <% } %>
               </select>
             </div>
             <div class="field">
@@ -49,7 +50,7 @@
                     <i class="icon" id="remote-search-icon"></i>
                 </span>
               </label>
-              <input type="text" id="remoteProblemId" placeholder="1230A" onblur="remoteJudgeOnblur()" value="<%= problem.type === 'remote' ? syzoj.vjBasics.parseSource(problem.source).problemId: ''%>">
+              <input type="text" id="remoteProblemId" placeholder="Codeforces:'1746A', Gym:'103941A'" onblur="remoteJudgeOnblur()" value="<%= problem.type === 'remote' ? syzoj.vjBasics.parseSource(problem.source).problemId: ''%>">
             </div>
           </div>
           <input type="hidden" name="type" id="type" value="<%= problem.type === 'remote' ? 'remote' : ''%>">

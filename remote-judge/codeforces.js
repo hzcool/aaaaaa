@@ -127,22 +127,63 @@ class Handler {
     }
 
     // 获取 html 第一份代码的 id
-    async getSubmissionID(contestId, retries = 3) {
+    async getSubmissionID(contestId, isGym = false, retries = 3) {
         await this.loginIfNotLogin()
         let opts = {
-            url: "contest/" + contestId + "/my",
+            url: (isGym ? 'gym/' : "contest/") + contestId + "/my",
             method: 'GET',
         }
         return await retry(async () => {
             const res = await this.req.doRequest(opts)
             const $ = cheerio.load(res.body)
-            let submissionId = $('a[class="view-source"]').prop("submissionid")
-            if(submissionId === null) throw "获取失败 submission id fail"
+            let submissionId = $('tr[data-submission-id]').prop("data-submission-id")
+            if(submissionId === null || submissionId === undefined || submissionId === "") throw "获取失败 submission id fail"
             return submissionId
         }, { retries: retries })
     }
 
-    async getSubmissionStatus(submissionId) {
+
+    async getGymSubmissionUsage(gymId ,submissionId) {
+        let opts = {
+            url: 'gym/' + gymId + '/submission/' + submissionId,
+            method: 'GET'
+        }
+        const res = await this.req.doRequest(opts)
+        const $ = cheerio.load(res.body)
+        const tr = cheerio.load($('div[class="datatable"] table tr').get(1))
+        // const verdict = tr(tr('td').get(4)).text().trim()
+        const time = tr(tr('td').get(5)).text().trim().split(' ')[0]
+        const memory = tr(tr('td').get(6)).text().trim().split(' ')[0]
+        return {
+            time: parseInt(time),
+            memory: parseInt(memory),
+        }
+    }
+
+
+
+    async getGymProblemSetInfo(gymId) {
+        let opts = {
+            url: 'gym/' + gymId,
+            method: 'GET'
+        }
+        const res = await this.req.doRequest(opts)
+        const $ = cheerio.load(res.body)
+        const ret = []
+        $($('table[class="problems"] tr')).each((i, item) => {
+            if(i === 0) return
+            const tr = cheerio.load($(item).html())
+            const label = tr(tr('a').get(0)).text().trim()
+            const title = tr(tr('a').get(1)).text().trim()
+            const arr = tr('div[class="notice"]').text().match(/\d+\.?\d*/g)
+            const time_limit = Number(arr[0]) * 1000
+            const memory_limit = Number(arr[1])   //MB
+            ret.push({label, title, time_limit, memory_limit})
+        })
+        return ret
+    }
+
+    async getSubmissionStatus(submissionId, isGym = false) {
         let opts = {
             url: 'data/submitSource',
             method: 'POST',
@@ -160,16 +201,17 @@ class Handler {
             status: changeToSyzOjStatus(verdict),
             info: verdict,
             is_over,
-            type: syzoj.ProblemType.Remote
+            type: 'remote',
+            score: verdict === 'Accepted' ? 100 : 0
         }
         if (is_over) {
             if (ret.status === 'Compile Error') {
                 ret.compile = {
                     message: result['checkerStdoutAndStderr#1']
                 }
-            } else {
+            } else if(!isGym){
                 let testCount = parseInt(result['testCount'])
-                let time = 0, memory = 0, score = ret.status === 'Accepted' ? 100 : 0
+                let time = 0, memory = 0
                 let cases = new Array(testCount)
                 for (let i = 1; i <= testCount; ++i) {
                     let _memory = Math.floor(parseInt(result['memoryConsumed#' + i]) / 1024) //KB
@@ -180,7 +222,7 @@ class Handler {
                         status: TaskStatus.Done,
                         result: {
                             type: (i < testCount) ? interfaces.TestcaseResultType.Accepted : interfaces.TestcaseResultType[ret.status.replaceAll(' ', '')],
-                            scoringRate: (i < testCount) ? 1 : (score / 100),
+                            scoringRate: (i < testCount) ? 1 : (ret.score / 100),
                             memory: _memory,
                             time: _time,
                             input: {
@@ -196,12 +238,9 @@ class Handler {
                         }
                     }
                 }
-                ret.judge = {
-                    subtasks: [{score, cases}],
-                }
+                ret.judge = { subtasks: [{score: ret.score, cases}]}
                 ret.time = time
                 ret.memory = memory
-                ret.score = score
             }
         }
         return ret
@@ -213,13 +252,12 @@ class Handler {
             this.xCsrfToken = ''
             try { await this.login() } catch (e) {}
         }
-
         while (this.queue.length > 0) {
-            const {source, problemID, langId, callback} = this.queue.shift()
+            const {source, problemID, langId, callback, isGym} = this.queue.shift()
             try {
                 const {contestId, submittedProblemIndex} =  parseProblemId(problemID)
                 let opts = {
-                    url: "contest/" + contestId + "/submit?csrf_token=" + this.xCsrfToken,
+                    url: (isGym ? 'gym/' : "contest/") + contestId + "/submit?csrf_token=" + this.xCsrfToken,
                     method: "POST",
                     form: {
                         csrf_token: this.xCsrfToken,
@@ -235,7 +273,7 @@ class Handler {
                     return await this.req.doRequest(opts)
                 }, { retries: 3 })
                 if (res.statusCode !== 302) throw '提交失败'
-                const submissionId = await this.getSubmissionID(contestId)
+                const submissionId = await this.getSubmissionID(contestId, isGym)
                 callback(null, submissionId)
             } catch (e) {
                 callback(e, 0)
@@ -244,24 +282,42 @@ class Handler {
         this.inPolling = false
     }
 
-    async submitCode(source, problemID, langId, callback){ //cb => function(err, submissionId)
-        this.queue.push({source, problemID, langId, callback})
+    async submitCode(source, problemID, langId, callback, isGym = false){ //cb => function(err, submissionId)
+        this.queue.push({source, problemID, langId, callback, isGym})
         if(!this.inPolling) {
             this.inPolling = true
             this.polling()
         }
     }
 
-    async getProblem(problemId) {
+
+    async getProblem(problemId, isGym = false) {
         const {contestId, submittedProblemIndex} = parseProblemId(problemId)
         if(contestId === '') return null
         let opts = {
-            url: 'contest/' + contestId + "/problem/" +  submittedProblemIndex,
+            url: (isGym ? 'gym/' : "contest/") + contestId + "/problem/" +  submittedProblemIndex,
             method: 'GET'
         }
         const res = await this.req.doRequest(opts)
-
+        if(res.statusCode !== 200) throw "获取 problem 失败, status code = " + res.statusCode
         const $ = cheerio.load(res.body)
+        if(isGym) {
+            try {
+                const link  = $('div[class="datatable"] table td a').prop('href')
+                if(link && link !== '') {
+                    return {
+                        title: '',
+                        time_limit: 1000,
+                        memory_limit: 128,
+                        description: '题目文件: [problemset.pdf](' + this.req.baseURL + link + ')',
+                        input_format: '',
+                        output_format: '',
+                        limit_and_hint: '',
+                        example: ''
+                    }
+                }
+            } catch (e) {}
+        }
 
         const maincontent = cheerio.load($('div[class="problem-statement"]').html())
 
@@ -303,38 +359,25 @@ class Codeforces {
     constructor() {
         this.base = new Handler()
         this.handlers = basic.VjBasic.Codeforces.accounts.map(account => new Handler(account.handleOrEmail, account.password))
+        this.select = -1
     }
     async getProblem(problemId) {
         return await this.base.getProblem(problemId)
     }
-
-
     async getSubmissionStatus(submissionId) {
         return await this.base.getSubmissionStatus(submissionId)
     }
-
     async submitCode(source, problemID, langId, callback) {
-        let index = Math.floor(Math.random() * this.handlers.length)
-        let select = index
-        let cap = this.handlers[select].queue.length
-        for (let i = 1; cap > 0 && i < this.handlers.length; i++) {
-            index++;
-            if(index >= this.handlers.length) index = 0
-            let len = this.handlers[index].queue.length
-            if (len < cap) {
-                cap = len
-                select = index
-            }
-        }
-        this.handlers[select].submitCode(source, problemID, langId, callback)
+        if((++this.select) >= this.handlers.length) this.select = 0
+        this.handlers[this.select].submitCode(source, problemID, langId, callback)
     }
 }
 
-// const codeforces = new Codeforces()
-// codeforces.getSubmissionStatus('176856006')
-
-
 
 module.exports = {
-    Codeforces: new Codeforces()
+    Codeforces: new Codeforces(),
+    statementProcess,
+    examplesProcess,
+    parseProblemId
 }
+

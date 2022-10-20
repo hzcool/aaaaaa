@@ -34,12 +34,28 @@ const VjBasic = {
             password: "nfls_005"
         }]
     },
+    Gym: {
+        enabled_languages : ['cpp14-noi', 'python3'],
+        langMap: {
+            'c': '43',     // GNU GCC 5.1.0
+            'cpp14': '50',   // GNU G++ 6.4.0
+            'cpp-noilinux': '50',
+            'cpp14-noi': '50',
+            'cpp17': '54',   // GNU G++ 7.3.0
+            'java': '60',    // Java 11.0.6
+            'pascal': '4',   // Free Pascal 3.0.2
+            'python2': '7',    // Python 2.7.18
+            'python3': '31',       // Python 3.8.10
+            'csharp': '79',  //.NET SDK 6.0
+        },
+    }
 }
 
 
 
 module.exports = {
     VjBasic,
+    EnableVJs: ['Codeforces', 'Gym'],
     changeExampleArrToMarkDown:  (examplesInput, examplesOutput) => {
         let k = examplesInput.length
         if(k > examplesOutput.length) k = examplesOutput.length
