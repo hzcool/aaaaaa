@@ -213,11 +213,14 @@ module.exports.judge = async function (judge_state, problem, priority) {
     case syzoj.ProblemType.Remote:
       const info = syzoj.vjBasics.parseSource(problem.source)
       const oj = syzoj.vj[info.vjName]
-      const callback = async (error, submissionId) => {
+      const callback = async (error, submissionId, vjInfo) => {
         if(error !== null) {
           remote_judge_fail(judge_state)
           return
         }
+        if(judge_state.vj_info) judge_state.vj_info = {...judge_state.vj_info, ...vjInfo}
+        else judge_state.vj_info = vjInfo
+        try { await judge_state.save() } catch (e) {}
         progressPusher.createTask(judge_state.task_id);
         remote_judge_polling(judge_state, oj, submissionId)
       }

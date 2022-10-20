@@ -286,7 +286,6 @@ function updateResult(taskId, data) {
         memory: finalResult.memory,
         score: finalResult.score
     };
-    console.log(roughResult)
     finishedJudgeList[taskId] = roughResult;
     forAllClients(roughProgressNamespace, taskId, (client) => {
         if (debug) winston.debug(`Pushing rough result to ${client}`);

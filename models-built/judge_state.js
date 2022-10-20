@@ -308,6 +308,10 @@ var JudgeState = /** @class */ (function (_super) {
         __metadata("design:type", Object)
     ], JudgeState.prototype, "result");
     __decorate([
+        TypeORM.Column({ nullable: true, type: "json" }),
+        __metadata("design:type", Object)
+    ], JudgeState.prototype, "vj_info");
+    __decorate([
         TypeORM.Index(),
         TypeORM.Column({ nullable: true, type: "integer" }),
         __metadata("design:type", Number)

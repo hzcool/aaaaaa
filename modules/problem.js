@@ -784,7 +784,7 @@ app.post('/problem/:id/submit', app.multer.fields([{ name: 'answer', maxCount: 1
         user_id: curUser.id,
         problem_id: id,
         is_public: problem.is_public,
-        result: problem.type === syzoj.ProblemType.Remote ? {type: problem.type} : null // 用来标记是否是remote-judge的提交
+        vj_info: problem.type === syzoj.ProblemType.Remote ? {remote: problem.source} : undefined
       });
     }
 

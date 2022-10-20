@@ -269,9 +269,9 @@ class Handler {
                 const res = await this.req.doRequest(opts)
                 if (res.statusCode !== 302) throw '提交失败'
                 const submissionId = await this.getSubmissionID(contestId, isGym)
-                callback(null, submissionId)
+                callback(null, submissionId, {account: this.handleOrEmail, submissionId})
             } catch (e) {
-                callback("执行失败", 0)
+                callback("执行失败", 0, {account: this.handleOrEmail})
             }
         }
         this.inPolling = false

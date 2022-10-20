@@ -72,6 +72,8 @@
   <code-box v-if="detailResult && detailResult.compile" no-escape title="编译信息" v-bind:content="detailResult.compile.message"></code-box>
   <code-box v-if="detailResult" title="系统信息" v-bind:content="detailResult.systemMessage"></code-box>
 
+  <code-box v-if="<%- local_is_admin%> && <%= remote%>" title="远程评测信息" v-bind:content="vj_info"></code-box>
+
   <div class="ui styled fluid accordion" :class="singleSubtask ? 'single-subtask' : '' " v-if="detailResult && detailResult.judge && detailResult.judge.subtasks">
     <template v-for="subtask, $index in detailResult.judge.subtasks">
       <div class="title" :class="singleSubtask ? 'active' : ''">
@@ -232,6 +234,7 @@ const vueApp = new Vue({
     currentFormatted: <%- serializejs(preferFormattedCode && formattedCode !== null) -%>,
     detailResult: <%- serializejs(detailResult) %>,
     displayConfig: displayConfig,
+    vj_info: <%- serializejs(vj_info) %>,
   },
   computed: {
     singleSubtask() {

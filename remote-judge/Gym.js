@@ -54,9 +54,9 @@ class Gym {
     async submitCode(source, problemID, langId, callback) {
         if((++this.select) >= this.handlers.length) this.select = 0
         const idx = this.select
-        const callbackTmp = (e, submissionId) => {
+        const callbackTmp = (e, submissionId, vjInfo) => {
             if(e === null) this.records[submissionId] = {idx,  gymID: CF.parseProblemId(problemID).contestId, submitTime: new Date().getTime()}
-            callback(e, submissionId)
+            callback(e, submissionId, vjInfo)
         }
         this.handlers[idx].submitCode(source, problemID, langId, callbackTmp, true)
     }

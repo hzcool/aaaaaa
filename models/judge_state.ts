@@ -76,6 +76,9 @@ export default class JudgeState extends Model {
   @TypeORM.Column({ nullable: true, type: "json" })
   result: any;
 
+  @TypeORM.Column({ nullable: true, type: "json" })
+  vj_info: any;
+
   @TypeORM.Index()
   @TypeORM.Column({ nullable: true, type: "integer" })
   user_id: number;
