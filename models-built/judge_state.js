@@ -112,6 +112,9 @@ var JudgeState = /** @class */ (function (_super) {
             });
         });
     };
+    JudgeState.prototype.isRemoteTask = function () {
+        return !!(this.vj_info || (this.result && this.result.type === 'remote'));
+    };
     JudgeState.prototype.saveHook = function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {

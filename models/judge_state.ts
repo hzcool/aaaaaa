@@ -121,6 +121,10 @@ export default class JudgeState extends Model {
     }
   }
 
+  isRemoteTask() {
+    return !!(this.vj_info || (this.result && this.result.type === 'remote'));
+  }
+
   async saveHook() {
     if (this.score === null) this.score = 0;
   }

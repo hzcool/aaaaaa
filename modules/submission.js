@@ -183,7 +183,7 @@ app.get('/submissions', async (req, res) => {
           displayConfig: displayConfig
         }, syzoj.config.session_secret) : null,
         result: getRoughResult(x, displayConfig, true),
-        remote: x.vj_info !== undefined || (x.result && x.result.type === syzoj.ProblemType.Remote),
+        remote: x.isRemoteTask(),
         running: false,
       })),
       paginate: paginate,
@@ -253,7 +253,7 @@ app.get('/submission/:id', async (req, res) => {
       info: getSubmissionInfo(judge, displayConfig),
       roughResult: getRoughResult(judge, displayConfig, false),
       vj_info: judge.vj_info,
-      remote: judge.vj_info !== undefined || (judge.result && judge.result.type === syzoj.ProblemType.Remote),
+      remote: judge.isRemoteTask(),
       code: (judge.problem.type !== 'submit-answer') ? judge.code.toString("utf8") : '',
       formattedCode: judge.formattedCode ? judge.formattedCode.toString("utf8") : null,
       preferFormattedCode: res.locals.user ? res.locals.user.prefer_formatted_code : true,
