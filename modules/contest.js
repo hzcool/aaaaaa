@@ -875,6 +875,7 @@ app.get('/contest/submission/:id', async (req, res) => {
       local_is_admin: res.locals.user.is_admin,
       info: getSubmissionInfo(judge, displayConfig),
       roughResult: getRoughResult(judge, displayConfig),
+      vj_info: judge.vj_info,
       remote: judge.isRemoteTask(),
       code: (displayConfig.showCode && judge.problem.type !== 'submit-answer') ? judge.code.toString("utf8") : '',
       formattedCode: judge.formattedCode ? judge.formattedCode.toString("utf8") : null,
