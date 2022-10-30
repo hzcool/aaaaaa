@@ -91,7 +91,7 @@ export default class JudgeState extends Model {
   @TypeORM.Column({ nullable: true, type: "integer" })
   submit_time: number;
 
-  @TypeORM.Column({ nullable: true, type: "varchar", length: 50 })
+  @TypeORM.Column({ nullable: true, type: "varchar", length: 100 })
   submit_ip: string;
 
   /*
