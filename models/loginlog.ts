@@ -15,7 +15,7 @@ export default class loginlog extends Model {
   login_time: Date;
 
   @TypeORM.Index()
-  @TypeORM.Column({ nullable: true, type: "varchar", length: 100 })
+  @TypeORM.Column({ nullable: true, type: "text" })
   ip: string;
 
   static async getLastLoginTime(user_id: number) {
