@@ -124,7 +124,11 @@
 
                 <% if (weight) { %><td class="center aligned"><%= weight[i - 1] %></td><% } %>
 
-                <td><a href="<%= syzoj.utils.makeUrl(['contest', contest.id, 'problem', i]) %>"><%= "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[(i - 1) % 26] + ". " + syzoj.utils.removeTitleTag(problem.problem.title) %></a>
+                <td>
+                  <a href="<%= syzoj.utils.makeUrl(['contest', contest.id, 'problem', i]) %>">
+                    <%= "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[(i - 1) % 26] + ". " + syzoj.utils.removeTitleTag(problem.problem.title) %>
+                    <% if (problem.problem.type == 'remote') { %><span class="ui tiny yellow circular label">V</span><% } %>
+                  </a>
 
                 <% if (seeResult) { %>
                 <div class="show_tag_controled" style="float: right; ">
