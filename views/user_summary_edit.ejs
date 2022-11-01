@@ -1,0 +1,153 @@
+<% this.title = '题库' %>
+<% include header %>
+
+
+<div>
+
+    <div class="ui top attached tabular menu">
+        <a class="item active" data-tab="edit">编辑</a>
+        <a class="item" data-tab="preview" id="preview_tab">预览</a>
+    </div>
+
+    <div class="ui bottom attached tab segment active ui form" data-tab="edit">
+        <table class="ui center aligned table celled">
+            <thead>
+            <tr>
+                <th class="two wide">比赛信息</th>
+                <th class="two wide">[来源]题目名称</th>
+                <th class="one wide">得分</th>
+                <th class="one wide">用时(分钟)</th>
+                <th class="four wide">问题总结</th>
+            </tr>
+            </thead>
+            <tbody>
+                <% Object.values(summary.details).forEach((item, idx) => {  %>
+                    <tr>
+                        <% if(idx === 0) { %>
+                            <td rowspan="<%= summary.length %>">
+                                <div style="line-height: 25px">
+                                    <div style="font-size: 18px; font-weight: bold">
+                                        <a href="<%= syzoj.utils.makeUrl(['contest', contest.id])%>"> <%= contest.title%> </a>
+                                    </div>
+                                    <div> <%= syzoj.utils.formatDate(contest.start_time) %></div>
+                                    <div> <%= syzoj.utils.formatDate(contest.end_time) %></div>
+                                    <div> 总分: <%= summary.score %> </div>
+                                </div>
+                            </td>
+                        <%}%>
+
+                        <td > <%= item.problem_info%> </td>
+                        <td> <%= item.problem_summary ? item.problem_summary.score : 0 %> </td>
+                        <td>
+                            <input id="<%= 'time-'+ item.problem_id %>" type="number" placeholder="请输入..." style="border: none" value="<%= item.problem_summary ? (item.problem_summary.time === 0 ? '' : item.problem_summary.time) : '' %>">
+                        </td>
+                        <td>
+                            <textarea id="<%= 'problem_summary-'+ item.problem_id %>" class="markdown-edit" rows="8" style="border: none" placeholder="请输入题目总结..."><%= item.problem_summary ? item.problem_summary.summary : '' %></textarea>
+                        </td>
+                    </tr>
+                <%})%>
+            </tbody>
+        </table>
+
+        <div style="margin-top: 20px">
+            <label for="contest_summary"> <h4>考试总结</h4></label>
+            <textarea id="contest_summary" class="markdown-edit" rows="10" name="contest_summary"><%= summary.contest_summary ? summary.contest_summary.summary : ''%></textarea>
+        </div>
+    </div>
+
+    <div class="ui bottom attached tab segment" data-tab="preview" id="preview">
+        <table class="ui center aligned table celled">
+            <thead>
+            <tr>
+                <th class="two wide">比赛信息</th>
+                <th class="two wide">[来源]题目名称</th>
+                <th class="one wide">得分</th>
+                <th class="one wide">用时(分钟)</th>
+                <th class="four wide">问题总结</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% Object.values(summary.details).forEach((item, idx) => {  %>
+                <tr>
+                    <% if(idx === 0) { %>
+                        <td rowspan="<%= summary.length %>">
+                            <div style="line-height: 25px">
+                                <div style="font-size: 18px; font-weight: bold">
+                                    <a href="<%= syzoj.utils.makeUrl(['contest', contest.id])%>"> <%= contest.title%> </a>
+                                </div>
+                                <div> <%= syzoj.utils.formatDate(contest.start_time) %></div>
+                                <div> <%= syzoj.utils.formatDate(contest.end_time) %></div>
+                                <div> 总分: <%= summary.score %> </div>
+                            </div>
+                        </td>
+                    <%}%>
+
+                    <td> <%= item.problem_info%> </td>
+                    <td> <%= item.problem_summary ? item.problem_summary.score : 0 %> </td>
+                    <td>
+                        <div id="<%= 'pv_time-' + item.problem_id %>"> </div>
+                    </td>
+                    <td>
+                        <div id="<%= 'pv_problem_summary-'+ item.problem_id %>" class="font-content"> 总结 </div>
+                    </td>
+                </tr>
+            <%})%>
+            </tbody>
+        </table>
+        <div style="margin-top: 20px">
+             <h4>考试总结</h4>
+            <div id="pv_contest_summary" class="font-content"></div>
+        </div>
+    </div>
+
+    <form onsubmit="toSubmit()" method="post" action="/summary/update/user/<%= user.id%>/contest/<%= contest.id%>">
+        <input style="display: none" name="data" id="data">
+        <div style="text-align: center; ">
+            <button type="submit" class="ui labeled submit icon button">
+                <i class="icon edit"></i> 提交
+            </button>
+        </div>
+    </form>
+
+
+</div>
+
+<script>
+const data = <%- serializejs(summary.details) %>
+function toSubmit() {
+    const post_data = {
+        contest_summary: $('#contest_summary').val(),
+        problem_summaries: Object.values(data).map(item => {
+            const time_str = $('#time-' + item.problem_id).val()
+            return {
+                problem_id: item.problem_id,
+                time: time_str === '' ? 0 : parseInt(time_str),
+                summary: $('#problem_summary-' + item.problem_id).val(),
+            }
+        })
+    }
+    $('#data').val(JSON.stringify(post_data))
+    return true
+}
+
+$(function () {
+    function render(output, input) {
+        $.post('/api/markdown', { s: input.val() }, function (s) {
+            output.html(s);
+        });
+    }
+
+    $("#preview_tab").click(function () {
+        Object.values(data).forEach(item => {
+            $('#pv_time-' + item.problem_id).text($('#time-' + item.problem_id).val())
+            render($('#pv_problem_summary-' + item.problem_id), $('#problem_summary-' + item.problem_id))
+        })
+        render($('#pv_contest_summary'), $('#contest_summary'))
+    });
+
+    $('.tabular.menu .item').tab();
+})
+</script>
+
+
+<% include footer %>

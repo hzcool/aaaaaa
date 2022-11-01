@@ -353,7 +353,8 @@ app.get('/contest/:id', async (req, res) => {
       problems: problems,
       hasStatistics: hasStatistics,
       isSupervisior: isSupervisior,
-      weight: weight
+      weight: weight,
+      username: curUser.username
     });
   } catch (e) {
     syzoj.log(e);

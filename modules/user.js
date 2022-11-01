@@ -1,11 +1,16 @@
 let User = syzoj.model('user');
+const JudgeState = syzoj.model('judge_state')
 const RatingCalculation = syzoj.model('rating_calculation');
 const RatingHistory = syzoj.model('rating_history');
 const Contest = syzoj.model('contest');
 const ContestPlayer = syzoj.model('contest_player');
+const ProblemSummary = syzoj.model('problem_summary')
+const ContestSummary = syzoj.model('contest_summary');
 const Practice = syzoj.model('practice');
 const PracticePlayer = syzoj.model('practice_player');
 const LoginLog = syzoj.model('loginlog');
+const Problem = syzoj.model('problem')
+
 
 // Ranklist
 app.get('/ranklist', async (req, res) => {

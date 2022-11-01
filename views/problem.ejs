@@ -336,7 +336,7 @@ if (contest) {
                         language = enable_languages[0];
                     }
                     %>
-                    <% for (lang of (problem.type === 'remote-judge' ? syzoj.vjBasics.getVjBasicFromSource(problem.source).enabled_languages : syzoj.config.enabled_languages)) { %>
+                    <% for (lang of (problem.type === 'remote' ? syzoj.vjBasics.getVjBasicFromSource(problem.source).enabled_languages : syzoj.config.enabled_languages)) { %>
                       <a style="border-radius: 0; " class="item<%= lang === language ? ' active' : '' %>" data-value="<%= lang %>" data-mode="<%= syzoj.languages[lang].editor %>">
                         <%= syzoj.languages[lang].show %>
                         <div class="ui right floated" style="opacity: 0.4; margin-top: 8px; font-size: 0.7em; "><%= syzoj.languages[lang].version %></div>

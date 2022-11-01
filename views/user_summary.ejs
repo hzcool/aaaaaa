@@ -1,0 +1,79 @@
+<% this.title = '比赛总结' %>
+<% include header %>
+
+<div class="padding">
+    <form action="<%= syzoj.utils.makeUrl(['summary']) %>" class="ui mini form" method="get" role="form">
+        <input type="number" value="1" name="page" style="display: none">
+        <div class="ui action left icon input inline" style="width: 180px; margin-right: 77px; ">
+            <i class="search icon"></i><input name="title" placeholder="比赛标题" type="text">
+            <button class="ui mini button" type="submit">查找比赛</button>
+        </div>
+        <% if(is_admin) {%>
+            <div class="ui action left icon input inline" style="width: 180px; margin-right: 77px; margin-left: 20px ">
+                <i class="search icon"></i><input name="username" placeholder="用户名" type="text">
+                <button class="ui mini button" type="submit">查找用户</button>
+            </div>
+        <%}%>
+    </form>
+    <% include page  %>
+    <table class="ui center aligned table celled">
+        <thead>
+        <tr>
+            <th class="two wide">比赛信息</th>
+            <th class="two wide">[来源]题目名称</th>
+            <th class="one wide">补题</th>
+            <th class="one wide">时间(分钟)</th>
+            <th class="one wide">得分</th>
+            <th class="three wide">每题总结</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% Object.values(summaries).forEach((s, s_idx) => { %>
+            <% Object.values(s.details).forEach((item, idx) => { %>
+                <tr >
+                    <% if(idx === 0) {%>
+                    <td rowspan="<%=s.length%>" style="line-height: 30px">
+                        <div style="font-size: 18px; font-weight: bold">
+                            <a href="<%= syzoj.utils.makeUrl(['contest', s.contest.id])%>"> <%= s.contest.title%> </a>
+                        </div>
+                        <div> <%= syzoj.utils.formatDate(s.contest.start_time) %></div>
+                        <div> <%= syzoj.utils.formatDate(s.contest.end_time) %></div>
+                        <div> 总分: <%= s.score %> </div>
+                        <div>
+                            <a href="<%= syzoj.utils.makeUrl(['summary', 'edit'], {username: user.username, contest_id:  s.contest.id})%>">  编辑总结 </a>
+                        </div>
+                    </td>
+                    <%}%>
+
+                    <td> <%= item.problem_info%></td>
+                    <td>
+                        <% if(item.solved) {%>
+                            <div style="color: green">
+                                <i class="icon checkmark"></i>
+                            </div>
+                        <%} else {%>
+                            <div style="color: red">
+                                <i class="icon remove"></i>
+                            </div>
+                        <%}%>
+                    </td>
+                    <td> <%= item.problem_summary ? (item.problem_summary.time === 0 ? '---' : item.problem_summary.time) : '---' %> </td>
+                    <td> <%= item.score%> </td>
+                    <td><div class="ui font-content"><%- item.problem_summary ? (item.problem_summary.summary) : '' %></div> </td>
+                </tr>
+            <%})%>
+
+            <tr>
+                <td colspan="6">
+                    <h3 style="float: left">  比赛总结 </h3>
+                    <div class="ui font-content" style="clear: both"><%- s.contest_summary ? (s.contest_summary.summary) : '' %></div>
+                </td>
+            </tr>
+        <%})%>
+
+        </tbody>
+
+    </table><br>
+
+</div>
+<% include footer %>

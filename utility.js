@@ -324,5 +324,13 @@ module.exports = {
           host = currentProto + '://' + req.get('host');
     if (hostOnly) return host;
     else return host + req.originalUrl;
+  },
+
+  makeRecordsMap(records) {
+      let records_map = {}
+      for(let item of records) {
+        records_map[item.id] = item
+      }
+      return records_map
   }
 };
