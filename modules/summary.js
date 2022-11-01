@@ -80,7 +80,6 @@ app.get('/summary', async (req, res) => {
             is_admin: local_user.is_admin,
         })
     } catch (e) {
-        console.log(e)
         res.render('error', {
             err: e
         });
@@ -98,7 +97,7 @@ app.get('/summary/edit',  async (req, res) => {
         let contest_id = parseInt(req.query.contest_id)
         let contest = await Contest.findById(contest_id)
         if(!contest) throw new ErrorMessage('没有这场比赛。');
-        //if(contest.isRunning()) throw new ErrorMessage('比赛未结束, 还不能写总结。');
+        if(contest.isRunning()) throw new ErrorMessage('比赛未结束, 还不能写总结。');
         const summary = await ContestSummary.getSummary(user, contest)
         res.render("user_summary_edit", {
             contest,
@@ -124,7 +123,7 @@ app.post('/summary/update/user/:user_id/contest/:contest_id', async (req, res) =
         let contest_id = parseInt(req.params.contest_id)
         let contest = await Contest.findById(contest_id)
         if(!contest) throw new ErrorMessage('没有这场比赛。');
-        // if(contest.isRunning()) throw new ErrorMessage('比赛未结束, 还不能写总结。');
+        if(contest.isRunning()) throw new ErrorMessage('比赛未结束, 还不能写总结。');
 
         let player = await ContestPlayer.findInContest({
             user_id: user.id, contest_id
@@ -133,7 +132,19 @@ app.post('/summary/update/user/:user_id/contest/:contest_id', async (req, res) =
         let data = JSON.parse(req.body.data)
 
         let details = player.score_details
-        await ContestSummary.updateOrInsert(user.username, contest_id, data.contest_summary)
+        let cs = await ContestSummary.get(user.username, contest_id)
+        if(!cs) {
+            cs = await ContestSummary.create({
+                username: user.username,
+                contest_id,
+                summary: data.contest_summary,
+                post_time: syzoj.utils.getCurrentDate()
+            })
+        } else {
+            cs.summary = data.contest_summary
+        }
+        await cs.save()
+
         for(let item of data.problem_summaries) {
             let problem_id = item.problem_id
             let s = await ProblemSummary.findOne(
@@ -148,7 +159,7 @@ app.post('/summary/update/user/:user_id/contest/:contest_id', async (req, res) =
                     score: (details && details[problem_id]) ? details[problem_id].score : 0,
                     summary: item.summary,
                     public: false,
-                    post_time: new Date()
+                    post_time: syzoj.utils.getCurrentDate()
                 })
             } else {
                 s.time = item.time
@@ -156,7 +167,7 @@ app.post('/summary/update/user/:user_id/contest/:contest_id', async (req, res) =
             }
             await s.save()
         }
-        res.redirect(syzoj.utils.makeUrl(['summary'], {username: user.username, title: contest.title}));
+        res.redirect(syzoj.utils.makeUrl(['summary'], {username: user.username, contest_id}));
     } catch (e) {
         res.render('error', {
             err: e

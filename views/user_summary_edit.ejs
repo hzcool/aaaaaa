@@ -37,7 +37,7 @@
                         <%}%>
 
                         <td > <%= item.problem_info%> </td>
-                        <td> <%= item.problem_summary ? item.problem_summary.score : 0 %> </td>
+                        <td> <%= item.score %> </td>
                         <td>
                             <input id="<%= 'time-'+ item.problem_id %>" type="number" placeholder="请输入..." style="border: none" value="<%= item.problem_summary ? (item.problem_summary.time === 0 ? '' : item.problem_summary.time) : '' %>">
                         </td>
@@ -83,7 +83,7 @@
                     <%}%>
 
                     <td> <%= item.problem_info%> </td>
-                    <td> <%= item.problem_summary ? item.problem_summary.score : 0 %> </td>
+                    <td> <%= item.score %> </td>
                     <td>
                         <div id="<%= 'pv_time-' + item.problem_id %>"> </div>
                     </td>
@@ -99,7 +99,6 @@
             <div id="pv_contest_summary" class="font-content"></div>
         </div>
     </div>
-
     <form onsubmit="toSubmit()" method="post" action="/summary/update/user/<%= user.id%>/contest/<%= contest.id%>">
         <input style="display: none" name="data" id="data">
         <div style="text-align: center; ">
@@ -108,8 +107,6 @@
             </button>
         </div>
     </form>
-
-
 </div>
 
 <script>

@@ -718,11 +718,11 @@ app.post('/problem/:id/submit', app.multer.fields([{ name: 'answer', maxCount: 1
     let last = await LoginLog.findOne({
         where: {
           user_id: curUser.id,
-          ip: ip,
           login_time: TypeORM.MoreThanOrEqual(today)
-        }
+        },
+        order: { login_time: "DESC" }
     });
-    if (!last){
+    if (!last || last.ip !== ip) {
       rec = await LoginLog.create({
           user_id : curUser.id,
           login_time : new Date(),

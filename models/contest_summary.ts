@@ -26,8 +26,8 @@ export default class ContestSummary extends Model{
     @TypeORM.Column({ nullable: true, type: "text" })
     summary: string;
 
-    @TypeORM.Column({ nullable: true, type: "datetime" })
-    post_time: Date;
+    @TypeORM.Column({ nullable: true, type: "integer" })
+    post_time: number;
 
 
     async getContest() {
@@ -39,23 +39,6 @@ export default class ContestSummary extends Model{
             { where: {contest_id, username} }
         )
     }
-
-    static async updateOrInsert(username: string, contest_id: number, summary: string) {
-        let s = await ContestSummary.get(username, contest_id)
-        if(!s) {
-            s = await ContestSummary.create({
-                username,
-                contest_id,
-                summary,
-                post_time: new Date()
-            })
-        } else {
-            s.summary = summary
-        }
-        await s.save()
-        return s
-    }
-
 
 
     static async getSummary(user: User, contest: Contest, player: ContestPlayer | undefined = undefined) {
@@ -87,7 +70,6 @@ export default class ContestSummary extends Model{
         }
 
         let not_solves = []
-
         problem_ids.forEach(id => {
             if(!details[id]) details[id] = {score: 0}
             let detail = details[id]

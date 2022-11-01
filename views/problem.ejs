@@ -419,4 +419,39 @@ if (contest) {
   }
   </script>
 <% } %>
+
+<script>
+
+
+// 复制
+const copyToClipboardAsync = async (str, $button) => {
+    $button.attr('disabled', 'true').removeClass('primary').addClass('positive')
+    const org = $button.text()
+    setTimeout(() => {
+        $button.removeAttr("disabled").removeClass('positive').addClass('primary')
+        $button.text(org)
+    }, 1000)
+    if (navigator && navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(str);
+        $button.text('复制成功')
+        return
+    }
+    $button.text('复制失败')
+};
+
+window.onload = () => {
+    $('div .hl-text,.hl-plain').each((idx, domEle) => {
+        const $example = $(domEle).parent().parent().parent().prev()
+        if(!$example.is('h3')) {
+            return
+        }
+        const text = $(domEle).text()
+        const $button = $("<div class='mini ui primary button' style='margin-left: 10px'>  复制 </div>")
+        $button.click(() => copyToClipboardAsync(text, $button))
+        const $div = $("<div></div>").css('display', 'flex').css('align-items', 'center')
+        $div.append($("<div style='font-size: 18px;font-weight: bold'> " + $example.text() + "</div>")).append($button)
+        $example.replaceWith($div)
+    })
+}
+</script>
 <% include footer %>

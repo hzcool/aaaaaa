@@ -37,8 +37,8 @@ export default class ProblemSummary extends Model{
     @TypeORM.Column({ nullable: true, type: "boolean" })
     public : boolean;
 
-    @TypeORM.Column({ nullable: true, type: "datetime" })
-    post_time: Date;
+    @TypeORM.Column({ nullable: true, type: "integer" })
+    post_time: number;
 
     async getProblem() {
        return await Problem.findById(this.problem_id)
