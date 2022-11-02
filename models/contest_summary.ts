@@ -69,7 +69,7 @@ export default class ContestSummary extends Model{
             }
         }
 
-        let not_solves = []
+        let not_solved = {}
         problem_ids.forEach(id => {
             if(!details[id]) details[id] = {score: 0}
             let detail = details[id]
@@ -86,26 +86,26 @@ export default class ContestSummary extends Model{
             for(let p of problems) {
                 if(p.id === id) {
                     // 返回problem的描述信息
-                    details[id].problem_info = p.title
-                    details[id].problem_id = id
+                    detail.problem_info = p.title
+                    detail.problem_id = id
                     break
                 }
             }
-            if(!detail.solved) not_solves.push(detail)
+            if(!detail.solved) {
+                if(not_solved[id]) not_solved[id].push(detail); else not_solved[id] = [detail]
+            }
         })
 
-        if(not_solves.length > 0) {
-            //查看是否补题
-            let sql = 'select distinct problem_id from judge_state where user_id=' + user.id + ' and problem_id in (' +  not_solves.map(x => x.problem_id).join(',')  + ') and status=\'Accepted\''
+        let not_solved_ids = Object.keys(not_solved)
+        if(not_solved_ids.length > 0) {
+            let sql = 'select distinct problem_id from judge_state where user_id=' + user.id + ' and problem_id in (' + not_solved_ids.join(",")  + ') and status=\'Accepted\''
+
             let res = await JudgeState.query(sql)
-            let ids = {}
-            for(let item of res) {
-                ids[item.problem_id] = true
-            }
-            for(let item of not_solves) {
-                if(ids[item.problem_id]) item.solved = true
-            }
+            res.forEach(item => {
+                not_solved[item.problem_id].forEach(detail => detail.solved = true)
+            })
         }
+
         return {
             user,
             contest,
