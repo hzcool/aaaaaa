@@ -1,0 +1,89 @@
+<% this.title = '比赛总结' %>
+<% include header %>
+
+<div class="padding">
+    <div style="display: flex; align-items: center">
+        <div  style="font-size: 18px" >
+            contest history of <a href="/user/<%= user.id%>"> <%= user.username%> (key: <%= key%>)  </a>
+        </div>
+        <div class='mini ui primary button' style='margin-left: 10px' onclick="copyLink()" id="copy_link_button">  复制页面链接 </div>
+    </div>
+    <div style="margin-top: 20px"></div>
+    <div style="float: right">
+        <div class="ui action left icon input inline" style="width: 180px; margin-right: 77px; ">
+            <i class="search icon"></i><input placeholder="比赛标题" type="text" id="search_input">
+            <button class="ui mini button" onclick="searchContest()">查找比赛</button>
+        </div>
+    </div>
+
+    <div style="clear: both;"></div>
+    <div style="margin-top: 20px"></div>
+    <table class="ui center aligned table celled">
+        <thead>
+        <tr>
+            <th class="one wide">名次</th>
+            <th class="one wide">总人数</th>
+            <th class="one wide">得分</th>
+            <th class="one wide">补题</th>
+            <th class="two wide">详细</th>
+            <th class="one wide">比赛页面</th>
+            <th class="two wide">开始时间</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% data.forEach(item => { %>
+            <tr>
+                <td><%= item.rank%> </td>
+                <td><%= item.player_num%> </td>
+                <td><%= item.score%> / <%= item.total_score%> </td>
+                <td><%= item.solved_count%> / <%= item.problem_count%> </td>
+                <td>
+                    <a href="<%= syzoj.utils.makeUrl(['summary'], {user_id: user.id, contest_id: item.contest.id})%>"> <%= item.contest.title%> </a>
+                </td>
+                <td>
+                    <a href="<%= syzoj.utils.makeUrl(['contest', item.contest.id])%>"> <%= item.contest.id%> </a>
+                </td>
+                <td>
+                    <%= syzoj.utils.formatDate(item.contest.start_time) %>
+                </td>
+            </tr>
+        <%})%>
+        </tbody>
+    </table><br>
+    <% include page  %>
+
+</div>
+
+<script>
+function searchContest() {
+    let s = window.location.search
+    let idx = s.indexOf("?")
+    let url = window.location.href
+    let a = (idx !== -1) ? s.substring(1).split('&').filter(v => v.indexOf('page') === -1 && v.indexOf('title') === -1) : []
+    a.push("title=" + $('#search_input').val())
+    if(idx !== -1) url = url.substring(0, idx)
+    window.location.href = url + "?" + a.join("&")
+}
+async function copyLink() {
+    let $button = $('#copy_link_button')
+    str = window.location.href;
+    if(str.indexOf("key=") === -1) {
+        if(str.indexOf('?') === -1) str += '?'; else str += '&'
+        str += 'key=' + '<%= key%>'
+    }
+
+    $button.attr('disabled', 'true').removeClass('primary').addClass('positive')
+    const org = $button.text()
+    setTimeout(() => {
+        $button.removeAttr("disabled").removeClass('positive').addClass('primary')
+        $button.text(org)
+    }, 1000)
+    if (navigator && navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(str);
+        $button.text('复制成功')
+        return
+    }
+    $button.text('复制失败')
+}
+</script>
+<% include footer %>

@@ -19,14 +19,13 @@ app.get('/summary', async (req, res) => {
         if (req.query.user_id) {
             user = await User.findById(parseInt(req.query.user_id))
             if (!user) throw new ErrorMessage('无此用户。');
-        }
-        const local_user = res.locals.user
-        if (!local_user || (!local_user.is_admin && local_user.id !== req.query.user_id)) throw new ErrorMessage('您没有权限进行此操作。');
-
-        if(req.query.username) {
+        } else if(req.query.username) {
             user = await User.fromName(req.query.username)
             if (!user) throw new ErrorMessage('无此用户。');
         }
+
+        const local_user = res.locals.user
+        if (!local_user || (!local_user.is_admin && (!user || local_user.id !== user.id ))) throw new ErrorMessage('您没有权限进行此操作。');
 
         let query = ContestPlayer.createQueryBuilder()
         let users = []
@@ -34,17 +33,18 @@ app.get('/summary', async (req, res) => {
             query.where("user_id = :user_id", { user_id: user.id })
             users.push(user)
         }
-
         let contests = []
         if(req.query.contest_id) {
             let c = await Contest.findById(parseInt(req.query.contest_id))
             query.andWhere("contest_id = " + req.query.contest_id)
             if(c) contests.push(c);
         } else if(req.query.title) {
-            const keyword = req.query.title
-            let contestQuery = Contest.createQueryBuilder().where('title LIKE :title', { title: `%${keyword}%` });
-            contests = await Contest.queryAll(contestQuery)
-            query.andWhere("contest_id in (" + contests.map(item => item.id).join(",") +")")
+            contests = await Contest.getKeywordContests(req.query.title)
+            if(contests.length > 0) {
+                query.andWhere("contest_id in (" + contests.map(item => item.id).join(",") +")")
+            } else {
+                query.andWhere("contest_id = 0")
+            }
         }
 
         let paginate = syzoj.utils.paginate(await ContestPlayer.countForPagination(query), req.query.page, 10);

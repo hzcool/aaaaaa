@@ -87,6 +87,101 @@ app.get('/contests', async (req, res) => {
   }
 });
 
+app.get('/contests/user/:id', async (req, res) => {
+  try {
+    let user = await User.findById(parseInt(req.params.id))
+    if(!user) throw new ErrorMessage('无此用户。');
+    const local_user = res.locals.user
+
+    let key = req.query.key
+    if(key) {
+      let key2 = syzoj.utils.md5(user.username)
+      if(key !== key2) throw new ErrorMessage('key 不正确。');
+    } else  if(!local_user || (!local_user.is_admin && local_user.id !== user.id)) {
+      throw new ErrorMessage('您没有权限进行此操作。');
+    } else {
+      key = syzoj.utils.md5(user.username)
+    }
+
+    let query = ContestPlayer.createQueryBuilder().where("user_id = :user_id", { user_id: user.id })
+    let contests = []
+    if(req.query.title) {
+      contests = await Contest.getKeywordContests(req.query.title)
+      if(contests.length > 0) {
+        query.andWhere("contest_id in (" + contests.map(item => item.id).join(",") +")")
+      } else {
+        query.andWhere("contest_id = 0")
+      }
+    }
+
+    let paginate = syzoj.utils.paginate(await ContestPlayer.countForPagination(query), req.query.page, syzoj.config.page.contest);
+    query.orderBy('contest_id', 'DESC')
+    let players = await ContestPlayer.queryPage(paginate, query)
+    let contest_map = {}
+    let ranklist_map = {}
+    if(players.length > 0) {
+      if(contests.length === 0) {
+        contests = await Contest.queryAll(Contest.createQueryBuilder().where("id in (" + players.map(item => item.contest_id).join(",") + ")"))
+      }
+      contest_map = syzoj.utils.makeRecordsMap(contests)
+      let ranklists = await ContestRanklist.queryAll(ContestRanklist.createQueryBuilder().where("id in (" + contests.map(item => item.ranklist_id).join(",") + ")"))
+      ranklist_map = syzoj.utils.makeRecordsMap(ranklists)
+    }
+    let data = []
+    for(let player of players) {
+      let contest = contest_map[player.contest_id]
+      if(!contest) continue
+      let problem_ids = await contest.getProblems()
+      let c = {
+        rank: '---',
+        player_num: '---',
+        score: 0,
+        total_score: 0,
+        contest,
+        problem_count: problem_ids.length,
+        solved_count: 0,
+      }
+      let ranklist = ranklist_map[contest.ranklist_id]
+      if(ranklist) {
+        for(problem_id of problem_ids) {
+          let multipler = (ranklist.ranking_params[problem_id] || 1)
+          c.total_score += multipler * 100;
+          let detail = player.score_details[problem_id]
+          if(detail) {
+            if(detail.weighted_score) c.score += detail.weighted_score
+            else if(detail.accepted) c.score += multipler * 100;
+            else if(detail.score) c.score += detail.score * multipler
+          }
+          if(c.score === multipler * 100) c.solved_count++
+          else {
+            let res = await JudgeState.query('select 1 from `judge_state` where problem_id=' + problem_id + ' and user_id=' + user.id + ' and status=\'Accepted\' limit 1')
+            if(res.length >= 1) c.solved_count++
+          }
+          c.player_num = ranklist.ranklist.player_num
+          for(const [k, v] of Object.entries(ranklist.ranklist)) {
+            if(v === player.id && k !== 'player_num') {
+              c.rank = parseInt(k);
+              break
+            }
+          }
+        }
+      }
+      data.push(c)
+    }
+
+    res.render('user_contests', {
+      data,
+      user,
+      paginate,
+      key
+    })
+  } catch (e) {
+    res.render('error', {
+      err: e
+    });
+  }
+})
+
 app.get('/find_contest', async (req, res) => {
   try {
     // let user = await User.fromName(req.query.nickname);

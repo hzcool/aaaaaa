@@ -157,4 +157,9 @@ export default class Contest extends Model {
     if (!now) now = syzoj.utils.getCurrentDate();
     return now >= this.end_time;
   }
+
+  static async getKeywordContests(keyword: string) {
+    let contestQuery = Contest.createQueryBuilder().where('title LIKE :title', { title: `%${keyword}%` });
+    return await Contest.queryAll(contestQuery)
+  }
 }
