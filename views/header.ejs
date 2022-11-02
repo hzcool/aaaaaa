@@ -34,12 +34,13 @@
     <script data-cfasync="false" src="<%- lib('jquery/3.3.1/jquery.min.js') %>"></script>
     <script>
       function copyToClip(content) {
-        var aux = document.createElement("textarea"); 
-        aux.setAttribute("value", content); 
-        document.body.appendChild(aux); 
-        aux.select();
-        document.execCommand("copy"); 
-        document.body.removeChild(aux);
+        var textarea = document.createElement('textarea');
+        document.body.appendChild(textarea);
+        textarea.style.position = 'absolute';
+        textarea.style.clip = 'rect(0 0 0 0)';
+        textarea.value = content;
+        textarea.select();
+        document.execCommand('copy', true);
       }
     </script>
     <% if (syzoj.config.google_analytics && syzoj.config.google_analytics !== 'UA-XXXXXXXX-X') { %>
