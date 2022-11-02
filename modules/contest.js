@@ -87,7 +87,7 @@ app.get('/contests', async (req, res) => {
   }
 });
 
-app.get('/contests/user/:id', async (req, res) => {
+app.get('/cp/user/:id', async (req, res) => {
   try {
     let user = await User.findById(parseInt(req.params.id))
     if(!user) throw new ErrorMessage('无此用户。');
