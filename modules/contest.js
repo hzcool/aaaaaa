@@ -43,6 +43,10 @@ async function checkgp(contest,user){
     return false;
 }
 
+function get_key(username) {
+  return syzoj.utils.md5(username + "comp_xxx")
+}
+
 app.get('/contests', async (req, res) => {
   try {
     if(!res.locals.user){throw new ErrorMessage('请登录后继续。',{'登录': syzoj.utils.makeUrl(['login'])});}
@@ -95,12 +99,12 @@ app.get('/cp/user/:id', async (req, res) => {
 
     let key = req.query.key
     if(key) {
-      let key2 = syzoj.utils.md5(user.username)
+      let key2 = get_key(user.username)
       if(key !== key2) throw new ErrorMessage('key 不正确。');
     } else  if(!local_user || (!local_user.is_admin && local_user.id !== user.id)) {
       throw new ErrorMessage('您没有权限进行此操作。');
     } else {
-      key = syzoj.utils.md5(user.username)
+      key = get_key(user.username)
     }
 
     let query = ContestPlayer.createQueryBuilder().where("user_id = :user_id", { user_id: user.id })
