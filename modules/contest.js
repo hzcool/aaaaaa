@@ -171,7 +171,7 @@ app.get('/cp/user/:id', async (req, res) => {
 
     res.render('user_contests', {
       data,
-      user,
+      show_user,
       paginate,
       key
     })
