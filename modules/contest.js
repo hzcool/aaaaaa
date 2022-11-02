@@ -128,6 +128,7 @@ app.get('/cp/user/:id', async (req, res) => {
       ranklist_map = syzoj.utils.makeRecordsMap(ranklists)
     }
     let data = []
+    let not_solved = {}  // problem_id => c array
     for(let player of players) {
       let contest = contest_map[player.contest_id]
       if(!contest) continue
@@ -154,8 +155,7 @@ app.get('/cp/user/:id', async (req, res) => {
           }
           if(c.score === multipler * 100) c.solved_count++
           else {
-            let res = await JudgeState.query('select 1 from `judge_state` where problem_id=' + problem_id + ' and user_id=' + user.id + ' and status=\'Accepted\' limit 1')
-            if(res.length >= 1) c.solved_count++
+            if(not_solved[problem_id]) not_solved[problem_id].push(c); else not_solved[problem_id] = [c]
           }
           c.player_num = ranklist.ranklist.player_num
           for(const [k, v] of Object.entries(ranklist.ranklist)) {
@@ -167,6 +167,15 @@ app.get('/cp/user/:id', async (req, res) => {
         }
       }
       data.push(c)
+    }
+
+    let not_solved_ids = Object.keys(not_solved)
+    if(not_solved_ids.length > 0) {
+      let sql = 'select distinct problem_id from judge_state where user_id=' + user.id + ' and problem_id in (' + not_solved_ids.join(",")  + ') and status=\'Accepted\''
+      let res = await JudgeState.query(sql)
+      res.forEach(item => {
+        not_solved[item.problem_id].forEach(c => c.solved_count++)
+      })
     }
 
     res.render('user_contests', {
