@@ -50,7 +50,7 @@ export default class ContestSummary extends Model{
         )
 
         let problem_summaries_map = {}
-        problem_summaries.forEach(item => {problem_summaries_map[item.id] = item})
+        problem_summaries.forEach(item => {problem_summaries_map[item.problem_id] = item})
 
 
         let problem_ids = await contest.getProblems()
@@ -74,20 +74,14 @@ export default class ContestSummary extends Model{
             if(!details[id]) details[id] = {score: 0}
             let detail = details[id]
             if(detail.score === undefined) detail.score = detail.weighted_score
-
             detail.solved = (detail.accepted === true) || (detail.score === 100)
+            detail.problem_summary = problem_summaries_map[id]
+            detail.problem_id = id
 
-            for (let s of problem_summaries) {
-                if (s.problem_id === id)  {
-                    detail.problem_summary = s
-                    break
-                }
-            }
             for(let p of problems) {
                 if(p.id === id) {
                     // 返回problem的描述信息
                     detail.problem_info = p.title
-                    detail.problem_id = id
                     break
                 }
             }
@@ -99,7 +93,6 @@ export default class ContestSummary extends Model{
         let not_solved_ids = Object.keys(not_solved)
         if(not_solved_ids.length > 0) {
             let sql = 'select distinct problem_id from judge_state where user_id=' + user.id + ' and problem_id in (' + not_solved_ids.join(",")  + ') and status=\'Accepted\''
-
             let res = await JudgeState.query(sql)
             res.forEach(item => {
                 not_solved[item.problem_id].forEach(detail => detail.solved = true)
