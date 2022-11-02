@@ -1,4 +1,4 @@
-<% this.title = '比赛总结' %>
+<% this.title = '总结' %>
 <% include header %>
 
 <div class="padding">
@@ -20,9 +20,9 @@
         <thead>
         <tr>
             <th class="two wide">比赛信息</th>
-            <th class="two wide">[来源]题目名称</th>
+            <th class="two wide">题目名称</th>
             <th class="one wide">补题</th>
-            <th class="one wide">时间(分钟)</th>
+            <th class="one wide">用时<br>mins</th>
             <th class="one wide">得分</th>
             <th class="three wide">每题总结</th>
         </tr>
@@ -33,6 +33,7 @@
                 <tr >
                     <% if(idx === 0) {%>
                     <td rowspan="<%=s.length%>" style="line-height: 30px">
+                        <div><b><%= s.user.username + ' - ' + s.user.nickname %></b></div>
                         <div style="font-size: 18px; font-weight: bold">
                             <a href="<%= syzoj.utils.makeUrl(['contest', s.contest.id])%>"> <%= s.contest.title%> </a>
                         </div>

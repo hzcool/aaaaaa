@@ -86,7 +86,7 @@ export default class ContestSummary extends Model{
             for(let p of problems) {
                 if(p.id === id) {
                     // 返回problem的描述信息
-                    details[id].problem_info = '[' + p.source + ']' + p.title
+                    details[id].problem_info = p.title
                     details[id].problem_id = id
                     break
                 }
@@ -96,7 +96,7 @@ export default class ContestSummary extends Model{
 
         if(not_solves.length > 0) {
             //查看是否补题
-            let sql = 'select distinct problem_id from judge_state where problem_id in (' +  not_solves.map(x => x.problem_id).join(',')  + ') and status=\'Accepted\''
+            let sql = 'select distinct problem_id from judge_state where user_id=' + user.id + ' and problem_id in (' +  not_solves.map(x => x.problem_id).join(',')  + ') and status=\'Accepted\''
             let res = await JudgeState.query(sql)
             let ids = {}
             for(let item of res) {

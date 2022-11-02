@@ -431,12 +431,8 @@ const copyToClipboardAsync = async (str, $button) => {
         $button.removeAttr("disabled").removeClass('positive').addClass('primary')
         $button.text(org)
     }, 1000)
-    if (navigator && navigator.clipboard && navigator.clipboard.writeText) {
-        await navigator.clipboard.writeText(str);
-        $button.text('复制成功')
-        return
-    }
-    $button.text('复制失败')
+    copyToClip(str);
+    $button.text('复制成功')
 };
 
 window.onload = () => {
