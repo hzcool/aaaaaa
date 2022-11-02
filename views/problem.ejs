@@ -434,8 +434,7 @@ const copyToClipboardAsync = async (str, $button) => {
     copyToClip(str);
     $button.text('复制成功')
 };
-
-window.onload = () => {
+$(document).ready(() => {
     $('div .hl-text,.hl-plain').each((idx, domEle) => {
         const $example = $(domEle).parent().parent().parent().prev()
         if(!$example.is('h3')) {
@@ -448,6 +447,6 @@ window.onload = () => {
         $div.append($("<div style='font-size: 18px;font-weight: bold'> " + $example.text() + "</div>")).append($button)
         $example.replaceWith($div)
     })
-}
+})
 </script>
 <% include footer %>
