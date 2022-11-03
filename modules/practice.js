@@ -412,7 +412,7 @@ app.get('/practice/:id/submissions', async (req, res) => {
     if (!practice.is_public && (!res.locals.user || (!res.locals.user.is_admin && !practice.admins.includes(res.locals.user.id.toString())))) throw new ErrorMessage('练习赛未公开，请耐心等待 (´∀ `)');
 
     // if (practice.isEnded()) {
-      res.redirect(syzoj.utils.makeUrl(['submissions'], { practice: practice_id }));
+      res.redirect(syzoj.utils.makeUrl(['submissions'], { ...req.query }));
       return;
     // }
 

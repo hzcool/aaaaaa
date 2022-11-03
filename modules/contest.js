@@ -918,8 +918,11 @@ app.get('/contest/:id/submissions', async (req, res) => {
       obj.problem.title = syzoj.utils.removeTitleTag(obj.problem.title);
     });
 
+
+    let page = req.query.no_jump ?  'submissions_modal' : 'submissions'
+
     const pushType = displayConfig.showResult ? 'rough' : 'compile';
-    res.render('submissions', {
+    res.render(page, {
       local_is_admin: res.locals.user.is_admin,
       contest: contest,
       items: judge_state.map(x => ({

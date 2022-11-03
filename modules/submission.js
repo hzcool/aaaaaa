@@ -172,7 +172,9 @@ app.get('/submissions', async (req, res) => {
       await obj.loadRelationships();
     });
 
-    res.render('submissions', {
+    let page = req.query.no_jump ?  'submissions_modal' : 'submissions'
+
+    res.render(page, {
       main_style: res.locals.user.is_admin ? 'width: 1500px;' : undefined,
       local_is_admin: res.locals.user.is_admin,
       items: judge_state.map(x => ({

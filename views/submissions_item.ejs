@@ -39,7 +39,7 @@ Vue.component('submission-item', {
         return this.showSubmission !== null && this.showSubmission !== undefined
     },
     submissionLink() {
-      if(this.showSubmissionExist) return '#'
+      if(this.showSubmissionExist) return 'javascript:;'
       return submissionUrl.replace('20000528', this.data.info.submissionId);
     },
     submissionLinkForModal() {
@@ -61,7 +61,7 @@ Vue.component('submission-item', {
     },
     show() {
       if(this.showSubmissionExist) {
-        this.showSubmission(this.submissionLinkForModal)
+        this.showSubmission(this.submissionLinkForModal, this.data)
       }
     }
   },
