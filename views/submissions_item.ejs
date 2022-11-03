@@ -42,6 +42,9 @@ Vue.component('submission-item', {
       if(this.showSubmissionExist) return '#'
       return submissionUrl.replace('20000528', this.data.info.submissionId);
     },
+    submissionLinkForModal() {
+      return submissionUrl.replace('20000528', this.data.info.submissionId);
+    },
     problemLink() {
       return problemUrl.replace('20000528', this.data.info.problemId);
     },
@@ -58,7 +61,7 @@ Vue.component('submission-item', {
     },
     show() {
       if(this.showSubmissionExist) {
-        this.showSubmission(this.data)
+        this.showSubmission(this.submissionLinkForModal)
       }
     }
   },

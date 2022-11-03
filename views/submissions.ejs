@@ -165,9 +165,8 @@
     data: {
       items: itemList,
       displayConfig: displayConfig,
-      showSubmission: (data) => {
-        let submissionId =  data.info.submissionId
-        $.get('/submission/' + submissionId + '?no_jump=true', res => {
+      showSubmission: (link) => {
+        $.get(link + '?no_jump=true', res => {
           if(res.error) alert(res.error);
           else {
             $('#SubmissionIframe').attr('srcdoc', res);
