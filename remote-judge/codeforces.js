@@ -29,7 +29,13 @@ const examplesProcess = (mainContent, type) => {
             if(str !== '') str += '\n'
             str += x(y).text()
         })
-        if (str === '') str = x.text().trim()
+        if (str === '') {
+            let c = x.html()
+            if(c.indexOf('<br>') !== -1) {
+                let t = c.substring(c.indexOf('<pre>') + 5, c.lastIndexOf('</pre>'))
+                str = t.split('<br>').join('\n')
+            } else str = x.text()
+        }
         examples.push(str)
     })
     return examples
