@@ -252,6 +252,7 @@ export default class User extends Model {
     async getcontprobs(){
         let c =await this.getconts();
         let contests=c.toString();
+        if(contests === '') contests = '0'
         let sql = `SELECT problems FROM contest WHERE ( id in (${contests}) OR group_id LIKE 'all' ) AND ( is_public = 1 ) AND ( end_time < unix_timestamp(now()) )  `;
         let res =  await Contest.query(sql) ;
         let mycp = [];

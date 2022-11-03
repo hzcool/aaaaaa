@@ -57,7 +57,9 @@ Vue.component('submission-item', {
       if (number && parseInt(number) == number && parseInt(number) > 0) return String.fromCharCode('A'.charCodeAt(0) + parseInt(number) - 1);
     },
     show() {
-      if(this.showSubmissionExist) this.showSubmission(this.data)
+      if(this.showSubmissionExist) {
+        this.showSubmission(this.data)
+      }
     }
   },
   mounted() {
@@ -67,7 +69,7 @@ Vue.component('submission-item', {
 </script>
 
 <script id="submissionItemTemplate" type="text/x-template">
-<tr :style="remote ? {background: '#FFFFE0'} : {}">
+<tr <%- local_is_admin ? ':style=\"remote  ? {background: \'#FFFFE0\'} : {}\"' : '' %> >
   <% if (active === 'submissions' || active === 'contest') { %>
   <td><a target="_parent" :href="submissionLink" @click="show"><b>#{{ data.info.submissionId }}</b></a></td>
   <% } else { %>
@@ -99,7 +101,6 @@ Vue.component('submission-item', {
   <td v-if="config.showUsage">0 ms</td>
   <td v-if="config.showUsage">0 B</td>
   </template>
-
   <td v-if="config.showCode">
     <% if (active === 'submissions') { %>
     <span v-if="data.info.language"><a  target="_parent" :href="submissionLink" @click="show"><b>{{ data.info.language }}</b></a> / </span>
