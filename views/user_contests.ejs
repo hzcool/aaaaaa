@@ -2,21 +2,14 @@
 <% include header %>
 
 <div class="padding">
-    <div style="display: flex; align-items: center">
-        <div  style="font-size: 18px" >
-            contest history of <a id="page_url" href="/cp/user/<%= show_user.id %>?key=<%= key %>"> <%= show_user.username%> (key: <%= key %>)  </a>
-        </div>
-        <div class='mini ui primary button' style='margin-left: 10px' onclick="copyLink()" id="copy_link_button">  复制页面链接 </div>
-    </div>
     <div style="margin-top: 20px"></div>
-    <div style="float: right">
+    <div>
         <div class="ui action left icon input inline" style="width: 180px; margin-right: 77px; ">
             <i class="search icon"></i><input placeholder="比赛标题" type="text" id="search_input">
             <button class="ui mini button" onclick="searchContest()">查找比赛</button>
         </div>
     </div>
 
-    <div style="clear: both;"></div>
     <div style="margin-top: 20px"></div>
     <table class="ui center aligned table celled">
         <thead>
@@ -51,6 +44,13 @@
         </tbody>
     </table><br>
     <% include page  %>
+
+    <div style="display: flex; align-items: center;">
+        <div  style="font-size: 18px" >
+            contest history of <a id="page_url" href="/cp/user/<%= show_user.id %>?key=<%= key %>"> <%= show_user.username%> (key: <%= key %>)  </a>
+        </div>
+        <div class='mini ui primary button' style='margin-left: 10px' onclick="copyLink()" id="copy_link_button">  复制页面链接 </div>
+    </div>
 
 </div>
 

@@ -980,7 +980,8 @@ app.get('/contest/submission/:id', async (req, res) => {
       judge.code = await syzoj.utils.highlight(judge.code, syzoj.languages[judge.language].highlight);
     }
 
-    res.render('submission', {
+    let page = req.query.no_jump ?  'submission_modal' : 'submission'
+    res.render(page, {
       local_is_admin: res.locals.user.is_admin,
       info: getSubmissionInfo(judge, displayConfig),
       roughResult: getRoughResult(judge, displayConfig),

@@ -248,7 +248,9 @@ app.get('/submission/:id', async (req, res) => {
     }
 
     displayConfig.showRejudge = await judge.problem.isAllowedEditBy(res.locals.user) || judge.user_id == res.locals.user.id;
-    res.render('submission', {
+
+    let page = req.query.no_jump ?  'submission_modal' : 'submission'
+    res.render(page, {
       local_is_admin: res.locals.user.is_admin,
       info: getSubmissionInfo(judge, displayConfig),
       roughResult: getRoughResult(judge, displayConfig, false),

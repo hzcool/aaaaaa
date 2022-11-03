@@ -7,9 +7,9 @@
     <div class="ui large info message">
       <div class="ui header">比赛 - <%= contest.title %></div>
       <% if (displayConfig.showOthers) { %>
-        <p>您可以看到其他人的提交。
-      <% } else { %>
-        <p>您只能看到自己的提交。</p>
+      <p>您可以看到其他人的提交。
+        <% } else { %>
+      <p>您只能看到自己的提交。</p>
       <% } %>
     </div>
   <% } %>
@@ -74,23 +74,25 @@
         查询
       </button>
       <% if (user && displayConfig.showOthers) { %>
-      <a class="ui mini labeled icon blue button" style="margin-left: auto; " id="my_submit">
-        <i class="user icon"></i>
-        我的提交
-      </a>
-      <script>
-      $(function () {
-        $('#my_submit').click(function () {
-          $('[name=submitter]').val(<%- serializejs(user.username) %>);
-          $('#form').submit();
-        });
-      });
-      </script>
+        <a class="ui mini labeled icon blue button" style="margin-left: auto; " id="my_submit">
+          <i class="user icon"></i>
+          我的提交
+        </a>
+        <script>
+          $(function () {
+            $('#my_submit').click(function () {
+              $('[name=submitter]').val(<%- serializejs(user.username) %>);
+              $('#form').submit();
+            });
+          });
+        </script>
       <% } %>
     </div>
   </form>
-  <table id="vueAppFuckSafari" class="ui very basic center aligned table" style="white-space: nowrap; " id="table">
-    <thead>
+
+  <div id="vueAppFuckSafari">
+    <table  class="ui very basic center aligned table" style="white-space: nowrap; ">
+      <thead>
       <tr>
         <th>编号</th>
         <th>题目</th>
@@ -104,87 +106,109 @@
         <th>提交时间</th>
         <% if (local_is_admin) { %> <th>提交IP</th> <% } %>
       </tr>
-    </thead>
-    <tbody>
-      <tr v-for="item in items" :config="displayConfig" :show-rejudge="false" :data="item" is='submission-item' :rough="true" :remote="item.remote">
+      </thead>
+      <tbody>
+      <tr v-for="item in items" is='submission-item'  :show-submission="showSubmission"  :config="displayConfig" :show-rejudge="false" :data="item"  :rough="true" :remote="item.remote">
       </tr>
-    </tbody>
-  </table>
-  <% if (!items.length) { %>
-  <div style="background-color: #fff; height: 18px; margin-top: -18px; "></div>
-  <div class="ui placeholder segment" style="margin-top: -5px; ">
-    <div class="ui icon header">
-      <% if (isFiltered) { %>
-      <i class="ui search icon" style="margin-bottom: 20px; "></i>
-      找不到符合条件的提交
-      <% } else { %>
-      <i class="ui file icon" style="margin-bottom: 20px; "></i>
-      暂无提交
-      <% } %>
+      </tbody>
+    </table>
+    <div class="ui modal" id="show_modal" style="width: 80%">
+      <div class="content">
+        <iframe id="SubmissionIframe" width="100%" height="800px" style="border: medium none"></iframe>
+      </div>
+      <div class="actions">
+        <button class="ui cancel button primary"> 关闭 </button>
+      </div>
     </div>
   </div>
+
+  <% if (!items.length) { %>
+    <div style="background-color: #fff; height: 18px; margin-top: -18px; "></div>
+    <div class="ui placeholder segment" style="margin-top: -5px; ">
+      <div class="ui icon header">
+        <% if (isFiltered) { %>
+          <i class="ui search icon" style="margin-bottom: 20px; "></i>
+          找不到符合条件的提交
+        <% } else { %>
+          <i class="ui file icon" style="margin-bottom: 20px; "></i>
+          暂无提交
+        <% } %>
+      </div>
+    </div>
   <% } else { %>
-  <br>
-  <% if (fast_pagination) { %>
-    <% include page_fast %>
-  <% } else { %>
-    <% include page %>
-  <% } %>
+    <br>
+    <% if (fast_pagination) { %>
+      <% include page_fast %>
+    <% } else { %>
+      <% include page %>
+    <% } %>
   <% } %>
 </div>
 
 <script src="<%- lib('vue/2.5.21/vue.min.js') %>"></script>
 <script src="<%- lib('socket.io/2.2.0/socket.io.js') %>"></script>
+<script src="<%- lib('jsondiffpatch/0.2.5/jsondiffpatch.min.js') %>"></script>
 
 <% include submissions_item %>
+
 <script>
-$(function () {
-  $('#select_language').dropdown();
-  $('#select_status').dropdown();
-});
-const itemList = <%- serializejs(items) %>;
-const socketUrl = "/rough";
-const displayConfig = <%- serializejs(displayConfig) %>;
+  $(function () {
+    $('#select_language').dropdown();
+    $('#select_status').dropdown();
+  });
+  const itemList = <%- serializejs(items) %>;
+  const socketUrl = "/rough";
+  const displayConfig = <%- serializejs(displayConfig) %>;
 
-const vueApp = new Vue({
-  el: '#vueAppFuckSafari',
-  data: {
-    items: itemList,
-    displayConfig: displayConfig
-  },
-});
-
-if (itemList.some(function(t) {return t.token != null;})) {
-  const socket = io(socketUrl);
-  socket.on('connect', function () {
-    for (let x of itemList.filter(function(x) {return x.token != null;})){
-      const getItem = function (id){ return itemList.find(function(x){ return x.info.taskId === id; })};
-      socket.on('start', function (data) {
-        getItem(data.taskId).running = true;
-      });
-
-      socket.on('finish', function (data) {
-        getItem(data.taskId).running = false;
-        getItem(data.taskId).result = data.result;
-        if (itemList.every(function(x){ return x.result; })) {
-          socket.close();
-        }
-      });
-
-      socket.emit('join', x.token, function (data) {
-        if (data && data.ok) {
-          if (data.running) {
-            x.running = true;
-          } else if (data.finished) {
-            x.running = false;
-            x.result = data.result;
+  const vueApp = new Vue({
+    el: '#vueAppFuckSafari',
+    data: {
+      items: itemList,
+      displayConfig: displayConfig,
+      showSubmission: (data) => {
+        let submissionId =  data.info.submissionId
+        $.get('/submission/' + submissionId + '?no_jump=true', res => {
+          if(res.error) alert(res.error);
+          else {
+            $('#SubmissionIframe').attr('srcdoc', res);
+            $('#show_modal').modal('show');
           }
-        } else {
-          alert("ERROR: " + JSON.stringify(data));
-        }
-      });
-    }
-  })
-}
+        })
+      }
+    },
+  });
+
+  if (itemList.some(function(t) {return t.token != null;})) {
+    const socket = io(socketUrl);
+    socket.on('connect', function () {
+      for (let x of itemList.filter(function(x) {return x.token != null;})){
+        const getItem = function (id){ return itemList.find(function(x){ return x.info.taskId === id; })};
+        socket.on('start', function (data) {
+          getItem(data.taskId).running = true;
+        });
+
+        socket.on('finish', function (data) {
+          getItem(data.taskId).running = false;
+          getItem(data.taskId).result = data.result;
+          if (itemList.every(function(x){ return x.result; })) {
+            socket.close();
+          }
+        });
+
+        socket.emit('join', x.token, function (data) {
+          if (data && data.ok) {
+            if (data.running) {
+              x.running = true;
+            } else if (data.finished) {
+              x.running = false;
+              x.result = data.result;
+            }
+          } else {
+            alert("ERROR: " + JSON.stringify(data));
+          }
+        });
+      }
+    })
+  }
 </script>
 <% include footer %>
