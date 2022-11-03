@@ -22,7 +22,7 @@ const userUrl = <%- serializejs(syzoj.utils.makeUrl(['user', '20000528'])) %>;
 
 Vue.component('submission-item', {
   template: '#submissionItemTemplate',
-  props: ['data', 'config', 'showRejudge', 'progress', 'compiling', 'rough', 'remote'],
+  props: ['data', 'config', 'showRejudge', 'progress', 'compiling', 'rough', 'remote', 'showSubmission'],
   computed: {
     statusString() {
       const data = this.data;
@@ -35,7 +35,14 @@ Vue.component('submission-item', {
         return 'Running';
       } else return 'Waiting';
     },
+    showSubmissionExist() {
+        return this.showSubmission !== null && this.showSubmission !== undefined
+    },
     submissionLink() {
+      if(this.showSubmissionExist) return '#'
+      return submissionUrl.replace('20000528', this.data.info.submissionId);
+    },
+    submissionLinkForModal() {
       return submissionUrl.replace('20000528', this.data.info.submissionId);
     },
     problemLink() {
@@ -51,6 +58,11 @@ Vue.component('submission-item', {
   methods: {
     alpha(number) {
       if (number && parseInt(number) == number && parseInt(number) > 0) return String.fromCharCode('A'.charCodeAt(0) + parseInt(number) - 1);
+    },
+    show() {
+      if(this.showSubmissionExist) {
+        this.showSubmission(this.submissionLinkForModal)
+      }
     }
   },
   mounted() {
@@ -60,22 +72,22 @@ Vue.component('submission-item', {
 </script>
 
 <script id="submissionItemTemplate" type="text/x-template">
-<tr :style="remote ? {background: '#FFFFE0'} : {}">
+<tr <%- local_is_admin ? ':style=\"remote  ? {background: \'#FFFFE0\'} : {}\"' : '' %> >
   <% if (active === 'submissions' || active === 'contest') { %>
-  <td><a :href="submissionLink"><b>#{{ data.info.submissionId }}</b></a></td>
+  <td><a target="_parent" :href="submissionLink" @click="show"><b>#{{ data.info.submissionId }}</b></a></td>
   <% } else { %>
   <td><b>#{{ data.info.submissionId }}</b></td>
   <% } %>
-  <td ref="problemLabel"><a ref="problemLabelTextFit" style="display: block; margin: 0 auto; line-height: 22px;" :href="problemLink"><b>#{{ config.inContest || config.inPractice ? alpha(data.info.problemId) : data.info.problemId }}.</b> {{ data.info.problemName }}</a></td>
+  <td ref="problemLabel"><a target="_parent" ref="problemLabelTextFit" style="display: block; margin: 0 auto; line-height: 22px;" :href="problemLink"><b>#{{ config.inContest || config.inPractice ? alpha(data.info.problemId) : data.info.problemId }}.</b> {{ data.info.problemName }}</a></td>
   <% if (active === 'submissions') { %>
-  <td><a :href="submissionLink"><b><status-label :status="statusString" :progress="progress"></status-label></b></a></td>
+  <td><a target="_parent" :href="submissionLink" @click="show"><b><status-label :status="statusString" :progress="progress"></status-label></b></a></td>
   <% } else { %>
   <td><b><status-label :status="statusString" :progress="progress"></status-label></b></td>
   <% } %>
 
   <template v-if="data.result">
   <% if (active === 'submissions') { %>
-  <td v-if="config.showScore"><a :href="submissionLink"><span class="score" :class="scoreClass">{{ Math.floor(data.result.score || 0) }}</span></a></td>
+  <td v-if="config.showScore"><a  target="_parent" :href="submissionLink" @click="show"><span class="score" :class="scoreClass">{{ Math.floor(data.result.score || 0) }}</span></a></td>
   <% } else { %>
   <td v-if="config.showScore"><span class="score" :class="scoreClass">{{ Math.floor(data.result.score || 0) }}</span></td>
   <% } %>
@@ -88,25 +100,24 @@ Vue.component('submission-item', {
   <% } %>
 
   </template> <template v-else>
-  <td v-if="config.showScore"><a :href="submissionLink"><span class="score score_0">0</span></a></td>
+  <td v-if="config.showScore"><a target="_parent" :href="submissionLink" @click="show"><span class="score score_0">0</span></a></td>
   <td v-if="config.showUsage">0 ms</td>
   <td v-if="config.showUsage">0 B</td>
   </template>
-
   <td v-if="config.showCode">
     <% if (active === 'submissions') { %>
-    <span v-if="data.info.language"><a :href="submissionLink"><b>{{ data.info.language }}</b></a> / </span>
+    <span v-if="data.info.language"><a  target="_parent" :href="submissionLink" @click="show"><b>{{ data.info.language }}</b></a> / </span>
     <% } else { %>
     <span v-if="data.info.language"><b>{{ data.info.language }}</b> / </span>
     <% } %>
     {{ formatSize(data.info.codeSize, 1) }}
   </td>
-  <td><a :href="userLink">{{ data.info.user }}</a></td>
+  <td><a target="_parent" :href="userLink">{{ data.info.user }}</a></td>
   <% if (local_is_admin) { %> <td>{{data.info.usernick}}</td> <% } %>
   <td>{{ data.info.submitTime }}</td>
   <% if (local_is_admin) { %> <td>{{ data.info.submitIp }}</td> <% } %>
   <td v-if="showRejudge">
-    <a id="rejudge-button" :onclick="'check_rejudge(' + (statusString === 'Waiting' || statusString.startsWith('Running')).toString() + ')'" style="color: #000; " href="#"><i class="repeat icon"></i></a>
+    <a target="_parent" id="rejudge-button" :onclick="'check_rejudge(' + (statusString === 'Waiting' || statusString.startsWith('Running')).toString() + ')'" style="color: #000; " href="#"><i class="repeat icon"></i></a>
     <% if (active === 'submission') { %>
     <div class="ui basic modal" id="modal-rejudge">
       <div class="ui icon header">
@@ -122,7 +133,7 @@ Vue.component('submission-item', {
           <i class="remove icon"></i>
           否
         </div>
-        <a class="ui green ok inverted button" :href-post="submissionLink + '/rejudge'">
+        <a target="_parent" class="ui green ok inverted button" :href-post="submissionLink + '/rejudge'">
           <i class="checkmark icon"></i>
           是
         </a>
@@ -147,7 +158,7 @@ Vue.component('submission-item', {
             <i class="remove icon"></i>
             否
           </div>
-          <a class="ui green ok inverted button" :href-post="submissionLink + '/fake'">
+          <a target="_parent" class="ui green ok inverted button" :href-post="submissionLink + '/fake'">
             <i class="checkmark icon"></i>
             是
           </a>

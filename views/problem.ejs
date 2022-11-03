@@ -48,9 +48,9 @@ if (contest) {
           <% } %>
       </div>
     <% } %>
-    <% if (problem.type !== 'interaction') { %>
+    <% if (problem.type !== 'interaction' && (problem.type !== 'remote' || (res.locals.user && res.locals.user.is_admin))) { %>
       <div class="row" style="margin-top: -<%= problem.type === 'submit-answer' ? 15 : 23 %>px">
-          <span class="ui label">题目类型：<%= { 'submit-answer': '答案提交', 'interaction': '交互', 'traditional': '传统', 'remote': '远程评测'}[problem.type] %></span>
+          <span class="ui label">题目类型：<%= { 'submit-answer': '答案提交', 'interaction': '交互', 'traditional': '传统', 'remote': '远程评测' }[problem.type] %></span>
           <% if(problem.type !== 'remote')  { %>
               <span class="ui label">评测方式：<%= (testcases && !testcases.error) ? (testcases.spj ? 'Special Judge' : '文本比较') : '无测试数据' %></span>
           <% } else { %>
