@@ -59,7 +59,7 @@
               i++;
               let latest = contest.start_time, timeSum = 0, unacceptedCount = 0;
             %>
-            <tr<% if (item.user.id == res.locals.user.id) { %> style="background: rgb(235,255,255);"<% } %>>
+            <tr<% if (res.locals.user && item.user.id == res.locals.user.id) { %> style="background: rgb(235,255,255);"<% } %>>
                 <%
                   if (contest.type === 'noi' || contest.type === 'ioi') {
                     if (i === 1 || item.player.score !== lastItem.player.score) rank = i;
@@ -102,7 +102,7 @@
                 <% } %>
                 <% for (let problem of problems) { %>
                   <% if (problem.min === i) { %>
-                    <td style="background: rgb(<% if (item.user.id == res.locals.user.id) { %>224<% } else { %>244<% } %>, 255, 245); ">
+                    <td style="background: rgb(<% if (res.locals.user && item.user.id == res.locals.user.id) { %>224<% } else { %>244<% } %>, 255, 245); ">
                   <% } else { %>
                     <td>
                   <% } %>
@@ -171,6 +171,24 @@
     暂无选手提交
   </div>
 </div>
-<% } %>
+<% } else if(local_is_admin && key){%>
+    <div class='mini ui primary button' style='margin-left: 10px' onclick="copyLink()" id="copy_link_button">  复制外部可访问链接 </div>
+    <script>
+        async function copyLink() {
+            let $button = $('#copy_link_button')
+            $button.attr('disabled', 'true').removeClass('primary').addClass('positive')
+            const org = $button.text()
+            setTimeout(() => {
+                $button.removeAttr("disabled").removeClass('positive').addClass('primary')
+                $button.text(org)
+            }, 1000)
+            $button.text('复制成功');
+            let str = window.location.href + "?key=" + '<%= key%>'
+            copyToClip(str);
+        }
+    </script>
+<%}%>
 </div>
+
+
 <% include footer %>
