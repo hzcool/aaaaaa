@@ -534,7 +534,8 @@ app.get('/contest/:id/repeat', async (req, res) => {
       local_is_admin: res.locals.user.is_admin,
       contest: contest,
       repeatlist: repeatlist,
-      problems: problems
+      problems: problems,
+      key: null
     });
   } catch (e) {
     syzoj.log(e);
@@ -546,22 +547,33 @@ app.get('/contest/:id/repeat', async (req, res) => {
 
 app.get('/contest/:id/repeat/:prefix', async (req, res) => {
   try {
-
-    if(!res.locals.user){throw new ErrorMessage('请登录后继续。',{'登录': syzoj.utils.makeUrl(['login'])});}
+    let key = req.query.key
+    if(!key) {
+      if(!res.locals.user){throw new ErrorMessage('请登录后继续。',{'登录': syzoj.utils.makeUrl(['login'])});}
+    }
 
     let contest_id = parseInt(req.params.id);
     let contest = await Contest.findById(contest_id);
-    const curUser = res.locals.user;
 
     if (!contest) throw new ErrorMessage('无此比赛。');
     if (!contest.isEnded ()) throw new ErrorMessage('比赛未结束，请耐心等待 (´∀ `)');
-    // if contest is non-public, both system administrators and contest administrators can see it.
-    if (!contest.is_public && (!res.locals.user || (!res.locals.user.is_admin && !contest.admins.includes(res.locals.user.id.toString())))) throw new ErrorMessage('您没有权限进行此操作。');
 
-    if ( await checkgp(contest,res.locals.user) ){
+    const curUser = res.locals.user;
+    let pkey = get_key(req.params.prefix)
+
+    if(pkey !== key) {
+      // if contest is non-public, both system administrators and contest administrators can see it.
+
+      if(!curUser) throw new ErrorMessage('您没有权限进行此操作。');
+
+      if (!contest.is_public && (!res.locals.user || (!res.locals.user.is_admin && !contest.admins.includes(res.locals.user.id.toString())))) throw new ErrorMessage('您没有权限进行此操作。');
+
+      if (await checkgp(contest, res.locals.user)) {
         ;
-    }else{
+      } else {
         throw new ErrorMessage('group not included, cannot enter !');
+      }
+      key = pkey
     }
 
     await contest.loadRelationships();
@@ -605,10 +617,11 @@ app.get('/contest/:id/repeat/:prefix', async (req, res) => {
     res.render('contest_repeat', {
       hide_problem_title: problems.length >= 6,
       main_style: problems.length >= 6 ? 'width: auto!important;' : undefined,
-      local_is_admin: res.locals.user.is_admin,
+      local_is_admin: curUser && curUser.is_admin,
       contest: contest,
       repeatlist: repeatlist,
-      problems: problems
+      problems: problems,
+      key,
     });
   } catch (e) {
     syzoj.log(e);
@@ -723,12 +736,12 @@ app.get('/contest/:id/ranklist/:prefix', async (req, res) => {
     if (!contest.isRunning () && !contest.isEnded ()) throw new ErrorMessage('比赛未开始，请耐心等待 (´∀ `)');
 
     const curUser = res.locals.user;
-
-
     let pkey = get_key(req.params.prefix)
 
     //权限认证:
     if(pkey !== key) {
+
+      if(!curUser) throw new ErrorMessage('您没有权限进行此操作。');
       // if contest is non-public, both system administrators and contest administrators can see it.
       if (!contest.is_public && (!res.locals.user || (!res.locals.user.is_admin && !contest.admins.includes(res.locals.user.id.toString())))) throw new ErrorMessage('比赛未公开，请耐心等待 (´∀ `)');
 
