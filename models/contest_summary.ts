@@ -102,6 +102,7 @@ export default class ContestSummary extends Model{
         return {
             user,
             contest,
+            problem_ids,
             score,
             contest_summary,
             length: Object.keys(details).length,

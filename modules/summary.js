@@ -36,10 +36,13 @@ app.get('/summary', async (req, res) => {
         let contests = []
         if(req.query.contest_id) {
             let c = await Contest.findById(parseInt(req.query.contest_id))
-            query.andWhere("contest_id = " + req.query.contest_id)
+            if(c && c.isRunning()) {
+                throw new ErrorMessage('比赛还未结束。');
+            }
+            query.andWhere("contest_id = " +  req.query.contest_id)
             if(c) contests.push(c);
         } else if(req.query.title) {
-            contests = await Contest.getKeywordContests(req.query.title)
+            contests = (await Contest.getKeywordContests(req.query.title)).filter(c => !c.isRunning())
             if(contests.length > 0) {
                 query.andWhere("contest_id in (" + contests.map(item => item.id).join(",") +")")
             } else {
@@ -57,10 +60,8 @@ app.get('/summary', async (req, res) => {
         if(contests.length === 0 && players.length > 0) {
             contests = await Contest.queryAll(Contest.createQueryBuilder().where("id in (" + players.map(item => item.contest_id).join(",") + ")"))
         }
-
         let user_map = syzoj.utils.makeRecordsMap(users)
         let contest_map = syzoj.utils.makeRecordsMap(contests)
-
         let summaries = await Promise.all(players.map(async (player) =>
             await ContestSummary.getSummary(user_map[player.user_id], contest_map[player.contest_id], player)))
 

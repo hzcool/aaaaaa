@@ -1,7 +1,9 @@
 const Codeforces = require("./codeforces").Codeforces
-const Gym = require('./Gym').Gym
+const Gym = require('./gym').Gym
+const HDU = require('./hdu').HDU
 
 module.exports = {
     Codeforces,
-    Gym
+    Gym,
+    HDU
 }

@@ -271,7 +271,7 @@ app.get('/submission/:id', async (req, res) => {
     });
   } catch (e) {
     syzoj.log(e);
-    res.render('error', {
+    res.render(req.query.no_jump ? 'error_modal': 'error', {
       err: e
     });
   }

@@ -1,0 +1,17 @@
+<%
+if (!(err instanceof ErrorMessage)) {
+    err = new ErrorMessage(err.toString());
+}
+%>
+<div class="ui negative icon message">
+    <i class="remove icon"></i>
+    <div class="content">
+        <div class="header" style="margin-bottom: 10px; ">
+            <%= err.message %>
+        </div>
+        <% if (err.details) { %>
+            <p><%= err.details %></p>
+        <% } %>
+    </div>
+</div>
+

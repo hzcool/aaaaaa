@@ -1,0 +1,87 @@
+
+
+<div class="ui modal" id="__modal" style="width: 80%;height: 88%;" >
+
+    <div class="header" id="forCode"> 代码 </div>
+
+    <div class="header" id="forList" style="display: none"> 提交列表 </div>
+
+
+    <div class="header" style="display: none" id="forBoth">
+        <div  style="display: flex; align-items: center">
+            <div id="ListHeader" class="ui checkbox">
+                <input id="ListType" type="checkbox"  onchange="__showList()">
+                <label style="font-size: 16px">我的提交</label>
+            </div>
+            <a id="CodeHeader" href="javascript:;"  onclick="__showList()" style="font-size: 16px; display: none;text-decoration: underline" > 查看提交列表 </a>
+        </div>
+    </div>
+
+    <div class="content" style="height: 93%">
+        <iframe name="__iframe" id="__iframe" width="100%" height="100%" style="border: medium none"></iframe>
+    </div>
+    <div class="actions">
+        <button class="ui cancel button primary"> 关闭 </button>
+    </div>
+</div>
+
+<script>
+let __type = 0
+let __getListLink = undefined
+let __getCodeLink = undefined
+function initModal(type, getListLink = undefined, getCodeLink = undefined) { // 0  forCode  , 1 forList  ,  2 forBoth
+    __type = type
+    if(type !== 0) $('#forCode').hide()
+    if(type === 1) $('#forList').show()
+    else if(type === 2) $('#forBoth').show()
+
+    __getListLink = getListLink
+    __getCodeLink = getCodeLink
+}
+
+function __showSubmissionList(link, forSelf = false) {
+    if(link.indexOf('?') === -1) link += '?'; else link += '&'
+    if(forSelf) {
+        link += 'submitter=' + '<%= res.locals.user.username %>' + '&'
+    }
+    link += 'no_jump=true'
+    $('#__iframe').attr('src', link);
+    $('#__modal').modal('show');
+}
+
+async function __prepareForBothModal(AtList = false) {
+    if(AtList) {
+        $('#ListHeader').show()
+        $('#CodeHeader').hide()
+    } else {
+        $('#CodeHeader').show()
+        $('#ListHeader').hide()
+    }
+}
+
+function __showCode(link = undefined, username = undefined) {
+    if(__type === 0) {
+        if(username)  $('#forCode').text(username)
+    } else { // __type = 2
+        __prepareForBothModal(false)
+    }
+    if(link === undefined && __getCodeLink) link = __getCodeLink()
+    $('#__modal').modal('show');
+    if(link !== undefined) {
+        if(link.indexOf('?') === -1) link += '?'; else link += '&'
+        link += 'no_jump=true'
+        $('#__iframe').attr('src', link);
+    }
+}
+
+function __showList(link = undefined) {
+    let forSelf = false
+    if(__type === 2) {
+        __prepareForBothModal(true);
+        forSelf = $('#ListType').is(":checked")
+    }
+    if(link === undefined && __getListLink) link = __getListLink()
+    if(link !== undefined) __showSubmissionList(link, forSelf)
+}
+
+</script>
