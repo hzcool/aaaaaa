@@ -135,7 +135,7 @@ app.get('/cp/user/:id', async (req, res) => {
     let not_solved = {}  // problem_id => c array
     for(let player of players) {
       let contest = contest_map[player.contest_id]
-      if(!contest) continue
+      if(!contest || contest.isRunning()) continue
       let problem_ids = await contest.getProblems()
       let c = {
         rank: '---',
