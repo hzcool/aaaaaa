@@ -31,7 +31,7 @@
                   <% for (let problem of item.problems) { %>
                     <td>
                         <% if (problem.buti_judge) { %>
-                          <a href="<%= syzoj.utils.makeUrl(['submission', problem.buti_judge.id]) %>">
+                          <a href="javascript:;" onclick="__showCode('<%= syzoj.utils.makeUrl(['submission', problem.buti_judge.id]) %>', '<%= item.user.username %>')">
                             <span class="status <%= problem.buti_judge.status.toLowerCase().split(' ').join('_') %>">
                               <i class="<%= icon[problem.buti_judge.status] || 'remove' %> icon"></i>
                             </span>
@@ -70,4 +70,5 @@
     </script>
 <%}%>
 </div>
+<% include show_submission_modal %>
 <% include footer %>
