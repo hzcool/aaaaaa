@@ -509,8 +509,10 @@ app.get('/practice/:id/submissions', async (req, res) => {
       obj.problem.title = syzoj.utils.removeTitleTag(obj.problem.title);
     });
 
+    let page = req.query.no_jump ?  'submissions_modal' : 'submissions'
+
     const pushType = displayConfig.showResult ? 'rough' : 'compile';
-    res.render('submissions', {
+    res.render(page, {
       local_is_admin: res.locals.user.is_admin,
       practice: practice,
       items: judge_state.map(x => ({
@@ -532,7 +534,7 @@ app.get('/practice/:id/submissions', async (req, res) => {
     });
   } catch (e) {
     syzoj.log(e);
-    res.render('error', {
+    res.render(req.query.no_jump ? 'error_modal': 'error', {
       err: e
     });
   }
@@ -551,7 +553,7 @@ app.get('/practice/submission/:id', async (req, res) => {
     if ((!curUser) || judge.user_id !== curUser.id) throw new ErrorMessage("您没有权限执行此操作。");
 
     if (judge.type !== 1) {
-      return res.redirect(syzoj.utils.makeUrl(['submission', id]));
+      return res.redirect(syzoj.utils.makeUrl(['submission', id], {...req.query}));
     }
 
     const practice = await Practice.findById(judge.type_info);
@@ -570,7 +572,9 @@ app.get('/practice/submission/:id', async (req, res) => {
       judge.code = await syzoj.utils.highlight(judge.code, syzoj.languages[judge.language].highlight);
     }
 
-    res.render('submission', {
+    let page = req.query.no_jump ?  'submission_modal' : 'submission'
+
+    res.render(page, {
       local_is_admin: res.locals.user.is_admin,
       info: getSubmissionInfo(judge, displayConfig),
       roughResult: getRoughResult(judge, displayConfig),
@@ -588,7 +592,7 @@ app.get('/practice/submission/:id', async (req, res) => {
     });
   } catch (e) {
     syzoj.log(e);
-    res.render('error', {
+    res.render(req.query.no_jump ? 'error_modal': 'error', {
       err: e
     });
   }

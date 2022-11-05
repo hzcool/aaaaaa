@@ -29,7 +29,8 @@
         </thead>
         <tbody>
         <% Object.values(summaries).forEach((s, s_idx) => { %>
-            <% Object.values(s.details).forEach((item, idx) => { %>
+            <% s.problem_ids.forEach((problem_id,idx) => {  %>
+            <% let item = s.details[problem_id];%>
                 <tr >
                     <% if(idx === 0) {%>
                     <td rowspan="<%=s.length%>" style="line-height: 30px">
@@ -62,8 +63,7 @@
                     <td> <%= item.score%> </td>
                     <td><div class="ui font-content"><%- item.problem_summary ? (item.problem_summary.summary) : '' %></div> </td>
                 </tr>
-            <%})%>
-
+            <% })%>
             <tr>
                 <td colspan="6">
                     <h3 style="float: left">  比赛总结 </h3>

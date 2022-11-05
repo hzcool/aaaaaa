@@ -248,12 +248,7 @@ class Handler {
         return ret
     }
     async polling() {
-        try {
-            await this.loginIfNotLogin()
-        } catch (e){
-            this.xCsrfToken = ''
-            try { await this.login() } catch (e) {}
-        }
+        await this.loginIfNotLogin()
         let item
         while (item = this.deque.shift()) {
             const {source, problemID, langId, callback, isGym} = item
@@ -273,7 +268,10 @@ class Handler {
                     }
                 }
                 const res = await this.req.doRequest(opts)
-                if (res.statusCode !== 302) throw '提交失败'
+                if (res.statusCode !== 302) {
+                    await this.login()
+                    throw '提交失败'
+                }
                 const submissionId = await this.getSubmissionID(contestId, isGym)
                 callback(null, submissionId, {account: this.handleOrEmail, submissionId})
             } catch (e) {

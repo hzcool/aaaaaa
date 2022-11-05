@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN" style="position: fixed; width: 100%; overflow: hidden; ">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=1200">
+    <title><%= title %> - <%= syzoj.config.title %></title>
+    <link href="<%- lib('semantic-ui/2.4.1/semantic.min.css') %>" rel="stylesheet">
+    <link href="<%- selfLib('syntect-tomorrow.css') %>?20220512" rel="stylesheet">
+    <link href="<%- selfLib('style.css') %>?20181212" rel="stylesheet">
+    <link href="<%- lib('morris.js/0.5.1/morris.css') %>" rel="stylesheet">
+    <% if (useLocalLibs || !syzoj.config.google_fonts || !['like-google-fonts', 'like-local', 'built-in'].includes(syzoj.config.google_fonts.type)) { %>
+        <link href="<%- syzoj.utils.makeUrl(['google-fonts', 'fira-mono.css']) %>" rel="stylesheet">
+        <link href="<%- syzoj.utils.makeUrl(['google-fonts', 'lato.css']) %>" rel="stylesheet">
+        <link href="<%- syzoj.utils.makeUrl(['google-fonts', 'open-sans.css']) %>" rel="stylesheet">
+        <link href="<%- syzoj.utils.makeUrl(['google-fonts', 'exo-2.css']) %>" rel="stylesheet">
+    <% } else if (syzoj.config.google_fonts.type === 'like-local') { %>
+        <link href="<%- syzoj.config.google_fonts.url %>/google-fonts/fira-mono.css" rel="stylesheet">
+        <link href="<%- syzoj.config.google_fonts.url %>/google-fonts/lato.css" rel="stylesheet">
+        <link href="<%- syzoj.config.google_fonts.url %>/google-fonts/open-sans.css" rel="stylesheet">
+        <link href="<%- syzoj.config.google_fonts.url %>/google-fonts/exo-2.css" rel="stylesheet">
+    <% } else if (syzoj.config.google_fonts.type === 'like-google-fonts') { %>
+        <link href="<%- syzoj.config.google_fonts.url %>/css?family=Fira+Mono" rel="stylesheet">
+        <link href="<%- syzoj.config.google_fonts.url %>/css?family=Lato:400,700,400italic,700italic&subset=latin" rel="stylesheet">
+        <link href="<%- syzoj.config.google_fonts.url %>/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=latin-ext" rel="stylesheet">
+        <link href="<%- syzoj.config.google_fonts.url %>/css?family=Exo+2:600" rel="stylesheet">
+    <% } else if (syzoj.config.google_fonts.type === 'built-in') { %>
+        <link href="<%- this.builtInCdnUrl %>/google-fonts/fira-mono.css" rel="stylesheet">
+        <link href="<%- this.builtInCdnUrl %>/google-fonts/lato.css" rel="stylesheet">
+        <link href="<%- this.builtInCdnUrl %>/google-fonts/open-sans.css" rel="stylesheet">
+        <link href="<%- this.builtInCdnUrl %>/google-fonts/exo-2.css" rel="stylesheet">
+    <% } %>
+
+</head>
+
+<%
+if (!(err instanceof ErrorMessage)) {
+    err = new ErrorMessage(err.toString());
+}
+%>
+<div class="ui negative icon message">
+    <i class="remove icon"></i>
+    <div class="content">
+        <div class="header" style="margin-bottom: 10px; ">
+            <%= err.message %>
+        </div>
+        <% if (err.details) { %>
+            <p><%= err.details %></p>
+        <% } %>
+    </div>
+</div>
+
+</html>
+

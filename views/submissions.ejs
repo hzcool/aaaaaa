@@ -112,17 +112,6 @@
       </tr>
       </tbody>
     </table>
-    <div class="ui modal" id="show_modal" style="width: 80%;height: 88%" >
-      <div class="header" id="showSubmissionHeader">
-        提交
-      </div>
-      <div class="content" style="height: 93%">
-        <iframe id="SubmissionIframe" width="100%" height="100%" style="border: medium none"></iframe>
-      </div>
-      <div class="actions">
-        <button class="ui cancel button primary"> 关闭 </button>
-      </div>
-    </div>
   </div>
 
   <% if (!items.length) { %>
@@ -153,6 +142,8 @@
 <script src="<%- lib('jsondiffpatch/0.2.5/jsondiffpatch.min.js') %>"></script>
 
 <% include submissions_item %>
+<% include show_submission_modal %>
+
 
 <script>
   $(function () {
@@ -168,11 +159,7 @@
     data: {
       items: itemList,
       displayConfig: displayConfig,
-      showSubmission: (link, data) => {
-        $('#SubmissionIframe').attr('src', link + '?no_jump=true');
-        $('#show_modal').modal('show');
-        $('#showSubmissionHeader').text(data.info.user)
-      }
+      showSubmission: (link, data) => __showCode(link, data.info.user)
     },
   });
 

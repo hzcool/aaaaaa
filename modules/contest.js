@@ -559,6 +559,7 @@ app.get('/contest/:id/repeat/:prefix', async (req, res) => {
     if (!contest.isEnded ()) throw new ErrorMessage('比赛未结束，请耐心等待 (´∀ `)');
 
     const curUser = res.locals.user;
+    let local_is_admin = curUser && curUser.is_admin
     let pkey = get_key(req.params.prefix)
 
     if(pkey !== key) {
@@ -617,7 +618,7 @@ app.get('/contest/:id/repeat/:prefix', async (req, res) => {
     res.render('contest_repeat', {
       hide_problem_title: problems.length >= 6,
       main_style: problems.length >= 6 ? 'width: auto!important;' : undefined,
-      local_is_admin: curUser && curUser.is_admin,
+      local_is_admin,
       contest: contest,
       repeatlist: repeatlist,
       problems: problems,
@@ -737,7 +738,7 @@ app.get('/contest/:id/ranklist/:prefix', async (req, res) => {
 
     const curUser = res.locals.user;
     let pkey = get_key(req.params.prefix)
-
+    let local_is_admin = curUser && curUser.is_admin
     //权限认证:
     if(pkey !== key) {
 
@@ -757,7 +758,8 @@ app.get('/contest/:id/ranklist/:prefix', async (req, res) => {
       }
 
       key = pkey
-    }
+    } else if(contest.isRunning() && !local_is_admin) throw new ErrorMessage('比赛未结束，请耐心等待 (´∀ `)');
+
 
     await contest.loadRelationships();
 
@@ -809,7 +811,7 @@ app.get('/contest/:id/ranklist/:prefix', async (req, res) => {
     res.render('contest_ranklist', {
       hide_problem_title: problems.length >= 6,
       main_style: problems.length >= 6 ? 'width: auto!important;' : undefined,
-      local_is_admin: curUser && curUser.is_admin,
+      local_is_admin,
       contest: contest,
       ranklist: ranklist,
       problems: problems,
@@ -973,7 +975,7 @@ app.get('/contest/:id/submissions', async (req, res) => {
     });
   } catch (e) {
     syzoj.log(e);
-    res.render('error', {
+    res.render(req.query.no_jump ? 'error_modal': 'error', {
       err: e
     });
   }
@@ -1032,7 +1034,7 @@ app.get('/contest/submission/:id', async (req, res) => {
     });
   } catch (e) {
     syzoj.log(e);
-    res.render('error', {
+    res.render(req.query.no_jump ? 'error_modal': 'error', {
       err: e
     });
   }

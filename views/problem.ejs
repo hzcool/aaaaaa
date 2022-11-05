@@ -89,7 +89,7 @@ if (contest) {
         <% } %>
         <% if (typeof contest !== 'undefined' && contest && !contest.ended) { %>
 
-          <a class="small ui positive button" href="#" onclick="showMySubmission()">提交记录</a>
+          <a class="small ui positive button" href="#" onclick="__showList()">提交记录</a>
           <% if (problem.additional_file) { %>
             <a class="small ui teal button" href="<%= syzoj.utils.makeUrl(['contest', contest.id, pid, 'download', 'additional_file']) %>">附加文件</a>
           <% } %>
@@ -97,7 +97,7 @@ if (contest) {
 
         <% } else if (typeof practice !== 'undefined' && practice && !practice.ended) { %>
 
-          <a class="small ui positive button" href="#" onclick="showMySubmission()">提交记录</a>
+          <a class="small ui positive button" href="#" onclick="__showList()">提交记录</a>
           <a class="small ui orange button" href="<%= syzoj.utils.makeUrl(['problem', problem.id, 'statistics', problem.type === 'submit-answer' ? 'shortest' : 'fastest']) %>">统计</a>
           <% if (problem.additional_file) { %>
             <a class="small ui teal button" href="<%= syzoj.utils.makeUrl(['practice', practice.id, pid, 'download', 'additional_file']) %>">附加文件</a>
@@ -112,7 +112,7 @@ if (contest) {
 
         <% } else { %>
 
-          <a class="small ui positive button" href="#" onclick="showMySubmission()">提交记录</a>
+          <a class="small ui positive button" href="#" onclick="__showList()">提交记录</a>
           <a class="small ui orange button" href="<%= syzoj.utils.makeUrl(['problem', problem.id, 'statistics', problem.type === 'submit-answer' ? 'shortest' : 'fastest']) %>">统计</a>
           <% if (problem.additional_file) { %>
             <a class="small ui teal button" href="<%= syzoj.utils.makeUrl(['problem', problem.id, 'download', 'additional_file']) %>">附加文件</a>
@@ -247,7 +247,7 @@ if (contest) {
             practice_id: practice && !practice.ended ? practice.id : undefined
           });
           %>
-          <form target="iframe" action="<%= formUrl %>" method="post" onsubmit="return submit_code()" id="submit_code" enctype="multipart/form-data">
+          <form target="__iframe" action="<%= formUrl %>" method="post" onsubmit="return submit_code()" id="submit_code" enctype="multipart/form-data">
             <% if (problem.type === 'submit-answer') { %>
               <%
               let cases = [];
@@ -387,7 +387,8 @@ if (contest) {
     $('#submit_code input[name=language]').val($('#languages-menu .item.active').data('value'));
     lastSubmitted = editor.getValue();
     $('#submit_code input[name=code]').val(editor.getValue());
-     prepareModal(false)
+    __showCode();
+
     return true;
   }
 
@@ -453,24 +454,10 @@ $(document).ready(() => {
 </script>
 
 
+<% include show_submission_modal %>
 
-<div class="ui modal" id="SubmissionModal" style="width: 80%;height: 88%;" >
-    <div class="header" style="display: flex; align-items: center">
-        <div id="ListHeader">提交列表</div>
-        <a href="javascript:;" id="CodeHeader" onclick="showMySubmission()" style="display: none;text-decoration: underline" > 查看提交列表 </a>
-    </div>
-    <input style="display: none" id="recordLinkInput">
-    <div class="content" style="height: 93%">
-        <iframe name="iframe" id="SubmissionIframe" width="100%" height="100%" style="border: medium none"></iframe>
-    </div>
-    <div class="actions">
-        <button class="ui cancel button primary"> 关闭 </button>
-    </div>
-</div>
 <script>
-
-
-function showMySubmission() {
+function getListLink() {
     <% if (!res.locals.user) { %>
         alert("请先登录")
         return
@@ -481,29 +468,9 @@ function showMySubmission() {
                 ((typeof practice !== 'undefined' && practice && !practice.ended) ?
                 syzoj.utils.makeUrl(['practice', practice.id, 'submissions'], { problem_id: pid }) :
                 syzoj.utils.makeUrl(['submissions'], { problem_id: problem.id }))  %>"
-
-    if(link.indexOf('?') === -1) link += '?'; else link += '&'
-    link += 'submitter=' + '<%= res.locals.user.username %>' + '&no_jump=true'
-
-    $('#SubmissionIframe').attr('src', link);
-    prepareModal(true)
+    return link;
 }
-
-async function prepareModal(AtList = false) {
-    $('#SubmissionModal').modal('show');
-    if(AtList) {
-        $('#ListHeader').show()
-        $('#CodeHeader').hide()
-    } else {
-        $('#CodeHeader').show()
-        $('#ListHeader').hide()
-    }
-}
-
-window['showSubmission'] = (link) => {
-    const _link = link + '?no_jump=true'
-    $('#SubmissionIframe').attr('src', _link);
-    prepareModal(false)
-}
+initModal(2, getListLink)
+window['showSubmission'] = (link) => __showCode(link)
 </script>
 <% include footer %>

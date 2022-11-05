@@ -13,7 +13,7 @@
             <thead>
             <tr>
                 <% if (local_is_admin || !contest.hide_username) { %><th>用户名</th><% } %>
-                <% if (local_is_admin) { %><th>nick</th><% } %>
+                <% if (local_is_admin || key) { %><th>nick</th><% } %>
                 <% for (let i = 0; i < problems.length; i++) { %>
                   <th>
                     <a href="<%= syzoj.utils.makeUrl(['contest', contest.id, 'problem', i + 1]) %>">
@@ -27,11 +27,11 @@
             <% for (let item of repeatlist) { %>
               <tr>
                   <% if (local_is_admin || !contest.hide_username) { %><td><a href="<%= syzoj.utils.makeUrl(['user', item.user.id]) %>"><%= item.user.username %></a><% if (item.user.nameplate) { %><%- item.user.nameplate %><% } %></td><% } %>
-                  <% if (local_is_admin) { %><td><%= item.user.nickname %></td><% } %>
+                  <% if (local_is_admin || key) { %><td><%= item.user.nickname %></td><% } %>
                   <% for (let problem of item.problems) { %>
                     <td>
                         <% if (problem.buti_judge) { %>
-                          <a href="<%= syzoj.utils.makeUrl(['submission', problem.buti_judge.id]) %>">
+                          <a href="javascript:;" onclick="__showCode('<%= syzoj.utils.makeUrl(['submission', problem.buti_judge.id]) %>', '<%= item.user.username %>')">
                             <span class="status <%= problem.buti_judge.status.toLowerCase().split(' ').join('_') %>">
                               <i class="<%= icon[problem.buti_judge.status] || 'remove' %> icon"></i>
                             </span>
@@ -70,4 +70,5 @@
     </script>
 <%}%>
 </div>
+<% include show_submission_modal %>
 <% include footer %>
