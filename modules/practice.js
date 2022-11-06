@@ -411,8 +411,13 @@ app.get('/practice/:id/submissions', async (req, res) => {
     // if practice is non-public, both system administrators and practice administrators can see it.
     if (!practice.is_public && (!res.locals.user || (!res.locals.user.is_admin && !practice.admins.includes(res.locals.user.id.toString())))) throw new ErrorMessage('练习赛未公开，请耐心等待 (´∀ `)');
 
+    if(req.query.problem_id) {
+      let problems_id = await practice.getProblems();
+      req.query.problem_id = problems_id[parseInt(req.query.problem_id) - 1] || 0;
+    }
+
     // if (practice.isEnded()) {
-      res.redirect(syzoj.utils.makeUrl(['submissions'], { ...req.query }));
+      res.redirect(syzoj.utils.makeUrl(['submissions'], { ...req.query, practice: practice_id }));
       return;
     // }
 

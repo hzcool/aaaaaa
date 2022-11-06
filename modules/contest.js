@@ -117,8 +117,8 @@ app.get('/cp/user/:id', async (req, res) => {
         query.andWhere("contest_id = 0")
       }
     }
-
-    let paginate = syzoj.utils.paginate(await ContestPlayer.countForPagination(query), req.query.page, syzoj.config.page.contest);
+    let count = await ContestPlayer.countForPagination(query)
+    let paginate = syzoj.utils.paginate(count, req.query.page, syzoj.config.page.contest);
     query.orderBy('contest_id', 'DESC')
     let players = await ContestPlayer.queryPage(paginate, query)
     let contest_map = {}
@@ -135,7 +135,11 @@ app.get('/cp/user/:id', async (req, res) => {
     let not_solved = {}  // problem_id => c array
     for(let player of players) {
       let contest = contest_map[player.contest_id]
-      if(!contest || contest.isRunning()) continue
+      if(!contest || contest.isRunning()) {
+        count--
+        continue
+      }
+
       let problem_ids = await contest.getProblems()
       let c = {
         rank: '---',
@@ -186,7 +190,8 @@ app.get('/cp/user/:id', async (req, res) => {
       data,
       show_user: user,
       paginate,
-      key
+      key,
+      count
     })
   } catch (e) {
     res.render('error', {
