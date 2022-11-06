@@ -1,4 +1,3 @@
-<% include util %>
 <!DOCTYPE html>
 <html lang="zh-CN" style="position: fixed; width: 100%; overflow: hidden; ">
 
@@ -33,17 +32,6 @@
         <link href="<%- this.builtInCdnUrl %>/google-fonts/exo-2.css" rel="stylesheet">
     <% } %>
     <script data-cfasync="false" src="<%- lib('jquery/3.3.1/jquery.min.js') %>"></script>
-    <script>
-        function copyToClip(content) {
-            var textarea = document.createElement('textarea');
-            document.body.appendChild(textarea);
-            textarea.style.position = 'absolute';
-            textarea.style.clip = 'rect(0 0 0 0)';
-            textarea.value = content;
-            textarea.select();
-            document.execCommand('copy', true);
-        }
-    </script>
     <% if (syzoj.config.google_analytics && syzoj.config.google_analytics !== 'UA-XXXXXXXX-X') { %>
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -58,9 +46,65 @@
 </head>
 
 <body>
+<% include util %>
 
 <script src="<%- lib('textfit/2.3.1/textFit.min.js') %>"></script>
 
+<form action="<%= syzoj.utils.makeUrl(displayConfig.inContest ? ['contest', contest.id, 'submissions'] : displayConfig.inPractice ? ['practice', practice.id, 'submissions'] : ['submissions']) %>" class="ui mini form" method="get" role="form" id="form">
+    <input type="hidden" name="contest" value="<%= form.contest %>" />
+    <input type="hidden" name="practice" value="<%= form.practice %>" />
+    <input type="hidden" name="no_jump" value="true" />
+    <input type="hidden" name="problem_id" value="<%= form.problem_id %>" />
+    <div class="inline fields" style="margin-bottom: 25px; white-space: nowrap; ">
+        <% if (displayConfig.showOthers) { %>
+            <label style="font-size: 1.2em; margin-right: 1px; ">提交者：</label>
+            <div class="field"><input name="submitter" style="width: 100px; " type="text" value="<%= form.submitter %>"></div>
+        <% } %>
+        <% if (displayConfig.showScore) { %>
+            <label style="font-size: 1.2em; margin-right: 1px; ">分数：</label>
+            <div class="field" style="padding-right: 6px; "><input name="min_score" style="width: 45px; " type="text" value="<%= form.min_score || 0 %>"></div>
+            <label style="font-size: 1.2em; margin-right: 7px; ">～</label>
+            <div class="field"><input name="max_score" style="width: 45px; " type="text" value="<%= form.max_score || 100 %>"></div>
+        <% } %>
+        <label style="font-size: 1.2em; margin-right: 1px; ">语言：</label>
+        <div class="field">
+            <div class="ui fluid selection dropdown" id="select_language" style="width: 110px; ">
+                <input type="hidden" name="language" value="<%= form.language %>">
+                <i class="dropdown icon"></i>
+                <div class="default text"></div>
+                <div class="menu">
+                    <div class="item" data-value=""><b>不限</b></div>
+                    <div class="item" data-value="submit-answer"><b>提交答案</b></div>
+                    <div class="item" data-value="non-submit-answer"><b>非提交答案</b></div>
+                    <% for (let lang of syzoj.config.filter_enabled_languages) { %>
+                        <div style="font-size: 12.5px; " class="item" data-value="<%= lang %>"><b><%= syzoj.languages[lang].show %></b></div>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+        <% if (displayConfig.showResult) { %>
+            <label style="font-size: 1.2em; margin-right: 1px; ">状态：</label>
+            <div class="field">
+                <div class="ui fluid selection dropdown" id="select_status" style="width: 210px; ">
+                    <input type="hidden" name="status" value="<%= form.status %>">
+                    <i class="dropdown icon"></i>
+                    <div class="default text"></div>
+                    <div class="menu">
+                        <div class="item" data-value=""><b>不限</b><i class="dropdown icon" style="visibility: hidden; "></i></div>
+                        <% for (let status in this.icon) { %>
+                            <% if (this.iconHidden.includes(status)) continue; %>
+                            <div class="item" data-value="<%= status === 'Pending' ? 'Waiting' : status %>"><span class="status <%= status.toLowerCase().split(' ').join('_') %>"><i class="<%= this.icon[status] %> icon"></i> <b><%= status %></b></div>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        <% } %>
+        <button class="ui labeled icon mini button" type="submit">
+            <i class="search icon"></i>
+            查询
+        </button>
+    </div>
+</form>
 
 <div id="vueAppFuckSafari">
     <table  class="ui very basic center aligned table" style="white-space: nowrap; ">
@@ -123,6 +167,10 @@
 <% include submissions_item %>
 
 <script>
+    $(function () {
+        $('#select_language').dropdown();
+        $('#select_status').dropdown();
+    });
 
     const itemList = <%- serializejs(items) %>;
     const socketUrl = "/rough";

@@ -244,11 +244,12 @@ if (contest) {
           <%
           const formUrl = syzoj.utils.makeUrl(['problem', problem.id, 'submit'], { 
             contest_id: contest && !contest.ended ? contest.id : undefined,
-            practice_id: practice && !practice.ended ? practice.id : undefined
+            practice_id: practice && !practice.ended ? practice.id : undefined,
+            no_jump: true,
           });
           %>
           <form target="__iframe" action="<%= formUrl %>" method="post" onsubmit="return submit_code()" id="submit_code" enctype="multipart/form-data">
-            <% if (problem.type === 'submit-answer') { %>
+              <% if (problem.type === 'submit-answer') { %>
               <%
               let cases = [];
               if (testcases && !testcases.error) {
@@ -358,7 +359,6 @@ if (contest) {
                   </div>
                 </div>
               </div>
-                <input name="no_jump" value="true" style="display: none">
               <div class="ui center aligned vertical segment" style="padding-bottom: 0; ">
                   <button type="submit" class="ui labeled icon button" onclick="submit_code()"> <i class="ui edit icon"></i>提交</button>
               </div>
