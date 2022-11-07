@@ -122,7 +122,7 @@ class HduHandler {
             result.title = titleEle.text()
             let info = titleEle.next().text()
             result.time_limit = info.match(/\d+/g)[1]
-            result.memory_limit = info.match(/\d+/g)[3]
+            result.memory_limit = parseInt(info.match(/\d+/g)[3]) / 1024
             result.example = basic.changeExampleArrToMarkDown(examplesInput, examplesOutput)
             return result
         }catch (e) {
