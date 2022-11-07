@@ -49,6 +49,7 @@
                 <span style="color: red; display: none" id="remote-search-span">
                     <i class="icon" id="remote-search-icon"></i>
                 </span>
+                <span style="color: red;" id = "remote-tip"></span>
               </label>
               <input type="text" id="remoteProblemId" placeholder="Codeforces:'1746A', Gym:'103941A'" onblur="remoteJudgeOnblur()" value="<%= problem.type === 'remote' ? syzoj.vjBasics.parseSource(problem.source).problemId: ''%>">
             </div>
@@ -169,7 +170,7 @@ const remoteJudgeOnblur = () => {
     let $icon = $('#remote-search-icon')
     $icon.removeClass('ban')
     $icon.addClass('spinner')
-
+    $("remote-tip").text('')
 
     $.get("/api/vj/oj/" + oj + "/problem/" + pid, (res) => {
       if(res.error) {
@@ -177,6 +178,9 @@ const remoteJudgeOnblur = () => {
         $icon.addClass('ban')
         return
       }
+      if(res.tip) $("#remote-tip").text(res.tip);
+
+
       source.val($('#oj-select').val() + "-" + pid)
       $('#title').val(res.title)
       $('#description').val(res.description)

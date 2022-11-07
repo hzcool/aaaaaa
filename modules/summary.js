@@ -62,17 +62,19 @@ app.get('/summary', async (req, res) => {
         }
         let user_map = syzoj.utils.makeRecordsMap(users)
         let contest_map = syzoj.utils.makeRecordsMap(contests)
-        let summaries = await Promise.all(players.map(async (player) =>
-            await ContestSummary.getSummary(user_map[player.user_id], contest_map[player.contest_id], player)))
 
-        // markdown 渲染
-        for(let s of summaries) {
+        let summaries = []
+        for(let player of players) {
+            let contest =  contest_map[player.contest_id]
+            if(!contest || contest.isRunning()) continue
+            let s = await ContestSummary.getSummary(user_map[player.user_id], contest, player)
             let contest_summary = s.contest_summary
             if(contest_summary) await syzoj.utils.markdown(contest_summary, ['summary'])
             for(let detail of Object.values(s.details)) {
                 let problem_summary = detail.problem_summary
                 if(problem_summary) await syzoj.utils.markdown(problem_summary, ['summary'])
             }
+            summaries.push(s)
         }
 
         res.render("user_summary", {
