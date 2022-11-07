@@ -793,13 +793,15 @@ app.post('/problem/:id/submit', app.multer.fields([{ name: 'answer', maxCount: 1
 
     let contest_id = parseInt(req.query.contest_id);
     let practice_id = parseInt(req.query.practice_id);
-    let contest, practice;
+    let contest, practice, pid = -1;
     if (contest_id) {
       contest = await Contest.findById(contest_id);
       if (!contest) throw new ErrorMessage('无此比赛。');
       if ((!contest.isRunning()) && (!await contest.isSupervisior(curUser))) throw new ErrorMessage('比赛未开始或已结束。');
       let problems_id = await contest.getProblems();
-      if (!problems_id.includes(id)) throw new ErrorMessage('无此题目。');
+
+      pid = problems_id.indexOf(id) + 1
+      if (pid <= 0) throw new ErrorMessage('无此题目。');
 
       judge_state.type = 1;
       judge_state.type_info = contest_id;
@@ -855,13 +857,12 @@ app.post('/problem/:id/submit', app.multer.fields([{ name: 'answer', maxCount: 1
       throw new ErrorMessage(`无法开始评测：${err.toString()}`);
     }
 
-    let querys = req.query.no_jump ? {no_jump: true} : {}
     if (contest && (!await contest.isSupervisior(curUser))) {
-      res.redirect(syzoj.utils.makeUrl(['contest', contest_id, 'submissions'], querys));
+      res.redirect(syzoj.utils.makeUrl(['contest', contest_id, 'submissions'], {...req.query, problem_id: pid}));
     } else if (practice && (!await practice.isSupervisior(curUser))) {
-      res.redirect(syzoj.utils.makeUrl(['practice', practice_id, 'submissions'], querys));
+      res.redirect(syzoj.utils.makeUrl(['practice', practice_id, 'submissions'], {...req.query, problem_id: pid}));
     } else {
-      res.redirect(syzoj.utils.makeUrl(['submission', judge_state.id], querys));
+      res.redirect(syzoj.utils.makeUrl(['submission', judge_state.id], {...req.query}));
     }
   } catch (e) {
     syzoj.log(e);

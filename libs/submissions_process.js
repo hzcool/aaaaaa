@@ -40,6 +40,13 @@ const getRoughResult = (x, displayConfig, roughOnly) => {
         // 0: Waiting 1: Running
         if (x.status === "System Error")
             return { result: "System Error" };
+        if(x.status === "Compile Error")
+            return { result: "Compile Error" };
+
+        if(x.vj_info) {
+            return x.pending ? null :  { result: "Submitted" }
+        }
+
         if (x.compilation == null || [0, 1].includes(x.compilation.status)) {
             return null;
         } else {

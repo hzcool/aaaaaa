@@ -65,7 +65,7 @@ const cfStatusMapSyzOjStatus = {
     'Time limit exceeded': 'Time Limit Exceeded',
     'Memory limit exceeded': 'Memory Limit Exceeded',
     'Compilation error': 'Compile Error',
-    'Running': 'Waiting',
+    'Running': 'Running',
     'queue': 'Waiting',
     'Pending': 'Waiting',
 }

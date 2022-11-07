@@ -261,10 +261,18 @@ const remote_judge_polling = async (judge_state, oj, submissionId) => {
   let k = 0
   let waitTime = 2000
   let vjInfo = ""
+  let updateCompileStatus = false
   while(k < 50) {
     try {
       const result = await oj.getSubmissionStatus(submissionId)
       if(!result) throw -1
+      if(!updateCompileStatus && result.status !== 'Waiting') {
+        progressPusher.updateCompileStatus(judge_state.task_id, {
+          status: (result.status === 'Compile Error') ? interface.TaskStatus.Failed: interface.TaskStatus.Done
+        })
+        updateCompileStatus = true
+      }
+
       if(result.is_over) {
         judge_state.status = result.status
         judge_state.score = (result.status === 'Accepted') ? 100 : 0
