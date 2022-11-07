@@ -248,11 +248,11 @@ class Handler {
         return ret
     }
     async polling() {
-        await this.loginIfNotLogin()
         let item
         while (item = this.deque.shift()) {
             const {source, problemID, langId, callback, isGym} = item
             try {
+                await this.loginIfNotLogin()
                 const {contestId, submittedProblemIndex} =  parseProblemId(problemID)
                 let opts = {
                     url: (isGym ? 'gym/' : "contest/") + contestId + "/submit?csrf_token=" + this.xCsrfToken,

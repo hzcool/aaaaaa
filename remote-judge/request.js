@@ -107,7 +107,7 @@ class Request {
                     reject(e)
                 }
             })
-        }), {retries: 5, minTimeout: 2000})
+        }), {retries: 3, minTimeout: 2000})
     }
 }
 

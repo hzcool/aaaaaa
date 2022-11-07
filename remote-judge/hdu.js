@@ -181,7 +181,7 @@ class HduHandler {
     }
 
     async polling() {
-        await this.loginIfNotLogin()
+
         let item
         while (item = this.deque.shift()) {
             const {source, problemID, langId, callback} = item
@@ -196,6 +196,7 @@ class HduHandler {
                 }
             }
             try {
+                await this.loginIfNotLogin()
                 const res = await this.req.doRequest(opts)
                 if (res.statusCode !== 302) {
                     await this.login()
