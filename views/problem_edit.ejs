@@ -170,7 +170,7 @@ const remoteJudgeOnblur = () => {
     let $icon = $('#remote-search-icon')
     $icon.removeClass('ban')
     $icon.addClass('spinner')
-    $("remote-tip").text('')
+    $("#remote-tip").text('')
 
     $.get("/api/vj/oj/" + oj + "/problem/" + pid, (res) => {
       if(res.error) {
