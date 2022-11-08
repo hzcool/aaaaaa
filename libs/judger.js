@@ -214,7 +214,7 @@ module.exports.judge = async function (judge_state, problem, priority) {
       const info = syzoj.vjBasics.parseSource(problem.source)
       const oj = syzoj.vj[info.vjName]
       const callback = async (error, submissionId, vjInfo) => {
-        if(error !== null) {
+        if(error || submissionId === 0) {
           remote_judge_fail(judge_state)
           return
         }
@@ -290,7 +290,7 @@ const remote_judge_polling = async (judge_state, oj, submissionId) => {
           vjInfo = result.info
           progressPusher.updateProgress(judge_state.task_id, result)
           waitTime = 2000
-        } else waitTime = Math.min(waitTime * 2, 16000)
+        } else waitTime = Math.min(waitTime + 2000, 16000)
       }
     } catch (e) {
       winston.warn(`remote-judge task error : ${e}`)
@@ -305,6 +305,9 @@ const remote_judge_fail = async (judge_state) => {
   judge_state.status = 'Judgement Failed'
   judge_state.pending = false
   await judge_state.save()
+  progressPusher.updateCompileStatus(judge_state.task_id, {
+    status: interface.TaskStatus.Done
+  })
   progressPusher.updateResult(judge_state.task_id, {
     type: syzoj.ProblemType.Remote,
     statusString: judge_state.status,

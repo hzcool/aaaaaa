@@ -89,7 +89,8 @@ class Handler {
         this.handleOrEmail = handleOrEmail
         this.password = password
         this.deque = new Deque()
-        this.inPolling = false
+        // this.inPolling = false
+
 
         // 自动更新 xCsrfToken
         this.req.addRequestAfterFunc(res => {
@@ -134,7 +135,6 @@ class Handler {
 
     // 获取 html 第一份代码的 id
     async getSubmissionID(contestId, isGym = false) {
-        await this.loginIfNotLogin()
         let opts = {
             url: (isGym ? 'gym/' : "contest/") + contestId + "/my",
         }
@@ -248,45 +248,49 @@ class Handler {
         return ret
     }
     async polling() {
-        let item
-        while (item = this.deque.shift()) {
-            const {source, problemID, langId, callback, isGym} = item
-            try {
-                await this.loginIfNotLogin()
-                const {contestId, submittedProblemIndex} =  parseProblemId(problemID)
-                let opts = {
-                    url: (isGym ? 'gym/' : "contest/") + contestId + "/submit?csrf_token=" + this.xCsrfToken,
-                    method: "POST",
-                    form: {
-                        csrf_token: this.xCsrfToken,
-                        action: "submitSolutionFormSubmitted",
-                        tabSize: 4,
-                        source: source,
-                        contestId,
-                        submittedProblemIndex, //E2
-                        programTypeId: langId, //C++20
+        while (true) {
+            let item = undefined
+            while (item = this.deque.shift()) {
+                const {source, problemID, langId, callback, isGym} = item
+                try {
+                    await this.loginIfNotLogin()
+                    const {contestId, submittedProblemIndex} =  parseProblemId(problemID)
+                    let opts = {
+                        url: (isGym ? 'gym/' : "contest/") + contestId + "/submit?csrf_token=" + this.xCsrfToken,
+                        method: "POST",
+                        form: {
+                            csrf_token: this.xCsrfToken,
+                            action: "submitSolutionFormSubmitted",
+                            tabSize: 4,
+                            source: source,
+                            contestId,
+                            submittedProblemIndex, //E2
+                            programTypeId: langId, //C++20
+                        }
                     }
+                    const res = await this.req.doRequest(opts)
+                    if (res.statusCode !== 302) {
+                        await this.login()
+                        throw '提交失败'
+                    }
+                    const submissionId = await this.getSubmissionID(contestId, isGym)
+                    callback(null, submissionId, {account: this.handleOrEmail, submissionId})
+                } catch (e) {
+                    callback("执行失败", 0, {account: this.handleOrEmail})
                 }
-                const res = await this.req.doRequest(opts)
-                if (res.statusCode !== 302) {
-                    await this.login()
-                    throw '提交失败'
-                }
-                const submissionId = await this.getSubmissionID(contestId, isGym)
-                callback(null, submissionId, {account: this.handleOrEmail, submissionId})
-            } catch (e) {
-                callback("执行失败", 0, {account: this.handleOrEmail})
             }
+            await basic.sleep(Math.floor(Math.random() * 5) * 1000 + 2000)
         }
-        this.inPolling = false
+
+        // this.inPolling = false
     }
 
     async submitCode(source, problemID, langId, callback, isGym = false){ //cb => function(err, submissionId)
         this.deque.push({source, problemID, langId, callback, isGym})
-        if(!this.inPolling) {
-            this.inPolling = true
-            this.polling()
-        }
+        // if(!this.inPolling) {
+        //     this.inPolling = true
+        //     this.polling()
+        // }
     }
 
     async getProblem(problemId, isGym = false) {
@@ -359,6 +363,7 @@ class Codeforces {
     constructor() {
         this.base = new Handler()
         this.handlers = basic.VjBasic.Codeforces.accounts.map(account => new Handler(account.handleOrEmail, account.password))
+        this.handlers.forEach(h => h.polling())
         this.select = -1
     }
     async getProblem(problemId) {
@@ -379,3 +384,13 @@ module.exports = {
     examplesProcess,
     parseProblemId
 }
+
+// const test = async() => {
+//     // let account = basic.VjBasic.Codeforces.accounts[0]
+//     // let cf  =  new Codeforces()
+//     // // await cf.login()
+//     // console.log(await cf.getSubmissionStatus('180031773'))
+//
+// }
+//
+// test()
