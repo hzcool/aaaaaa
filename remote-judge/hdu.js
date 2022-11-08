@@ -205,7 +205,7 @@ class HduHandler {
                 const submissionId = await this.getSubmissionID(problemID)
                 callback(null, submissionId, {account: this.username, submissionId})
             } catch (e) {
-                callback("执行失败", 0, {account: this.username})
+                callback(e, 0, {account: this.username})
             }
         }
         this.inPolling = false

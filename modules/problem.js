@@ -849,10 +849,10 @@ app.post('/problem/:id/submit', app.multer.fields([{ name: 'answer', maxCount: 1
     }
 
     try {
-      await Judger.judge(judge_state, problem, contest_id || practice_id ? 3 : 2);
       judge_state.pending = true;
       judge_state.status = 'Waiting';
       await judge_state.save();
+      await Judger.judge(judge_state, problem, contest_id || practice_id ? 3 : 2);
     } catch (err) {
       throw new ErrorMessage(`无法开始评测：${err.toString()}`);
     }

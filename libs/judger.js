@@ -213,13 +213,16 @@ module.exports.judge = async function (judge_state, problem, priority) {
     case syzoj.ProblemType.Remote:
       const info = syzoj.vjBasics.parseSource(problem.source)
       const oj = syzoj.vj[info.vjName]
+      if(!oj) {
+        remote_judge_fail(judge_state, "不存在 remote-oj : " + info.vjName)
+        return
+      }
       const callback = async (error, submissionId, vjInfo) => {
-        if(error || submissionId === 0) {
-          remote_judge_fail(judge_state)
+        if(error) {
+          remote_judge_fail(judge_state, error)
           return
         }
-        if(judge_state.vj_info) judge_state.vj_info = {...judge_state.vj_info, ...vjInfo}
-        else judge_state.vj_info = vjInfo
+        judge_state.vj_info = {...judge_state.vj_info, ...vjInfo}
         try { await judge_state.save() } catch (e) {}
         progressPusher.createTask(judge_state.task_id);
         remote_judge_polling(judge_state, oj, submissionId)
@@ -298,10 +301,11 @@ const remote_judge_polling = async (judge_state, oj, submissionId) => {
     k++
     await syzoj.vjBasics.sleep(waitTime)
   }
-  remote_judge_fail(judge_state)
+  remote_judge_fail(judge_state, "测评失败，请查看网络是否存在问题")
 }
 
-const remote_judge_fail = async (judge_state) => {
+const remote_judge_fail = async (judge_state, error) => {
+  judge_state.vj_info.error = error
   judge_state.status = 'Judgement Failed'
   judge_state.pending = false
   await judge_state.save()
