@@ -70,17 +70,17 @@ function getColorOfScore(score) {
     <tbody>
         <% include show_submission_modal %>
         <script>
-            function showCode(judge_id, username) {
-                __showCode("/submission/" + judge_id, username)
+            function showCode(event, judge_id, username) {
+                __showCode(event, "/submission/" + judge_id, username)
             }
         </script>
 
       <% for (let judge of statistics.judge_state) { %>
           <% include util %>
           <tr>
-              <td><a href="javascript:;" onclick="showCode('<%= judge.id %>', '<%= judge.user.username %>')"><b>#<%= judge.id %></b></a></td>
+              <td><a href="javascript:;" onclick="showCode(event, '<%= judge.id %>', '<%= judge.user.username %>')"><b>#<%= judge.id %></b></a></td>
               <td><a href="<%= syzoj.utils.makeUrl(['problem', judge.problem_id]) %>"><b>#<%= judge.problem_id %>.</b> <%= judge.problem.title %></a></td>
-              <td><a href="javascript:;" onclick="showCode('<%= judge.id %>', '<%= judge.user.username %>')">
+              <td><a href="javascript:;" onclick="showCode(event, '<%= judge.id %>', '<%= judge.user.username %>')">
                   <b>
                   <span class="status <%= getStatusMeta(judge.status).toLowerCase().split(' ').join('_') %>">
                   <i class="<%= icon[getStatusMeta(judge.status)] || 'remove' %> icon"></i>
@@ -88,11 +88,11 @@ function getColorOfScore(score) {
                   </span>
                   </b>
               </a></td>
-              <td><a href="javascript:;" onclick="showCode('<%= judge.id %>', '<%= judge.user.username %>')"><span class="score score_<%= parseInt(judge.score / 10) || 0 %>"><%= judge.score %></span></a></td>
+              <td><a href="javascript:;" onclick="showCode(event, '<%= judge.id %>', '<%= judge.user.username %>')"><span class="score score_<%= parseInt(judge.score / 10) || 0 %>"><%= judge.score %></span></a></td>
               <% if (problem.type !== 'submit-answer') { %>
                 <td><%= judge.total_time %> ms</td>
                 <td><%= parseInt(judge.max_memory) || 0 %> K</td>
-                <td><a href="javascript:;" onclick="showCode('<%= judge.id %>', '<%= judge.user.username %>')"><b><%= syzoj.languages[judge.language].show %></b></a> / <%= syzoj.utils.formatSize(judge.code.length) %></td>
+                <td><a href="javascript:;" onclick="showCode(event, '<%= judge.id %>', '<%= judge.user.username %>')"><b><%= syzoj.languages[judge.language].show %></b></a> / <%= syzoj.utils.formatSize(judge.code.length) %></td>
               <% } else { %>
                 <td><%= syzoj.utils.formatSize(judge.max_memory) %></td>
               <% } %>
