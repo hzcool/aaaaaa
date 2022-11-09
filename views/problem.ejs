@@ -76,7 +76,15 @@ if (contest) {
                 <% } %>
                 </span>
             <% } %>
-            <% if (res.locals.user && res.locals.user.is_admin) { %><span class="ui label">题目来源：<%= problem.source %></span><% } %>
+
+            <%  if (res.locals.user && res.locals.user.is_admin) { %>
+            <span class="ui label">题目来源：
+                <% if(problem.type === 'remote') { %>
+                    <a href="<%= syzoj.getRemoteProblemLink(problem.source) %>" target="_blank"> <%= problem.source %> </a>
+                <%} else {%>
+                    <%= problem.source %>
+                <%}%>
+            </span><% } %>
         </div>
     <% } %>
 </div>

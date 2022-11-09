@@ -182,7 +182,7 @@ class HduHandler {
 
     async polling() {
 
-        let item
+        let item = undefined
         while (item = this.deque.shift()) {
             const {source, problemID, langId, callback} = item
             let opts = {
@@ -218,6 +218,10 @@ class HduHandler {
             this.polling()
         }
     }
+
+    getProblemLink(problemId) {
+        return this.req.baseURL + "showproblem.php?pid=" + problemId
+    }
 }
 
 
@@ -236,6 +240,9 @@ class HDU {
     async submitCode(source, problemID, langId, callback) {
         if((++this.select) >= this.handlers.length) this.select = 0
         this.handlers[this.select].submitCode(source, problemID, langId, callback)
+    }
+    getProblemLink(problemId) {
+        return this.base.getProblemLink(problemId)
     }
 }
 

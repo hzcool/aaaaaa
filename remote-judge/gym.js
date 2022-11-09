@@ -60,6 +60,10 @@ class Gym {
         }
         this.handlers[idx].submitCode(source, problemID, langId, callbackTmp, true)
     }
+
+    getProblemLink(problemId) {
+        return this.base.getProblemLink(problemId, true)
+    }
 }
 
 module.exports = {

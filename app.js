@@ -23,6 +23,9 @@ Promise.config({
   }
 });
 
+const vjBasics = require('./remote-judge/basic')
+const vj = require('./remote-judge/vj')
+
 global.syzoj = {
   rootDir: __dirname,
   config: require('object-assign-deep')({}, require('./config-example.json'), require(options.config)),
@@ -37,8 +40,14 @@ global.syzoj = {
     Interaction : "interaction",
     Remote : "remote"
   },
-  vjBasics: require('./remote-judge/basic'),
-  vj: require('./remote-judge/vj'),
+  vjBasics,
+  vj,
+  getRemoteProblemLink(source) {
+    let info = vjBasics.parseSource(source)
+    let oj = vj[info.vjName]
+    if(!oj) return '#'
+    return oj.getProblemLink(info.problemId)
+  },
   serviceID: UUID(),
   log(obj) {
     if (obj instanceof ErrorMessage) return;

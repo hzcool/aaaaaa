@@ -294,6 +294,12 @@ class Handler {
         }
     }
 
+    getProblemLink(problemId, isGym = false) {
+        const {contestId, submittedProblemIndex} = parseProblemId(problemId)
+        return this.req.baseURL + ( (isGym ? 'gym/' : "contest/") + contestId + "/problem/" +  submittedProblemIndex )
+    }
+
+
     async getProblem(problemId, isGym = false) {
         const {contestId, submittedProblemIndex} = parseProblemId(problemId)
         if(contestId === '') return null
@@ -375,6 +381,9 @@ class Codeforces {
     async submitCode(source, problemID, langId, callback) {
         if((++this.select) >= this.handlers.length) this.select = 0
         this.handlers[this.select].submitCode(source, problemID, langId, callback)
+    }
+    getProblemLink(problemId) {
+        return this.base.getProblemLink(problemId)
     }
 }
 
