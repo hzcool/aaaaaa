@@ -59,13 +59,17 @@ async function __prepareForBothModal(AtList = false) {
     }
 }
 
-function __showCode(link = undefined, username = undefined) {
+function __showCode(event = undefined, link = undefined, username = undefined) {
+    if(link === undefined && __getCodeLink) link = __getCodeLink()
+    if (event && event.ctrlKey) {
+        window.open(link, '_blank');
+        return;
+    }
     if(__type === 0) {
         if(username)  $('#forCode').text(username)
     } else { // __type = 2
         __prepareForBothModal(false)
     }
-    if(link === undefined && __getCodeLink) link = __getCodeLink()
     $('#__modal').modal('show');
     if(link !== undefined) {
         if(link.indexOf('?') === -1) link += '?'; else link += '&'

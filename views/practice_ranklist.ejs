@@ -107,7 +107,7 @@
                   <% if (!item.player.score_details[problem.id]) { %>
                     </td>
                   <% } else if (practice.type === 'acm') { %>
-                      <a href="javascript:;" onclick="__showCode('<%= syzoj.utils.makeUrl(['submission', item.player.score_details[problem.id].judge_id]) %>', '<%=item.player.username %>')">
+                      <a href="javascript:;" onclick="__showCode(event, '<%= syzoj.utils.makeUrl(['submission', item.player.score_details[problem.id].judge_id]) %>', '<%=item.player.username %>')">
                         <% if (item.player.score_details[problem.id].accepted) { %>
                           <span class="score score_10">
                             <% if (item.player.score_details[problem.id].unacceptedCount) { %>
@@ -128,7 +128,7 @@
                       </a>
                     </td>
                   <% } else if (practice.type === 'noi' || practice.type === 'ioi') { %>
-                      <a href="javascript:;" onclick="__showCode('<%= syzoj.utils.makeUrl(['submission', item.player.score_details[problem.id].judge_id]) %>', '<%=item.player.username %>')">
+                      <a href="javascript:;" onclick="__showCode(event, '<%= syzoj.utils.makeUrl(['submission', item.player.score_details[problem.id].judge_id]) %>', '<%=item.player.username %>')">
                         <% if (item.player.score_details[problem.id].weighted_score != null) { %>
                           <span class="score score_<%= parseInt((item.player.score_details[problem.id].score / 10) || 0) %>">
                             <%= Math.round(item.player.score_details[problem.id].weighted_score) %>
