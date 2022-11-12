@@ -182,6 +182,12 @@ class HduHandler {
 
     async polling() {
 
+        try {
+            await this.loginIfNotLogin()
+        } catch (e) {
+            try {await this.login()} catch (e) {}
+        }
+
         let item = undefined
         while (item = this.deque.shift()) {
             const {source, problemID, langId, callback} = item
@@ -203,9 +209,9 @@ class HduHandler {
                     throw '提交失败'
                 }
                 const submissionId = await this.getSubmissionID(problemID)
-                callback(null, submissionId, {account: this.username, submissionId})
+                callback.onSuccess(submissionId, {account: this.username, submissionId})
             } catch (e) {
-                callback(e, 0, {account: this.username})
+                callback.onFail(e, {account: this.username})
             }
         }
         this.inPolling = false

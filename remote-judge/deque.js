@@ -1,5 +1,6 @@
 'use strict';
 
+const {first} = require("cheerio/lib/api/traversing");
 module.exports = class Dequeue {
     constructor() {
         this.first = null;
@@ -54,5 +55,15 @@ module.exports = class Dequeue {
             this.first.prev = null;
         }
         return element.item;
+    }
+
+    visitAll() {
+        let res = []
+        let it = this.first;
+        while (it) {
+            res.push(it.item)
+            it = it.next
+        }
+        return res
     }
 }

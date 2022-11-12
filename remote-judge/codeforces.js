@@ -6,6 +6,8 @@ const Deque = require("./deque")
 
 const TurndownService = require('turndown')
 const {TaskStatus} = require("../libs/judger_interfaces");
+const {warn} = require("winston");
+const {sleep} = require("./basic");
 
 const turndownService = new TurndownService()
 
@@ -278,9 +280,9 @@ class Handler {
                     throw '提交失败'
                 }
                 const submissionId = await this.getSubmissionID(contestId, isGym)
-                callback(null, submissionId, {account: this.handleOrEmail, submissionId})
+                callback.onSuccess(submissionId, {account: this.handleOrEmail, submissionId})
             } catch (e) {
-                callback(e, 0, {account: this.handleOrEmail})
+                callback.onFail(e, {account: this.handleOrEmail})
             }
         }
         this.inPolling = false
@@ -384,6 +386,20 @@ class Codeforces {
     }
     getProblemLink(problemId) {
         return this.base.getProblemLink(problemId)
+    }
+    getLogInfo() {
+        let info = ""
+        this.handlers.forEach(h => {
+            info += "account: " + h.handleOrEmail +  "\n\n tasks: [";
+            let tasks = h.deque.visitAll()
+
+            tasks.forEach((t, idx) => {
+                if(idx > 0) info += " , "
+                info += t.problemID
+            })
+            info += "]\n\n \n\n"
+        })
+        return info
     }
 }
 

@@ -62,13 +62,13 @@
                     </td>
                     <td> <%= item.problem_summary ? (item.problem_summary.time === 0 ? '---' : item.problem_summary.time) : '---' %> </td>
                     <td> <%= item.score%> </td>
-                    <td><div class="ui font-content"><%- item.problem_summary ? (item.problem_summary.summary) : '' %></div> </td>
+                    <td><div class="ui font-content left aligned"><%- item.problem_summary ? (item.problem_summary.summary) : '' %></div> </td>
                 </tr>
             <% })%>
             <tr>
                 <td colspan="6">
                     <h3 style="float: left">  比赛总结 </h3>
-                    <div class="ui font-content" style="clear: both"><%- s.contest_summary ? (s.contest_summary.summary) : '' %></div>
+                    <div class="ui font-content left aligned" style="clear: both"><%- s.contest_summary ? (s.contest_summary.summary) : '' %></div>
                 </td>
             </tr>
         <%})%>

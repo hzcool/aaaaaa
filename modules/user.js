@@ -290,3 +290,23 @@ app.post('/user/:id/edit', async (req, res) => {
     });
   }
 });
+
+
+// Ranklist
+app.get('/vj/log', async (req, res) => {
+  try {
+    let oj = syzoj.vj.Codeforces;
+    let info = {
+      Codeforces: oj.getLogInfo()
+    }
+    await syzoj.utils.markdown(info, ['Codeforces'])
+    res.render('vj_logger_info', {
+      info
+    });
+  } catch (e) {
+    syzoj.log(e);
+    res.render('error', {
+      err: e
+    });
+  }
+});

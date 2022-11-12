@@ -2,20 +2,21 @@
 const CF = require("./codeforces")
 const {parseProblemId} = require("./codeforces");
 
+records = new Map()
 class Gym {
     constructor() {
         this.base = CF.Codeforces.base
         this.handlers = CF.Codeforces.handlers
         this.select = -1
-        this.records = {}
-        setInterval(() => {
-            const keys = Object.keys(this.records)
-            if(keys.length < 500) return
-            const now = new Date().getTime()
-            keys.forEach(key => {
-                if(now - this.records[key].submitTime > 1800000) delete this.records[key]
-            })
-        }, 1000 * 3600)
+
+        // setInterval(() => {
+        //     const keys = Object.keys(records)
+        //     if(keys.length < 500) return
+        //     const now = new Date().getTime()
+        //     keys.forEach(key => {
+        //         if(now - this.records[key].submitTime > 1800000) this.records.delete(key)
+        //     })
+        // }, 1000 * 3600)
     }
 
     async getProblem(problemId) {
@@ -38,27 +39,46 @@ class Gym {
     }
 
     async getSubmissionStatus(submissionId) {
-        const r = this.records[submissionId]
-        if (!r)  throw "not found submissionId : " + submissionId
-        await this.handlers[r.idx].loginIfNotLogin()
-        const ret = await this.handlers[r.idx].getSubmissionStatus(submissionId, true)
+        if (!records.has(submissionId))  {
+            return {
+                status: 'Judgement Failed',
+                info: "not found submissionId : " + submissionId,
+                is_over: true,
+                type: 'remote',
+                score: 0,
+                time: 0,
+                memory: 0,
+            }
+        }
+        const r = records.get(submissionId)
+        let handler = this.handlers[r.idx];
+        const ret = await handler.getSubmissionStatus(submissionId, true)
         if(ret.is_over) {
-            const usage = await this.handlers[r.idx].getGymSubmissionUsage(r.gymID, submissionId)
-            ret.time = usage.time
-            ret.memory = usage.memory
-            delete this.records[submissionId]
+            try {
+                const usage = await handler.getGymSubmissionUsage(r.gymID, submissionId)
+                ret.time = usage.time
+                ret.memory = usage.memory
+            } catch (e) {}
+            records.delete(submissionId)
         }
         return ret
     }
 
     async submitCode(source, problemID, langId, callback) {
         if((++this.select) >= this.handlers.length) this.select = 0
-        const idx = this.select
-        const callbackTmp = (e, submissionId, vjInfo) => {
-            if(e === null) this.records[submissionId] = {idx,  gymID: CF.parseProblemId(problemID).contestId, submitTime: new Date().getTime()}
-            callback(e, submissionId, vjInfo)
+        const callbackTmp = {
+            idx: this.select,
+            callback: callback,
+            records: records,
+            onSuccess: async function (submissionId, vjInfo) {
+                this.records.set(submissionId, {idx: this.idx,  gymID: CF.parseProblemId(problemID).contestId, submitTime: new Date().getTime()})
+                this.callback.onSuccess(submissionId, vjInfo)
+            },
+            onFail: async function (error, vjInfo) {
+                this.callback.onFail(error, vjInfo)
+            }
         }
-        this.handlers[idx].submitCode(source, problemID, langId, callbackTmp, true)
+        this.handlers[this.select].submitCode(source, problemID, langId, callbackTmp, true)
     }
 
     getProblemLink(problemId) {

@@ -193,6 +193,23 @@ async function connect() {
 }
 module.exports.connect = connect;
 
+class Callback {
+  constructor(oj, judge_state) {
+    this.oj = oj
+    this.judge_state = judge_state
+  }
+  async onSuccess(submissionId, vjInfo) {
+    this.judge_state.vj_info = {...this.judge_state.vj_info, ...vjInfo};
+    try { await this.judge_state.save() } catch (e) {}
+    progressPusher.createTask(this.judge_state.task_id);
+    remote_judge_polling(this.judge_state, this.oj, submissionId)
+  }
+  async onFail(error, vjInfo) {
+    this.judge_state.vj_info = vjInfo
+    remote_judge_fail(this.judge_state, error)
+  }
+}
+
 module.exports.judge = async function (judge_state, problem, priority) {
   let type, param, extraData = null;
   switch (problem.type) {
@@ -217,17 +234,8 @@ module.exports.judge = async function (judge_state, problem, priority) {
         remote_judge_fail(judge_state, "不存在 remote-oj : " + info.vjName)
         return
       }
-      const callback = async (error, submissionId, vjInfo) => {
-        if(error) {
-          remote_judge_fail(judge_state, error)
-          return
-        }
-        judge_state.vj_info = {...judge_state.vj_info, ...vjInfo}
-        try { await judge_state.save() } catch (e) {}
-        progressPusher.createTask(judge_state.task_id);
-        remote_judge_polling(judge_state, oj, submissionId)
-      }
-      oj.submitCode(judge_state.code, info.problemId, syzoj.vjBasics.getLangId(info.vjName, judge_state.language), callback)
+
+      oj.submitCode(judge_state.code, info.problemId, syzoj.vjBasics.getLangId(info.vjName, judge_state.language), new Callback(oj, judge_state))
       return
     default:
       type = enums.ProblemType.Standard;
