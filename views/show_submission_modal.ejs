@@ -2,18 +2,27 @@
 
 <div class="ui modal" id="__modal" style="width: 80%;height: 84%;" >
 
-    <div class="header" id="forCode"> 代码 </div>
+
+    <div class="header" id="forCode" style="display: flex">
+        <div> 代码 </div>
+        <a style="margin-left: 5px;text-decoration:underline" > # </a>
+    </div>
 
     <div class="header" id="forList" style="display: none"> 提交列表 </div>
 
 
     <div class="header" style="display: none" id="forBoth">
-        <div  style="display: flex; align-items: center">
-            <div id="ListHeader" class="ui checkbox">
+        <div>
+            <div id="ListHeader" class="ui checkbox" style="display: flex; align-items: center">
                 <input id="ListType" type="checkbox"  onchange="__showList()">
                 <label style="font-size: 16px">我的提交</label>
+                <a style="margin-left: 5px;text-decoration:underline" > # </a>
             </div>
-            <a id="CodeHeader" href="javascript:;"  onclick="__showList()" style="font-size: 16px; display: none;text-decoration: underline" > 查看提交列表 </a>
+            <div id="CodeHeader" style="font-size: 16px; display: none;text-decoration: underline">
+                <a  href="javascript:;"  onclick="__showList()"  > 查看提交列表 </a>
+                <a id="__a" style="margin-left: 5px;text-decoration:underline" > # </a>
+            </div>
+
         </div>
     </div>
 
@@ -44,6 +53,7 @@ function __showSubmissionList(link, forSelf = false) {
     if(forSelf) {
         link += 'submitter=' + '<%= res.locals.user.username %>' + '&'
     }
+    $('#ListHeader a').attr('href', link)
     link += 'no_jump=true'
     $('#__iframe').attr('src', link);
     $('#__modal').modal('show');
@@ -66,9 +76,11 @@ function __showCode(event = undefined, link = undefined, username = undefined) {
         return;
     }
     if(__type === 0) {
-        if(username)  $('#forCode').text(username)
+        if(link !== undefined) $('#forCode a').attr('href', link);
+        if(username)  $('#forCode div').text(username)
     } else { // __type = 2
         __prepareForBothModal(false)
+        if(link !== undefined) $('#__a').attr('href', link);
     }
     $('#__modal').modal('show');
     if(link !== undefined) {
