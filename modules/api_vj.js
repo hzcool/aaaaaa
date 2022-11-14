@@ -28,3 +28,21 @@ app.get('/api/vj/oj/:name/problem/:id', async (req, res) => {
     }
 });
 
+app.get('/api/vj/flush/time_memroy/:id', async (req, res) => {
+    try {
+        if (!res.locals.user || !res.locals.user.is_admin) throw '您没有权限进行此操作。';
+        let problem = await Problem.findById(parseInt(req.params.id))
+        if(!problem) throw '题目不存在';
+        if(problem.type !== syzoj.ProblemType.Remote) throw '题目不是远程测评，无法刷新时限。';
+        const info = syzoj.vjBasics.parseSource(problem.source)
+        const oj = syzoj.vj[info.vjName]
+        if(!oj) throw '找不到远程测评服务。';
+        const p = await oj.getProblem(info.problemId)
+        problem.time_limit = p.time_limit
+        problem.memory_limit = p.memory_limit
+        await problem.save();
+        res.send({ time_limit: p.time_limit,  memory_limit: p.memory_limit})
+    } catch (e) {
+        res.send({ error: e });
+    }
+});

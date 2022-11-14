@@ -96,13 +96,18 @@
               <div class="two fields" style="margin-top: 15px">
                 <div class="field">
                   <label> 时间限制（单位: ms）</label>
-                  <input type="number" name="time_limit" value="<%= problem.time_limit %>" disabled>
+                  <input type="number" name="time_limit" id="rj-time" value="<%= problem.time_limit %>" disabled>
                 </div>
                 <div class="field">
                   <label> 内存限制（单位: MiB）</label>
-                  <input type="number" name="memory_limit" value="<%= problem.memory_limit %>" disabled>
+                  <input type="number" name="memory_limit" id="rj-memory" value="<%= problem.memory_limit %>" disabled>
                 </div>
               </div>
+              <div style="display: flex; align-items: center; justify-items: center">
+                <a class="field small ui button" id="flush_vj_time_memory" onclick="flush_vj_time_memory()"> 时限-内存刷新 </a>
+                <div id="flush_error" style="color: red;font-size: 16px;margin-left: 10px" ></div>
+              </div>
+
             </div>
 
             <div id="testdata-submit-input" style="margin-bottom: 10px;">
@@ -174,6 +179,19 @@ function checkSubmit() {
   if (!$('#file-io-output-name').val()) {
     $('#file-io-output-name').val($('#file-io-output-name').attr('placeholder'));
   }
+}
+
+function flush_vj_time_memory() {
+  $.get("/api/vj/flush/time_memroy/" +  "<%= problem.id%>", {}, (res) => {
+    console.log(res)
+      if(!res || res.error) {
+        $("#flush_error").text(res.error)
+        return
+      }
+      $("#flush_error").text('')
+      $('#rj-time').val(res.time_limit)
+      $('#rj-memory').val(res.memory_limit)
+  })
 }
 </script>
 <% include footer %>
