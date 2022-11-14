@@ -4,7 +4,6 @@ const basic = require("./basic")
 const cheerio = require("cheerio");
 const TurndownService = require('turndown')
 const turndownService = new TurndownService()
-const Deque = require("./deque")
 const iconv = require('iconv-lite')
 
 const hduStatementProcess = (statementHtml) => {
@@ -47,11 +46,12 @@ const changeToSyzOjStatus = (status) => {
 
 class HduHandler {
     constructor(username="", userpass="") {
-        this.username = username
+        this.account = username
         this.userpass = userpass
         this.req = new req.Request('http://acm.hdu.edu.cn/')
-        this.deque = new Deque()
-        this.inPolling = false
+
+        this.running_mp = new Map()
+        this.waiting_mp = new Map()
 
         this.req.addRequestBeforeFunc((opts) => opts.encoding = null)
         this.req.addRequestAfterFunc(res => {
@@ -62,12 +62,12 @@ class HduHandler {
         if(Object.keys(this.req.cookie.cookies).length === 0) {
             await this.req.doRequest({})
         }
-
     }
+
     async login() {
         await this.initCookie()
         let data = {
-            username: this.username,
+            username: this.account,
             userpass: this.userpass,
             login: 'Sign In'
         }
@@ -156,7 +156,6 @@ class HduHandler {
             else if(idx === 2) {
                 res.status =  changeToSyzOjStatus(c)
                 res.info = res.status
-                console.log(res.info)
                 res.is_over = !inJudging(c)
                 res.score = c === 'Accepted' ? 100 : 0
             }
@@ -166,7 +165,7 @@ class HduHandler {
         return res
     }
     async getSubmissionStatus(submissionId) {
-        let res = await this.getRunInfo('status.php?first=' + submissionId)
+        let res = await this.getRunInfo('status.php?first=' + submissionId + "&user=" + this.account)
         if(res.status === 'Compile Error') {
             res.compile = {
                 message: await this.getCompileErrorInfo(submissionId)
@@ -176,53 +175,45 @@ class HduHandler {
     }
     async getSubmissionID(problemId) {
         await this.loginIfNotLogin()
-        const info = await this.getRunInfo('status.php?user=' + this.username + '&pid=' + problemId)
+        const info = await this.getRunInfo('status.php?user=' + this.account + '&pid=' + problemId)
         return info.submissionId
     }
 
-    async polling() {
-
+    async handleSubmit(source, problemID, langId, callback) {
+        try { await this.loginIfNotLogin() } catch (e) {}
+        let opts = {
+            url: "submit.php?action=submit",
+            method: "POST",
+            form: {
+                check: 0,
+                _usercode: btoa(encodeURIComponent(source)),
+                problemid: problemID,
+                language: langId
+            }
+        }
         try {
-            await this.loginIfNotLogin()
+            const res = await this.req.doRequest(opts)
+            if (res.statusCode !== 302) {
+                await this.login()
+                throw '提交失败'
+            }
+            const submissionId = await this.getSubmissionID(problemID)
+            callback.onSuccess(submissionId, {account: this.account, submissionId})
         } catch (e) {
-            try {await this.login()} catch (e) {}
+            callback.onFail(e, {account: this.account})
         }
-
-        let item = undefined
-        while (item = this.deque.shift()) {
-            const {source, problemID, langId, callback} = item
-            let opts = {
-                url: "submit.php?action=submit",
-                method: "POST",
-                form: {
-                    check: 0,
-                    _usercode: btoa(encodeURIComponent(source)),
-                    problemid: problemID,
-                    language: langId
-                }
-            }
-            try {
-                await this.loginIfNotLogin()
-                const res = await this.req.doRequest(opts)
-                if (res.statusCode !== 302) {
-                    await this.login()
-                    throw '提交失败'
-                }
-                const submissionId = await this.getSubmissionID(problemID)
-                callback.onSuccess(submissionId, {account: this.username, submissionId})
-            } catch (e) {
-                callback.onFail(e, {account: this.username})
-            }
-        }
-        this.inPolling = false
+        this.running_mp.delete(problemID)
     }
 
     async submitCode(source, problemID, langId, callback){ //cb => function(err, submissionId)
-        this.deque.push({source, problemID, langId, callback})
-        if(!this.inPolling) {
-            this.inPolling = true
-            this.polling()
+        this.waiting_mp.set(problemID, (this.waiting_mp.get(problemID) || 0) + 1)
+        while (this.running_mp.has(problemID)) {
+            await basic.sleep(3000 + Math.floor(Math.random() * 5000));
         }
+        let x = this.waiting_mp.get(problemID) - 1
+        if(x === 0) this.waiting_mp.delete(problemID); else this.waiting_mp.set(problemID, x)
+        this.running_mp.set(problemID, true)
+        this.handleSubmit(source, problemID, langId, callback)
     }
 
     getProblemLink(problemId) {
@@ -249,6 +240,9 @@ class HDU {
     }
     getProblemLink(problemId) {
         return this.base.getProblemLink(problemId)
+    }
+    getLogInfo() {
+        return basic.getJudgeInfo(this.handlers)
     }
 }
 

@@ -56,7 +56,7 @@ function __showSubmissionList(link, forSelf = false) {
     $('#ListHeader a').attr('href', link)
     link += 'no_jump=true'
     $('#__iframe').attr('src', link);
-    // $('#__modal').modal('show');
+    $('#__modal').modal('show');
 }
 
 async function __prepareForBothModal(AtList = false) {
@@ -82,7 +82,7 @@ function __showCode(event = undefined, link = undefined, username = undefined) {
         __prepareForBothModal(false)
         if(link !== undefined) $('#__a').attr('href', link);
     }
-    // $('#__modal').modal('show');
+    $('#__modal').modal('show');
     if(link !== undefined) {
         if(link.indexOf('?') === -1) link += '?'; else link += '&'
         link += 'no_jump=true'
@@ -100,7 +100,4 @@ function __showList(link = undefined) {
     if(link !== undefined) __showSubmissionList(link, forSelf)
 }
 
-window['ready'] = () => {
-    $('#__modal').modal('show');
-}
 </script>

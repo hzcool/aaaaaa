@@ -205,8 +205,10 @@ class Callback {
     remote_judge_polling(this.judge_state, this.oj, submissionId)
   }
   async onFail(error, vjInfo) {
-    this.judge_state.vj_info = vjInfo
-    remote_judge_fail(this.judge_state, error)
+    try {
+      this.judge_state.vj_info = vjInfo
+      remote_judge_fail(this.judge_state, error)
+    } catch (e) {}
   }
 }
 

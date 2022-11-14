@@ -2,12 +2,9 @@ const cheerio = require("cheerio")
 const req = require("./request")
 const basic = require("./basic")
 const interfaces = require('../libs/judger_interfaces')
-const Deque = require("./deque")
 
 const TurndownService = require('turndown')
 const {TaskStatus} = require("../libs/judger_interfaces");
-const {warn} = require("winston");
-const {sleep} = require("./basic");
 
 const turndownService = new TurndownService()
 
@@ -88,11 +85,10 @@ class Handler {
     constructor(handleOrEmail="", password="") {
         this.req = new req.Request('https://codeforces.com/')
         this.xCsrfToken = ''
-        this.handleOrEmail = handleOrEmail
+        this.account = handleOrEmail
         this.password = password
-        this.deque = new Deque()
-        this.inPolling = false
-
+        this.running_mp = new Map()
+        this.waiting_mp = new Map()
 
         // 自动更新 xCsrfToken
         this.req.addRequestAfterFunc(res => {
@@ -117,7 +113,7 @@ class Handler {
     async login() {
         await this.initXCsrfToken()
         let data = {
-            handleOrEmail: this.handleOrEmail,
+            handleOrEmail: this.account,
             password: this.password,
             action: 'enter',
             csrf_token: this.xCsrfToken,
@@ -143,7 +139,7 @@ class Handler {
         const res = await this.req.doRequest(opts)
         const $ = cheerio.load(res.body)
         let submissionId = $('tr[data-submission-id]').prop("data-submission-id")
-        if(submissionId === null || submissionId === undefined || submissionId === "") throw "获取失败 submission id fail"
+        if(submissionId === null || submissionId === undefined || submissionId === "") throw "获取 submission id 失败"
         return submissionId
     }
 
@@ -249,58 +245,52 @@ class Handler {
         }
         return ret
     }
-    async polling() {
-        try {
-            await this.loginIfNotLogin()
-        } catch (e) {
-            try {await this.login()} catch (e) {}
-        }
 
-        let item = undefined
-        while (item = this.deque.shift()) {
-            const {source, problemID, langId, callback, isGym} = item
-            try {
-                const {contestId, submittedProblemIndex} =  parseProblemId(problemID)
-                let opts = {
-                    url: (isGym ? 'gym/' : "contest/") + contestId + "/submit?csrf_token=" + this.xCsrfToken,
-                    method: "POST",
-                    form: {
-                        csrf_token: this.xCsrfToken,
-                        action: "submitSolutionFormSubmitted",
-                        tabSize: 4,
-                        source: source,
-                        contestId,
-                        submittedProblemIndex, //E2
-                        programTypeId: langId, //C++20
-                    }
+    async handleSubmit(source, problemID, langId, callback, isGym) {
+        try {await this.loginIfNotLogin() } catch (e) {}
+        try {
+            const {contestId, submittedProblemIndex} =  parseProblemId(problemID)
+            let opts = {
+                url: (isGym ? 'gym/' : "contest/") + contestId + "/submit?csrf_token=" + this.xCsrfToken,
+                method: "POST",
+                form: {
+                    csrf_token: this.xCsrfToken,
+                    action: "submitSolutionFormSubmitted",
+                    tabSize: 4,
+                    source: source,
+                    contestId,
+                    submittedProblemIndex, //E2
+                    programTypeId: langId, //C++20
                 }
-                const res = await this.req.doRequest(opts)
-                if (res.statusCode !== 302) {
-                    await this.login()
-                    throw '提交失败'
-                }
-                const submissionId = await this.getSubmissionID(contestId, isGym)
-                callback.onSuccess(submissionId, {account: this.handleOrEmail, submissionId})
-            } catch (e) {
-                callback.onFail(e, {account: this.handleOrEmail})
             }
+            const res = await this.req.doRequest(opts)
+            if (res.statusCode !== 302) {
+                await this.login()
+                throw '提交失败'
+            }
+            const submissionId = await this.getSubmissionID(contestId, isGym)
+            callback.onSuccess(submissionId, {account: this.account, submissionId})
+        } catch (e) {
+            callback.onFail(e, {account: this.account})
         }
-        this.inPolling = false
+        this.running_mp.delete(problemID)
     }
 
     async submitCode(source, problemID, langId, callback, isGym = false){ //cb => function(err, submissionId)
-        this.deque.push({source, problemID, langId, callback, isGym})
-        if(!this.inPolling) {
-            this.inPolling = true
-            this.polling()
+        this.waiting_mp.set(problemID, (this.waiting_mp.get(problemID) || 0) + 1)
+        while (this.running_mp.has(problemID)) {
+            await basic.sleep(3000 + Math.floor(Math.random() * 5000));
         }
+        let x = this.waiting_mp.get(problemID) - 1
+        if(x === 0) this.waiting_mp.delete(problemID); else this.waiting_mp.set(problemID, x)
+        this.running_mp.set(problemID, true)
+        this.handleSubmit(source, problemID, langId, callback, isGym)
     }
 
     getProblemLink(problemId, isGym = false) {
         const {contestId, submittedProblemIndex} = parseProblemId(problemId)
         return this.req.baseURL + ( (isGym ? 'gym/' : "contest/") + contestId + "/problem/" +  submittedProblemIndex )
     }
-
 
     async getProblem(problemId, isGym = false) {
         const {contestId, submittedProblemIndex} = parseProblemId(problemId)
@@ -388,18 +378,7 @@ class Codeforces {
         return this.base.getProblemLink(problemId)
     }
     getLogInfo() {
-        let info = ""
-        this.handlers.forEach(h => {
-            info += "account: " + h.handleOrEmail +  "\n\n tasks: [";
-            let tasks = h.deque.visitAll()
-
-            tasks.forEach((t, idx) => {
-                if(idx > 0) info += " , "
-                info += t.problemID
-            })
-            info += "]\n\n \n\n"
-        })
-        return info
+        return basic.getJudgeInfo(this.handlers)
     }
 }
 
@@ -411,8 +390,13 @@ module.exports = {
 }
 
 // const test = async() => {
-//     // let account = basic.VjBasic.Codeforces.accounts[0]
-//     // let cf  =  new Codeforces()
+//     let account = basic.VjBasic.Codeforces.accounts[0]
+//     let cf  =  new Codeforces()
+//     try {
+//         await  cf.base.req.doRequest({url: "/ptrer"});
+//     } catch (e) {
+//         console.log(e)
+//     }
 //     // // await cf.login()
 //     // console.log(await cf.getSubmissionStatus('180031773'))
 //

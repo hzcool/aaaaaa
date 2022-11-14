@@ -49,6 +49,26 @@ module.exports = {
 
     sleep: async (time) => {
         return new Promise((resolve) => setTimeout(resolve, time));
+    },
+
+    getJudgeInfo: handlers  => {
+        let info = ""
+        handlers.forEach(h => {
+            info += "account: " + h.account +  "\n\n running tasks: [";
+            let first = true
+            h.running_mp.forEach((_, key) => {
+                if(!first) info += ", "; else first = false
+                info += key
+            })
+            first = true
+            info += "]\n\n waiting tasks: ["
+            h.waiting_mp.forEach((value, key) => {
+                if(!first) info += ", "; else first = false
+                info += key + ":" + value
+            })
+            info += "]\n\n"
+        })
+        return info
     }
 
 }
