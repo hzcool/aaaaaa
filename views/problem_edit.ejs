@@ -55,6 +55,9 @@
             </div>
           </div>
           <input type="hidden" name="type" id="type" value="<%= problem.type === 'remote' ? 'remote' : ''%>">
+          <input type="hidden" name="time_limit" id="vj_time_limit">
+          <input type="hidden" name="memory_limit" id="vj_memory_limit">
+
           <div style="margin-top: 30px"> </div>
           <label for="title">题目名称</label>
           <input class="font-content" type="text" id="title" name="title" value="<%= problem.title %>">
@@ -180,7 +183,6 @@ const remoteJudgeOnblur = () => {
       }
       if(res.tip) $("#remote-tip").text(res.tip);
 
-
       source.val($('#oj-select').val() + "-" + pid)
       $('#title').val(res.title)
       $('#description').val(res.description)
@@ -188,6 +190,8 @@ const remoteJudgeOnblur = () => {
       $('#output').val(res.output_format)
       $('#example').val(res.example)
       $('#hint').val(res.limit_and_hint)
+      $('#vj_time_limit').val(res.time_limit)
+      $('#vj_memory_limit').val(res.memory_limit)
       $('#remote-search-span').hide()
     })
   }

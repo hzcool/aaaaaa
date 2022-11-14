@@ -381,8 +381,6 @@ app.post('/problem/:id/edit', async (req, res) => {
           const p = await oj.getProblem(info.problemId)
           if(p == null) throw ""
           problem.type = syzoj.ProblemType.Remote
-          problem.time_limit = p.time_limit
-          problem.memory_limit = p.memory_limit
         } catch (e) {
           throw new ErrorMessage('找到不题目: ' + source)
         }
@@ -396,6 +394,8 @@ app.post('/problem/:id/edit', async (req, res) => {
     problem.description = req.body.description;
     problem.input_format = req.body.input_format;
     problem.output_format = req.body.output_format;
+    if(!isNaN(parseInt(req.body.time_limit))) problem.time_limit = req.body.time_limit;
+    if(!isNaN(parseInt(req.body.memory_limit)))  problem.memory_limit = req.body.memory_limit
     problem.example = req.body.example;
     problem.limit_and_hint = req.body.limit_and_hint;
     
