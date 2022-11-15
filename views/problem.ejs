@@ -21,6 +21,7 @@ if (contest) {
     display: none;
 }
 </style>
+<script src="<%- lib('blueimp-md5/2.10.0/js/md5.min.js') %>"></script>
 
 <% include monaco-editor %>
 
@@ -151,6 +152,7 @@ if (contest) {
             <div class="ui basic modal" id="modal-delete">
               <div class="ui icon header">
                 <i class="trash icon"></i>
+                  <input type="password" placeholder="请输入管理员密码" id="password_for_delete">
                 <p style="margin-top: 15px; ">删除题目</p>
               </div>
               <div class="content" style="text-align: center; ">
@@ -163,7 +165,21 @@ if (contest) {
                   <i class="remove icon"></i>
                   否
                 </div>
-                <a class="ui green ok inverted button" href-post="<%= syzoj.utils.makeUrl(['problem', problem.id, 'delete']) %>">
+                  <script>
+                      function detete_problem() {
+                          var temp = document.createElement("form");
+                          temp.action = "<%= syzoj.utils.makeUrl(['problem', problem.id, 'delete']) %>";
+                          temp.method = "post";
+                          temp.style.display = "none";
+                          var opt = document.createElement("input");
+                          opt.name = "password";
+                          opt.value = md5($('#password_for_delete').val() + "syzoj2_xxx");
+                          temp.appendChild(opt);
+                          document.body.appendChild(temp);
+                          temp.submit();
+                      }
+                  </script>
+                <a class="ui green ok inverted button" onclick="detete_problem()">
                   <i class="checkmark icon"></i>
                   是
                 </a>
