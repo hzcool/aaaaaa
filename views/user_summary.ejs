@@ -61,7 +61,7 @@
                         <%}%>
                     </td>
                     <td> <%= item.problem_summary ? (item.problem_summary.time === 0 ? '---' : item.problem_summary.time) : '---' %> </td>
-                    <td> <%= item.score%> </td>
+                    <td> <%= Math.round(item.score)%> </td>
                     <td><div class="ui font-content left aligned"><%- item.problem_summary ? (item.problem_summary.summary) : '' %></div> </td>
                 </tr>
             <% })%>

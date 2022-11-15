@@ -256,7 +256,7 @@ if (contest) {
             no_jump: true,
           });
           %>
-          <form target="__iframe" action="<%= formUrl %>" method="post" onsubmit="return submit_code()" id="submit_code" enctype="multipart/form-data">
+          <form target="__iframe" action="<%= formUrl %>" method="post" onsubmit="return false" id="submit_code" enctype="multipart/form-data">
               <% if (problem.type === 'submit-answer') { %>
               <%
               let cases = [];
@@ -368,7 +368,7 @@ if (contest) {
                 </div>
               </div>
               <div class="ui center aligned vertical segment" style="padding-bottom: 0; ">
-                  <button type="submit" class="ui labeled icon button"> <i class="ui edit icon"></i>提交</button>
+                  <button onclick="submit_code()" class="ui labeled icon button"> <i class="ui edit icon"></i>提交</button>
               </div>
             <% } %>
           </form>
@@ -395,9 +395,14 @@ if (contest) {
     $('#submit_code input[name=language]').val($('#languages-menu .item.active').data('value'));
     lastSubmitted = editor.getValue();
     $('#submit_code input[name=code]').val(editor.getValue());
-    __showCode();
+    // console.log($('#submit_code').attr("action"))
 
-    return true;
+    __showCode();
+    setTimeout(() => {
+        document.getElementById('submit_code').submit()
+    }, 10)
+
+    return false;
   }
 
   $('#languages-menu')[0].scrollTop = $('#languages-menu .active')[0].offsetTop - $('#languages-menu')[0].firstElementChild.offsetTop;

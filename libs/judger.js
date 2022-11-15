@@ -199,16 +199,18 @@ class Callback {
     this.judge_state = judge_state
   }
   async onSuccess(submissionId, vjInfo) {
-    this.judge_state.vj_info = {...this.judge_state.vj_info, ...vjInfo};
-    try { await this.judge_state.save() } catch (e) {}
-    progressPusher.createTask(this.judge_state.task_id);
-    remote_judge_polling(this.judge_state, this.oj, submissionId)
+      this.judge_state.vj_info = {...this.judge_state.vj_info, ...vjInfo};
+      try {
+        await this.judge_state.save()
+        progressPusher.createTask(this.judge_state.task_id);
+        await remote_judge_polling(this.judge_state, this.oj, submissionId)
+      } catch (e) {}
   }
   async onFail(error, vjInfo) {
     try {
       this.judge_state.vj_info = vjInfo
-      remote_judge_fail(this.judge_state, error)
-    } catch (e) {}
+      await remote_judge_fail(this.judge_state, error)
+    }catch (e) {}
   }
 }
 
@@ -233,10 +235,9 @@ module.exports.judge = async function (judge_state, problem, priority) {
       const info = syzoj.vjBasics.parseSource(problem.source)
       const oj = syzoj.vj[info.vjName]
       if(!oj) {
-        remote_judge_fail(judge_state, "不存在 remote-oj : " + info.vjName)
+        await remote_judge_fail(judge_state, "不存在 remote-oj : " + info.vjName)
         return
       }
-
       oj.submitCode(judge_state.code, info.problemId, syzoj.vjBasics.getLangId(info.vjName, judge_state.language), new Callback(oj, judge_state))
       return
     default:
@@ -311,7 +312,7 @@ const remote_judge_polling = async (judge_state, oj, submissionId) => {
     k++
     await syzoj.vjBasics.sleep(waitTime)
   }
-  remote_judge_fail(judge_state, "测评失败，请查看网络是否存在问题")
+  await remote_judge_fail(judge_state, "测评失败，请查看网络是否存在问题")
 }
 
 const remote_judge_fail = async (judge_state, error) => {
