@@ -21,7 +21,6 @@ if (contest) {
     display: none;
 }
 </style>
-<script src="<%- lib('blueimp-md5/2.10.0/js/md5.min.js') %>"></script>
 
 <% include monaco-editor %>
 
@@ -152,7 +151,7 @@ if (contest) {
             <div class="ui basic modal" id="modal-delete">
               <div class="ui icon header">
                 <i class="trash icon"></i>
-                  <input type="password" placeholder="请输入管理员密码" id="password_for_delete">
+                  <input type="password" placeholder="请输入删除密钥" id="key_for_delete">
                 <p style="margin-top: 15px; ">删除题目</p>
               </div>
               <div class="content" style="text-align: center; ">
@@ -172,8 +171,8 @@ if (contest) {
                           temp.method = "post";
                           temp.style.display = "none";
                           var opt = document.createElement("input");
-                          opt.name = "password";
-                          opt.value = md5($('#password_for_delete').val() + "syzoj2_xxx");
+                          opt.name = "key";
+                          opt.value = $('#key_for_delete').val()
                           temp.appendChild(opt);
                           document.body.appendChild(temp);
                           temp.submit();

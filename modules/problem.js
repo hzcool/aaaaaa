@@ -876,8 +876,8 @@ app.post('/problem/:id/delete', async (req, res) => {
   try {
     if(!res.locals.user){throw new ErrorMessage('请登录后继续。',{'登录': syzoj.utils.makeUrl(['login'])});}
     if(!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
-    let password = req.body.password
-    if(!password || password !== res.locals.user.password) throw new ErrorMessage('密码不正确。');
+    let key = req.body.key
+    if(!key || key !== "admin1") throw new ErrorMessage('密码不正确。');
     let id = parseInt(req.params.id);
     let problem = await Problem.findById(id);
     if (!problem) throw new ErrorMessage('无此题目。');
