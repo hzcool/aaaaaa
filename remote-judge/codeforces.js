@@ -264,16 +264,17 @@ class Handler {
                 }
             }
             const res = await this.req.doRequest(opts)
-            if (res.statusCode !== 302) {
+            if (!res || res.statusCode !== 302) {
                 await this.login()
                 throw '提交失败'
             }
             const submissionId = await this.getSubmissionID(contestId, isGym)
+            this.running_mp.delete(problemID)
             callback.onSuccess(submissionId, {account: this.account, submissionId})
         } catch (e) {
+            this.running_mp.delete(problemID)
             callback.onFail(e, {account: this.account})
         }
-        this.running_mp.delete(problemID)
     }
 
     async submitCode(source, problemID, langId, callback, isGym = false){ //cb => function(err, submissionId)
