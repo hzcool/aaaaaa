@@ -279,12 +279,16 @@ class Handler {
 
     async submitCode(source, problemID, langId, callback, isGym = false){ //cb => function(err, submissionId)
         this.waiting_mp.set(problemID, (this.waiting_mp.get(problemID) || 0) + 1)
-        while (this.running_mp.has(problemID)) {
+        let item = undefined
+        while (item = this.running_mp.get(problemID)) {
+            let now = new Date().getTime()
+            if ((now - item) >= 30000) this.running_mp.delete(problemID)
             await basic.sleep(3000 + Math.floor(Math.random() * 5000));
         }
+
         let x = this.waiting_mp.get(problemID) - 1
-        if(x === 0) this.waiting_mp.delete(problemID); else this.waiting_mp.set(problemID, x)
-        this.running_mp.set(problemID, true)
+        if(x <= 0.1) this.waiting_mp.delete(problemID); else this.waiting_mp.set(problemID, x)
+        this.running_mp.set(problemID, new Date().getTime())
         this.handleSubmit(source, problemID, langId, callback, isGym)
     }
 
@@ -389,18 +393,3 @@ module.exports = {
     examplesProcess,
     parseProblemId
 }
-
-// const test = async() => {
-//     let account = basic.VjBasic.Codeforces.accounts[0]
-//     let cf  =  new Codeforces()
-//     try {
-//         await  cf.base.req.doRequest({url: "/ptrer"});
-//     } catch (e) {
-//         console.log(e)
-//     }
-//     // // await cf.login()
-//     // console.log(await cf.getSubmissionStatus('180031773'))
-//
-// }
-//
-// test()

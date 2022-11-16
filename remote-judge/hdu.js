@@ -135,7 +135,6 @@ class HduHandler {
         return $('pre').text()
     }
     async getRunInfo(url) {
-        await this.loginIfNotLogin()
         const x = await this.req.doRequest({url})
         const $ = cheerio.load(x.body)
         let tr = $('#fixed_table table tbody').children().next()
@@ -165,7 +164,7 @@ class HduHandler {
         return res
     }
     async getSubmissionStatus(submissionId) {
-        let res = await this.getRunInfo('status.php?first=' + submissionId + "&user=" + this.account)
+        let res = await this.getRunInfo('status.php?first=' + submissionId)
         if(res.status === 'Compile Error') {
             res.compile = {
                 message: await this.getCompileErrorInfo(submissionId)
@@ -174,7 +173,6 @@ class HduHandler {
         return res
     }
     async getSubmissionID(problemId) {
-        await this.loginIfNotLogin()
         const info = await this.getRunInfo('status.php?user=' + this.account + '&pid=' + problemId)
         return info.submissionId
     }
@@ -198,6 +196,7 @@ class HduHandler {
                 throw '提交失败'
             }
             const submissionId = await this.getSubmissionID(problemID)
+            if(!submissionId || submissionId === '' || submissionId === 0) throw "获取 submission id失败"
             this.running_mp.delete(problemID)
             callback.onSuccess(submissionId, {account: this.account, submissionId})
         } catch (e) {
@@ -208,12 +207,15 @@ class HduHandler {
 
     async submitCode(source, problemID, langId, callback){ //cb => function(err, submissionId)
         this.waiting_mp.set(problemID, (this.waiting_mp.get(problemID) || 0) + 1)
-        while (this.running_mp.has(problemID)) {
+        let item = undefined
+        while (item = this.running_mp.get(problemID)) {
+            let now = new Date().getTime()
+            if ((now - item) >= 30000) this.running_mp.delete(problemID)
             await basic.sleep(3000 + Math.floor(Math.random() * 5000));
         }
         let x = this.waiting_mp.get(problemID) - 1
-        if(x === 0) this.waiting_mp.delete(problemID); else this.waiting_mp.set(problemID, x)
-        this.running_mp.set(problemID, true)
+        if(x <= 0.1) this.waiting_mp.delete(problemID); else this.waiting_mp.set(problemID, x)
+        this.running_mp.set(problemID, new Date().getTime())
         this.handleSubmit(source, problemID, langId, callback)
     }
 
@@ -252,7 +254,8 @@ module.exports = {
 }
 
 // const test = async() => {
-//     const h = new HduHandler()
-//     console.log(await h.getProblem(7260))
+//     const h = new HDU()
+//     let res = await h.base.getRunInfo('status.php?user=' + 'hdujudge9' + '&pid=' + 5119)
+//     console.log(res)
 // }
 // test()
