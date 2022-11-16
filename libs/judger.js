@@ -300,11 +300,13 @@ const remote_judge_polling = async (judge_state, oj, submissionId) => {
         await judge_state.updateRelatedInfo(false);
         return
       } else {
-        if(vjInfo !== result.info) {
-          vjInfo = result.info
-          progressPusher.updateProgress(judge_state.task_id, result)
-          waitTime = 2000
-        } else waitTime = Math.min(waitTime + 2000, 16000)
+        if (updateCompileStatus) {
+          if(vjInfo !== result.info) {
+            vjInfo = result.info
+            progressPusher.updateProgress(judge_state.task_id, result)
+            waitTime = 2000
+          } else waitTime = Math.min(waitTime + 2000, 16000)
+        }
       }
     } catch (e) {
       winston.warn(`remote-judge task error : ${e}`)

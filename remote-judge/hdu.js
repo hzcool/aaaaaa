@@ -28,12 +28,12 @@ const hduStatusMapSyzOjStatus = {
     'Compilation Error': 'Compile Error',
     'Running': 'Running',
     'Queuing': 'Waiting',
-    'Pending': 'Running',
-    'Compiling': 'Running',
+    'Pending': 'Waiting',
+    'Compiling': 'Waiting',
 }
 
 const inJudging= status => {
-    return status.indexOf("Running") !== -1 || status.indexOf("Que") !== -1 || status.indexOf("Pending") !== -1
+    return status.indexOf("Running") !== -1 || status.indexOf("Que") !== -1 || status.indexOf("Pending") !== -1 || status.indexOf("Compiling") !== -1
 }
 const changeToSyzOjStatus = (status) => {
     for(let key in hduStatusMapSyzOjStatus) {
