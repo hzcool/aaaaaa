@@ -148,6 +148,7 @@ class HduHandler {
             score: 0,
             time: 0,
             memory: 0,
+            author: '',
         }
         tr.children().each((idx, item) => {
             let c = $(item).text()
@@ -160,11 +161,13 @@ class HduHandler {
             }
             else if(idx === 4) res.time = parseInt(c.match(/\d+/g)[0])
             else if(idx === 5) res.memory = parseInt(c.match(/\d+/g)[0])
+            else if(idx === 8) res.author = c
         })
         return res
     }
     async getSubmissionStatus(submissionId) {
         let res = await this.getRunInfo('status.php?first=' + submissionId)
+        if(!res || res.submissionId !== submissionId) throw "获取 submission status 失败"
         if(res.status === 'Compile Error') {
             res.compile = {
                 message: await this.getCompileErrorInfo(submissionId)
@@ -174,6 +177,7 @@ class HduHandler {
     }
     async getSubmissionID(problemId) {
         const info = await this.getRunInfo('status.php?user=' + this.account + '&pid=' + problemId)
+        if(info.author !== this.account) return 0;
         return info.submissionId
     }
 
@@ -191,12 +195,12 @@ class HduHandler {
         }
         try {
             const res = await this.req.doRequest(opts)
-            if (!res || res.statusCode !== 302) {
+            if (!res || res.statusCode !== 302 || res.headers.location !== 'status.php') {
                 await this.login()
                 throw '提交失败'
             }
             const submissionId = await this.getSubmissionID(problemID)
-            if(!submissionId || submissionId === '' || submissionId === 0) throw "获取 submission id失败"
+            if(submissionId === 0) throw "获取 submission id失败"
             this.running_mp.delete(problemID)
             callback.onSuccess(submissionId, {account: this.account, submissionId})
         } catch (e) {
@@ -252,10 +256,3 @@ class HDU {
 module.exports = {
     HDU: new HDU(),
 }
-
-// const test = async() => {
-//     const h = new HDU()
-//     let res = await h.base.getRunInfo('status.php?user=' + 'hdujudge9' + '&pid=' + 5119)
-//     console.log(res)
-// }
-// test()
