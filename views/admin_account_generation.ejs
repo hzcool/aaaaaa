@@ -1,0 +1,134 @@
+<%
+this.adminPage = 'account_generation';
+%>
+<% include admin_header %>
+
+<div class="ui form">
+    <div class="ui fluid input inline field" >
+        <label style="line-height: 37.8px; font-weight: bold; ">用户名前缀</label>
+        <input type="text" id="prefix" placeholder="nflser_">
+    </div>
+
+    <div class="ui fluid input inline field">
+        <label style="line-height: 37.8px; font-weight: bold; ">生成数量</label>
+        <input type="number" id="num" value="10">
+    </div>
+
+    <div class="ui fluid input inline field">
+        <label style="line-height: 37.8px; font-weight: bold; "> Group ID</label>
+        <input type="text" id="group_id" value="0">
+    </div>
+
+    <div class="ui fluid input inline field">
+        <label style="line-height: 37.8px; font-weight: bold; "> 生成密码的长度</label>
+        <input type="number" id="password_length" value="8">
+    </div>
+
+    <div>
+        <button type="button" class="ui labeled icon button" onclick="generate()"><i class="ui edit icon"></i>生成账号列表</button>
+    </div>
+
+    <div id="account_list" style="margin-top: 20px;display: none">
+        <table class="ui aligned table celled">
+            <thead>
+                <tr>
+                    <th class="one wide">用户名</th>
+                    <th class="one wide">密码</th>
+                    <th class="one wide">Group ID</th>
+                    <th class="one wide">昵称</th>
+                </tr>
+
+            </thead>
+
+            <tbody id="tbody">
+
+            </tbody>
+        </table>
+
+
+        <div style="text-align: center; margin-top: 20px">
+            <button class="ui blue labeled icon button" onclick="submit()"><i class="ui edit icon"></i>提交</button>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<script>
+    function random_str(len = 8) {
+        let chars =
+            "ABCDEFGHIJKMNPQRSTUVWXYZabcdefghijkmnprstwxyz0123456789".split("");
+        let s = "";
+        for (let i = 0; i < len; i++) {
+            s += chars[Math.floor(Math.random() * chars.length)];
+        }
+        return s
+    }
+
+    function generate() {
+        let num = $('#num').val()
+        if(!num || num <= 0 || num >= 1000) {
+            alert("生成账号的数量不能为 0 且不超过 1000")
+            return
+        }
+
+        let group_id = $('#group_id').val()
+        if(!group_id || group_id === '') {
+            alert("请输入 Group ID")
+            return
+        }
+
+        let password_length = $('#password_length').val()
+        if(password_length <= 0 ||  password_length > 16) {
+            alert("密码长度不能为空或者过长(>16)")
+            return
+        }
+
+        let prefix = $('#prefix').val()
+
+        $('#account_list').show()
+
+        let $tbody = $('#tbody')
+        $tbody.empty()
+
+        for(let i = 0; i < num; ++i) {
+            let $tr = $("<tr></tr>")
+            let td0 = $("<td></td>").append($("<input>").attr("id", "username_" + i).val(prefix + ("000" + (i + 1)).substr(-3)))
+            let td1 = $("<td></td>").append($("<input>").attr("id", "password_" + i).val(random_str(password_length)))
+            let td2 = $("<td></td>").append($("<input>").attr("id", "group_id_" + i).val(group_id))
+            let td3 = $("<td></td>").append($("<input>").attr("id", "nickname_" + i).val("备用账号"))
+            $tr.append(td0).append(td1).append(td2).append(td3)
+            $tbody.append($tr)
+        }
+    }
+
+    function submit() {
+        let accounts = []
+        let num = $('#num').val()
+        for(let i = 0; i < num; ++i) {
+            accounts.push({
+                username: $("#username_" + i).val(),
+                password: $("#password_" + i).val(),
+                group_id: $("#group_id_" + i).val(),
+                nickname: $("#nickname_" + i).val(),
+            })
+        }
+        $.post("/admin/account_generation", {accounts}, (res, status, opts) => {
+            if(status === "success") {
+                let url = window.URL.createObjectURL(new Blob([res]))
+                let disposition = opts.getResponseHeader("Content-Disposition")
+                const filename = disposition.split("filename=")[1].replaceAll("\"", "")
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = filename;
+                a.click();
+                window.URL.revokeObjectURL(url);
+                alert("创建成功")
+            }
+        });
+    }
+</script>
+
+<% include admin_footer %>

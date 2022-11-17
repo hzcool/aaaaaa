@@ -509,3 +509,55 @@ app.get('/admin/serviceID', async (req, res) => {
     })
   }
 });
+
+app.get('/admin/account_generation', async (req, res) => {
+  try {
+    if (!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
+
+    res.render('admin_account_generation', {})
+  } catch (e) {
+    syzoj.log(e);
+    res.render('error', {
+      err: e
+    })
+  }
+});
+
+const fs = require("fs")
+app.post('/admin/account_generation', async (req, res) => {
+  try {
+    if (!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
+
+    let accounts = req.body.accounts
+    if(!accounts || accounts.length <= 0)  throw new ErrorMessage('需要生成的账号不能为空 。');
+
+
+    // for(let account of accounts) {
+    //    let user = await User.create({
+    //      username: account.username,
+    //      nickname: account.nickname,
+    //      password: syzoj.utils.md5(account.password),
+    //      group_id: account.group_id,
+    //      rating: syzoj.config.default.user.rating,
+    //      is_show: syzoj.config.default.user.show,
+    //      register_time: parseInt((new Date()).getTime() / 1000)
+    //    })
+    //   try {
+    //     await user.save();
+    //     account.result = "注册成功"
+    //   }catch (e) {
+    //     account.result = "注册失败"
+    //   }
+    // }
+
+    let path = syzoj.utils.resolvePath(syzoj.config.upload_dir, "tmp", "result.txt")
+    await fs.writeFileSync(path, JSON.stringify(accounts, null, 2))
+    res.download(path, "result.txt")
+
+  } catch (e) {
+    syzoj.log(e);
+    res.render('error', {
+      err: e
+    })
+  }
+});
