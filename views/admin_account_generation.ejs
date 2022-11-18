@@ -4,44 +4,55 @@ this.adminPage = 'account_generation';
 <% include admin_header %>
 
 <div class="ui form">
-    <div class="ui fluid input inline field" >
+    <div >
         <label style="line-height: 37.8px; font-weight: bold; ">用户名前缀</label>
         <input type="text" id="prefix" placeholder="nflser_">
     </div>
 
-    <div class="ui fluid input inline field">
+    <div style="margin-top: 10px">
         <label style="line-height: 37.8px; font-weight: bold; ">生成数量</label>
         <input type="number" id="num" value="10">
     </div>
 
-    <div class="ui fluid input inline field">
+    <div style="margin-top: 10px">
         <label style="line-height: 37.8px; font-weight: bold; "> Group ID</label>
         <input type="text" id="group_id" value="0">
     </div>
 
-    <div class="ui fluid input inline field">
+    <div style="margin-top: 10px">
         <label style="line-height: 37.8px; font-weight: bold; "> 生成密码的长度</label>
-        <input type="number" id="password_length" value="8">
+        <input type="number" id="password_length" value="10">
     </div>
 
-    <div>
+    <div style="margin-top: 10px">
+        <label style="line-height: 37.8px; font-weight: bold; "> 昵 称 </label>
+        <textarea id="nickname_list" rows="10"></textarea>
+    </div>
+
+    <div style="margin-top: 20px">
         <button type="button" class="ui labeled icon button" onclick="generate()"><i class="ui edit icon"></i>生成账号列表</button>
     </div>
 
     <div id="account_list" style="margin-top: 20px;display: none">
+        <div style="text-align: center; color: red"> 生成信息 </div>
+
+        <div style="margin-top: 10px">
+            <label style="line-height: 37.8px; font-weight: bold; "> 密码生成列表 </label>
+            <textarea id="password_list"  rows="10"></textarea>
+        </div>
+
+
         <table class="ui aligned table celled">
             <thead>
                 <tr>
                     <th class="one wide">用户名</th>
                     <th class="one wide">密码</th>
                     <th class="one wide">Group ID</th>
-                    <th class="one wide">昵称</th>
+                    <th class="one wide">昵称列表</th>
+                    <th class="one wide">注册结果</th>
                 </tr>
-
             </thead>
-
             <tbody id="tbody">
-
             </tbody>
         </table>
 
@@ -55,6 +66,7 @@ this.adminPage = 'account_generation';
 
 </div>
 
+<script src="<%- lib('blueimp-md5/2.10.0/js/md5.min.js') %>"></script>
 
 <script>
     function random_str(len = 8) {
@@ -86,6 +98,12 @@ this.adminPage = 'account_generation';
             return
         }
 
+        let nickname_list = $('#nickname_list').val().match(/[^\n]+/g)
+        if(!nickname_list) nickname_list = [];
+        nickname_list = nickname_list.map(item => item.trim())
+
+        let password_list = ''
+
         let prefix = $('#prefix').val()
 
         $('#account_list').show()
@@ -94,14 +112,19 @@ this.adminPage = 'account_generation';
         $tbody.empty()
 
         for(let i = 0; i < num; ++i) {
+            let pwd = random_str(password_length)
+            password_list += pwd + "\n"
             let $tr = $("<tr></tr>")
             let td0 = $("<td></td>").append($("<input>").attr("id", "username_" + i).val(prefix + ("000" + (i + 1)).substr(-3)))
-            let td1 = $("<td></td>").append($("<input>").attr("id", "password_" + i).val(random_str(password_length)))
+            let td1 = $("<td></td>").append($("<input>").attr("id", "password_" + i).val(pwd))
             let td2 = $("<td></td>").append($("<input>").attr("id", "group_id_" + i).val(group_id))
-            let td3 = $("<td></td>").append($("<input>").attr("id", "nickname_" + i).val("备用账号"))
-            $tr.append(td0).append(td1).append(td2).append(td3)
+            let td3 = $("<td></td>").append($("<input>").attr("id", "nickname_" + i).val(i < nickname_list.length ? nickname_list[i] : '备用账号' ))
+            let td4 = $("<td></td>").append($("<div></div>").attr("id", "result_" + i).text("尚未提交"))
+            $tr.append(td0).append(td1).append(td2).append(td3).append(td4)
             $tbody.append($tr)
         }
+
+        $('#password_list').val(password_list)
     }
 
     function submit() {
@@ -110,22 +133,20 @@ this.adminPage = 'account_generation';
         for(let i = 0; i < num; ++i) {
             accounts.push({
                 username: $("#username_" + i).val(),
-                password: $("#password_" + i).val(),
+                password: md5($("#password_" + i).val() + "syzoj2_xxx"),
                 group_id: $("#group_id_" + i).val(),
                 nickname: $("#nickname_" + i).val(),
             })
         }
-        $.post("/admin/account_generation", {accounts}, (res, status, opts) => {
+        $.post("/admin/account_generation", {accounts}, (res, status) => {
             if(status === "success") {
-                let url = window.URL.createObjectURL(new Blob([res]))
-                let disposition = opts.getResponseHeader("Content-Disposition")
-                const filename = disposition.split("filename=")[1].replaceAll("\"", "")
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = filename;
-                a.click();
-                window.URL.revokeObjectURL(url);
-                alert("创建成功")
+                res.forEach((item, idx) => {
+                    if(item.result.startsWith("YES")) {
+                        $('#result_' + idx).css("color", "green").text("注册成功")
+                    } else {
+                        $('#result_' + idx).css("color", "red").text("注册失败， error：" + item.result.split("error=")[1])
+                    }
+                })
             }
         });
     }

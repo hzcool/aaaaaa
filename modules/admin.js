@@ -532,28 +532,24 @@ app.post('/admin/account_generation', async (req, res) => {
     if(!accounts || accounts.length <= 0)  throw new ErrorMessage('需要生成的账号不能为空 。');
 
 
-    // for(let account of accounts) {
-    //    let user = await User.create({
-    //      username: account.username,
-    //      nickname: account.nickname,
-    //      password: syzoj.utils.md5(account.password),
-    //      group_id: account.group_id,
-    //      rating: syzoj.config.default.user.rating,
-    //      is_show: syzoj.config.default.user.show,
-    //      register_time: parseInt((new Date()).getTime() / 1000)
-    //    })
-    //   try {
-    //     await user.save();
-    //     account.result = "注册成功"
-    //   }catch (e) {
-    //     account.result = "注册失败"
-    //   }
-    // }
-
-    let path = syzoj.utils.resolvePath(syzoj.config.upload_dir, "tmp", "result.txt")
-    await fs.writeFileSync(path, JSON.stringify(accounts, null, 2))
-    res.download(path, "result.txt")
-
+    for(let account of accounts) {
+       let user = await User.create({
+         username: account.username,
+         nickname: account.nickname,
+         password: account.password,
+         group_id: account.group_id,
+         rating: syzoj.config.default.user.rating,
+         is_show: syzoj.config.default.user.show,
+         register_time: parseInt((new Date()).getTime() / 1000)
+       })
+      try {
+        await user.save();
+        account.result = "YES"
+      }catch (e) {
+        account.result = "NO , error=" + e
+      }
+    }
+    res.send(accounts)
   } catch (e) {
     syzoj.log(e);
     res.render('error', {
