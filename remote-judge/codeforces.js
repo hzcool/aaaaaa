@@ -6,6 +6,11 @@ const interfaces = require('../libs/judger_interfaces')
 const TurndownService = require('turndown')
 const {TaskStatus} = require("../libs/judger_interfaces");
 
+
+const findChrome = require("chrome-finder")
+const puppeteer = require('puppeteer-core');
+const {sleep} = require("./basic");
+
 const turndownService = new TurndownService()
 
 const statementProcess = (statementHtml) => {
@@ -80,6 +85,17 @@ const changeToSyzOjStatus = (status) => {
     }
     return 'Runtime Error'
 }
+const tta = (_39ce7) => {
+    let _tta = 0;
+    for (let c = 0; c < _39ce7.length; c++) {
+        _tta = (_tta + (c + 1) * (c + 2) * _39ce7.charCodeAt(c)) % 1009;
+        if (c % 3 === 0) _tta++;
+        if (c % 2 === 0) _tta *= 2;
+        if (c > 0) _tta -= Math.floor(_39ce7.charCodeAt(Math.floor(c / 2)) / 2) * (_tta % 5);
+        _tta = ((_tta % 1009) + 1009) % 1009;
+    }
+    return _tta;
+}
 
 class Handler {
     constructor(handleOrEmail="", password="") {
@@ -89,67 +105,161 @@ class Handler {
         this.password = password
         this.running_mp = new Map()
         this.waiting_mp = new Map()
+        this.puppeteer = null
+        if(handleOrEmail !== '') this.puppeteerLogin()
+        // this.ensureLogin()
 
         // 自动更新 xCsrfToken
-        this.req.addRequestAfterFunc(res => {
-            if (res.body && res.body !== '') {
-                if(this.xCsrfToken !== '') return
-                const $ = cheerio.load(res.body)
-                let xCsrfToken = $('meta[name="X-Csrf-Token"]').prop('content')
-                if (xCsrfToken && xCsrfToken !== '') this.xCsrfToken = xCsrfToken
+        // this.req.addRequestAfterFunc(res => {
+        //     if (res.data && res.data !== '' && typeof(res.data)=='string') {
+        //         if(this.xCsrfToken !== '') return
+        //         const $ = cheerio.load(res.data)
+        //         let xCsrfToken = $('meta[name="X-Csrf-Token"]').prop('content')
+        //         console.log(xCsrfToken)
+        //         if (xCsrfToken && xCsrfToken !== '') this.xCsrfToken = xCsrfToken
+        //     }
+        // })
+    }
+
+
+
+    async ensureBrowser() {
+        if (this.puppeteer) return true;
+        try {
+            const executablePath = findChrome();
+            if(!executablePath || executablePath === '') throw "未找到chrome 路径"
+            this.puppeteer = await puppeteer.launch({
+                headless: true,
+                executablePath,
+                timeout: 15000,
+                args: [            //启动 Chrome 的参数，详见上文中的介绍
+                    '–no-sandbox',
+                    '–disable-gpu',
+                    '–disable-dev-shm-usage',
+                    '–disable-setuid-sandbox',
+                    '–no-first-run',
+                    '–no-zygote'
+                ],
+            })
+        }catch (e) {
+            console.log(`打开浏览器失败, ${e}`)
+            return false
+        }
+        return true
+    }
+
+
+    async getPage() {
+        const page = await this.puppeteer.newPage();
+        let cookies = this.req.cookie.cookies
+        for (const name in cookies) {
+            const value = cookies[name]
+            await page.setCookie({ name, value, domain: 'codeforces.com' });
+        }
+        return page;
+    }
+
+    async clearPage(page) {
+        let cookies = await page.cookies();
+        while (!cookies.find((i) => i.name === 'evercookie_etag').value) {
+            await sleep(1000);
+            cookies = await page.cookies();
+        }
+        cookies.forEach((i) => this.req.cookie.set_cookie_item(i.name, i.value));
+        await page.close();
+    }
+
+
+    async getCsrfToken(url = "enter") {
+        const { text } = await this.req.super_agent_request({url});
+        const $ = cheerio.load(text)
+        let xCsrfToken = $('meta[name="X-Csrf-Token"]').prop('content')
+        if (!xCsrfToken) throw "no X-Csrf-Token"
+        const ftaa = this.req.cookie.get_cookie_value('70a7c28f3de')
+        const bfaa = /_bfaa = "(.{32})"/.exec(text)?.[1] || this.req.cookie.get_cookie_value('raa') || this.req.cookie.get_cookie_value('bfaa');
+        return [xCsrfToken, ftaa, bfaa];
+    }
+
+    async isLoggedIn() {
+        try {
+            let {text} = await this.req.super_agent_request({url: "/enter"})
+            if (text.includes('Login into Codeforces')) return false;
+            if(text.length < 1000 && text.includes('Redirecting...')) return false;
+            const $ = cheerio.load(text)
+            this.xCsrfToken = $('meta[name="X-Csrf-Token"]').prop('content')
+            return true
+        } catch (e) {
+            return false
+        }
+    }
+
+    async puppeteerLogin() {
+        try {
+            await this.ensureBrowser();
+            if (!this.puppeteer) return false;
+            const page = await this.puppeteer.newPage();
+            await page.goto(this.req.baseURL + 'enter', { waitUntil: 'networkidle2' });
+            const html = await page.content();
+            if (html.includes("Login into Codeforces")) {
+                await page.type('#handleOrEmail', this.account);
+                await page.type('#password', this.password);
+                await page.click("#remember")
+                await page.click("input[type=submit]")
+                await page.waitForNavigation({waitUntil:"domcontentloaded"})
             }
-        })
-    }
-
-    async initXCsrfToken() {
-        if (this.xCsrfToken !== '') return
-        let opts = {
-            url: "enter",
-            method: 'GET',
+            await this.clearPage(page);
+            try {this.puppeteer.close();} catch (e) {
+                console.log(`关闭失败 : ${e}`)
+            }
+            console.log(`${this.account} 登录 CodeForces 成功`)
+            return true;
+        } catch (e) {
+            return false
         }
-        await this.req.doRequest(opts)
     }
 
-    async login() {
-        await this.initXCsrfToken()
-        let data = {
-            handleOrEmail: this.account,
-            password: this.password,
-            action: 'enter',
-            csrf_token: this.xCsrfToken,
-            remember: "on"
+    async normalLogin() {
+        try {
+            const [xCsrfToken, ftaa, bfaa] = await this.getCsrfToken();
+            let data = {
+                csrf_token: xCsrfToken,
+                action: 'enter',
+                ftaa,
+                bfaa,
+                handleOrEmail: this.account,
+                password: this.password,
+                remember: 'on',
+            }
+            const { text } = await this.req.super_agent_request({
+                url: "enter",
+                method: 'POST',
+                data
+            })
+            if(text.includes('Login into Codeforces')) return false;
+            if(text.length < 1000 && text.includes('Redirecting...')) return false;
+            const $ = cheerio.load(text)
+            this.xCsrfToken = $('meta[name="X-Csrf-Token"]').prop('content')
+            return true
+        } catch (e) {
+            return false
         }
-        let opts = {
-            url: "enter",
-            method: 'POST',
-            form: data
+    }
+
+    async ensureLogin() {
+        try {
+            if(await this.isLoggedIn()) return true
+            else if(await this.normalLogin()) return true
+            await this.puppeteerLogin()
+            return await this.isLoggedIn()
+        } catch (e) {
+            return false
         }
-        await this.req.doRequest(opts)
     }
-
-    async loginIfNotLogin() {
-        if (!this.req.cookie.cookies.hasOwnProperty("X-User-Sha1") || this.xCsrfToken === '') await this.login()
-    }
-
-    // 获取 html 第一份代码的 id
-    async getSubmissionID(contestId, isGym = false) {
-        let opts = {
-            url: (isGym ? 'gym/' : "contest/") + contestId + "/my",
-        }
-        const res = await this.req.doRequest(opts)
-        const $ = cheerio.load(res.body)
-        let submissionId = $('tr[data-submission-id]').prop("data-submission-id")
-        if(submissionId === null || submissionId === undefined || submissionId === "") throw "获取 submission id 失败"
-        return submissionId
-    }
-
 
     async getGymSubmissionUsage(gymId ,submissionId) {
-        let opts = {
-            url: 'gym/' + gymId + '/submission/' + submissionId,
-        }
-        const res = await this.req.doRequest(opts)
-        const $ = cheerio.load(res.body)
+        let opts = { url: 'gym/' + gymId + '/submission/' + submissionId}
+        const {text} = await this.req.super_agent_request(opts)
+        const $ = cheerio.load(text)
         const tr = cheerio.load($('div[class="datatable"] table tr').get(1))
         // const verdict = tr(tr('td').get(4)).text().trim()
         const time = tr(tr('td').get(5)).text().trim().split(' ')[0]
@@ -161,14 +271,9 @@ class Handler {
     }
 
 
-
     async getGymProblemSetInfo(gymId) {
-        let opts = {
-            url: 'gym/' + gymId,
-            method: 'GET'
-        }
-        const res = await this.req.doRequest(opts)
-        const $ = cheerio.load(res.body)
+        const {text} = await this.req.super_agent_request({url: 'gym/' + gymId})
+        const $ = cheerio.load(text)
         const ret = []
         $($('table[class="problems"] tr')).each((i, item) => {
             if(i === 0) return
@@ -184,16 +289,17 @@ class Handler {
     }
 
     async getSubmissionStatus(submissionId, isGym = false) {
+        await this.ensureLogin()
         let opts = {
             url: 'data/submitSource',
             method: 'POST',
-            form: {
+            data: {
                 submissionId,
                 csrf_token: this.xCsrfToken,
             }
         }
-        const res = await this.req.doRequest(opts)
-        const result = JSON.parse(res.body)
+        const {text} = await this.req.super_agent_request(opts)
+        const result = JSON.parse(text)
         const verdict = cheerio.load(result['verdict']).text().trim()
         if(!verdict || verdict === '') throw "获取submission status 失败"
         const is_over = !inJudging(verdict)
@@ -247,33 +353,40 @@ class Handler {
     }
 
     async handleSubmit(source, problemID, langId, callback, isGym) {
-        try {await this.loginIfNotLogin() } catch (e) {}
         try {
+            if (!(await this.ensureLogin())) throw "无法登录"
             const {contestId, submittedProblemIndex} =  parseProblemId(problemID)
+            let url = (isGym ? 'gym/' : "contest/") + contestId + '/submit'
+            // const [xCsrfToken, ftaa, bfaa] = await this.getCsrfToken(url)
+            // this.xCsrfToken = xCsrfToken
             let opts = {
-                url: (isGym ? 'gym/' : "contest/") + contestId + "/submit?csrf_token=" + this.xCsrfToken,
+                url: url + `?csrf_token=${this.xCsrfToken}`,
                 method: "POST",
-                form: {
+                data: {
                     csrf_token: this.xCsrfToken,
                     action: "submitSolutionFormSubmitted",
                     tabSize: 4,
-                    source: source,
+                    source,
+                    sourceFile: "",
+                    // ftaa,
+                    // bfaa,
+                    // _tta: tta(this.req.cookie.get_cookie_value('39ce7')),
                     contestId,
                     submittedProblemIndex, //E2
                     programTypeId: langId, //C++20
                 }
             }
-            const res = await this.req.doRequest(opts)
-            if (!res || res.statusCode !== 302) {
-                await this.login()
-                throw '提交失败'
-            }
-            const submissionId = await this.getSubmissionID(contestId, isGym)
-            this.running_mp.delete(problemID)
-            callback.onSuccess(submissionId, {account: this.account, submissionId})
+            const res = await this.req.super_agent_request(opts)
+            if(res.status === 200 && res.redirects.length > 0 && res.redirects[0].endsWith('/my') ) {
+                const $ = cheerio.load(res.text)
+                let submissionId = $('tr[data-submission-id]').prop("data-submission-id")
+                if (!submissionId || submissionId === '') throw "获取submissionID失败"
+                callback.onSuccess(submissionId, {account: this.account, submissionId})
+            } else throw "提交失败"
         } catch (e) {
-            this.running_mp.delete(problemID)
             callback.onFail(e, {account: this.account})
+        } finally{
+            this.running_mp.delete(problemID)
         }
     }
 
@@ -289,7 +402,7 @@ class Handler {
         let x = this.waiting_mp.get(problemID) - 1
         if(x <= 0.1) this.waiting_mp.delete(problemID); else this.waiting_mp.set(problemID, x)
         this.running_mp.set(problemID, new Date().getTime())
-        this.handleSubmit(source, problemID, langId, callback, isGym)
+        await this.handleSubmit(source, problemID, langId, callback, isGym)
     }
 
     getProblemLink(problemId, isGym = false) {
@@ -303,9 +416,8 @@ class Handler {
         let opts = {
             url: (isGym ? 'gym/' : "contest/") + contestId + "/problem/" +  submittedProblemIndex,
         }
-        const res = await this.req.doRequest(opts)
-        const $ = cheerio.load(res.body)
-
+        const {text} = await this.req.super_agent_request(opts)
+        const $ = cheerio.load(text)
         try {
             const maincontent = cheerio.load($('div[class="problem-statement"]').html())
             const title = maincontent('div[class="title"]').eq(0).html().split(". ")[1]
@@ -365,9 +477,9 @@ class Handler {
 
 class Codeforces {
     constructor() {
-        this.base = new Handler()
         this.handlers = basic.VjBasic.Codeforces.accounts.map(account => new Handler(account.handleOrEmail, account.password))
         this.select = -1
+        this.base = this.handlers[0]
     }
     async getProblem(problemId) {
         return await this.base.getProblem(problemId)

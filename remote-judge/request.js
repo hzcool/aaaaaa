@@ -5,7 +5,7 @@ const winston = require('winston')
 const retry = require('async-retry')
 const cookie = require("cookie")
 const request = require('request')
-
+const superagent = require("superagent")
 
 
 class Cookie {
@@ -17,29 +17,41 @@ class Cookie {
     parse_cookie_str(cookie_str) {
         const key = cookie_str.substring(0, cookie_str.indexOf('='))
         const object = cookie.parse(cookie_str)
-        if(object.Expires) object.Expires = new Date(object.Expires)
-        else if(object["Max-Age"]) object.Expires = new Date(Date.now() + parseInt(object["Max-Age"]) * 1000)
-        this.cookies[key] = object
+        this.cookies[key] = object[key]
     }
 
     parse_cookie_arr(cookies) {
         cookies.forEach(c => this.parse_cookie_str(c))
     }
 
+
+    set_cookie_item(key, val) {
+        this.cookies[key] = val
+    }
+
+    get_cookie_arr() {
+        let res = []
+        for(let key in this.cookies) {
+            res.push(`${key}=${this.cookies[key]}`)
+        }
+        return res
+    }
+
+    get_cookie_value(key) {
+        return this.cookies[key]
+    }
+
     get_cookie_str() {
         let cookie_str = ""
-        const now = new Date()
         Object.keys(this.cookies).forEach(key => {
-            const c = this.cookies[key]
-            if(c.Expires && c.Expires < now) {
-                delete this.cookies[key]
-            } else {
-                if(cookie_str !== "") cookie_str += "; "
-                cookie_str += key + "=" + c[key]
-            }
+            let val = this.cookies[key]
+            if(cookie_str !== "") cookie_str += "; "
+            cookie_str += key + "=" + val
         })
         return cookie_str
     }
+
+
 }
 
 
@@ -47,16 +59,16 @@ class Request {
     constructor(baseURL) {
         this.baseURL = baseURL
         if(this.baseURL[this.baseURL.length - 1] !== '/') this.baseURL += '/'
-        this.userAgent = `Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.56 Safari/537.36 Edg/100.0.1185.23`
+        this.userAgent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 Edg/108.0.1462.15"
         this.cookie = new Cookie()
 
         // 自动带上cookie 和 user-agent
         this.doRequestBeforeList = [(opts) => {
+            // if(!opts.maxRedirects) opts.maxRedirects = 0
             if (opts.headers === undefined) opts.headers = {}
 
             if (opts.headers.cookie === undefined) {
-                let c = this.cookie.get_cookie_str()
-                if (c !== "") opts.headers.cookie = c
+                opts.headers.cookie= this.cookie.get_cookie_str()
             }
 
             if (opts.headers['User-Agent'] === undefined) {
@@ -88,26 +100,55 @@ class Request {
         this.doRequestAfterList.push(func)
     }
 
+
+    async super_agent_request(opts) {
+        this.doRequestBeforeList.forEach(func => func(opts))
+        // console.log(opts)
+        return await new Promise((resolve, reject) => {
+            if(opts.method && opts.method.toUpperCase() === "POST") {
+                superagent.post(opts.url)
+                    .type('form')
+                    .set("Cookie", opts.headers.cookie)
+                    .send(opts.data)
+                    .end((err, res) => {
+                        if(err) {
+                            reject(err)
+                        } else {
+                            this.doRequestAfterList.forEach(func => func(res))
+                            resolve(res)
+                        }
+                    })
+            } else {
+                superagent.get(opts.url)
+                    .set("Cookie", opts.headers.cookie)
+                    .end((err, res) => {
+                        if(err) {
+                            reject(err)
+                        } else {
+                            this.doRequestAfterList.forEach(func => func(res))
+                            resolve(res)
+                        }
+                    })
+            }
+        })
+    }
+
     async doRequest(opts) {
         this.doRequestBeforeList.forEach(func => func(opts))
-        return retry(async () => await new Promise((resolve, reject) => {
-            request(opts, (e, r) => {
-                if(!e) {
-                    if(r.statusCode >= 400) {
-                        winston.error(`request fail, statusCode ${r.statusCode}`)
-                        if(r.statusCode === 404 || r.statusCode === 408 || r.statusCode >= 500) {
-                            reject(-1)
-                            return
-                        }
+        return await new Promise((resolve, reject) => {
+            try {
+                request(opts, (e, r) => {
+                    console.log(r.statusCode)
+                    if(e) reject(e)
+                    else {
+                        this.doRequestAfterList.forEach(func => func(r))
+                        resolve(r)
                     }
-                    this.doRequestAfterList.forEach(func => func(r))
-                    resolve(r)
-                } else {
-                    winston.error(`request fail, ${e}`)
-                    reject(e)
-                }
-            })
-        }), {retries: 3, minTimeout: 2000})
+                })
+            }catch (e) {
+                reject(e)
+            }
+        })
     }
 }
 

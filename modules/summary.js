@@ -77,6 +77,10 @@ app.get('/summary', async (req, res) => {
             summaries.push(s)
         }
 
+        summaries.sort((a, b) => {
+            return b.contest.start_time - a.contest.start_time
+        })
+
         res.render("user_summary", {
             summaries,
             paginate,
