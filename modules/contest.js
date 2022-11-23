@@ -186,6 +186,10 @@ app.get('/cp/user/:id', async (req, res) => {
       })
     }
 
+    data.sort((a, b) => {
+      return b.contest.start_time - a.contest.start_time
+    })
+
     res.render('user_contests', {
       data,
       show_user: user,
