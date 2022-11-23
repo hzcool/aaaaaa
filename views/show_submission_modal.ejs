@@ -38,6 +38,21 @@
 let __type = 0
 let __getListLink = undefined
 let __getCodeLink = undefined
+let $iframe = $('#__iframe')
+let _iframe = $iframe.get(0)
+_iframe.addEventListener('load', function() {
+    // console.log("load")
+    var tagEle = _iframe.contentDocument.body;
+    if (tagEle) {
+        tagEle.style.display = 'none';
+        tagEle.style.visibility = 'hidden';
+        requestAnimationFrame(function(){
+            tagEle.style.display = 'block';
+            tagEle.style.visibility = 'visible';
+        })
+    }
+})
+
 function initModal(type, getListLink = undefined, getCodeLink = undefined) { // 0  forCode  , 1 forList  ,  2 forBoth
     __type = type
     if(type !== 0) $('#forCode').hide()
@@ -102,7 +117,8 @@ function __showList(link = undefined) {
 
 function __show_iframe(link) {
     if(link) {
-        setTimeout(() => $('#__iframe').attr('src', link), 10)
+       $iframe.attr('src', link)
+        // setTimeout(() => $('#__iframe').attr('src', link), 10)
     }
 }
 </script>

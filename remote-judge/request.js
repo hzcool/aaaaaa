@@ -138,7 +138,6 @@ class Request {
         return await new Promise((resolve, reject) => {
             try {
                 request(opts, (e, r) => {
-                    console.log(r.statusCode)
                     if(e) reject(e)
                     else {
                         this.doRequestAfterList.forEach(func => func(r))
