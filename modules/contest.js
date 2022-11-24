@@ -28,7 +28,6 @@ async function contest_permitted(contest,user){
 }
 
 async function checkgp(contest,user){
-    return true;
     if (user.is_admin) return true;
 
     if (!contest.is_public) throw new ErrorMessage('比赛未公开');
