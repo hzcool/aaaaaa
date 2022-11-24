@@ -1201,9 +1201,10 @@ app.get('/contest/:id/ball', async (req, res) => {
             // item.submission.submit_ip.split(",")[0].split(".")[]
             let ip = s.submission.submit_ip.split(",")[0].split(".")
             s.room = ip_map[ip[2]]
+            if(s.room) {
+              s.room_id = parseInt(s.room.substring(1))
+            } else s.room_id = 100000000;
             s.position = parseInt(ip[3])
-            if(isNaN(s.position)) s.position = 100000000
-            else s.position -= 10
             break
           }
         }
@@ -1211,7 +1212,7 @@ app.get('/contest/:id/ball', async (req, res) => {
       }
     }
     balls.sort((a, b) => {
-      return a.position - b.position;
+      return a.room_id - b.room_id;
     })
     res.render("contest_balls", {
       balls,
