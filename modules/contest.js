@@ -28,6 +28,7 @@ async function contest_permitted(contest,user){
 }
 
 async function checkgp(contest,user){
+    return true;
     if (user.is_admin) return true;
 
     if (!contest.is_public) throw new ErrorMessage('比赛未公开');
@@ -1152,6 +1153,97 @@ app.get('/contest/:id/:pid/download/additional_file', async (req, res) => {
   } catch (e) {
     syzoj.log(e);
     res.status(404);
+    res.render('error', {
+      err: e
+    });
+  }
+});
+
+app.get('/contest/:id/ball', async (req, res) => {
+  try {
+
+    if(!res.locals.user){throw new ErrorMessage('请登录后继续。',{'登录': syzoj.utils.makeUrl(['login'])});}
+
+    let id = parseInt(req.params.id);
+    let contest = await Contest.findById(id);
+    if (!contest) throw new ErrorMessage('无此比赛。');
+    if (!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
+
+    let query = JudgeState.createQueryBuilder();
+    query.where("type_info = :type_info", { type_info: id })
+        .andWhere("status = 'Accepted'")
+
+    let results = await JudgeState.queryAll(query);
+    let records = {};
+    results.forEach(item => {
+        let key = "" + item.user_id + "-" + item.problem_id
+        if(!records[key]) {
+          records[key] = {ball: false, submission: item}
+        }
+        if(item.vj_info && item.vj_info.ball) records[key].ball = true
+    });
+    let balls = []
+    let problems = await contest.getProblems()
+    const ip_map = {
+      "31": "D401",
+      "32": "D405",
+      "33": "D402",
+      "34": "D406"
+    }
+    for (let key in records) {
+      let s = records[key]
+      if(!s.ball) {
+        s.user = await User.findById(s.submission.user_id)
+
+        for(let i = 0; i < problems.length; ++i) {
+          if(problems[i] === s.submission.problem_id) {
+            s.problem_id = i
+            // item.submission.submit_ip.split(",")[0].split(".")[]
+            let ip = s.submission.submit_ip.split(",")[0].split(".")
+            s.room = ip_map[ip[2]]
+            s.position = parseInt(ip[3]) - 10
+            break
+          }
+        }
+        balls.push(s)
+      }
+    }
+
+    res.render("contest_balls", {
+      balls,
+      contest
+    })
+
+  } catch (e) {
+    syzoj.log(e);
+    res.render('error', {
+      err: e
+    });
+  }
+});
+
+app.post('/contest/:id/ball/:submission_id', async (req, res) => {
+  try {
+
+    if(!res.locals.user){throw new ErrorMessage('请登录后继续。',{'登录': syzoj.utils.makeUrl(['login'])});}
+
+    let id = parseInt(req.params.id);
+    let contest = await Contest.findById(id);
+    if (!contest) throw new ErrorMessage('无此比赛。');
+    if (!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
+
+    let sid = parseInt(req.params.submission_id)
+    let judge_state = await JudgeState.findById(sid)
+    if(!judge_state) {
+      res.send({error: `no such submission {}`})
+      return
+    }
+    if(!judge_state.vj_info) judge_state.vj_info = {ball: true}; else judge_state.vj_info.ball = true
+    await judge_state.save()
+    res.send({msg: "ok"})
+
+  } catch (e) {
+    syzoj.log(e);
     res.render('error', {
       err: e
     });

@@ -1,0 +1,53 @@
+<% this.title = contest.title + ' - 比赛气球' %>
+<% include header %>
+<div class="padding">
+    <table class="ui very basic center aligned table">
+        <thead>
+        <tr>
+            <th> 用户名 </th>k
+            <th> 昵称 </th>
+            <th> 题号 </th>
+            <th> 机房 </th>
+            <th> 座位号 </th>
+            <th> 操作 </th>
+        </tr>
+        </thead>
+        <tbody>
+            <% for (let item of balls) {%>
+                <tr id = "<%= item.submission.id %>">
+                    <td>
+                        <%= item.user.username%>
+                    </td>
+                    <td>
+                        <%= item.user.nickname%>
+                    </td>
+                    <td>
+                        <%= "ABCDEFGHIJKLMNOPQRSTUVWXYZ".at(item.problem_id) %>
+                    </td>
+                    <td>
+                        <%= item.room %>
+                    </td>
+                    <td>
+                        <%= item.position %>
+                    </td>
+                    <td>
+                        <button onclick="done(<%= item.submission.id %>)" class="ui button primary">送球</button>
+                    </td>
+                </tr>
+
+            <%}%>
+        </tbody>
+    </table>
+</div>
+<script>
+    function done(sid) {
+        $.post("/contest/" + "<%= contest.id%>" + "/ball/" + sid, (res) => {
+            if(res.error) {
+                alert(res.error)
+                return
+            }
+            $('#' + sid).remove()
+        })
+    }
+</script>
+<% include footer %>
