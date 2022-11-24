@@ -9,7 +9,6 @@ let ProblemEvaluate = syzoj.model('problem_evaluate');
 
 const jwt = require('jsonwebtoken');
 const { getSubmissionInfo, getRoughResult, processOverallResult } = require('../libs/submissions_process');
-const {source} = require("puppeteer-core/internal/generated/injected");
 
 
 async function contest_check_open(contest){
@@ -1203,8 +1202,8 @@ app.get('/contest/:id/ball', async (req, res) => {
             s.room = ip_map[ip[2]]
             if(s.room) {
               s.room_id = parseInt(s.room.substring(1))
-            } else s.room_id = 100000000;
-            s.position = parseInt(ip[3])
+            } else s.room_id = 1000000;
+            s.position = parseInt(ip[3]) - 10
             break
           }
         }
@@ -1212,8 +1211,9 @@ app.get('/contest/:id/ball', async (req, res) => {
       }
     }
     balls.sort((a, b) => {
-      return a.room_id - b.room_id;
+      return a.room_id - b.room_id
     })
+
     res.render("contest_balls", {
       balls,
       contest
