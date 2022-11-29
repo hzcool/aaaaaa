@@ -523,32 +523,40 @@ app.get('/admin/account_generation', async (req, res) => {
   }
 });
 
-const fs = require("fs")
+
 app.post('/admin/account_generation', async (req, res) => {
   try {
     if (!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
 
     let accounts = req.body.accounts
     if(!accounts || accounts.length <= 0)  throw new ErrorMessage('需要生成的账号不能为空 。');
+    const end_time = parseInt(req.body.end_time)
+    if(isNaN(end_time)) throw new ErrorMessage('账户过期时间错误 。');
 
-
-    for(let account of accounts) {
-       let user = await User.create({
-         username: account.username,
-         nickname: account.nickname,
-         password: account.password,
-         group_id: account.group_id,
-         rating: syzoj.config.default.user.rating,
-         is_show: syzoj.config.default.user.show,
-         register_time: parseInt((new Date()).getTime() / 1000)
-       })
-      try {
-        await user.save();
-        account.result = "YES"
-      }catch (e) {
-        account.result = "NO , error=" + e
-      }
-    }
+    let total = accounts.length
+    const wait = new Promise((resolve, reject) => {
+      accounts.forEach(account => {
+        let user = User.create({
+          username: account.username,
+          nickname: account.nickname,
+          password: account.password,
+          group_id: account.group_id,
+          rating: syzoj.config.default.user.rating,
+          is_show: syzoj.config.default.user.show,
+          register_time: syzoj.utils.getCurrentDate(),
+          start_time: syzoj.utils.getCurrentDate(),
+          end_time
+        })
+        user.save()
+            .then(_ => account.result = "YES")
+            .catch(e => account.result = "NO , error=" + e)
+            .finally(() => {
+              total--
+              if(total === 0) resolve(true)
+            })
+      })
+    })
+    await wait;
     res.send(accounts)
   } catch (e) {
     syzoj.log(e);

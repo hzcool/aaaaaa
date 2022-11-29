@@ -25,6 +25,16 @@ this.adminPage = 'account_generation';
     </div>
 
     <div style="margin-top: 10px">
+        <label style="line-height: 37.8px; font-weight: bold; "> 账号过期时间 </label>
+        <input type="text" id="end_time" value="<%= syzoj.utils.formatDate(syzoj.utils.getCurrentDate())%>">
+    </div>
+
+    <div style="margin-top: 10px">
+        <label style="line-height: 37.8px; font-weight: bold; "> 起始编号 </label>
+        <input type="number" id="start_id" value="1">
+    </div>
+
+    <div style="margin-top: 10px">
         <label style="line-height: 37.8px; font-weight: bold; "> 昵 称 </label>
         <textarea id="nickname_list" rows="10"></textarea>
     </div>
@@ -80,7 +90,7 @@ this.adminPage = 'account_generation';
     }
 
     function generate() {
-        let num = $('#num').val()
+        let num = parseInt($('#num').val())
         if(!num || num <= 0 || num >= 1000) {
             alert("生成账号的数量不能为 0 且不超过 1000")
             return
@@ -106,6 +116,13 @@ this.adminPage = 'account_generation';
 
         let prefix = $('#prefix').val()
 
+        let start_id = parseInt($('#start_id').val())
+        console.log(start_id + num)
+        if (start_id + num - 1 > 999) {
+            alert("用户名编号不能超过 1000， 请重新设置起始序号 和 账户数量");
+            return;
+        }
+
         $('#account_list').show()
 
         let $tbody = $('#tbody')
@@ -115,7 +132,7 @@ this.adminPage = 'account_generation';
             let pwd = random_str(password_length)
             password_list += pwd + "\n"
             let $tr = $("<tr></tr>")
-            let td0 = $("<td></td>").append($("<input>").attr("id", "username_" + i).val(prefix + ("000" + (i + 1)).substr(-3)))
+            let td0 = $("<td></td>").append($("<input>").attr("id", "username_" + i).val(prefix + ("000" + (i + start_id)).substr(-3)))
             let td1 = $("<td></td>").append($("<input>").attr("id", "password_" + i).val(pwd))
             let td2 = $("<td></td>").append($("<input>").attr("id", "group_id_" + i).val(group_id))
             let td3 = $("<td></td>").append($("<input>").attr("id", "nickname_" + i).val(i < nickname_list.length ? nickname_list[i] : '备用账号' ))
@@ -123,11 +140,16 @@ this.adminPage = 'account_generation';
             $tr.append(td0).append(td1).append(td2).append(td3).append(td4)
             $tbody.append($tr)
         }
-
         $('#password_list').val(password_list)
     }
 
     function submit() {
+        let end_time = (new Date($('#end_time').val())).getTime()
+        if(isNaN(end_time)) {
+            alert("日期设置不合法")
+            return;
+        }
+        end_time = parseInt(end_time / 1000)
         let accounts = []
         let num = $('#num').val()
         for(let i = 0; i < num; ++i) {
@@ -138,7 +160,7 @@ this.adminPage = 'account_generation';
                 nickname: $("#nickname_" + i).val(),
             })
         }
-        $.post("/admin/account_generation", {accounts}, (res, status) => {
+        $.post("/admin/account_generation", {accounts, end_time}, (res, status) => {
             if(status === "success") {
                 res.forEach((item, idx) => {
                     if(item.result.startsWith("YES")) {
