@@ -117,7 +117,7 @@ this.adminPage = 'account_generation';
         let prefix = $('#prefix').val()
 
         let start_id = parseInt($('#start_id').val())
-        console.log(start_id + num)
+
         if (start_id + num - 1 > 999) {
             alert("用户名编号不能超过 1000， 请重新设置起始序号 和 账户数量");
             return;
@@ -160,7 +160,8 @@ this.adminPage = 'account_generation';
                 nickname: $("#nickname_" + i).val(),
             })
         }
-        $.post("/admin/account_generation", {accounts, end_time}, (res, status) => {
+        let data = JSON.stringify({accounts, end_time})
+        $.post("/admin/account_generation", {data}, (res, status) => {
             if(status === "success") {
                 res.forEach((item, idx) => {
                     if(item.result.startsWith("YES")) {

@@ -25,6 +25,7 @@ Promise.config({
 
 const vjBasics = require('./remote-judge/basic')
 const vj = require('./remote-judge/vj')
+const bodyParser = require("body-parser");
 
 global.syzoj = {
   rootDir: __dirname,

@@ -527,11 +527,11 @@ app.get('/admin/account_generation', async (req, res) => {
 app.post('/admin/account_generation', async (req, res) => {
   try {
     if (!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
-
-    let accounts = req.body.accounts
+    let data = JSON.parse(req.body.data)
+    let accounts = data.accounts
     if(!accounts || accounts.length <= 0)  throw new ErrorMessage('需要生成的账号不能为空 。');
-    const end_time = parseInt(req.body.end_time)
-    if(isNaN(end_time)) throw new ErrorMessage('账户过期时间错误 。');
+    const end_time = data.end_time
+    if (isNaN(end_time)) throw new ErrorMessage('账户过期时间错误 。');
 
     let total = accounts.length
     const wait = new Promise((resolve, reject) => {
