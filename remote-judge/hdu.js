@@ -57,6 +57,8 @@ class HduHandler {
         this.req.addRequestAfterFunc(res => {
             if(res.body)  res.body = iconv.decode(res.body, 'gb2312')
         })
+
+        this.last_login_time = 0
     }
     async initCookie() {
         if(Object.keys(this.req.cookie.cookies).length === 0) {
@@ -81,7 +83,11 @@ class HduHandler {
     }
 
     async loginIfNotLogin() {
-        if (!this.req.cookie.cookies.hasOwnProperty("PHPSESSID")) await this.login()
+        let now = new Date().getTime()
+        if (!this.req.cookie.cookies.hasOwnProperty("PHPSESSID") || now - this.last_login_time > 3600000){
+            await this.login()
+            this.last_login_time = now
+        }
     }
 
     async getProblem(problemId) {
