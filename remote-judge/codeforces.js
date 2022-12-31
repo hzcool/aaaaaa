@@ -5,7 +5,7 @@ const interfaces = require('../libs/judger_interfaces')
 
 const TurndownService = require('turndown')
 const {TaskStatus} = require("../libs/judger_interfaces");
-
+const Dequeue = require("./deque")
 
 const findChrome = require("chrome-finder")
 const puppeteer = require('puppeteer-core');
@@ -208,12 +208,12 @@ class Handler {
                 await page.waitForNavigation({waitUntil:"domcontentloaded"})
             }
             await this.clearPage(page);
-            try {this.puppeteer.close();} catch (e) {
-                console.log(`关闭失败 : ${e}`)
-            }
             console.log(`${this.account} 登录 CodeForces 成功`)
             return true;
         } catch (e) {
+            try {this.puppeteer.close();this.puppeteer = null} catch (e) {
+                console.log(`关闭失败 : ${e}`)
+            }
             return false
         }
     }
@@ -248,7 +248,7 @@ class Handler {
     async ensureLogin() {
         try {
             if(await this.isLoggedIn()) return true
-            else if(await this.normalLogin()) return true
+            if(await this.normalLogin()) return true
             await this.puppeteerLogin()
             return await this.isLoggedIn()
         } catch (e) {
@@ -377,7 +377,7 @@ class Handler {
                 }
             }
             const res = await this.req.super_agent_request(opts)
-            if(res.status === 200 && res.redirects.length > 0 && res.redirects[0].endsWith('/my') ) {
+            if(res.status === 200 && res.redirects && res.redirects.length > 0 && res.redirects[0].endsWith('/my') ) {
                 const $ = cheerio.load(res.text)
                 let submissionId = $('tr[data-submission-id]').prop("data-submission-id")
                 if (!submissionId || submissionId === '') throw "获取submissionID失败"
@@ -489,7 +489,7 @@ class Codeforces {
     }
     async submitCode(source, problemID, langId, callback) {
         if((++this.select) >= this.handlers.length) this.select = 0
-        this.handlers[this.select].submitCode(source, problemID, langId, callback)
+        await this.handlers[this.select].submitCode(source, problemID, langId, callback)
     }
     getProblemLink(problemId) {
         return this.base.getProblemLink(problemId)
@@ -505,3 +505,4 @@ module.exports = {
     examplesProcess,
     parseProblemId
 }
+

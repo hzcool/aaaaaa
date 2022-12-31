@@ -101,10 +101,9 @@ class Request {
     }
 
 
-    async super_agent_request(opts) {
+     super_agent_request(opts) {
         this.doRequestBeforeList.forEach(func => func(opts))
-        // console.log(opts)
-        return await new Promise((resolve, reject) => {
+         return new Promise((resolve, reject) => {
             if(opts.method && opts.method.toUpperCase() === "POST") {
                 superagent.post(opts.url)
                     .type('form')
@@ -119,6 +118,7 @@ class Request {
                         }
                     })
             } else {
+
                 superagent.get(opts.url)
                     .set("Cookie", opts.headers.cookie)
                     .end((err, res) => {

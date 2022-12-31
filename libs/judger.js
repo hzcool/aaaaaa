@@ -330,6 +330,7 @@ const remote_judge_fail = async (judge_state, error) => {
     statusString: judge_state.status,
   })
   progressPusher.cleanupProgress(judge_state.task_id)
+  await judge_state.updateRelatedInfo(false);
 }
 
 module.exports.getCachedJudgeState = taskId => judgeStateCache.get(taskId);

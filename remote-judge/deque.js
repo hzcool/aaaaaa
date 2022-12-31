@@ -1,6 +1,5 @@
 'use strict';
 
-const {first} = require("cheerio/lib/api/traversing");
 module.exports = class Dequeue {
     constructor() {
         this.first = null;
