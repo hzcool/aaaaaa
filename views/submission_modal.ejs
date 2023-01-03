@@ -11,7 +11,10 @@
     <link href="<%- selfLib('syntect-tomorrow.css') %>?20220512" rel="stylesheet">
     <link href="<%- selfLib('style.css') %>?20181212" rel="stylesheet">
     <link href="<%- lib('morris.js/0.5.1/morris.css') %>" rel="stylesheet">
-    <% if (useLocalLibs || !syzoj.config.google_fonts || !['like-google-fonts', 'like-local', 'built-in'].includes(syzoj.config.google_fonts.type)) { %>
+<!--    <script data-cfasync="false" src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>-->
+
+
+<% if (useLocalLibs || !syzoj.config.google_fonts || !['like-google-fonts', 'like-local', 'built-in'].includes(syzoj.config.google_fonts.type)) { %>
         <link href="<%- syzoj.utils.makeUrl(['google-fonts', 'fira-mono.css']) %>" rel="stylesheet">
         <link href="<%- syzoj.utils.makeUrl(['google-fonts', 'lato.css']) %>" rel="stylesheet">
         <link href="<%- syzoj.utils.makeUrl(['google-fonts', 'open-sans.css']) %>" rel="stylesheet">
@@ -61,6 +64,16 @@
 
 <script src="<%- lib('textfit/2.3.1/textFit.min.js') %>"></script>
 <style>
+
+    .ban_copy {
+        -moz-user-select:none; /* Firefox私有属性 */
+        -webkit-user-select:none; /* WebKit内核私有属性 */
+        -ms-user-select:none; /* IE私有属性(IE10及以后) */
+        -khtml-user-select:none; /* KHTML内核私有属性 */
+        -o-user-select:none; /* Opera私有属性 */
+        user-select:none; /* CSS3属性 */
+    }
+
     .single-subtask {
         box-shadow: none !important;
     }
@@ -111,8 +124,8 @@
       <tr is="submission-item" v-bind:data="roughData" :config="displayConfig" :show-rejudge="showRejudge" :progress="getProgress()" :compiling="detailResult && !detailResult.compile" :remote="<%- remote %>"></tr>
     </tbody>
   </table>
-
-  <code-box no-escape v-bind:content="code">
+<!--  <div id="code_div"></div>-->
+  <code-box no-escape v-bind:content="code" class="ban_copy">
       <% if (formattedCode !== null) { %>
           <a onclick="toggleFormattedCode()" class="ui button" style="position: absolute; top: 0px; right: -4px; border-top-left-radius: 0; border-bottom-right-radius: 0; ">
         <template v-if="currentFormatted">
@@ -127,6 +140,7 @@
           <a target="_parent" href="<%= syzoj.utils.makeUrl(['article', 0, 'edit'], { problem_id: info.problemId, submission_id: info.submissionId }) %>" class="ui button" style="position: absolute; top: 40px; right: -4px; border-top-right-radius: 0; border-bottom-right-radius: 0; ">批注</a>
       <% } %>
   </code-box>
+
   <code-box v-if="detailResult && detailResult.compile" no-escape title="编译信息" v-bind:content="detailResult.compile.message"></code-box>
   <code-box v-if="detailResult" title="系统信息" v-bind:content="detailResult.systemMessage"></code-box>
 
@@ -443,7 +457,21 @@ if (token != null) {
       }
   });
 </script>
+<script>
+    // var code_box = document.getElementById('__codebox')
+    // var code_div = document.getElementById('code_div')
+    // domtoimage.toSvg(code_box)
+    //     .then(function (dataUrl) {
+    //         var img = new Image();
+    //         img.src = dataUrl;
+    //         code_div.appendChild(img)
+    //     })
+    //     .catch(function (error) {
+    //         console.error('oops, something went wrong!', error);
+    //     });
+</script>
 </span>
+
 
 
 <script data-cfasync="false" src="<%- lib('semantic-ui/2.4.1/semantic.min.js') %>"></script>
