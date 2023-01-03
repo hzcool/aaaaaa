@@ -125,7 +125,7 @@
     </tbody>
   </table>
 <!--  <div id="code_div"></div>-->
-  <code-box no-escape v-bind:content="code" class="ban_copy">
+  <code-box no-escape v-bind:content="code" class="<%= syzoj.config.allow_code_copy ? '': 'ban_copy'%>" >
       <% if (formattedCode !== null) { %>
           <a onclick="toggleFormattedCode()" class="ui button" style="position: absolute; top: 0px; right: -4px; border-top-left-radius: 0; border-bottom-right-radius: 0; ">
         <template v-if="currentFormatted">

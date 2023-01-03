@@ -65,6 +65,7 @@ global.syzoj = {
     return true;
   },
   async run() {
+
     // Check config
     if (syzoj.config.session_secret === '@SESSION_SECRET@'
      || syzoj.config.judge_token === '@JUDGE_TOKEN@'
