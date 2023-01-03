@@ -64,6 +64,7 @@ const parseProblemId = problemId => { // 1200A => cotestID:1200 submittedProblem
 
 const cfStatusMapSyzOjStatus = {
     'Accepted': 'Accepted',
+    'Happy': 'Accepted',
     'Wrong answer': 'Wrong Answer',
     'Runtime error': 'Runtime Error',
     'Time limit exceeded': 'Time Limit Exceeded',
