@@ -156,15 +156,17 @@ app.get('/cp/user/:id', async (req, res) => {
           let multipler = (ranklist.ranking_params[problem_id] || 1)
           c.total_score += multipler * 100;
           let detail = player.score_details[problem_id]
+          let score = 0
           if(detail) {
-            if(detail.weighted_score) c.score += detail.weighted_score
-            else if(detail.accepted) c.score += multipler * 100;
-            else if(detail.score) c.score += detail.score * multipler
+            if(detail.weighted_score) score = detail.weighted_score
+            else if(detail.accepted) score = multipler * 100;
+            else if(detail.score) score = detail.score * multipler
           }
-          if(c.score === multipler * 100) c.solved_count++
-          else {
-            if(not_solved[problem_id]) not_solved[problem_id].push(c); else not_solved[problem_id] = [c]
-          }
+          c.score += score
+          if(score > 0 && score === multipler * 100) c.solved_count++
+          else if(not_solved[problem_id]) not_solved[problem_id].push(c);
+          else not_solved[problem_id] = [c]
+
           c.player_num = ranklist.ranklist.player_num
           for(const [k, v] of Object.entries(ranklist.ranklist)) {
             if(v === player.id && k !== 'player_num') {
@@ -181,6 +183,7 @@ app.get('/cp/user/:id', async (req, res) => {
     if(not_solved_ids.length > 0) {
       let sql = 'select distinct problem_id from judge_state where user_id=' + user.id + ' and problem_id in (' + not_solved_ids.join(",")  + ') and status=\'Accepted\''
       let res = await JudgeState.query(sql)
+
       res.forEach(item => {
         not_solved[item.problem_id].forEach(c => c.solved_count++)
       })
