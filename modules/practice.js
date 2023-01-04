@@ -581,6 +581,7 @@ app.get('/practice/submission/:id', async (req, res) => {
 
     res.render(page, {
       local_is_admin: res.locals.user.is_admin,
+      allow_code_copy: syzoj.config.allow_code_copy || res.locals.user.is_admin || res.locals.user.id === judge.user_id,
       info: getSubmissionInfo(judge, displayConfig),
       roughResult: getRoughResult(judge, displayConfig),
       code: (displayConfig.showCode && judge.problem.type !== 'submit-answer') ? judge.code.toString("utf8") : '',
