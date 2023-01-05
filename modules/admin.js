@@ -9,6 +9,7 @@ let UserPrivilege = syzoj.model('user_privilege');
 const RatingCalculation = syzoj.model('rating_calculation');
 const RatingHistory = syzoj.model('rating_history');
 let PracticePlayer = syzoj.model('practice_player');
+let ProblemForbid = syzoj.model("problem_forbid")
 const calcRating = require('../libs/rating');
 
 app.get('/admin/info', async (req, res) => {
@@ -565,3 +566,97 @@ app.post('/admin/account_generation', async (req, res) => {
     })
   }
 });
+
+
+
+
+app.get('/admin/problem', async (req, res) => {
+  try {
+    if (!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
+    let query = ProblemForbid.createQueryBuilder();
+    let paginate = syzoj.utils.paginate(await ProblemForbid.countForPagination(query), req.query.page, 20);
+    let data = await ProblemForbid.queryPage(paginate, query, {
+      forbid_submission_end_time: 'DESC'
+    });
+    res.render('admin_problem', {
+      data,
+      paginate
+    })
+  } catch (e) {
+    syzoj.log(e);
+    res.render('error', {
+      err: e
+    })
+  }
+});
+
+app.get('/admin/problem_forbid/contest/:title', async (req, res) => {
+  try {
+    if (!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
+    const title = req.params.title
+    let c = await Contest.findOne({title})
+    if(!c) throw new ErrorMessage('找不到比赛。');
+    let problems = []
+    if(c) {
+      let pids = await c.getProblems()
+      problems = await Problem.queryAll(Problem.createQueryBuilder().where("id in (" + pids.join(",") + ")"))
+    }
+    res.send({contest:c, problems: problems, end_time: syzoj.utils.formatDate(c.end_time)})
+  } catch (e) {
+    res.send({error: e})
+  }
+});
+
+app.get('/admin/problem_forbid', async (req, res) => {
+  try {
+    if (!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
+    let id = parseInt(req.query.id)
+    let action = parseInt(req.query.action)
+    if(isNaN(id) || isNaN(action)) throw new ErrorMessage('参数错误');
+    if(action === 0) { // problem forbid
+      let time = parseInt(req.query.end_time)
+      if(isNaN(time)) throw new ErrorMessage('参数错误');
+      let problem = await Problem.findById(id)
+      if(!problem) throw new ErrorMessage('找不到题目')
+      problem_forbid = await ProblemForbid.create({
+        problem_id: id,
+        problem_title: problem.title,
+        contest_id: 0,
+        forbid_submission_end_time: time
+      })
+      await problem_forbid.save()
+    } else if(action === 1) { // delete problem forbid
+      let problem_forbid = await ProblemForbid.findOne({problem_id: id})
+      if(problem_forbid) await problem_forbid.destroy()
+    } else if(action === 2) { // contest forbid
+      let time = parseInt(req.query.end_time)
+      if(isNaN(time)) throw new ErrorMessage('参数错误');
+      let contest = await Contest.findById(id)
+      if(!contest) throw new ErrorMessage('不存在该比赛')
+      pids = await contest.getProblems()
+      if (pids.length > 0) {
+        problems = await Problem.queryAll(Problem.createQueryBuilder().where("id in (" + pids.join(",") + ")"))
+        for(let problem of problems) {
+          problem_forbid = await ProblemForbid.create({
+            problem_id: problem.id,
+            problem_title: problem.title,
+            contest_id: id,
+            forbid_submission_end_time: time
+          })
+          await problem_forbid.save()
+        }
+      }
+    } else if(action === 3) { // delete contest forbid
+      let problem_forbids = await ProblemForbid.queryAll(ProblemForbid.createQueryBuilder().where("contest_id = " + id));
+      for(let p of problem_forbids) {
+        await p.destroy()
+      }
+    }
+    res.send({msg: "ok"})
+  } catch (e) {
+    res.send({error: e})
+    syzoj.log(e);
+  }
+});
+
+

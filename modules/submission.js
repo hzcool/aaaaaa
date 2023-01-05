@@ -4,6 +4,7 @@ let User = syzoj.model('user');
 let Contest = syzoj.model('contest');
 let Practice = syzoj.model('practice');
 let Problem = syzoj.model('problem');
+let ProblemForbid =  syzoj.model('problem_forbid')
 
 const jwt = require('jsonwebtoken');
 const { getSubmissionInfo, getRoughResult, processOverallResult } = require('../libs/submissions_process');
@@ -172,7 +173,20 @@ app.get('/submissions', async (req, res) => {
       await obj.loadRelationships();
     });
 
+    if(!res.locals.user.is_admin) {
+      let cur_date = syzoj.utils.getCurrentDate()
+      for (let x of judge_state) {
+        if(x.user_id !== res.locals.user.id) {
+          let pf = await ProblemForbid.findOne({problem_id: x.problem_id})
+          if(pf && pf.forbid_submission_end_time > cur_date)  {
+            x.forbid_code_view = true
+          }
+        }
+      }
+    }
+
     let page = req.query.no_jump ?  'submissions_modal' : 'submissions'
+
 
     res.render(page, {
       main_style: res.locals.user.is_admin ? 'width: 1500px;' : undefined,
@@ -187,6 +201,7 @@ app.get('/submissions', async (req, res) => {
         result: getRoughResult(x, displayConfig, true),
         remote: x.isRemoteTask(),
         running: false,
+        forbid_code_view: x.forbid_code_view
       })),
       paginate: paginate,
       pushType: 'rough',
@@ -210,6 +225,12 @@ app.get('/submission/:id', async (req, res) => {
     if (!judge) throw new ErrorMessage("提交记录 ID 不正确。");
     const curUser = res.locals.user;
     if (!await judge.isAllowedVisitBy(curUser)) throw new ErrorMessage('您没有权限进行此操作。');
+
+
+    if(!res.locals.user.is_admin && !(res.locals.user.id === judge.user_id)) {
+      let pf = await ProblemForbid.findOne({problem_id: judge.problem_id})
+      if(pf && pf.forbid_submission_end_time > syzoj.utils.getCurrentDate())  throw new ErrorMessage('禁止查看代码。');
+    }
 
     let contest, practice;
     if (judge.type === 1) {

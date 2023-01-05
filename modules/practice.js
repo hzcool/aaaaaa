@@ -5,6 +5,8 @@ let Problem = syzoj.model('problem');
 let JudgeState = syzoj.model('judge_state');
 let User = syzoj.model('user');
 let Article = syzoj.model('article');
+let ProblemForbid =  syzoj.model('problem_forbid')
+
 
 const jwt = require('jsonwebtoken');
 const { getSubmissionInfo, getRoughResult, processOverallResult } = require('../libs/submissions_process');
@@ -559,6 +561,11 @@ app.get('/practice/submission/:id', async (req, res) => {
 
     if (judge.type !== 1) {
       return res.redirect(syzoj.utils.makeUrl(['submission', id], {...req.query}));
+    }
+
+    if(!res.locals.user.is_admin && !(res.locals.user.id === judge.user_id)) {
+      let pf = await ProblemForbid.findOne({problem_id: judge.problem_id})
+      if(pf && pf.forbid_submission_end_time > syzoj.utils.getCurrentDate())  throw new ErrorMessage('禁止查看代码。');
     }
 
     const practice = await Practice.findById(judge.type_info);

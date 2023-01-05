@@ -1,5 +1,6 @@
 let User = syzoj.model('user');
 let Problem = syzoj.model('problem');
+let Contest = syzoj.model('contest');
 let File = syzoj.model('file');
 const Email = require('../libs/email');
 const jwt = require('jsonwebtoken');

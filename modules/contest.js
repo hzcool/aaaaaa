@@ -6,6 +6,7 @@ let JudgeState = syzoj.model('judge_state');
 let User = syzoj.model('user');
 let Article = syzoj.model('article');
 let ProblemEvaluate = syzoj.model('problem_evaluate');
+let ProblemForbid =  syzoj.model('problem_forbid')
 
 const jwt = require('jsonwebtoken');
 const { getSubmissionInfo, getRoughResult, processOverallResult } = require('../libs/submissions_process');
@@ -359,6 +360,11 @@ app.get('/contest/:id', async (req, res) => {
     contest.running = contest.isRunning();
     contest.ended = contest.isEnded();
 
+    if(contest.ended) {
+      let x = await ProblemForbid.findOne({contest_id: contest.id});
+      if(x) contest.forbid_code_view = true
+    }
+
     // if ((!res.locals.user || (!res.locals.user.is_admin && !contest.admins.includes(res.locals.user.id.toString()))) && (!contest.isRunning () && !contest.isEnded ())) throw new ErrorMessage('比赛未开始，请耐心等待 (´∀ `)');
 
     contest.subtitle = await syzoj.utils.markdown(contest.subtitle);
@@ -387,6 +393,9 @@ app.get('/contest/:id', async (req, res) => {
         problem.hate_num = await ProblemEvaluate.getEvaluate(problem.problem.id, 'Hate');
         problem.evaluate = await ProblemEvaluate.getUserEvaluate(problem.problem.id, res.locals.user.id);
     }
+
+
+
 
 
     if (player) {
@@ -467,6 +476,8 @@ app.get('/contest/:id', async (req, res) => {
         weight.push (full_score);
       }
     }
+
+
 
     res.render('contest', {
       contest: contest,
@@ -1007,6 +1018,11 @@ app.get('/contest/submission/:id', async (req, res) => {
 
     if (judge.type !== 1) {
       return res.redirect(syzoj.utils.makeUrl(['submission', id]));
+    }
+
+    if(!res.locals.user.is_admin && !(res.locals.user.id === judge.user_id)) {
+      let pf = await ProblemForbid.findOne({problem_id: judge.problem_id})
+      if(pf && pf.forbid_submission_end_time > syzoj.utils.getCurrentDate())  throw new ErrorMessage('禁止查看代码。');
     }
 
     const contest = await Contest.findById(judge.type_info);

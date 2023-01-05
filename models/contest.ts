@@ -67,6 +67,7 @@ export default class Contest extends Model {
   @TypeORM.Column({ nullable: true, type: "text" })
   group_id: string;
 
+
   holder?: User;
   ranklist?: ContestRanklist;
   player?: ContestPlayer;
