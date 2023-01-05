@@ -44,8 +44,8 @@ this.adminPage = 'problem';
     <div class="ui horizontal divider" style="margin-top: 30px"> 比赛题目代码禁止访问的截止时间设置 </div>
     <div style="margin-top: 10px" class="ui form">
         <div class="ui fluid input inline field">
-            <label style="line-height: 37.8px; width: 70px">比赛标题 </label>
-            <input type="text" id="contest_title" onblur="contestTitleInputOnblur()">
+            <label style="line-height: 37.8px; width: 70px">比赛id </label>
+            <input type="text" id="contest_id" onblur="contestIdInputOnblur()">
         </div>
         <div class="ui fluid input inline field" >
             <label style="line-height: 37.8px; width: 70px">截止时间</label>
@@ -65,24 +65,18 @@ this.adminPage = 'problem';
 
 <script>
 let contest_id = undefined
-let last_title = ""
 
-const contestTitleInputOnblur = () => {
-    let title = $("#contest_title").val()
-    if(title=== last_title) return
-    contest_id = undefined
-    last_title = title
-    let ps = $('#problem_show')
-    $.get("/admin/problem_forbid/contest/" + title.trim(), data => {
+
+const contestIdInputOnblur = () => {
+    let id = $("#contest_id").val()
+    if(contest_id===id) return
+    contest_id = id
+
+    $.get("/admin/problem_forbid/contest/" + id, data => {
         if(data.error) {
-            alert("未找到相关比赛")
+            alert(data.error)
             return
         }
-        ps.empty()
-        data.problems.forEach(p => {
-            ps.append($("<div></div>").text(`${p.id} ${p.title}`))
-        })
-        contest_id = data.contest.id
         $('#contest_end_time').val(data.end_time)
     })
 }

@@ -39,8 +39,8 @@
             syzoj.utils.makeUrl(['contest', contest.id, 'submissions']); %>
           <a class="ui small positive button" href="<%= submissionsUrl %>">提交记录</a>
 
-            <% if (res.locals.user.is_admin && contest.forbid_code_view) {%>
-              <a class="ui small purple button" href="#" onclick="allow_code_view()">代码公开</a>
+            <% if (res.locals.user.is_admin && contest.open_problem) {%>
+              <a class="ui small purple button" href="<%= syzoj.utils.makeUrl(['contest', contest.id, 'open_problems']) %>" >题目公开</a>
             <% } %>
 
           <% if (isSupervisior) { %>
@@ -190,19 +190,6 @@
   <% } %>
   </div>
 </div>
-
-
-<script>
-  function allow_code_view() {
-    $.get("/admin/problem_forbid?id=" + "<%= contest.id%>" + "&action=3", data => {
-      if(data.error) {
-        alert(data.error)
-        return
-      }
-      window.location.href = "/contest/" + "<%= contest.id%>"
-    })
-  }
-</script>
 
 <script>
 function evaluateProblem(element, evaluate, problem_id, allowedEvaluate) {

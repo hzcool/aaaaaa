@@ -590,18 +590,13 @@ app.get('/admin/problem', async (req, res) => {
   }
 });
 
-app.get('/admin/problem_forbid/contest/:title', async (req, res) => {
+app.get('/admin/problem_forbid/contest/:id', async (req, res) => {
   try {
     if (!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
-    const title = req.params.title
-    let c = await Contest.findOne({title})
+    const id = parseInt(req.params.id)
+    let c = await Contest.findById(id)
     if(!c) throw new ErrorMessage('找不到比赛。');
-    let problems = []
-    if(c) {
-      let pids = await c.getProblems()
-      problems = await Problem.queryAll(Problem.createQueryBuilder().where("id in (" + pids.join(",") + ")"))
-    }
-    res.send({contest:c, problems: problems, end_time: syzoj.utils.formatDate(c.end_time)})
+    res.send({title:c.title, end_time: syzoj.utils.formatDate(c.end_time)})
   } catch (e) {
     res.send({error: e})
   }

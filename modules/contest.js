@@ -360,10 +360,6 @@ app.get('/contest/:id', async (req, res) => {
     contest.running = contest.isRunning();
     contest.ended = contest.isEnded();
 
-    if(contest.ended) {
-      let x = await ProblemForbid.findOne({contest_id: contest.id});
-      if(x) contest.forbid_code_view = true
-    }
 
     // if ((!res.locals.user || (!res.locals.user.is_admin && !contest.admins.includes(res.locals.user.id.toString()))) && (!contest.isRunning () && !contest.isEnded ())) throw new ErrorMessage('比赛未开始，请耐心等待 (´∀ `)');
 
@@ -382,6 +378,12 @@ app.get('/contest/:id', async (req, res) => {
       });
     }
 
+    if(contest.ended) {
+      contest.open_problem = false
+      for(let p of problems) {
+        contest.open_problem |= !p.is_public
+      }
+    }
     problems = problems.map(x => ({ problem: x, status: null, judge_id: null, statistics: null }));
 
 
@@ -393,10 +395,6 @@ app.get('/contest/:id', async (req, res) => {
         problem.hate_num = await ProblemEvaluate.getEvaluate(problem.problem.id, 'Hate');
         problem.evaluate = await ProblemEvaluate.getUserEvaluate(problem.problem.id, res.locals.user.id);
     }
-
-
-
-
 
     if (player) {
       for (let problem of problems) {
@@ -1272,5 +1270,28 @@ app.post('/contest/:id/ball/:submission_id', async (req, res) => {
     res.render('error', {
       err: e
     });
+  }
+});
+
+
+app.get('/contest/:id/open_problems', async (req, res) => {
+  try {
+    let id = parseInt(req.params.id)
+    let c = await Contest.findById(id)
+    if(!c) throw new ErrorMessage('找不到比赛。');
+    if (!res.locals.user || !(await c.isSupervisior(res.locals.user))) throw new ErrorMessage('您没有权限进行此操作。');
+    let pids = await c.getProblems()
+    await pids.mapAsync(async id => {
+      let p = await Problem.findById(id)
+      p.is_public = true
+      p.publicizer_id = res.locals.user.id;
+      p.publicize_time = new Date();
+      await p.save();
+    });
+    res.redirect("/contest/" + id)
+  } catch (e) {
+    res.render('error', {
+      err: e
+    })
   }
 });
