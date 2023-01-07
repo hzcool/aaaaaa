@@ -26,11 +26,22 @@ if (contest) {
                     placement="left-start"
             >
                 <el-button circle style="box-shadow:0px 0px 12px rgba(0, 0, 0, .12)" @click="show_related_contests()">
-                    <svg t="1673072332193" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2697" width="16" height="16"><path d="M341.333333 128a42.666667 42.666667 0 0 1 42.666667-42.666667h256a42.666667 42.666667 0 0 1 42.666667 42.666667h85.333333a85.333333 85.333333 0 0 1 85.333333 85.333333v640a85.333333 85.333333 0 0 1-85.333333 85.333334H256a85.333333 85.333333 0 0 1-85.333333-85.333334V213.333333a85.333333 85.333333 0 0 1 85.333333-85.333333h85.333333z m0 85.333333H256v640h512V213.333333h-85.333333v42.666667a42.666667 42.666667 0 0 1-42.666667 42.666667H384a42.666667 42.666667 0 0 1-42.666667-42.666667V213.333333z m256-42.666666h-170.666666v42.666666h170.666666V170.666667z" fill="#d81e06" p-id="2698"></path></svg>
+                    <svg t="1673080435360" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5554" width="18" height="18"><path d="M686.762667 105.847467H192a32.017067 32.017067 0 0 0-32.017067 31.982933V896c0 17.681067 14.336 32.017067 32.017067 32.017067h684.305067c17.681067 0 32.017067-14.336 32.017066-32.017067V327.3728h-115.712a105.847467 105.847467 0 0 1-105.813333-105.813333V105.813333z m64 7.2704V221.525333c0 23.108267 18.773333 41.847467 41.847466 41.847467h104.891734l-144.145067-147.8656a32.017067 32.017067 0 0 0-2.594133-2.389333zM192 41.847467H730.453333c25.873067 0 50.653867 10.4448 68.7104 29.013333l145.885867 149.6064c17.476267 17.92 27.272533 41.984 27.272533 67.003733V896a95.982933 95.982933 0 0 1-96.017066 96.017067H192a95.982933 95.982933 0 0 1-96.017067-96.017067V137.8304a95.982933 95.982933 0 0 1 96.017067-95.982933z m83.694933 433.220266a31.982933 31.982933 0 1 1 0-64H792.576a32.017067 32.017067 0 0 1 0 64H275.694933z m0 221.525334a31.982933 31.982933 0 1 1 0-63.965867h334.336a32.017067 32.017067 0 0 1 0 64H275.694933z" fill="#d81e06" p-id="5555"></path></svg>
                 </el-button>
             </el-tooltip>
         </div>
-
+        <div style="position:fixed; right:20px; top: 100px;" class="--el-box-shadow">
+            <el-tooltip
+                    class="box-item"
+                    effect="dark"
+                    content="批注"
+                    placement="left-start"
+            >
+                <el-button circle style="box-shadow:0px 0px 12px rgba(0, 0, 0, .12)" @click="show_note()">
+                    <svg t="1673080051797" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2804" width="18" height="18"><path d="M575.99996 576.00028l319.9998-319.9998-127.99992-127.99992L448.00004 448.00036 575.99996 576.00028zM959.99972 192.00052l63.99996 0c0-193.983879-191.99988-191.99988-191.99988-191.99988l0 63.99996 63.99996 63.99996L959.99972 192.00052zM895.99976 832.00012c0 35.327978-28.671982 63.99996-63.99996 63.99996L192.0002 896.00008c-35.327978 0-63.99996-28.671982-63.99996-63.99996L128.00024 192.00052c0-35.327978 28.671982-63.99996 63.99996-63.99996l383.99976 0 127.99992-127.99992L128.00024 0.00064C57.280284 0.00064 0.00032 57.280604 0.00032 128.00056l0 767.99952c0 70.719956 57.279964 127.99992 127.99992 127.99992l767.99952 0c70.719956 0 127.99992-57.279964 127.99992-127.99992L1023.99968 320.00044l-127.99992 127.99992L895.99976 832.00012zM320.00012 512.00032l0 191.99988 191.99988 0 0-63.99996L384.00008 512.00032 320.00012 512.00032z" p-id="2805" fill="#1296db"></path></svg>
+                </el-button>
+            </el-tooltip>
+        </div>
         <el-drawer
                 v-model="drawer.open"
                 :direction="drawer.direction"
@@ -38,20 +49,41 @@ if (contest) {
                 :show-close="false"
         >
             <template #header>
-                <h4>相关比赛</h4>
+                <h4>{{drawer.title}}</h4>
             </template>
-            <div v-if="!contests || contests.length===0">
-                <h4>暂无相关比赛</h4>
-            </div>
-            <div v-else>
-                <div v-for="c in contests">
-                    <a  :href="'/contest/' + c.id" style="font-weight: bold" target="_blank"> {{c.id}}. {{c.title}} </a> <br>
-                    <div style="color: grey"> {{c.subtitle}} </div>
-                    <el-divider />
+            <div v-if="drawer.for_contests">
+                <div v-if="!contests || contests.length===0">
+                    <h4>暂无相关比赛</h4>
+                </div>
+                <div v-else>
+                    <div v-for="c in contests">
+                        <a  :href="'/contest/' + c.id" style="font-weight: bold" target="_blank"> {{c.id}}. {{c.title}} </a> <br>
+                        <div style="color: grey"> 比赛开始时间: {{c.format_start_time}} </div>
+                        <el-divider />
+                    </div>
                 </div>
             </div>
+            <div v-else>
+                <div v-if="no_note">
+                    <h4>暂无批注</h4>
+                </div>
+                <div v-else>
+                    <div class="font-content" v-html="note_html"></div>
+                </div>
+                <div style="margin-top: 30px"></div>
+                <el-button type="primary" size="small" @click="dialogVisible = true">编辑</el-button>
+                <el-button v-if="!no_note" type="danger" size="small" @click="update_note(1)">删除</el-button>
+            </div>
         </el-drawer>
-        </template>
+
+        <el-dialog v-model="dialogVisible"  title="批注编辑" width="50%">
+            <el-input v-model="note" :rows="5" type="textarea" placeholder="Please input"> </el-input>
+            <template #footer>
+              <el-button @click="dialogVisible = false">取消</el-button>
+              <el-button type="primary" @click="update_note()"> 提交 </el-button>
+            </template>
+        </el-dialog>
+
     </div>
     <script>
         const {createApp, reactive, ref} = Vue;
@@ -60,19 +92,69 @@ if (contest) {
                 const drawer = reactive({
                     open: false,
                     direction: 'rtl',
-                    title: "相关比赛"
+                    title: "相关比赛",
+                    for_contests: true
                 })
                 let contests = ref(undefined)
+                const __show_related_contests = () => {
+                    drawer.direction = 'rtl'
+                    drawer.title = '相关比赛'
+                    drawer.for_contests = true
+                    drawer.open = true
+                }
                 const show_related_contests = () => {
                     if(contests.value === undefined) {
                         $.get("/problem/<%= problem.id%>/contest_info", data => {
                             if(data.error) return
                             contests.value = data.contests
-                            drawer.open = true
+                            __show_related_contests()
                         })
-                    } else  drawer.open = true
+                    } else __show_related_contests()
                 }
-                return { drawer, contests, show_related_contests }
+
+                const note = ref(undefined)
+                const note_html = ref('')
+                const no_note = ref(true)
+                const dialogVisible = ref(false)
+
+                const __show_note = () => {
+                    drawer.direction = 'ltr'
+                    drawer.title = '批注'
+                    drawer.open = true
+                    drawer.for_contests = false
+                    no_note.value =  note_html.value === ''
+                }
+                const show_note = () => {
+                    if(note.value === undefined) {
+                        $.get('/problem/<%= problem.id%>/note', (data) => {
+                            if(data.error) {
+                                note.value = ''
+                                return
+                            }
+                            note.value = data.note
+                            note_html.value = data.note_html
+                            __show_note()
+                        })
+                    } else __show_note()
+                }
+                const update_note = (action = 0) => {
+                    $.post('/problem/<%= problem.id%>/note/update', {note: note.value, action}, (data) => {
+                        if(data.error) {
+                            alert(data.error)
+                            return
+                        }
+                        if(action === 1) {
+                            note.value = ''
+                            note_html.value = ''
+                            no_note.value = true
+                        } else {
+                            note_html.value = data.note_html
+                            no_note.value =  note_html.value === ''
+                            dialogVisible.value = false
+                        }
+                    })
+                }
+                return { drawer, contests, show_related_contests, note, note_html, show_note, dialogVisible, update_note, no_note }
             },
         }
         createApp(App).use(ElementPlus).mount('#app')

@@ -7,6 +7,7 @@ let ProblemTag = syzoj.model('problem_tag');
 let Article = syzoj.model('article');
 let LoginLog = syzoj.model('loginlog');
 let ProblemEvaluate = syzoj.model('problem_evaluate');
+let ProblemNote = syzoj.model('problem_note');
 
 const randomstring = require('randomstring');
 const fs = require('fs-extra');
@@ -1186,8 +1187,53 @@ app.get('/problem/:id/contest_info', async (req, res) => {
     if(!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
     let id = req.params.id
     let contests = await Contest.queryAll(Contest.createQueryBuilder().where(`problems regexp '^(.*[^0-9])?${id}([^0-9].*)?$'`))
+    contests.sort((a, b) => b.start_time - a.start_time)
+    contests.forEach(c => c.format_start_time = syzoj.utils.formatDate(c.start_time))
     res.send({contests})
   } catch (e) {
     res.send({error: e})
   }
 });
+
+app.get('/problem/:id/note', async (req, res) => {
+  try {
+    if(!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
+    let id = req.params.id
+    let problem_note = await ProblemNote.findOne({problem_id: id})
+    if(!problem_note) res.send({note: '', note_html: ''});
+    else {
+      let note_html = await syzoj.utils.markdown(problem_note.note)
+      res.send({note: problem_note.note, note_html})
+    }
+  } catch (e) {
+    res.send({error: e})
+  }
+});
+
+app.post('/problem/:id/note/update', async (req, res) => {
+  try {
+    if(!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
+    let id = parseInt(req.params.id)
+    let action = parseInt(req.body.action)
+    if (isNaN(id) || isNaN(action)) throw "参数错误"
+    if(action === 0) {
+      let problem_note = await ProblemNote.findOne({problem_id: id})
+      if(!problem_note) {
+        problem_note = await ProblemNote.create({
+          problem_id: id,
+          note: req.body.note
+        })
+      } else problem_note.note = req.body.note
+      await problem_note.save()
+      res.send({note_html:  await syzoj.utils.markdown(problem_note.note)})
+    } else if(action === 1) {
+      let problem_note = await ProblemNote.findOne({problem_id: id})
+      if(problem_note) await problem_note.destroy()
+      res.send({msg: "ok"})
+    } else throw "参数错误"
+  } catch (e) {
+    res.send({error: e})
+  }
+});
+
+
