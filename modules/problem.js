@@ -1179,3 +1179,15 @@ app.post('/problem/:id/custom-test', app.multer.fields([{ name: 'code_upload', m
   }
 });
 */
+
+
+app.get('/problem/:id/contest_info', async (req, res) => {
+  try {
+    if(!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
+    let id = req.params.id
+    let contests = await Contest.queryAll(Contest.createQueryBuilder().where(`problems regexp '^(.*[^0-9])?${id}([^0-9].*)?$'`))
+    res.send({contests})
+  } catch (e) {
+    res.send({error: e})
+  }
+});

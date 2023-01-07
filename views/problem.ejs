@@ -11,6 +11,74 @@ if (contest) {
 }
 %>
 <% include header %>
+
+<% if (res.locals.user.is_admin) {%>
+    <link href="<%- lib('element-plus/2.2.28/index.min.css') %>" rel="stylesheet">
+    <script src="<%- lib('vue/3.2.36/vue.global.min.js') %>"></script>
+    <script src="<%- lib('element-plus/2.2.28/index.full.min.js') %>"></script>
+
+    <div id="app">
+        <div style="position:fixed; right:20px; top: 60px;" class="--el-box-shadow">
+            <el-tooltip
+                    class="box-item"
+                    effect="dark"
+                    content="相关比赛"
+                    placement="left-start"
+            >
+                <el-button circle style="box-shadow:0px 0px 12px rgba(0, 0, 0, .12)" @click="show_related_contests()">
+                    <svg t="1673072332193" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2697" width="16" height="16"><path d="M341.333333 128a42.666667 42.666667 0 0 1 42.666667-42.666667h256a42.666667 42.666667 0 0 1 42.666667 42.666667h85.333333a85.333333 85.333333 0 0 1 85.333333 85.333333v640a85.333333 85.333333 0 0 1-85.333333 85.333334H256a85.333333 85.333333 0 0 1-85.333333-85.333334V213.333333a85.333333 85.333333 0 0 1 85.333333-85.333333h85.333333z m0 85.333333H256v640h512V213.333333h-85.333333v42.666667a42.666667 42.666667 0 0 1-42.666667 42.666667H384a42.666667 42.666667 0 0 1-42.666667-42.666667V213.333333z m256-42.666666h-170.666666v42.666666h170.666666V170.666667z" fill="#d81e06" p-id="2698"></path></svg>
+                </el-button>
+            </el-tooltip>
+        </div>
+
+        <el-drawer
+                v-model="drawer.open"
+                :direction="drawer.direction"
+                size="15%"
+                :show-close="false"
+        >
+            <template #header>
+                <h4>相关比赛</h4>
+            </template>
+            <div v-if="!contests || contests.length===0">
+                <h4>暂无相关比赛</h4>
+            </div>
+            <div v-else>
+                <div v-for="c in contests">
+                    <a  :href="'/contest/' + c.id" style="font-weight: bold" target="_blank"> {{c.id}}. {{c.title}} </a> <br>
+                    <div style="color: grey"> {{c.subtitle}} </div>
+                    <el-divider />
+                </div>
+            </div>
+        </el-drawer>
+        </template>
+    </div>
+    <script>
+        const {createApp, reactive, ref} = Vue;
+        const App = {
+            setup() {
+                const drawer = reactive({
+                    open: false,
+                    direction: 'rtl',
+                    title: "相关比赛"
+                })
+                let contests = ref(undefined)
+                const show_related_contests = () => {
+                    if(contests.value === undefined) {
+                        $.get("/problem/<%= problem.id%>/contest_info", data => {
+                            if(data.error) return
+                            contests.value = data.contests
+                            drawer.open = true
+                        })
+                    } else  drawer.open = true
+                }
+                return { drawer, contests, show_related_contests }
+            },
+        }
+        createApp(App).use(ElementPlus).mount('#app')
+    </script>
+<%}%>
+
 <style>
 #languages-menu::-webkit-scrollbar, #testcase-menu::-webkit-scrollbar {
     width: 0px;
@@ -26,7 +94,7 @@ if (contest) {
 
 <div class="ui center aligned grid">
     <div class="row">
-      <h1 class="ui header">
+      <h1 class="ui header" >
         <% if (contest) { %>
           <%= this.alpha(pid) %>. <%= syzoj.utils.removeTitleTag(problem.title) %>
         <% } else { %>
