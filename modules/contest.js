@@ -1295,3 +1295,32 @@ app.get('/contest/:id/open_problems', async (req, res) => {
     })
   }
 });
+
+app.get("/contest/:id/pass_info", async (req, res) => {
+  try {
+    let contest_id = parseInt(req.params.id);
+    let contest = await Contest.findById(contest_id);
+
+    if (!contest) throw '无此比赛。'
+    if (!contest.isEnded ()) throw '比赛未结束，请耐心等待 (´∀ `)';
+
+    await contest.loadRelationships();
+    let players_id = [];
+    for (let i = 1; i <= contest.ranklist.ranklist.player_num; i++) players_id.push(contest.ranklist.ranklist[i]);
+    let problems_id = await contest.getProblems();
+    let problems = await problems_id.mapAsync(async id => await Problem.findById(id));
+    problems.map(p => p.ac_num = 0)
+    await players_id.forEachAsync(async player_id => {
+      let player = await ContestPlayer.findById(player_id);
+      let user = await User.findById(player.user_id);
+      await problems.forEachAsync(async problem => {
+        let buti_judge = await problem.getJudgeState (user, true);
+        if (buti_judge && buti_judge.status == 'Accepted') problem.ac_num++;
+      });
+    });
+    let problem_ac_counts = problems.map(p => p.ac_num)
+    res.send({total: contest.ranklist.ranklist.player_num, problem_ac_counts})
+  } catch (e) {
+    res.send({error: e})
+  }
+})

@@ -128,7 +128,7 @@
 
                 <% if (weight) { %><td class="center aligned"><%= weight[i - 1] %></td><% } %>
 
-                <td>
+                <td id="_td<%= i%>">
                   <a href="<%= syzoj.utils.makeUrl(['contest', contest.id, 'problem', i]) %>">
                     <%= "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[(i - 1) % 26] + ". " + syzoj.utils.removeTitleTag(problem.problem.title) %>
                     <% if (res.locals.user.is_admin && problem.problem.type == 'remote') { %><span class="ui tiny yellow circular label">V</span><% } %>
@@ -221,5 +221,20 @@ $(function () {
     });
   }, 5000);
 });
+
+<% if(!contest.running) { %>
+$(function () {
+  $.get('/contest/<%= contest.id%>/pass_info', data => {
+    if(!data.error) {
+      data.problem_ac_counts.forEach((ac_num, i) => {
+          let percent = (ac_num / data.total * 100).toFixed(0)
+          if(percent > 0) {
+            $('#_td' + (i+1)).css('background', 'linear-gradient(to right, rgba(121,187,255,0.2) ' + percent+'%, #ffffff '+percent+'%, #ffffff 100%)')
+          }
+      })
+    }
+  })
+})
+<% } %>
 </script>
 <% include footer %>
