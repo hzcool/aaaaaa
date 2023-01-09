@@ -149,12 +149,17 @@ export default class JudgeState extends Model {
   }
 
   async updateRelatedInfo(newSubmission) {
+    let contest = undefined
+    if(this.type === 1) contest = await Contest.findById(this.type_info);
+
     if (true) {
       await this.loadRelationships();
 
       const promises = [];
-      promises.push(this.user.refreshSubmitInfo());
-      promises.push(this.problem.resetSubmissionCount());
+      if(!contest || contest.isEnded()) {
+        promises.push(this.user.refreshSubmitInfo());
+        promises.push(this.problem.resetSubmissionCount());
+      }
 
       if (!newSubmission) {
         promises.push(this.problem.updateStatistics(this.user_id));
@@ -163,7 +168,6 @@ export default class JudgeState extends Model {
       await Promise.all(promises);
     }
     if (this.type === 1) {
-      let contest = await Contest.findById(this.type_info);
       await contest.newSubmission(this);
     }
     if (this.type === 2) {

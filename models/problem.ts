@@ -369,7 +369,7 @@ export default class Problem extends Model {
       this.ac_num =  parseInt(ac_num[0]['COUNT(DISTINCT user_id)'])
       let x = await entity.query(`SELECT submit_time from judge_state j WHERE problem_id = ${this.id} AND status = 'Accepted' AND NOT exists(SELECT id FROM judge_state j2 WHERE problem_id = ${this.id} AND j2.user_id=j.user_id AND j2.id < j.id AND status = 'Accepted' LIMIT 0,1) ORDER BY id DESC LIMIT 0,1`)
       // let judge_state = this.ac_num > 0 ? await JudgeState.findOne({where: {problem_id: this.id, status: 'Accepted'}, order: { id: "DESC" }}) : undefined
-      this.submit_num =  x.length > 0 ? parseInt(x[0]['submit_time']) : 0
+      this.submit_num =  x.length > 0 ? parseInt(x[0]['submit_time']) : this.id
       // this.submit_num = await JudgeState.count({ problem_id: this.id});
       // this.ac_num = await JudgeState.count({ score: 100, problem_id: this.id});
       await this.save();
