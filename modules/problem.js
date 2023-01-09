@@ -49,6 +49,9 @@ app.get('/problems', async (req, res) => {
       problem.allowedEdit = await problem.isAllowedEditBy(res.locals.user);
       problem.judge_state = await problem.getJudgeState(res.locals.user, true);
       problem.tags = await problem.getTags();
+
+      let judge_state = problem.ac_num > 0 ? await JudgeState.findOne({where: {problem_id: problem.id, status: 'Accepted'}, order: { id: "DESC" }}) : undefined
+      problem.last_ac_time = judge_state ? syzoj.utils.formatDate(judge_state.submit_time) : '-'
     });
 
     res.render('problems', {
@@ -878,7 +881,7 @@ app.post('/problem/:id/delete', async (req, res) => {
     if(!res.locals.user){throw new ErrorMessage('请登录后继续。',{'登录': syzoj.utils.makeUrl(['login'])});}
     if(!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
     let key = req.body.key
-    if(!key || key !== "test") throw new ErrorMessage('密码不正确。');
+    if(!key || syzoj.utils.md5(key) !== "d81df2014e1c31a09dd3849ddf0b6414") throw new ErrorMessage('密码不正确。');
     let id = parseInt(req.params.id);
     let problem = await Problem.findById(id);
     if (!problem) throw new ErrorMessage('无此题目。');

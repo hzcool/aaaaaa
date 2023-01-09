@@ -317,9 +317,13 @@ app.post('/admin/other', async (req, res) => {
     if (!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
 
     if (req.body.type === 'reset_count') {
+      const users = await User.find()
+      for(const u of users) {
+        await u.refreshSubmitInfo()
+      }
       const problems = await Problem.find();
       for (const p of problems) {
-        await p.resetSubmissionCount();
+        await p.resetSubmissionCount()
       }
     } else if (req.body.type === 'reset_discussion') {
       const articles = await Article.find();
@@ -653,5 +657,3 @@ app.get('/admin/problem_forbid', async (req, res) => {
     syzoj.log(e);
   }
 });
-
-

@@ -360,9 +360,16 @@ export default class Problem extends Model {
   }
 
   async resetSubmissionCount() {
+    let entity = TypeORM.getManager();
+    let now = syzoj.utils.getCurrentDate();
     await syzoj.utils.lock(['Problem::resetSubmissionCount', this.id], async () => {
-      this.submit_num = await JudgeState.count({ problem_id: this.id, type: TypeORM.Not(1) });
-      this.ac_num = await JudgeState.count({ score: 100, problem_id: this.id, type: TypeORM.Not(1) });
+
+      let ac_num = await entity.query(`SELECT COUNT(DISTINCT user_id) from judge_state j  where problem_id=${this.id} AND status='Accepted' AND (type != 1 OR exists(SELECT id from contest c WHERE c.id=j.type_info AND c.end_time<${now}))`)
+      let submit_num = await entity.query(`SELECT COUNT(*) from judge_state j  where problem_id=${this.id} AND (type != 1 OR exists(SELECT id from contest c WHERE c.id=j.type_info AND c.end_time<${now}))`)
+      this.ac_num =  parseInt(ac_num[0]['COUNT(DISTINCT user_id)'])
+      this.submit_num = parseInt(submit_num[0]['COUNT(*)'])
+      // this.submit_num = await JudgeState.count({ problem_id: this.id});
+      // this.ac_num = await JudgeState.count({ score: 100, problem_id: this.id});
       await this.save();
     });
   }

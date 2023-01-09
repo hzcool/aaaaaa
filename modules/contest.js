@@ -1324,3 +1324,33 @@ app.get("/contest/:id/pass_info", async (req, res) => {
     res.send({error: e})
   }
 })
+
+
+app.get('/contest/:id/update_ended_contest_info', async (req, res) => {
+  try {
+    let id = parseInt(req.params.id)
+    let c = await Contest.findById(id)
+    if(!c) throw new ErrorMessage('找不到比赛。');
+    if (!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
+    let pids = await c.getProblems()
+    await pids.mapAsync(async id => {
+      let p = await Problem.findById(id)
+      await p.resetSubmissionCount()
+    });
+
+    await c.loadRelationships();
+    let players_id = [];
+    for (let i = 1; i <= c.ranklist.ranklist.player_num; i++) players_id.push(c.ranklist.ranklist[i]);
+    await players_id.forEachAsync(async player_id => {
+      let player = await ContestPlayer.findById(player_id);
+      let user = await User.findById(player.user_id);
+      await user.refreshSubmitInfo();
+    });
+
+    res.redirect("/contest/" + id)
+  } catch (e) {
+    res.render('error', {
+      err: e
+    })
+  }
+});

@@ -8,6 +8,7 @@ import UserPrivilege from "./user_privilege";
 import Article from "./article";
 import Contest from "./contest";
 import Practice from "./practice";
+import {EntityManager} from "typeorm";
 
 @TypeORM.Entity()
 export default class User extends Model {
@@ -109,13 +110,19 @@ export default class User extends Model {
   }
 
   async refreshSubmitInfo() {
+    let entity = TypeORM.getManager();
+    let now = syzoj.utils.getCurrentDate();
     await syzoj.utils.lock(['User::refreshSubmitInfo', this.id], async () => {
-      this.ac_num = await JudgeState.countQuery(this.getQueryBuilderForACProblems());
-      this.submit_num = await JudgeState.count({
-        user_id: this.id,
-        type: TypeORM.Not(1) && TypeORM.Not(2) // Not a contest submission
-      });
+      // this.ac_num = await JudgeState.countQuery(this.getQueryBuilderForACProblems());
+      // this.submit_num = await JudgeState.count({
+      //   user_id: this.id,
+      //   type: TypeORM.Not(1) && TypeORM.Not(2) // Not a contest submission
+      // });
+      let ac_num = await entity.query(`SELECT COUNT(DISTINCT problem_id) from judge_state j  where user_id=${this.id} AND status='Accepted' AND (type != 1 OR exists(SELECT id from contest c WHERE c.id=j.type_info AND c.end_time<${now}))`)
+      let submit_num = await entity.query(`SELECT COUNT(*) from judge_state j where user_id = ${this.id} AND (type != 1 OR exists(SELECT id from contest c WHERE c.id=j.type_info AND c.end_time<${now}))`)
 
+      this.ac_num = parseInt(ac_num[0]['COUNT(DISTINCT problem_id)'])
+      this.submit_num = parseInt(submit_num[0]['COUNT(*)'])
       await this.save();
     });
   }

@@ -39,8 +39,13 @@
             syzoj.utils.makeUrl(['contest', contest.id, 'submissions']); %>
           <a class="ui small positive button" href="<%= submissionsUrl %>">提交记录</a>
 
-            <% if (res.locals.user.is_admin && contest.open_problem) {%>
-              <a class="ui small purple button" href="<%= syzoj.utils.makeUrl(['contest', contest.id, 'open_problems']) %>" >题目公开</a>
+            <% if (res.locals.user.is_admin) {%>
+              <%if(contest.open_problem) {%>
+                <a class="ui small purple button" href="<%= syzoj.utils.makeUrl(['contest', contest.id, 'open_problems']) %>" >题目公开</a>
+              <% } %>
+            <%if(contest.ended) {%>
+                <a class="ui small orange button" href="<%= syzoj.utils.makeUrl(['contest', contest.id, 'update_ended_contest_info']) %>" >更新赛后信息</a>
+            <%}%>
             <% } %>
 
           <% if (isSupervisior) { %>
