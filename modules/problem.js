@@ -49,9 +49,6 @@ app.get('/problems', async (req, res) => {
       problem.allowedEdit = await problem.isAllowedEditBy(res.locals.user);
       problem.judge_state = await problem.getJudgeState(res.locals.user, true);
       problem.tags = await problem.getTags();
-
-      let judge_state = problem.ac_num > 0 ? await JudgeState.findOne({where: {problem_id: problem.id, status: 'Accepted'}, order: { id: "DESC" }}) : undefined
-      problem.last_ac_time = judge_state ? syzoj.utils.formatDate(judge_state.submit_time) : '-'
     });
 
     res.render('problems', {
