@@ -17,8 +17,8 @@
                 <!-- <th>个性签名</th> -->
                 <th style="width: 100px; "><%- createSortableTitle('ac_num', '通过数量', false) %></th>
                 <th style="width: 100px; "><%- createSortableTitle('rating', '积分', false) %></th>
-                <th style="width: 100px; "><%- createSortableTitle('register_time', '注册时间', false) %></th>
                 <th style="width: 100px; "><%- createSortableTitle('last_login_time', '登录时间', false) %></th>
+                <th style="width: 100px; "><%- createSortableTitle('end_time', '结束时间', false) %></th>
                 <th style="width: 100px; "><%- createSortableTitle('group_id', '分组', false) %></th>
                 <th style="width: 100px; ">编辑用户</th>
             </tr>
@@ -62,8 +62,8 @@
               </td> -->
                     <td><%= user.ac_num %></td>
                     <td><%= user.rating %></td>
-                    <td><%= syzoj.utils.formatDate(user.register_time) %></td>
                     <td><%= syzoj.utils.formatDate(user.last_login_time / 1000) %></td>
+                    <td><%= syzoj.utils.formatDate(user.end_time) %></td>
                     <td><%= user.group_id %></td>
                     <td><a href="<%= syzoj.utils.makeUrl(['user', user.id, 'edit']) %>">编辑</a></td>
                 </tr>

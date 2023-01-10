@@ -20,18 +20,14 @@ app.get('/ranklist', async (req, res) => {
 
     const sort = req.query.sort || syzoj.config.sorting.ranklist.field;
     const order = req.query.order || syzoj.config.sorting.ranklist.order;
-    if (!['ac_num', 'rating', 'id', 'username','register_time', 'last_login_time','group_id'].includes(sort) || !['asc', 'desc'].includes(order)) {
+    if (!['ac_num', 'rating', 'id', 'username','end_time', 'last_login_time','group_id'].includes(sort) || !['asc', 'desc'].includes(order)) {
       throw new ErrorMessage('错误的排序参数。');
     }
 
     let keyword = req.query.keyword;
     let query = User.createQueryBuilder();
-
-    if (!keyword) {
-      query.where ('is_show = 1');
-      query.andWhere ('group_id != 0');
-    }
-    else {
+    query.where ('is_show = 1').andWhere ('group_id != 0');
+    if(keyword) {
       query.  where('username LIKE :username', { username: `%${keyword}%` });
       query.orWhere('nickname LIKE :nickname', { nickname: `%${keyword}%` });
       query.orWhere('group_id LIKE :group_id', { group_id: `%${keyword}%` });
@@ -40,6 +36,7 @@ app.get('/ranklist', async (req, res) => {
     let paginate = syzoj.utils.paginate(await User.countForPagination(query), req.query.page, syzoj.config.page.ranklist);
     let ranklist = await User.queryPage(paginate, query, { [sort]: order.toUpperCase() });
     await ranklist.forEachAsync(async x => x.renderInformation());
+
     // await ranklist.forEachAsync(async x => x.last_login_time = await LoginLog.getLastLoginTime(x.id));
 
     res.render('ranklist', {
