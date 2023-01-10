@@ -26,11 +26,12 @@ app.get('/ranklist', async (req, res) => {
 
     let keyword = req.query.keyword;
     let query = User.createQueryBuilder();
-    query.where ('is_show = 1').andWhere ('group_id != 0');
+    query.where ('is_show = 1');
     if(keyword) {
-      query.  where('username LIKE :username', { username: `%${keyword}%` });
-      query.orWhere('nickname LIKE :nickname', { nickname: `%${keyword}%` });
-      query.orWhere('group_id LIKE :group_id', { group_id: `%${keyword}%` });
+      query.andWhere(`(username LIKE '%${keyword}%' OR nickname LIKE '%${keyword}%' OR group_id='${keyword}')`)
+      // query.  where('username LIKE :username', { username: `%${keyword}%` });
+      // query.orWhere('nickname LIKE :nickname', { nickname: `%${keyword}%` });
+      // query.orWhere('group_id LIKE :group_id', { group_id: `%${keyword}%` });
     }
 
     let paginate = syzoj.utils.paginate(await User.countForPagination(query), req.query.page, syzoj.config.page.ranklist);
