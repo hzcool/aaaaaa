@@ -415,13 +415,20 @@ if (contest) {
     <div class="row">
         <div class="column">
           <%
-          const formUrl = syzoj.utils.makeUrl(['problem', problem.id, 'submit'], { 
+          let formUrl = syzoj.utils.makeUrl(['problem', problem.id, 'submit'], {
             contest_id: contest && !contest.ended ? contest.id : undefined,
             practice_id: practice && !practice.ended ? practice.id : undefined,
-            no_jump: true,
+            no_jump: problem.type !== 'submit-answer' ? true : undefined,
           });
           %>
-          <form target="__iframe" action="<%= formUrl %>" method="post" onsubmit="return false" id="submit_code" enctype="multipart/form-data">
+
+            <% if (problem.type !== 'submit-answer') { %>
+            <form target="__iframe" onsubmit="return false"  action="<%= formUrl %>" method="post"  id="submit_code" enctype="multipart/form-data">
+            <%} else {%>
+                <form action="<%= formUrl %>" method="post"  id="submit_code" enctype="multipart/form-data">
+            <%}%>
+
+
               <% if (problem.type === 'submit-answer') { %>
               <%
               let cases = [];
