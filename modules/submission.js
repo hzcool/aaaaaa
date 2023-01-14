@@ -176,12 +176,10 @@ app.get('/submissions', async (req, res) => {
     if(!res.locals.user.is_admin) {
       let cur_date = syzoj.utils.getCurrentDate()
       for (let x of judge_state) {
-        if(x.user_id !== res.locals.user.id) {
           let pf = await ProblemForbid.findOne({problem_id: x.problem_id})
           if(pf && pf.forbid_submission_end_time > cur_date)  {
             x.forbid_code_view = true
           }
-        }
       }
     }
 
@@ -227,7 +225,7 @@ app.get('/submission/:id', async (req, res) => {
     if (!await judge.isAllowedVisitBy(curUser)) throw new ErrorMessage('您没有权限进行此操作。');
 
 
-    if(!res.locals.user.is_admin && !(res.locals.user.id === judge.user_id)) {
+    if(!res.locals.user.is_admin) {
       let pf = await ProblemForbid.findOne({problem_id: judge.problem_id})
       if(pf && pf.forbid_submission_end_time > syzoj.utils.getCurrentDate())  throw new ErrorMessage('禁止查看代码。');
     }
