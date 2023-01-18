@@ -248,7 +248,8 @@ app.post('/user/:id/edit', async (req, res) => {
 
       user.information = req.body.information;
       user.sex = req.body.sex;
-      user.public_email = (req.body.public_email === 'on');
+      user.is_show  = user.public_email = (req.body.public_email === 'on');
+
       user.prefer_formatted_code = (req.body.prefer_formatted_code === 'on');
 
       if (res.locals.user.is_admin){

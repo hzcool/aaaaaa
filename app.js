@@ -138,7 +138,7 @@ global.syzoj = {
         // wait until parent process quited.
         await new Promise((resolve, reject) => {
           process.on('message', message => {
-            if (message === 'quited') resolve();
+            if (message === 'quited') resolve()
           });
           process.send('quit');
         });
@@ -158,10 +158,12 @@ global.syzoj = {
       if (message !== 'quit') return;
 
       console.log('Child process requested "quit".')
-      child.send('quited', err => {
-        if (err) console.error('Error sending "quited" to child process:', err);
-        process.exit();
-      });
+      app.server.close(()=>{
+        child.send('quited', err => {
+          if (err) console.error('Error sending "quited" to child process:', err);
+          process.exit();
+        });
+      })
     });
   },
   async connectDatabase() {

@@ -482,7 +482,7 @@ app.post('/admin/raw', async (req, res) => {
   }
 });
 
-app.get('/admin/restart', async (req, res) => {
+app.post('/admin/restart', async (req, res) => {
   try {
     if (!res.locals.user) throw new ErrorMessage('您没有权限进行此操作。');
     if (!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
