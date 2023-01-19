@@ -309,6 +309,7 @@ app.post('/contest/:id/edit', async (req, res) => {
     contest.is_public = req.body.is_public === 'on';
     contest.hide_statistics = req.body.hide_statistics === 'on';
     contest.hide_username = req.body.hide_username === 'on';
+    contest.hide_title = req.body.hide_title === 'on'
 
     contest.group_id = req.body.group_id;
 
@@ -1352,23 +1353,6 @@ app.get('/contest/:id/update_ended_contest_info', async (req, res) => {
       let user = await User.findById(player.user_id);
       await user.refreshSubmitInfo();
     });
-
-    res.redirect("/contest/" + id)
-  } catch (e) {
-    res.render('error', {
-      err: e
-    })
-  }
-});
-
-app.get('/contest/:id/title_display', async (req, res) => {
-  try {
-    let id = parseInt(req.params.id)
-    let c = await Contest.findById(id)
-    if(!c) throw new ErrorMessage('找不到比赛。');
-    if (!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
-    c.hide_title = req.query.hide === 'true';
-    await c.save()
 
     res.redirect("/contest/" + id)
   } catch (e) {
