@@ -64,6 +64,9 @@ export default class Contest extends Model {
   @TypeORM.Column({ nullable: true, type: "boolean" })
   hide_username: boolean;
 
+  @TypeORM.Column({ nullable: true, type: "boolean" })
+  hide_title: boolean;
+
   @TypeORM.Column({ nullable: true, type: "text" })
   group_id: string;
 

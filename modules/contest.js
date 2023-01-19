@@ -10,7 +10,7 @@ let ProblemForbid =  syzoj.model('problem_forbid')
 
 const jwt = require('jsonwebtoken');
 const { getSubmissionInfo, getRoughResult, processOverallResult } = require('../libs/submissions_process');
-
+const hide_title_replace = "ABCD"
 
 async function contest_check_open(contest){
     let gid = contest.group_id;
@@ -77,7 +77,10 @@ app.get('/contests', async (req, res) => {
       start_time: 'DESC'
     });
 
-    await contests.forEachAsync(async x => x.subtitle = await syzoj.utils.markdown(x.subtitle));
+    await contests.forEachAsync(async x => {
+      x.subtitle = await syzoj.utils.markdown(x.subtitle);
+      if(x.hide_title) x.title = hide_title_replace
+    });
 
     res.render('contests', {
       is_admin: res.locals.user.is_admin,
@@ -383,7 +386,10 @@ app.get('/contest/:id', async (req, res) => {
       for(let p of problems) {
         contest.open_problem |= !p.is_public
       }
+    } else if(contest.hide_title){
+      contest.title = hide_title_replace
     }
+
     problems = problems.map(x => ({ problem: x, status: null, judge_id: null, statistics: null }));
 
 
@@ -1346,6 +1352,23 @@ app.get('/contest/:id/update_ended_contest_info', async (req, res) => {
       let user = await User.findById(player.user_id);
       await user.refreshSubmitInfo();
     });
+
+    res.redirect("/contest/" + id)
+  } catch (e) {
+    res.render('error', {
+      err: e
+    })
+  }
+});
+
+app.get('/contest/:id/title_display', async (req, res) => {
+  try {
+    let id = parseInt(req.params.id)
+    let c = await Contest.findById(id)
+    if(!c) throw new ErrorMessage('找不到比赛。');
+    if (!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
+    c.hide_title = req.query.hide === 'true';
+    await c.save()
 
     res.redirect("/contest/" + id)
   } catch (e) {

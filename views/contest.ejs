@@ -33,19 +33,21 @@
           <% if(contest.ended){ %>
             <a class="ui small yellow button" href="<%= syzoj.utils.makeUrl(['contest', contest.id, 'repeat']) %>">补题情况</a>
             <a class="ui small red button" href="<%= syzoj.utils.makeUrl( isSupervisior ?  ['summary'] : ['summary', 'edit'], isSupervisior ? {contest_id: contest.id} : {contest_id: contest.id, username: username}) %>">总结</a>
-          <% } %>
+          <% } else { %>
+              <a class="ui small orange button" href="<%= syzoj.utils.makeUrl(['contest', contest.id, 'title_display'], {hide: !contest.hide_title}) %>"> <%= contest.hide_title ? "公开比赛标题": "隐藏比赛标题" %> </a>
+          <%}%>
           <% let submissionsUrl = seeResult ?
             syzoj.utils.makeUrl(['submissions'], {contest: contest.id}) :
             syzoj.utils.makeUrl(['contest', contest.id, 'submissions']); %>
           <a class="ui small positive button" href="<%= submissionsUrl %>">提交记录</a>
 
             <% if (res.locals.user.is_admin) {%>
-              <%if(contest.open_problem) {%>
-                <a class="ui small purple button" href="<%= syzoj.utils.makeUrl(['contest', contest.id, 'open_problems']) %>" >题目公开</a>
-              <% } %>
-            <%if(contest.ended) {%>
-                <a class="ui small orange button" href="<%= syzoj.utils.makeUrl(['contest', contest.id, 'update_ended_contest_info']) %>" >更新赛后信息</a>
-            <%}%>
+                <%if(contest.open_problem) {%>
+                    <a class="ui small purple button" href="<%= syzoj.utils.makeUrl(['contest', contest.id, 'open_problems']) %>" >题目公开</a>
+                <% } %>
+                <%if(contest.ended) {%>
+                    <a class="ui small orange button" href="<%= syzoj.utils.makeUrl(['contest', contest.id, 'update_ended_contest_info']) %>" >更新赛后信息</a>
+                <%}%>
             <% } %>
 
           <% if (isSupervisior) { %>
