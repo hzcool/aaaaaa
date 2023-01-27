@@ -63,10 +63,10 @@ function initModal(type, getListLink = undefined, getCodeLink = undefined) { // 
     __getCodeLink = getCodeLink
 }
 
-function __showSubmissionList(link, forSelf = false) {
+function __showSubmissionList(link, username=undefined) {
     if(link.indexOf('?') === -1) link += '?'; else link += '&'
-    if(forSelf) {
-        link += 'submitter=' + '<%= res.locals.user.username %>' + '&'
+    if(username && username !== '') {
+        link += 'submitter=' + username + '&'
     }
     $('#ListHeader a').attr('href', link)
     link += 'no_jump=true'
@@ -106,13 +106,14 @@ function __showCode(event = undefined, link = undefined, username = undefined) {
 }
 
 function __showList(link = undefined) {
-    let forSelf = false
+    let username = undefined
     if(__type === 2) {
         __prepareForBothModal(true);
-        forSelf = $('#ListType').is(":checked")
+        // forSelf = $('#ListType').is(":checked")
+        if($('#ListType').is(":checked")) username = '<%= res.locals.user ? res.locals.user.username : "" %>'
     }
     if(link === undefined && __getListLink) link = __getListLink()
-    if(link !== undefined) __showSubmissionList(link, forSelf)
+    if(link !== undefined) __showSubmissionList(link, username)
 }
 
 function __show_iframe(link) {
