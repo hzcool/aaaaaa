@@ -11,7 +11,6 @@ const PracticePlayer = syzoj.model('practice_player');
 const LoginLog = syzoj.model('loginlog');
 const Problem = syzoj.model('problem')
 
-
 // Ranklist
 app.get('/ranklist', async (req, res) => {
   try {
@@ -302,6 +301,47 @@ app.get('/vj/log', async (req, res) => {
     res.render('vj_logger_info', {
       info
     });
+  } catch (e) {
+    syzoj.log(e);
+    res.render('error', {
+      err: e
+    });
+  }
+});
+
+
+app.get('/user/:id/problem_details', async (req, res) => {
+  try {
+    if(!res.locals.user){throw new ErrorMessage('请登录后继续。',{'登录': syzoj.utils.makeUrl(['login'])});}
+    if(!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
+
+    let id = parseInt(req.params.id);
+    user = await User.findById(id);
+    if (!user) throw new ErrorMessage('无此用户。');
+
+    let entity = TypeORM.getManager()
+
+    let sql = `SELECT * FROM (SELECT problem_id,submit_time FROM judge_state WHERE user_id=${id} and status = 'accepted' order by problem_id,submit_time asc) j group by j.problem_id`
+    let data = await entity.query(sql)
+
+    let info = await data.mapAsync(async x => {
+      let pid = x['problem_id']
+      let problem = await Problem.create()
+      problem.id = pid
+      return {
+        problem_id: pid,
+        submit_time: x['submit_time'],
+        tags: await problem.getTags()
+      }
+    })
+
+    let min_time = syzoj.utils.getCurrentDate()
+    let now = min_time
+    for(let item of info) {
+      if(min_time > item.submit_time) min_time = item.submit_time
+    }
+
+    res.render('user_problem_details', {user, info, min_time, now})
   } catch (e) {
     syzoj.log(e);
     res.render('error', {
