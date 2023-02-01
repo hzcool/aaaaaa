@@ -1,6 +1,9 @@
 <% this.title = user.username + ' - 用户'; %>
 <style>
     .ui.label.pointing.below.left::before { left: 12%; }
+    .ui.label.pointing.below.right::before { left: 88%; }
+    .ui.label.pointing.below.left { margin-bottom: 0; }
+    .ui.label.pointing.below.right { margin-bottom: 0; float: right; }
 </style>
 <% include header %>
 
@@ -14,10 +17,11 @@
 
     <div id="app">
         <div>
-            <div class="ui pointing below left label"> {{start_date}} </div>
+            <div class="ui pointing below left label"> <%= syzoj.utils.formatDate(min_time)%> </div>
+            <div class="ui pointing below right label"><%= syzoj.utils.formatDate(now)%></div>
         </div>
         <div>
-            <el-slider v-model="value" :format-tooltip="formatTooltip" @change="handle" placement="bottom"/>
+            <el-slider v-model="value" range :format-tooltip="formatTooltip" @change="handle" placement="bottom"/>
         </div>
 
         <div style="display: flex; justify-content: center;margin-top: 50px">
@@ -85,7 +89,11 @@
                 {
                     name: '过题数量',
                     type: 'bar',
-                    data: [5, 20, 36, 10]
+                    data: [5, 20, 36, 10],
+                    label: {
+                        show: true,
+                        position: 'inside'
+                    },
                 }
             ]
         }
@@ -122,17 +130,21 @@
         let barChart = undefined
         let pieChart = undefined
 
-        const value = ref(100)
-        const get_ts = () => min_time + parseInt(value.value / 100 * dur)
-        const formatTooltip = () => dateFormat(new Date(get_ts() * 1000))
+        const value = ref([0, 100])
+        const get_ts = () => [min_time + parseInt(value.value[0] / 100 * dur), min_time + parseInt(value.value[1] / 100 * dur)]
+        const formatTooltip = (val) => {
+            // let [l, r] = get_ts()
+            // return [dateFormat(new Date(l * 1000)), dateFormat(new Date(r * 1000))]
+            return dateFormat(new Date((min_time + parseInt(val / 100 * dur) + 28800) * 1000))
+        }
         const radio = ref(bigs[0])
 
         const handle = (barChange = true, pieChange = true) => {
-            const ts = get_ts()
+            const [l, r] = get_ts()
             let counter = {}
             let pie_data = {}
             for(let item of info) {
-                if(item.submit_time > ts) continue
+                if(item.submit_time < l || item.submit_time > r) continue
                 for(let tag of item.tags) {
                     let type = mpBig[tag.name]
                     if(!type) continue
@@ -163,9 +175,11 @@
                 pieOpt.title.text = radio.value
                 pieOpt.color = []
                 for (let key in pie_data) {
-                    pieOpt.series[0].data.push({name: key, value: pie_data[key]})
-                    pieOpt.color.push(mp[mpBig[key]][key].color)
+                    let val = pie_data[key]
+                    pieOpt.series[0].data.push({name: key + '(' + val + ')', value: val, color: mp[mpBig[key]][key].color})
                 }
+                pieOpt.series[0].data.sort((x, y) =>  y.value - x.value)
+                pieOpt.series[0].data.forEach(x => pieOpt.color.push(x.color))
                 pieChart.setOption(pieOpt)
             }
         }
@@ -180,7 +194,7 @@
                     pieChart = echarts.init(pieChartRef.value)
                     handle()
                 })
-                return {start_date: dateFormat(new Date(min_time * 1000)) ,value, formatTooltip, radio, barChartRef, pieChartRef, handle, bigs}
+                return {value, formatTooltip, radio, barChartRef, pieChartRef, handle, bigs}
             },
         }
         createApp(App).use(ElementPlus).mount('#app')
