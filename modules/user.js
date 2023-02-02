@@ -341,7 +341,7 @@ app.get('/user/:id/problem_details', async (req, res) => {
       if(min_time > item.submit_time) min_time = item.submit_time
     }
 
-    res.render('user_problem_details', {user, info, min_time, now})
+    res.render('user_problem_details', {show_user:user, info, min_time, now})
   } catch (e) {
     syzoj.log(e);
     res.render('error', {

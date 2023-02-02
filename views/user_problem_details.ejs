@@ -14,7 +14,7 @@
     <script src="<%- lib('element-plus/2.2.28/index.full.min.js') %>"></script>
     <script src="<%- lib('echarts/echarts.js') %>"></script>
 
-
+    <h1 style="margin-bottom: 20px"> <span style="color: red"> <%= show_user.username%> </span> 解题统计分析 </h1>
     <div id="app">
         <div>
             <div class="ui pointing below left label"> <%= syzoj.utils.formatDate(min_time)%> </div>
@@ -25,17 +25,30 @@
         </div>
 
         <div style="display: flex; justify-content: center;margin-top: 50px">
+            <h2>大类统计</h2>
             <div ref="barChartRef" style="width: 1000px;height:600px;"> </div>
         </div>
 
+        <h2>知识点分类统计</h2>
         <div>
             <el-radio-group v-model="radio" @change="handle(false, true)">
                 <el-radio v-for="item in bigs" :label="item" size="large"> {{item}} </el-radio>
             </el-radio-group>
         </div>
 
+        <el-space wrap style="margin-top: 20px">
+            <div v-for="(item, idx) in pie_tags" :key="idx">
+                <el-tag :color="item.color" effect="dark" :hit="false">  <span style="font-weight: bold">  {{item.name}} </span>  </el-tag>
+<!--                <span class="ui header">-->
+<!--                    <a href="###" :class="'ui tiny label ' + item.color">-->
+<!--                      {{item.name}}-->
+<!--                    </a>-->
+<!--                  </span>-->
+            </div>
+        </el-space>
+
         <div style="display: flex; justify-content: center;margin-top: 50px">
-            <div ref="pieChartRef" style="width: 1000px;height:650px;"> </div>
+            <div ref="pieChartRef" style="width: 800px;height:400px;"> </div>
         </div>
     </div>
 
@@ -51,6 +64,7 @@
         const min_time = parseInt('<%= min_time%>')
         const now = parseInt('<%= now%>')
         const dur = now - min_time
+        const pie_tags = ref([])
 
         const barChartRef = ref(null)
         const pieChartRef = ref(null)
@@ -76,7 +90,7 @@
 
         // 指定图表的配置项和数据
         const barOpt = {
-            title: { text: '解题分类统计' },
+            // title: { text: '解题大类统计' },
             tooltip: {},
             legend: {
                 data: ['过题数量']
@@ -98,24 +112,24 @@
             ]
         }
         const pieOpt = {
-            title: {
-                text: '图论',
-                subtext: '知识点分析',
-                left: 'center'
-            },
+            // title: {
+            //     text: '',
+            //     subtext: '',
+            //     left: 'right'
+            // },
             color: [],
             tooltip: {
                 trigger: 'item'
             },
-            legend: {
-                orient: 'vertical',
-                left: 'left'
-            },
+            // legend: {
+            //     orient: 'horizontal',
+            //     left: 'left'
+            // },
             series: [
                 {
                     name: '过题量',
                     type: 'pie',
-                    radius: '50%',
+                    radius: '80%',
                     data: [ { value: 1048, name: '最短路' },],
                     emphasis: {
                         itemStyle: {
@@ -172,14 +186,15 @@
 
             if(pieChange) {
                 pieOpt.series[0].data = []
-                pieOpt.title.text = radio.value
-                pieOpt.color = []
-                for (let key in pie_data) {
+                let tar = mp[radio.value]
+                for (let key of Object.keys(tar)) {
                     let val = pie_data[key]
-                    pieOpt.series[0].data.push({name: key + '(' + val + ')', value: val, color: mp[mpBig[key]][key].color})
+                    if(!val) val = 0
+                    pieOpt.series[0].data.push({name: key + '(' + val + ')', value: val, color: tar[key].color})
                 }
                 pieOpt.series[0].data.sort((x, y) =>  y.value - x.value)
-                pieOpt.series[0].data.forEach(x => pieOpt.color.push(x.color))
+                pieOpt.color = pieOpt.series[0].data.map(x => x.color)
+                pie_tags.value = pieOpt.series[0].data
                 pieChart.setOption(pieOpt)
             }
         }
@@ -194,7 +209,7 @@
                     pieChart = echarts.init(pieChartRef.value)
                     handle()
                 })
-                return {value, formatTooltip, radio, barChartRef, pieChartRef, handle, bigs}
+                return {value, formatTooltip, radio, barChartRef, pieChartRef, handle, bigs, pie_tags}
             },
         }
         createApp(App).use(ElementPlus).mount('#app')

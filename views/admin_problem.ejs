@@ -3,6 +3,11 @@ this.adminPage = 'problem';
 %>
 <% include admin_header %>
 
+<style>
+    .close:hover {
+        transform: scale(1.2);  /*放大1.1倍*/
+    }
+</style>
 <div>
     <table class="ui very basic center aligned table">
         <thead>
@@ -11,6 +16,7 @@ this.adminPage = 'problem';
             <th class="two wide">题目名</th>
             <th class="one wide">比赛id</th>
             <th class="one wide">禁止代码访问截止时间</th>
+            <th class="one wide"> 删除 </th>
         </tr>
         </thead>
         <tbody>
@@ -20,6 +26,9 @@ this.adminPage = 'problem';
                     <td> <%= item.problem_title%></td>
                     <td> <%= item.contest_id%></td>
                     <td> <%= syzoj.utils.formatDate(item.forbid_submission_end_time)%></td>
+                    <td>
+                        <i class="close icon" style="cursor: pointer;" onclick="update(1, <%= item.problem_id%>)"></i>
+                    </td>
                 </tr>
             <% })%>
         </tbody>
@@ -37,7 +46,6 @@ this.adminPage = 'problem';
             <input type="text" id="problem_end_time" value="<%= syzoj.utils.formatDate(syzoj.utils.getCurrentDate())%>">
         </div>
         <button class="ui blue labeled icon button" onclick="update(0)"><i class="ui edit icon"></i>设置</button>
-        <button class="ui negative labeled icon button" onclick="update(1)"><i class="ui trash icon"></i>删除</button>
     </div>
 
 
@@ -81,11 +89,11 @@ const contestIdInputOnblur = () => {
     })
 }
 
-const update = (action) => {
+const update = (action, pid = undefined) => {
     let id = undefined
     let end_time = 0
     if(action === 0 || action === 1) {
-        id = parseInt($("#pid_input").val())
+        id = pid ? pid : parseInt($("#pid_input").val())
         if(action === 0) {
             end_time = parseInt(new Date($("#problem_end_time").val()) / 1000)
             if (isNaN(end_time)) {
