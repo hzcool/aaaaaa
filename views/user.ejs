@@ -84,7 +84,7 @@
                   </div>
                   <div class="row">
                     <div class="column">
-                      <h4 class="ui top attached block header">通过的题目 <% if(res.locals.user.is_admin) { %><a href="<%= syzoj.utils.makeUrl(['user', show_user.id, 'problem_details'])%>"> 详情</a> <% } %> </h4>
+                      <h4 class="ui top attached block header">通过的题目 <% if(res.locals.user.is_admin) { %><a href="<%= syzoj.utils.makeUrl(['user', show_user.id, 'problem_statistics'])%>"> 详情</a> <% } %> </h4>
                       <div class="ui bottom attached segment">
                         <% for (let problem of show_user.ac_problems) { %>
                           <a href="<%= syzoj.utils.makeUrl(['problem', problem]) %>"><%= problem %></a>

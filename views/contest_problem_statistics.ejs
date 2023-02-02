@@ -1,0 +1,24 @@
+<% this.title = user.username + ' - 用户'; %>
+
+<% include header %>
+
+<div class="padding" >
+    <h1 style="margin-bottom: 20px"> 比赛题目统计分析 </h1>
+
+<!--    <div class="ui icon input" style="margin-bottom: 20px">-->
+<!--        <input type="text" placeholder="比赛前缀">-->
+<!--        <i class="inverted circular search link icon"></i>-->
+<!--    </div>-->
+
+    <div style="font-weight: bold;font-size: 20px;margin-bottom: 30px">
+        相关比赛:
+        <% contests.forEach(c => {%>
+            <a href="<%= syzoj.utils.makeUrl(['contest', c.id])%>" > <%= c.title%> </a> ,
+        <% }) %>
+    </div>
+
+    <% if(info) {%>
+        <% include problem_statistics.ejs %>
+    <% } %>
+</div>
+<% include footer %>

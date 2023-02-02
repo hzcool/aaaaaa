@@ -310,7 +310,7 @@ app.get('/vj/log', async (req, res) => {
 });
 
 
-app.get('/user/:id/problem_details', async (req, res) => {
+app.get('/user/:id/problem_statistics', async (req, res) => {
   try {
     if(!res.locals.user){throw new ErrorMessage('请登录后继续。',{'登录': syzoj.utils.makeUrl(['login'])});}
     if(!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
@@ -335,13 +335,13 @@ app.get('/user/:id/problem_details', async (req, res) => {
       }
     })
 
-    let min_time = syzoj.utils.getCurrentDate()
-    let now = min_time
+    let max_time = syzoj.utils.getCurrentDate()
+    let min_time = max_time
     for(let item of info) {
       if(min_time > item.submit_time) min_time = item.submit_time
     }
 
-    res.render('user_problem_details', {show_user:user, info, min_time, now})
+    res.render('user_problem_statistics', {show_user:user, info, min_time, max_time})
   } catch (e) {
     syzoj.log(e);
     res.render('error', {

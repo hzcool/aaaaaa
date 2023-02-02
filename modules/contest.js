@@ -1361,3 +1361,45 @@ app.get('/contest/:id/update_ended_contest_info', async (req, res) => {
     })
   }
 });
+
+app.get('/contest/problem_statistics/:prefix', async (req, res) => {
+  try {
+    if(!res.locals.user){throw new ErrorMessage('请登录后继续。',{'登录': syzoj.utils.makeUrl(['login'])});}
+    if(!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
+
+
+    let query = Contest.createQueryBuilder()
+    query.where('title LIKE :title', { title: `${req.params.prefix}%` })
+    let contests = await Contest.queryAll(query)
+
+    let info = []
+    await contests.forEachAsync(async c => {
+      let problems = await c.getProblems()
+      for(let pid of problems) {
+        let problem = await Problem.create()
+        problem.id = pid
+        info.push({
+          problem_id: pid,
+          submit_time: c.start_time,
+          tags: await problem.getTags()
+        })
+      }
+    })
+    info.sort((a, b) => a.submit_time - b.submit_time)
+
+    let min_time = syzoj.utils.getCurrentDate()
+    let max_time = min_time
+    if(info.length > 0) {
+      min_time = info[0].submit_time
+      max_time = info[info.length - 1].submit_time
+    }
+
+    res.render('contest_problem_statistics', {prefix:req.params.prefix, contests,  info, min_time, max_time})
+
+  } catch (e) {
+    syzoj.log(e);
+    res.render('error', {
+      err: e
+    });
+  }
+});
