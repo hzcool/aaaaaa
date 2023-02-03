@@ -16,6 +16,13 @@
         <%}%>
     </form>
     <div style="margin-top: 25px"></div>
+    <% if(contest) {%>
+        <div style="font-size: 18px; font-weight: bold">
+            比赛： <a href="<%= syzoj.utils.makeUrl(['contest', contest.id])%>"> <%= contest.title%> </a>
+        </div>
+        <div> 开始时间 <%= syzoj.utils.formatDate(contest.start_time) %></div>
+        <div> 结束时间 <%= syzoj.utils.formatDate(contest.end_time) %></div>
+    <%}%>
     <% include page  %>
     <table class="ui center aligned table celled">
         <thead>
@@ -26,21 +33,24 @@
             <th class="one wide">用时<br>mins</th>
             <th class="one wide">得分</th>
             <th class="three wide">每题总结</th>
+            <th class="three wide"> 比赛总结</th>
         </tr>
         </thead>
         <tbody>
         <% Object.values(summaries).forEach((s, s_idx) => { %>
             <% s.problem_ids.forEach((problem_id,idx) => {  %>
             <% let item = s.details[problem_id];%>
-                <tr >
+                <tr>
                     <% if(idx === 0) {%>
                     <td rowspan="<%=s.length%>" style="line-height: 30px">
                         <div><b><%= s.user.username + ' - ' + s.user.nickname %></b></div>
-                        <div style="font-size: 18px; font-weight: bold">
-                            <a href="<%= syzoj.utils.makeUrl(['contest', s.contest.id])%>"> <%= s.contest.title%> </a>
-                        </div>
-                        <div> <%= syzoj.utils.formatDate(s.contest.start_time) %></div>
-                        <div> <%= syzoj.utils.formatDate(s.contest.end_time) %></div>
+                        <% if(!contest) {%>
+                            <div style="font-size: 18px; font-weight: bold">
+                                <a href="<%= syzoj.utils.makeUrl(['contest', s.contest.id])%>"> <%= s.contest.title%> </a>
+                            </div>
+                            <div> <%= syzoj.utils.formatDate(s.contest.start_time) %></div>
+                            <div> <%= syzoj.utils.formatDate(s.contest.end_time) %></div>
+                        <%}%>
                         <div> 总分: <%= s.score %> </div>
                         <div>
                             <a href="<%= syzoj.utils.makeUrl(['summary', 'edit'], {username: user.username, contest_id:  s.contest.id})%>">  编辑总结 </a>
@@ -63,14 +73,20 @@
                     <td> <%= item.problem_summary ? (item.problem_summary.time === 0 ? '---' : item.problem_summary.time) : '---' %> </td>
                     <td> <%= Math.round(item.score)%> </td>
                     <td><div class="ui font-content left aligned"><%- item.problem_summary ? (item.problem_summary.summary) : '' %></div> </td>
+
+                    <% if(idx === 0) {%>
+                    <td rowspan="<%=s.length%>" style="line-height: 30px">
+                        <div class="ui font-content left aligned" style="clear: both"><%- s.contest_summary ? (s.contest_summary.summary) : '' %></div>
+                    </td>
+                    <%}%>
                 </tr>
             <% })%>
-            <tr>
-                <td colspan="6">
-                    <h3 style="float: left">  比赛总结 </h3>
-                    <div class="ui font-content left aligned" style="clear: both"><%- s.contest_summary ? (s.contest_summary.summary) : '' %></div>
-                </td>
-            </tr>
+<!--            <tr>-->
+<!--                <td colspan="6">-->
+<!--                    <h3 style="float: left">  比赛总结 </h3>-->
+<!--                    -->
+<!--                </td>-->
+<!--            </tr>-->
         <%})%>
 
         </tbody>

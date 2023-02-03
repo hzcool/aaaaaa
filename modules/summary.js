@@ -33,6 +33,7 @@ app.get('/summary', async (req, res) => {
             query.where("user_id = :user_id", { user_id: user.id })
             users.push(user)
         }
+        let cc = undefined
         let contests = []
         if(req.query.contest_id) {
             let c = await Contest.findById(parseInt(req.query.contest_id))
@@ -40,17 +41,31 @@ app.get('/summary', async (req, res) => {
                 throw new ErrorMessage('比赛还未结束。');
             }
             query.andWhere("contest_id = " +  req.query.contest_id)
-            if(c) contests.push(c);
-        } else if(req.query.title) {
-            contests = (await Contest.getKeywordContests(req.query.title)).filter(c => !c.isRunning())
-            if(contests.length > 0) {
-                query.andWhere("contest_id in (" + contests.map(item => item.id).join(",") +")")
-            } else {
-                query.andWhere("contest_id = 0")
+            if(c) {
+                contests.push(c);
+                cc = c
             }
+        } else if(req.query.title) {
+            let c =  await Contest.findOne( {where: {title: req.query.title}})
+            if(c && c.isRunning()) {
+                throw new ErrorMessage('比赛还未结束。');
+            }
+            let contest_id = c ? c.id : 0
+            if(c) {
+                contests.push(c)
+                cc = c
+            }
+            // contests = (await Contest.getKeywordContests(req.query.title)).filter(c => !c.isRunning())
+            // if(contest) {
+            //     query.andWhere("contest_id in (" + contests.map(item => item.id).join(",") +")")
+            // } else {
+            //     query.andWhere("contest_id = 0")
+            // }
+            query.andWhere(`contest_id = ${contest_id}`)
+
         }
 
-        let paginate = syzoj.utils.paginate(await ContestPlayer.countForPagination(query), req.query.page, 10);
+        let paginate = syzoj.utils.paginate(await ContestPlayer.countForPagination(query), req.query.page, 30);
         query.orderBy('contest_id', 'DESC')
         let players = await ContestPlayer.queryPage(paginate, query)
         if(users.length === 0 && players.length > 0) {
@@ -82,6 +97,7 @@ app.get('/summary', async (req, res) => {
         })
 
         res.render("user_summary", {
+            contest: cc,
             summaries,
             paginate,
             is_admin: local_user.is_admin,

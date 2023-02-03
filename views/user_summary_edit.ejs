@@ -63,7 +63,8 @@
                 <th class="two wide">[来源]题目名称</th>
                 <th class="one wide">得分</th>
                 <th class="one wide">用时(分钟)</th>
-                <th class="four wide">问题总结</th>
+                <th class="three wide">问题总结</th>
+                <th class="three wide">比赛总结</th>
             </tr>
             </thead>
             <tbody>
@@ -90,14 +91,19 @@
                     <td>
                         <div id="<%= 'pv_problem_summary-'+ item.problem_id %>" class="font-content left aligned"> 总结 </div>
                     </td>
+                    <% if(idx === 0) { %>
+                        <td rowspan="<%=summary.length%>" style="line-height: 30px">
+                            <div id="pv_contest_summary" class="font-content left aligned"></div>
+                        </td>
+                    <%}%>
                 </tr>
             <%})%>
             </tbody>
         </table>
-        <div style="margin-top: 20px">
-             <h4>考试总结</h4>
-            <div id="pv_contest_summary" class="font-content left aligned"></div>
-        </div>
+<!--        <div style="margin-top: 20px">-->
+<!--             <h4>考试总结</h4>-->
+<!--            <div id="pv_contest_summary" class="font-content left aligned"></div>-->
+<!--        </div>-->
     </div>
     <form onsubmit="toSubmit()" method="post" action="/summary/update/user/<%= user.id%>/contest/<%= contest.id%>">
         <input style="display: none" name="data" id="data">
