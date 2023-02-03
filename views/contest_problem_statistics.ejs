@@ -5,20 +5,33 @@
 <div class="padding" >
     <h1 style="margin-bottom: 20px"> 比赛题目统计分析 </h1>
 
-<!--    <div class="ui icon input" style="margin-bottom: 20px">-->
-<!--        <input type="text" placeholder="比赛前缀">-->
-<!--        <i class="inverted circular search link icon"></i>-->
-<!--    </div>-->
-
-    <div style="font-weight: bold;font-size: 20px;margin-bottom: 30px">
-        相关比赛:
-        <% contests.forEach(c => {%>
-            <a href="<%= syzoj.utils.makeUrl(['contest', c.id])%>" > <%= c.title%> </a> ,
-        <% }) %>
+    <div class="ui icon input" style="margin-bottom: 20px;display: flex;justify-content: center">
+        <input type="text" placeholder="比赛前缀" id="input_title">
+        <i class="inverted circular search link icon" onclick="search_contest()"></i>
     </div>
 
-    <% if(info) {%>
+    <% if(prefix) {%>
+        <div style="font-weight: bold;font-size: 20px;margin-bottom: 30px">
+            <% if(contests.length > 0) {%>
+                <span style="color: red"> <%= prefix %> </span> 相关比赛:
+                <% contests.forEach(c => {%>
+                    <a href="<%= syzoj.utils.makeUrl(['contest', c.id])%>" > <%= c.title%> </a> ,
+                <% }) %>
+            <%} else {%>
+                未找到相关比赛
+            <%}%>
+        </div>
+    <%}%>
+
+    <% if(info.length > 0) {%>
         <% include problem_statistics.ejs %>
     <% } %>
 </div>
+<script>
+    const search_contest = () => {
+        let t = $('#input_title').val()
+        let pathname = window.location.pathname
+        window.location.href = pathname + "?" + "prefix=" + t.trim()
+    }
+</script>
 <% include footer %>

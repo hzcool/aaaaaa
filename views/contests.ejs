@@ -8,7 +8,10 @@
         <button class="ui mini button" type="submit">查找比赛</button>
       </div>
       <% if (user && user.is_admin) { %>
-        <a href="<%= syzoj.utils.makeUrl(['contest', 0, 'edit']) %>" class="ui mini labeled icon right floated button" style="margin-left: auto; ">
+            <a href="/contest/problem/statistics" class="ui mini green right floated button" style="margin-left: 20px; ">
+                赛题统计
+            </a>
+            <a href="<%= syzoj.utils.makeUrl(['contest', 0, 'edit']) %>" class="ui mini labeled icon right floated button" style="margin-left: auto; ">
           <i class="ui icon write"></i>
           添加比赛
         </a>
