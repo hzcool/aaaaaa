@@ -328,7 +328,7 @@ export default class Problem extends Model {
     return null;
   }
 
-  async getJudgeState(user, acFirst) {
+  async getJudgeState(user, acFirst, justAc = false) {
     if (!user) return null;
 
     let where: any = {
@@ -336,7 +336,7 @@ export default class Problem extends Model {
       problem_id: this.id
     };
 
-    if (acFirst) {
+    if (acFirst || justAc) {
       where.status = 'Accepted';
 
       let state = await JudgeState.findOne({
@@ -347,6 +347,7 @@ export default class Problem extends Model {
       });
 
       if (state) return state;
+      if(justAc) return null;
     }
 
     if (where.status) delete where.status;

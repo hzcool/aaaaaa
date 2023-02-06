@@ -136,9 +136,15 @@
         </template>
       </a>
       <% } %>
+      <% if(allow_tag_edit) {%>
+          <a target="_parent" href="<%= syzoj.utils.makeUrl(['problem', problem_id, "tag/update"]) %>" class="ui button green" style="position: absolute; top: 40px; right: -4px; border-top-right-radius: 0; border-bottom-right-radius: 0; "> 添加题目标签</a>
+      <%}%>
       <% if (local_is_admin) { %>
-          <a target="_parent" href="<%= syzoj.utils.makeUrl(['article', 0, 'edit'], { problem_id: info.problemId, submission_id: info.submissionId }) %>" class="ui button" style="position: absolute; top: 40px; right: -4px; border-top-right-radius: 0; border-bottom-right-radius: 0; ">批注</a>
+          <a target="_parent" href="<%= syzoj.utils.makeUrl(['article', 0, 'edit'], { problem_id: info.problemId, submission_id: info.submissionId }) %>" class="ui button" style="position: absolute; top: <%= allow_tag_edit?"80":"40" %>px; right: -4px; border-top-right-radius: 0; border-bottom-right-radius: 0; ">批注</a>
       <% } %>
+
+
+
   </code-box>
 
   <code-box v-if="detailResult && detailResult.compile" no-escape title="编译信息" v-bind:content="detailResult.compile.message"></code-box>

@@ -227,8 +227,8 @@ app.get('/problem/:id', async (req, res) => {
       throw new ErrorMessage('您没有权限进行此操作。');
     }
 
-    let state = await problem.getJudgeState(res.locals.user, false);
-
+    let state = await problem.getJudgeState(res.locals.user, true);
+    let allow_edit_tag = res.locals.user.is_admin || (syzoj.config.allow_tag_edit && state && state.status === 'Accepted')
     problem.tags = await problem.getTags();
     await problem.loadRelationships();
 
@@ -239,6 +239,7 @@ app.get('/problem/:id', async (req, res) => {
     res.render('problem', {
       problem: problem,
       state: state,
+      allow_edit_tag,
       lastLanguage: res.locals.user ? await res.locals.user.getLastSubmitLanguage() : null,
       testcases: testcases,
       discussionCount: discussionCount

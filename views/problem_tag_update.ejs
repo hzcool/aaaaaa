@@ -1,0 +1,41 @@
+<% this.title = '编辑标签' %>
+<% include header %>
+
+<div class="padding">
+  <h2><%= problem.id + "." + problem.title%> 标签编辑 </h2>
+  <form method="post" action="<%= syzoj.utils.makeUrl(['problem', req.params.id, 'tag', 'update']) %>">
+
+  <select class="ui fluid search dropdown" multiple="" id="search_tags" name="tags">
+    <% for (let tag of tags) { %>
+      <option value="<%= tag.id %>" selected> <%= tag.name %> </option>
+    <% } %>
+  </select>
+    <div style="margin-top: 20px;text-align: center">
+      <button type="submit" id="submit_button" class="ui labeled submit icon button">
+        <i class="icon edit"></i> 提交
+      </button>
+    </div>
+
+  </form>
+  <script>
+    $(function () {
+      $('#search_tags')
+          .dropdown({
+            debug: true,
+            apiSettings: {
+              url: '/api/v2/search/tags/{query}',
+              onResponse: function (response) {
+                var a = $('#search_tags').val().map(function (x) { return parseInt(x) });
+                if (response.results) {
+                  response.results = response.results.filter(function(x) { return !a.includes(parseInt(x.value));});
+                }
+                return response;
+              },
+              cache: false
+            }
+          });
+    });
+  </script>
+
+</div>
+<% include footer %>
