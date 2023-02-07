@@ -1051,7 +1051,6 @@ app.get('/contest/submission/:id', async (req, res) => {
       local_is_admin: res.locals.user.is_admin,
       allow_code_copy: syzoj.config.allow_code_copy || res.locals.user.is_admin || res.locals.user.id === judge.user_id,
       allow_tag_edit: res.locals.user.is_admin || (contest.ended && syzoj.config.allow_tag_edit && judge.user_id === res.locals.user.id && judge.status === 'Accepted'),
-      problem_id: judge.problem.id,
       info: getSubmissionInfo(judge, displayConfig),
       roughResult: getRoughResult(judge, displayConfig),
       vj_info: judge.vj_info,

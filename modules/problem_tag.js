@@ -92,11 +92,9 @@ app.post('/problem/:id/tag/update', async (req, res) => {
       if (!state) throw new ErrorMessage('您没有权限进行此操作。');
     }
     await problem.setTags(req.body.tags)
-    res.redirect(syzoj.utils.makeUrl(['problem', problem.id]));
+    res.send({})
+
   } catch (e) {
-    syzoj.log(e);
-    res.render('error', {
-      err: e
-    });
+    res.send({err: e})
   }
 });

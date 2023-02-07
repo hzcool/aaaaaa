@@ -3,20 +3,24 @@
 
 <div class="padding">
   <h2><%= problem.id + "." + problem.title%> 标签编辑 </h2>
-  <form method="post" action="<%= syzoj.utils.makeUrl(['problem', req.params.id, 'tag', 'update']) %>">
 
-  <select class="ui fluid search dropdown" multiple="" id="search_tags" name="tags">
+  <select class="ui fluid search dropdown" multiple="" id="search_tags">
     <% for (let tag of tags) { %>
       <option value="<%= tag.id %>" selected> <%= tag.name %> </option>
     <% } %>
   </select>
     <div style="margin-top: 20px;text-align: center">
-      <button type="submit" id="submit_button" class="ui labeled submit icon button">
+      <button class="ui labeled submit icon button" onclick="update_tags()">
         <i class="icon edit"></i> 提交
       </button>
     </div>
-
-  </form>
+  <script>
+    const update_tags = () => {
+      $.post("/problem/<%=problem.id%>/tag/update", {tags: $('#search_tags').val()}, res => {
+        if(res.err) alert(`提交失败: ${res.err}`); else alert("提交成功")
+      })
+    }
+  </script>
   <script>
     $(function () {
       $('#search_tags')
