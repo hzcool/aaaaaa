@@ -29,7 +29,7 @@ async function contest_permitted(contest,user){
 }
 
 async function checkgp(contest,user){
-    if (user.is_admin) return true;
+    if (user.is_admin || contest.admins.includes(user.id.toString())) return true;
 
     if (!contest.is_public) throw new ErrorMessage('比赛未公开');
 
@@ -514,11 +514,12 @@ app.get('/contest/:id/repeat', async (req, res) => {
     // if contest is non-public, both system administrators and contest administrators can see it.
     if (!contest.is_public && (!res.locals.user || (!res.locals.user.is_admin && !contest.admins.includes(res.locals.user.id.toString())))) throw new ErrorMessage('您没有权限进行此操作。');
 
-    if ( await checkgp(contest,res.locals.user) ){
-        ;
-    }else{
-        throw new ErrorMessage('group not included, cannot enter !');
-    }
+      // if (await checkgp(contest, res.locals.user)) {
+      //   ;
+      // } else {
+      //   throw new ErrorMessage('group not included, cannot enter !');
+      // }
+
 
     await contest.loadRelationships();
 
@@ -597,11 +598,13 @@ app.get('/contest/:id/repeat/:prefix', async (req, res) => {
 
       if (!contest.is_public && (!res.locals.user || (!res.locals.user.is_admin && !contest.admins.includes(res.locals.user.id.toString())))) throw new ErrorMessage('您没有权限进行此操作。');
 
-      if (await checkgp(contest, res.locals.user)) {
-        ;
-      } else {
-        throw new ErrorMessage('group not included, cannot enter !');
-      }
+
+        // if (await checkgp(contest, res.locals.user)) {
+        //   ;
+        // } else {
+        //   throw new ErrorMessage('group not included, cannot enter !');
+        // }
+
       key = pkey
     }
 
@@ -671,6 +674,8 @@ app.get('/contest/:id/ranklist', async (req, res) => {
 
     if (!contest) throw new ErrorMessage('无此比赛。');
     // if contest is non-public, both system administrators and contest administrators can see it.
+
+
     if (!contest.is_public && (!res.locals.user || (!res.locals.user.is_admin && !contest.admins.includes(res.locals.user.id.toString())))) throw new ErrorMessage('比赛未公开，请耐心等待 (´∀ `)');
 
     if ([contest.allowedSeeingResult() && contest.allowedSeeingOthers(),
@@ -678,11 +683,13 @@ app.get('/contest/:id/ranklist', async (req, res) => {
     await contest.isSupervisior(curUser)].every(x => !x))
       throw new ErrorMessage('您没有权限进行此操作。');
 
-    if ( await checkgp(contest,res.locals.user) ){
-        ;
-    }else{
-        throw new ErrorMessage('group not included, cannot enter !');
-    }
+    //
+    // if ( await checkgp(contest,res.locals.user) ){
+    //   ;
+    // }else{
+    //   throw new ErrorMessage('group not included, cannot enter !');
+    // }
+
 
     if (!contest.isRunning () && !contest.isEnded ()) throw new ErrorMessage('比赛未开始，请耐心等待 (´∀ `)');
 
@@ -779,11 +786,11 @@ app.get('/contest/:id/ranklist/:prefix', async (req, res) => {
         await contest.isSupervisior(curUser)].every(x => !x))
         throw new ErrorMessage('您没有权限进行此操作。');
 
-      if ( await checkgp(contest,res.locals.user) ){
-        ;
-      }else{
-        throw new ErrorMessage('group not included, cannot enter !');
-      }
+      // if ( await checkgp(contest,res.locals.user) ){
+      //   ;
+      // }else{
+      //   throw new ErrorMessage('group not included, cannot enter !');
+      // }
 
       key = pkey
     } else if(contest.isRunning() && !local_is_admin) throw new ErrorMessage('比赛未结束，请耐心等待 (´∀ `)');
@@ -883,11 +890,11 @@ app.get('/contest/:id/submissions', async (req, res) => {
       return;
     }
 
-    if ( await checkgp(contest,res.locals.user) ){
-        ;
-    }else{
-        throw new ErrorMessage('group not included, cannot enter !');
-    }
+    // if ( await checkgp(contest,res.locals.user) ){
+    //     ;
+    // }else{
+    //     throw new ErrorMessage('group not included, cannot enter !');
+    // }
 
     const displayConfig = getDisplayConfig(contest);
     let problems_id = await contest.getProblems();
@@ -1085,7 +1092,7 @@ app.get('/contest/:id/problem/:pid', async (req, res) => {
     if (!contest) throw new ErrorMessage('无此比赛。');
     const curUser = res.locals.user;
 
-    if ( await checkgp(contest,res.locals.user) ){
+    if (await checkgp(contest,res.locals.user) ){
         ;
     }else{
         throw new ErrorMessage('group not included, cannot enter !');
