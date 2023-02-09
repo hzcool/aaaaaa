@@ -827,7 +827,10 @@ app.get('/contest/:id/ranklist/:prefix', async (req, res) => {
       };
     });
 
-    ranklist = ranklist.filter(item => item.user.nickname.startsWith(req.params.prefix));
+    // ranklist = ranklist.filter(item => item.user.nickname.startsWith(req.params.prefix));
+    ranklist.forEach(item => {
+      if(!item.user.nickname.startsWith(req.params.prefix)) item.user.nickname = item.user.username = "***"
+    })
 
     let problems_id = await contest.getProblems();
     let problems = await problems_id.mapAsync(async id => await Problem.findById(id));
