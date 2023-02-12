@@ -827,10 +827,19 @@ app.get('/contest/:id/ranklist/:prefix', async (req, res) => {
       };
     });
 
-    // ranklist = ranklist.filter(item => item.user.nickname.startsWith(req.params.prefix));
-    ranklist.forEach(item => {
-      if(!item.user.nickname.startsWith(req.params.prefix)) item.user.nickname = item.user.username = "***"
-    })
+    let prefix_arr = req.params.prefix.split(",")
+    if(prefix_arr.length > 1) {
+      prefix_arr = prefix_arr.filter(item => item !== '')
+      ranklist = ranklist.filter(item => prefix_arr.some(p => item.user.nickname.startsWith(p)));
+    } else {
+      // ranklist = ranklist.filter(item => item.user.nickname.startsWith(req.params.prefix));
+      ranklist.forEach(item => {
+        if(!item.user.nickname.startsWith(req.params.prefix)) item.user.nickname = item.user.username = "***"
+      })
+    }
+
+
+
 
     let problems_id = await contest.getProblems();
     let problems = await problems_id.mapAsync(async id => await Problem.findById(id));

@@ -93,6 +93,7 @@ app.get('/summary', async (req, res) => {
         }
 
         summaries.sort((a, b) => {
+            if(a.contest.id === b.contest.id) return b.score - a.score;
             return b.contest.start_time - a.contest.start_time
         })
 
