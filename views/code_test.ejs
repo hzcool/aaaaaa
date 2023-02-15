@@ -1,0 +1,98 @@
+
+
+<div class="ui modal" id="code_test_modal">
+    <div class="header"> 代码测试 </div>
+    <div class="content">
+        <form class="ui form" enctype="multipart/form-data"  method="post"  action="/problem/<%=problem.id%>/code/test" onsubmit="return on_submit()">
+            <div class="field">
+                <label>语言</label>
+                <select class="ui fluid search dropdown" name="lang" id="lang">
+                    <option value="c++11">c++11</option>
+                    <option value="c++14" selected>c++14</option>
+                    <option value="c++17">c++17</option>
+                </select>
+            </div>
+            <div class="field">
+                <label>输入样例</label>
+                <input id ="input_file" type="file" name="input_file" size="104857760">
+            </div>
+            <div class="field">
+                <label>源代码</label>
+                <textarea name="src" id="src"></textarea>
+            </div>
+            <button class="ui button primary" type="submit" style="float: right;padding-bottom: 10px" id="__submit_button">提交</button>
+        </form>
+        <div style="display: none;margin-top: 60px" id="show_result">
+            <p id="judge_result_span"> </p>
+            <p> 用时：<span style="color: red" id="cpu_time_span">  </span> MS </p>
+            <p> 内存：<span style="color: red" id="memory_span">  </span> MB </p>
+            <p id="error_info"> 错误信息：<span style="color: blue" id="error_info_span">  </span> </p>
+
+            <div id="output_result" class="ui form">
+                <label for="output">输出:</label> <br>
+                <textarea id="output" rows="3"></textarea>
+            </div>
+
+        </div>
+        <div style="height: 20px"> </div>
+    </div>
+
+</div>
+
+<script>
+        const show_code_test_modal = ()=> {
+            $("#code_test_modal").modal('show')
+        }
+
+        const on_submit =() => {
+            if($('#src').val().length <= 15) {
+                alert("代码太短")
+                return false
+            }
+            if($('#input_file')[0].files.length === 0) {
+                alert("请上传输入文件")
+                return false
+            }
+            to_submit()
+            return false
+        }
+        const to_submit = () => {
+            let fd = new FormData();
+            fd.append('src', $('#src').val())
+            fd.append('lang', $('#lang option:selected').val())
+            fd.append('input_file', $('#input_file')[0].files[0])
+            $('#__submit_button').text('运行中....')
+            $.ajax({
+                url: '/problem/<%= problem.id%>/code/test',
+                type: 'post',
+                data: fd,
+                cache: false,
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    $('#__submit_button').text('提交')
+                    $('#show_result').show()
+                    if(data.error) $('#judge_result_span').text(data.error).css("color", "red")
+                    else $('#judge_result_span').text("运行成功").css("color", "green")
+
+                    $("#cpu_time_span").text(data.cpu_time)
+                    $("#memory_span").text(parseInt(data.memory / (1024 * 1024)))
+
+                    if(data.info !== '') {
+                        $('#error_info').show()
+                        $('#error_info_span').text(data.info)
+                    } else $('#error_info').hide()
+
+                    if(data.output) {
+                        $('#output_result').show()
+                        $('#output').val(data.output)
+                    } else $('#output_result').hide()
+
+                },
+            })
+        }
+
+    </script>
+
+
+

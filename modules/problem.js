@@ -8,6 +8,7 @@ let Article = syzoj.model('article');
 let LoginLog = syzoj.model('loginlog');
 let ProblemEvaluate = syzoj.model('problem_evaluate');
 let ProblemNote = syzoj.model('problem_note');
+let child_process = require('child_process')
 
 const randomstring = require('randomstring');
 const fs = require('fs-extra');
@@ -1211,7 +1212,7 @@ app.get('/problem/:id/note', async (req, res) => {
   }
 });
 
-app.post('/problem/:id/note/update', async (req, res) => {
+app.post('/problem/:id/note/update',  async (req, res) => {
   try {
     if(!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
     let id = parseInt(req.params.id)
@@ -1237,4 +1238,65 @@ app.post('/problem/:id/note/update', async (req, res) => {
   }
 });
 
+app.post('/problem/:id/code/test', app.multer.any(), async (req, res) => {
+  let tmp_dir = syzoj.utils.resolvePath(syzoj.config.upload_dir, 'tmp') + "/" + randomstring.generate(5) + "/"
+  try {
+    if(!res.locals.user) throw new ErrorMessage('您没有权限进行此操作。');
+    let problem = await Problem.findById(parseInt(req.params.id))
+    if(!problem || (!problem.is_public && !res.locals.user.is_admin)) throw "没有权限"
+    let time_limit =  problem.time_limit || 5000
+    let memory_limit = Math.round((problem.memory_limit || 512) * 1024 * 1024)
 
+    let src = req.body.src;
+    if(!src || src.length < 15) throw "测试代码太短"
+    let lang = req.body.lang;
+
+    // console.log(req.files[0].path)
+    await fs.mkdirp(tmp_dir)
+    src_path = tmp_dir + "main.cpp";
+    await fs.writeFile(src_path, src)
+
+    input_path = tmp_dir + (problem.file_io ? problem.file_io_input_name : "test.in");
+    await fs.writeFile(input_path, await fs.readFile(req.files[0].path))
+
+    output_path = tmp_dir + (problem.file_io ? problem.file_io_output_name : "test.out");
+
+
+
+    let judge_result = await new Promise((resolve, reject) => {
+      child_process.exec(`./bin/test_runner -s ${src_path} -l ${lang} -t ${time_limit} -m  ${memory_limit} ${problem.memory_limit} -I ${input_path} -O ${output_path} -R ${problem.file_io ? 0 : 1}`, function(error, stdout, stderr) {
+        resolve(stdout)
+      })
+    });
+
+    judge_result = JSON.parse(judge_result.replace(/\n/g,"\\\\n"))
+    if(await fs.exists(output_path)) {
+      judge_result.output =  await new Promise((resolve, reject) => {
+        fs.open(output_path, 'r', function(status, fd) {
+          if(status) {
+            resolve(null)
+            return
+          }
+          const contentLength = 128
+          var buffer = Buffer.alloc(contentLength)
+          fs.read(fd, buffer, 0, contentLength, 0, function(err, num) {
+            if(err) {
+              resolve(null)
+            } else {
+              let data = buffer.toString('utf-8', 0, num) + (num >= contentLength ? "..." : "")
+              resolve(data)
+            }
+          });
+        })
+      })
+    }
+
+    res.send(judge_result)
+
+  } catch (e) {
+    res.send({error: e})
+  } finally {
+    fs.remove(tmp_dir, () => {})
+    fs.rm(req.files[0].path, () => {})
+  }
+});
