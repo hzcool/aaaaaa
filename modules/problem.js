@@ -1238,12 +1238,20 @@ app.post('/problem/:id/note/update',  async (req, res) => {
   }
 });
 
+const test_records = new Map()
 app.post('/problem/:id/code/test', app.multer.any(), async (req, res) => {
   let tmp_dir = syzoj.utils.resolvePath(syzoj.config.upload_dir, 'tmp') + "/" + randomstring.generate(5) + "/"
   try {
-    if(!res.locals.user) throw new ErrorMessage('您没有权限进行此操作。');
+    if(!res.locals.user) throw '您没有权限进行此操作。';
     let problem = await Problem.findById(parseInt(req.params.id))
     if(!problem || (!problem.is_public && !res.locals.user.is_admin)) throw "没有权限"
+
+    let last_time = test_records.get(res.locals.user.id)
+    let current = syzoj.utils.getCurrentDate()
+    if(last_time && current - last_time <= 65) throw '提交过于频繁'
+
+    test_records.set(res.locals.user.id, current)
+
     let time_limit =  problem.time_limit || 5000
     let memory_limit = Math.round((problem.memory_limit || 512) * 1024 * 1024)
 
@@ -1290,11 +1298,9 @@ app.post('/problem/:id/code/test', app.multer.any(), async (req, res) => {
         })
       })
     }
-
     res.send(judge_result)
-
   } catch (e) {
-    res.send({error: e})
+    res.send({not_allowed_error: e})
   } finally {
     fs.remove(tmp_dir, () => {})
     fs.rm(req.files[0].path, () => {})
