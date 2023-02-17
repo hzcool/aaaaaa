@@ -17,7 +17,7 @@
                 <input id ="input_file" type="file" name="input_file" size="104857760">
             </div>
             <div class="field">
-                <label>源代码</label>
+                <label>源代码 <%if(problem.file_io) {%>  <span style="color: red">  需要手动freopen输入输出文件： <%= problem.file_io_input_name%> / <%= problem.file_io_output_name%> </span> <%}%></label>
                 <textarea name="src" id="src"></textarea>
             </div>
             <button class="ui button primary" type="submit" style="float: right;padding-bottom: 10px" id="__submit_button">提交</button>

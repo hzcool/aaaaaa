@@ -1244,7 +1244,7 @@ app.post('/problem/:id/code/test', app.multer.any(), async (req, res) => {
   try {
     if(!res.locals.user) throw '您没有权限进行此操作。';
     let problem = await Problem.findById(parseInt(req.params.id))
-    if(!problem || (!problem.is_public && !res.locals.user.is_admin)) throw "没有权限"
+    if(!problem) throw "没有权限"
 
     let last_time = test_records.get(res.locals.user.id)
     let current = syzoj.utils.getCurrentDate()
