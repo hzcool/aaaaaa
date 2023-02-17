@@ -46,13 +46,15 @@
             <label for="email">Email</label>
             <input class="font-content" type="email" id="email" name="email" value="<%= edited_user.email %>"<% if (!user.allowedManage) { %> readonly<% } %>>
         </div>
-      <div class="inline field">
-        <label class="ui header">公开 Email</label>
-        <div class="ui toggle checkbox">
-          <input id="public_email" name="public_email" type="checkbox" <% if (edited_user.public_email) { %> checked<% } %>>
-          <label>　</label>
-        </div>
-        </div>
+        <%if(is_admin) {%>
+          <div class="inline field">
+            <label class="ui header">公开 Email</label>
+            <div class="ui toggle checkbox">
+              <input id="public_email" name="public_email" type="checkbox" <% if (edited_user.public_email) { %> checked<% } %>>
+              <label>　</label>
+            </div>
+            </div>
+        <%}%>
       <div class="inline field">
         <label class="ui header">默认显示格式化后的代码（如果可用）</label>
         <div class="ui toggle checkbox">
