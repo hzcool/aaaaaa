@@ -179,14 +179,15 @@ app.get('/user/:id', async (req, res) => {
 
 app.get('/user/:id/edit', async (req, res) => {
   try {
+    if(!res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
     let id = parseInt(req.params.id);
     let user = await User.findById(id);
     if (!user) throw new ErrorMessage('无此用户。');
 
-    let allowedEdit = await user.isAllowedEditBy(res.locals.user);
-    if (!allowedEdit) {
-      throw new ErrorMessage('您没有权限进行此操作。');
-    }
+    // let allowedEdit = await user.isAllowedEditBy(res.locals.user);
+    // if (!allowedEdit) {
+    //   throw new ErrorMessage('您没有权限进行此操作。');
+    // }
 
     user.privileges = await user.getPrivileges();
 
