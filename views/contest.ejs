@@ -53,8 +53,18 @@
           <% } %>
 
 
-
         </div>
+          <%if(!res.locals.user.is_admin && contest.ended) {%>
+            <div class="ui buttons right floated">
+               <a class="ui purple small  basic button" href="javascript:;" id="__show_tags" onclick="to_show_tags()">显示标签</a>
+            </div>
+            <script>
+                const to_show_tags = () => {
+                    $('.show_tag_controled').show()
+                    $('#__show_tags').hide()
+                }
+            </script>
+          <%}%>
       </div>
     </div>
   <% if (contest.information) { %>
@@ -140,7 +150,8 @@
                   </a>
 
                 <% if (seeResult) { %>
-                <div class="show_tag_controled" style="float: right; ">
+
+                <div class="show_tag_controled" style="float: right; <%= (!res.locals.user.is_admin && contest.ended)? "display: none": "" %> ">
                     <%
                     if (problem.tags) {
                         for (let tag of problem.tags) {
