@@ -54,16 +54,21 @@
 
 
         </div>
-          <%if(!res.locals.user.is_admin && contest.ended) {%>
+          <%if(contest.ended) {%>
             <div class="ui buttons right floated">
-               <a class="ui purple small  basic button" href="javascript:;" id="__show_tags" onclick="to_show_tags()">显示标签</a>
+                <%if(!res.locals.user.is_admin) {%>
+                    <a class="ui purple small button" href="javascript:;" id="__show_tags" onclick="to_show_tags()">显示标签</a>
+                    <script>
+                        const to_show_tags = () => {
+                            $('.show_tag_controled').show()
+                            $('#__show_tags').hide()
+                        }
+                    </script>
+                <%}%>
+                <%if(allowContestCollect) {%>
+                    <a class="ui red small button" href="/contest/<%= contest.id%>/collect">收藏比赛</a>
+                <%}%>
             </div>
-            <script>
-                const to_show_tags = () => {
-                    $('.show_tag_controled').show()
-                    $('#__show_tags').hide()
-                }
-            </script>
           <%}%>
       </div>
     </div>

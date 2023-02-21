@@ -179,7 +179,7 @@ app.get('/user/:id', async (req, res) => {
 
 app.get('/user/:id/edit', async (req, res) => {
   try {
-    if(!res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
+    // if(!res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
     let id = parseInt(req.params.id);
     let user = await User.findById(id);
     if (!user) throw new ErrorMessage('无此用户。');
@@ -228,38 +228,34 @@ app.post('/user/:id/edit', async (req, res) => {
         user.password = req.body.new_password;
       }
 
-      if (res.locals.user && await res.locals.user.hasPrivilege('manage_user')) {
+
+      if (res.locals.user && res.locals.user.is_admin) {
         if (!syzoj.utils.isValidUsername(req.body.username)) throw new ErrorMessage('无效的用户名。');
         user.username = req.body.username;
         user.email = req.body.email;
         user.nickname = req.body.nickname;
-      }
 
-      if (res.locals.user && res.locals.user.is_admin) {
         if (!req.body.privileges) {
           req.body.privileges = [];
         } else if (!Array.isArray(req.body.privileges)) {
           req.body.privileges = [req.body.privileges];
         }
 
+        user.is_show = user.public_email = (req.body.public_email === 'on');
+        user.group_id = req.body.group_id;
+        user.start_time = syzoj.utils.parseDate(req.body.start_time);
+        user.end_time = syzoj.utils.parseDate(req.body.end_time);
+
         let privileges = req.body.privileges;
         await user.setPrivileges(privileges);
       }
 
+
       user.information = req.body.information;
       user.sex = req.body.sex;
-
-
       user.prefer_formatted_code = (req.body.prefer_formatted_code === 'on');
 
-      if (res.locals.user.is_admin){
-          user.is_show  = user.public_email = (req.body.public_email === 'on');
-          user.group_id = req.body.group_id;
-          user.start_time = syzoj.utils.parseDate(req.body.start_time);
-          user.end_time = syzoj.utils.parseDate(req.body.end_time);
-      }else{
-          ;// group_id no edit
-      }
+
 
       await user.save();
 
