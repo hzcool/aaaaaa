@@ -508,10 +508,10 @@ app.get('/contest/:id', async (req, res) => {
 
 
     //是否可以收藏比赛
-    let allowContestCollect = false
+    let existContestCollection = -1
     if(contest.ended && !player) {
       let cc = await ContestCollection.findOne({contest_id: contest.id, user_id: curUser.id})
-      if(!cc) allowContestCollect = true
+      existContestCollection = cc ? 1 : 0;
     }
 
     res.render('contest', {
@@ -521,7 +521,7 @@ app.get('/contest/:id', async (req, res) => {
       isSupervisior: isSupervisior,
       weight: weight,
       username: curUser.username,
-      allowContestCollect
+      existContestCollection
     });
   } catch (e) {
     syzoj.log(e);
@@ -1464,7 +1464,7 @@ app.get('/contest/:id/collect', async (req, res) => {
 
     let contest_id = parseInt(req.params.id);
     let contest = await Contest.findById(contest_id);
-    if (!contest) throw new ErrorMessage('无此比赛。');
+    if (!contest) throw '无此比赛'
 
 
     if (res.locals.user) {
@@ -1472,24 +1472,29 @@ app.get('/contest/:id/collect', async (req, res) => {
         contest_id: contest.id,
         user_id: res.locals.user.id
       });
-      if(player) throw new ErrorMessage('已在比赛列表中。');
+      if(player) throw '你是比赛成员，无需收藏'
     }
 
     let collection = await ContestCollection.findOne({contest_id: contest.id, user_id: res.locals.user.id})
-    if(!collection) {
-      collection = ContestCollection.create({
-        contest_id: contest.id,
-        user_id: res.locals.user.id
-      })
-      await collection.save()
+    collectContest = parseInt(req.query.collectContest)
+    cp_map.delete(res.locals.user.id)
+
+    if(collectContest === 0) {
+      if(collection) await collection.destroy()
+    } else if(collectContest === 1) {
+      if(!collection) {
+        collection = ContestCollection.create({
+          contest_id: contest.id,
+          user_id: res.locals.user.id
+        })
+        await collection.save()
+      }
     }
 
-    res.redirect('/contest/' + contest_id)
+    res.send({msg: "ok"})
 
   } catch (e) {
     syzoj.log(e);
-    res.render('error', {
-      err: e
-    });
+    res.send({error: e})
   }
 });
