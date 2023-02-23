@@ -20,8 +20,8 @@
         <tr>
             <th class="one wide">名次</th>
             <th class="one wide">总人数</th>
-            <th class="one wide">得分</th>
-            <th class="one wide">补题</th>
+            <th class="one wide"><div>得分</div> <div>(赛中/赛后/总分) </div></th>
+            <th class="one wide"><div>过题</div> <div>(赛中/赛后/总题数)</th>
             <th class="two wide">详细</th>
             <th class="one wide">比赛页面</th>
             <th class="two wide">开始时间</th>
@@ -32,8 +32,8 @@
             <tr>
                 <td><%= item.rank%> </td>
                 <td><%= item.player_num%> </td>
-                <td><%= item.score%> / <%= item.total_score%> </td>
-                <td><%= item.solved_count%> / <%= item.problem_count%> </td>
+                <td>  <%= item.score%> / <%=  item.score_after_contest %> / <%= item.total_score%> </td>
+                <td> <%= item.solved%> / <%= item.solved_count%> / <%= item.problem_count%> </td>
                 <td>
                     <a href="<%= syzoj.utils.makeUrl(['summary'], {user_id: show_user.id, contest_id: item.contest.id})%>"> <%= item.contest.title%> </a>
                 </td>

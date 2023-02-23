@@ -171,19 +171,21 @@ app.get('/cp/user/:id', async (req, res) => {
       let c = {
         rank: '---',
         player_num: '---',
-        score: 0,
-        total_score: 0,
+        score: 0, // 比赛得分
+        total_score: 0, // 总分
+        score_after_contest: 0, // 赛后得分
         contest,
         problem_count: problem_ids.length,
-        solved_count: 0,
+        solved: 0, // 比赛中过题
+        solved_count: 0, //总过题，包括赛后补题
       }
       let player = players_map[contest.id]
       let ranklist = ranklist_map[contest.ranklist_id]
       if(ranklist) {
         for(problem_id of problem_ids) {
           let multipler = (ranklist.ranking_params[problem_id] || 1)
-
-          c.total_score += multipler * 100;
+          let full_score = multipler * 100
+          c.total_score += full_score;
           let detail = player ? player.score_details[problem_id] : undefined
           let score = 0
           if(detail) {
@@ -193,17 +195,20 @@ app.get('/cp/user/:id', async (req, res) => {
             else if(detail.weighted_score) score = detail.weighted_score
           }
           c.score += score
-          if(score > 0 && score === multipler * 100) c.solved_count++
-          else if(not_solved[problem_id]) not_solved[problem_id].push(c);
-          else not_solved[problem_id] = [c]
+          c.score_after_contest += score
+          if(score > 0 && score === multipler * 100) {c.solved_count++; c.solved++}
+          else if(not_solved[problem_id]) not_solved[problem_id].push({left_score: full_score - score, c});
+          else not_solved[problem_id] = [{left_score: full_score - score, c}]
           c.player_num = ranklist.ranklist.player_num
           if(player) {
-            for(const [k, v] of Object.entries(ranklist.ranklist)) {
-              if(v === player.id && k !== 'player_num') {
-                c.rank = parseInt(k);
-                break
-              }
-            }
+            let query = ContestPlayer.createQueryBuilder().where(`contest_id = ${contest.id} AND score < ${player.score}`)
+            c.rank = 1 + await ContestPlayer.countQuery(query)
+            // for(const [k, v] of Object.entries(ranklist.ranklist)) {
+            //   if(v === player.id && k !== 'player_num') {
+            //     c.rank = parseInt(k);
+            //     break
+            //   }
+            // }
           }
         }
       }
@@ -215,7 +220,10 @@ app.get('/cp/user/:id', async (req, res) => {
       let sql = 'select distinct problem_id from judge_state where user_id=' + user.id + ' and problem_id in (' + not_solved_ids.join(",")  + ') and status=\'Accepted\''
       let res = await JudgeState.query(sql)
       res.forEach(item => {
-        not_solved[item.problem_id].forEach(c => c.solved_count++)
+        not_solved[item.problem_id].forEach(({left_score, c}) => {
+          c.solved_count++
+          c.score_after_contest += left_score
+        })
       })
     }
 
