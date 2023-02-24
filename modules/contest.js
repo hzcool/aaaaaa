@@ -181,35 +181,40 @@ app.get('/cp/user/:id', async (req, res) => {
       }
       let player = players_map[contest.id]
       let ranklist = ranklist_map[contest.ranklist_id]
+
       if(ranklist) {
+        c.player_num = ranklist.ranklist.player_num
+        let players = await ContestPlayer.find({contest_id: contest.id})
+        players.forEach(p => p.score = 0)
         for(problem_id of problem_ids) {
-          let multipler = (ranklist.ranking_params[problem_id] || 1)
+          let multipler = (ranklist.ranking_params[problem_id] || 1.0)
           let full_score = multipler * 100
           c.total_score += full_score;
-          let detail = player ? player.score_details[problem_id] : undefined
-          let score = 0
-          if(detail) {
-            // console.log(`${multipler}, ${problem_id}, ${detail.accepted}, ${detail.weighted_score}, ${detail.score}`)
-            if(detail.accepted) score = multipler * 100
-            else if(detail.score) score = detail.score * multipler
-            else if(detail.weighted_score) score = detail.weighted_score
+          for(let p of players) {
+            let detail = p.score_details[problem_id]
+            let score = 0
+            if(detail) {
+              if(detail.accepted) score = full_score
+              else if(detail.score) score = detail.score * multipler
+              else if(detail.weighted_score) score = detail.weighted_score
+            }
+            p.score += score
+            if(player && p.user_id === player.user_id) {
+              c.score += score
+              c.score_after_contest += score
+              if(score > 0 && Math.abs(score - full_score) < 0.01) {c.solved_count++; c.solved++}
+              else if(not_solved[problem_id]) not_solved[problem_id].push({left_score: full_score - score, c});
+              else not_solved[problem_id] = [{left_score: full_score - score, c}]
+            }
           }
-          c.score += score
-          c.score_after_contest += score
-          if(score > 0 && score === multipler * 100) {c.solved_count++; c.solved++}
-          else if(not_solved[problem_id]) not_solved[problem_id].push({left_score: full_score - score, c});
-          else not_solved[problem_id] = [{left_score: full_score - score, c}]
-          c.player_num = ranklist.ranklist.player_num
-          if(player) {
-            let query = ContestPlayer.createQueryBuilder().where(`contest_id = ${contest.id} AND score < ${player.score}`)
-            c.rank = 1 + await ContestPlayer.countQuery(query)
-            // for(const [k, v] of Object.entries(ranklist.ranklist)) {
-            //   if(v === player.id && k !== 'player_num') {
-            //     c.rank = parseInt(k);
-            //     break
-            //   }
-            // }
+          if(!player) {
+            if(not_solved[problem_id]) not_solved[problem_id].push({left_score: full_score, c});
+            else not_solved[problem_id] = [{left_score: full_score, c}]
           }
+        }
+        if(player) {
+          c.rank = 1
+          players.forEach(p => c.rank += p.score > c.score ? 1 : 0)
         }
       }
       data.push(c)

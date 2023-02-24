@@ -32,7 +32,7 @@
             <tr>
                 <td><%= item.rank%> </td>
                 <td><%= item.player_num%> </td>
-                <td>  <%= item.score%> / <%=  item.score_after_contest %> / <%= item.total_score%> </td>
+                <td>  <%= Math.round(item.score) %> / <%=  Math.round(item.score_after_contest) %> / <%= Math.round(item.total_score)%> </td>
                 <td> <%= item.solved%> / <%= item.solved_count%> / <%= item.problem_count%> </td>
                 <td>
                     <a href="<%= syzoj.utils.makeUrl(['summary'], {user_id: show_user.id, contest_id: item.contest.id})%>"> <%= item.contest.title%> </a>
