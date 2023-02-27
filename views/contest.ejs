@@ -71,25 +71,31 @@
                     </a>
                 </div>
                 <%} else {%>
-<!--                    <a class="ui purple small button" href="javascript:;" id="__show_tags" onclick="to_show_tags()">显示标签</a>-->
 
-                    <div class="ui icon button" data-tooltip="显示标签" data-inverted="" data-position="bottom center" onclick="to_show_tags()" id="__tag_show_btn" >
-                        <i class="eye icon __btn_style" id="eye_icon"></i>
+                    <div class="ui button icon" id="tag_show_popup"><i class="eye icon __btn_style"></i></div>
+                    <div class="ui popup" style="width: 200px">
+                        <div class="header">标签显示</div>
+                        <%
+                            let i = 0;
+                            for (let problem of problems) {
+                            i++;
+                        %>
+                            <div class="ui checkbox" style="margin-top: 10px">
+                                <input type="checkbox" tabindex="<%= i%>" id="<%= "problem_cb_" + i%>" onclick="to_show_problem_tag('<%= "problem_cb_" + i%>', <%= i%>)">
+                                <label> <%= "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[(i - 1) % 26] + ". " + syzoj.utils.removeTitleTag(problem.problem.title) %> </label>
+                            </div><br>
+                        <%}%>
                     </div>
-
                     <script>
-                        let show_tag = true
-                        const to_show_tags = () => {
-                            if(show_tag) {
-                                $('.show_tag_controled').show()
-                                $('#eye_icon').addClass('slash')
-                                $('#__tag_show_btn').attr('data-tooltip', '隐藏标签')
+                        $(function (){
+                            $('#tag_show_popup').popup({inline: true, hoverable: true, position: "bottom center"})
+                        })
+                        const to_show_problem_tag = (cb_id, i) => {
+                            if($('#' + cb_id).is(':checked')) {
+                                $('#show_tag_controled_' + i).show()
                             } else {
-                                $('.show_tag_controled').hide()
-                                $('#eye_icon').removeClass('slash')
-                                $('#__tag_show_btn').attr('data-tooltip', '显示标签')
+                                $('#show_tag_controled_' + i).hide()
                             }
-                            show_tag = !show_tag
                         }
                     </script>
                 <%}%>
@@ -206,7 +212,7 @@
 
                 <% if (seeResult) { %>
 
-                <div class="show_tag_controled" style="float: right; <%= (!res.locals.user.is_admin && contest.ended)? "display: none": "" %> ">
+                <div id="show_tag_controled_<%=i%>" style="float: right; <%= (!res.locals.user.is_admin && contest.ended)? "display: none": "" %> ">
                     <%
                     if (problem.tags) {
                         for (let tag of problem.tags) {

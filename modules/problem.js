@@ -715,7 +715,7 @@ app.post('/problem/:id/submit', app.multer.fields([{ name: 'answer', maxCount: 1
     }
     else if (problem.type !== 'submit-answer' && !syzoj.config.enabled_languages.includes(req.body.language)) throw new ErrorMessage('不支持该语言。');
     if (!curUser) throw new ErrorMessage('请登录后继续。', { '登录': syzoj.utils.makeUrl(['login'], { 'url': syzoj.utils.makeUrl(['problem', id]) }) });
-
+    if(!syzoj.submissionIntervalCheck(curUser.id))  throw new ErrorMessage('提交过于频繁，请稍后');
     let today = new Date();
     today.setHours(0), today.setMinutes(0), today.setSeconds(0), today.setMilliseconds(0);
     let last = await LoginLog.findOne({
@@ -1238,7 +1238,6 @@ app.post('/problem/:id/note/update',  async (req, res) => {
   }
 });
 
-const test_records = new Map()
 app.post('/problem/:id/code/test', app.multer.any(), async (req, res) => {
   let tmp_dir = syzoj.utils.resolvePath(syzoj.config.upload_dir, 'tmp') + "/" + randomstring.generate(5) + "/"
   try {
@@ -1246,11 +1245,7 @@ app.post('/problem/:id/code/test', app.multer.any(), async (req, res) => {
     let problem = await Problem.findById(parseInt(req.params.id))
     if(!problem) throw "没有权限"
 
-    let last_time = test_records.get(res.locals.user.id)
-    let current = syzoj.utils.getCurrentDate()
-    if(last_time && current - last_time <= 65) throw '提交过于频繁'
-
-    test_records.set(res.locals.user.id, current)
+    if(!syzoj.submissionIntervalCheck(res.locals.user.id))  throw '提交过于频繁'
 
     let time_limit =  problem.time_limit || 5000
     let memory_limit = Math.round((problem.memory_limit || 512) * 1024 * 1024)

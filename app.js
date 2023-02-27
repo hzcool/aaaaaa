@@ -27,6 +27,18 @@ const vjBasics = require('./remote-judge/basic')
 const vj = require('./remote-judge/vj')
 const bodyParser = require("body-parser");
 
+const makeIntervalCheckFunc = (interval = 30) => {
+  const mp = new Map()
+  return function (id) {
+    let current = Math.floor(new Date().getTime() / 1000)
+    let last_time = mp.get(id)
+    if(last_time && current - last_time <= interval) return false
+    mp.set(id, current)
+    return true
+  }
+}
+
+
 global.syzoj = {
   rootDir: __dirname,
   config: require('object-assign-deep')({}, require('./config-example.json'), require(options.config)),
@@ -43,6 +55,7 @@ global.syzoj = {
   },
   vjBasics,
   vj,
+  submissionIntervalCheck: makeIntervalCheckFunc(),
   getRemoteProblemLink(source) {
     let info = vjBasics.parseSource(source)
     let oj = vj[info.vjName]
