@@ -60,7 +60,28 @@ function getIcon(filename) {
             <tr>
               <td class="left aligned"><i class="file archive outline icon"></i> 完整数据包</td>
               <td><%- !testdata.zip.size ? '<i class="minus icon"></i>' : syzoj.utils.formatSize(testdata.zip.size) %></td>
-              <td><a style="color: #000; " href="<%= syzoj.utils.makeUrl(['problem', problem.id, 'testdata', 'download']) %>"><i class="download icon"></i></td>
+
+              <div class="ui basic modal" id="modal-download">
+                <div class="ui icon header">
+                  <i class="download icon"></i>
+                  <p style="margin-top: 15px; " id="download_file_info">下载完整数据包</p>
+                </div>
+                <div class="content" style="text-align: center; ">
+                  <input type="password" placeholder="请输入下载密钥" id="download_key">
+                </div>
+                <div class="actions">
+                  <div class="ui red basic cancel inverted button">
+                    <i class="remove icon"></i>
+                    否
+                  </div>
+                  <a class="ui green ok inverted button" href="" id="a_download" onclick="add_key(this)">
+                    <i class="checkmark icon"></i>
+                    是
+                  </a>
+                </div>
+              </div>
+
+              <td><a style="color: #000; " onclick="download_click()"><i class="download icon"></i></td>
               <% if (problem.allowedEdit) { %>
                 <td><i class="minus icon"></i></td>
               <% } %>
@@ -73,7 +94,7 @@ function getIcon(filename) {
               <td class="left aligned"><i class="<%= getIcon(file.filename) %> icon"></i> <%= file.filename %></td>
               <td><%= syzoj.utils.formatSize(file.size) %></td>
               <td>
-                <a style="color: #000; " href="<%= syzoj.utils.makeUrl(['problem', problem.id, 'testdata', 'download', file.filename]) %>">
+                <a style="color: #000; "  onclick="download_click('<%=file.filename%>')">
                   <i class="download icon"></i>
                 </a>
               </td>
@@ -156,6 +177,24 @@ function getIcon(filename) {
             $('#form_upload').submit();
           }
         }
+
+
+        function download_click(file = undefined) { // undefined 表示全部下载
+          if(!file) {
+            $('#download_file_info').text('下载完整数据包')
+            $('#a_download').attr('href', '/problem/<%=problem.id%>/testdata/download')
+          } else {
+            $('#download_file_info').text('下载文件: ' + file)
+            $('#a_download').attr('href', '/problem/<%=problem.id%>/testdata/download/' + file)
+          }
+          $('#modal-download').modal('show')
+        }
+
+        function add_key(a) {
+          a.href += '?key=' + $('#download_key').val()
+        }
+
+
         </script>
       <% } %>
     </div>
