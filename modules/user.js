@@ -307,15 +307,24 @@ app.get('/vj/log', async (req, res) => {
   }
 });
 
+function get_key(username) {
+  return syzoj.utils.md5(username + "comp_xxx")
+}
 
 app.get('/user/:id/problem_statistics', async (req, res) => {
   try {
-    if(!res.locals.user){throw new ErrorMessage('请登录后继续。',{'登录': syzoj.utils.makeUrl(['login'])});}
-    if(!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
+    let key = req.query.key
 
-    let id = parseInt(req.params.id);
-    user = await User.findById(id);
+    if(!key) {
+      if(!res.locals.user){throw new ErrorMessage('请登录后继续。',{'登录': syzoj.utils.makeUrl(['login'])});}
+      if(!res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
+    }
+    let id = parseInt(req.params.id)
+    let user = await User.findById(id)
     if (!user) throw new ErrorMessage('无此用户。');
+    let key2 = get_key(user.username)
+    if(key && key2 !== key) throw new ErrorMessage('key 不正确。');
+    else key = key2
 
     let entity = TypeORM.getManager()
 
@@ -339,7 +348,7 @@ app.get('/user/:id/problem_statistics', async (req, res) => {
       if(min_time > item.submit_time) min_time = item.submit_time
     }
 
-    res.render('user_problem_statistics', {show_user:user, info, min_time, max_time})
+    res.render('user_problem_statistics', {show_user:user, info, min_time, max_time, key})
   } catch (e) {
     syzoj.log(e);
     res.render('error', {

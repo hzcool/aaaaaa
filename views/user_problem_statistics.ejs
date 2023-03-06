@@ -1,9 +1,31 @@
-<% this.title = user.username + ' - 用户'; %>
+
+<% this.title = '用户解题统计'; %>
 
 <% include header %>
 
 <div class="padding" >
-    <h1 style="margin-bottom: 20px"> <span style="color: red"> <%= show_user.username%>  </span> - <span style="color: red"> <%= show_user.nickname%>  </span>解题统计分析 </h1>
+    <h1 style="margin-bottom: 20px; display: flex; align-items: center"> <span style="color: red"> <%= show_user.username%>  </span> &nbsp - &nbsp
+        <span style="color: red"> <%= show_user.nickname%>  </span>  &nbsp 解题统计分析
+        <%if(res.locals.user && res.locals.user.is_admin) {%>
+            <div class='mini ui primary button' style='margin-left: 20px' onclick="copyLink()" id="copy_link_button">  复制页面链接 </div>
+        <%}%>
+    </h1>
     <% include problem_statistics.ejs %>
+
 </div>
+
+<script>
+    async function copyLink() {
+        let $button = $('#copy_link_button')
+        $button.attr('disabled', 'true').removeClass('primary').addClass('positive')
+        const org = $button.text()
+        setTimeout(() => {
+            $button.removeAttr("disabled").removeClass('positive').addClass('primary')
+            $button.text(org)
+        }, 1000)
+        $button.text('复制成功');
+        let str = window.location.origin + '/user/<%=show_user.id%>/problem_statistics?key=<%= key%>';
+        copyToClip(str);
+    }
+</script>
 <% include footer %>
