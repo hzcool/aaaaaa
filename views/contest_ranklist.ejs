@@ -88,7 +88,7 @@
                   <%= rank %>
                   </div>
                 </td>
-                <% if (local_is_admin || !contest.hide_username) { %><td><a href="<%= syzoj.utils.makeUrl(['user', item.user.id]) %>"><%= item.user.username %></a><% if (item.user.nameplate) { %><%- item.user.nameplate %><% } %></td><% } %>
+                <% if (local_is_admin || !contest.hide_username) { %><td><a href="<%=  local_is_admin ?  syzoj.utils.makeUrl(['user', item.user.id]) : "javascript:;" %>"><%= item.user.username %></a><% if (item.user.nameplate) { %><%- item.user.nameplate %><% } %></td><% } %>
                 <% if (local_is_admin || key) { %><td><%= item.user.nickname %></td><% } %>
                 <% if (contest.type === 'acm') { %>
                   <td>

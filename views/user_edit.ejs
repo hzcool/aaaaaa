@@ -14,12 +14,13 @@
         <label for="username">用户名</label>
         <input type="text" id="username" name="username" value="<%= edited_user.username %>"<% if (!user.allowedManage) { %> readonly <% } %> >
     </div>
+
+    <% if(is_admin){ %>
     <div class="field">
         <label for="nickname">姓名</label>
         <input type="text" id="nickname" name="nickname" value="<%= edited_user.nickname %>"<% if (!user.allowedManage) { %> readonly <% } %> />
     </div>
 
-    <% if(is_admin){ %>
     <div class="field">
         <label for="group_id">分组（年份+组别，联赛到省选为A，省选到国赛为B，国赛之后到联赛为C，加0表示div2，如22B0表示省选到国赛的div2组）</label>
         <input type="text" id="group_id" name="group_id" value="<%= edited_user.group_id %>" />
