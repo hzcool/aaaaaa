@@ -27,7 +27,7 @@ const vjBasics = require('./remote-judge/basic')
 const vj = require('./remote-judge/vj')
 const bodyParser = require("body-parser");
 
-const makeIntervalCheckFunc = (interval = 30) => {
+const makeIntervalCheckFunc = (interval = 10) => {
   const mp = new Map()
   return function (id) {
     let current = Math.floor(new Date().getTime() / 1000)
