@@ -3,6 +3,7 @@ let JudgeState = syzoj.model('judge_state');
 let FormattedCode = syzoj.model('formatted_code');
 let Contest = syzoj.model('contest');
 let Practice = syzoj.model('practice');
+const ProblemSummary = syzoj.model('problem_summary')
 let ProblemTag = syzoj.model('problem_tag');
 let Article = syzoj.model('article');
 let LoginLog = syzoj.model('loginlog');
@@ -1313,5 +1314,21 @@ app.post('/problem/:id/code/test', app.multer.any(), async (req, res) => {
   } finally {
     fs.remove(tmp_dir, () => {})
     fs.rm(req.files[0].path, () => {})
+  }
+});
+
+
+app.get('/problem/:id/summaries',  async (req, res) => {
+  try {
+    if(!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
+    let id = parseInt(req.params.id)
+    let summaries = await ProblemSummary.queryAll(ProblemSummary.createQueryBuilder().where(`problem_id = ${id}`))
+    for(let s of summaries) {
+      s.format_post_time = syzoj.utils.formatDate(s.post_time)
+      s.summary = await syzoj.utils.markdown(s.summary)
+    }
+    res.send({summaries})
+  } catch (e) {
+    res.send({error: e})
   }
 });
