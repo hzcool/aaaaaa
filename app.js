@@ -53,6 +53,12 @@ global.syzoj = {
     Interaction : "interaction",
     Remote : "remote"
   },
+  PrivilegeType: {
+    ManageProblem: 'manage_problem',
+    ManageProblemTag: 'manage_problem_tag',
+    ManageUser: 'manage_user',
+    AddProblem: 'add_problem'
+  },
   vjBasics,
   vj,
   submissionIntervalCheck: makeIntervalCheckFunc(),

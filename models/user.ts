@@ -212,6 +212,12 @@ export default class User extends Model {
     return !!x;
   }
 
+  async allowedAddProblem() {
+    if (this.is_admin) return true;
+    const ps = await this.getPrivileges()
+    return ps.includes(syzoj.PrivilegeType.ManageProblem) || ps.includes(syzoj.PrivilegeType.AddProblem)
+  }
+
   async getLastSubmitLanguage() {
     let a = await JudgeState.findOne({
       where: {

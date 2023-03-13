@@ -20,7 +20,15 @@ let CodeFormatter = syzoj.lib('code_formatter');
 app.get('/problems', async (req, res) => {
   try {
     if(!res.locals.user){throw new ErrorMessage('请登录后继续。',{'登录': syzoj.utils.makeUrl(['login'])});}
-    if(!res.locals.user || !await res.locals.user.hasPrivilege('manage_problem')) throw new ErrorMessage('您没有权限进行此操作。');
+
+    // if(!res.locals.user || !await res.locals.user.hasPrivilege('manage_problem')) throw new ErrorMessage('您没有权限进行此操作。');
+    if(!res.locals.user) throw new ErrorMessage('您没有权限进行此操作。');
+
+    const privileges = await res.locals.user.getPrivileges()
+    const allowedManageProblem = res.locals.user.is_admin || privileges.includes(syzoj.PrivilegeType.ManageProblem)
+    const allowedAddProblem = privileges.includes(syzoj.PrivilegeType.AddProblem)
+    if(!allowedManageProblem && !allowedAddProblem) throw new ErrorMessage('您没有权限进行此操作。');
+
     const sort = req.query.sort || syzoj.config.sorting.problem.field;
     const order = req.query.order || syzoj.config.sorting.problem.order;
     if (!['id', 'title', 'rating', 'ac_num', 'submit_num', 'ac_rate', 'publicize_time'].includes(sort) || !['asc', 'desc'].includes(order)) {
@@ -28,14 +36,18 @@ app.get('/problems', async (req, res) => {
     }
 
     let query = Problem.createQueryBuilder();
-    if (!res.locals.user || !await res.locals.user.hasPrivilege('manage_problem')) {
-      if (res.locals.user) {
-        query.where('is_public = 1')
-             .orWhere('user_id = :user_id', { user_id: res.locals.user.id });
-      } else {
-        query.where('is_public = 1');
-      }
+    if(!allowedManageProblem) {
+      query.where('user_id = :user_id', { user_id: res.locals.user.id })
     }
+
+    // if (!res.locals.user || !await res.locals.user.hasPrivilege('manage_problem')) {
+    //   if (res.locals.user) {
+    //     query.where('is_public = 1')
+    //          .orWhere('user_id = :user_id', { user_id: res.locals.user.id });
+    //   } else {
+    //     query.where('is_public = 1');
+    //   }
+    // }
 
     if (sort === 'ac_rate') {
       query.orderBy('ac_num / submit_num', order.toUpperCase());
@@ -210,7 +222,7 @@ app.get('/problems/tag/:tagIDs', async (req, res) => {
 app.get('/problem/:id', async (req, res) => {
   try {
     if(!res.locals.user){throw new ErrorMessage('请登录后继续。',{'登录': syzoj.utils.makeUrl(['login'])});}
-    if(!res.locals.user || !await res.locals.user.hasPrivilege('manage_problem')) throw new ErrorMessage('您没有权限进行此操作。');
+    if(!res.locals.user || !await res.locals.user.allowedAddProblem()) throw new ErrorMessage('您没有权限进行此操作。');
     let id = parseInt(req.params.id);
     let problem = await Problem.findById(id);
     if (!problem) throw new ErrorMessage('无此题目。');
@@ -296,7 +308,7 @@ app.get('/problem/:id/edit', async (req, res) => {
     let problem = await Problem.findById(id);
 
     if (!problem) {
-      if (!await res.locals.user.hasPrivilege('manage_problem')) throw new ErrorMessage('您没有权限进行此操作。');
+      if (!await res.locals.user.allowedAddProblem()) throw new ErrorMessage('您没有权限进行此操作。');
       problem = await Problem.create({
         time_limit: syzoj.config.default.problem.time_limit,
         memory_limit: syzoj.config.default.problem.memory_limit,
@@ -341,7 +353,7 @@ app.post('/problem/:id/edit', async (req, res) => {
     let id = parseInt(req.params.id) || 0;
     let problem = await Problem.findById(id);
     if (!problem) {
-      if (!await res.locals.user.hasPrivilege('manage_problem')) throw new ErrorMessage('您没有权限进行此操作。');
+      if (!await res.locals.user.allowedAddProblem()) throw new ErrorMessage('您没有权限进行此操作。');
 
       problem = await Problem.create({
         time_limit: syzoj.config.default.problem.time_limit,
@@ -349,26 +361,25 @@ app.post('/problem/:id/edit', async (req, res) => {
         type: 'traditional'
       });
 
-      if (await res.locals.user.hasPrivilege('manage_problem')) {
-        let customID = parseInt(req.body.id);
-        if (customID) {
-          if (await Problem.findById(customID)) throw new ErrorMessage('ID 已被使用。');
-          problem.id = customID;
-        } else if (id) problem.id = id;
-      }
+
+      let customID = parseInt(req.body.id);
+      if (customID) {
+        if (await Problem.findById(customID)) throw new ErrorMessage('ID 已被使用。');
+        problem.id = customID;
+      } else if (id) problem.id = id;
+
 
       problem.user_id = res.locals.user.id;
       problem.publicizer_id = res.locals.user.id;
     } else {
+
       if (!await problem.isAllowedUseBy(res.locals.user)) throw new ErrorMessage('您没有权限进行此操作。');
       if (!await problem.isAllowedEditBy(res.locals.user)) throw new ErrorMessage('您没有权限进行此操作。');
 
-      if (await res.locals.user.hasPrivilege('manage_problem')) {
-        let customID = parseInt(req.body.id);
-        if (customID && customID !== id) {
-          if (await Problem.findById(customID)) throw new ErrorMessage('ID 已被使用。');
-          await problem.changeID(customID);
-        }
+      let customID = parseInt(req.body.id);
+      if (customID && customID !== id) {
+        if (await Problem.findById(customID)) throw new ErrorMessage('ID 已被使用。');
+        await problem.changeID(customID);
       }
     }
 
