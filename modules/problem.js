@@ -4,6 +4,7 @@ let FormattedCode = syzoj.model('formatted_code');
 let Contest = syzoj.model('contest');
 let Practice = syzoj.model('practice');
 const ProblemSummary = syzoj.model('problem_summary')
+const User = syzoj.model('user')
 let ProblemTag = syzoj.model('problem_tag');
 let Article = syzoj.model('article');
 let LoginLog = syzoj.model('loginlog');
@@ -14,6 +15,7 @@ let child_process = require('child_process')
 const randomstring = require('randomstring');
 const fs = require('fs-extra');
 const jwt = require('jsonwebtoken');
+const {QueryBuilder} = require("typeorm");
 
 let Judger = syzoj.lib('judger');
 let CodeFormatter = syzoj.lib('code_formatter');
@@ -1323,7 +1325,15 @@ app.get('/problem/:id/summaries',  async (req, res) => {
     if(!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
     let id = parseInt(req.params.id)
     let summaries = await ProblemSummary.queryAll(ProblemSummary.createQueryBuilder().where(`problem_id = ${id}`))
+    let names = summaries.map(s =>  s.username)
+
+    let users = names.length === 0 ? [] :  await User.queryAll(User.createQueryBuilder().where(`username in (${names.map(n => "'" + n + "'").join(',')})`))
+    let mp = new Map()
+    users.forEach(u => mp.set(u.username, {username: u.username, nickname: u.nickname, id: u.id}))
+
     for(let s of summaries) {
+      s.user = mp.get(s.username)
+      if(!s.user) s.user = {username: '未知', nickname: '未知', id: 0}
       s.format_post_time = syzoj.utils.formatDate(s.post_time)
       s.summary = await syzoj.utils.markdown(s.summary)
     }
