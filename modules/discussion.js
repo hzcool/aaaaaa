@@ -173,13 +173,16 @@ app.get('/article/:id/edit', async (req, res) => {
       article.id = 0;
       article.allowedEdit = true;
       article.is_public = syzoj.config.article_default_public;
+      article.user_id = res.locals.user.id
       if (req.query.submission_id) {
         article.title = '批注：' + req.query.submission_id;
         article.content = '[提交记录](/submission/' + req.query.submission_id + ')';
       }
     } else {
       article.allowedEdit = await article.isAllowedEditBy(res.locals.user);
+      if (!article.allowedEdit) throw new ErrorMessage('您没有权限进行此操作。');
     }
+
     article.allowedManage = await article.isAllowedManageBy(res.locals.user);
 
     res.render('article_edit', {

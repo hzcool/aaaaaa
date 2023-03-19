@@ -7,6 +7,7 @@ let User = syzoj.model('user');
 let Article = syzoj.model('article');
 let ProblemEvaluate = syzoj.model('problem_evaluate');
 let ProblemForbid =  syzoj.model('problem_forbid')
+let ContestCollection = syzoj.model('contest_collection')
 
 const jwt = require('jsonwebtoken');
 const { getSubmissionInfo, getRoughResult, processOverallResult } = require('../libs/submissions_process');
@@ -46,6 +47,34 @@ async function checkgp(contest,user){
 
 function get_key(username) {
   return syzoj.utils.md5(username + "comp_xxx")
+}
+
+const cp_map = new Map()
+
+async function prepare_cp_user_data(user_id) {
+  let current = syzoj.utils.getCurrentDate()
+  let data = cp_map.get(user_id)
+  if(!data || current - data.time > 300) {
+    data = {time: current, contests: []}
+    let contest_query = Contest.createQueryBuilder().where(`id IN (SELECT contest_id FROM contest_player WHERE user_id=${user_id}) AND end_time <= ${current}`).orderBy('start_time', 'DESC').addOrderBy('id', 'DESC')
+    let contests1 = await Contest.queryAll(contest_query)
+    let contest_query2 = Contest.createQueryBuilder().where(`id IN (SELECT contest_id FROM contest_collection WHERE user_id=${user_id}) AND end_time <= ${current}`).orderBy('start_time', 'DESC').addOrderBy('id', 'DESC')
+    let contests2 = await Contest.queryAll(contest_query2)
+    let i = 0, j = 0;
+    while(i < contests1.length && j < contests2.length) {
+      if(contests1[i].id === contests2[j].id) {
+        data.contests.push(contests1[i]); i++; j++
+      } else if(contests1[i].start_time >= contests2[j].start_time) {
+        data.contests.push(contests1[i]); i++
+      } else {
+        data.contests.push(contests2[j]); j++
+      }
+    }
+    for(; i < contests1.length; i++) data.contests.push(contests1[i]);
+    for(; j < contests2.length; j++) data.contests.push(contests2[j]);
+    cp_map.set(user_id, data)
+  }
+  return data.contests
 }
 
 app.get('/contests', async (req, res) => {
@@ -111,73 +140,81 @@ app.get('/cp/user/:id', async (req, res) => {
       key = get_key(user.username)
     }
 
-    let query = ContestPlayer.createQueryBuilder().where("user_id = :user_id", { user_id: user.id })
-    let contests = []
+
+    let contests = await prepare_cp_user_data(user.id)
     if(req.query.title) {
-      contests = await Contest.getKeywordContests(req.query.title)
-      if(contests.length > 0) {
-        query.andWhere("contest_id in (" + contests.map(item => item.id).join(",") +")")
-      } else {
-        query.andWhere("contest_id = 0")
-      }
+      contests = contests.filter(c => c.title.includes(req.query.title))
     }
-    let count = await ContestPlayer.countForPagination(query)
-    let paginate = syzoj.utils.paginate(count, req.query.page, syzoj.config.page.contest);
-    query.orderBy('contest_id', 'DESC')
-    let players = await ContestPlayer.queryPage(paginate, query)
-    let contest_map = {}
+
+    let count = contests.length
+    let paginate = syzoj.utils.paginate(count, req.query.page, syzoj.config.page.contest)
+
+    let start = (paginate.currPage - 1) * paginate.perPage
+    contests = contests.slice(start,  start + paginate.perPage)
     let ranklist_map = {}
-    if(players.length > 0) {
-      if(contests.length === 0) {
-        contests = await Contest.queryAll(Contest.createQueryBuilder().where("id in (" + players.map(item => item.contest_id).join(",") + ")"))
-      }
-      contest_map = syzoj.utils.makeRecordsMap(contests)
+    let players_map = {}
+    if(contests.length > 0) {
+      let player_query = ContestPlayer.createQueryBuilder().where(`user_id = ${user.id} AND contest_id IN (${contests.map(c => c.id).join(",")})`)
+      let players = await ContestPlayer.queryAll(player_query)
+      players.forEach(p => players_map[p.contest_id] = p)
       let ranklists = await ContestRanklist.queryAll(ContestRanklist.createQueryBuilder().where("id in (" + contests.map(item => item.ranklist_id).join(",") + ")"))
       ranklist_map = syzoj.utils.makeRecordsMap(ranklists)
     }
+
+
+
     let data = []
     let not_solved = {}  // problem_id => c array
-    for(let player of players) {
-      let contest = contest_map[player.contest_id]
-      if(!contest || contest.isRunning()) {
-        count--
-        continue
-      }
 
+    for(let contest of contests) {
       let problem_ids = await contest.getProblems()
       let c = {
         rank: '---',
         player_num: '---',
-        score: 0,
-        total_score: 0,
+        score: 0, // 比赛得分
+        total_score: 0, // 总分
+        score_after_contest: 0, // 赛后得分
         contest,
         problem_count: problem_ids.length,
-        solved_count: 0,
+        solved: 0, // 比赛中过题
+        solved_count: 0, //总过题，包括赛后补题
       }
+      let player = players_map[contest.id]
       let ranklist = ranklist_map[contest.ranklist_id]
-      if(ranklist) {
-        for(problem_id of problem_ids) {
-          let multipler = (ranklist.ranking_params[problem_id] || 1)
-          c.total_score += multipler * 100;
-          let detail = player.score_details[problem_id]
-          let score = 0
-          if(detail) {
-            if(detail.weighted_score) score = detail.weighted_score
-            else if(detail.accepted) score = multipler * 100;
-            else if(detail.score) score = detail.score * multipler
-          }
-          c.score += score
-          if(score > 0 && score === multipler * 100) c.solved_count++
-          else if(not_solved[problem_id]) not_solved[problem_id].push(c);
-          else not_solved[problem_id] = [c]
 
-          c.player_num = ranklist.ranklist.player_num
-          for(const [k, v] of Object.entries(ranklist.ranklist)) {
-            if(v === player.id && k !== 'player_num') {
-              c.rank = parseInt(k);
-              break
+      if(ranklist) {
+        c.player_num = ranklist.ranklist.player_num
+        let players = await ContestPlayer.find({contest_id: contest.id})
+        players.forEach(p => p.score = 0)
+        for(problem_id of problem_ids) {
+          let multipler = (ranklist.ranking_params[problem_id] || 1.0)
+          let full_score = multipler * 100
+          c.total_score += full_score;
+          for(let p of players) {
+            let detail = p.score_details[problem_id]
+            let score = 0
+            if(detail) {
+              if(detail.accepted) score = full_score
+              else if(detail.score) score = detail.score * multipler
+              else if(detail.weighted_score) score = detail.weighted_score
+            }
+            p.score += score
+            if(player && p.user_id === player.user_id) {
+              c.score += score
+              c.score_after_contest += score
+              if(score > 0 && Math.abs(score - full_score) < 0.01) {c.solved_count++; c.solved++}
+              else if(not_solved[problem_id]) not_solved[problem_id].push({left_score: full_score - score, c});
+              else not_solved[problem_id] = [{left_score: full_score - score, c}]
             }
           }
+          if(!player) {
+            if(not_solved[problem_id]) not_solved[problem_id].push({left_score: full_score, c});
+            else not_solved[problem_id] = [{left_score: full_score, c}]
+          }
+        }
+        if(player) {
+          c.rank = 1
+          players.forEach(p => c.rank += p.score > c.score ? 1 : 0)
         }
       }
       data.push(c)
@@ -187,15 +224,14 @@ app.get('/cp/user/:id', async (req, res) => {
     if(not_solved_ids.length > 0) {
       let sql = 'select distinct problem_id from judge_state where user_id=' + user.id + ' and problem_id in (' + not_solved_ids.join(",")  + ') and status=\'Accepted\''
       let res = await JudgeState.query(sql)
-
       res.forEach(item => {
-        not_solved[item.problem_id].forEach(c => c.solved_count++)
+        not_solved[item.problem_id].forEach(({left_score, c}) => {
+          c.solved_count++
+          c.score_after_contest += left_score
+        })
       })
     }
 
-    data.sort((a, b) => {
-      return b.contest.start_time - a.contest.start_time
-    })
 
     res.render('user_contests', {
       data,
@@ -365,6 +401,7 @@ app.get('/contest/:id', async (req, res) => {
     contest.ended = contest.isEnded();
 
 
+
     // if ((!res.locals.user || (!res.locals.user.is_admin && !contest.admins.includes(res.locals.user.id.toString()))) && (!contest.isRunning () && !contest.isEnded ())) throw new ErrorMessage('比赛未开始，请耐心等待 (´∀ `)');
 
     contest.subtitle = await syzoj.utils.markdown(contest.subtitle);
@@ -483,6 +520,12 @@ app.get('/contest/:id', async (req, res) => {
     }
 
 
+    //是否可以收藏比赛
+    let existContestCollection = -1
+    if(contest.ended && !player) {
+      let cc = await ContestCollection.findOne({contest_id: contest.id, user_id: curUser.id})
+      existContestCollection = cc ? 1 : 0;
+    }
 
     res.render('contest', {
       contest: contest,
@@ -490,7 +533,8 @@ app.get('/contest/:id', async (req, res) => {
       hasStatistics: hasStatistics,
       isSupervisior: isSupervisior,
       weight: weight,
-      username: curUser.username
+      username: curUser.username,
+      existContestCollection
     });
   } catch (e) {
     syzoj.log(e);
@@ -1386,7 +1430,6 @@ app.get('/contest/problem/statistics', async (req, res) => {
   try {
     if(!res.locals.user){throw new ErrorMessage('请登录后继续。',{'登录': syzoj.utils.makeUrl(['login'])});}
     if(!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
-    console.log(req.query.prefix)
 
     let prefix = req.query.prefix
     let contests = []
@@ -1424,5 +1467,47 @@ app.get('/contest/problem/statistics', async (req, res) => {
     res.render('error', {
       err: e
     });
+  }
+});
+
+// /contest/<%= contest.id%>/collect
+app.get('/contest/:id/collect', async (req, res) => {
+  try {
+    if(!res.locals.user){throw new ErrorMessage('请登录后继续。',{'登录': syzoj.utils.makeUrl(['login'])});}
+
+    let contest_id = parseInt(req.params.id);
+    let contest = await Contest.findById(contest_id);
+    if (!contest) throw '无此比赛'
+
+
+    if (res.locals.user) {
+      let player = await ContestPlayer.findInContest({
+        contest_id: contest.id,
+        user_id: res.locals.user.id
+      });
+      if(player) throw '你是比赛成员，无需收藏'
+    }
+
+    let collection = await ContestCollection.findOne({contest_id: contest.id, user_id: res.locals.user.id})
+    collectContest = parseInt(req.query.collectContest)
+    cp_map.delete(res.locals.user.id)
+
+    if(collectContest === 0) {
+      if(collection) await collection.destroy()
+    } else if(collectContest === 1) {
+      if(!collection) {
+        collection = ContestCollection.create({
+          contest_id: contest.id,
+          user_id: res.locals.user.id
+        })
+        await collection.save()
+      }
+    }
+
+    res.send({msg: "ok"})
+
+  } catch (e) {
+    syzoj.log(e);
+    res.send({error: e})
   }
 });

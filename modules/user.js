@@ -179,18 +179,19 @@ app.get('/user/:id', async (req, res) => {
 
 app.get('/user/:id/edit', async (req, res) => {
   try {
+    // if(!res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
     let id = parseInt(req.params.id);
     let user = await User.findById(id);
     if (!user) throw new ErrorMessage('无此用户。');
 
-    let allowedEdit = await user.isAllowedEditBy(res.locals.user);
-    if (!allowedEdit) {
-      throw new ErrorMessage('您没有权限进行此操作。');
-    }
+    // let allowedEdit = await user.isAllowedEditBy(res.locals.user);
+    // if (!allowedEdit) {
+    //   throw new ErrorMessage('您没有权限进行此操作。');
+    // }
 
     user.privileges = await user.getPrivileges();
 
-    res.locals.user.allowedManage = await res.locals.user.hasPrivilege('manage_user');
+    res.locals.user.allowedManage = await res.locals.user.hasPrivilege(syzoj.PrivilegeType.ManageUser);
 
     res.render('user_edit', {
       is_admin: res.locals.user.is_admin,
@@ -223,48 +224,45 @@ app.post('/user/:id/edit', async (req, res) => {
       if (!allowedEdit) throw new ErrorMessage('您没有权限进行此操作。');
 
       if (req.body.old_password && req.body.new_password) {
-        if (user.password !== req.body.old_password && !await res.locals.user.hasPrivilege('manage_user')) throw new ErrorMessage('旧密码错误。');
+        if (user.password !== req.body.old_password && !await res.locals.user.hasPrivilege(syzoj.PrivilegeType.ManageUser)) throw new ErrorMessage('旧密码错误。');
         user.password = req.body.new_password;
       }
 
-      if (res.locals.user && await res.locals.user.hasPrivilege('manage_user')) {
+
+      if (res.locals.user && res.locals.user.is_admin) {
         if (!syzoj.utils.isValidUsername(req.body.username)) throw new ErrorMessage('无效的用户名。');
         user.username = req.body.username;
         user.email = req.body.email;
         user.nickname = req.body.nickname;
-      }
 
-      if (res.locals.user && res.locals.user.is_admin) {
         if (!req.body.privileges) {
           req.body.privileges = [];
         } else if (!Array.isArray(req.body.privileges)) {
           req.body.privileges = [req.body.privileges];
         }
 
+        user.is_show = user.public_email = (req.body.public_email === 'on');
+        user.group_id = req.body.group_id;
+        user.start_time = syzoj.utils.parseDate(req.body.start_time);
+        user.end_time = syzoj.utils.parseDate(req.body.end_time);
+
         let privileges = req.body.privileges;
         await user.setPrivileges(privileges);
       }
 
+
       user.information = req.body.information;
       user.sex = req.body.sex;
-      user.is_show  = user.public_email = (req.body.public_email === 'on');
-
       user.prefer_formatted_code = (req.body.prefer_formatted_code === 'on');
 
-      if (res.locals.user.is_admin){
-          user.group_id = req.body.group_id;
-          user.start_time = syzoj.utils.parseDate(req.body.start_time);
-          user.end_time = syzoj.utils.parseDate(req.body.end_time);
-      }else{
-          ;// group_id no edit
-      }
+
 
       await user.save();
 
       if (user.id === res.locals.user.id) res.locals.user = user;
 
       user.privileges = await user.getPrivileges();
-      res.locals.user.allowedManage = await res.locals.user.hasPrivilege('manage_user');
+      res.locals.user.allowedManage = await res.locals.user.hasPrivilege(syzoj.PrivilegeType.ManageUser);
 
       res.render('user_edit', {
         is_admin: res.locals.user.is_admin,
@@ -273,7 +271,7 @@ app.post('/user/:id/edit', async (req, res) => {
       });
     } catch (e) {
       user.privileges = await user.getPrivileges();
-      res.locals.user.allowedManage = await res.locals.user.hasPrivilege('manage_user');
+      res.locals.user.allowedManage = await res.locals.user.hasPrivilege(syzoj.PrivilegeType.ManageUser);
 
       res.render('user_edit', {
         is_admin: res.locals.user.is_admin,
@@ -309,15 +307,24 @@ app.get('/vj/log', async (req, res) => {
   }
 });
 
+function get_key(username) {
+  return syzoj.utils.md5(username + "comp_xxx")
+}
 
 app.get('/user/:id/problem_statistics', async (req, res) => {
   try {
-    if(!res.locals.user){throw new ErrorMessage('请登录后继续。',{'登录': syzoj.utils.makeUrl(['login'])});}
-    if(!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
+    let key = req.query.key
 
-    let id = parseInt(req.params.id);
-    user = await User.findById(id);
+    if(!key) {
+      if(!res.locals.user){throw new ErrorMessage('请登录后继续。',{'登录': syzoj.utils.makeUrl(['login'])});}
+      if(!res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
+    }
+    let id = parseInt(req.params.id)
+    let user = await User.findById(id)
     if (!user) throw new ErrorMessage('无此用户。');
+    let key2 = get_key(user.username)
+    if(key && key2 !== key) throw new ErrorMessage('key 不正确。');
+    else key = key2
 
     let entity = TypeORM.getManager()
 
@@ -341,7 +348,7 @@ app.get('/user/:id/problem_statistics', async (req, res) => {
       if(min_time > item.submit_time) min_time = item.submit_time
     }
 
-    res.render('user_problem_statistics', {show_user:user, info, min_time, max_time})
+    res.render('user_problem_statistics', {show_user:user, info, min_time, max_time, key})
   } catch (e) {
     syzoj.log(e);
     res.render('error', {

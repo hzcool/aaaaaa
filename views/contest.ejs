@@ -39,22 +39,93 @@
             syzoj.utils.makeUrl(['contest', contest.id, 'submissions']); %>
           <a class="ui small positive button" href="<%= submissionsUrl %>">提交记录</a>
 
-            <% if (res.locals.user.is_admin) {%>
-                <%if(contest.open_problem) {%>
-                    <a class="ui small purple button" href="<%= syzoj.utils.makeUrl(['contest', contest.id, 'open_problems']) %>" >题目公开</a>
-                <% } %>
-                <%if(contest.ended) {%>
-                    <a class="ui small orange button" href="<%= syzoj.utils.makeUrl(['contest', contest.id, 'update_ended_contest_info']) %>" >更新赛后信息</a>
-                <%}%>
-            <% } %>
-
           <% if (isSupervisior) { %>
             <a class="ui small button" href="<%= syzoj.utils.makeUrl(['contest', contest.id, 'edit']) %>">编辑比赛</a>
           <% } %>
 
 
-
         </div>
+          <%if(contest.ended) {%>
+            <style>
+                .__btn_style {
+                    ext-decoration:none;
+                    color:#000;
+                }
+            </style>
+            <div class="ui buttons right floated">
+
+                <%if(res.locals.user.is_admin) {%>
+
+
+                <%if(contest.open_problem) {%>
+                    <div class="ui icon button" data-tooltip="公开比赛题目" data-inverted="" data-position="bottom center">
+                        <a href="<%= syzoj.utils.makeUrl(['contest', contest.id, 'open_problems']) %>" class="__btn_style">
+                            <i class="unlock icon" ></i>
+                        </a>
+                    </div>
+                <% } %>
+
+                <div class="ui icon button" data-tooltip="更新赛后信息" data-inverted="" data-position="bottom center">
+                    <a href="<%= syzoj.utils.makeUrl(['contest', contest.id, 'update_ended_contest_info']) %>"  class="__btn_style">
+                        <i class="sync icon" ></i>
+                    </a>
+                </div>
+                <%} else {%>
+
+                    <div class="ui button icon" id="tag_show_popup"><i class="eye icon __btn_style"></i></div>
+                    <div class="ui popup" style="width: 200px">
+                        <div class="header">标签显示</div>
+                        <%
+                            let i = 0;
+                            for (let problem of problems) {
+                            i++;
+                        %>
+                            <div class="ui checkbox" style="margin-top: 10px">
+                                <input type="checkbox" tabindex="<%= i%>" id="<%= "problem_cb_" + i%>" onclick="to_show_problem_tag('<%= "problem_cb_" + i%>', <%= i%>)">
+                                <label> <%= "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[(i - 1) % 26] + ". " + syzoj.utils.removeTitleTag(problem.problem.title) %> </label>
+                            </div><br>
+                        <%}%>
+                    </div>
+                    <script>
+                        $(function (){
+                            $('#tag_show_popup').popup({inline: true, hoverable: true, position: "bottom center"})
+                        })
+                        const to_show_problem_tag = (cb_id, i) => {
+                            if($('#' + cb_id).is(':checked')) {
+                                $('#show_tag_controled_' + i).show()
+                            } else {
+                                $('#show_tag_controled_' + i).hide()
+                            }
+                        }
+                    </script>
+                <%}%>
+                <%if(existContestCollection !== -1) {%>
+                    <div class="ui icon button"  data-tooltip="<%= existContestCollection ? '取消比赛收藏' : '收藏比赛'%>" data-inverted="" data-position="bottom center" id="__collect_contest_btn" onclick="collect_contest_req()" >
+                        <i class="__btn_style heart icon <%= existContestCollection ? '' : 'outline'%>" id="__collect_contest_i"></i>
+                    </div>
+                    <script>
+                        let collectContest = <%= existContestCollection === 1 ? "0" : "1"%>
+                        const collect_contest_req = () => {
+                            $.get('/contest/<%= contest.id%>/collect', {collectContest}, data => {
+                                if(data.error) {
+                                    alert(data.error)
+                                    return
+                                }
+                                if(collectContest === 0) {
+                                    $('#__collect_contest_btn').attr('data-tooltip', '收藏比赛')
+                                    $('#__collect_contest_i').addClass('outline')
+
+                                } else {
+                                    $('#__collect_contest_btn').attr('data-tooltip', '取消比赛收藏')
+                                    $('#__collect_contest_i').removeClass('outline')
+                                }
+                                collectContest = 1 - collectContest
+                            })
+                        }
+                    </script>
+                <%}%>
+            </div>
+          <%}%>
       </div>
     </div>
   <% if (contest.information) { %>
@@ -140,7 +211,8 @@
                   </a>
 
                 <% if (seeResult) { %>
-                <div class="show_tag_controled" style="float: right; ">
+
+                <div id="show_tag_controled_<%=i%>" style="float: right; <%= (!res.locals.user.is_admin && contest.ended)? "display: none": "" %> ">
                     <%
                     if (problem.tags) {
                         for (let tag of problem.tags) {
@@ -180,7 +252,7 @@
                   <a href="<%= syzoj.utils.makeUrl(['contest', contest.id, 'submissions'], { problem_id: i, status: 'Accepted' }) %>"><%= problem.statistics.accepted %></a>
                   /
                     <a href="<%= syzoj.utils.makeUrl(['contest', contest.id, 'submissions'], { problem_id: i, min_score: 1 }) %>"><%= problem.statistics.partially %></a>
-                    <% if (contest.type === 'noi' || contest.type === 'ioi') { %>
+                    <% if (contest.type === 'noi' || contest.type === 'ioi' || contest.type === 'pc') { %>
                     /
                   <% } %>
                   <a href="<%= syzoj.utils.makeUrl(['contest', contest.id, 'submissions'], { problem_id: i }) %>"><%= problem.statistics.attempt %></a>

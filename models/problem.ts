@@ -160,8 +160,8 @@ export default class Problem extends Model {
 
   async isAllowedManageBy(user) {
     if (!user) return false;
-    if (await user.hasPrivilege('manage_problem')) return true;
-    return user.is_admin;
+    if (user.is_admin || await user.hasPrivilege('manage_problem')) return true;
+    return this.user_id === user.id && await user.hasPrivilege(syzoj.PrivilegeType.AddProblem)
   }
 
   async isAllowedEvaluateBy(user) {

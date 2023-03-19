@@ -355,28 +355,48 @@ app.post('/admin/rejudge', async (req, res) => {
     if (!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
 
     let query = JudgeState.createQueryBuilder();
+    let w = "1 = 1 "
 
     let user = await User.fromName(req.body.submitter || '');
     if (user) {
       query.andWhere('user_id = :user_id', { user_id: user.id });
+      w += `AND user_id = ${user.id} `
     } else if (req.body.submitter) {
       query.andWhere('user_id = :user_id', { user_id: 0 });
     }
 
     let minID = parseInt(req.body.min_id);
-    if (!isNaN(minID)) query.andWhere('id >= :minID', { minID })
+    if (!isNaN(minID)) {
+      query.andWhere('id >= :minID', { minID })
+      w += `AND id >= ${minID} `
+    }
     let maxID = parseInt(req.body.max_id);
-    if (!isNaN(maxID)) query.andWhere('id <= :maxID', { maxID })
+    if (!isNaN(maxID)) {
+      query.andWhere('id <= :maxID', { maxID })
+      w += `AND id <= ${maxID} `
+    }
 
     let minScore = parseInt(req.body.min_score);
-    if (!isNaN(minScore)) query.andWhere('score >= :minScore', { minScore });
+    if (!isNaN(minScore)) {
+      query.andWhere('score >= :minScore', { minScore });
+      w += `AND score >= ${minScore} `
+    }
     let maxScore = parseInt(req.body.max_score);
-    if (!isNaN(maxScore)) query.andWhere('score <= :maxScore', { maxScore });
+    if (!isNaN(maxScore)) {
+      query.andWhere('score <= :maxScore', { maxScore });
+      w += `AND score <= ${maxScore} `
+    }
 
     let minTime = syzoj.utils.parseDate(req.body.min_time);
-    if (!isNaN(minTime)) query.andWhere('submit_time >= :minTime', { minTime: parseInt(minTime) });
+    if (!isNaN(minTime)) {
+      query.andWhere('submit_time >= :minTime', { minTime: parseInt(minTime) });
+      w += `AND submit_time >= ${minTime} `
+    }
     let maxTime = syzoj.utils.parseDate(req.body.max_time);
-    if (!isNaN(maxTime)) query.andWhere('submit_time <= :maxTime', { maxTime: parseInt(maxTime) });
+    if (!isNaN(maxTime)) {
+      query.andWhere('submit_time <= :maxTime', { maxTime: parseInt(maxTime) });
+      w += `AND submit_time <= ${maxTime} `
+    }
 
     if (req.body.language) {
       if (req.body.language === 'submit-answer') {
@@ -389,20 +409,26 @@ app.post('/admin/rejudge', async (req, res) => {
              .andWhere('language IS NOT NULL');;
       } else {
         query.andWhere('language = :language', { language: req.body.language });
+        w += `AND language = ${req.body.language} `
       }
     }
 
     if (req.body.status) {
       query.andWhere('status = :status', { status: req.body.status });
+      w += `AND status = ${req.body.status} `
     }
 
     if (req.body.problem_id) {
       query.andWhere('problem_id = :problem_id', { problem_id: parseInt(req.body.problem_id) || 0 })
+      w += `AND problem_id = ${parseInt(req.body.problem_id) || 0} `
     }
+
+    query.andWhere(`id IN (SELECT MAX(id) FROM judge_state WHERE ${w} GROUP BY user_id)`)
 
     let count = await JudgeState.countQuery(query);
     if (req.body.type === 'rejudge') {
       let submissions = await JudgeState.queryAll(query);
+
       for (let submission of submissions) {
         await submission.rejudge();
       }

@@ -14,12 +14,13 @@
         <label for="username">用户名</label>
         <input type="text" id="username" name="username" value="<%= edited_user.username %>"<% if (!user.allowedManage) { %> readonly <% } %> >
     </div>
+
+    <% if(is_admin){ %>
     <div class="field">
         <label for="nickname">姓名</label>
         <input type="text" id="nickname" name="nickname" value="<%= edited_user.nickname %>"<% if (!user.allowedManage) { %> readonly <% } %> />
     </div>
 
-    <% if(is_admin){ %>
     <div class="field">
         <label for="group_id">分组（年份+组别，联赛到省选为A，省选到国赛为B，国赛之后到联赛为C，加0表示div2，如22B0表示省选到国赛的div2组）</label>
         <input type="text" id="group_id" name="group_id" value="<%= edited_user.group_id %>" />
@@ -46,13 +47,15 @@
             <label for="email">Email</label>
             <input class="font-content" type="email" id="email" name="email" value="<%= edited_user.email %>"<% if (!user.allowedManage) { %> readonly<% } %>>
         </div>
-      <div class="inline field">
-        <label class="ui header">公开 Email</label>
-        <div class="ui toggle checkbox">
-          <input id="public_email" name="public_email" type="checkbox" <% if (edited_user.public_email) { %> checked<% } %>>
-          <label>　</label>
-        </div>
-        </div>
+        <%if(is_admin) {%>
+          <div class="inline field">
+            <label class="ui header">公开 Email</label>
+            <div class="ui toggle checkbox">
+              <input id="public_email" name="public_email" type="checkbox" <% if (edited_user.public_email) { %> checked<% } %>>
+              <label>　</label>
+            </div>
+            </div>
+        <%}%>
       <div class="inline field">
         <label class="ui header">默认显示格式化后的代码（如果可用）</label>
         <div class="ui toggle checkbox">
@@ -87,16 +90,20 @@
           <input disabled="disabled" type="checkbox" <% if (edited_user.is_admin) { %> checked<% } %>>
           <label>全站管理员</label>
         </div>
-        <div class="ui toggle <% if (!allowedManagePrivilege) { %>disabled <% } %>checkbox checkbox_privilege" data-name="manage_problem" style="margin-right: 20px; ">
-          <input <% if (!allowedManagePrivilege) { %>disabled="disabled" <% } %>type="checkbox"<% if (edited_user.privileges.includes('manage_problem')) { %> checked<% } %>>
+        <div class="ui toggle <% if (!allowedManagePrivilege) { %>disabled <% } %>checkbox checkbox_privilege" data-name="<%= syzoj.PrivilegeType.ManageProblem %>" style="margin-right: 20px; ">
+          <input <% if (!allowedManagePrivilege) { %>disabled="disabled" <% } %>type="checkbox"<% if (edited_user.privileges.includes(syzoj.PrivilegeType.ManageProblem)) { %> checked<% } %>>
           <label>管理题目</label>
         </div>
-        <div class="ui toggle <% if (!allowedManagePrivilege) { %>disabled <% } %>checkbox checkbox_privilege" data-name="manage_problem_tag" style="margin-right: 20px; ">
-          <input <% if (!allowedManagePrivilege) { %>disabled="disabled" <% } %>type="checkbox"<% if (edited_user.privileges.includes('manage_problem_tag')) { %> checked<% } %>>
+        <div class="ui toggle <% if (!allowedManagePrivilege) { %>disabled <% } %>checkbox checkbox_privilege" data-name="<%= syzoj.PrivilegeType.AddProblem %>" style="margin-right: 20px; ">
+          <input <% if (!allowedManagePrivilege) { %>disabled="disabled" <% } %>type="checkbox"<% if (edited_user.privileges.includes(syzoj.PrivilegeType.AddProblem)) { %> checked<% } %>>
+          <label>添加题目</label>
+        </div>
+        <div class="ui toggle <% if (!allowedManagePrivilege) { %>disabled <% } %>checkbox checkbox_privilege" data-name="<%= syzoj.PrivilegeType.ManageProblemTag%>" style="margin-right: 20px; ">
+          <input <% if (!allowedManagePrivilege) { %>disabled="disabled" <% } %>type="checkbox"<% if (edited_user.privileges.includes(syzoj.PrivilegeType.ManageProblemTag)) { %> checked<% } %>>
           <label>管理题目标签</label>
         </div>
-        <div class="ui toggle <% if (!allowedManagePrivilege) { %>disabled <% } %>checkbox checkbox_privilege" data-name="manage_user">
-          <input <% if (!allowedManagePrivilege) { %>disabled="disabled" <% } %>type="checkbox"<% if (edited_user.privileges.includes('manage_user')) { %> checked<% } %>>
+        <div class="ui toggle <% if (!allowedManagePrivilege) { %>disabled <% } %>checkbox checkbox_privilege" data-name="<%= syzoj.PrivilegeType.ManageUser%>">
+          <input <% if (!allowedManagePrivilege) { %>disabled="disabled" <% } %>type="checkbox"<% if (edited_user.privileges.includes(syzoj.PrivilegeType.ManageUser)) { %> checked<% } %>>
           <label>管理用户</label>
         </div>
       </div>
