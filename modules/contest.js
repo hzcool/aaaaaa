@@ -8,6 +8,7 @@ let Article = syzoj.model('article');
 let ProblemEvaluate = syzoj.model('problem_evaluate');
 let ProblemForbid =  syzoj.model('problem_forbid')
 let ContestCollection = syzoj.model('contest_collection')
+const interfaces = require('../libs/judger_interfaces')
 
 const jwt = require('jsonwebtoken');
 const { getSubmissionInfo, getRoughResult, processOverallResult } = require('../libs/submissions_process');
@@ -1511,3 +1512,55 @@ app.get('/contest/:id/collect', async (req, res) => {
     res.send({error: e})
   }
 });
+
+
+app.get('/contest/:id/cases_statistics', async (req, res) => {
+  try {
+    if(!res.locals.user){throw new ErrorMessage('请登录后继续。',{'登录': syzoj.utils.makeUrl(['login'])});}
+    let id = parseInt(req.params.id)
+    let c = await Contest.findById(id)
+    if(!c) throw new ErrorMessage('找不到比赛。');
+    const isSupervisior = await c.isSupervisior(res.locals.user);
+    if(!isSupervisior) throw new ErrorMessage('您没有权限进行此操作。');
+
+
+    let problemids =  await c.getProblems()
+
+    let problems = await problemids.mapAsync(async pid => {
+      let p = await Problem.findById(pid)
+      p.cases = {}
+      return p
+    })
+
+    let submissions = await JudgeState.queryAll(JudgeState.createQueryBuilder().where(`type = 1 AND type_info = ${id}`))
+    for (let s of submissions) {
+      let p = problems.find(problem => problem.id === s.problem_id)
+      if (!p) continue;
+      if (s.result && s.result.judge && s.result.judge.subtasks) {
+        let subtasks = s.result.judge.subtasks
+        if (subtasks.length === 1) {
+          if (subtasks[0].cases) {
+            subtasks[0].cases.forEach((c, idx) => {
+              if (!p.cases[idx]) p.cases[idx] = [];
+              if (c.result && c.result.type === interfaces.TestcaseResultType.Accepted && !p.cases[idx].includes(s.user_id))
+                p.cases[idx].push(s.user_id)
+            })
+          }
+        } else {
+            subtasks.forEach((subtask, idx) => {
+              if (!p.cases[idx]) p.cases[idx] = 0;
+              if(subtask.cases.every(c => c.result && c.result.type === interfaces.TestcaseResultType.Accepted) && !p.cases[idx].includes(s.user_id) )
+                p.cases[idx]++;
+            })
+        }
+      }
+    }
+
+    res.render('contest_cases_statistics', {contest: c, problems})
+  } catch (e) {
+    syzoj.log(e);
+    res.render('error', {
+      err: e
+    });
+  }
+})

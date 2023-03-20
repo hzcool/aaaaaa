@@ -1,0 +1,102 @@
+
+<% this.title = user.username + ' - 用户'; %>
+<% include header %>
+
+<link href="<%- lib('element-plus/2.2.28/index.min.css') %>" rel="stylesheet">
+<script src="<%- lib('vue/3.2.36/vue.global.min.js') %>"></script>
+<script src="<%- lib('element-plus/2.2.28/index.full.min.js') %>"></script>
+<script src="<%- lib('echarts/echarts.js') %>"></script>
+
+<div class="padding">
+    <div id="app">
+        <h1 style="margin-bottom: 20px"> 赛题测试用例通过统计分析 </h1>
+
+        <a href="/contest/<%= contest.id%>"> <h2> <%= contest.title%> </h2> </a>
+        <div style="margin-top: 20px">
+            <el-radio-group v-model="radio" @change="handle()">
+                <el-radio v-for="(item, idx) in problems" :label="idx" size="large"> {{"ABCDEFGHIJKLMNOPQRSTUVWXYZ"[idx] + ". " + item.title }} </el-radio>
+            </el-radio-group>
+        </div>
+
+        <div style="display: flex; justify-content:center; margin-top: 50px;">
+            <div ref="barChartRef" style="width: 1000px; height: 480px"> </div>
+        </div>
+
+    </div>
+</div>
+
+
+<script>
+    const {createApp, ref, onMounted, reactive} = Vue;
+    const contest = <%- serializejs(contest) %>
+    const problems = <%- serializejs(problems) %>
+
+    const barChartRef = ref(null)
+    let barChart = undefined
+    const radio = ref(0)
+    const show = ref(false)
+
+    // 指定图表的配置项和数据
+    const barOpt = {
+
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            }
+        },
+        legend: {},
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: {
+            type: 'value',
+        },
+        yAxis: {
+            type: 'category',
+            data: []
+        },
+        series: [
+            {
+                name: '',
+                type: 'bar',
+                data: [],
+                label: {
+                    show: true,
+                    position: 'inside'
+                },
+            },
+        ]
+    }
+
+    const handle = ()=> {
+        let problem = problems[radio.value]
+        barOpt.yAxis.data = []
+        barOpt.series[0].data = []
+        barOpt.series[0].name =  "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[radio.value] + ". " + problem.title
+        let cases = problem.cases
+
+        let keys = Object.keys(cases).sort((a, b) => parseInt(b) - parseInt(a))
+        for(let key of keys) {
+            barOpt.yAxis.data.push('用例 ' + key)
+            barOpt.series[0].data.push(cases[key].length)
+        }
+        // barChart.clear()
+        barChart.setOption(barOpt)
+        let n = barOpt.yAxis.data.length
+        barChart.resize({height: (n <= 20 ? 80 : 60) * n })
+    }
+    const App = {
+        setup() {
+            onMounted(() => {
+                barChart = echarts.init(barChartRef.value);
+                handle()
+            })
+            return {contest, problems, radio, handle, barChartRef, show}
+        },
+    }
+    createApp(App).use(ElementPlus).mount('#app')
+</script>
