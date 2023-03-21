@@ -33,10 +33,11 @@
           <% if(contest.ended){ %>
             <a class="ui small yellow button" href="<%= syzoj.utils.makeUrl(['contest', contest.id, 'repeat']) %>">补题情况</a>
             <a class="ui small red button" href="<%= syzoj.utils.makeUrl( isSupervisior ?  ['summary'] : ['summary', 'edit'], isSupervisior ? {contest_id: contest.id} : {contest_id: contest.id, username: username}) %>">总结</a>《》
-            <%if(isSupervisior) {%>
-              <a class="ui small purple button" href="<%= syzoj.utils.makeUrl(['contest', contest.id, 'cases_statistics']) %>">统计</a>
-            <%}%>
           <% } %>
+          <%if(isSupervisior || contest.ended) {%>
+              <a class="ui small purple button" href="<%= syzoj.utils.makeUrl(['contest', contest.id, 'cases_statistics']) %>">统计</a>
+          <%}%>
+
           <% let submissionsUrl = seeResult ?
             syzoj.utils.makeUrl(['submissions'], {contest: contest.id}) :
             syzoj.utils.makeUrl(['contest', contest.id, 'submissions']); %>

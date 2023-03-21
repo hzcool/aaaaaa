@@ -82,7 +82,7 @@
 
         let keys = Object.keys(cases).sort((a, b) => parseInt(b) - parseInt(a))
         for(let key of keys) {
-            let str = '用例 ' + key;
+            let str = '测试点 ' + (parseInt(key) + 1);
             if(player_num > 0) str += ' (' +  (cases[key].length / player_num * 100).toFixed(2) + '%)'
             barOpt.yAxis.data.push(str)
             barOpt.series[0].data.push(cases[key].length)

@@ -1517,11 +1517,22 @@ app.get('/contest/:id/collect', async (req, res) => {
 app.get('/contest/:id/cases_statistics', async (req, res) => {
   try {
     if(!res.locals.user){throw new ErrorMessage('请登录后继续。',{'登录': syzoj.utils.makeUrl(['login'])});}
+
+    const curUser = res.locals.user;
+
     let id = parseInt(req.params.id)
     let c = await Contest.findById(id)
     if(!c) throw new ErrorMessage('找不到比赛。');
-    const isSupervisior = await c.isSupervisior(res.locals.user);
-    if(!isSupervisior) throw new ErrorMessage('您没有权限进行此操作。');
+
+
+    if (await checkgp(c, curUser) ){
+      ;
+    }else{
+      throw new ErrorMessage('group not included, cannot enter !');
+    }
+
+
+    if (!await c.isSupervisior(curUser) && !c.isEnded()) throw new ErrorMessage('比赛尚未开始。');
 
     let problemids =  await c.getProblems()
 
