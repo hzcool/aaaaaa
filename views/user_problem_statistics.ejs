@@ -5,7 +5,7 @@
 
 <div class="padding" >
     <h1 style="margin-bottom: 20px; display: flex; align-items: center"> <span style="color: red"> <%= show_user.username%>  </span> &nbsp - &nbsp
-        <span style="color: red"> <%= show_user.nickname%>  </span>  &nbsp 解题统计分析
+        <span style="color: red"> <%= show_user.nickname%>  </span>  &nbsp <%= type === 'all'? '解题统计分析' : (type === 'passed_in_contest' ? '比赛过题统计分析': '比赛未过题统计分析') %>
         <%if(res.locals.user && res.locals.user.is_admin) {%>
             <div class='mini ui primary button' style='margin-left: 20px' onclick="copyLink()" id="copy_link_button">  复制页面链接 </div>
         <%}%>
@@ -24,7 +24,7 @@
             $button.text(org)
         }, 1000)
         $button.text('复制成功');
-        let str = window.location.origin + '/user/<%=show_user.id%>/problem_statistics?key=<%= key%>';
+        let str = window.location.origin + '/user/<%=show_user.id%>/problem_statistics/<%=type%>?key=<%= key%>';
         copyToClip(str);
     }
 </script>

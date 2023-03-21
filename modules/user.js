@@ -311,7 +311,8 @@ function get_key(username) {
   return syzoj.utils.md5(username + "comp_xxx")
 }
 
-app.get('/user/:id/problem_statistics', async (req, res) => {
+// type : [all, passed_in_contest, not_passed_in_contest]
+app.get('/user/:id/problem_statistics/:type', async (req, res) => {
   try {
     let key = req.query.key
 
@@ -326,10 +327,37 @@ app.get('/user/:id/problem_statistics', async (req, res) => {
     if(key && key2 !== key) throw new ErrorMessage('key 不正确。');
     else key = key2
 
+    let type = req.params.type
     let entity = TypeORM.getManager()
+    let data = []
+    if(type === 'all') {
+      let sql = `SELECT * FROM (SELECT problem_id,submit_time FROM judge_state WHERE user_id=${id} and status='Accepted' order by problem_id,submit_time asc) j group by j.problem_id`
+      data = await entity.query(sql)
+    } else if(type === 'passed_in_contest') {
+      let sql = `SELECT * FROM (SELECT problem_id,submit_time FROM judge_state WHERE user_id=${id} and type=1 and status='Accepted' order by problem_id,submit_time asc) j group by j.problem_id`
+      data = await entity.query(sql)
+    } else if(type === 'not_passed_in_contest'){
+      let submissions = await entity.query(`SELECT problem_id,type_info,status FROM judge_state WHERE user_id=${id} and type=1`)
+      let passed_problem_set = new Set()
+      let cid_set = new Set()
+      submissions.forEach(s => {
+        if(s.status === 'Accepted') passed_problem_set.add(s.problem_id)
+        cid_set.add(s.type_info)
+      })
 
-    let sql = `SELECT * FROM (SELECT problem_id,submit_time FROM judge_state WHERE user_id=${id} and status = 'accepted' order by problem_id,submit_time asc) j group by j.problem_id`
-    let data = await entity.query(sql)
+      if(cid_set.size > 0) {
+        let sql = `SELECT problems,end_time FROM contest WHERE id in (${Array.from(cid_set).join(',')})`
+        let cps = await entity.query(sql)
+        cps.forEach(x => {
+          x.problems.split('|').forEach(p => {
+            let pid = parseInt(p)
+            if(!passed_problem_set.has(pid)) data.push({problem_id: pid, submit_time:  x.end_time})
+          })
+        })
+      }
+    } else {
+      throw new ErrorMessage('类型错误。');
+    }
 
     let info = await data.mapAsync(async x => {
       let pid = x['problem_id']
@@ -348,7 +376,7 @@ app.get('/user/:id/problem_statistics', async (req, res) => {
       if(min_time > item.submit_time) min_time = item.submit_time
     }
 
-    res.render('user_problem_statistics', {show_user:user, info, min_time, max_time, key})
+    res.render('user_problem_statistics', {show_user:user, info, min_time, max_time, key, type})
   } catch (e) {
     syzoj.log(e);
     res.render('error', {
@@ -356,3 +384,4 @@ app.get('/user/:id/problem_statistics', async (req, res) => {
     });
   }
 });
+

@@ -84,7 +84,7 @@
                   </div>
                   <div class="row">
                     <div class="column">
-                      <h4 class="ui top attached block header">通过的题目 <% if(res.locals.user.is_admin) { %><a href="<%= syzoj.utils.makeUrl(['user', show_user.id, 'problem_statistics'])%>"> 详情</a> <% } %> </h4>
+                      <h4 class="ui top attached block header">通过的题目 </h4>
                       <div class="ui bottom attached segment">
                         <% for (let problem of show_user.ac_problems) { %>
                           <a href="<%= syzoj.utils.makeUrl(['problem', problem]) %>"><%= problem %></a>
@@ -102,8 +102,20 @@
                       <h4 class="ui top attached block header">统计</h4>
                       <div class="ui bottom attached segment">
                       <div id="pie_chart_legend"></div>
-                      <div style="width: 260px; height: 260px; margin-left: 33.5px; "><canvas style="width: 260px; height: 260px; " id="pie_chart"></canvas></div>
+                      <div style="width: 260px; height: <%= res.locals.user.is_admin? "380": "260"%>px; ">
+                        <canvas style="width: 260px; height: 260px; margin-left: 33.5px;" id="pie_chart"></canvas>
+                        <%if(res.locals.user.is_admin) {%>
+                        <div style="height: 30px"></div>
+                        <div style="font-weight: bold">
+                          <p> <a href="/user/<%=show_user.id%>/problem_statistics/all" > 过题统计(所有) </a>  </p>
+                          <p> <a href="/user/<%=show_user.id%>/problem_statistics/passed_in_contest"> 过题统计(比赛中) </a> </p>
+                          <p><a href="/user/<%=show_user.id%>/problem_statistics/not_passed_in_contest"> 未过题统计(比赛中) </a></p>
+                        </div>
+
+                        <%}%>
                       </div>
+                      </div>
+
                     </div>
                   </div>
                   <% if (res.locals.user.is_admin) { %>
