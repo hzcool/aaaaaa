@@ -236,7 +236,8 @@ app.get('/problem/:id', async (req, res) => {
 
     problem.allowedEdit = await problem.isAllowedEditBy(res.locals.user);
     problem.allowedManage = await problem.isAllowedManageBy(res.locals.user);
-    if(problem.description.includes("[题目描述](") && problem.description.includes(".pdf"))  {
+
+    if(/^\[.+\]\(.+.pdf\)$/.test(problem.description.trim()))  {
       problem.pdf_link = problem.description.substring(problem.description.indexOf('(') + 1, problem.description.indexOf(')'))
     }
     problem.org_description = problem.description

@@ -1547,9 +1547,9 @@ app.get('/contest/:id/cases_statistics', async (req, res) => {
           }
         } else {
             subtasks.forEach((subtask, idx) => {
-              if (!p.cases[idx]) p.cases[idx] = 0;
+              if (!p.cases[idx]) p.cases[idx] = [];
               if(subtask.cases.every(c => c.result && c.result.type === interfaces.TestcaseResultType.Accepted) && !p.cases[idx].includes(s.user_id) )
-                p.cases[idx]++;
+                p.cases[idx].push(s.user_id)
             })
         }
       }
