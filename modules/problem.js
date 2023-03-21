@@ -236,7 +236,10 @@ app.get('/problem/:id', async (req, res) => {
 
     problem.allowedEdit = await problem.isAllowedEditBy(res.locals.user);
     problem.allowedManage = await problem.isAllowedManageBy(res.locals.user);
-
+    if(problem.description.includes("[题目描述](") && problem.description.includes(".pdf"))  {
+      problem.pdf_link = problem.description.substring(problem.description.indexOf('(') + 1, problem.description.indexOf(')'))
+    }
+    problem.org_description = problem.description
     if (problem.is_public || problem.allowedEdit) {
       await syzoj.utils.markdown(problem, ['description', 'input_format', 'output_format', 'example', 'limit_and_hint']);
     } else {

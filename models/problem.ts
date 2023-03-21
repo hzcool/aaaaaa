@@ -464,14 +464,23 @@ export default class Problem extends Model {
                                                           .getMany()
                                         : [];
 
+    // const a = await JudgeState.createQueryBuilder()
+    //                           .select('score')
+    //                           .addSelect('COUNT(*)', 'count')
+    //                           .where('problem_id = :problem_id', { problem_id: this.id })
+    //                           .andWhere('type = 0')
+    //                           .andWhere('pending = false')
+    //                           .groupBy('score')
+    //                           .getRawMany();
+
+
     const a = await JudgeState.createQueryBuilder()
-                              .select('score')
-                              .addSelect('COUNT(*)', 'count')
-                              .where('problem_id = :problem_id', { problem_id: this.id })
-                              .andWhere('type = 0')
-                              .andWhere('pending = false')
-                              .groupBy('score')
-                              .getRawMany();
+        .select('score')
+        .addSelect('COUNT(*)', 'count')
+        .where(`id in (select max(id) from judge_state where problem_id=${this.id} and type=1 and pending=false group by user_id)`)
+        .groupBy('score')
+        .getRawMany()
+    // console.log(b)
 
     let scoreCount = [];
     for (let score of a) {

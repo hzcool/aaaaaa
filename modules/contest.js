@@ -1523,7 +1523,6 @@ app.get('/contest/:id/cases_statistics', async (req, res) => {
     const isSupervisior = await c.isSupervisior(res.locals.user);
     if(!isSupervisior) throw new ErrorMessage('您没有权限进行此操作。');
 
-
     let problemids =  await c.getProblems()
 
     let problems = await problemids.mapAsync(async pid => {
@@ -1556,7 +1555,10 @@ app.get('/contest/:id/cases_statistics', async (req, res) => {
       }
     }
 
-    res.render('contest_cases_statistics', {contest: c, problems})
+    let rankList = await ContestRanklist.findById(c.ranklist_id)
+
+    let player_num = rankList ? rankList.ranklist.player_num : 0
+    res.render('contest_cases_statistics', {contest: c, problems, player_num })
   } catch (e) {
     syzoj.log(e);
     res.render('error', {
