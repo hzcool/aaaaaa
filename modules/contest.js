@@ -1239,7 +1239,6 @@ app.post('/contest/:id/:pid/rejudge', async (req, res) => {
     res.redirect(syzoj.utils.makeUrl(['contest', contest.id, 'problem', pid]));
   } catch (e) {
     syzoj.log(e);
-    res.status(404);
     res.render('error', {
       err: e
     });
