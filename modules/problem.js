@@ -1266,7 +1266,7 @@ app.post('/problem/:id/code/test', app.multer.any(), async (req, res) => {
     if(!syzoj.submissionIntervalCheck(res.locals.user.id))  throw '提交过于频繁'
 
     let time_limit =  problem.time_limit || 5000
-    let memory_limit = Math.round((problem.memory_limit || 512) * 1024 * 1024)
+    let memory_limit = problem.memory_limit || 1024
 
     let src = req.body.src;
     if(!src || src.length < 15) throw "测试代码太短"
@@ -1283,14 +1283,13 @@ app.post('/problem/:id/code/test', app.multer.any(), async (req, res) => {
     output_path = tmp_dir + (problem.file_io ? problem.file_io_output_name : "test.out");
 
 
-
     let judge_result = await new Promise((resolve, reject) => {
       child_process.exec(`./bin/test_runner -s ${src_path} -l ${lang} -t ${time_limit} -m  ${memory_limit} ${problem.memory_limit} -I ${input_path} -O ${output_path} -R ${problem.file_io ? 0 : 1}`, function(error, stdout, stderr) {
         resolve(stdout)
       })
     });
 
-    judge_result = JSON.parse(judge_result.replace(/\n/g,"\\\\n"))
+    judge_result = JSON.parse(judge_result.replace(/\n/g,"<br>"))
     if(await fs.exists(output_path)) {
       judge_result.output =  await new Promise((resolve, reject) => {
         fs.open(output_path, 'r', function(status, fd) {

@@ -26,7 +26,7 @@
             <p id="judge_result_span"> </p>
             <p> 用时：<span style="color: red" id="cpu_time_span">  </span> MS </p>
             <p> 内存：<span style="color: red" id="memory_span">  </span> MB </p>
-            <p id="error_info"> 错误信息：<span style="color: blue" id="error_info_span">  </span> </p>
+            <p id="error_info"> 错误信息：<br> <span style="color: blue;white-space: pre" id="error_info_span">  </span> </p>
 
             <div id="output_result" class="ui form">
                 <label for="output">输出:</label> <br>
@@ -88,7 +88,7 @@
 
                     if(data.info !== '') {
                         $('#error_info').show()
-                        $('#error_info_span').text(data.info)
+                        $('#error_info_span').text(data.info.replaceAll("<br>", "\n"))
                     } else $('#error_info').hide()
 
                     if(data.output) {
