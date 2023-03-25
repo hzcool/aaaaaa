@@ -1203,6 +1203,48 @@ app.get('/contest/:id/problem/:pid', async (req, res) => {
   }
 });
 
+app.post('/contest/:id/:pid/rejudge', async (req, res) => {
+  try {
+
+    let contest_id = parseInt(req.params.id);
+    let contest = await Contest.findById(contest_id);
+    if(!res.locals.user){throw new ErrorMessage('请登录后继续。',{'登录': syzoj.utils.makeUrl(['login'])});}
+
+    if (!contest) throw new ErrorMessage('无此比赛。');
+
+    const user = res.locals.user;
+
+    if (user.is_admin || contest.admins.includes(user.id.toString())) ;
+    else {
+      throw new ErrorMessage("您没有权限执行此操作。");
+    }
+
+    let problems_id = await contest.getProblems();
+
+    let pid = parseInt(req.params.pid);
+    if (!pid || pid < 1 || pid > problems_id.length) throw new ErrorMessage('无此题目。');
+
+    let problem_id = problems_id[pid - 1];
+
+    await contest.loadRelationships();
+    let ranklist = contest.ranklist;
+
+    for (let item in ranklist) {
+      let judge = JudgeState.findById(item.player.score_details[problem_id].judge_id);
+      if (judge.pending) continue;
+      await judge.loadRelationships();
+      await judge.rejudge();
+    }
+
+    res.redirect(syzoj.utils.makeUrl(['contest', contest.id, 'problem', pid]));
+  } catch (e) {
+    syzoj.log(e);
+    res.render('error', {
+      err: e
+    });
+  }
+});
+
 app.get('/contest/:id/:pid/download/additional_file', async (req, res) => {
   try {
 
