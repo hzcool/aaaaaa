@@ -1227,7 +1227,7 @@ app.post('/contest/:id/:pid/rejudge', async (req, res) => {
     let problem_id = problems_id[pid - 1];
 
     await contest.loadRelationships();
-    let ranklist = contest.ranklist;
+    let ranklist = contest.ranklist.ranklist;
 
     for (let item in ranklist) {
       let judge = JudgeState.findById(item.player.score_details[problem_id].judge_id);
