@@ -27,7 +27,24 @@
       </div>
     <% } %>
   </div>
-</div>
 </form>
+
+<div class="field">
+  <form class="ui form" method="post">
+    <label>计算虚拟rating/label>
+    <div class="two fields">
+      <div class="field">
+        <label>比赛名称</label>
+        <input type="text" name="prefix" id="contest_name_prefix">
+      </div>
+      <div class="field">
+        <label>场次</label>
+        <input type="text" name="number" id="contest_number">
+      </div>
+    </div>
+    <button type="submit" class="ui labeled green button">计算</button>
+  </form>
+</div>
+
 <% include admin_footer %>
 <script>$('.selection.dropdown').dropdown();</script>
