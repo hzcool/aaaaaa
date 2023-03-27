@@ -27,7 +27,57 @@
       </div>
     <% } %>
   </div>
-</div>
 </form>
+
+<div class="field">
+  <form class="ui form">
+    <label>计算虚拟rating/label>
+    <div class="two fields">
+      <div class="field">
+        <label>比赛名称</label>
+        <input type="text" name="prefix" id="contest_name_prefix">
+      </div>
+      <div class="field">
+        <label>场次</label>
+        <input type="text" name="number" id="contest_number">
+      </div>
+    </div>
+    <el-button text class="ui labeled green button" @click="getVirtualRating(this.prefix, this.number)">计算</el-button>
+  </form>
+  <el-dialog v-model="showRank" title="排行榜">
+    <el-table :data="ratingRank">
+      <el-table-column property="name" label="用户名" />
+      <el-table-column property="rating" label="rating" />
+    </el-table>
+  </el-dialog>
+</div>
+
+
+
 <% include admin_footer %>
-<script>$('.selection.dropdown').dropdown();</script>
+<script>
+  const { ref } = Vue;
+  $('.selection.dropdown').dropdown();
+
+  const showRank = ref(false);
+  const ratingRank = [];
+  function getVirtualRating(prifix, number) {
+    ratingRank.length = 0;
+    $.ajax({
+      url: '/admin/rating/virtual',
+      type: 'POST',
+      async: true,
+      data: {
+        "prefix": prefix,
+        "number": number
+      },
+      dataType: "json",
+      success: function(data) {
+        for (let item of data.data) {
+          ratingRank.append({name: item[0], rating: item[1]});
+        }
+      }
+    });
+    showRank = true;
+  }
+</script>

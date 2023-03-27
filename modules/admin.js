@@ -196,6 +196,54 @@ app.get('/admin/rating', async (req, res) => {
   }
 });
 
+app.post('/admin/rating/virtual', async (req, res) => {
+  try {
+    let query = Contest.createQueryBuilder()
+      .where('title LIKE :title', {title: `${req.body.prefix}%`})
+      .orderBy('start_time', 'DESC');
+    const contests = (await Contest.queryAll(query)).slice(0, req.body.number).reverse();
+    let rating = {};
+    for (let contest of contests) {
+      const getps = await contest.ranklist.getPlayers ();
+
+      const players = [];
+      if (contest.type == 'acm') {
+        for (let i = 1; i <= contest.ranklist.ranklist.player_num; i++) {
+          const user = await User.findById((await ContestPlayer.findById(contest.ranklist.ranklist[i])).user_id);
+          players.push({
+            user: user,
+            rank: i,
+            currentRating: rating.hasKey(user.username) ? rating.get(user.username) : 1500
+          });
+        }
+      } else {
+        for (let i = 1, now_score = -1, now_rank = 1; i <= contest.ranklist.ranklist.player_num; i++) {
+          const user = await User.findById((await ContestPlayer.findById(contest.ranklist.ranklist[i])).user_id);
+          let score = getps[i - 1].score;
+          if (score != now_score) now_score = score, now_rank = i;
+          players.push({
+            user: user,
+            rank: now_rank,
+            currentRating: rating.hasKey(user.username) ? rating.get(user.username) : 1500
+          });
+        }
+      }
+      const newRating = calcRating(players);
+
+      for (let player of newRating) {
+        rating[player.user.username] = player.currentRating;
+      }
+    };
+    const sortedRating = Object.entries(rating).sort((a, b) => b[1]-a[1]); // a[0]:username a[1]:rating
+    res.send({data: sortedRating});
+  } catch (e) {
+    syzoj.log(e);
+    res.render('error', {
+      err : e
+    });
+  }
+});
+
 app.post('/admin/rating/add', async (req, res) => {
   try {
     if (!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
