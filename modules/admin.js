@@ -204,7 +204,7 @@ app.post('/admin/rating/virtual', async (req, res) => {
     const contests = (await Contest.queryAll(query)).slice(0, req.body.number).reverse();
     let rating = {};
     for (let contest of contests) {
-      const getps = await contest.ranklist.getPlayers ();
+      const getps = await contest.ranklist.getPlayers();
 
       const players = [];
       if (contest.type == 'acm') {
