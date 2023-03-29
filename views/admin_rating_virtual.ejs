@@ -1,0 +1,66 @@
+<link href="<%- lib('element-plus/2.2.28/index.min.css') %>" rel="stylesheet">
+<script src="<%- lib('vue/3.2.36/vue.global.min.js') %>"></script>
+<script src="<%- lib('element-plus/2.2.28/index.full.min.js') %>"></script>
+
+<div id="vueAppVirtual">
+  <el-dialog v-model="showRank" title="排行榜">
+    <el-table :data="ratingRank">
+      <el-table-column property="name" label="用户名" />
+      <el-table-column property="rating" label="rating" />
+    </el-table>
+  </el-dialog>
+  <h3 class="item active">计算虚拟rating</h3>
+  <div class="ui form">
+    <div class="two fields">
+      <div class="field">
+        <label>比赛名称</label>
+        <input type="text" v-model="list.prefix">
+      </div>
+      <div class="field">
+        <label>场次</label>
+        <input type="text" v-model="list.number">
+      </div>
+    </div>
+  </div>
+  <button class="ui blue icon labeled button" @click="showVirtualRating()"><i class="calculator icon"></i>计算</button>
+</div>
+
+<script>
+  const { createApp, ref } = Vue;
+
+  const App = {
+    setup() {
+      const showRank = ref(false);
+      const list = ref({});
+      const ratingRank = ref([]);
+      function showVirtualRating() {
+        ratingRank.value.length = 0;
+        const items = getVirtualRating(list.value.prefix, list.value.number);
+        for (let item of items) {
+          ratingRank.value.append({name: item[0], rating: item[1]});
+        }
+        showRank.value = true;
+      }
+      return { showRank, list, ratingRank, showVirtualRating };
+    }
+  };
+  createApp(App).use(ElementPlus).mount('#vueAppVirtual');
+
+  function getVirtualRating(prefix, number) {
+    let rating = [];
+    $.ajax({
+      url: '/admin/rating/virtual',
+      type: 'POST',
+      async: true,
+      data: {
+        "prefix": prefix,
+        "number": number
+      },
+      dataType: "json",
+      success: function(data) {
+        rating = data.data;
+      }
+    });
+    return rating;
+  }
+</script>

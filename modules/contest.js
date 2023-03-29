@@ -1227,14 +1227,14 @@ app.post('/contest/:id/:pid/rejudge', async (req, res) => {
     let problem_id = problems_id[pid - 1];
 
     await contest.loadRelationships();
-    let ranklist = contest.ranklist.ranklist;
+    let players = await contest.ranklist.getPlayers();
 
-    for (let item in ranklist) {
-      let judge = JudgeState.findById(item.player.score_details[problem_id].judge_id);
-      if (judge.pending) continue;
-      await judge.loadRelationships();
+    players.forEachAsync(async player => {
+      let judge = await JudgeState.findById(player.score_details[problem_id].judge_id);
+      if (!judge) return;
+      if (judge.pending) return;
       await judge.rejudge();
-    }
+    });
 
     res.redirect(syzoj.utils.makeUrl(['contest', contest.id, 'problem', pid]));
   } catch (e) {
