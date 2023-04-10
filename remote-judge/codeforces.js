@@ -1,4 +1,5 @@
 const cheerio = require("cheerio")
+
 const req = require("./request")
 const basic = require("./basic")
 const interfaces = require('../libs/judger_interfaces')
@@ -10,6 +11,8 @@ const Dequeue = require("./deque")
 const findChrome = require("chrome-finder")
 const puppeteer = require('puppeteer-core');
 const {sleep} = require("./basic");
+const child_process = require("child_process");
+
 
 const turndownService = new TurndownService()
 
@@ -107,7 +110,7 @@ class Handler {
         this.running_mp = new Map()
         this.waiting_mp = new Map()
         this.puppeteer = null
-        if(handleOrEmail !== '') this.puppeteerLogin()
+        // if(handleOrEmail !== '') this.puppeteerLogin()
         // this.ensureLogin()
 
         // 自动更新 xCsrfToken
@@ -172,22 +175,24 @@ class Handler {
 
 
     async getCsrfToken(url = "enter") {
-        const { text } = await this.req.super_agent_request({url});
-        const $ = cheerio.load(text)
+        const {data} = await this.req.axiosRequest({url})
+        // const { text } = await this.req.super_agent_request({url});
+        const $ = cheerio.load(data)
         let xCsrfToken = $('meta[name="X-Csrf-Token"]').prop('content')
         if (!xCsrfToken) throw "no X-Csrf-Token"
-        const ftaa = this.req.cookie.get_cookie_value('70a7c28f3de')
-        const bfaa = /_bfaa = "(.{32})"/.exec(text)?.[1] || this.req.cookie.get_cookie_value('raa') || this.req.cookie.get_cookie_value('bfaa');
-        return [xCsrfToken, ftaa, bfaa];
+        return xCsrfToken
+        // const ftaa = this.req.cookie.get_cookie_value('70a7c28f3de')
+        // const bfaa = /_bfaa = "(.{32})"/.exec(text)?.[1] || this.req.cookie.get_cookie_value('raa') || this.req.cookie.get_cookie_value('bfaa');
+        // return [xCsrfToken, ftaa, bfaa];
     }
 
     async isLoggedIn() {
         try {
-            let {text} = await this.req.super_agent_request({url: "/enter"})
-            if (text.includes('Login into Codeforces')) return false;
-            if(text.length < 1000 && text.includes('Redirecting...')) return false;
-            const $ = cheerio.load(text)
+            let {data} = await this.req.axiosRequest({url: "enter"})
+            const $ = cheerio.load(data)
             this.xCsrfToken = $('meta[name="X-Csrf-Token"]').prop('content')
+            if (data.includes("Login into Codeforces")) return false;
+            if(data.length < 1000 && data.includes('Redirecting...')) return false;
             return true
         } catch (e) {
             return false
@@ -221,36 +226,31 @@ class Handler {
 
     async normalLogin() {
         try {
-            const [xCsrfToken, ftaa, bfaa] = await this.getCsrfToken();
-            let data = {
-                csrf_token: xCsrfToken,
-                action: 'enter',
-                ftaa,
-                bfaa,
-                handleOrEmail: this.account,
-                password: this.password,
-                remember: 'on',
-            }
-            const { text } = await this.req.super_agent_request({
-                url: "enter",
-                method: 'POST',
-                data
+            let __resp = await new Promise((resolve, reject) => {
+                child_process.exec(`./bin/codeforces_helper codeforcesLogin ${this.account} ${this.password}`, function(error, stdout, stderr) {
+                    if(error) reject(error)
+                    else if(stderr) reject(stderr)
+                    else resolve(stdout)
+                })
             })
-            if(text.includes('Login into Codeforces')) return false;
-            if(text.length < 1000 && text.includes('Redirecting...')) return false;
-            const $ = cheerio.load(text)
-            this.xCsrfToken = $('meta[name="X-Csrf-Token"]').prop('content')
+            let resp = JSON.parse(__resp)
+            if(!resp.status || resp.status !== 302) {
+                return false
+            }
+            this.req.doRequestAfterList.forEach(func => func(resp))
             return true
         } catch (e) {
+            console.log(e)
             return false
         }
     }
 
+
+
     async ensureLogin() {
         try {
             if(await this.isLoggedIn()) return true
-            if(await this.normalLogin()) return true
-            await this.puppeteerLogin()
+            if(!await this.normalLogin()) return false
             return await this.isLoggedIn()
         } catch (e) {
             return false
@@ -354,12 +354,11 @@ class Handler {
     }
 
     async handleSubmit(source, problemID, langId, callback, isGym) {
+        source += "//" + Math.random().toString()
         try {
             if (!(await this.ensureLogin())) throw "无法登录"
             const {contestId, submittedProblemIndex} =  parseProblemId(problemID)
             let url = (isGym ? 'gym/' : "contest/") + contestId + '/submit'
-            // const [xCsrfToken, ftaa, bfaa] = await this.getCsrfToken(url)
-            // this.xCsrfToken = xCsrfToken
             let opts = {
                 url: url + `?csrf_token=${this.xCsrfToken}`,
                 method: "POST",
@@ -369,9 +368,6 @@ class Handler {
                     tabSize: 4,
                     source,
                     sourceFile: "",
-                    // ftaa,
-                    // bfaa,
-                    // _tta: tta(this.req.cookie.get_cookie_value('39ce7')),
                     contestId,
                     submittedProblemIndex, //E2
                     programTypeId: langId, //C++20
@@ -417,8 +413,8 @@ class Handler {
         let opts = {
             url: (isGym ? 'gym/' : "contest/") + contestId + "/problem/" +  submittedProblemIndex,
         }
-        const {text} = await this.req.super_agent_request(opts)
-        const $ = cheerio.load(text)
+        const {data} = await this.req.axiosRequest(opts)
+        const $ = cheerio.load(data)
         try {
             const maincontent = cheerio.load($('div[class="problem-statement"]').html())
             const title = maincontent('div[class="title"]').eq(0).html().split(". ")[1]
@@ -507,3 +503,26 @@ module.exports = {
     parseProblemId
 }
 
+// async function test() {
+//     let h = new Handler( "AmurAdonisHerb", "nfls_002")
+//     const fs = require("fs-extra")
+//     let source =  (await fs.readFile("./uploads/tmp/main.cpp")).toString()
+//     // console.log(source)
+//
+//     const callback = {
+//         onFail: (e, x) => {
+//             console.log(`err:${e}, res:${x}`)
+//         },
+//         onSuccess: (id, x) => {
+//             console.log(`sid:${id}, res:${x}`)
+//         }
+//     }
+//
+//     h.submitCode(source, "1746C", "54", callback )
+//
+//     // if(await h.ensureLogin()) {
+//     //     console.log("yes")
+//     // }
+// }
+//
+// test()

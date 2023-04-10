@@ -6,6 +6,7 @@ const retry = require('async-retry')
 const cookie = require("cookie")
 const request = require('request')
 const superagent = require("superagent")
+const Axios = require("axios").default;
 
 
 class Cookie {
@@ -68,7 +69,8 @@ class Request {
             if (opts.headers === undefined) opts.headers = {}
 
             if (opts.headers.cookie === undefined) {
-                opts.headers.cookie= this.cookie.get_cookie_str()
+                let cookie_str = this.cookie.get_cookie_str()
+                if(cookie_str !== '') opts.headers.cookie = cookie_str
             }
 
             if (opts.headers['User-Agent'] === undefined) {
@@ -118,9 +120,9 @@ class Request {
                         }
                     })
             } else {
-
                 superagent.get(opts.url)
                     .set("Cookie", opts.headers.cookie)
+                    .timeout(5000)
                     .end((err, res) => {
                         if(err) {
                             reject(err)
@@ -135,19 +137,29 @@ class Request {
 
     async doRequest(opts) {
         this.doRequestBeforeList.forEach(func => func(opts))
-        return await new Promise((resolve, reject) => {
+        opts.followRedirect = false
+        return new Promise((resolve, reject) => {
             try {
-                request(opts, (e, r) => {
-                    if(e) reject(e)
+                request(opts, (e, r, body) => {
+                    if(e) {
+                        reject(e)
+                    }
                     else {
                         this.doRequestAfterList.forEach(func => func(r))
-                        resolve(r)
+                        resolve(body)
                     }
                 })
             }catch (e) {
                 reject(e)
             }
         })
+    }
+
+    async axiosRequest(opts) {
+        this.doRequestBeforeList.forEach(func => func(opts))
+        let res = await Axios.request(opts);
+        this.doRequestAfterList.forEach(func => func(res))
+        return res
     }
 }
 
