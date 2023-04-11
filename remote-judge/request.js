@@ -6,7 +6,7 @@ const retry = require('async-retry')
 const cookie = require("cookie")
 const request = require('request')
 const superagent = require("superagent")
-const Axios = require("axios").default;
+const axios = require("axios");
 
 
 class Cookie {
@@ -70,7 +70,7 @@ class Request {
 
             if (opts.headers.cookie === undefined) {
                 let cookie_str = this.cookie.get_cookie_str()
-                if(cookie_str !== '') opts.headers.cookie = cookie_str
+                opts.headers.cookie = cookie_str
             }
 
             if (opts.headers['User-Agent'] === undefined) {
@@ -106,31 +106,21 @@ class Request {
      super_agent_request(opts) {
         this.doRequestBeforeList.forEach(func => func(opts))
          return new Promise((resolve, reject) => {
-            if(opts.method && opts.method.toUpperCase() === "POST") {
-                superagent.post(opts.url)
+             const callback = (err, res) => {
+                 if(err) reject(err); else resolve(res)
+             }
+             if(opts.method && opts.method.toUpperCase() === "POST") {
+                 superagent.post(opts.url)
                     .type('form')
                     .set("Cookie", opts.headers.cookie)
+                     .timeout(12000)
                     .send(opts.data)
-                    .end((err, res) => {
-                        if(err) {
-                            reject(err)
-                        } else {
-                            this.doRequestAfterList.forEach(func => func(res))
-                            resolve(res)
-                        }
-                    })
+                    .end(callback)
             } else {
                 superagent.get(opts.url)
                     .set("Cookie", opts.headers.cookie)
-                    .timeout(5000)
-                    .end((err, res) => {
-                        if(err) {
-                            reject(err)
-                        } else {
-                            this.doRequestAfterList.forEach(func => func(res))
-                            resolve(res)
-                        }
-                    })
+                    .timeout(8000)
+                    .end(callback)
             }
         })
     }

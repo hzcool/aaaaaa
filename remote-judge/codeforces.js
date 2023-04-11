@@ -175,9 +175,8 @@ class Handler {
 
 
     async getCsrfToken(url = "enter") {
-        const {data} = await this.req.axiosRequest({url})
-        // const { text } = await this.req.super_agent_request({url});
-        const $ = cheerio.load(data)
+        const { text } = await this.req.super_agent_request({url});
+        const $ = cheerio.load(text)
         let xCsrfToken = $('meta[name="X-Csrf-Token"]').prop('content')
         if (!xCsrfToken) throw "no X-Csrf-Token"
         return xCsrfToken
@@ -188,11 +187,11 @@ class Handler {
 
     async isLoggedIn() {
         try {
-            let {data} = await this.req.axiosRequest({url: "enter"})
-            const $ = cheerio.load(data)
+            let {text} = await this.req.super_agent_request({url: "enter"})
+            const $ = cheerio.load(text)
             this.xCsrfToken = $('meta[name="X-Csrf-Token"]').prop('content')
-            if (data.includes("Login into Codeforces")) return false;
-            if(data.length < 1000 && data.includes('Redirecting...')) return false;
+            if (text.includes("Login into Codeforces")) return false;
+            if(text.length < 1000 && data.includes('Redirecting...')) return false;
             return true
         } catch (e) {
             return false
@@ -413,8 +412,8 @@ class Handler {
         let opts = {
             url: (isGym ? 'gym/' : "contest/") + contestId + "/problem/" +  submittedProblemIndex,
         }
-        const {data} = await this.req.axiosRequest(opts)
-        const $ = cheerio.load(data)
+        const {text} = await this.req.super_agent_request(opts)
+        const $ = cheerio.load(text)
         try {
             const maincontent = cheerio.load($('div[class="problem-statement"]').html())
             const title = maincontent('div[class="title"]').eq(0).html().split(". ")[1]
@@ -505,6 +504,7 @@ module.exports = {
 
 // async function test() {
 //     let h = new Handler( "AmurAdonisHerb", "nfls_002")
+//     // console.log(await h.getProblem("1746C"))
 //     const fs = require("fs-extra")
 //     let source =  (await fs.readFile("./uploads/tmp/main.cpp")).toString()
 //     // console.log(source)
@@ -520,9 +520,8 @@ module.exports = {
 //
 //     h.submitCode(source, "1746C", "54", callback )
 //
-//     // if(await h.ensureLogin()) {
-//     //     console.log("yes")
-//     // }
+//
+//     // console.log(h.req.cookie.get_cookie_str())
 // }
 //
 // test()
