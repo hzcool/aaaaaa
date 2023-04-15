@@ -9,6 +9,8 @@ const retry = require('async-retry')
 
 const judgeStateCache = new Map();
 const progressPusher = require('../modules/socketio');
+const TaskStatus = interface.TaskStatus;
+const TestcaseResultType = interface.TestcaseResultType
 
 function getRunningTaskStatusString(result) {
   let isPending = status => [0, 1].includes(status);
@@ -194,23 +196,68 @@ async function connect() {
 module.exports.connect = connect;
 
 class Callback {
-  constructor(oj, judge_state) {
-    this.oj = oj
+
+
+  constructor(judge_state) {
     this.judge_state = judge_state
+    this.flag = 0
   }
-  async onSuccess(submissionId, vjInfo) {
-      this.judge_state.vj_info = {...this.judge_state.vj_info, ...vjInfo};
+  async report(result) {
       try {
-        await this.judge_state.save()
-        progressPusher.createTask(this.judge_state.task_id);
-        await remote_judge_polling(this.judge_state, this.oj, submissionId)
-      } catch (e) {}
-  }
-  async onFail(error, vjInfo) {
-    try {
-      this.judge_state.vj_info = vjInfo
-      await remote_judge_fail(this.judge_state, error)
-    }catch (e) {}
+        console.log(result)
+        if (this.flag === -1) return
+        if(this.flag === 0) {
+          if(result.submission_id) this.judge_state.vj_info.submissionId = result.submission_id
+          if(result.info && result.info.account)  this.judge_state.vj_info.account = result.info.account
+          this.flag = 1
+          progressPusher.createTask(this.judge_state.task_id);
+        }
+
+        if(result.error) {
+          this.flag = -1
+          await remote_judge_fail(this.judge_state, result.error)
+        } else {
+            if(!result.status) return
+            result.type = "remote"
+            if(result.status !== 'Waiting' && this.flag === 1) {
+              progressPusher.updateCompileStatus(this.judge_state.task_id, {
+                status: (result.status === 'Compile Error') ? TaskStatus.Failed: TaskStatus.Done
+              })
+              this.flag = 2
+            }
+            if(result.is_over)  {
+              this.flag = -1
+
+              if(result.judge && result.judge.subtasks) {
+                result.judge.subtasks.forEach(item => {
+                  if(item.cases) {
+                    item.cases.forEach(c => {
+                      if(c.type) c.type = TestcaseResultType[c.type.replaceAll(" ", "")]
+                    })
+                  }
+                })
+              }
+
+              this.judge_state.status = result.status
+              this.judge_state.score = result.score
+              this.judge_state.pending = false;
+              this.judge_state.total_time = result.time
+              this.judge_state.max_memory = result.memory
+              this.judge_state.result = result
+              await this.judge_state.save()
+
+              progressPusher.updateResult(this.judge_state.task_id, this.judge_state.result)
+              progressPusher.cleanupProgress(this.judge_state.task_id)
+              await this.judge_state.updateRelatedInfo(false);
+            } else if(this.flag === 2){
+              progressPusher.updateProgress(this.judge_state.task_id, result)
+            }
+
+        }
+
+
+
+      }catch (e) {}
   }
 }
 
@@ -233,12 +280,13 @@ module.exports.judge = async function (judge_state, problem, priority) {
       break;
     case syzoj.ProblemType.Remote:
       const info = syzoj.vjBasics.parseSource(problem.source)
-      const oj = syzoj.vj[info.vjName]
-      if(!oj) {
+      if(!syzoj.vjs[info.vjName]) {
         await remote_judge_fail(judge_state, "不存在 remote-oj : " + info.vjName)
         return
       }
-      oj.submitCode(judge_state.code, info.problemId, syzoj.vjBasics.getLangId(info.vjName, judge_state.language), new Callback(oj, judge_state))
+      syzoj.provider.submit_code(info.vjName.toLowerCase(), info.problemId, judge_state.code, judge_state.language, new Callback(judge_state))
+      // oj.submitCode(judge_state.code, info.problemId, syzoj.vjBasics.getLangId(info.vjName, judge_state.language), new Callback(oj, judge_state))
+
       return
     default:
       type = enums.ProblemType.Standard;
@@ -333,4 +381,8 @@ const remote_judge_fail = async (judge_state, error) => {
   await judge_state.updateRelatedInfo(false);
 }
 
+
+
 module.exports.getCachedJudgeState = taskId => judgeStateCache.get(taskId);
+
+

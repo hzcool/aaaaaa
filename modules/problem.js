@@ -393,10 +393,12 @@ app.post('/problem/:id/edit', async (req, res) => {
     if (req.body.type === syzoj.ProblemType.Remote) {
       if(problem.type !== syzoj.ProblemType.Remote || problem.source !== source) {
         const info = syzoj.vjBasics.parseSource(source)
-        const oj = syzoj.vj[info.vjName]
-        if(oj == null) throw new ErrorMessage('找不到远程 OJ : ' + info.vjName)
+        // const oj = syzoj.vj[info.vjName]
+        if(!syzoj.vjs[info.vjName]) throw new ErrorMessage('找不到远程 OJ : ' + info.vjName)
         try {
-          const p = await oj.getProblem(info.problemId)
+          // const p = await oj.getProblem(info.problemId)
+          const p = await syzoj.provider.get_problem(info.vjName.toLowerCase(), info.problemId)
+
           if(p == null) throw ""
           problem.type = syzoj.ProblemType.Remote
         } catch (e) {

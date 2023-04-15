@@ -25,6 +25,7 @@ Promise.config({
 
 const vjBasics = require('./remote-judge/basic')
 const vj = require('./remote-judge/vj')
+const provider = require("./remote-judge/provider")
 const bodyParser = require("body-parser");
 
 const makeIntervalCheckFunc = (interval = 10) => {
@@ -60,7 +61,9 @@ global.syzoj = {
     AddProblem: 'add_problem'
   },
   vjBasics,
+  vjs: vjBasics.VjBasic,
   vj,
+  provider,
   submissionIntervalCheck: makeIntervalCheckFunc(),
   getRemoteProblemLink(source) {
     let info = vjBasics.parseSource(source)
@@ -84,6 +87,8 @@ global.syzoj = {
     return true;
   },
   async run() {
+
+    require("./remote-judge/boot").boot_remote_judge_server();
 
     // Check config
     if (syzoj.config.session_secret === '@SESSION_SECRET@'

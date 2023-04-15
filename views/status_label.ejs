@@ -26,7 +26,7 @@ Vue.component('status-label', {
   props: ['status', 'indetail', 'progress'],
   computed: {
     icon() {
-      var x = this.status.startsWith('Running') ? 'Running' : this.status;
+      var x = (this.status.startsWith('Running') || /\d/.test(this.status)) ? 'Running' : this.status;
       if (x in iconList) {
         return iconList[x];
       } else {
@@ -34,7 +34,7 @@ Vue.component('status-label', {
       }
     },
     colorClass() {
-      var x = this.status.startsWith('Running') ? 'Running' : this.status;
+      var x = (this.status.startsWith('Running') || /\d/.test(this.status)) ? 'Running' : this.status;
       return (this.indetail ? 'status_detail ' : '') + x.toLowerCase().split(' ').join('_');
     },
     displayStatus() {
