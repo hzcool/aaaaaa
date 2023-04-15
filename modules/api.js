@@ -69,6 +69,7 @@ app.post('/api/forget', async (req, res) => {
 
 // Sign up
 app.post('/api/sign_up', async (req, res) => {
+  let user_id = 0
   try {
     res.setHeader('Content-Type', 'application/json');
     let user = await User.fromName(req.body.username);
@@ -127,11 +128,14 @@ app.post('/api/sign_up', async (req, res) => {
     //   req.session.user_id = user.id;
     //   setLoginCookie(user.username, user.password, res);
     //   res.send(JSON.stringify({ error_code: 1001 }));
+      user_id = user.id
       throw 2020;
     }
   } catch (e) {
     syzoj.log(e);
-    res.send(JSON.stringify({ error_code: e }));
+    let msg = { error_code: e }
+    if(e === 2020) msg.user_id = user_id
+    res.send(JSON.stringify(msg));
   }
 });
 
