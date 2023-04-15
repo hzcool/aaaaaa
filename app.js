@@ -67,9 +67,7 @@ global.syzoj = {
   submissionIntervalCheck: makeIntervalCheckFunc(),
   getRemoteProblemLink(source) {
     let info = vjBasics.parseSource(source)
-    let oj = vj[info.vjName]
-    if(!oj) return '#'
-    return oj.getProblemLink(info.problemId)
+    return provider.get_problem_link(info.vjName, info.problemId)
   },
   serviceID: UUID(),
   log(obj) {

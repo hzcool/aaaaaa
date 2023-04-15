@@ -99,10 +99,26 @@ const get_problem = async (remote_judge, problem_id) => {
     })
 }
 
+const get_problem_link = (remote_judge, problem_id) => {
+    let s = remote_judge.toLowerCase()
+    if(s === 'codeforces') {
+        let pos = problem_id.search(/[A-Z]/)
+        return `https://codeforces.com/contest/${problem_id.substring(0, pos)}/problem/${problem_id.substring(pos)}`
+    } else if(s === 'gym') {
+        let pos = problem_id.search(/[A-Z]/)
+        return `https://codeforces.com/gym/${problem_id.substring(0, pos)}/problem/${problem_id.substring(pos)}`
+    } else if(s === 'hdu') {
+        return `http://acm.hdu.edu.cn/showproblem.php?pid=` + problem_id
+    } else if(s === 'atcoder') {
+        let pos = problem_id.indexOf("_")
+        return `https://atcoder.jp/contests/${problem_id.substring(0, pos)}/tasks/${problem_id}`
+    }
+}
 
 module.exports  = {
     submit_code,
     get_problem,
+    get_problem_link
 }
 
 // const test = async () => {
