@@ -204,11 +204,11 @@ class Callback {
   }
   async report(result) {
       try {
-        console.log(result)
         if (this.flag === -1) return
         if(this.flag === 0) {
-          if(result.submission_id) this.judge_state.vj_info.submissionId = result.submission_id
-          if(result.info && result.info.account)  this.judge_state.vj_info.account = result.info.account
+          if(result.account) {
+            this.judge_state.vj_info = {...this.judge_state.vj_info, ...result}
+          }
           this.flag = 1
           progressPusher.createTask(this.judge_state.task_id);
         }
