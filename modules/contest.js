@@ -32,7 +32,7 @@ async function contest_permitted(contest,user){
 
 async function checkgp(contest,user){
     if (user.is_admin || contest.admins.includes(user.id.toString())) return true;
-    return true
+    // return true
     if (!contest.is_public) throw new ErrorMessage('比赛未公开');
 
     let cts = await user.getconts();
