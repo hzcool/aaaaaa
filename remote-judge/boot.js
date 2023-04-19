@@ -5,6 +5,7 @@ const basic = require("./basic")
 const child_process = require("child_process");
 const fs = require("fs")
 const path = require('path')
+const {sleep} = require("./basic");
 
 
 // 递归创建目录
@@ -16,7 +17,7 @@ function mkdirPath(dirname) {
         return true
     }
 }
-const boot_remote_judge_server = () => {
+const boot_remote_judge_server = async () => {
 
     let config = {}
     Object.keys(basic.VjBasic).forEach(oj => {
@@ -42,6 +43,23 @@ const boot_remote_judge_server = () => {
     fs.writeFileSync(config_path, JSON.stringify(config, null, 4))
     let logger_path = dir + "/a.log"
 
+    await  new Promise((resolve, reject) => {
+        child_process.exec(`lsof -i :${basic.RemoteJudgeServer.ws_port}`, (err, stdout, stderr) => {
+            if(err || stdout.trim() === '') {
+                resolve(1)
+                return
+            }
+            stdout.split('\n').filter(line => {
+                let p=line.trim().split(/\s+/);
+                let address = p[1]
+                if(address!=undefined && address!="PID") {
+                    console.log(`kill PID ${address} of remote-judge server for rebooting`)
+                    child_process.exec('kill ' + address, () => {})
+                }
+            })
+            setTimeout(() => resolve(1), 6000)
+        })
+    })
     child_process.exec(`./bin/remote-judge ${server_path} ${config_path} ${logger_path}`)
 }
 
