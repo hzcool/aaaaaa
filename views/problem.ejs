@@ -452,7 +452,7 @@ if (contest) {
     setTimeout(() => {
         document.getElementById('submit_code').submit()
     }, 10)
-    <%if(collect_if_submit && contest) {%>
+    <%if(contest && collect_if_submit) {%>
       $.get('/contest/<%= contest.id%>/collect', {collectContest: 1}, _ => {})
     <%}%>
     return false;
