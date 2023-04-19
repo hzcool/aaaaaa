@@ -32,7 +32,7 @@ async function contest_permitted(contest,user){
 
 async function checkgp(contest,user){
     if (user.is_admin || contest.admins.includes(user.id.toString())) return true;
-
+    return true
     if (!contest.is_public) throw new ErrorMessage('比赛未公开');
 
     let cts = await user.getconts();
@@ -51,6 +51,7 @@ function get_key(username) {
 }
 
 const cp_map = new Map()
+syzoj.prepare_cp_user_data = prepare_cp_user_data
 
 async function prepare_cp_user_data(user_id) {
   let current = syzoj.utils.getCurrentDate()
@@ -1186,7 +1187,16 @@ app.get('/contest/:id/problem/:pid', async (req, res) => {
 
     await problem.loadRelationships();
 
+    let collect_if_submit = contest.ended && await ContestPlayer.count({
+      contest_id: contest.id,
+      user_id: res.locals.user.id
+    }) === 0 && await ContestCollection.count({
+      contest_id: contest.id,
+      user_id: res.locals.user.id
+    }) === 0;
+
     res.render('problem', {
+      collect_if_submit,
       pid: pid,
       contest: contest,
       problem: problem,
