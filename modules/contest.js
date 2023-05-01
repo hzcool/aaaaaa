@@ -1439,7 +1439,7 @@ app.get("/contest/:id/pass_info", async (req, res) => {
       let player = await ContestPlayer.findById(player_id);
       let user = await User.findById(player.user_id);
       await problems.forEachAsync(async problem => {
-        let buti_judge = await problem.getJudgeState (user, true, true, contest_id);
+        let buti_judge = await problem.getJudgeState (user, true, true);
         if (buti_judge && buti_judge.status == 'Accepted') problem.ac_num++;
       });
     });
