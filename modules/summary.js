@@ -11,6 +11,8 @@ const Practice = syzoj.model('practice');
 const PracticePlayer = syzoj.model('practice_player');
 const LoginLog = syzoj.model('loginlog');
 const Problem = syzoj.model('problem')
+const ContestCollection = syzoj.model('contest_collection')
+
 
 
 app.get('/summary', async (req, res) => {
@@ -27,10 +29,10 @@ app.get('/summary', async (req, res) => {
         const local_user = res.locals.user
         if (!local_user || (!local_user.is_admin && (!user || local_user.id !== user.id ))) throw new ErrorMessage('您没有权限进行此操作。');
 
-        let query = ContestPlayer.createQueryBuilder()
+        // let query = ContestPlayer.createQueryBuilder()
         let users = []
         if (user) {
-            query.where("user_id = :user_id", { user_id: user.id })
+            // query.where("user_id = :user_id", { user_id: user.id })
             users.push(user)
         }
         let cc = undefined
@@ -40,7 +42,7 @@ app.get('/summary', async (req, res) => {
             if(c && c.isRunning()) {
                 throw new ErrorMessage('比赛还未结束。');
             }
-            query.andWhere("contest_id = " +  req.query.contest_id)
+            // query.andWhere("contest_id = " +  req.query.contest_id)
             if(c) {
                 contests.push(c);
                 cc = c
@@ -50,31 +52,51 @@ app.get('/summary', async (req, res) => {
             if(c && c.isRunning()) {
                 throw new ErrorMessage('比赛还未结束。');
             }
-            let contest_id = c ? c.id : 0
+            // let contest_id = c ? c.id : 0
             if(c) {
                 contests.push(c)
                 cc = c
             }
-            // contests = (await Contest.getKeywordContests(req.query.title)).filter(c => !c.isRunning())
-            // if(contest) {
-            //     query.andWhere("contest_id in (" + contests.map(item => item.id).join(",") +")")
-            // } else {
-            //     query.andWhere("contest_id = 0")
-            // }
-            query.andWhere(`contest_id = ${contest_id}`)
-
+            // query.andWhere(`contest_id = ${contest_id}`)
         }
 
-        let paginate = syzoj.utils.paginate(await ContestPlayer.countForPagination(query), req.query.page, 30);
-        query.orderBy('contest_id', 'DESC')
-        let players = await ContestPlayer.queryPage(paginate, query)
+        if(!user && !cc)  throw new ErrorMessage('查询失败！！！');
+
+        // let paginate = syzoj.utils.paginate(await ContestPlayer.countForPagination(query), req.query.page, 30);
+        // query.orderBy('contest_id', 'DESC')
+        // let players = await ContestPlayer.queryPage(paginate, query)
+
+        let paginate = null
+        let players = []
+        if(user) {
+            if(!cc) {
+                contests = await syzoj.prepare_cp_user_data(user.id)
+            } else {
+                contests = contests.filter(c => c.id === cc.id)
+            }
+            players = await contests.mapAsync(async c => {
+                let p = await ContestPlayer.findOne({user_id: user.id, contest_id: c.id})
+                if(p) return p
+                return ContestPlayer.create({user_id: user.id, contest_id: c.id})
+            })
+        } else {
+            players = await ContestPlayer.queryAll(ContestPlayer.createQueryBuilder().where(`contest_id = ${cc.id}`))
+            let collectors = await ContestCollection.queryAll(ContestCollection.createQueryBuilder().where(`contest_id = ${cc.id}`))
+            for(let c of collectors) {
+                players.push(ContestPlayer.create({ user_id: c.user_id, contest_id: c.contest_id }))
+            }
+        }
+
         if(users.length === 0 && players.length > 0) {
             let sqlBuilder = User.createQueryBuilder().where("id in (" + players.map(item => "\'" + item.user_id + "\'").join(",") + ")")
             users = await User.queryAll(sqlBuilder)
         }
-        if(contests.length === 0 && players.length > 0) {
-            contests = await Contest.queryAll(Contest.createQueryBuilder().where("id in (" + players.map(item => item.contest_id).join(",") + ")"))
-        }
+        //
+        // if(contests.length === 0 && players.length > 0) {
+        //     contests = await Contest.queryAll(Contest.createQueryBuilder().where("id in (" + players.map(item => item.contest_id).join(",") + ")"))
+        // }
+
+
         let user_map = syzoj.utils.makeRecordsMap(users)
         let contest_map = syzoj.utils.makeRecordsMap(contests)
 
@@ -96,6 +118,9 @@ app.get('/summary', async (req, res) => {
             if(a.contest.id === b.contest.id) return b.score - a.score;
             return b.contest.start_time - a.contest.start_time
         })
+        if (!paginate) {
+            paginate = syzoj.utils.paginate(summaries.length, req.query.page, summaries.length)
+        }
 
         res.render("user_summary", {
             contest: cc,
@@ -152,6 +177,11 @@ app.post('/summary/update/user/:user_id/contest/:contest_id', async (req, res) =
         let player = await ContestPlayer.findInContest({
             user_id: user.id, contest_id
         })
+        if(!player) {
+            let collector = await ContestCollection.findOne({user_id: user.id, contest_id})
+            if(collector) player = ContestPlayer.create({user_id: user.id, contest_id})
+        }
+
         if(!player)  throw new ErrorMessage('没有选手参数记录。');
         let data = JSON.parse(req.body.data)
 

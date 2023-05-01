@@ -4,12 +4,13 @@ app.get('/api/vj/oj/:name/problem/:id', async (req, res) => {
     try {
         res.setHeader('Content-Type', 'application/json');
 
-        const oj = syzoj.vj[req.params.name]
+        // const oj = syzoj.vj[req.params.name]
 
-        if(oj == null) {
+        if(!syzoj.vjs[req.params.name]) {
             throw "OJ : " + req.params.name + " 没有找到"
         }
-        const problem = await oj.getProblem(req.params.id)
+        // const problem = await oj.getProblem(req.params.id)
+        const problem = await syzoj.provider.get_problem(req.params.name.toLowerCase(), req.params.id)
         if(problem == null) {
             throw "未找到该题: " + req.params.id
         }
@@ -35,9 +36,15 @@ app.get('/api/vj/flush/time_memroy/:id', async (req, res) => {
         if(!problem) throw '题目不存在';
         if(problem.type !== syzoj.ProblemType.Remote) throw '题目不是远程测评，无法刷新时限。';
         const info = syzoj.vjBasics.parseSource(problem.source)
-        const oj = syzoj.vj[info.vjName]
-        if(!oj) throw '找不到远程测评服务。';
-        const p = await oj.getProblem(info.problemId)
+
+        if(!syzoj.vjs[info.vjName]) {
+            throw '找不到远程测评服务。'
+        }
+        // const oj = syzoj.vj[info.vjName]
+        // if(!oj) throw '找不到远程测评服务。';
+        // const p = await oj.getProblem(info.problemId)
+        const p = await syzoj.provider.get_problem(info.vjName.toLowerCase(), info.problemId)
+
         problem.time_limit = p.time_limit
         problem.memory_limit = p.memory_limit
         await problem.save();

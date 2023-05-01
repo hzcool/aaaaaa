@@ -328,13 +328,18 @@ export default class Problem extends Model {
     return null;
   }
 
-  async getJudgeState(user, acFirst, justAc = false) {
+  async getJudgeState(user, acFirst, justAc = false, contest_id : undefined | number = undefined) {
     if (!user) return null;
 
     let where: any = {
       user_id: user.id,
       problem_id: this.id
     };
+
+    if(contest_id) {
+      where.type = 1
+      where.type_info = contest_id
+    }
 
     if (acFirst || justAc) {
       where.status = 'Accepted';

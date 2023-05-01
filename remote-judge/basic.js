@@ -2,9 +2,11 @@
 const vj_config = require("../remote-judge-config.json")
 const VjBasic = vj_config.VjBasic
 const EnableVJs = vj_config.EnableVJs
+const RemoteJudgeServer = vj_config.RemoteJudgeServer
 module.exports = {
     VjBasic,
     EnableVJs,
+    RemoteJudgeServer,
     changeExampleArrToMarkDown:  (examplesInput, examplesOutput) => {
         let k = examplesInput.length
         if(k > examplesOutput.length) k = examplesOutput.length

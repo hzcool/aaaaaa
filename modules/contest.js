@@ -32,7 +32,7 @@ async function contest_permitted(contest,user){
 
 async function checkgp(contest,user){
     if (user.is_admin || contest.admins.includes(user.id.toString())) return true;
-
+    // return true
     if (!contest.is_public) throw new ErrorMessage('比赛未公开');
 
     let cts = await user.getconts();
@@ -51,6 +51,7 @@ function get_key(username) {
 }
 
 const cp_map = new Map()
+syzoj.prepare_cp_user_data = prepare_cp_user_data
 
 async function prepare_cp_user_data(user_id) {
   let current = syzoj.utils.getCurrentDate()
@@ -1186,7 +1187,16 @@ app.get('/contest/:id/problem/:pid', async (req, res) => {
 
     await problem.loadRelationships();
 
+    let collect_if_submit = contest.ended && await ContestPlayer.count({
+      contest_id: contest.id,
+      user_id: res.locals.user.id
+    }) === 0 && await ContestCollection.count({
+      contest_id: contest.id,
+      user_id: res.locals.user.id
+    }) === 0;
+
     res.render('problem', {
+      collect_if_submit,
       pid: pid,
       contest: contest,
       problem: problem,
@@ -1425,15 +1435,18 @@ app.get("/contest/:id/pass_info", async (req, res) => {
     for (let i = 1; i <= contest.ranklist.ranklist.player_num; i++) players_id.push(contest.ranklist.ranklist[i]);
     let problems_id = await contest.getProblems();
     let problems = await problems_id.mapAsync(async id => await Problem.findById(id));
-    problems.map(p => p.ac_num = 0)
+    problems.forEach(p => p.ac_num = 0)
+
     await players_id.forEachAsync(async player_id => {
       let player = await ContestPlayer.findById(player_id);
       let user = await User.findById(player.user_id);
       await problems.forEachAsync(async problem => {
-        let buti_judge = await problem.getJudgeState (user, true);
+        let buti_judge = await problem.getJudgeState (user, true, true);
         if (buti_judge && buti_judge.status == 'Accepted') problem.ac_num++;
       });
     });
+
+
     let problem_ac_counts = problems.map(p => p.ac_num)
     res.send({total: contest.ranklist.ranklist.player_num, problem_ac_counts})
   } catch (e) {

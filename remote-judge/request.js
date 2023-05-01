@@ -6,6 +6,7 @@ const retry = require('async-retry')
 const cookie = require("cookie")
 const request = require('request')
 const superagent = require("superagent")
+const axios = require("axios");
 
 
 class Cookie {
@@ -68,7 +69,8 @@ class Request {
             if (opts.headers === undefined) opts.headers = {}
 
             if (opts.headers.cookie === undefined) {
-                opts.headers.cookie= this.cookie.get_cookie_str()
+                let cookie_str = this.cookie.get_cookie_str()
+                opts.headers.cookie = cookie_str
             }
 
             if (opts.headers['User-Agent'] === undefined) {
@@ -104,50 +106,50 @@ class Request {
      super_agent_request(opts) {
         this.doRequestBeforeList.forEach(func => func(opts))
          return new Promise((resolve, reject) => {
-            if(opts.method && opts.method.toUpperCase() === "POST") {
-                superagent.post(opts.url)
+             const callback = (err, res) => {
+                 if(err) reject(err); else resolve(res)
+             }
+             if(opts.method && opts.method.toUpperCase() === "POST") {
+                 superagent.post(opts.url)
                     .type('form')
                     .set("Cookie", opts.headers.cookie)
+                     .timeout(12000)
                     .send(opts.data)
-                    .end((err, res) => {
-                        if(err) {
-                            reject(err)
-                        } else {
-                            this.doRequestAfterList.forEach(func => func(res))
-                            resolve(res)
-                        }
-                    })
+                    .end(callback)
             } else {
-
                 superagent.get(opts.url)
                     .set("Cookie", opts.headers.cookie)
-                    .end((err, res) => {
-                        if(err) {
-                            reject(err)
-                        } else {
-                            this.doRequestAfterList.forEach(func => func(res))
-                            resolve(res)
-                        }
-                    })
+                    .timeout(8000)
+                    .end(callback)
             }
         })
     }
 
     async doRequest(opts) {
         this.doRequestBeforeList.forEach(func => func(opts))
-        return await new Promise((resolve, reject) => {
+        opts.followRedirect = false
+        return new Promise((resolve, reject) => {
             try {
-                request(opts, (e, r) => {
-                    if(e) reject(e)
+                request(opts, (e, r, body) => {
+                    if(e) {
+                        reject(e)
+                    }
                     else {
                         this.doRequestAfterList.forEach(func => func(r))
-                        resolve(r)
+                        resolve(body)
                     }
                 })
             }catch (e) {
                 reject(e)
             }
         })
+    }
+
+    async axiosRequest(opts) {
+        this.doRequestBeforeList.forEach(func => func(opts))
+        let res = await Axios.request(opts);
+        this.doRequestAfterList.forEach(func => func(res))
+        return res
     }
 }
 
