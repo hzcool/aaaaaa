@@ -1236,16 +1236,13 @@ app.post('/contest/:id/:pid/rejudge', async (req, res) => {
 
     let problem_id = problems_id[pid - 1];
 
-    await contest.loadRelationships();
-    let players = await contest.ranklist.getPlayers();
+    //查找每个用户最后一次提交
+    let query = JudgeState.createQueryBuilder()
+        .where(`id in (select max(id) from judge_state where type=1 AND type_info=${contest_id} AND problem_id=${problem_id} group by user_id)`)
+    let submissions = await JudgeState.queryAll(query)
 
-    let submissions = [];
-    await players.forEach(async player => {
-      let submission = await JudgeState.findById(player.score_details[problem_id].judge_id);
-      submissions.append(submission);
-    });
     for (let submission of submissions) {
-      await submission.rejudge();
+      submission.rejudge(); // 不需要 await
     }
 
     res.redirect(syzoj.utils.makeUrl(['contest', contest.id, 'problem', pid]));

@@ -17,7 +17,8 @@
   <% if (contest.running && start.split(' ')[0] === end.split(' ')[0]) {
     start = start.split(' ')[1]; end = end.split(' ')[1];
   } %>
-  <div class="ui pointing below left label"><%= start %></div>
+
+    <div class="ui pointing below left label"><%= start %></div>
   <div class="ui pointing below right label"><%= end %></div>
   <% let timePercentage = Math.floor(Math.min(1, (syzoj.utils.getCurrentDate() - contest.start_time) / (contest.end_time - contest.start_time)) * 100); %>
   <div id="timer-progress" class="ui tiny indicating progress<% if (timePercentage == 100) { %> success<% } %>" data-percent="<%= timePercentage %>">
@@ -142,6 +143,10 @@
       </div>
     </div>
   <% } %>
+<!--      补题进度条todo-->
+<!--  <div style="width: 100%; margin-top: 30px">-->
+<!--      <div id="pass_progress" style="height: 7px;border-radius: 5px; background: linear-gradient(to right, red 50%, blue 50%) "> </div>-->
+<!--  </div>-->
   <% if (unveiled) { %>
     <div class="row">
       <div class="column">
