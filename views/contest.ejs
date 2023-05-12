@@ -145,7 +145,7 @@
   <% } %>
   <%if(contest.ended) {%>
     <div style="width: 100%; margin-top: 30px">
-      <div id="pass_progress" style="height: 7px;border-radius: 5px; display: flex"></div>
+      <div id="pass_progress" style="height: 15px;display: flex"></div>
     </div>
   <%}%>
   <% if (unveiled) { %>
@@ -321,17 +321,43 @@ $(function () {
             $('#_td' + (i+1)).css('background', 'linear-gradient(to right, rgba(121,187,255,0.2) ' + percent+'%, #ffffff '+percent+'%, #ffffff 100%)')
           }
       })
+        // data.total = 100
+        // data.user_pass_category = [12, 10, 20, 5, 7, 9, 12, 14, 17, 30, 50]
       let pass_progress = $('#pass_progress')
       if(pass_progress && data.user_pass_category) {
-          let colors = ['#f56c6c', '#e6a23c', '#5cb87a', '#1989fa', '#6f7ad3']
+          let colors = ['#f56c6c','#951CE0', '#e6a23c', '#5cb87a', '#1989fa', '#ff461f',    '#70f3ff', '#789262', '#cca4e3', '#177cb0']
           let k = 0
+          let record = {}
           data.user_pass_category.forEach((x, idx) => {
               if(x > 0) {
-                let percent = (x / data.total * 100).toFixed(0)
-                pass_progress.append(`<div style='background: ${colors[k]}; width: ${percent}%; height: 100%; border-radius: 5px;' data-tooltip="补题数 ${idx}， 人数 ${x}" data-inverted=""></div>`)
-                if((++k) >= colors.length) k = 0
+                  record[x] = idx
               }
           })
+          let pre = 0;
+          for(let i = 1; i <= data.total; i++) {
+              if(record[i]) {
+                  let percent = ((i - pre) / data.total * 100).toFixed(0)
+                  pass_progress.append(`<div style='background: ${colors[k]}; width: ${percent}%; height: 100%; ' data-tooltip="过题数 ${record[i]}, 人数 ${i}" data-inverted=""></div>`)
+                  if((++k) >= colors.length) k = 0
+                  pre = i
+              }
+          }
+          if(pre !== data.total) {
+              let percent = ((data.total - pre) / data.total * 100).toFixed(0)
+              pass_progress.append(`<div style='background: #E6E8EB; width: ${percent}%; height: 100%; ' data-tooltip="总人数 ${data.total}" data-inverted=""></div>`)
+          }
+
+
+
+
+
+          // data.user_pass_category.forEach((x, idx) => {
+          //     if(x > 0) {
+          //       let percent = (x / data.total * 100).toFixed(0)
+          //       pass_progress.append(`<div style='background: ${colors[k]}; width: ${percent}%; height: 100%; border-radius: 5px;' data-tooltip="补题数 ${idx}， 人数 ${x}" data-inverted=""></div>`)
+          //       if((++k) >= colors.length) k = 0
+          //     }
+          // })
       }
     }
   })
