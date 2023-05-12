@@ -143,10 +143,11 @@
       </div>
     </div>
   <% } %>
-<!--      补题进度条todo-->
-<!--  <div style="width: 100%; margin-top: 30px">-->
-<!--      <div id="pass_progress" style="height: 7px;border-radius: 5px; background: linear-gradient(to right, red 50%, blue 50%) "> </div>-->
-<!--  </div>-->
+  <%if(contest.ended) {%>
+    <div style="width: 100%; margin-top: 30px">
+      <div id="pass_progress" style="height: 7px;border-radius: 5px; display: flex"></div>
+    </div>
+  <%}%>
   <% if (unveiled) { %>
     <div class="row">
       <div class="column">
@@ -308,6 +309,8 @@ $(function () {
   }, 5000);
 });
 
+// <div style="background: #0ea432; width: 30%; height: 100%; border-radius: 5px;" data-tooltip="Add users to your feed" data-inverted=""></div>
+
 <% if(!contest.running) { %>
 $(function () {
   $.get('/contest/<%= contest.id%>/pass_info', data => {
@@ -318,6 +321,18 @@ $(function () {
             $('#_td' + (i+1)).css('background', 'linear-gradient(to right, rgba(121,187,255,0.2) ' + percent+'%, #ffffff '+percent+'%, #ffffff 100%)')
           }
       })
+      let pass_progress = $('#pass_progress')
+      if(pass_progress && data.user_pass_category) {
+          let colors = ['#f56c6c', '#e6a23c', '#5cb87a', '#1989fa', '#6f7ad3']
+          let k = 0
+          data.user_pass_category.forEach((x, idx) => {
+              if(x > 0) {
+                let percent = (x / data.total * 100).toFixed(0)
+                pass_progress.append(`<div style='background: ${colors[k]}; width: ${percent}%; height: 100%; border-radius: 5px;' data-tooltip="补题数 ${idx}， 人数 ${x}" data-inverted=""></div>`)
+                if((++k) >= colors.length) k = 0
+              }
+          })
+      }
     }
   })
 })

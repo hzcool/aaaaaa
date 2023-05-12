@@ -1431,21 +1431,23 @@ app.get("/contest/:id/pass_info", async (req, res) => {
     let players_id = [];
     for (let i = 1; i <= contest.ranklist.ranklist.player_num; i++) players_id.push(contest.ranklist.ranklist[i]);
     let problems_id = await contest.getProblems();
+    let user_pass_category = new Array(problems_id.length + 1).fill(0) // 二维数组  user_pass_category[i] 过了 i 题的人数
     let problems = await problems_id.mapAsync(async id => await Problem.findById(id));
     problems.forEach(p => p.ac_num = 0)
 
     await players_id.forEachAsync(async player_id => {
       let player = await ContestPlayer.findById(player_id);
       let user = await User.findById(player.user_id);
+      let cnt = 0
       await problems.forEachAsync(async problem => {
         let buti_judge = await problem.getJudgeState (user, true, true);
-        if (buti_judge && buti_judge.status == 'Accepted') problem.ac_num++;
+        if (buti_judge && buti_judge.status == 'Accepted') { problem.ac_num++; cnt++}
       });
+      user_pass_category[cnt]++
     });
 
-
     let problem_ac_counts = problems.map(p => p.ac_num)
-    res.send({total: contest.ranklist.ranklist.player_num, problem_ac_counts})
+    res.send({total: contest.ranklist.ranklist.player_num, problem_ac_counts, user_pass_category})
   } catch (e) {
     res.send({error: e})
   }
