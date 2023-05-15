@@ -9,10 +9,19 @@
 
 <div class="padding">
     <div id="app">
-        <h1 style="margin-bottom: 20px"> 赛题测试用例通过统计分析  </h1>
+        <h1 style="margin-bottom: 20px"> 比赛统计分析  </h1>
 
         <a href="/contest/<%= contest.id%>"> <h2> 比赛 <%= contest.title%> </h2> </a>
         <h2> 参数总人数 <%= player_num%> </h2>
+
+        <el-divider content-position="left" style="margin-top: 50px;"><h3 style="color: #0053A1">补题统计</h3></el-divider>
+        <div style="display: flex; justify-content:center; margin-top: 50px;">
+            <div ref="passBarChartRef" style="width: 1000px; height: 480px"> </div>
+        </div>
+
+
+
+        <el-divider content-position="left" ><h3 style="color: #0053A1">测试点统计</h3></el-divider>
         <div style="margin-top: 20px">
             <el-radio-group v-model="radio" @change="handle()">
                 <el-radio v-for="(item, idx) in problems" :label="idx" size="large"> {{"ABCDEFGHIJKLMNOPQRSTUVWXYZ"[idx] + ". " + item.title }} </el-radio>
@@ -20,7 +29,7 @@
         </div>
 
         <div style="display: flex; justify-content:center; margin-top: 50px;">
-            <div ref="barChartRef" style="width: 1000px; height: 480px"> </div>
+            <div ref="BarChartRef" style="width: 1000px; height: 480px"> </div>
         </div>
 
     </div>
@@ -29,17 +38,19 @@
 
 <script>
     const {createApp, ref, onMounted, reactive} = Vue;
+
+
     const contest = <%- serializejs(contest) %>
     const problems = <%- serializejs(problems) %>
     const player_num = <%= player_num%>
+    const user_pass_category = <%- serializejs(user_pass_category)%>
+
     const barChartRef = ref(null)
     let barChart = undefined
     const radio = ref(0)
     const show = ref(false)
-
     // 指定图表的配置项和数据
     const barOpt = {
-
         tooltip: {
             trigger: 'axis',
             axisPointer: {
@@ -73,6 +84,57 @@
         ]
     }
 
+    const passBarChartRef = ref(null)
+    let passBarChart = undefined
+    const passBarOpt = {
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            }
+        },
+        legend: {},
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: {
+            type: 'value',
+        },
+        yAxis: {
+            type: 'category',
+            data: []
+        },
+        series: [
+            {
+                name: '',
+                type: 'bar',
+                data: [],
+                label: {
+                    show: true,
+                    position: 'inside'
+                },
+            },
+        ]
+    }
+
+    const handleUserPassCategory = () => {
+        passBarOpt.yAxis.data = []
+        passBarOpt.series[0].data = []
+        passBarOpt.series[0].name = "补题统计"
+        let n = user_pass_category.length
+        let sum = 0
+        for(let i = n - 1; i >= 1; i--) {
+            sum += user_pass_category[i]
+            passBarOpt.yAxis.data.push(`补题数量 >= ${i}`)
+            passBarOpt.series[0].data.push(sum)
+        }
+        passBarChart.setOption(passBarOpt)
+        passBarChart.resize({height: (n <= 20 ? 80 : 60) * n })
+    }
+
     const handle = ()=> {
         let problem = problems[radio.value]
         barOpt.yAxis.data = []
@@ -95,10 +157,14 @@
     const App = {
         setup() {
             onMounted(() => {
+
+                passBarChart = echarts.init(passBarChartRef.value);
+                handleUserPassCategory()
+
                 barChart = echarts.init(barChartRef.value);
                 handle()
             })
-            return {contest, problems, radio, handle, barChartRef, show}
+            return {contest, problems, radio, handle, barChartRef, show, passBarChartRef}
         },
     }
     createApp(App).use(ElementPlus).mount('#app')

@@ -43,7 +43,7 @@
                 <tr>
                     <% if(idx === 0) {%>
                     <td rowspan="<%=s.length%>" style="line-height: 30px">
-                        <div><b><%= s.user.username + ' - ' + s.user.nickname %></b></div>
+                        <div style="font-weight: bold"><a href="/summary?user_id=<%=s.user.id%>"><%= s.user.username + ' - ' + s.user.nickname %></a></div>
                         <% if(!contest) {%>
                             <div style="font-size: 18px; font-weight: bold">
                                 <a href="<%= syzoj.utils.makeUrl(['contest', s.contest.id])%>"> <%= s.contest.title%> </a>
