@@ -15,13 +15,27 @@
         <h2> 参数总人数 <%= player_num%> </h2>
 
         <el-divider content-position="left" style="margin-top: 50px;"><h3 style="color: #0053A1">补题统计</h3></el-divider>
-        <div style="display: flex; justify-content:center; margin-top: 50px;">
-            <div ref="passBarChartRef" style="width: 1000px; height: 480px"> </div>
-        </div>
+
+        <table class="ui center aligned table celled">
+            <thead>
+                <tr>
+                <% for(let i = user_pass_category.length - 1; i >= 0; i--) {  %>
+                    <th class="one wide"> >= <%= i%> </th>
+                <% } %>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <% let sum = 0; for(let i = user_pass_category.length - 1; i >= 0; i--) { sum += user_pass_category[i];  %>
+                        <td> <%= sum%> </td>
+                    <% } %>
+                </tr>
+            </tbody>
+        </table>
 
 
 
-        <el-divider content-position="left" ><h3 style="color: #0053A1">测试点统计</h3></el-divider>
+        <el-divider content-position="left" style="margin-top: 50px"><h3 style="color: #0053A1">测试点统计</h3></el-divider>
         <div style="margin-top: 20px">
             <el-radio-group v-model="radio" @change="handle()">
                 <el-radio v-for="(item, idx) in problems" :label="idx" size="large"> {{"ABCDEFGHIJKLMNOPQRSTUVWXYZ"[idx] + ". " + item.title }} </el-radio>
@@ -84,56 +98,7 @@
         ]
     }
 
-    const passBarChartRef = ref(null)
-    let passBarChart = undefined
-    const passBarOpt = {
-        tooltip: {
-            trigger: 'axis',
-            axisPointer: {
-                type: 'shadow'
-            }
-        },
-        legend: {},
-        grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
-            containLabel: true
-        },
-        xAxis: {
-            type: 'value',
-        },
-        yAxis: {
-            type: 'category',
-            data: []
-        },
-        series: [
-            {
-                name: '',
-                type: 'bar',
-                data: [],
-                label: {
-                    show: true,
-                    position: 'inside'
-                },
-            },
-        ]
-    }
 
-    const handleUserPassCategory = () => {
-        passBarOpt.yAxis.data = []
-        passBarOpt.series[0].data = []
-        passBarOpt.series[0].name = "补题统计"
-        let n = user_pass_category.length
-        let sum = 0
-        for(let i = n - 1; i >= 1; i--) {
-            sum += user_pass_category[i]
-            passBarOpt.yAxis.data.push(`补题数量 >= ${i}`)
-            passBarOpt.series[0].data.push(sum)
-        }
-        passBarChart.setOption(passBarOpt)
-        passBarChart.resize({height: (n <= 20 ? 80 : 60) * n })
-    }
 
     const handle = ()=> {
         let problem = problems[radio.value]
@@ -157,14 +122,10 @@
     const App = {
         setup() {
             onMounted(() => {
-
-                passBarChart = echarts.init(passBarChartRef.value);
-                handleUserPassCategory()
-
                 barChart = echarts.init(barChartRef.value);
                 handle()
             })
-            return {contest, problems, radio, handle, barChartRef, show, passBarChartRef}
+            return {contest, problems, radio, handle, barChartRef, show}
         },
     }
     createApp(App).use(ElementPlus).mount('#app')
