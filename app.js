@@ -48,6 +48,7 @@ global.syzoj = {
   models: [],
   modules: [],
   db: null,
+  newLuoguHelper: require("./remote-judge/luogu/helper").newLuoguHelper,
   ProblemType:  {
     Traditional : "traditional",
     SubmitAnswer : "submit-answer",

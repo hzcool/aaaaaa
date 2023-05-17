@@ -1,0 +1,229 @@
+
+<% this.title = user.username + ' - 用户'; %>
+<% include header %>
+
+<link href="<%- lib('element-plus/2.2.28/index.min.css') %>" rel="stylesheet">
+<script src="<%- lib('vue/3.2.36/vue.global.min.js') %>"></script>
+<script src="<%- lib('element-plus/2.2.28/index.full.min.js') %>"></script>
+
+<div class="padding">
+    <div id="app">
+
+       <el-button type="primary" @click="dialogVisible = true"> 筛选 </el-button>
+        <div></div>
+        <div v-if="choose.length > 0">
+            <el-divider content-position="left"> <span style="color: #0053A1; font-size: 16px"> 已选择过滤条件 </span></el-divider>
+            <el-space wrap>
+                <el-tag
+                        v-for="x in choose"
+                        closable
+                        :type="tag_choose_type[x.tag.type]"
+                        :effect="(x.tag.type === 2) ? 'dark' : 'light'"
+                        @close = "closeTag(x)"
+                >
+                    {{ x.tag.name }}
+                </el-tag>
+            </el-space>
+        </div>
+        <el-dialog
+                v-model="dialogVisible"
+                title="筛选"
+                width="60%"
+                @close="closeDialog"
+                destroy-on-close
+        >
+
+            <el-tabs
+                    v-model="activeName"
+                    type="card"
+                    class="demo-tabs"
+            >
+                <el-tab-pane v-for="tid in type_orders" :name="tid">
+                    <template #label>
+                        {{tag_map[tid].name}}
+                    </template>
+                    <div style="height: 55vh; overflow-y: auto;">
+                        <div v-if="tid === 2">
+                            <div v-for="(t, idx) in algorithm_tags">
+                                <div v-if="idx > 0" style="margin-top: 50px"></div>
+                                <el-divider content-position="left"> <span style="color: #0053A1; font-size: 16px"> {{t[0].tag.name}} </span></el-divider>
+                                <el-space wrap   :size="20">
+                                    <el-checkbox v-for="x in t" v-model="x.checked" :label="x.tag.name" @change="checkbox_click_handle(x)" />
+                                </el-space>
+                            </div>
+                        </div>
+                        <div v-else>
+                            <el-space wrap   :size="20">
+                                <el-checkbox v-for="x in tag_map[tid].tags" v-model="x.checked" :label="x.tag.name" @change="checkbox_click_handle(x)" />
+                            </el-space>
+                        </div>
+                    </div>
+                </el-tab-pane>
+            </el-tabs>
+
+
+
+        <template #footer>
+          <span class="dialog-footer">
+            <el-button type="primary" @click="dialogVisible = false">
+              确定
+            </el-button>
+          </span>
+        </template>
+        </el-dialog>
+
+
+        <div style="height: 30px"></div>
+        <table class="ui center aligned table celled">
+            <thead>
+                <tr>
+                    <th class="one wide"> 题号 </th>
+                    <th class="two wide"> 题目名称 </th>
+                    <th class="one wide"> 难度 </th>
+                    <th class="one wide"> 通过数 </th>
+                    <th class="one wide"> 提交数 </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="p in problems">
+                    <td> <a :href="'https://www.luogu.com.cn/problem/' + p.pid" target="_blank">{{p.pid}} </a></td>
+                    <td> <a :href="'https://www.luogu.com.cn/problem/' + p.pid" target="_blank">{{p.title}} </a></td>
+                    <td>{{p.difficulty}}</td>
+                    <td>{{p.totalAccepted}}</td>
+                    <td>{{p.totalSubmit}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div style="float: right">
+            <el-pagination
+                    background
+                    layout="prev, pager, next"
+                    :total="total"
+                    :page-size="50"
+                    v-model:current-page="current_page"
+                    class="mt-4"
+                    @current-change="currentPageChange()"
+                    @prev-click="currentPageChange()"
+                    @next-click="currentPageChange()"
+            />
+        </div>
+        <div style="height: 100px"></div>
+
+    </div>
+</div>
+
+
+<script>
+    const {createApp, ref, onMounted, reactive} = Vue;
+    const total = ref(<%- serializejs(total) %>)
+    const current_page = ref(1)
+
+    const tags = <%- serializejs(tags) %>
+    const types = <%- serializejs(types) %>
+    const problems = ref(<%- serializejs(problems) %>)
+    const dialogVisible = ref(false)
+    const tag_map = {
+        "1": {
+            name: "区域",
+            tags: []
+        },
+        "2": {
+            name: "算法",
+            tags: [],
+        },
+        "3": {
+            name: "来源",
+            tags: [],
+        },
+        "4": {
+            name: "时间",
+            tags: [],
+        },
+        "5": {
+            name: "特殊题目",
+            tags: [],
+        },
+        "6": {
+            name: "其他",
+            tags: [],
+        },
+    }
+    tags.forEach(tag => {
+        tag_map[tag.type].tags.push(reactive({
+            tag: tag,
+            checked: false
+        }))
+    })
+
+    const algorithm_tags = []
+    tag_map[2].tags.forEach(t => {
+        tag = t.tag
+        if(!tag.parent) algorithm_tags.push([t])
+        else {
+            for(let a of algorithm_tags) {
+                if(a[0].tag.id === tag.parent) {a.push(t); break}
+            }
+        }
+    })
+
+    const type_orders = [2, 3, 4, 1, 5, 6]
+    const activeName = ref(2)
+    const choose = ref([])
+    const tag_choose_type = {1: "", 2: "", 3: "success", 4: "info", 5: "danger", 6: "warning"}
+
+    let changed = false
+    const checkbox_click_handle = (t) => {
+        changed = true
+        if(t.checked) choose.value.push(t); else {
+            t.checked = false
+            let cnt = 0
+            for(let x of choose.value) {
+                if(x.tag.id === t.tag.id) {
+                    x.checked = false
+                    choose.value.splice(cnt, 1)
+                    break
+                }
+                cnt++
+            }
+        }
+    }
+    const closeTag = (t) => {
+        t.checked = false
+        checkbox_click_handle(t)
+        search(true)
+        changed = false
+    }
+
+
+    const search = (rePage = false) => {
+        let ids = choose.value.map(t => t.tag.id)
+        if(rePage) current_page.value = 1
+        $.post("/luogu/problems/search", {tags: ids, page: current_page.value}, (data) => {
+            if(!data.err) {
+                problems.value = data.problems
+                total.value = data.total
+            } else {
+                alert(data.err)
+            }
+        })
+    }
+
+    const closeDialog = ()=>{
+        if(changed) {
+            search(true)
+            changed = false
+        }
+    }
+
+    const currentPageChange = ()=> {
+        search()
+    }
+
+    const App = {
+        setup() {
+            return {problems, activeName, tag_map, type_orders, algorithm_tags,  dialogVisible, choose, checkbox_click_handle, tag_choose_type, closeTag, closeDialog, total, current_page, currentPageChange}
+        },
+    }
+    createApp(App).use(ElementPlus).mount('#app')
+</script>

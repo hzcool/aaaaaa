@@ -53,3 +53,40 @@ app.get('/api/vj/flush/time_memroy/:id', async (req, res) => {
         res.send({ error: e });
     }
 });
+
+
+app.get('/luogu/problems', async (req, res) => {
+    try {
+        if(!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
+        let helper = syzoj.newLuoguHelper()
+        let x = helper.findByTags()
+        res.render('luogu_problems', {
+            tags: helper.tags.tags,
+            types: helper.tags.types,
+            total: x.total,
+            problems: x.problems
+        })
+    } catch (e) {
+        res.render('error', {
+            err: e
+        });
+    }
+});
+
+app.post('/luogu/problems/search', async (req, res) => {
+    try {
+        if(!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
+        let helper = syzoj.newLuoguHelper()
+        let tags =  req.body.tags ? req.body.tags.map(x => parseInt(x)) : []
+        let page = parseInt(req.body.page || '1')
+        let x = helper.findByTags(tags, page)
+        res.send({
+            total: x.total,
+            problems: x.problems
+        })
+    } catch (e) {
+        res.send( {
+            err: e
+        });
+    }
+});
