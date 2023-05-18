@@ -79,6 +79,7 @@
                 <tr>
                     <th class="one wide"> 题号 </th>
                     <th class="two wide"> 题目名称 </th>
+                    <th class="two wide"> 标签 </th>
                     <th class="one wide"> 难度 </th>
                     <th class="one wide"> 通过数 </th>
                     <th class="one wide"> 提交数 </th>
@@ -88,6 +89,21 @@
                 <tr v-for="p in problems">
                     <td> <a :href="'https://www.luogu.com.cn/problem/' + p.pid" target="_blank">{{p.pid}} </a></td>
                     <td> <a :href="'https://www.luogu.com.cn/problem/' + p.pid" target="_blank">{{p.title}} </a></td>
+                    <td>
+                        <span v-for="tagid in p.tags">
+                            <el-tag
+                                    :type="tag_choose_type[tagid_map_tag[tagid].type]"
+                                    v-if="tagid_map_tag[tagid].type === 2"
+                                    effect="dark"
+                                    style="margin-left: 5px"
+                            >
+                                {{ tagid_map_tag[tagid].name }}
+                            </el-tag>
+                        </span>
+
+
+
+                    </td>
                     <td>{{p.difficulty}}</td>
                     <td>{{p.totalAccepted}}</td>
                     <td>{{p.totalSubmit}}</td>
@@ -149,12 +165,17 @@
             tags: [],
         },
     }
+    const tag_choose_type = {1: "", 2: "", 3: "success", 4: "info", 5: "danger", 6: "warning"}
+
+    const tagid_map_tag = {}
     tags.forEach(tag => {
+        tagid_map_tag[tag.id] = tag
         tag_map[tag.type].tags.push(reactive({
             tag: tag,
             checked: false
         }))
     })
+
 
     const algorithm_tags = []
     tag_map[2].tags.forEach(t => {
@@ -170,7 +191,8 @@
     const type_orders = [2, 3, 4, 1, 5, 6]
     const activeName = ref(2)
     const choose = ref([])
-    const tag_choose_type = {1: "", 2: "", 3: "success", 4: "info", 5: "danger", 6: "warning"}
+
+
 
     let changed = false
     const checkbox_click_handle = (t) => {
@@ -222,7 +244,7 @@
 
     const App = {
         setup() {
-            return {problems, activeName, tag_map, type_orders, algorithm_tags,  dialogVisible, choose, checkbox_click_handle, tag_choose_type, closeTag, closeDialog, total, current_page, currentPageChange}
+            return {problems, activeName, tag_map, type_orders, algorithm_tags,  dialogVisible, choose, checkbox_click_handle, tag_choose_type, closeTag, closeDialog, total, current_page, currentPageChange, tagid_map_tag}
         },
     }
     createApp(App).use(ElementPlus).mount('#app')
