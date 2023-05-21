@@ -6,10 +6,22 @@
 <script src="<%- lib('vue/3.2.36/vue.global.min.js') %>"></script>
 <script src="<%- lib('element-plus/2.2.28/index.full.min.js') %>"></script>
 
+<style>
+    .icon_on_hover:hover {
+        color: #0ea432;
+    }
+    .__icon {
+        color: #409EFF;
+    }
+</style>
+
 <div class="padding">
     <div id="app">
 
        <el-button type="primary" @click="dialogVisible = true"> 筛选 </el-button>
+
+
+
         <div></div>
         <div v-if="choose.length > 0">
             <el-divider content-position="left"> <span style="color: #0053A1; font-size: 16px"> 已选择过滤条件 </span></el-divider>
@@ -76,13 +88,53 @@
         <div style="height: 30px"></div>
         <table class="ui center aligned table celled">
             <thead>
-                <tr>
-                    <th class="one wide"> 题号 </th>
+                <tr style="font-size: 18px; font-weight: 600">
+                    <th class="one wide">
+                            <div style="display: flex; align-items: center;justify-content: center">
+                                <div> 题号 </div>
+                                <div>
+                                    <div>
+                                        <div> <i :class="'caret up icon icon_on_hover' + ((search_order.orderBy == OrderBy.PID && search_order.asc)?' __icon':'')" @click="search_for_order(OrderBy.PID, true)"></i> </div>
+                                        <div style="margin-top: -8px"> <i :class="'caret down icon icon_on_hover' + ((search_order.orderBy == OrderBy.PID && !search_order.asc)?' __icon':'')" @click="search_for_order(OrderBy.PID, false)"></i> </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </th>
                     <th class="two wide"> 题目名称 </th>
                     <th class="two wide"> 标签 </th>
-                    <th class="one wide"> 难度 </th>
-                    <th class="one wide"> 通过数 </th>
-                    <th class="one wide"> 提交数 </th>
+                    <th class="one wide">
+                        <div style="display: flex; align-items: center;justify-content: center">
+                            <div> 难度 </div>
+                            <div>
+                                <div>
+                                    <div> <i :class="'caret up icon icon_on_hover' + ((search_order.orderBy == OrderBy.Difficulty && search_order.asc)?' __icon':'')" @click="search_for_order(OrderBy.Difficulty, true)"></i> </div>
+                                    <div style="margin-top: -8px"> <i :class="'caret down icon icon_on_hover' + ((search_order.orderBy == OrderBy.Difficulty && !search_order.asc)?' __icon':'')" @click="search_for_order(OrderBy.Difficulty, false)"></i> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </th>
+                    <th class="one wide">
+                        <div style="display: flex; align-items: center;justify-content: center">
+                            <div> 通过数 </div>
+                            <div>
+                                <div>
+                                    <div> <i :class="'caret up icon icon_on_hover' + ((search_order.orderBy == OrderBy.TotalAccepted && search_order.asc)?' __icon':'')" @click="search_for_order(OrderBy.TotalAccepted, true)"></i> </div>
+                                    <div style="margin-top: -8px"> <i :class="'caret down icon icon_on_hover' + ((search_order.orderBy == OrderBy.TotalAccepted && !search_order.asc)?' __icon':'')" @click="search_for_order(OrderBy.TotalAccepted, false)"></i> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </th>
+                    <th class="one wide">
+                        <div style="display: flex; align-items: center;justify-content: center">
+                            <div> 提交数 </div>
+                            <div>
+                                <div>
+                                    <div> <i :class="'caret up icon icon_on_hover' + ((search_order.orderBy == OrderBy.TotalSubmit && search_order.asc)?' __icon':'')" @click="search_for_order(OrderBy.TotalSubmit, true)"></i> </div>
+                                    <div style="margin-top: -8px"> <i :class="'caret down icon icon_on_hover' + ((search_order.orderBy == OrderBy.TotalSubmit && !search_order.asc)?' __icon':'')" @click="search_for_order(OrderBy.TotalSubmit, false)"></i> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -91,20 +143,17 @@
                     <td> <a :href="'https://www.luogu.com.cn/problem/' + p.pid" target="_blank">{{p.title}} </a></td>
                     <td>
                         <span v-for="tagid in p.tags">
-                            <el-tag
-                                    :type="tag_choose_type[tagid_map_tag[tagid].type]"
-                                    v-if="tagid_map_tag[tagid].type === 2"
-                                    effect="dark"
-                                    style="margin-left: 5px"
-                            >
+                            <el-button v-if="tagid_map_tag[tagid].type === 2"  type="primary"  style="margin-left: 2px" size="small"
+                                       @click="search_append_tag(tagid)">
                                 {{ tagid_map_tag[tagid].name }}
-                            </el-tag>
+                            </el-button>
                         </span>
-
-
-
                     </td>
-                    <td>{{p.difficulty}}</td>
+                    <td>
+                        <span :style="{background: difficulty_color[p.difficulty].color, color:'white', padding: '6px'}">
+                            {{difficulty_color[p.difficulty].name}}
+                        </span>
+                    </td>
                     <td>{{p.totalAccepted}}</td>
                     <td>{{p.totalSubmit}}</td>
                 </tr>
@@ -131,7 +180,7 @@
 
 
 <script>
-    const {createApp, ref, onMounted, reactive} = Vue;
+    const {createApp, ref, onMounted, reactive, computed} = Vue;
     const total = ref(<%- serializejs(total) %>)
     const current_page = ref(1)
 
@@ -166,6 +215,10 @@
         },
     }
     const tag_choose_type = {1: "", 2: "", 3: "success", 4: "info", 5: "danger", 6: "warning"}
+    const difficulty_color = { 0: {color: "#BFBFBF", name: "暂无评定"}, 1: {color: "#FE4C61", name: "入门"}, 2: {color: "#F39C11", name:"普及-"},
+        3: {color:"#FFC116", name: "普及/提高-"}, 4: {color:"#52C41A", name:"普及+/提高"}, 5: {color:"#3498DB", name:"提高+/省选-"},
+        6: {color:"#9D3DCF", name:"省选/NOI-"}, 7: {color:"#0E1D69", name:"NOI/NOI+/CTSC"}
+    }
 
     const tagid_map_tag = {}
     tags.forEach(tag => {
@@ -210,6 +263,7 @@
             }
         }
     }
+
     const closeTag = (t) => {
         t.checked = false
         checkbox_click_handle(t)
@@ -217,11 +271,37 @@
         changed = false
     }
 
+    const search_append_tag = tagid => {
+        for(let tt of tag_map[2].tags) {
+            if(tt.tag.id === tagid) { choose.value.push(tt); break}
+        }
+        search(true)
+    }
+
+
+    const OrderBy = {
+        PID: 0,
+        Difficulty: 1,
+        TotalAccepted: 2,
+        TotalSubmit: 3,
+    };
+
+    const search_order = reactive({
+        orderBy: OrderBy.PID,
+        asc: true
+    })
+
+    const search_for_order = (orderBy, asc) => {
+        search_order.orderBy = orderBy
+        search_order.asc = asc
+        search(true)
+    }
+
 
     const search = (rePage = false) => {
         let ids = choose.value.map(t => t.tag.id)
         if(rePage) current_page.value = 1
-        $.post("/luogu/problems/search", {tags: ids, page: current_page.value}, (data) => {
+        $.post("/luogu/problems/search", {tags: ids, page: current_page.value, orderBy: search_order.orderBy, asc: search_order.asc}, (data) => {
             if(!data.err) {
                 problems.value = data.problems
                 total.value = data.total
@@ -244,7 +324,8 @@
 
     const App = {
         setup() {
-            return {problems, activeName, tag_map, type_orders, algorithm_tags,  dialogVisible, choose, checkbox_click_handle, tag_choose_type, closeTag, closeDialog, total, current_page, currentPageChange, tagid_map_tag}
+            return {problems, activeName, tag_map, type_orders, algorithm_tags,  dialogVisible, choose, checkbox_click_handle, tag_choose_type, closeTag, closeDialog, total, current_page, currentPageChange,
+                tagid_map_tag, search_append_tag, search_for_order, OrderBy, search_order, difficulty_color}
         },
     }
     createApp(App).use(ElementPlus).mount('#app')

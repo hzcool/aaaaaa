@@ -73,13 +73,17 @@ app.get('/luogu/problems', async (req, res) => {
     }
 });
 
+
+
 app.post('/luogu/problems/search', async (req, res) => {
     try {
         if(!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
         let helper = syzoj.newLuoguHelper()
         let tags =  req.body.tags ? req.body.tags.map(x => parseInt(x)) : []
+        let orderBy = parseInt(req.body.orderBy)
+        let asc = (!req.body.asc || req.body.asc === 'true') ? true : false
         let page = parseInt(req.body.page || '1')
-        let x = helper.findByTags(tags, page)
+        let x = helper.findByTags(tags, orderBy, asc, page)
         res.send({
             total: x.total,
             problems: x.problems
