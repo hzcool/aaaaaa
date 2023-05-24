@@ -448,7 +448,7 @@ app.get('/contest/:id', async (req, res) => {
           if (player.score_details[problem.problem.id]) {
             let judge_state = await JudgeState.findById(player.score_details[problem.problem.id].judge_id);
             problem.status = judge_state.score.toString();
-            if (!contest.ended && !await problem.problem.isAllowedEditBy(res.locals.user) && !['Compile Error', 'Waiting', 'Compiling'].includes(problem.status)) {
+            if (!contest.ended && !['Compile Error', 'Waiting', 'Compiling'].includes(problem.status)) {
               problem.status = 'Submitted';
             }
             problem.judge_id = player.score_details[problem.problem.id].judge_id;
