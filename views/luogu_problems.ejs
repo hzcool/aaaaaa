@@ -213,6 +213,10 @@
             name: "其他",
             tags: [],
         },
+        "7": {
+            name: "难度",
+            tags: [],
+        },
     }
     const tag_choose_type = {1: "", 2: "", 3: "success", 4: "info", 5: "danger", 6: "warning"}
     const difficulty_color = { 0: {color: "#BFBFBF", name: "暂无评定"}, 1: {color: "#FE4C61", name: "入门"}, 2: {color: "#F39C11", name:"普及-"},
@@ -241,7 +245,7 @@
         }
     })
 
-    const type_orders = [2, 3, 4, 1, 5, 6]
+    const type_orders = [2, 3, 4, 1, 5, 6, 7]
     const activeName = ref(2)
     const choose = ref([])
 
@@ -301,7 +305,7 @@
     const search = (rePage = false) => {
         let ids = choose.value.map(t => t.tag.id)
         if(rePage) current_page.value = 1
-        $.post("/luogu/problems/search", {tags: ids, page: current_page.value, orderBy: search_order.orderBy, asc: search_order.asc}, (data) => {
+        $.post("/luogu/problems/<%-type%>/search", {tags: ids, page: current_page.value, orderBy: search_order.orderBy, asc: search_order.asc}, (data) => {
             if(!data.err) {
                 problems.value = data.problems
                 total.value = data.total

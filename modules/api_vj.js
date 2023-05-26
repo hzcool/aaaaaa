@@ -55,16 +55,17 @@ app.get('/api/vj/flush/time_memroy/:id', async (req, res) => {
 });
 
 
-app.get('/luogu/problems', async (req, res) => {
+app.get('/luogu/problems/:type', async (req, res) => {
     try {
         if(!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
-        let helper = syzoj.newLuoguHelper()
+        let helper = syzoj.newLuoguHelper(req.params.type)
         let x = helper.findByTags()
         res.render('luogu_problems', {
             tags: helper.tags.tags,
             types: helper.tags.types,
             total: x.total,
-            problems: x.problems
+            problems: x.problems,
+            type: req.params.type
         })
     } catch (e) {
         res.render('error', {
@@ -75,15 +76,17 @@ app.get('/luogu/problems', async (req, res) => {
 
 
 
-app.post('/luogu/problems/search', async (req, res) => {
+app.post('/luogu/problems/:type/search', async (req, res) => {
     try {
         if(!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
-        let helper = syzoj.newLuoguHelper()
+        let helper = syzoj.newLuoguHelper(req.params.type)
         let tags =  req.body.tags ? req.body.tags.map(x => parseInt(x)) : []
+        let difficulty = tags.filter(x => x <= -1000).map(x => -x - 1000)
+        tags = tags.filter(x => x > -1000)
         let orderBy = parseInt(req.body.orderBy)
         let asc = (!req.body.asc || req.body.asc === 'true') ? true : false
         let page = parseInt(req.body.page || '1')
-        let x = helper.findByTags(tags, orderBy, asc, page)
+        let x = helper.findByTags(difficulty, tags, orderBy, asc, page)
         res.send({
             total: x.total,
             problems: x.problems
