@@ -28,9 +28,9 @@ const get_sort_func = (orderBy, asc) => {
 }
 
 class LuoguHelper{
-    constructor() {
+    constructor(type) {
         this.tags = require("./tags.json")
-        this.problems = require("./problems.json")
+        this.problems = require(`./problems-${type}.json`)
     }
 
     contains(t1, t2) {
@@ -43,13 +43,14 @@ class LuoguHelper{
         return j === t2.length
     }
 
-    findByTags(tag_numbers = [], orderBy = OrderBy.PID, asc = true, page = 1, page_size = 50) {
+    findByTags(difficulty = [], tag_numbers = [], orderBy = OrderBy.PID, asc = true, page = 1, page_size = 50) {
 
         let res = this.problems
+        if (difficulty.length > 0) res = res.filter(p => difficulty.indexOf(p.difficulty) > -1)
         if (tag_numbers.length > 0) {
             tag_numbers = Array.from(new Set(tag_numbers))
             tag_numbers.sort(function(a, b){return a - b})
-            res = this.problems.filter(p => this.contains(p.tags, tag_numbers))
+            res = res.filter(p => this.contains(p.tags, tag_numbers))
         } else if (orderBy == OrderBy.PID) {
             if(asc)  return {
                 total: res.length,
@@ -79,10 +80,8 @@ class LuoguHelper{
 }
 
 const newLuoguHelper = (() => {
-    this.instance = null
-    return () => {
-        if(!this.instance) this.instance = new LuoguHelper()
-        return this.instance
+    return (type) => {
+        return new LuoguHelper(type)
     }
 })()
 
