@@ -7,6 +7,13 @@
 #back_to_contest { display: none;  }
 </style>
 <% include header %>
+
+<div id="__xx">
+  <% if (res.locals.user.is_admin) {%>
+      <% include contest_side.ejs %>
+  <%}%>
+</div>
+
 <div class="padding">
   <h1><%= contest.title %></h1>
   <div style="margin-bottom: 30px;"><%- contest.subtitle %></div>
