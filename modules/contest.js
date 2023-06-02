@@ -8,6 +8,7 @@ let Article = syzoj.model('article');
 let ProblemEvaluate = syzoj.model('problem_evaluate');
 let ProblemForbid =  syzoj.model('problem_forbid')
 let ContestCollection = syzoj.model('contest_collection')
+let ContestNote = syzoj.model('contest_note');
 const interfaces = require('../libs/judger_interfaces')
 
 const jwt = require('jsonwebtoken');
@@ -1643,3 +1644,44 @@ app.get('/contest/:id/cases_statistics', async (req, res) => {
     });
   }
 })
+
+app.get('/contest/:id/note', async (req, res) => {
+  try {
+    if(!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
+    let id = req.params.id
+    let contest_note = await ContestNote.findOne({contest_id: id})
+    if(!contest_note) res.send({note: '', note_html: ''});
+    else {
+      let note_html = await syzoj.utils.markdown(contest_note.note)
+      res.send({note: contest_note.note, note_html})
+    }
+  } catch (e) {
+    res.send({error: e})
+  }
+});
+
+app.post('/contest/:id/note/update',  async (req, res) => {
+  try {
+    if(!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
+    let id = parseInt(req.params.id)
+    let action = parseInt(req.body.action)
+    if (isNaN(id) || isNaN(action)) throw "参数错误"
+    if(action === 0) {
+      let contest_note = await ContestNote.findOne({contest_id: id})
+      if(!contest_note) {
+        contest_note = await ContestNote.create({
+          contest_id: id,
+          note: req.body.note
+        })
+      } else contest_note.note = req.body.note
+      await contest_note.save()
+      res.send({note_html:  await syzoj.utils.markdown(contest_note.note)})
+    } else if(action === 1) {
+      let contest_note = await ContestNote.findOne({contest_id: id})
+      if(contest_note) await contest_note.destroy()
+      res.send({msg: "ok"})
+    } else throw "参数错误"
+  } catch (e) {
+    res.send({error: e})
+  }
+});

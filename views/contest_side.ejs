@@ -1,0 +1,93 @@
+<link href="<%- lib('element-plus/2.2.28/index.min.css') %>" rel="stylesheet">
+<script src="<%- lib('vue/3.2.36/vue.global.min.js') %>"></script>
+<script src="<%- lib('element-plus/2.2.28/index.full.min.js') %>"></script>
+
+<div id="sideApp">
+
+    <div style="position:fixed; right:25px; top: 80px;" class="--el-box-shadow">
+        <el-tooltip
+                class="box-item"
+                effect="dark"
+                content="批注"
+                placement="left-start"
+        >
+            <el-badge :is-dot="!no_note">
+                <el-button circle style="box-shadow:0px 0px 12px rgba(0, 0, 0, .12)" @click="drawer2 = true">
+                    <svg t="1673080051797" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2804" width="18" height="18"><path d="M575.99996 576.00028l319.9998-319.9998-127.99992-127.99992L448.00004 448.00036 575.99996 576.00028zM959.99972 192.00052l63.99996 0c0-193.983879-191.99988-191.99988-191.99988-191.99988l0 63.99996 63.99996 63.99996L959.99972 192.00052zM895.99976 832.00012c0 35.327978-28.671982 63.99996-63.99996 63.99996L192.0002 896.00008c-35.327978 0-63.99996-28.671982-63.99996-63.99996L128.00024 192.00052c0-35.327978 28.671982-63.99996 63.99996-63.99996l383.99976 0 127.99992-127.99992L128.00024 0.00064C57.280284 0.00064 0.00032 57.280604 0.00032 128.00056l0 767.99952c0 70.719956 57.279964 127.99992 127.99992 127.99992l767.99952 0c70.719956 0 127.99992-57.279964 127.99992-127.99992L1023.99968 320.00044l-127.99992 127.99992L895.99976 832.00012zM320.00012 512.00032l0 191.99988 191.99988 0 0-63.99996L384.00008 512.00032 320.00012 512.00032z" p-id="2805" fill="#1296db"></path></svg>
+                </el-button>
+            </el-badge>
+        </el-tooltip>
+    </div>
+
+    <el-drawer
+            v-model="drawer2"
+            direction="rtl"
+            size="15%"
+            :show-close="false"
+    >
+        <template #header> <h4> 批注 </h4> </template>
+        <div>
+            <div v-if="no_note"> <h4>暂无批注</h4> </div>
+            <div v-else>
+                <div class="font-content" v-html="note_html"></div>
+            </div>
+
+            <div style="margin-top: 30px"></div>
+            <el-button type="primary" size="small" @click="dialogVisible = true">编辑</el-button>
+            <el-button v-if="!no_note" type="danger" size="small" @click="update_note(1)">删除</el-button>
+        </div>
+    </el-drawer>
+
+    <el-dialog v-model="dialogVisible"  title="批注编辑" width="50%">
+        <el-input v-model="note" :rows="5" type="textarea" placeholder="Please input"> </el-input>
+        <template #footer>
+            <el-button @click="dialogVisible = false">取消</el-button>
+            <el-button type="primary" @click="update_note()"> 提交 </el-button>
+        </template>
+    </el-dialog>
+
+</div>
+
+<script>
+    const {ref, onMounted, createApp} = Vue;
+    const App = {
+        setup() {
+            const drawer2 = ref(false)
+            const note = ref('')
+            const note_html = ref('')
+            const no_note = ref(true)
+            const dialogVisible = ref(false)
+            onMounted(() => {
+                $.get('/contest/<%= contest.id%>/note', (data) => {
+                    if(data.error) {
+                        note.value = ''
+                        return
+                    }
+                    note.value = data.note
+                    note_html.value = data.note_html
+                    no_note.value =  note_html.value === ''
+                })
+            })
+            const update_note = (action = 0) => {
+                $.post('/contest/<%= contest.id%>/note/update', {note: note.value, action}, (data) => {
+                    if(data.error) {
+                        alert(data.error)
+                        return
+                    }
+                    if(action === 1) {
+                        note.value = ''
+                        note_html.value = ''
+                        no_note.value = true
+                    } else {
+                        note_html.value = data.note_html
+                        no_note.value =  note_html.value === ''
+                        dialogVisible.value = false
+                    }
+                })
+            }
+
+            return { drawer2, note, note_html, dialogVisible, update_note, no_note}
+        },
+    }
+    createApp(App).use(ElementPlus).mount('#sideApp')
+</script>
