@@ -198,19 +198,37 @@ module.exports = {
           score: st.score,
           type: st.type,
           cases: st.cases.map(c => {
-            function getFileName(template, id, mustExist) {
+            function getFileNames(template, id, mustExist) {
               let s = template.split('#').join(String(id));
-              if (mustExist && !list.includes(s)) throw `找不到文件 ${s}`;
-              return s;
+              let reg = new RegExp(s);
+              let p = [];
+              for (let file of list) {
+                if (reg.test(file)) p.push(file);
+              }
+              if (mustExist && p.length == 0) throw `找不到文件 ${s}`;
+              return p;
             }
 
             let o = {};
-            if (input) o.input = getFileName(input, c, true);
-            if (output) o.output = getFileName(output, c, true);
-            if (answer) o.answer = getFileName(answer, c, false);
+            if (input) o.input = getFileNames(input, c, true);
+            if (output) o.output = getFileNames(output, c, true);
+            if (answer) o.answer = getFileNames(answer, c, false);
 
-            return o;
-          })
+            if (o.input.length != o.output.length || (answer && o.input.length != o.answer.length)) throw `${c} 匹配到的输入和输出文件个数不一致`;
+            var len = o.input.length;
+            let p = [];
+            for (let i=0; i<len; i++) {
+              let d = {};
+              d.input = o.input[i];
+              d.output = o.output[i];
+              if (answer) d.answer = o.answer[i];
+              p.push(d);
+            }
+            return p;
+          }).reduce(
+            (cases, c) => cases.concat(c),
+            []
+          )
         }));
 
         res = res.filter(x => x.cases && x.cases.length !== 0);
