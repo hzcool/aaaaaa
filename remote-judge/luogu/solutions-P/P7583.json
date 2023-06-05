@@ -1,0 +1,50 @@
+[
+    {
+        "content": "# \u601d\u8def\n\n\u8fd9\u9053\u9898\u8fd8\u662f\u5f88\u6c34\u7684\uff0c\u6211\u6765\u53d1\u4e00\u4e0b\u6211\u7684\u9898\u89e3\u5427\u3002\n\n\u8fd9\u9053\u9898\u5c31\u662f\u7528 Char \u7c7b\u578b\u5b57\u7b26\u4e32\u5224\u65ad\u662f\u5426\u7b26\u5408  $\\texttt{C,A,M,B,R,I,D,G,E}$\n\u7684\u5176\u4e2d\u4e00\u4e2a\uff0c\u5982\u679c\u662f\u8fd9\u5176\u4e2d\u51e0\u4e2a\uff0c\u90a3\u4e48\u5c31\u5c06\u8fd9\u4e2a\u5355\u4e2a\u5b57\u7b26\u8df3\u8fc7\uff0c\u5426\u5219\u8df3\u8fc7\u3002\n\n\u8fd9\u6837\u5c31\u53ef\u4ee5 AC \u4e86\n\nAC \u4ee3\u7801\uff1a\n```cpp\n#include<cstdio>\n#include<cstring>\n#include<iostream>\n\nusing namespace std;\n\nint main()\n{\n\tchar s[1000];\n\tcin>>s;\n\tfor(int i=0;i<=strlen(s);i++){\n\t\tif(s[i]=='C' || s[i]=='A' || s[i]=='M' || s[i]=='B' || s[i]=='R' || s[i]=='I' || s[i]=='D' || s[i]=='G'|| s[i]=='E')\n\t\t\tcontinue;\n\t\telse\n\t\t\tputchar(s[i]);\n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1620106925,
+        "uid": 392380,
+        "name": "distant_skys",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P7583 DOM"
+    },
+    {
+        "content": "### [P7583 [COCI2012-2013#1] DOM](https://www.luogu.com.cn/problem/P7583)\n\n#### \u9898\u610f\n\n- \u7ed9\u5b9a\u4e00\u4e2a\u5b57\u7b26\u4e32\uff0c\u5220\u9664\u8be5\u5b57\u7b26\u4e32\u4e2d\u7684\u4ee5\u4e0b\u4e5d\u4e2a\u5b57\u6bcd\uff1a$\\texttt{C,A,M,B,R,I,D,G,E}$\u3002\n\n- $3\\le$ \u5b57\u7b26\u4e32\u957f\u5ea6 $\\le 100$\u3002\n\n#### \u5206\u6790\n\n\u5341\u5206\u57fa\u7840\u7684\u4e00\u9053\u5b57\u7b26\u4e32\u9898\u76ee\u3002\n\n\u6211\u7684\u505a\u6cd5\u662f\u5148\u5c06\u6574\u4e2a\u5b57\u7b26\u4e32\u8bfb\u5165\uff0c\u7136\u540e\u4e00\u4e2a\u5b57\u7b26\u4e00\u4e2a\u5b57\u7b26\u6bd4\u8f83\uff0c\u5982\u679c\u5f53\u524d\u5b57\u7b26\u4e3a $\\texttt{C,A,M,B,R,I,D,G,E}$ \u4e2d\u4efb\u610f\u4e00\u4e2a\u5c31\u4e0d\u8f93\u51fa\uff0c\u5426\u5219\u8f93\u51fa\u3002\u8fd9\u6837\u5c31\u8fbe\u5230\u4e86\u5220\u9664\u7684\u76ee\u7684\u3002\n\n#### \u4ee3\u7801\n\ncode below \u2193\n\n```cpp\n#include<bits/stdc++.h>\n#define FOR(i,j,k)  for(int i=(j);i<=(k);i++)\nusing namespace std;\nchar s[110];\nint main()\n{\n\tcin>>s;\n\tint len=strlen(s);\n\tfor(int i=0;i<len;i++)\n\t\tif(!(s[i]=='C'||s[i]=='A'||s[i]=='M'||s[i]=='B'||s[i]=='R'||s[i]=='I'||s[i]=='D'||s[i]=='G'||s[i]=='E'))\n\t\t\tcout<<s[i];\n\tputs(\"\");\n\treturn 0;\n}\n\n```\n",
+        "postTime": 1620113792,
+        "uid": 181775,
+        "name": "_Fontainebleau_",
+        "ccfLevel": 0,
+        "title": "P7583 [COCI2012-2013#1] DOM \u9898\u89e3"
+    },
+    {
+        "content": "\u4e00\u9053\u5f88\u57fa\u7840\u7684\u5b57\u7b26\u4e32\u64cd\u4f5c\u3002\n\u6211\u4eec\u53ea\u9700\u8981\u5c06\u5b57\u7b26\u4e32\u8f93\u5165\u8fdb\u6765\uff0c\u5728\u904d\u5386\u4e00\u904d\uff0c\u5c06\u9700\u5220\u9664\u76849\u4e2a\u5b57\u6bcd\u8df3\u8fc7\u5373\u53ef\u3002\n\n\u9644\u4ee3\u7801\u3002\n```cpp\n#include<bits/stdc++.h>//\u4e07\u80fd\u5934\u6587\u4ef6\nusing namespace std;\nstring st;\nint main(){\n\tcin>>st;\n\tint len1=st.length();\n\tfor(int i=0;i<len1;i++){\n\t\tif(st[i]=='C')\n\t\t\tcontinue;\n\t\tif(st[i]=='A')\n\t\t\tcontinue;\n\t\tif(st[i]=='M')\n\t\t\tcontinue;\n\t\tif(st[i]=='B')\n\t\t\tcontinue;\n\t\tif(st[i]=='R')\n\t\t\tcontinue;\n\t\tif(st[i]=='I')\n\t\t\tcontinue;\n\t\tif(st[i]=='D')\n\t\t\tcontinue;\n\t\tif(st[i]=='G')\n\t\t\tcontinue;\n\t\tif(st[i]=='E')\n\t\t\tcontinue;\n      \t//\u6392\u9664\u6240\u6709\u8981\u5220\u9664\u7684\u5b57\u6bcd\n\t\tcout<<st[i];\n\t}\n    return 0;\n}\n\n```\n",
+        "postTime": 1620105119,
+        "uid": 338141,
+        "name": "Willie",
+        "ccfLevel": 0,
+        "title": "P7583\u9898\u89e3"
+    },
+    {
+        "content": "\u6b64\u9898\u5f88\u7b80\u5355\u554a\uff0c\u5c31\u662f\u5c06\u4e00\u4e2a\u5b57\u7b26\u4e32\u4e2d\u7684 C,A,M,B,R,I,D,G,E \u90fd\u53bb\u6389\u3002\n\n\u4e5f\u5c31\u662f\u8bf4\uff0c\u53ea\u8981\u9047\u5230\u8fd9 9 \u4e2a\u5b57\u6bcd\u4e0d\u8f93\u51fa\u5c31\u53ef\u4ee5\u4e86\u3002\n\n\u800c\u53ea\u8981\u8fb9\u8f93\u5165\u8fb9\u5904\u7406\uff0c\u771f\u6b63\u7684 main \u51fd\u6570\u53ea\u9700\u4e00\u884c\u3002\n\n\u63a5\u4e0b\u6765\u653e\u4ee3\u7801\uff1a\n\n### 1.\u65b9\u4fbf\u9605\u8bfb\u7248\n```cpp\n#include<bits/stdc++.h>\n#define ll long long\nusing namespace std;\nchar c;\nint main(){\n    while(cin >> c){ //\u8fb9\u8f93\u5165\u8fb9\u5224\u65ad \n    \tif(c != 'C' && c != 'A' && c != 'M' && c != 'B' && c != 'R' && c != 'I' && c != 'D' && c != 'G' && c != 'E') //\u9047\u5230\u8fd9\u51e0\u4e2a\u5c31\u4e0d\u8f93\u51fa \n    \tcout << c;\n\t} \n\treturn 0;\n}\n\n```\n\n### 2.\u538b \u884c \u7248\uff08\u5176\u5b9e\u4e5f\u6ca1\u6709\u523b\u610f\n\n```cpp\n#include<iostream>\nmain(){char c;while(std::cin>>c)if(c!='C'&&c!='A'&&c!='M'&&c!='B'&&c!='R'&&c!='I'&&c!='D'&&c!='G'&&c!='E')std::cout<<c;}\n\n\n```\n\n\u6b38\uff0c\u624d 1 4 2 B \u6b38\uff08\u4eb2\u6d4bAC",
+        "postTime": 1620089510,
+        "uid": 402269,
+        "name": "szkzyc",
+        "ccfLevel": 5,
+        "title": "[COCI2012-2013#1] DOM \u9898\u89e3"
+    },
+    {
+        "content": "# $\\text{Problems}$\n\u7ed9\u5b9a\u4e00\u4e2a\u4ec5\u5305\u542b\u5927\u5199\u5b57\u6bcd\u7684\u5355\u8bcd\uff0c\u5220\u9664\u8be5\u5355\u8bcd\u4e2d\u7684\u4ee5\u4e0b\u4e5d\u4e2a\u5b57\u6bcd\uff1a$\\texttt{C,A,M,B,R,I,D,G,E}$\u3002\n# $\\text{Answer}$\n\u7528 `for` \u5faa\u73af\u8dd1\u4e00\u904d\uff0c\u5f53\u9047\u5230 $s_{i}=\\texttt{C,A,M,B,R,I,D,G,E}$ \u4e2d\u7684\u4efb\u610f\u4e00\u4e2a\u65f6\uff0c\u8df3\u8fc7\u8fd9\u6b21\u5faa\u73af\uff0c\u5373\u53ef\u8fbe\u6210\u5220\u9664\u7684\u6548\u679c\u3002\n\n\u6392\u9664\u4e5d\u4e2a\u5b57\u7b26\u540e\u5c31\u53ef\u4ee5\u76f4\u63a5\u8f93\u51fa\u4e86\u3002\n# $\\text{Code}$\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nstring s;\nint main()\n{\n    getline(cin,s);\n    for(int i=0;i<s.length();++i)\n    {\n        if(s[i]=='C') continue;\n        if(s[i]=='A') continue;\n        if(s[i]=='M') continue;\n        if(s[i]=='B') continue;\n        if(s[i]=='R') continue;\n        if(s[i]=='I') continue;\n        if(s[i]=='D') continue;\n        if(s[i]=='G') continue;\n        if(s[i]=='E') continue;\n        cout<<s[i];\n    }\n    return 0;\n}\n```\n",
+        "postTime": 1620089580,
+        "uid": 202802,
+        "name": "BotDand",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P7583 \u3010[COCI2012-2013#1] DOM\u3011"
+    },
+    {
+        "content": "## \u7b97\u6cd5 $\\bf 1$\n\n\u6bd4\u8f83\u7ed9\u51fa\u5b57\u7b26\u4e32\u4e0e\u5b57\u7b26\u4e32 `CAMBRIDGE` \u662f\u5426\u6709\u76f8\u540c\u7684\u5b57\u7b26\uff0c\u6709\u5219\u4e0d\u8f93\u51fa\u6b64\u5b57\u7b26\u3002\n\n```cpp\nstring cp=\"CAMBRIDGE\";bool f;\nint main() {\n  string s;cin>>s;\n  for(auto i:s){\n    f=0;\n    for(auto j:cp){\n      if(i==j){f=1; break;}\n    }\n    if(f)continue;\n    else cout<<i;\n  }\n}\n```\n\n## \u7b97\u6cd5 $\\bf 2$\n\n\u540c\u6837\u6bd4\u8f83\u5b57\u7b26\u4e32\uff0c\u6211\u4eec\u53ef\u4ee5\u53d1\u73b0\u5224\u65ad\u662f\u5426\u5b58\u5728\u53ef\u4ee5\u4f7f\u7528 `find()` \u51fd\u6570\u4ee3\u66ff\u3002\n\n```cpp\nstring cp=\"CAMBRIDGE\";\nint main() {\n  string s;cin>>s;\n  for(auto i:s){\n    if(cp.find(i)==cp.npos)cout<<i;\n  }\n}\n```\n\n## \u7b97\u6cd5 $\\bf 3$\n\n\u76f4\u63a5\u5224\u65ad\u5373\u53ef\u3002\n\n```cpp\nint main() {\n  string s;cin>>s;\n  for(auto i:s){\n    if(i!='C'&&i!='A'&&i!='M'&&i!='B'&&i!='R'&&i!='I'&&i!='D'&&i!='G'&&i!='E')cout<<i;\n  }\n}\n```",
+        "postTime": 1620089651,
+        "uid": 250147,
+        "name": "BAED0023",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 P7583 \u3010[COCI2012-2013#1] DOM\u3011"
+    }
+]

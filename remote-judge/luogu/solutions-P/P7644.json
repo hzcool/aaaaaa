@@ -1,0 +1,58 @@
+[
+    {
+        "content": "\u9898\u76ee\uff1a[P7644 [COCI2012-2013#5] LJESTVICA ](https://www.luogu.com.cn/problem/P7644)\n\n\u601d\u8def\uff1a\n\n\u672c\u9898\u53ea\u9700\u5c06\u5b57\u7b26\u4e32\u4ece\u5934\u5230\u5c3e\u8dd1\u4e00\u904d\u5373\u53ef\uff0c\u5224\u65ad\u6bcf\u4e2a\u5c0f\u8282\u7684\u7b2c\u4e00\u4e2a\u5b57\u7b26\u662f\u54ea\u79cd\u97f3\u8282\u7684\u4e3b\u8c03(\u4ece\u9898\u76ee\u4e2d\u53ef\u77e5\uff09\uff0c\u7136\u540e\u518d\u5c06\u90a3\u4e2a\u97f3\u8282\u7684\u8ba1\u6570\u7684\u53d8\u91cf\u4e0a\u52a0 $1$ \u5373\u53ef\u3002\n\n\u6700\u540e\u8f93\u51fa\u4e3b\u8c03\u4e2a\u6570\u591a\u7684\u97f3\u9636\u3002\u82e5\u76f8\u7b49\uff0c\u5219\u67e5\u770b\u5b57\u7b26\u4e32\u7684\u6700\u540e\u4e00\u4e2a\u5b57\u7b26\uff0c\u662f\u4ec0\u4e48\u5b57\u6bcd\u5c31\u8f93\u51fa\u4ec0\u4e48\u97f3\u9636\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n\tstring a;\n\tcin>>a;\n\tint n=a.size(),x=0,y=0;//x\u8ba1C\u8c03\u4e3b\u8c03\u7684\u4e2a\u6570\uff0cy\u8ba1A\u8c03\u4e3b\u8c03\u7684\u4e2a\u6570\n\tfor(int i=0;i<=n-1;i++){\n\t\tif(i==0 || a[i-1]=='|'){//\u5224\u65ad\u662f\u4e0d\u662f\u6bcf\u4e2a\u5c0f\u8282\u7684\u7b2c\u4e00\u4e2a\uff0c\u6ce8\u610fa[0]\u4e5f\u662f\n\t\t\tif(a[i]=='C' || a[i]=='F' || a[i]=='G') x++;//C\u8c03\u4e3b\u8c03\n\t\t\tif(a[i]=='A' || a[i]=='D' || a[i]=='E') y++;//A\u8c03\u4e3b\u8c03\n\t\t}\n\t}\n\tif(x>y) cout<<\"C-dur\";\n\tif(x<y) cout<<\"A-mol\";\n\tif(x==y){//\u82e5\u4e3b\u8c03\u4e2a\u6570\u76f8\u7b49\n\t\t//\u67e5\u770b\u6700\u540e\u4e00\u4e2a\u5b57\u7b26\n\t\tif(a[n-1]=='C') cout<<\"C-dur\";\n\t\telse cout<<\"A-mol\";\n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1624515090,
+        "uid": 333126,
+        "name": "sid_shi1",
+        "ccfLevel": 0,
+        "title": "P7644 [COCI2012-2013#5] LJESTVICA \u9898\u89e3"
+    },
+    {
+        "content": "~~\u9898\u76ee\u91cd\u4e8e\u6a21\u62df\u3002~~ \n\n\u672c\u9898\u8981\u6c42\u6211\u4eec\u7edf\u8ba1 $A$ \u5c0f\u8c03\u6216\u662f $C$ \u5927\u8c03\u7684\u4e2a\u6570\uff0c\u8fdb\u884c\u6bd4\u8f83\u3002\n\n\u6ce8\u610f\uff1a \n\n$A$ \u5c0f\u8c03\u5305\u62ec $A$ , $D$ , $E$ .\n\n$C$ \u5927\u8c03\u5305\u62ec $C$ , $G$ , $F$ .\n\n\u7528\u4e00\u4e2a\u5b57\u7b26\u4e32\u8fdb\u884c\u5b58\u50a8\u5e76\u5224\u65ad\u5c31\u884c\u4e86\u3002\n\n\u4ee3\u7801\u5982\u4e0b\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n\tint a=0,c=0;\n\tstring s;\n\tcin >> s;\n\tif(s[0]=='A'||s[0]=='D'|s[0]=='E')\n\t\ta++;\n\telse \n\t\tc++;\n\tfor(int i=1;i<s.size();i++)\n\t\tif(s[i]=='|')\n\t\t\tif(s[i+1]=='A'||s[i+1]=='D'|s[i+1]=='E')\n\t\t\t\ta++;\n\t\t\telse\n\t\t\t\tc++;\n\tif(a>c)\n\t\tcout << \"A-mol\";\n\telse if(c>a)\n\t\tcout << \"C-dur\";\n\telse\n\t{\n\t\tif(s[s.size()-1]=='A'||s[s.size()-1]=='D'|s[s.size()-1]=='E')\n\t\t\tcout << \"A-mol\";\n\t\telse \n\t\t\tcout << \"C-dur\";\t\n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1624536433,
+        "uid": 517574,
+        "name": "\u53ef\u7231\u7684\u5c0f\u4e8e",
+        "ccfLevel": 4,
+        "title": "LJESTVICA"
+    },
+    {
+        "content": "\u6211\u4eec\u53d1\u73b0\uff0cA \u5c0f\u8c03\u4e3b\u8c03\u4e3a $\\{A, D, E\\}$\uff0c\u800c C \u5927\u8c03\u4e3b\u8c03\u4e3a $\\{C, F, G\\}$\uff0c\u6240\u4ee5\u6211\u4eec\u76f4\u63a5\u679a\u4e3e\uff0c\u5982\u679c\u662f\u5c0f\u8282\u7b2c\u4e00\u4e2a\uff0c\u5373\u7b2c\u4e00\u4e2a\u97f3\u8c03\u4ee5\u53ca`|`\u540e\u9762\u4e00\u4e2a\u5c31\u5224\u65ad\uff0c\u5982\u679c\u662f A \u5c0f\u8c03\u4e3b\u8c03\u5c31\u8ba9\u7edf\u8ba1 A \u5c0f\u8c03\u4e2a\u6570\u7684 $ansA$ \u589e\u52a0 $1$\uff0c\u5426\u5219\u5c31\u5c06\u7edf\u8ba1 C \u5927\u8c03\u4e2a\u6570\u7684 $ansB$ \u589e\u52a0 $1$\u3002\n\n\u6700\u540e\u5224\u65ad\u65f6\uff0c\u53ea\u8981\u5224\u65ad $ansA$ \u4e0e $ansB$ \u5c31\u884c\u4e86\u3002\n\n\u6ce8\u610f\uff1a\u5982\u679c\u76f8\u7b49\u662f\u5224\u65ad**\u6700\u540e**\u4e00\u4e2a\u97f3\u7b26\u7684\uff0c\u540c\u65f6\u4e5f\u53ea\u9700\u8981\u5224\u65ad\u662f\u4e0d\u662f`A`\uff0c\u4e0d\u9700\u8981\u5224\u65ad\u662f\u4e0d\u662f`D`\u6216`E`\u3002\n\nCode\uff1a\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint ansA, ansB;\nint main() {\n\tstring st;\n\tcin >> st;\n\tfor (int i = 0; i < st.size(); i++) {\n\t\tif ((i == 0) || st[i - 1] == '|') {\t\n\t\t\tif (st[i] == 'A' || st[i] == 'D' || st[i] == 'E') ansA++;\n\t\t\telse if (st[i] == 'C' || st[i] == 'F' || st[i] == 'G') ansB++;\n\t\t}\n\t}\n\tif (ansA > ansB) puts(\"A-mol\");\n\telse if (ansA == ansB) {\n\t\tif (st[st.size() - 1] == 'A') puts(\"A-mol\");\n\t\telse puts(\"C-dur\"); \n\t} else puts(\"C-dur\");\n} \n```",
+        "postTime": 1624441030,
+        "uid": 322620,
+        "name": "_SHM_",
+        "ccfLevel": 3,
+        "title": "\u9898\u89e3 P7644 [COCI2012-2013#5] LJESTVICA"
+    },
+    {
+        "content": "```\n#include<bits/stdc++.h>//\u4e07\u80fd\u5934\u6587\u4ef6 \nusing namespace std;\nint main(){\n\tint a=0,c=0;\n\tstring n;//\u8f93\u5165\u5b57\u7b26\u4e32 \n\tcin >> n;\n\tif(n[0]=='A'||n[0]=='D'||n[0]=='E') a++;//\u56e0\u4e3a\u7b2c\u4e00\u4e2a\u5c0f\u8282\u7684\u524d\u9762\u6ca1\u6709 | \u5224\u65ad\u7b2c\u4e00\u4e2a\u5c0f\u8282 \n\tif(n[0]=='C'||n[0]=='F'||n[0]=='G') c++;\n\tfor(int i=1;i<n.size();i++){\n\t\tif(n[i]=='|'){//\u9664\u4e86\u7b2c\u4e00\u4e2a\u5c0f\u8282\uff0c\u6bcf\u4e00\u4e2a\u5c0f\u8282\u7684\u524d\u9762\u90fd\u6709| \n\t\t\tint j=i+1;\n\t\t\tif(n[j]=='A'||n[j]=='D'||n[j]=='E')a++;//\u5224\u65adA\u8c03 \n\t\t\tif(n[j]=='C'||n[j]=='F'||n[j]=='G')c++;//\u5224\u65adC\u8c03 \n\t\t}\n\t}\n\tif(a>c)cout<<\"A-mol\"<<endl;//\u5224\u65ad \n\tif(c>a)cout<<\"C-dur\"<<endl;\n\tif(a==c){\n\t\tif(n[n.size()-1]=='A'||n[n.size()-1]=='D'||n[n.size()-1]=='E') cout<<\"A-mol\"<<endl;//\u5224\u65ad\u6700\u540e\u4e00\u4e2a \n\t\telse cout<<\"C-dur\"<<endl;\n\t}\n\treturn 0;\n}//\u7ed3\u675f \n```\n\u6ce8\u610f\u6ee1\u520650\u5206",
+        "postTime": 1624419987,
+        "uid": 238691,
+        "name": "Leo2020",
+        "ccfLevel": 4,
+        "title": "P7644\u9898\u89e3"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u53ea\u7528\u770b\u7b2c\u4e00\u4e2a\u97f3\u8282\uff0c\u5176\u5b9e\u5c31\u662f\u9664\u7b2c\u4e00\u4e2a\u97f3\u7b26\u5916\uff0c\u5224\u65ad\u5206\u9694\u53f7\u540e\u9762\u7684\u7b2c\u4e00\u4f4d\u3002\n\n\u5982\u679c\u4e00\u6837\uff0c\u5c31\u518d\u5224\u4e00\u6b21\u3002\n```cpp\n#include <iostream> \n#include <cstring>\nusing namespace std;\nint main() {\n\tchar s[101];\n\tcin>>s;\n\tint amol=0,cdur=0;\n\tswitch(s[0]) {\t//\u7b2c\u4e00\u4e2a\u97f3\u7b26\u7279\u5224\n    \t\t//\u4e09\u79cda\u5c0f\u8c03\u7684\u4e3b\u8c03\n\t\tcase 'A':\n\t\tcase 'D':\n\t\tcase 'E':\n\t\t\tamol++;\n\t\t\tbreak;\n           \t//\u4e09\u79cdC\u5927\u8c03\u7684\u4e3b\u8c03\n\t\tcase 'C':\n\t\tcase 'F':\n\t\tcase 'G':\n\t\t\tcdur++;\n\t\t\tbreak;\n            \t//\u5176\u5b83\u7684\u4e0d\u7406\u5b83\n\t\tdefault:\n\t\t\tbreak;\n\t}\n\tfor(int i=0 ;i<strlen(s) ;i++) {\n\t\tif(s[i]=='|') {\n        \t\t//\u8ddf\u5728\u5206\u9694\u53f7\u540e\u9762\u7684\u97f3\u7b26\uff0c\u5c31\u662f\u4e0b\u4e00\u4e2a\u97f3\u8282\u7684\u7b2c\u4e00\u4e2a\u97f3\u7b26\n\t\t\tswitch(s[i+1]) {\n\t\t\t\tcase 'A':\n\t\t\t\tcase 'D':\n\t\t\t\tcase 'E':\n\t\t\t\t\tamol++;\n\t\t\t\t\tbreak;\n\t\t\t\tcase 'C':\n\t\t\t\tcase 'F':\n\t\t\t\tcase 'G':\n\t\t\t\t\tcdur++;\n\t\t\t\t\tbreak;\n\t\t\t\tdefault:\n\t\t\t\t\tbreak;\n\t\t\t}\n\t\t}\n\t}\n\tif(amol>cdur) {\n\t\tcout<<\"A-mol\";\n\t} else if(amol<cdur) {\n\t\tcout<<\"C-dur\";\n\t} else {\n    \t\t//\u4e00\u6837\u5c31\u7279\u5224\u6700\u540e\u4e00\u4e2a\n\t\tswitch(s[strlen(s)-1]) {\n\t\t\tcase 'A':\n\t\t\tcase 'D':\n\t\t\tcase 'E':\n\t\t\t\tcout<<\"A-mol\";\n\t\t\t\tbreak;\n\t\t\tcase 'C':\n\t\t\tcase 'F':\n\t\t\tcase 'G':\n\t\t\t\tcout<<\"C-dur\";\n\t\t\t\tbreak;\n\t\t\tdefault:\n\t\t\t\tbreak;\n\t\t}\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1624764165,
+        "uid": 349033,
+        "name": "LIANZHENG_SCHOOL",
+        "ccfLevel": 4,
+        "title": "P7644\u9898\u89e3"
+    },
+    {
+        "content": "### \u524d\u8a00\n\n\u4e0d\u81ea\u89c9\u60f3\u8d77\u4e86 UVA \u7684\u4e00\u9053\u97f3\u4e50\u7d20\u517b\u9898\u2026\u2026\n\n### \u601d\u8def\n\n$\\operatorname{A} $ \u5c0f\u8c03\u7684\u4e3b\u8c03\u662f $\\operatorname{A,D,E}$ \u3002\n\n$\\operatorname{C} $ \u5927\u8c03\u7684\u4e3b\u8c03\u662f $\\operatorname{C,F,G}$ \u3002\n\n\u6bcf\u4e00\u4e2a\u5b57\u7b26\u4e00\u6b21\u5b58\u50a8\u5224\u65ad\u5373\u53ef\u3002\n\n### \u4ee3\u7801\n\n```cpp\n/*\nAUTH: July in Xin Chou\nLANG: C++\nREID: R52109583\nANCH: On\nDIFF: Easy\nACED: Yes\n*/\nint a, c;\nchar s[201];\n//\u8bfb\u5165\ncin>>s+1;\nint n=strlen(s+1);\ns[0]='\u4e28';\nfr(i,1,n,1){\n\tif(s[i-1]=='\u4e28'){\n\t\tif(s[i]=='A'||s[i]=='D'||s[i]=='E') ++a;\n\t\tif(s[i]=='C'||s[i]=='F'||s[i]=='G') ++c;\n\t}\n}\n//\u5904\u7406\nif(a>c) puts(\"A-mol\");\nelse if(a<c) puts(\"C-dur\");\nelse{\n\tif(s[n]=='A') puts(\"A-mol\");\n\telse puts(\"C-dur\");\n}\n```\n\u6c42\u8d5e\u6c42\u5173\u6ce8\u6c42\u8bc4\u8bba\u6c42\u9876\uff01",
+        "postTime": 1624708449,
+        "uid": 490670,
+        "name": "Elysiaqwq",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P7644 LJESTVICA"
+    },
+    {
+        "content": "## P7644 LJESTVICA\n[\u539f\u9898\u94fe\u63a5](https://www.luogu.com.cn/problem/P7644)\n## \u5206\u6790\n\u8bfb\u9898\u53ef\u5f97\uff1a(A , D , E) \u4e3a A \u5c0f\u8c03\u4e3b\u8c03\uff0c(C , F , G)\u4e3a C \u5927\u8c03\u4e3b\u8c03\u3002\u5c06\u5b57\u7b26\u4e32\u4e2d\u6bcf\u4e2a\u5c0f\u8282\u9996\u5b57\u6bcd\u8fdb\u884c\u5224\u65ad\uff0c\u8ba1\u6570\u7d2f\u52a0\uff0c\u6700\u540e\u5224\u65ad\u5373\u53ef\u3002\n\n## \u601d\u8def\n\u4ece\u5b57\u7b26\u4e32\u5934\u90e8\u5f00\u59cb\u679a\u4e3e\uff0c\u5f53\u627e\u5230\u5206\u9694\u7b26\u540e\u4e0b\u4e00\u4f4d\u65e2\u662f\u9996\u5b57\u6bcd\uff0c\u679a\u4e3e\u5230\u5b57\u7b26\u4e32\u6700\u540e\u4e00\u4f4d\u65f6\u6807\u8bb0\u662f\u5426\u4e3a A \u65b9\u4fbf\u5224\u65ad\u3002\n\n\n## Code\n```cpp\n#include<iostream>\n#include<cstdio>\n#include<string>\nusing namespace std;\nint ans1,ans2;\nstring s;\nbool tail;\nint main(){\n\tcin>>s;s='|'+s; //\u5b57\u7b26\u4e32\u9996\u4f4d\u52a0'|'\uff0c\u65b9\u4fbf\u5224\u65ad\u7b2c\u4e00\u5c0f\u8282\u9996\u5b57\u6bcd\n\tint k=s.size()-1;\n\tfor(int i=0;i<=k;i++){\n\t\tif(s[i]=='|'){ //i\u4f4d\u7f6e\u4e3a\u5206\u9694\u7b26\uff0c\u5219i+1\u4f4d\u7f6e\u4e3a\u5c0f\u8282\u9996\u5b57\u6bcd\n\t\t\tif(s[i+1]=='A'||s[i+1]=='D'||s[i+1]=='E') ans1++;\n\t\t\tif(s[i+1]=='C'||s[i+1]=='F'||s[i+1]=='G') ans2++;\n\t\t}\n\t\tif(i==k){ //\u626b\u5230\u5b57\u7b26\u4e32\u672b\u4f4d\uff0c\u6807\u8bb0\u5907\u7528\n\t\t\tif(s[i]=='A') tail=true;\n\t\t}\n\t}\n\t\n\tif(ans1>ans2) cout<<\"A-mol\"; \n\tif(ans1<ans2) cout<<\"C-dur\";\n\tif(ans1==ans2){\n\t\tif(tail){ //\u4e3b\u97f3\u4e00\u6837\u591a\uff0c\u7528bool\u5224\u65ad\n\t\t\tcout<<\"A-mol\";\n\t\t}else cout<<\"C-dur\";\n\t}\t\n\treturn 0; //end\n}\n```\n",
+        "postTime": 1624536562,
+        "uid": 387500,
+        "name": "zuiyunlan",
+        "ccfLevel": 0,
+        "title": "P7644 LJESTVICA"
+    }
+]

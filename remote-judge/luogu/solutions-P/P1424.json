@@ -1,0 +1,242 @@
+[
+    {
+        "content": "\u8fd9\u9053\u9898\u76ee\u633a\u7b80\u5355\u7684\uff0c\u5c31\u770b\u4f60\u6709\u6ca1\u6709\u4ed4\u7ec6\u5ba1\u9898\u3002\u5929\u6570\u90fd\u90a3\u4e48\u5927\u4e86\uff0c\u603b\u8def\u7a0b\u8fd8\u4f1a\u5c0f\u5417\uff1f\uff1f\uff1f\u563f\u563f\u563f\u3002\n\n```cpp\n#include<bits/stdc++.h> //\u5305\u542b\u4e86\u6240\u6709C++\u5934\u6587\u4ef6\u7684\u5934\u6587\u4ef6\nusing namespace std;\nint main()\n{\n    unsigned long long n,ans=0; //\u5751\u5c31\u5751\u5728\u8fd9\u513f\u3002\u5929\u6570\u90fd\u90a3\u4e48\u5927\u4e86\uff0c\u603b\u8def\u7a0b\u8fd8\u4f1a\u5c0f\u5417\uff1f\uff1f\uff1f\n    int x;\n    cin >> x >> n; //\u8f93\u5165\u661f\u671f\u548c\u6301\u7eed\u5929\u6570\n    for(int i=0;i<n;i++)\n    {\n        if((x!=6)&&(x!=7)) //\u53ea\u8981\u661f\u671f\u4e0d\u7b49\u4e8e6\u548c7\n            ans += 250; //\u603b\u957f\u5ea6\u589e\u52a0250\n        if(x==7) //\u5f53x\u7b49\u4e8e7\u7684\u65f6\u5019\n        x=1; // x\u5f52\u4f4d\u4e3a1\n        else //\u5176\u4ed6\u60c5\u51b5\u4e0b\uff08x\u4e0d\u7b49\u4e8e7\u7684\u65f6\u5019\uff09\n            x++; //x\u81ea\u52a01\n    }\n    cout << ans; //\u8f93\u51fa\u603b\u8def\u7a0b\n    return 0;\n}\n```",
+        "postTime": 1486043914,
+        "uid": 35776,
+        "name": "Kuchinashi",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P1424 \u3010\u5c0f\u9c7c\u7684\u822a\u7a0b(\u6539\u8fdb\u7248)\u3011"
+    },
+    {
+        "content": "\u8fd9\u9898\u770b\u8d77\u6765\u597d\u96be\uff0c\u4e0d\u8fc7\u505a\u8d77\u6765\u662f\u771f\u7684\u7b80\u5355\u3002\n\n\n\u9996\u5148\uff0c\u4e0a\u5348\u6e38\u6cf3150\u516c\u91cc\uff0c\u4e0b\u5348\u6e38\u6cf3100\u516c\u91cc\uff0c\u665a\u4e0a\u548c\u5468\u672b\u4f11\u606f\uff0c\u8fd9\u4e9b\u6761\u4ef6\u53ef\u4ee5\u5408\u5e76\u6210\u4e00\u6761\uff1a\u9664\u4e86\u5468\u672b\uff0c\u5176\u4ed6\u65f6\u95f4\u6bcf\u5929\u6e38\u6cf3250\u516c\u91cc\u3002\uff08\u8fd9\u6837\u4e00\u8bf4\u5c31\u5f88\u7b80\u5355\u660e\u4e86\u4e86\u5427\u3002\uff09\n\n\n\u5982\u4f55\u5224\u65ad\u662f\u5468\u672b\u5462\uff1f\u5047\u8bbe\u5c0f\u9c7c\u4ece\u5468n\u5f00\u59cb\u6e38\uff0c\u6bcf\u6e38\u4e00\u5929\u5c31\u662fn+1\uff0c\u90a3\u5982\u679cn\u662f6\u6216\u80057\uff0c\u90a3\u5c31\u8bc1\u660e\u662f\u5468\u672b\uff0c\u53cd\u4e4b\u5982\u679c\u4e0d\u662f6\u6216\u80057\uff0c\u90a3\u4e48\u5c31\u4e0d\u662f\u5468\u672b\uff0c\u90a3\u5c31\u8981\u52a0\u4e0a250\u3002\n\n\n\u6700\u540e\u662f\u6700\u91cd\u8981\u7684\u4e00\u70b9\uff0c\u5982\u679c\u73b0\u5728\u662f\u54687\uff0c\u90a3\u660e\u5929\u5c31\u4e0d\u80fd\u662f\u54688\u4e86\uff0c\u800c\u662f\u54681\uff0c\u6240\u4ee5\u5f53n==7\u7684\u65f6\u5019\uff0cn\u5e94\u8be5\u8d4b\u503c\u4e3a1\u3002\n\n\n\u5bf9\u7167\u4ee3\u7801\u597d\u7406\u89e3\uff1a\n\n        \n        \n```cpp\n#include<cstdio>\nint main()\n{\n    int n,k,s=0;//\u5468n\u5f00\u59cb\u6e38\uff0c\u8fc7\u4e86k\u5929\uff0c\u6e38\u4e86s\u516c\u91cc\n    scanf(\"%d %d\",&n,&k);\n    for(int i=1;i<=k;i++)//\u8981\u6e38k\u5929\uff0c\u6240\u4ee5\u7528\u5faa\u73af\n    {\n        if(n!=6 && n!=7) s+=250;//\u5982\u679c\u4e0d\u662f\u5468\u672b\u5219\u52a0250\n        if(n==7) n=1;//\u5982\u679c\u662f\u54687\uff0c\u90a3\u4e48\u8d4b\u503c\u4e3a1\n        else n++;//\u5426\u5219n+1\n    }\n    printf(\"%d\",s);//\u8f93\u51fa\u6e38\u4e86\u591a\u5c11\u516c\u91cc\n    return 0;\n}\n```",
+        "postTime": 1516502232,
+        "uid": 48819,
+        "name": "CYYC",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P1424 \u3010\u5c0f\u9c7c\u7684\u822a\u7a0b(\u6539\u8fdb\u7248)\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\uff0c\u5206\u7c7b\u5728\u5faa\u73af\u91cc\uff0c\u4e0d\u8fc7\u4ece\u65f6\u95f4\u7684\u89d2\u5ea6\u8bf4\uff0c\u5f53\u7136\u4e0d\u7528\u5faa\u73af\u662f\u6700\u597d\u7684\u3002\n\n\u9996\u5148\u8ba1\u7b97\u6574\u5468\u7684\u5929\u6570\uff0c\u7136\u540e\u5224\u65ad\u4e00\u4e0b\u5269\u4f59\u90e8\u5206\u662f\u5426\u6709\u4f11\u606f\u65e5\u5373\u53ef\u3002\n\n\u4e0a\u9762\u6709\u4eba\u8bf4\u4e86long long\uff0c\u6211\u770b\u9898\u76ee\u6ca1\u7ed9\u8303\u56f4\uff0c\u76f4\u63a5\u5199\u4e86int\u4e0a\u53bb\u4e5f\u8fc7\u4e86\u3002\u4e0d\u8fc7\u6309\u8fd9\u4e2a\u601d\u8def\u5199\u7a0b\u5e8f\u9700\u8981\u601d\u8003\u8be6\u7ec6\uff0c\u6211\u9519\u4e86N\u6b21\u624d\u5bf9\u7684\n\n```cpp\n#include <iostream>\nusing namespace std;\n\nint main(int argc, char** argv)\n{\n\tint x, n;\n\tcin >> x >> n;\n\tint d = n / 7 * 5; // \u6574\u5468\u7684\u5de5\u4f5c\u65e5\u6570\n\tint r = n % 7;\n\tif (r > 0) // \u6709\u5269\u4f59\u5929\u6570\n\t{\n\t\tif (r + x == 7 || x == 7) //\u5982\u5f00\u59cb\u4e3a\u5468\u65e5\u80af\u5b9a\u53ea\u4f11\u606f\u4e00\u5929\uff1b\u5982r+x==7\u5373\u6700\u540e\u4e00\u5929\u4e3a\u5468\u516d\uff0c\u4e5f\u4f11\u606f\u4e00\u5929\n\t\t\tr -= 1;\n\t\telse if (r + x >= 8) //\u6700\u540e\u4e00\u5929\u5df2\u8fc7\u5468\u65e5\uff0c\u4f11\u606f\u4e24\u5929\n\t\t\tr -= 2;\n\t}\n\tcout << (d + r) * 250 << endl;\n\treturn 0;\n}\n```\n",
+        "postTime": 1520911227,
+        "uid": 49561,
+        "name": "\u821e\u4e4b\u672c\u6a31",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P1424 \u3010\u5c0f\u9c7c\u7684\u822a\u7a0b(\u6539\u8fdb\u7248)\u3011"
+    },
+    {
+        "content": "\n\n```cpp\n#include<stdio.h>\nint main()\n{\n   int x;\n   long long int n,i,sum=0;\n   scanf(\"%d%lld\",&x,&n);//\u8f93\u5165\u661f\u671f\u548c \u5929\u6570\n   for(i=1;i<=n;i++)\n   {\n        switch(x)//\u5bf9\u661f\u671f\u4f9d\u6b21\u5224\u65ad\n        {\n           case 1:case 2:case 3:case 4:case 5:sum+=250;\n           case 6: x++;continue;//\u5468\u516d\u4e0d\u8fdb\u884c \u8fdb\u884c\u4e0b\u4e00\u5faa\u73af\n           case 7:x=1;continue;//\u5468\u65e5\u6e05\u96f6\u4e3a\u661f\u671f\u4e00 \u5e76\u8fdb\u884c\u4e0b\u4e00\u5faa\u73af\n        }\n      x++;//\u5de5\u4f5c\u65e5\u60c5\u51b5\u4e0b \u8fdb\u5165\u4e0b\u4e00\u65e5\n  }\n  printf(\"%lld\\n\",sum);//\u8f93\u51fa\u516c\u91cc\u6570\n  return 0;\n}\n```",
+        "postTime": 1446964399,
+        "uid": 9884,
+        "name": "\u5b64\u5bc2\u5929\u5b50",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P1424 \u3010\u5c0f\u9c7c\u7684\u822a\u7a0b(\u6539\u8fdb\u7248)\u3011"
+    },
+    {
+        "content": "//\u51e0\u4e4e\u662f\u6700\u7b80\u6d01\u7684\u4ee3\u7801\uff0c\u5355\u5355\u7528\u4e86\u6700\u57fa\u672c\u7684\u5faa\u73af\n\n\n\n```cpp\n//\u5199\u7684\u90fd\u6709\u4e9b\u50cf\u4f2a\u4ee3\u7801\u4e86\uff0c2333\n//\u56e0\u4e3a\u662ffor\u5faa\u73af\uff0c\u6240\u4ee5\u7279\u522b\u76f4\u89c2\uff0c\u76f8\u6bd4\u522b\u7684\u4ee3\u7801\uff0c\u8fd9\u4e2a\u4ee3\u7801\u5219\u662f\u6700\u4ee4\u521d\u5b66\u8005\u770b\u61c2\u7684\u4e86\n//\u4ee3\u7801\u5982\u4e0b:\n#include <iostream>//\u8f93\u5165\u8f93\u51fa\u6d41\nusing namespace std;//\u547d\u540d\u7a7a\u95f4\nint main(){//\u4e3b\u51fd\u6570\n    int a,b,i,sum=0;//\u5b9a\u4e49\u6574\u5f62\u53d8\u91cf\n    cin>>a>>b;//\u8bfb\u5165\u661f\u671f\u51e0\uff0c\u8fc7\u4e86\u7684\u5929\u6570[\u6309\u7167\u9898\u76ee\u8981\u6c42]\n    for (i=a;i<=a+b-1;++i){//\u8fd9\u5219\u662f\u5f88\u91cd\u8981\u7684\u4e86\uff0c\u6ce8\u610f\u4e3a\u4ec0\u4e48\u662fi<=a+b-1\n        //\u4e3a\u4ec0\u4e48i=a+b-1\uff0c\u56e0\u4e3a\u5305\u6db5\u4e86\u7b2c\u4e00\u5929\uff0c\u4e5f\u7b97\u4e00\u5929\n        if (i%7==6 || i%7==0){//\u522b\u4e0a\u5f53\uff0c\u6211\u7b2c\u4e00\u6b21\u4e3b\u89c2\u81c6\u65ad\uff0c\u5199\u7684\u5c31\u662fif(i%6==0&&i%7==0)\uff0c\n                              //\u56e0\u4e3a\u662fi\uff0c\u4e0d\u662fi\u6240\u5bf9\u5e94\u7684\u661f\u671f\u51e0\uff0c\u7a0b\u5e8f\u65f6\u8fd0\u884c\u5173\u4e8ei\u7684\n            continue;//\u8df3\u8fc7\u7528continue,\u5343\u4e07\u4e0d\u8981\u7528break\u6216return 0;\u4e0d\u7136\u5c31\u628a\u6574\u4e2a\u51fd\u6570\u90fd\u7ed9\u505c\u6389\u4e86\n        }\n        sum+=250;//\u6ca1\u88ab\u8df3\u8fc7\u7684\uff0c\u5c31\u6309\u8981\u6c42\u52a0\u4e0a\u6bcf\u65e5\u7684250\u5c31\u53ef\u4ee5\u4e86:-)\n    }\n    cout<<sum<<endl;//\u8f93\u51fa\u7b54\u6848\n    return 0;//\u73b0\u5728\u7528\u901a\u8fc7\u51fd\u6570\u8fd4\u56de\u503c\uff0c\u6b63\u5e38\u5730\u505c\u6389\u51fd\u6570\uff0c\u4e5f\u5c31\u662f\u7ed3\u675f\u7740\u6574\u4e2a\u7a0b\u5e8f\n```\n}//\u5e0c\u671b\u5bf9\u4f60\u4eec\u6709\u5e2e\u52a9\u54e6:-)\uff0c2333\n\n\n\n\n\n\n\n\n\n\n\n\n```cpp\n//\u518d\u9644\u4e0a\u6e05\u695a\u7684\u6ca1\u6709\u6ce8\u91ca\u7684\u4ee3\u7801\uff1a\n//______________________________________________________\n#include <iostream>\nusing namespace std;\nint main(){\n    int a,b,i,sum=0;\n    cin>>a>>b;\n    for (i=a;i<=a+b-1;++i){\n        if (i%7==6 || i%7==0){\n            continue;\n        }\n        sum+=250;\n    }\n    cout<<sum<<endl;\n    return 0;\n}\n//______________________________________________________\n//____________________________________________\u5f3a\u8feb\u75c7\u53c8\u72af\u4e86\n//___________________\u5475\u5475\uff0c\u8fd8\u662f\u5f88\u7b80\u5355_____________________\n```",
+        "postTime": 1470490816,
+        "uid": 21131,
+        "name": "Aimyhtixela",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P1424 \u3010\u5c0f\u9c7c\u7684\u822a\u7a0b(\u6539\u8fdb\u7248)\u3011"
+    },
+    {
+        "content": "### \u8fd8\u662f\u51b3\u5b9a\u5199Java\u7684\u9898\u89e3\u3002\u3002\u3002\n### Java\u4ec0\u4e48\u7684\uff0c\u5176\u5b9e\u771f\u7684\u633a\u597d\u7528\u7684\n#### \u6c42\u4e00\u8d77\u5199Java\u7684\u5c0f\u4f19\u4f34\n```java\nimport java.util.*;\npublic class Main{\n    public static void main(String[] args){\n        Scanner cin=new Scanner(System.in);\n        long ans=0,x,n;\n        x=cin.nextLong();\n        n=cin.nextLong();\n        for(int i=0;i<n;i++){\n            if(x!=6&&x!=7) ans+=250;\n            if(x==7) x=1;\n            else x++;\n        }\n        System.out.println(ans);\n        return;\n    }\n}\n```\n### \u4e0b\u9762\u4e0a\u601d\u8def\uff1a\n\n\n------------\n\u6839\u636e\u9898\u610f\uff0c\u6211\u4eec\u53ef\u4ee5\u77e5\u9053\uff0c\u9664\u4e86\u5468\u672b\uff0c\u5176\u4f59\u65f6\u95f4\u6bcf\u5929\u6e38250\u516c\u91cc\n\n\u7136\u540e\uff0c\u5df2\u77e5\u5468N\n\n\u6240\u4ee5\u53ef\u4ee5\u76f4\u63a5\u4f7f\u7528for\u5faa\u73af\uff0c1~5\u5219\u52a0250\uff0c\u54686\u62167\u5219\u4e0d\u53d8\n\n\u6709\u4e00\u70b9\u662f\u9700\u8981\u7279\u522b\u6ce8\u610f\u7684\uff1a7\u4e4b\u540e\u5e94\u8be5\u8df3\u52301\n\n\u8fd8\u6709\u4e00\u70b9\uff0c\u6570\u636e\u51fa\u6765\u7565\u5927\uff0cint\u8c8c\u4f3c\u4f1a\u7206\uff08\u867d\u7136\u6211\u6ca1\u8bd5\u8fc7\uff0c\u4f46\u4e4b\u524dC++\uff0c\u521a\u5f00\u59cb\u7528int\u7206\u4e86\uff09\n\n\u6240\u4ee5\uff0cC/C++ \u7528long long\u6216\u8005unsigned long long\n\nJava\u7528long\u5c31\u884c\u4e86",
+        "postTime": 1536930696,
+        "uid": 89331,
+        "name": "LaWekokomidy",
+        "ccfLevel": 3,
+        "title": "\u9898\u89e3 P1424 \u3010\u5c0f\u9c7c\u7684\u822a\u7a0b(\u6539\u8fdb\u7248)\u3011"
+    },
+    {
+        "content": "\u4efb\u610f\u8fde\u7eed7\u5929\u5185\uff0c\u5fc5\u6e38250*5=1250\n\n\u6240\u4ee5\u7b80\u5355\u4e86\u554a~ \u5148\u9010\u4e2a\u89e3\u51b3\u524d\u51e0\u5929\uff0c\u5269\u4f59\u5929\u6570\u88ab7\u6574\u9664\u65f6\uff0c\u8d70\u4f60\n\n```python\nx, n = map(int, input().split())\ncnt, s = 0, 0\t# cnt\u8bb0\u5f55\u5929\u6570\uff0cs\u8bb0\u5f55\u603b\u957f\n\nwhile cnt < n:\n\n\t# \u9010\u4e2a\u89e3\u51b3\u524d\u51e0\u5929\n    if 1 <= x % 7 <= 5:\n        s += 250\n    x += 1\n    cnt += 1\n    \n    # \u5269\u4f59\u5929\u6570\u6574\u96647\u65f6\uff0c\u4e00\u8d77\u641e\u5b9a\n    if (n-cnt) % 7 == 0:\n        s += 1250 * (n-cnt) // 7\n        break\nprint(s)\n```",
+        "postTime": 1531156283,
+        "uid": 105857,
+        "name": "festoney8",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P1424 \u3010\u5c0f\u9c7c\u7684\u822a\u7a0b(\u6539\u8fdb\u7248)\u3011"
+    },
+    {
+        "content": "\u6765\u81eapython\u7684\u66b4\u529b\n\u6c42mod\u662f\u4e0d\u662f6\u6216\u80057\uff0c\u4e0d\u662f\u5c31\u52a0250\n\n\t a,b=(int(i.strip()) for i in input().split())\n\ts=0\n\tfor i in range(a,b+a):\n    \tif i%7!=0 and i%7!=6:\n        \ts+=250\n\tprint(s)\n    //\u4e0d\u7ba1\u6548\u7387\u7684\u61d2\u764c\u89e3\u6cd5",
+        "postTime": 1543275406,
+        "uid": 138859,
+        "name": "\u6ca1\u540d\u5b57\u7684",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P1424 \u3010\u5c0f\u9c7c\u7684\u822a\u7a0b(\u6539\u8fdb\u7248)\u3011"
+    },
+    {
+        "content": "\u8868\u793a\u8fd9\u4e00\u9053\u9898\u53ef\u4ee5\u7528\u7740\u4e00\u79cd\u6c42\u4f59\u6570\u548c\u6574\u9664\u7684\u65b9\u6cd5\u6765\u89e3\u51b3\u3002\n\u8be6\u7ec6\u7684\u5728\u4ee3\u7801\u91cc\u9762\uff1a\n```cpp\n#include<bits/stdc++.h>  //\u4e0d\u60f3\u6253\u90a3\u4e48\u591a\u5934\u6587\u4ef6\uff0c\u4e00\u4e2a\u4e07\u80fd\u5934\u641e\u5b9a\u3002\nusing namespace std;\nint n,m,s;\nint main()\n{\n    cin>>n>>m; //\u8f93\u5165\u4e24\u4e2a\u6570\n    s+=m/7*1250; //\u76f4\u63a5\u8ba1\u7b97\u8fd9\u53ea\u9c7c\u8981\u6e38\u51e0\u5468\uff0c\u4e00\u5468\u8fd9\u53ea\u9c7c\u8981\u6e381250km\n    m%=7; //\u56e0\u4e3a\u628a\u4ed6\u7684\u8981\u6e38\u51e0\u5468\u7b97\u51fa\u6765\u4e86\uff0c\u6240\u4ee5\u5c31\u5269\u4e0b\u90a3\u4e00\u5355\u5929\u4e86\u3002\n    for(int i=n;i<n+m;i++)//for\u5faa\u73af\u627e\u90a3\u4e9b\u8eab\u4e0b\u6765\u7684\u5929\u3002  \n        if(i%7!=0 && i%7!=6) s+=250; //s%7\u6015\u5269\u4e0b\u7684\u5929\u6570\u7d2f\u8ba1\u540e\u4f1a\u8d85\u8fc77.        \n    cout<<s; //\u8f93\u51fa\u3002    \n    return 0;\n}\n```\n",
+        "postTime": 1553575965,
+        "uid": 150354,
+        "name": "\u767e\u91cc\u4ea6\u5b88\u7ea6",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P1424 \u3010\u5c0f\u9c7c\u7684\u822a\u7a0b(\u6539\u8fdb\u7248)\u3011"
+    },
+    {
+        "content": "## \u8dea-\u8d85\u7ea7\u849f\u84bb\u7684\u7b2c\u4e8c\u6761\u9898\u89e3\uff01\uff08\u6ca1\u6709\uff09\n\u601d\u8def\u6709\u4e00\u4e22\u4e22\u7684\u4e71\u554a~\n\n\u5f88\u7b80\u5355\u7684\u4e00\u9053\u9898\u554a\n```cpp\n#include<iostream>\nusing namespace std;\nint main(){\n    long int n,total=0; //\u9898\u76ee\u4e2d\u6709n\u5728long int\u8303\u56f4\u5185\uff0ctotal\u662f\u8def\u7a0b\u603b\u548c\n    int x; //\u4ece\u5468x\u5f00\u59cb\n    cin>>x>>n; //\u7b80\u5355\u7684\u8f93\u5165\n    for(int i=0;i<n;i++){\n        if(x!=6&&x!=7)total+=250; //\u82e5\u4e0d\u662f\u54686\u6216\u54687\u5219\u52a01\u5929\u7684\u884c\u7a0b250\n        if(x==7){ \n            x=1;\n        }else{\n            x++; //\u8ba1\u7b97\u65e5\u671f\uff0c\u82e5\u662f\u54687\u5219\u56de\u52301\uff0c\u82e5\u4e0d\u662f\u54687\u5219\u65e5\u671f\u5f80\u540e\u63a81\n        }\n    }\n    cout<<total; //\u8f93\u51fa\u8def\u7a0b\u603b\u548c\n    return 0;\n}\n```\n\u6ca1\u4e86\u5450",
+        "postTime": 1551175967,
+        "uid": 185527,
+        "name": "Raw_Aya9285",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P1424 \u3010\u5c0f\u9c7c\u7684\u822a\u7a0b(\u6539\u8fdb\u7248)\u3011"
+    },
+    {
+        "content": "\u601d\u8def\uff1a\u7528\u6570\u7ec4\u7684\u952e\u503c\u6765\u4ee3\u8868\u661f\u671f\u51e0\uff0c\u661f\u671f\u65e5\u75280\u4ee3\u8868\uff0c\u6570\u7ec4\u7684\u503c\u662f\u5f53\u5929\u8dd1\u7684\u91cc\u7a0b\u3002\u770b\u7a0b\u5e8f\u5427\uff01\n```cpp\n#include <cstdio>\nusing namespace std;\n#define N 7\nint main(){\n    int a[N]={0,250,250,250,250,250,0},x;\n    unsigned long long n,s=0;  //\u9898\u76ee\u8981\u6c42\uff0c\u5c0f\u4e86\u4e0d\u884c\n    scanf(\"%d%llu\",&x,&n);  //\u6ce8\u610f\u8981\u548c\u4e0a\u9762\u7c7b\u578b\u5bf9\u5e94\n    for(unsigned long long i=1;i<=n;i++){\n        x=x%7;\n        s+=a[x];\n        x++;\n    }\n    printf(\"%llu\",s);  //\u4ecd\u7136\u8981\u6ce8\u610f\u7c7b\u578b\u5bf9\u5e94\u95ee\u9898\u3002\n}\n```",
+        "postTime": 1550325747,
+        "uid": 184526,
+        "name": "litifeng",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P1424 \u3010\u5c0f\u9c7c\u7684\u822a\u7a0b(\u6539\u8fdb\u7248)\u3011"
+    },
+    {
+        "content": "~~\u597d\u7684\u4f9d\u7136\u662f\u4e00\u7bc7\u9488\u5bf9\u65b0\u624b\u4eba\u7fa4\u7684\u9898\u89e3\uff01~~\n\n\n\u54b3\u54b3\u4e0d\u95f9\u3002\n\n\n\u9996\u5148\u6765\u770b\u4e00\u4e0b\u9898\u3002\n\n\u9898\u610f\u5927\u81f4\u5c31\u662f\u8bb2\u8fd9\u6761\u9c7c\u8fc7\u5f97\u6bd4\u4eba\u90fd\u597d\uff0c\u65e9\u4e0a\u5e72\u52b2\u5341\u8db3\u6e38150\u516c\u91cc\uff0c\u4e0b\u5348\u7d2f\u4e86\u4e5f\u80fd\u6e38100\u516c\u91cc\uff0c\u665a\u4e0a\u4f11\u606f\uff0c\u5468\u672b\u4e5f\u4f11\u606f\uff0c\u4e0d\u52a0\u73ed\u4e0d\u8fdf\u5230\u4e0d\u65e9\u9000\uff0c~~xiongdei\u8fd9\u53ef\u662f\u4f1a\u88ab\u5f00\u9664\u7684\u3002~~\n\u597d\u7684\u6211\u4eec\u7684\u8f93\u5165\u662f\u4e24\u4e2a\u6570\u5b57x\u3001n\uff0c\u4e00\u4e2a\u4ee3\u8868\u73b0\u5728\u662f\u5468x\uff0c\u53e6\u4e00\u4e2a\u4ee3\u8868\u5c0f\u9c7c\u60f3\u77e5\u9053n\u5929\u4e4b\u540e\u81ea\u5df1\u80fd\u6e38\u8fc7\u591a\u5c11\u8def\u7a0b\u3002\u6240\u4ee5\u8fd9\u9053\u9898\u7684\u91cd\u70b9\u5728\u4e8e\u5468\u672b\u2014\u2014\u5982\u4f55\u5728\u9047\u5230\u5468\u672b\u7684\u65f6\u5019\u8fdb\u884c\u8f6c\u6362\u3002\u5176\u4ed6\u7684\u7531\u4e8e\u6ca1\u6709\u65e9\u6668\u6216\u8005\u4e0b\u5348\u8981\u7761\u5348\u89c9\u6216\u8005\u65e9\u4e0a\u6ca1\u8d77\u5f97\u6765\uff0c\u76f4\u63a5\u52a0250\u5c31\u662f\u7684\uff08100+150\uff09\uff0c\u6240\u4ee5\u8fd9\u9053\u9898\u7684\u786e\u4e0d\u662f\u4e00\u9053\u96be\u9898\u3002\n\n\n\u867d\u7136\u8fd9\u4e0d\u662f\u4e00\u9053\u96be\u9898\uff0c\u4f46\u7528\u4ee3\u7801\u662f\u5982\u4f55\u5b9e\u73b0\u7684\u5462\uff1f\u5148\u8d34\u4e0aAC\u4ee3\u7801\uff1a\n```c\n#include<bits/stdc++.h>//\u8fd9\u4e2a\u662f\u4e07\u80fd\u5934\u6587\u4ef6\uff01\u6709\u7684\u7f51\u7ad9\u662f\u4e0d\u80fd\u7528\u7684\u6bd4\u5982vjudge\u4f3c\u4e4e\u5c31\u4e0d\u80fd\u7528\uff0c\u5c0f\u4f19\u4f34\u4eec\u6ce8\u610f\u4e86\uff01\nusing namespace std;//\u5176\u5b9e\u5728\u8fd9\u9053\u9898\u91cc\u9762\u53ef\u8981\u53ef\u4e0d\u8981\nint main()\n{\n    int n,k,ans=0;//ans\u7528\u6765\u8f93\u51fa\u6570\u636e\u3002\n    scanf(\"%d %d\",&n,&k);//\u8f93\u5165\n    for(int i=1;i<=k;i++)\n    {\n        if(n!=6 && n!=7) ans+=250;//ans+=250\u5c31\u662fans=ans+250\n        if(n==7) n=1;//\u5982\u679c\u8fc7\u5b8c\u4e86\u5468\u672b\uff0c\u5c31\u6ca1\u6709\u5468\u516b\u4e86\uff0c\u6240\u4ee5\u4ece\u5468\u4e00\u5f00\u59cb\n        else n++;//\u5982\u679c\u4e0d\u662f\u5468\u672b\u5c31\u8df3\u8f6c\u5230\u7b2c\u4e8c\u5929\u3002\n    }\n    printf(\"%d\",ans);//\u8f93\u51fa\n    return 0;\n}\n\n```\n\u5176\u5b9e\u770b\u4e0a\u53bb\u8fd8\u662f\u5f88\u7b80\u5355\u7684\u3002\n\n\n------------\n\u8fd9\u91cc\u6084\u6084\u63d2\u4e00\u53e5\u8bdd\uff1a\u770b\u89c1\u6709\u8bc4\u8bba\u53d6\u8bf4dalao\u4e3a\u4ec0\u4e48\u6ca1\u6709\u7528scanf\u6216\u8005printf\uff0c\u8fd9\u4e2a\u5176\u5b9e\u771f\u7684\u53ea\u662f\u6700\u6700\u6700\u57fa\u672c\u7684\u8f93\u5165\u8f93\u51fa\uff0c\u50cf\u4ec0\u4e48gets\u554a\u4ec0\u4e48\uff0c\u4eba\u5bb6\u90fd\u5df2\u7ecf\u638c\u63e1\u5f97\u4e0d\u8981\u4e0d\u8981\u7684\u4e86\uff0c\u6240\u4ee5\u65b0\u624b\u4eec\u8fd8\u662f\u8981\u6709\u4e00\u70b9\u538b\u529b\u7684\u3002\uff08\u4e0d\uff01\u538b\u529b\u5c71\u5927\uff01\uff09\n\n\n------------\n\u601d\u8def\u6211\u5728\u4e4b\u524d\u5df2\u7ecf\u8bf4\u8fc7\u4e86\uff0c\u73b0\u5728\u518d\u603b\u7ed3\u4e00\u904d\uff1a\n\u5982\u679c\u5e76\u975e\u53cc\u4f11\u65e5\uff0c\u603b\u8def\u7a0b\u4e0a\u5c31\u52a0\u4e0a250\uff08100+150\uff09\uff0c\u5982\u679c\u662f\u53cc\u4f11\u65e5\u5c31\u4e0d\u52a0\uff0c\u5982\u679c\u662f\u5468\u672b\u5219\u8df3\u5230\u4e0b\u4e00\u5468\u3002\n\u5176\u5b9e\u8fd8\u662f\u5f88\u5bb9\u6613\u6765\u7740xxx\uff0c\u5c0f\u53ef\u7231\u4eec\u81ea\u884c\u4f53\u4f1a\u5427\uff01\n\u867d\u7136\u77e5\u9053\u5c0f\u4f19\u4f34\u4eec\u5e94\u8be5\u5b66\u8fc7\u5faa\u73af\u6216\u8005\u5224\u65ad\u4e86\uff0c\u4f9d\u7136\u7ed9\u5927\u5bb6\u8865\u4e00\u4e2afor\u5faa\u73af\u548cif\u7684\u683c\u5f0f\uff1a\n```c\nfor(\u4e00\u4e2a\u53d8\u91cf\uff0c\u901a\u5e38\u662fi,j;\u5faa\u73af\u7ec8\u6b62\u6761\u4ef6;\u5faa\u73af\u8fdb\u884c\u4e2d\u7684\u53d8\u91cf\u53d8\u5316\uff0c\u901a\u5e38\u4e3ai++\u6216\u8005j++);{}\nif(\u8fdb\u884c\u5b50\u8bed\u53e5\u6761\u4ef6){}\n\n```\n\u5982\u679c\u5faa\u73af/\u5224\u5b9a\u540e\u9762\u9700\u8981\u8fdb\u884c\u591a\u4e2a\u5b50\u8bed\u53e5\u5219\u9700\u8981\u52a0{}\uff0c\u5982\u679c\u53ea\u6709\u4e00\u4e2a\u5219\u4e0d\u9700\u8981\u3002\uff08\u6ce8\u610f\uff1a\u6709\u591a\u4e2a\u5b50\u8bed\u53e5\u7684\u5faa\u73af\u4e5f\u53ea\u7b97\u4e00\u4e2a\u5b50\u8bed\u53e5\u54e6\uff01\uff09\n",
+        "postTime": 1533817959,
+        "uid": 94739,
+        "name": "\u62d6\u628a\u4e86\u4e2a\u5934",
+        "ccfLevel": 0,
+        "title": "\u76ee\u6807\u4eba\u7fa4\uff1a\u65b0\u624b\u65b0\u624b\u65b0\u624b\uff01\uff08\u91cd\u8981\u4e8b\u60c5\u8bf43\u904d\uff09"
+    },
+    {
+        "content": "ans \u662f\u5c0f\u9c7c\u6e38\u7684\u8def\u7a0b\uff0c\u5148\u628a\u82e5\u6bcf\u5929\u90fd\u6e38\u6cf3\u7684\u9884\u671f\u503c\u7b97\u51fa\uff0c\u518d\u51cf\u53bb\u5468\u672b\u4e0d\u6e38\u7684\u90e8\u5206\u3002\n\nx \u8868\u793a\u661f\u671f\u51e0\u3002\n\n\u00b7\u00b7\u00b7c++\n\n\n```cpp\n#include <iostream>\nusing namespace std;\nint main() {\n    int x,n,ans;\n    cin >> x >> n;\n    ans = 250*n;\n    for (int i=1;i<=n;i++) {\n        if (x==6 || x==7) ans -= 250;\n        x += 1;\n        if (x > 7) x = 1;        \n    }\n    cout << ans;\n    return 0;\n}\n```\n```cpp",
+        "postTime": 1481340244,
+        "uid": 29757,
+        "name": "ReZRainY",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P1424 \u3010\u5c0f\u9c7c\u7684\u822a\u7a0b(\u6539\u8fdb\u7248)\u3011"
+    },
+    {
+        "content": "```cpp\n\n//\u697c\u4e0a\u4e0d\u6253\u5faa\u73af\u7684\u7b80\u76f4\u5f31\u7206\u4e86\uff0c\u770b\u6211\u7684\u65e0\u5224\u65ad\u8bed\u53e5\uff0c\u4efb\u6027\u3002\n#include<iostream>\nusing namespace std;\nint x;\nlong long n;\nint main ()\n{\n  cin>>x>>n;\n  cout<<250*((n+x-2)/7*5)+250*min(5,(int)(n+x-2)%7+1)-250*min(5,x-1);\n}\n\n```",
+        "postTime": 1441430011,
+        "uid": 4865,
+        "name": "Mr_Li",
+        "ccfLevel": 8,
+        "title": "\u9898\u89e3 P1424 \u3010\u5c0f\u9c7c\u7684\u822a\u7a0b(\u6539\u8fdb\u7248)\u3011"
+    },
+    {
+        "content": "\u6211\u628a\u5468\u65e5\u770b\u6210\u54680\u800c\u4e0d\u662f\u54687\n\n\t#include<iostream>//\u4e60\u60ef\u8fd9\u4e2a\u5e93\u4e86\n\tusing namespace std;//\u6211\u7684\u6807\u51c6\u5f00\u5934\n\tint main()\n\t{\n   \t int n,x;//\u8f93\u5165\u7684\u4e24\u4e2a\u53d8\u91cf\n   \t long long days=0;//\u6e38\u6cf3\u7684\u5929\u6570\n  \t  cin>>x>>n;//\u8f93\u5165\n  \t  int a[n];\n  \t  for(int b=0;b<n;b++)\n  \t  {\n   \t     x=x%7;\n   \t     a[b]=x;//\u4e2d\u95f4\u51e0\u5929\u6bcf\u5929\u662f\u5468\u51e0\n   \t     x++;\n   \t     if((a[b]!=6) && (a[b]!=0))//\u4e0d\u662f\u53cc\u4f11\u65e5\n   \t     {\n   \t         days++;//\u6e38\u6cf3\u7684\u5929\u6570+1\n   \t     }\n   \t }\n  \t \tdays=days*250;//\u8def\u7a0b\uff0c\u61d2\u5f97\u65b0\u5efa\u4e00\u4e2a\u53d8\u91cf\n   \t cout<<days;//\u8f93\u51fa\n   \t return 0;//\u9000\u51fa\n\t}",
+        "postTime": 1545975020,
+        "uid": 147895,
+        "name": "\u7834\u58c1\u4eba\u7f57\u8f91",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 P1424 \u3010\u5c0f\u9c7c\u7684\u822a\u7a0b(\u6539\u8fdb\u7248)\u3011"
+    },
+    {
+        "content": "\u3010\u7b97\u6cd5\u601d\u8def\u3011\n\n\u6539\u8fdb\u7248\u7684\u96be\u5ea6\uff0c\u548c\u539f\u7248\u7684\u96be\u6613\u7a0b\u5ea6\u5dee\u4e0d\u591a\uff0c\u4f9d\u7136\u662f\u4e00\u9053\u6c34\u9898\u3002\u7528\u4e0d\u5230\u6307\u9488\n\n\u3010\u4ee3\u7801\u3011\n```\nprogram p1424;\nvar\n  n,x,s,i,j:longint;\n  begin\n  readln(x,n);{\u8f93\u5165\u5929\u6570}\n  s:=0;\n  j:=x; \n  \n  for i:=1 to n do \n    begin\n      if j>=8 then j:=1;{\u8d85\u8fc7\u4e86\u4e00\u5468\uff0c\u56de\u5230\u4e86\u661f\u671f\u4e00}\n      if (j=6)or(j=7) then j:=j+1{\u6570\u5929\u6570}\n      else \n      begin \n        j:=j+1; \n        s:=s+250; {\u6570\u8ddd\u79bb}\n      end;\n    end;\n    \n    writeln(s);{\u8f93\u51fa\u4e00\u5171\u6e38\u7684\u8ddd\u79bb}\n  end.\n```\n\n\n\n",
+        "postTime": 1544529670,
+        "uid": 98887,
+        "name": "\u4e01\u4fca\u54f2djz",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P1424 \u3010\u5c0f\u9c7c\u7684\u822a\u7a0b(\u6539\u8fdb\u7248)\u3011"
+    },
+    {
+        "content": "Emmm....\u6709\u4e2a\u65f6\u95f4O(1)\uff0c\u7a7a\u95f4O\uff0856\uff09\u7684\u89e3\u6cd5\n\n**\u5f3a\u884c\u6570\u5b66\u603c**\n\n```\n#include <iostream>\n#include <math.h>\nusing namespace std;\n\ntypedef long long int lli;\n\nlli m[7][8] = {\n    {0, 250,  500,  750,  1000, 1250, 1250, 1250},\n    {0, 250,  500,  750,  1000, 1000, 1000, 1250},\n    {0, 250,  500,  750,  750,  750,  1000, 1250},\n    {0, 250,  500,  500,  500,  750,  1000, 1250},\n    {0, 250,  250,  250,  500,  750,  1000, 1250},\n    {0, 0,    0,    250,  500,  750,  1000, 1250},\n    {0, 0,    250,  500,  750,  1000, 1250, 1250}\n};\n\n\nint main(int argc, char **argv)\n{\n    lli x, days, len, t, r;\n    cin >> x >> days;\n\n    t = days / 7;\n    r = days % 7;\n\n    len = t * 1250 + m[x - 1][r];\n    cout << len;\n\n    return 0;\n}\n```",
+        "postTime": 1519999159,
+        "uid": 60798,
+        "name": "LGJCav",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P1424 \u3010\u5c0f\u9c7c\u7684\u822a\u7a0b(\u6539\u8fdb\u7248)\u3011"
+    },
+    {
+        "content": "\u7528\u4e00\u4e2a\u6570\u7ec4\u5b58\u6bcf\u4e00\u5929\u80fd\u6e38\u6cf3\u7684\u8ddd\u79bb\uff0c\u52a0\u7684\u65f6\u5019x%7\u5c31\u884c\u4e86\n\n```cpp\n\n#include<iostream>\nusing namespace std;\nint main(){\n    int a[7]={0,250,250,250,250,250,0},x,n,sum=0;\n    cin>>x>>n;n+=x-1;\n    while(x<=n){sum+=a[x%7];x++;}\n    cout<<sum;\n    return 0;\n    }\n\n```",
+        "postTime": 1446724817,
+        "uid": 5662,
+        "name": "\u226eStupid\u226f",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P1424 \u3010\u5c0f\u9c7c\u7684\u822a\u7a0b(\u6539\u8fdb\u7248)\u3011"
+    },
+    {
+        "content": "```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n    int x;\n    unsigned long long n,sum=0;  //\u9898\u76ee\u7684\u5751 \u6309\u9898\u76ee\u8981\u6c42\u505a\n    scanf(\"%d %llu\",&x,&n);\n    for(int i=0;i<n;i++){  //\u5faa\u73af\u6b21\u6570\n        if(x!=6&&x!=7)\n            sum+=250;\n        if(x==7)\n            x=1;\n        else\n            x++;\n    }\n    printf(\"%llu\",sum);\n}\n\n\n```",
+        "postTime": 1545211714,
+        "uid": 154276,
+        "name": "yeun",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P1424 \u3010\u5c0f\u9c7c\u7684\u822a\u7a0b(\u6539\u8fdb\u7248)\u3011"
+    },
+    {
+        "content": "\u6709\u70b9\u5751\u7684\u5730\u65b9\u5c31\u662f\u661f\u671f\u5929\u662f7\u800c\u4e0d\u662f1\uff08\u8fd9\u4e2a\u660e\u663e\u4e0d\u7b26\u5408\u4e60\u60ef\u554a\n\n```cpp\n\n#include<iostream>\n\nusing namespace std;\n\nint main()\n{\n    long long x, n;\n    cin >> x >> n;\n    long long c = 0;\n    long long distance = 0;\n\n    for (; c < n; c++)\n    {\n        if (x != 6 && x != 7)\n        {\n            distance += 250;\n        }\n        x++;\n        if (x==8)\n        {\n            x = 1;\n        }\n    }\n\n    cout << distance;\n\n}\n\n```",
+        "postTime": 1446266592,
+        "uid": 9062,
+        "name": "Wencey",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P1424 \u3010\u5c0f\u9c7c\u7684\u822a\u7a0b(\u6539\u8fdb\u7248)\u3011"
+    },
+    {
+        "content": "\u4e3b\u8981\u662f\u8868\u8ff0\u6709\u95ee\u9898\uff0c\u793a\u4f8b\u4e0d\u6070\u5f53\u3002\u3002\u3002\n\n```cpp\n#include <iostream>\nusing namespace std;\n\nint n,x;\n\nint swim(int n)\n{\n    if (n==0) return 0;\n    int ans = 250 * 5 * (int)(n/7),nn=n%7;\n    if (nn>=5) return ans+250*5;\n    else return ans+250*nn;\n}\nint main()\n{\n    cin >>x>>n;\n    cout <<swim(x+n-1)-swim(x-1);//\u6ce8\u610f\uff01\u7b2cn+x\u5929\u662f\u4e0d\u6e38\u7684\n    return 0;\n} \n```",
+        "postTime": 1444966119,
+        "uid": 3629,
+        "name": "DarkPaL",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P1424 \u3010\u5c0f\u9c7c\u7684\u822a\u7a0b(\u6539\u8fdb\u7248)\u3011"
+    },
+    {
+        "content": "```cpp\n\n#include <stdio.h>\n\nint main() {\n    int x,n;\n    int sum=0;\n    scanf(\"%d %d\",&x,&n);\n    while(n>0) {\n        if(x>7) {\n            x = x % 7;   //\u8fd9\u91cc\u4e5f\u53ef\u4ee5\u5f53x\u7b49\u4e8e8\u65f6\u5c061\u8d4b\u7ed9x\n        }\n        if (x != 6 && x != 7) {\n            sum += 250;\n        }\n        x++;\n        n--;\n    }\n    printf(\"%d\",sum);\n    return 0;\n}\n\n```\nc\u8bed\u8a00\u7248\n",
+        "postTime": 1436079462,
+        "uid": 7746,
+        "name": "DreamAgain",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P1424 \u3010\u5c0f\u9c7c\u7684\u822a\u7a0b(\u6539\u8fdb\u7248)\u3011"
+    },
+    {
+        "content": "\u867d\u7136\u662f\u6539\u8fdb\u7248\uff0c\u4f46\u548c\u539f\u7248\u7684\u96be\u6613\u7a0b\u5ea6\u5dee\u4e0d\u591a\uff0c\u4f9d\u7136\u662f\u4e00\u9053\u6c34\u9898\u3002\u7528\u4e0d\u5230\u6307\u9488\uff0c\u53ea\u8981\u4e00\u4e2a\n\nwhile\u5faa\u73af\u3002\n\n```cpp\nvar\n x,n,a:longint;\nbegin\n readln(x,n);{\u8f93\u5165\u5929\u6570}\n a:=0;\n while n>0 do{\u5929\u6570\u4e0d\u4e3a\u96f6}\n  begin\n   if x<6 then a:=a+250;\n    n:=n-1;{\u6e38\u4e86\u4e00\u5929}\n    x:=x+1;{\u6570\u661f\u671f}\n    if x=8 then x:=1;{\u6ca1\u6709\u661f\u671f8}\n   end;\n  writeln(a);\nend.\n```",
+        "postTime": 1425979207,
+        "uid": 3425,
+        "name": "\u678d\u66ae77",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P1424 \u3010\u5c0f\u9c7c\u7684\u822a\u7a0b(\u6539\u8fdb\u7248)\u3011"
+    },
+    {
+        "content": "\n/\u4e3a\u4ec0\u4e48\u975e\u8981\u5faa\u73af\u5462TvT\u3002\u3002\u3002\n\n\n\n```cpp\n//\u4e0d\u6253\u5faa\u73af\uff0c\u4efb\u6027\u3001\u3002\u3002\u3002\nint n,m,k,l,ans,p;\nint start,last;\nint main()\n{\n    cin>>start>>last;\n    if(start<=5) ans+=(6-start)*250;\n    last -= 8-start;\n    ans += (last/7)*250*5;\n    last = last%7;\n    if(last>5)last=5;\n    ans+=last*250;\n    cout<<ans<<endl;\n    return 0;\n}\n```",
+        "postTime": 1423643841,
+        "uid": 3824,
+        "name": "cherry",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P1424 \u3010\u5c0f\u9c7c\u7684\u822a\u7a0b(\u6539\u8fdb\u7248)\u3011"
+    },
+    {
+        "content": "```cpp\n#include<iostream>\nusing namespace std;\nint x,n,s[8]={0,1,1,1,1,1,0,0},ans;\nint main()\n{\n    cin>>x>>n;\n    while(n>0)\n    {\n        if(s[x]){ans+=250;}\n        if(x==7)x=1;else x++;\n        n--;\n    }\n    cout<<ans;\n    return 0;\n}\n```\n\u53ef\u4ee5\u7528\u4e00\u4e2a\u6570\u7ec4\u6765\u5224\u65ad\uff0c\u4f46\u4e3b\u8981\u8fd8\u662f\u7528\u6307\u9488\uff0c\u6c34\u9898\u554a\n",
+        "postTime": 1380029647,
+        "uid": 181,
+        "name": "chenyx",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P1424 \u3010\u5c0f\u9c7c\u7684\u822a\u7a0b(\u6539\u8fdb\u7248)\u3011"
+    },
+    {
+        "content": "\u6765\u4e00\u53d1**C#**\u7684\u5427\uff0c\u4e0d\u7528\u5faa\u73af\n```\nusing System;\npublic class DogKi\n{\n    private static void Main()\n    {\n        int a = 0;\n        string[] value = Console.ReadLine().Split(' ');\n        int b = int.Parse(value[0]);//\u5c31\u662f\u661f\u671f\u591a\u5c11\u5f00\u59cb\n        int c = int.Parse(value[1]);//\u8981\u6e38\u591a\u5c11\u5929\n        if (b < 6)\n        {//\u5982\u679c\u4e0d\u662f\u53cc\u4f11\u65e5\uff0c\u90a3\u6e38\u6cf3\u5b89\u6392\u554a\uff01\n            a += (6 - b) * 250;\n        }\n        c -= (8 - b);//\u4f20\u7edf\u827a\u80fd\uff0c\u53cd\u6b63\u65e0\u8bba\u5982\u4f55\u8fd9\u661f\u671f\u90fd\u4f1a\u8fc7\u53bb\uff0c\u90a3\u4e48\u5c31\u8981\u7b97\u4e00\u4e0b\u6263\u591a\u5c11\u5929\u4e86\n        a += c / 7 * 1250;//\u6309\u5929\u7b97\u591a\u9ebb\u70e6\uff0c\u76f4\u63a5\u6309\u661f\u671f\u5427\u3002\u6bcf\u5468\u6e38\u4e94\u5929\u4e5f\u5c31\u662f250*5=1250\u4e86\n         //int\u7684/7\u53ef\u4e0d\u5e26\u4f59\u6570\u7684(\u4f1a\u53d6\u6574\u6570rua),\u90a3\u5c31\u518d\u7b97\u5457\u3002\u6700\u540e\u4f1a\u5269\u4f59\u591a\u5c11\u5929\n        if (c % 7 > 5)\n        {  //\u5982\u679c\u5269\u4f59\u7684\u5927\u4e8e\u4e94\u5929,\u90a3\u5f53\u7136\u4e5f\u63095\u5929\u7b97\u5566\u3002\u9c7c\u4e5f\u662f\u6709\u53cc\u4f11\u7684\uff0c\u4e0d\u73a9996\n            a += 5 * 250;\n        }\n        else\n        {  //\u81ea\u7136\u5b89\u6392,\u6e38\u5b8c\u5c31\u4f11\u606f\u5566\n            a += c % 7 * 250;\n        }\n         Console.WriteLine(a);\n    }\n}\n```\n",
+        "postTime": 1557060743,
+        "uid": 208098,
+        "name": "\u76d0_____",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P1424 \u3010\u5c0f\u9c7c\u7684\u822a\u7a0b(\u6539\u8fdb\u7248)\u3011"
+    },
+    {
+        "content": "\u903b\u8f91\u5bb9\u6613\u4e71\uff0c\u63d0\u4ea4\u4e86\u597d\u51e0\u6b21\u624d\u60f3\u6e05\u695a\n\n```java\nimport java.util.Scanner;\n\npublic class Main {\n\tpublic static void main(String[] args) {\n\t\tScanner in = new Scanner(System.in);\n\t\tint x = Integer.parseInt(in.next());\n\t\tint n = Integer.parseInt(in.next());\n\t\t\n\t\t//\u8865x-1\u5929\uff0c\u4ece\u5468\u4e00\u5f00\u59cb\u7b97\n\t\tint a = (n+x-1) / 7;\n\t\tint b = (n+x-1) % 7;\n\t\tint sum = 0;\n\t\t\n\t\t//x==7\u7684\u65f6\u5019\uff0c\u7b2c\u4e00\u5468\u5b9e\u9645\u53ea\u4f11\u606f\u4e00\u5929\uff0c\u4f46\u662f\u8865\u5168\u7684\u65f6\u5019\u6309\u4f11\u606f\u4e24\u5929\u7b97\n\t\t//b==6\u7684\u65f6\u5019\uff0c\u6700\u540e\u4e00\u5468\u53ea\u4f11\u606f1\u5929\n\t\tif(x == 7 && b ==6){\n\t\t\tsum = (a*5+b-x+1)*250;//a*5+(b-1)-(x-1-1)\n\t\t}else if (b == 6 && x != 7){\n\t\t\tsum = (a*5+b-x)*250;//a*5+(b-1)-(x-1) = a*5+b-x\n\t\t}else if(b != 6 && x == 7){\n\t\t\tsum = (a*5+b-x+2)*250;//a*5+b-(x-1-1)=a*5+b-x+2\n\t\t}else{\n\t\t\tsum = (a*5+b-x+1)*250;//a*5+b-(x-1)\n\t\t}\n\t\tSystem.out.println(sum);\n\t}\n}\n```\n",
+        "postTime": 1555666493,
+        "uid": 202564,
+        "name": "\u672c\u5b50",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P1424 \u3010\u5c0f\u9c7c\u7684\u822a\u7a0b(\u6539\u8fdb\u7248)\u3011"
+    },
+    {
+        "content": "\u6709\u70b9\u66b4\u529b\u7684\u4e00\u4e2a\u7b97\u6cd5\u3002\u5f00\u59cb\u7684\u60f3\u6cd5\u6709\u6f0f\u6d1e\uff0c\u628a\u65f6\u95f4\u5206\u4e3a\u524d\u3001\u4e2d\u3001\u540e\u4e09\u4e2a\u9636\u6bb5\u8003\u8651\uff0c\u5206\u522b\u7b97\u51fa\u5929\u6570\uff0c\u53ef\u4ee5\u7b97\u51fa\u5c0f\u9c7c\u6e38\u7684\u5929\u6570\uff0c\u7136\u540e\u80fd\u7b97\u51fa\u8def\u7a0b\u3002\u7136\u800c\u5982\u679c\u5f00\u59cb\u548c\u7ed3\u675f\u5728\u540c\u4e00\u4e2a\u661f\u671f\u4e2d\u53ef\u80fd\u6709\u95ee\u9898\uff0c\u540e\u9762\u7528\u4e24\u4e2a\u5224\u65ad\u8bed\u53e5\u5206\u522b\u5bf9\u5b9e\u9a8c\u540e\u53ef\u80fd\u5b58\u5728\u7684\u95ee\u9898\u8fdb\u884c\u8865\u6f0f\u3002\u76f8\u5f53\u66b4\u529b\uff0c\u4e0d\u8fc7\u6ca1\u6709\u7528\u5230\u5faa\u73af\uff0c\u5927\u5bb6\u4e5f\u53ef\u4ee5\u53c2\u8003\u3002\n```c\n#include <stdio.h>\n\nint begin,days,front,mid,end;\n\nint main()\n{\n    scanf(\"%d %d\",&begin,&days);\n    front=6-begin;\n    if(front<0)\n        front=0;\n    end=(days-8+begin)%7;\n    if(end>5)\n        end=5;\n    mid=(days-8+begin-(days-8+begin)%7)/7*5;\n\tif(begin<=5&&begin+days-1<=5)\n\t\tprintf(\"%d\",days*250);\n\telse\n\t{\n\t\tif((mid+front+end)>=0)\n\t\t\tprintf(\"%d\",(mid+front+end)*250);\n\t\telse\n\t\t\tprintf(\"0\");\n\t}\n}\n```",
+        "postTime": 1530954669,
+        "uid": 67970,
+        "name": "\u7389\u7c73\u718acornbear",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P1424 \u3010\u5c0f\u9c7c\u7684\u822a\u7a0b(\u6539\u8fdb\u7248)\u3011"
+    },
+    {
+        "content": "**\u6570\u5b66\u7edf\u8bb0\uff0c\u7528\u65f6\u6700\u77ed\u3002**\n\n```cpp\n#include<iostream>\n#include<cstring>\nusing namespace std;\nint main()\n{\n int k,m;\n long long int n,ans=0,q;\n cin>>k>>n;\n if(k!=6&&k!=7)\n {\nans+=(5-k+1)*250;\n n=n-(7-k+1);\n m=n%7;\n q=n/7;\n if(m<=5)ans+=250*5*q+250*m;\n else ans+=250*5*q+5*250;      \n}\nelse {\nif(k==6)n=n-2;\nif(k==7)n=n-1; \nm=n%7;\nq=n/7;\nif(m<=5)\nans+=250*5*q+250*m;\nelse ans+=250*5*q+5*250;\n}\ncout<<ans<<endl; \nreturn 0;\n}\n\n```",
+        "postTime": 1477911147,
+        "uid": 24219,
+        "name": "pineapples",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P1424 \u3010\u5c0f\u9c7c\u7684\u822a\u7a0b(\u6539\u8fdb\u7248)\u3011"
+    },
+    {
+        "content": "\u7528\u4e00\u4e2a\u6307\u9488\u8868\u793a\u661f\u671f\uff0c\u5982\u5927\u4e8e7\uff0c\u5c31\u51cf7\uff0c\u5982\u4e3a6\u62167\uff0c\u5c31continue\uff0c\u4e0d\u7136\u5c31\u52a0250.\uff08\u5165\u95e8\u9898\uff0c\u53ea\u8981\u6709\u601d\u8def\uff0c\u7a0b\u5e8f\u4e0d\u5199\u9519\u5c31\u884c\u3002\uff09\n\n  ```cpp\n  #include <iostream>  \n    using namespace std;  \n    int main()  \n    {int a,s,d; cin >>a>>s; d=0; a-=1;  \n    for (int q=1;q<=s;q++)  \n    {a++; if (a>7) a-=7;  if (a==6||a==7) continue; d+=250; }  \n    cout <<d;  \n    return 0;  \n    }  \n```",
+        "postTime": 1377262426,
+        "uid": 262,
+        "name": "\u8c01\u61c2\u8c01\u4f24\u5fc3",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 P1424 \u3010\u5c0f\u9c7c\u7684\u822a\u7a0b(\u6539\u8fdb\u7248)\u3011"
+    }
+]

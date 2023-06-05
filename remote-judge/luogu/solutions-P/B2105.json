@@ -1,0 +1,50 @@
+[
+    {
+        "content": "## \u9898\u76ee\u5206\u6790\n\u6b64\u9898\u7684\u65b0\u77e9\u9635\u53ea\u9700\u6309\u9898\u76ee\u4e2d\u6240\u8bf4\uff0c\u518d\u52a0\u4e00\u91cd\u5faa\u73af\u6765\u628a\u65b0\u77e9\u9635\u7684\u70b9\u5f53\u4f5c\u8ba1\u6570\u5668\u8ba1\u7b97\uff0c\u6ce8\u610f\u77e9\u9635\u7684\u6362\u884c\u3002\n## \u4ee3\u7801\u5b9e\u73b0\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint a[110][110],b[110][110],c[110][110],m,n,k;\ndouble s;\nint main()\n{\n\tcin>>n>>m>>k;\n\tfor(int i=1;i<=n;i++)\n\t\tfor(int j=1;j<=m;j++)\n\t\t\tcin>>a[i][j];\n\tfor(int i=1;i<=m;i++)\n\t\tfor(int j=1;j<=k;j++)\n\t\t\tcin>>b[i][j];\n\tfor(int i=1;i<=n;i++)\n\t\tfor(int j=1;j<=k;j++)\n\t\t\tfor(int l=1;l<=m;l++)\n\t\t\t\tc[i][j]+=a[i][l]*b[l][j];//\u5c06\u65b0\u77e9\u9635\u7684\u6bcf\u4e00\u4e2a\u70b9\u90fd\u770b\u4f5c\u8ba1\u6570\u5668\u6765\u8ba1\u7b97\n\tfor(int i=1;i<=n;i++){\n\t\tfor(int j=1;j<=k;j++)\n\t\t\tcout<<c[i][j]<<\" \";\n\t\tcout<<endl;//\u6ce8\u610f\u6362\u884c\n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1625396029,
+        "uid": 359581,
+        "name": "\u00b7\u7cef\u00b7",
+        "ccfLevel": 5,
+        "title": "B2105"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u662f [B2024](https://www.luogu.com.cn/problem/B2104) \u7684\u5347\u7ea7\u7248\uff0c\u4f46\u6574\u4f53\u8f83\u4e3a\u7b80\u5355\u3002\n\n\u9898\u76ee\u8981\u6c42\uff1aC\u77e9\u9635\u7684\u6bcf\u4e00\u9879\u5206\u522b\u4e3a\n\n$C[i][j]=A[i][0] \\times B[0][j]+A[i][1] \\times B[1][j]+$ \u2026\u2026 $+A[i][m-1] \\times B[m-1][j]$\n\n\u6839\u636e\u8fd9\u4e2a\u8981\u6c42\uff0c\u6211\u4eec\u6bcf\u4e00\u9879\u90fd\u8fd9\u4e48\u66b4\u529b\u67e5\u8be2\uff0c\u5c31\u53ef\u4ee5\u6c42\u51fa C \u6570\u7ec4\u3002\n\n```cpp\n#include <cstdio>\n\nusing namespace std;\n\nconst int ma=105;\n\nint a[ma][ma],b[ma][ma],c[ma][ma];\n\nint n,m,k;\n\nint main(void)\n{\n\tscanf(\"%d%d%d\",&n,&m,&k);\n\t\n\tfor(register int i=0;i<n;i++)\n\t{\n\t    for(register int j=0;j<m;j++)\n\t    {\n\t        scanf(\"%d\",&a[i][j]);\n\t    }\n\t}\n\t\n\tfor(register int i=0;i<m;i++)\n\t{\n\t    for(register int j=0;j<k;j++)\n\t    {\n\t        scanf(\"%d\",&b[i][j]);\n\t    }\n\t}\n\t\t\t\n\tint sum;\n\t\n\tfor(register int i=0;i<n;i++)\n\t{\n\t    for(register int j=0;j<k;j++)\n\t    {\n\t\t    sum=0;\n\t\t    \n\t\t    for(register int k=0;k<m;k++)\n\t\t\t{\n\t\t\t    sum+=a[i][k]*b[k][j];\n\t\t\t}\n\t\t\t\n\t\t    c[i][j]=sum;\n\t    }\n\t}\n\t\n    for(register int i=0;i<n;i++)\n    { \n\t    for(register int j=0;j<k;j++)\n\t    {\n\t\t    printf(\"%d \",c[i][j]); \n\t    }\n\t    \n\t    printf(\"\\n\");\n    } \n\t\n\treturn 0;\n}\n```\n",
+        "postTime": 1625360542,
+        "uid": 430409,
+        "name": "Coros_Trusds",
+        "ccfLevel": 6,
+        "title": "B2105 \u77e9\u9635\u4e58\u6cd5"
+    },
+    {
+        "content": "# \u601d\u8def\n\u7528\u4e8c\u7ef4\u6570\u7ec4\u8f93\u5165\uff0c\u4fdd\u5b58 $A,B$\u3002\n\n\u63a5\u7740\uff0c\u679a\u4e3e\u6240\u6709 $c[i][j]$\uff0c\u6839\u636e\u516c\u5f0f\u6c42\u503c\u3002\n\n\u53ef\u4ee5\u770b\u51fa\uff0c\u516c\u5f0f\u4e2d\u53d8\u5316\u7684\u4e0b\u6807\u662f\u4ece $0$ \u5230 $m$ \u7684\u3002\n\n\u6240\u4ee5\u53ef\u4ee5\u4ece $0$ \u5230 $m$ \u679a\u4e3e\u8fd9\u4e2a\u4e0b\u6807\u3002\n\n\u6ce8\u610f\u6bcf\u6b21\u679a\u4e3e\u7684\u8fb9\u754c\u3002\n# \u4ee3\u7801\n```cpp\n#include <iostream>\n#include <cstdio>\nusing namespace std;\nint a[101][101], b[101][101], c[101][101], n, m, k;\nint main()\n{\n    cin >> n >> m >> k;\n    for(int i = 0;i < n;++i)\n        for(int j = 0;j < m;++j)\n            cin >> a[i][j]; //\u8f93\u5165a(n*m)\n    for(int i = 0;i < m;++i)\n        for(int j = 0;j < k;++j)\n            cin >> b[i][j]; //\u8f93\u5165b(m*k)\n    for(int i = 0;i < n;++i) //\u679a\u4e3e\u6240\u6709c[i][j](n*k)\n        for(int j = 0;j < k;++j)\n            for(int o = 0;o < m;++o) //\u679a\u4e3e\u53d8\u5316\u7684\u4e0b\u6807\n                c[i][j] += a[i][o] * b[o][j]; //\u7d2f\u52a0\u6c42\u503c\n    for(int i = 0;i < n;++i)\n    {\n        for(int j = 0;j < k;++j)\n            cout << c[i][j] << \" \"; //\u8f93\u51fa\n        cout << endl;\n    }\n    return 0;\n}\n```\n",
+        "postTime": 1626349826,
+        "uid": 388651,
+        "name": "5k_sync_closer",
+        "ccfLevel": 7,
+        "title": "B2105 \u77e9\u9635\u4e58\u6cd5"
+    },
+    {
+        "content": "## Content\n\u7ed9\u5b9a\u4e00\u4e2a $n\\times m$ \u7684\u77e9\u9635 $A$ \u548c\u4e00\u4e2a $m\\times k$ \u7684\u77e9\u9635 $B$\uff0c\u6c42\u4e24\u4e2a\u77e9\u9635\u76f8\u4e58\u5f97\u5230\u7684\u77e9\u9635\u3002\n\n$n\\times m$ \u7684\u77e9\u9635 $A$ \u548c\u4e00\u4e2a $m\\times k$ \u7684\u77e9\u9635 $B$ \u76f8\u4e58\u4f1a\u5f97\u5230\u4e00\u4e2a $n\\times k$ \u7684\u77e9\u9635 $C$\uff0c\u5e76\u4e14\u6709\u4ee5\u4e0b\u5173\u7cfb\uff1a\n\n$$C_{i,j}=\\sum\\limits_{p=1}^mA_{i,p}+B_{p,j}$$\n\n**\u6570\u636e\u8303\u56f4\uff1a$1\\leqslant n,m\\leqslant 100$\u3002**\n## Solution\n\u6839\u636e\u9898\u610f\uff0c\u6211\u4eec\u5148\u5faa\u73af $i$\uff0c\u518d\u5faa\u73af $j$\uff0c\u6700\u540e\u5728\u5faa\u73af $p$\uff0c\u6309\u7167\u516c\u5f0f\u76f4\u63a5\u6c42 $A_{i,p}$ \u548c $B_{p,j}$ \u7684\u548c\uff0c\u52a0\u5165 $C_{i,j}$ \u4e2d\u5373\u53ef\u5f97\u5230 $C$ \u77e9\u9635\u3002\n\n\u591a\u63d0\u4e00\u5634\uff1a**\u5f53\u4e14\u4ec5\u5f53 $A$ \u77e9\u9635\u7684\u5217\u6570\u7b49\u4e8e $B$ \u77e9\u9635\u7684\u884c\u6570\u65f6\uff0c$A\\times B$ \u624d\u6709\u610f\u4e49**\u3002\n## Code\n```cpp\n#include <cstdio>\nusing namespace std;\nint n, m, k, a[107][107], b[107][107], c[107][107];\n\nint main() {\n    scanf(\"%d%d%d\", &n, &m, &k)\n    for(int i = 1; i <= n; ++i) for(int j = 1; j <= m; ++j) scanf(\"%d\", &a[i][j]);\n    for(int i = 1; i <= m; ++i) for(int j = 1; j <= k; ++j) scanf(\"%d\", &b[i][j]);\n    for(int i = 1; i <= n; ++i) for(int j = 1; j <= m; ++j) for(int l = 1; l <= k; ++l) c[i][j] += a[i][l] * b[l][j];\n    for(int i = 1; i <= n; ++i) {for(int j = 1; j <= k; ++j) printf(\"%d\", c[i][j]); puts(\"\");}\n    return 0;\n}\n```",
+        "postTime": 1625407033,
+        "uid": 112917,
+        "name": "Eason_AC",
+        "ccfLevel": 6,
+        "title": "B2105 \u77e9\u9635\u4e58\u6cd5"
+    },
+    {
+        "content": "\u77e9\u9635\u4e58\u6cd5\u4e2d\u7b2c\u4e00\u4e2a\u77e9\u9635\u7684\u5217\u8981\u7b49\u4e8e\u7b2c\u4e8c\u4e2a\u77e9\u9635\u7684\u884c,\u4e00\u4e2a $n\\times m$ \u7684 $A$ \u77e9\u9635\uff0c\u548c\u4e00\u4e2a $m\\times k$ \u7684 $B$ \u77e9\u9635\u76f8\u4e58\uff0c\u5c06\u5f97\u5230\u4e00\u4e2a $n\\times k$ \u7684\u77e9\u9635 $C$\u3002\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/5hzg2f3m.png)\n\n$$c_{i,j}=\\sum^m_{p=1}{a_{i,p}b_{p,j}}$$\n\n\u6a21\u62df\u5373\u53ef\u3002\n\n\u4ee3\u7801\u5982\u4e0b\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n#define MAXN 105\nint n,m,k,a[MAXN][MAXN],b[MAXN][MAXN],c[MAXN][MAXN];\nint main(){\n\tcin>>n>>m>>k;\n\tfor(int i=1;i<=n;++i){\n\t\tfor(int j=1;j<=m;++j){\n\t\t\tcin>>a[i][j];\n\t\t}\n\t}\n\tfor(int i=1;i<=m;++i){\n\t\tfor(int j=1;j<=k;++j){\n\t\t\tcin>>b[i][j];\n\t\t}\n\t}\n\tfor(int i=1;i<=n;++i){\n\t\tfor(int j=1;j<=k;++j){\n\t\t\tfor(int p=1;p<=m;++p){\n\t\t\t\tc[i][j]+=a[i][p]*b[p][j];\n\t\t\t}\n\t\t}\n\t}\n\tfor(int i=1;i<=n;++i){\n\t\tfor(int j=1;j<=k;++j){\n\t\t\tcout<<c[i][j]<<\" \";\n\t\t}cout<<endl;\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1625378521,
+        "uid": 271736,
+        "name": "Daidly",
+        "ccfLevel": 6,
+        "title": "B2105 \u77e9\u9635\u4e58\u6cd5 \u9898\u89e3"
+    },
+    {
+        "content": "## Step 1.Analyse\n\u8fd9\u9053\u9898\u6574\u4f53\u6bd4\u8f83\u7b80\u5355\u3002  \n\u6839\u636e\u9898\u9762\u6240\u8bf4\uff0c\u6211\u4eec\u4e0d\u96be\u53d1\u73b0\uff1a\u5bf9\u4e8e\u6bcf\u4e00\u4e2a $C_{i,j}$\uff0c\u90fd\u6709\uff1a\n$$C_{i,j} = \\sum_{t=1}^{m} A_{i,t} \\times B_{t,j}$$\n\u9898\u76ee\u7ed9\u51fa\u7684\u6570\u636e\u8303\u56f4\u662f\uff1a$1 \\le n,m \\le 100$\u3002  \n\u7531\u6b64\u4f30\u8ba1\uff0c\u7eaf\u66b4\u529b\u7684\u65f6\u95f4\u590d\u6742\u5ea6\u7ea6\u5728 $O(nmk)$ \u5de6\u53f3\uff0c\u4ee3\u5165\u6570\u636e\u53ef\u77e5\u8fdc\u5c0f\u4e8e $10^8$\u3002  \n\u56e0\u6b64\u8fd9\u9053\u9898\u53ef\u4ee5\u66b4\u529b\u8ba1\u7b97\u5f97\u51fa\u7ed3\u679c\u3002  \n## Step 2.Code\nAC \u4ee3\u7801\u5982\u4e0b\uff1a\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint mtxA[105][105],mtxB[105][105],mtxC[105][105];\nint n,m,k;\nint main()\n{\n    cin>>n>>m>>k;\n    for (int i=1;i<=n;i++)\n    {\n        for (int j=1;j<=m;j++)\n        {\n            cin>>mtxA[i][j];\n        }\n    }\n    for (int i=1;i<=m;i++)\n    {\n        for (int j=1;j<=k;j++)\n        {\n            cin>>mtxB[i][j];\n        }\n    }\n    for (int i=1;i<=n;i++)\n    {\n        for (int j=1;j<=k;j++)\n        {\n            for (int l=1;l<=m;l++)\n            {\n                mtxC[i][j]+=mtxA[i][l]*mtxB[l][j];//\u5bf9\u4e8e\u6bcf\u4e00\u4e2a mtxC[i][j] \u8fdb\u884c\u8ba1\u7b97\u3002\n            }\n            cout<<mtxC[i][j]<<\" \";\n        }\n        cout<<endl;//\u6ce8\u610f\u6362\u884c\n    }\n    return 0;\n}\n```",
+        "postTime": 1626321587,
+        "uid": 239970,
+        "name": "Maxson",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 \u3010B2105\u3011 - \u77e9\u9635\u4e58\u6cd5"
+    }
+]

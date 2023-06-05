@@ -1,0 +1,74 @@
+[
+    {
+        "content": "\u89e3\u91ca\u4e00\u4e0b\u9898\u76ee\u63cf\u8ff0\uff1a\n```\n\u5929\u6570 | 1 2 3 4 5 6 7 | \u6743\u503c\n------------------------\n     | . . . . # # . | 4\n     | # . . # . . . | 3\n     | . # # . . . . | 2\n     | . . . . . . # | 1\n```\n\n\u8fd9\u9898\u548c\u5f80\u5e38\u4e0d\u540c\u7684\u662f\uff0c\u4e0d\u662f\u770b**\u884c**\u800c\u662f\u770b**\u5217**\u3002\n\n\u6211\u4eec\u53ea\u9700\u8981\u628a\u884c\u548c\u5217\u8c03\u6362\u8fc7\u6765\u5c31\u884c\u4e86\u3002\u56e0\u4e3a\u6743\u503c\u548c\u6240\u5bf9\u5e94\u7684\u4e0b\u6807\u6b63\u597d\u76f8\u53cd\uff0c\u6240\u4ee5\u6743\u503c\u5373\u4e3a $n-i+1$\u3002\n\n\u53d6\u6700\u5927\u503c\u6700\u5c0f\u503c\u76f8\u51cf\u8f93\u51fa\u5373\u53ef\u3002\n\n\u4ee3\u7801\u5982\u4e0b\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nchar a[101][101];\nsigned main()\n{\n\tint t,n,m;\n\tcin>>t>>n>>m;\n\twhile(t--){\n\t\tint ma=0,mi=INT_MAX;\n\t\tfor(int i=1;i<=n;i++)\n\t\t\tfor(int j=1;j<=m;j++)cin>>a[i][j];\n\t\tfor(int j=1;j<=m;j++){\n\t\t\tint x=0;\n\t\t\tfor(int i=1;i<=n;i++)\n\t\t\t\tif(a[i][j]=='#'){\n\t\t\t\t\tx=n-i+1;\n\t\t\t\t\tbreak;\n\t\t\t\t}\n\t\t\tma=max(ma,x);\n\t\t\tmi=min(mi,x);\n\t\t}\n\t\tcout<<ma-mi<<'\\n';\n\t}\n}\n```",
+        "postTime": 1675517394,
+        "uid": 686297,
+        "name": "acw_yxc",
+        "ccfLevel": 0,
+        "title": "P9028 [COCI2022-2023#1] Desni klik \u9898\u89e3"
+    },
+    {
+        "content": "[\u535a\u5ba2\u98df\u7528\u66f4\u4f73](https://www.luogu.com.cn/blog/758416/solution-p9028)\n\n#### \u9898\u610f\u7b80\u8ff0\n[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/P9028)\n\n\u7ed9\u5b9a $n$ \u4e2a $r$ \u884c $s$ \u5217\u7531`#`\u548c`.`\u7ec4\u6210\u7684\u6761\u5f62\u7edf\u8ba1\u56fe\uff0c\u6c42\u6700\u5927\u7684\u6570\u4e0e\u6700\u5c0f\u7684\u6570\u4e4b\u95f4\u7684\u5dee\uff0c$1\\le n\\le20$\uff0c$1\\le r\\le20$\uff0c$1\\le s\\le20$\u3002\n\n#### \u9898\u76ee\u5206\u6790\n\u4e00\u9053\u5178\u578b\u7684\u6a21\u62df\u9898\uff0c\u8bfb\u5165\u6761\u5f62\u7edf\u8ba1\u56fe\u53ef\u4ee5\u7528 char \u6570\u7ec4\uff0c\u7528 $Max$ \u8bb0\u5f55**\u6700\u5927**\u7684\u6570\uff0c\u7528 $Min$ \u8bb0\u5f55**\u6700\u5c0f**\u7684\u6570\u3002\n\n#### \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n, r, s;\nchar sc[55];                                //sc\u4e3a\u8f93\u5165\u7684\u6bcf\u4e00\u884c\u7684\u7edf\u8ba1\u56fe\u3002\nint Max, Min;                               //Max\u4e3a\u6700\u5927\u7684\u6570\uff0cMin\u4e3a\u6700\u5c0f\u7684\u6570\u3002\nint main() {\n\tcin >> n >> r >> s;\n\twhile (n--) {\n\t\tMax = 0;\n\t\tMin = 55;\n\t\tfor (int i = r; i >= 1; i--) {     //\n\t\t\tfor (int j = 1; j <= s; j++) { //\u6c42\u6700\u5927\u7684\u6570\u548c\u6700\u5c0f\u7684\u6570\u3002\n\t\t\t\tcin >> sc[j];\n\t\t\t\tif (sc[j] == '#') {        //\u5982\u679c\u8fd9\u91cc\u6709\u6570\u3002\n\t\t\t\t\tMax = max(Max, i);\n\t\t\t\t\tMin = min(Min, i);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\tcout << Max - Min << endl;\n\t}\n\treturn 0;\n}\n```\n\u5b8c\u7ed3\u6492\u82b1\uff0c[AC\u8bb0\u5f55](https://www.luogu.com.cn/record/101575950)\u3002",
+        "postTime": 1675593627,
+        "uid": 758416,
+        "name": "Yun_Mengxi",
+        "ccfLevel": 4,
+        "title": "P9028\u9898\u89e3"
+    },
+    {
+        "content": "\u8fd9\u9898\u662f\u4e2a\u53d8\u76f8\u6c42\u6781\u5dee\u7684\u9898\u3002\u6c42\u6700\u5927\u6570\u548c\u6700\u5c0f\u6570\u53ef\u4ee5\u7528\u201c\u6253\u64c2\u53f0\u201d\u6cd5\uff0c\u4f46\u8981\u6ce8\u610f\u5982\u4f55\u8bfb\u5165\u3002\n\n\u8bfb\u5165\u4e00\u4e2a\u5b57\u7b26\u77e9\u9635\uff0c\u6700\u597d\u7684\u65b9\u5f0f\u662f\u8bfb\u5165 $r$ \u4e2a string \u7c7b\u578b\u3002\u540c\u65f6\u884c\u7684\u904d\u5386\u5e94\u8be5\u662f\u4ece $r$ \u5230 $1$ \uff0c\u8fd9\u6837\u5982\u679c\u8bfb\u5230 ``#`` \u65f6\uff0c\u5f97\u5230\u7684\u7ed3\u679c\u5c31\u662f $j$ \u3002\n\n# AC code:\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,r,s;\nint main(){\n\tcin >> n >> r >> s;\n\tfor(int i = 1;i <= n;i++){\n\t\tint Min = 60,Max = -1;\n\t\tfor(int j = r;j >= 1;j--){\n\t\t\tstring t;\n\t\t\tcin >> t;\n\t\t\tfor(int k = 0;k < s;k++){\n\t\t\t\tif(t[k] == '#'){\n\t\t\t\t\tMax = max(Max,j);\n\t\t\t\t\tMin = min(Min,j);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\tprintf(\"%d\\n\",Max - Min);\n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1675585058,
+        "uid": 564694,
+        "name": "Chtholly_is_so_cute",
+        "ccfLevel": 0,
+        "title": "P9028 [COCI2022-2023#1] Desni klik \u9898\u89e3"
+    },
+    {
+        "content": "\u4e00\u9053\u7b80\u5355\u7684\u5b57\u7b26\u6570\u7ec4\u5904\u7406\u9898\u3002  \n**\u4e0d\u5b89\u5168\u5ea6\u5b9a\u4e49**  \n\u6bcf\u4e00\u5217`#`\u7684\u4f4d\u7f6e\uff08\u4ece\u4e0b\u5f80\u4e0a\u6570\uff09\u4e3a\u8fd9\u4e00\u5217\u7684\u4ef7\u503c\uff0c\u6240\u6709\u5217\u4e2d\u6700\u5927\u4ef7\u503c\u4e0e\u6700\u5c0f\u4ef7\u503c\u7684\u5dee\u5373\u4e3a\u5b83\u7684\u4e0d\u5b89\u5168\u5ea6\u3002\n\n**\u53d8\u91cf\u5b9a\u4e49**  \n`char a[][]` \u50a8\u5b58\u5b57\u7b26  \n`int b[]` \u50a8\u5b58\u6bcf\u4e00\u5217\u7684\u4ef7\u503c\n\n**\u6bcf\u5217\u4ef7\u503c\u8ba1\u7b97**  \n\u53cc\u91cd\u5faa\u73af\uff08\u6ce8\u610f\u5916\u9762\u4e00\u5c42\u662f\u5217\uff0c\u91cc\u9762\u4e00\u5c42\u662f\u884c\uff09\uff0c\u6bcf\u4e00\u5217\u53ea\u8981\u627e\u5230\u4e86`#`\u5c31\u53ef\u4ee5\u7ed3\u675f\u4e86\uff0c\u56e0\u4e3a\u4e00\u5217\u6709\u4e14\u4ec5\u67091\u4e2a`#`\u3002\n```cpp\nfor(int j=1;j<=s;j++)\n{\n\tfor(int t=1;t<=r;t++)\n\t{\n\t\tif(a[r-t+1][j]=='#')\n\t\t{\n\t\t\tb[j]=t;\n\t\t\tbreak;\n\t\t}\n\t}\n}\n```\n**\u4e0d\u5b89\u5168\u5ea6\u8ba1\u7b97\u5e76\u8f93\u51fa**  \n\u627e\u5230\u6700\u5927\u6700\u5c0f\u503c\uff0c\u76f8\u51cf\u3002  \n```cpp\nint maxb=1,minb=1;//\u6700\u5927\u6700\u5c0f\u503c\u7684\u4e0b\u6807 \nfor(int j=1;j<=s;j++)\n{\n\tif(b[j]>b[maxb])\n\t{\n\t\tmaxb=j;\n\t}\t\t\n   if(b[j]<b[minb])\n\t{\n\t\tminb=j;\n\t}\n}\ncout<<b[maxb]-b[minb]<<endl;\n```\n**\u5168\u90e8\u4ee3\u7801**  \n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nchar a[51][51];\nint n,r,s,b[51];\nint main()\n{\n\tcin>>n>>r>>s;\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tfor(int j=1;j<=r;j++)\n\t\t{\n\t\t\tfor(int t=1;t<=s;t++)\n\t\t\t{\n\t\t\t\tcin>>a[j][t];\n\t\t\t}\n\t\t}\n\t\tfor(int j=1;j<=s;j++)\n\t\t{\n\t\t\tfor(int t=1;t<=r;t++)\n\t\t\t{\n\t\t\t\tif(a[r-t+1][j]=='#')\n\t\t\t\t{\n\t\t\t\t\tb[j]=t;\n\t\t\t\t\tbreak;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\tint maxb=1,minb=1;//\u6700\u5927\u6700\u5c0f\u503c\u7684\u4e0b\u6807 \n\t\tfor(int j=1;j<=s;j++)\n\t\t{\n\t\t\tif(b[j]>b[maxb])\n\t\t\t{\n\t\t\t\tmaxb=j;\n\t\t\t}\n\t\t\tif(b[j]<b[minb])\n\t\t\t{\n\t\t\t\tminb=j;\n\t\t\t}\n\t\t}\n\t\tcout<<b[maxb]-b[minb]<<endl;\n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1675575435,
+        "uid": 914443,
+        "name": "zjhz123456",
+        "ccfLevel": 0,
+        "title": "P9028 [COCI2022-2023#1] Desni klik \u9898\u89e3"
+    },
+    {
+        "content": "## P9028 [COCI2022-2023#1] Desni klik \u9898\u89e3\n\n### \u601d\u8def\uff1a\n\n\u8003\u8651\u5230\u9898\u76ee\u6c42\u7684\u662f\u6bcf\u4e00\u5217\uff0c\u6240\u4ee5\u4e0d\u597d\u5904\u7406\uff0c\u6211\u4eec\u53ef\u4ee5\u5c06\u77e9\u9635\u987a\u65f6\u9488\u65cb\u8f6c $90$ \u5ea6\uff0c\u6240\u4ee5\u9898\u76ee\u6c42\u7684\u6bcf\u4e00\u5217\u5c31\u53d8\u6210\u4e86\u6bcf\u4e00\u884c\u3002\n\n**\u6ce8\u610f\uff1a\u65cb\u8f6c\u540e\uff0c\u77e9\u9635\u7684\u884c\u6570\u53d8\u6210\u4e86 $s$\uff0c\u5217\u6570\u53d8\u6210\u4e86 $r$\u3002**\n\n### Code:\n\n```cpp\n#include <bits/stdc++.h>\n\nusing namespace std;\n\nint n, r, s, h[10001];\nchar c[1001][1001], g[1001][1001];\n\nint main() {\n  cin >> n >> r >> s;\n  for (int i = 1; i <= n; i++) {\n    memset(h, 0, sizeof(h));  // \u591a\u6d4b\u6e05\u96f6\n    for (int j = 1; j <= r; j++) {\n      for (int k = 1; k <= s; k++) {\n        cin >> c[j][k];\n      }\n    }\n    for (int j = 1; j <= s; j++) {\n      for (int k = r; k >= 1; k--) {\n        g[j][k] = c[k][j];\n      }\n    }\n    /*\n    for (int j = 1; j <= r; j++) {\n      for (int k = s; k >= 1; k--) {\n        cout << g[j][k];\n      }\n      cout << endl;\n    }\n    */\n    for (int j = 1; j <= s; j++) {\n      for (int k = 1; k <= r; k++) {\n        if (g[j][k] == '#') {\n          h[j] = k;\n        }\n      }\n    }\n    /*\n    for (int j = 1; j <= s; j++) {\n      cout << h[j] << ' ';\n    }\n    cout << '\\n'; \n    */\n    int maxx = 0;\n    for (int j = 1; j <= s; j++) {\n      for (int k = 1; k <= s; k++) {\n        maxx = max(maxx, abs(h[j] - h[k])); \n      }\n    }\n    cout << maxx << endl; \n  }\n  return 0;\n}\n\n/*\n\n.....#.#\n...#..#.\n..#.#...\n.#......\n#.......\n\n#....   1\n.#...   2\n..#..   3\n...#.   4\n..#..    3\n....#    5\n...#.    4\n....#   5\n\n...\n##.\n..#\n\n.#.  2   j = 1, k = 2\n.#.  2\n#..  1\n*/ \n```\n",
+        "postTime": 1675567188,
+        "uid": 672281,
+        "name": "ydq1101",
+        "ccfLevel": 4,
+        "title": "P9028 [COCI2022-2023#1] Desni klik \u9898\u89e3"
+    },
+    {
+        "content": "\u601d\u8def\u5176\u5b9e\u5f88\u597d\u60f3\uff0c\u5c31\u662f\u8ba1\u7b97 \u6bcf\u4e2a $\\text{NFP}$ \u7b2c $i$ \u5929\u7684\u4ef7\u503c $j$\uff0c\u6700\u5927\u503c\u51cf\u6700\u5c0f\u503c\u65e2\u662f\u7b54\u6848\u3002\n\n\u9700\u8981\u6ce8\u610f\u7684\u662f\u8981\u5148\u679a\u4e3e\u5217\uff0c\u518d\u4ece\u4e0b\u5230\u4e0a\u679a\u4e3e\u884c\u3002\n\n```cpp\nfor(int j = 1;j <= s;j++){ //\u679a\u4e3e\u5217\n\tint i = r;\n\twhile(i >= 1 && t[i][j] == '.') //\u4e0b\u5230\u4e0a\u679a\u4e3e\u884c\u76f4\u5230\u9047\u5230 #\n\t\ti--;\n\tminn = min(minn , r - i + 1); //\u66f4\u65b0\u6700\u5c0f\n\tmaxn = max(maxn , r - i + 1); //\u66f4\u65b0\u6700\u5927\n}\nprintf(\"%d\\n\" , maxn - minn); //\u7b54\u6848\u5c31\u662f\u6700\u5927-\u6700\u5c0f\n```",
+        "postTime": 1675559990,
+        "uid": 670766,
+        "name": "QWQ_SenLin",
+        "ccfLevel": 3,
+        "title": "P9028 \u9898\u89e3"
+    },
+    {
+        "content": "## \u601d\u8def\n\n\u5176\u5b9e\u4ee3\u7801\u5e76\u4e0d\u96be\uff0c\u5c31\u662f\u6a21\u62df\uff0c\u4f46\u662f\u5728\u8fd9\u91cc\u6bcf\u5929\u7684\u4ef7\u503c\u662f\u5728\u4e00\u5217\u7684\u800c\u4e0d\u662f\u4e00\u884c\uff0c\u6211\u4e00\u5f00\u59cb\u5c31\u662f\u56e0\u4e3a\u8fd9\u4e2a WA \u4e86\u4e0d\u4e0b $10$ \u6b21\uff0c\u4e5f\u5c31\u662f\u8bf4\uff0c\u5728\u4e24\u5c42 `for` \u662f\u8981\u5148\u5199\u904d\u5386\u5217\u7684\uff0c\u518d\u5199\u904d\u5386\u884c\u7684\uff0c\u5269\u4e0b\u5c31\u6ca1\u4ec0\u4e48\u597d\u8bf4\u7684\uff0c\u770b\u4ee3\u7801\u5427\u3002\n\n## \u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nstring str[101];\nint main(){\n\tint n, r, s;\n\tscanf(\"%d %d %d\",&n, &r, &s);\n\twhile(n--){\n\t\tint mnn = 114514, mxn = -1919810;\n\t\tfor(int i = 1; i <= r; i++){\n\t\t\tcin >> str[i];\n\t\t}\n\t\tfor(int j = 0; j < s; j++){//\u5929\u6570\u5728\u5217\n\t\t\tfor(int i = 1; i <= r; i++){//\u4ef7\u683c\u5728\u884c\n\t\t\t\tif(str[i][j] == '#'){//\u5982\u679c\u662f#\u7684\u8bdd\u5c31\u8bf4\u660e\uff0c\u8fd9\u4e00\u5929\u4ef7\u683c\u662fr-i+1\n\t\t\t\t\tmnn = min(mnn, r - i + 1);//\u53d6\u6700\u5c0f\u503c\n\t\t\t\t\tmxn = max(mxn, r - i + 1);//\u53d6\u6700\u5927\u503c\n\t\t\t\t\tbreak;//\u4e0b\u4e00\u5929\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\tprintf(\"%d\\n\", mxn - mnn);\n\t}\n    return 0;\n}\n```",
+        "postTime": 1675559932,
+        "uid": 852144,
+        "name": "Saint_ying_xtf",
+        "ccfLevel": 0,
+        "title": "P9028 [COCI2022-2023#1] Desni klik \u9898\u89e3"
+    },
+    {
+        "content": "# \u679a\u4e3e\u5927\u6cd5\uff1a\n\n\u5bf9\u4e8e\u6bcf\u4e2a NFP\uff0c\u679a\u4e3e\u5176\u6bcf\u4e00\u5217\u7684\u6bcf\u4e00\u884c\uff0c\u627e\u51fa\u6bcf\u4e00\u5217\u7684\u4ef7\u503c\uff0c\u518d\u8bb0\u5f55\u6700\u5c0f\u503c\u548c\u6700\u5927\u503c\u5373\u53ef\u3002\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nchar a[55][55];\nint main(){\n\tint n,r,s;\n\tscanf(\"%d %d %d\",&n,&r,&s);\n\twhile(n--){\n\t\tint maxs=0,mins=100;\n\t\tfor(int i=1;i<=r;i++) scanf(\"%s\",a[i]+1);\n\t\tfor(int j=1;j<=s;j++){\n\t\t\tfor(int i=1;i<=r;i++){\n\t\t\t\tif(a[i][j]=='#'){\n\t\t\t\t\tif(r-i+1<mins) mins=r-i+1;\n\t\t\t\t\tif(r-i+1>maxs) maxs=r-i+1;\n\t\t\t\t\tbreak;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\tprintf(\"%d\\n\",maxs-mins);\n\t}\n    return 0;\n}\n```",
+        "postTime": 1675553583,
+        "uid": 909294,
+        "name": "zhuweiqi",
+        "ccfLevel": 0,
+        "title": "P9028 \u9898\u89e3"
+    },
+    {
+        "content": "# \u539f\u9898\u94fe\u63a5\n\n[P9028 [COCI2022-2023#1] Desni klik](https://www.luogu.com.cn/problem/P9028)\n\n# \u9898\u76ee\u7b80\u8ff0\n\n- \u6c42\u51fa\u6240\u6709\u5217\u4e2d\u6700\u4e0a\u9762\u7684 `#` \u548c\u6700\u4e0b\u9762\u7684 `#` \u6240\u5dee\u7684\u884c\u6570\u3002\n\n# \u89e3\u9898\u601d\u8def\n\n- \u5728\u8f93\u5165 `#` \u65f6\uff0c\u4fdd\u7559\u6700\u5927\u548c\u6700\u5c0f\u7684\u884c\u53f7\uff0c\u6700\u540e\u8f93\u51fa\u4e24\u6570\u7684\u5dee\u5373\u53ef\u3002\n\n# \u6ee1\u5206\u4ee3\u7801\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nint n,r,s;\nint maxn,minn;\nchar f;\nint main()\n{\n\tcin>>n>>r>>s;\n\twhile(n--)\n\t{\n\t\tmaxn=0;\n\t\tminn=1e9;\n\t\tfor(int i=1;i<=r;i++)\n\t\t{\n\t\t\tfor(int j=1;j<=s;j++)\n\t\t\t{\n\t\t\t\tcin>>f;\n\t\t\t\tif(f=='#') \n\t\t\t\t{\n\t\t\t\t\tmaxn=max(maxn,i);//\u4fdd\u7559\u6700\u5927\u7684\u884c\u53f7 \n\t\t\t\t\tminn=min(minn,i);//\u4fdd\u7559\u6700\u5c0f\u7684\u884c\u53f7 \n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\tcout<<maxn-minn<<endl;\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1675519661,
+        "uid": 455474,
+        "name": "lailai0916",
+        "ccfLevel": 5,
+        "title": "P9028 [COCI2022-2023#1] Desni klik \u9898\u89e3"
+    }
+]

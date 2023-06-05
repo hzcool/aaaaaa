@@ -1,0 +1,50 @@
+[
+    {
+        "content": "## Content\n\u7ed9\u5b9a\u4e00\u4e2a\u6570 $n$\uff0c\u5224\u65ad\u8fd9\u4e2a\u6570\u7684\u6b63\u8d1f\u3002\n\n**\u6570\u636e\u8303\u56f4\uff1a$-10^9\\leqslant n\\leqslant 10^9$\u3002**\n## Solution\n\u4e00\u4e2a\u57fa\u7840\u7684\u5206\u652f\u7ed3\u6784\u9898\u3002\n\nif-else \u662f\u5e38\u7528\u7684\u5206\u652f\u7ed3\u6784\uff0c\u5b83\u7684\u57fa\u672c\u4f7f\u7528\u65b9\u6cd5\u4e3a\uff1a\n\n```cpp\nif(\u6761\u4ef61) \u8bed\u53e51;\nelse \u8bed\u53e52;\n```\n\n\u53e6\u5916\uff0cif-else \u91cc\u9762\u4e5f\u53ef\u4ee5\u6709\u591a\u4e2a\u8bed\u53e5\uff0c\u5e76\u4e14\u53ef\u4ee5 if-else \u91cd\u590d\u5d4c\u5957\uff0c\u5c31\u50cf\u8fd9\u6837\uff1a\n\n```cpp\nif(\u6761\u4ef61) \u8bed\u53e51;\nelse if(\u6761\u4ef62) \u8bed\u53e52;\nelse if(\u6761\u4ef63) \u8bed\u53e53;\n...\n```\n\n\u90a3\u4e48\u6211\u4eec\u5c31\u53ef\u4ee5\u77e5\u9053\u8fd9\u4e2a\u9898\u7684\u7a0b\u5e8f\u600e\u4e48\u5199\u4e86\u3002\n\n- \u5224\u65ad\u662f\u5426 $>0$\uff0c\u5982\u679c\u662f\uff0c\u8f93\u51fa `positive`\u3002\n- \u5224\u65ad\u662f\u5426 $=0$\uff0c\u5982\u679c\u662f\uff0c\u8f93\u51fa `zero`\u3002\n- \u5426\u5219\uff0c\u8f93\u51fa `negative`\u3002\n\n\u5c06\u4e0a\u9762\u7684\u601d\u8def\u8f6c\u5316\u4e3a\u4ee3\u7801\u5c31\u53ef\u4ee5\u5199\u51fa\u8fd9\u9053\u9898\u4e86\u3002\n\n## Code\n```cpp\n#include <iostream>\nusing namespace std;\n\nint main() {\n\tint n;\n\tcin>>n;\n\tif(n>0) {\n\t\tcout<<\"positive\";\n\t} else if(n==0) {\n\t\tcout<<\"zero\";\n\t} else {\n\t\tcout<<\"negative\";\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1625292448,
+        "uid": 112917,
+        "name": "Eason_AC",
+        "ccfLevel": 6,
+        "title": "B2035 \u5224\u65ad\u6570\u6b63\u8d1f"
+    },
+    {
+        "content": "## \u9898\u76ee\u5206\u6790\n\u8fd9\u9898\u5176\u5b9e\u5c31\u662f\u5224\u65ad\u4e00\u4e2a\u6570\u7684\u6b63\u8d1f\uff0c\u6240\u4ee5\u53ea\u8981\u7528\u5206\u652f\u8bed\u53e5\u5c31\u53ef\u4ee5\u89e3\u51b3\u8fd9\u9053\u9898\u76ee\u3002\u6ce8\u610f\u82f1\u6587\u5927\u5c0f\u5199\uff0c\u6700\u4fdd\u9669\u7684\u529e\u6cd5\u5c31\u662f\u4ece\u9898\u76ee\u4e2d\u590d\u5236\u8fc7\u6765\u3002\n## \u4ee3\u7801\u5b9e\u73b0\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n\tint a;\n\tcin>>a;\n\tif(a>0)\n\t\tcout<<\"positive\"<<endl;\n\telse if(a==0)\n\t\tcout<<\"zero\"<<endl;\n\telse\n\t\tcout<<\"negative\"<<endl;\n\treturn 0;\n}\n\n```\n",
+        "postTime": 1625290464,
+        "uid": 359581,
+        "name": "\u00b7\u7cef\u00b7",
+        "ccfLevel": 5,
+        "title": "B2035"
+    },
+    {
+        "content": "# \u9898\u76ee\u5206\u6790\uff1a\n\u672c\u9898\u8981\u6c42\uff1a\n>\u5982\u679c $N>0$ \uff0c\u8f93\u51fa ```positive```;\n\n>\u5982\u679c $N=0$ \uff0c\u8f93\u51fa ```zero```\uff1b\n\n>\u5982\u679c $N<0$ \uff0c\u8f93\u51fa ```negative```\u3002\n\n\u90a3\u4e48 $3$ \u6b21```if```\u5224\u65ad\u5373\u53ef\uff0c\u4f46\u662f\u6211\u6559\u5927\u5bb6\u4e00\u4e2a\u7b80\u5355\u7684\u65b9\u6cd5\uff0c\u4ed6\u5c31\u662fC/C++\u552f\u4e00\u7684\u4e09\u76ee\u8fd0\u7b97\u7b26```?   :```\u3002\n\n```cpp\n(x!=0?(x>0?\"positive\":\"negative\"):\"zero\")\n```\n\u5927\u5bb6\u53ef\u4ee5\u770b\u5230\uff0c\u6838\u5fc3\u4ee3\u7801\u53ea\u6709\u8fd9\u4e00\u884c\uff0c\u4f46\u662f\u4e3a\u4ec0\u4e48\u4f1a```AC```\u5462\uff0c\u90a3\u5c31\u7531\u6211\u7ed9\u5927\u5bb6\u8bb2\u8bb2```?   :```\u7684\u8bed\u6cd5\uff1a\n\n```cpp\n\u5224\u65ad?\u5982\u679c\u6b63\u786e\u8981\u505a\u7684\u4e8b:\u5982\u679c\u9519\u8bef\u8981\u505a\u7684\u4e8b\n```\n\n\u662f\u4e0d\u662f\u5f88\u50cf```if()else```\uff0c\u90a3\u4e48\u5c31\u6765\u5c55\u793a\u4e00\u4e0b\u672c\u9898\u7684\u5168\u90e8\u4ee3\u7801\u3002\n# \u4ee3\u7801\uff1a\n```cpp\n#include<iostream>\nusing namespace std;\nint main(){\n     int x;//\u5b9a\u4e49\n     cin>>x;//\u8f93\u5165\n     cout<<(x!=0?(x>0?\"positive\":\"negative\"):\"zero\");//\u8f93\u51fa\u7ed3\u679c\n     return 0;\n}\n```",
+        "postTime": 1625284648,
+        "uid": 387009,
+        "name": "wangbinfeng",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3"
+    },
+    {
+        "content": "\u8bad\u7ec3\u65b0\u624b\u5bf9`if else`\u7684\u719f\u6089\u7a0b\u5ea6\u3002\n\n\u6839\u636e\u9898\u610f\u6a21\u62df\u5373\u53ef\u3002\n\n\u6ce8\u610f\u4e0d\u8981\u628a `n==0` \u5199\u6210 `n=0` \u3002\n\n```cpp\n#include<iostream>\nusing namespace std;\nint main() {\n\tint n;\n   cin>>n;\n   if(n>0)\n      cout<<\"positive\"<<endl;\n   else if(n==0)\n      cout<<\"zero\"<<endl;\n   else\n   \t\tcout<<\"negative\"<<endl;\n   return 0;\n}\n```",
+        "postTime": 1625281189,
+        "uid": 313137,
+        "name": "qqqqq111",
+        "ccfLevel": 0,
+        "title": "B2035\u9898\u89e3"
+    },
+    {
+        "content": "\u6a21\u62df\u5373\u53ef\u3002\n### \u505a\u6cd5 1\uff1aif-else\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main()\n{\n    int n;\n    cin >> n;\n    if(n == 0) puts(\"zero\"); // \u53ef\u4ee5\u5199 if(!n)\uff0c\u522b\u628a == \u5199\u6210 = \uff01\n    else if(n > 0) push(\"positive\");\n    else puts(\"negative\");\n    return 0;\n}\n```\n### \u505a\u6cd5 2: \u4e09\u76ee\u8fd0\u7b97\u7b26\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main()\n{\n    int n;\n    cin >> n;\n    puts(n?n>0?\"positive\":\"negative\":\"zero\"); // puts \u81ea\u5e26\u6362\u884c\n    return 0;\n}\n```\n- - -\n\u4ee5\u9632\u62fc\u9519\u6216\u8005\u5f04\u9519\u5927\u5c0f\u5199\uff0c\u9898\u76ee\u4e2d\u7684\u5b57\u7b26\u4e32\u6700\u597d\u76f4\u63a5\u590d\u5236\u3002",
+        "postTime": 1625290951,
+        "uid": 404961,
+        "name": "baiABC",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3\u3010B2035 \u5224\u65ad\u6570\u6b63\u8d1f\u3011"
+    },
+    {
+        "content": "\u8fd9\u91cc\u4ecb\u7ecd\u4e00\u79cd\u901a\u8fc7\u5b57\u7b26\u4e32\u6765\u5224\u65ad\u6b63\u8d1f\u7684\u65b9\u5f0f\u3002\n\n\u9996\u5148\u8bfb\u5165\u4e00\u4e2a\u5b57\u7b26\u4e32 $a$\uff0c\u7136\u540e\u8fdb\u884c\u5206\u7c7b\u8ba8\u8bba\u3002\n\n- \u5982\u679c\u8be5\u5b57\u7b26\u4e32\u7684\u9996\u4e2a\u5b57\u7b26\u4e3a `-`\uff0c\u5219\u8be5\u5b57\u7b26\u4e32\u6240\u5bf9\u5e94\u7684\u6570\u5b57\u4e3a\u8d1f\u6570\u3002\n- \u5982\u679c\u8be5\u5b57\u7b26\u4e32\u7684\u9996\u4e2a\u5b57\u7b26\u4e3a `0`\uff0c\u5219\u8be5\u5b57\u7b26\u4e32\u6240\u5bf9\u5e94\u7684\u6570\u5b57\u4e3a $0$\uff08\u56e0\u4e3a\u6570\u636e\u4fdd\u8bc1\u4e0d\u4f1a\u51fa\u73b0\u524d\u5bfc\u96f6\uff09\u3002\n- \u5982\u679c\u8be5\u5b57\u7b26\u4e32\u7684\u9996\u4e2a\u5b57\u7b26\u4e3a\u5176\u4ed6\u5b57\u7b26\uff0c\u5219\u8be5\u5b57\u7b26\u4e32\u6240\u5bf9\u5e94\u7684\u6570\u5b57\u4e3a\u6b63\u6570\u3002\n\n```python\na=input().strip()\n\nif(a[0]=='-'):print(\"negative\")\nelif(a[0]=='0'and len(a)==1):print('zero')\nelse:print('positive')\n```",
+        "postTime": 1625293344,
+        "uid": 207996,
+        "name": "yzy1",
+        "ccfLevel": 9,
+        "title": "B2035 \u9898\u89e3"
+    }
+]

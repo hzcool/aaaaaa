@@ -1,0 +1,90 @@
+[
+    {
+        "content": "**\u9898\u610f**\uff1a\u7ed9\u5b9a\u4e00\u4e2a\u6b63\u6574\u6570 $n$\uff0c\u5bf9\u4e8e\u4e24\u6570 $a$ \u548c $b$ $(1\\leq a,b \\leq n)$\uff0c\u6c42\u51fa $\\max\\{\\ lcm(a,b)\\ \\}$ .\n\n\u7ed3\u8bba\u9898\u3002\n\n\u663e\u7136\u5bf9\u4e8e\u76f8\u90bb\u4e24\u6570 $x-1$ \u548c $x$ \uff0c\u5b83\u4eec\u662f\u4e92\u8d28\u7684\u3002\n\n\u5bf9\u4e8e\u6b64\u9898\uff0c$lcm(n-1,n)$ \u5373\u4e3a\u5c0f\u4e8e\u7b49\u4e8e $n$ \u8303\u56f4\u5185\u4e24\u6570\u7684\u6700\u5927 $lcm$ .\n\n\u56e0\u6b64\u6700\u7ec8\u89e3\u5373\u4e3a $n \\times (n-1)$ .\n\n\u7279\u522b\u5730\uff0c\u5f53 $n=1$ \u65f6\uff0c\u7ed3\u679c\u5e94\u4e3a $1$ .\n\n\u6ce8\u610f\u6700\u7ec8\u89e3\u53ef\u80fd\u8d85\u8fc7 $int$ \u8303\u56f4\u3002",
+        "postTime": 1561816882,
+        "uid": 82494,
+        "name": "Koakuma",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P5436 \u3010\u3010XR-2\u3011\u7f18\u5206\u3011"
+    },
+    {
+        "content": "#### \u9898\u76ee\u5927\u610f\n\n> \u6c42\u4e24\u4e2a\u4e0d\u8d85\u8fc7 $n$ \u7684\u6b63\u6574\u6570\u7684\u6700\u5c0f\u516c\u500d\u6570\u7684\u6700\u5927\u503c\u3002\n\n#### \u524d\u7f6e\u77e5\u8bc6\n\n- \u6700\u5c0f\u516c\u500d\u6570\n\n#### \u9898\u89e3\n\n\u7565...\n\n\u6ce8\u610f\u7279\u5224 $n = 1$\u3002\n\n#### \u4ee3\u7801\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int T;\n    cin >> T;\n    while (T--) {\n        int n;\n        cin >> n;\n        if (n == 1) {\n            puts(\"1\");\n            continue;\n        }\n        cout << 1ll * n * (n - 1) << endl;\n    } \n    return 0;\n}\n```\n\n",
+        "postTime": 1561812962,
+        "uid": 100544,
+        "name": "xht",
+        "ccfLevel": 9,
+        "title": "\u9898\u89e3 P5436 \u3010\u3010XR-2\u3011\u7f18\u5206\u3011"
+    },
+    {
+        "content": "[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.org/problemnew/show/P5436)\n\n\u6211\u62ff\u9053\u9898\u7b2c\u4e00\u53cd\u5e94\u662f\u66b4\u529b\u7684\u6253\u4e2a\u8868...\u4e8e\u662f\u8bde\u751f\u4e86solution1\n\n**solution1\uff1a**(50 pts)\n```cpp\n#include<bits/stdc++.h>\n#define ll long long\n#define N 10009\nusing namespace std;\nint T,f[N],n;\n\nint gcd(int m,int n){\n    return n==0? m:gcd(n,m%n);\n    return 0;\n} //gcd\u76f8\u4fe1\u5927\u5bb6\u90fd\u4f1a\uff0c\u76f4\u63a5\u7528\u8f97\u8f6c\u76f8\u9664\u6cd5\u5c31\u53ef\u4ee5\u4e86QwQ\n\nint main(){\n    cin>>T;\n    while(T--){\n        cin>>n;\n        for(int i=1;i<=n;i++)\n            for(int j=1;j<=n;j++)\n                f[i]=max(f[i],i*j/gcd(i,j));//lcm(i,j)=n*m/gcd(i,j);\n        cout<<f[n]<<endl;\n        for(int i=1;i<=n;i++) f[i]=0;\n    }\n    return 0;\n}\n\n```\n\n**solution2:** (100pts)\n\n\u6211\u4eec\u89c2\u5bdf\u6253\u8868\uff1a\n\nn==1\u65f6\uff0cans==1;\n\nn==2\u65f6\uff0cans==2;\n\nn==3\u65f6\uff0cans==6;\n\nn==4\u65f6\uff0cans==12;\n\n\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7//\u4ee5\u6b64\u7c7b\u63a8\n\n\u6211\u4eec\u4f3c\u4e4e\u53d1\u73b0\u4e86\u4ec0\u4e48: \n\n\u5f53n==1\u65f6\uff0cans=1;\n\n\u5f53n!=1\u65f6\uff0cans=n*(n-1);\n\n\u4e8e\u662f\u6211\u4eec\u5c1d\u8bd5\u53bb\u8bc1\u660e\u5982\u4e0a\u7684\u7ed3\u8bba\uff1a\uff08\u6572\u9ed1\u677f\uff09\n\n\u5f53n!=1\u65f6\uff0c\u6613\u77e5gcd(n,n-1)==1;(\u5373n,n-1\u4e92\u7d20)\n\n\u800clcm(n,n)==n < lcm(n,n-1)==n*(n-1) ;\n\n\u8fd9\u8bf4\u660e...\n\nans==n*(n-1) ; \u5927\u4e8e\u5176\u4ed6\u6240\u6709\u89e3\n\n\u4e8e\u662f\u6709\u4e86\u5982\u4e0b\u7684\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\n#define ll long long\nusing namespace std;\nll T;\n\nvoid read(ll &x){\n    ll f=1;x=0;char s=getchar();\n    while(s<'0'||s>'9'){if(s=='-')f=-1;s=getchar();}\n    while(s>='0'&&s<='9'){x=x*10+s-'0';s=getchar();}\n    x*=f;\n}\n\nvoid print(ll x){\n    if(x<0)putchar('-'),x=-x;\n    if(x>9)print(x/10);\n    putchar(x%10+'0');\n} ~~//\u5feb\u8bfb\u6a21\u677f\uff0c\u4f60\u503c\u5f97\u62e5\u6709~~\n\nint main(){\n    read(T);\n    while(T--){ //\u591a\u7ec4\u6570\u636e\u8981\u6ce8\u610f\u9e2d\n        ll n,ans;\n        read(n);\n        if(n==1) ans=1;\n        else ans=n*(n-1);\n        print(ans);\n        puts(\"\");\n    }\n    return 0;\n}\n\n```\n\n\u611f\u8c22\u89c2\u770b\uff08QvQ\uff09\n\n",
+        "postTime": 1561815090,
+        "uid": 91204,
+        "name": "Fatalis_Lights",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P5436 \u3010\u3010XR-2\u3011\u7f18\u5206\u3011"
+    },
+    {
+        "content": "\u4e00\u9053\u975e\u5e38\u4e0d\u9519\u7684\u7b7e\u5230\u9898\u3002\n\n\u9996\u5148\uff0c$ \\operatorname{lcm}(a,b) = a * b / \\gcd (a,b) $ \u3002\u8981\u60f3\u8ba9 $ \\operatorname{lcm}(a,b) $ \u5c3d\u53ef\u80fd\u5927\uff0c\u5f53\u7136\u8981\u8ba9 $ \\gcd (a,b) $ \u5c3d\u53ef\u80fd\u5c0f\u3002\u6240\u4ee5\u6211\u4eec\u8981\u53d6\u4e24\u4e2a\u4e92\u8d28\u7684\u6574\u6570 $ a,b  $ \u3002\n\n\u600e\u6837\u8ba9 $ a * b $ \u5c3d\u53ef\u80fd\u5927\u5462\uff1f\u5f53\u7136\u662f\u8ba9\u4e24\u4e2a\u6570\u90fd\u5c3d\u53ef\u80fd\u5927\u3002\u4e8e\u662f\u6211\u4eec\u7684\u65b9\u6848\u5c31\u547c\u4e4b\u6b32\u51fa\u4e86\uff1a\u6211\u4eec\u53d6 $ n $ \u548c $ n-1 $ \u4e24\u4e2a\u6570\u5b57\u3002\n\n\u7279\u522b\u5730\uff0c\u5f53 $ n=1 $ \u65f6\uff0c\u6211\u4eec\u53d6\u7684\u4e24\u4e2a\u6574\u6570\u90fd\u662f $ 1 $ \uff0c\u7b54\u6848\u4e5f\u662f $ 1 $ \u3002\n\n```cpp\n#include <iostream>\nusing namespace std;\nint main()\n{\n int t;\n cin>>t;\n while(t--)\n {\n  long long x;\n  cin>>x;\n  if(x==1)cout<<1<<endl;\n  else cout<<x*(x-1)<<endl;\n }\n return 0;\n}\n```\n",
+        "postTime": 1561812651,
+        "uid": 22030,
+        "name": "StudyingFather",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 P5436 \u3010\u3010XR-2\u3011\u7f18\u5206\u3011"
+    },
+    {
+        "content": "\u771f\u00b7\u5c0f\u5b66\u5965\u6570\n\n\u8981\u60f3\u8ba9\u4e24\u4e2a\u4e0d\u8d85\u8fc7 $ n $ \u7684\u6570\u7684 lcm \u6700\u5927\uff0c\u663e\u800c\u6613\u89c1\uff0c\u5b83\u4eec\u5fc5\u987b\u8981\u4e92\u8d28\u3002\n\n\u56e0\u4e3a```\u76f8\u90bb\u4e24\u4e2a\u81ea\u7136\u6570\u4e92\u8d28```\uff0c\u5728\u8fd9\u9053\u9898\u4e2d\uff0c$ ans=(n-1)n $\u3002\n\n**\u7136\u800c\u8fd9\u5e76\u4e0d\u662f\u7edd\u5bf9\u7684\u3002**\n\n\u6ce8\u610f\u51e0\u4e2a\u5751\uff08\uff1f\uff09\u70b9\uff1a\n\n1\u3001\u7b54\u6848\u8d85\u8fc7\u4e86 int \u8303\u56f4\uff0c\u8981\u5f00 ll\uff0c\u6216\u8005\u5f3a\u5236\u7c7b\u578b\u8f6c\u6362\uff1b\n\n2\u3001\u5f53 $ n = 1 $ \u65f6\uff0c\u5982\u679c\u4f9d\u7136\u7528\u4e0a\u9762\u7684\u516c\u5f0f\uff0c\u7b54\u6848\u5c06\u4f1a\u662f $ (1-1)\\times1=0 $\uff0c**\u800c\u5b9e\u9645\u4e0a\uff0c\u8fd9\u4e24\u4e2a\u6570\u5e94\u8be5\u90fd\u662f 1\uff0c\u8fd9\u6837\u7b54\u6848\u5c06\u662f 1.**\n\n\u6240\u4ee5\u5b9e\u9645\u4e0a\u7684\u516c\u5f0f\u662f\uff1a\n\n$ \\begin{cases} ans=1 \\qquad \\qquad \\quad \\  (n=1) \\\\ ans=(n-1)n \\qquad (n\\not=1) \\end{cases} $\n\n$ \\rm code $\n\n```cpp\n# include <bits/stdc++.h>\nusing namespace std;\nvoid read(int &);\nint main() {\n    int T, n;\n    for(read(T); T; --T) {\n        read(n);\n        if(n == 1) puts(\"1\");\n        else cout << (long long)n * (long long)(n - 1) << '\\n';\n    }\n    return 0;\n}\nvoid read(int &x) {\n    x = 0;\n    char ch = getchar();\n    while(!isdigit(ch)) ch = getchar();\n    while(isdigit(ch)) x = (x << 1) + (x << 3) + (ch & 15), ch = getchar();\n}\n```\n",
+        "postTime": 1561818115,
+        "uid": 46747,
+        "name": "Aehnuwx",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 P5436 \u3010\u3010XR-2\u3011\u7f18\u5206\u3011"
+    },
+    {
+        "content": "### \u89e3\u9898\u601d\u8def\n\u8981\u60f3\u8ba9\u4e24\u4e2a\u4e0d\u8d85\u8fc7$n$\u7684\u6570\u7684$LCM$\u6700\u5927\uff0c\u6709\u4ee5\u4e0b\u4e24\u4e2a\u56e0\u7d20\uff1a\n\n- \u4e92\u8d28\n\n- \u5c3d\u91cf\u5927\n\n\u6211\u4eec\u89c2\u5bdf\u7b2c\u4e8c\u4e2a\u6761\u4ef6\uff0c\u5982\u679c\u4e24\u4e2a\u6570\u90fd\u662f$n$\uff0c\u90a3\u4e48$LCM$\u5c31\u662f$n$\uff0c\u663e\u7136\u4e0d\u9760\u8c31\n\n\u5982\u679c\u6211\u4eec\u6539\u6210$n$\u548c$n-1$\u5462\uff1f\u6211\u4eec\u77e5\u9053\uff0c\u4e24\u4e2a\u76f8\u90bb\u7684\u6b63\u6574\u6570\u5fc5\u5b9a\u662f\u4e92\u8d28\u7684\uff0c\u800c\u4e24\u4e2a\u4e92\u8d28\u7684\u6570$LCM$\u5c31\u662f\u8fd9\u4e24\u4e2a\u6570\u7684\u4e58\u79ef\n\n$n\\times(n-1)$\u8fd9\u4e2a\u65b9\u6848\u65e2\u6ee1\u8db3\u4e86\u5c3d\u91cf\u5927\u53c8\u6709\u6ee1\u8db3\u4e86\u4e92\u8d28\uff0c\u5fc5\u5b9a\u662f\u6700\u4f18\u7684\n\n\u4f46\u662f\u9898\u76ee\u7684\u6570\u636e\u4e2d$n$\u53ef\u4ee5\u662f$1$\uff0c\u6240\u4ee5\u8fd9\u4e2a\u5f0f\u5b50\u7684\u503c\u5c31\u4f1a\u4e3a$0$\uff0c\u56e0\u6b64\u6211\u4eec\u9700\u8981\u7279\u5224\n### \u6ce8\u610f\u4e8b\u9879\n\u9898\u76ee\u4e2d$1\\le n\\le 10^9$\uff0c$n^2$\u4f1a\u7206```int```\uff0c\u56e0\u6b64\u8981\u5f00```long long```\n### \u4ee3\u7801\n```cpp\n#include <cstdio>\n#define int long long\nint t,n;\nint read(){\n    char ch=getchar();int res=0,w=1;\n    while(ch<'0'||ch>'9') {if(ch=='-') w=-1;ch=getchar();}\n    while(ch>='0'&&ch<='9') {res=res*10+ch-'0';ch=getchar();}\n    return res*w;\n}\nsigned main(){\n    t=read();\n    while(t--) {n=read();printf(\"%lld\\n\",n==1?1:n*(n-1));}\n    return 0;\n}\n```\n",
+        "postTime": 1561815205,
+        "uid": 80679,
+        "name": "Register",
+        "ccfLevel": 9,
+        "title": "\u9898\u89e3 P5436 \u3010\u3010XR-2\u3011\u7f18\u5206\u3011"
+    },
+    {
+        "content": "\u7b7e\u5230\u9898\n\n\u5c31\u662f\u4e00\u4e2a\u6700\u5c0f\u516c\u500d\u6570\u7684\u5224\u65ad \u6302\u4e00\u4e2a\u4ee3\u7801\u5427\n```\n#include <stdio.h>\n#include <stdlib.h>\n#include <iostream>  \n#include <string>  \n#include <cstring>  \n#include <cstdio>  \nusing namespace std;  \n  \nconst int maxn = 1000;  \n  \nstruct bign{  \n    int d[maxn], len;  \n  \n    void clean() { while(len > 1 && !d[len-1]) len--; }  \n  \n    bign()          { memset(d, 0, sizeof(d)); len = 1; }  \n    bign(int num)   { *this = num; }   \n    bign(char* num) { *this = num; }  \n    bign operator = (const char* num){  \n        memset(d, 0, sizeof(d)); len = strlen(num);  \n        for(int i = 0; i < len; i++) d[i] = num[len-1-i] - '0';  \n        clean();  \n        return *this;  \n    }  \n    bign operator = (int num){  \n        char s[20]; sprintf(s, \"%d\", num);  \n        *this = s;  \n        return *this;  \n    }  \n  \n    bign operator + (const bign& b){  \n        bign c = *this; int i;  \n        for (i = 0; i < b.len; i++){  \n            c.d[i] += b.d[i];  \n            if (c.d[i] > 9) c.d[i]%=10, c.d[i+1]++;  \n        }  \n        while (c.d[i] > 9) c.d[i++]%=10, c.d[i]++;  \n        c.len = max(len, b.len);  \n        if (c.d[i] && c.len <= i) c.len = i+1;  \n        return c;  \n    }  \n    bign operator - (const bign& b){  \n        bign c = *this; int i;  \n        for (i = 0; i < b.len; i++){  \n            c.d[i] -= b.d[i];  \n            if (c.d[i] < 0) c.d[i]+=10, c.d[i+1]--;  \n        }  \n        while (c.d[i] < 0) c.d[i++]+=10, c.d[i]--;  \n        c.clean();  \n        return c;  \n    }  \n    bign operator * (const bign& b)const{  \n        int i, j; bign c; c.len = len + b.len;   \n        for(j = 0; j < b.len; j++) for(i = 0; i < len; i++)   \n            c.d[i+j] += d[i] * b.d[j];  \n        for(i = 0; i < c.len-1; i++)  \n            c.d[i+1] += c.d[i]/10, c.d[i] %= 10;  \n        c.clean();  \n        return c;  \n    }  \n    bign operator / (const bign& b){  \n        int i, j;  \n        bign c = *this, a = 0;  \n        for (i = len - 1; i >= 0; i--)  \n        {  \n            a = a*10 + d[i];  \n            for (j = 0; j < 10; j++) if (a < b*(j+1)) break;  \n            c.d[i] = j;  \n            a = a - b*j;  \n        }  \n        c.clean();  \n        return c;  \n    }  \n    bign operator % (const bign& b){  \n        int i, j;  \n        bign a = 0;  \n        for (i = len - 1; i >= 0; i--)  \n        {  \n            a = a*10 + d[i];  \n            for (j = 0; j < 10; j++) if (a < b*(j+1)) break;  \n            a = a - b*j;  \n        }  \n        return a;  \n    }  \n    bign operator += (const bign& b){  \n        *this = *this + b;  \n        return *this;  \n    }  \n  \n    bool operator <(const bign& b) const{  \n        if(len != b.len) return len < b.len;  \n        for(int i = len-1; i >= 0; i--)  \n            if(d[i] != b.d[i]) return d[i] < b.d[i];  \n        return false;  \n    }  \n    bool operator >(const bign& b) const{return b < *this;}  \n    bool operator<=(const bign& b) const{return !(b < *this);}  \n    bool operator>=(const bign& b) const{return !(*this < b);}  \n    bool operator!=(const bign& b) const{return b < *this || *this < b;}  \n    bool operator==(const bign& b) const{return !(b < *this) && !(b > *this);}  \n  \n    string str() const{  \n        char s[maxn]={};  \n        for(int i = 0; i < len; i++) s[len-1-i] = d[i]+'0';  \n        return s;  \n    }  \n};  \n  \nistream& operator >> (istream& in, bign& x)  \n{  \n    string s;  \n    in >> s;  \n    x = s.c_str();  \n    return in;  \n}  \n  \nostream& operator << (ostream& out, const bign& x)  \n{  \n    out << x.str();  \n    return out;  \n}\nint main()\n{\n    bign num;\n    cin >> num;\n    for(bign i=0;i<num;i=i+1)\n    {\n        bign a;\n        cin>>a;\n        if(a==1) cout << 1 << endl;\n        else\n        cout << a*(a-1) << endl;\n    }\n    return 0;\n}\n```\n\n\u5177\u4f53\u7684\u5b9e\u73b0\u65b9\u5f0f\u5c31\u662f\u8fd9\u6837\u4e86 \u4e0d\u8fc7\u6bd4\u8d5b\u8fd8\u662f\u4e0d\u5efa\u8bae\u91c7\u7528\u8fd9\u79cd\u65b9\u6cd5 \u4ec5\u4f9b\u5b66\u4e60\u548c\u53c2\u8003\u4f7f\u7528\n",
+        "postTime": 1561814481,
+        "uid": 198877,
+        "name": "TheWaySoFar",
+        "ccfLevel": 0,
+        "title": "p5436"
+    },
+    {
+        "content": "\u5fc3\u8840\u6765\u6f6e\u5199\u7bc7\u9898\u89e3\n\n\n\u00b7\u524d\u7f6e\u829d\u58eb\n\n$$lcm(x , y) = x * y / gcd(x , y) $$\n$$gcd(x,x-1) = 1 $$\n\n\n\u6211\u4eec\u8fd9\u91cc\u6c42\u7684\u662f n \u4ee5\u5185\u4e24\u4e2a\u6570 \u6700\u5927 \u7684\u6700\u5c0f\u516c\u500d\u6570\n\n\u90a3\u4e48\u6839\u636e\u67ff\u5b50\u53ef\u4ee5\u63a8\u51fa \uff1a $ans = n * (n - 1)$\n\n\u6ce8\u610f 1 \u7684\u60c5\u51b5 50\u5206\u5c31\u662f\u56e0\u4e3a\u6ca1\u6709\u7279\u5224 1 \n\n\n\u4e0d\u653e\u4ee3\u7801\u4e86",
+        "postTime": 1561817305,
+        "uid": 96580,
+        "name": "SXNhdW5veWE",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 P5436 \u3010\u3010XR-2\u3011\u7f18\u5206\u3011"
+    },
+    {
+        "content": "## \u4e00\u9898\u5f88\u7b80\u5355\u7684\u6570\u8bba\u9898\n### $1.1$ \u9898\u76ee\u610f\u601d\n\u627e\u4e24\u4e2a\u6574\u6570$a,b(1<=a,b<=n)$\u4f7f\u5f97$lcm(n,m)$\u6700\u5c0f\n### $2.1$ $Solution$\n\u5148\u6253\u4e00\u4e2a$n^2$\u66b4\u529b\u8bd5\u8bd5\u770b\uff0c\u5927\u529b\u53d1\u73b0\u5176\u5b9e\u7b54\u6848\u5c31\u662f$x*(x-1)$,\n\u7136\u540e\u5bf9$1$\u7684\u60c5\u51b5\u8fdb\u884c\u7279\u5224\u5c31\u53ef\u4ee5\u4e86\u3002\u8bc1\u660e\u5176\u5b9e\u4e5f\u5f88\u7b80\u5355\uff0c\u6211\u4eec\u53ea\u8981\u627e\u4e00\u4e2a\u4e0e$n$\u4e92\u8d28\u6700\u5927\u6574\u6570\uff0c\u90a3\u4e48\u5c31\u4e00\u5b9a\u662f$n-1$\u3002\n\n",
+        "postTime": 1561813422,
+        "uid": 172612,
+        "name": "\u7c73\u5947\u5947\u7c73",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P5436 \u3010\u3010XR-2\u3011\u7f18\u5206\u3011"
+    },
+    {
+        "content": "\u76f8\u90bb\u7684\u6570\u4e92\u8d28\uff0c\u56e0\u6b64\u7b54\u6848\u5c31\u662fn*(n-1)\n```cpp\n#include<iostream>\nusing namespace std;\nint t;\nlong long n;//\u4e00\u5b9a\u8981\u5f00long long \u4e0d\u5f00\u53ea\u80fd\u5f9750\u5206\nint main(){\n  cin>>t;\n  while(t--){\n    cin>>n;\n    if(n!=1)cout<<n*(n-1)<<endl;\n    else cout<<1<<endl;//\u7279\u52241\n  }\n}\n\n```",
+        "postTime": 1561815539,
+        "uid": 107232,
+        "name": "twelveZ",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P5436 \u3010\u3010XR-2\u3011\u7f18\u5206\u3011"
+    },
+    {
+        "content": "- \u3010XR-2\u3011\u7b2c\u4e00\u9898\uff1a\u627e\u89c4\u5f8b\u3002\n\n- \u8fd9\u4e24\u4e2a\u6570\u7684\u6700\u5c0f\u516c\u500d\u6570\u8d8a\u5927\u610f\u5473\u7740\u8fd9\u4e24\u4e2a\u6570\u8d8a\u5927\u8d8a\u597d\uff0c\u4e14\u76f8\u5dee\u5e94\u4e3a\u4e00\u3002\u6240\u4ee5\u7b54\u6848\u4e3an*(n-1).(\u9700\u6ce8\u610f\u5f53n=1\u65f6\u8fd9\u4e24\u4e2a\u6570\u7684\u6700\u5c0f\u516c\u500d\u6570\u4e3a1\uff0c\u6211\u5c31\u5728\u8fd9\u4e0a\u5361\u4e8610\u5206\u949f\uff09\n\n```\n#include<iostream>\nusing namespace std;\nint main()\n{\n    int t;//\u8f93\u5165\u60c5\u51b5\u6570\n    cin>>t;\n    while(t--)\n    {\n        long long n;\n        cin>>n;\n        if(n==1) cout<<1<<endl;//\u7279\u5224\n        else cout<<n*(n-1)<<endl;\n    }\n    return 0;//\u5b8c\u7f8e\u7ed3\u675f\n}\n```",
+        "postTime": 1561812179,
+        "uid": 103947,
+        "name": "nxt_permutation",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 P5436 \u3010\u3010XR-2\u3011\u7f18\u5206\u3011"
+    }
+]

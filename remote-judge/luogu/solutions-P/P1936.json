@@ -1,0 +1,146 @@
+[
+    {
+        "content": "\u8bb0f(n,m)=(n^2-mn-m^2)^2\n\n\u5219\u6709f(m+n,m)=[(m+n)^2-n(m+n)-n^2]^2=(m^2+mn-n^2)^2=(n^2-mn-m^2)^2=f(n,m)\n\n\u6613\u5f97f(1,1)=1\n\n\u65451=f(1,1)=f(2,1)=f(3,2)=...\n\n\u53d1\u73b0m,n\u662fFibonacci\u6570\u5217\u76f8\u90bb\u7684\u4e24\u9879\uff0c\u90a3\u4e48\u95ee\u9898\u5c31\u6781\u6613\u89e3\u7b54\u4e86\n\n```cpp\n#include<cstdio>\nusing namespace std;\nint main()\n{\n    int k,m,n,c;\n    scanf(\"%d\",&k);\n    for(m=n=1;m+n<=k;)\n    {\n        c=m+n;\n        m=n;\n        n=c;\n    }\n    printf(\"m=%d\\nn=%d\\n\",m,n);\n    return 0;\n}\n```",
+        "postTime": 1483964655,
+        "uid": 34100,
+        "name": "pzk23",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P1936 \u3010\u6c34\u6676\u706f\u706b\u7075\u3011"
+    },
+    {
+        "content": "## \u603b\u7684\u6765\u8bf4\uff0c\u8fd8\u662f\u8981\u5148\u6a21\u62df\uff0c\u627e\u5230\u89c4\u5f8b\u518d\u5199\u51fa\u4ee3\u7801\n\u5bf9\u4e8e\u8fd9\u9053\u9898\uff0c\u672c\u4eba\u8868\u793a\u521d\u6b21\u770b\u5230\u540e\uff1a\n\t\u4e00\u8138\u61f5\u903c\u3002\u3002\u3002\n    \u4e24\u8138\u61f5\u903c\u3002\u3002\u3002\n    \u5343\u4e07\u4ebf\u8138\u61f5\u903c\u3002\u3002\u3002\n\u7136\u540e\uff0c\u5199\u4e86\u4e00\u4e2a\u6a21\u62df\u4ee3\u7801\uff0c\u6a21\u62df\u9898\u76ee\u7684\u8fd0\u884c\uff1a\n```cpp11\n//P1936 (-std ISO C++11, first edition)\n#include<iostream>\n#include<cmath>\nusing namespace std;\nusing ull=unsigned long long;\nusing ll=long long;\nint main(){\n\tint k,res1=-1,res2=-1;\n\tll step=0;\n\tcin>>k;\n\tfor(ll i=1;i<=k;i++)\n\t\tfor(ll j=1;j<=k;j++){\n\t\t\tif(i*i-i*j-j*j==-1 || i*i-i*j-j*j==1){//\u7531\uff08n\u00b2-mn-m\u00b2\uff09\u00b2=1\u6613\u5f97n\u00b2-mn-m\u00b2\u2208{-1,1}\n\t\t\t\tif(i*i+j*j>step){\n\t\t\t\t\tstep=i*i+j*j;\n\t\t\t\t\tres1=j;\n\t\t\t\t\tres2=i;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\tcout<<\"m=\"<<res1<<\"\\nn=\"<<res2;\n\treturn 0;\n} \n```\n**\u6ce8\u610f\u8fd9\u91cc\u662f\uff08n\u00b2-mn-m\u00b2\uff09\u00b2=1\uff0c\u800c\u4e0d\u662f\u539f\u6587\u7684\uff08n\u00b2-m\\n-m\u00b2\uff09\u00b2=1\uff08\u597d\u5751\u554a\uff09**\n\u8fd0\u884c\u7ed3\u679c\u5982\u4e0b\uff1a\n\nk=2,m=1,n=2;\n\nk=3,m=2,n=3;\n\nk=4,m=2,n=3; \n\nk=5,m=3,n=5;\n\n...\n\nk=100,m=55,n=89;\n\n...\n\nk=1995,m=987,n=1597;\n\n\n\u597d\u4e86\uff0c\u7ed3\u679c\u6e05\u6670\u53ef\u89c1\uff1a\u6590\u6ce2\u90a3\u5951\u6570\u5217\uff1b\u5176\u4e2dm\u662fn\u7684\u524d\u9a71\uff08\u4e0d\u77e5\u9053\u8fd9\u4e48\u8bf4\u5bf9\u4e0d\u5bf9\uff09\uff0cn\u662f\u6570\u5217\u4e2d\u5c0f\u4e8e\u7b49\u4e8ek\u7684\u6700\u5927\u503c\n\n\u53d1\u73b0\u4e86\u89c4\u5f8b\u4ee3\u7801\u5c31\u4e0d\u96be\u4e86\uff0c\u5982\u4e0b\uff08\u6211\u4e0d\u77e5\u9053\u4e3a\u4ec0\u4e48\u90a3\u4e48\u591a\u4eba\u5199\u6590\u6ce2\u90a3\u5951\u8981\u7528\u6570\u7ec4\uff0c\u76f4\u63a5\u4e24\u4e2a\u53d8\u91cf\u4e0d\u5c31\u597d\u4e86\u5417\uff1f\uff09\uff1a\n```cpp11\n//P1936(-std ISO C++11)\n#include<iostream>\n#include<algorithm>\n// \u5077\u61d2\uff0c\u53ea\u7528\u4e86\u4e00\u4e2aswap\uff08\u5f88\u7b80\u5355\u7684\u6807\u51c6\u5e93\u7b97\u6cd5\uff0c\u53ef\u4ee5\u81ea\u5df1\u624b\u5199\uff09\nusing namespace std;\nusing ull=unsigned long long;// \u201ctypedef\u201d\uff0c\u5199\u524d\u51e0\u9898\u5fd8\u8bb0\u5220\u4e86\uff0c\u7559\u7740\u88c513\nusing ll=long long;\nint main(){\n    int res1=0,res2=1,k;\n    cin>>k;\n    while(res2<k){//\u91cd\u70b9\uff1a\u6a21\u62df\u6590\u6ce2\u90a3\u5951\u6700\u540e\u4e24\u4f4d\uff08\u800c\u4e0d\u662f\u7528\u6570\u7ec4\u628a\u6240\u6709\u7684\u4e1c\u897f\u4fdd\u5b58\u4e0b\u6765\uff09\uff0c\u5f53\u6700\u540e\u4e00\u4f4d\uff08\u5373n\uff09\u5927\u4e8e\u7b49\u4e8ek\u65f6\u9000\u51fa\u5faa\u73af\n        res1+=res2;\n        swap(res1,res2);\n    }\n    while(res2>k){//\u7531\u4e8e\u521a\u521a\u7684\u5faa\u73af\u9000\u51fa\u6761\u4ef6\u65f6n>=k\uff0c\u4e3a\u4e86\u907f\u514dn>k\uff0c\u518d\u7528\u4e00\u4e2a\u5faa\u73af\u5f80\u56de\u9000\n    //\u5e94\u8be5\u7528if\u5c31\u591f\u4e86\uff0c\u4e0d\u9700\u8981\u5faa\u73af\uff0c\u53ef\u4ee5\u8bd5\u8bd5\uff08\u6211\u6ca1\u8bd5\uff09\n        res2-=res1;\n        swap(res1,res2);\n    }\n    cout<<\"m=\"<<res1<<\"\\nn=\"<<res2;\n    return 0;\n} \n```\n### \u603b\u7ed3\uff1a\n\t1\u3001\u8981\u5b66\u4f1a\u81ea\u5df1\u5148\u5199\u51fa\u6a21\u62df\u4ee3\u7801\uff0c\u518d\u603b\u7ed3\u89c4\u5f8b\uff08\u672c\u4eba\u7531\u4e8e\u4e4b\u524d\u4e0d\u4f1a\u8fd9\u4e2a\u6280\u5de7\uff0cNOIp 2017 day1 \u7b2c\u4e00\u9898\u53ea\u62ff\u4e8630\u5206\uff0c\u7136\u540eTLE\u3002\u3002\u3002\uff09\n    2\u3001\u6590\u6ce2\u90a3\u5951\u6570\u5217\u7684\u9898\u5c3d\u91cf\u4e0d\u5f00\u6570\u7ec4\uff08\u628a\u7a7a\u95f4\u7559\u5230\u771f\u6b63\u9700\u8981\u7684\u5730\u65b9\uff0c\u867d\u8bf4\u8fd9\u9053\u9898\u5f00\u6570\u7ec4\u4e5f\u6ca1\u4ec0\u4e48\uff0c\u4f46\u662f\u6211\u4eec\u65e0\u6cd5\u4fdd\u8bc1\u6bcf\u4e00\u9053\u6590\u6ce2\u90a3\u5951\u7684\u9898\u90fd\u53ea\u6709\u6590\u6ce2\u90a3\u5951\u6570\u5217\u7684\u8ba1\u7b97\u9700\u8981\u5927\u91cf\u7a7a\u95f4\uff09\n\n\n\u4ee5\u4e0a\u5c31\u662f\u6211\u5199\u8fd9\u9053\u9898\u7684\u4ee3\u7801\u548c\u5fc3\u5f97\uff0c\u5e0c\u671b\u5bf9\u5404\u4f4d\u6709\u6240\u5e2e\u52a9\uff0c\u4e5f\u6b22\u8fce\u5404\u4f4d\u79c1\u4fe1\u6211\uff0c\u524d\u6765\u548c\u6211\u8ba8\u8bba",
+        "postTime": 1517925804,
+        "uid": 67387,
+        "name": "Mosklia",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 P1936 \u3010\u6c34\u6676\u706f\u706b\u7075\u3011"
+    },
+    {
+        "content": "\u5982\u679cLaTeX\u6302\u4e86\uff0c\u53ef\u4ee5\u5230\u6211\u7684\u535a\u5ba2\u67e5\u770b\u9898\u89e3\uff1a[\u300e\u70b9\u8fd9\u91cc\u300f](http://www.cnblogs.com/lrj124/p/8980098.html)\n\n$Fibonacci$\u76f8\u90bb\u4e24\u9879\u5373\u53ef\u6ee1\u8db3\u6761\u4ef6\uff0c\u8bc1\u660e\u5982\u4e0b\uff1a\n\n$n^2-nm-m^2=n^2-m(n+m)=(f_{n})^2 - f_{n-1}f_{n+1}= \\pm 1$\n\n\u6240\u4ee5\u6211\u4eec\u53ea\u8981\u8bc1\u660e$(f_{n})^2 - f_{n-1}f_{n+1}= \\pm 1$\u5373\u53ef\n\n\u9996\u5148$(f_{2})^2 - f_{1}f_{3}=1-2=-1 \\ , \\ (f_{3})^2 - f_{2}f_{4}=9-10=-1$\n\n\u6211\u4eec\u4f7f\u7528\u6570\u5b66\u5f52\u7eb3\u6cd5\uff0c\u5047\u8bbe\u7ed3\u8bba\u5bf9$n(n\\geq 2)$\u65f6\uff0c$2n$\u548c$2n+1$\u5747\u6210\u7acb\n\n\u5219$(f_{2n})^2=(f_{2n-1}+f_{2n-2})^2=(f_{2n-1})^2+2f_{2n-1}f_{2n-2}+(f_{2n-2})^2$\n\n$=f_{2n-1}(f_{2n-1}+f_{2n-2})+f_{2n-1}f_{2n-2}+f_{2n-3}f_{2n-1}-1$\n\n$=f_{2n-1}f_{2n}+f_{2n-1}(f_{2n-2}+f_{2n-3})-1$\n\n$=f_{2n-1}f_{2n}+(f_{2n-1})^2-1$\n\n$=f_{2n-1}(f_{2n}+f_{2n-1})-1$\n\n$=f_{2n-1}f_{2n+1}-1$\n\n\u6240\u4ee5$f_{2n}$\u6210\u7acb,\u6b64\u65f6\u53c8\u53ef\u5f97\n\n$(f_{2n+1})^2=(f_{2n}+f_{2n-1})^2=(f_{2n})^2+2f_{2n}f_{2n-1}+(f_{2n-1})^2$\n\n$=f_{2n}(f_{2n+1}+f_{2n-1})+f_{2n}f_{2n-1}+f_{2n-2}f_{2n}+1$\n\n$=f_{2n}f_{2n+1}+f_{2n}(f_{2n-1}+f_{2n-2})+1$\n\n$=f_{2n}f_{2n+1}+(f_{2n})^2+1$\n\n$=f_{2n}(f_{2n+1}+f_{2n})+1$\n\n$=f_{2n}f_{2n+2}+1$\n\n\u6240\u4ee5\u5bf9\u4e00\u5207$n$,\u7ed3\u8bba\u5747\u6210\u7acb\n\n```cpp\n#include <cstdio>\nint main() {\n    int k,m = 1,n = 1;\n    scanf(\"%d\",&k);\n    while (n+m <= k) {\n        n += m;\n        m = n-m;\n    }\n    printf(\"m=%d\\nn=%d\",m,n);\n    return 0;\n}\n```",
+        "postTime": 1525245998,
+        "uid": 17521,
+        "name": "lrj124",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P1936 \u3010\u6c34\u6676\u706f\u706b\u7075\u3011"
+    },
+    {
+        "content": "\u53ea\u8981\u4f60\u5b66\u8fc7\u56e0\u5f0f\u5206\u89e3,\u4f60\u5c31\u53ef\u4ee5\u8f7b\u677eAC.(\u524d\u63d0\u662f\u4f60\u662f\u4e2a\u5b66\u9738!!!)\n\n\u9996\u5148\u5c06\u2461\u5f0f\u8fdb\u884c\u56e0\u5f0f\u5206\u89e3\n\n\u53ef\u5f97\u5230\n\nn^4-n^3*m-n^2*m^2-n^3*m+n^2*m^2+m^3*n-n^2*m^2+m^3*n+m^4\n\n \u5316\u7b80,\u5408\u5e76\u540c\u7c7b\u9879\u53ef\u5f97\n \n n^4-2*n^3*m-2n^2*m^2+2*m^3*n+m^4\n \n \u518d\u5316\u7b80\u5f97\u5230\n\n(m^4-m(n+m)-(n+m)^2)^2\n\n\u5373\u539f\u6765\u7684n\u53d8\u4e3am,\u539f\u6765\u7684m\u53d8\u4e3a(n+m),\u5373\u6590\u6ce2\u90a3\u5951\u6570\u5217\n\n\u7136\u540e\u5c31\u7b80\u5355\u4e86,\u4e0d\u591a\u8bf4,\u76f4\u63a5\u4e0a\u4ee3\u7801\n```cpp\n#include <iostream>\n#include <cmath>\n#include <cstdio>\n#define ll long long\nusing namespace std;\nll m,n,k,ans,x=3;\nll f[100001];\nint main()\n{\n\tcin>>k;\n\tf[1]=f[2]=1;\n\twhile(f[x]+f[x-1]<=k)\n\t{\n\t\tf[x]=f[x-1]+f[x-2];\n\t\tx++;\n\t}\n\tcout<<\"m=\"<<f[x-3]<<\"\\nn=\"<<f[x-2];\n\treturn 0;\n}\n```\n\u672c\u849f\u84bb\u7684\u7b2c\u4e00\u7bc7\u9898\u89e3,\u6c42\u8fc7QWQ...",
+        "postTime": 1564993759,
+        "uid": 167521,
+        "name": "\u57a3\u6839\u5e1d\u7763",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P1936 \u3010\u6c34\u6676\u706f\u706b\u7075\u3011"
+    },
+    {
+        "content": "\u672c\u9898\u5176\u5b9e\u662f\u6590\u6ce2\u90a3\u5951\u6570\u5217\uff0c\u5728\u6570\u5217\u4e2d\uff0c\u53ea\u8981\u627e\u5230\u7b2c\u4e00\u4e2a\u8fde\u7eed\u4e24\u4e2a\u7684\u6570\u5927\u4e8ek\u5c31\u597d\u4e86\uff0cn\u662f\u8f83\u5c0f\u6570\uff0cm\u662f\u8f83\u5927\u6570\n\n```cpp\nvar\n  a1,a2,a3,a4:longint;\n  i,j,k,n,m:longint;\nbegin\n  read(k);\n  a1:=0;//\u6570\u5217\u4e2d\u4ee3\u8868n\n  a2:=1;//\u6570\u5217\u4e2d\u4ee3\u8868m\n  while a1+a2<k do//\u5982\u679c\u627e\u5230\u4e86\u7b26\u5408\u7684\u6570\u5c31\u9000\u51fa\n    begin\n      a3:=a2+a1;//\u6570\u5217\u4e2dm\u7684\u540e\u9762\u4e00\u9879\n      a1:=a2;//\u5f80\u524d\u79fb\u4e00\u4f4d\n      a2:=a3;//\u5f80\u524d\u4e5f\u79fb\u4e00\u4f4d\n    end;\n  writeln('m=',a1);\n  writeln('n=',a2);\nend.  \n\n```",
+        "postTime": 1505046208,
+        "uid": 56090,
+        "name": "RKcer21",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P1936 \u3010\u6c34\u6676\u706f\u706b\u7075\u3011"
+    },
+    {
+        "content": "\u7b80\u6d01\u4ee3\u7801~\u6b64\u9898\u6c42\u6590\u6ce2\u90a3\u5951\u6570\u5217\u7b2cn,n-1\u9879\u3002\n\n```cpp\n#include<iostream>\nusing namespace std;\nlong long f[1001],m,i(3);\nint main(){\n    cin>>m;\n    f[1]=1;f[2]=1;//\u8d4b\u503c\u524d\u4e24\u4e2a\n    while(f[i]+f[i-1]<=m){\n        f[i]=f[i-1]+f[i-2];//\u5c06\u6590\u6ce2\u90a3\u5951\u6570\u5217\u5b58\u50a8\u5230f\u6570\u7ec4\u91cc\n        i++;\n    }\n    cout<<\"m=\"<<f[i-3]<<endl;//\u8fd9\u4e2a\u5730\u65b9i\u591a\u52a0\u4e86\u4e00\u6b21\n    cout<<\"n=\"<<f[i-2];\n    return 0;\n//perfect!\n}\n```",
+        "postTime": 1503741850,
+        "uid": 48622,
+        "name": "2016\u7ea78\u73edtaiqi",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P1936 \u3010\u6c34\u6676\u706f\u706b\u7075\u3011"
+    },
+    {
+        "content": "\u539f\u9898\u4f20\u9001\u95e8      [P1936 \u6c34\u6676\u706f\u706b\u7075](https://www.luogu.org/problem/P1936)\n\n\n\u8fd9\u91cc\u91c7\u7528\u4e00\u79cd\u65b0\u7684\u65b9\u6cd5(\u849f\u84bb\u7684\u590d\u6742\u65b9\u6cd5\u8bf7\u697c\u4e0a\u697c\u4e0b\u7684\u5927\u4f6c\u4e0d\u8981\u5410\u69fd)\n\n\n\u9996\u5148\u7531\u9898\u76ee\u53ef\u77e5:\n\n\n$(n^{2}-m\\times n-m^{2})^{2}=1$   \n\n\n## so  \u6211\u4eec\u53ef\u4ee5\u5f97\u51fa:\n\n\n$n^{2}-m\\times n-m^{2}=\\pm1$\n\n\n\u6700\u7ec8\u5f97\u51fa:\n\n$m1=\\sqrt{5\\times n\\times n\\div4-1}-\\frac {n}{2}$\n\n\n\n$m1=\\sqrt{5\\times n\\times n\\div4+1}-\\frac {n}{2}$\n\n\n\u4f9d\u636e\u5982\u6b64\u5c31\u53ef\u4ee5\u5199\u51fa\u4ee3\u7801\u4e86\n\n\n\u4e0b\u9762\u8d34\u4ee3\u7801:\n\n\n~~\u6ca1\u6709\u9632\u6284\u88ad\u6240\u4ee5\u53ef\u4ee5\u653e\u5fc3\u590d\u5236~~\n\n```\n#include <bits/stdc++.h>\nusing namespace std;\nint main()\n{\n    double n,k,m1,m2,sum=0;\n    long long x,y,i,j;\n    cin>>k;\n    for (n=k;n>=1;--n)\n    {\n      m1=sqrt(5*n*n/4-1)-n/2;\n      m2=sqrt(5*n*n/4+1)-n/2;\n      if ((n*n-m1*n-m1*m1)*(n*n-m1*n-m1*m1))  \n      //\u56e0\u4e3a\u7cbe\u5ea6\u95ee\u9898\u6240\u4ee5\u8981\u518d\u6b21\u5224\u65ad\n      {\n      x=m1;\n      if (x==m1&&m1>=0&&sum<m1*m1+n*n)\n        { j=m1;i=n;sum=m1*m1+n*n;break; }\n      }\n      if ((n*n-m2*n-m2*m2)*(n*n-m2*n-m2*m2)) \n      //\u518d\u5224\u539f\u56e0\u540c\u4e0a,\u5e73\u65b9\u53ef\u4ee5\u6709\u6b63\u8d1f\u4e24\u79cd,\u6240\u4ee5\u8981\u5224\u65ad\u4e24\u79cd\u4e0d\u540c\u7684\u60c5\u51b5\n      {\n      x=m2;\n      if (x==m2&&m2>=0&&sum<m2*m2+n*n)\n        { j=m2;i=n;sum=m2*m2+n*n;break; }\t\n      }\n    }\n    cout<<\"m=\"<<j<<endl;cout<<\"n=\"<<i<<endl;\n    return 0;\n}\n\n```\n",
+        "postTime": 1565782257,
+        "uid": 73365,
+        "name": "\u5b89\u5b50",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P1936 \u3010\u6c34\u6676\u706f\u706b\u7075\u3011"
+    },
+    {
+        "content": "\u521d\u770b\u8fd9\u9053\u9898\uff0c\u4f3c\u4e4e\u6709\u4e00\u4e07\u53ea\u8349\u6ce5\u9a6c\u5728\u5411\u6211\u5954\u6765\u3002\u4ed4\u7ec6\u4e00\u60f3\uff0c\u80af\u5b9a\u662f\u516c\u5f0f\u63a8\u5bfc\u4e86\uff0c\u600e\u4e48\u63a8\u5462\uff1f                    \n\uff08n^2-mn-m^2)^2=1      \n\u5219n^2-m^2-mn=\u221a\uffe31=1                       \n\u90a3\u6211\u4eec\u5148\u7b97\u51fan^2-m^2\u7b49\u4e8e\u591a\u5c11                     \nn^2-m^2=n^2-m^2+(mn-mn)    \nn^2-m^2=(n^2-mn)+(mn-m^2)    \nn^2-m^2=n^2-mn+mn-m^2    \n\u5219\u539f\u5f0f=n^2-mn+mn-m^2-mn=1         \n\u5219\u539f\u5f0f=n^2-mn-m^2=1    \n\u5219\u539f\u5f0f=n^2-m^2=mn+1   \n\u7136\u540e\u600e\u4e48\u505a\uff1f\uff1f\uff1f            \n\u6211\u5148\u61f5\u903c\u4e863\u5206\u949f\uff0c\u540e\u6765\u60f3\u5230\u53ef\u4ee5\u901a\u8fc7\u679a\u4e3e\u627e\u89c4\u5f8b\u5440\uff01      \n\u679a\u4e3e\u8fc7\u7a0b(n\u2260\u81ea\u7136\u6570\u7684\u4e0d\u5199\uff09\uff1a           \nm=1,\u5219n=2       \nm=2,\u5219n=3       \nm=3,\u5219n=5       \nm=5,\u5219n=8       \nm=8,\u5219n=13       \n\u4e0d\u96be\u53d1\u73b0n=k\u8303\u56f4\u5185\u6700\u5927\u7684\u6590\u6ce2\u90a3\u5951\u6570\uff0cm=k\u8303\u56f4\u5185\u6b21\u5927\u7684\u6590\u6ce2\u90a3\u5951\u6570\u3002\u4ee3\u7801\u5c31\u5f88\u7b80\u5355\u4e86\uff1a          \n```\n#include<bits/stdc++.h>//\u4e07\u80fd\u5934\u6587\u4ef6\nusing namespace std;\nint f[1000010];\nint main()\n{\n\tint k,i;\n\tcin>>k;\n\tf[1]=1;f[2]=1;//\u6590\u6ce2\u90a3\u5951\u6570\u5217\u9012\u63a8\u8fb9\u754c\n\tfor(i=3;i<=k;i++){//i\u4e00\u5b9a\u8981\u4ece3\u5f00\u59cb\n\t\tf[i]=f[i-1]+f[i-2];//\u6590\u6ce2\u90a3\u5951\u6570\u5217\u9012\u63a8\n\t\tif(f[i]>k)break;//\u4e0d\u6ee1\u8db3\u6761\u4ef6\u5c31\u9000\u51fa\n\t}\n\tcout<<\"m=\"<<f[i-2]<<endl<<\"n=\"<<f[i-1]<<endl;\n\treturn 0;//\u6700\u597d\u52a0\u4e0a\u5b83\n}//\u6253\u5b57\u5f88\u7d2f\u6c42\u901a\u8fc7 \n```\n",
+        "postTime": 1563935597,
+        "uid": 230042,
+        "name": "Walking_Fairy_Talesl",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P1936 \u3010\u6c34\u6676\u706f\u706b\u7075\u3011"
+    },
+    {
+        "content": "\u8fd9\u4e2a\u9898\u53ef\u4ee5\u5148\u66b4\u529b\u6253\u51fa\u8868\u6765\uff0c\u5c31\u662f\u4ece1\u679a\u4e3en\uff0cm\uff0c\n\n\u6bcf\u5f53n\uff0cm\u6ee1\u8db3\uff08n2-m\\*n-m2\uff092=1 \u65f6\uff0c\u5c31\u8f93\u51fa\u4e00\u4e0b\u6b64\u65f6\u7684n\uff0cm\uff1b\n\n\u8fd9\u6837\u4f60\u53ef\u4ee5\u89c2\u5bdf\u4e00\u4e0b\u53d1\u73b0n\uff0cm\u662f\u6709\u89c4\u5f8b\u7684\uff0c\u662f\u6ee1\u8db3\u6590\u6ce2\u90a3\u5951\u6570\u5217\u7684\n\n\u7136\u540e\u5c31\u53ef\u4ee5\u76f4\u63a5\u5199\u6590\u6ce2\u90a3\u5951\u6570\u5217\u4e86\n\n\u3002\u3002\u3002\n\n\n------------\n\n \n```cpp\n#include<cstdio>\n#include<iostream>\n#include<cstring>\nusing namespace std;\nlong long k;\nlong long fib[101010];\nint main()\n{\n    cin>>k;\n    fib[1]=fib[2]=1;\n    int i;\n    for(i=3;;i++)\n    {\n        fib[i]=fib[i-1]+fib[i-2];\n        if(fib[i]>=k)\n            break;        \n    }\n    cout<<\"m=\"<<fib[i-2]<<\"\\n\"<<\"n=\"<<fib[i-1]<<endl;\n    return 0;\n}\n```\n\n\n------------\n",
+        "postTime": 1484052950,
+        "uid": 21596,
+        "name": "Forever\u4e36CIL",
+        "ccfLevel": 6,
+        "title": "P1936 \u6c34\u6676\u706f\u706b\u7075"
+    },
+    {
+        "content": "\u5feb\u4e50\u7684\u6590\u6ce2\u90a3\u5951\u6570\u5217\uff0c\u5feb\u4e50\u7684\u9012\u63a8\u2026\u2026\n```cpp\n#include<bits/stdc++.h>//\u4e07\u80fd\u5934\u6587\u4ef6\nusing namespace std;\nlong long f[1001],m,i=3;\nint main(){\n    cin>>m;\n    f[1]=1;f[2]=1;\n    while(f[i]+f[i-1]<=m){\n        f[i]=f[i-1]+f[i-2];\n        i++;\n    }//\u9012\u63a8\n    cout<<\"m=\"<<f[i-3]<<endl;//\u8f93\u51fa\n    cout<<\"n=\"<<f[i-2];//\u8f93\u51fa\n    return 0;\n}\n```\n",
+        "postTime": 1585377307,
+        "uid": 268068,
+        "name": "\u5f20\u94ed\u6768",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P1936 \u3010\u6c34\u6676\u706f\u706b\u7075\u3011"
+    },
+    {
+        "content": "\u8fd9\u79cd\u9898\u76ee\uff0c\u6700\u597d\u5148\u66b4\u529b\u5199\u4e00\u4e2a\uff0c\u5728\u6162\u6162\u627e\u89c4\u5f8b\n\n```cpp\n#include<iostream>//\u66b4\u529b\u4ee3\u7801\uff0840\u5206\uff09\n#include<iomanip>\n#include<cmath>\nusing namespace std;\nint main()\n{\n    long long a[1005],n,x,m,k,tot=0;\n    for(int n=1;n<=500;n++)//\u8f93\u51fa\u524d\u4e94\u767e\u7ec4\u6ee1\u8db3\u6761\u4ef6\u7684\u6570\uff1b\n    {\n    for(int i=1;i<=n;i++)\n    for(int j=1;j<=n;j++)\n    if((i*i-i*j-j*j)*(i*i-j*i-j*j)==1)\n    {\n        \n        if(tot<i*i+j*j) \n        {\n        m=i;\n        k=j;\n    }\n        }\n    cout<<\"m=\"<<k<<\" \"<<\"n=\"<<m<<endl;\n}\n    return 0;\n} \n```\n\u7531\u5b83\u7684\u8f93\u51fa\u7ed3\u679c\u53ef\u4ee5\u5f97\u5230\u8fd9\u662f\u4e00\u4e2a\u83f2\u6ce2\u90a3\u5207\u6570\u5217\u3002\u3002\u3002\n\n\u6761\u4ef6\u5c31\u662f\u5c0f\u4e8eK\u7684\u6700\u5c0f\u7684\u4e24\u4e2a\u6570\uff1b\n\n\u6240\u4ee5\uff1a\n\n```cpp\n#include<iostream>\nusing namespace std;\nint main()\n{\n    int a[1005],b,c,n;\n    cin>>n;\n    a[1]=1;\n    a[2]=1;\n    int i=3;\n    while(a[i-1]+a[i-2]<=n)//\u6761\u4ef6\u6ee1\u8db3\n    {\n    a[i]=a[i-1]+a[i-2];\n    i++;\n}\n    cout<<\"m=\"<<a[i-2]<<endl<<\"n=\"<<a[i-1];\n}\n```",
+        "postTime": 1498861863,
+        "uid": 9287,
+        "name": "LevenKoko",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P1936 \u3010\u6c34\u6676\u706f\u706b\u7075\u3011"
+    },
+    {
+        "content": "\u561b\u2026\u2026\u5927\u6982\u56e0\u4e3a\u6211\u592a\u849f\u84bb\u4e86\u5427\u5c45\u7136\u770b\u4e0d\u61c2\u5f88\u591a\u9898\u89e32333\n\n\u53ea\u4f1a\u5199fib\u7684\u8fa3\u9e21\u5230\u6b64\u4e00\u6e38\n\n\u6b64\u9898\u4ed4\u7ec6\u7b97\u7b97\u8fd8\u662f\u6709\u89c4\u5f8b\u7684\uff0c\u6bcf\u4e00\u4e2a\u7b26\u5408\u8981\u6c42\u7684\u6570\u6070\u597d\u662f\u6709\u5e8f\u7684\uff0c\u5e76\u4e14\u5c31\u662f\u6590\u6ce2\u90a3\u5951\u6570\n\n\u6240\u4ee5\u6309\u9898\u9762\u610f\u601d\u5199\u4e2afib\u5c31\u597d\u4e86\u5457\n\nAC\u4ee3\u7801\u5728\u6b64\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\ntypedef unsigned long long ull;\ntypedef long long ll;\nint l,m,n,a[101]={0,1,1};\nint main()\n{\n    cin>>n;\n    m=3;\n    while(a[m-2]+a[m-1]<=n)\n    {\n        a[m]=a[m-2]+a[m-1];\n        ++m;\n    }\n    --m;\n    printf(\"m=%d\\nn=%d\",a[m-1],a[m]);\n    return 0;\n} \n//\u6708\u83ab\u597d\u98ce\u805a\u805a&\u7ea2\u592a\u9633thx\uff01\n```",
+        "postTime": 1485315190,
+        "uid": 20743,
+        "name": "AdzearDisjudge",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 P1936 \u3010\u6c34\u6676\u706f\u706b\u7075\u3011"
+    },
+    {
+        "content": "\u7b80\u5355\u7684\u6590\u6ce2\u90a3\u5951\u6570\u5217\u7684\u63a8\u5bfc\n\n\u5f53f[n]+f[n-1]>k\u65f6\u8f93\u51faf[n],f[n-1]\u5373\u53ef\n\n\u4ee5\u4e0b\u4ee3\u7801\uff08\u4ee3\u7801\u4e0d\u778e\u6253\uff0c\u6e29\u6696\u4f60\u6211\u4ed6\uff09\n\n\n```cpp\n#include<iostream>\n#include<algorithm>\nusing namespace std;\nint n,s;\nint f[100003];\nint main(){\n    f[1]=1;\n    f[2]=1;\n    cin>>n;\n    s=2;\n    while((f[s]+f[s-1])<n){\n        s=s+1;\n        f[s]=f[s-1]+f[s-2];\n    }\n    cout<<\"m=\"<<f[s-1]<<endl;\n    cout<<\"n=\"<<f[s];\n    return 0;\n}\n```",
+        "postTime": 1484013974,
+        "uid": 33738,
+        "name": "mengdai",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P1936 \u3010\u6c34\u6676\u706f\u706b\u7075\u3011"
+    },
+    {
+        "content": "\u5f88\u7b80\u5355\uff0c\u88f8\u7684\u6781\u503c\u95ee\u9898\uff0c\u5199\u8fc7\u5427\uff1f\n\n\u5176\u5b9e\u5c31\u662ffibonacci\u6570\u5217\u521a\u597d<=k\u65f6\u7684\u6700\u540e\u4e24\u9879\u3002\n\n\n\u4f8b\u5982\uff1ak=10\n\n\n\u539f\u6570\u5217\uff1a1\u30011\u30012\u30013\u30015\u30018\u3001|| 13\uff08>k\u4e86\uff09\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\n\n\u6545m=5,n=8\u3002\n\n\n\u4e0a\u4ee3\u7801\n\n```cpp\nvar\nf:array[1..100] of int64;\ni,k:longint;\nbegin\nreadln(k);\nf[1]:=1;f[2]:=1;\ni:=3;\nwhile (f[i-1]+f[i-2]<=k) do\nbegin\nf[i]:=f[i-1]+f[i-2];\ninc(i);\nend;\nwriteln('m=',f[i-2]);\nwriteln('n=',f[i-1]);\nend.\n```",
+        "postTime": 1483756014,
+        "uid": 7706,
+        "name": "AC_Evil",
+        "ccfLevel": 9,
+        "title": "\u9898\u89e3 P1936 \u3010\u6c34\u6676\u706f\u706b\u7075\u3011"
+    },
+    {
+        "content": "\u5173\u4e8e\u6570\u5217\u7684\u5206\u6790 \u6254\u4e2a\u535a\u5ba2http://blog.csdn.net/ta201314/article/details/48417101\n\n\u5176\u5b9e\u5c31\u662f\u4e2a\u6590\u6ce2\u90a3\u5951\u6570\u5217  \u6c42\u6590\u6ce2\u90a3\u5951\u6570\u5217\u5728k\u4ee5\u5185\u7684\u7b2c\u4e00\u7b2c\u4e8c\u5927\u503c\n\n```cpp\n#include<iostream>\n#include<cstdio>\nusing namespace std;\nint k,a,b,c;\nint main()\n{\n    scanf(\"%d\",&k); \n    int a=1,b=1;\n    c=a+b;\n    while(c<=k)\n    {\n        a=b;\n        b=c;\n        c=a+b;\n    }\n    printf(\"m=%d\\nn=%d\",a,b);\n}\n```",
+        "postTime": 1483620617,
+        "uid": 17828,
+        "name": "revenger",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P1936 \u3010\u6c34\u6676\u706f\u706b\u7075\u3011"
+    },
+    {
+        "content": "\u5176\u5b9e\u5c31\u662f\u6590\u6ce2\u90a3\u5951\u6570\u5217\uff0c\u63a8\u5bfc\u4e00\u4e0b\u5c31\u77e5\u9053\uff1a\n\n\u7b80\u6d01\u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n    int k,m=1,n=1,sum;\n    cin>>k;\n    while(m+n<=k)\n    {\n        sum=m+n;\n        m=n;\n        n=sum;\n    }\n    cout<<\"m=\"<<m<<endl;\n    cout<<\"n=\"<<n;\n    return 0;\n}\n```\n",
+        "postTime": 1571036006,
+        "uid": 247340,
+        "name": "\u778e\u5b50\u8c26\u7684\u7231\u4eba",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P1936 \u3010\u6c34\u6676\u706f\u706b\u7075\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u7ea2\u9898\u771f\u6253\u51fb\u4eba...\n\n## 80\u5206\u601d\u8def\n\u4e14\u4e0d\u8c08\u7384\u5b66\u7b97\u6cd5, \u6211\u4eec\u76f4\u63a5\u679a\u4e3e$m$, \u5e76\u5bf9$n\\in\\lbrack \\,1,k\\,]$\u7ecf\u884c\u68c0\u6d4b\u5373\u53ef.  \n\u9996\u5148, \u5bf9\u539f\u5f0f\u5316\u7b80\u5f97:  \n$$\nn^2-nm-m^2\\pm1=0\n$$\n\u56e0\u4e3a\u6211\u4eec\u53ef\u4ee5\u7528\u914d\u65b9\u6cd5\u8f7b\u6613\u5730\u63a8\u51fa\u4e00\u5143\u4e8c\u6b21\u65b9\u7a0b\u7684\u6c42\u6839\u516c\u5f0f:  \n**\u82e5\u6709$ax^2+bx+c=0,a\\neq0$**  \n**\u5219**:\n$$\nx_{1,2}=\\frac{-b\\pm\\sqrt{b^2-4ac}}{2a}\n$$\n\u5047\u8bbe\u6211\u4eec\u5df2\u53d6$m=a$, \u5219**\u4ee5n\u4e3a\u4e3b\u5143:**  \n$$\nn_{1,2}=\\frac{a\\pm\\sqrt{5a^2\\mp4}}{2}\n$$\n\u82e5$5a^2\\mp4=t^2,t\\in N$:  \n\u5f53$2|a$\u65f6, $2|5a^2\\mp4$, \u6545\u6b64\u65f6$2|t$, \u53c8\u6709$2|a\\pm t$.  \n\u5f53$2\\nmid a$\u65f6, $2\\nmid 5a^2\\mp4$, \u6545\u6b64\u65f6$2\\nmid t$, \u53c8\u6709$2|a\\pm t$.  \n\u53c8\u56e0\u4e3a\u539f\u65b9\u7a0b\u5bf9\u79f0\u8f74$x_0=-\\frac{b}{2a}=\\frac{a}{2}>0$,  \n**\u6545\u53ea\u8981$\\sqrt{5a^2+4}\\in N$\u6216$\\sqrt{5a^2-4}\\in N$\u6210\u7acb, \u6b64\u65f6\u7684$m=a$\u4e0e$n=f(m)$\u5c31\u662f\u4e00\u7ec4\u5408\u6cd5\u89e3.**  \n\u68c0\u67e5\u5b8c\u5168\u5e73\u65b9\u6570$n\\in N_+$, \u82e5\u4e0b\u7b49\u5f0f:  \n$$\n\\lfloor \\sqrt{n} \\rfloor ^2=n\n$$\n\u6210\u7acb, \u5373\u53ef\u77e5$n$\u662f\u5b8c\u5168\u5e73\u65b9\u6570.  \n\u5bf9\u4e8e\u6bcf\u4e2a\u5408\u6cd5\u7684$(m,n)$, \u4fdd\u7559$m^2+n^2$\u7684max\u5373\u53ef.  \n\u4e0d\u8fc7$O(k=10^8)$\u8fd8\u662f\u6bd4\u8f83\u96be\u4e3a\u4eba, \u6545\u52c9\u5f3a80\u5206.\n\n## 100\u5206\u601d\u8def\n\u6211\u4eec\u4ecd\u5229\u7528\u4e3b\u5143\u601d\u60f3, \u5b9a\u4e49\u6307\u6807\u51fd\u6570:\n$$\nf_m(n)=(n^2-nm-m^2)^2\n$$\n\u53d1\u73b0, $f_n(n+m)=(m^2+nm-n^2)^2=(-m^2-nm+n^2)^2=f_m(n)$.  \n\u53c8\u6709$f_1(1)=1$, \u901a\u8fc7\u4e0a\u516c\u5f0f, $f_1(1)=f_2(1)=f_3(2)=...=1$.  \n\u4e5f\u5373\u662f, \u5bf9\u4e8e$Fibonacci$\u6570\u5217\u7684\u76f8\u90bb\u4e24\u9879$F_k, F_{k+1}$, \u90fd\u4f1a\u6709:\n$$\nf_{F_{k+1}}(F_k)=1\n$$\n\u8003\u8651\u5bf9\u6570\u5b66\u4e0d\u611f\u5174\u8da3\u7684\u5c0f\u4f19\u4f34\u4eec, \u82e5\u60f3\u8fdb\u4e00\u6b65\u63a2\u6c42, [\u70b9\u8fd9\u91cc](https://zhidao.baidu.com/question/500812284069464364.html).  \n\u90a3\u4e48, \u53ea\u9700\u8981\u6c42\u5f97$F_k, F_{k+1}$, \u5e76\u4e14\u6ee1\u8db3$F_{k+2}>k$\u5373\u53ef.  \n\u6c42$Fibonacci$\u6570\u5217\u7684\u65b9\u6cd5\u5f88\u591a, \u4f46$Fibonacci$\u6570\u5217\u7684**\u53d1\u6563\u901f\u5ea6\u662f\u6307\u6570\u7ea7\u7684**, $k\\le 10^8$\u4fbf\u4e0d\u503c\u4e00\u63d0, \u611f\u5174\u8da3\u7684\u5c0f\u4f19\u4f34\u53ef\u4ee5\u5b66\u7740\u7801\u4e00\u7801**\u77e9\u9635\u52a0\u901f**.  \n\n------------\n\u4e8e\u662f\u4e4e, \u8fd8\u662f\u8d34\u4e0a\u4ee3\u7801\u5427.\n## 80\u5206\u53c2\u8003\u4ee3\u7801\n```cpp\n#include <bits/stdc++.h>\n\n#define Int register int\n\nusing namespace std;\n\nint m, n, k;\nlong long Ans = -1;\n\ninline bool Checkn ( const int a ) {\n    double sq1 = sqrt ( 5LL * a * a + 4 ), sq2 = sqrt ( 5LL * a * a - 4 );\n    if ( int ( sq1 ) * int ( sq1 ) == 5LL * a * a + 4 && ( a + int ( sq1 ) ) / 2 <= k\n    && 1LL * a * a + 1LL * ( a + int ( sq1 ) ) * ( a + int ( sq1 ) ) / 4 > Ans ) {\n        Ans = 1LL * a * a + 1LL * ( a + int ( sq1 ) ) * ( a + int ( sq1 ) ) / 4;\n        m = a, n = ( a + int ( sq1 ) ) / 2;\n        return true;\n    }\n    if ( int ( sq2 ) * int ( sq2 ) == 5 * a * a - 4 && ( a + int ( sq2 ) ) / 2 <= k\n    && 1LL * a * a + 1LL * ( a + int ( sq2 ) ) * ( a + int ( sq2 ) ) / 4 > Ans ) {\n        Ans = 1LL * a * a + 1LL * ( a + int ( sq2 ) ) * ( a + int ( sq2 ) ) / 4;\n        m = a, n = ( a + int ( sq2 ) ) / 2;\n        return true;\n    }\n    return false;\n}\n\ninline void Work () {\n    scanf ( \"%d\", &k );\n    for ( Int i = 1; i <= k; ++ i ) {\n        Checkn ( i );\n    }\n    printf ( \"m=%d\\nn=%d\\n\", m, n );\n}\n\nint main () {\n    Work ();\n    return 0;\n}\n```\n## 100\u5206\u53c2\u8003\u4ee3\u7801\n```cpp\n#include <bits/stdc++.h>\n\n#define Int register int\n\nusing namespace std;\n\ninline void Work () {\n\tint k, f1 = 1, f2 = 1;\n\tscanf ( \"%d\", &k );\n\twhile ( f1 + f2 < k ) {\n\t\tint t = f1;\n\t\tf1 = f2;\n\t\tf2 += t;\n\t}\n\tprintf ( \"m=%d\\nn=%d\\n\", f1, f2 );\n}\n\nint main () {\n\tWork ();\n\treturn 0;\n}\n```",
+        "postTime": 1559281329,
+        "uid": 123807,
+        "name": "Rainybunny",
+        "ccfLevel": 9,
+        "title": "\u9898\u89e3 P1936 \u3010\u6c34\u6676\u706f\u706b\u7075\u3011"
+    },
+    {
+        "content": "lalala~~\n\n\u8fd9\u9898\u786e\u5b9e\u6709\u70b9\u5751\uff0c\u7b2c\u4e00\u904d\u7a77\u4e3e\u8d85\u65f6\uff0c\u7136\u540e\u5c31\u5f00\u59cb\u4e86\u6f2b\u6f2b\u627e\u89c4\u5f8b\u4e4b\u8def\u3002\u3002\u3002\n\n\u7ec8\u4e8e\uff0c\u5728\u7ecf\u8fc75\u5206\u949f\u7684\u7ea0\u7ed3\u4e4b\u540e\uff0c\u6211\u7ec8\u4e8e\u53d1\u73b0\u4e86\u8fd9\u4e2a\u795e\u5947\u7684\u89c4\u5f8b\uff0c\u90a3\u5c31\u662f\n\n**Fabonacci\uff01\uff01\uff01**\n\n\u597d\u5427\uff0c\u8fd9\u6ca1\u4ec0\u4e48\u503c\u7684\u5174\u594b\u7684\u3002\u3002\u3002\n\n\u5177\u4f53\u89e3\u91ca\u770b\u4ee3\u7801\uff1a\n\n\n\n```cpp\n#include<set>\n#include<map>\n#include<list>\n#include<queue>\n#include<stack>\n#include<string>\n#include<cmath>\n#include<ctime>\n#include<vector>\n#include<bitset>\n#include<memory>\n#include<utility>\n#include<cstdio>\n#include<sstream>\n#include<iostream>//\u5176\u5b9e\u672c\u9898\u53ea\u9700\u8981\u8fd9\u4e00\u4e2a\u5934\u6587\u4ef6\u3002\u3002\u3002\n#include<cstdlib>\n#include<cstring>\n#include<algorithm>//\u4e2a\u4eba\u5efa\u8bae\u628a\u4f1a\u7684\u5934\u6587\u4ef6\u90fd\u5199\u4e0a\u53bb\uff0c\u4ee5\u514d\u51fa\u73b0\u672a\u8c03\u7528\u51fd\u6570\u5e93\u7684\u7684\u547d\u4ee4\nusing namespace std;\nlong long k,a,b,c;//\u53ef\u7231\u7684\u56db\u4e2a\u51fd\u6570~~~\nint main(){//\u53ef\u7231\u7684\u4e3b\u7a0b\u5e8f~~~\n    cin>>k;//\u53ef\u7231\u7684\u8f93\u5165~~~\n    a=b=1;\n    c=a+b;//\u53ef\u7231\u7684\u8d4b\u521d\u503c~~~\n    while(c<=k){//\u53ef\u7231\u7684\u5faa\u73af~~~\n        a=b;\n        b=c;\n        c=a+b;//\u7528\u4e09\u4e2a\u6570\u636e\u5faa\u73af\u6a21\u62df\u6570\u7ec4\uff0c\u8d77\u5230\u8282\u7701\u7a7a\u95f4\u7684\u4f5c\u7528\n    }\n    cout<<\"m=\"<<a<<endl;\n    cout<<\"n=\"<<b<<endl;//\u53ef\u7231\u7684\u8f93\u51fa~~~\n    return 0;\n}\n\u6700\u540e\uff0c\u795d\u5927\u5bb6\u7f16\u7a0b\u987a\u5229~~~\n```",
+        "postTime": 1504012228,
+        "uid": 44063,
+        "name": "zy\u5c0f\u53ef\u7231\u10e6",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 P1936 \u3010\u6c34\u6676\u706f\u706b\u7075\u3011"
+    }
+]

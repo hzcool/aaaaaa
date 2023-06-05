@@ -1,0 +1,18 @@
+[
+    {
+        "content": "## \u601d\u8def\uff1a\n\n\u5bf9\u7b54\u6848\u6709\u5f71\u54cd\u7684\u53ea\u6709\u4e24\u4e2a\u56e0\u7d20\uff1a\u989c\u8272\u6570\u4e0e\u73a9\u5177\u6570\u3002\u8003\u8651\u4ece\u53f3\u5f80\u5de6\u679a\u4e3e\u5de6\u7aef\u70b9\uff0c\u518d\u679a\u4e3e\u989c\u8272\u6570\u3002\u7531\u4e8e\u8981\u6c42\u6700\u5c0f\u503c\uff0c\u5728\u989c\u8272\u6570\u4e00\u5b9a\u65f6\uff0c\u5e94\u8be5\u5c3d\u53ef\u80fd\u8ba9\u73a9\u5177\u6570\u66f4\u5927\u3002\u6211\u4eec\u53ef\u4ee5\u8bb0\u5f55\u6bcf\u4e2a\u5b57\u6bcd\u4e0a\u4e00\u6b21\u51fa\u73b0\u7684\u4f4d\u7f6e\uff0c\u8bb0\u4e3a $las_i$\u3002\u5c06 $las$ \u6570\u7ec4\u6392\u5e8f\uff0c$las_i-1$ \u5c31\u662f\u53ea\u6709 $i-1$ \u4e2a\u989c\u8272\u65f6\uff0c\u4f7f\u73a9\u5177\u6570\u6700\u591a\u7684\u53f3\u7aef\u70b9\u3002\n\n\u4e3a\u4e86\u907f\u514d\u6d6e\u70b9\u8bef\u5dee\uff0c\u6211\u4eec\u53ef\u4ee5\u901a\u8fc7\u79fb\u9879\u5224\u65ad\u5927\u5c0f\u3002\n\n## \u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n, ansc = 1, ansn = 1, l = 1, r = 1;\nstring s;\nstruct Node {\n\tint las, id;\n} a[30];\nbool cmp1(Node x, Node y) {\n\treturn x.las < y.las;\n}\nbool cmp2(Node x, Node y) {\n\treturn x.id < y.id;\n}\nint main() {\n\t//freopen(\"toy.in\", \"r\", stdin);\n\t//freopen(\"toy.out\", \"w\", stdout);\n\tcin >> n >> s;\n\tfor (int i = 0; i <= 26; i++) {\n\t\ta[i].id = i;\n\t\ta[i].las = 0x3f3f3f3f;\n\t}\n\tfor (int i = n - 1; i >= 0; i--) {\n\t\ta[s[i] - 'a'].las = i;\n\t\tsort(a, a + 26, cmp1);\n\t\tfor (int j = 1; j <= 26; j++) {\n\t\t\tif (a[j].las == 0x3f3f3f3f){\n\t\t\t\tif (j * ansn < ansc * (n - i)) {\n\t\t\t\t\tr = n;\n\t\t\t\t\tl = i + 1;\n\t\t\t\t\tansn = r - l + 1;\n\t\t\t\t\tansc = j;\n\t\t\t\t}\n\t\t\t\tbreak;\n\t\t\t}\n\t\t\tif (j * ansn < ansc * (a[j].las - i)) {\n\t\t\t\tr = a[j].las;\n\t\t\t\tl = i + 1;\n\t\t\t\tansn = r - l + 1;\n\t\t\t\tansc = j;\n\t\t\t}\n\t\t}\n\t\tsort(a, a + 26, cmp2);\n\t}\n\tcout << l << \" \" << r << endl;\n\treturn 0;\n}\n```\n",
+        "postTime": 1663131831,
+        "uid": 142969,
+        "name": "GI\u5f55\u50cf\u673a",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 P7544 [COCI2019-2020#4]Nivelle"
+    },
+    {
+        "content": "\u590d\u4e60\u5c3a\u53d6\u6cd5\u3002\u8bbe\u5b57\u7b26\u96c6\u5927\u5c0f\u4e3a $|\\Sigma|=26$\u3002\n\n\u5bb9\u6613\u53d1\u73b0\u4efb\u610f\u4e00\u6bb5\u4e0d\u540c\u5b57\u7b26\u6570\u5728 $[1,|\\Sigma|]$ \u4e2d\uff0c\u8003\u8651\u679a\u4e3e\u3002\u95ee\u9898\u8f6c\u5316\u4e3a\u6c42\u89e3\u6700\u957f\u7684\u5305\u542b\u4e0d\u8d85\u8fc7 $i$ \u4e2a\u4e0d\u540c\u5b57\u7b26\u7684\u5b50\u4e32\u957f\u5ea6\u3002\u76f4\u63a5\u4e0b\u6807\u8ba1\u6570\u7ed3\u5408\u5c3a\u53d6\u6cd5\u5373\u53ef\u3002\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n\nint n, b[205], s, l, r, al, ar;\ndouble v = 100000;\nchar a[100005];\nsigned main() {\n    scanf(\"%d\", &n), cin >> (a + 1);\n    for (int i = 1; i <= 26; ++i) {\n        l = 1, r = 0, s = 0;\n        memset (b, 0, sizeof(b));\n        while (r < n) {\n            ++r, s += !b[a[r]], ++b[a[r]];\n            while (s > i) s -= !(b[a[l]] - 1), --b[a[l]], ++l;\n            if (i * 1.0 / (r - l + 1) < v) v = i * 1.0 / (r - l + 1), al = l, ar = r;\n        }\n    }\n    cout << al << \" \" << ar << endl;\n    return 0;\n}\n```\n",
+        "postTime": 1663131687,
+        "uid": 62440,
+        "name": "MuelsyseU",
+        "ccfLevel": 0,
+        "title": "P7544 [COCI2019-2020#4]Nivelle \u9898\u89e3"
+    }
+]

@@ -1,0 +1,10 @@
+[
+    {
+        "content": "## \u9898\u76ee\u5206\u6790\n\n\u5bb9\u6613\u60f3\u5230\u8d2a\u5fc3\u5730\u628a $d_i,p_i,r_i$ \u4e2d\u8f83\u5c0f\u7684\u4e24\u4e2a\u6362\u6389\uff0c\u4f46\u8fd9\u6837\u5b58\u5728\u95ee\u9898\uff0c\u56e0\u4e3a\u5982\u679c $sum_d>0$\uff0c\u5219\u81f3\u5c11\u8981\u6709\u4e00\u4e2a\u5e97\u7559\u7740 $d$\u3002\n\n\u4e8e\u662f\u8003\u8651\u7528 dp \u66ff\u4ee3\u8d2a\u5fc3\uff0c\u4ee4 $f(i,0/1,0/1,0/1)$ \u8868\u793a\u524d $i$ \u5bb6\u5e97\u662f/\u5426\u81f3\u5c11\u6709\u4e00\u5bb6\u7559\u4e0b\u4e86 $d_i,p_i,r_i$ \u65f6\u7684\u6700\u5c0f\u82b1\u8d39\uff0c\u6700\u540e\u8f93\u51fa $f(n,0/1,0/1,0/1)$ \u4e2d\u6700\u4f18\u5408\u6cd5\u72b6\u6001\u7684\u82b1\u8d39\u5373\u53ef\uff0c\u8f6c\u79fb\u7b80\u5355\u3002\n\n## \u4ee3\u7801\n\n```cpp\n/*\n  author: PEKKA_l  \n */\n#include <iostream>\n#include <cstring>\n#include <algorithm>\n#include <cstdio>\nusing namespace std;\n#define int long long\n\nint n,a[300005],b[300005],c[300005],sa,sb,sc,dp[300005][8];\n\nsigned main()\n{\n\tcin>>n; for(int i=1;i<=n;i++) cin>>a[i]>>b[i]>>c[i],sa+=a[i],sb+=b[i],sc+=c[i];\n\tfor(int i=0;i<=n;i++) for(int j=0;j<=7;j++) dp[i][j]=1e18; dp[0][0]=0;\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tfor(int j=1;j<=7;j++)\n\t\t{\n\t\t\tif(j&1) dp[i][j]=min(dp[i][j],min(dp[i-1][j],dp[i-1][j^1])+b[i]+c[i]);\n\t\t\tif(j&2) dp[i][j]=min(dp[i][j],min(dp[i-1][j],dp[i-1][j^2])+a[i]+c[i]);\n\t\t\tif(j&4) dp[i][j]=min(dp[i][j],min(dp[i-1][j],dp[i-1][j^4])+a[i]+b[i]);\n\t\t}\n\t}\n\tsa=sa?0:1; sb=sb?0:1; sc=sc?0:1; int ans=1e18;\n\tfor(int j=0;j<=7;j++) if((j|(sa)|(sb*2)|(sc*4))==7) ans=min(ans,dp[n][j]);\n\tcout<<ans<<endl;\n}\n```\n",
+        "postTime": 1682862973,
+        "uid": 529697,
+        "name": "PEKKA_l",
+        "ccfLevel": 6,
+        "title": "P9294 \u9898\u89e3"
+    }
+]

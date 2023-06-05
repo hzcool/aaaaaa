@@ -1,0 +1,42 @@
+[
+    {
+        "content": "# P2842 \u9898\u89e3\n\n\u4e00\u9053\u7ecf\u5178\u7684 dp\u3002\n\n## [\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/P2842)\n\n\u6211\u4eec\u6765\u8003\u8651\u4e00\u4e0b\u8fd9\u9898\u600e\u4e48\u8bbe\u8ba1\u72b6\u6001\u3002\n\n\u56e0\u4e3a\u9898\u76ee\u91cc\u8981\u6211\u4eec\u6c42\u9700\u8981\u7684\u6700\u5c11\u7eb8\u5e01\u6570\u91cf\uff0c\u6211\u4eec\u5c31\u8bbe $f_i$ \u4e3a\u51d1\u51fa $i$ \u5143\u94b1\u6240\u9700\u7684\u6700\u5c11\u7eb8\u5e01\u6570\u3002\n\n\u63a5\u4e0b\u6765\u601d\u8003\u8f6c\u79fb\u3002\n\n\u5047\u5982\u8981\u51d1 $i$ \u5143\uff0c\u73b0\u5728\u6709\u4e00\u5f20 $a$ \u5143\u7684\u7eb8\u5e01 $(a \\le i)$\uff0c\u90a3\u4e48\u6211\u4eec\u53ef\u4ee5\u5148\u51d1 $a-i$ \u5143\uff0c\u518d\u8865\u4e00\u5f20 $a$ \u5143\u7684\u7eb8\u5e01\u3002\n\n\u90a3\u4e48\u6211\u4eec\u7684\u601d\u8def\u5c31\u5f88\u660e\u786e\u4e86\uff1a\n\n- \u5bf9\u4e8e\u6bcf\u4e00\u4e2a\u4ece $1$ \u5230 $w$ \u7684\u91d1\u989d $i$\uff0c\u904d\u5386\u6bcf\u4e00\u79cd\u94b1\u5e01 $a_j$\uff1b\n- \u5982\u679c $a_j \\le i$\uff0c\u5c1d\u8bd5\u66f4\u65b0\u91d1\u989d $f_i=\\min(f_i,f_{i-a_j}+1)$\u3002\n\n\u6700\u540e\u8f93\u51fa $f_w$ \u5373\u53ef\u3002\n\n\u6ce8\u610f\u8981\u628a $f$ \u6570\u7ec4\u521d\u59cb\u5316\u4e3a\u65e0\u7a77\u5927\u3002\n\n**code :**\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,w,a[1005],f[10005];\nint main(){\n\tcin >> n >> w ;\n\tfor(int i=1;i<=n;i++) cin >> a[i] ;\n\tmemset(f,127,sizeof(int)*(w+5));\n\tf[0]=0;\n\tfor(int i=1;i<=w;i++) for(int j=1;j<=n;j++) if(i>=a[j]) f[i]=min(f[i],f[i-a[j]]+1);\n\tcout << f[w] ;\n\treturn 0;\n}\n```\n",
+        "postTime": 1679463759,
+        "uid": 566935,
+        "name": "timmark",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3"
+    },
+    {
+        "content": "### \u9898\u76ee\u63cf\u8ff0\n$n$ \u79cd\u7eb8\u5e01\uff0c\u8981\u60f3\u51d1\u51fa $w$ \u7684\u9762\u503c\uff0c\u81f3\u5c11\u8981\u51e0\u5f20\u7eb8\u5e01\uff1f\n### \u89e3\u9898\u601d\u8def\n\u4e00\u773c dp \u9898\u3002dp \u9898\u7684\u89e3\u9898\u601d\u8def\u901a\u5e38\u4e3a\uff1a\u8bfb\u61c2\u9898\u610f\uff0c\u8bbe\u8ba1\u72b6\u6001\uff0c\u786e\u5b9a\u76ee\u6807\u6001\u548c\u521d\u59cb\u6001\uff0c\u601d\u8003\u8f6c\u79fb\u65b9\u7a0b\uff0c\u601d\u8003\u4f18\u5316\u3002\n\n\u8bbe\u8ba1\u72b6\u6001\uff1a$f[i]$ \u8868\u793a\u51d1\u51fa\u9762\u503c\u4e3a $i$ \u81f3\u5c11\u9700\u8981\u7684\u7eb8\u5e01\u5f20\u6570\u3002\n\n\u76ee\u6807\u6001\uff1a$f[w]$\uff1b\u521d\u59cb\u6001\uff1a$f[0]=0$\uff0c\u56e0\u4e3a\u51d1\u51fa $0$ \u5143\u4e00\u5f20\u7eb8\u5e01\u90fd\u4e0d\u9700\u8981\u3002\n\n\u8f6c\u79fb\u65b9\u7a0b\uff1a$f[v]=\\min\\{f[v-a[i]]\\}+1(i\\in[1,n])$\n\n\u8fd9\u662f\u56e0\u4e3a\u5982\u679c $v-a[i]$ \u9700\u8981\u7528 $x$ \u5f20\u7eb8\u5e01\uff0c\u90a3\u4e48\u53ea\u9700\u8981\u52a0\u4e0a $a[i]$ \u8fd9\u4e00\u5f20\u7eb8\u5e01\uff0c\u5c31\u80fd\u7528\u8fd9 $x+1$ \u5f20\u51d1\u51fa $v$ \u4e86\u3002\n\n\u590d\u6742\u5ea6 $O(nw)$\uff0c\u56e0\u6b64\u4e0d\u9700\u8981\u4f18\u5316\u3002\n\n### \u53c2\u8003\u4ee3\u7801\n\u6ce8\u610f\uff1a\u7531\u4e8e\u6d89\u53ca\u5230\u53d6 $\\min$ \u64cd\u4f5c\uff0c\u6240\u4ee5\u5fc5\u987b\u5c06\u521d\u59cb\u503c\u8bbe\u4e3a\u4e00\u4e2a\u6781\u5927\u503c\u3002\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nlong long n,w,a[1010],f[100010];\nint main(){\n\tcin>>n>>w;\n\tfor(int i=1;i<=n;i++)cin>>a[i];\n\tfor(int i=1;i<=10010;i++)f[i]=1145141919;\n\tfor(int i=1;i<=n;i++)\n\t\tfor(int j=a[i];j<=w;j++)\n\t\t\tf[j]=min(f[j],f[j-a[i]]+1);\n\tcout<<f[w]<<endl;\n\treturn 0;\n} \n```\n",
+        "postTime": 1679125733,
+        "uid": 525374,
+        "name": "sgl654321",
+        "ccfLevel": 0,
+        "title": "P2842 \u9898\u89e3"
+    },
+    {
+        "content": "\u5b9a\u4e49 $f_i$ \u4e3a\u51d1\u51fa $i$ \u5143\u7684\u7eb8\u5e01\u65b9\u5f0f\u6570\uff0c\u56e0\u6b64\u7b54\u6848\u662f $f_w$\u3002\n\n\u521d\u59cb\u5316 $f_0=1$\uff0c\u56e0\u4e3a\u51d1\u51fa $0$ \u5143\u53ea\u6709\u4e00\u79cd\u65b9\u5f0f\u3002\n\n\u6bcf\u6b21\u90fd\u8981\u53bb\u6c42\u6700\u5c0f\u503c\uff0c\u4e00\u5143\u4e00\u5143\u7684\u6c42\uff0c\u76f4\u5230\u6c42\u5230 $w$\uff0c\u800c\u51d1\u51fa\u6bcf\u4e00\u5143\u7684\u6700\u5c0f\u7528\u7eb8\u5e01\u6570\u5c31\u662f $f_i=\\min\\{f_{i-a_1},f_{i-a_2},f_{i-a_3}\\cdots f_{i-a_n}\\}+1$\u3002\n\n\u4ee3\u7801\u5982\u4e0b\uff1a\n\n```c\nfor(int i=1;i<=n;i++)\n\tfor(int j=a[i];j<=w;j++)\n\t\tf[j]=min(f[j],f[j-a[i]]+1);\n```\n",
+        "postTime": 1679829298,
+        "uid": 649095,
+        "name": "\u5e7b\u60f3\u7e41\u661f",
+        "ccfLevel": 5,
+        "title": "P2842\u9898\u89e3"
+    },
+    {
+        "content": "\u5efa\u8bae\u6a59\u3002\n\n## \u601d\u8def\n\n\u89c2\u5bdf\u6570\u636e\u8303\u56f4\uff0c$1 \\leq n \\leq 10^{3}, 1 \\leq w \\leq 10^{4}$\uff0c\u663e\u7136\uff0c\u8fd9\u4e48\u5c0f\u7684\u6570\u636e\u8303\u56f4\u662f\u7559\u7ed9\u6211\u4eec\u6253\u66b4\u529b dp \u7684\uff0c\u5177\u4f53\u7c7b\u4f3c[\u8fd9\u9898](https://www.luogu.com.cn/problem/B3635)\u3002\n\n\u6bcf\u6b21\u90fd\u8981\u53bb\u6c42\u6700\u5c0f\u503c\uff0c\u4e00\u5143\u4e00\u5143\u7684\u6c42\uff0c\u76f4\u5230\u6c42\u5230 $w$\uff0c\u800c\u51d1\u51fa\u6bcf\u4e00\u5143\u7684\u6700\u5c0f\u7528\u7eb8\u5e01\u6570\u5c31\u662f $\\min(dp_{i-a_1} \\sim dp_{i-a_n}) + 1$\u3002\u6ce8\u610f $i-a_j$ \u53ef\u80fd\u5c0f\u4e8e $0$\uff0c\u8bb0\u5f97\u7279\u5224\u3002\n\n## \u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint dp[100001],n,a[101010],cost,w;\nint main(){\n\tcin>>n>>w;\n\tfor(int i = 1; i <= n; i++) cin >> a[i];\n\tfor(int i = 1;i <= w;i++){\n\t\tcost = 0x3f3f3f3f;\n\t\tfor(int j = 1; j <= n; j++){\n           //\u7279\u5224\u4e00\u4e0b\uff0c\u9632\u6b62RE\n\t\t    if(i - a[j] >= 0) cost = min(cost, dp[i - a[j]]);\n           //\u6c42\u4e4b\u524d\u7528\u7684\u7eb8\u5e01\u6570\u6700\u5c0f\u503c\n\t\t}\n\t\tdp[i] = cost + 1;//\u52a0\u4e00\u662f\u8fd9\u6b21\u4f1a\u591a\u75281\u5f20\u7eb8\u5e01\n\t} \n\tcout << dp[w];\n\treturn 0;\n}\n```",
+        "postTime": 1678678397,
+        "uid": 852144,
+        "name": "Saint_ying_xtf",
+        "ccfLevel": 0,
+        "title": "P2842 \u9898\u89e3"
+    },
+    {
+        "content": "[\u539f\u9898\u94fe\u63a5](https://www.luogu.com.cn/problem/P2842)\r\n\r\n\u9898\u76ee\u5927\u610f\uff1a\r\n\r\n\u73b0\u6709 $n$ \u79cd\u7eb8\u5e01\uff0c\u7b2c $i$ \u4e2d\u7eb8\u5e01\u9762\u503c\u4e3a $a(i)$ \u5143\u94b1\uff0c\u6bcf\u79cd\u7eb8\u5e01\u6709\u65e0\u9650\u591a\u5f20\uff0c\u95ee\u4f60\u6700\u5c11\u9700\u8981\u591a\u5c11\u7eb8\u5e01\u624d\u80fd\u51d1\u51fa $w$ \u5143\u94b1\u3002\r\n\r\n\u601d\u8def\uff1a\r\n\r\n\u7ecf\u5178\u7684 dp \u9898\u3002\u8bbe\u4e00\u4e2a\u51fd\u6570 $dp$\uff0c$dp(i)$ \u8868\u793a\u51d1\u51fa $i$ \u5143\u94b1\u9700\u8981\u591a\u5c11\u5f20\u7eb8\u5e01\u3002\r\n\r\n\u6bcf\u6b21\u8f93\u5165\u7eb8\u5e01\u7684\u9762\u503c $a(i)$\uff0c\u51d1\u51fa $i$ \u5143\u94b1\u5c31\u53ef\u4ee5\u76f4\u63a5\u51d1\uff0c\u6216\u8005\u52a0\u4e0a\u5f53\u524d\u7eb8\u5e01\u3002\r\n\r\n\u53ef\u4ee5\u5217\u51fa\u72b6\u6001\u8f6c\u79fb\u65b9\u7a0b\uff1a$dp(i)=\\min\\{dp(x)-a(i)\\}+1(x\\in[1,n])$\u3002\u5b83\u7b49\u4ef7\u4e8e\u4ee3\u7801\u4e2d\u7684\uff1a\r\n```cpp\r\nfor (int j = a; j <= w; j++){\r\n   dp[j] = min(dp[j], dp[j - a] + 1);\r\n}\r\n```\r\n\u5751\u70b9\uff1a\r\n- $dp$ \u6570\u7ec4\u8981\u8d4b\u521d\u503c $+\\infty$\u3002\r\n- $dp(0)=0$ \u4e0d\u8981\u5fd8\u8bb0\u3002\r\n\r\n\u4e0a\u4ee3\u7801\uff1a\r\n```cpp\r\n#include <cstring>\r\n#include <iostream>\r\nusing namespace std;\r\n\r\nint dp[10001];\r\n\r\nint main(){\r\n    cin.tie(NULL);\r\n    cout.tie(NULL);\r\n    ios::sync_with_stdio(false);// cin\u3001cout\u52a0\u901f\r\n    // \u8d4b\u521d\u503c\r\n    memset(dp, 0x3f, sizeof(dp));\r\n    dp[0] = 0;\r\n    int n, w;\r\n    cin >> n >> w;\r\n    for (int i = 1; i <= n; i++){\r\n        int a;\r\n        cin >> a;\r\n        // \u72b6\u6001\u8f6c\u79fb\r\n        for (int j = a; j <= w; j++){\r\n            dp[j] = min(dp[j], dp[j - a] + 1);\r\n        }\r\n    }\r\n    cout << dp[w] << \"\\n\";// \u6700\u7ec8\u7b54\u6848\u8f93\u51fa\r\n    return 0;\r\n}\r\n```",
+        "postTime": 1679478781,
+        "uid": 694118,
+        "name": "shaozhehan",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3P2842"
+    }
+]

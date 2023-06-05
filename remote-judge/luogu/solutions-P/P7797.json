@@ -1,0 +1,58 @@
+[
+    {
+        "content": "\u672c\u9898\u6839\u636e\u9898\u610f\u6a21\u62df\u5373\u53ef\u3002\n\n\u6211\u4eec\u7528 map \u6765\u50a8\u5b58\u5b57\u7b26\u4e0e\u5206\u503c\u4e4b\u95f4\u7684\u5173\u7cfb\uff0c\u8fd9\u6837\u53ef\u4ee5\u7701\u53bb\u5f88\u591a\u7e41\u7410\u7684\u5224\u65ad\u3002\n\n\u4ee3\u7801\u5982\u4e0b\uff1a\n\n```cpp\n#include <iostream>\n#include <map> \nusing namespace std;\n\nmap<char, int> r;\nmap<char, int> s;\nint main()\n{\n    int n;\n    char b;\n    cin >> n >> b;\n    s.insert({'A', 11});\n    s.insert({'K', 4});\n    s.insert({'Q', 3});\n    s.insert({'J', 20});\n    s.insert({'T', 10});\n    s.insert({'9', 14});\n    s.insert({'8', 0});\n    s.insert({'7', 0});\n    r.insert({'A', 11});\n    r.insert({'K', 4});\n    r.insert({'Q', 3});\n    r.insert({'J', 2});\n    r.insert({'T', 10});\n    r.insert({'9', 0});\n    r.insert({'8', 0});\n    r.insert({'7', 0}); //\u9884\u5904\u7406\u5206\u503c\n    int sum = 0;\n    for (int i = 1; i <= (n << 2); i++) //\u8ba1\u7b97\u5f97\u5206\u5e76\u8f93\u51fa\n    {\n    \tchar x, y;\n    \tcin >> x >> y;\n    \tif (y == b)\n    \t{\n    \t\tsum += s[x];\n\t\t}\n\t\telse\n\t\t{\n\t\t\tsum += r[x];\n\t\t}\n\t}\n\tcout << sum;\n\treturn 0;\n}\n```",
+        "postTime": 1628428217,
+        "uid": 228770,
+        "name": "CuSO4_MKC",
+        "ccfLevel": 3,
+        "title": "\u3010\u9898\u89e3\u3011P7797 [COCI2015-2016#6] BELA"
+    },
+    {
+        "content": "\u9996\u5148\uff0c\u5224\u65ad\u8f93\u5165\u7684\u662f\u5426\u4e3a\u7279\u6b8a\u724c\uff0c\u52a0\u4e0a\u5176\u5bf9\u5e94\u6743\u503c\u3002\u6700\u540e\u8f93\u51fa\u503c\u7684\u603b\u548c\u5373\u53ef\u3002\u6709\u4e9b\u7279\u6b8a\u724c\u7684\u503c\u4e0e\u666e\u901a\u724c\u7684\u503c\u76f8\u7b49\u6216\u503c\u4e3a\u96f6\u5219\u53ef\u7701\u7565\u3002\n\n## \u4e0a\u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,ans;\nchar t[2],s[2];\nint main(){\n    scanf(\"%d%s\",&n,t+1);\n    n*=4;\n    while(n--){\n        scanf(\"%s\",s+1);\n        if(s[1]=='A') ans+=11;//\u8fd9\u4e9b\u724c\u7279\u6b8a\u503c\u4e0e\u666e\u901a\u503c\u90fd\u4e00\u6837 \n        if(s[1]=='K') ans+=4;\n        if(s[1]=='Q') ans+=3;\n        if(s[1]=='T') ans+=10;\n        if(s[1]=='J'){//\u8fd9\u4e9b\u724c\u7279\u6b8a\u503c\u4e0e\u666e\u901a\u503c\u4e0d\u4e00\u6837 \n            if(s[2]==t[1]) ans+=20;\n            else ans+=2;\n        }\n        else if(s[1]=='9'&&s[2]==t[1])\n            ans+=14;\n    }\n    printf(\"%d\\n\",ans);\n    return 0;\n}\n```\n",
+        "postTime": 1628474283,
+        "uid": 251779,
+        "name": "Beep_Monkey",
+        "ccfLevel": 0,
+        "title": "P7797 [COCI2015-2016#6] BELA"
+    },
+    {
+        "content": "\u6a21\u62df\u6c34\u9898\u4e00\u9053\u3002\n\n\u5b9a\u4e49\u4e24\u4e2a\u6570\u7ec4\u5b58\u50a8\u7279\u6b8a\u724c\u4e0e\u975e\u7279\u6b8a\u724c\u7684\u503c\u3002\n\n\u6bcf\u6b21\u8f93\u5165\u8c03\u7528\u51fd\u6570\u5229\u7528\u5b57\u7b26\u4e32\u6765\u627e\u5230\u5b57\u6bcd\u5bf9\u5e94\u7684\u503c\u3002\n\n\u6ce8\u610f\uff0c\u7531\u4e8e\u5b57\u7b26\u4e32\u548c\u6570\u7ec4\u4e0b\u6807\u90fd\u662f\u4ece\u96f6\u5f00\u59cb\uff0c\u6240\u4ee5\u4e0d\u7528\u7279\u6b8a\u8003\u8651\u4e0b\u6807\u95ee\u9898\u3002\n\n**\u4ee3\u7801\u5982\u4e0b**\n\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint spe[]={11,4,3,20,10,14,0,0},ord[]={11,4,3,2,10,0,0,0};//\u5206\u522b\u4e3a\u7279\u6b8a\u724c\u4e0e\u666e\u901a\u724c\u6570\u7ec4\nint find(char c){\n\tstring s=\"AKQJT987\";\n\tint l=s.length();\n\tfor(int i=0;i<l;++i)\n\t\tif(s[i]==c) return i;\n}\nint ans;\nint main(){\n\tchar b; int n;\n\tcin>>n>>b;\n\tn*=4;\n\twhile(n--){\n\t\tstring c;//\u6ce8\u610f\u4e0d\u8981\u7528\u5b57\u7b26\u6570\u7ec4\n\t\tcin>>c;\n\t\tif(c[1]==b) ans+=spe[find(c[0])];\n\t\telse ans+=ord[find(c[0])];\n\t}\n\tcout<<ans;\n\treturn 0;//\u597d\u4e60\u60ef\n}\n\n\n\n```\n",
+        "postTime": 1628472817,
+        "uid": 398190,
+        "name": "lanretE",
+        "ccfLevel": 0,
+        "title": "[COCI2015-2016#6] BELA\u9898\u89e3"
+    },
+    {
+        "content": "\u4e00\u9053\u6807\u51c6\u7684\u6a21\u62df\u9898\u3002\n\n---\n\n\u8f93\u5165 $n$ \u540e\uff0c\u8981\u6ce8\u610f\uff1a**\u4e0b\u9762\u662f $4 \\times n$ \u884c\u3002**  \n\u5faa\u73af\u7684\u8bdd\uff0c\u4f60\u53ef\u4ee5\u5c06 `for(int i=1;i<=n;i++)` \u7b80\u5316\u4e3a `while(n--)`\u3002  \n\u63a5\u4e0b\u6765\u662f\u6838\u5fc3\u90e8\u5206\u3002  \n\u6211\u4eec\u77e5\u9053\u6709\u4e24\u79cd\u60c5\u51b5\uff1a\u4e3a\u7279\u6b8a\u548c\u4e0d\u4e3a\u7279\u6b8a\u3002\u90a3\u4e48\u6839\u636e\u9898\u76ee\uff0c\u53ea\u8981\u5199\u4e00\u4e2a `if...else...` \u5185\u5d4c\u5957\u4e24\u4e2a `switch` \u8bed\u53e5\u5373\u53ef\u3002  \n\u6838\u5fc3\u4ee3\u7801\uff1a\n```cpp\ncin>>x>>y;\nif(y==b)//\u4e3a\u7279\u6b8a\n{\n\tswitch(x)\n\t{\n\t\tcase 'A':\n\t\t\tans+=11;\n\t\t\tbreak;\n\t\tcase 'K':\n        ans+=4;\n\t\t\tbreak;\n\t\tcase 'Q':\n\t\t\tans+=3;\n\t\t\tbreak;\n\t\tcase 'J':\n\t\t\tans+=20;\n\t\t\tbreak;\n\t\tcase 'T':\n\t\t\tans+=10;\n\t\t\tbreak;\n\t\tcase '9':\n\t\t\tans+=14;\n\t\t\tbreak;\n\t\tdefault://\u4ee5\u9632 RE\uff0c\u4e0b\u540c\n\t\t\tans+=0;\n\t}\n}\nelse//\u4e0d\u4e3a\u7279\u6b8a\n{\n\tswitch(x)\n\t{\n\t\tcase 'A':\n\t\t\tans+=11;\n\t\t\tbreak;\n\t\tcase 'K':\n\t\t\tans+=4;\n\t\t\tbreak;\n\t\tcase 'Q':\n\t\t\tans+=3;\n\t\t\tbreak;\n\t\tcase 'J':\n\t\t\tans+=2;\n\t\t\tbreak;\n\t\tcase 'T':\n\t\t\tans+=10;\n\t\t\tbreak;\n\t\tdefault:\n\t\t\tans+=0;\n\t}\n}\n```",
+        "postTime": 1628463999,
+        "uid": 400269,
+        "name": "_JYqwq_",
+        "ccfLevel": 0,
+        "title": "P7797 [COCI2015-2016#6] BELA\u3000\u9898\u89e3"
+    },
+    {
+        "content": "\u7b80\u5355\u7684\u6a21\u62df\u3002\n\n\u7528\u4e00\u4e2a\u4e8c\u4f4d\u6570\u7ec4\u50a8\u5b58\u7279\u6b8a\u724c\u4e0e\u975e\u7279\u6b8a\u724c\u7684\u503c\u3002\n\n\u6bcf\u4e00\u6b21\u8f93\u5165\u627e\u5230\u5bf9\u5e94\u503c\u76f8\u52a0\u5373\u53ef\u3002\n\n\u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,ans,s[2][8]={{11,4,3,2,10,0,0,0},{11,4,3,20,10,14,0,0}};\nchar b;\nstring a,c=\"AKQJT987\";\nint w(char k){\n    for(int i=0;i<8;++i){\n    \tif(c[i]==k)return i;\n\t}\n}\nint main(){\n    cin>>n>>b;\n    for(int i=0;i<4*n;++i){\n        cin>>a;\n        ans+=s[a[1]==b][w(a[0])];\n    }cout<<ans;\n    return 0;\n}\n```",
+        "postTime": 1628431994,
+        "uid": 271736,
+        "name": "Daidly",
+        "ccfLevel": 6,
+        "title": "P7797 [COCI2015-2016#6] BELA \u9898\u89e3 \u8fd4\u56de\u9898\u76ee"
+    },
+    {
+        "content": "\u4e00\u9053\u6a21\u62df\u9898\u3002\n\n\u8f93\u5165\uff0c\u5224\u65ad\u662f\u5426\u4e3a\u7279\u6b8a\u724c\uff0c\u5982\u679c\u662f\u5219\u52a0\u4e0a\u4f5c\u4e3a\u7279\u6b8a\u724c\u65f6\u7684\u503c\u3002\u5426\u5219\u52a0\u4e0a\u4e0d\u4e3a\u7279\u6b8a\u724c\u65f6\u7684\u503c\u3002\u8f93\u51fa\u724c\u7684\u503c\u7684\u603b\u548c\u5373\u53ef\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,ans;\nchar t[5],s[5];\nint main() {\n\tscanf(\"%d%s\",&n,t);\n\tn*=4; \n\twhile(n--){\n\t\tscanf(\"%s\",s);\n\t\tif(s[0]=='A')ans+=11;\n\t\telse if(s[0]=='K')ans+=4;\n\t\telse if(s[0]=='Q')ans+=3;\n\t\telse if(s[0]=='T')ans+=10;\n\t\telse if(s[0]=='7')ans+=0;\n\t\telse if(s[0]=='8')ans+=0;\n\t\telse if(s[0]=='J'){\n\t\t\tif(s[1]==t[0])ans+=20;\n\t\t\telse ans+=2;\n\t\t}\n\t\telse if(s[0]=='9'){\n\t\t\tif(s[1]==t[0])ans+=14;\n\t\t\telse ans+=0;\n\t\t}\n\t}\n\tprintf(\"%d\\n\",ans);\n\treturn 0;\n}\n```\n",
+        "postTime": 1628423803,
+        "uid": 189163,
+        "name": "ForeverCC",
+        "ccfLevel": 5,
+        "title": "P7797 [COCI2015-2016#6] BELA"
+    },
+    {
+        "content": "### \u601d\u8def\uff1a\n\u6309\u7167\u9898\u610f\u8fdb\u884c\u6a21\u62df\u3002\n\n\u5bf9\u4e8e\u6bcf\u79cd\u724c\u7684\u79cd\u7c7b\u8fdb\u884c\u5206\u7c7b\u8ba8\u8bba\uff0c\u7136\u540e\u518d\u5224\u65ad\u662f\u5426\u662f\u7279\u6b8a\u724c\u3002\n\n\u5982\u679c\u5f53\u524d\u724c\u662f $8$ \u6216\u8005 $7$\uff0c\u53ef\u4ee5\u8df3\u8fc7\uff0c\u56e0\u4e3a\u662f\u5426\u662f\u7279\u6b8a\u724c\u90fd\u4e0d\u5f71\u54cd\u7b54\u6848\u3002\n\n### \u4ee3\u7801\uff1a\n[Link.](https://www.luogu.com.cn/paste/gspxp3du)\n ",
+        "postTime": 1628415895,
+        "uid": 508316,
+        "name": "cyhyyds",
+        "ccfLevel": 0,
+        "title": "P7797 [COCI2015-2016#6] BELA \u9898\u89e3"
+    }
+]

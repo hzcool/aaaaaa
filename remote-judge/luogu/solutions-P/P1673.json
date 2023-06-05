@@ -1,0 +1,18 @@
+[
+    {
+        "content": "# \u601d\u8def\uff1a\n\u8bbe $dis_i$ \u8868\u793a\u673a\u5668 $i$ \u81f3\u5c11\u4ea4\u6362\u51e0\u6b21\uff0c\u521d\u59cb $dis_1=1$\uff0c\u5176\u4f59\u8bbe\u4e3a\u6781\u5927\u503c\u3002\n\n\u8f6c\u79fb\uff1a\u82e5\u673a\u5668 $i$ \u80fd\u4ea4\u6362\u5f97\u5230\u673a\u5668 $j$\uff0c\u5219 $dis_j=dis_i+1$\u3002\n\n\u65b9\u7a0b\u7c7b\u4f3c\u6709\u5411\u56fe\u4e2d\u7684\u6700\u77ed\u8def\uff0c\u5728\u6bcf\u4e2a\u661f\u7403\u4e0a\u628a\u53ef\u4ea4\u6362\u7684\u8fde\u4e00\u6761\u8fb9\uff0c\u518d\u8fd0\u884c\u6700\u77ed\u8def\uff08BFS \u4e5f\u884c\uff09\uff0c\u7b54\u6848\u5c31\u662f $dis_k$\u3002\n# Code:\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,k,u,v,dis[50005];\nvector<int>e[50005];\nvoid bfs(){//BFS\n\tqueue<int>q;\n\tq.push(1);\n\tmemset(dis,0x3f,sizeof dis);\n\tdis[1]=1;\n\twhile(!q.empty()){\n\t\tint u=q.front();q.pop();\n\t\tfor(auto v:e[u]){\n\t\t\tif(dis[v]>dis[u]+1){\n\t\t\t\tdis[v]=dis[u]+1;\n\t\t\t\tq.push(v);\t\n\t\t\t}\n\t\t}\n\t}\n}\nint main(){\n\tcin>>n>>k;\n\tfor(int i=1;i<=n;i++){\n\t\tcin>>u>>v;\n\t\te[u].push_back(v); //\u8fde\u8fb9\n\t}\n\tbfs();\n\tif(dis[k]!=0x3f3f3f3f)cout<<dis[k];\n\telse cout<<-1;//\u4e0d\u80fd\u5b8c\u6210\u4efb\u52a1\n\treturn 0;\n}\n```\n",
+        "postTime": 1685246280,
+        "uid": 876283,
+        "name": "2021changqing52",
+        "ccfLevel": 4,
+        "title": "P1673\u9898\u89e3"
+    },
+    {
+        "content": "\u5206\u6790\uff1a\n\n\u8bbe $dist_i$ \u8868\u793a\u5f97\u5230\u6807\u53f7\u4e3a $i$ \u7684\u673a\u5668\u6700\u5c11\u9700\u8981\u4ea4\u6362\u51e0\u6b21\u3002\n\n\u521d\u59cb\u5316\uff1a\n\n\u7531\u9898\u610f\u53ef\u77e5 $dist_1 = 1$\uff0c\u800c\u5176\u4ed6\u72b6\u6001\u8d4b\u6210\u4e00\u4e2a\u6781\u5927\u503c\u3002\n\n\u8f6c\u79fb\uff1a\n\n\u5bf9\u4e8e\u6bcf\u4e00\u4e2a $i$\uff0c\n\n\u5728\u6bcf\u4e00\u4e2a\u884c\u661f\u4e2d\uff0c\u5982\u679c $i$ \u80fd\u4ea4\u6362\u5f97\u5230 $j$\uff0c\u5219 $dist_j = dist_i + 1$\u3002\n\n\u7b54\u6848\uff1a\n\n\u5982\u679c $dist_K$ \u7b49\u4e8e\u6781\u5927\u503c\uff0c\u5219\u8bf4\u660e\u65e0\u6cd5\u901a\u8fc7\u4ea4\u6362\u5f97\u5230 $K$\uff0c\u8f93\u51fa $-1$\u3002\n\n\u5426\u5219\uff0c\u7b54\u6848\u4e3a $dist_K + 1$\u3002\n\n\u89c2\u5bdf\u8f6c\u79fb\u8fc7\u7a0b\uff0c\u53d1\u73b0\u8fd9\u5176\u5b9e\u5c31\u662f\u4e00\u4e2a\u8fb9\u6743\u4e3a $1$ \u7684\u6700\u77ed\u8def\u3002\n\n\u7531\u4e8e\u8fb9\u6743\u4e3a $1$\uff0c\u53ef\u4ee5\u901a\u8fc7 bfs \u5b9e\u73b0\u3002\n\n\u5efa\u8bae\u8bc4\u9ec4\u3002\n\ncode:\n```\n#include<bits/stdc++.h>\nusing namespace std;\n\nconst int maxn=1e5+10;\nvector<int> G[maxn];\nint dist[maxn];\n\nint main(){\n\tint n,k;\n\tscanf(\"%d%d\",&n,&k);\n\t\n\tfor (int i=1;i<=k;i++) dist[i]=114514;\n\t\n\tfor (int i=1;i<=n;i++){\n\t\tint u,v;\n\t\tscanf(\"%d%d\",&u,&v);\n\t\t\n\t\tG[u].push_back(v);\n\t}\n\t\n\tqueue<int> q;\n\twhile (!q.empty()) q.pop();\n\t\n\tq.push(1);\n\tdist[1]=0;\n\t\n\twhile (!q.empty()){\n\t\tint u=q.front(); q.pop();\n\t\t\n\t\tfor (int i=0;i<(int)G[u].size();i++){\n\t\t\tint v=G[u][i];\n\t\t\tif (dist[v]>dist[u]+1){\n\t\t\t\tdist[v]=dist[u]+1;\n\t\t\t\tq.push(v); \n\t\t\t}\n\t\t}\n\t}\n\t\n\tif (dist[k]==114514) printf(\"-1\");\n\telse printf(\"%d\",dist[k]+1);\n\treturn 0;\n}\n```\n",
+        "postTime": 1683295905,
+        "uid": 546301,
+        "name": "past_tense",
+        "ccfLevel": 0,
+        "title": "P1673 \u9898\u89e3"
+    }
+]

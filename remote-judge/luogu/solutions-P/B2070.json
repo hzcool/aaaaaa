@@ -1,0 +1,34 @@
+[
+    {
+        "content": "### \u9898\u610f\n[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/B2070)\n\n\u7ed9\u4f60\u4e00\u4e2a\u6570 $n$\uff0c\u8ba9\u4f60\u6c42 $S_n=\\frac{1}{1}-\\frac{1}{2}+\\frac{1}{3}-\\frac{1}{4}+\\frac{1}{5}-\\frac{1}{6}+...+(-1)^{n-1}\\times\\frac{1}{n}$ \u7684\u503c\u3002\n### \u505a\u6cd5\n\u5f88\u660e\u663e\u662f\u4e00\u9053\u5faa\u73af\u7c7b\u578b\u7684\u9898\uff0c\u53ef\u4ee5\u4e00\u5c42\u5c42\u7684\u53bb\u5faa\u73af\uff0c\u6211\u4eec\u518d\u6765\u770b\u4e00\u4e0b\u9898\u4e2d\u7684\u516c\u5f0f\uff0c\u53d1\u73b0 $i$ \u4e3a\u5947\u6570\u52a0\u5165\u7b54\u6848\uff0c\u4e3a\u5076\u6570\u51cf\u51fa\uff0c\u6240\u4ee5\u9700\u8981\u5224\u65ad\u5947\u5076\uff0c\u8fd8\u6709\u8bb0\u5f97\u4fdd\u7559\u56db\u4f4d\u5c0f\u6570\uff0c\u4e0a\u4ee3\u7801\u3002\n### Code\n```cpp\n#include <iostream>\n#include <stdio.h>\n\nusing namespace std;\nint n;\ndouble ans;\n\nint main() {\n    cin>>n;\n    for (int i=1;i<=n;i++) {\n        if (i%2==0) {//\u5224\u65ad\u5947\u5076\n            ans-=1.0/i;\n        } else {\n            ans+=1.0/i;\n        }\n    }\n    printf(\"%.4lf\",ans);\n}\n```\n",
+        "postTime": 1626223554,
+        "uid": 420129,
+        "name": "Nt_Tsumiki",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3\uff1aB2070 \u8ba1\u7b97\u5206\u6570\u52a0\u51cf\u8868\u8fbe\u5f0f\u7684\u503c"
+    },
+    {
+        "content": "\u89c2\u5bdf $S$ \u7684\u516c\u5f0f\uff1a\n\n$$S_n=\\frac{1}{1}-\\frac{1}{2}+\\frac{1}{3}-\\frac{1}{4}+\\frac{1}{5}-\\frac{1}{6}+...+(-1)^{n-1}\\times \\frac{1}{n}$$\n\n\n\u53d1\u73b0\uff1a\n\n- \u5b83\u4eec\u7684\u5206\u5b50\u90fd\u662f $1$ \u3002\n\n- \u82e5\u5b83\u7684\u5206\u6bcd\u662f\u5947\u6570\uff0c\u5219\u5176\u524d\u7684\u7b26\u53f7\u4e3a `+` \u3002\n\n- \u82e5\u5b83\u7684\u5206\u6bcd\u662f\u5076\u6570\uff0c\u5219\u5176\u524d\u7684\u7b26\u53f7\u4e3a `-` \u3002\n\n\u6ce8\u610f\uff1a\n\n- \u8f93\u51fa\u65f6\u8bb0\u5f97\u4fdd\u7559 $4$ \u4f4d\u5c0f\u6570\uff01\n\n\u6839\u636e\u4ee5\u4e0a\uff0c\u5bb9\u6613\u5199\u51fa\u4ee3\u7801\uff1a\n\n```cpp\n#include<iostream>\n#include<cstdio>\n#include<algorithm>\n#include<cstring>\n#include<cmath>\n#include<string>\n#include<cstdlib>\nusing namespace std;\nint n;\ndouble sum;\nint main(){\n\tcin>>n;\n\tfor(int i=1;i<=n;i++){\t\t\n\t\tif(i%2==0) sum-=1.0/i;\n\t\telse sum+=1.0/i;\n\t}\n\tprintf(\"%.4lf\",sum);\n\treturn 0;\n}\n```\n",
+        "postTime": 1625532986,
+        "uid": 307603,
+        "name": "_cmh",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 B2070 \u3010\u8ba1\u7b97\u5206\u6570\u52a0\u51cf\u8868\u8fbe\u5f0f\u7684\u503c\u3011"
+    },
+    {
+        "content": "[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/B2070)\n\n\u8fd9\u9053\u9898\u5f00\u59cb\u64cd\u4f5c\u65f6\u5e94\u4ece $2$ \u5f00\u59cb\u64cd\u4f5c\uff0c\u56e0 $1/1=1$ \uff0c\u6211\u4eec\u5df2\u7ecf\u7b97\u597d\u4e86\u3002\n\n\u5176\u4ed6\u7684\u5c31\u53ef\u4ee5\u7528\u5faa\u73af\u6c42\u89e3\uff0c\u5206\u6bcd\u4e3a\u5947\u6570\u52a0\uff0c\u5206\u6bcd\u4e3a\u5076\u6570\u51cf\uff0c\u53ea\u9700\u5224\u65ad\u4e00\u4e0b\u5373\u53ef\u3002\n\nAC \uff08~~\u538b\u884c~~\uff09 \u4ee3\u7801\uff08\u5e26\u6ce8\u91ca\uff09\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n;\ndouble s;\nint main(){\n\tcin>>n; \n\tfor(int i=2;i<=n;i++)//\u5faa\u73af\uff08\u4ece2\u5f00\u59cb\uff09 \n\ts+=i%2?(1.0/i):-(1.0/i);//\u5224\u65ad\u7d2f\u52a0 \n\tprintf(\"%.4lf\",s+1);//printf\u4fdd\u75594\u4f4d\u5c0f\u6570\u8f93\u51fa\uff08\u6ce8\u610f\uff1a\u8981\u52a0\u4e0a1\u54e6\uff01\uff09 \n\treturn 0;\n}\n```\n",
+        "postTime": 1626527469,
+        "uid": 495265,
+        "name": "_ZhouYuHan_",
+        "ccfLevel": 4,
+        "title": "B2070 \u8ba1\u7b97\u5206\u6570\u52a0\u51cf\u8868\u8fbe\u5f0f\u7684\u503c \u9898\u89e3"
+    },
+    {
+        "content": "# \u601d\u8def\n\u89c2\u5bdf\u516c\u5f0f\uff0c\u8bbe\u6bcf\u4e00\u9879\u7684\u5206\u6bcd\u4e3a $i$\u3002\n\n$i$ \u662f\u5947\u6570\u65f6\u52a0\u4e0a $\\frac{1}{i}$ \uff0c$i$ \u662f\u5076\u6570\u65f6\u51cf\u53bb $\\frac{1}{i}$\u3002\n\n\u4ee4 $i$ \u4ece $1$ \u5230 $n$ \u8d4b\u503c,\u5c31\u53ef\u4ee5\u5f97\u5230\u7ed3\u679c\u3002\n# \u4ee3\u7801\n```cpp\n#include <iostream>\n#include <cstdio>\nusing namespace std;\ndouble s;int n;\nint main()\n{\n    cin >> n;\n    for(int i = 1;i <= n;++i)\n        if(i % 2) s += 1.0 / i; //i\u4e3a\u5947\u6570,\u52a0\u4e0a1/i\n        else s -= 1.0 / i; //i\u4e3a\u5076\u6570,\u51cf\u53bb1/i\n    printf(\"%.4lf\", s);\n    return 0;\n}\n```\n",
+        "postTime": 1626221000,
+        "uid": 388651,
+        "name": "5k_sync_closer",
+        "ccfLevel": 7,
+        "title": "B2070 \u8ba1\u7b97\u5206\u6570\u52a0\u51cf\u8868\u8fbe\u5f0f\u7684\u503c"
+    }
+]

@@ -1,0 +1,42 @@
+[
+    {
+        "content": "### \u601d\u8def\uff1a\n\u9996\u5148\u8f93\u5165\u5b57\u7b26\u4e32\uff0c\u518d\u904d\u5386\u6574\u4e2a\u6570\u7ec4\uff0c\u5982\u679c\u4e00\u4e2a\u5b57\u7b26\u4e0e\u524d\u4e00\u4e2a\u5b57\u7b26\u76f8\u540c\uff0c\u8ba1\u6570\u5668 +1 \uff0c\u5982\u679c\u8ba1\u6570\u5668\u7b49\u4e8e k \uff0c\u76f4\u63a5\u8f93\u51fa\u8fd9\u4e2a\u5b57\u7b26\uff0c\u5982\u679c\u4e0d\u76f8\u540c\uff0c\u8ba1\u6570\u5668\u5f52 1 .\n### \u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nchar a[1001]; //\u7528char\u7c7b\u578b\u5b58\u50a8\u5b57\u7b26\u4e32\nint main()\n{\n\tint n,cnt=1;//\u5b9a\u4e49\u8ba1\u6570\u5668\n\tcin>>n>>a;\n\tfor(int i=1;i<=strlen(a);i++)//\u904d\u5386\u6574\u4e2a\u6570\u7ec4\n\t{\n\t\tcin>>a[i];\n\t\tif(a[i]==a[i-1]) cnt++;//\u5982\u679c\u4e0e\u524d\u4e00\u4e2a\u5b57\u7b26\u76f8\u540c\uff0c\u8ba1\u6570\u5668+1\n\t\telse cnt=1;//\u5426\u5219\u5f521\n\t\tif(cnt==n) //\u627e\u5230\u4e86\n\t\t{\n\t\t\tcout<<a[i];\n\t\t\treturn 0;\n\t\t}\n\t}\n\tcout<<\"No\";\n\treturn 0;\n}\n```\n",
+        "postTime": 1625619063,
+        "uid": 445476,
+        "name": "Liweiang",
+        "ccfLevel": 4,
+        "title": "B2126 \u8fde\u7eed\u51fa\u73b0\u7684\u5b57\u7b26 \u9898\u89e3"
+    },
+    {
+        "content": "\u8003\u8651\u7528\u4e00\u4e2a\u53d8\u91cf `num` \u4fdd\u5b58\u5f53\u524d\u5b57\u7b26\u8fde\u7eed\u51fa\u73b0\u4e2a\u6570\uff0c\u521d\u59cb\u503c\u4e3a $1$\u3002\n\n\u5f53 $a_i=a_{i-1}$ \u65f6\uff0c`num++`\u3002\n\n\u5f53 $num\\ge k$ \u65f6\uff0c\u8f93\u51fa\u5f53\u524d\u5b57\u7b26\uff0c\u7ed3\u675f\u7a0b\u5e8f\u3002\n\n\u82e5\u5f53\u524d\u5b57\u7b26\u5df2\u4e0d\u8fde\u7eed\uff0c\u5219 `num` \u53d8\u4e3a\u521d\u59cb\u503c\u3002\n\n\u4ee3\u7801\u5982\u4e0b\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n#define MAXN 1005\nint k,num=1;\nstring a;\nint main(){\n\tcin>>k>>a;\n\tfor(int i=1;i<a.length();++i){\n\t\tif(a[i]==a[i-1]){\n\t\t\tnum++;\n\t\t\tif(num>=k){cout<<a[i];return 0;}\n\t\t}else num=1;\n\t}puts(\"No\");\n\treturn 0;\n}\n```",
+        "postTime": 1625536872,
+        "uid": 271736,
+        "name": "Daidly",
+        "ccfLevel": 6,
+        "title": "B2126 \u8fde\u7eed\u51fa\u73b0\u7684\u5b57\u7b26 \u9898\u89e3"
+    },
+    {
+        "content": "\u672c\u9898\u7684\u601d\u8def\u662f\u8bfb\u5165\u5b57\u7b26\u4e32\uff0c\u904d\u5386\u4e00\u904d\uff0c\u5982\u679c\u5f53\u524d\u5b57\u7b26\u4e0e\u524d\u4e00\u4e2a\u76f8\u540c\uff0c\u8ba1\u6570\u5668\u52a0\u4e00\uff0c\u5224\u65ad\u8ba1\u6570\u5668\u662f\u5426\u5927\u4e8e\u7b49\u4e8e `k`\uff0c\u662f\u5c31\u8f93\u51fa\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include <iostream>\n#include <string>\nusing namespace std;\n\nint main()\n{\n\tios::sync_with_stdio(false);\n\tint k;\n\tcin >> k;\n\tstring s;\n\tcin >> s;\n\tchar x = s.front();\n\tint len = s.length() - 1, cnt = 1;\n\tfor (int i = 1; i <= len; i++)\n\t{\n\t\tif (s[i] == x)\n\t\t{\n\t\t\tcnt++;\n\t\t}\n\t\tif (cnt >= k)\n\t\t{\n\t\t\tcout << s[i] << endl;\n\t\t\treturn 0;\n\t\t}\n\t\tif (s[i] != x)\n\t\t{\n\t\t\tx = s[i];\n\t\t\tcnt = 1;\n\t\t}\n\t}\n\tif (cnt >= k)\n\t{\n\t\tcout << s.back() << endl;\n\t}\n\telse\n\t{\n\t\tcout << \"No\\n\";\n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1625981558,
+        "uid": 332914,
+        "name": "happybob",
+        "ccfLevel": 6,
+        "title": "B2126\u9898\u89e3"
+    },
+    {
+        "content": "\n\u53ef\u4ee5\u5faa\u73af\u8bbf\u95ee\u5b57\u7b26\u4e32\u3002\n\n\n\u6bcf\u6b21\u5224\u65ad\u4ece\u8fd9\u4e00\u4f4d\u5f00\u59cb\uff0c\u662f\u5426\u6709 $k$ \u4f4d\u8fde\u7eed\u5b57\u7b26\u3002\u82e5\u6709\uff0c\u8f93\u51fa\u8fd9\u4e2a\u5b57\u7b26\uff1b\u82e5\u6ca1\u6709\uff0c\u7ee7\u7eed\u5bfb\u627e\u3002\n\n\n\u82e5\u5230\u6700\u540e\u4f9d\u7136\u6ca1\u6709\u5408\u9002\u7684\u5b57\u7b26\uff0c\u8f93\u51fa $\\texttt{No}$ \u3002\n\n\u4ee3\u7801\uff1a\n```cpp\n#include <iostream>\n#include <cstring>\nusing namespace std;\nint main(){\n    int k;\n    cin>>k;\n    char arr[1005];\n    cin>>arr;\n    int len=(int)strlen(arr);\n    bool lianxu_zifu=false;\n    for(int i=0;i<len-k;i++){\n        char zifu=arr[i];\n        bool lianxu=true;\n        for(int j=i;j<i+k;j++){//\u662f\u5426\u6709k\u4f4d\u8fde\u7eed\u5b57\u7b26\u3002\n            if(arr[j] != zifu){//\u82e5\u4e0d\u4e3a\u8fde\u7eed\u5b57\u7b26\uff0c\u7ee7\u7eed\u5bfb\u627e\u3002\n                lianxu=false;\n                break;\n            }\n        }\n        if(lianxu==true){//\u82e5\u627e\u5230\u4e86\uff0c\u8f93\u51fa\u8fd9\u4e2a\u5b57\u7b26\uff0c\u7a0b\u5e8f\u8fd0\u884c\u7ed3\u675f\u3002\n            cout<<zifu;\n            return 0;\n        }\n    }\n    cout<<\"No\";//\u82e5\u4f9d\u7136\u6ca1\u6709\u8fde\u7eed\u5b57\u7b26\uff0c\u8f93\u51faNo\u3002\n    return 0;\n}\n```\n\n\n",
+        "postTime": 1625556682,
+        "uid": 378220,
+        "name": "AmaZingFantasy",
+        "ccfLevel": 5,
+        "title": "B2126\u9898\u89e3"
+    },
+    {
+        "content": "\u6211\u4eec\u4f7f\u7528 C \u98ce\u683c\u7684\u5b57\u7b26\u6570\u7ec4\u5b58\u50a8\u5b57\u7b26\u4e32\uff08\u672c\u6587\u4e2d\u4e0b\u6807\u4ece $0$ \u5f00\u59cb\uff09\u3002C \u8bed\u8a00\u4e2d\u63d0\u4f9b\u4e86\u51fd\u6570 `strlen()` \u53ef\u4ee5\u83b7\u5f97\u5b57\u7b26\u4e32\u7684\u957f\u5ea6\uff0c\u5047\u8bbe\u957f\u5ea6\u4e3a $n$\u3002\n\n\u6211\u4eec\u7528\u4e00\u4e2a\u53d8\u91cf $cnt$ \u8bb0\u5f55\u5f53\u524d\u8fde\u7eed\u5b57\u6bcd\u4e2a\u6570\uff0c\u5148\u5c06 $cnt$ \u7f6e\u4e3a $1$ \u8868\u793a\u7edf\u8ba1\u4e86\u7b2c $0$ \u4e2a\u5b57\u7b26\uff0c\u4ece\u7b2c $1$ \u4e2a\u5b57\u7b26\u5411\u540e\u679a\u4e3e\u5230 $n-1$\uff0c\u6bcf\u6b21\u5224\u65ad\u5f53\u524d\u5b57\u7b26\u662f\u5426\u4e0e\u4e0a\u4e00\u4e2a\u5b57\u7b26\u76f8\u540c\uff0c\u5982\u679c\u76f8\u540c\uff0c\u5c06 $cnt$ \u81ea\u589e $1$\uff0c\u5224\u65ad\u662f\u5426\u6709 $cnt\\ge k$\uff0c\u6ee1\u8db3\u7684\u8bdd\u76f4\u63a5\u8f93\u51fa\u5f53\u524d\u5b57\u7b26\u5373\u53ef\uff1b\u5426\u5219\u5c06 $cnt$ \u91cd\u65b0\u7f6e\u4e3a $1$\uff0c\u8868\u793a\u7edf\u8ba1\u65b0\u7684\u5b57\u6bcd\u3002\n\n\u5982\u679c\u5b57\u7b26\u4e32\u6574\u4f53\u626b\u8fc7\u4e00\u904d\uff0c\u6ca1\u6709\u5f97\u5230\u7b54\u6848\uff0c\u5c31\u662f\u65e0\u89e3\uff0c\u8f93\u51fa `No`\u3002\n\n\u53c2\u8003\u4ee3\u7801\uff1a\n\n```cpp\n//By: Luogu@rui_er(122461)\n#include <bits/stdc++.h>\n#define rep(x,y,z) for(int x=y;x<=z;x++)\n#define per(x,y,z) for(int x=y;x>=z;x--)\n#define debug printf(\"Running %s on line %d...\\n\",__FUNCTION__,__LINE__)\nusing namespace std;\ntypedef long long ll;\nconst int N = 1e3+5;\n\nint n, k, cnt; char s[N];\ntemplate<typename T> void chkmin(T &x, T y) {if(x > y) x = y;}\ntemplate<typename T> void chkmax(T &x, T y) {if(x < y) x = y;}\n\nint main() {\n\tscanf(\"%d%s\", &k, s);\n\tn = strlen(s);\n\tcnt = 1;\n\trep(i, 1, n-1) {\n\t\tif(s[i] == s[i-1]) {\n\t\t\t++cnt;\n\t\t\tif(cnt >= k) return putchar(s[i])&0;\n\t\t}\n\t\telse cnt = 1;\n\t}\n\tputs(\"No\");\n\treturn 0;\n}\n```",
+        "postTime": 1625290947,
+        "uid": 122461,
+        "name": "rui_er",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 B2126 \u8fde\u7eed\u51fa\u73b0\u7684\u5b57\u7b26"
+    }
+]

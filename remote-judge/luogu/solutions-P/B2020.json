@@ -1,0 +1,42 @@
+[
+    {
+        "content": "\u8fd9\u9053\u9898\u7531\u4e8e\u9898\u76ee\u7ed9\u5b9a\u4e86\u5c0f\u670b\u53cb\u7684\u6570\u91cf\u4e3a 5\uff0c\u56e0\u6b64\u76f4\u63a5\u6a21\u62df\u5373\u53ef\u3002\n\n\u6211\u7684\u601d\u8def\u662f\u5728\u5206\u7cd6\u679c\u4e4b\u524d\u5148\u628a\u5403\u6389\u7684\u7cd6\u679c\u901a\u8fc7\u5bf9 3 \u53d6\u4f59\u7b97\u51fa\u5e76\u52a0\u5230 sum \u53d8\u91cf\u4e2d\uff0c\u4e4b\u540e\u76f4\u63a5\u9664 3\uff0c\u6240\u5f97\u7684\u6570\u52a0\u5230\u76f8\u90bb\u7684\u5c0f\u670b\u53cb\u7684\u7cd6\u679c\u6570\u4e2d\u3002\n\n\u5728\u4ee3\u7801\u4e2d\uff0c\u6211\u8fd0\u7528\u4e86\u82b1\u62ec\u53f7\u6846\u8d77\uff0c\u8fd9\u6837\u53ef\u4ee5\u660e\u663e\u5730\u6807\u8bc6\u51fa\u6bcf\u4e2a\u5c0f\u670b\u53cb\u5206\u7cd6\u679c\u7684\u60c5\u51b5\u3002\n\n```cpp\n#include <iostream>\n#include <stdio.h>\nusing namespace std;\nint sum, a[6];\nint main()\n{\n    cin >> a[1] >> a[2] >> a[3] >> a[4] >> a[5];\n    {\n        sum += a[1] % 3;\n        a[1] /= 3;\n        a[5] += a[1];\n        a[2] += a[1];\n    }\n    {\n        sum += a[2] % 3;\n        a[2] /= 3;\n        a[3] += a[2];\n        a[1] += a[2];\n    }\n    {\n        sum += a[3] % 3;\n        a[3] /= 3;\n        a[4] += a[3];\n        a[2] += a[3];\n    }\n    {\n        sum += a[4] % 3;\n        a[4] /= 3;\n        a[5] += a[4];\n        a[3] += a[4];\n    }\n    {\n        sum += a[5] % 3;\n        a[5] /= 3;\n        a[1] += a[5];\n        a[4] += a[5];\n    }\n    cout << a[1] << \" \" << a[2] << \" \" << a[3] << \" \" << a[4] << \" \" << a[5] << endl;\n    cout << sum;\n    return 0;\n}\n\n```\n",
+        "postTime": 1625379108,
+        "uid": 115711,
+        "name": "mnesia",
+        "ccfLevel": 0,
+        "title": "B2020 \u9898\u89e3-mnesia"
+    },
+    {
+        "content": "```\n#include<bits/stdc++.h>\nusing namespace std;\nint num[5],ans=0;//\u5206\u522b\u5b58\u8d2e\u5c0f\u670b\u53cb\u7684\u7cd6\u6570\uff0c\u5403\u6389\u7684\u7cd6\u6570\nint main(){\n\tfor(int i=0;i<5;i++) cin >> num[i];//\u8f93\u5165\n\tfor(int i=0;i<5;i++){\n\t\tint t=num[i]/3;//\u8868\u793a\u5e73\u5747\u5206\u6210\u4e09\u4efd\n\t\tif(i==0)num[4]+=t;//\u7b2c\u4e00\u4e2a\u5c0f\u670b\u53cb\u5e94\u8be5\u7ed9\u6700\u540e\u4e00\u4e2a\u5c0f\u670b\u53cb\uff0c\u5426\u5219\u8d85\u51fa\u8fb9\u754c\n\t\telse num[i-1]+=t;\n\t\tif(i==4)num[0]+=t;//\u6700\u540e\u4e00\u4e2a\u5c0f\u670b\u53cb\u5e94\u8be5\u7ed9\u7b2c\u4e00\u4e2a\u5c0f\u670b\u53cb\uff0c\u5426\u5219\u8d85\u51fa\u8fb9\u754c\n\t\telse num[i+1]+=t;\n\t\tans+=num[i]%3;//\u52a0\u4e0a\u8fd9\u4e00\u6b21\u5403\u6389\u7684\u7cd6\uff0c\u4e5f\u5c31\u662f\u9664\u4ee5\u4e09\u7684\u4f59\u6570\n\t\tnum[i]=t;//\u628a\u5f53\u524d\u7684\u7cd6\u679c\u91cd\u7f6e\n\t}\n\tfor(int i=0;i<5;i++)cout << num[i] << \" \";//\u8f93\u51fa\n\tcout << endl << ans << endl;\n\t\n\treturn 0;\n}\n```\n",
+        "postTime": 1625381488,
+        "uid": 238691,
+        "name": "Leo2020",
+        "ccfLevel": 4,
+        "title": "B2020\u9898\u89e3"
+    },
+    {
+        "content": "## \u9898\u76ee\u5206\u6790\n\u5176\u5b9e\u6b64\u9898\u53ef\u4ee5\u5355\u7eaf\u5730\u76f4\u63a5\u4e0a\u624b\uff0c\u6bcf\u6b21\u4f59\u4e0b\u7684\u7cd6\u679c\u90fd\u5b58\u5230\u4e00\u4e2a\u53d8\u91cf\u4e2d\uff0c\u518d\u5c06\u4e09\u5206\u4e4b\u4e00\u7684\u7cd6\u679c\u5206\u7ed9\u5de6\u53f3\u4e24\u4e2a\u5c0f\u670b\u53cb\uff0c\u81ea\u5df1\u518d\u62ff\u4e09\u5206\u4e4b\u4e00\uff0c\u4ee5\u6b64\u7c7b\u63a8\u91cd\u590d\u4e94\u6b21\u5373\u53ef\u3002\n## \u4ee3\u7801\u5b9e\u73b0\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n\tint a,b,c,d,e;//\u4e94\u4e2a\u5c0f\u670b\u53cb \n\tint eaten=0;//\u88ab\u5403\u6389\u7684\u7cd6\u679c\u6570 \n\tcin>>a>>b>>c>>d>>e;\n\teaten+=a-a/3*3;\n\tb+=a/3;\n\te+=a/3;\n\ta/=3;\n\t\n\teaten+=b-b/3*3;\n\ta+=b/3;\n\tc+=b/3;\n\tb/=3;\n\t\n\teaten+=c-c/3*3;\n\tb+=c/3;\n\td+=c/3;\n\tc/=3;\n\t\n\teaten+=d-d/3*3;\n\tc+=d/3;\n\te+=d/3;\n\td/=3;\n\t\n\teaten+=e-e/3*3;\n\td+=e/3;\n\ta+=e/3;\n\te/=3;//\u5206\u522b\u8ba1\u7b97 \n\t\n\tcout<<a<<\" \"<<b<<\" \"<<c<<\" \"<<d<<\" \"<<e<<endl;\n\tcout<<eaten<<endl;\n\treturn 0;\n}\n\n```\n",
+        "postTime": 1625283044,
+        "uid": 359581,
+        "name": "\u00b7\u7cef\u00b7",
+        "ccfLevel": 5,
+        "title": "B2020"
+    },
+    {
+        "content": "**\u672c\u9898\u7528\u6570\u7ec4\u6a21\u62df\u5373\u53ef\uff0c\u4f46\u662f\u8981\u7279\u5224\u7b2c\u4e00\u4e2a\u548c\u6700\u540e\u4e00\u4e2a\u5c0f\u670b\u53cb\u7684\u60c5\u51b5\u3002**\n\n\u6a21\u62df\u601d\u8def\uff1a\u9996\u5148\u7b2c\u4e00\u4e2a\u5c0f\u670b\u53cb\u5148\u628a\u81ea\u5df1\u5206\u5269\u4e0b\u7684\u7cd6\u5403\u4e86\uff0c\u5373 `eat+=a[i]%3`\uff0c\u7136\u540e\u4ed6\u628a\u81ea\u5df1\u7684\u7cd6\u6536\u56de,\u5373 `a[i]/3`\uff0c\u7531\u4e8e\u76f8\u90bb\u4e09\u4eba\u5728\u4e00\u6b21\u5206\u7cd6\u679c\u8fc7\u7a0b\u4e2d\u5f97\u5230\u7684\u7cd6\u6570\u91cf\u4e00\u6837\uff0c\u56e0\u6b64\u4ed6\u5468\u56f4\u4e8c\u4eba\u52a0\u4e0a\u4ed6\u7684\u7cd6\u679c\u6570\u5373\u53ef\u3002\n```cpp\n#include<iostream>\nusing namespace std;\nint a[5],eat=0;\nint main()\n{\n \tfor(int i=0;i<5;i++) cin>>a[i];\n \teat=a[0]%3;//\u7279\u5224i=0\n \ta[0]/=3;\n\ta[4]+=a[0],a[1]+=a[0];\n\tfor(int i=1;i<4;i++)\n\t{\n\t\teat+=a[i]%3;\n\t\ta[i]/=3;\n\t\ta[i+1]+=a[i],a[i-1]+=a[i];\n\t}\n\teat+=a[4]%3;//\u7279\u5224i=4\n\ta[4]/=3;\n\ta[0]+=a[4],a[3]+=a[4];\n\tfor(int i=0;i<5;i++) cout<<a[i]<<\" \";\n\tcout<<endl<<eat;\n\treturn 0;\n}\n```",
+        "postTime": 1625285895,
+        "uid": 186541,
+        "name": "linzhaoyumc",
+        "ccfLevel": 4,
+        "title": "B2020\u5206\u7cd6\u679c\u9898\u89e3"
+    },
+    {
+        "content": "## \u9898\u89e3\n\n\u6839\u636e\u9898\u610f\u6a21\u62df\u3002\u5728\u8bfb\u5165 $5$ \u5806\u7cd6\u540e\uff0c\u4f9d\u6b21\u679a\u4e3e\u6bcf\u4e2a\u5c0f\u670b\u53cb\uff0c\u5148\u8ba1\u7b97\u51fa $\\dfrac{1}{3}$ \u5806\u7684\u5927\u5c0f $t$ \uff0c\u7136\u540e\u52a0\u7ed9\u5de6\u53f3\u4e24\u8fb9\u7684\u5c0f\u670b\u53cb\u62e5\u6709\u7684\u7cd6\u679c\u6570\uff0c\u81ea\u5df1\u4fdd\u7559\u4e00\u4efd\u3002\u540c\u65f6\uff0c\u6211\u4eec\u8bb0 $s$ \u8868\u793a\u4e00\u5171\u88ab\u5403\u6389\u7684\u7cd6\u679c\u7684\u6570\u76ee\uff0c\u90a3\u5c31\u52a0\u4e0a\uff0c\u5206\u7cd6\u524d\uff0c\u5f53\u524d\u5c0f\u670b\u53cb\u624b\u4e0a\u7684\u7cd6\u7684\u6570\u76ee\uff0c\u51cf\u53bb $3\\times t$ \u3002\n\n\u8fd9\u9898\u7684\u4e3b\u8981\u6ce8\u610f\u70b9\u5c31\u662f\u201c\u5206\u7ed9\u5468\u56f4\u5c0f\u670b\u53cb\u201d\u8fd9\u4e00\u5757\u3002\u7531\u4e8e\u7b2c $5$ \u4e2a\u5c0f\u670b\u53cb\u4e0b\u9762\u662f\u7b2c $1$ \u4e2a\u5c0f\u670b\u53cb\uff0c\u800c\u7b2c $1$ \u4e2a\u5c0f\u670b\u53cb\u5de6\u8fb9\u662f\u7b2c $5$ \u4e2a\u5c0f\u670b\u53cb\uff0c\u6240\u4ee5\u4f60\u53ef\u80fd\u9700\u8981\u7279\u5224\u3002\u6bd4\u8f83\u7b80\u5355\u7684\u505a\u6cd5\u662f\uff0c\u7ed9\u5c0f\u670b\u53cb\u5206\u522b\u7f16\u53f7\u4e3a $0,1,2,3,4$ \uff0c\u90a3\u4e48\u5bf9\u4e8e\u7b2c $i$ \u4e2a\u5c0f\u670b\u53cb\uff0c\u4ed6\u53f3\u4fa7\u7684\u5c0f\u670b\u53cb\u7f16\u53f7\u4e3a $(i+1)\\bmod 5$ \uff0c\u5de6\u4fa7\u4e3a $(i-1)\\bmod 5$ \u3002\n\n\u53c8\u56e0\u4e3a\uff0c $-1\\equiv 4 \\pmod 5$ \uff0c\u56e0\u6b64\u4e3a\u4e86\u9632\u6b62\u5bf9\u8d1f\u6570\u53d6\u6a21\u5e26\u6765\u7684\u9ebb\u70e6\uff0c\u5de6\u4fa7\u7684\u5c0f\u670b\u53cb\u7684\u7f16\u53f7\u53ef\u4ee5\u8868\u793a\u4e3a $(i+4)\\bmod 5$ \u3002\n\n## \u53c2\u8003\u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\n#define up(l,r,i) for(int i=l,END##i=r;i<=END##i;++i)\n#define dn(r,l,i) for(int i=r,END##i=l;i>=END##i;--i)\nusing namespace std;\ntypedef long long i64;\nconst int INF =2147483647;\nint A[5],s,t;\nint qread(){\n    int w=1,c,ret;\n    while((c=getchar())> '9'||c< '0') w=(c=='-'?-1:1); ret=c-'0';\n    while((c=getchar())>='0'&&c<='9') ret=ret*10+c-'0';\n    return ret*w;\n}\nint main(){\n    up(0,4,i) A[i]=qread();\n    up(0,4,i){\n        t=A[i]/3,s+=A[i]-3*t; A[(i+1)%5]+=t,A[(i+4)%5]+=t,A[i]=t;\n    }\n    up(0,4,i) printf(\"%d%c\",A[i],i==4?'\\n':' ');\n    printf(\"%d\\n\",s);\n    return 0;\n}\n```",
+        "postTime": 1625308021,
+        "uid": 330759,
+        "name": "\u56e7\u4ed9",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 B2020 \u3010\u5206\u7cd6\u679c\u3011"
+    }
+]

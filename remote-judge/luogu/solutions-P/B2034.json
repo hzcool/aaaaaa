@@ -1,0 +1,74 @@
+[
+    {
+        "content": "\u8fd9\u91cc\u4ecb\u7ecd\u4e00\u4e0b\u505a\u672c\u9898\u7684\u4e09\u79cd\u65b9\u6cd5\uff08\u4e00\u79cd\u6bd4\u4e00\u79cd\u5feb\uff09\u3002\n\n### 1.\u5e38\u89c4\u505a\u6cd5\uff1a\n\n\u65f6\u95f4\u590d\u6742\u5ea6 $O(n)$\u3002\n\n#### \u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>//\u4e07\u80fd\u5934\nusing namespace std;\nint pow_2(int x){\n\tint ans=2;\n   if(x==0) return 1;//\u8fd9\u91cc\u9700\u8981\u7279\u5224\u4e00\u4e0b2^0\n\tfor(int i=2;i<=x;i++)\n\t\tans*=2;\n\treturn ans;\n}\nint main(){\n\tint n;\n\tscanf(\"%d\",&n);\n\tprintf(\"%d\",pow_2(n));\n\treturn 0;//\u597d\u4e60\u60ef*1\n}\n```\n### 2.\u5feb\u901f\u5e42\uff1a\n\n\u8fd9\u91cc\u5c31\u4e0d\u8d58\u8ff0\u4e86\uff0c\u8be6\u60c5\u8bf7\u89c1[P1226 \u3010\u6a21\u677f\u3011\u5feb\u901f\u5e42||\u53d6\u4f59\u8fd0\u7b97](https://www.luogu.com.cn/problem/P1226)\u3002\n\n\u65f6\u95f4\u590d\u6742\u5ea6 $O(logn)$\u3002\n\n#### \u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>//\u4e07\u80fd\u5934\nusing namespace std;\nint quick_pow(int n,int p){//\u5feb\u901f\u5e42\n\tint ans=1;\n\twhile(p>0){\n\t\tif(p&1) ans=ans*n;\n\t\tp/=2,n*=n;\n\t}\n\treturn ans;\n}\nint main(){\n\tint n;\n\tscanf(\"%d\",&n);\n\tprintf(\"%d\",quick_pow(2,n));\n\treturn 0;//\u597d\u4e60\u60ef*2\n}\n```\n\n### 3.\u4f4d\u8fd0\u7b97\uff1a\n\n\u8fd9\u91cc\u8981\u7528\u5230\u5de6\u79fb\u8fd0\u7b97\u7b26 `<<`,\u8fd9\u4e2a\u4e1c\u897f\u7684\u610f\u601d\u662f\u628a\u5728\u5b83\u53f3\u8fb9\u7684\u6570\u5728\u4e8c\u8fdb\u5236\u7684\u60c5\u51b5\u4e0b\u5f80\u5de6\u8fb9\u79fb\u52a8\u5b83\u5de6\u8fb9\u7684\u6570\u4f4d\uff0c\u5e76\u81ea\u52a8\u7528 $0$  \u8865\u9f50\uff0c\u7531\u4e8e\u662f\u4e8c\u8fdb\u5236\uff0c\u6240\u4ee5 `a<<b` \u5c31\u76f8\u5f53\u4e8e $a*2^b$\u3002\n\n\u65f6\u95f4\u590d\u6742\u5ea6 $O(1)$\u3002\n\n#### \u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>//\u4e07\u80fd\u5934 \nusing namespace std;\nint main(){\n\tint n;\n\tscanf(\"%d\",&n);\n\tprintf(\"%d\",1<<n);//\u4f4d\u8fd0\u7b97\n\treturn 0;//\u597d\u4e60\u60ef*3\n}\n```",
+        "postTime": 1625320141,
+        "uid": 372780,
+        "name": "dz3284",
+        "ccfLevel": 4,
+        "title": "B2034 \u8ba1\u7b97 2 \u7684\u5e42"
+    },
+    {
+        "content": "~~\u8fd9\u9898\u5f88\u6c34~~\n\n\u7528 `pow` \u5373\u53ef\uff0c\u4f46\u6ce8\u610f `pow` \u8fd4\u56de\u503c\u662f\u6d6e\u70b9\u6570\uff0c\u8f93\u51fa\u4f1a\u7528\u79d1\u5b66\u8ba1\u6570\u6cd5\uff0c\u5982\u679c\u662f `spj` \u7684\u9898\u76ee\u4ed6\u5e94\u8be5\u4f1a\u5224\u65ad\u662f\u5426\u76f8\u7b49\uff0c\u76f4\u63a5\u8f93\u51fa\u4e5f\u53ef\u4ee5\u3002\u4f46\u660e\u663e\u8fd9\u9898\u5fc5\u987b\u8981\u8f6c\u6210\u6574\u6570\u8f93\u51fa\uff1a\n\n```cpp\n#include <iostream>\n#include <cmath>\nusing namespace std;\n\nint main()\n{\n\tint n;\n\tcin >> n;\n\tcout << (long long)pow(2, n) << endl; // int\u4e5f\u53ef\u4ee5\n\treturn 0;\n}\n```\n",
+        "postTime": 1625309930,
+        "uid": 332914,
+        "name": "happybob",
+        "ccfLevel": 6,
+        "title": "\u6c34\u9898"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u5c31\u662f\u8bb2\u7a76\u4e00\u4e2a\u679a\u4e3e\uff0c\u6ca1\u5565\u5206\u6790\u7684\u3002\n\n\u76f4\u63a5\u6446\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n\tint n,a=1;\n\tcin>>n;\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\ta=a*2;\n\t}\n\tcout<<a;\n\treturn 0;\n}\n```\n",
+        "postTime": 1625283661,
+        "uid": 264490,
+        "name": "hmya",
+        "ccfLevel": 7,
+        "title": "B2034\u9898\u89e3"
+    },
+    {
+        "content": "\u90fd\u5b66\u8fc7\u4f4d\u8fd0\u7b97\u5427\uff0c`<<` \u662f\u5de6\u79fb\u8fd0\u7b97\u7b26\uff0c`a<<b` \u6307\u7684\u662f $a \\times 2^b$\uff0c\u90a3\u4e48\u8fd9\u9053\u9898\u7684\u7b54\u6848\u5c31\u662f `1<<n`\u3002\u65f6\u95f4\u590d\u6742\u5ea6\u4e3a $O(1)$\u3002\n\n\u4ee3\u7801:\n```cpp\n#include<stdio.h>\nint main(){\n    int a;\n    scanf(\"%d\",&a);\n    printf(\"%d\",1<<a);\n    return 0;\n}\n```\n\n**\u6ce8\u610f\uff1a\u5982\u679c\u4f60\u5de6\u79fb\u540e\u7684\u7ed3\u679c\u662f\u8981 `long long` \u6216\u8005 `unsigned long long `\u7c7b\u578b\u7684\u8bdd\uff0c\u8bf7\u6539\u6210 `1ll<<a` \u6216\u8005 `1ull<<a`\uff01**~~\u53bb\u5e74 CSP-S T2 \u6302\u5230 $70$ \u5206\u9009\u624b\u5728\u7ebf\u540e\u6094\u3002~~",
+        "postTime": 1625294956,
+        "uid": 203008,
+        "name": "toaru",
+        "ccfLevel": 5,
+        "title": "B2034 \u8ba1\u7b97 2 \u7684\u5e42"
+    },
+    {
+        "content": "## \u9898\u89e3\n\n### \u505a\u6cd5 1\n\n\u5728 $\\verb!cmath!$ \u5e93\u4e2d\uff0c\u6709\u4e00\u4e2a\u51fd\u6570 $\\verb!pow!$ \uff0c\u53ef\u4ee5\u5f88\u65b9\u4fbf\u5730\u8ba1\u7b97 $x^y$ \u3002\u56e0\u6b64\uff0c\u672c\u9898\u53ea\u8981\u8f93\u51fa `pow(2,n)` \u5373\u53ef\u3002\n\n### \u505a\u6cd5 2\n\n\u6709\u6ca1\u6709\u66f4\u597d\u7684\u505a\u6cd5\u5462\uff1f\u4e8b\u5b9e\u4e0a\uff0c C++ \u4e2d\u4f60\u53ef\u4ee5\u4f7f\u7528\u4e8c\u8fdb\u5236\u5de6\u79fb\u8fd0\u7b97\u7b26 $\\verb!<<!$ \u6765\u8ba1\u7b97 $a\\cdot 2^b$ \u7684\u503c\u3002\u56e0\u6b64\u4f60\u53ea\u8981\u8f93\u51fa `1<<n` \u5373\u53ef\u3002\n\n---\n\n### \u5feb\u901f\u5e42\n\n\u5f53\u7136\uff0c\u6211\u4eec\u4e0d\u80fd\u4ec5\u9650\u4e8e\u6b64\u3002\u5982\u679c\u6211\u4eec\u8ba1\u7b97\u7684\u662f $3^n$ \uff0c\u6216\u8005\u8ddf\u4e00\u822c\u5730\uff0c $m^n$ \uff0c\u600e\u4e48\u505a\u5462\uff1f\u663e\u7136\uff0c\u505a\u6cd5 1 \u5f53\u4e2d\u7684 `pow(m,n)` \u7167\u6837\u53ef\u4ee5\u7528\uff0c\u4f46\u8fd9\u6837\u53ef\u80fd\u4e22\u5931\u7cbe\u5ea6\uff0c\u5bf9\u4e8e\u4e00\u4e9b\u8981\u53d6\u6a21\u7684\u60c5\u51b5\u6ca1\u6709\u4fdd\u8bc1\uff1b\u505a\u6cd5 2 \u5f53\u4e2d\u7684 `1<<n` \u4ec5\u9650\u4e8e $2$ \u7684\u82e5\u5e72\u6b21\u5e42\uff0c\u5bf9\u4e8e $m$ \u5c31\u65e0\u6548\u4e86\u3002\n\n\u8003\u8651\u5c06 $n$ \u4e8c\u8fdb\u5236\u5206\u89e3\uff1a $\\displaystyle n=x_0\\cdot 2^0+x_1\\cdot 2^1+\\cdots x_k\\cdot 2^k=\\sum_{i=0}^k x_i\\cdot 2^i$ \uff0c\u5176\u4e2d $x_i\\in\\{0,1\\}$ \u3002\u6211\u4eec\u53ef\u4ee5\u5f88\u8f7b\u6613\u5730\u8ba1\u7b97\u51fa $m^2$ \uff0c\u5c06\u5b83\u5e73\u65b9\u540e\u53ef\u4ee5\u5f97\u5230 $m^4$ \uff0c\u540c\u7406\u53ef\u4ee5\u63a8\u51fa $m^{2^k}$ \u3002\u56e0\u6b64\uff1a\n\n$$m^n=\\prod _{i=0}^k m^{2^i \\cdot x_i}$$\n\n\u5c06 $n$ \u4e8c\u8fdb\u5236\u5206\u89e3\uff0c\u6211\u4eec\u5c31\u80fd\u5f88\u8f7b\u6613\u5730\u8ba1\u7b97\u51fa $m^n$ \u4e86\u3002\u8fd9\u79cd\u505a\u6cd5\u88ab\u79f0\u4e3a**\u5feb\u901f\u5e42**\u3002\n\n\n## \u53c2\u8003\u4ee3\u7801\n\n### \u4ee3\u7801 1\n\n```cpp\n#include<bits/stdc++.h>\n#define up(l,r,i) for(int i=l,END##i=r;i<=END##i;++i)\n#define dn(r,l,i) for(int i=r,END##i=l;i>=END##i;--i)\nusing namespace std;\ntypedef long long i64;\nconst int INF =2147483647;\nint n;\nint main(){\n    cin>>n; cout<<(1<<n);\n    return 0;\n}\n```\n\n### \u4ee3\u7801 2\n\n```cpp\n#include<bits/stdc++.h>\n#define up(l,r,i) for(int i=l,END##i=r;i<=END##i;++i)\n#define dn(r,l,i) for(int i=r,END##i=l;i>=END##i;--i)\nusing namespace std;\ntypedef long long i64;\nconst int INF =2147483647;\nint n;\nint main(){\n    cin>>n; cout<<(int)pow(2,n);\n    return 0;\n}\n```",
+        "postTime": 1625317405,
+        "uid": 330759,
+        "name": "\u56e7\u4ed9",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 B2034 \u3010\u8ba1\u7b97 2 \u7684\u5e42\u3011"
+    },
+    {
+        "content": "### 0x01 \u601d\u8def\n\u6309\u9898\u610f\u6a21\u62df\u5c31 OK\u3002  \n\u65e2\u7136\u8981\u6c42 $2^n$\uff0c\u5c31\u5faa\u73af $n$ \u6b21\uff0c\u628a\u7b54\u6848 $\\times2$ \u5373\u53ef\u3002  \n\u6ce8\u610f\uff1a$2^0=1$\uff0c\u6240\u4ee5\u7b54\u6848\u7684\u521d\u503c\u4e3a $1$\u3002\n### 0x02 \u4ee3\u7801\n```cpp\n#include <iostream>\nusing namespace std;\nint main(){\n\tint n;\n\tcin >> n;\n\tint ans = 1;\n\tfor(int i = 1;i <= n; ++i)ans = ans * 2;\n\tcout << ans;\n    return 0;\n}\n```",
+        "postTime": 1625290655,
+        "uid": 366338,
+        "name": "fjy666",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3\u3010B2034 \u8ba1\u7b97 2 \u7684\u5e42\u3011"
+    },
+    {
+        "content": "[\u539f\u9898\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/B2034)\n\n\u53d1\u73b0\u6ca1\u6709\u5199 Python \u7684\uff0c\u6211\u5c31\u6765\u5199\u4e00\u4e0b\u3002\n\n\u5bf9\u4e8e\u8fd9\u9053\u9898\uff0c\u6211\u4eec\u9700\u8981\u77e5\u9053`pow()`\u51fd\u6570\u3002`pow()`\u51fd\u6570\u7684\u8bed\u6cd5\u662f`pow(x,y)`\uff0c\u8fd4\u56de\u7684\u662f`x`\u7684`y`\u6b21\u65b9\u3002\uff08\u5176\u5b9e`pow()`\u51fd\u6570\u8fd8\u6709\u66f4\u591a\u4f7f\u7528\u65b9\u6cd5\uff0c\u53ef\u4ee5\u770b[\u8fd9\u91cc](https://www.runoob.com/python/func-number-pow.html)\u3002\uff09\n\n\u4ee5\u4e0b\u662f\u4ee3\u7801\uff1a\n\n```python\nn=int(input())\nans=pow(2,n)\nprint(ans)\n```\n",
+        "postTime": 1625301882,
+        "uid": 511907,
+        "name": "\u4e00\u53ea\u5927\u9f99\u732b",
+        "ccfLevel": 5,
+        "title": "B2034 \u8ba1\u7b97 2 \u7684\u5e42 \u9898\u89e3"
+    },
+    {
+        "content": "> \u6c42 $2^x$\u3002\n\n\u5b9e\u9645\u4e0a\u6839\u672c\u4e0d\u9700\u8981\u4f7f\u7528 $\\rm for$ \u5faa\u73af\u8bed\u53e5\u3002\n\n\u5728 C++ \u4e2d\uff0c\u63d0\u4f9b\u4e86 ${\\rm pow}(x,y)$ \u51fd\u6570\uff0c\u8868\u793a\u6c42 $x$ \u7684 $y$ \u6b21\u65b9\u3002\n\n\u76f4\u63a5\u8c03\u7528 ${\\rm pow}(2,x)$ \u5373\u53ef\u3002\n\n\u53c2\u8003\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\n\nusing namespace std;\n\nsigned main()\n{\n\tint n;\n\tscanf(\"%d\", &n);\n\tprintf(\"%d\\n\", (int)pow(2, n));\n\treturn 0;\n}\n```",
+        "postTime": 1625294392,
+        "uid": 183609,
+        "name": "hhoppitree",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 B2034 \u3010\u8ba1\u7b97 2 \u7684\u5e42\u3011"
+    },
+    {
+        "content": "## Content\n\u7ed9\u5b9a\u6574\u6570 $n$\uff0c\u6c42 $2^n$\u3002\n\n**\u6570\u636e\u8303\u56f4\uff1a$0\\leqslant n<31$\u3002**\n## Solution\n\u7b2c\u4e00\u79cd\u5404\u4f4d\u90fd\u80fd\u60f3\u5f97\u5230\u7684\uff0c\u76f4\u63a5\u5faa\u73af $n$ \u6b21\uff0c\u5f80\u7b54\u6848\u91cc\u9762\u4e58\u4ee5 $2$\uff0c\u8f93\u51fa\u7b54\u6848\u5373\u53ef\u3002\u8fd9\u91cc\u4e3b\u8981\u4ecb\u7ecd\u4e0b\u9762\u4f1a\u8bb2\u5230\u7684\u7b2c\u4e8c\u79cd\u3002\n\n\u5411\u5404\u4f4d\u4ecb\u7ecd\u4e00\u4e2a\u5de6\u79fb\u8fd0\u7b97\u7b26 `<<`\uff08\u6ce8\u610f\u8fd9\u91cc\u548c `cout` \u7684\u8f93\u51fa\u683c\u5f0f\u533a\u5206\u5f00\u6765\uff01\uff09\uff0c\u4ed6\u8868\u793a\u5728\u4e8c\u8fdb\u5236\u4e0b\u628a\u6570\u5b57\u540c\u65f6\u5411\u5de6\u79fb\u52a8\uff0c\u4f4e\u4f4d\u4ee5 $0$ \u8865\u5145\u3002\u7531\u4e8e\u8fd9\u662f $2$ \u8fdb\u5236\uff0c\u6240\u4ee5\u5411\u5de6\u79fb\u4e00\u4f4d\u610f\u5473\u7740\u8fd9\u4e2a\u6570\u5b57\u4e58\u4ee5 $2$\uff0c\u4e5f\u5c31\u662f\u8bf4\uff0c\u5c06\u8fd9\u4e2a\u6570\u5b57\u7684\u4e8c\u8fdb\u5236\u5411\u5de6\u79fb $n$ \u4f4d\uff0c\u4ee3\u8868\u7740\u8fd9\u4e2a\u6570\u5b57\u4e58\u4ee5\u4e86 $2^n$\u3002\n\n\u56e0\u6b64\uff0c\u7b2c\u4e8c\u79cd\u65b9\u6cd5\u5c31\u663e\u800c\u6613\u89c1\u4e86\u2014\u2014\u6211\u4eec\u7528\u5de6\u79fb\u8fd0\u7b97\u7b26\u5f97\u5230\u7684\u7b54\u6848\u5c31\u662f `1 << n`\u3002\n## Code\n```cpp\n#include <cstdio>\nusing namespace std;\n\nint main() {\n    int a;\n    scanf(\"%d\", &a);\n    printf(\"%d\", 1 << a);\n    return 0;\n}\n```",
+        "postTime": 1625293239,
+        "uid": 112917,
+        "name": "Eason_AC",
+        "ccfLevel": 6,
+        "title": "B2034 \u8ba1\u7b97 2 \u7684\u5e42"
+    }
+]

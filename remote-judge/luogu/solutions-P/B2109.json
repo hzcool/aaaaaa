@@ -1,0 +1,34 @@
+[
+    {
+        "content": "\u9898\u76ee\u8981\u6c42\u6c42\u51fa\u5b57\u7b26\u4e32\u91cc\u7684\u6570\u5b57\u5b57\u7b26\u4e2a\u6570\uff0c\u53ef\u4ee5\u6839\u636e\u5b57\u7b26\u7684 ASCII \u7801\u6765\u5224\u5b9a\u3002\n```cpp\nif (s[i] <= '9' && s[i] >= '0')\n    cnt++;\n```\n\u8fd9\u91cc\u6211\u4f7f\u7528\u4e86 C++ \u72ec\u6709\u7684 ```string``` \u7c7b\u578b\u7684\u5b57\u7b26\u4e32\u3002\n\n\u5728\u8bfb\u5165\u65f6\u9700\u8981\u6ce8\u610f\uff0c\u5982\u679c\u4f60\u5199\u6210\u8fd9\u6837\uff1a\n\n```cin >> s;```\n\n\u90a3\u4e48\u4f60\u5c31\u53ea\u80fd\u83b7\u5f97 50 \u5206\uff0c\u56e0\u4e3a\u5b57\u7b26\u4e32\u4e2d\u6709\u7a7a\u683c\uff0c\u9700\u8981\u6574\u884c\u8bfb\u5165\u3002\n\nAC Code:\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main(){\n    string s;\n    getline(cin, s);//\u8981\u7528 getline\n    int cnt = 0;\n    for (int i = 0; i <= s.length() - 1; i++){//\u6ce8\u610f\u8303\u56f4\n        if (s[i] <= '9' && s[i] >= '0')//\u5224\u65ad\n            cnt++;\n    }\n    cout << cnt << endl;\n    return 0;\n}\n```\n",
+        "postTime": 1625368116,
+        "uid": 377643,
+        "name": "__Cartesian__Tree__",
+        "ccfLevel": 5,
+        "title": "B2109\u9898\u89e3"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u76ee\u662f\u4e00\u4e2a\u5f88\u5bb9\u6613\u7684\u5b57\u7b26\u4e32\u5904\u7406\uff0c\u8bfb\u5165\u4e00\u884c\uff0c\u6bcf\u4e2a\u904d\u5386\u5373\u53ef\uff0c\u4ee3\u7801\uff1a\n\n```cpp\n#include <iostream>\n#include <cstdio>\n#include <string>\nusing namespace std;\n\nint main()\n{\n    int cnt = 0;\n    string s;\n    getline(cin, s);\n    for (int i = 0; i < s.length(); i++) cnt += isdigit(s[i]);\n    cout << cnt << endl;\n    return 0;\n}\n```\n",
+        "postTime": 1625380499,
+        "uid": 332914,
+        "name": "happybob",
+        "ccfLevel": 6,
+        "title": "\u7b2c\u4e00\u7bc7\u9898\u89e3"
+    },
+    {
+        "content": "## \u9898\u76ee\u5927\u610f\n\u7ed9\u5b9a\u4e00\u4e2a\u5b57\u7b26\u4e32\uff0c\u6c42\u5176\u4e2d\u6570\u5b57\u7684\u4e2a\u6570\u3002\n## \u601d\u8def\n### I \u5c0f\u77e5\u8bc6\n\u5728c++\u4e2d\u6709\u4e00\u4e2a ```isdigit( )``` \u51fd\u6570\uff0c\u4f1a\u5224\u65ad\u4e00\u4e2a\u5b57\u7b26\u662f\u5426\u4e3a\u6570\u5b57\uff0c\u5e76\u8fd4\u56de\u4e00\u4e2a\u6574\u5f62\u7684\u503c\u3002\n\n## II \u5177\u4f53\u505a\u6cd5\n\u7528\u5b57\u7b26\u578b\u6570\u7ec4\u5b58\u5b57\u7b26\u4e32\uff0c\u5faa\u73af\u5185\u4f9d\u6b21\u4f7f\u7528 ```isdigit( )``` \u51fd\u6570\uff0c\u6765\u5224\u65ad\u6bcf\u4e00\u4e2a\u5b57\u7b26\u662f\u5426\u4e3a\u6570\u5b57\u3002\n## \u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nchar a[300]; //char\u578b\u6570\u7ec4\u5b58\u5b57\u7b26\u4e32\nint ans,lena;\nint main()\n{\n    gets(a);\n    lena=strlen(a); //strlen\u51fd\u6570\u8fd4\u56dechar\u578b\u6570\u7ec4\u7684\u957f\u5ea6\n    for(int i=0;i<lena;i++)\n        if(isdigit(a[i])) ans++;\n    //\u82e5\u8be5\u5b57\u7b26\u662f\u6570\u5b57\uff0c\u5219\u7d2f\u52a0\u5668\u52a0\u4e00\n    cout<<ans<<endl;\n    return 0;\n}\n```\n\n\n",
+        "postTime": 1625388473,
+        "uid": 373705,
+        "name": "\u58a8\u5fe7",
+        "ccfLevel": 4,
+        "title": "B2109 \u7edf\u8ba1\u6570\u5b57\u5b57\u7b26\u4e2a\u6570 \u9898\u89e3"
+    },
+    {
+        "content": "# \u9898\u76ee\u5206\u6790\n\u904d\u5386\u5b57\u7b26\u4e32\uff0c\u9047\u89c1\u4e00\u4e2a\u6570\u5b57\u5b57\u7b26\u5219\u6570\u5b57\u5b57\u7b26\u4e2a\u6570\u589e\u52a01\u5373\u53ef\u7edf\u8ba1\u6570\u5b57\u5b57\u7b26\u4e2a\u6570\u3002\n# C#\u4ee3\u7801\n```c#\nusing System;\nclass MainClass{\n    public static int num(string s){//\u7edf\u8ba1\u6570\u5b57\u5b57\u7b26\u4e2a\u6570\u51fd\u6570\n        int n = 0;//\u6570\u5b57\u5b57\u7b26\u4e2a\u6570\n        for (int i = 0; i < s.Length; i++) if (s[i] <= '9' && s[i] >= '0') n++;//\u904d\u5386\u5b57\u7b26\u4e32\uff0c\u9047\u89c1\u4e00\u4e2a\u6570\u5b57\u5b57\u7b26\u5219\u6570\u5b57\u5b57\u7b26\u4e2a\u6570\u589e\u52a01\n        return n;\n    }\n    public static int Main(){\n        string s;\n        s = Console.ReadLine();\n        Console.WriteLine(\"{0}\",num(s));//\u8f93\u51fa\u6570\u5b57\u5b57\u7b26\u4e2a\u6570\n        return 0;\n    }\n};\n```\n",
+        "postTime": 1625378435,
+        "uid": 321566,
+        "name": "Suruka",
+        "ccfLevel": 0,
+        "title": "\u3010B2109\u3011\u7edf\u8ba1\u6570\u5b57\u5b57\u7b26\u4e2a\u6570 \u9898\u89e3"
+    }
+]

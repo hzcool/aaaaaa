@@ -1,0 +1,26 @@
+[
+    {
+        "content": "# \u601d\u8def\n\u6bcf\u6761\u8fb9\uff0c\u5982\u679c\u5176\u6743\u503c\u5927\uff0c\u90a3\u4e48\u5c3d\u53ef\u80fd\u63a5\u8fde\u6743\u503c\u8f83\u5927\u7684\u8fb9\u3002\u5c06\u8fb9\u6309\u7167\u6743\u503c\u6392\u5e8f\uff0c\u4ece\u5927\u7684\u5f00\u59cb\u53d6\u3002\u5bf9\u4e8e\u5f53\u524d\u8fb9\u7684\u5de6\u53f3\u9876\u70b9\uff0c\u5206\u522b\u53bb\u5224\u65ad\u662f\u5426\u53ef\u4ee5\u8fde\u5230\u4e4b\u524d\u7684\u5927\u6743\u503c\u8fb9\u4e0a\uff0c\u53ef\u4ee5\u5c31\u8fde\u4e0a\u53bb\uff0c\u7531\u4e8e\u6bcf\u4e2a\u70b9\u53ea\u4f1a\u6709\u4e00\u6761\u7a7a\u51fa\u6765\u8fb9\uff08\u6ca1\u8fde\u4e0a\u7684\u5927\u6743\u503c\u8fb9\uff09\uff0c\u6240\u4ee5\u7528\u4e00\u4e2a\u6570\u7ec4\u6765\u8bb0\u5f55\u6ca1\u6709\u5339\u914d\u7684\u5927\u6743\u8fb9\u3002\u5176\u4f59\u7684\u5927\u5bb6\u770b\u4ee3\u7801\n# AC\u4ee3\u7801\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nconst int maxN =1e3+2;//\u65e5\u5e38\u8d4b\u503c\u9a9a\u64cd\u4f5c\uff0c\u5927\u5bb6\u522b\u4ecb\u610f\uff0c\u53ea\u662f\u4e3a\u4e86\u7cbe\u7b80\u4ee3\u7801 \nint n,m;\nvector<int> vt[maxN];\nint main()\n{\n    scanf(\"%d\",&n);\n    m=n*(n-1)/2;\n    for(int i=1,u,v,w;i<=m;i++)\n    {\n        scanf(\"%d%d%d\", &u, &v, &w);\n        vt[u].push_back(w);//\u9000\u56de\u64cd\u4f5c \n        vt[v].push_back(w);\n    }\n    long long ans = 0;\n    for(int i=1; i<=n; i++) sort(vt[i].begin(), vt[i].end());//\u719f\u6089\u7684sort \n    for(int u=1; u<=n; u++)\n    {\n        for(int i=1;i<n; i+=2)\n        {\n            ans+=vt[u][i];\n        }\n    }\n    printf(\"%lld\\n\",ans);\n    return 0;\n}\n```\n# \u6ce8\u610f\n\u4ee3\u7801\u901f\u5ea6\u6162\uff0c\u4f46\u7ec8\u5f52AC\uff0c\u52ff\u55b7\u3002",
+        "postTime": 1618024086,
+        "uid": 137173,
+        "name": "CoronaQL",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3\u4e00\u679a"
+    },
+    {
+        "content": "\u8d2a\u5fc3\u7684\u5c0f\u9898\uff0c\u4e00\u4e2a\u9876\u70b9\u51fa\u53bb\u7684 $2$ \u6761\u8fb9\uff0c\u518d\u6293\u4e00\u6761\u8fb9\u7acb\u9a6c\u5c31\u662f\u73af\u3002N\u662f\u5947\u6570,\u90a3\u4e48\u6bcf\u4e2a\u9876\u70b9\u51fa\u53bb\u5076\u6570\u6761\u8fb9\uff0c\n\u4e0d\u7ba1\u548c\u8c01\u6784\u6210\u5708\uff0c\u6309\u7167\u7531\u5c0f\u5230\u5927\u7684\u987a\u5e8f\u5bf9\u6bcf\u4e2a\u9876\u70b9\u51fa\u53bb\u7684\u8fb9\u6743\u6392\u5e8f\uff0c\u76f8\u90bb\u4e24\u4e2a\u5728\u540c\u4e00\u4e2a\u5708\u91cc\uff0c\u53ea\u6709\u8fd9\u6837\u624d\u80fd\u5bfc\u81f4\u6700\u540e\u6700\u5c0f\u3002\n\n$code$ \uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n\nconst int maxn = 1005;\n\nstruct reader{\n\ttemplate<typename Type>\n\treader&operator>>(Type&ret){\n\t\tint f=1; ret=0; char ch=getchar();\n\t\tfor(;!isdigit(ch);ch=getchar()) if(ch=='-') f=-f;\n\t\tfor(; isdigit(ch);ch=getchar()) ret=(ret<<1)+(ret<<3)+(ch-'0');\n\t\tret*=f; return *this;\n\t}\n}fin;\n\nint N,x,y,z;\nint edge[maxn][maxn];\nlong long Ans;\n\nint main(){\n\tfin>>N;\n\tfor(int i=(N-1)/2*N;i>=1;i--){\n\t\tfin>>x>>y>>z;\n\t\tedge[x][++edge[x][0]]=z;\n\t\tedge[y][++edge[y][0]]=z;\n\t}\n\tfor(int i=1;i<=N;i++) sort(edge[i]+1,edge[i]+N);\n\tfor(int i=1;i<=N;i++)\n\tfor(int j=2;j<=N-1;j+=2) Ans=Ans+edge[i][j];\n\tcout<<Ans<<endl;\n\treturn 0;\n} \n```\n",
+        "postTime": 1601107674,
+        "uid": 370354,
+        "name": "yxy666",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 P5805 \u3010[SEERC2019]Graph and Cycles\u3011"
+    },
+    {
+        "content": "\u8d2a\u5fc3\u7684\u5c0f\u9898\uff0c\u4e00\u4e2a\u9876\u70b9\u51fa\u53bb\u7684 $2$ \u6761\u8fb9\uff0c\u518d\u6293\u4e00\u6761\u8fb9\u7acb\u9a6c\u5c31\u662f\u73af\u3002\n\n$N$ \u662f\u5947\u6570,\u90a3\u4e48\u6bcf\u4e2a\u9876\u70b9\u51fa\u53bb\u5076\u6570\u6761\u8fb9\uff0c\n\u4e0d\u7ba1\u548c\u8c01\u6784\u6210\u5708\uff0c\u6309\u7167\u7531\u5c0f\u5230\u5927\u7684\u987a\u5e8f\u5bf9\u6bcf\u4e2a\u9876\u70b9\u51fa\u53bb\u7684\u8fb9\u6743\u6392\u5e8f\uff0c\u76f8\u90bb\u4e24\u4e2a\u5728\u540c\u4e00\u4e2a\u5708\u91cc\uff0c\u53ea\u6709\u8fd9\u6837\u624d\u80fd\u5bfc\u81f4\u6700\u540e\u6700\u5c0f\u3002\n\n\nCode:\n```cpp\n#include<bits/stdc++.h>\n#define LL long long\n#define maxn 1005\n#define maxe 1000005\nusing namespace std;\nint N,M,cnt,lnk[maxn],nxt[maxe],w[maxe];\nLL Ans;\nstruct ZS{\n\tint x,y,w;\n\tbool operator <(const ZS &B)const{return w<B.w;}\n}A[maxe];\nint read(){\n\tint ret=0,f=1;char ch=getchar();\n\twhile (!isdigit(ch)){if (ch=='-')f=-f;ch=getchar();}\n\twhile (isdigit(ch)) ret=(ret<<3)+(ret<<1)+(ch&15),ch=getchar();\n\treturn ret*f;\n}\nvoid add_e(int x,int y,int z){w[++cnt]=z;nxt[cnt]=lnk[x];lnk[x]=cnt;} \nint main(){\n\tfreopen(\"cycles.in\",\"r\",stdin);\n\tfreopen(\"cycles.out\",\"w\",stdout);\n\tN=read();M=N*(N-1)/2;\n\tfor (int i=1;i<=M;i++) A[i].x=read(),A[i].y=read(),A[i].w=read();\n\tsort(A+1,A+1+M);\n\tfor (int i=1;i<=M;i++){\n\t\tint x=A[i].x,y=A[i].y,z=A[i].w;\n\t\tadd_e(x,y,z),add_e(y,x,z);\n\t}\n\tfor (int i=1;i<=N;i++)\n\tfor (int j=lnk[i];j;){\n\t\tint w_one=w[j];j=nxt[j];\n\t\tint w_two=w[j];j=nxt[j];\n\t\tAns+=max(w_one,w_two);\n\t}\n\tprintf(\"%lld\\n\",Ans);\n\treturn 0;\n}\n```\n",
+        "postTime": 1601099880,
+        "uid": 188879,
+        "name": "VioletIsMyLove",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P5805 \u3010[SEERC2019]Graph and Cycles\u3011"
+    }
+]

@@ -1,0 +1,290 @@
+[
+    {
+        "content": "## \u601d\u8def\n\n\u524d\u7f6e\u77e5\u8bc6\uff1a\u6b63\u65b9\u5f62\u3001\u957f\u65b9\u5f62\u7684\u9762\u79ef\u516c\u5f0f\n\n$Alice$\u7684\u6b63\u65b9\u5f62\u7684\u9762\u79ef\u516c\u5f0f\uff1a\n\n$$S = a^2$$\n\n$Bob$\u7684\u957f\u65b9\u5f62\u7684\u9762\u79ef\u516c\u5f0f\uff1a\n\n$$S = b \\times c$$\n\n\u73b0\u5728\u7ed9\u4f60$a, b, c$\u7684\u503c\uff0c\u90a3\u4e48\u4ee3\u5165\u8ba1\u7b97\u5373\u53ef\n\n\u6ce8\u610f\u6570\u636e\u8303\u56f4\uff1a$1\\le a,b,c \\le 10^9$\n\n$int$\u6700\u5927\u53ea\u53ef\u4ee5\u5b58$2^{31} - 1$\uff0c\u5dee\u4e0d\u591a\u662f$2 \\times 10^9$\uff0c\u7b97\u9762\u79ef\u65f6\u4f1a\u7206$int$\uff0c\u4f46\u662f$long long$\u53ef\u4ee5\u5b58\u4e0b$2^{63} - 1$\u7684\u6570\u636e\uff0c\u5dee\u4e0d\u591a\u662f$10^{19}$\uff0c\u800c\u7b97\u51fa\u6765\u7684\u9762\u79ef\u6700\u5927\u4e5f\u5c31\u662f$10^9 \\times 10^9 = 10^{18}$\u4e86\n\n\u6240\u4ee5\u4f7f\u7528$longlong$\u5c31\u53ef\u4ee5\u5b58\u4e0b\u9762\u79ef\u7684\u503c\u4e86\n\n\u4f46\u662f\u7b97\u7684\u8fc7\u7a0b\u4e2d\u4f1a\u7206$int$\uff0c\u6240\u4ee5\u8981\u4e58\u4e0a$1ll$\uff0c\u76f8\u5f53\u4e8e\u5f3a\u5236\u8f6c\u6362\u6210$longlong$\n\n```cpp\n#include <bits/stdc++.h>\n\n#define ll long long\n\nusing namespace std;\n\nint a, b, c;//\u9898\u76ee\u7ed9\u51fa\u7684a,b,c\nll S1, S2;//Alice\u7684\u9762\u79ef\u548cBob\u7684\u9762\u79ef\n\nint main() {\n\tscanf(\"%d%d%d\", &a, &b, &c);//\u8f93\u5165\n\t\n\tS1 = 1ll * a * a;\t\n    S2 = 1ll * b * c;//\u7b97\u51fa\u4e24\u8005\u7684\u9762\u79ef\uff0c\u6ce8\u610f\u5f3a\u5236\u8f6c\u6362\n\tif (S1 > S2) cout << \"Alice\" << endl;//\u6bd4\u8f83\uff0c\u5e76\u8f93\u51fa\n\t\t\telse cout << \"Bob\" << endl;\n\t\n\treturn 0;//\u7ed3\u675f\n}\n```\n\n> \u65e5\u62f1\u4e00\u5352\uff0c\u529f\u4e0d\u5510\u6350\n",
+        "postTime": 1574578024,
+        "uid": 18673,
+        "name": "ctq1999",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 P5681 \u9762\u79ef\u3010\u6c11\u95f4\u6570\u636e\u3011"
+    },
+    {
+        "content": "### \u5206\u6790\n\u6b63\u65b9\u5f62\u9762\u79ef\u8ba1\u7b97\u516c\u5f0f:$a^2$\n\n\u957f\u65b9\u5f62\u9762\u79ef\u8ba1\u7b97\u516c\u5f0f:$b*c$\n\n\u53ea\u8981\u6bd4\u8f83\u4e24\u8005\u5927\u5c0f\u5373\u53ef\n\n### \u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nlong long a,b,c;//\u6ce8\u610f\u6570\u636e\u8303\u56f4 \u4e0d\u5f00long long \u89c1\u7956\u5b97\nint main(){\n    scanf(\"%lld%lld%lld\",&a,&b,&c);\n    if(a*a>b*c) puts(\"Alice\");\n    else puts(\"Bob\");//\u6309\u7167\u9898\u610f\u8f93\u51fa\n    return 0;\n}\n```\n",
+        "postTime": 1574561491,
+        "uid": 136601,
+        "name": "\u3000\u3000\u3000\u543e\u7687",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 P5681 \u3010\u9762\u79ef\u3010\u6682\u65e0\u6570\u636e\u3011\u3011"
+    },
+    {
+        "content": "## \u8bb2\u8bb2\u6211\u7684\u505a\u6cd5\n\n### \u5206\u6790\u9898\u610f\n\n\u5982\u679c\u4e24\u4eba\u7684\u9762\u79ef\u4e00\u6837\u5927\u600e\u4e48\u529e\uff1f\n\n\u7136\u540e\u53d1\u73b0\n\n>\u8f93\u51fa\u4ec5\u4e00\u884c\u4e00\u4e2a\u5b57\u7b26\u4e32\uff0c\u82e5\u6b63\u65b9\u5f62\u9762\u79ef\u5927\u5219\u8f93\u51fa Alice\uff0c\u5426\u5219\u8f93\u51fa Bob\u3002\n\n**\u6240\u4ee5\u4e00\u6837\u8f93$Bob$**\n\n### \u7b97\u9762\u79ef\n\n$Alice$\u7684\u9762\u79ef\u5c31\u662f\uff1a$a^{2}$\n\n$Bob$\u7684\u9762\u79ef\u5c31\u662f\uff1a$b*c$\n\n\u6240\u4ee5\u5c31\u6709\u4e86\u4ee3\u7801\n\n```cpp\nlong long Alice=a*a,Bob=b*c;//\u6ce8\u610f\u662flong long\uff0c1e9\u4e0e1e9\u76f8\u4e58\u663e\u7136\u4f1a\u7206int\n```\n### \u6bd4\u8f83\n\u663e\u7136\u662f\n\n```cpp\nif(Alice>Bob)puts(\"Alice\");\nelse puts(\"Bob\");\n```\n### \u603b\u7ed3\n\n\u73b0\u5728\u5c31\u6709\u4e86\u80fd$AC$\u7684\u4ee3\u7801\n\n```cpp\n#include <bits/stdc++.h>//\u4e07\u80fd\u5934\u6587\u4ef6\nusing namespace std;\ntemplate<typename T>inline void read(T &FF){\n\tT RR=1;FF=0;char CH=getchar();\n\tfor(;!isdigit(CH);CH=getchar())if(CH=='-')RR=-1;\n\tfor(;isdigit(CH);CH=getchar())FF=(FF<<1)+(FF<<3)+(CH^48);\n\tFF*=RR;\n}//\u5feb\u8bfb\ntemplate<typename T>void write(T x){\n\tif(x<0)putchar('-'),x*=-1;\n\tif(x>9)write(x/10);\n\tputchar(x%10+48);\n}//\u5feb\u5199\nint main(){\n\tlong long a,b,c;\n\tread(a);read(b);read(c);//\u8bfb\u5165\n\tlong long Alice=a*a,Bob=b*c;//\u7b97\u9762\u79ef\n\tif(Alice>Bob)puts(\"Alice\");//\u5224\u65ad\n\telse puts(\"Bob\");//\u8f93\u51fa\n\treturn 0;\n}\n\n```\n",
+        "postTime": 1574587683,
+        "uid": 180242,
+        "name": "orzdevinwang",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 P5681 \u3010\u9762\u79ef\u3010\u6c11\u95f4\u6570\u636e\u3011\u3011"
+    },
+    {
+        "content": "* # \u9898\u89e3\n\u8fd9\u9053\u9898\u5c31\u662f\u4e00\u4e2a\u7b80\u5355\u7684\u5165\u95e8\u9898\n\n\u4e0a\u6765\u76f4\u63a5\u5199\u4ee3\u7801\n\n```#include<iostream>\n#include<cstdio>\nusing namespace std;\nint a,b,c;\nint main()\n{\n\tcin>>a>>b>>c;\n\tif(a*a>b*c) cout<<\"Alice\"<<endl;\n\telse\n\tcout<<\"Bob\"<<endl;\n\treturn 0;\n}\n```\n***\n* \n\u4e8e\u662f\u53d1\u73b0\u6709\u4e00\u4e2a\u6d4b\u8bd5\u70b9\u4e0d\u8fc7\n\u4e3a\u4ec0\u4e48\u5462\uff1f\n\u6ca1\u5f00long long\uff01\n***\n\u6b63\u786e\u4ee3\u7801\uff1a\n```\n#include<iostream>\n#include<cstdio>\nusing namespace std;\nunsigned long long a,b,c;\nint main()\n{\n\tcin>>a>>b>>c;\n\tif(a*a>b*c) cout<<\"Alice\"<<endl;\n\telse\n\tcout<<\"Bob\"<<endl;\n\treturn 0;\n}\n```\nAC!\n\n  ",
+        "postTime": 1574585517,
+        "uid": 228287,
+        "name": "\u675c\u4e2d\u5764",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 P5681 \u3010\u9762\u79ef\u3010\u6c11\u95f4\u6570\u636e\u3011\u3011"
+    },
+    {
+        "content": "\u8fd9\u662f\u4e00\u9053\u5f88\u7b80\u5355\u7684\u6570\u8bba\u9898\uff0c\u53ea\u9700\u8981\u628aa\u4e58a\u548cb\u4e58c\u6bd4\u8f83\u4e00\u4e0b\u5c31\u53ef\u4ee5\u4e86\uff0c\u8981\u6ce8\u610f\u7684\u5c31\u662f\u8981\u5f00long long\uff0c\u4e0d\u7136\u4f1a\u70b8\u6389\u3002\n\u4e0a\u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nlong long a,b,c,sum1,sum2;//long long\u5b9a\u4e49\nint main(){\n\tscanf(\"%lld%lld%lld\", &a,&b,&c);\n\tsum1=a*a;sum2=b*c;\n\tif(sum1>sum2)printf(\"Alice\");//\u6bd4\u8f83\u5927\u5c0f\u5e76\u8f93\u51fa\n\telse printf(\"Bob\");\n}\n```\nok\uff0c\u70b9\u4e2a\u8d5e\u518d\u8d70\u54df",
+        "postTime": 1574604089,
+        "uid": 241426,
+        "name": "\u4e5d\u5fc6",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 P5681 \u3010\u9762\u79ef\u3010\u6c11\u95f4\u6570\u636e\u3011\u3011"
+    },
+    {
+        "content": "## \u9996\u5148\u5fc3\u75bc\u6c5f\u897f\u9009\u624b\u4e00\u79d2\u949f\n\n\u597d\u7684\u6211\u4eec\u6765\u8bb2\u8fd9\u9053\u5165\u95e8\u9898\u3002\n\n\u6bd4\u8f83\u7b80\u5355\uff0c\u5148\u4e0a\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n\tunsigned long long a,b,c;\n\tcin>>a>>b>>c;\n\tif(a*a>b*c)cout<<\"Alice\";\n\telse cout<<\"Bob\";\n\treturn 0;\n}\n```\n\n\u4e0b\u9762\u8bb2\u4e00\u4e0b\u8fd9\u91cc\u6ce8\u610f\u4e8b\u9879\uff0c~~\u6bd5\u7adf\u662f\u5165\u95e8\u9898\u4e0d\u9700\u8981\u601d\u8def~~\n\n- \u6ce8\u610ffreopen\uff01\u8fd8\u6709\u5c31\u662f\u524d\u51e0\u5929\u6709\u4e2a\u540c\u5b66\u8868\u793a\u4ed6\u5934\u6587\u4ef6\u6253\u4e86iostream\uff0c\u9700\u8981\u6ce8\u610f\u7684\u662fiostream\u91cc\u9762\u5e76\u6ca1\u6709freopen\uff01\u53ef\u6068\u7684\u4ee3\u7801\u81ea\u52a8\u8865\u5168\uff01\uff01\uff01\n\n- \u6ca1\u5f00unsigned long long \u89c1\u7956\u5b97\uff0c\u8bf4\u591a\u4e86\u90fd\u662f\u6cea\uff01\n\n- \u6ce8\u610f~~\u68c0\u67e5~~\u5ba1\u9898\uff0c\u9762\u79ef\u4e00\u6837\u4e5f\u8981\u8f93\u51faBob\uff01\n\n- Remember return 0\n\n\u81ea\u8ba4\u4e3a\u8bb2\u5f97\u6bd4\u8f83\u6e05\u695a\uff0c\u671b\u5ba1\u6838\u901a\u8fc7",
+        "postTime": 1574646951,
+        "uid": 136931,
+        "name": "chenpengda",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 P5681 \u3010\u9762\u79ef\u3010\u6c11\u95f4\u6570\u636e\u3011\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u6bd4\u8f83\u7b80\u5355\uff0c\u9996\u5148\u6211\u4eec\u8981\u5b9a\u4e49\u8fd9\u4e09\u4e2a\u6570\uff1a\n\n```cpp\n#include<iostream>\nusing namespace std;\nint main()\n{\n\tlong long a,b,c;\n```\n\n**\u6ce8\u610f\uff01\u8fd9\u91cc\u8981\u7528long long\u578b\uff0c\u5426\u5219\u7b2c\u4e5d\u4e2a\u70b9\u4f1a\u6ea2\u51fa\uff0c**~~\u5751\u6b7b\u6211\u4e86\u3002~~\n\n\u7136\u540e\u8f93\u5165\uff1a\n```cpp\n\tcin>>a>>>b>>c;\n```\n\n\u6700\u540e\u5224\u65ad\uff1a\n```cpp\n\tif(a*a>b*c)\n\t\tcout<<\"Alice\";\n\telse\n\t\tcout<<\"Bob\";\n\treturn 0;\n}\n```\n\u6700\u540e\u9644\u4e0aC\u548cC++\u5b8c\u6574\u4ee3\u7801\uff1a\n```c\n#include<stdio.h>\nint main()\n{\n\tlong long a,b,c;\n\tscanf(\"%lld %lld %lld\",&a,&b,&c);\n\tif(a*a>b*c)\n\t\tprintf(\"Alice\");\n\telse\n\t\tprintf(\"Bob\");\n\treturn 0;\n}\n```\n\n```cpp\n#include<iostream>\nusing namespace std;\nint main()\n{\n\tlong long a,b,c;\n\tcin>>a>>b>>c;\n\tif(a*a>b*c)\n\t\tcout<<\"Alice\";\n\telse\n\t\tcout<<\"Bob\";\n\treturn 0;\n}\n```\n",
+        "postTime": 1574598599,
+        "uid": 277757,
+        "name": "hanyuchen2019",
+        "ccfLevel": 4,
+        "title": "P5681 \u9762\u79ef\u3010\u6c11\u95f4\u6570\u636e\u3011\u9898\u89e3 C/C++"
+    },
+    {
+        "content": "\u6c34\u9898\uff0c\u4f46\u6709\u5751\u3002\u4fe1\u5fc3\u6ee1\u6ee1\u5730\u63d0\u4ea4\u4e0a\u53bb\u8fd9\u4efd\u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint a,b,c;\nint main()\n{\n\tcin>>a>>b>>c;\n\tif(a*a>b*c)\n\t\tcout<<\"Alice\"<<endl;\n\telse\n\t\tcout<<\"Bob\"<<endl; \n\treturn 0;\n}\n```\n\u4ec0\u4e48\uff1f\u7b2c9\u4e2a\u70b9WA\u4e86\uff1f\n\n\u4ed4\u7ec6\u4e00\u770b\u9898\uff1a\u5bf9\u4e8e 100% \u7684\u6570\u636e\uff0c1\u2264a,b,c\u226410^9\u3002\n\n10^9 * 10^9=10^18,\u8981\u5f00long long!\u4e0d\u5f00long long\u89c1\u7956\u5b97\uff01\n\n\u8fd9\u6837\u5c31\u5bf9\u4e86\uff1a\n```cpp\n#include<bits/stdc++.h>//\u4e07\u80fd\u5934\u6587\u4ef6\nusing namespace std;\nlong long a,b,c;//\u4e00\u5b9a\u8981\u5f00long long\nint main()\n{\n\tcin>>a>>b>>c;//\u8f93\u5165\n\tif(a*a>b*c)\n\t\tcout<<\"Alice\"<<endl;\n\telse\n\t\tcout<<\"Bob\"<<endl;//\u8f93\u51fa\n\treturn 0;\n}\n```\n\u6ce8\u610f\u9898\u76ee\u8bf4\u7684\u662f\u6b63\u65b9\u5f62\u9762\u79ef\u5927\u8f93\u51fa\u201cAlice\u201d\uff0c\u90a3\u4e48\u4e00\u6837\u5927\u662f\u8f93\u51fa\u201cBob\u201d\u800c\u4e0d\u662f\u201cAlice\u201d\u3002",
+        "postTime": 1574574325,
+        "uid": 163342,
+        "name": "piggymichael",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 P5681 \u3010\u9762\u79ef\u3010\u6c11\u95f4\u6570\u636e\u3011\u3011"
+    },
+    {
+        "content": "### P5681 \u9898\u89e3\n\n\u601d\u8def\uff1a\u7279\u5224+\u7b97\u9762\u79ef\n\n\u672c\u9898\u5f88\u5bb9\u6613\u60f3\u5230\u7684\u662f\u76f4\u63a5\u8fb9\u957fX\u8fb9\u957f\uff0c\u957fX\u5bbd\uff0c\u4e00\u6bd4\u5c31\u5b8c\u4e8b\u513f\u4e86\u3002\n\n\u7136\u800c\u8fd8\u6709\u67d0\u4e9b\u7279\u6b8a\u60c5\u51b5\uff0c**\u4e0d\u7528\u7b97**\u5c31\u80fd\u77e5\u9053\u54ea\u4e2a\u51e0\u4f55\u56fe\u5f62\u7684\u9762\u79ef\u5927\u4e00\u4e9b\u3002\n\n\u4f8b\u5982\uff1a\u6709\u4e00\u4e2a\u8fb9\u957f\u4e3a6\u7684\u6b63\u65b9\u5f62\uff08RED\uff09\u548c\u4e00\u4e2a\u957f\u4e3a5\uff0c\u5bbd\u4e3a4\u7684\u957f\u65b9\u5f62\uff08YELLOW\uff09\u3002\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/elndkp41.png)\n\n\u4e0d\u96be\u53d1\u73b0\uff0c\u6b63\u65b9\u5f62\u7684\u8fb9\u957f**\u65e2\u5927\u4e8e\u957f\u65b9\u5f62\u7684\u957f\uff0c\u540c\u65f6\u4e5f\u5927\u4e8e\u5b83\u7684\u5bbd**\u3002\n\n\u6240\u4ee5\u9047\u5230bc>c&&bc>k\u7684\u60c5\u51b5\uff0c\u6b63\u65b9\u5f62\u9762\u79ef\u80af\u5b9a\u5927\u4e00\u4e9b\u3002\n\n\u5f53\u7136\uff0c\u5982\u679cbc<=c&&bc<=k\uff0c\u5c31\u8bf4\u660e\u4e86\u6b63\u65b9\u5f62\u9762\u79ef\u662f\u4e0d\u5927\u4e8e\u957f\u65b9\u5f62\u9762\u79ef\u7684\u3002\n\n\u5269\u4e0b\u7684\u5c31\u53ea\u80fd\u7b97\u9762\u79ef\u8fbd~\n\n### code\uff1a\n\n```cpp\n#include <iostream>\n#include <cstdio>\n#define re register int\nusing namespace std;\n\nlong long bc,c,k,s1,s2;  //\u4e0d\u5f00long long\u8981\u7206\u3002bc\uff0cc\uff0ck\u5206\u522b\u5b58\u8fb9\u957f\uff0c\u957f\uff0c\u5bbd \n\nint main()\n{\n\tstd::scanf(\"%lld%lld%lld\",&bc,&c,&k);\n\t\n\tif(bc<=c&&bc<=k)\n\t{\n\t\tstd::printf(\"Bob\");\n\t\treturn 0;\n\t}\n\tif(bc>c&&bc>k)\n\t{\n\t\tstd::printf(\"Alice\");\n\t\treturn 0;\n\t}//\u5982\u4e0a\u6240\u8ff0\u7684\u7279\u5224\u8fc7\u7a0b \n\t\n\ts1=bc*bc;\n\ts2=c*k;  //\u5e26\u516c\u5f0f\u7b97\u9762\u79ef \n\t\n\tif(s1>s2)\n\t\tstd::printf(\"Alice\");\n\telse\n\t\tstd::printf(\"Bob\");\n\t//\u6bd4\u8f83&\u8f93\u51fa \n\treturn 0;\n}\n```\n\n**\u8c22\u8c22\u89c2\u770b**",
+        "postTime": 1574779658,
+        "uid": 177531,
+        "name": "ZolaWatle",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 P5681 \u3010[CSPJX2019]\u9762\u79ef\u3010\u6c11\u95f4\u6570\u636e\u3011\u3011"
+    },
+    {
+        "content": "# \u4ece\u672a\u89c1\u8fc7\u5982\u6b64\u6c34\u7684CCF\u8003\u9898\n\n\u524d\u7f6e\u829d\u58eb\uff1a\n\n\u6b63\u65b9\u5f62\u9762\u79ef\u516c\u5f0f\uff1a$S=a^2$\n\n\u957f\u65b9\u5f62\u9762\u79ef\u516c\u5f0f\uff1a$S=b\\times c$\n\n\u518d\u6309\u9898\u76ee\u8981\u6c42\u6bd4\u8f83\u5927\u5c0f\u4e0d\u5c31\u505a\u5b8c\u4e86\u5417\uff1f\n\n\u4f46\u662f\uff0c\u5f53\u6211\u4eec\u5174\u81f4\u52c3\u52c3\u5730\u5c06\u4ee3\u7801\u4ea4\u4e0a\u53bb\uff0c\u5374\u5f97\u4e0d\u4e86\u6ee1\u5206\u3002\u539f\u6765\uff0c\u6570\u636e\u6bd4\u8f83\u5927\uff0c$int$\u4f1a\u70b8\uff0c\u8981\u5f00$long\\ long$\uff0c\u6240\u4ee5\uff0c\u6b64\u65f6\u518d\u4e0a\u4ea4\uff0c\u5c31\u53ef\u4ee5\u6ee1\u5206\u4e86\uff01\n\n# CODE:\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nlong long a,b,c;\nint main(){\n\tcin>>a>>b>>c;\n\tif(a*a>b*c){\n\t\tcout<<\"Alice\";\n\t}\n\telse{\n\t\tcout<<\"Bob\";\n\t}\n\treturn 0;\n}\n```\n$OI$\u7206\u96f6\u4e0d\u6c14\u9981\uff0c\u7238\u7238\u5988\u5988\u4e0d\u6d41\u6cea\uff01",
+        "postTime": 1574776792,
+        "uid": 178556,
+        "name": "Skyjoy",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 P5681 \u3010[CSPJX2019]\u9762\u79ef\u3010\u6c11\u95f4\u6570\u636e\u3011\u3011"
+    },
+    {
+        "content": "\u672c\u4eba\u8ba4\u4e3a\u6b64\u9898~~\u5341\u5206~~\u7b80\u5355\n\n\u601d\u8def\u662f\u8fd9\u6837\u7684\uff1a\n\na\uff1a\u8868\u793aAlice\u7684\u6b63\u65b9\u5f62\u7684\u8fb9\u957f\n\nb\uff1a\u8868\u793aBob\u7684\u957f\u65b9\u5f62\u7684\u957f\n\nc\uff1a\u8868\u793aBob\u7684\u957f\u65b9\u5f62\u7684\u5bbd\n\n\u6211\u4eec\u77e5\u9053\u4e86\u8fd9\u4e9b\u4e4b\u540e\uff0c\u53ea\u9700\u8981\u6c42\u51fa\u6b63\u65b9\u5f62\u7684\u9762\u79ef\u662f\u4e0d\u662f\u5927\u4e8e\u957f\u65b9\u5f62\u7684\u9762\u79ef\u6216\u8005\u957f\u65b9\u5f62\u7684\u9762\u79ef\u662f\u4e0d\u662f\u5927\u4e8e\u6b63\u65b9\u5f62\u7684\u9762\u79ef\uff0c\u5c31\u53ef\u4ee5\u4e86 \u3002\n\n\u4ee3\u7801\u5982\u4e0b\n\n```\n#include<bits/stdc++.h>\nusing namespace std;\nlong long a,b,c,zh,fa;  //\u56e0\u4e3a\u6709\u4e24\u4e2a\u6d4b\u8bd5\u70b9\u6bd4\u8f83\u5927\nint main()\n{\n\tscanf(\"%lld%lld%lld\",&a,&b,&c);\n\tzh=a*a;\n\tfa=b*c;\n\tif(zh>fa) printf(\"Alice\");\n\telse printf(\"Bob\");\n\treturn 0;\n}\n\n```\n\u7b2c\u4e00\u7bc7\u9898\u89e3\u8bf7\u6307\u51fa\u9519\u8bef\uff0c\u8c22\u8c22\u5927\u5bb6\uff01",
+        "postTime": 1574687429,
+        "uid": 200424,
+        "name": "Swirling_Naruto",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P5681 \u3010[CSPJX2019]\u9762\u79ef\u3010\u6c11\u95f4\u6570\u636e\u3011\u3011"
+    },
+    {
+        "content": "\u6ca1\u4ec0\u4e48\u597d\u8bb2\u7684\uff0c\u5c31\u662f\u8f93\u5165\u6570\u636e\u4e58\u4e00\u4e58\u7136\u540e\u6bd4\u8f83\u5927\u5c0f\n\n\u4f46\u662f\u8981\u8bb0\u4f4f\uff0c\u56e0\u4e3a\u6570\u636e\u7b97\u51fa\u6765\u7ed3\u679c\u662f10^18,\u5982\u679c\u4e0d\u5f00long long\u4f1a\u7206\u6389\u54e6\n```cpp\n#include<iostream>\nusing namespace std;\nint main()\n{\n    long long a,b,c;\n    cin>>a>>b>>c;\n    if(a*a>b*c)cout<<\"Alice\";\n    else cout<<\"Bob\";\n    return 0;\n}\n```\n\u4e5f\u53ef\u4ee5\u8fd9\u6837(\u5f3a\u5236\u7c7b\u578b\u8f6c\u6362)\n```cpp\n#include<iostream>\nusing namespace std;\nint main()\n{\n    int a,b,c;\n    cin>>a>>b>>c;\n    if((long long)a*a>(long long)b*c)cout<<\"Alice\";\n    else cout<<\"Bob\";\n    return 0;\n}\n```\n\n",
+        "postTime": 1574597281,
+        "uid": 200179,
+        "name": "Y_\u7528\u6237",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P5681 \u3010\u9762\u79ef\u3010\u6c11\u95f4\u6570\u636e\u3011\u3011"
+    },
+    {
+        "content": "# JX\u91cd\u8003J\u7ec4T1\n\n~~\u83ab\u540d\u5f88\u6c34~~\n\n## \u4f46\u8981\u6ce8\u610f\u7684\u662f\n\n## \u5982\u679c\u4e24\u4e2a\u9762\u79ef\u76f8\u5f53\u7684\u8bdd\u8f93\u51faBob\n\n## \u6240\u4ee5\u8bf4\u8fd8\u5f97\u6ce8\u610f\u8bfb\u9898\n\n## Code:\n\n```cpp\n#include <stdio.h>\n\nlong long a,b,c;\n\nint main(){\n\tscanf (\"%lld%lld%lld\",&a,&b,&c);\n\tif (a * a > b * c)printf(\"Alice\");\n\telse printf(\"Bob\");\n}\n```\n",
+        "postTime": 1574589744,
+        "uid": 99716,
+        "name": "_Grey",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 P5681 \u3010\u9762\u79ef\u3011"
+    },
+    {
+        "content": "\u5f88\u7b80\u5355\u7684\u4e00\u9053\u5165\u95e8\u9898\n\n\u4f46\u662f\u6765\u81ea\u4e00\u4e2a\u8fd8\u672a\u9000\u5f79\u7684OIer\u7684\u63d0\u9192\uff1a\n\n## \u4e0d\u5f00long long \u89c1\u7956\u5b97\uff01\n\n\u672c\u9898\u9664\u4e86\u8981\u5f00longlong\uff08\u5176\u5b9e\u4f60\u5f00int\u4e5f\u53ef\u4ee5\uff0c\u53ea\u662f\u7b97\u51fa\u6765\u7684\u4e0d\u4e00\u6837\uff0c\u7b54\u6848\u4e00\u6837\uff09\u4e4b\u5916\uff0c\u8fd8\u8981\u6ce8\u610f\u672c\u9898\u8bf4\u662f\u5982\u679c\u6b63\u65b9\u5f62\u7684\u9762\u79ef**\u4e0d\u5927\u4e8e**\u957f\u65b9\u5f62\u7684\u9762\u79ef\uff0c\u8f93\u51faBob\n\n### $Code:$\n\n\n```\n//by hmy521_code\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n\tlong long a,b,c;//\u4e0d\u5f00longlong\u89c1\u7956\u5b97\n\tcin>>a>>b>>c;\n\tlong long square_area=a*a;//\u4e0d\u5f00longlong\u89c1\u7956\u5b97*2\n\tlong long rectangle_area=b*c;//\u4e0d\u5f00longlong\u89c1\u7956\u5b97*3\n\tif(square_area>rectangle_area){//\u6bd4\u8f83\u5927\u5c0f\n\t\tcout<<\"Alice\";\n\t}else{\n\t\tcout<<\"Bob\";\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1574586710,
+        "uid": 46857,
+        "name": "hmy521",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 P5681 \u3010\u9762\u79ef\u3010\u6c11\u95f4\u6570\u636e\u3011\u3011"
+    },
+    {
+        "content": "\u62a2\u5360\u6700\u65e9\u7684\u9898\u89e3\n\n\u9898\u610f\u7b80\u5355\u660e\u4e86\uff0c\u5224\u65ad\u4e00\u4e0b\u5373\u53ef\n\n\u4ee4\u4eba\u7591\u60d1\u7684\u4e00\u70b9\uff0c\u9762\u79ef\u76f8\u7b49\u600e\u4e48\u529e\uff1f\u770b\u9898\u9762\uff1a\u201c\u82e5\u6b63\u65b9\u5f62\u9762\u79ef\u5927\u5219\u8f93\u51fa Alice\uff0c\u5426\u5219\u8f93\u51fa Bob\u201d\uff0c\u6240\u4ee5\u76f8\u7b49\u4e5f\u8981\u8f93\u51faBob\u3002\n\n\u6570\u636e\u8303\u56f4\uff1a\u201c\u5bf9\u4e8e 100% \u7684\u6570\u636e\uff0c1\u2264a,b,c\u226410^9\u201d\uff0c\u7528longint\u5c31\u53ef\u4ee5\u4e86\u3002\u5efa\u8bae\u5927\u5bb6\u80cc\u4e00\u4e0bPascal\u4e2dlongint\u7684\u8303\u56f4\uff1a2147483647\n\n\u9898\u76ee\u5206\u6790\u5b8c\u6210\uff0c\u4ee3\u7801\u5982\u4e0b\n```\nvar\n  a,b,c:longint;\nbegin\n  readln(a,b,c);\n  if a*a>b*c then writeln('Alice') else writeln('Bob');\nend.\n```\n",
+        "postTime": 1574570228,
+        "uid": 227086,
+        "name": "Heap_Sort",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 P5681 \u3010\u9762\u79ef\u3010\u6c11\u95f4\u6570\u636e\u3011\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u9898\u610f\u5982\u4e0b\uff1a\n\n\u9898\u76ee\u63cf\u8ff0\n$Alice$ \u6709\u4e00\u4e2a\u8fb9\u957f\u4e3a $a$ \u7684\u6b63\u65b9\u5f62\uff0c$Bob$ \u6709\u4e00\u4e2a\u957f\u5bbd\u5206\u522b\u4e3a $b,c$ \u7684\u77e9\u5f62\uff0c\u8bf7\u4f60\u544a\u8bc9\u4ed6\u4eec\u4fe9\u8c01\u7684\u56fe\u5f62\u9762\u79ef\u66f4\u5927\u3002\n\n\u8f93\u5165\u683c\u5f0f\n\u4ec5\u4e00\u884c\u4e09\u4e2a\u6b63\u6574\u6570 $a,b,c$\n\n\u8f93\u51fa\u683c\u5f0f\n\u8f93\u51fa\u4ec5\u4e00\u884c\u4e00\u4e2a\u5b57\u7b26\u4e32\uff0c\u82e5\u6b63\u65b9\u5f62\u9762\u79ef\u5927\u5219\u8f93\u51fa $Alice$\uff0c\u5426\u5219\u8f93\u51fa $Bob$\u3002\n\n\u5f53\u4f60\u559c\u95fb\u4e50\u89c1\u5730\u4ea4\u4e86\u4e00\u4e2a\u8fd9\u4e2a\u6ca1\u5f00$long long$\u7684\u7a0b\u5e8f\u4e0a\u53bb\u65f6\uff1a\n```cpp\n#include <cstdio>\nint main (int a,int b,int c){\n\tscanf(\"%d %d %d\",&a,&b,&c);\n\treturn (std::puts(a*a>b*c?\"Alice\":\"Bob\"),0);\n}\n```\n[\u8bc4\u6d4b\u8bb0\u5f55](https://www.luogu.org/record/27724588)\n\n\u8fd9\u4e2a\u6545\u4e8b\u544a\u8bc9\u6211\u4eec\uff0c\u5728\u53c2\u52a0 ~~NOIp~~ CSP\u65f6\u4e00\u5b9a\u8981\u5f00$long long$\n\n\u4ee5\u4e0b\u5c31\u662f\u4ee3\u7801\u4e86\uff1a\n\n```cpp\n#include <cstdio>\nint main (long long a,long long b,long long c){//\u6bd4\u8d5b\u65f6\u5efa\u8bae\u5b9a\u4e49\u53d8\u91cf\u653e\u5168\u5c40\uff0c\u6211\u662f\u6765\u538b\u884c\u7684...\n\tscanf(\"%lld %lld %lld\",&a,&b,&c);//long long\u8981\u7528%lld\u8f93\u5165\n\treturn (std::puts(a*a>b*c?\"Alice\":\"Bob\"),0);//\u7528\u4e09\u76ee\u8fd0\u7b97\u7b26\u5224\u5927\u5c0f\u7136\u540e\u8f93\u51fa\n}\n\n  \n```\n",
+        "postTime": 1574569704,
+        "uid": 200542,
+        "name": "Stick_With_Mars",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 P5681 \u3010\u9762\u79ef\u3010\u6c11\u95f4\u6570\u636e\u3011\u3011"
+    },
+    {
+        "content": "\u957f\u65b9\u5f62\u516c\u5f0f\uff1aS=A*B\n\n\u6b63\u65b9\u5f62\u516c\u5f0f\uff1aS=A*A\n\n\u7136\u540e\u8fd9\u9053\u9898\u5c31\u505a\u51fa\u6765\u4e86\uff0c\u6ce8\u610f\u8981\u5f00long long\u4e0d\u7136\u4f1a\u4e58\u70b8\uff01\uff01\n\n```\n#include<bits/stdc++.h>\nusing namespace std;\nlong long a,b,c;\nint main(){\n\tcin>>a>>b>>c;\n\tputs(a*a>b*c?\"Alice\":\"Bob\");\n\treturn 0;\n}\n```\n",
+        "postTime": 1574568148,
+        "uid": 156001,
+        "name": "TheAutumnGlory",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 P5681 \u3010\u9762\u79ef\u3010\u6c11\u95f4\u6570\u636e\u3011\u3011"
+    },
+    {
+        "content": "\u5982\u679c\u4f60\u89c9\u5f97\u8fd9\u9053\u9898\u6709\u70b9\u5751\uff0c\n# \u90a3\u4e48\u4f60\u5c31\u5bf9\u4e86\n\u6211\u4eec\u6765\u7b80\u5355\u9610\u8ff0\u4e00\u4e0b\u8fd9\u9053\u9898\u7684\u5751\u70b9\uff1a\n\n1\u3001\u6ce8\u610f\u8fd9\u53e5\u8bdd\n \n \u8f93\u51fa\u4ec5\u4e00\u884c\u4e00\u4e2a\u5b57\u7b26\u4e32\uff0c\u82e5\u6b63\u65b9\u5f62\u9762\u79ef\u5927\u5219\u8f93\u51fa Alice\uff0c\u5426\u5219\u8f93\u51fa Bob\u3002\n \u5982\u679c\u6b63\u65b9\u5f62\u7684\u9762\u79ef\u5927\u8f93\u51faAlice\uff0c\u5426\u5219\u8f93\u51faBob\uff01\uff01\uff01\u8fd9\u5c31\u610f\u5473\u7740\u6211\u4eec\u9700\u8981\u4e00\u4e2a\u5c0f\u5c0f\u7684\n \n######  else.\n\n2\u3001\u8bf7\u4f60\u770b\u4e00\u770b\u6570\u636e\uff1a10^9\uff0c\u5982\u679c\u4e0d\u5f00longlong\uff0c\u4fdd\u8bc1\u4f60\u53bb\u89c1\u7956\u5b97\u3002\n### \u4e0a\u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nlong long n,a,b;\nint main()\n{\n\tcin>>n>>a>>b;\n\tif(n*n>a*b) cout<<\"Alice\";\n\t  else cout<<\"Bob\";\n\treturn 0;\n}\n```\n# AC\u62b1\u56de\u5bb6",
+        "postTime": 1574854912,
+        "uid": 232930,
+        "name": "\u4fee\u7f57\u6d77\u795e\u738b",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P5681 \u3010[CSPJX2019]\u9762\u79ef\u3010\u6c11\u95f4\u6570\u636e\u3011\u3011"
+    },
+    {
+        "content": "**\u524d\u8a00\uff1a\u8fd9\u662fCSP\u7684\u9898o_O\uff1f**\n\n**\u601d\u8def\uff1a\u7528check\u51fd\u6570\u5224\u65adx\u00b7x\u662f\u5426>y\u00b7z\uff0c\u5982\u679c\u662f\u8f93\u51fa\"Alice\"\uff0c\u5426\u5219\u8f93\u51fa\"Bob\"**\n\n```\n#include<iostream>\n#include<cstring>\n#include<cstdio>//\u6587\u4ef6\u5934\u4e0d\u4f1a\u6253\uff1f\u4e0d\u5b58\u5728\u7684\nusing namespace std;\nlong long a,b,c;//\u5b9a\u4e49a,b,c\uff08\u4e09\u5e74OI\u4e00\u573a\u7a7a\uff0c\u4e0d\u5f00long long\u89c1\u7956\u5b97\uff09\nbool check(long long x,long long y,long long z)//check\u51fd\u6570\u767b\u573a\uff01\n{\n\tif(x*x>y*z) return true;//\u5224\u65adx\u00b7x\u662f\u5426>y\u00b7z\uff0c\u662f\uff0c\u7b54\u6848\u4e3a\u771f\n\telse return false;//\u5426\uff0c\u7b54\u6848\u4e3a\u5047\n}\nint main()\n{\n    scanf(\"%lld%lld%lld\",&a,&b,&c\uff09;//\u8f93\u5165a\uff0cb\uff0cc\n    if(check(a,b,c)) cout<<\"Alice\";//\u82e5\u7b54\u6848\u4e3a\u771f\uff0c\u8f93\u51fa\"Alice\"\n    else cout<<\"Bob\";//\u5426\u5219\u8f93\u51fa\"Bob\"\n    \n    return 0;//\u7ed3\u675f\u201c\u9898\u89e3 P5681 \u3010[CSPJX2019]\u9762\u79ef\u3010\u6c11\u95f4\u6570\u636e\u3011\u3011\u201d\n}\n```\n",
+        "postTime": 1574831062,
+        "uid": 122473,
+        "name": "\u52d8\u63a2\u5458\u00b7\u5f15\u9b42\u4eba",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P5681 \u3010[CSPJX2019]\u9762\u79ef\u3010\u6c11\u95f4\u6570\u636e\u3011\u3011"
+    },
+    {
+        "content": "\u8fd9\u662f\u9053\u6c34\u9898\uff0c\u4ee3\u7801\u5982\u4e0b\n```\n#include<iostream>\n#include<cstdio>\nusing namespace std;\nint a,b,c;\nint main(){\n    cin>>a>>b>>c;//\u8f93\u5165\n    if(a*a > b*c) cout<<\"Alice\";//\u5224\u65ad\n    else cout<<\"Bob\";//\u5224\u65ad\n    return 0;//\u7ed3\u675f\n}\n```\n\u7136\u540e\u53d1\u73b0\uff1a\u8fd9\u4e48WA\u4e86\u8fd9\u4e48\u591a\u4e2a\u70b9\uff1f\uff1f\uff1f\uff1f\n\u5f80\u4e0b\u4e00\u7ffb\u6570\u636e0<a,b,c<1e9!!!!\u90a3\u5c82\u4e0d\u662f\u8981\u5f00long long\u3002\n\u6240\u4ee5\u8fd9\u9053\u9898\u5c31\u8fd9\u6837\u8212\u670d\u5730\u89e3\u51b3\u4e86\uff0cAC\u4ee3\u7801\u5982\u4e0b\n```\n#include<iostream>\n#include<cstdio>\nusing namespace std;\nlong long a,b,c;\nint main(){\n    cin>>a>>b>>c;//\u8f93\u5165\n    if(a*a > b*c) cout<<\"Alice\";//\u5224\u65ad\n    else cout<<\"Bob\";//\u5224\u65ad\n    return 0;//\u5b8c\u7f8e\u7ed3\u675f\n}\n```\n# \u611f\u8c22\u6d1b\u8c37\u7ba1\u7406\u5458\u5730\u5ba1\u6838\uff01\uff01\uff01\n",
+        "postTime": 1574762386,
+        "uid": 158468,
+        "name": "arenotyou\u72d2\u72d2",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P5681 \u3010[CSPJX2019]\u9762\u79ef\u3010\u6c11\u95f4\u6570\u636e\u3011\u3011"
+    },
+    {
+        "content": "**\u5f00long long\uff01**\n\n[CF1A Theatre Square](https://www.luogu.com.cn/problem/CF1A)\u7684\u5751\n\n\u5c0f\u5fc3\u4e00\u70b9\u5c31\u80fdAC\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nint main()\n{\n\tlong long a, b, c;\n\tcin >> a >> b >> c;\n\tlong long sa = a * a, sb = b * c;\n\t//sa:Alice\u7684\u6b63\u65b9\u5f62\u7684\u9762\u79ef\n\t//sb:Bob\u7684\u957f\u65b9\u5f62\u7684\u9762\u79ef\n\tcout << (sa > sb ? \"Alice\" : \"Bob\") << endl;\n\treturn 0;\n}\n```\n",
+        "postTime": 1574605013,
+        "uid": 192070,
+        "name": "TonyWu",
+        "ccfLevel": 5,
+        "title": "P5681 \u9762\u79ef"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u975e\u5e38\u7684\u7b80\u5355\u561b~~\n\n\u6b63\u65b9\u5f62\u9762\u79ef\u516c\u5f0f S=A*A \u5176\u4e2da\u4e3a\u8fb9\u957f\n\n\u77e9\u5f62\u7684\u9762\u79ef\u516c\u5f0f S=A*B A\u548cB\u4e3a\u957f\u548c\u5bbd\n\n\u8fd9\u9053\u9898\u5df2\u7ecf\u7ed9\u4e86\u4e09\u4e2a\u53d8\u91cf\u4e86\uff0c\u6240\u4ee5\u76f4\u63a5\u4ee3\u5165\u516c\u5f0f\u5224\u65ad\u5c31\u53ef\u4ee5\u5566\u3002\n\n\u4e0d\u8fc7\u672c\u9898\u8fd8\u662f\u6709\u4fe9\u4e2a\u5751\u70b9\uff1a\n\n1.\u8bb0\u5f97\u5f00long long\uff0c\u8be6\u60c5\u8bf7\u56de\u987e\u9898\u76ee\u7684\u6570\u636e\u8303\u56f4\n\n2.\u5728\u6b63\u65b9\u5f62\u9762\u79ef\u548c\u957f\u65b9\u5f62\u76f8\u540c\u65f6\uff0c\u8bb0\u5f97\u8f93\u51faBob\u54e6\n\u56e0\u4e3a\u53ea\u6709\u6b63\u65b9\u5f62\u9762\u79ef\u5927\u7684\u65f6\u5019\u8f93\u51faAlice\n\n\u63a5\u4e0b\u6765\u5c31\u8d34\u51fa\u6211\u7684\u4ee3\u7801\u3002\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nlong long a,b,c,ans1,ans2;\nint main(){\n\tcin>>a>>b>>c;\n\tans1=a*a;\n\tans2=b*c;\n\tif(ans1>ans2)cout<<\"Alice\";\n\telse cout<<\"Bob\";\n}\n```\n",
+        "postTime": 1574603999,
+        "uid": 209186,
+        "name": "Archers_wylr",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P5681 \u3010\u9762\u79ef\u3010\u6c11\u95f4\u6570\u636e\u3011\u3011"
+    },
+    {
+        "content": "\u8fd9\u9898\u2026\u2026\n\n------\n\nAlice \u7684\u6b63\u65b9\u5f62\u9762\u79ef\u4e3a:$a^2$\n\nBob \u7684\u77e9\u5f62\u9762\u79ef:$b*c$\n\n\u6bd4\u8f83\u540e\u8f93\u51fa\u5373\u53ef\n\n----\ncode\uff1a\n\n```cpp\n#include <iostream>\n\nusing namespace std;\n\nint main()\n{\n    unsigned long long a,b,c;\n    cin>>a>>b>>c;\n    if(a*a>b*c)\n    {\n        cout<<\"Alice\";\n    }\n    else\n    {\n        cout<<\"Bob\";\n    }\n    return 0;\n}\n```\n~~\u8bb0\u5f97\u5f00ull~~\n\n\u8bdd\u8bf4\u9762\u79ef\u76f8\u540c\u600e\u90a3\u4e2a\u4e48\u529e\uff1f\n\n------\n\n### \u611f\u8c22\u7ba1\u7406\u5458\u5ba1\u6838",
+        "postTime": 1574600633,
+        "uid": 115359,
+        "name": "phigy",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 P5681 \u3010\u9762\u79ef\u3010\u6c11\u95f4\u6570\u636e\u3011\u3011"
+    },
+    {
+        "content": "**~~\u8bf4\u5b9e\u8bdd\u8fd9\u5c31\u662f\u4e00\u9053\u6c34\u9898\u3002~~**\n\n\u6ce8\u610f\u51e0\u4e2a\u70b9\uff1a\n\n1.\u53d8\u91cf\u5b9a\u4e49\u6210**long long**\uff08\u4e0d\u5f00ll\u89c1\u7956\u5b97\uff09\n\n2.\u201c\u8f93\u51fa\u4ec5\u4e00\u884c\u4e00\u4e2a\u5b57\u7b26\u4e32\uff0c\u82e5\u6b63\u65b9\u5f62\u9762\u79ef\u5927\u5219\u8f93\u51fa Alice\uff0c\u5426\u5219\u8f93\u51fa Bob\u3002\u201d\u5206\u6790\u4e00\u4e0b\uff0c\u53ef\u4ee5\u770b\u51fa\u5982\u679c\u4e00\u6837\u5927\u4e5f**\u662f\u8f93\u51fa Bob**\n\nAC\u4ee3\u7801\n```cpp\n#include<bit/stdc++.h>//\u65e5\u5e38\u6363\u86cb\n#include<con>//\u65e5\u5e38\u6363\u86cb*2\n#include</dev/console>//\u65e5\u5e38\u6363\u86cb*3\nusing namespace std;\nint main(){\n\tlong long a,b,c;\n\tcin>>a>>b>>c;\t\n\tcout<<(a*a>b*c?\"Alice\":\"Bob\")<<endl;//a*a\u6bd4b*c\u5927\u5c31\u8fd4\u56de\u201cAlice\u201d\u5426\u5219\u8fd4\u56de\u201cBob\u201d\n\treturn 0;\n}\n\n```\n~~~~",
+        "postTime": 1574600237,
+        "uid": 47400,
+        "name": "yqm2007",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P5681 \u3010\u9762\u79ef\u3010\u6c11\u95f4\u6570\u636e\u3011\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\n\n\u6211\u662f\u7b2c\u4e00\u4e2a\u63d0\u4ea4\u54d2\uff01\n\n\n\n~~\u5176\u5b9e\u662f\u4e0a\u8bfe\u65f6\u65e0\u610f\u4e2d\u53d1\u73b0\u7684~~\n\n\n\u6570\u636e\u8303\u56f4\u662f10^9\n\n\u90a3\u4e48\u7528ull\u5b8c\u5168\u6ca1\u95ee\u9898\n\n\u4e0a\u4ee3\u7801\uff01\n\n```cpp\n#include<iostream>\nunsigned long long a,b,c;\nint main()\n{\n\tstd::cin>>a>>b>>c;\n\tif(a*a>b*c)std::cout<<\"Alice\";//\u6bd4\u8f83\n\telse std::cout<<\"Bob\";//\u5426\u5219\u8f93\u51fabob\n\treturn 0;//\u597d\u4e60\u60efqwq\n}\n```\n\u4f46\u662f\uff01\n\n\u7b2c\u4e00\u6b21\u4ea4\u7684\u65f6\u5019\u662f40\u5206\uff01\n\n\u8fc7\u4e86\u4e00\u4f1a\n\n\u6211\u65e0\u6743\u67e5\u770b\u8be5\u9898\u76ee\u4e86\u3002\u3002\u3002\n\n\u4e0b\u8bfe\u8ddf\u540c\u5b66\u8ba8\u8bba\n\n\u539f\u6765\u662f\u6570\u636e\u7684\u95ee\u9898\u3002\u3002\u3002\n\n\u7b2c\u4e8c\u6b21\u63d0\u4ea4\uff0cAC\u4e86\n\n\u6240\u4ee5\u8bf7\u653e\u5fc3\u98df\u7528\uff01\n\nthe end\n",
+        "postTime": 1574595457,
+        "uid": 174702,
+        "name": "SCP_233",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P5681 \u3010\u9762\u79ef\u3010\u6c11\u95f4\u6570\u636e\u3011\u3011"
+    },
+    {
+        "content": "## \u4f5c\u4e3a _**\u6c5f\u897f**_ \u8003\u751f\uff0c\u8003\u524d\u4e00\u5929\u77e5\u9053\u7528Linux\uff0c\u7535\u8111\u84dd\u5c4f\u4e5f\u5c31\u7b97\u4e86\u3002\n\u5c45\u7136\u8fd8\u628a\u4ee3\u7801\u5f04\u4e22\u4e86\uff0c**~~\u6211\u4e5f\u662f\u65e0\u8bed~~**\u3002\n\u5509\uff0c\u8003\u8bd5\u65f6\u4e3a\u4e86\u8868\u73b0\u6211\u7684\u91cd\u89c6\uff0c\u6ca1\u7528else\n\u8fd8\u5728\u7422\u78e8\u7b49\u4e8e\u600e\u4e48\u529e\uff0c\u5374\u778e\u4e86\u773c\u3002\n _\n\n------------\n\u5509~_ \n```cpp\n#include<iostream>\n#include<cstdio>\n#include<cstring>\nusing namespace std;\nint main(){  \n  //freopen(\"area.in\",\"r\",stdin);\n   //freopen(\"area.out\",\"w\",stdout);\n   unsigned long long a,b,c;   \n cin>>a>>b>>c;   \n if(a*a>b*c)    \n\ncout<<\"Alice\";   \nelse   \n cout<<\"Bob\";\n return 0;\n}\n```\n\n\n------------\n\u6ce8\u610f\uff0c\u8981\u6309\u9898\u610f\u6765\u554a\uff0c\u554a\u554a\u554a\uff0c\u554a\u554a\u554a\u554a\u554a\t\uff01\uff01\uff01",
+        "postTime": 1574594449,
+        "uid": 221422,
+        "name": "cjj_",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P5681 \u3010\u9762\u79ef\u3010\u6c11\u95f4\u6570\u636e\u3011\u3011"
+    },
+    {
+        "content": "# \u53ef\u601c\u7684\u6c5f\u897f\n\n------------\nok,\u4eca\u5e74\u65e0\u8bba\u662f\u6c5f\u897f\u7684\u8003\u8bd5\u8fd8\u662f\u6b63\u6d3eCSP-J\u7684T1\u4e0e\u5f80\u5e74\u76f8\u6bd4\u90fd\u662f\u8f83\u6c34\u7684\n## \u53d1\u8a93\uff1a\u5199\u51fa~~\u849f\u84bb~~\u7f16\u7a0b\u5c0f\u767d\u4e5f\u770b\u5f97\u61c2\u7684\u9898\u89e3\n\u9996\u5148\u5206\u6790\u9898\u76ee\uff0c\u76f8\u4fe1\u4f1a\u6570\u5b66\u7684\u4eba\u90fd\u61c2\uff1a\n```\n\u6b63\u65b9\u5f62\u9762\u79ef\u516c\u5f0f\uff1a\nS=a\u7684\u5e73\u65b9\n```\n```\n\u957f\u65b9\u5f62\u9762\u79ef\u516c\u5f0f\uff1a\nS=ab\n```\n## \u5199\u4e0b\u7a0b\u5e8f\u5982\u4e0b\uff1a\n```\n#include<iostream>\n#include<cstdio>\nusing namespace std;\nint main()\n{\n\tint a,b,c;\n\tcin>>a>>b>>c;\n\tif(a*a>b*c)\n\t{\n\t\tcout<<\"Alice\";\n\t}\n\telse\n\t{\n\t\tcout<<\"Bob\";\n\t}\n\treturn 0;\n}\n```\n\n\u6d4b\u51e0\u4e2a\u70b9\u90fd\u6ca1\u5565\u95ee\u9898\uff0c\u518d\u770b\u6570\u636e\u8303\u56f4\uff1a\n## \u5bf9\u4e8e 100% \u7684\u6570\u636e\uff0c1\u2264a,b,c\u226410\u76849\u6b21\u65b9\nint\u7c7b\u578b\u6700\u5927\u503c\u7ea6\u4e3a2100000000\uff0c10\u76849\u6b21\u65b9\u7684\u5e73\u65b9\u4f1a\u8d85\u51fa\u8303\u56f4\n## \u4f18\u5316\u5982\u4e0b\uff1a\n```\n#include<iostream>\n#include<cstdio>\nusing namespace std;\nint main()\n{\n\tlong long a,b,c;\n\tcin>>a>>b>>c;\n\tif(a*a>b*c)\n\t{\n\t\tcout<<\"Alice\";\n\t}\n\telse\n\t{\n\t\tcout<<\"Bob\";\n\t}\n\treturn 0;\n}\n```\n## PS\uff1a\u8003\u8bd5\u8981\u5199freopen\uff0c\u4eba\u540d\u9996\u5b57\u6bcd\u8981\u5927\u5199\uff01\uff01\n",
+        "postTime": 1574589551,
+        "uid": 104118,
+        "name": "Weltschmerz",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P5681 \u3010\u9762\u79ef\u3010\u6c11\u95f4\u6570\u636e\u3011\u3011"
+    },
+    {
+        "content": "## \u90a3\u4e48\u6c34\u7684\u9898\u6ca1\u6709\u9898\u89e3\uff1f\n\n\u8fd8\u662f\u6211\u592a\u5f31\u4e86\uff1f\n\n\u8fd9\u9053\u9898\u53ea\u8981\u7528unsigned long long\u5c31AC\u4e86\n\n\u4e5f\u6ca1\u4ec0\u4e48\u597d\u8bb2\uff0c\u6a21\u62df\u4e00\u4e0b\u5c31\u53ef\u4ee5\u4e86\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n\tunsigned long long a,b,c,s1,s2;\n\tcin>>a>>b>>c;\n\ts1=a*a;\n\ts2=b*c;\n\tif(s1>s2) cout<<\"Alice\";\n\telse cout<<\"Bob\";\n\treturn 0;\n}\n```\n",
+        "postTime": 1574583335,
+        "uid": 112521,
+        "name": "williamllk",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 P5681 \u3010\u9762\u79ef\u3010\u6c11\u95f4\u6570\u636e\u3011\u3011"
+    },
+    {
+        "content": "JX\u666e\u53caT1\uff0c\u5f88\u6c34\u7684\u4e00\u9053\u9898\uff0c\u521d\u5b66OI\u7684\u849f\u84bb\u5e94\u8be5\u4e5f\u4f1a\u505a\uff0c\u8981\u6ce8\u610f**\u5f00LongLong**\uff01\uff01\uff01\n\n~~**\u4e0d\u5f00LongLong\u89c1\u7956\u5b97**~~\n#### Code\uff1a\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nlong long n,ans;//\u91cd\u70b9\uff01\uff01\uff01\nint main()\n{\n\tlong long a,b;\n  \tcin>>n>>a<<b;//!!!\u2211(\uff9f\u0414\uff9f\u30ce)\n    //\u30ce(\u30fb\u03c9<)\u00a0\u3066\u3078\u307a\u308d\n\tif(n*n>a*b)//\u9762\u79ef\u516c\u5f0f\n\t{\n\t\tcout<<\"Alice\";//Alice\u6bd4Bob\u5927\n\t}\n\telse\n\t{\n\t\tcout<<\"Bob\";\\\\Alice\u6bd4Bob\u5c0f\n\t}\n\treturn 0;//\u534e\u4e3d\u7684\u7ed3\u675f\n}\n```\n _**~~\u5df2\u5f00\u9632\u6284\u88ad~~**_ ",
+        "postTime": 1574576876,
+        "uid": 284756,
+        "name": "\u62b9\u4e0d\u6389\u7684\u8f7b\u72c2",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P5681 \u3010\u9762\u79ef\u3010\u6c11\u95f4\u6570\u636e\u3011\u3011"
+    },
+    {
+        "content": "   \u8fd9\u9053\u9898\u53ef\u8c13\u662f\u6c34\u9898\u4e2d\u7684\u6218\u6597\u673a\u4e86\uff0c\u6211\u4eec\u53ea\u9700\u8981\u6bd4\u8f83\u4e24\u4e2a\u56fe\u5f62\u7684\u9762\u79ef\u5373\u53ef\u3002\u8bdd\u4e0d\u591a\u8bf4\uff0c\u4e0a\u4ee3\u7801\uff1a\n```cpp\n#include<iostream>\n#include<cstdio>\n#include<cstring>\n\nusing namespace std;\nlong long a,b,c;//\u4e0d\u5f00longlong\u4f1a\u7206 \nunsigned long long qwqa,qwqbc;//\u4fdd\u9669\u8d77\u89c1 \nstring ans;//\u7b54\u6848 \n\nint main()\n{\n\tcin>>a>>b>>c;\n\tqwqa=a*a;\n\tqwqbc=b*c;\n\tans=qwqa>qwqbc?\"Alice\":\"Bob\";//\u4e09\u76ee\u8fd0\u7b97\u7b26 \n\tcout<<ans;\n\treturn 0;\n}\n```\n\u4ee3\u7801\u4e2d17\u884c\u7528\u5230\u4e86\u4e09\u76ee\u8fd0\u7b97\u7b26\uff0c\u7b49\u540c\u4e8e\n```cpp\nif(qwqa>qwqbc)\nans=\"Alice\";\nelse\nans=\"Bob\";\n```\n\u8fd9\u6837\uff0c\u6211\u4eec\u5c31AC\u4e86\u8fd9\u9053~~\u6bd2\u7624~~\u6c34\u9898",
+        "postTime": 1574575114,
+        "uid": 86671,
+        "name": "\u72ec\u5b64\u67ad\u71d5",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P5681 \u3010\u9762\u79ef\u3010\u6c11\u95f4\u6570\u636e\u3011\u3011"
+    },
+    {
+        "content": "\u9898\u76ee\u94fe\u63a5\uff1ahttps://www.luogu.org/problem/P5681\n\n\u4e00\u9053\u975e\u5e38\u7b80\u5355\u7684\u5165\u95e8\u9898\uff08\u7ea2\u9898\uff09\u3002\n\n\u8003\u70b9\uff1a\u6761\u4ef6\u8bed\u53e5\uff08if-else)\u3002\u3010\u4f60\u82e5\u8fd8\u4e0d\u4f1a\u8bf7\u770b\uff1ahttps://blog.csdn.net/Lemon_Yark/article/details/88861321\u3011\n\n\u6ce8\u610f\u70b9\uff1a\n\u6b64\u9898\u4e2d1\u2264a,b,c\u226410\u76849\u6b21\u65b9\uff0c\u8fd9\u9053\u9898\u8981\u7528long long\u3002\n\n\n\u8bdd\u4e0d\u591a\u8bf4\u76f4\u63a5\u4e0a\u4ee3\u7801\uff1a\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nlong long a, b, c;\nlong long ans1, ans2;\nint main() {\n\tcin>>a>>b>>c;\n\tans1=a*a;\n\tans2=b*c;\n\tif(ans1>ans2) cout<<\"Alice\"<<endl;\n\telse cout<<\"Bob\"<<endl;\n\treturn 0;\n}\n```\n\n\n\u9884\u795d\u5404\u4f4dCSP2019 RP++\n",
+        "postTime": 1574574698,
+        "uid": 117512,
+        "name": "hutianyu",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P5681 \u3010\u9762\u79ef\u3010\u6c11\u95f4\u6570\u636e\u3011\u3011"
+    },
+    {
+        "content": "\u4e3a\u4ec0\u4e48\u8fd9\u4e48~~\u6c34~~\u7684\u9898\u8fd8\u6ca1\u6709\u4eba\u53d1\u9898\u89e3\u2026\u2026\n\n\u9898\u76ee\u7684\u610f\u601d\u5c31\u662f\u7ed9\u4f60$a,b,c$\u4e09\u4e2a\u6570\uff0c\u8ba9\u4f60\u5224\u65ad$a \\times a$\u548c$b\\times c$\u7684\u5927\u5c0f\uff0c\u5176\u4e2d$a,b,c \\le 10^9$\u3002\n\n\u5927\u591a\u6570\u4eba\u770b\u5230$10^9$\u4f30\u8ba1\u5c31\u662f\u81ea\u95ed\u4e86\uff0c\u4f46\u662f\u82e5$a = b = c = 10^9$\u65f6\uff0c$a\\times a$\u548c$b\\times c$\u662f\u53ef\u4ee5\u88abunsigned long long\u5b58\u4e0b\u7684\u3002\n\n\u4e8e\u662f\u8fd9\u9898\u5c31\u5feb\u4e50\u7684\u505a\u5b8c\u4e86\u3002\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nunsigned long long sum1,sum2;\nunsigned long long a,b,c;//\u4e0d\u8fc7a,b,c\u4e5f\u8981\u5f00\u6210ull\uff0c\u4e0d\u7136\u4f1a\u7206\u3002\n\nint main()\n{\n\tscanf(\"%llu %llu %llu\",&a,&b,&c);\n\tsum1 = a * a;\n\tsum2 = b * c;\n\tif(sum1 <= sum2) {\n\t\tputs(\"Bob\");\n\t\texit(0);\n\t}\n\telse {\n\t\tputs(\"Alice\");\n\t\texit(0);\n\t}\n}\n```",
+        "postTime": 1574574160,
+        "uid": 86971,
+        "name": "TRZ_2007",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 P5681 \u3010\u9762\u79ef\u3010\u6c11\u95f4\u6570\u636e\u3011\u3011"
+    },
+    {
+        "content": "\u8003\u67e5\u70b9\uff1a`long long`\u7684\u4f7f\u7528\uff0c`if`\u8bed\u53e5\u7684\u4f7f\u7528\uff0c\u6b63\u65b9\u5f62\u548c\u957f\u65b9\u5f62\u7684\u9762\u79ef\n\n\u6b63\u65b9\u5f62\u7684\u9762\u79ef\u516c\u5f0f\u4e3a$S=a^2$\uff0c\u957f\u65b9\u5f62\u7684\u9762\u79ef\u516c\u5f0f\u4e3a$S=ab$\uff0c\u6839\u636e\u8fd9\u4e24\u4e2a\u516c\u5f0f\u5206\u522b\u8ba1\u7b97\u51faAlice\u7684\u6b63\u65b9\u5f62\u7684\u9762\u79ef\u548cBob\u7684\u957f\u65b9\u5f62\u7684\u9762\u79ef\u518d\u4f7f\u7528`if`\u8bed\u53e5\u6bd4\u8f83\u5373\u53ef\u3002\u6ce8\u610f$1\\leq a,b,c \\leq 10^9$\uff0c\u9700\u8981\u4f7f\u7528`long long`\u3002\n\u4ee3\u7801\u5982\u4e0b\uff1a  \n```cpp\n#include <cstdio>\n\nint main()\n{\n    long long a, b, c;\n    scanf(\"%lld%lld%lld\", &a, &b, &c);\n    if (a*a > b*c)\n        printf(\"Alice\\n\");\n    else \n        printf(\"Bob\\n\");\n    return 0;\n}\n```",
+        "postTime": 1574573225,
+        "uid": 84282,
+        "name": "andyli",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 P5681 \u3010\u9762\u79ef\u3010\u6c11\u95f4\u6570\u636e\u3011\u3011"
+    },
+    {
+        "content": "#### \u8fd9\u9898\u633a\u597d\u7406\u89e3\u7684\uff0c\u53ea\u8981\u7b97\u51fa\u6b63\u65b9\u5f62\u548c\u77e9\u5f62\uff08\u957f\u65b9\u5f62\uff09\u7684\u9762\u79ef\n#### \u7136\u540e\u8fdb\u884c\u6bd4\u8f83\u5c31\u884c\u4e86\n\n**\u6211\u7684\u4ee3\u7801**\n\n```\n#include<iostream>\nusing namespace std;\nlong long a,b,c;\nint main()\n{\n\tcin>>a>>b>>c; //\u8f93\u5165\n\tif(a*a>b*c)   //\u6bd4\u8f83\u4e24\u4e2a\u56fe\u5f62\u5927\u5c0f\n\tcout<<\"Alice\"<<endl;  //\u6b63\u65b9\u5f62\u5927\u8f93\u51fa\n\telse  //\u5426\u5219\n\tcout<<\"Bob\"<<endl;  //\u8f93\u51fa\n\treturn 0;   //\u7ed3\u675f\n}\n```\n",
+        "postTime": 1574570606,
+        "uid": 211682,
+        "name": "wjmqwq",
+        "ccfLevel": 3,
+        "title": "\u9898\u89e3 P5681 \u3010\u9762\u79ef\u3011"
+    },
+    {
+        "content": "\u770b\u4e86\u4e0b\u6570\u636e\u8303\u56f4\uff0c\u4e3a\u4e86\u786e\u4fdd\u4e0d\u4f1a\u70b8\uff0c\u5f00\u4e2aull\u603b\u662f\u4e07\u65e0\u4e00\u5931\u7684\u3002\n\n\u601d\u8def\u5f88\u7b80\u5355\uff0c\u5148\u8f93\u5165\u4e09\u4e2a\u6570a,b,c,\u518d\u5224\u65ada\u00b2\u4e0eb*c\u5927\u5c0f\u5173\u7cfb\uff0c\u6b63\u65b9\u5f62\u9762\u79ef\u5927\u8f93\u51faAlice\uff0c\u957f\u65b9\u5f62\u9762\u79ef\u5927\u8f93\u51faBob\u5373\u53ef\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main( )\n{\n    unsigned long long a,b,c;\n    cin>>a>>b>>c;\n    if(a*a>b*c) cout<<\"Alice\"<<endl;\n    else cout<<\"Bob\"<<endl;\n    return 0;\n}\n```\n\u5e0c\u671b\u5bf9\u5927\u5bb6\u6709\u5e2e\u52a9",
+        "postTime": 1574565707,
+        "uid": 189012,
+        "name": "SKTelecomT1_Faker",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P5681 \u3010\u9762\u79ef\u3010\u6c11\u95f4\u6570\u636e\u3011\u3011"
+    },
+    {
+        "content": "\u957f\u65b9\u5f62\u9762\u79ef\u516c\u5f0f\uff1a\u957f\u4e58\u5bbd\n\n\u6b63\u65b9\u5f62\u9762\u79ef\u516c\u5f0f\uff1a\u8fb9\u957f\u4e58\u8fb9\u957f\n\n\u76f4\u63a5\u5224\u65ad\u54ea\u4e2a\u5927\u5c31\u884c\n\n\uff01\uff01\uff01\u4e0d\u5f00longlong\u89c1\u7956\u5b97\n\n\u4ee3\u7801\uff1a\n```\n#include <bits/stdc++.h>\nusing namespace std;\nint main(){\n\tlong long a,b,c;\n\tcin>>a>>b>>c;\n\tif(a*a>b*c){\n\t    cout<<\"Alice\";\n\t}else{\n\t    cout<<\"Bob\";\n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1574569985,
+        "uid": 183681,
+        "name": "yc\u6768\u6668\u5927\u5bb6\u597d",
+        "ccfLevel": 3,
+        "title": "\u9898\u89e3 P5681 \u3010\u9762\u79ef\u3010\u6c11\u95f4\u6570\u636e\u3011\u3011"
+    }
+]

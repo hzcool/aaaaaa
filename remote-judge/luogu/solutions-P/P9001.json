@@ -1,0 +1,10 @@
+[
+    {
+        "content": "## \u8fd9\u662f\u4f60\u5e76\u67e5\u96c6\u2014\u2014\n\n[~~\u6982\u5ff5\u8be6\u89c1oiwiki~~](https://oi-wiki.org//ds/dsu/)\n\n\u4e00\u4e2a\u6709\u610f\u601d\u7684\u89c6\u9891\n\n![](bilibili:BV14E411F7bb)\n\n## P3367 \u3010\u6a21\u677f\u3011\u5e76\u67e5\u96c6\n\n\u9898\u610f\uff1a\u6211\u4eec\u9700\u8981\u6a21\u62df\u51fa\u4e00\u4e2a _\u5e76\u67e5\u96c6_ \u7684\u6570\u636e\u7ed3\u6784\uff0c\u652f\u6301 \n\u5408\u5e76\u548c\u67e5\u627e\u4e24\u79cd\u64cd\u4f5c\u3002\n\n\u8be6\u89c1\u4ee3\u7801\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint a[10001];          //a\u5b58\u6bcf\u4e2a\u8282\u70b9\u7684\u7956\u5148\nvoid init(int n)       //\u521d\u59cb\u5316\uff1a\u6bcf\u4e2a\u8282\u70b9\u7684\u7956\u5148\u90fd\u662f\u81ea\u5df1\n{\n  for(int i=1; i<=n; i++)\n    a[i]=i;\n}\nint find(int y)        //\u627ey\u7684\u7956\u5148   \n{\n  if(a[y]==y)          //y\u7684\u7956\u5148\u662fy\u8bf4\u660ey\u662f\u8f93\u5165\u7684\u7956\u5148\n  {\n    return y;\n  }\n  else\n  {\n    return a[y]=find(a[y]);\n    \t\t       //\u5426\u5219\u9012\u5f52\u4e0b\u4e00\u5c42\n   }\n}\nint main()\n{\n  int n,m,p,x,y,z;  \n  cin>>n>>m;\n  init(n);\n  for(int i=1; i<=m; i++)\n  {\n    cin>>z>>x>>y;\n    if(z==1)          //\u64cd\u4f5c1\n      a[find(y)]=find(x);\n    else if(find(x)!=find(y)) //\u64cd\u4f5c2\n    {\t\t     \n      cout<<'N'<<endl;\n    }\n    else\n    {\n      cout<<'Y'<<endl;\n  }\n  return 0;\n}\n\n```\n",
+        "postTime": 1681605620,
+        "uid": 658619,
+        "name": "Pretentious_Frog",
+        "ccfLevel": 0,
+        "title": "\u5e76\u67e5\u96c6\u7684~\u79d8\u5bc6~"
+    }
+]

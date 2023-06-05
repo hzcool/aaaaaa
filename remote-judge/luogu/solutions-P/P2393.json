@@ -1,0 +1,154 @@
+[
+    {
+        "content": "\u6559\u5927\u5bb6\u4e00\u79cd\u4e0d\u7528\u5faa\u73af\u7684\u65b9\u6cd5\uff0c\u4e3b\u51fd\u6570\uff0c\u662f\u53ef\u4ee5\u9012\u5f52\u7684\uff0c\u4e0a\u4ee3\u7801\n\n```cpp\n#include<cstdio>\nlong double a,sum;//long double \u4fdd\u8bc1\u7cbe\u5ea6\u6ca1\u6bdb\u75c5\nint main()\n{\n    if(scanf(\"%Lf\",&a)!=EOF)\n    {\n        sum+=a*1000000;//\u53bb\u9664\u5c0f\u6570\u90e8\u5206\uff0c\u76f4\u63a5\u4e58\uff0c\u53d8\u6210\u6574\u6570\n        main();//\u6838\u5fc3\u4ee3\u7801 \n    }\n    else printf(\"%.5Lf\",sum/1000000);//\u9664\u56de\u6765\n    return 0;\n}\n```",
+        "postTime": 1506345239,
+        "uid": 7019,
+        "name": "\u300e\u3000\u300f",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P2393 \u3010yyy loves Maths II\u3011"
+    },
+    {
+        "content": "\u8fd9\u9898\u76ee\u4e3b\u4f53\u505a\u6cd5\u6bd4\u8f83\u663e\u7136\uff0c\u628a\u6240\u6709\u6570\u8bfb\u8fdb\u53bb\u518d\u52a0\u8d77\u6765\u8f93\u51fa\uff0c\u4f46\u7cbe\u5ea6\u8981\u6c42\u6709\u70b9\u9ad8(\u6ce8\u610flong double\u662f%Lf\u4e0d\u662f%lf)\n\n\u5176\u4e2d\u4e00\u4e2a\u95ee\u9898\u662f\u4e0d\u77e5\u9053\u6709\u591a\u5c11\u6570\n\n\u8981\u6ce8\u610fscanf\u5931\u8d25\u8fd4\u56de\u503c\u662f-1\uff0ccin\u5931\u8d25\u8fd4\u56de\u503c\u662f0\n```cpp\n#include<cstdio>\nusing namespace std;\nlong double yu=0,su;\nint main(){\n    while(scanf(\"%Lf\",&su)!=-1)yu+=su;\n    printf(\"%.5Lf\",yu);\n    return 0;\n}\n```\n\u8fd9\u4e2a\u4ee3\u7801\u5f9780\u5206\uff0c\u9519\u8bef\u51fa\u572818\u548c20\u5217\uff08\u5f88\u9760\u540e\uff09\uff0c\u5927\u6982\u8fd8\u662f\u7cbe\u5ea6\u95ee\u9898\n\n\u778e\u6253\u4e00\u4e2a\u4ee3\u7801\u6d4b\u8bd5\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n    long double yu=12456484332.123456;\n    printf(\"%Lf\",yu);\n    return 0;\n}\n```\n\u5728\u7ebfide\u7ed3\u679c\u4e3a12456484332.123455\uff0c\u5c0f\u6570\u90e8\u5206\u6709\u6bdb\u75c5\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n    long double yu=12456484332123456;\n    printf(\"%Lf\",yu/1000000);\n    return 0;\n}\n```\n\u6b63\u5e38\u4e8612456484332.123456\n\n\u6240\u4ee5\u5c31\u51b3\u5b9a\u4e0d\u8981\u628a\u4e1c\u897f\u653e\u5728\u5c0f\u6570\u90e8\u5206\n```cpp\n#include<cstdio>\n//\u8fd8\u662f\u4e0d\u60f3\u5199\u56db\u820d\u4e94\u5165\nusing namespace std;\nlong double yu=0,su;\nint main(int spcmdxp/*nonsense*/){\n    while(scanf(\"%Lf\",&su)!=-1)yu+=su*1000000;\n    printf(\"%.5Lf\",yu/1000000);\n    return 0;\n}\n```\n\u7ec8\u4e8eAC\u4e86",
+        "postTime": 1531294751,
+        "uid": 71824,
+        "name": "spcmdxp",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P2393 \u3010yyy loves Maths II\u3011"
+    },
+    {
+        "content": "## \u9898\u89e3 P2393 \uff08\u7ed9\u521d\u5b66\u8005\u770b\u7684\uff0c\u5927\u4f6c\u52ff\u55b7\uff09\n#### **\u601d\u8def**\uff1a\u9996\u5148\u8981\u8ba1\u7b97\u5f88\u591a\u6570\u7684\u548c\uff0c\u9898\u76ee\u4e2d\u5e76\u6ca1\u6709\u8bf4\u662f\u591a\u5c11\u4e2a\u6240\u4ee5\u8981\u505a\u4e00\u4e2a\u6b7b\u5faa\u73af\uff0c\u4e00\u76f4\u5faa\u73af\u8f93\u5165\u76f4\u5230\u6572\u56de\u8f66\u3002\n```\n#include<bits/stdc++.h>\nusing namespace std;\ndouble S,T;\nint main()\n{\n    while((cin>>T)!=0)\n    {\n    \tS+=T*1000000;//\u53bb\u9664\u5c0f\u6570\u90e8\u5206\uff0c\u76f4\u63a5\u4e58\uff0c\u53d8\u6210\u6574\u6570\n\t}\n    cout<<fixed<<setprecision(5)<<S/1000000;//\u8fd9\u4e2a\u521d\u5b66\u8005\u53ef\u80fd\u770b\u4e0d\u61c2\uff0c\u76f8\u5f53\u4e8eprintf\uff08\"%.5lf\",s/1000000\uff09\u3002\n    return 0;\n } \n```\n####  - \u7136\u800c\u53ea\u670970\u621680\u5206\uff0c\u8fd9\u662f\u4e3a\u4ec0\u4e48\uff0c\u56e0\u4e3a\u7cbe\u5ea6\u53ef\u80fd\u4f1a\u51fa\u6bdb\u75c5\u3002\u6240\u4ee5\u8981\u7528long double \u4fdd\u8bc1\u7cbe\u5ea6\u6ca1\u6bdb\u75c5\nAC\u4ee3\u7801 \u4f9b\u53c2\u8003 \nS=ans\uff0cT=tmp\n```\n#include<bits/stdc++.h>\nusing namespace std;\nlong double S,T;\nint main()\n{\n    while((cin>>T)!=0)\n    {\n    \tS+=T*1000000;\n\t}\n    cout<<fixed<<setprecision(5)<<S/1000000;;\n    return 0;\n } \n```\n#### \u8c22\u8c22\u5404\u4f4d\u5927\u4f6c\u5bf9\u672c\u4eba\u7684\u5173\u5fc3\uff01\uff01\uff01",
+        "postTime": 1566442482,
+        "uid": 204220,
+        "name": "jinruihai_2006",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P2393 \u3010yyy loves Maths II\u3011"
+    },
+    {
+        "content": "\u8fd9\u662f\u672c\u849f\u84bb\u53d1\u5e03\u7684\u7b2c\u4e00\u7bc7\u9898\u89e3\uff0c\u5982\u6709\u4e0d\u8db3\u4e4b\u5904\uff0c\u8fd8\u8bf7\u591a\u591a\u6307\u6559\uff01Thanks\u266a(\uff65\u03c9\uff65)\uff89\uff01\n\n\u597d\uff0c\u73b0\u5728\u6765\u8bb2\u4e00\u4e0b\u4e3b\u8981\u7684\u601d\u8def\uff1a\n* \u8bfb\u5165\u6570\u636e\n* \u8bfb\u5165\u7684\u540c\u65f6\u7d2f\u52a0\n* \u8f93\u51fa\u7b54\u6848\n\n# \u65b9\u6cd5\u4e00\uff1a\u4f7f\u7528scanf()\u51fd\u6570\uff08\u4e0d\u592a\u9002\u5408\u65b0\u624b\uff09\n\u90a3\u8fd9\u91cc\u4e3a\u4e86\u5e2e\u52a9\u840c\u65b0\uff0c\u6211\u5c31\u4ecb\u7ecd\u4e00\u4e0bscanf()\u51fd\u6570\uff1a\n\n* \u4ed6\u662f\u6709\u8fd4\u56de\u503c\u7684\n* \u5b83\u7684\u8fd4\u56de\u503c\u67092\u79cd\n* \u5982\u679c\u7ed3\u675f\u4e86\uff0c\u4f1a\u8fd4\u56de\u5e38\u6570EOF\uff0c\u4e5f\u5c31\u662f-1\n* \u4e0a\u9762\u662f\u4e00\u79cd\uff0c\u53e6\u5916\u4e00\u79cd\u4fbf\u662f\u8fd4\u56de\u6210\u529f\u8f93\u5165\u7684\u4e2a\u6570\n\n\u8fd9\u662f\u9053\u7b80\u5355\u7684\u5165\u95e8\u9898\uff0c\u6211\u4eec\u6709\u4e86\u601d\u8def\uff0c\u4fbf\u53ef\u4ee5\u5f97\u51fa\u7b2c\u4e00\u7248\u4ee3\u7801\uff1a\n```cpp\n#include<cstdio>\nlong double ans,tmp;\nint main()\n{\n\twhile((scanf(\"%Lf\",&tmp))!=EOF)\n\t{\n\t\tans+=tmp;\n\t} \n\tprintf(\"%.5Lf\",ans);\n\treturn  0;\n}\n```\n**\u6ce8\u610f\uff01scanf()\u51fd\u6570\u8f93\u5165long double\u662f\u201c%Lf\u201d\uff0c\u800c\u4e0d\u662f\u201c%llf\u201d**\n\n\u7136\u800c\u4ea4\u4e0a\u53bb\u540e\uff1a\u4ee3\u7801\u53ea\u670980\u5206\uff01\n\u90a3\u662f\u56e0\u4e3a\u5c0f\u6570\u7684**\u7cbe\u5ea6\u95ee\u9898**\uff01\u5f88\u591a\u4eba\u5728NOIP\u90fd\u4f1a\u72af\u8fd9\u6837\u7684\u9519\u8bef\uff01\n\u65e2\u7136\u5982\u6b64\uff0c\u6211\u4eec\u4fbf\u5c06\u5b83\u5316\u6210\u6574\u6570\uff0c\u540e\u9762\u518d\u53d8\u56de\u6765\uff0c\u4e8e\u662f\u5c31\u6709\u4e86\u7b2c\u4e8c\u7248\u4ee3\u7801\uff1a\n```cpp\n#include<cstdio>\nlong double ans,tmp;\nint main()\n{\n\twhile((scanf(\"%Lf\",&tmp))!=EOF)//\u5224\u65ad\u662f\u5426\u7ed3\u675f\n\t{\n\t\tans+=tmp*1000000;//\u5316\u6210\u6574\u6570\uff0c\u9632\u6b62\u5c0f\u6570\u7684\u7cbe\u5ea6\u95ee\u9898\n\t} \n\tprintf(\"%.5Lf\",ans/1000000);//hey\uff0c\u6211\u518d\u53d8\u56de\u6765\uff01\n\treturn 0;\n}\n```\n\u73b0\u5728\u63d0\u4ea4\uff0c\u5b8c\u7f8eAC\uff01\n\n# \u65b9\u6cd5\u4e8c\uff1a\u4f7f\u7528cin\uff08\u840c\u65b0\u4e13\u7528\uff09\n**\u6ce8\u610f\uff1ascanf()\u8bfb\u5b8c\u8fd4\u56de-1\uff0c\u800ccin\u8fd4\u56de0\uff0c\u8981\u533a\u5206\u5f00\u6765**\n\u6839\u636e\u4e0a\u9762\u7684\u65b9\u6cd5\uff0c\u5426\u5219\u51fa\u73b0\u7cbe\u5ea6\u95ee\u9898\uff1a\n```cpp\n#include<iomanip>//cout\u4fdd\u7559\u5c0f\u6570\u9700\u4f7f\u7528\u6b64\u5e93\n#include<iostream>\nusing namespace std;\nlong double ans,tmp;\nint main()\n{\n\twhile((cin>>tmp)!=0)//\u5224\u65ad\u662f\u5426\u7ed3\u675f,\u53ef\u4ee5\u5316\u7b80\u6210while(cin>>tmp)\n\t{\n\t\tans+=tmp*1000000;\n\t} \n\tcout<<fixed<<setprecision(5)<<ans/1000000;//\u4f7f\u7528cout\u4fdd\u7559\u5c0f\u6570\n\treturn 0;\n}\n```\n\u5c31\u53ef\u4ee5\u6210\u529fAC\uff01\n\n\u4e5f\u8bb8\u6587\u7ae0\u6709\u70b9\u957f\uff0c\u4f46\u53ea\u662f\u4e3a\u4e86\u65b9\u4fbf\u521a\u6210\u4e3aOIer\u7684\u840c\u65b0\uff0c~~\u5e0c\u671b\u7ba1\u7406\u7ed9\u8fc7~~\uff0c\u611f\u8c22\u60a8\u7684\u9605\u8bfb\uff0c\u559c\u6b22\u4e0d\u59a8[\u6253\u5f00\u540e\u70b9\u4e00\u4e0b\u5173\u6ce8](https://www.luogu.org/space/show?uid=127722)\uff0c\u611f\u8c22\u60a8\u7684\u9605\u8bfb\uff01",
+        "postTime": 1566306234,
+        "uid": 127722,
+        "name": "chuangzhifake",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P2393"
+    },
+    {
+        "content": "C++ \u6269\u5c55\u4e2d\u6709\u4e00\u79cd\u795e\u5947\u7684\u4e1c\u897f\uff1a`__float128`\u3002\n\n\u6b63\u5982\u8fd9\u4e1c\u897f\u7684\u540d\u5b57\u4e00\u6837\uff0c\u5979\u662f $128$ \u4f4d\u6d6e\u70b9\u6570\uff01\n\n\u6240\u4ee5\uff0c\u76f4\u63a5\u7528\u5c31\u597d\u4e86\u3002\n\n\u7136\u800c\u8fd9\u4e1c\u897f\u5e76\u4e0d\u80fd\u7528 `scanf` \u548c `printf` \u6765\u8f93\u5165\u8f93\u51fa\uff0c\u6240\u4ee5\u5728\u8f93\u5165\u8f93\u51fa\u65f6\u9700\u8981\u8f6c\u6210 `long double`\u3002\n\nP.S\uff1aNOIP \u4e0d\u80fd\u7528\u7684\u3002  \nP.S.2\uff1a\u540c\u65f6\u8fd8\u6709 `__int128`\u3002\n\n```cpp\n#include <cstdio>\n\nint main() {\n    __float128 sum = 0;\n    for (long double x; ~scanf(\"%Lf\", &x); sum += x);\n    \n    printf(\"%.5Lf\\n\", (long double)sum);\n}\n```",
+        "postTime": 1539611307,
+        "uid": 5491,
+        "name": "STLGirlfriend",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P2393 \u3010yyy loves Maths II\u3011"
+    },
+    {
+        "content": "\u4f7f\u7528 **unsigned long long** \u5904\u7406\n\n\u628a\u6240\u6709\u8bfb\u5165\u7684\u6570\u636e\u540c\u65f6\u4e58\u4ee5 1000000 \u52a0\u8d77\u6765\n\n\u6700\u540e\u5224\u65ad\u4e00\u4e0b,\u56db\u820d\u4e94\u5165\n\n```cpp\n#include <cstdio>\n\ntypedef unsigned long long ULL;\n\nULL ans;\nchar s[105];\n\ninline ULL read(){\n\tULL d=0,f=0;\n\tint i=0,c=0;\n\twhile (s[i]<48 || 57<s[i]) i++;\n\twhile (47<s[i] && s[i]<58) d=(d<<1)+(d<<3)+(s[i++]&15);\n\tif (s[i]=='.') i++;\n\twhile (47<s[i] && s[i]<58) c++,f=(f<<1)+(f<<3)+(s[i++]&15);\n\twhile (c<6) c++,f=(f<<1)+(f<<3);\n\treturn d*1000000+f;\n}\n\nint main(){\n\twhile (scanf(\"%s\",s)!=EOF) ans+=read();\n\tif (ans%10>=5) ans/=10,ans++; else ans/=10;\n\tprintf(\"%llu.%05llu\\n\",ans/100000,ans%100000);\n\treturn 0;\n}\n```",
+        "postTime": 1526471149,
+        "uid": 26166,
+        "name": "\u6309Ctrl\u52a0w\u4f1aAC",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P2393 \u3010yyy loves Maths II\u3011"
+    },
+    {
+        "content": "# Python\u9898\u89e3\n\u672c\u9898\u4e2d\u7528\u5230\u4e86`decimal`\u6a21\u5757\uff0c\u5305\u542b\u4e00\u4e2a\u5b9a\u70b9\u9ad8\u7cbe\u5ea6\u5c0f\u6570\u7c7b\uff0c\u56e0\u6b64\u53ef\u4ee5\u4fdd\u8bc1\u7cbe\u5ea6\u3002\u8fd9\u4e2a\u6a21\u5757\u6709\u5f88\u591a\u4e30\u5bcc\u7684\u529f\u80fd\uff0c\u8fd9\u91cc\u53ea\u7528\u5230\u4e86\u6700\u57fa\u7840\u7684\u3002\n\n\u89e3\u51b3\u4e86\u7cbe\u5ea6\u95ee\u9898\u540e\u8fd9\u9053\u9898\u5c31\u975e\u5e38\u7b80\u5355\uff0c\u601d\u8def\u5c31\u4e0d\u591a\u8bf4\u4e86\u3002\n\nCode\uff1a\n```python\nfrom decimal import Decimal\ns = input().split()\nans = Decimal(0)\nfor i in s:\n    ans += Decimal(i)\nprint(\"{0:.5f}\".format(ans))\n```\n___\n### \u4f46\u662f\uff0c\u4e0a\u9762\u8fd9\u5206\u4ee3\u7801\u53ea\u80fd\u5f97\u523090\u5206\n___\n## Why?\n**\u539f\u56e0\u5c31\u51fa\u5728\u4e0d\u5408\u6cd5\u7684\u6d4b\u8bd5\u6570\u636e\u4e0a\u3002**\n\n\u5bf9\u8fd9\u4efd\u4ee3\u7801\u6765\u8bf4\uff0c\u6700\u6bd2\u7624\u7684\u6d4b\u8bd5\u6570\u636e\u6070\u6070\u662f`Case #1`\uff1a\n- \u8f93\u5165\uff1a\u7a7a\n- \u8f93\u51fa\uff1a`0.00000`\n\n\u539f\u56e0\u4e5f\u5f88\u597d\u7406\u89e3\uff0c\u5f53\u9047\u5230`EOF`\u65f6\uff0c`input()`\u65b9\u6cd5\u4f1a\u629b\u51fa`EOFError`\uff0c\u81ea\u7136\u4f1aRE\u3002\n\n\u6240\u4ee5\u8fd9\u91cc\u53c8\u8981\u7528\u5230`try... except`\u8bed\u53e5\uff0c\u5f53\u6355\u83b7\u5230`EOFError`\u65f6\uff0c\u76f4\u63a5\u8f93\u51fa`0.00000`\u3002\n\n#### ~~yyy dalao\u7684\u9898\u679c\u7136\u6bd2\u7624~~\n\n**\u5b8c\u6574\u4ee3\u7801\uff1a**\n```python\nfrom decimal import Decimal\ntry:\n    s = input().split()\nexcept EOFError:\n    print(\"0.00000\")\nelse:\n    ans = Decimal(0)\n    for i in s:\n        ans += Decimal(i)\n    print(\"{0:.5f}\".format(ans))\n```\n### \u5b8c\u7ed3\u6492\u82b1~\n",
+        "postTime": 1566392583,
+        "uid": 125032,
+        "name": "SerokSSR",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 P2393 \u3010yyy loves Maths II\u3011"
+    },
+    {
+        "content": "\u4e00\u79cd\u5f88\u6734\u7d20\u7684\u60f3\u6cd5\uff1a\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\ndouble sum=0,term;\nint main(int argc, char const *argv[])\n{\n    while(scanf(\"%lf\",&term)!=EOF) sum+=term;\n    printf(\"%.5f\\n\",sum);\n    return 0;\n}\n```\n\u7136\u9e45\u53ea\u670970\u5206\u3002\u3002\u3002\n\u663e\u7136\u662f\u7cbe\u5ea6\u4e0d\u591f\uff0cdouble\u53ea\u6709\u5927\u7ea617\u4f4d\u6709\u6548\u6570\u5b57\u3002\n\n\u73b0\u5728\uff0c\u6211\u4eec\u6709\u4e86\u4e00\u4e2a\u60f3\u6cd5\uff1a\u628asum* 10^6\u6362\u6210\u6574\u6570\uff0c\u7528\u9ad8\u7cbe\u5ea6\u5199\uff0c\u5728\u81ea\u5b9a\u4e49\u4e00\u4e2a\u8f93\u51fa\u51fd\u6570\uff1f\n\n\u53ef\u4ee5\u662f\u53ef\u4ee5\uff0c\u4e0d\u8fc7\u592a\u70e6\u4e86\u3002\n\n\u6211\u4eec\u7b97\u4e00\u4e0bsum\u7684\u6700\u5927\u503c=233333333\\*10^6\\* 50000=11666666650000000000;\n\nlog(2,sum)=63.339<64,\u5728unsigned long long\u8303\u56f4\u5185\u3002\n\n~~\u4e0d\u7528\u5199\u5403\u5c4e\u7684\u9ad8\u7cbe\u5ea6\u5566\uff01~~\n\n\u4e0b\u9762\u662fac\u4ee3\u7801\uff1a\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint BASE=1e6;\nunsigned long long sum=0;\ndouble term;\nint main(int argc, char const *argv[])\n{\n\twhile(scanf(\"%lf\",&term)!=EOF)\n\t{\n\t\tterm*=BASE;//\u6700\u591a\u516d\u4f4d\u5c0f\u6570\uff0c\u8f6c\u6210\u6574\u6570\n\t\tsum+=(unsigned long long)term;\n\t}\n\t//\u8981\u6c42\u6253\u53705\u4e3a\u5c0f\u6570\uff0c\u53bb\u6389\u6700\u540e\u4e00\u4f4d\n\tif(sum%10>=5) sum=sum/10+1;\n\telse sum=sum/10;\n\tBASE/=10;\n\t//%05llu\u8ba9\u4e0d\u8db3\u4e94\u4f4d\u5c0f\u6570\u7684\u90e8\u5206\u75280\u8865\u5168\n\tprintf(\"%llu.%05llu\\n\",sum/BASE,sum%BASE);\n\treturn 0;\n}\n```",
+        "postTime": 1517564446,
+        "uid": 77825,
+        "name": "acranker",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 P2393 \u3010yyy loves Maths II\u3011"
+    },
+    {
+        "content": "#P2393\u9898\u89e3\n\n\u6211\u7684\u505a\u6cd5\u6709\u4e9b\u590d\u6742\u3002\u4f7f\u7528\u81ea\u5b9a\u4e49Real\u7c7b\u3001\u5f02\u5e38\u629b\u51fa\uff1a\n\n```cpp\ntypedef long long LL;\ntypedef unsigned long long ULL;\ntypedef long double LD;\n\nstruct Real{\n    ULL i;// \u6574\u6570\u90e8\u5206\n    LD d; // \u5c0f\u6570\u90e8\u5206\n    Real(ULL i = 0, LD d = 0):i(i), d(d){}// \u6784\u9020\u51fd\u6570\n    // \u91cd\u8f7doperator +\uff0c\u8ba1\u7b97\u4e24\u4e2aReal\u4e4b\u548c\n    friend Real operator + (const Real& a, const Real& b){\n        LD d = a.d + b.d;\n        ULL i = a.i + b.i + (ULL)floor(d);\n        d -= floor(d);\n        return Real(i, d);\n    }\n    // \u91cd\u8f7d+=\n    Real operator += (const Real& rhs) {\n        return (*this) = (*this) + rhs;\n    }\n    // \u8f93\u51fa\u65b9\u6cd5\uff0c\u7528\u4e8e\u8f93\u51fa\u8be5\u6574\u6570\n    void print(){\n        static char buf[15];\n        sprintf(buf, \"%.5Lf\", d);\n        printf(\"%llu.%s\", i, buf + 2);\n    }\n};\n\nReal nextReal() throw(int) {\n    // \u8fd9\u91cc\u91c7\u7528\u5f02\u5e38\u7684\u65b9\u6cd5\u6765\u5224\u65ad\u662f\u5426\u8bfb\u5230\u6587\u4ef6\u5c3e\uff0c\u5982\u679c\u5230\u6587\u4ef6\u5c3e\u629b\u51fa\u4e00\u4e2a-1\n    Real ans;\n    int c;\n    do{\n        if((c = getchar()) == EOF)\n            throw -1;// \u629b\u51fa\u5f02\u5e38\n    }while(!isgraph(c));\n    if(c != '.'){\n        do{\n            ans.i = ans.i * 10 + c - '0';\n        }while(isdigit(c = getchar()));\n    }\n    LD base = 0.1L;// \u7b2c\u4e00\u4e2a\u8bfb\u5165\u7684\u662f\u5341\u5206\u4f4d\n    if(c == '.'){\n        while(isdigit(c = getchar())){\n            ans.d = ans.d + (c - '0') * base;\n            base *= 0.1;  // 0.1, 0.01, 0.001, ...\n        }\n    }\n    return ans;\n}\n\nint main(){\n    Real ans;\n    // \u5f02\u5e38\n    /* try{\n           A;\n       }catch{\n           B;\n       }\n       \u8868\u793a\uff1a\u6267\u884cA\uff0c\u5982\u679c\u6536\u5230\u5f02\u5e38\u6267\u884cB\u3002\n    */\n    try{\n        for(;;) ans += nextReal();\n    }catch(int){\n        // \u6b63\u5e38\u60c5\u51b5\u4e0d\u4f1a\u629b\u51fa\u5f02\u5e38\uff0c\u5982\u679c\u629b\u51fa\u53ea\u53ef\u80fd\u662fnextReal\u629b\u51fa-1\uff0c\u56e0\u6b64\u4e0d\u5fc5\u5224\u65ad\u629b\u51fa\u7684int\u662f\u591a\u5c11\n        ans.print();\n    }\n}\n\n```\n\u867d\u7136\u4ee3\u7801\u91cf\u5927\uff0c\u4f46\u903b\u8f91\u7b80\u5355\n",
+        "postTime": 1481428026,
+        "uid": 28372,
+        "name": "\u6c22\u6c27\u5316\u94efCsOH",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 P2393 \u3010yyy loves Maths II\u3011"
+    },
+    {
+        "content": "Java\u9898\u89e3\n\n\u7528BigDecimal\n\n\u76f4\u63a5\u8bfb\u5165\uff0c\u7136\u540e\u52a0\u8d77\u6765\u5c31\u597d\u4e86\n\n\u53ef\u4ee5\u7528DecimalFormat\u6765\u63a7\u5236\u8f93\u51fa\u683c\u5f0f\n\n```java\nimport java.util.Scanner;\nimport java.math.BigDecimal;\nimport java.text.DecimalFormat;\npublic class Main\n{\n    public static void main(String args[])\n    {\n        Scanner in=new Scanner(System.in);\n        BigDecimal tmp,ans=new BigDecimal(\"0\");\n        while(in.hasNext())\n        {\n            tmp=new BigDecimal(in.next());//\u4e0d\u8981\u7528nextBigDecimal\uff0c\u4e0d\u7136\u4f1a\u8d85\u65f6\n            ans=ans.add(tmp);\n        }\n        System.out.println(new DecimalFormat(\"0.00000\").format(ans));//5\u4f4d\u5c0f\u6570\n    }\n}\n```",
+        "postTime": 1564847442,
+        "uid": 110634,
+        "name": "zhanghengrui",
+        "ccfLevel": 9,
+        "title": "\u9898\u89e3 P2393 \u3010yyy loves Maths II\u3011"
+    },
+    {
+        "content": "\u8fd9\u4e2a\u65b9\u6cd5\u6ce8\u610f\u51e0\u4e2a\u70b9\n\n1\u3001\u8981\u7528long double\u800c\u4e0d\u80fd\u7528double\n\n2\u3001long double\u7684\u6807\u8bc6\u7b26\u4e3aLf\u800c\u4e0d\u662flf\n\n    \n```cpp\n#include<iostream>\n#include<cstdio>\n#include<cstdlib>\n#include<cstring>\n#include<string>\n#include<cmath>\n#include<algorithm>\n#include<queue>\n#include<stack>\n#include<set>\n#include<bitset>\n#define ll long long\n#define mod 1000000007\nusing namespace std;\nlong double a,ans=0;\nint main()\n{\n    while(scanf(\"%Lf\",&a)!=EOF){ans=ans+a*1000000;}\n    printf(\"%.5Lf\",ans/1000000);\n    return 0;\n}\n```",
+        "postTime": 1478219732,
+        "uid": 681,
+        "name": "worcher",
+        "ccfLevel": 9,
+        "title": "\u9898\u89e3 P2393 \u3010yyy loves Maths II\u3011"
+    },
+    {
+        "content": "\u6bd4\u8f83\u4f4e\u7ea7\u7684\u65b9\u6cd5\uff0c\u76f4\u63a5\u6269\u5927\u5ffd\u7565\u7cbe\u5ea6\u95ee\u9898\u2026\u2026\n\n```cpp\n#include<iostream>\n#include<cstdio>\nusing namespace std;\nlong double n,ans=0;\nint main()\n{\n    while(cin>>n){ans=ans+n*1000000;}//\u52a0\u5230\u6700\u7ec8\u7ed3\u679c\u4e2d\n    printf(\"%0.5Lf\",ans/1000000);//\u8f93\u51fa\n    return 0;\n}\n```",
+        "postTime": 1476106082,
+        "uid": 14378,
+        "name": "doby",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P2393 \u3010yyy loves Maths II\u3011"
+    },
+    {
+        "content": "# \u8fd9\u9898\u6709\u6bd2\uff01\uff01\uff01\u771f\u7684\u6709\u6bd2\uff01\uff01\uff01\n### \u8bb0\u5f97scanf\u9519\u8bef\u8fd4\u56de\u503c\u662f-1\uff01\uff01cin\u662f1\uff01\uff01\n\u5148\u4e0d\u8bf4\u4ec0\u4e48\uff0c\u5176\u5b9e\u633a\u6c34\uff0c\u6211\u7528\u7684\u9012\u5f52\uff0c\u5176\u5b9e\u7528\u5faa\u73af\u4e5f\u80fd\u505a\u3002\n```cpp\n#include<bits/stdc++.h>\nlong double a,sum=0.0;\nvoid hehe(){\n\tif(scanf(\"%Lf\",&a)!=EOF)\n    {\n        sum+=a*1000000;\n        hehe();\n    }\n    else\n\t{\n    \tprintf(\"%.5Lf\",sum/1000000);\t\n\t}\n} \nint main()\n{\n    hehe();\n    return 0;\n}\n```\n\u5f88\u8ff7\u7684\u662f\u8fd9\u4e32\u4ee3\u7801\u662f\u5bf9\u7684\n```cpp\n#include <bits/stdc++.h>\nlong double a , sum = 0.0;\nvoid hehe ()\n{\n\tif( scanf ( \" %Lf \" , &a ) != EOF )\n    {\n        sum += a * 1000000;\n        hehe ();\n    }\n    else\n\t{\n    \tprintf ( \" %.5Lf \" , sum / 1000000 );\t\n\t}\n  \treturn;\n} \nint main ()\n{\n    hehe ();\n    return 0;\n}\n```\n\n\u8fd9\u4e32\u5c31\u662f\u9519\u7684\n\n**_\u533a\u522b\u53ea\u662f\u6253\u4e86\u7a7a\u683c\u548c\u6ca1\u6253\u7a7a\u683c\u800c\u5df2\uff0c\u5c31\u5f88\u8be1\u5f02_**\n\n\u611f\u5230\u5988\u5356\u6279\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\n",
+        "postTime": 1571318839,
+        "uid": 174865,
+        "name": "\u4f60\u9521\u767d\u5927\u7237",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P2393 \u3010yyy loves Maths II\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u5f88\u7b80\u5355\n\n\u4f46\u662f\u6211\u4e00\u5f00\u59cb\u5374\u9519\u4e86\n\n\u4f60\u4eec\u770b\u4e00\u4e0b\u8fd9\u4e2a\u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\ndouble s=0,n;\nint main()\n{\n\twhile(scanf(\"%lf\",&n))s+=n;\n\tprintf(\"%.5lf\",s);\n\treturn 0;\n}\n```\n\u6211\u4e00\u770b\uff1a\u8bf6\uff1f\u4e0d\u5bf9\uff0c\u8f93\u5165\u90e8\u5206\u5224\u65ad\u5c31\u6709\u95ee\u9898\n\n\u90a3\u4e48\u4e3a\u4ec0\u4e48scanf\u4e0d\u884c\uff0ccin\u5c31\u53ef\u4ee5\u5462\uff1f\n\n\u539f\u6765\uff0c**scanf\u8f93\u5165\u4e3aNULL\u65f6\u8fd4\u56de\u7684\u662f-1**\n\n\u4e8e\u662f\u66f4\u6539\u4ee3\u7801\u4e3a\u8fd9\u4e2a\u7248\u672c\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\ndouble s=0,n;\nint main()\n{\n\twhile(scanf(\"%lf\",&n)!=EOF)s+=n;\n\tprintf(\"%.5lf\",s);\n\treturn 0;\n}\n```\n~~~\n\u8bf7\u6ce8\u610f!=EOF\u5c31\u662f\u8f93\u5165\u6b63\u786e\u7684\u5224\u65ad\u6761\u4ef6\n\u4f46\u662f\u8fd8\u662f\u6709\u95ee\u9898\uff0c\u662f\u4ec0\u4e48\u95ee\u9898\u5462\uff1f\n\u6211\u505a\u4e86\u4e00\u4e0b\u731c\u6d4b\u4e0e\u8c03\u8bd5\n~~~\n1. double**\u7cbe\u786e\u5ea6**\u4e0d\u591f\uff0c\u8981\u4f7f\u7528long double\n\n2. \u5f53\u4e2ds\u76f4\u63a5\u52a0n\u5c0f\u6570\u90e8\u5206\u4f1a\u6709\u95ee\u9898\n\n\u4e8e\u662f\uff0c\u73b0\u5c06n*1000000\u7136\u540e\u52a0\u4e0a\n\n\u6700\u540e\u5728\u8f93\u51fa\u65f6\u00f71000000\n\n\u4e8e\u662f\uff0c\u5c31\u6709\u4e86\u8fd9\u4e2a\u4ee3\u7801\uff0c**\u6ce8\u610fprintf\u548cscanf\u4f1a\u66f4\u5feb\u4e00\u70b9**\n\n\u7136\u540e\uff0c**\u8bf7\u52ff\u6284\u88adAC\u4ee3\u7801**\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nlong double s=0,n;\nint main()\n{\n\twhile(scanf(\"%Lf\",&n)!=EOF)s+=n*1000000;\n\tprintf(\"%.5Lf\",s/1000000);\n\treturn 0;\n}\n```\n",
+        "postTime": 1571201452,
+        "uid": 212283,
+        "name": "Aw\u987f\u987f",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 P2393 \u3010yyy loves Maths II\u3011"
+    },
+    {
+        "content": "\uff08\u624b\u52a8\u6ed1\u7a3d\uff09~~\u6559\u5927\u5bb6\u4e00\u79cd\u53ef\u4ee5\u4e0d\u7528\u5faa\u73af\u7684\u65b9\u6cd5\uff0cwhile\u5faa\u73af\u7684\u5224\u65ad\u8868\u8fbe\u5f0f\u91cc\uff0c\u662f\u53ef\u4ee5\u8f93\u5165\u7684~~\n\n\u53e6\u5916\uff0c\u8fd9\u9053\u9898\u6781\u5176\u65e0\u803b\uff0c~~\u5361\u4f60\u7cbe\u5ea6\uff0c\u6bc1\u4f60\u4eba\u751f~~\uff0c\u6211\u4eec\u53ef\u4ee5\u5148\u628a`long double`\u5f00\u4e0a\uff0c\u7136\u540e\u53d1\u73b0WA\u4e86\u4e24\u4e2a\u70b9\u3002\u3002\u3002\n\n\u6709\u4e00\u79cd\u975e\u5e38\u597d\u7684\u65b9\u6cd5\uff0c\u5c31\u662f\u5148\u628a\u8f93\u5165\u7684\u6570\u5148\u4e58\u4e0a\u4e00\u4e2a\u5927\u6570\u8f6c\u6362\u6210\u6574\u6570\uff0c\u6700\u540e\u8f93\u51fa\u662f\u518d\u9664\u6389\u3002\u4e00\u4e2a\u5173\u952e\u7684\u6ce8\u610f\u70b9\uff1a\u662f`printf(\"%.5Lf\",p);`\u800c\u4e0d\u662f`printf(\"%.5f\",p);`\n\n\u6700\u540e\u4e0a\u4ee3\u7801\u3002\u3002\u3002\n```\n#include <bits/stdc++.h>//\u4e07\u80fd\u5934\u6587\u4ef6\nusing namespace std;\nint main()\n{\n\tdouble a;\n\tlong double p=0;\n\twhile(cin>>a)//\u6211\u6709\u4e9b\u76ae\n\t\tp+=a*1000000;//\u8f6c\u6362\u6210\u6574\u6570\n\tprintf(\"%.5Lf\",p/1000000);//\u4fdd\u7559\u4e94\u4f4d\u5c0f\u6570\u8f93\u51fa\n\treturn 0;\n}\n```",
+        "postTime": 1567774188,
+        "uid": 214172,
+        "name": "wpy233",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 P2393 \u3010yyy loves Maths II\u3011"
+    },
+    {
+        "content": "C/C++\u8bfb\u5165\u8981\u7528getchar\u4f18\u5316\uff0c\u7136\u800c\u8fd9\u9898\u8fd8\u6709\u5361\u7cbe\u5ea6\u8fd9\u79cd\u4e8b\u3002\u3002\u3002\n\n\u5c06\u6d6e\u70b9\u6570\u7684\u6574\u6570\u90e8\u5206\u548c\u5c0f\u6570\u90e8\u5206\u5206\u522b\u7528\u6574\u5f62\u8fdb\u884c\u6a21\u62df\uff0c\u7531\u4e8e\u4fdd\u8bc1\u5c0f\u6570\u70b9\u540e\u53ea\u6709\u516d\u4f4d\uff0c\u6240\u4ee5\u5f00\u4e2a6\u4e2a\u6570\u7684\u6570\u7ec4\u5c31\u597d\n\n\u6ce8\u610f\u6570\u636e\u89c4\u6a21\uff0c\u6574\u6570\u90e8\u5206\u8981\u7528long long\uff0c\u5c0f\u6570\u90e8\u5206\u7531\u4e8e50000\\*9\u4e0d\u8d85int\u6240\u4ee5\u4e0d\u9700\u8981long long\uff0c\u6700\u540e\u4e00\u8d77\u5904\u7406\u8fdb\u4f4d\u5c31\u597d\u3002\n\n\u4e0d\u8981\u5fd8\u8bb0\u6700\u540e\u5bf9\u672b\u5c3e\u8fdb\u884c\u56db\u820d\u4e94\u5165\u3002\n\n```cpp\n#include<cstdio>\nusing namespace std;\ntypedef unsigned int uint;\nunsigned long long sa,a;\nuint sb[6];\nchar c;\nint main()\n{\n    while(1)\n    {\n        a=0;\n        do\n        {\n            c=getchar();\n            if(c==EOF) goto end;\n        }while(c<'0'||c>'9');\n        while(c>='0'&&c<='9')\n        a=a*10+c-'0',c=getchar();\n        sa+=a;\n        if(c=='.')\n        {\n            a=0;c=getchar();\n            while(c>='0'&&c<='9')\n            sb[a++]+=c-'0',c=getchar();\n        }\n    }\n    end:\n        for(int i=5;i;i--)\n        if(sb[i]>10)\n        sb[i-1]+=sb[i]/10,sb[i]%=10;\n        if(sb[0]>10)\n        sa+=sb[0]/10,sb[0]%=10;\n        if(sb[5]>4)\n        sb[4]++;\n        printf(\"%llu.%u%u%u%u%u\",sa,sb[0],sb[1],sb[2],sb[3],sb[4]);\n    return 0;\n}\n```",
+        "postTime": 1470742808,
+        "uid": 21467,
+        "name": "Patchuli_Go",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P2393 \u3010yyy loves Maths II\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u770b\u7740\u6c34\u6bd4\uff0c\u5176\u5b9e\u6709\u4e00\u4e9b\u7a0b\u5e8f\u8fd0\u884c\u65b9\u9762\u7684\u5c0f\u7ec6\u8282\u9700\u8981\u6ce8\u610f\uff0c\u6211\u770bAC\u768480%\u53ea\u6284\u4e86\u9898\u89e3\uff0c\u81ea\u5df1\u505a\u7684\u5927\u591a60\u300170\u5206\u3002\u800c\u539f\u6709\u9898\u89e3\u5e76\u4e0d\u5341\u5206\u8be6\u7ec6\uff0c\u4e8e\u662f\u53c8\u6765\u8865\u5145\u4e00\u756a\u3002\u4e0b\u9762\u9898\u89e3\u9488\u5bf9pascal\uff0cC\u7684\u65b9\u9762\u5c31\u4e0d\u6e05\u695a\u4e86\uff0c\u4e0d\u8fc7\u4f3c\u4e4eC\u5199\u8d77\u6765\u5f88\u7b80\u5355\u3002\n\n\n1\u3001\u6d6e\u70b9\u6570\u8fd0\u7b97\u8f83\u4e3a\u9b3c\u755c\u30020.999999 \u53ef\u4ee5\u53d8\u6210 0.99999899999999997 \u518d\u4e00trunc\u5c31\u662f0.999998\u3002\u6240\u4ee5\\*1000000 \u518d\u201cround\u201c\u5168\u7a0b\u7528\u6574\u6570\u8fdb\u884c\u8ba1\u7b97\uff0c\u5305\u62ec\u6700\u540e\u7684\u56db\u820d\u4e94\u5165\u3002\uff08\u56db\u820d\u4e94\u5165\u540e\u518d\u9664\u4e0b\u53bb\u4e5f\u4f1a\u7206\u51e0\u4e2a\u70b9\uff0c\u9b3c\u755c\u7684\u6d6e\u70b9\u8fd0\u7b97\u4f1a\u6bc1\u4e86\u4e00\u5207\uff09\n\n\n2\u3001qword\u6bd4int64\u8981\u5927\uff01\uff01\uff01\n\nqword:0\u52302^64-1\uff1b\n\n\nint64:-2^63\u52302^63-1;\n\n\u8fd9\u9053\u9898\u4e58\u4e0a1000000\u540e\u7528int64\u6700\u540e\u56db\u4e2a\u70b9\u90fd\u8981\u7206\uff0c\u6240\u4ee5\u7528qword\n\n\u660e\u767d\u4e86\u8fd9\u4e24\u70b9\u518d\u7814\u7a76\u4e00\u4e0b\u6700\u540e\u8f93\u51fa\u5904\u7406\u8fd9\u9053\u9898\u5c31\u6210\u5c0f\u50bb\u903c\u4e86\n\n\u4e8e\u662f\u6709\u53ef\u7231\u7684\u4ee3\u7801\u541b\n\n\n```cpp\nvar\nx:extended;\nj,i:qword;\nii,k:longint;\nxx:string;\nbegin\nwhile not eof do\nbegin\nread(x);\nj:=round(x*1000000);\ni:=i+j;\nend;\nj:=i mod 10;\ni:=i div 10;\nif j>4 then i:=i+1;\nj:=i div 100000;\nwrite(j);\nwrite('.');\nj:=i mod 100000;\nstr(j,xx);\nk:=5-length(xx);\nfor ii:=1 to k do   //\u6a21100000\u53d6\u51fa\u5c0f\u6570\u540e\u6ce8\u610f\u8865\u96f6 \u6bd4\u59821\u8981\u53d8\u621000001\nwrite('0');\nwrite(j);\nend.\n```",
+        "postTime": 1469931663,
+        "uid": 9791,
+        "name": "\u6c5f\u6d77\u5bc4\u4f59\u751f",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P2393 \u3010yyy loves Maths II\u3011"
+    },
+    {
+        "content": "\u8fd9\u9898\uff0c\u5728\u4e0d\u77e5\u9053long double\u7684\u4eba\u770b\u6765\uff0c\u662f\u75db\u82e6\u7684\uff0c\u5728\u77e5\u9053long double\u7684\u4eba\u770b\u6765\u2026\u2026\u2026\u2026\u2026\u2026~~\u4e5f\u662f\u75db\u82e6\u7684~~\u8fd9\u9898\u53ef\u4ee5\u653e\u5230NOIP\u666e\u53ca\u7ec4T2.5\u90a3\u91cc\n\n\n\u597d\u4e86\u4e0a\u9762\u626f\u600e\u4e48\u591a\u662f\u4e3a\u4e86\u4e0d\u5199\u601d\u8def\u7684\uff0c\u53ef\u4f60\u4eec\u8fd8\u8981\u770b\u8fc7\u6765\uff0c\u6211\u5bf9\u6b64\u975e\u5e38\u8ba8\u538c\u5e76\u6254\u7ed9\u4f60\u4e00\u4efd\uff08\u6211\u5199~~\uff08chao\uff09~~\u7684\uff09\u5783\u573e\u4ee3\u7801\u4f9b\u4f60\u98df\u7528\uff1a\n\n\u5662\u5bf9\u4e86\u8fd8\u6709\u4e00\u4e2a\u5751\u70b9\uff0c\u5c31\u662f\u6211\u4eec\u559c\u95fb\u4e50\u89c1\u7684\u2014\u2014\u7cbe\u5ea6\u95ee\u9898\n\nCODE:\n\uff0880\u5206\uff0c\u6709\u4e24\u4e2a\u871c\u6c41\u9519\u8bef\uff0c\u5982\u679c\u6709\u4eba\u53d1\u73b0\u8bf7\u79c1\u4fe1\u6211\uff0c\u8c22\u8c22\uff09\n```\n#include<bits/stdc++.h>\n\nconst int hehe = 10000000;\n\nlong double sum = 0, x;\n\nint main() {\n    while ((std::cin >> x) && (x != 0)) sum += x * hehe;\n    std::cout << std::fixed << std::setprecision(5) << sum / hehe;\n    return 0;\n}\n\n```\n\n\u4e3a\u4e86\u4e0d\u8ba9\u4f60\u4eec\u5931\u671b\uff0c\u6211\u51b3\u5b9a\u518d\u6254\u4e00\u4efddalao\u7684\u4ee3\u7801\uff08\u5176\u5b9e\u5c31\u662f\u6211\u697c\u4e0b\u7684\uff09\n```\n/* \n#include<bits/stdc++.h>\n\nconst int hehe = 1000000; \n\nlong double sum, x;\n\nint main() {\n    if (scanf(\"%lf\", &x) != EOF) {\n        sum += x * hehe;\n        main();\n    } else {\n        printf(\"%.5Lf\", sum / hehe);\n    }\n    return 0;\n} */\n\n```\n\nEND.\n\n",
+        "postTime": 1518440104,
+        "uid": 51211,
+        "name": "yjxyjx",
+        "ccfLevel": 0,
+        "title": "P2393 yyy loves Maths II"
+    },
+    {
+        "content": "```delphi\n\nvar\n  ans,tmp:qword;\n  t:extended;\nprocedure print(n,depth:longint);\nbegin\n  if depth=0 then exit;\n  print(n div 10,depth-1);\n  write(n mod 10);\nend;\nbegin\n  while not eoln do begin\n    read(t);\n    inc(ans,trunc(t*1000000));\n  end;\n  write(ans div 1000000,'.');\n  ans:=ans mod 1000000;\n  print(ans div 100,4);\n  ans:=ans mod 100;\n  writeln(ans div 10+ord(ans mod 10>4));\nend.\n\n//Pascal\u9898\u89e3\uff1a\n\n//\u56e0\u4e3a\u8f93\u5165\u7684\u6570\u5c0f\u6570\u4f4d\u4e0d\u8d85\u8fc76\u4f4d\uff0c\u6211\u4eec\u53ef\u4ee5\u628a\u8f93\u5165\u7684\u6570\u90fd\u4e58\u4e0a1000000\u518d\u8fd0\u7b97\n\n```",
+        "postTime": 1445564284,
+        "uid": 11122,
+        "name": "spacetime",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P2393 \u3010yyy loves Maths II\u3011"
+    }
+]

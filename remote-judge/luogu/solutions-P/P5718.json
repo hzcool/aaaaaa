@@ -1,0 +1,42 @@
+[
+    {
+        "content": "#  P5718 \u3010\u6df1\u57fa4.\u4f8b2\u3011\u627e\u6700\u5c0f\u503c \u9898\u89e3\n\n\u6211\u4eec\u53ef\u4ee5\u5148\u6392\u5e8f\uff0c\u627e\u51fa\u6700\u5c0f\u5373\u53ef\u3002\n\n```cpp\n#include<bits/stdc++.h>//\u4e07\u80fd\u5934\u6587\u4ef6\nusing namespace std;//using\nint main()\n{\n    int n,a[10001];//\u5b9a\u4e49\n    cin>>n;//\u8f93\u5165\n    for(int i=1;i<=n;i++) cin>>a[i];//\u5faa\u73af\u8f93\u5165\n    sort(a+1,a+n+1);//\u5feb\u901f\u6392\u5e8f\n    cout<<a[1];//\u8f93\u51fa\u6700\u5c0f\u7b54\u6848\n    return 0;//\u534e\u4e3d\u7ed3\u675f\n}\n```\n\n\u5b66\u4f1a\u4e86\u5417\uff1f\n\n[Thomas_ \u7684\u535a\u5ba2](https://zyy-txws-noip.blog.luogu.org/)\n\n\u539f\u521b\uff0c\u4fb5\u6743\u5fc5\u7a76",
+        "postTime": 1580818614,
+        "uid": 250679,
+        "name": "Thomas_",
+        "ccfLevel": 0,
+        "title": "P5718 \u3010\u6df1\u57fa4.\u4f8b2\u3011\u627e\u6700\u5c0f\u503c \u9898\u89e3"
+    },
+    {
+        "content": "\u53c8\u662f\u4e00\u9053\u4e0d\u96be\u7684\u9898\uff1a\n\n\u9a6c\u4e0a\u60f3\u5230\uff1a\u5f00\u6570\u7ec4\uff01\u518d\u4e00\u4f4d\u4e00\u4f4d\u6bd4\u3002\n\n\u597d\u4e86\uff0c\u5e9f\u8bdd\u4e0d\u591a\u8bf4\uff0c\u4e0a\u4ee3\u7801\uff1a\n```cpp\n#include <iostream>\nusing namespace std;\nint main()\n{\n\tint a[10000];//\u5f00\u6570\u7ec4\n\tint n;\n\tcin >> n;\n\tfor(int i = 0;i < n;i++)\n\t    {\n\t    \tcin >> a[i];//\u6570\u7ec4\u8f93\u5165\n\t\t}\n\tint min = a[0];//\u5047\u8bbea[0]\u6700\u5c0f\n\tfor(int i = 0;i < n;i++)//\u5faa\u73af\u6392\u67e5\n\t    {\n\t    \tif(a[i] < min)//\u5982\u679ca[i]\u6bd4\u5047\u5b9a\u7684min\u8fd8\u5c0f\n\t    \t    {\n\t    \t    \tmin = a[i];//\u628aa[i]\u8d4b\u503c\u4e3a\u6700\u5c0f\u503c\n\t\t\t\t}\n\t\t}\n\tcout << min << endl;//\u8f93\u51fa\n\treturn 0;//\u597d\u4e60\u60ef\n } \n```\n",
+        "postTime": 1580826362,
+        "uid": 251887,
+        "name": "StriveChild",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P5718 \u3010\u3010\u6df1\u57fa4.\u4f8b2\u3011\u627e\u6700\u5c0f\u503c\u3011"
+    },
+    {
+        "content": "\u8fd9\u9898\u5c31\u662f\u6c42\u51fa\u533a\u95f4\u5185\u6700\u5c0f\u503c\n\n\u6240\u4ee5\u53ef\u4ee5\u8fb9\u8bfb\u5165\u8fb9\u505a\n\n```cpp\n#include <iostream>\n#include <cstdio>\n#include <cstring>\n#include <algorithm>\n\nusing namespace std;\n\nint n;\nint in;\nint ans=1e9;\n//ans \u8981\u521d\u59cb\u5316\u4e00\u4e2a\u5f88\u5927\u7684\u6570\n//\u5426\u5219\u7b54\u6848\u5c31\u4f1a\u53d8\u6210 0\n\ninline int min(int x,int y){return x<y?x:y;}\n//\u542c\u8bf4\u624b\u5199 min \u4f1a\u66f4\u5feb\uff1f\n\nint main()\n{\n\tcin>>n;\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tcin>>in;\n\t\tans=min(ans,in);\n\t\t//\u6253\u64c2\u53f0\u6c42\u6700\u5c0f\u503c \n\t}\n\tcout<<ans;\n\treturn 0;\n}\n```\n\n$qwq$ \n\n\u4f46\u662f\uff0c\u4f60\u4ee5\u4e3a\u8fd9\u7bc7\u9898\u89e3\u5230\u8fd9\u91cc\u5c31\u6ca1\u4e86\uff1f\n\n\u8981\u8bb0\u4f4f\uff0c\u7ebf\u6bb5\u6811$txdy$\n\n```cpp\n#include <iostream>\n#include <cstdio>\n#include <cstring>\n#include <algorithm>\n#define lc(x) x<<1//\u5de6\u513f\u5b50\n#define rc(x) x<<1|1//\u53f3\u513f\u5b50\n\nusing namespace std;\n\nint n;\nint t[105*4];//\u7ebf\u6bb5\u6811\u56db\u500d\u7a7a\u95f4\nint a[105];\n\ninline int min(int x,int y){return x<y?x:y;}//\u624b\u5199 min \u597d\u50cf\u4f1a\u5feb\uff1f \n\ninline void pushupmin(int root)\n{\n\tt[root]=min(t[lc(root)],t[rc(root)]);//\u5411\u4e0a\u4f20\u9012 min\n}\n\ninline void build(int l,int r,int root)\n{\n\tif(l==r)//\u5982\u679c\u8fd9\u662f\u53f6\u5b50\u8282\u70b9 \n\t{\n\t\tt[root]=a[l];//\u8d4b\u503c \n\t\treturn;//\u8fd4\u56de \n\t}\n\t\n\tint mid=(l+r)>>1;//\u627e\u5230\u4e2d\u70b9 \n\tbuild(l,mid,lc(root));//\u5efa\u7acb\u5de6\u5b50\u6811 \n\tbuild(mid+1,r,rc(root));//\u5efa\u7acb\u53f3\u5b50\u6811 \n\tpushupmin(root);//\u5411\u4e0a\u4f20\u9012 \n}\n\ninline int findmin(int ql,int qr,int l,int r,int root)\n{\n\tint ans=1e9;//ans \u521d\u59cb\u5316\u4e00\u4e2a\u5f88\u5927\u7684\u6811 \n\tif((ql<=l) && (r<=qr))return t[root];//\u5982\u679c\u5728\u8981\u627e\u7684\u533a\u95f4\u5185\u5c31\u8fd4\u56de\u8fd9\u4e2a\u8282\u70b9\u7684\u503c \n\t\n\tint mid=(l+r)>>1;//\u627e\u5230\u4e2d\u70b9 \n\tif(ql<=mid)ans=min(ans,findmin(ql,qr,l,mid,lc(root)));//\u9012\u5f52\u5de6\u5b50\u6811\u627e\u6700\u5c0f\u503c \n\tif(mid<qr)ans=min(ans,findmin(ql,qr,mid+1,r,rc(root)));//\u9012\u5f52\u53f3\u5b50\u6811\u627e\u6700\u5c0f\u503c \n\treturn ans;//\u8fd4\u56de\u627e\u5230\u7684\u7b54\u6848 \n}\n\nint main()\n{\n\tscanf(\"%d\",&n);\n\tfor(int i=1;i<=n;i++)scanf(\"%d\",&a[i]);//\u8f93\u5165\u5e8f\u5217 \n\tbuild(1,n,1);//\u5efa\u6811 \n\tprintf(\"%d\",findmin(1,n,1,n,1));//\u76f4\u63a5\u8f93\u51faqwq \n\treturn 0;\n} \n```\n\n$The$ $End$ $qwq$",
+        "postTime": 1580822571,
+        "uid": 133509,
+        "name": "KazamiHina",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P5718 \u3010\u3010\u6df1\u57fa4.\u4f8b2\u3011\u627e\u6700\u5c0f\u503c\u3011"
+    },
+    {
+        "content": "#### \u524d\u8a00\r\n\r\n\u653e\u773c\u9898\u89e3\u533a\uff0c\u53ef\u4ee5\u770b\u5230\u4e24\u79cd\u89e3\u6cd5\uff1a\r\n\r\n- \u9010\u4f4d\u6bd4\u8f83\r\n\r\n- sort\u53d6\u7b2c\u4e00\u4e2a\r\n\r\n\u4f46\u662f\uff0c\u4e07\u80fd\u7684STL\u4e0d\u613f\u610f\u4e86\uff1amin_element\u88ab\u4f60\u4eec\u5403\u4e86\uff1f\r\n\r\n\u6240\u4ee5\u6211\u6765\u5199\u4e86\r\n\r\n#### \u601d\u8def\r\n\r\n\u8f93\u5165\u4e0d\u7528\u8bf4\uff0c\u7136\u540e\u5c31\u5230\u4e86\u51fd\u6570\u4ecb\u7ecd\uff1a\r\n\r\n\u51fd\u6570\u540d\uff1a`min_element`\r\n\r\n\u51fd\u6570\u539f\u578b\uff1a`min_element(_ForwardIterator __first, _ForwardIterator __last)`\r\n\r\n\u51fd\u6570\u4f5c\u7528\uff1a\u8fd4\u56de\u4e00\u4e2a\u6570\u7ec4\u91cc\u7684\u6700\u5c0f\u503c\u7684\u8fed\u4ee3\u5668\uff08\u56e0\u4e3a\u662f\u8fed\u4ee3\u5668\u6240\u4ee5\u6c42\u503c\u65f6\u8981\u52a0\u4e0a `*`\uff09\r\n\r\n\u65f6\u95f4\u590d\u6742\u5ea6\uff1a$O(n)$\r\n\r\n\u8f93\u5165\u540e\u8f93\u51fa `min_element(a,a+n)` \u5373\u53ef\r\n\r\n#### \u4ee3\u7801\r\n\r\n```\r\n#include <bits/stdc++.h>\r\nusing namespace std;\r\nint a[1100],n;\r\nint main()\r\n{\r\n    cin >> n;\r\n    for(int i = 0;i < n;i++)\r\n    {\r\n        cin >> a[i];\r\n    }\r\n    cout << *min_element(a,a+n);\r\n    return 0;\r\n}\r\n```\r\n\r\n----\r\n\r\n[AC\u8bb0\u5f55](https://www.luogu.com.cn/record/38913193)",
+        "postTime": 1601125053,
+        "uid": 227728,
+        "name": "\u51b0\u7cd6\u9e3d\u5b50",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 P5718 \u3010\u6df1\u57fa4.\u4f8b2\u3011\u627e\u6700\u5c0f\u503c"
+    },
+    {
+        "content": "**[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/P5718)**\n\n**\u601d\u8def**\n\n1. \u4ecb\u7ecd\u4e00\u79cd\u65b0\u65b9\u6cd5\u2014\u2014`sort`\u6392\u5e8f\uff0c\u5b83\u7684\u683c\u5f0f\u662f\u8fd9\u6837\u7684`sort(a+1,a+n+1,cmp);`\uff0c\u6211\u4eec\u53ea\u9700\u8981\u628a`a`\u6570\u7ec4\u6392\u597d\u5e8f\uff0c\u7136\u540e\u8f93\u51fa\u7b2c$1$\u4e2a\u5143\u7d20\u5373\u53ef\u3002\n\n2. \u5b9a\u4e49`a`\u6570\u7ec4\u4e0e\u53d8\u91cf$n$\u5e76\u8f93\u5165\u3002\n```cpp\n\tint a[1000000];\n    int n;\n\tcin>>n;\n\tfor(int i=1;i<=n;i++)\n    \tcin>>a[i];\n```\n\n3. \u4f7f\u7528`sort`\u5bf9`a`\u6570\u7ec4\u8fdb\u884c\u6392\u5e8f\u3002\n```cpp\n\tsort(a+1,a+n+1);\n```\n\n4. \u8f93\u51fa\u7b2c\u4e00\u4e2a\u5143\u7d20$a_1$\u3002\n```cpp\n\tcout<<a[1];\n```\n\n**\u53c2\u8003\u4ee3\u7801**\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint a[1000000];\nint main()\n{\n\tint n;\n\tcin>>n;\n\tfor(int i=1;i<=n;i++)cin>>a[i];\n\tsort(a+1,a+n+1);\n\tcout<<a[1];\n\treturn 0;\n}\n```",
+        "postTime": 1580824179,
+        "uid": 219791,
+        "name": "tZERO\u3061\u3083\u3093",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P5718 \u3010\u3010\u6df1\u57fa4.\u4f8b2\u3011\u627e\u6700\u5c0f\u503c\u3011"
+    }
+]

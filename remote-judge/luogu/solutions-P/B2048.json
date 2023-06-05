@@ -1,0 +1,50 @@
+[
+    {
+        "content": "\u8fd9\u9898\u9700\u5206\u6bb5\u8003\u8651\uff0c\u5e76\u6ca1\u6709\u5f88\u591a\u96be\u70b9\u3002\n\n\u9996\u5148\uff0c $ans=8$ \u56e0\u4e3a\u57fa\u672c\u8d39\u662f $8$ \u5143\u3002\n\n\u63a5\u4e0b\u6765\uff0c\u7528 $ans$ \u52a0\u4e0a $a \\bmod 500$ \uff0c\u6c42\u51fa\u7684\u7ed3\u679c\u4e58 $4$\uff0c\u770b\u770b\u8d85\u91cd\u90e8\u5206\u591a\u5c11\u5143\u3002\n\n\u7136\u540e\uff0c\u5224\u65ad $a \\bmod 500$ \u540e\u6709\u6ca1\u6709\u4f59\u6570\uff0c\u5982\u679c\u6709\uff0c $ans$ \u518d\u52a0 $4$\u3002\n\n\u6700\u540e\uff0c\u770b\u770b\u7528\u6237\u6709\u6ca1\u6709\u52a0\u6025\uff0c\u5982\u679c\u52a0\u6025\u4e86\uff0c $ans$ \u518d\u52a0 $5$\u3002\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint a,ans=8;char s;\nint main()\n{\n    cin>>a>>s;\n    if(a>1000)\n    {\n        a=a-1000;\n        ans=ans+(a/500)*4;\n        if(a%500!=0) \n            ans=ans+4;\n    }\n    if(s=='y') \n        ans=ans+5;\n    cout<<ans;\n    return 0;\n}\n```\n",
+        "postTime": 1625325072,
+        "uid": 118814,
+        "name": "Ryan_Yu",
+        "ccfLevel": 0,
+        "title": "B2048 \u9898\u89e3"
+    },
+    {
+        "content": "\u6ca1\u4eba\u53d1\u9898\u89e3\uff0c\u6211\u6765\u4e86\u3002\n\n\u76f4\u63a5\u770b\u4ee3\u7801\u6ce8\u91ca\uff1a\n\n```cpp\n#include <iostream>\nusing namespace std;\n\nint main()\n{\n\tint n, ans = 8; // \u76f4\u63a5\u628a\u7b54\u6848\u53d8\u62108\uff0c\u540e\u9762\u5728\u8fd0\u7b97\u524d\u5c06n - 1000\n\tchar c; // \u662f\u5426\u52a0\u6025\n\tcin >> n >> c;\n\tif (c == 'y') ans += 5;\n\tn -= 1000; // \u5148\u51cf\u6389\n\twhile (n > 0) // \u53ea\u8981\u5927\u4e8e0\u5c31\u7ee7\u7eed\uff0c\u56e0\u4e3a\u4e0d\u8db3500\u4e5f\u89814\u5143\n\t{\n\t\tn -= 500;\n\t\tans += 4;\n\t}\n\tcout << ans << endl;\n\treturn 0;\n}\n```\n",
+        "postTime": 1625311638,
+        "uid": 332914,
+        "name": "happybob",
+        "ccfLevel": 6,
+        "title": "\u7b2c\u4e00\u7bc7\u9898\u89e3"
+    },
+    {
+        "content": "\u9898\u610f\u8981\u6c42\u6211\u4eec\u4ece\u7ed9\u5b9a\u7684\u91cd\u91cf\u548c\u662f\u5426\u52a0\u6025\u8ba1\u7b97\u90ae\u8d44\u3002\n\n\u6839\u636e\u9898\u610f\uff0c\u6211\u4eec\u53ea\u9700\u8981\u5c06\u521d\u59cb\u503c\u8bbe\u4e3a $8$ \u3002\n\n\u968f\u540e\u6839\u636e\u662f\u5426\u52a0\u6025\uff0c\u8ba1\u7b97\u90ae\u8d44\u3002\n\n\u63a5\u4e0b\u6765\uff0c\u5c06\u91cd\u91cf\u51cf\u53bb\u57fa\u672c\u91cd\u91cf\uff0c\u6bcf $500$ \u514b $4$ \u5143\u3002\n\n\u4ee3\u7801\u5982\u4e0b\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n\tlong long a,sum=8;\n\tchar b;\n\tcin >> a >> b;\n\tif(b=='y')\n\t\tsum+=5;\n\ta-=1000;\n\tif(a>0)\n\t\tsum+=(a/500)*4;\n\tif(a%500!=0&&a>0)\n\t\tsum+=4;\n\tcout << sum << endl;\n\treturn 0;\n}\n```\n",
+        "postTime": 1625471719,
+        "uid": 517574,
+        "name": "\u53ef\u7231\u7684\u5c0f\u4e8e",
+        "ccfLevel": 4,
+        "title": "\u8ba1\u7b97\u90ae\u8d44"
+    },
+    {
+        "content": "### \u89e3\u6790\uff1a\n\u4f9d\u636e\u9898\u610f\u6a21\u62df\u51fa\u8ba1\u7b97\u8fc7\u7a0b\u5373\u53ef\n\n~~PS\uff1a\u8bf7\u76f4\u63a5\u770b\u4ee3\u7801\u6ce8\u91ca~~\n### \u4ee3\u7801\uff1a\n```cpp\n//B2048\n#include<bits/stdc++.h>\n#define sc scanf//\u5b8f\u5b9a\u4e49 \n#define pr printf//\u5b8f\u5b9a\u4e49 \nusing namespace std;\nint x,sum=0;\nchar c;\nint main()\n{\n\tsc(\"%d %c\",&x,&c);//\u8f93\u5165 \n\tif(c=='y')//\u5224\u5b9a\u52a0\u6025 \n\t\tsum+=5;//\u52a0\u6025\u5219\u52a05\u5143\n\tif(x<=1000)//\u7279\u52241000\u514b\u4ee5\u4e0b\u60c5\u51b5 \n\t{\n\t\tpr(\"%d\",sum+8);//\u8f93\u51fa\u7279\u5224\u7ed3\u679c \n\t\treturn 0;//\u9000\u51fa\u7279\u5224\uff0c\u7ed3\u675f\u7a0b\u5e8f \n\t}\n\tif(x%500!=0)//\u4e0d\u8db3500\u514b\u7684\u6309500\u514b\u8ba1\u7b97 \n\t\tx=(x-1000)/500+1;\n\telse//\u521a\u597d500\u514b \n\t\tx=(x-1000)/500;\n\tpr(\"%d\",sum+4*x+8);//\u8f93\u51fa \n\treturn 0;//\u534e\u4e3d\u7ed3\u675f \n}\n```\n",
+        "postTime": 1625320016,
+        "uid": 364319,
+        "name": "DIgnited",
+        "ccfLevel": 0,
+        "title": "B2048\u9898\u89e3"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u4e0d\u96be\uff0c\u53ea\u8981\u7406\u6e05\u5173\u7cfb\u5c31\u6ca1\u95ee\u9898\u3002\n\n\u90ae\u8d44\u8ba1\u7b97\u89c4\u5219\uff1a\n+ \u91cd\u91cf\u5728 1000 \u4ee5\u5185\uff08\u5305\u62ec\uff09\uff0c\u57fa\u672c\u8d39 8 \u5143\u3002\n\n+ \u8d85\u8fc7 1000 \u514b\u7684\u90e8\u5206\uff0c\u6bcf 500 \u514b\u52a0\u6536\u8d85\u91cd\u8d39 4 \u5143\uff0c\u4e0d\u8db3 500 \u514b\u90e8\u5206\u6309 500 \u514b\u8ba1\u7b97\u3002\n\n+ \u5982\u679c\u7528\u6237\u9009\u62e9\u52a0\u6025\uff0c\u591a\u6536 5 \u5143\u3002\n\n\u8f93\u5165\u7684\u5b57\u7b26\u7528 char \u7c7b\u578b\u50a8\u5b58\u3002\u7b97\u8d85\u8fc7\u4e00\u5343\u514b\u7684\u90e8\u5206\u65f6\uff0c\u53ef\u4ee5\u5148\u7528\u8fd9\u90e8\u5206\u9664\u4ee5 4\uff0c\u518d\u770b\u662f\u5426\u80fd\u6574\u9664\u3002\n\u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint a;\nchar b;\nint sum;\nint main(){\n    cin>>a>>b;\n    if(a<=1000){//\u4e00\u5343\u4ee5\u5185\n        sum+=8;\n    }\n    else{\n        sum+=8;\n        a-=1000;\n        sum+=a/500*4;//\u52a0\u4e0a\u8d85\u8fc7\u7684\u90e8\u5206\n        if(a%500!=0){//\u4e0d\u8db3\u6309500\u7b97\n            sum+=4;\n        }\n    }\n    if(b=='y'){//\u5224\u65ad\u662f\u5426\u52a0\u6025\n        sum+=5;\n    }\n    cout<<sum;\n    return 0;\n}\n```\n",
+        "postTime": 1625968176,
+        "uid": 341801,
+        "name": "MStar",
+        "ccfLevel": 4,
+        "title": "B2048 \u9898\u89e3"
+    },
+    {
+        "content": "## \u9898\u89e3\n\n\u7531\u4e8e\u57fa\u672c\u90ae\u8d39\u662f\u4e0d\u5f97\u4e0d\u7ed9\u7684\uff0c\u56e0\u6b64\u6211\u4eec\u76f4\u63a5\u8ba9 $n$ \u51cf\u53bb $1000$ \uff0c\u518d\u7edf\u8ba1\u5269\u4f59\u90e8\u5206\u9700\u8981\u591a\u5c11\u94b1\u3002\n\n\u5047\u8bbe\u8d85\u51fa\u90e8\u5206\u4e00\u5171\u6709 $x$ \u4e2a $500$ \uff0c\u90a3\u4e48\uff1a\n\n$$500\\cdot x\\ge n-1000$$\n\n\u4e8e\u662f\uff1a\n\n$$x\\ge \\frac{n-1000}{500}=\\frac{n}{500}-2$$\n\n\u53c8\u56e0\u4e3a $x$ \u662f\u7b26\u5408\u8fd9\u4e2a\u6761\u4ef6\u7684\u6700\u5c0f\u6b63\u6574\u6570\uff0c\u4e8e\u662f\u53d6 $\\displaystyle x=\\left\\lceil \\frac{n}{500}\\right\\rceil-2$ \u5c31\u884c\u4e86\u3002\n\n---\n\n\u7136\u540e\u662f\u5173\u4e8e\u662f\u5426\u52a0\u6025\u7684\u95ee\u9898\u3002\u6211\u4eec\u9996\u5148\u8981\u8bfb\u5165\u8fd9\u4e2a\u5b57\u7b26\uff0c\u7136\u540e\u5224\u65ad\u5b83\u662f\u5426\u4e3a $\\verb!f!$ \u3002\u4e00\u822c\u800c\u8a00\uff0c\u76f4\u63a5\u4f7f\u7528 $\\verb!cin!$ \u5c31\u80fd\u8bfb\u5165\u4e86\uff1b\u4f7f\u7528 $\\verb!scanf!$ \u6216\u8005 $\\verb!getchar!$ \u4f1a\u6709\u70b9\u7cdf\u5fc3\uff0c\u56e0\u4e3a\u5b83\u53ea\u4f1a\u8bfb\u5165\u4e0b\u4e00\u4e2a\u5b57\u7b26\uff0c\u54ea\u6015\u5b83\u662f\u7a7a\u5b57\u7b26\u3002\u56e0\u6b64\uff0c\u6700\u597d\u7684\u529e\u6cd5\u662f\u624b\u5199\u4e00\u4e2a\u3002\n\n\u5728 C++ \u4e2d\uff0c\u6211\u4eec\u53ef\u4ee5\u7528 $\\verb!isgraph!$ \u5224\u65ad\u4e00\u4e2a\u5b57\u7b26\u662f\u5426\u53ef\u89c6\uff08\u8089\u773c\u53ef\u89c6\uff09\u3002\u4e8e\u662f\u4f7f\u7528 $\\verb!while!$ \u5faa\u73af\uff0c\u5f53\u8bfb\u5165\u5230\u4e00\u4e2a\u53ef\u89c6\u5b57\u7b26\u65f6\u5c31\u9000\u51fa\uff0c\u6b64\u65f6\u6211\u4eec\u5c31\u8bfb\u5165\u5230\u8fd9\u4e2a\u5b57\u7b26\u4e86\u3002\n\n## \u53c2\u8003\u4ee3\u7801 \n\n```cpp\n#include<bits/stdc++.h>\n#define up(l,r,i) for(int i=l,END##i=r;i<=END##i;++i)\n#define dn(r,l,i) for(int i=r,END##i=l;i>=END##i;--i)\nusing namespace std;\ntypedef long long i64;\nint n,c; char f;\nint main(){\n    scanf(\"%d\",&n),n-=1000; while(!isgraph(f=getchar()));\n    dn(20,0,i) if((1<<i)*500<n) c+=(1<<i),n-=(1<<i)*500;\n    if(n>0) ++c;\n    printf(\"%d\\n\",8+c*4+(f=='y')*5);\n    return 0;\n}\n```",
+        "postTime": 1625320807,
+        "uid": 330759,
+        "name": "\u56e7\u4ed9",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 B2048 \u3010\u8ba1\u7b97\u90ae\u8d44\u3011"
+    }
+]

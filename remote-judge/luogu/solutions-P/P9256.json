@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u9898\u610f\uff1a\u6784\u9020\u4e00\u4e2a\u5b57\u5178\u5e8f\u6700\u5c0f\u7684\u4e0b\u964d\u6b63\u6574\u6570\u5e8f\u5217 $a$\uff0c\u4f7f\u5f97 $\\sum\\limits_{x\\in a}\\operatorname{popcount}(x) = n$\u3002\n\n\u9996\u5148\u8981\u8ba9\u5e8f\u5217\u6700\u5927\u503c\u6700\u5c0f\uff0c\u8fd9\u662f\u663e\u7136\u7684\uff0c\u6211\u4eec\u4ece\u5c0f\u5230\u5927\u627e\u5230\u4e00\u4e2a\u524d\u7f00 $\\operatorname{popcount}$ \u548c\u6070\u597d $\\geq n$ \u7684\u6570 $m$\uff0c\u8fd9\u4e2a\u6570\u5c31\u662f\u6574\u4e2a\u5e8f\u5217\u7684\u6700\u503c\uff0c\u5bb9\u6613\u53d1\u73b0\u9009\u62e9\u66f4\u5927\u7684\u6570\u4e0d\u4f1a\u66f4\u597d\u3002\n\n\u7136\u540e\u5f97\u5230\u4e86\u5e8f\u5217 ${m,\\dots ,1}$\uff0c\u4ece\u5927\u5230\u5c0f\u5220\u6570\uff0c\u56e0\u4e3a\u5f53\u6211\u4eec\u53ef\u4ee5\u5220\u6389 $x$\uff0c\u5220\u6389\u6bd4\u5b83\u5c0f\u7684\u4e00\u4e9b\u6570\u5e76\u4e0d\u4f1a\u66f4\u4f18\u3002\n\n```cpp\nsigned main() {\n\tcin.tie(nullptr)->sync_with_stdio(false);\n\tcin >> n;\n\tint mx = 0, sum = 0;\n\tfor (int i = 1; i <= n; i++) {\n\t\tsum += __builtin_popcount(i);\n\t\tif (sum >= n) {\n\t\t\tmx = i;\n\t\t\tbreak;\n\t\t}\n\t}\n\tvector<int> ans;\n\tfor (int i = mx; i >= 1; i--) {\n\t\tif (sum - __builtin_popcount(i) >= n)\n\t\t\tsum -= __builtin_popcount(i);\n\t\telse\n\t\t\tans.emplace_back(i);\n\t}\n\tcout << ans.size() << '\\n';\n\tfor (int i : ans)\n\t\tcout << i << ' ';\n\treturn 0;\n}\n```",
+        "postTime": 1682831924,
+        "uid": 434929,
+        "name": "Usada_Pekora",
+        "ccfLevel": 7,
+        "title": "P9256 \u8d2a\u5fc3"
+    }
+]

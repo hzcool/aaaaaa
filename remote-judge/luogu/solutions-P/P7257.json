@@ -1,0 +1,90 @@
+[
+    {
+        "content": "# \u9898\u5916\u8bdd\n**\u8fd9\u9898\u6709\u4e9b\u6c34**\uff08\u5927\u96fe\uff09\n## \u601d\u8def\n## \u5206\u4e24\u6b65\n1.\u53cd\u8f6c\n2.\u6bd4\u8f83\uff08\u7531\u4e8e\u849f\u84bb\u662f\u4e2a\u840c\u65b0\uff0c\u6240\u4ee5\u7528\u4e86if\u6bd4\u8f83\uff09\u3010\u5927\u4f6c\u52ff\u55b7\u3011\n\n[\u9898\u9762](https://www.luogu.com.cn/problem/P7257)\n<-\u7531\u6570\u636e\u8303\u56f4\u53ef\u77e5,\u8fd9\u9898\u90fd\u662f\u4e09\u4f4d\u6570\uff0c\u6570\u636e\u5f88\u5c0f\uff0c\u6240\u4ee5\u8fde\u5b57\u7b26\u4e32\u90fd\u4e0d\u7528awa\n\u8fd8\u6709\u53cd\u8f6c\uff0c\u5c31\u662f\u4e00\u6bb5\u6bb5\u622a\uff0c\u4e5f\u5c31\u63a8\u51fa\u4e86\u6211\u4eec\u7684\u6838\u5fc3\u7a0b\u5e8f\n## \u4f2a\u4ee3\u7801\n```cpp\nm=m/100+(m%100/10)*10+(m%10)*100;\nn=n/100+(n%100/10)*10+(n%10)*100;\n```\n# AC\u4ee3\u7801\uff08\u5927\u4f6c\u52ff\u55b7\uff09\n```cpp\n#include<bits/stdc++.h>//\u4e3a\u4e86\u4ee3\u7801\u7b80\u4fbf\uff0c\u5c31\u5148\u4f7f\u7528\u4e07\u80fd\u5e93\u5566 \nusing namespace std;//\u547d\u540d\u7a7a\u95f4 \nint m,n;//\u5f00\u5728\u4e3b\u51fd\u6570\u5916\u662f\u4e2a\u597d\u4e60\u60ef \nint main()\n{\n\tscanf(\"%d %d\",&m,&n);//\u6bd4cin\u8981\u5feb \n\tm=m/100+(m%100/10)*10+(m%10)*100;//\u5bf9m\u8fdb\u884c\u53cd\u8f6c\uff0c\u5206\u522b\u5bf9\u767e\u4f4d\uff0c\u5341\u4f4d\uff0c\u4e2a\u4f4d\u64cd\u4f5c \n\tn=n/100+(n%100/10)*10+(n%10)*100;//\u5bf9n\u8fdb\u884c\u7ffb\u8f6c\uff0c\u540c\u7406\n\tif(m>n)\n\t{\n\t\tcout<<m;//\u5982\u679cm\u5927\uff0c\u5c31\u8f93\u51fam \n\t} \n\telse\n\t{\n\t\tcout<<n;//\u5982\u679c\u76f8\u7b49\u6216n\u5927\uff0c\u5c31\u8f93\u51fan \n\t}\n\treturn 0;//\u7a0b\u5e8f\u5feb\u4e50\u5730\u7ed3\u675f\u5566~~~ \n} \n```\n _\u83ab\u6284\u88ad\uff0c\u68d5\u4e86\u5c11\u5e74\u540d\uff0c\u7a7a\u60b2\u5207\uff01_ ",
+        "postTime": 1610455630,
+        "uid": 137173,
+        "name": "CoronaQL",
+        "ccfLevel": 0,
+        "title": "\u849f\u84bb\u7684\u4ee3\u7801~~~"
+    },
+    {
+        "content": "**upd 2021.04.21\uff1a** \u4fee\u6539\u4e86\u4e00\u5904\u7b14\u8bef\u3002\n\n### Solution\n\n\u53ef\u4ee5\u4f7f\u7528 `algorithm` \u91cc\u7684\u51fd\u6570 `reverse` \u6765\u5b9e\u73b0\u3002\n\n\u9996\u5148\u6211\u4eec\u8bfb\u5165\u4e24\u4e2a\u5b57\u7b26\u4e32\uff08$a, b$\uff09\u3002\n\n\u5c06\u8fd9\u4e24\u4e2a\u5b57\u7b26\u4e32\u7ffb\u8f6c\uff0c\u5728\u8fd9\u91cc\u53ef\u4ee5\u7528 reverse $^{[1]}$\u3002\n\n\u7136\u540e\u76f4\u63a5\u6bd4\u8f83\u8fd9\u4e24\u4e2a\u5b57\u7b26\u4e32\u7684\u5b57\u5178\u5e8f\u5373\u53ef\u2014\u2014\u56e0\u4e3a $100 \\le a, b \\le 999$\uff0c\u6240\u4ee5\u8fd9\u4e24\u4e2a\u6570\u53ea\u9700\u6309\u7167\u4ece\u9ad8\u5230\u4f4e\u7684\u987a\u5e8f\u6bd4\u8f83\u5373\u53ef\u3002\n\n$[1]:$\n\nreverse \u51fd\u6570\u5728 <http://www.cplusplus.com/reference/algorithm/reverse/?kw=reverse> \u7684\u63cf\u8ff0\u662f\uff1a\n\n>Reverses the order of the elements in the range $[first,last)$.\n\n\u5373\n\n>\u7ffb\u8f6c\u5728 $[first, last)$ \u533a\u95f4\u5185\u7684\u6570\u7684\u987a\u5e8f\u3002\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main()\n{\n\tstring a, b;\n\tcin >> a >> b;\n\treverse(a.begin(), a.end());\n\treverse(b.begin(), b.end());\n\tcout << (a > b ? a : b);\n}\n```",
+        "postTime": 1610114654,
+        "uid": 219791,
+        "name": "tZERO\u3061\u3083\u3093",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P7257 \u3010[COCI2009-2010#3] FILIP\u3011"
+    },
+    {
+        "content": "# **P7257 FILIP \u9898\u89e3**\n\u8bfb\u9898\uff0c\u8fd9\u9053\u9898\u662f\u8981\u6211\u4eec\u8f93\u51fa\u4e24\u4e2a\u6570\u7ffb\u8f6c\u540e\u66f4\u5927\u7684\u90a3\u4e2a\u6570\uff08\u7ffb\u8f6c\u7684\u5b9a\u4e49\u5982\u9898\u6240\u8ff0\uff09,\u90a3\u4e48\u8fd9\u9053\u9898\u7684\u6838\u5fc3\u70b9\u5c31\u5728\u4e8e\u5982\u4f55\u7ffb\u8f6c\u3002\n\u7ffb\u8f6c\u5c31\u662f\u628a\u539f\u6570\u7684\u6700\u540e\u4e00\u4f4d\u7ed9\u622a\u4e0b\u6765\u653e\u5728\u672b\u5c3e\uff0c\u90a3\u4e48\u5c31\u4e0d\u96be\u60f3\u5230\u4ee5\u4e0b\u6838\u5fc3\u4ee3\u7801\uff1a\n```cpp\nint t=0;\nwhile(x)\n{\n\tt=t*10+x%10;//\u5c06\u672b\u5c3e\u90a3\u4e00\u4f4d\u7ed9\u62fc\u4e0a\u53bb\n\tx/=10;//\u6574\u9664\uff0c\u76f8\u5f53\u4e8e\u6d88\u6389\u6700\u540e\u4e00\u4f4d\n}\nreturn t;\n```\n\u6700\u540e\u6309\u9898\u610f\u8f93\u51fa\u6700\u5927\u503c\u5373\u53ef\u3002\n# **AC\u4ee3\u7801**\n```cpp\n#include <bits/stdc++.h>//\u4e07\u80fd\u5934\u6587\u4ef6 \nusing namespace std; \nint awa(int a)//\u5b9a\u4e49\u4e00\u4e2a\u7ffb\u8f6c\u51fd\u6570 \n{\n\tint t=0;\n\twhile(a)\n\t{\n\t\tt=t*10+a%10;//\u5c06\u672b\u5c3e\u90a3\u4e00\u4f4d\u7ed9\u62fc\u4e0a\u53bb\n\t\ta/=10;//\u6574\u9664\uff0c\u76f8\u5f53\u4e8e\u6d88\u6389\u6700\u540e\u4e00\u4f4d\n\t}\n\treturn t;\n}\nint main()\n{\n\tint a,b;\n\tcin>>a>>b;\n\tint a1=awa(a),b1=awa(b);//\u5c06\u4e24\u6570\u7ffb\u8f6c \n\tif(a1>b1)cout<<a1;//\u6309\u9898\u610f\u8f93\u51fa\u6700\u5927\u503c \n\telse cout<<b1;\n\treturn 0;//\u7ed3\u675fawa \n}\n```\n",
+        "postTime": 1610370916,
+        "uid": 375403,
+        "name": "NASFsky",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 P7257 \u3010[COCI2009-2010#3] FILIP\u3011"
+    },
+    {
+        "content": "## Content\n\u6709\u4e24\u4e2a\u5341\u8fdb\u5236\u4e09\u4f4d\u6570 $a,b$\uff0c\u8bf7\u8f93\u51fa\u8fd9\u4e24\u4e2a\u6570\u7ffb\u8f6c\u4e4b\u540e\u7684\u8f83\u5927\u6570\u3002\n\n**\u6570\u636e\u8303\u56f4\uff1a$100\\leqslant a,b\\leqslant 999$\uff0c$a,b$ \u4e2d\u4e0d\u5305\u542b $0$ \u6216\u4e0d\u4e3a $0$\u3002**\n## Solution\n\u5f88\u6c34\u7684\u4e00\u9053\u9898\u3002\u4f60\u76f4\u63a5\u6a21\u62df\u4e0b\u7ffb\u8f6c\uff0c\u53ef\u4ee5\u53d1\u73b0\u7ffb\u8f6c\u4e4b\u540e\u7684\u4e24\u4e2a\u4e09\u4f4d\u6570\u5206\u522b\u662f $\\overline{\\left\\lfloor\\dfrac{a}{100}\\right\\rfloor(\\left\\lfloor\\dfrac{a\\mod 100}{10}\\right\\rfloor)(a\\mod 10)}$ \u548c $\\overline{\\left\\lfloor\\dfrac{b}{100}\\right\\rfloor(\\left\\lfloor\\dfrac{b\\mod 100}{10}\\right\\rfloor)(b\\mod 10)}$\u3002\u867d\u7136\u770b\u4e0a\u53bb\u6709\u4e9b\u590d\u6742\uff0c\u4f46\u662f\u4ee3\u7801\u5b9e\u73b0\u662f\u4e0d\u96be\u7684\u3002\n## Code\n```cpp\nint main() {\n\tint a = Rint, b = Rint;\n\tint aa = (a / 100) + (a % 100 / 10) * 10 + (a % 10) * 100,\n\t\tbb = (b / 100) + (b % 100 / 10) * 10 + (b % 10) * 100;\n\tprintf(\"%d\", max(aa, bb));\n\treturn 0;\n}\n```",
+        "postTime": 1610603187,
+        "uid": 112917,
+        "name": "Eason_AC",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 P7257 \u3010[COCI2009-2010#3] FILIP\u3011"
+    },
+    {
+        "content": "### 0x01 \u601d\u8def\n\u5982\u4f55\u53cd\u8f6c\u4e00\u4e2a\u6570\uff1f  \n\u4ee4\u539f\u6570\u4e3a $x$ \uff0c\u65b0\u6570\u4e3a $y$ \u3002\n1. \u5f53 $x$ \u4e0d\u4e3a $0$\n2. \u5c06 $x$ \u7684\u4e2a\u4f4d\u62fc\u63a5\u5728 $y$ \u4e0a\n3. \u5c06 $x$ \u7684\u4e2a\u4f4d\u5220\u9664\n4. \u56de\u5230\u7b2c\u4e00\u6b65\n\n- \u600e\u4e48\u53d6\u51fa $x$ \u7684\u4e2a\u4f4d\uff1f\n- $ x \\bmod 10$\n+ \u600e\u4e48\u5c06 $x$ \u7684\u4e2a\u4f4d\u62fc\u63a5\u5728 $y$ \u4e0a\uff1f \n+ $ y \\times 10 + x \\bmod 10$\n- \u600e\u4e48\u5220\u9664 $x$ \u7684\u4e2a\u4f4d\uff1f\n- $ x \\gets x \\div 10$\n\n\u77e5\u9053\u4e86\u8fd9\u4e9b\uff0c\u4ee3\u7801\u5c31\u597d\u5199\u4e86\u3002\n\n------------\n### 0x02 \u4ee3\u7801\n```cpp\n#include <cstdio>\n#define rtn return\n\nint flip(int x)\n{\n\tint rtn_ = 0;\n\twhile(x)\n\t{\n\t\trtn_ = rtn_ * 10 + x % 10;\n\t\tx /= 10;\n\t}\n\trtn rtn_;\n}\n\nint main()\n{\n\tint a,b;\n\tscanf(\"%d%d\",&a,&b);\n\tint fa = flip(a),\n\t\tfb = flip(b);\n\tprintf(\"%d\",fa>fb?fa:fb);\n\trtn 0;\n}\n```",
+        "postTime": 1610368290,
+        "uid": 366338,
+        "name": "fjy666",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P7257 \u3010[COCI2009-2010#3] FILIP\u3011"
+    },
+    {
+        "content": "## \u9898\u610f\n\n\u8f93\u5165\u4e24\u4e2a\u6570\uff0c\u5c06\u4ed6\u4eec\u53cd\u8f6c\uff0c\u8f93\u51fa\u5927\u7684\u90a3\u4e2a\u6570\u3002\n\n## \u601d\u8def\n\n\u5c06\u8fd9\u4e24\u4e2a\u6570\u5f53\u4f5c\u5b57\u7b26\u4e32\u8bfb\u5165\uff0c\u7136\u540e\u53cd\u8f6c\uff0c\u518d\u4ece\u7b2c\u4e00\u4f4d\u5f00\u59cb\u6bd4\u8f83\uff0c\u5982\u679c\u4e00\u4e2a\u6570\u7684\u6700\u9ad8\u4f4d\u6bd4\u53e6\u4e00\u4e2a\u6570\u7684\u6700\u9ad8\u4f4d\u5927\uff0c\u90a3\u4e48\u76f4\u63a5\u8f93\u51fa\u524d\u8005\uff0c\u5982\u679c\u6700\u9ad8\u4f4d\u76f8\u7b49\uff0c\u90a3\u4e48\u6bd4\u8f83\u4e0b\u4e00\u4f4d\u3002\n\n# CODE\n\n```cpp\n\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n\tstring a,b;\n\tcin>>a>>b;\n\tfor(int i=2;i>=0;i--){\n\t\tif(a[i]-'0'!=b[i]-'0'){\n\t\t\tif(a[i]-'0'>b[i]-'0'){\n\t\t\t\treverse(a.begin(),a.end());\n\t\t\t\tcout<<a;\n\t\t\t\tbreak;\n\t\t\t}\n\t\t\telse{\n\t\t\t\treverse(b.begin(),b.end());\n\t\t\t\tcout<<b;\n\t\t\t\tbreak;\n\t\t\t}\n\t\t}\n\t}\n\treturn 0;\n}\n\n```\n\n\u5b8c\u7ed3\uff0c\u6492\u82b1",
+        "postTime": 1610200284,
+        "uid": 255788,
+        "name": "Runtimeerror90",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 P7257 \u3010[COCI2009-2010#3] FILIP\u3011"
+    },
+    {
+        "content": "## \u7b80\u8ff0\u9898\u610f\n\n~~\u5df2\u7ecf\u5f88\u660e\u786e\u4e86\uff0c\u4f30\u8ba1\u4e0d\u9700\u8981\u7b80\u8ff0\u4e86~~\n\n## Solution\n\n\u8bfb\u5165\u4e24\u4e2a\u6570 $a$, $b$\n\n\u53ef\u4ee5\u786e\u5b9a\u5b83\u4eec\u662f\u4e09\u4f4d\u6570\uff0c\u6240\u4ee5\u8003\u8651\u66b4\u529b\u7ffb\u8f6c\n\n\u90a3\u4e48\u5bf9\u4e8e\u4efb\u610f\u4e00\u4e2a\u6570 $x$\n\n\u5b83\u7684\u4e2a\u4f4d\u6570\u662f $x \\!\\!\\mod 10$\uff0c\u5341\u4f4d\u6570\u662f $x \\div 10 \\!\\!\\mod 10$\uff0c\u4e2a\u4f4d\u6570\u662f $x \\div 100$\n\n\u800c\u7ffb\u8f6c\u540e\u7684\u6570\u662f \u539f\u4e2a\u4f4d\u6570 $\\times 100 +$ \u539f\u4e2d\u4f4d\u6570 $\\times 10 + $\u539f\u4e2a\u4f4d\u6570\n\n\u6240\u4ee5\u53ef\u5f97\u5230\u5982\u4e0b\u516c\u5f0f\n\n$$x' = (x \\!\\!\\!\\!\\mod 10) \\times 100 + (x \\div 10 \\!\\!\\!\\!\\mod 10) \\times 10 + (x \\div 100)$$\n\n## Code\n\n```cpp\n/*\nWork by: Suzt_ilymics\nKnowledge: ??\nTime: O(??)\n*/\n#include<iostream>\n#include<cstdio>\n#include<cstring>\n#include<algorithm>\n#define LL long long\n#define orz cout<<\"lkp AK IOI!\"<<endl\n\nusing namespace std;\nconst int MAXN = 1;\nconst int INF = 1;\nconst int mod = 1;\n\nint a, b;\n\nint read(){\n\tint s = 0, f = 0;\n\tchar ch = getchar();\n\twhile(!isdigit(ch))  f |= (ch == '-'), ch = getchar();\n\twhile(isdigit(ch)) s = (s << 1) + (s << 3) + ch - '0' , ch = getchar();\n\treturn f ? -s : s;\n}\n\nint main()\n{\n\ta = read(), b = read();\n\ta = (a % 10) * 100 +(a / 10 % 10) * 10  + (a / 100);\n\tb = (b % 10) * 100 +(b / 10 % 10) * 10  + (b / 100);\n\tprintf(\"%d\", max(a, b));\n\treturn 0;\n}\n```",
+        "postTime": 1610171642,
+        "uid": 230580,
+        "name": "Suzt_ilymtics",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 P7257 \u3010[COCI2009-2010#3] FILIP\u3011"
+    },
+    {
+        "content": "# \u9898\u610f\uff1a\n\u7ffb\u8f6c\u4e24\u6570+\u6bd4\u8f83\u5927\u5c0f\uff08~~\u4e0d\u662f\u6211\u8bf4\uff0c\u597d\u6c34/fad~~\n# \u601d\u8def\uff1a\n### \u4e00.\u7ffb\u8f6c\uff1a\n\u6839\u636e\u9898\u76ee\u7684\u6570\u636e\u8303\u56f4\u53ef\u77e5\uff0c\u8fd9\u4e24\u4e2a\u6570\u90fd\u662f3\u4f4d\u6570\uff08100<a,b<999\uff09\u3002\u6240\u4ee5\u8bf4\uff0c~~\u8fde\u5b57\u7b26\u4e32\u90fd\u7528\u4e0d\u5230/jk~~,\u53ef\u4ee5\u76f4\u63a5\u5c06\u6570\u5b57\u8bfb\u5165\u540e\u76f4\u63a5\u4f9d\u7167\u7ffb\u8f6c\u4e09\u4f4d\u6570\u7684\u516c\u5f0f\u8fdb\u884c\u7ffb\u8f6c\u3002\n\n\uff08\u5047\u8bbe\u8981\u7ffb\u8f6c\u7684\u4e09\u4f4d\u6570\u4e3aa\uff09\uff0c\u90a3\u4e48\u7ffb\u8f6c\u540e\u7684a=a/100+(a%100/10) * 10+(a%10) * 100(\u5bf9\u4e8e\u7ffb\u8f6c\u516c\u5f0f\u7684\u8fdb\u4e00\u6b65\u89e3\u91ca\uff1a\uff08a/100\uff09\u5c06\u767e\u4f4d\u632a\u52a8\u5230\u4e2a\u4f4d\uff0c\uff08(a%100/10) * 10\uff09\u5341\u4f4d\u6570\u4f4d\u7f6e\u4e0d\u53d8\uff0c\uff08a%10 * 100\uff09\u5c06\u4e2a\u4f4d\u6570\u79fb\u52a8\u5230\u767e\u4f4d\uff09\u3002\n\n### \u4e8c.\u6bd4\u8f83\u5927\u5c0f\uff1a\n\u76f4\u63a5\u7528C++\u81ea\u5e26\u7684max\u51fd\u6570\uff08\u7528\u6cd5\uff1amax(a,b)\u8d77\u8fd4\u56de\u503c\u4e3aa\u4e0eb\u4e2d\u8f83\u5927\u7684\u90a3\u4e2a\uff09\u5373\u53ef\uff0c\u6b64\u5904\u4e0d\u8fc7\u591a\u53d9\u8ff0\u3002\n\n# Code\uff1a\n```cpp\n#include<iostream>\n#include<algorithm>\nusing namespace std;\n\nint a,b;\n\nint main(){\n\tcin>>a>>b;\n\ta=a/100+(a%100/10)*10+(a%10)*100;//\u5bf9a\u8fdb\u884c\u7ffb\u8f6c\n\tb=b/100+(b%100/10)*10+(b%10)*100;//\u5bf9b\u8fdb\u884c\u7ffb\u8f6c\n\tcout<<max(a,b);//\u8f93\u51faa\u4e0eb\u4e2d\u8f83\u5927\u7684\u90a3\u4e2a\n\treturn 0;\n} \n```\n",
+        "postTime": 1610273322,
+        "uid": 33165,
+        "name": "My_Faith",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P7257 \u3010[COCI2009-2010#3] FILIP\u3011"
+    },
+    {
+        "content": "# \u9898\u89e3P7257 [COCI2009-2010#3] FILIP\n\n### \u9898\u76ee\u63cf\u8ff0\n\n\u7ed9\u4f60\u4e24\u4e2a\u5341\u8fdb\u5236\u6b63\u6574\u6570 $a, b$\uff0c\u8f93\u51fa\u5c06\u8fd9\u4e24\u4e2a\u6570\u7ffb\u8f6c\u540e\u7684\u8f83\u5927\u6570\u3002\n\n\u6570\u636e\u8303\u56f4\uff1a($100 \\le a,b \\le 999$)\n\n### Solution\n\n\u6570\u636e\u8303\u56f4\u8fd9\u4e48\u5c0f\uff08\u4e09\u4f4d\u6570\uff09\uff0c\u505a\u6cd5\u5f88\u591a\u3002\n\n\u5927\u5bb6\u90fd\u662f\u8f93\u5165\u4e4b\u540e\u5904\u7406\u6570\u636e\uff0c\u4f46\u662f\u6211\u4eec\u53ef\u4ee5\u8f93\u5165\u65f6\u5c31\u5904\u7406\u597d\u5012\u5e8f\u7684\u95ee\u9898\u3002\n\n\u6211\u4eec\u53ef\u4ee5\u8003\u8651\u5f00\u4e00\u4e2a\u4e34\u65f6\u7684\u6808\uff0c\u6309\u6b63\u5e8f\u8bfb\u5165\u4e09\u4e2a\u6570\u5b57\uff0c\u7136\u540e\u5012\u5e8f\u53e0\u52a0\uff0c\u90a3\u4e48\u8fd4\u56de\u65f6\u5c31\u662f\u7ffb\u8f6c\u540e\u7684\u6570\u4e86\u3002\n\n### Code\n\n```c++\n#include <bits/stdc++.h>\n#define gc() getchar()\nusing namespace std;\n\ntemplate <typename T> void rd(T &x){\n\tint st[4],tp=0;\t\t\t\t\t\t\t\t\t// \u5f00\u4e34\u65f6\u7684\u6808\uff0ctp \u8bb0\u5f55\u6808\u9876\n\tint f=1;x=0;char c=gc();\n\tfor(;!isdigit(c);c=gc())if(c=='-')f=-1;\n\tfor(;isdigit(c);c=gc())st[++tp]=c-'0';\t\t\t// \u8bfb\u5165\u65f6\u5148\u538b\u6808\n\tfor(;tp;--tp)x=(x<<1)+(x<<3)+st[tp];\t\t\t// \u5012\u5e8f\u5904\u7406\n\tx*=f;\n}\n\nint main(){\n\tint a,b;\n\trd(a),rd(b);\n\tprintf(\"%d\\n\",max(a,b));\t\t\t\t\t\t// \u8bfb\u5165\u65f6\u6211\u4eec\u5df2\u7ecf\u7ffb\u8f6c\u5904\u7406\u4e86\uff0c\u6240\u4ee5\u8fd9\u91cc\u76f4\u63a5\u6bd4\u8f83 a\uff0cb\n\treturn 0;\n}\n\n```\n\n***by jsntsys***\n\n$2021.1.10$\n\n",
+        "postTime": 1610270999,
+        "uid": 373948,
+        "name": "sysong",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 P7257 \u3010[COCI2009-2010#3] FILIP\u3011"
+    },
+    {
+        "content": "\u6311\u6218\u4e0d\u538b\u884c\u77ed\u4ee3\u7801\uff01\u52a0return 0\u4e00\u5171\u4e5d\u884c\u3002\n\n\u9898\u610f\u4e0d\u8bf4\u4e86\uff0c\u76f4\u63a5\u5206\u6790\uff1a\n\n\u9898\u76ee\u4e2d\u8981\u5c06\u4e24\u4e2a\u6570\u5b57\u7ffb\u8f6c\uff0c\u663e\u7136\u6211\u4eec\u53ef\u4ee5\u4f7f\u7528\u5b57\u7b26\u4e32\n\n# \u65b9\u6cd5\n\u9898\u76ee\u6761\u4ef6\u4e2d\u8bf4\u662f\u4e09\u4f4d\u6570\uff0c\u5e76\u4e14\u6211\u4eec\u90fd\u77e5\u9053\u4f4d\u503c\u539f\u7406\uff0c**\u628a\u8f93\u5165\u6570\u7684\u9996\u4f4d\uff08\u767e\u4f4d\uff09$a[0]$\u4f5c\u4e3a\u65b0\u6570\u7684\u4e2a\u4f4d\uff0c\u5341\u4f4d\u4e0d\u52a8\uff0c\u8f93\u5165\u6570\u7684\u4e2a\u4f4d$a[2]$\u4f5c\u4e3a\u65b0\u6570\u7684\u767e\u4f4d**\uff0c\u5bf9\u4e8e$a$,$b$\u90fd\u662f\u8fd9\u6837\u7684\u64cd\u4f5c\u65b9\u5f0f\uff0c\u628a\u65b0\u6570\u5b58\u5165$ans1$,$ans2$\u4e2d\u5c31\u5f97\u5230\u4e86\u6700\u6838\u5fc3\u7684\u4ee3\u7801\uff1a\n\n```cpp\nint ans1=(a[2]-'0')*100+(a[1]-'0')*10+(a[0]-'0'),ans2=(b[2]-'0')*100+(b[1]-'0')*10+(b[0]-'0');\n```\n\n# \u5b8c\u6574\u4ee3\u7801\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nstring a,b;\nint main(){\ncin>>a>>b;\nint ans1=(a[2]-'0')*100+(a[1]-'0')*10+(a[0]-'0'),ans2=(b[2]-'0')*100+(b[1]-'0')*10+(b[0]-'0');\ncout<<max(ans1,ans2)<<endl;\nreturn 0;\n}\n```\n",
+        "postTime": 1610258287,
+        "uid": 363708,
+        "name": "wgy23672",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 P7257 \u3010[COCI2009-2010#3] FILIP\u3011"
+    },
+    {
+        "content": "\u5e9f\u8bdd\uff1a\u53d1\u73b0\u5b9d\u85cf\n\n## \u68a6\u96ea\u7684\u601d\u8def\n\n### \u4e00. \u7ffb\u8f6c\n\n1. \u7531\u6570\u636e\u8303\u56f4\u53ef\u5f97\uff1a$a$,$b$\u4e3a3\u4f4d\u6570\n\n1. \u8bbe$a=c_1\\times100$(\u767e\u4f4d)$+c_2\\times10$\uff08\u5341\u4f4d\uff09$+c_3$\uff08\u4e2a\u4f4d\uff09\n\n1. \u5219\u7ffb\u8f6c\u540e\u7684$a=c_1+c_2\\times10+c_3\\times100$\n\n1. $b$\u540c\u7406\n\n### \u4e8c.\u5c062\u6570\u6bd4\u8f83\n\n1. \u7528$c1$\u5b58$a$,\u7528$c2$\u5b58$b$\n\n1. $a=c1_1\\times100+c1_2\\times10+c1_3$\n\n1. $b=c2_1\\times100+c2_2\\times10+c2_3$\n\n1. \u7ffb\u8f6c\u540e\n\n\t$a=c1_1+c1_2\\times10+c1_3\\times100$\n   \n   $b=c2_1+c2_2\\times10+c2_3\\times100$\n\n1. \u8f93\u51fa$max(a,b)$\u5373\u53ef\n\n## AC\u4ee3\u7801\n\n```\n#include<bits/stdc++.h>\nusing namespace std;\nchar c1[3],c2[3];\nint main(){\n\tfor(int i=0;i<3;i++)\n\t\tcin>>c1[i];\n\tfor(int i=0;i<3;i++)\n\t\tcin>>c2[i];\n\tcout<<max(c1[0]-'0'+10*(c1[1]-'0')+100*(c1[2]-'0'),c2[0]-'0'+10*(c2[1]-'0')+100*(c2[2]-'0'));\n\treturn 0;\n}\n```\n",
+        "postTime": 1610152726,
+        "uid": 179601,
+        "name": "\u68a6\u6e38\u7684\u5c0f\u96ea\u7403",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P7257"
+    }
+]

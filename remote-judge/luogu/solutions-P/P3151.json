@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u663e\u7136\u6211\u4eec\u4f1a\u8ba1\u7b97\u6574\u5f20\u56fe\u7684K\u75c5\u6bd2\u4e2a\u6570\u4e3a$3^k$\uff0c\u90a3\u4e48\u6211\u4eec\u8003\u8651\u9012\u5f52\u7f29\u5c0f\u89c4\u6a21\u3002\n\n\u53ea\u8003\u8651\u524d$x$\u884c\u7684K\u75c5\u6bd2\u4e2a\u6570$f(k,x)$\n\n\u53ea\u9700\u8981\u7b80\u5355\u89c2\u5bdf\u56fe\u7684\u6027\u8d28\n\n\u5982\u679c$x<=2^{k-1}$\u5219$f(k,x)=f(k-1,x)*2$\n\n\u5426\u5219$f(k,x)=2*3^{k-1}+f(k-1,x-2^{k-1})$\n\n\u6ce8\u610f\u8fb9\u754c\n\n```cpp\n[/color][codec]LL f(int k,int x)\n{\n    if(!k)return x==1;\n    if(bin[k-1]<=x)return (p3[k-1]<<1)+f(k-1,x-bin[k-1]);\n    else return f(k-1,x)<<1;\n}[/codec ]\n```",
+        "postTime": 1473470654,
+        "uid": 829,
+        "name": "Scarlet",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P3151 \u3010\u75c5\u6bd2\u6269\u6563(\u6570\u636e\u6709\u8bef)\u3011"
+    }
+]

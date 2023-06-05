@@ -1,0 +1,34 @@
+[
+    {
+        "content": "[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/B2074)\n\n\u5bf9\u4e8e\u8fd9\u9053\u9898\uff0c\u5982\u679c\u786c\u7b97 $a^b$ \u7684\u8bdd\uff0c\u6700\u5927\u53ef\u4ee5\u8fbe\u5230 $100^{10000}$\uff0c\u663e\u7136\u662f\u4e0d\u53ef\u884c\u7684\u3002\n\n\u8fd9\u65f6\uff0c\u6211\u4eec\u53ef\u4ee5\u5229\u7528\u4f59\u6570\u7684\u53ef\u4e58\u6027\uff1a\n\n\u5982\u679c $a\\equiv b\\mod c$\uff0c\u5219 $a \\times b \\mod c =((a \\mod c)\\times(b \\mod c)) \\mod c$\u3002\n\n\u56e0\u6b64\uff0c$x^y \\mod 7 \\equiv ((x^{y-1} \\mod 7)\\times(x \\mod 7)) \\mod 7$\u3002\n\n\uff08\u5982\u679c\u60f3\u8981\u4e86\u89e3\u66f4\u591a\uff0c\u53ef\u4ee5\u770b\u770b[\u8fd9\u7bc7\u6587\u7ae0](http://www.360doc.com/content/14/0611/15/14219218_385707038.shtml)\u3002\uff09\n\n\u7efc\u4e0a\uff0c\u6211\u4eec\u4fbf\u4e0d\u96be\u5199\u51fa\u4ee3\u7801\uff1a\n\n```cpp\n#include<iostream>\nusing namespace std;\nint a,b,ans=1;\nint main(){\n\tcin>>a>>b;\n\ta%=7;\n\tfor(int i=1;i<=b;i++){\n\t\tans*=a;\n\t\tans%=7;\n\t}\n\tif(ans==0)cout<<\"Sunday\";\n\tif(ans==1)cout<<\"Monday\";\n\tif(ans==2)cout<<\"Tuesday\";\n\tif(ans==3)cout<<\"Wednesday\";\n\tif(ans==4)cout<<\"Thursday\";\n\tif(ans==5)cout<<\"Friday\";\n\tif(ans==6)cout<<\"Saturday\";\n\treturn 0;\n}\n\n```",
+        "postTime": 1625296301,
+        "uid": 511907,
+        "name": "\u4e00\u53ea\u5927\u9f99\u732b",
+        "ccfLevel": 5,
+        "title": "B2074 \u8ba1\u7b97\u661f\u671f\u51e0 \u9898\u89e3"
+    },
+    {
+        "content": "\u770b\u5230\u9898\u76ee\u5173\u4e8e\u661f\u671f\u51e0\uff0c\u5c31\u4f1a\u81ea\u7136\u60f3\u8d77\u7528 switch \u8bed\u53e5\u8fdb\u884c\u5224\u65ad\u3002\n\n\u5177\u4f53\u601d\u8def\u5c31\u662f\u5148\u5faa\u73af\u8ba1\u7b97 $n$ \u5929\u540e\u662f\u5468\u51e0\uff0c\u518d\u7528 switch \u8f93\u51fa\u3002\n\n\u4ee3\u7801\u5982\u4e0b\uff1a\n```cpp\n#include<iostream>\nusing namespace std;\nint main()\n{\n    int a,b;\n    int n=1;\n    int i;\n    cin>>a>>b;\n    for(i=1; i<=b; i++)\n      n=n*a%7; //\u5faa\u73af\u8ba1\u7b97n\u5929\u540e\u662f\u5468\u51e0\n    switch(n)\n    {\n        case 0:\n            cout<<\"Sunday\"<<endl;\n            break;\n        case 1:\n            cout<<\"Monday\"<<endl;\n            break;\n        case 2:\n            cout<<\"Tuesday\"<<endl;\n            break;\n        case 3:\n            cout<<\"Wednesday\"<<endl;\n            break;\n        case 4:\n            cout<<\"Thursday\"<<endl;\n            break;\n        case 5:\n            cout<<\"Friday\"<<endl;\n            break;\n        case 6:\n            cout<<\"Saturday\"<<endl;\n            break;\n    }\n    return 0;\n}\n```\n",
+        "postTime": 1625616137,
+        "uid": 372417,
+        "name": "sylqwq",
+        "ccfLevel": 0,
+        "title": "B2074 \u8ba1\u7b97\u661f\u671f\u51e0"
+    },
+    {
+        "content": "\u8fd9\u9898\u80af\u5b9a\u4e0d\u80fd\u786c\u7b97 $a$ \u7684 $b$ \u6b21\u65b9\uff0c\u6240\u4ee5\u6211\u4eec\u8981\u7528\u5230\u4e00\u4e2a\u4e1c\u897f\uff1a\n\n\u5982\u679c $a\u2261b   \\mod\\   c$ ,\u5219 $a\u00d7b    \\mod  c=((a  \\mod  c)\u00d7(b   \\mod   c))   \\mod  \\ c$\n\n\n\u6240\u4ee5\u53ef\u5f97\u51fa\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint a,b,ans=1;//a\u3001b\u5982\u9898\u610f\uff0cans\u8868\u793a\u7b54\u6848\nint main(){\n\tcin>>a>>b;\n\tfor(int i=1;i<=b;i++){\n\t\tans*=a;\n\t\tans%=7;//\u6bcf\u6b21\u4e58\u5b8c\u5c31\u6a21\uff0c\u8fd9\u6837\u4e0d\u4f1a\u7206\u70b8\n\t}\n\tif(ans==0) cout<<\"Sunday\";//\u5224\u65adans\u8981\u4ece0\u5f00\u59cb\n\telse if(ans==1) cout<<\"Monday\";\n\telse if(ans==2) cout<<\"Tuesday\";\n\telse if(ans==3) cout<<\"Wednesday\";\n\telse if(ans==4) cout<<\"Thursday\";\n\telse if(ans==5) cout<<\"Friday\";\n\telse if(ans==6) cout<<\"Saturday\";\u3001\n\treturn 0;//\u62dc\u62dc\uff01\n}\n```\n\n",
+        "postTime": 1625932409,
+        "uid": 192818,
+        "name": "Sea_Level",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 B2074 \u3010\u8ba1\u7b97\u661f\u671f\u51e0\u3011"
+    },
+    {
+        "content": "# \u9898\u610f\n\u8bbe\u4eca\u5929\u662f\u661f\u671f\u65e5\uff0c $a^b$ \u5929\u540e\u662f\u661f\u671f\u51e0\u3002\n# \u5206\u6790\n\u5148\u770b\u6570\u636e\u8303\u56f4\uff0c $0<a \\leq 100$ \uff0c $0<b \\leq 10000$ \u3002\n\u5982\u679c\u76f4\u63a5\u7528 cmath \u5e93\u7684 pow \u51fd\u6570\u7b97\u5230 $100^{10000}$ \uff0c\u80af\u5b9a\u76f4\u63a5\u62a5\u9519\uff0c~~\u6240\u4ee5\u8981\u7528 for \u7b97\u5230 $a^b$ \u7136\u540e\u518d\u9519......~~\n\n\u54b3\u54b3\uff0c\u4e0b\u9762\u8bf4\u6b63\u7ecf\u7684\uff1a\u5373\u4f7f\u7528for\u5faa\u73af\u4e5f\u4f1a\u9519\uff0c\u56e0\u4e3a\u53ea\u9700\u8981\u77e5\u9053\u662f\u661f\u671f\u51e0\uff0c\u6240\u4ee5\u53ea\u9700\u8981\u77e5\u9053\u79ef\u6a217\u7684\u7ed3\u679c\u5c31\u53ef\u4ee5\u4e86\uff0c\u56e0\u4e3a\u76f8\u4e58\u4e4b\u540e\u662f7\u7684\u500d\u6570\u7684\u90a3\u90e8\u5206\u5373\u4f7f\u4e58\u51e0\u4e5f\u4ecd\u662f7\u7684\u500d\u6570\uff0c\u6240\u4ee5\u76f4\u63a5\u8fb9\u4e58\u8fb9\u6a21\u628a\u90a3\u4e00\u90e8\u5206\u6a21\u6389\u5373\u53ef\n\n$(a+7) \\mod 7= $ $a \\mod b + 7\\mod 7=$ $a \\mod b + 0= a \\mod b$\n# Code\n```cpp\n#include<iostream>\n#include<cstdio>//\u675c\u7edd\u4e07\u80fd\u5934\nusing namespace std;\n\nint a,b;\n\nint main()\n{\n\tscanf(\"%d%d\",&a,&b);\n\tint ans=1;\n\tfor(int i=1;i<=b;i++)\n\t{\n\t\tans*=a;\n\t\tans%=7;//\u8fb9\u4e58\u8fb9\u6a21\n\t}\n\tswitch(ans)\n\t{\n\t\tcase 0 : printf(\"Sunday\");break;\n\t\tcase 1 : printf(\"Monday\");break;\n\t\tcase 2 : printf(\"Tuesday\");break;\n\t\tcase 3 : printf(\"Wednesday\");break;\n\t\tcase 4 : printf(\"Thursday\");break;\n\t\tcase 5 : printf(\"Friday\");break;\n\t\tcase 6 : printf(\"Saturday\");break;\n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1626569521,
+        "uid": 469309,
+        "name": "\u51e4\u5e74",
+        "ccfLevel": 4,
+        "title": "\u8ba1\u7b97\u661f\u671f\u51e0"
+    }
+]

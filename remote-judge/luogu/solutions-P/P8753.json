@@ -1,0 +1,50 @@
+[
+    {
+        "content": "[$\\color{red}\\text{\u9898\u76ee\u4f20\u9001\u95e8}$](https://www.luogu.com.cn/problem/P8753)\n\n[$\\color{red}\\text{\u66f4\u597d\u7684\u9605\u8bfb\u4f53\u9a8c}$](https://www.luogu.com.cn/blog/Alex-ZJY/solution-p8753)\n\n## \u9898\u610f\n\u5728 $1$ \u5230 $n-1$ \u4e2d\uff0c\u6709\u591a\u5c11\u4e2a\u6570\u5e73\u65b9\u540e\u9664\u4ee5 $n$ \u7684\u4f59\u6570\u5c0f\u4e8e $n$ \u7684\u4e00\u534a\u3002\n\n## \u5206\u6790\n\u4ece $1$ \u5230 $n-1$ \u679a\u4e3e\uff0c\u6bcf\u6b21\u5224\u65ad $i\\times i \\bmod n$ \u662f\u5426\u5c0f\u4e8e $n/2.0$\u3002\n\n\u8fd9\u70b9\u6709\u4e2a\u5c0f\u5751\uff1a\u4e00\u5b9a\u662f $n/2.0$ \u800c\u4e0d\u662f $n/2$ \uff0c\u56e0\u4e3a $n/2$ \u4f1a\u81ea\u52a8\u5411\u4e0b\u53d6\u6574\uff0c\u800c $n/2.0$ \u5f97\u5230\u7684\u662f\u7cbe\u786e\u503c\u3002\n\n## \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n\tlong long n,ans=0;\n\tcin>>n;\n\tfor(int i=1;i<n;i++)\n\t{\n\t\tif(i*i%n<n/2.0) ans++;\n\t}\n\tcout<<ans<<endl;\n   \treturn 0;\n}\n```",
+        "postTime": 1671540518,
+        "uid": 841648,
+        "name": "Alex_ZJY",
+        "ccfLevel": 0,
+        "title": "P8753 [\u84dd\u6865\u676f 2021 \u7701 AB2] \u5c0f\u5e73\u65b9 \u9898\u89e3"
+    },
+    {
+        "content": "## \u9898\u610f\u5206\u6790\n\n\u9898\u610f\u9898\u9762\u5df2\u7ecf\u8bf4\u660e\uff0c\u5728\u6b64\u5c31\u4e0d\u518d\u8d58\u8ff0\u3002\n\n\u5206\u6790\uff1a\u7531\u4e8e $n\\leq 10000$ \u6240\u4ee5\u53ef\u4ee5\u66b4\u529b\u679a\u4e3e\uff0c\u679a\u4e3e\u6bcf\u4e00\u4e2a $i$\uff0c\u770b\u662f\u5426\u7b26\u5408\u8981\u6c42\uff0c\u5982\u7b26\u5408\uff0c\u6ee1\u8db3\u6761\u4ef6\u7684\u6570\u7684\u6570\u91cf\u589e\u591a\u3002\n\n## \u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n\tint n,t=0;\n\tcin>>n;\n\tfor(int i=1;i<=n-1;i++){\n\t\tif((i*i)%n<n/2){\n\t\t\tt++;\n\t\t}\n\t}cout<<t;\n    return 0;\n}\n```\n\u4f46\u8fd9\u6837\u4f1a\u9519\uff0c\u56e0\u4e3a $n \\div 2$ \u81ea\u52a8\u5411\u4e0b\u53d6\u6574\u4e86\uff0c\u7531\u6b64\u53ef\u4ee5\u5f97\u51fa\u6b63\u786e\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n\tint n,t=0;\n\tdouble cnt=0;\n\tcin>>n;\n\tcnt=n/2.0;\t//\u7528 double \u53d8\u91cf\u5b58\u4e0b n/2 \u7684\u5546\u3002\n\tfor(int i=1;i<=n-1;i++){\t//\u679a\u4e3e\u5230 n-1\n\t\tif((i*i)%n<cnt){\n\t\t\tt++;\n\t\t}\n\t}cout<<t;\n    return 0;\n}\n```\n",
+        "postTime": 1671539872,
+        "uid": 762010,
+        "name": "Mr__AC",
+        "ccfLevel": 0,
+        "title": "P8753\u9898\u89e3"
+    },
+    {
+        "content": "# Description\r\n\r\n[P8753 [\u84dd\u6865\u676f 2021 \u7701 AB2] \u5c0f\u5e73\u65b9](https://www.luogu.com.cn/problem/P8753)\r\n\r\n\u5728 $1$ \u5230 $n-1$ \u4e2d, \u6709\u591a\u5c11\u4e2a\u6570\u5e73\u65b9\u540e\u9664\u4ee5 $n$ \u7684\u4f59\u6570\u5c0f\u4e8e $n$ \u7684\u4e00\u534a\u3002\r\n\r\n\u6570\u636e\u8303\u56f4\uff1a$1 \\leq n \\leq 10000$\u3002\r\n\r\n# Analysis\r\n\r\n\u5165\u95e8\u9898\uff0c\u8bbe\u7acb\u4e00\u4e2a\u6e38\u6807 $i$\uff0c\u4f7f\u5f97 $i \\in [1,n-1]$\uff0c\u6309\u9898\u610f\u6a21\u62df\u5373\u53ef\u3002\r\n\r\n**\u552f\u4e00\u7684\u4e00\u4e2a\u6ce8\u610f\u70b9\u662f\uff1a\u56e0\u4e3a $n$ \u662f\u6574\u6570\uff0c\u800c $\\dfrac{n}{2}$ \u4f1a\u81ea\u52a8\u5411\u4e0b\u53d6\u6574\uff0c\u6240\u4ee5\u9700\u8981\u8f6c\u6362\u4e3a `double` \u7c7b\u578b\u3002**\r\n\r\n# Code\r\n\r\n```cpp\r\n#include <bits/stdc++.h>\r\nusing namespace std;\r\nint n,ans;\r\nint main()\r\n{\r\n    scanf(\"%d\",&n);\r\n    for (register int i=1;i<n;++i)\r\n    {\r\n        int mod=i*i%n;\r\n        double half=n/2.0;//\u8f6c\u6362\u6210double\u7c7b\u578b\r\n        if(mod<half) \r\n            ans++;\r\n    }\r\n    printf(\"%d\",ans);\r\n    return 0;\r\n}\r\n```",
+        "postTime": 1671542870,
+        "uid": 897776,
+        "name": "Infinite_Eternity",
+        "ccfLevel": 0,
+        "title": "P8753 [\u84dd\u6865\u676f 2021 \u7701 AB2] \u5c0f\u5e73\u65b9"
+    },
+    {
+        "content": "\u4e0d\u591a\u8bf4\u4e86\uff0c\u76f4\u63a5\u7167\u9898\u610f\u6a21\u62df\u5373\u53ef\u3002\u7531\u4e8e $n \\leqslant 10^4$\uff0c\u65e0\u987b\u62c5\u5fc3\u7206 `int` \u7684\u60c5\u51b5\u3002\n\n\u6709\u4e00\u4e2a\u7ec6\u8282\u9700\u8981\u6ce8\u610f\uff0c\u679a\u4e3e\u7684\u533a\u95f4\u662f $[1,n)$ \u800c\u4e0d\u662f $[1,n]$\u3002\n\n\u653e\u4ee3\u7801\u3002\n\n```cpp\n#include <cstdio>\n#include <cstring>\n#include <iostream>\n#include <algorithm>\nusing namespace std;\nint n,m,ans;\nint main () {\n\tscanf(\"%d\",&n);\n\tm=n/2;\n\tfor(int i=1;i<n;++i)\n\t\tif(i*i%n<=m) ++ans;\n\tprintf(\"%d\\n\",ans);\n\treturn 0;\n}\n```",
+        "postTime": 1671539626,
+        "uid": 566289,
+        "name": "RP_INT_MAX",
+        "ccfLevel": 0,
+        "title": "P8753 [\u84dd\u6865\u676f2021\u7701AB2]\u5c0f\u5e73\u65b9 \u9898\u89e3"
+    },
+    {
+        "content": "update on ```2022/12/21```\uff1a\u66f4\u6b63\u4e86\u6587\u4e2d\u7684\u51e0\u5904\u7b14\u8bef\u3002\n\n---\n\n\n\u76f4\u63a5\u4ece $1$ \u679a\u4e3e\u5230 $n-1$\uff0c\u5bf9\u4e8e\u6bcf\u4e00\u4e2a\u679a\u4e3e\u5230\u7684 $x$\uff0c\u5224\u5b9a $x^2 \\bmod n$ \u662f\u5426 $<n \\times 0.5$ \u5373\u53ef\u3002\n\n\u6ce8\u610f\uff1a\u5224\u5b9a\u65f6\u8981\u6ce8\u610f\u7cbe\u5ea6\u95ee\u9898\uff0c\u4e0d\u80fd\u7528 ```if(i*i%n<n/2)```\uff0c\u800c\u5fc5\u987b\u4f7f\u7528 ```if(i*i%n<n*0.5)``` \u6765\u5224\u5b9a\uff0c\u4e0d\u7136\u5c31\u53ea\u80fd\u5f97\u5230 $60$ \u5206\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n    int n, ans = 0;\n    cin>>n;\n    for(int i = 1;i <= n - 1;i++) \n    \tif((i * i % n) < (n * 0.5)) ans++; //\u5224\u5b9a\u5e76\u8ba1\u5165\u7b54\u6848\n    cout<<ans;\n    return 0;\n}\n```\n\n",
+        "postTime": 1671539018,
+        "uid": 542221,
+        "name": "_XOF_",
+        "ccfLevel": 4,
+        "title": "P8753 \u5c0f\u5e73\u65b9  \u9898\u89e3"
+    },
+    {
+        "content": "# P8753 [\u84dd\u6865\u676f 2021 \u7701 AB2] \u5c0f\u5e73\u65b9 \u9898\u89e3\n\n## \u9898\u76ee\u5206\u6790\n\n### \u9898\u610f\n\n\u6c42 $1$ \u81f3 $n-1$ \u7684\u6574\u6570\u4e2d\u5176\u5e73\u65b9\u5bf9 $n$ \u53d6\u6a21\u7684\u7ed3\u679c\u5c0f\u4e8e $n$ \u7684\u4e00\u534a\u7684\u6570\u7684\u4e2a\u6570\u3002\n\n### \u5206\u6790\n\n\u7531\u4e8e $n$ \u662f $10^4$ \u7ea7\u7684\uff0c\u6240\u4ee5\u8003\u8651 $\\mathcal{O}(n)$ \u505a\u6cd5\u3002\n\n\u5728 $1$ \u81f3 $n-1$ \u679a\u4e3e\uff0c\u5bf9\u4e8e\u6bcf\u4e2a $i$\uff0c\u5bf9 $i\\times i$ \u4e0e $\\frac{n}{2}$ \u8fdb\u884c\u6bd4\u8f83\uff0c\u6ce8\u610f $\\frac{n}{2}$ \u662f\u4e25\u683c\u610f\u4e49\u4e0a\u7684 $n$ \u7684\u4e00\u534a\uff0c\u56e0\u6b64\u9700\u8981\u8f6c\u6362\u6210\u6d6e\u70b9\u6570\u7c7b\u578b\u3002\n\n## Code\n\n```cpp\n#include<bits/stdc++.h>\n#define rep(i,a,b) for(int i=(a);i<=(b);i++)\nusing namespace std;\nint n,ans;\nint main(){\n\tcin>>n;\n\trep(i,1,n-1){\n\t\tif((i*i)%n<n*1.0/2) ans++;\n\t}\n   cout<<ans;\n\treturn 0;\n}\n```",
+        "postTime": 1671538955,
+        "uid": 529722,
+        "name": "Dream_Creator",
+        "ccfLevel": 4,
+        "title": "P8753 [\u84dd\u6865\u676f 2021 \u7701 AB2] \u5c0f\u5e73\u65b9 \u9898\u89e3"
+    }
+]

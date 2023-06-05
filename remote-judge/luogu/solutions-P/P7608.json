@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u539f\u9898\u7b49\u4ef7\u4e8e\u7ed9 $n$ \u4e2a\u70b9\u7684\u73af\u67d3\u8272\uff0c\u4e0d\u80fd\u6709\u8fde\u7eed $k+1$ \u4e2a\u70b9\u7684\u4e2d\u989c\u8272\u5b58\u5728 $2$ \u4e2a\u76f8\u540c\u3002\n\n\u8003\u8651\u5f53 $n$ \u5f88\u5927\u7684\u65f6\u5019\u6b64\u65f6\u7b54\u6848\u4e0d\u662f $k+1$ \u5c31\u662f $k+2$\uff0c\u56e0\u4e3a\u53ef\u4ee5\u7528 $k+1,k+2$ \u53bb\u51d1\u51fa $n$\u3002\n\n\u5f53 $n$ \u4e0d\u5927\u7684\u65f6\u5019\u66b4\u529b\u679a\u4e3e $ans$ \u4ece $k+1$ \u5230 $2k$\uff0c\u5f53\u80fd\u7528\u8fd9\u4e9b\u6570\u51d1\u51fa $n$ \u65f6\uff0c\u6b64\u65f6\u5c31\u662f\u6700\u5c0f\u7684\u7b54\u6848\u3002\n\n\u7b97\u51fa\u7b54\u6848\u540e\u4e0e $x$ \u6bd4\u8f83\u5373\u53ef\u3002\n\n```cpp\n#include<bits/stdc++.h>\n#define Mx 1000005\nusing namespace std;\nchar N[Mx],X[Mx];\nint n,k,x;\nvoid Check(int a,int b) {\n\tif(a==b)puts(\"Correct, but it doesn't necessarily mean that you can win the Turing Award.\");\n\tif(a<b)puts(\"Wrong, don't cheat me, you are too far away from the Turing Award.\\n1\");\n\tif(a>b)puts(\"Wrong, don't cheat me, you are too far away from the Turing Award.\\n0\");exit(0);\n}\nint main() {\n\tscanf(\"%s%d%s\",N+1,&k,X+1);\n\tif(strlen(X+1)>=4)return puts(\"Wrong, don't cheat me, you are too far away from the Turing Award.\\n1\"),0;\n\tfor(int i=1,len=strlen(X+1); i<=len; ++i)x=x*10+X[i]-'0';\n\tif(strlen(N+1)>5) {\n\t\tfor(int i=1,len=strlen(N+1); i<=len; ++i)n=(n*10+N[i]-'0')%(k+1);\n\t\tif(n==0)Check(k+1,x);else Check(k+2,x);\n\t} else {\n\t\tfor(int i=1,len=strlen(N+1); i<=len; ++i)n=n*10+N[i]-'0';\n\t\tif(n<k+1)Check(n,x);\n\t\tint tmp=n/(k+1),tt=n%(k+1);\n\t\tfor(int ans=0; 1; ++ans)if(tmp*ans>=tt)Check(k+1+ans,x);\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1623552327,
+        "uid": 112569,
+        "name": "Time_tears",
+        "ccfLevel": 9,
+        "title": "[THUPC2021] \u6311\u6218\u56fe\u7075\u5956"
+    }
+]

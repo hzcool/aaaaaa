@@ -1,0 +1,42 @@
+[
+    {
+        "content": "~~\u8fd9\u79cd\u9898\u662f\u4e0d\u662f\u8981\u5199\u7684\u8be6\u7ec6\u4e9b\u554a~~\n\n[B2080](https://www.luogu.com.cn/problem/B2080)\n\n### \u65b9\u6cd5\u4e00\n\n\u5341\u5206\u7b80\uff08~~ruo~~\uff09\u5355\uff08~~zhi~~\uff09\u7684\u65b9\u6cd5\uff0c\u5c31\u662f\u76f4\u63a5\u4ece $x^n$  \u52a0\u5230  $x^1$ \uff0c\u56e0\u4e3a\u4fdd\u8bc1\u4e0d\u4f1a\u8d85\u8303\u56f4\uff0c\u6240\u4ee5\u653e\u5fc3\u52a0\u5373\u53ef\u3002\n\n\u53e6\u5916\uff0c\u8ba1\u7b97\u67d0\u4e2a\u6570\u7684\u5e42\u6b21\u65b9\u53ef\u7528 `<cmath>` \u5e93\u4e2d\u7684\u51fd\u6570 $\\operatorname{pow}(a,b)$  \u6765\u8ba1\u7b97\uff0c\u5b83\u4ee3\u8868 a \u7684 b \u6b21\u65b9\u3002\uff08~~\u8fd9\u4e2a\u4e5f\u7528\u8bb2~~~~\u5427~~\uff09\n\n###   \u65b9\u6cd5\u4e8c\n  \u89c2\u5bdf\u9898\u4e2d\u7684\u5f0f\u5b50\u53ef\u4ee5\u5f88\u5bb9\u6613\u7684\u770b\u51fa\u6b64\u4e3a\u7b49\u6bd4\u6570\u5217\uff0c\u4f17\u6240\u5468\u77e5\uff0c\u7b49\u6bd4\u6570\u5217\u7684\u6c42\u548c\u516c\u5f0f\u4e3a \n  \n\n$\\operatorname{S}=\\dfrac{a1(1-q^n)}{1-q}$ \n  \n  \n\u628a\u5404\u4e2a\u6570\u636e\u5e26\u8fdb\u53bb\u5373\u53ef\u3002\n  \n```cpp\n//\u65b9\u6cd5\u4e00\n#include <iostream>\n#include <cmath>\n#include <cstdio>\n\nusing namespace std;\n\ndouble x,ans = 1;//\u5b83\u6700\u540e\u8fd8\u52a0\u4e86\u4e2a\u4e00\nint n;\n\nint main(){\n\tcin >> x >> n;\n\tfor (int i = 1;i <= n; ++ i){\n\t\tans += pow (x,i);\n\t}\n\tprintf (\"%.2f\\n\",ans);//\u4fdd\u7559\u4e24\u4f4d\u5c0f\u6570\n\treturn 0;\n}\n```\n\n                         \n```cpp\n//\u65b9\u6cd5\u4e8c\n#include <iostream>\n#include <cmath>\n#include <cstdio>\n\nusing namespace std;\n\ndouble x,ans = 1;\nint n;\n\nint main(){\n\tcin >> x >> n;\n\tans = 1*(1-pow(x,n+1))/(1-x)*1.0;//\u516c\u5f0f\n\tprintf (\"%.2f\\n\",ans);\n\treturn 0;\n}\n```\n     \n### $\\texttt{End.}$",
+        "postTime": 1626247833,
+        "uid": 450299,
+        "name": "ssss41",
+        "ccfLevel": 5,
+        "title": "B2080"
+    },
+    {
+        "content": "## \u9898\u76ee\u5206\u6790\n\u5728\u6b64\u9898\u4e2d\uff0c\u6211\u4eec\u53ef\u4ee5\u4f7f\u7528\u81ea\u5e26\u51fd\u6570\u5e42\u51fd\u6570\uff0c\u5229\u7528\u8fd9\u4e2a\uff0c\u6211\u4eec\u53ef\u4ee5\u8f7b\u6613\u6c42\u51fa\u4e00\u4e2a\u6570\u7684\u4efb\u610f\u6b21\u5e42\uff0c\u6211\u4eec\u4f7f\u7528\u5faa\u73af\u5c06\u6240\u6709\u6b21\u5e42\u52a0\u8d77\u6765\u5373\u662f\u7b54\u6848\u3002\n## \u4ee3\u7801\u5b9e\u73b0\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n    float x,kk=1.0;\n    int n;\n    cin>>x>>n;\n    for(int i=1;i<=n;i++)\n        kk+=pow(x,i);//\u5e42\u51fd\u6570\n    cout<<fixed<<setprecision(2)<<kk<<endl;\n    return 0;\n}\n```\n",
+        "postTime": 1625314808,
+        "uid": 359581,
+        "name": "\u00b7\u7cef\u00b7",
+        "ccfLevel": 5,
+        "title": "B2080"
+    },
+    {
+        "content": "# \u9898\u76ee\u5206\u6790\n\u7531\u9898\u610f\u77e5\uff0c\u539f\u591a\u9879\u5f0f\u7684\u503c\u5373\u4e3a\u9996\u9879\u4e3a $1$ \uff0c\u516c\u6bd4\u4e3a $x$ \u7684\u7b49\u6bd4\u6570\u5217\u7684\u524d $n+1$ \u9879\u4e4b\u548c\u3002\n\u56e0\u6b64\u53ef\u4ee5\u4f7f\u7528\u7b49\u6bd4\u6570\u5217\u6c42\u548c\u516c\u5f0f\u8fdb\u884c\u8ba1\u7b97\u3002\u6ce8\u610f $x^n$ \u662f\u7b2c $n+1$ \u9879\u3002\n\n$S_{n+1}=\\dfrac{a_1(q^{n+1}-1)}{q-1}=\\dfrac{x^{n+1}-1}{x-1}$\n# \u4ee3\u7801\n```c\n#include <stdio.h>\n#include <math.h>\n\nint main() {\n  double x, n;\n  scanf(\"%lf %lf\", &x, &n);\n  printf(\"%.2lf\", (pow(x, n + 1) - 1) / (x - 1));\n}\n```",
+        "postTime": 1625464461,
+        "uid": 532572,
+        "name": "\u5c0f\u4e4b\u68ee\u590f\u97f3",
+        "ccfLevel": 0,
+        "title": "B2080 \u9898\u89e3"
+    },
+    {
+        "content": "## \u9898\u89e3\n\n### \u505a\u6cd5 1\n\n\u6839\u636e\u9898\u610f\u6a21\u62df\u3002\u8ba9 $i$ \u4ece $n$ \u5faa\u73af\u5230 $0$ \uff0c\u7136\u540e\u5bf9 $x^i$ \u6c42\u548c\u3002\u5728 C++ \u4e2d\u53ef\u4ee5\u4f7f\u7528 $\\verb!pow!$ \u51fd\u6570\u5feb\u901f\u83b7\u53d6\u4e00\u4e2a\u6570\u5b57\u7684\u5e42\u3002 `pow(a,b)` \u5373\u8fd4\u56de $a^b$ \u3002\n\n### \u505a\u6cd5 2\n\n\u79e6\u4e5d\u97f6\u516c\u5f0f\uff1a\n\n\u5bf9\u4e8e\u591a\u9879\u5f0f $F(x)=a_0+a_1x^1+a_2x^2+\\cdots+a_nx^n$ \uff0c\u6709\uff1a\n\n$$F(x)=a_0+x(a_1+x(a_2+x(a_3+\\cdots +x)))$$\n\n\u4ece\u5185\u5c42\u5f00\u59cb\u5411\u5916\u5c42\u8fdb\u884c\u6c42\u548c\uff0c\u7701\u53bb\u4e86\u4f7f\u7528 $\\verb!pow!$ \u51fd\u6570\u5e26\u6765\u7684\u5e38\u6570\u4e0a\u7684\u95ee\u9898\u3002\n\n### \u505a\u6cd5 3\n\n\u5bf9\u539f\u5f0f\u8fdb\u884c\u5927\u529b\u5316\u7b80\u3002\n\n$$\\begin{aligned}\nS&=\\sum_{i=0}^n x^i \\cr\nxS&=\\sum_{i=1}^{n+1}x^i \\cr\n(x-1)S&=x^{n+1}-1 \\cr\nS&=\\frac{x^{n+1}-1}{x-1}\n\\end{aligned}$$\n\n\u76f4\u63a5\u8f93\u51fa $S=\\dfrac{x^{n+1}-1}{x-1}$ \u5373\u53ef\u3002\n\n## \u53c2\u8003\u4ee3\u7801\n\n### \u505a\u6cd5 2\n\n```cpp\n#include<bits/stdc++.h>\n#define up(l,r,i) for(int i=l,END##i=r;i<=END##i;++i)\n#define dn(r,l,i) for(int i=r,END##i=l;i>=END##i;--i)\nusing namespace std;\ntypedef long long i64;\nconst int INF =2147483647;\ndouble x,r; int n;\nint main(){\n    scanf(\"%lf%d\",&x,&n); up(0,n,i) r=1+x*r;\n    printf(\"%.2lf\\n\",r);\n    return 0;\n}\n```\n\n### \u505a\u6cd5 3\n\n```cpp\n#include<bits/stdc++.h>\n#define up(l,r,i) for(int i=l,END##i=r;i<=END##i;++i)\n#define dn(r,l,i) for(int i=r,END##i=l;i>=END##i;--i)\nusing namespace std;\ntypedef long long i64;\nconst int INF =2147483647;\ndouble x,r; int n;\nint main(){\n    scanf(\"%lf%d\",&x,&n); printf(\"%.2lf\\n\",(pow(x,n+1)-1)/(x-1));\n    return 0;\n}\n```",
+        "postTime": 1625365471,
+        "uid": 330759,
+        "name": "\u56e7\u4ed9",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 B2080 \u3010\u8ba1\u7b97\u591a\u9879\u5f0f\u7684\u503c\u3011"
+    },
+    {
+        "content": "# \u601d\u8def\n\u7eaf\u6a21\u62df\uff0c\u4ee4 $i$ \u4ece 1 \u5230 $n$ \u8d4b\u503c\uff0c\u7d2f\u52a0 $x^i$\u3002\n\n\u6ce8\u610f\u591a\u9879\u5f0f\u6700\u540e\u6709\u4e00\u4e2a$+1$\u3002\n# \u4ee3\u7801\n```cpp\n#include <iostream>\n#include <cstdio>\n#include <cmath>\nusing namespace std;\ndouble s = 1, x;int n; //\u6ce8\u610fs\u7684\u521d\u59cb\u503c\u662f1\nint main()\n{\n    cin >> x >> n;\n    for(int i = 1;i <= n;++i)\n        s += pow(x, i); //pow(x,i)\u5c31\u662fx^i\n    printf(\"%.2lf\", s);\n    return 0;\n}\n```\n",
+        "postTime": 1626227437,
+        "uid": 388651,
+        "name": "5k_sync_closer",
+        "ccfLevel": 7,
+        "title": "B2080 \u8ba1\u7b97\u591a\u9879\u5f0f\u7684\u503c"
+    }
+]

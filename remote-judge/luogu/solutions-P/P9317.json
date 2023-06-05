@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u5f88\u663e\u7136\u6211\u4eec\u4ece\u5c0f\u5230\u5927\u8003\u8651\u6bcf\u4e2a $f_i = 0$\uff0c\u6211\u4eec\u8981\u8ba9\u4ed6\u53d8\u6210 1\u3002\n\n\u4f1a\u53d1\u73b0\u9009\u51fa\u4e00\u4e2a\u8d85\u8fc7 $i$ \u7684\u6570\uff0c\u663e\u7136\u4ed6\u5bf9\u4e8e\u4f7f\u5f97 $\\operatorname{mex}(S) = i$ \u6ca1\u6709\u8d21\u732e\uff0c\u6240\u4ee5\u8fd9\u662f\u4e00\u4e2a\u65e0\u540e\u6548\u6027\u5b50\u95ee\u9898 $Q(i)$\u3002\n\n\u518d\u53bb\u8003\u8651\uff0c\u82e5 $[0, i - 1]$ \u90fd $\\ge 1$\uff0c\u53ef\u4ee5\u727a\u7272\u5b83\u4eec\u4f7f\u5f97 $i$ \u4e3a $1$\uff0c\u90a3\u4e48\u6211\u4eec\u4e0d\u59a8\u4e00\u5f00\u59cb\u5c31\u4f7f\u5f97\u5b83\u4eec $\\ge 2$\u3002\n\n\u56e0\u6b64\u6211\u4eec\u6709\u4e00\u4e2a\u60f3\u6cd5\uff0c\u8bbe $f_{i,j}$ \u4e3a $i$ \u53ca\u4e4b\u524d\u90fd\u5927\u4e8e\u7b49\u4e8e $j$ \u7684\u6b65\u6570\u3002\u4f1a\u53d1\u73b0\u867d\u7136 $j$ \u53ef\u4ee5\u5230\u8fbe $2^n$ \u7ea7\u522b\uff0c\u4f46\u662f\u6211\u4eec\u53ea\u9700\u8981\u7b97\u5176\u4e2d $n$ \u4e2a\u6570\u3002\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nconst int maxn = 105, lim = 1000005;\nint n;\nlong long a[maxn];\nlong long calc(int i, long long j) {\n\tif (!i) return 0;\n\treturn a[i] >= j ? calc(i - 1, j) : calc(i - 1, j + j - a[i]) + j - a[i];\n}\nsigned main() {\n\tint T;\n\tscanf(\"%d\", &T);\n\twhile (T--) {\n\t\tscanf(\"%d\", &n);\n\t\tfor (int i = 1; i <= n; ++i)\n\t\t\tscanf(\"%lld\", a + i);\n\t\tprintf(\"%lld\\n\", calc(n, 1) + 1);\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1683027914,
+        "uid": 62440,
+        "name": "MuelsyseU",
+        "ccfLevel": 0,
+        "title": "P9317 [EGOI2022] SubsetMex / \u5b50\u96c6 mex \u9898\u89e3"
+    }
+]

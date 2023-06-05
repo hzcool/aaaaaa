@@ -1,0 +1,26 @@
+[
+    {
+        "content": "# \u9898\u610f\n\u6211\u4eec\u53ef\u4ee5\u5f88\u5bb9\u6613\u7684\u770b\u51fa\u8fd9\u662f\u4e00\u9053\u6590\u6ce2\u90a3\u5951\u6570\u5217\u9898\u3002\n\n$q_{i+1} = q_i + p_i $\n\n$p_{i+1} = q_i$\n\n$q_1= 1$\n\n$p_1=1$\n\n\u6839\u636e\u516c\u5f0f\u6211\u4eec\u53ef\u4ee5\u5f97\u51fa\uff0c $q_2=q_1+p_1=2$ \uff0c$p_2=q_1=1$ , $q_3=q_2+p_2=2+1=3$ \u3002\n\n\u6211\u4eec\u5df2\u7ecf\u627e\u5230\u4e86\u89c4\u5f8b\u3002\n\n# Code\n```cpp\n#include<iostream>\n#include<cstdio>\n#include<cmath>\nusing namespace std;\nint main()\n{\n\tdouble a=1,b=1,c,s=0;\n\tint i,n;\n\tcin>>n;\n\tfor(i=1;i<=n;++i)\n\t{\n\t\tc=a+b;\n\t\ta=b;\n\t\tb=c;\n\t\t//\u6590\u6ce2\u90a3\u5951\u90e8\u5206\uff1b \n\t\ts=s+b/a;//\u6c42\u548c\uff1b \n\t}\n\tprintf(\"%0.4lf\\n\",s);\n\treturn 0;\n}\n```",
+        "postTime": 1626593819,
+        "uid": 453406,
+        "name": "\u767d\u7b80",
+        "ccfLevel": 0,
+        "title": "B2069 \u6c42\u5206\u6570\u5e8f\u5217\u548c"
+    },
+    {
+        "content": "\u89c2\u5bdf\u9898\u76ee\u6240\u7ed9\u7684\u89c4\u5f8b\uff1a\n\n$$q_{i+1}=q_i+p_i,p_{i+1}=q_i,p_1=1,q_1=1$$\n\n\u53ef\u4ee5\u5bb9\u6613\u53d1\u73b0\uff0c\u8fd9\u5c31\u662f\u4e2a\u6590\u6ce2\u90a3\u5951\u6570\u5217\u7684\u9012\u63a8\u516c\u5f0f\uff01\u5bf9\u6bd4\u7b80\u6613\u7248\u516c\u5f0f\uff1a\n\n$$c=a+b,a=b,b=c$$\n\n\u53d1\u73b0\u5927\u81f4\u76f8\u540c\u3002\n\n\u6240\u4ee5\u53ef\u4ee5\u4f7f\u7528\u6590\u6ce2\u90a3\u5951\u6570\u5217\u7684\u516c\u5f0f\u6765\u505a\u8fd9\u9053\u9898\u3002\n\n\u89c2\u5bdf\u9898\u76ee\u7ed9\u7684\u5206\u6570\u5e8f\u5217\uff1a\n\n$$\\frac{2}{1},\\frac{3}{2},\\frac{5}{3},\\frac{8}{5},\\frac{13}{8},\\frac{21}{13}$$\n\n\u53ef\u4ee5\u53d1\u73b0\uff1a\n\n\u5f53\u6211\u4eec\u8fdb\u884c $1$ \u6b21\u64cd\u4f5c\u540e\uff0c\u5f97\u5230\u7684\u5206\u6570\u5373\u4e3a $\\frac{b}{a}$\u3002\u6240\u4ee5\u6211\u4eec\u53ef\u4ee5\u5f00\u4e00\u4e2a\u53d8\u91cf $sum$ \uff0c\u5c06\u6bcf\u4e2a\u5206\u6570\u90fd\u7d2f\u52a0\u8fdb\u53bb\uff0c\u5f97\u5230\u7684\u5373\u4e3a\u7b54\u6848\u3002\n\n\u6ce8\u610f\uff1a\u8f93\u51fa\u65f6\u8bb0\u5f97\u4fdd\u7559 $4$ \u4e3a\u5c0f\u6570\uff01\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include<iostream>\n#include<cstdio>\n#include<algorithm>\n#include<cstring>\n#include<cmath>\n#include<string>\n#include<cstdlib>\nusing namespace std;\nint n;\ndouble a=1,b=1,c,sum;\nint main(){\n\tcin>>n;\n\tfor(int i=1;i<=n;i++){\t\t\n\t\tc=a+b;\n\t\ta=b;\n\t\tb=c;\n\t\tsum+=1.0*b/a;\n\t}\n\tprintf(\"%.4lf\",sum);\n\treturn 0;\n}\n```\n",
+        "postTime": 1625532467,
+        "uid": 307603,
+        "name": "_cmh",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 B2069 \u3010\u6c42\u5206\u6570\u5e8f\u5217\u548c\u3011"
+    },
+    {
+        "content": "## \u5e8f\n\n- **\u5b66\u4f1a\u6309\u7167\u9898\u76ee\u5199**\u662f\u6bd4\u8f83\u91cd\u8981\u7684\u4e00\u73af\n\n\n\u53ca\u9898\u76ee\u4f3c\u4e4e\u6709\u9519\u8bef\u3002\u9898\u76ee\u4e2d\u8bf4\u6709\u4e00\u5206\u6570\u5e8f\u5217\n\n$$\\frac{q1}{p1},\\frac{q2}{p2},\\frac{q3}{p3},\\frac{q4}{p4}....$$\n\n\n\n\u800c\u540e\u9762\u53c8\u8bf4\u5e8f\u5217\u7684\u524d\u516d\u9879\u662f\n\n$$\\frac{2}{1},\\frac{3}{2},\\frac{5}{3},\\frac{8}{5},\\frac{13}{8},\\frac{21}{13}$$\n\n$$p_1=1,q_1=1$$\n\n\u90a3\u4e48\u9898\u76ee\u662f\u5426\u53ef\u4ee5\u6539\u6210\uff1a\n\n\u6709\u4e00\u5206\u6570\u5e8f\u5217\n\n$$\\frac{q2}{p2},\\frac{q3}{p3},\\frac{q4}{p4},\\frac{q5}{p5}....$$\n\n\n\n\n## \u8bb2\u89e3\n\n\u8a00\u5f52\u6b63\u4f20\uff0c\u8fd9\u9053\u9898\u76ee\u6211\u4eec\u7f3a\u4ec0\u4e48\u8865\u4ec0\u4e48\u3002\n\n\u7528\u4e24\u4e2a\u6570\u7ec4\u8bb0\u5f55 $q_i$ \u548c $p_i$ \u7684\u6839\u636e\u516c\u5f0f\u6240\u5f97\u6bcf\u4e00\u9879\u503c\u628a\u6240\u5f97\u7684\u5546\u76f8\u52a0\u5373\u53ef\u3002\n\n**\u4fdd\u7559\u56db\u4f4d\u5c0f\u6570\u7684\u505a\u6cd5**\n\n1. cout \u8f93\u51fa\u4fdd\u5b58\u56db\u4f4d\u5c0f\u6570 \uff08\u4e0d\u63a8\u8350\uff09\n\n```\ncout <<fixed<<setprecision(4) <<sum <<endl;\n```\n\n2. printf \u8f93\u51fa\u4fdd\u5b58\u56db\u4f4d\u5c0f\u6570 \uff08\u63a8\u8350\uff09\n\n```\n printf(\"%.4lf\",sum);\n```\n\n## Code\n\n```\n#include <bits/stdc++.h>\nusing namespace std;\nint q[35],p[35];\nint main()\n{\n    int n;\n    scanf(\"%d\",&n);\n    double sum=0.0;\n    q[1]=p[1]=1;\n    for(int i=2; i<=n+1; i++) //\u56e0\u4e3a\u4ece\u7b2c\u4e8c\u9879\u5f00\u59cb\uff0c\u53c8\u8981\u5411\u540e\u63a8n\u9879\uff0c\u6240\u4ee5\u5230n+1\u9879\u7ed3\u675f\n    {\n        p[i]=q[i-1];\n        q[i]=q[i-1]+p[i-1];\n        //acout<<p[i]<<\"/\"<<q[i]<<endl; \u8fd9\u91cc\u662f\u7b2ci\u9879\u7684\u503c\n        sum+=double(q[i]*1.0/p[i]*1.0);\n    }\n    printf(\"%.4lf\",sum);\n    return 0;\n}\n```\n\n",
+        "postTime": 1625838945,
+        "uid": 316896,
+        "name": "Dimly_dust",
+        "ccfLevel": 0,
+        "title": "\u3010\u9898\u89e3\u3011B2069 \u6c42\u5206\u6570\u5e8f\u5217\u548c"
+    }
+]

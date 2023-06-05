@@ -1,0 +1,18 @@
+[
+    {
+        "content": "\u7b80\u5355\u7684\u72b6\u538bDP\uff0c\u548cNOIP2017 Day2 \u627e\u5b9d\u85cf \u4ee3\u7801\u51e0\u4e4e\u4e00\u6837\u3002\uff08\u6bd4\u90a3\u4e2a\u7a0d\u5fae\u7b80\u5355\u4e00\u70b9\uff09\n\nf[i][j] \uff0ci\u4ee3\u8868\u70b9\u7684\u72b6\u6001\uff0cj\u662f\u5f53\u524d\u9009\u62e9\u7684\u70b9\uff0c\u679a\u4e3e\u4e0a\u4e00\u4e2a\u9009\u5230\u7684\u70b9k \u7136\u540e\u4ecef[i-(1<<(j-1))][k]\u8f6c\u79fb\u5230f[i][j]\u5373\u53ef\n\u65b9\u7a0bf[i][j]=max(f[i][j],[k]+B[k][j]+A[j]); \n\n\u6ce8\u610f\u7684\u70b91.\u5f00longlong 2.\u6570\u636e\u4e0d\u4fdd\u8bc1X[i]\u548cY[i]\u90fd\u4e0d\u540c\uff0c\u4e5f\u4e0d\u4fdd\u8bc1X[i]\u4e0d\u7b49\u4e8eY[i]\uff0c\u8fd9\u91cc\u5f88\u5751\u8981\u52a0\u7279\u5224\u3002\n\n\n```cpp\n#include<cstdio>\n#include<algorithm>\n#include<cstring>\n#include<iostream>\nusing namespace std;\nint N,M,K;\nlong long f[1<<19][20],ans,A[20],B[400][400],a,b,c;\nint count(int x){\n    int c=0;\n    while(x)c++,x&=(x-1);\n    return c;\n}\nint main()\n{\n    scanf(\"%d%d%d\",&N,&M,&K);\n    for(int i=1;i<=N;i++)scanf(\"%lld\",&A[i]);\n    for(int i=1;i<=K;i++){\n        scanf(\"%lld%lld%lld\",&a,&b,&c);\n        if(a==b)A[a]+=c;\n        B[a][b]+=c;\t\n    }\n    for(int i=1;i<=N;i++)f[1<<(i-1)][i]=A[i];\n    for(int i=1;i<=(1<<N)-1;i++){\n        for(int j=1;j<=N;j++)\n        if(i&(1<<(j-1))){\n            for(int k=1;k<=N;k++)\n            if(i&(1<<(k-1))&&j!=k){\n                f[i][j]=max(f[i][j],f[i-(1<<(j-1))][k]+B[k][j]+A[j]);\t\n            }\n            if(count(i)==M){\n                for(int j=1;j<=N;j++)\n                if(i&(1<<(j-1)))ans=max(ans,f[i][j]);\t\n            }\n        }\n    }\n    cout<<ans<<endl;\n    return 0;\n}\t\t\n\n```\n\nBlog:[Elfish.cnblogs.com](Elfish.cnblogs.com)",
+        "postTime": 1540646920,
+        "uid": 24693,
+        "name": "HiJ1m",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P4941 \u3010War2\u3011"
+    },
+    {
+        "content": "\u8fd9\u9898\u76f8\u5f53\u7684\u5957\u8def\u3002\n\n\u9996\u5148\uff0c$n \\leq 18$ \u5f88\u5bb9\u6613\u8054\u60f3\u5230\u72b6\u538b dp\u3002\u90a3\u4e48\u8bbe $f_S$ \u4ee3\u8868\u5360\u9886\u72b6\u6001 $S$ \u65f6\u7684\u6700\u5927\u4ef7\u503c\u3002\u4f46\u662f\u8fd9\u9053\u9898\u6211\u8bfb\u9519\u9898\u4e86\uff0c\u5fc5\u987b\u662f\u76f8\u90bb\u7684\u624d\u80fd\u8ba1\u7b97\u7b54\u6848\uff0c\u6240\u4ee5\u9700\u8981\u518d\u8bb0\u5f55\u4e00\u7ef4\uff0c\u4e5f\u5c31\u662f $f_{i,S}$\uff0c\u5176\u4e2d $i$ \u8868\u793a\u76ee\u524d\u6700\u540e\u4e00\u4e2a\u5360\u9886\u7684\u662f\u8c01\u3002\u8f6c\u79fb\u65b9\u7a0b\u5f0f\u5c31\u5f88\u7b80\u5355\u4e86\uff0c$f_{i,S}=a_i+\\max{f_{j,{S-2^{i-1}}}+mp_{j,i}}$\uff0c\u5176\u4e2d $mp_{j,i}$ \u4ee3\u8868\u5148\u5360\u9886 $j$ \u518d\u5360\u9886 $i$ \u7684\u989d\u5916\u4ef7\u503c\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint a[20];\nlong long mp[20][20],f[20][1<<18];\nint main()\n{\n\tint n,m,k;\n\tcin>>n>>m>>k;\n\tfor(int i=1;i<=n;i++)scanf(\"%d\",&a[i]);\n\twhile(k--)\n\t{\n\t\tint u,v,w;\n\t\tscanf(\"%d%d%d\",&u,&v,&w);\n\t\tmp[u][v]+=w;\n\t}\n\tfor(int i=1;i<(1<<n);i++)for(int j=1;j<=n;j++)if(i&(1<<j-1))\n\t{\n\t\tf[j][i]=a[j];\n\t\tfor(int k=1;k<=n;k++)if((i&(1<<k-1))&&j!=k)\n\t\t\tf[j][i]=max(f[j][i],a[j]+f[k][i^(1<<j-1)]+mp[k][j]);\n\t}\n\tlong long ans=0;\n\tfor(int i=0;i<(1<<n);i++)\n\t{\n\t\tint gs=0;\n\t\tlong long aa=0;\n\t\tfor(int j=1;j<=n;j++)gs+=(i>>j-1)&1,aa=max(aa,f[j][i]);\n\t\tif(gs==m)ans=max(ans,aa);\n\t}\n\tcout<<ans<<endl;\n\treturn 0;\n}\n```",
+        "postTime": 1620969592,
+        "uid": 107484,
+        "name": "wmy_goes_to_thu",
+        "ccfLevel": 8,
+        "title": "P4941 \u9898\u89e3"
+    }
+]

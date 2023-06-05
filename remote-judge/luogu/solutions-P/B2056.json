@@ -1,0 +1,42 @@
+[
+    {
+        "content": "## \u9898\u76ee\u5206\u6790\n\u8fd9\u9898\u5176\u5b9e\u53ef\u4ee5\u7528\u4e00\u4e2a\u6574\u578b\u53d8\u91cf\u5b58\u50a8\u603b\u548c\uff0c\u518d\u5c06\u8fd9\u4e2a\u503c\u8d4b\u5230\u4e00\u4e2a\u53cc\u7cbe\u5ea6\u6d6e\u70b9\u578b\u53d8\u91cf\u4e2d\uff0c\u7136\u540e\u6c42\u5e73\u5747\u6570\uff0c\u6ce8\u610f\u8981\u4fdd\u7559\u4e94\u4f4d\u5c0f\u6570\u3002\n## \u4ee3\u7801\u5b9e\u73b0\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n\tint n;\n\tint sum=0,a[10010];\n\tdouble ans;\n\tcin>>n;\n\tfor(int i=1;i<=n;i++){\n\t\tcin>>a[i];\n\t\tsum+=a[i];\n\t}\n\tcout<<sum<<\" \";\n\tans=sum;\n\tcout<<fixed<<setprecision(5)<<ans/n<<endl;\n\treturn 0;\n}\n\n```\n",
+        "postTime": 1625302082,
+        "uid": 359581,
+        "name": "\u00b7\u7cef\u00b7",
+        "ccfLevel": 5,
+        "title": "B2056"
+    },
+    {
+        "content": "\u6839\u636e\u9898\u610f\uff0c\u8bfb\u5165 $n$ \uff0c\u5728\u4f9d\u6b21\u8bfb\u5165 $n$ \u4e2a\u6570\uff0c\u5c06\u5b83\u4eec\u7d2f\u52a0\u5230 $x$ \u4e2d\uff0c\u5c31\u5f97\u5230\u4e86\u5b83\u4eec\u7684\u548c\u3002\n\n\u7528 $x\\times 1.0 \\div n$ \u5c31\u53ef\u4ee5\u5f97\u5230\u5b83\u4eec\u7684\u5747\u503c\uff0c\u6700\u540e\u8f93\u51fa\u5373\u53ef\u3002\n\n\u6ce8\u610f\uff1a\u8f93\u51fa\u5747\u503c\u65f6\u8bb0\u5f97\u4fdd\u7559 $5$ \u4f4d\u5c0f\u6570\uff01\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include<iostream>\n#include<cstdio>\n#include<algorithm>\n#include<cstring>\n#include<cmath>\n#include<string>\n#include<cstdlib>\nusing namespace std;\nint n,a,x; \nint main(){\n\tcin>>n;\n\tfor(int i=1;i<=n;i++){\n\t\tcin>>a;\n\t\tx+=a;\n\t}\n\tprintf(\"%d %.5lf\",x,x*1.0/n);\n \treturn 0;\n}\n```\n",
+        "postTime": 1625449631,
+        "uid": 307603,
+        "name": "_cmh",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 B2056 \u3010\u6c42\u6574\u6570\u7684\u548c\u4e0e\u5747\u503c\u3011"
+    },
+    {
+        "content": "[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/B2056)\n\n\u9996\u5148\u4f17\u6240\u5468\u77e5\uff0c\u5e73\u5747\u6570\u7b49\u4e8e\u6240\u6709\u6570\u7684\u548c\u9664\u4e0a\u6570\u7684\u4e2a\u6570\u3002\n\n\u6240\u4ee5\u8bf4\u5148\u7b97\u51fa\u6240\u6709\u6570\u7684\u548c\u6765\uff0c\u7136\u540e\u518d\u9664\u4e0a\u4e2a\u6570\u5373\u53ef\u3002\n\n\u6ce8\u610f\u4e00\u4e0b\u8f6c\u6362\u7c7b\u578b\u65f6 $1.0$ \u7684\u4f7f\u7528\u5373\u53ef\uff0c\u5177\u4f53\u7ec6\u8282\u89c1\u4ee3\u7801\u3002\n\n### Code:\n\n```cpp\n//\u7ea2\u592a\u9633zhouakngyang txdy!\n#pragma GCC target(\"sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,avx2,tune=native\")\n#include<bits/stdc++.h>\n#define Macesuted cout<<\"kawaii\"<<endl\n#define MatrixCascade cout<<\"npsl\"<<endl\n#define Karry5307 cout<<\"nmsl\"<<endl\nusing namespace std;\n//#define int long long\ninline int read()\n{\n\tint sum=0,nega=1;char ch=getchar();\n\twhile(ch>'9'||ch<'0'){if(ch=='-')nega=-1;ch=getchar();}\n\twhile(ch<='9'&&ch>='0')sum=sum*10+ch-'0',ch=getchar();\n\treturn sum*nega;\n}//\u5feb\u8bfb\uff08\u5176\u5b9e\u4e0d\u9700\u8981\uff09 \nint n,x;\nint ans;\nint main()\n{\n\tn=read();//\u8bfb\u5165 \n\tfor(int i=1;i<=n;i++)x=read(),ans+=x;//\u7d2f\u52a0 \n\tprintf(\"%d %.5lf\\n\",ans,ans*1.0/n*1.0);//\u7b97\u51fa\u548c\uff0c\u5e73\u5747\u6570\uff0c\u5f3a\u8f6c\u7c7b\u578b\u5e76\u8f93\u51fa \n\treturn 0;\n}\n\n\n```\n",
+        "postTime": 1625301506,
+        "uid": 97304,
+        "name": "Mophie",
+        "ccfLevel": 0,
+        "title": "B2056 \u6c42\u6574\u6570\u7684\u548c\u4e0e\u5747\u503c"
+    },
+    {
+        "content": "## \u9898\u89e3\n\n\u4e0e\u4e0a\u4e00\u9898\uff08[\u5747\u503c](https://www.luogu.com.cn/problem/B2055)\uff09\u7c7b\u4f3c\uff0c\u6211\u4eec\u9700\u8981\u8ba1\u7b97\u51fa\u6240\u6709\u6570\u5b57\u7684\u548c\uff0c\u518d\u9664\u4ee5\u603b\u6570\u3002\n\n$$\\bar x=\\frac{1}{n}\\sum_{i=1}^n x_i$$\n\n\u7528\u5faa\u73af\u7ed3\u6784\u53ef\u4ee5\u8f7b\u6613\u505a\u5230\u8fd9\u4ef6\u4e8b\u3002\n\n---\n\n\u4f46\u6211\u4eec\u53d1\u73b0\uff0c\u6bcf\u6b21\u5199\u4e00\u904d\u5faa\u73af\u90fd\u4f1a\u5f88\u9ebb\u70e6\u3002\u800c\u6211\u4eec\u5e38\u5e38\u4f1a\u56fa\u5b9a\u5730\u8fdb\u884c\u4e00\u4e9b\u5faa\u73af\u64cd\u4f5c\uff08\u5982\u56fa\u5b9a\u5730\u5faa\u73af $n$ \u6b21\uff09\uff0c\u90a3\u4e48\u6211\u4eec\u53ef\u4ee5\u7528 $\\verb!#define!$ \u8bed\u53e5\u5b8f\u5b9a\u4e49\u4e00\u79cd\u66f4\u52a0\u7b80\u7565\u7684\u5faa\u73af\u3002\u4f8b\u5982\uff1a\n\n$$\\verb!#define up(l,r,i) for(int i=l,END##i=r;i<=END##i;++i)!$$\n\n\u5b83\u7684\u542b\u4e49\u662f\uff0c\u6211\u4eec\u4f7f\u7528\u5faa\u73af\u53d8\u91cf $i$ \uff0c\u4ece $l$ \u5faa\u73af\u5230 $r$ \u5171 $r-l+1$ \u6b21\u3002\u7279\u522b\u5730\uff0c\u7531\u4e8e\u6211\u4eec\u4f20\u5165\u7684 $r$ \u53ef\u80fd\u662f\u4e00\u4e2a\u8868\u8fbe\u5f0f\uff0c\u56e0\u6b64\u6211\u4eec\u7528 $\\verb!END##i!$ \u8bed\u53e5\u8fdb\u884c\u62fc\u63a5\u3002\u4f8b\u5982\uff0c\u5faa\u73af\u53d8\u91cf\u4e3a $k$ \u65f6\uff0c\u6211\u4eec\u5b9a\u4e49\u4e86 $\\textit{END}k$ \u6682\u65f6\u5b58\u50a8 $r$ \u7684\u503c\u3002\u8fd9\u6837\u53ef\u4ee5\u907f\u514d\u591a\u6b21\u8ba1\u7b97\u8868\u8fbe\u5f0f\u5e26\u6765\u7684\u65f6\u95f4\u5f00\u9500\u3002\n\n## \u53c2\u8003\u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\n#define up(l,r,i) for(int i=l,END##i=r;i<=END##i;++i)\n#define dn(r,l,i) for(int i=r,END##i=l;i>=END##i;--i)\nusing namespace std;\ntypedef long long i64;\nconst int INF =2147483647;\nint n,s,x;\nint main(){\n    scanf(\"%d\",&n); up(1,n,i){scanf(\"%d\",&x);s+=x;}\n    printf(\"%d %.5lf\\n\",s,1.0*s/n);\n    return 0;\n}\n```",
+        "postTime": 1625362534,
+        "uid": 330759,
+        "name": "\u56e7\u4ed9",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 B2056 \u3010\u6c42\u6574\u6570\u7684\u548c\u4e0e\u5747\u503c\u3011"
+    },
+    {
+        "content": "\u4f9d\u6b21\u8bfb\u5165 $n$ \u4e2a\u6574\u6570\uff0c\u7d2f\u52a0\u5230 $sum$ \u91cc\u3002\n\n\u6700\u540e $sum/n$ \u5c31\u662f\u5e73\u5747\u6570\u3002\n\nCode:\n```cpp\n#include<iostream>\n#include<cstdio>\n\nusing namespace std;\n\nint main()\n{\n\tint n, sum = 0;\n\tscanf(\"%d\", &n);\n\tfor(int i = 1; i <= n; ++i)\n\t{\n\t\tint x;\n\t\tscanf(\"%d\", &x);\n\t\tsum += x;\n\t}\n\tdouble aver = sum * 1.0 / n;\n\t//\u6216\u8005\u5199\u6210  aver = (double)sum / n;\n\tprintf(\"%d %.5lf\\n\", sum, aver);\n}\n```\n\n~~\u600e\u4e48\u548c[B2054](https://www.luogu.com.cn/problem/B2054)\u4e00\u6a21\u4e00\u6837~~",
+        "postTime": 1625302987,
+        "uid": 88627,
+        "name": "koishi_x",
+        "ccfLevel": 8,
+        "title": "B2056 \u6c42\u6574\u6570\u7684\u548c\u4e0e\u5747\u503c \u9898\u89e3"
+    }
+]

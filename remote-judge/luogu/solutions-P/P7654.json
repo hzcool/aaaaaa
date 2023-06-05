@@ -1,0 +1,10 @@
+[
+    {
+        "content": "### \u601d\u8def\uff1a\n\u5206\u6790\u9898\u610f\u6613\u5f97\uff0c\u6bcf\u6b21\u64cd\u4f5c\u6211\u4eec\u5c31\u662f\u5c06\u56fe\u4e2d\u8fd9\u4e48\u591a\u77e9\u5f62\u4e2d\u9009\u4e00\u4e2a\uff0c\u5c06\u5176\u53d8\u6210 $n\\times n$ \u4e2a\u77e9\u5f62\uff0c\u4e5f\u5c31\u662f\u6bcf\u4e00\u6b21\u90fd\u53bb\u6389\u4e86\u4e00\u4e2a\u539f\u77e9\u5f62\uff0c\u53c8\u52a0\u4e0a $n\\times n$ \u4e2a\u77e9\u5f62\uff0c\u5373\u6bcf\u6b21\u64cd\u4f5c\u589e\u52a0 $n^2 -1$ \u4e2a\u77e9\u5f62\uff0c\u800c\u4e00\u5171\u8fdb\u884c\u4e86 $k$ \u6b21\u64cd\u4f5c\u3002\n\u6240\u4ee5\u6700\u540e\u7684\u7b54\u6848\u5c31\u662f\uff1a\n$$(((n^2-1)\\mod 998244353\\times k)\\mod 998244353 + 1)\\mod 998244353$$\n\n### AC Code\uff1a\n``` cpp\n#include <bits/stdc++.h>\n#define I return\n#define AK 0\n#define IOI ;\n#define ll long long\nusing namespace std;\nconst ll N = 1e6 + 5;\nll a[N], b[N], dp[N], n, m, x, y, l, r, ans;\ndouble s, sum;\nstring s1, s2;\nmap<int, int> a_map;\ninline ll read()\n{ // \u5feb\u8bfb\n    ll x = 0, y = 1;\n    char c = getchar();\n    while (!isdigit(c))\n    {\n        y = (c == '-') ? -1 : 1;\n        c = getchar();\n    }\n    while (isdigit(c))\n    {\n        x = (x << 1) + (x << 3) + c - '0';\n        c = getchar();\n    }\n    return x * y;\n}\ninline void out(ll x)\n{\n    if (x < 0)\n    {\n        x = ~(x - 1);\n        putchar('-');\n    }\n    if (x > 9)\n        out(x / 10);\n    putchar(x % 10 + '0');\n}\ninline void write(ll x, char ch)\n{ // \u5feb\u8f93\n    out(x);\n    putchar(ch);\n}\nint main()\n{\n    n = read(), m = read();\n    cout << (((n * n - 1) % 998244353 * m) % 998244353 + 1) % 998244353;\n    I AK IOI\n}\n```",
+        "postTime": 1644843715,
+        "uid": 521258,
+        "name": "jxbe6666",
+        "ccfLevel": 3,
+        "title": "P8152 \u9898\u89e3"
+    }
+]

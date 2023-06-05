@@ -1,0 +1,26 @@
+[
+    {
+        "content": "\u8fd9\u5c31\u662f\u53c8\u4e00\u9053\u6c42\u5e73\u5747\u6570\u7684\u9898\uff0c\u5e73\u5747\u6570\u6c42\u6cd5\u4e3a\uff1a\n\n$\\bar x \\gets\\sum\\limits^{n}_{i=1}x_i \\div n$\n\n\u7136\u540e\u6211\u4eec\u5c31\u53ef\u4ee5\u6c42\u51fa\u5e73\u5747\u6570\u4e86\u3002\n\n\u4ee3\u7801\uff1a\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint n;\nfloat x,s;//\u6ce8\u610f\u7c7b\u578b\nint main(){\n    scanf(\"%d\",&n);\n    for(int i=1;i<=n;i++)\n        scanf(\"%f\",&x),s+=x;//xi\u53ea\u7528\u4e00\u6b21\uff0c\u53ef\u4ee5\u4e0d\u5f00\u6570\u7ec4\n    printf(\"%.4f\",s/n);\n    return 0;\n}\n\n```",
+        "postTime": 1625393245,
+        "uid": 475629,
+        "name": "_\u6a31\u5c9b\u9ebb\u8863_",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 B2055 \u3010\u5747\u503c\u3011"
+    },
+    {
+        "content": "```\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n    int i,n;\n    float s,x;//\u6ce8\u610f\u4e0d\u8981\u5b9a\u4e49int\u7c7b\u578b\n    cin>>n;//\u8f93\u5165\n    for(i=1;i<=n;i++){\n        cin>>x;//\u8f93\u5165\n        s=s+x;//\u6c42\u603b\u548c\n    }\n    s=s/n;//\u9664\u4ee5n\n    printf(\"%.4f\",s);//\u8f93\u51fa\uff0c\u6ce8\u610f\u56db\u4f4d\u5c0f\u6570\n    return 0;\n}\n```\n",
+        "postTime": 1625282701,
+        "uid": 238691,
+        "name": "Leo2020",
+        "ccfLevel": 4,
+        "title": "B2055\u9898\u89e3"
+    },
+    {
+        "content": "## \u9898\u89e3\n\n\u4e0e\u4e0a\u4e00\u9898\uff08[\u6c42\u5e73\u5747\u5e74\u9f84](https://www.luogu.com.cn/problem/B2054)\uff09\u7c7b\u4f3c\uff0c\u6211\u4eec\u9700\u8981\u8ba1\u7b97\u51fa\u6240\u6709\u6570\u5b57\u7684\u548c\uff0c\u518d\u9664\u4ee5\u603b\u6570\u3002\n\n$$\\bar x=\\frac{1}{n}\\sum_{i=1}^n x_i$$\n\n\u8003\u8651\u4f7f\u7528 $\\verb!while!$ \u5faa\u73af\u89e3\u51b3\u672c\u9898\u3002 $\\verb!while!$ \u5faa\u73af\u7684\u5927\u81f4\u6846\u67b6\u5982\u4e0b\uff1a\n\n$$\\begin{aligned}\n&\\verb!while(\u5faa\u73af\u6761\u4ef6){! \\cr\n&\\verb!    /*do something...*/! \\cr\n&\\verb!}!\n\\end{aligned}$$\n\n\u6211\u4eec\u5b9a\u4e49\u6574\u578b\u53d8\u91cf $i$ \uff0c\u521d\u59cb\u503c\u4e3a $0$ \u3002\u5faa\u73af\u6761\u4ef6\u4e3a `i<n` \u3002\u5728\u6267\u884c\u5b8c\u4e00\u6b21\u8f93\u5165\u3001\u4e00\u6b21\u76f8\u52a0\u540e\uff0c\u4ee4 $i\\gets i+1$ \u3002\u6bcf\u6b21\u5faa\u73af\u5f00\u59cb\u524d\uff0c $i$ \u7684\u503c\u5206\u522b\u662f $0,1,2,3\\cdots n-1$ \uff0c\u56e0\u6b64\u4e00\u5171\u4f1a\u8fdb\u884c $(n-1)-0+1=n$ \u6b21\u5faa\u73af\uff0c\u6070\u597d\u7b26\u5408\u6211\u4eec\u7684\u8981\u6c42\u3002\n\n**\u6ce8\u610f**\uff1a\u672c\u9898\u8f93\u51fa\u6570\u636e\u7684\u6d6e\u70b9\u6570\u5728\u7cbe\u5ea6\u4e0a\u6709\u4e00\u5b9a\u8bef\u5dee\uff0c\u53ea\u6709\u4f7f\u7528\u5355\u7cbe\u5ea6\u6d6e\u70b9\u6570\uff08\u5982C++ \u4e2d\u7684 $\\verb!float!$ \u7c7b\u578b\uff09\u624d\u80fd\u901a\u8fc7\uff0c\u4f7f\u7528\u53cc\u7cbe\u5ea6\u6d6e\u70b9\u6570\uff08\u5982C++ \u4e2d\u7684 $\\verb!double!$ \u7c7b\u578b\uff09\u4f1a\u88ab\u5361\u6389\u3002\n\n## \u53c2\u8003\u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\n#define up(l,r,i) for(int i=l,END##i=r;i<=END##i;++i)\n#define dn(r,l,i) for(int i=r,END##i=l;i>=END##i;--i)\nusing namespace std;\ntypedef long long i64;\nconst int INF =2147483647;\nint n,i=0; float s,x;\nint main(){\n    scanf(\"%d\",&n);\n    while(i<n){\n        scanf(\"%f\",&x); s+=x; ++i;\n    }\n    printf(\"%.4f\\n\",s/n);\n    return 0;\n}\n```",
+        "postTime": 1625361969,
+        "uid": 330759,
+        "name": "\u56e7\u4ed9",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 B2055 \u3010\u5747\u503c\u3011"
+    }
+]

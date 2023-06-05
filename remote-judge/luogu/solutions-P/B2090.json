@@ -1,0 +1,42 @@
+[
+    {
+        "content": "\u8fd9\u9053\u9898\u53ea\u5173\u6ce8\u5404\u4e2a\u60a3\u8005\u6240\u5904\u7684\u5e74\u9f84\u6bb5\uff0c\u5e76\u4e0d\u5728\u610f\u60a3\u8005\u7684\u5177\u4f53\u5e74\u9f84\u3002\n\n\u6240\u4ee5\u6211\u4eec\u53ef\u4ee5\u5b9a\u4e49 $4$ \u4e2a\u53d8\u91cf `a[1],a[2],a[3],a[4]`\uff0c\u7528\u6765\u5b58\u50a8\u5404\u4e2a\u5e74\u9f84\u6bb5\u7684\u4eba\u6570\u3002\uff08\u7c7b\u4f3c\u6876\u6392\u5e8f\uff09\n\n\u5728\u8bfb\u5165\u6570\u636e\u65f6\u76f4\u63a5\u5224\u65ad\u5e74\u9f84\u6bb5\uff0c\u5e76\u5c06\u6240\u5bf9\u5e94\u7684\u53d8\u91cf $+1$\uff0c\u5c31\u5b8c\u6210\u4e86\u5bf9\u5404\u4e2a\u5e74\u9f84\u6bb5\u7684\u4eba\u6570\u7684\u7edf\u8ba1\u3002\n\n\u56e0\u4e3a\u672c\u9898\u8981\u4fdd\u7559\u4e24\u4f4d\u5c0f\u6570\uff0c\u6211\u9009\u62e9\u76f4\u63a5\u4f7f\u7528 `printf` \u8fdb\u884c\u8f93\u51fa\u3002\n\n```cpp\n#include<iostream>\n#include<cstdio>\nusing namespace std;\nint a[5],n,c;\nint main()\n{\n\tcin>>n;\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tcin>>c;\n\t\tif(c<=18)        a[1]++;\n\t\tif(19<=c&&c<=35) a[2]++;\n\t\tif(36<=c&&c<=60) a[3]++;\n\t\tif(c>60)         a[4]++;\n\t}\n\tprintf(\"%.2lf%%\\n\",double(a[1])/n*100);//\u767e\u5206\u6570\u8981x100!\n\tprintf(\"%.2lf%%\\n\",double(a[2])/n*100);\n\tprintf(\"%.2lf%%\\n\",double(a[3])/n*100);\n\tprintf(\"%.2lf%%\\n\",double(a[4])/n*100);\n\t//\u7531\u4e8ea[1~4]\u9664\u4ee5n\u65f6\uff0c\u4e24\u8fb9\u90fd\u662f\u6574\u6570\uff0c\u4f1a\u5bfc\u81f4\u76f4\u63a5\u6574\u9664\uff0c\u6240\u4ee5\u8981\u8fdb\u884c\u7c7b\u578b\u8f6c\u6362\uff0c\u4f7f\u5176\u53d8\u6210\u6d6e\u70b9\u6570\u9664\u6cd5\u3002 \n \treturn 0;\n}\n```\n",
+        "postTime": 1625398279,
+        "uid": 277757,
+        "name": "hanyuchen2019",
+        "ccfLevel": 4,
+        "title": "B2090"
+    },
+    {
+        "content": "## Description\n\n>\u5bf9\u4e8e\u4e00\u4e2a\u975e\u8d1f\u6574\u6570\u6570\u5217 $\\{a_n\\}$\uff0c\u5206\u522b\u8f93\u51fa\u8fd9\u4e2a\u6570\u5217\u4e2d\u5728 $[0,18],[19,35],[36,60],[61,+\\infty]$ \u533a\u95f4\u5185\u7684\u5360\u6bd4\u60c5\u51b5\u3002\\\n>\u767e\u5206\u6570\u524d\u4fdd\u7559 $2$ \u4f4d\u5c0f\u6570\u3002\n\n## Solution\n\n### \u5206\u6790\n\n\u975e\u5e38\u76f4\u63a5\u7684\u65b9\u6cd5\u5c31\u662f\u5f00\u56db\u4e2a\u53d8\u91cf $a,b,c,d$ \u5206\u522b\u8bb0\u5f55\u56db\u4e2a\u533a\u95f4\u5185\u6570\u7684\u4e2a\u6570\uff0c\u6700\u540e\u9664\u4ee5 $n$ \u7b97\u767e\u5206\u6bd4\u3002\n\n\u8fd9\u91cc\u5c31\u8981\u7528\u5230 if...else... \u8bed\u53e5\u3002\n\n### \u7b97\u6cd5\u4ecb\u7ecd\n\n```cpp\nif (\u8bed\u53e5 1) \u64cd\u4f5c 1;\nelse if (\u8bed\u53e5 2) \u64cd\u4f5c 2;\nelse if (\u8bed\u53e5 3) \u64cd\u4f5c 3;\n...\nelse \u64cd\u4f5c n;\n```\n\n\u4ee3\u8868\uff1a\n\n1. \u5982\u679c\u8bed\u53e5 $1$ \u6210\u7acb\uff0c\u5219\u6267\u884c\u64cd\u4f5c $1$\uff1b\n2. **\u5426\u5219**\uff0c\u5982\u679c\u8bed\u53e5 $2$ \u6210\u7acb\uff0c\u5219\u6267\u884c\u64cd\u4f5c $2$\uff1b\n3. \u2026\u2026\n4. \u5982\u679c\u4e0a\u8ff0 $n-1$ \u4e2a\u8bed\u53e5\u90fd\u4e0d\u6210\u7acb\uff0c\u5219\u6267\u884c\u64cd\u4f5c $n$\u3002\n\n### \u5b9e\u73b0\n\n\u5bf9\u4e8e\u6bcf\u4e2a $a_i(i\\in[1,n])$)\uff0c\u6328\u4e2a\u5224\u65ad\u5373\u53ef\u3002\n\n## Code\n\n```cpp\n#include <cstdio>\n\nusing namespace std;\nint n, a, b, c, d;\nint main(){\n    scanf(\"%d\", &n);\n    for(int i = 0 ; i < n ; i++){\n        int t;\n        scanf(\"%d\", &t);\n        if(t <= 18) a++;\n        else if(t <= 35) b++;\n        else if(t <= 60) c++;\n        else d++;\n    }\n    printf(\"%.2lf\\%\\n%.2lf\\%\\n%.2lf\\%\\n%.2lf\\%\", a * 100.0 / n, b * 100.0 / n, c * 100.0 / n, d * 100.0 / n);\n    return 0;\n}\n```",
+        "postTime": 1625292619,
+        "uid": 224931,
+        "name": "CSP_Sept",
+        "ccfLevel": 6,
+        "title": "The Solution of B2090"
+    },
+    {
+        "content": "## \u9898\u76ee\u5206\u6790\n\u6b64\u9898\u53ea\u7528\u6309\u6bcf\u4e2a\u60a3\u8005\u7684\u5e74\u9f84\u5c06\u6bcf\u4e2a\u60a3\u8005\u5206\u5230\u56db\u4e2a\u8ba1\u6570\u5668\u5185\uff0c\u8868\u793a\u56db\u4e2a\u4e0d\u540c\u7684\u5e74\u9f84\u6bb5\u7684\u4eba\u6570\uff0c\u6700\u540e\u518d\u6c42\u4e00\u4e0b\u603b\u548c\uff0c\u7136\u540e\u4fdd\u7559**\u4e24\u4f4d\u5c0f\u6570**\u6309**\u53cc\u7cbe\u5ea6\u6d6e\u70b9\u578b\u53d8\u91cf**\u8f93\u51fa\u6bcf\u4e2a\u8ba1\u6570\u5668\u5185\u7684\u6570\u5360\u603b\u548c\u7684\u767e\u5206\u6bd4\u5373\u53ef\u3002\n## \u4ee3\u7801\u5c55\u793a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,a[110],sum1,sum2,sum3,sum4,all; \nint main(){\n\tcin>>n;\n\tfor(int i=1;i<=n;i++){\n\t\tcin>>a[i];\n\t\tif(a[i]>=0&&a[i]<=18)\n\t\t\tsum1++;\n\t\telse if(a[i]>=19&&a[i]<=35)\n\t\t\tsum2++;\n\t\telse if(a[i]>=36&&a[i]<=60)\n\t\t\tsum3++;\n\t\telse if(a[i]>=61)\n\t\t\tsum4++;\n\t}\n\tall=sum1+sum2+sum3+sum4;\n\tcout<<fixed<<setprecision(2)<<sum1*100.0/all<<\"%\"<<endl;\n\tcout<<fixed<<setprecision(2)<<sum2*100.0/all<<\"%\"<<endl;\n\tcout<<fixed<<setprecision(2)<<sum3*100.0/all<<\"%\"<<endl;\n\tcout<<fixed<<setprecision(2)<<sum4*100.0/all<<\"%\"<<endl;\n\treturn 0;\n}\n\n```\n",
+        "postTime": 1625365157,
+        "uid": 359581,
+        "name": "\u00b7\u7cef\u00b7",
+        "ccfLevel": 5,
+        "title": "B2090"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u76ee\u53ea\u8981\u5206\u5e74\u9f84\u9636\u6bb5\u8ba1\u6570\u5373\u53ef\u3002\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint a[10001];\nint w,x,y,z;\nint main(){\n\tint n;\n\tcin>>n;\n\tfor(int i=1;i<=n;i++){\n\t\tcin>>a[i];\n\t\tif(a[i]>=0&&a[i]<=18)w++;//\u4ee3\u8868 0-18 \u5c81\u8fd9\u4e2a\u5e74\u9f84\u6bb5\u7684\u60a3\u8005\u4eba\u6570\n\t\tif(a[i]>18&&a[i]<=35)x++;//\u4ee3\u8868 19-35 \u5c81\u8fd9\u4e2a\u5e74\u9f84\u6bb5\u7684\u60a3\u8005\u4eba\u6570\n\t\tif(a[i]>35&&a[i]<=60)y++;//\u4ee3\u8868 36-60\u5c81\u8fd9\u4e2a\u5e74\u9f84\u6bb5\u7684\u60a3\u8005\u4eba\u6570\n\t\tif(a[i]>60)z++;//\u4ee3\u8868 61\u5c81\u53ca\u4ee5\u4e0a\u8fd9\u4e2a\u5e74\u9f84\u6bb5\u7684\u60a3\u8005\u4eba\u6570\n\t}\n\tdouble ww=w,xx=x,yy=y,zz=z,nn=n;//\u8f6c\u6210\u6d6e\u70b9\u6570\n\tprintf(\"%.2lf%\\n\",ww/nn*100);//\u4fdd\u7559\u4e24\u4f4d\u5c0f\u6570\u8f93\u51fa\uff0c\u8bb0\u5f97\u4e58100\uff01\uff01\n\tprintf(\"%.2lf%\\n\",xx/nn*100);//\u767e\u5206\u53f7\u8bb0\u5f97\u52a0\u4e0a\n\tprintf(\"%.2lf%\\n\",yy/nn*100);\n\tprintf(\"%.2lf%\\n\",zz/nn*100);\n\treturn 0;\n}\n```",
+        "postTime": 1626309352,
+        "uid": 219570,
+        "name": "MCH_Satrimiten",
+        "ccfLevel": 4,
+        "title": "B2090"
+    },
+    {
+        "content": "# \u601d\u8def\n\u8f93\u5165\u6bcf\u4e2a\u75c5\u4eba\u7684\u5e74\u9f84\u540e\uff0c\u5224\u65ad\u5c5e\u4e8e\u54ea\u4e2a\u5e74\u9f84\u6bb5\uff0c\u7d2f\u52a0\u6bcf\u4e2a\u5e74\u9f84\u6bb5\u7684\u4eba\u6570\u3002\n\n\u6700\u540e\u7528\u6bcf\u4e2a\u5e74\u9f84\u6bb5\u7684\u4eba\u6570 \u00f7 \u603b\u4eba\u6570 \u00d7 100 \u8f93\u51fa\u5373\u53ef\u3002\n\n\u6ce8\u610f printf \u8f93\u51fa**\u4e00\u4e2a**\u767e\u5206\u53f7\u662f`printf(\"%%\");`\n# \u4ee3\u7801\n```cpp\n#include <iostream>\n#include <cstdio>\nusing namespace std;\ndouble n, a, b, c, d, t; //\u5168\u5b9a\u4e49\u6210double\uff0c\u9664\u6cd5\u65b9\u4fbf\nint main()\n{\n\tcin >> n;\n\tfor(int i = 0;i < n;++i)\n\t{\n\t\tcin >> t; //\u4e0b\u97624\u884c\u662f\u7edf\u8ba1\u56db\u4e2a\u5e74\u9f84\u6bb5\u7684\u4eba\u6570\n\t\tif(t >= 0 && t <= 18) ++a;\n\t\tif(t >= 19 && t <= 35) ++b;\n\t\tif(t >= 36 && t <= 60) ++c;\n\t\tif(t >= 61) ++d;\n\t}\n\tprintf(\"%.2lf%%\\n%.2lf%%\\n%.2lf%%\\n%.2lf%%\", a / n * 100, b / n * 100, c / n * 100, d / n * 100);\n\treturn 0;\n}\n```\n",
+        "postTime": 1626254187,
+        "uid": 388651,
+        "name": "5k_sync_closer",
+        "ccfLevel": 7,
+        "title": "B2090 \u5e74\u9f84\u4e0e\u75be\u75c5"
+    }
+]
