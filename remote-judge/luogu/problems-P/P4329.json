@@ -1,0 +1,21 @@
+{
+    "description": "Everyone knows of the secret agent double-oh-seven, the popular Bond (James Bond). A lesser known fact is that he actually did not perform most of his missions by himself; they were instead done by his cousins, Jimmy Bonds. Bond (James Bond) has grown weary of having to distribute assign missions to Jimmy Bonds every time he gets new missions so he has asked you to help him out.\nEvery month Bond (James Bond) receives a list of missions. Using his detailed intelligence from past missions, for every mission and for every Jimmy Bond he calculates the probability of that particular mission being successfully completed by that particular Jimmy Bond. Your program should process that data and find the arrangement that will result in the greatest probability that all missions are completed successfully.\nNote: the probability of all missions being completed successfully is equal to the product of the probabilities of the single missions being completed successfully.",
+    "inputFormat": "The first line will contain an integer N, the number of Jimmy Bonds and missions (1 \u2264 N \u2264 20).\nThe following N lines will contain N integers between 0 and 100, inclusive. The j-th integer on the ith line is the probability that Jimmy Bond i would successfully complete mission j, given as a percentage.",
+    "outputFormat": "Output the maximum probability of Jimmy Bonds successfully completing all the missions, as a percentage.",
+    "samples": [
+        [
+            "2\n100 100\n50 50",
+            "50.000000"
+        ],
+        [
+            "2\n0 50\n50 0",
+            "25.00000"
+        ],
+        [
+            "3\n25 60 100\n13 0 50\n12 70 90",
+            "9.10000"
+        ]
+    ],
+    "hint": "Clarification of the third example: If Jimmy bond 1 is assigned the 3rd mission, Jimmy Bond 2 the 1st mission and Jimmy Bond 3 the 2nd mission the probability is: 1.0 * 0.13 * 0.7 = 0.091 = 9.1%. All other arrangements give a smaller probability of success.\nNote: Outputs within \u00b10.000001 of the official solution will be accepted.",
+    "translation": "\u6709$n$ \u4e2a\u4eba\u53bb\u6267\u884c$n$ \u4e2a\u4efb\u52a1\uff0c\u6bcf\u4e2a\u4eba\u6267\u884c\u6bcf\u4e2a\u4efb\u52a1\u6709\u4e0d\u540c\u7684\u6210\u529f\u7387\uff0c\u6bcf\u4e2a\u4eba\u53ea\u80fd\u6267\u884c\u4e00\u4e2a\u4efb\u52a1\uff0c\u6c42\u6240\u6709\u4efb\u52a1\u90fd\u6267\u884c\u7684\u603b\u7684\u6210\u529f\u7387\u3002\n\n\u8f93\u5165\u7b2c\u4e00\u884c\uff0c\u4e00\u4e2a\u6574\u6570$n$ \uff08$1\\leq n\\leq 20$ \uff09\uff0c\u8868\u793a\u4eba\u6570\u517c\u4efb\u52a1\u6570\u3002\u63a5\u4e0b\u6765$n$ \u884c\u6bcf\u884c$n$ \u4e2a\u6570\uff0c\u7b2c$i$ \u884c\u7b2c$j$ \u4e2a\u6570\u8868\u793a\u7b2c$i$ \u4e2a\u4eba\u53bb\u6267\u884c\u7b2c$j$ \u4e2a\u4efb\u52a1\u7684\u6210\u529f\u7387\uff08\u8fd9\u662f\u4e00\u4e2a\u767e\u5206\u6570\uff0c\u5728$0$ \u5230$100$ \u95f4\uff09\u3002\n\n\u8f93\u51fa\u6700\u5927\u7684\u603b\u6210\u529f\u7387\uff08\u8fd9\u5e94\u4e5f\u662f\u4e00\u4e2a\u767e\u5206\u6570\uff09"
+}

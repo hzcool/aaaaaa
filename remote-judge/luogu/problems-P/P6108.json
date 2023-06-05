@@ -1,0 +1,16 @@
+{
+    "description": "\u4f60\u6709\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u5e8f\u5217 $v_1, v_2, \\dots, v_n$\uff0c\u521d\u503c\u5168\u90fd\u4e3a $0$\u3002\n\n\u4f60\u8981\u8fdb\u884c $m$ \u6b21\u64cd\u4f5c\uff1a\n\n- \u64cd\u4f5c 1\uff1a\u7ed9\u51fa $l,r,a$\uff0c\u5c06 $v_l,v_{l+1},\\dots ,v_r$ \u7684\u503c\u52a0\u4e0a $a$\u3002\n- \u64cd\u4f5c 2\uff1a\u7ed9\u51fa $l,r$\uff0c\u6c42\u5728$v_l,v_{l+1}, \\dots ,v_r$ \u4e2d\u9009\u51fa\u4e00\u4e2a\u975e\u7a7a\u7684\u5b50\u5e8f\u5217\uff0c\u6c42\u6240\u6709\u65b9\u6848\u4e2d\u9009\u51fa\u7684\u5b50\u5e8f\u5217\u7684\u65b9\u5dee\u4e4b\u548c\uff0c\u7b54\u6848\u5bf9 $998244353$ \u53d6\u6a21\u3002\n\n\u4e00\u4e2a\u5e8f\u5217 $a_1,a_2, \\dots, a_n$ \u7684\u65b9\u5dee\u5b9a\u4e49\u4e3a\u4ee4 $\\bar{a}=\\frac{1}{n}\\sum_{i=1}^n a_i$\uff0c\u5219\u65b9\u5dee\u4e3a $\\frac{1}{n}\\sum_{i=1}^n (a_i-\\bar{a})^2$\u3002",
+    "inputFormat": "\u7b2c\u4e00\u884c\u4e24\u4e2a\u6574\u6570 $n, m$\u3002\n\n\u63a5\u4e0b\u6765 $m$ \u884c\uff0c\u6bcf\u884c\u6709\u56db\u4e2a\u6574\u6570 $1~l~r~a$ \u6216\u4e09\u4e2a\u6574\u6570 $2~l~r$\uff0c\u8868\u793a\u7b2c\u4e00\u7c7b\u6216\u7b2c\u4e8c\u7c7b\u64cd\u4f5c\uff0c\u4fdd\u8bc1 $0\\leq a< 998244353$\u3002\n",
+    "outputFormat": "\u5bf9\u6bcf\u4e2a\u7b2c\u4e8c\u7c7b\u64cd\u4f5c\uff0c\u8f93\u51fa\u4e00\u884c\u8868\u793a\u7b54\u6848\u3002",
+    "samples": [
+        [
+            "4 4\n1 2 4 1\n2 1 3\n1 1 2 2\n2 1 4",
+            "388206138\n339680376"
+        ],
+        [
+            "10 20\n1 4 4 520968631\n1 4 7 988452236\n1 4 9 355405133\n2 9 10\n2 2 8\n1 3 5 400339337\n2 3 8\n2 6 7\n2 4 10\n2 7 9\n1 3 8 387471594\n1 2 4 559944503\n2 1 8\n1 4 7 108832063\n2 5 9\n2 4 8\n1 3 8 622785003\n2 9 10\n1 2 7 252591713\n1 5 6 666406180",
+            "570099967\n274921471\n285269733\n0\n571283655\n970723747\n401326984\n17519114\n844628984\n570099967"
+        ]
+    ],
+    "hint": "Idea\uff1accz181078\uff0cSolution\uff1accz181078\uff0cCode\uff1accz181078\uff0cData\uff1accz181078\n\n\u5bf9\u4e8e $10\\%$ \u7684\u6570\u636e\uff0c$n\\leq 10, m\\leq 1000$\u3002\n\n\u5bf9\u4e8e $20\\%$ \u7684\u6570\u636e\uff0c$n\\leq 16, m\\leq 1000$\u3002\n\n\u5bf9\u4e8e $30\\%$ \u7684\u6570\u636e\uff0c$n\\leq 100, m\\leq 10^3$\u3002\n\n\u5bf9\u4e8e $50\\%$ \u7684\u6570\u636e\uff0c$n, m\\leq 10^3$\u3002\n\n\u5bf9\u4e8e\u53e6\u5916$10\\%$\u7684\u6570\u636e\uff0c$n\\leq 10^5$\uff0c\u4fdd\u8bc1\u9996\u5148\u662f\u7b2c\u4e00\u7c7b\u64cd\u4f5c\uff0c\u7136\u540e\u662f\u7b2c\u4e8c\u7c7b\u64cd\u4f5c\u3002\n\n\u5bf9\u4e8e $80\\%$ \u7684\u6570\u636e\uff0c$n, m\\leq 10^5$\u3002\n\n\u5bf9\u4e8e $100\\%$ \u7684\u6570\u636e\uff0c$1\\leq n \\leq 5\\times 10^6,1\\leq m\\leq 10^5$\u3002\n\n\u5bf9\u4e8e\u7b2c\u4e00\u4e2a\u6d4b\u8bd5\u6570\u636e\u7684\u7b2c\u4e00\u4e2a\u8be2\u95ee\uff0c\u5e8f\u5217\u662f $\\{0,1,1\\}$\uff0c\u6240\u6709\u7684\u5b50\u5e8f\u5217\u4e2d\u53ea\u6709 $\\{0,1\\}, \\{0,1\\}$ \u548c $\\{0,1,1\\}$ \u65b9\u5dee\u4e0d\u4e3a $0$\uff0c\u5206\u522b\u662f $\\frac{1}{4}, \\frac{1}{4}, \\frac{2}{9}$\uff0c\u603b\u548c\u4e3a $\\frac{13}{18}$\u3002\n"
+}

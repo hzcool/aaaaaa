@@ -1,0 +1,12 @@
+{
+    "description": "yltx \u5b9a\u4e49\u82e5\u4e00\u4e2a**\u7d20\u6570**\u6570\u5bf9 $(x,y)$ \u6ee1\u8db3 $x\\times y-3\\times (x-y)$ \u662f\u7d20\u6570\uff0c\u5219\u79f0\u5176\u4e3a\u4e00\u4e2a yltx \u6570\u5bf9\u3002\n\n\u4ed6\u7ed9\u4e86\u4f60 $T$ \u5bf9 $(x,y)$\uff0c\u8bf7\u4f60\u68c0\u67e5\u4ed6\u4eec\u662f\u5426\u4e3a yltx \u6570\u5bf9\u3002\n\n\u6570\u636e\u4ee5\u79cd\u5b50$(x_0,y_0)$\u7684\u5f62\u5f0f\u7ed9\u51fa\u3002\n\n\u6267\u884c $T$ \u6b21 $x_0\\leftarrow (7x_0+13)\\ \\mathrm{xor}\\ (x_0\\div 13-7)$\uff0c\u7b2c $i$ \u6b21\u6267\u884c\u5f97\u5230\u7684\u6570\u5148\u53d6\u6a21 $10^4$\u3001\u52a0\u4e0a $10^4$\u3001\u53d6\u6a21 $10^4$\uff0c\u518d\u52a0 $1$\uff0c\u5c31\u5f97\u5230\u4e86\u7b2c $i$ \u7ec4\u6570\u636e\u7684 $x$\u3002\u8fd9\u91cc\u7684\u9664\u6cd5\u5c31\u662f\u6574\u9664\uff0c\u628a $x_0$ \u89c6\u4f5c 32 \u4f4d\u6709\u7b26\u53f7\u6574\u6570\u3002\n\n\u7528\u540c\u6837\u7684\u65b9\u6cd5\u5f97\u5230 $y$\u3002\n\n\u6570\u636e\u751f\u6210\u6a21\u677f\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint T,x0,y0;\nint main() {\n\tscanf(\"%d%d%d\",&T,&x0,&y0);\n\twhile(T--){\n\t\tx0=((7*x0+13)^(x0/13-7));\n\t\ty0=((7*y0+13)^(y0/13-7));\n\t\tint x=(x0%10000+10000)%10000+1,y=(y0%10000+10000)%10000+1;\n\t\t//x,y\u5373\u4e3a\u4e00\u7ec4(x,y)\u3002\n\t}\n\treturn 0;\n}\n```",
+    "inputFormat": "\u7b2c\u4e00\u884c\u4e09\u4e2a\u6574\u6570 $T,x_0,y_0$\u3002\n\n",
+    "outputFormat": "$1$\u884c\uff0c\u8f93\u51fa\u6709\u51e0\u5bf9\u6570\u662f yltx \u6570\u5bf9\u3002",
+    "samples": [
+        [
+            "100000 1 2",
+            "321"
+        ]
+    ],
+    "hint": "\u5404\u6d4b\u8bd5\u70b9\u6570\u636e\u8303\u56f4\u5982\u4e0b\uff1a\n\n| \u6d4b\u8bd5\u70b9 | T | Subtask |\n| :---: | :---: | :---: |\n| 1 | $\\le10$ | 1 |\n| 2 | $\\le20$ | 1 |\n| 3 | $\\le50$ | 1 |\n| 4 | $\\le100$ | 1 |\n| 5 | $\\le500$ | 1 |\n| 6 | $\\le1000$ | 1 |\n| 7 | $\\le5000$ | 2 |\n| 8 | $\\le10^4$ | 2 |\n| 9 | $\\le5\\times10^4$ | 2 |\n| 10 | $\\le4\\times10^5$ | 2 |\n| 11 | $\\le10^6$ | 2 |\n| 12 | $\\le5\\times10^6$ | 2 |\n| 13 | $\\le4\\times10^7$ | 3 |\n| 14 | $\\le4\\times10^7$ | 3 |\n| 15 | $\\le4\\times10^7$ | 3 |\n| 16 | $\\le4\\times10^7$ | 3 |\n| 17 | $\\le4\\times10^7$ | 3 |\n| 18 | $\\le4\\times10^7$ | 3 |\n| 19 | $\\le4\\times10^7$ | 3 |\n| 20 | $\\le4\\times10^7$ | 3 |\n\n\u5404Subtask\u6346\u7ed1\u6d4b\u8bd5\u3002\n\n\u672c\u9898\u5f00\u653e\u6570\u636e\u4e0b\u8f7d\uff0c\u4f46\u5e0c\u671b\u60a8\u80fd\u7528\u6570\u636e\u505a\u6b63\u786e\u7684\u4e8b\u3002"
+}

@@ -1,0 +1,20 @@
+{
+    "description": "\u7ed9\u51fa\u4e00\u4e2a\u6709 $N$ \u4e2a\u7ed3\u70b9\u7684\u6811\u548c\u4e00\u4e2a\u6b63\u6574\u6570 $K$\uff0c\u786e\u5b9a\u662f\u5426\u5b58\u5728\u4e00\u4e2a\u9876\u70b9\u5b50\u96c6\uff0c\u4f7f\u5f97\u4efb\u610f\u6070\u597d\u5305\u542b $K$ \u4e2a\u9876\u70b9\u7684\u8def\u5f84\u90fd**\u6070\u597d**\u6709\u4e00\u4e2a\u6765\u81ea\u8be5\u5b50\u96c6\u7684\u9876\u70b9\u3002\u6b64\u5916\uff0c\u60a8\u9700\u8981\u627e\u5230\u6a21 $10^9+7$ \u7684\u6b64\u7c7b\u5b50\u96c6\u7684\u6570\u91cf\uff08\u4e0d\u5b58\u5728\u5219\u4e3a $0$\uff09\u3002",
+    "inputFormat": "\u7b2c\u4e00\u884c\u4e24\u4e2a\u6574\u6570 $N$ \u548c $K$\u3002\n\n\u63a5\u4e0b\u6765 $N-1$ \u884c\uff0c\u6bcf\u884c\u4e24\u4e2a\u6574\u6570 $u$ \u548c $v$\uff0c\u8868\u793a\u8282\u70b9 $u$ \u548c\u8282\u70b9 $v$ \u4e4b\u95f4\u5b58\u5728\u4e00\u6761\u65e0\u5411\u8fb9\u3002\n\n",
+    "outputFormat": "\u7b2c\u4e00\u884c\u4e00\u4e2a\u5b57\u7b26\u4e32\uff0c\u5982\u679c\u5b58\u5728\u8f93\u51fa `YES`\uff0c\u5426\u5219\u8f93\u51fa `NO`\u3002\n\n\u7b2c\u4e8c\u884c\u8f93\u51fa\u4e00\u4e2a\u6574\u6570\uff0c\u8868\u793a\u6ee1\u8db3\u6761\u4ef6\u7684\u5b50\u96c6\u4e2a\u6570\uff0c\u5982\u679c\u4e0d\u5b58\u5728\uff0c\u8f93\u51fa $0$\u3002\n\n",
+    "samples": [
+        [
+            "4 2\n3 4\n3 1\n2 3\n",
+            "YES \n2\n"
+        ],
+        [
+            "8 3\n7 3\n1 3\n7 8\n5 1\n4 6\n7 2\n3 6\n",
+            "NO\n0\n"
+        ],
+        [
+            "6 5\n4 1\n4 2\n3 6\n5 2\n4 6\n",
+            "YES\n10\n"
+        ]
+    ],
+    "hint": "#### \u6837\u4f8b\u89e3\u91ca1\n![](https://cdn.luogu.com.cn/upload/image_hosting/5v4lswx9.png)\n\n\u6ee1\u8db3\u6761\u4ef6\u7684\u5b50\u96c6\u6709\uff1a$\\{3\\}$\uff0c$\\{1,2,4\\}$\u3002\n\n#### \u6837\u4f8b\u89e3\u91ca2\n![](https://cdn.luogu.com.cn/upload/image_hosting/hgp8ggz4.png)\n\n#### \u6837\u4f8b\u89e3\u91ca3\n![](https://cdn.luogu.com.cn/upload/image_hosting/xv206wxg.png)\n\n\u53ea\u6709\u4e00\u6761\u957f\u5ea6\u4e3a $5$ \u7684\u8def\u5f84\uff0c\u8be5\u8def\u5f84\u5305\u542b\u8282\u70b9 $3,6,4,2,5$\u3002\u8fd9\u4e9b\u8282\u70b9\u4e2d\u5fc5\u987b\u6070\u597d\u6709\u4e00\u4e2a\u5728\u5b50\u96c6\u4e2d\uff0c\u5e76\u4e14\u8282\u70b9 $1$ \u662f\u5426\u5728\u5b50\u96c6\u4e2d\u6ca1\u6709\u533a\u522b\u3002\n\n\u56e0\u6b64\u6240\u6709\u6ee1\u8db3\u6761\u4ef6\u7684\u5b50\u96c6\u6709\uff1a$\\{3\\}$\uff0c$\\{1,3\\}$\uff0c$\\{6\\}$\uff0c$\\{1,6\\}$\uff0c$\\{4\\}$\uff0c$\\{1,4\\}$\uff0c$\\{2\\}$\uff0c$\\{1,2\\}$\uff0c$\\{5\\}$\uff0c$\\{1,5\\}$\u3002\n\n#### \u6570\u636e\u8303\u56f4\u4e0e\u7ea6\u5b9a\n\n\u5bf9\u4e8e $100\\%$ \u7684\u6570\u636e\uff1a$2\\leq K\\leq N\\le 1.5\\times 10^6$\u3002\n\n| \u5b50\u4efb\u52a1 | \u5206\u503c |                         \u7ea6\u675f                          |\n| :----: | :--: | :---------------------------------------------------: |\n|  $1$   | $30$ |                   $2\\leq K\\leq N\\le 200$                   |\n|  $2$   | $20$ |           $2\\leq K\\leq N\\le 10^4$            |\n|  $3$   | $20$ | $2\\leq K\\leq N\\le 5\\times 10^5$ |\n|  $4$   | $30$|                 $2\\leq K\\leq N\\le 1.5\\times 10^6$                  |\n"
+}

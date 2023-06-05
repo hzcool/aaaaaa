@@ -1,0 +1,24 @@
+{
+    "description": "&emsp;&emsp;\u4e3a\u4e86\u9274\u5b9a\u6469\u67ef\u662f\u4e0d\u662f\u5728\u505a\u5669\u68a6\uff0c\u8bf7\u4f60\u6765\u89e3\u51b3\u9ed1\u677f\u4e0a\u7684\u4e00\u9053\u7b80\u5355\u7684\u6570\u5b66\u95ee\u9898\u5427\uff01\n\n&emsp;&emsp;\u4ee4\u79ef\u6027\u51fd\u6570 $f(n)$ \u6ee1\u8db3 $f(p^c)=p^{\\gcd(c,k)}$\uff0c\u5176\u4e2d $k$ \u4e3a\u7ed9\u5b9a\u5e38\u6570\uff0c$p$ \u4e3a\u7d20\u6570\uff0c$c$ \u4e3a\u6b63\u6574\u6570\u3002\u73b0\u5728\uff0c\u7ed9\u5b9a $n,m,k$\uff0c\u8bf7\u6c42\u51fa\n$$\n\\left(\\sum_{i=1}^n\\sum_{j=1}^mf(i\\cdot j)\\right)\\bmod(10^9+7).\n$$\n\n&emsp;&emsp;\u5bf9\u4e8e\u79ef\u6027\u51fd\u6570\u7684\u5b9a\u4e49\uff0c\u8bf7\u53c2\u8003\u300c\u9898\u610f\u89e3\u91ca\u300d\u3002\n",
+    "inputFormat": "\u8f93\u5165\u53ea\u6709\u4e00\u884c\u5305\u542b\u4e09\u4e2a\u6574\u6570\uff0c\u5206\u522b\u8868\u793a $n,m,k$\u3002",
+    "outputFormat": "\u4e00\u884c\u4e00\u4e2a\u6574\u6570\uff0c\u8868\u793a\u7b54\u6848\u5bf9 $10^9+7$ \u53d6\u6a21\u540e\u7684\u503c\u3002",
+    "samples": [
+        [
+            "2 2 64",
+            "9"
+        ],
+        [
+            "5 5 64 ",
+            "213"
+        ],
+        [
+            "1234 1234 12",
+            "673319736"
+        ],
+        [
+            "30000 10000000 2",
+            "836094021"
+        ]
+    ],
+    "hint": "#### \u9898\u610f\u89e3\u91ca\n\n&emsp;&emsp;\u5bf9\u4e8e\u6570\u8bba\u51fd\u6570 $f(n)$ \u548c\u4efb\u610f\u4e24\u4e2a\u4e92\u7d20\u7684\u6b63\u6574\u6570 $x,y$\uff0c\u82e5\u6052\u6709 $f(xy)=f(x)f(y)$\uff0c\u5219\u79f0 $f(n)$ \u4e3a\u79ef\u6027\u51fd\u6570\u3002\n\n&emsp;&emsp;\u5f53\u5df2\u77e5\u79ef\u6027\u51fd\u6570 $f(n)$ \u5728\u6240\u6709\u7d20\u6570\u5e42\u5904\u7684\u53d6\u503c\u65f6\uff0c\u6211\u4eec\u53ef\u4ee5\u8ba1\u7b97\u4efb\u610f\u6b63\u6574\u6570\u7684\u51fd\u6570\u503c\u3002\u5177\u4f53\u5730\uff0c\u5bf9\u4e8e $n>1$\uff0c\u8bbe $n$ \u7684**\u552f\u4e00\u5206\u89e3**\u5f62\u5f0f\u4e3a $n=p_1^{\\alpha_1}p_2^{\\alpha_2}\\cdots p_k^{\\alpha_k}$\uff0c\u5219\u6709 $f(n)=f(p_1^{\\alpha_1})f(p_2^{\\alpha_2})\\cdots f(p_k^{\\alpha_k})$\u3002\n\n### \u6570\u636e\u89c4\u6a21\u4e0e\u7ea6\u5b9a\n\n\u5bf9\u4e8e $100\\%$ \u7684\u6570\u636e\uff0c$1\\le n\\le 10^5$\uff0c$1\\le m\\le 10^{10}$\uff0c$1\\le k\\le 10^{9}$\u3002\n\n\u5bf9\u4e8e\u4e0d\u540c\u7684\u5b50\u4efb\u52a1\uff0c\u4f5c\u5982\u4e0b\u7ea6\u5b9a\uff1a\n\n| \u5b50\u4efb\u52a1\u7f16\u53f7 |        $n$         |      $m$      |     $k$      | \u5b50\u4efb\u52a1\u5206\u503c |\n| :--------: | :----------------: | :-----------: | :----------: | :--------: |\n|    $1$     |     $\\le 10^3$     |  $\\le 10^3$   | $\\le 10^{3}$ |    $5$     |\n|    $2$     |        $=1$        | $\\le 10^{10}$ |  $\\le 10^9$  |    $15$    |\n|    $3$     |     $\\le 10^5$     |  $\\le 10^5$   |  $\\le 10^9$  |    $15$    |\n|    $4$     |     $\\le 500$      |  $\\le 10^9$   |  $\\le 10^9$  |    $10$    |\n|    $5$     |     $\\le10^5$      | $\\le 10^{10}$ |     $=1$     |    $15$    |\n|    $6$     | $\\le 5\\times 10^3$ |  $\\le 10^9$   |  $\\le 10^9$  |    $15$    |\n|    $7$     | $\\le 5\\times 10^4$ |  $\\le 10^8$   |  $\\le 10^9$  |    $15$    |\n|    $8$     |     $\\le 10^5$     | $\\le 10^{10}$ |  $\\le 10^9$  |    $10$    |\n\n"
+}

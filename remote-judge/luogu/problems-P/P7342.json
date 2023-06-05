@@ -1,0 +1,16 @@
+{
+    "description": "\u6ce8\u610f\uff0c\u672c\u9898\u4e2d\u4e0b\u6807\u4ece $0$ \u5f00\u59cb\u3002\n\n\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u5e8f\u5217 $\\{a_i\\}$ \u7684\u6743\u503c $v(a)$ \u5b9a\u4e49\u4e3a\uff1a\n- $n=1$ \u65f6\u4e3a $v(a)=a_0$\u3002\n- $n>1$ \u65f6\u4e3a\u5b83\u6240\u6709\u5b50\u533a\u95f4\u7684\u6743\u503c\u4e4b\u548c\uff0c\u4e5f\u5c31\u662f $v(a_0,a_1,\\ldots,a_{n-1})=\\sum\\limits_{i=0}^{n-2}\\sum\\limits_{j=0}^{n-i-1}v(a_j,a_{j+1},\\ldots,a_{j+i})$. \n\n\u7ed9\u5b9a\u4e00\u4e2a\u5e8f\u5217\uff0c\u6c42\u51fa\u5b83\u7684\u7684\u6743\u503c\uff0c\u7b54\u6848\u5bf9 $998244353$ \u53d6\u6a21\u3002\n\n\u8fd9\u4e2a\u5e8f\u5217\u662f\u8fd9\u6837\u751f\u6210\u7684\uff1a\u8f93\u5165\u5e8f\u5217 $b_0,b_1,\\cdots,b_{k-1}$\uff0c\u7136\u540e $a_i=b_{i\\bmod k}$\u3002",
+    "inputFormat": "\u7b2c\u4e00\u884c\u4e3a $n,k$\uff0c\u8868\u793a\u5e8f\u5217 $a$ \u7684\u957f\u548c\u5e8f\u5217 $b$ \u7684\u957f\u3002\n\n\u7b2c\u4e8c\u884c\u4e3a $b_0,b_1,\\cdots,b_{k-1}$\uff0c\u542b\u4e49\u89c1\u9898\u76ee\u63cf\u8ff0\u3002",
+    "outputFormat": "\u4e00\u884c\u4e00\u4e2a\u6574\u6570\uff0c\u8868\u793a\u5e8f\u5217 $a$ \u7684\u6743\u503c\u5bf9 $998244353$ \u53d6\u4f59\u7684\u7ed3\u679c\u3002",
+    "samples": [
+        [
+            "4 3\n3 4 6\n",
+            "104\n"
+        ],
+        [
+            "10 10\n2 5 3 8 4 5 2 19 3 6\n",
+            "219856\n"
+        ]
+    ],
+    "hint": "\u3010\u6837\u4f8b\u89e3\u91ca #1\u3011\n\n\u751f\u6210\u5e8f\u5217 $a=[3,4,6,3]$\uff0c\u7136\u540e\uff1a\n- $v(3,4)=v(3)+v(4)=7$\n- $v(4,6)=v(4)+v(6)=10$\n- $v(6,3)=v(6)+v(3)=9$\n- $v(3,4,6)=v(3)+v(4)+v(6)+v(3,4)+v(4,6)=30$\n- $v(4,6,3)=v(4)+v(6)+v(3)+v(4,6)+v(6,3)=32$\n- $v(3,4,6,3)=v(3)+v(4)+v(6)+v(3)+v(3,4)+v(4,6)+v(6,3)+v(3,4,6)+v(4,6,3)=104$\n\n\u3010\u6570\u636e\u89c4\u6a21\u4e0e\u7ea6\u5b9a\u3011\n\n**\u672c\u9898\u4e0d\u4f7f\u7528\u6346\u7ed1\u6d4b\u8bd5\u3002**\n\n\u672c\u9898\u5171 $25$ \u4e2a\u6d4b\u8bd5\u70b9\uff0c\u6bcf\u4e2a\u6d4b\u8bd5\u70b9 $4$ \u5206\u3002\n\n|\u6d4b\u8bd5\u70b9\u7f16\u53f7|$n\\le$|$k$|\n|:-|:-|:-|\n|$1\\sim 3$|$5000$|\u65e0\u7279\u6b8a\u9650\u5236|\n|$4\\sim 10$|$10^5$|\u65e0\u7279\u6b8a\u9650\u5236|\n|$11\\sim 15$|\u65e0\u7279\u6b8a\u9650\u5236|$=60928$|\n|$16\\sim 25$|\u65e0\u7279\u6b8a\u9650\u5236|\u65e0\u7279\u6b8a\u9650\u5236|\n\n\u5bf9\u4e8e $100\\%$ \u7684\u6570\u636e : $1\\le n\\le 10^9$\uff0c$1 \\le k \\le 10^5$\uff0c$0\\le a_i\\le 998244352$\u3002\n\n\u611f\u8c22 $\\rm\\textcolor{black}{J}\\textcolor{red}{ohnVictor}$ \u5bf9\u6b64\u9898\u7684\u8d21\u732e\u3002"
+}

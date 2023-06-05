@@ -1,0 +1,20 @@
+{
+    "description": " **\u8bd1\u81ea [COCI 2010.03.06](http://hsin.hr/coci/archive/2009_2010/) T5\u300c[PROGRAM](http://hsin.hr/coci/archive/2009_2010/contest5_tasks.pdf)\u300d**\n\n\u5f00\u59cb\u65f6\uff0c$\\mathit{seq}$ \u6570\u7ec4\u5df2\u6e05\u96f6\u3002\u8bf7\u6ce8\u610f $\\mathit{seq}$ \u6570\u7ec4\u7684\u7b2c\u4e00\u4e2a\u5143\u7d20\u7684\u4e0b\u6807\u662f 0 \u800c\u975e 1\u3002\n\n```cpp\nvoid something (int jump) {\n  for (int i = 0; i < N; i += jump)\n    ++seq[i];\n}\n```\n\nMirko \u8c03\u7528\u4e86 $\\tt something$ \u51fd\u6570 $K$ \u6b21\uff0c\u7b2c $i$ \u6b21\u8c03\u7528\u65f6 $\\tt jump= \\it X_i$\u3002\n\n\u63a5\u4e0b\u6765\u6709 $Q$ \u6b21\u67e5\u8be2\uff0c\u6bcf\u6b21\u67e5\u8be2\u5305\u542b\u4e24\u4e2a\u6574\u6570 $L_i,$ $R_i$\uff0c\u5bf9\u4e8e\u6bcf\u7ec4\u67e5\u8be2\u8bf7\u8f93\u51fa $\\displaystyle\\sum_{i=L_i}^{R_i}\\mathit{seq}_i$\u3002",
+    "inputFormat": "\u7b2c\u4e00\u884c\uff1a$N,K$\u3002  \n\u63a5\u4e0b\u6765\u4e00\u884c $K$ \u4e2a\u6574\u6570\uff0c\u7b2c $i$ \u4e2a\u4e3a $X_i$\u3002  \n\u7b2c $N+2$ \u884c\uff1a$Q$\u3002  \n\u63a5\u4e0b\u6765 $Q$ \u884c\uff1a\u6bcf\u884c\u4e24\u4e2a\u6574\u6570 $L_i,$ $R_i$\u3002",
+    "outputFormat": "\u5171 $Q$ \u884c\uff0c\u7b2c $i$ \u884c\u5305\u542b\u7b2c $i$ \u7ec4\u67e5\u8be2\u7684\u7b54\u6848\u3002",
+    "samples": [
+        [
+            "10 4\n1 1 2 1\n3\n0 9\n2 6\n7 7",
+            "35\n18\n3"
+        ],
+        [
+            "11 3\n3 7 10\n3\n0 10\n2 6\n7 7",
+            "8\n2\n1"
+        ],
+        [
+            "1000000 6\n12 3 21 436 2 19\n2\n12 16124\n692 29021",
+            "16422\n28874"
+        ]
+    ],
+    "hint": "#### \u6837\u4f8b\u8bf4\u660e 1\n$seq=\\{4, 3, 4, 3, 4, 3, 4, 3, 4, 3\\}$\n\n#### \u6837\u4f8b\u8bf4\u660e 2\n$seq=\\{3, 0, 0, 1, 0, 0, 1, 1, 0, 1, 1\\}$\n\n#### \u6570\u636e\u8303\u56f4\u4e0e\u63d0\u793a\n$1\u2264N,K,Q\u226410^6,$ $1\u2264X_i<N,$ $0\u2264L_i\u2264R_i<N$."
+}

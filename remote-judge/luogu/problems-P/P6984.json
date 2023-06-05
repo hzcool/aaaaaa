@@ -1,0 +1,17 @@
+{
+    "description": "\n\nLouis $L$ Le Roi-Univers has ordered to improve the landscape that is seen from the royal palace. His Majesty prefers to see a high mountain.\n\nThe Chief Landscape Manager is going to raise a mountain for Louis. He represents a landscape as a flat picture on a grid of unit squares. Some of the squares are already filled with rock, while others are empty. This greatly simplifies the design. Unit squares are small enough, and the landscape seems to be smooth from the royal palace.\n\nThe Chief Landscape Manager has a plan of the landscape -- the heights of all rock-filled columns for each unit of width. He is going to add at most $n$ square units of stones atop of the existing landscape to make a mountain with as high peak as possible. Unfortunately, piles of stones are quite unstable. A unit square of stones may be placed only exactly on top of the other filled square of stones or rock, moreover the squares immediately to the bottom-left and to bottom-right of it should be already filled.\n\n![](https://onlinejudgeimages.s3-ap-northeast-1.amazonaws.com/problem/11746/1.png)\n\n![](https://onlinejudgeimages.s3-ap-northeast-1.amazonaws.com/problem/11746/2.png)\n\nExisting landscape\n\nImproved landscape\n\nYour task is to help The Chief Landscape Manager to determine the maximum height of the highest mountain he can build.\n\n",
+    "inputFormat": "\n\nThe first line of the input file contains two integers $w$ -- the width of the existing landscape and $n$ -- the maximum number of squares of stones to add $(1 \\le w \\le 100 000 , 0 \\le n \\le 10^{18}).$\n\nEach of the following $w$ lines contains a single integer $h_{i}$ -- the height of the existing landscape column $(1 \\le h_{i} \\le 10^{9}).$\n\n",
+    "outputFormat": "\n\nThe output file shall contain the single integer -- the maximum possible landscape height after at most $n$ unit squares of stones are added in a stable way.\n\n",
+    "samples": [
+        [
+            "8 4\n3\n4\n2\n1\n3\n3\n2\n4\n",
+            "5\n"
+        ],
+        [
+            "3 100\n3\n3\n3\n",
+            "4\n"
+        ]
+    ],
+    "hint": "Time limit: 1 s, Memory limit: 256 MB. \n\n",
+    "translation": "\u7ed9\u5b9a\u5e8f\u5217 $\\{h_i\\}(i\\in[1,w])$ \u548c\u5e38\u6570 $n$\u3002\n\n$\\forall i\\in(1,w)$ \uff0c\u4ec5\u5f53 $h_{i-1} \\geq h_i$ \u4e14 $h_{i+1} \\geq h_i$ \u65f6\u53ef\u4f7f $h_i$ \u53d8\u4e3a $h_i+1$ \uff0c\u4e14\u64cd\u4f5c\u6b21\u6570\u4e0d\u80fd\u591a\u4e8e $n$ \u6b21\u3002\n\n\u6c42\u6240\u6709\u5408\u6cd5\u65b9\u6848\u4e0b\uff0c$\\max\\{h_i\\}$ \u7684\u6700\u5927\u503c\u3002\n\n$1\\leq w\\leq 10^5,1\\leq h_i \\leq 10^9,1\\leq n\\leq 10^{18}.$"
+}

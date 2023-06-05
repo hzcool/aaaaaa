@@ -1,0 +1,28 @@
+{
+    "description": "\u7075\u68a6\u5f97\u5230\u4e863\u4e2a\u5b9e\u6570 $n$ \uff0c$a$ \uff0c$b$ ( $4\\le n\\le 5,5 \\le a,b \\le 10$ ) \uff0c\u5979\u6210\u529f\u5730\u8ba1\u7b97\u4e86 $n^a+n^b$\uff0c\u5f97\u5230\u4e86\u4e00\u4e2a\u53ea\u663e\u793a\u6574\u6570\u90e8\u5206\u7684\u7ed3\u679c\u3002  \n\n\u7075\u68a6\u60f3\u77e5\u9053\uff0c\u82e5\u5b58\u5728\u4e00\u4e2a\u5b9e\u6570 $n'(n' \\geq 0)$\uff0c\u4f7f\u5f97 ${n'}^a+{n'}^b$ \u7684\u7ed3\u679c\u5728\u8ba1\u7b97\u5668\u4e0a\u4e0e $n^a+n^b$ \u7684\u7ed3\u679c\u663e\u793a\u51fa\u6765**\u5b8c\u5168\u4e00\u81f4**\u65f6\uff0c$n'$ \u7684\u53d8\u5316\u8303\u56f4\uff0c\u5373 $n'$ \u7684\u6700\u5927\u503c\u4e0e\u6700\u5c0f\u503c\u4e4b\u5dee\u3002  \n\n\u5982\u679c\u4f60\u4e0d\u77e5\u9053\u5982\u4f55\u8ba1\u7b97 $n^k$\uff0c\u8bf7\u4f7f\u7528`cmath`\u5e93\u7684`pow()`\u51fd\u6570\uff0c`pow(n,k)`\u7684\u7ed3\u679c\u5373\u4e3a $n^k$ \u7684\u7ed3\u679c\u3002    \n\n---\n\n\u4e3a\u4e86\u63d0\u9ad8\u672c\u9898\u7684\u96be\u5ea6\uff0c\u7075\u68a6\u7ed9\u4f60\u8bbe\u7f6e\u4e86 $T$ \u7ec4\u8be2\u95ee\u3002\u800c\u4e3a\u4e86\u5728\u67d0\u79cd\u7a0b\u5ea6\u4e0a\u51cf\u5c11\u4f60\u7684\u8f93\u5165\u548c\u8f93\u51fa\u91cf\uff0c\u6211\u4eec\u91c7\u7528\u4ee5\u4e0b\u7684\u4ee3\u7801\u6765\u751f\u6210\u8be2\u95ee(\u4ee3\u7801\u6765\u81ea\u6cb3\u7ae5\u91cd\u5de5)\uff1a  \n\n~~~cpp\nnamespace Mker\n{\n//  Powered By Kawashiro_Nitori\n//  Made In Gensokyo, Nihon\n\t#define uint unsigned int\n\tuint sd;int op;\n\tinline void init() {scanf(\"%u %d\", &sd, &op);}\n\tinline uint uint_rand()\n\t{\n\t\tsd ^= sd << 13;\n\t\tsd ^= sd >> 7;\n\t\tsd ^= sd << 11;\n\t\treturn sd;\n\t}\n\tinline double get_n()\n\t{\n\t\tdouble x = (double) (uint_rand() % 100000) / 100000;\n\t\treturn x + 4;\n\t}\n\tinline double get_k()\n\t{\n\t\tdouble x = (double) (uint_rand() % 100000) / 100000;\n\t\treturn (x + 1) * 5;\n\t}\n\tinline void read(double &n,double &a, double &b)\n\t{\n\t\tn = get_n(); a = get_k();\n\t\tif (op) b = a;\n\t\telse b = get_k(); \n\t}\n}\n~~~\n\n\u5728\u8c03\u7528 `Mker::init()` \u51fd\u6570\u4e4b\u540e\uff0c\u4f60\u7b2c $i$ \u6b21\u8c03\u7528 `Mker::read(n,a,b)` \u51fd\u6570\u540e\u5f97\u5230\u7684\u4fbf\u662f\u7b2c $i$ \u6b21\u8be2\u95ee\u7684 $n_i$, $a_i$ \u548c $b_i$\u3002     \n\n\u4e3a\u4e86\u51cf\u5c11\u4f60\u7684\u8f93\u51fa\u91cf\uff0c\u4ee4\u7b2c $i$ \u6b21\u8be2\u95ee\u7684\u7b54\u6848\u4e3a $s_i$\uff0c\u4f60\u53ea\u9700\u8981\u8f93\u51fa $\\sum^{T}_{i=1} s_i$ \u3002\u5982\u679c\u4f60\u7684\u7b54\u6848\u4e0e\u6807\u51c6\u7b54\u6848\u7684\u7edd\u5bf9\u8bef\u5dee\u5728 $10^{-2}$ \u4ee5\u5185\uff0c\u4f60\u7684\u7b54\u6848\u5219\u88ab\u89c6\u4e3a\u662f\u6b63\u786e\u7b54\u6848\u3002\n\n\u672c\u9898\u6570\u636e\u7684\u751f\u6210\u91c7\u7528\u65f6\u95f4\u590d\u6742\u5ea6**\u8fdc\u8fdc\u52a3\u4e8e**\u666e\u901a\u7b97\u6cd5\u7684\u9ad8 (da) \u7cbe (bao) \u5ea6 (li) \u7b97\u6cd5\u6765\u4fdd\u8bc1\u7cbe\u5ea6\uff0c\u672c\u9898\u6570\u636e\u4fdd\u8bc1**\u5355\u6b21\u8be2\u95ee\u7684\u8bef\u5dee**\u5c0f\u4e8e $10^{-10}$\uff0c**\u6240\u4ee5\u672c\u9898\u7684SPJ\u8303\u56f4\u5bf9\u4e8e\u6b63\u89e3\u6765\u8bf4\u662f\u5b8c\u5168\u8db3\u591f\u7684\u3002**\n\n---\n\n\u4e3a\u4e86\u8ba9\u4f60\u66f4\u597d\u5730\u505a\u9898\uff0c\u8fd9\u91cc\u7ed9\u51fa\u4e86\u5173\u4e8e $op$ \u7684\u8bf4\u660e\uff1a   \n\n* \u5f53 $op=1$ \u65f6\uff0c\u6709 $a=b$\uff0c\u5426\u5219\u65e0\u7279\u6b8a\u9650\u5b9a\u3002  ",
+    "inputFormat": "\u8f93\u5165\u5171\u4e00\u884c\uff0c\u5305\u542b $3$ \u4e2a\u6b63\u6574\u6570  $T$\uff0c$seed$\uff0c$op$\uff0c\u542b\u4e49\u89c1\u9898\u76ee\u63cf\u8ff0\u3002",
+    "outputFormat": "\u8f93\u51fa\u5171\u4e00\u884c\uff0c\u8f93\u51fa\u9898\u76ee\u63cf\u8ff0\u4e2d\u8981\u6c42\u8f93\u51fa\u7684\u7b54\u6848\u3002",
+    "samples": [
+        [
+            "500 233 0",
+            "0.00503"
+        ],
+        [
+            "10000 3141592653 0",
+            "0.10166"
+        ],
+        [
+            "50000 1314159 0",
+            "0.50722"
+        ],
+        [
+            "50000 1314159 1",
+            "1.51676"
+        ],
+        [
+            "1000000 5201314 0",
+            "10.30487"
+        ]
+    ],
+    "hint": "### \u5b50\u4efb\u52a1\n\n![QQ\u56fe\u724720190707214000.png](https://i.loli.net/2019/07/07/5d21f64bc09c827059.png)\n\n\n### \u9898\u76ee\u6765\u6e90\n\n[\u8ff7\u9014\u4e4b\u5bb62019\u8054\u8d5b](https://www.luogu.org/contest/20135)(MtOI2019) T2\n\n\u51fa\u9898\u4eba\uff1adisangan233\n\n\u9a8c\u9898\u4eba\uff1asuwakow\n"
+}

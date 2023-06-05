@@ -1,0 +1,21 @@
+{
+    "description": "When moving, ants form rows so that each ant except the first is behind another ant. It is not widely known what happens when two rows of ants moving in opposite directions run into each other in a passage too narrow for both rows to pass through. One theory says that, in that situation, ants will jump over each other.\nFrom the moment the rows meet, each second every ant jumps over (or gets jumped over, as they agree upon) the ant in front of himself so that the two ants swap places, but only if the other ant is moving in the opposite direction. Find the order of the ants after T seconds.",
+    "inputFormat": "The first line contains two integers N1 and N2, the numbers of ants in the first and second rows, respectively.\nThe next two rows contain the orders of ants in the first and second row (first to last). Each ant is uniquely determined by an uppercase letter of the English alphabet (this letter is unique between both rows).\nThe last line of input contains the integer T (0 \u2264 T \u2264 50).",
+    "outputFormat": "Output the order of the ants after T seconds on a single line. Our viewpoint is such that the first row of ants comes from our left side and the other one from our right side.",
+    "samples": [
+        [
+            "3 3\nABC\nDEF\n0",
+            "CBADEF"
+        ],
+        [
+            "3 3\nABC\nDEF\n2",
+            "CDBEAF"
+        ],
+        [
+            "3 4\nJLA\nCRUO\n3",
+            "CARLUJO"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u5f53\u8682\u8681\u79fb\u52a8\u65f6\uff0c\u8682\u8681\u6392\u6210\u4e00\u884c\uff0c\u6bcf\u4e2a\u8682\u8681\u9664\u4e86\u7b2c\u4e00\u4e2a\u8682\u8681\u90fd\u5728\u53e6\u4e00\u4e2a\u8682\u8681\u540e\u9762\u3002\u4f17\u6240\u5468\u77e5\uff0c\u5f53\u4e24\u6392\u8682\u8681\u5728\u76f8\u53cd\u7684\u65b9\u5411\u4e0a\u79fb\u52a8\u65f6\uff0c\u5728\u4e00\u6761\u592a\u7a84\u7684\u901a\u9053\u4e2d\uff0c\u4e24\u6392\u90fd\u4e0d\u80fd\u901a\u8fc7\u3002\u4e00\u79cd\u7406\u8bba\u8ba4\u4e3a\uff0c\u5728\u8fd9\u79cd\u60c5\u51b5\u4e0b\uff0c\u8682\u8681\u4f1a\u8df3\u8fc7\u5bf9\u65b9\u3002\u6bcf\u9694\u4e00\u6bb5\u65f6\u95f4\uff0c\u6bcf\u4e00\u4e2a\u8682\u8681\u90fd\u4f1a\u8df3\u8fc7\uff08\u6216\u8df3\u8fc7\u53bb\uff0c\u5c31\u50cf\u4ed6\u4eec\u540c\u610f\u7684\u4e00\u6837\uff09\u8682\u8681\u5728\u81ea\u5df1\u524d\u9762\uff0c\u8fd9\u6837\u4e24\u4e2a\u8682\u8681\u4ea4\u6362\u4f4d\u7f6e\uff0c\u4f46\u662f\u53ea\u6709\u5f53\u53e6\u4e00\u53ea\u8682\u8681\u671d\u76f8\u53cd\u7684\u65b9\u5411\u79fb\u52a8\u65f6\u3002\u5728T\u79d2\u540e\u627e\u5230\u8682\u8681\u7684\u987a\u5e8f\u3002\n\u8f93\u5165\u683c\u5f0f:\n\u7b2c\u4e00\u884c\u5305\u542b\u4e24\u4e2a\u6574\u6570N1\u548cN2\uff0c\u5206\u522b\u5728\u7b2c\u4e00\u884c\u548c\u7b2c\u4e8c\u884c\u4e2d\u7684\u8682\u8681\u7684\u6570\u91cf\u3002\u63a5\u4e0b\u6765\u7684\u4e24\u884c\u5305\u542b\u7b2c\u4e00\u884c\u548c\u7b2c\u4e8c\u884c\u4e2d\u7684\u8682\u8681\u987a\u5e8f\uff08\u7b2c\u4e00\u5230\u6700\u540e\u4e00\u884c\uff09\u3002\u6bcf\u4e00\u4e2a\u8682\u8681\u90fd\u662f\u7531\u4e00\u4e2a\u5927\u5199\u5b57\u6bcd\uff08\u82f1\u6587\u5b57\u6bcd\uff09\u552f\u4e00\u51b3\u5b9a\u7684\uff08\u8fd9\u4e24\u4e2a\u5b57\u6bcd\u5728\u4e24\u884c\u4e4b\u95f4\u662f\u552f\u4e00\u7684\uff09\u3002\u8f93\u5165\u7684\u6700\u540e\u4e00\u884c\u5305\u542b\u6574\u6570T(T\u5c0f\u4e8e50\uff09\u3002\n\u8f93\u51fa\u683c\u5f0f:\n\u5728\u4e00\u6761\u7ebf\u4e0a\u8f93\u51faT\u79d2\u540e\u8682\u8681\u7684\u987a\u5e8f\u3002\u6211\u4eec\u7684\u89c2\u70b9\u662f\uff0c\u7b2c\u4e00\u6392\u8682\u8681\u6765\u81ea\u6211\u4eec\u7684\u5de6\u4fa7\uff0c\u53e6\u4e00\u4e2a\u6765\u81ea\u6211\u4eec\u7684\u53f3\u4fa7\u3002\n\n\u611f\u8c22@\u5fc3\u4e4b\u6240\u7231 \u63d0\u4f9b\u7684\u7ffb\u8bd1"
+}

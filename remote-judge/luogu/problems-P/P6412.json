@@ -1,0 +1,20 @@
+{
+    "description": "\u73b0\u5728\u6709\u4e00\u4e2a $1\\sim n$ \u7684\u6392\u5217 $a$\uff0c\u5c06\u5e8f\u5217\u4e2d\u7684\u5143\u7d20\u4f9d\u6b21\u653e\u8fdb\u4e00\u4e2a BST \u91cc\uff0c\u6c42 BST \u4e2d\u63d2\u5165\u51fd\u6570\u7684\u6267\u884c\u6b21\u6570\u3002\n\n**\u6ce8\u610f\uff1a\u7b2c\u4e00\u4e2a\u6570\u5df2\u7ecf\u4f5c\u4e3a BST \u7684\u6839\u3002**\n\n\u5982\u679c\u60a8\u65e0\u6cd5\u7406\u89e3\u4e0a\u9762\u8bf4\u7684\u8bdd\uff0c\u8fd9\u91cc\u6709\u4e00\u4efd\u4f2a\u4ee3\u7801\uff1a\n\n```\ninsert( number x, node n )\n    c+1;\n    if x is less than the number in node n\n        if n has no left child\n            create a new node with the number x and set it to be the left child of node n\n     else\n         insert(x, left child of node n)\n     else (x is greater than the number in node n)\n         if n has no right child\n             create a new node with the number x and set it to be the right child of node n\n         else\n             insert(x, right child of node n) \n```\n\u60a8\u9700\u8981\u6c42\u7684\u5c31\u662f\u4e0a\u9762\u7684 insert \u51fd\u6570\u6bcf\u8fdb\u884c\u4e00\u6b21\u540e $c$ \u7684\u503c\u3002\n\n**\u518d\u6b21\u6ce8\u610f\uff1a\u7b2c\u4e00\u4e2a\u6570\u5df2\u7ecf\u4f5c\u4e3a BST \u7684\u6839\u3002**",
+    "inputFormat": "\u7b2c\u4e00\u884c\uff0c\u4e00\u4e2a\u6574\u6570 $n$\uff0c\u8868\u793a\u6392\u5217 $a$ \u7684\u957f\u5ea6\u3002\n\n\u63a5\u4e0b\u6765 $n$ \u884c\uff0c\u6bcf\u884c\u4e00\u4e2a\u6574\u6570\uff0c\u7b2c $i$ \u884c\u4e3a $a_i$\u3002",
+    "outputFormat": "\u5171 $n$ \u884c\uff0c\u4e00\u884c\u4e00\u4e2a\u6574\u6570\uff0c\u8868\u793a\u4e0a\u9762\u7684 insert \u51fd\u6570\u6bcf\u8fdb\u884c\u4e00\u6b21\u540e $c$ \u7684\u503c\u3002",
+    "samples": [
+        [
+            "4\n1\n2\n3\n4 \n",
+            "0\n1\n3\n6\n"
+        ],
+        [
+            "5\n3\n2\n4\n1\n5 \n",
+            "0\n1\n2\n4\n6 "
+        ],
+        [
+            "8\n3\n5\n1\n6\n8\n7\n2\n4 \n",
+            "0\n1\n2\n4\n7\n11\n13\n15 "
+        ]
+    ],
+    "hint": "#### \u6570\u636e\u8303\u56f4\u53ca\u9650\u5236\n- \u5bf9\u4e8e $50\\%$ \u7684\u6570\u636e\uff0c\u4fdd\u8bc1 $n\\le 10^3$\u3002\n- \u5bf9\u4e8e $100\\%$ \u7684\u6570\u636e\uff0c\u4fdd\u8bc1 $1\\le n\\le 3\\times 10^5$\uff0c$1\\le a_i\\le n$\uff0c$a_i$ \u4e92\u4e0d\u76f8\u540c\u3002\n#### \u8bf4\u660e\n\u672c\u9898\u8bd1\u81ea [Croatian Open Competition in Informatics 2008/2009](https://hsin.hr/coci/archive/2008_2009) [Contest #3](https://hsin.hr/coci/archive/2008_2009/contest3_tasks.pdf) T5 BST\u3002 "
+}

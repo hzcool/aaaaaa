@@ -1,0 +1,17 @@
+{
+    "description": " ![](https://vj.z180.cn/c3c77c406a120e9e6c632a7a3d0cfeac?v=1603344926)  \n\nPaul owns a catering company and business is booming. The company has $k$ catering teams, each in charge of one set of catering equipment. Every week, the company accepts $n$ catering requests for various events. For every request, they send a catering team with their equipment to the event location. The team delivers the food, sets up the equipment, and instructs the host on how to use the equipment and serve the food. After the event, the host is responsible for returning the equipment back to Paul\u2019s company. \n\nUnfortunately, in some weeks the number of catering teams is less than the number of requests, so some teams may have to be used for more than one event. In these cases, the company cannot wait for the host to return the equipment and must keep the team on-site to move the equipment to another location. The company has an accurate estimate of the cost to move a set of equipment from any location to any other location. Given these costs, Paul wants to prepare an Advance Catering Map to service the requests while minimizing the total moving cost of equipment (including the cost of the first move), even if that means not using all the available teams. Paul needs your help to write a program to accomplish this task. The requests are sorted in ascending order of their event times and they are chosen in such a way that for any $i < j$, there is enough time to transport the equipment used in the $i^{th}$ request to the location of the $j^{th}$ request.",
+    "inputFormat": "The first line of input contains two integers $n$ ($1 \\le n \\le 100$) and $k$ ($1 \\le k \\le 100$) which are the number of requests and the number of catering teams, respectively. Following that are $n$ lines, where the $i^{th}$ line contains $n-i+1$ integers between $0$ and $1\\, 000\\, 000$ inclusive. The $j^{th}$ number in the $i^{th}$ line is the cost of moving a set of equipment from location $i$ to location $i+j$. The company is at location $1$ and the $n$ requests are at locations $2$ to $n+1$.",
+    "outputFormat": "Display the minimum moving cost to service all requests. (This amount does not include the cost of moving the equipment back to the catering company.)",
+    "samples": [
+        [
+            "3 2\n40 30 40\n50 10\n50\n",
+            "80\n"
+        ],
+        [
+            "3 2\n10 10 10\n20 21\n21\n",
+            "40\n"
+        ]
+    ],
+    "hint": "Time limit: 4000 ms, Memory limit: 1048576 kB. \n\n International Collegiate Programming Contest (ACM-ICPC) World Finals 2015",
+    "translation": "\u6709\u4e00\u5bb6\u88c5\u5907\u51fa\u79df\u516c\u53f8\u6536\u5230\u4e86\u6309\u7167\u65f6\u95f4\u987a\u5e8f\u6392\u5217\u7684 $n$ \u4e2a\u8bf7\u6c42\u3002\n\n\u8fd9\u5bb6\u516c\u53f8\u6709 $k$ \u4e2a\u642c\u8fd0\u5de5\u3002\u6bcf\u4e2a\u642c\u8fd0\u5de5\u53ef\u4ee5\u642c\u7740\u4e00\u5957\u88c5\u5907**\u6309\u65f6\u95f4\u987a\u5e8f**\u53bb\u6ee1\u8db3\u4e00\u4e9b\u8bf7\u6c42\u3002\n\n\u4e00\u4e2a\u642c\u8fd0\u5de5\u4ece\u7b2c $i$ \u4e2a\u8bf7\u6c42\u7684\u4f4d\u7f6e\u628a\u4e1c\u897f\u642c\u5230\u7b2c $j$ \u4e2a\u8bf7\u6c42\u7684\u4f4d\u7f6e\u9700\u8981\u4e00\u4e9b\u8d39\u7528\u3002\u516c\u53f8\u7684\u7f16\u53f7\u662f 1\uff0c\u8bf7\u6c42\u7684\u7f16\u53f7\u662f $2\\sim n+1$\u3002\u6240\u6709\u642c\u8fd0\u5de5\u5fc5\u987b\u4ece\u516c\u53f8\u51fa\u53d1\u3002\n\n\u6c42\u6ee1\u8db3\u6240\u6709\u8bf7\u6c42\u6240\u9700\u7684\u6700\u5c0f\u642c\u8fd0\u8d39\u7528."
+}

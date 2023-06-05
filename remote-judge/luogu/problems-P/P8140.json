@@ -1,0 +1,21 @@
+{
+    "description": "A large shipment of doodads has just arrived, and each doodad has a suggested retail price of $b$ cents. You've noticed that consumers are much more likely to purchase goods when most of the trailing digits are the same. For example, items are more likely to be priced at $99$ cents rather than $57$ cents. So to make your goods more appealing, you've decided to sell your goods in bundles. To make a bundle, you choose a positive integer $k$, and sell $k$ doodads for $k \\times b$ cents. With an appropriate choice of $k$ you can have a more pleasing price. For example, selling $57$-cent doodads in bundles of size $7$ means that each bundle sells for $399$ cents, which has two trailing $9$s, rather than no trailing $9$s of $57$. This idea of trailing $9$s can be generalized to any other trailing digit: bundles of $692$ $57$-cent doodads sell for $39\\,444$ cents (three trailing $4$s) and bundles of one million doodads sell for $57\\,000\\,000$ cents (six trailing $0$s).\n\nAfter a little thought, you realize that you do not want to make your bundles too large---not only can the price be excessive, but who really needs several million doodads? For any type of doodad, your marketing department has a maximum bundle price of $a$.\n\nGiven the price of a doodad, the desired trailing digit, and the maximum price of a bundle, write a program that optimizes the trailing digits.",
+    "inputFormat": "Input consists of a single line containing three integers $b$, $d$, and $a$, where $b$ ($1 \\leq b < 10^{6}$) is the price of a doodad in cents, $d$ ($0 \\leq d \\leq 9$) is the desired trailing digit, and $a$ ($b \\leq a < 10^{10\\,000}$) is the maximum price of a bundle.",
+    "outputFormat": "Output the maximum number of consecutive occurrences of $d$ that can appear at the end of a bundle price, given that the price of the bundle cannot exceed $a$.",
+    "samples": [
+        [
+            "57 9 1000",
+            "2"
+        ],
+        [
+            "57 4 40000",
+            "3"
+        ],
+        [
+            "57 4 39000",
+            "2"
+        ]
+    ],
+    "hint": "",
+    "translation": "## \u9898\u76ee\u63cf\u8ff0\n\u6709\u4e00\u6279\u8d27\uff0c\u6bcf\u4e2a\u4ef7\u503c $b$ \u5143\uff0c\u53ef\u4ee5\u628a $n$ \u4e2a\u8d27\u6253\u5305\u51fa\u552e\uff0c\u4ef7\u683c\u662f $b \\times n$ \u5143\uff08\u524d\u63d0\u662f$b \\times n\\le a$\uff09\uff0c\u4f7f\u672b\u5c3e\u542b\u6709\u5c3d\u53ef\u80fd\u591a\u7684\u6570\u5b57 $d$ \uff0c\u6c42\u6700\u591a\u7684 $d$ \u6570\u91cf\u3002\n## \u8f93\u5165\u683c\u5f0f\n\u4e00\u884c\u4e09\u4e2a\u6574\u6570\uff0c$b$ , $d$ \u548c $a$\u3002\n## \u8f93\u51fa\u683c\u5f0f\n\u4e00\u4e2a\u6574\u6570\uff0c\u6700\u591a\u7684 $d$ \u6570\u91cf\u3002\n## \u8bf4\u660e/\u63d0\u793a\n\u5bf9\u4e8e\u5168\u90e8\u6570\u636e\uff0c\u6709 $1 \\le b < 10^6$ , $0 \\le d \\le 9$ , $b \\le a < 10^{10000}$"
+}

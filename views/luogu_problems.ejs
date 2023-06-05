@@ -18,7 +18,7 @@
 <div class="padding">
     <div id="app">
 
-       <el-button type="primary" @click="dialogVisible = true"> 筛选 </el-button>
+       <el-button type="primary" @click="tagDialog = true"> 筛选 </el-button>
 
 
 
@@ -38,7 +38,7 @@
             </el-space>
         </div>
         <el-dialog
-                v-model="dialogVisible"
+                v-model="tagDialog"
                 title="筛选"
                 width="60%"
                 @close="closeDialog"
@@ -77,11 +77,43 @@
 
         <template #footer>
           <span class="dialog-footer">
-            <el-button type="primary" @click="dialogVisible = false">
+            <el-button type="primary" @click="tagDialog = false">
               确定
             </el-button>
           </span>
         </template>
+        </el-dialog>
+
+
+        <el-dialog
+            v-model="solutionDialog"
+            width="60%"
+            destroy-on-close
+        >
+
+            <template #header ="{ close, titleId, titleClass }">
+                <div class="my-header">
+                    <h4 :id="titleId" :class="titleClass">题解</h4>
+                </div>
+            </template>
+
+            <div v-if="solutions.length == 0">
+                <span class="status running"><i class="spinner icon"></i> 加载中…… </span>
+            </div>
+
+            <div v-if="solutions.length > 0" v-for="(sol, idx) in solutions" :key="idx">
+                <h3 style="color: black"> {{idx+1}}. {{sol.name}}  {{ sol.title }}  {{ sol.formatPostTime }}</h3>
+                <div style="color: black" v-html="sol.content"></div>
+                <el-divider> </el-divider>
+            </div>
+
+            <template #footer>
+                <span class="dialog-footer">
+                    <el-button type="primary" @click="solutionDialog = false">
+                        关闭
+                    </el-button>
+                </span>
+            </template>
         </el-dialog>
 
 
@@ -126,7 +158,7 @@
                     </th>
                     <th class="one wide">
                         <div style="display: flex; align-items: center;justify-content: center">
-                            <div> 提交数 </div>
+                            <div> 题解数 </div>
                             <div>
                                 <div>
                                     <div> <i :class="'caret up icon icon_on_hover' + ((search_order.orderBy == OrderBy.TotalSubmit && search_order.asc)?' __icon':'')" @click="search_for_order(OrderBy.TotalSubmit, true)"></i> </div>
@@ -155,7 +187,7 @@
                         </span>
                     </td>
                     <td>{{p.totalAccepted}}</td>
-                    <td>{{p.totalSubmit}}</td>
+                    <td><a :href="'javascript:;'" @click="showSolutions(p.pid)">{{p.solutionCount}}</a></td>
                 </tr>
             </tbody>
         </table>
@@ -187,7 +219,7 @@
     const tags = <%- serializejs(tags) %>
     const types = <%- serializejs(types) %>
     const problems = ref(<%- serializejs(problems) %>)
-    const dialogVisible = ref(false)
+    const tagDialog = ref(false)
     const tag_map = {
         "1": {
             name: "区域",
@@ -326,10 +358,30 @@
         search()
     }
 
+
+
+
+    const solutionDialog = ref(false)
+    const solutions = ref([])
+
+    const showSolutions = (pid) => {
+        solutions.value = [];
+        solutionDialog.value = true;
+        $.get("/luogu/problems/<%-type%>/solutions/" + pid, (data) => {
+            if (!data.err) {
+                solutions.value = data.solutions;
+            } else {
+                solutionDialog.value = false;
+                console.log(data.err);
+                alert(data.err);
+            }
+        });
+    }
+
     const App = {
         setup() {
-            return {problems, activeName, tag_map, type_orders, algorithm_tags,  dialogVisible, choose, checkbox_click_handle, tag_choose_type, closeTag, closeDialog, total, current_page, currentPageChange,
-                tagid_map_tag, search_append_tag, search_for_order, OrderBy, search_order, difficulty_color}
+            return {problems, activeName, tag_map, type_orders, algorithm_tags,  tagDialog, choose, checkbox_click_handle, tag_choose_type, closeTag, closeDialog, total, current_page, currentPageChange,
+                tagid_map_tag, search_append_tag, search_for_order, OrderBy, search_order, difficulty_color, solutionDialog, solutions, showSolutions}
         },
     }
     createApp(App).use(ElementPlus).mount('#app')

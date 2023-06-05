@@ -31,6 +31,7 @@ class LuoguHelper{
     constructor(type) {
         this.tags = require("./tags.json")
         this.problems = require(`./problems-${type}.json`)
+        this.solutionsPath = `./solutions-${type}`
     }
 
     contains(t1, t2) {
@@ -75,6 +76,15 @@ class LuoguHelper{
         return {
             total: res.length,
             problems: res.slice((page - 1) * page_size, page * page_size),
+        }
+    }
+
+    getSolutions(pid) {
+        try {
+            let solutions = require(`${this.solutionsPath}/${pid}.json`);
+            return solutions;
+        } catch (e) {
+            return [];
         }
     }
 }

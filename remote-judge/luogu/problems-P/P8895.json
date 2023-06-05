@@ -1,0 +1,16 @@
+{
+    "description": "\u603b\u53f8\u4ee4\u7ed9\u4f60\u4e00\u4e2a\u957f\u4e3a $n$ \u7684\u5e8f\u5217 $a$\u3002\n\n\u4ed6\u8ba4\u4e3a\u8fd9\u4e2a $a$ \u73b0\u5728\u4e5f\u8bb8\u4e0d\u591f\u4f18\u7f8e\uff0c\u4ed6\u5e0c\u671b\u5c06\u5176\u91cd\u6392\u4e3a\u4e00\u4e2a $a'$\uff0c\u4f7f\u4e4b\u53d8\u5f97\u4f18\u7f8e\u3002\n\n\u6211\u4eec\u79f0\u4e00\u4e2a\u957f\u4e3a $n$ \u7684\u5e8f\u5217 $a$ \u4f18\u7f8e\uff0c\u5f53\u4e14\u4ec5\u5f53 $\\exists i \\in [1,n]$\uff0c\u6ee1\u8db3\uff1a\n\n- $\\forall j \\in [1, i)$\uff0c$a_j > a_{j + 1}$\u3002\n- $\\forall j \\in (i, n]$\uff0c$a_j > a_{j - 1}$\u3002\n\n\u4ed6\u547d\u4ee4\u4f60\u6c42\u51fa $a$ \u7ecf\u8fc7\u91cd\u6392\u53ef\u4ee5\u5f97\u5230\u591a\u5c11\u4e2a\u4e0d\u540c\u7684 $a'$\u3002\u7531\u4e8e\u7ed3\u679c\u53ef\u80fd\u5f88\u5927\uff0c\u4f60\u53ea\u9700\u8981\u6c42\u51fa\u7ed3\u679c\u5bf9 $p$ \u53d6\u6a21\u7684\u503c\u3002\n\n\u7531\u4e8e\u4e00\u4e2a\u56fa\u5b9a\u7684 $a$ \u592a\u65e0\u8da3\u4e86\uff0c\u4e8e\u662f\u4ed6\u7ed9\u4f60 $m$ \u6b21\u4fee\u6539\uff0c\u6bcf\u6b21\u4fee\u6539\u5f62\u5982 `x k`\uff0c\u8868\u793a\u4ee4 $a_x \\leftarrow k$\u3002\u4f60\u9700\u8981\u5728\u6bcf\u6b21\u4fee\u6539\u540e\u6c42\u51fa\u5f53\u524d\u7684\u7b54\u6848\u3002",
+    "inputFormat": "\u7b2c\u4e00\u884c\uff0c\u4e09\u4e2a\u6574\u6570 $n, m, p$\uff1b\n\n\u7b2c\u4e8c\u884c\uff0c$n$ \u4e2a\u6574\u6570 $a_1, a_2, \\cdots, a_n$\uff1b\n\n\u63a5\u4e0b\u6765 $m$ \u884c\uff0c\u6bcf\u884c\u4e24\u4e2a\u6574\u6570 $x, k$\uff0c\u8868\u793a\u4e00\u6b21\u4fee\u6539\u64cd\u4f5c\u3002",
+    "outputFormat": "\u5171 $m + 1$ \u884c\uff0c\u6bcf\u884c\u4e00\u4e2a\u6574\u6570\uff0c\u8868\u793a\u521d\u59cb\u72b6\u6001\u4e0b\u53ca\u6bcf\u6b21\u4fee\u6539\u540e\u6240\u6c42\u7684\u503c\u3002",
+    "samples": [
+        [
+            "4 1 998244353\n1 2 2 3\n3 4",
+            "2\n8"
+        ],
+        [
+            "\u89c1\u4e0b\u53d1\u6587\u4ef6 sequence2.in",
+            "\u89c1\u4e0b\u53d1\u6587\u4ef6 sequence2.out"
+        ]
+    ],
+    "hint": "#### \u6837\u4f8b #1 \u89e3\u91ca\n\u5bf9\u4e8e\u521d\u59cb\u72b6\u6001\uff0c\u6ee1\u8db3\u6761\u4ef6\u7684 $a'$ \u6709 $[2, 1, 2, 3], [3, 2, 1, 2]$\uff0c\u5171 $2$ \u4e2a\u3002\n\n\u5bf9\u4e8e\u7b2c\u4e00\u6b21\u4fee\u6539\u540e\u7684 $a = [1, 2, 4, 3]$\uff0c\u6ee1\u8db3\u6761\u4ef6\u7684 $a'$ \u6709 $[1, 2, 3, 4], [2, 1, 3, 4], [3, 1, 2, 4], [4, 1, 2, 3], [3, 2, 1, 4], [4, 2, 1, 3], [4, 3, 1, 2], [4, 3, 2, 1]$\uff0c\u5171 $8$ \u4e2a\u3002\n#### \u6837\u4f8b #2 \u89e3\u91ca\n\u8be5\u6837\u4f8b\u6ee1\u8db3\u6d4b\u8bd5\u70b9 $15 \\sim 20$ \u7684\u9650\u5236\u3002\n#### \u6570\u636e\u8303\u56f4\n| \u6d4b\u8bd5\u70b9\u7f16\u53f7 | $n \\leq$ | $m \\leq$ | \u7279\u6b8a\u6761\u4ef6 |\n| :------: | :------: | :------: | :------: |\n| $1 \\sim 2$ | $10$ | $10$ | \u65e0 |\n| $3 \\sim 4$ | $100$ | $100$ | \u65e0 |\n| $5 \\sim 6$ | $10^3$ | $10^3$ | \u65e0 |\n| $7 \\sim 10$ | $10^5$ | $10^5$ | \u65e0 |\n| $11 \\sim 12$ | $5 \\times 10^5$ | $0$ | $a$ \u4e3a\u4e00\u4e2a**\u6392\u5217** |\n| $13 \\sim 14$ | $5 \\times 10^5$ | $0$ | \u65e0 |\n| $15 \\sim 20$ | $5 \\times 10^5$ | $5\\times 10^5$ | \u65e0 |\n\n\u5bf9\u4e8e $100\\%$ \u7684\u6570\u636e\uff0c$1 \\leq n \\leq 5 \\times 10^5$\uff0c$0 \\leq m \\leq 5 \\times 10^5$\uff0c$2 \\leq p \\leq 10^9$\uff0c$1 \\leq a_i, k, x \\leq n$\u3002"
+}

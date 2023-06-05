@@ -1,0 +1,13 @@
+{
+    "description": "For their physical fitness program, N (2 \u2264 N \u2264 1,000,000) cows have decided to run a relay race using the T (2 \u2264 T \u2264 100) cow trails throughout the pasture.\n\nEach trail connects two different intersections (1 \u2264 I1i \u2264 1,000; 1 \u2264 I2i \u2264 1,000), each of which is the termination for at least two trails. The cows know the lengthi of each trail (1 \u2264 lengthi\u00a0 \u2264 1,000), the two intersections the trail connects, and they know that no two intersections are directly connected by two different trails. The trails form a structure known mathematically as a graph.\n\nTo run the relay, the N cows position themselves at various intersections (some intersections might have more than one cow). They must position themselves properly so that they can hand off the baton cow-by-cow and end up at the proper finishing place.\n\nWrite a program to help position the cows. Find the shortest path that connects the starting intersection (S) and the ending intersection (E) and traverses exactly N cow trails.\n\n\u7ed9\u51fa\u4e00\u5f20\u65e0\u5411\u8fde\u901a\u56fe\uff0c\u6c42S\u5230E\u7ecf\u8fc7k\u6761\u8fb9\u7684\u6700\u77ed\u8def\u3002\n",
+    "inputFormat": "\\* Line 1: Four space-separated integers: N, T, S, and E\n\n\\* Lines 2..T+1: Line i+1 describes trail i with three space-separated integers: lengthi , I1i , and I2i\n",
+    "outputFormat": "\\* Line 1: A single integer that is the shortest distance from intersection S to intersection E that traverses exactly N cow trails.\n",
+    "samples": [
+        [
+            "2 6 6 4\n11 4 6\n4 4 8\n8 4 9\n6 6 8\n2 6 9\n3 8 9",
+            "10"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9\u5b9a\u4e00\u5f20 $T$ \u6761\u8fb9\u7684\u65e0\u5411\u8fde\u901a\u56fe\uff0c\u6c42\u4ece $S$ \u5230 $E$ \u7ecf\u8fc7 $N$ \u6761\u8fb9\u7684\u6700\u77ed\u8def\u957f\u5ea6\u3002\n### \u8f93\u5165\u683c\u5f0f\n\u7b2c\u4e00\u884c\u56db\u4e2a\u6b63\u6574\u6570 $N,T,S,E$ \uff0c\u610f\u4e49\u5982\u9898\u9762\u6240\u793a\u3002\n\n\u63a5\u4e0b\u6765 $T$ \u884c\u6bcf\u884c\u4e09\u4e2a\u6b63\u6574\u6570 $w,u,v$ \uff0c\u5206\u522b\u8868\u793a\u8def\u5f84\u7684\u957f\u5ea6\uff0c\u8d77\u70b9\u548c\u7ec8\u70b9\u3002\n### \u8f93\u51fa\u683c\u5f0f\n\u4e00\u884c\u4e00\u4e2a\u6574\u6570\u8868\u793a\u56fe\u4e2d\u4ece $S$ \u5230 $E$ \u7ecf\u8fc7 $N$ \u6761\u8fb9\u7684\u6700\u77ed\u8def\u957f\u5ea6\u3002\n### \u6570\u636e\u8303\u56f4\n\u5bf9\u4e8e\u6240\u6709\u7684\u6570\u636e\uff0c\u4fdd\u8bc1 $1\\le N\\le 10^6$\uff0c$2\\le T\\le 100$\u3002\n\n\u6240\u6709\u7684\u8fb9\u4fdd\u8bc1 $1\\le u,v\\le 1000$\uff0c$1\\le w\\le 1000$\u3002"
+}

@@ -1,0 +1,24 @@
+{
+    "description": "\u7ed9\u5b9a\u957f\u5ea6\u4e3a $n$ \u7684\u5e8f\u5217 $a,b$\uff0c\u6ee1\u8db3 $\\forall i\\in[1,n],a_i,b_i\\in[1,n]$\u3002\n\n\u5b9a\u4e49\u4e00\u6b21\u64cd\u4f5c\u4e3a\uff0c$\\forall i\\in[1,n],b_i\\gets a_{b_i}$\u3002\n\n\u4f60\u9700\u8981\u4f9d\u6b21\u8fdb\u884c $n$ \u6b21\u64cd\u4f5c\uff0c\u6bcf\u6b21\u64cd\u4f5c\u540e\u6c42\u51fa $\\displaystyle\\sum_{i=1}^n b_i$ \u5bf9 $998244353$ \u53d6\u6a21\u7684\u7b54\u6848\u3002",
+    "inputFormat": "\u7b2c\u4e00\u884c\u4e00\u4e2a\u6574\u6570 $n$\u3002\\\n\u7b2c\u4e8c\u884c $n$ \u4e2a\u6574\u6570\u8868\u793a $a$\u3002\\\n\u7b2c\u4e09\u884c $n$ \u4e2a\u6574\u6570\u8868\u793a $b$\u3002",
+    "outputFormat": "\u5171 $n$ \u884c\uff0c\u6bcf\u884c\u4e00\u4e2a\u6574\u6570\u8868\u793a\u7b54\u6848\uff0c\u7b54\u6848\u5bf9 $998244353$ \u53d6\u6a21\u3002",
+    "samples": [
+        [
+            "5\n2 3 4 5 1\n2 2 3 1 1",
+            "14\n19\n19\n14\n9"
+        ],
+        [
+            "5\n3 5 1 4 2\n2 2 3 1 1",
+            "17\n9\n17\n9\n17"
+        ],
+        [
+            "5\n1 1 2 2 4\n2 2 3 1 1",
+            "6\n5\n5\n5\n5"
+        ],
+        [
+            "5\n3 1 5 3 4\n2 2 1 3 3",
+            "15\n19\n20\n21\n19"
+        ]
+    ],
+    "hint": "Idea\uff1acyffff\uff0cSolution\uff1aNtokisq&WhisperingSnowflakes\uff0cCode\uff1acyffff&WhisperingSnowflakes\uff0cData\uff1acyffff\n\n**Concvssion - Halv (Insane15.5)**\n### \u6570\u636e\u89c4\u6a21\n\u672c\u9898\u91c7\u7528\u6346\u7ed1\u6d4b\u8bd5\u3002\n\n| $\\text{Subtask}$ | $n\\le$ | \u7279\u6b8a\u9650\u5236 | $\\text{Score}$ |\n| :----------: | :----------: | :----------: | :----------: |\n| $1$ | $10^4$ | \u65e0 | $10$ |\n| $2$ | $10^5$ | $\\forall i\\in[1,n],a_i\\le10^3$ | $10$ |\n| $3$ | $10^5$ | $\\forall i\\in[1,n],a_i=i\\bmod n+1$ | $10$ |\n| $4$ | $10^5$ | $a$ \u662f\u4e00\u4e2a $[1,n]$ \u7684\u6392\u5217 | $15$ |\n| $5$ | $10^5$ | $a_1=1,\\forall i\\in[2,n],a_i< i$ | $25$ |\n| $6$ | $10^5$ | \u65e0 | $20$ |\n| $7$ | $3\\times10^5$ | \u65e0 | $10$ |\n\n\u5bf9\u4e8e $100\\%$ \u7684\u6570\u636e\uff0c$1\\le a_i,b_i\\le n\\le 3\\times10^5$\u3002\n### \u7279\u6b8a\u8bc4\u5206\u65b9\u5f0f\n\u672c\u9898\u5f00\u542f\u5b50\u4efb\u52a1\u4f9d\u8d56\uff0c\u5177\u4f53\u5982\u4e0b\uff1a\n- \u5bf9\u4e8e\u5b50\u4efb\u52a1 $i\\in\\{1,2,3,5\\}$\uff0c\u60a8\u53ea\u9700\u7b54\u5bf9\u5b50\u4efb\u52a1 $i$ \u5373\u53ef\u83b7\u5f97\u5b50\u4efb\u52a1 $i$ \u7684\u5206\u6570\u3002\n- \u5bf9\u4e8e\u5b50\u4efb\u52a1 $i=4$\uff0c\u60a8\u9700\u8981\u7b54\u5bf9\u6240\u6709 $j\\in[3,4]$ \u7684\u5b50\u4efb\u52a1 $j$ \u624d\u80fd\u83b7\u5f97\u5b50\u4efb\u52a1 $i$ \u7684\u5206\u6570\u3002\n- \u5bf9\u4e8e\u5b50\u4efb\u52a1 $i\\in\\{6,7\\}$\uff0c\u60a8\u9700\u8981\u7b54\u5bf9\u6240\u6709 $j\\in[1,i]$ \u7684\u5b50\u4efb\u52a1 $j$ \u624d\u80fd\u83b7\u5f97\u5b50\u4efb\u52a1 $i$ \u7684\u5206\u6570\u3002"
+}

@@ -1,0 +1,21 @@
+{
+    "description": "\n\nThere is an urban myth that Peter the Great wanted to make a rectangular channel-grid engineering masterpiece not only from Vasilyevskiy island, but also from Kotlin island (where the town of Kronstadt is located nowadays).\n\nThe following mathematical model was (allegedly) presented to the tsar. The island is considered a rectangular grid $h$ cells high and $w$ cells wide. Each cell is dry land initially but can become water.\n\nTechnologies of those days allowed engineers to dig a channel across the entire island. In that case an entire row or an entire column of cells became water. If some of these cells already were water, their status did not change.\n\nYour task is to propose a plan of the island which has exactly $n$ connected components of dry land cells.\n\n",
+    "inputFormat": "\n\nThe only line of the input contains three integers $h , w$ , and $n$ -- grid's height, width and the desired number of connected components $(1 \\le h , w \\le 100$ ; $1 \\le n \\le 10^{9}).$\n\n",
+    "outputFormat": "\n\nIf there is no valid plan containing $n$ connected components, output a single word `Impossible`.\n\nOtherwise output $h$ lines of length $w$ depicting the plan. Dot $(\u2018. ')$ represents a dry land cell, hash $(\u2018#')$ represents a water cell.\n\n",
+    "samples": [
+        [
+            "3 5 4\n",
+            "..#..\n#####\n..#..\n"
+        ],
+        [
+            "2 1 1\n",
+            "#\n.\n"
+        ],
+        [
+            "5 3 10\n",
+            "Impossible\n"
+        ]
+    ],
+    "hint": "Time limit: 3 s, Memory limit: 512 MB. \n\n",
+    "translation": "\u5bf9\u4e8e\u4e00\u4e2a $h$ \u884c $w$ \u5217\u7684\u7f51\u683c\uff0c\u6bcf\u4e2a\u683c\u5b50\u90fd\u662f\u201c\u5e72\u71e5\u7684\u201d\u3002\n\n\u4f60\u7684\u6bcf\u6b21\u64cd\u4f5c\u53ef\u4ee5\u628a\u67d0\u4e00\u884c\u6216\u67d0\u4e00\u5217\u7684\u6240\u6709\u683c\u5b50\u53d8\u6210\u201c\u6e7f\u6da6\u7684\u201d\u3002\n\n\u4f60\u7684\u76ee\u6807\u662f\u5728\u7f51\u683c\u4e0a\u7559\u4e0b**\u6070\u597d** $n$ \u4e2a\u7531\u201c\u5e72\u71e5\u7684\u201d\u683c\u5b50\u5f62\u6210\u7684\u8fde\u901a\u5757\u3002\n\n\u5982\u679c\u53ef\u4ee5\u5b9e\u73b0\uff0c\u8bf7\u4f60\u8f93\u51fa\u4e00\u4e2a $h$ \u884c $w$ \u5217\u7684\u77e9\u9635\u3002\n\u5176\u4e2d\uff0c\u7528 `.` \u8868\u793a\u201c\u5e72\u71e5\u7684\u201d\u683c\u5b50\uff0c `#` \u8868\u793a\u201c\u6e7f\u6da6\u7684\u201d\u683c\u5b50\u3002\n\n\u5426\u5219\uff0c\u8f93\u51fa\u4e00\u884c\u4e00\u4e2a `Impossible` \u8868\u793a\u4e0d\u53ef\u80fd\u5b9e\u73b0\u76ee\u6807\u3002"
+}

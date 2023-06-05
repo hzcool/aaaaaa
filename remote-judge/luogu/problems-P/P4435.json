@@ -1,0 +1,21 @@
+{
+    "description": "Lately, Slavko\u2019s been studying sequences of natural numbers. He finds a sequence\ninteresting if the greatest common divisor of all the elements from the sequence is greater\nthan 1.\n\nYesterday, he found a sequence consisting of N natural numbers in his garage. Since he\nwas really bored, he decided to keep himself occupied by asking simple queries. Each query\ncan be one of the two types:\n\n1. Change the value at position X in the sequence to V.\n\n2. Determine the number of interesting contiguous subarrays contained in the interval\n[L, R] of the sequence.\n",
+    "inputFormat": "The first line of input contains the numbers N and Q (1 \u2264 N, Q \u2264 $10^5$\n), representing the\nnumber of elements in the sequence and the number of queries, respectively.\n\nThe following line contains N natural numbers $A_i$\n(1 \u2264 $A_i$ \u2264 $10^9$\n) that represent the numbers in\nthe initial sequence.\n\nEach of the following Q lines contains a query of the following form:\n\n - The first number in the line can be 1 or 2 and represents the type of the query.\n - If the query is of type 1, two numbers follow, X (1 \u2264 X \u2264 N) and V (1 \u2264 V \u2264 $10^9$\n) from\nthe task.\n - If the query is of type 2, two numbers follow, L and R (1 \u2264 L \u2264 R \u2264 N) that represent\nthe left and right interval boundary.\n",
+    "outputFormat": "For each query of type 2, output the number of interesting contiguous subarrays from the\ntask.\n",
+    "samples": [
+        [
+            "5 1\n8 4 3 9 1\n2 2 5\n",
+            "4"
+        ],
+        [
+            "5 3\n2 3 6 4 1\n2 1 4\n1 3 1\n2 3 5\n",
+            "6\n1\n"
+        ],
+        [
+            "4 3\n2 2 2 2\n2 1 4\n1 2 3\n2 1 4\n",
+            "10\n5"
+        ]
+    ],
+    "hint": "**Clarification\u200b \u200bof\u200b \u200bthe\u200b \u200bfirst\u200b \u200btest\u200b \u200bcase:**\n\nThe interval from the $2_{nd}$ to the $5_{th}$ position consists of numbers (4, 3, 9, 1). In it, the following are\ninteresting contiguous subarrays (denoted with square brackets):\n**[4]**\u200b 3 9 1, 4 **[3]\u200b** \u200b9 1, 4 3 **[9]**\u200b 1, 4 **[3\u200b \u200b9]\u200b** 1",
+    "translation": "\u6700\u8fd1\uff0c\u65af\u79d1\u62c9\u592b\u4e00\u76f4\u5728\u7814\u7a76\u81ea\u7136\u6570\u7684\u5e8f\u5217\u3002\u5982\u679c\u5e8f\u5217\u4e2d\u6240\u6709\u6570\u7684\u6700\u5927\u516c\u7ea6\u6570\u5927\u4e8e1\uff0c\u4ed6\u4f1a\u8ba4\u4e3a\u5e8f\u5217\u5f88\u6709\u8da3\u3002\u6628\u5929\uff0c\u4ed6\u5728\u8f66\u5e93\u91cc\u53d1\u73b0\u4e86\u4e00\u4e2a\u7531N\u4e2a\u81ea\u7136\u6570\u7ec4\u6210\u7684\u5e8f\u5217\u3002\u7531\u4e8e\u4ed6\u771f\u7684\u5f88\u65e0\u804a\uff0c\u4ed6\u51b3\u5b9a\u901a\u8fc7\u505a\u4e24\u79cd\u64cd\u4f5c\u4f7f\u81ea\u5df1\u6709\u4e8b\u505a 1:\u5c06\u5e8f\u5217\u4e2d\u4f4d\u7f6eX\u7684\u503c\u66f4\u6539\u4e3aV    2\uff1a\u786e\u5b9a\u5e8f\u5217\u7684\u533a\u95f4[L\uff0cR]\u4e2d\u5305\u542b\u7684\u6709\u8da3\u7684\u8fde\u7eed\u5b50\u9635\u5217\u7684\u6570\u91cf\n"
+}

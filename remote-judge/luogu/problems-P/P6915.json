@@ -1,0 +1,17 @@
+{
+    "description": " ![](https://cdn.luogu.com.cn/upload/image_hosting/xqo70y6n.png)\n\nYou have been hired by the Association for Climatological Measurement, a scientific organization interested in tracking global weather trends over a long period of time. Of course, this is no easy task. They have deployed many small devices around the world, designed to take periodic measurements of the local weather conditions. These are cheap devices with somewhat restricted capabilities. Every day they observe which of the four standard kinds of weather occurred: Sunny, Cloudy, Rainy, or Frogs. After every $n$ of these observations have been made, the results are reported to the main server for analysis. However, the massive number of devices has caused the available communication bandwidth to be overloaded. The Association needs your help to come up with a method of compressing these reports into fewer bits. \n\nFor a particular device\u2019s location, you may assume that the weather each day is an independent random event, and you are given the predicted probabilities of the four possible weather types. Each of the $4^ n$ possible weather reports for a device must be encoded as a unique sequence of bits, such that no sequence is a prefix of any other sequence (an important property, or else the server would not know when each sequence ends). The goal is to use an encoding that minimizes the expected number of transmitted bits.",
+    "inputFormat": "The first line of input contains an integer $1 \\le n \\le 20$, the number of observations that go into each report. The second line contains four positive floating-point numbers, $p_{\\text {sunny}}$, $p_{\\text {cloudy}}$, $p_{\\text {rainy}}$, and $p_{\\text {frogs}}$, representing the respective weather probabilities. These probabilities have at most 6\u00a0digits after the decimal point and sum to\u00a01.",
+    "outputFormat": "Display the minimum expected number of bits in the encoding of a report, with an absolute or relative error of at most $10^{-4}$.",
+    "samples": [
+        [
+            "2\n0.9 0.049999 0.05 0.000001\n",
+            "1.457510\n"
+        ],
+        [
+            "20\n0.25 0.25 0.25 0.25\n",
+            "40.000000\n"
+        ]
+    ],
+    "hint": "Time limit: 1000 ms, Memory limit: 1048576 kB. \n\n International Collegiate Programming Contest (ACM-ICPC) World Finals 2015",
+    "translation": "\u7ed9\u5b9a4\u79cd\u5929\u6c14\u60c5\u51b5\u51fa\u73b0\u7684\u6982\u7387\uff0c\u4f60\u9700\u8981\u5c06n\u5929\u7684\u6240\u6709\u53ef\u80fd\u7684 $4^{n}$ \u79cd\u60c5\u51b5\u5df2\u67d0\u79cd\u65b9\u5f0f\u7f16\u7801\u4e3a01\u4e32\uff0c\u4f7f\u5f97\uff1a\n- \u7f16\u7801\u957f\u5ea6\u7684\u671f\u671b\u6700\u77ed\n- \u4efb\u4f55\u4e00\u4e2a\u7f16\u7801\u4e0d\u662f\u53e6\u4e00\u4e2a\u7f16\u7801\u7684\u524d\u7f00\n\n\u6c42\u671f\u671b\u957f\u5ea6\u3002"
+}

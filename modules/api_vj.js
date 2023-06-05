@@ -60,6 +60,7 @@ app.get('/luogu/problems/:type', async (req, res) => {
         if(!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
         let helper = syzoj.newLuoguHelper(req.params.type)
         let x = helper.findByTags()
+        x.problems.forEach(p => p.solutionCount = helper.getSolutions(p.pid).length);
         res.render('luogu_problems', {
             tags: helper.tags.tags,
             types: helper.tags.types,
@@ -68,6 +69,7 @@ app.get('/luogu/problems/:type', async (req, res) => {
             type: req.params.type
         })
     } catch (e) {
+        syzoj.log(e);
         res.render('error', {
             err: e
         });
@@ -87,13 +89,32 @@ app.post('/luogu/problems/:type/search', async (req, res) => {
         let asc = (!req.body.asc || req.body.asc === 'true') ? true : false
         let page = parseInt(req.body.page || '1')
         let x = helper.findByTags(difficulty, tags, orderBy, asc, page)
+        x.problems.forEach(p => p.solutionCount = helper.getSolutions(p.pid).length);
         res.send({
             total: x.total,
             problems: x.problems
         })
     } catch (e) {
+        syzoj.log(e);
         res.send( {
             err: e
         });
+    }
+});
+
+app.get('/luogu/problems/:type/solutions/:pid', async (req, res) => {
+    try {
+        if(!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
+        let helper = syzoj.newLuoguHelper(req.params.type)
+        let solutions = helper.getSolutions(req.params.pid)
+        await solutions.forEachAsync(async x => {
+            x.content = await syzoj.utils.markdown(x.content);
+            x.formatPostTime = syzoj.utils.formatDate(x.postTime);
+            console.log(x.postTime, x.formatPostTime);
+        })
+        res.send({solutions});
+    } catch (e) {
+        syzoj.log(e);
+        res.send({err: e});
     }
 });

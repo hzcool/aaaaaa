@@ -1,0 +1,21 @@
+{
+    "description": "Bessie and Elsie are plotting to overthrow Farmer John at last! They plan it out\nover $N$ text messages. Their conversation can be\nrepresented by a string $S$ of length $N$ where $S_i$ is either `B` or `E`,\nmeaning the $i$ th message was sent by Bessie or Elsie, respectively. \n\nHowever, Farmer John hears of the plan and attempts to intercept their\nconversation. Thus, some letters of $S$ are `F`, meaning Farmer John obfuscated\nthe message and the sender is unknown.\n\nThe  **excitement level** of a non-obfuscated conversation is the number of\ntimes a cow double-sends - that is, the number of occurrences of substring `BB`\nor `EE` in $S$. You want to find the excitement level of the original message,\nbut you don\u2019t know which of Farmer John\u2019s messages were actually Bessie\u2019s\n/ Elsie\u2019s. Over all possibilities, output all possible excitement levels of\n$S$.",
+    "inputFormat": "The first line will consist of one integer $N$.\n\nThe next line contains $S$.",
+    "outputFormat": "First output $K$, the number of distinct excitement levels possible. On the next\n$K$ lines, output the excitement levels, in increasing order.",
+    "samples": [
+        [
+            "4\nBEEF\n",
+            "2\n1\n2\n"
+        ],
+        [
+            "9\nFEBFEBFEB\n",
+            "2\n2\n3"
+        ],
+        [
+            "10\nBFFFFFEBFE",
+            "3\n2\n4\n6"
+        ]
+    ],
+    "hint": "$1\\le N\\le 2\\cdot 10^5$.\n\n- Inputs 4-8: $N\\le 10$.\n- Inputs 9-20: No additional constraints.",
+    "translation": "### \u9898\u76ee\u63cf\u8ff0\n\u8d1d\u897f\u548c\u57c3\u5c14\u5e0c\u6b63\u5728\u5bc6\u8c0b\u6700\u7ec8\u63a8\u7ffb\u4ed6\u4eec\u7684\u4e3b\u4eba\u2014\u2014\u519c\u592b\u7ea6\u7ff0\uff01\u4ed6\u4eec\u901a\u8fc7 $N$ \u6761\u77ed\u4fe1\u8fdb\u884c\u8ba1\u5212\u3002\u4ed6\u4eec\u7684\u5bf9\u8bdd\u53ef\u4ee5\u7528\u4e00\u4e2a\u957f\u5ea6\u4e3a $N$ \u7684\u5b57\u7b26\u4e32 $S$ \u6765\u8868\u793a\u3002     \n\u5176\u4e2d $S_i$ \u662f\u5b57\u6bcd ```B``` \u6216 ```E```\uff0c\u8fd9\u610f\u5473\u7740\u7b2c $i$ \u6761\u6d88\u606f\u5206\u522b\u7531\u8d1d\u897f\u6216\u57c3\u5c14\u5e0c\u53d1\u9001\u7684\u3002\n\n\n\u7136\u800c\uff0c\u519c\u592b\u7ea6\u7ff0\u542c\u8bf4\u4e86\u8fd9\u4e2a\u6d88\u606f\uff0c\u5e76\u8bd5\u56fe\u62e6\u622a\u4ed6\u4eec\u7684\u8c08\u8bdd\u3002\u56e0\u6b64\uff0c\u5b57\u7b26\u4e32 $S$ \u7684\u4e00\u4e9b\u5b57\u6bcd\u662f ```F```\uff0c\u8fd9\u610f\u5473\u7740\u519c\u592b\u7ea6\u7ff0\u6df7\u6dc6\u4e86\u4fe1\u606f\uff0c\u53d1\u4ef6\u4eba\u672a\u77e5\uff08\u8d1d\u897f\u3001\u57c3\u5c14\u5e0c\u90fd\u6709\u53ef\u80fd\uff09\u3002   \n**\u6ce8\uff1a\u7ea6\u7ff0\u6ca1\u6709\u53d1\u9001\u4fe1\u606f\uff01\u4ed6\u53ea\u662f\u5728\u5e72\u6270\u5976\u725b\u95f4\u7684\u901a\u8bdd\uff01**\n\n\n\u672a\u6df7\u6dc6\u5bf9\u8bdd\u7684\u5174\u594b\u7a0b\u5ea6\u662f**\u4e00\u53ea\u5976\u725b\u91cd\u590d\u53d1\u9001\u4fe1\u606f\u7684\u6b21\u6570**\u3002\u4e5f\u5c31\u662f\u8bf4\uff0c\u5b50\u4e32 ```BB``` \u6216 ```EE``` \u5728 $S$ \u4e2d\u51fa\u73b0\u7684\u6b21\u6570\u3002\u4f60\u60f3\u627e\u5230\u539f\u59cb\u4fe1\u606f\u7684\u5174\u594b\u7a0b\u5ea6\uff0c\u4f46\u4f60\u4e0d\u77e5\u9053\u7ea6\u7ff0\u7684\u4fe1\u606f\u4e2d\u54ea\u4e00\u6761\u5b9e\u9645\u4e0a\u662f\u8d1d\u897f\u6216\u57c3\u5c14\u5e0c\u7684\u3002\u5728\u6240\u6709\u53ef\u80fd\u7684\u60c5\u51b5\u4e0b\uff0c**\u4ece\u5c0f\u5230\u5927\u8f93\u51fa**\u6240\u6709\u53ef\u80fd\u7684\u5174\u594b\u7a0b\u5ea6\u3002\n\n\n\n### \u8f93\u5165\u683c\u5f0f\n\u7b2c\u4e00\u884c\uff1a\u4e00\u4e2a\u6574\u6570 $N$\uff08\u901a\u8bdd\u957f\u5ea6\uff09\u3002       \n\u7b2c\u4e8c\u884c\uff1a\u4e00\u4e2a\u5b57\u7b26\u4e32 $S$\uff08\u901a\u8bdd\u5185\u5bb9\uff09\u3002\n\n\n### \u8f93\u51fa\u683c\u5f0f\n\u7b2c\u4e00\u884c\uff1a\u8f93\u51fa\u4e00\u4e2a\u6574\u6570 $K$\uff0c\u4e3a**\u4e0d\u540c**\u5174\u594b\u7a0b\u5ea6\u7684\u53ef\u80fd\u6570\u91cf\u3002   \n\u968f\u540e $K$ \u884c\uff1a\u6bcf\u884c\u4e00\u4e2a\u6574\u6570\uff0c\u4e3a\u6bcf\u79cd\u5174\u594b\u7a0b\u5ea6\u3002**\u6ce8\u610f\u6309\u7167\u4ece\u5c0f\u5230\u5927\u7684\u987a\u5e8f\u8f93\u51fa\u3002**\n\n\n### \u6570\u636e\u8303\u56f4\n$1 \\le N \\le 2 \\times 10^5$\u3002\n- \u6d4b\u8bd5\u70b9 4~8\uff1a$N \\le 10$\n- \u6d4b\u8bd5\u70b9 9~20\uff1a\u65e0\u989d\u5916\u9650\u5236\u3002"
+}

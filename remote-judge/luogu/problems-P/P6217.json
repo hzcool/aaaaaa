@@ -1,0 +1,24 @@
+{
+    "description": "\u7ed9\u51fa\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u5e8f\u5217 $a$\uff0c$q$ \u6b21\u8be2\u95ee $\\prod_{i=l}^r \\operatorname{lcm}(a_i,x)$ \u7684\u503c\u3002\n\n\u7b54\u6848\u5bf9 $10 ^ 9 + 7$ \u53d6\u6a21\u3002",
+    "inputFormat": "\u7b2c\u4e00\u884c\u4e24\u4e2a\u6574\u6570 $n,q$\u3002\n\n\u7b2c\u4e8c\u884c $n$ \u4e2a\u6574\u6570 $a_i$\u3002\n\n\u63a5\u4e0b\u6765 $q$ \u884c\uff0c\u6bcf\u884c\u4e09\u4e2a\u6574\u6570 $l,r,x$\u3002",
+    "outputFormat": "$q$ \u884c\uff0c\u4e00\u884c\u4e00\u4e2a\u7b54\u6848\u3002",
+    "samples": [
+        [
+            "5 5\n12 8 9 14 21\n1 5 2\n1 3 3\n3 5 7\n1 5 6\n2 3 7",
+            "1016064\n2592\n18522\n9144576\n3528\n"
+        ],
+        [
+            "10 10\n47 47 47 3 7 19 2 7 31 31 \n1 3 53\n4 4 61\n2 8 73\n6 7 53\n1 5 47\n2 5 73\n5 6 71\n7 7 67\n4 7 83\n1 9 59\n",
+            "456856666\n183\n802334105\n106742\n816245119\n365992530\n670453\n134\n871739899\n194416112\n"
+        ],
+        [
+            "10 10\n2 13 13 2 3 17 11 19 19 7 \n4 8 1\n1 2 7\n6 7 37\n9 10 7\n1 8 9\n3 8 47\n5 8 2\n3 6 9\n4 5 25\n4 5 8\n",
+            "21318\n1274\n256003\n931\n819082258\n40076077\n170544\n2899962\n3750\n192\n"
+        ],
+        [
+            "10 10\n14 39 31 30 3 21 19 17 35 2 \n1 3 10\n6 6 19\n2 4 3\n6 8 18\n1 10 2\n5 6 49\n2 6 8\n7 9 26\n3 6 12\n1 1 10\n",
+            "8463000\n399\n108810\n13186152\n23723126\n21609\n437603581\n198696680\n22498560\n70\n"
+        ]
+    ],
+    "hint": "**\u3010\u6837\u4f8b\u89e3\u91ca\u3011**\n\n   \u5bf9\u4e8e\u6837\u4f8b\u4e00\u7684\u7b2c\u4e8c\u4e2a\u67e5\u8be2\uff0c\u7b54\u6848\u662f\uff1a\n\n   $\\quad \\operatorname{lcm}(12,3) \\times \\operatorname{lcm}(8,3) \\times \\operatorname{lcm}(9,3)$\n\n   $= 12 \\times 24 \\times 9$\n\n   $= 2592$\n\n------------------\n\n**\u3010\u6570\u636e\u8303\u56f4\u3011**\n\n**\u672c\u9898\u91c7\u7528\u6346\u7ed1\u6d4b\u8bd5\u3002**\n\n\n- \u5bf9\u4e8e $100 \\%$ \u7684\u6570\u636e\uff1a$1 \\le l \\le r \\le n$\uff0c$1 \\le n,q,a_i,x \\le 2 \\times 10 ^ 5$\u3002\n\n- **\u8be6\u7ec6\u7684\u6570\u636e\u8303\u56f4\uff1a**\n\n  | Subtask \u7f16\u53f7 | $n,q ,a_i,x\\le $  |              \u7279\u6b8a\u6027\u8d28               | \u5206\u503c |\n  | :---------: | :---------------: | :---------------------------------: | :--: |\n  |     $1$     |       $100$       |                 \u65e0                  | $10$ |\n  |     $2$     | $2 \\times 10 ^ 5$ | $a_i,x$ \u662f\u8d28\u6570\uff0c\u4efb\u610f $a_i \\neq x$ | $10$ |\n  |     $3$     | $5 \\times 10 ^ 4$ |           $a_i$ \u662f\u8d28\u6570            | $15$ |\n  |     $4$     | $5 \\times 10 ^ 4$ |           $\u03bc(a_i) \\neq 0$           | $15$ |\n  |     $5$     | $5 \\times 10 ^ 4$ |                 \u65e0                  | $25$ |\n  |     $6$     | $2 \\times 10 ^ 5$ |                 \u65e0                  | $25$ |\n\n-------------------------\n\n**\u3010\u63d0\u793a\u3011**\n\n- \u6837\u4f8b\u4e8c\u6ee1\u8db3 Subtask2 \u7684\u7279\u6b8a\u6027\u8d28\uff0c\u6837\u4f8b\u4e09\u6ee1\u8db3 Subtask3 \u7684\u7279\u6b8a\u6027\u8d28\uff0c\u6837\u4f8b\u56db\u6ee1\u8db3 Subtask4 \u7684\u7279\u6b8a\u6027\u8d28\u3002\n\n- $\u03bc(x)$ \u662f\u83ab\u6bd4\u4e4c\u65af\u51fd\u6570\uff0c\u5b83\u7684\u5b9a\u4e49\u5982\u4e0b\uff1a\n\n    \u8bbe $x = {p_1} ^ {q_1} \\times {p_2} ^ {q_2} \\times ... \\times {p_k} ^ {q_k}$\u3002\n\n    $\u03bc(x) =\\begin{cases}1&x=1\\\\(-1) ^ k&q_1,q_2...q_k \\le 1\\\\0&\\text{otherwise}\\end{cases}$ \n\n    \u6ce8\uff1a$p_i$ \u4e3a\u8d28\u6570\uff0c$q_i$ \u4e3a\u6b63\u6574\u6570\u3002"
+}

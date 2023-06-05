@@ -1,0 +1,12 @@
+{
+    "description": "\u7ed9\u51fa$A$,$B$,\u6c42\u4e0b\u9762\u7684\u5f0f\u5b50\u7684\u503c.\n\n$$\\prod_{i=A}^{B}\\prod_{j=1}^{i}(\\frac{i}{j})^{\\lfloor \\frac{i}{j} \\rfloor}\\ (\\bmod \\ 19260817)$$\n\n\u5305\u542b$T$\u7ec4\u8be2\u95ee.\n\n------\n\n\u542c\u8bf4\u6709\u8bb8\u591a\u4eba\u770b\u4e0d\u61c2\u516c\u5f0f\uff1f\uff1f\n\n\u597d\u5427\u3002\u3002\u8fd9\u91cc\u7ed9\u51fa\u4f2a\u4ee3\u7801\uff1a\n\n```\nfor i=A to B\n  for j=1 to i\n    res = res * power(i/j, floor(i/j))\nres = solve(res)\n```\n\n\u6700\u540e\u7684solve\u8868\u793a\u5904\u7406\u6210\u5206\u6570\u53d6\u6a21\u7684\u5f62\u5f0f\u3002\u3002\n\n\u4e0d\u4fdd\u8bc1\u8fd9\u6837\u7cbe\u5ea6\u4e0d\u4f1a\u539f\u5730\u8d77\u7206\u3002\u3002",
+    "inputFormat": "\u7b2c\u4e00\u884c\u4e00\u4e2a\u6b63\u6574\u6570$T$.\n\n\u63a5\u4e0b\u6765$T$\u884c\u6bcf\u884c\u4e24\u4e2a\u6b63\u6574\u6570\u8868\u793a\u8fd9\u4e00\u7ec4\u8be2\u95ee\u7684$A$,$B$",
+    "outputFormat": "$T$\u884c,\u6bcf\u884c\u4e00\u4e2a\u6b63\u6574\u6570\u8868\u793a\u8fd9\u4e00\u7ec4\u8be2\u95ee\u7684\u7b54\u6848.",
+    "samples": [
+        [
+            "1\n1 3\n",
+            "162\n"
+        ]
+    ],
+    "hint": "\u6837\u4f8b\u89e3\u91ca: $1 \\times 4 \\times 1 \\times 27 \\times \\frac{3}{2} \\times 1 \\equiv 162$\n\n| \u6570\u636e\u70b9\u8303\u56f4 | $T$= | $A\\leqslant B \\leqslant$ |\n|:-------------------------:|:-----------------------:|:--------------:|\n| $1 \\sim 5$ | $1$ | $5000$  |\n| $6 \\sim 10$ | $1$ | $10^6$  |\n| $11 \\sim 15$ | $10^6$ | $5000$  |\n| $16 \\sim 20$ | $10^6$ | $10^6$  |\n\n\u6ce8\u610f: **\u672c\u9898\u6346\u7ed1\u6d4b\u8bd5**"
+}

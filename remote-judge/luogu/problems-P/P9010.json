@@ -1,0 +1,17 @@
+{
+    "description": "Farmer John has $N$ cows $(2 \\le N \\le 10^5)$. Each cow has a breed that is either Guernsey or Holstein. As is often the case, the cows are standing in a line, numbered $1 \\cdots N$ in this order.\n\nOver the course of the day, each cow writes down a list of cows. Specifically, cow $i$\n's list contains the range of cows starting with herself (cow $i$) up to and including cow $E_i(i \\le E_i \\le N)$.\n\nFJ has recently discovered that each breed of cow has exactly one distinct leader. FJ does not know who the leaders are, but he knows that each leader must have a list that includes all the cows of their breed, or the other breed's leader (or both).\n\nHelp FJ count the number of pairs of cows that could be leaders. It is guaranteed that there is at least one possible pair. ",
+    "inputFormat": "The first line contains $N$.\n\nThe second line contains a string of length $N$\n, with the ith character denoting the breed of the $i$-th cow (G meaning Guernsey and H meaning Holstein). It is guaranteed that there is at least one Guernsey and one Holstein.\n\nThe third line contains $E_1 \\cdots E_N$. ",
+    "outputFormat": "Output the number of possible pairs of leaders. ",
+    "samples": [
+        [
+            "4\nGHHG\n2 4 3 4",
+            "1"
+        ],
+        [
+            "3\nGGH\n2 3 3",
+            "2"
+        ]
+    ],
+    "hint": "### Explanation for Sample 1\n\nThe only valid leader pair is $(1,2)$. Cow $1$'s list contains the other breed's leader (cow $2$). Cow $2$'s list contains all cows of her breed (Holstein).\n\nNo other pairs are valid. For example, $(2,4)$\nis invalid since cow $4$'s list does not contain the other breed's leader, and it also does not contain all cows of her breed.\n\n### Explanation for Sample 2\n\nThere are two valid leader pairs, $(1,3)$ and $(2,3)$.\n\n### Scoring\n\n - Inputs $3-5$: $N \\le 100$  \n - Inputs $6-10$: $N \\le 3000$\n - Inputs $11-17$: No additional constraints.",
+    "translation": "### \u9898\u9762\u63cf\u8ff0\n\nFJ \u6709 $N$ \u5934\u5976\u725b\uff0c\u6bcf\u4e00\u5934\u5976\u725b\u7684\u54c1\u79cd\u662f\u6839\u897f\u5c9b `G` \u6216\u8377\u65af\u5766 `H` \u4e2d\u7684\u4e00\u79cd\u3002\n\n\u6bcf\u4e00\u5934\u5976\u725b\u90fd\u6709\u4e00\u4e2a\u540d\u5355\uff0c\u7b2c $i$ \u5934\u5976\u725b\u7684\u540d\u5355\u4e0a\u8bb0\u5f55\u4e86\u4ece\u7b2c $i$ \u5934\u5976\u725b\u5230\u7b2c $E_i$ \u5934\u5976\u725b\u7684\u6240\u6709\u5976\u725b\u3002\n\n\u6bcf\u4e00\u79cd\u5976\u725b\u90fd\u6709\u4e14\u4ec5\u6709\u4e00\u4f4d\u201c\u9886\u5bfc\u8005\u201d\uff0c\u5bf9\u4e8e\u67d0\u4e00\u5934\u725b $i$\uff0c\u5982\u679c\u5b83\u80fd\u6210\u4e3a\u201c\u9886\u5bfc\u8005\u201d\u4ec5\u5f53\u5b83\u6ee1\u8db3\u4ee5\u4e0b\u6761\u4ef6\u7684**\u81f3\u5c11\u4e00\u4e2a**\uff1a\n\n- \u5176\u8bb0\u5f55\u7684\u540d\u5355\u4e0a\u5305\u542b\u5b83\u7684\u54c1\u79cd\u7684\u6240\u6709\u5976\u725b\u3002\n\n- \u5176\u8bb0\u5f55\u7684\u540d\u5355\u4e0a\u8bb0\u5f55\u4e86\u53e6\u4e00\u54c1\u79cd\u5976\u725b\u7684\u201c\u9886\u5bfc\u8005\u201d\u3002\n\n\u8bf7\u6c42\u51fa\u6709\u591a\u5c11\u5bf9\u5976\u725b\u53ef\u80fd\u6210\u4e3a\u4e24\u79cd\u5976\u725b\u7684\u9886\u5bfc\u8005\uff0c\u4fdd\u8bc1\u5b58\u5728\u81f3\u5c11\u4e00\u79cd\u3002\n\n### \u6570\u636e\u8303\u56f4\n\u5bf9\u4e8e $100\\%$ \u7684\u6570\u636e\uff1a$1\\leq N\\leq 2\\times 10^5,i\\leq E_i\\leq N$\u3002"
+}

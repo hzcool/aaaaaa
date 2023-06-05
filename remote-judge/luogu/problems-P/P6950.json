@@ -1,0 +1,25 @@
+{
+    "description": "\n\nA well-known puzzle is to `tour` all the squares of an $8 \\times 8$ chessboard using a knight, which is a piece that can move only by jumping one square in one direction and two squares in an orthogonal direction. The knight must visit every square of the chessboard, without repeats, and then return to its starting square. There are many ways to do this, and the chessboard size is manageable, so it is a reasonable puzzle for a human to solve.\n\nHowever, you have access to a computer, and some coding skills! So, we will give you a harder version of this problem on a rectangular $m \\times n$ chessboard with an additional constraint: the knight may never cross its own path. If you imagine its path consisting of straight line segments connecting the centers of squares it jumps between, these segments must form a simple polygon; that is, no two segments intersect or touch, except that consecutive segments touch at their common end point. This constraint makes it impossible to visit every square, so instead you must maximize the number of squares the knight visits. We keep the constraint that the knight must return to its starting square. Figure J.1 shows an optimal solution for the first sample input, a $6 \\times 6$ board.\n\n![](https://onlinejudgeimages.s3-ap-northeast-1.amazonaws.com/problem/15698/1.png)\n\nFigure J.1 : An optimal solution for a $6 \\times 6$ board.\n\n",
+    "inputFormat": "\n\nThe input consists of a single line containing two integers $m (1 \\le m \\le 8)$ and $n (1 \\le n \\le 10^{15}),$ giving the dimensions of the rectangular chessboard.\n\n",
+    "outputFormat": "\n\nDisplay the largest number of squares that a knight can visit in a tour on an $m \\times n$ chessboard that does not cross its path. If no such tour exists, display $0$ .\n\n",
+    "samples": [
+        [
+            "6 6\n",
+            "12\n"
+        ],
+        [
+            "8 3\n",
+            "6\n"
+        ],
+        [
+            "7 20\n",
+            "80\n"
+        ],
+        [
+            "2 6\n",
+            "0\n"
+        ]
+    ],
+    "hint": "Time limit: 2 s, Memory limit: 1024 MB. \n\n",
+    "translation": "### \u9898\u76ee\u63cf\u8ff0\n\n\u9a6c\u5728 $m$ $\\times$ $n$ \u5927\u5c0f\u7684\u77e9\u5f62\u68cb\u76d8\u4e0a\u8df3\u8dc3\uff08\u8d70\u65e5\u5b57\uff09\u3002\u6c42\u4ece\u68cb\u76d8\u4e0a\u4e00\u70b9\u5f00\u59cb\uff0c\u5728\u4fdd\u8bc1\u3010\u6027\u8d28\u3011\u7684\u60c5\u51b5\u4e0b\uff0c\u5b83\u6700\u591a\u7ecf\u8fc7\u51e0\u4e2a\u683c\u5b50\uff08\u5305\u62ec\u8d77\u70b9\uff0c\u4e14\u7ec8\u70b9\u4e0d\u7b97\uff09\uff0c\u53ef\u4ee5\u56de\u5230\u521d\u59cb\u70b9\uff1f\n\n\u3010\u6027\u8d28\u3011\uff1a\u60f3\u8c61\u9a6c\u7684\u8def\u5f84\u7531\u76f4\u7ebf\u6bb5\u7ec4\u6210\uff0c\u8fd9\u4e9b\u76f4\u7ebf\u6bb5\u8fde\u63a5\u7740\u5b83\u6240\u8df3\u8dc3\u7684\u6b63\u65b9\u5f62\u7684\u4e2d\u5fc3\uff08\u5982\u56fe\uff09\uff0c\u8fd9\u4e9b\u76f4\u7ebf\u6bb5\u5fc5\u987b\u5f62\u6210\u4e00\u4e2a\u7b80\u5355\u7684\u591a\u8fb9\u5f62\u3002\u4e5f\u5c31\u662f\u8bf4\uff0c\u6ca1\u6709\u4e24\u4e2a\u7ebf\u6bb5\u76f8\u4ea4\u6216\u63a5\u89e6\uff0c\u9664\u975e\u8fde\u7eed\u7ebf\u6bb5\u5728\u5176\u516c\u5171\u7aef\u70b9\u5904\u63a5\u89e6\u3002\n\n### \u8f93\u5165\u683c\u5f0f\n\n\u4e00\u884c\uff0c\u4e24\u4e2a\u6b63\u6574\u6570 $m$ $(1 \\le m \\le 8)$ \u548c $n$ $(1 \\le n \\le 10^{15})$\u3002\n\n### \u8f93\u51fa\u683c\u5f0f\n\n\u4e00\u884c\uff0c\u9a6c\u6700\u591a\u7ecf\u8fc7\u7684\u683c\u5b50\u6570\u3002\n\u82e5\u6ca1\u6709\u8fd9\u6837\u7684\u8def\u5f84\uff0c\u8f93\u51fa $0$ \u3002"
+}

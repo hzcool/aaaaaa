@@ -1,0 +1,21 @@
+{
+    "description": "\n\nJane is a game designer and she designs the next version of Jenga Boom, where the blocks have dimensions of $1 \\times w \\times w_n$ instead of the ordinary $1 \\times 2 \\times 6$ . As usual, the initial tower is created at the game start. It consists of the blocks in levels of $n$ blocks placed next to each other along their long sides and at a right angle to the previous level. Players remove blocks from the tower in turns, until the tower collapses.\n\n![](https://onlinejudgeimages.s3.amazonaws.com/problem/13998/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202016-12-22%20%EC%98%A4%ED%9B%84%208.10.49.png)\n\nInitial tower\n\n![](https://onlinejudgeimages.s3.amazonaws.com/problem/13998/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202016-12-22%20%EC%98%A4%ED%9B%84%208.11.00.png)\n\nThe tower before collapse\n\nJane wants to build a game simulator that helps her to decide the best $n$ and $w$ . The simulator shall compute the moment when the tower collapses if blocks are removed in the specified order. Tower collapses if there is a cross-section between levels such that the center of the mass of the levels above it does not belong to or is at the edge of the convex hull of the previous level projection.\n\n",
+    "inputFormat": "\n\nThe first line contains two integers $n$ and $w$ that define the dimensions of the block as described in the problem statement $(1 \\le n , w \\le 10 000)$ . The second line also contains two integers: $h$ -- the number of levels in the tower and $m$ -- the number of removed blocks $(1 \\le h , m \\le 5 000)$ .\n\nThe next $m$ lines contain coordinates of the removed blocks with two integers each: $l_{i}$ -- the level of the block, counting from the bottom and $k_{i}$ -- the position of the block, counting from the edge nearest to the players $(1 \\le l_{i} \\le h$ ; $1 \\le k_{i} \\le n)$ . Blocks are removed one by one and no block is removed twice.\n\n",
+    "outputFormat": "\n\nIn the first line output `yes` if the tower collapses, and `no` otherwise. In the former case, output the number of the block (starting from $1$) , that was removed just before the collapse, in the next line.\n\n",
+    "samples": [
+        [
+            "5 2\n6 6\n4 1\n4 2\n4 5\n5 3\n4 3\n1 1\n",
+            "yes\n5\n"
+        ],
+        [
+            "3 3\n10 1\n10 3\n",
+            "no\n"
+        ],
+        [
+            "2 2\n2 1\n1 1\n",
+            "yes\n1\n"
+        ]
+    ],
+    "hint": "Time limit: 2 s, Memory limit: 512 MB. \n\n",
+    "translation": "\u8bbe\u6709\u4e00\u4e2a\u5854\uff0c\u5b83\u7684\u79ef\u6728\u5757\u662f $1\\times w\\times (w\\times n)$ \u7684\u957f\u65b9\u4f53\uff0c\u6bcf\u5c42\u7531 $n$ \u4e2a\u79ef\u6728\u5757\uff0c\u6bcf\u4e24\u5c42\u4ea4\u9519\u6446\u653e\uff0c\u5171\u6709 $h$ \u5c42\u3002\u6709 $m$ \u4e2a\u62bd\u79ef\u6728\u7684\u64cd\u4f5c\uff0c\u5bf9\u4e8e\u7b2c $i$ \u4e2a\u64cd\u4f5c\u7ed9\u51fa\u4ece\u5e95\u5f80\u4e0a\u6570\u7684\u7b2c $l_i$ \u5c42\u548c\u4ece\u5de6\u540e\u65b9\u5f80\u53f3\u524d\u65b9\u6570\u7684\u7b2c $k_i$ \u5757\u3002\u67d0\u4e00\u5c42\u7684\u5de6\u8fb9\u6216\u53f3\u8fb9\u52a0\u4e0a\u4e2d\u95f4 (\u5982\u679c $n$ \u4e3a\u5076\u6570\uff0c\u90a3\u4e48\u5ffd\u7565\u4e2d\u95f4) \u7684\u79ef\u6728\u5757\u5168\u88ab\u62bd\u5b8c\uff0c\u5219\u5854\u5012\u584c\u3002\n\n#### \u8f93\u5165\u683c\u5f0f\n\u7b2c\u4e00\u884c\u4e3a $n$ \u548c $w$ \uff0c($1\\le n,w\\le10000$) \u3002\u7b2c\u4e8c\u884c\u4e3a $h$ \u548c $m$  ,($1\\le h,m\\le5000$)\u3002\u63a5\u4e0b\u6765\u7684 $m$ \u884c\u4e3a $l_i$ \u548c $k_i$ ($1\\le l_i\\le h;1\\le k_i\\le n$) \u3002\u4e00\u5757\u79ef\u6728\u53ea\u80fd\u79fb\u52a8\u4e00\u6b21\u3002\n#### \u8f93\u51fa\u683c\u5f0f\n\u5982\u679c\u5854\u80fd\u5012\u584c\uff0c\u5219\u8f93\u51fa \"yes\" \u3002\u5426\u5219\u8f93\u51fa \"no\" \u3002\u5bf9\u4e8e\u7b2c\u4e00\u79cd\u60c5\u51b5\uff0c\u5728\u4e0b\u4e00\u884c\u8f93\u51fa\u5012\u584c\u524d\u4e00\u6b65\u7684\u7f16\u53f7 $i$ \u3002"
+}

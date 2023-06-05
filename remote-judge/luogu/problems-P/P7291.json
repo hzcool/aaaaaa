@@ -1,0 +1,16 @@
+{
+    "description": "\u6f47\u6709\u4e00\u4e2a\u6570\u7ec4 $k$\uff0c\u4e0b\u6807\u4e3a $1$ \u5230 $n$ \u3002\n\n\u6f47\u5b9a\u4e49 $f(x,y)=\\begin{cases} \\min(k_x,k_y) \\times (x + y) &x \\ne y \\\\ k_x\\times x&x=y \\end{cases}$ \u3002\n\n\u6f47\u60f3\u77e5\u9053\u5bf9\u4e8e\u4efb\u610f\u7684 $1 \\le x,y \\le n$\uff0c$f(x,y)$ \u7684\u6700\u5927\u503c\u662f\u591a\u5c11\u3002\u4f46\u662f\u5979\u4e0d\u4f1a\u505a\uff0c\u4e8e\u662f\u5c31\u95ee\u4e86\u5584\u826f\u7684 \u5c0f Z\uff0c\u7136\u800c\u975e\u5e38\u60f3\u5728\u59b9\u5b50\u9762\u524d\u8868\u73b0\u7684 \u5c0f Z \u53d1\u73b0\u4ed6\u4e5f\u4e0d\u4f1a\u505a\uff0c\u5c31\u53ea\u80fd\u591f\u6c42\u52a9\u5584\u826f\u7684\u4f60\u4e86\u3002",
+    "inputFormat": "\u7b2c\u4e00\u884c\u4e00\u4e2a\u6574\u6570 $n$\u3002\n\n\u7b2c\u4e8c\u884c $n$ \u4e2a\u6574\u6570 $k$\uff0c\u7b2c $i$ \u4e2a\u6574\u6570\u4e3a $k_i$\u3002\u542b\u4e49\u5982\u4e0a\u6587\u3002",
+    "outputFormat": "\u4e00\u884c\u4e00\u4e2a\u6574\u6570\uff0c\u8868\u793a\u5bf9\u4e8e\u4efb\u610f\u7684 $1 \\le x,y \\le n$\uff0c$f(x,y)$ \u7684\u6700\u5927\u503c\u3002",
+    "samples": [
+        [
+            "3\n3 2 1",
+            "6"
+        ],
+        [
+            "5\n3 4 5 4 3",
+            "28"
+        ]
+    ],
+    "hint": "### \u6570\u636e\u8303\u56f4\n\n**\u672c\u9898\u91c7\u7528\u6346\u7ed1\u6d4b\u8bd5\u3002**\n\n- Subtask 1\uff0810 points\uff09\uff1a$1 \\le n \\le 50$\u3002\n\n- Subtask 2\uff0820 points\uff09\uff1a$1 \\le n \\le 5000$\u3002\n\n- Subtask 3\uff0820 points\uff09\uff1a$1 \\le n \\le 10^6$\u3002\n\n- Subtask 4\uff0810 points\uff09\uff1a\u4fdd\u8bc1\u6240\u6709 $k_{i}$ \u90fd\u76f8\u7b49\u3002\n\n- Subtask 5\uff0840 points\uff09\uff1a\u65e0\u7279\u6b8a\u9650\u5236\u3002\n\n\u5bf9\u4e8e $100\\%$ \u7684\u6570\u636e\uff0c$1 \\le n \\le 10^7$\uff0c$1 \\le k_{i} \\le 10^9$\u3002\n\n**\u672c\u9898\u5efa\u8bae\u4f7f\u7528\u8f83\u5feb\u7684\u8bfb\u5165\u65b9\u5f0f\u3002**\n\nstd \u4f7f\u7528\u7684\u5feb\u8bfb\uff1a\n\n```cpp\n#define getchar()(p1==p2&&(p2=(p1=buf)+fread(buf,1,1<<21,stdin),p1==p2)?EOF:*p1++)\nchar buf[1<<21],*p1=buf,*p2=buf;\ninline int read()\n{\n    char c=getchar();int x=0;bool f=0;\n    for(;!isdigit(c);c=getchar())f^=!(c^45);\n    for(;isdigit(c);c=getchar())x=(x<<1)+(x<<3)+(c^48);\n    if(f)x=-x;return x;\n}\n```"
+}
