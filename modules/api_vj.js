@@ -104,11 +104,14 @@ app.get('/luogu/problems/:type/solutions/:pid', async (req, res) => {
     try {
         if(!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
         let helper = syzoj.newLuoguHelper(req.params.type);
-        let solutions = helper.getSolutions(req.params.pid);
-        await solutions.forEachAsync(async x => {
-            x.content = await syzoj.utils.markdown(x.content);
-            x.formatPostTime = syzoj.utils.formatDate(x.postTime);
-        });
+        let sol = helper.getSolutions(req.params.pid);
+        let solutions = "";
+        for (let i = 0; i < sol.length; i++) {
+            if (i) solutions += '\n\n<div class="el-divider el-divider--horizontal" role="separator" style="--el-border-style: solid;"></div>\n\n';
+            solutions += `### ${i+1}. ${sol[i].name}&nbsp;&nbsp;&nbsp;${sol[i].title}&nbsp;&nbsp;&nbsp;${syzoj.utils.formatDate(sol[i].postTime)}\n\n`;
+            solutions += sol[i].content;
+        }
+        solutions = await syzoj.utils.markdown(solutions);
         res.send({solutions});
     } catch (e) {
         syzoj.log(e);

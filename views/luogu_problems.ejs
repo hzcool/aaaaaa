@@ -100,10 +100,7 @@
                 <span class="status running"><i class="spinner icon"></i> 加载中…… </span>
             </div>
 
-            <div v-if="!showLoading" v-for="(sol, idx) in solutions" :key="idx">
-                <h3 style="color: black"> {{idx+1}}. {{sol.name}}&nbsp;&nbsp;&nbsp;{{ sol.title }}&nbsp;&nbsp;&nbsp;{{ sol.formatPostTime }}</h3>
-                <div style="color: black" v-html="sol.content"></div>
-                <el-divider> </el-divider>
+            <div v-if="!showLoading" v-html="solutions" style="color: black">
             </div>
 
             <template #footer>
@@ -389,7 +386,7 @@
     const showLoading = ref(false)
 
     const solutionDialog = ref(false)
-    const solutions = ref([])
+    const solutions = ref("")
 
     const showSolutions = (pid) => {
         showLoading.value = true;
