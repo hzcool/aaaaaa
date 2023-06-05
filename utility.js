@@ -203,7 +203,7 @@ module.exports = {
               let reg = new RegExp(s);
               let p = [];
               for (let file of list) {
-                if (reg.match(file) === file) p.push(file);
+                if (reg.test(file) && file.match(reg)[0] === file) p.push(file);
               }
               if (mustExist && p.length == 0) throw `找不到文件 ${s}`;
               return p;
