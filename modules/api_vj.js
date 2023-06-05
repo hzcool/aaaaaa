@@ -60,7 +60,6 @@ app.get('/luogu/problems/:type', async (req, res) => {
         if(!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
         let helper = syzoj.newLuoguHelper(req.params.type)
         let x = helper.findByTags()
-        x.problems.forEach(p => p.solutionCount = helper.getSolutions(p.pid).length);
         res.render('luogu_problems', {
             tags: helper.tags.tags,
             types: helper.tags.types,
@@ -89,7 +88,6 @@ app.post('/luogu/problems/:type/search', async (req, res) => {
         let asc = (!req.body.asc || req.body.asc === 'true') ? true : false
         let page = parseInt(req.body.page || '1')
         let x = helper.findByTags(difficulty, tags, orderBy, asc, page)
-        x.problems.forEach(p => p.solutionCount = helper.getSolutions(p.pid).length);
         res.send({
             total: x.total,
             problems: x.problems
@@ -105,14 +103,34 @@ app.post('/luogu/problems/:type/search', async (req, res) => {
 app.get('/luogu/problems/:type/solutions/:pid', async (req, res) => {
     try {
         if(!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
-        let helper = syzoj.newLuoguHelper(req.params.type)
-        let solutions = helper.getSolutions(req.params.pid)
+        let helper = syzoj.newLuoguHelper(req.params.type);
+        let solutions = helper.getSolutions(req.params.pid);
         await solutions.forEachAsync(async x => {
             x.content = await syzoj.utils.markdown(x.content);
             x.formatPostTime = syzoj.utils.formatDate(x.postTime);
-            console.log(x.postTime, x.formatPostTime);
-        })
+        });
         res.send({solutions});
+    } catch (e) {
+        syzoj.log(e);
+        res.send({err: e});
+    }
+});
+
+app.get('/luogu/problems/:type/statement/:pid', async (req, res) => {
+    try {
+        if(!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
+        let helper = syzoj.newLuoguHelper(req.params.type)
+        let x = helper.getStatement(req.params.pid)
+        let statement = x.description;
+        if (x.translation) statement += '\n\n' + x.translation;
+        statement += '\n### 输入格式\n' + x.inputFormat;
+        statement += '\n### 输出格式\n' + x.outputFormat;
+        for (let i = 0; i < x.samples.length; i++) {
+            statement += '\n ### 样例输入' + (i + 1) + '\n```plain\n' + x.samples[i][0] + '\n```';
+            statement += '\n ### 样例输出' + (i + 1) + '\n```plain\n' + x.samples[i][1] + '\n```';
+        }
+        statement = await syzoj.utils.markdown(statement);
+        res.send({statement});
     } catch (e) {
         syzoj.log(e);
         res.send({err: e});

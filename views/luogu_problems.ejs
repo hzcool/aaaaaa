@@ -90,19 +90,18 @@
             width="60%"
             destroy-on-close
         >
-
             <template #header ="{ close, titleId, titleClass }">
                 <div class="my-header">
                     <h4 :id="titleId" :class="titleClass">题解</h4>
                 </div>
             </template>
 
-            <div v-if="solutions.length == 0">
+            <div v-if="showLoading">
                 <span class="status running"><i class="spinner icon"></i> 加载中…… </span>
             </div>
 
-            <div v-if="solutions.length > 0" v-for="(sol, idx) in solutions" :key="idx">
-                <h3 style="color: black"> {{idx+1}}. {{sol.name}}  {{ sol.title }}  {{ sol.formatPostTime }}</h3>
+            <div v-if="!showLoading" v-for="(sol, idx) in solutions" :key="idx">
+                <h3 style="color: black"> {{idx+1}}. {{sol.name}}&nbsp;&nbsp;&nbsp;{{ sol.title }}&nbsp;&nbsp;&nbsp;{{ sol.formatPostTime }}</h3>
                 <div style="color: black" v-html="sol.content"></div>
                 <el-divider> </el-divider>
             </div>
@@ -110,6 +109,34 @@
             <template #footer>
                 <span class="dialog-footer">
                     <el-button type="primary" @click="solutionDialog = false">
+                        关闭
+                    </el-button>
+                </span>
+            </template>
+        </el-dialog>
+
+
+        <el-dialog
+            v-model="statementDialog"
+            width="60%"
+            destroy-on-close
+        >
+            <template #header ="{ close, titleId, titleClass }">
+                <div class="my-header">
+                    <h4 :id="titleId" :class="titleClass">题目描述</h4>
+                </div>
+            </template>
+
+            <div v-if="showLoading">
+                <span class="status running"><i class="spinner icon"></i> 加载中…… </span>
+            </div>
+
+            <div v-if="!showLoading" v-html="statement" style="color: black">
+            </div>
+
+            <template #footer>
+                <span class="dialog-footer">
+                    <el-button type="primary" @click="statementDialog = false">
                         关闭
                     </el-button>
                 </span>
@@ -161,8 +188,8 @@
                             <div> 题解数 </div>
                             <div>
                                 <div>
-                                    <div> <i :class="'caret up icon icon_on_hover' + ((search_order.orderBy == OrderBy.TotalSubmit && search_order.asc)?' __icon':'')" @click="search_for_order(OrderBy.TotalSubmit, true)"></i> </div>
-                                    <div style="margin-top: -8px"> <i :class="'caret down icon icon_on_hover' + ((search_order.orderBy == OrderBy.TotalSubmit && !search_order.asc)?' __icon':'')" @click="search_for_order(OrderBy.TotalSubmit, false)"></i> </div>
+                                    <div> <i :class="'caret up icon icon_on_hover' + ((search_order.orderBy == OrderBy.SolutionCount && search_order.asc)?' __icon':'')" @click="search_for_order(OrderBy.SolutionCount, true)"></i> </div>
+                                    <div style="margin-top: -8px"> <i :class="'caret down icon icon_on_hover' + ((search_order.orderBy == OrderBy.SolutionCount && !search_order.asc)?' __icon':'')" @click="search_for_order(OrderBy.SolutionCount, false)"></i> </div>
                                 </div>
                             </div>
                         </div>
@@ -171,7 +198,7 @@
             </thead>
             <tbody>
                 <tr v-for="p in problems">
-                    <td> <a :href="'https://www.luogu.com.cn/problem/' + p.pid" target="_blank">{{p.pid}} </a></td>
+                    <td> <a :href="'javascript:;'" @click="showStatement(p.pid)">{{p.pid}} </a></td>
                     <td> <a :href="'https://www.luogu.com.cn/problem/' + p.pid" target="_blank">{{p.title}} </a></td>
                     <td>
                         <span v-for="tagid in p.tags">
@@ -319,7 +346,7 @@
         PID: 0,
         Difficulty: 1,
         TotalAccepted: 2,
-        TotalSubmit: 3,
+        SolutionCount: 3,
     };
 
     const search_order = reactive({
@@ -359,19 +386,38 @@
     }
 
 
-
+    const showLoading = ref(false)
 
     const solutionDialog = ref(false)
     const solutions = ref([])
 
     const showSolutions = (pid) => {
-        solutions.value = [];
+        showLoading.value = true;
         solutionDialog.value = true;
         $.get("/luogu/problems/<%-type%>/solutions/" + pid, (data) => {
             if (!data.err) {
                 solutions.value = data.solutions;
+                showLoading.value = false;
             } else {
                 solutionDialog.value = false;
+                console.log(data.err);
+                alert(data.err);
+            }
+        });
+    }
+
+    const statementDialog = ref(false)
+    const statement = ref("")
+
+    const showStatement = (pid) => {
+        showLoading.value = true;
+        statementDialog.value = true;
+        $.get("/luogu/problems/<%-type%>/statement/" + pid, (data) => {
+            if (!data.err) {
+                statement.value = data.statement;
+                showLoading.value = false;
+            } else {
+                statementDialog.value = false;
                 console.log(data.err);
                 alert(data.err);
             }
@@ -381,7 +427,10 @@
     const App = {
         setup() {
             return {problems, activeName, tag_map, type_orders, algorithm_tags,  tagDialog, choose, checkbox_click_handle, tag_choose_type, closeTag, closeDialog, total, current_page, currentPageChange,
-                tagid_map_tag, search_append_tag, search_for_order, OrderBy, search_order, difficulty_color, solutionDialog, solutions, showSolutions}
+                tagid_map_tag, search_append_tag, search_for_order, OrderBy, search_order, difficulty_color,
+                showLoading, solutionDialog, solutions, showSolutions,
+                statementDialog, statement, showStatement
+            }
         },
     }
     createApp(App).use(ElementPlus).mount('#app')
