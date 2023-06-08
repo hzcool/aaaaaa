@@ -1,0 +1,17 @@
+{
+    "description": "[problemUrl]: https://atcoder.jp/contests/abc271/tasks/abc271_b\n\n\u6574\u6570\u304b\u3089\u306a\u308b\u6570\u5217\u304c $ N $ \u500b\u3042\u308a\u307e\u3059\u3002  \n$ i\\ \\,\\ (1\\ \\leq\\ i\\ \\leq\\ N) $ \u756a\u76ee\u306e\u6570\u5217\u306f $ L_i $ \u9805\u304b\u3089\u306a\u308a\u3001$ i $ \u756a\u76ee\u306e\u6570\u5217\u306e\u7b2c $ j\\ \\,\\ (1\\ \\leq\\ j\\ \\leq\\ L_i) $ \u9805 \u306f $ a_{i,\\ j} $ \u3067\u3059\u3002\n\n$ Q $ \u500b\u306e\u30af\u30a8\u30ea\u304c\u4e0e\u3048\u3089\u308c\u307e\u3059\u3002$ k\\ \\,\\ (1\\ \\leq\\ k\\ \\leq\\ Q) $ \u756a\u76ee\u306e\u30af\u30a8\u30ea\u3067\u306f\u3001\u6574\u6570 $ s_k,\\ t_k $ \u304c\u4e0e\u3048\u3089\u308c\u308b\u306e\u3067\u3001$ s_k $ \u756a\u76ee\u306e\u6570\u5217\u306e\u7b2c $ t_k $ \u9805\u3092\u6c42\u3081\u3066\u304f\u3060\u3055\u3044\u3002",
+    "inputFormat": "\u5165\u529b\u306f\u4ee5\u4e0b\u306e\u5f62\u5f0f\u3067\u6a19\u6e96\u5165\u529b\u304b\u3089\u4e0e\u3048\u3089\u308c\u308b\u3002\n\n> $ N $ $ Q $ $ L_1 $ $ a_{1,\\ 1} $ $ \\ldots $ $ a_{1,\\ L_1} $ $ \\vdots $ $ L_N $ $ a_{N,\\ 1} $ $ \\ldots $ $ a_{N,\\ L_N} $ $ s_1 $ $ t_1 $ $ \\vdots $ $ s_Q $ $ t_Q $",
+    "outputFormat": "$ Q $ \u884c\u51fa\u529b\u305b\u3088\u3002$ k\\ \\,\\ (1\\ \\leq\\ k\\ \\leq\\ Q) $ \u884c\u76ee\u306b\u306f\u3001$ k $ \u756a\u76ee\u306e\u30af\u30a8\u30ea\u306b\u5bfe\u3059\u308b\u7b54\u3048\u3092\u51fa\u529b\u305b\u3088\u3002",
+    "samples": [
+        [
+            "2 2\n3 1 4 7\n2 5 9\n1 3\n2 1",
+            "7\n5"
+        ],
+        [
+            "3 4\n4 128 741 239 901\n2 1 1\n3 314 159 26535\n1 1\n2 2\n3 3\n1 4",
+            "128\n1\n26535\n901"
+        ]
+    ],
+    "hint": "### \u5236\u7d04\n\n- $ 1\\ \\leq\\ N,\\ Q\\ \\leq\\ 2\\ \\times\\ 10^5 $\n- $ L_i\\ \\geq\\ 1\\ \\,\\ (1\\ \\leq\\ i\\ \\leq\\ N) $\n- $ \\sum_{i=1}^N\\ L_i\\ \\leq\\ 2\\ \\times\\ 10^5 $\n- $ 1\\ \\leq\\ a_{i,\\ j}\\ \\leq\\ 10^9\\ \\,\\ (1\\ \\leq\\ i\\ \\leq\\ N,\\ 1\\ \\leq\\ j\\ \\leq\\ L_i) $\n- $ 1\\ \\leq\\ s_k\\ \\leq\\ N,\\ 1\\ \\leq\\ t_k\\ \\leq\\ L_{s_k}\\ \\,\\ (1\\ \\leq\\ k\\ \\leq\\ Q) $\n- \u5165\u529b\u306f\u5168\u3066\u6574\u6570\n\n### Sample Explanation 1\n\n$ 1 $ \u756a\u76ee\u306e\u6570\u5217\u306f $ (1,\\ 4,\\ 7) $\u3001$ 2 $ \u756a\u76ee\u306e\u6570\u5217\u306f $ (5,\\ 9) $ \u3067\u3059\u3002 \u305d\u308c\u305e\u308c\u306e\u30af\u30a8\u30ea\u306b\u5bfe\u3059\u308b\u7b54\u3048\u306f\u6b21\u306e\u3088\u3046\u306b\u306a\u308a\u307e\u3059\u3002 - $ 1 $ \u756a\u76ee\u306e\u6570\u5217\u306e\u7b2c $ 3 $ \u9805\u306f $ 7 $ \u3067\u3059\u3002 - $ 2 $ \u756a\u76ee\u306e\u6570\u5217\u306e\u7b2c $ 1 $ \u9805\u306f $ 5 $ \u3067\u3059\u3002",
+    "translation": "\u6709 $N$ \u4e2a\u6570\u5217\uff0c\u7b2c $i$ \u4e2a\u6570\u5217\u6709 $L_i$ \u4e2a\u6574\u6570\u3002\n\n\u6709 $Q$ \u7ec4\u8be2\u95ee\uff0c\u6bcf\u7ec4\u8be2\u95ee\u7ed9\u5b9a\u4e24\u4e2a\u6574\u6570 $s_i$ \u548c $t_i$\uff0c\u8f93\u51fa\u7b2c $s_i$ \u4e2a\u6570\u5217\u7684\u7b2c $t_i$ \u4e2a\u5143\u7d20\u3002"
+}

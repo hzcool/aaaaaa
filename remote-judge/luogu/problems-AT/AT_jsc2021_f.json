@@ -1,0 +1,20 @@
+{
+    "description": "[problemUrl]: https://atcoder.jp/contests/jsc2021/tasks/jsc2021_f\n\n\u9577\u3055 $ N $ \u306e\u6570\u5217 $ a $ \u3068\u3001\u9577\u3055 $ M $ \u306e\u6570\u5217 $ b $ \u304c\u3042\u308a\u307e\u3059\u3002\u6700\u521d\u3001$ a,b $ \u306e\u8981\u7d20\u306f\u5168\u3066 $ 0 $ \u3067\u3059\u3002  \n $ Q $ \u500b\u306e\u30af\u30a8\u30ea\u3092\u51e6\u7406\u3057\u3066\u304f\u3060\u3055\u3044\u3002$ i $ \u500b\u76ee\u306e\u30af\u30a8\u30ea\u3067\u306f $ 3 $ \u3064\u306e\u6574\u6570 $ T_i,\\ X_i,\\ Y_i $ \u304c\u4e0e\u3048\u3089\u308c\u3001\u4ee5\u4e0b\u306e\u51e6\u7406\u3092\u3057\u307e\u3059\u3002\n\n- $ T_i\\ =\\ 1 $ \u306e\u3068\u304d : $ a_{X_i} $ \u3092 $ Y_i $ \u306b\u7f6e\u304d\u63db\u3048\u308b\n- $ T_i\\ =\\ 2 $ \u306e\u3068\u304d : $ b_{X_i} $ \u3092 $ Y_i $ \u306b\u7f6e\u304d\u63db\u3048\u308b\n\n\u305d\u3057\u3066\u3001\u6bce\u56de\u306e\u30af\u30a8\u30ea\u306e\u51e6\u7406\u76f4\u5f8c\u306b $ \\displaystyle\\ \\sum_{i\\ =\\ 1}^N\\ \\sum_{j\\ =\\ 1}^M\\ \\max(a_i,\\ b_j) $ \u306e\u5024\u3092\u51fa\u529b\u3057\u3066\u304f\u3060\u3055\u3044\u3002",
+    "inputFormat": "\u5165\u529b\u306f\u4ee5\u4e0b\u306e\u5f62\u5f0f\u3067\u6a19\u6e96\u5165\u529b\u304b\u3089\u4e0e\u3048\u3089\u308c\u308b\u3002\n\n> $ N $ $ M $ $ Q $ $ T_1 $ $ X_1 $ $ Y_1 $ $ T_2 $ $ X_2 $ $ Y_2 $ $ T_3 $ $ X_3 $ $ Y_3 $ $ \\hspace{21pt}\\ \\vdots $ $ T_Q $ $ X_Q $ $ Y_Q $",
+    "outputFormat": "\u554f\u984c\u6587\u306e\u6307\u793a\u306b\u5f93\u3063\u3066 $ Q $ \u500b\u306e\u6574\u6570\u3092\u6539\u884c\u533a\u5207\u308a\u3067\u51fa\u529b\u305b\u3088\u3002",
+    "samples": [
+        [
+            "2 2 4\r\n1 1 10\r\n2 1 20\r\n2 2 5\r\n1 1 30",
+            "20\r\n50\r\n55\r\n85"
+        ],
+        [
+            "3 3 5\r\n1 3 10\r\n2 1 7\r\n1 3 5\r\n2 2 10\r\n2 1 1",
+            "30\r\n44\r\n31\r\n56\r\n42"
+        ],
+        [
+            "200000 200000 4\r\n2 112219 100000000\r\n1 73821 100000000\r\n2 26402 100000000\r\n1 73821 100000000",
+            "20000000000000\r\n39999900000000\r\n59999800000000\r\n59999800000000"
+        ]
+    ],
+    "hint": "### \u5236\u7d04\n\n- $ 1\\ \\le\\ N\\ \\le\\ 2\\ \\times\\ 10^5 $\n- $ 1\\ \\le\\ M\\ \\le\\ 2\\ \\times\\ 10^5 $\n- $ 1\\ \\le\\ Q\\ \\le\\ 2\\ \\times\\ 10^5 $\n- $ T_i $ \u306f $ 1 $ \u307e\u305f\u306f $ 2 $\n- $ T_i\\ =\\ 1 $ \u306a\u3089\u3070 $ 1\\ \\le\\ X_i\\ \\le\\ N $\n- $ T_i\\ =\\ 2 $ \u306a\u3089\u3070 $ 1\\ \\le\\ X_i\\ \\le\\ M $\n- $ 1\\ \\le\\ Y_i\\ \\le\\ 10^8 $\n- \u5165\u529b\u306b\u542b\u307e\u308c\u308b\u5024\u306f\u5168\u3066\u6574\u6570\u3067\u3042\u308b\n\n### Sample Explanation 1\n\n\u4e0a\u304b\u3089 $ i $ \u884c\u76ee\u3001\u5de6\u304b\u3089 $ j $ \u5217\u76ee\u306b $ \\max(a_i,\\ b_j) $ \u3092\u66f8\u304d\u8fbc\u3093\u3060\u30de\u30b9\u76ee\u306f\u3001$ 4 $ \u56de\u306e\u30af\u30a8\u30ea\u3067\u4ee5\u4e0b\u306e\u3088\u3046\u306b\u5909\u5316\u3057\u307e\u3059\u3002 !\\[\\](https://img.atcoder.jp/ghi/9a4098e2aa50b21c51ce3664d278ba87.png)\n\n### Sample Explanation 3\n\n\u51fa\u529b\u3059\u308b\u6574\u6570\u306f $ 32 $ bit \u6574\u6570\u578b\u306b\u53ce\u307e\u3089\u306a\u3044\u53ef\u80fd\u6027\u304c\u3042\u308a\u307e\u3059\u3002"
+}

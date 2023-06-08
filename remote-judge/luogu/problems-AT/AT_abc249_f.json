@@ -1,0 +1,21 @@
+{
+    "description": "[problemUrl]: https://atcoder.jp/contests/abc249/tasks/abc249_f\n\n\u9ad8\u6a4b\u541b\u306f\u6574\u6570 $ x $ \u3092\u6301\u3063\u3066\u3044\u307e\u3059\u3002\u306f\u3058\u3081\u3001$ x\\ =\\ 0 $ \u3067\u3059\u3002\n\n$ N $ \u500b\u306e\u64cd\u4f5c\u304c\u3042\u308a\u307e\u3059\u3002$ i\\ \\,\\ (1\\ \\leq\\ i\\ \\leq\\ N) $ \u500b\u76ee\u306e\u64cd\u4f5c\u306f\u6574\u6570 $ t_i,\\ y_i $ \u3092\u7528\u3044\u3066\u4ee5\u4e0b\u306e\u3088\u3046\u306b\u8868\u3055\u308c\u307e\u3059\u3002\n\n- $ t_i\\ =\\ 1 $ \u306e\u3068\u304d\u3001$ x $ \u3092 $ y_i $ \u3067\u7f6e\u304d\u63db\u3048\u308b\u3002\n- $ t_i\\ =\\ 2 $ \u306e\u3068\u304d\u3001$ x $ \u3092 $ x\\ +\\ y_i $ \u3067\u7f6e\u304d\u63db\u3048\u308b\u3002\n\n\u9ad8\u6a4b\u541b\u306f $ 0 $ \u500b\u4ee5\u4e0a $ K $ \u500b\u4ee5\u4e0b\u306e\u597d\u304d\u306a\u500b\u6570\u306e\u64cd\u4f5c\u3092\u7121\u8996\u3059\u308b\u3053\u3068\u304c\u3067\u304d\u307e\u3059\u3002\u6b8b\u3063\u305f\u64cd\u4f5c\u3092\u4e00\u5ea6\u305a\u3064\u9806\u5e8f\u3092\u5909\u3048\u305a\u306b\u884c\u3063\u305f\u3068\u304d\u3001\u6700\u7d42\u7684\u306a $ x $ \u306e\u5024\u3068\u3057\u3066\u3042\u308a\u5f97\u308b\u6700\u5927\u5024\u3092\u6c42\u3081\u3066\u304f\u3060\u3055\u3044\u3002",
+    "inputFormat": "\u5165\u529b\u306f\u4ee5\u4e0b\u306e\u5f62\u5f0f\u3067\u6a19\u6e96\u5165\u529b\u304b\u3089\u4e0e\u3048\u3089\u308c\u308b\u3002\n\n> $ N $ $ K $ $ t_1 $ $ y_1 $ $ \\vdots $ $ t_N $ $ y_N $",
+    "outputFormat": "\u7b54\u3048\u3092\u51fa\u529b\u305b\u3088\u3002",
+    "samples": [
+        [
+            "5 1\n2 4\n2 -3\n1 2\n2 1\n2 -3",
+            "3"
+        ],
+        [
+            "1 0\n2 -1000000000",
+            "-1000000000"
+        ],
+        [
+            "10 3\n2 3\n2 -1\n1 4\n2 -1\n2 5\n2 -9\n2 2\n1 -6\n2 5\n2 -3",
+            "15"
+        ]
+    ],
+    "hint": "### \u5236\u7d04\n\n- $ 1\\ \\leq\\ N\\ \\leq\\ 2\\ \\times\\ 10^5 $\n- $ 0\\ \\leq\\ K\\ \\leq\\ N $\n- $ t_i\\ \\in\\ \\{1,2\\}\\ \\,\\ (1\\ \\leq\\ i\\ \\leq\\ N) $\n- $ |y_i|\\ \\leq\\ 10^9\\ \\,\\ (1\\ \\leq\\ i\\ \\leq\\ N) $\n- \u5165\u529b\u306f\u5168\u3066\u6574\u6570\n\n### Sample Explanation 1\n\n$ 5 $ \u500b\u76ee\u306e\u64cd\u4f5c\u3092\u7121\u8996\u3059\u308b\u3068\u3001$ x $ \u306f $ 0\\ \\rightarrow\\ 4\\ \\rightarrow\\ 1\\ \\rightarrow\\ 2\\ \\rightarrow\\ 3 $ \u3068\u5909\u5316\u3057\u3001\u6700\u7d42\u7684\u306a $ x $ \u306e\u5024\u306f $ 3 $ \u3068\u306a\u308a\u307e\u3059\u3002\u3053\u308c\u304c\u6700\u5927\u3067\u3059\u3002",
+    "translation": "\u5b58\u5728\u53d8\u91cf $ x $\uff0c\u521d\u59cb\u65f6 $ x = 0 $\u3002\u7ed9\u5b9a $ n $ \u6b21\u64cd\u4f5c\u6309\u5e8f\u8fdb\u884c\uff0c\u5b58\u5728\u4e24\u79cd\uff0c`1 y` \u8868\u793a $ x \\leftarrow y $\uff0c`2 y` \u8868\u793a $ x \\leftarrow x + y $\uff0c\u4f60\u53ef\u4ee5\u4ece\u4e2d\u5220\u9664\u4e0d\u8d85\u8fc7 $ k $ \u4e2a\u64cd\u4f5c\uff0c\u8981\u6c42\u6700\u5927\u5316\u64cd\u4f5c\u540e\u7684 $ x $\uff0c\u8f93\u51fa\u6700\u5927\u503c\u3002"
+}

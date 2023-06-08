@@ -1,0 +1,20 @@
+{
+    "description": "[problemUrl]: https://atcoder.jp/contests/jag2018summer-day2/tasks/jag2018summer_day2_e\n\nAo loves certain sets of non-negative integers.\n\nLet $ X $ be a set of non-negative integers. Whether she loves $ X $ or not is determined as follows:\n\n- If $ X $ is the empty set, she loves $ X $.\n- If, for any (possibly the same) two elements $ u $ and $ v $ in $ X $, at least one of $ u+v $ and $ {\\rm\\ abs}(u-v) $ is contained in $ X $, she loves $ X $.\n- If none of the above conditions is satisfied, she does not love $ X $.\n\nYou are a big fan of Ao, and going to present her a set of non-negative integers. Currently you have a set $ A $ of non-negative integers. You want to erase (possibly zero) elements from $ A $ so that she loves the set of remaining integers. You also want to maximize the number of remaining integers. What is the largest number of remaining integers?",
+    "inputFormat": "Input is given from Standard Input in the following format:\n\n> $ S $\n\nHere, $ S=S_0S_1...S_{|S|-1} $ is the string which indicates $ A $. For each $ i $ ( $ 0\\ \\leq\\ i\\ \\leq\\ |S|-1 $ ), $ S_i\\ = $ `1` if $ A $ contains $ i $ and $ S_i\\ = $ `0` if not. It is guaranteed that $ S_{|S|-1} $ is `1`.",
+    "outputFormat": "Print the largest number of remaining integers.",
+    "samples": [
+        [
+            "1000001001011",
+            "3"
+        ],
+        [
+            "10110110101",
+            "4"
+        ],
+        [
+            "0111",
+            "0"
+        ]
+    ],
+    "hint": "### Constraints\n\n- $ A $ is not empty.\n- The largest element in $ A $ is not larger than $ 500,000 $\n\n### Sample Explanation 1\n\nThe set $ A\\ =\\ \\{0,6,9,11,12\\} $. If you erase $ 9 $ and $ 11 $, Ao loves the set of remaining integers: $ \\{0,6,12\\} $.\n\n### Sample Explanation 3\n\nThe set of remaining integers must be empty."
+}

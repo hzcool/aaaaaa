@@ -1,0 +1,20 @@
+{
+    "description": "[problemUrl]: https://atcoder.jp/contests/jag2018summer-day2/tasks/jag2018summer_day2_i\n\nYou are given an integer sequence $ a_0,\\ a_1,\\ ...,\\ a_{N-1} $.\n\nYou have to perform $ Q $ queries, each query is one of the following:\n\n- `ADD QUERY(t=0 l r x)` : for each $ i $ between $ l $ and $ r $, inclusive, replace $ a_i $ with $ a_i\\ +\\ x $.\n- `DIV QUERY(t=1 l r x)` : for each $ i $ between $ l $ and $ r $, inclusive, replace $ a_i $ with $ {\\rm\\ floor}(a_i\\ /\\ x) $, where $ {\\rm\\ floor}(y) $ is the biggest integer that is not greater than $ y $.\n- `MAX QUERY(t=2 l r x=0)` : print $ {\\rm\\ max}(a_l,\\ a_{l+1},\\ ...,\\ a_r) $.\n- `RESTORE QUERY(t=3 l r x=0)` : for each $ i $ between $ l $ and $ r $, inclusive, set $ a_i $ to the initial value of $ a_i $, that is, the value given in the input.",
+    "inputFormat": "Input is given from Standard Input in the following format:\n\n> $ N $ $ Q $ $ a_0 $ $ a_1 $ ... $ a_{N-1} $ $ t_1 $ $ l_1 $ $ r_1 $ $ x_1 $ $ t_2 $ $ l_2 $ $ r_2 $ $ x_2 $ : $ t_Q $ $ l_Q $ $ r_Q $ $ x_Q $",
+    "outputFormat": "For each `MAX QUERY`, print $ {\\rm\\ max}(a_l,\\ a_{l+1},\\ ...,\\ a_r) $, one per line.",
+    "samples": [
+        [
+            "5 9\r\n1 2 3 4 5\r\n2 0 4 0\r\n0 0 1 10\r\n2 0 4 0\r\n2 2 2 0\r\n1 0 1 4\r\n2 0 0 0\r\n2 1 1 0\r\n3 0 4 0\r\n2 0 1 0",
+            "5\r\n12\r\n3\r\n2\r\n3\r\n2"
+        ],
+        [
+            "4 7\r\n0 1 0 1\r\n2 0 3 0\r\n0 0 3 1\r\n1 0 3 2\r\n2 0 3 0\r\n0 0 3 1\r\n1 0 3 2\r\n2 0 3 0",
+            "1\r\n1\r\n1"
+        ],
+        [
+            "10 23\r\n13 1 22 8 28 18 23 9 22 27\r\n1 3 4 5\r\n1 8 8 8\r\n0 3 9 5\r\n0 2 6 3\r\n3 0 4 0\r\n1 1 3 7\r\n2 2 2 0\r\n2 3 5 0\r\n0 1 4 2\r\n3 0 9 0\r\n2 0 1 0\r\n0 3 9 8\r\n2 1 9 0\r\n0 8 9 5\r\n1 5 7 7\r\n0 3 5 7\r\n0 7 9 7\r\n3 3 6 0\r\n2 1 6 0\r\n0 1 1 7\r\n1 4 8 10\r\n2 0 9 0\r\n1 5 6 1",
+            "3\r\n28\r\n13\r\n36\r\n28\r\n47"
+        ]
+    ],
+    "hint": "### Constraints\n\n- All input values are integers.\n- $ 1\\ \\leq\\ N,\\ Q\\ \\leq\\ 200,000 $\n- $ 0\\ \\leq\\ a_i\\ \\leq\\ 10^8 $\n- $ t_i\\ =\\ 0,\\ 1,\\ 2,\\ 3 $\n- $ 0\\ \\leq\\ l_i\\ \\leq\\ r_i\\ \\leq\\ N-1 $\n- $ 1\\ \\leq\\ x_i\\ \\leq\\ 1000 $(when $ t_i\\ \\neq\\ 2,\\ 3 $)\n\n### Sample Explanation 1\n\n\\- $ {\\rm\\ max}(1,\\ 2,\\ 3,\\ 4,\\ 5)\\ =\\ 5 $ - $ 1,\\ 2,\\ 3,\\ 4,\\ 5\\ \u2192\\ 11,\\ 12,\\ 3,\\ 4,\\ 5 $ - $ {\\rm\\ max}(11,\\ 12,\\ 3,\\ 4,\\ 5)\\ =\\ 12 $ - $ {\\rm\\ max}(3)\\ =\\ 3 $ - $ 11,\\ 12,\\ 3,\\ 4,\\ 5\\ \u2192\\ 2,\\ 3,\\ 3,\\ 4,\\ 5 $ - $ {\\rm\\ max}(2)\\ =\\ 2 $ - $ {\\rm\\ max}(3)\\ =\\ 3 $ - The array is restored to $ 1,\\ 2,\\ 3,\\ 4,\\ 5 $ - $ {\\rm\\ max}(1,\\ 2)\\ =\\ 2 $"
+}

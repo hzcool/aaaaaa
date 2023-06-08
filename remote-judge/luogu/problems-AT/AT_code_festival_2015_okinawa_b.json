@@ -1,0 +1,21 @@
+{
+    "description": "[problemUrl]: https://atcoder.jp/contests/code-festival-2015-okinawa-open/tasks/code_festival_2015_okinawa_b\n\n",
+    "inputFormat": "Inputs will be given by standard input in following format.\n\n> $ N $ $ X $ $ Y $ $ a_1 $ $ b_1 $ : $ a_N $ $ b_N $\n\n- At the first line, integer $ N(1\u2266N\u226650) $, $ X(1\u2266X\u226610,000) $, $ Y(1\u2266Y\u226610,000) $ will be given divided by spaces.\n- From the second line there are $ N $ additional lines, for each line $ a_i\\ (1\u2266\\ a_i\\ \u226610,000) $, $ b_i\\ (1\u2266\\ b_i\\ \u226610,000) $ will be given divided by spaces.",
+    "outputFormat": "Please output the number of the minimum amount of items of Okinawa Soba that needs to be purchased to let Wolf Sothe to eat $ X $ or more than $ X $ grams of noodles and $ Y $ or more than $ Y $ grams of soup.\n\nIf there is no solution that meets Wolf Sothe\u2019s need, output `-1`.\n\nPrint a newline at the end of output.",
+    "samples": [
+        [
+            "3 9 7\r\n3 4\r\n8 1\r\n4 5",
+            "2"
+        ],
+        [
+            "5 20 24\r\n8 1\r\n4 6\r\n10 3\r\n10 2\r\n5 10",
+            "-1"
+        ],
+        [
+            "5 6 8\r\n1 3\r\n6 2\r\n2 3\r\n3 5\r\n1 4",
+            "3"
+        ]
+    ],
+    "hint": "### Problem\n\nHence Wolf Sothe likes eating Okinawa Soba (a kind of famous food in Okinawa, which is made of noodles and soup), he comes to an Okinawa Soba restaurant today. There are $ N $ different kinds of Okinawa Soba. At the beginning, the $ i_{th} $ kind of Okinawa Soba consists of $ a_i $ grams of noodles and $ b_i $ grams of soup.\n\nNoodles will absorb soup after being purchased. Specifically, for the $ i_{th} $ kind of Okinawa Soba, if we had waited for $ t $ ($ t $ is a real number such that $ t\u22670 $) seconds after the purchase, the weight of the noodles will be $ min(\\ a_i\\ +\\ t\\ ,\\ a_i\\ +\\ b_i\\ ) $ grams, the weight of soup will be $ max(\\ b_i\\ \u2212\\ t\\ ,\\ 0\\ ) $ grams. The waiting time for each kind of Okinawa Soba is independent.\n\nWolf Sothe will choose a few kinds of Okinawa Soba among the $ N $ kinds to buy. For each kind of Okinawa Soba, there is only 1 item available.\n\nWolf Sothe wants to eat $ X $ or more than $ X $ grams of noodles and $ Y $ or more than $ Y $ grams of soup in total. Find the best solution that only needs the minimum amount of items of Okinawa Soba.\n\nPlease note that it costs no time for Wolf Sothe for eating Okinawa Soba, thus while Wolf Sothe is eating there is no absorption. In the other words, noodles will not absorb soup while Wolf Sothe is eating.\n\n### Sample Explanation 1\n\nPurchase the 1st and the 3rd kind of Okinawa Soba. For the 1st kind of Okinawa Soba, wait $ 2 $ second before eating. For the 3rd kind of Okinawa Soba, eat it as soon as it is purchased. Thus, it is possible to eat $ (3\\ +\\ 2)\\ +\\ (4\\ +\\ 0)\\ =\\ 9 $ grams of noodles and $ (4\\ \u2212\\ 2)\\ +\\ (5\\ \u2212\\ 0)\\ =\\ 7 $ grams of soup.\n\n### Sample Explanation 2\n\nBecause there is less than $ 24 $ grams of soup in total, it is impossible to meet Wolf Sothe\u2019s need even if all kinds of Okinawa Soba were purchased. Thus, output `-1`.",
+    "translation": "\u7ed9\u5b9a $n$ \u4e2a\u4e8c\u5143\u7ec4 $(a_i,b_i)$\u3002\u4e00\u4e2a\u4e8c\u5143\u7ec4 $(a,b)$ \u53ef\u4ee5\u53d8\u4e3a $(a+t,b-t)\\ (0\\le t\\le b)$\u3002\u4f60\u73b0\u5728\u53ef\u4ee5\u9009\u62e9\u4e00\u4e9b\u4e8c\u5143\u7ec4\u5e76\u5c06\u5b83\u4eec**\u5206\u522b**\u8fdb\u884c\uff08\u5373\u4e92\u76f8\u72ec\u7acb\uff09\u4e00\u6b21\u53d8\u6362\uff0c\u4f7f\u5f97\u53d8\u6362\u540e\u4f60\u9009\u62e9\u7684\u6240\u6709\u4e8c\u5143\u7ec4 $(a_j,b_j)$\uff0c$\\sum a_j\\ge A,\\sum b_j\\ge B$\u3002\u6c42\u6700\u5c11\u9700\u8981\u9009\u62e9\u5e76\u53d8\u6362\u7684\u4e8c\u5143\u7ec4\u6570\u91cf\u3002\r\n\r\n$1\\le n\\le 50,1\\le A,B,a_i,b_i\\le 10^4$"
+}

@@ -1,0 +1,16 @@
+{
+    "description": "[problemUrl]: https://atcoder.jp/contests/code-festival-2015-okinawa-open/tasks/code_festival_2015_okinawa_j\n\n",
+    "inputFormat": "Inputs will be given by standard input in following format.\n\n> $ N $ $ M $ $ K $ $ t_1 $ $ t_2 $ : $ t_N $\n\n- At the first line, integer $ N(1\u2266N\u2266100,000) $, $ M(1\u2266M\u2266N) $, $ K(1\u2266K\u2266N) $ will be given.\n- From the second line there are $ N $ additional lines to give information about sizes of trees. At the $ i_{th} $ line, integer $ t_i(1\u2266t_i\u22661,000,000,000) $ will be given.",
+    "outputFormat": "Please print the minimum value of the maximum value of the sum of sizes of consecutive $ K $ trees, when we made the optimal cutting choice for the trees in a line.\n\nPrint a newline at the end of output.",
+    "samples": [
+        [
+            "6 2 3\r\n1\r\n5\r\n6\r\n2\r\n4\r\n3",
+            "7"
+        ],
+        [
+            "10 3 4\r\n3\r\n14\r\n1\r\n5\r\n9\r\n2\r\n6\r\n5\r\n3\r\n5",
+            "17"
+        ]
+    ],
+    "hint": "### Problem\n\n Wolf Sothe owns a long land in the jungle. In this linear land, $ N $ trees grow at regular intervals. The size of the $ i_{th} $ tree from one end is given as $ t_i $.\n\nInside the jungle it is dark because trees obstruct sunlight. In order to let sunlight shine into the jungle, Wolf Sothe considers cutting some of the $ N $ trees (or cutting no one). More specifically, trees will be cut with the following rules.\n\n- Up to $ M $ trees can be cut (no more than $ M $).\n- Considering the impact on the surrounding ecosystem, it is not allowed to cut two or more trees in arbitrary $ K $ consecutive trees. More precisely, there is not $ i(1\u2266i\u2266N-K+1) $ such that $ 2 $ or more trees are cut in the $ i_{th} $, $ (i\\ +\\ 1)_{th} $, ......, $ (i\\ +\\ K-1)_{th} $ trees from one end.\n- If Wolf Sothe cuts the $ i_{th} $ tree from one end, the size of the tree $ t_i $ becomes $ 0 $.\n- We want the maximum value of the sum of sizes of $ K $ consecutive trees to be as small as possible. Namely, we want to minimize ![](https://cdn.luogu.com.cn/upload/vjudge_pic/AT_code_festival_2015_okinawa_j/d25f33d1f6ce52c73490ab5c9be9aed1a1e4ac83.png) .\n\nSince the size of the $ N $ trees and $ M $, $ K $ have been given, when we make the optimal cutting choice for the trees, please obtain the minimum value of the maximum value of the sum of sizes of consecutive $ K $ trees.\n\n### Sample Explanation 1\n\nIf Wolf Sothe cuts the $ 3_{rd} $ and $ 6_{th} $ tree, the minimum value of the maximum value of the sum of sizes of consecutive $ 3 $ consecutive trees will be obtained when it is for the $ 2_{nd} $, $ 3_{rd} $, $ 4_{th} $ tree. The sum of sizes is $ 5+0+2=7 $."
+}

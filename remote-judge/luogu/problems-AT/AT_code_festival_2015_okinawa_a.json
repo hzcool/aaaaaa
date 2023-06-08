@@ -1,0 +1,21 @@
+{
+    "description": "[problemUrl]: https://atcoder.jp/contests/code-festival-2015-okinawa-open/tasks/code_festival_2015_okinawa_a\n\n",
+    "inputFormat": "Inputs will be given by standard input in following format\n\n> $ H $ $ W $ $ K $\n\n- At the first line, $ H\\ (1\\ \u2266\\ H\\ \u2266\\ 100) $ \u3001 $ W\\ (1\\ \u2266\\ W\\ \u2266\\ 100) $ \u3001 $ K\\ (1\\ \u2266\\ K\\ \u2266\\ 10,000) $ will be given divided by spaces.",
+    "outputFormat": "Output `IMPOSSIBLE` if it is impossible to draw exactly $ K $ islands. Otherwise, output $ H $ lines where the $ i_{th} $ line has $ W $ letters, and the $ j_{th} $ letter from the left side of the $ i_{th} $ line must be the letter that Cat Snuke draws on her paper.\n\nIf there are multiple possible solutions, it is allowed to output any of them.\n\nPrint a newline at the end of output.",
+    "samples": [
+        [
+            "6 7 4",
+            "#.#####\r\n..#...#\r\n#.#.#.#\r\n#.#...#\r\n#..####\r\n.#..###"
+        ],
+        [
+            "2 4 3",
+            "IMPOSSIBLE"
+        ],
+        [
+            "20 50 10",
+            "..................................................\r\n...........................................#......\r\n..........................................#.......\r\n..................................................\r\n..........................................#.......\r\n..............................................#...\r\n.....................................##..#....##..\r\n.........................................##..###..\r\n..........................#...............#####...\r\n..........................................####....\r\n.........................................###......\r\n......##...............#..............#.#.........\r\n.......##.............................##..........\r\n........#.............................###.........\r\n.....................................##...........\r\n.............................#.......##...........\r\n.............................#..#.................\r\n...........................#....#.................\r\n..................................................\r\n.................................................."
+        ]
+    ],
+    "hint": "### Problem\n\nAs is known to all, Okinawa is comprised of various islands. Cat Snuke wants to draw a simple map to include some of these islands. However, since the size of the paper is limited, Snuke will not be able to draw the map in details.\n\nTherefore, Cat Snuke divides the paper into grids, which have $ H $ horizontal rows and $ W $ vertical columns. For each block of the grids, it will be filled with either a `.` that represents the sea or a `#` that represents the land.\n\nEach island consists of blocks of land. For two blocks that represent land, we say that they belong to the same island, only if they had coincident edges or vertexes, or they were connected by other blocks that have coincident edges or vertexes. Otherwise, we say these two blocks belong to different islands.\n\nSuppose that there is only sea beyond Snuke\u2019s map. Also, please note that the blocks of land that is surrounded by sea that is surrounded by an island belong to another island (rather than the outer island).\n\nCat Snuke needs to follow the rules above to draw exactly $ K $ islands on the paper. Please decide whether Snuke is able to draw. If your answer was yes, please find a solution.\n\n### Sample Explanation 1\n\nThere are four islands. Although the land block at the 3rd row from the top and the 5th column from the left is surrounded by an outer island, they are separated because that there is sea between them and they share no edges nor vertices.\n\n### Sample Explanation 2\n\nThe paper is too small to draw a map that satisfies the conditions.",
+    "translation": "\u6784\u9020\u4e00\u5f20 $H\\times W$ \u7684\u7531\u5c9b\u5c7f`#`\u3001\u6d77\u6d0b`.`\u7ec4\u6210\u7684\u5730\u56fe\uff0c\u5c9b\u5c7f\u4e3a\u516b\u8fde\u901a\uff0c\u6ee1\u8db3\u6070\u597d\u5305\u542b $K$ \u4e2a\u8054\u901a\u5757\u3002\r\n\r\n\u65e0\u89e3\u8f93\u51fa `IMPOSSIBLE`\u3002\r\n\r\n$1\\le H,W\\le 100,1\\le K\\le 10000$"
+}

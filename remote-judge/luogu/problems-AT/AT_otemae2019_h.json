@@ -1,0 +1,24 @@
+{
+    "description": "[problemUrl]: https://atcoder.jp/contests/otemae2019/tasks/otemae2019_h\n\n$ N $ \u500b\u306e\u98f4\u304c\u3042\u308a\uff0c$ i $ \u756a\u76ee\u306e\u98f4\u306e\u7f8e\u5473\u3057\u3055\u306f $ A_i $ \u3067\u3042\u308b\uff0e\n\n$ f(l,r) $ $ (1\\ \\leq\\ l\\ \\leq\\ r\\ \\leq\\ N) $ \u3092\uff0c$ l $ \u756a\u76ee\u304b\u3089 $ r $ \u756a\u76ee\u306e\u98f4\u306b\u304a\u3044\u3066\u4e0b\u8a18\u306e\u6761\u4ef6\u306e\u4e0b\u3067\uff0c\u98df\u3079\u305f\u98f4\u306e\u7f8e\u5473\u3057\u3055\u306e\u7dcf\u548c\u306e\u6700\u5927\u5024\u3068\u5b9a\u7fa9\u3059\u308b\uff0e\n\n\u6761\u4ef6\uff1a$ 2 $ \u500b\u9023\u7d9a\u3057\u3066\u98df\u3079\u306a\u3044\uff0e\u3059\u306a\u308f\u3061\uff0c$ l\\ \\leq\\ i\\ <\\ r $ \u3092\u6e80\u305f\u3059\u5168\u3066\u306e $ i $ \u306b\u304a\u3044\u3066\uff0c$ i $ \u756a\u76ee\u306e\u98f4\u3068 $ i+1 $ \u756a\u76ee\u306e\u98f4\u3092\u4e21\u65b9\u98df\u3079\u308b\u3053\u3068\u306f\u3067\u304d\u306a\u3044\uff0e\n\n\u305d\u308c\u305e\u308c\u306e\u98f4\u306e\u7f8e\u5473\u3057\u3055\u304c\u4e0e\u3048\u3089\u308c\u305f\u3068\u304d\uff0c$ 1\\ \\leq\\ l\\ \\leq\\ r\\ \\leq\\ N $ \u3092\u6e80\u305f\u3059\u3059\u3079\u3066\u306e\u7d44 $ (l,r) $ \u306b\u3064\u3044\u3066\u306e $ f(l,r) $ \u306e\u7dcf\u548c\u3092 $ 998\\,244\\,353 $ \u3067\u5272\u3063\u305f\u4f59\u308a\u3092\u6c42\u3081\u308b\u30d7\u30ed\u30b0\u30e9\u30e0\u3092\u4f5c\u6210\u305b\u3088\uff0e",
+    "inputFormat": "\u5165\u529b\u306f\u4ee5\u4e0b\u306e\u5f62\u5f0f\u3067\u6a19\u6e96\u5165\u529b\u304b\u3089\u4e0e\u3048\u3089\u308c\u308b\uff0e\n\n> $ N $ $ A_1 $ $ \\cdots $ $ A_N $",
+    "outputFormat": "\u6a19\u6e96\u51fa\u529b\u306b\uff0c$ 1\\ \\leq\\ l\\ \\leq\\ r\\ \\leq\\ N $ \u3092\u6e80\u305f\u3059\u3059\u3079\u3066\u306e\u7d44 $ (l,r) $ \u306b\u3064\u3044\u3066\u306e $ f(l,r) $ \u306e\u7dcf\u548c\u3092 $ 998\\,244\\,353 $ \u3067\u5272\u3063\u305f\u4f59\u308a\u3092 $ 1 $ \u884c\u3067\u51fa\u529b\u305b\u3088\uff0e",
+    "samples": [
+        [
+            "3\r\n1 2 3",
+            "15"
+        ],
+        [
+            "4\r\n1 100 100 1",
+            "805"
+        ],
+        [
+            "1\r\n1000000000",
+            "1755647"
+        ],
+        [
+            "10\r\n850534838 749655434 745817507 991867417 645519349 373697182 427765279 182404140 260664174 366393413",
+            "554337161"
+        ]
+    ],
+    "hint": "### \u5236\u7d04\n\n- $ 1\\ \\leq\\ N\\ \\leq\\ 200\\,000 $\uff0e\n- $ 1\\ \\leq\\ A_i\\ \\leq\\ 1\\,000\\,000\\,000 $ $ (1\\ \\leq\\ i\\ \\leq\\ N) $\uff0e\n\n### \u5c0f\u8ab2\u984c\n\n1. ($ 10 $ \u70b9) $ N\\ \\leq\\ 300 $\uff0e\n2. ($ 20 $ \u70b9) $ A_i\\ \\leq\\ 300 $ $ (1\\ \\leq\\ i\\ \\leq\\ N) $\uff0e\n3. ($ 70 $ \u70b9) \u8ffd\u52a0\u306e\u5236\u7d04\u306f\u306a\u3044\uff0e\n\n### Sample Explanation 1\n\n$ l=2,r=3 $ \u306e\u5834\u5408\uff0c$ 2 $ \u756a\u76ee\u3068 $ 3 $ \u756a\u76ee\u306e\u98f4\u3092\u4e21\u65b9\u3068\u3082\u98df\u3079\u308b\u3053\u3068\u304c\u3067\u304d\u305a\uff0c$ 3 $ \u756a\u76ee\u306e\u98f4\u3060\u3051\u3092\u98df\u3079\u308b\u306e\u304c\u6700\u9069\u306b\u306a\u308b\u306e\u3067\uff0c$ f(l,r)=3 $ \u306b\u306a\u308b\uff0e $ l=1,r=3 $ \u306e\u5834\u5408\uff0c$ 1 $ \u756a\u76ee\u3068 $ 3 $ \u756a\u76ee\u306e\u98f4\u3092\u98df\u3079\u308b\u306e\u304c\u6700\u9069\u306b\u306a\u308b\u306e\u3067\uff0c$ f(l,r)=1+3=4 $ \u306b\u306a\u308b\uff0e \u51fa\u529b\u3059\u308b\u5024\u306f $ f(1,1)+f(1,2)+f(1,3)+f(2,2)+f(2,3)+f(3,3)=1+2+4+2+3+3=15 $ \u306b\u306a\u308b\uff0e\n\n### Sample Explanation 3\n\n$ 998\\,244\\,353 $ \u3067\u5272\u3063\u305f\u4f59\u308a\u3092\u51fa\u529b\u305b\u3088\uff0e"
+}

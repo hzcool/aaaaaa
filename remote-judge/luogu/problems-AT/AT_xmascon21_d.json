@@ -1,0 +1,16 @@
+{
+    "description": "[problemUrl]: https://atcoder.jp/contests/xmascon21/tasks/xmascon21_d\n\n\u6574\u6570\u3092\u6210\u5206\u3068\u3059\u308b $ N $ \u500b\u306e $ K\\ \\times\\ K $ \u884c\u5217 $ A_1,\\ \\ldots,\\ A_N $ \u304c\u4e0e\u3048\u3089\u308c\u308b\uff0e$ A_h $ \u306e $ (i,\\ j) $ \u6210\u5206\u306f $ A_{h,i,j} $ \u3067\u3042\u308b ($ 1\\ \\le\\ h\\ \\le\\ N $\uff0c$ 1\\ \\le\\ i\\ \\le\\ K $\uff0c$ 1\\ \\le\\ j\\ \\le\\ K $)\uff0e\n\n$ \\mathfrak{S}_N $ \u3092 $ N $ \u6b21\u5bfe\u79f0\u7fa4\u3068\u3059\u308b\uff0e$ K\\ \\times\\ K $ \u884c\u5217 $ \\sum_{\\sigma\\in\\mathfrak{S}_N}\\ \\operatorname{sgn}(\\sigma)\\ A_{\\sigma(1)}\\ \\cdots\\ A_{\\sigma(N)} $ \u306e\u5404\u6210\u5206\u3092 $ 998244353 $ \u3067\u5272\u3063\u305f\u4f59\u308a ($ 0 $ \u4ee5\u4e0a $ 998244353 $ \u672a\u6e80) \u3092\u6c42\u3081\u3088\uff0e\n\n(\u3059\u306a\u308f\u3061\uff0c$ A_1,\\ \\ldots,\\ A_N $ \u306e\u4e26\u3079\u66ff\u3048 $ N! $ \u901a\u308a\u306b\u3064\u3044\u3066\uff0c\u305d\u306e\u9806\u306e\u884c\u5217\u7a4d\u306b[\u7f6e\u63db\u306e\u7b26\u53f7](https://ja.wikipedia.org/wiki/%E7%BD%AE%E6%8F%9B%E3%81%AE%E7%AC%A6%E5%8F%B7)\u3092\u304b\u3051\u3066\u8db3\u3057\u305f\u3082\u306e\u306b\u3064\u3044\u3066\uff0c\u5404\u6210\u5206\u3092 $ 998244353 $ \u3067\u5272\u3063\u305f\u4f59\u308a\u3092\u6c42\u3081\u3088\uff0e)",
+    "inputFormat": "\u5165\u529b\u306f\u4ee5\u4e0b\u306e\u5f62\u5f0f\u3067\u6a19\u6e96\u5165\u529b\u304b\u3089\u4e0e\u3048\u3089\u308c\u308b\uff0e\n\n> $ N $ $ K $ $ A_{1,1,1} $ $ \\cdots $ $ A_{1,1,K} $ $ \\vdots $ $ A_{1,K,1} $ $ \\cdots $ $ A_{1,K,K} $ $ \\vdots $ $ \\vdots $ $ \\vdots $ $ A_{N,1,1} $ $ \\cdots $ $ A_{N,1,K} $ $ \\vdots $ $ A_{N,K,1} $ $ \\cdots $ $ A_{N,K,K} $",
+    "outputFormat": "\u6c42\u3081\u308b\u548c\u306e $ (i,\\ j) $ \u6210\u5206\u3092 $ 998244353 $ \u3067\u5272\u3063\u305f\u4f59\u308a\u3092 $ b_{i,j} $ \u3068\u3057\u3066 ($ 1\\ \\le\\ i\\ \\le\\ K $\uff0c$ 1\\ \\le\\ j\\ \\le\\ K $)\uff0c\u4ee5\u4e0b\u306e\u5f62\u5f0f\u3067\u51fa\u529b\u305b\u3088\uff0e\n\n> $ b_{1,1} $ $ \\cdots $ $ b_{1,K} $ $ \\vdots $ $ b_{K,1} $ $ \\cdots $ $ b_{K,K} $",
+    "samples": [
+        [
+            "2 3\r\n2 7 1\r\n8 2 8\r\n1 8 2\r\n8 4 5\r\n9 0 4\r\n5 2 3",
+            "31 998244259 998244344\r\n100 998244306 55\r\n61 998244298 16"
+        ],
+        [
+            "3 2\r\n30 10\r\n40 10\r\n50 90\r\n20 60\r\n50 30\r\n50 80",
+            "155000 122000\r\n67000 364000"
+        ]
+    ],
+    "hint": "### \u5236\u7d04\n\n- $ 1\\ \\le\\ N\\ \\le\\ 32 $\uff0e\n- $ 1\\ \\le\\ K\\ \\le\\ 8 $\uff0e\n- $ 0\\ \\le\\ A_{h,i,j}\\ <\\ 998244353 $ ($ 1\\ \\le\\ h\\ \\le\\ N $\uff0c$ 1\\ \\le\\ i\\ \\le\\ K $\uff0c$ 1\\ \\le\\ j\\ \\le\\ K $)\uff0e\n\n### Sample Explanation 1\n\n$ A_0\\ A_1\\ -\\ A_1\\ A_0\\ =\\ \\begin{bmatrix}\\ 31\\ &amp;\\ -94\\ &amp;\\ -9\\ \\\\ 100\\ &amp;\\ -47\\ &amp;\\ 55\\ \\\\ 61\\ &amp;\\ -55\\ &amp;\\ 16\\ \\end{bmatrix} $ \u3068\u306a\u308b\uff0e\n\n### Sample Explanation 2\n\n$ A_0\\ A_1\\ A_2\\ -\\ A_0\\ A_2\\ A_1\\ -\\ A_1\\ A_0\\ A_2\\ +\\ A_1\\ A_2\\ A_0\\ +\\ A_2\\ A_0\\ A_1\\ -\\ A_2\\ A_1\\ A_0\\ =\\ \\begin{bmatrix}\\ 155000\\ &amp;\\ 122000\\ \\\\ 67000\\ &amp;\\ 364000\\ \\end{bmatrix} $ \u3068\u306a\u308b\uff0e"
+}

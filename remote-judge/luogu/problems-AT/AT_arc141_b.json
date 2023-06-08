@@ -1,0 +1,21 @@
+{
+    "description": "[problemUrl]: https://atcoder.jp/contests/arc141/tasks/arc141_b\n\n\u6b63\u6574\u6570 $ N,\\ M $ \u304c\u4e0e\u3048\u3089\u308c\u307e\u3059\u3002\n\n\u9577\u3055 $ N $ \u306e\u6b63\u6574\u6570\u5217 $ A=(A_1,\\ A_2,\\ \\dots,\\ A_N) $ \u3067\u3042\u3063\u3066\u3001\u4ee5\u4e0b\u306e\u6761\u4ef6\u3092\u6e80\u305f\u3059\u3082\u306e\u306e\u500b\u6570\u3092 $ 998244353 $ \u3067\u5272\u3063\u305f\u4f59\u308a\u3092\u6c42\u3081\u3066\u304f\u3060\u3055\u3044\u3002\n\n- $ 1\\ \\leq\\ A_1\\ <\\ A_2\\ <\\ \\dots\\ <\\ A_N\\ \\leq\\ M $\n- $ B_i\\ =\\ A_1\\ \\oplus\\ A_2\\ \\oplus\\ \\dots\\ \\oplus\\ A_i $ \u3068\u3057\u305f\u3068\u304d\u3001 $ B_1\\ <\\ B_2\\ <\\ \\dots\\ <\\ B_N $\n\n\u305f\u3060\u3057\u3053\u3053\u3067\u3001 $ \\oplus $ \u306f\u30d3\u30c3\u30c8\u5358\u4f4d $ \\mathrm{XOR} $ \u6f14\u7b97\u3092\u8868\u3057\u307e\u3059\u3002\n\n  \u30d3\u30c3\u30c8\u5358\u4f4d $ \\mathrm{XOR} $ \u6f14\u7b97\u3068\u306f  \u975e\u8ca0\u6574\u6570 $ A,\\ B $ \u306e\u30d3\u30c3\u30c8\u5358\u4f4d $ \\mathrm{XOR} $ \u3001$ A\\ \\oplus\\ B $ \u306f\u3001\u4ee5\u4e0b\u306e\u3088\u3046\u306b\u5b9a\u7fa9\u3055\u308c\u307e\u3059\u3002\n\n- $ A\\ \\oplus\\ B $ \u3092\u4e8c\u9032\u8868\u8a18\u3057\u305f\u969b\u306e $ 2^k $ ($ k\\ \\geq\\ 0 $) \u306e\u4f4d\u306e\u6570\u306f\u3001$ A,\\ B $ \u3092\u4e8c\u9032\u8868\u8a18\u3057\u305f\u969b\u306e $ 2^k $ \u306e\u4f4d\u306e\u6570\u306e\u3046\u3061\u4e00\u65b9\u306e\u307f\u304c $ 1 $ \u3067\u3042\u308c\u3070 $ 1 $\u3001\u305d\u3046\u3067\u306a\u3051\u308c\u3070 $ 0 $ \u3067\u3042\u308b\u3002\n \n \u4f8b\u3048\u3070\u3001$ 3\\ \\oplus\\ 5\\ =\\ 6 $ \u3068\u306a\u308a\u307e\u3059 (\u4e8c\u9032\u8868\u8a18\u3059\u308b\u3068: $ 011\\ \\oplus\\ 101\\ =\\ 110 $)\u3002  \n \u4e00\u822c\u306b $ k $ \u500b\u306e\u975e\u8ca0\u6574\u6570 $ p_1,\\ p_2,\\ p_3,\\ \\dots,\\ p_k $ \u306e\u30d3\u30c3\u30c8\u5358\u4f4d $ \\mathrm{XOR} $ \u306f $ (\\dots\\ ((p_1\\ \\oplus\\ p_2)\\ \\oplus\\ p_3)\\ \\oplus\\ \\dots\\ \\oplus\\ p_k) $ \u3068\u5b9a\u7fa9\u3055\u308c\u3001\u3053\u308c\u306f $ p_1,\\ p_2,\\ p_3,\\ \\dots,\\ p_k $ \u306e\u9806\u756a\u306b\u3088\u3089\u306a\u3044\u3053\u3068\u304c\u8a3c\u660e\u3067\u304d\u307e\u3059\u3002",
+    "inputFormat": "\u5165\u529b\u306f\u4ee5\u4e0b\u306e\u5f62\u5f0f\u3067\u6a19\u6e96\u5165\u529b\u304b\u3089\u4e0e\u3048\u3089\u308c\u307e\u3059\u3002\n\n> $ N $ $ M $",
+    "outputFormat": "\u7b54\u3048\u3092\u51fa\u529b\u3057\u3066\u304f\u3060\u3055\u3044\u3002",
+    "samples": [
+        [
+            "2 4",
+            "5"
+        ],
+        [
+            "4 4",
+            "0"
+        ],
+        [
+            "10 123456789",
+            "205695670"
+        ]
+    ],
+    "hint": "### \u5236\u7d04\n\n- $ 1\\ \\leq\\ N\\ \\leq\\ M\\ <\\ 2^{60} $\n- \u5165\u529b\u3055\u308c\u308b\u5024\u306f\u3059\u3079\u3066\u6574\u6570\n\n### Sample Explanation 1\n\n\u4f8b\u3048\u3070 $ (A_1,\\ A_2)=(1,\\ 3) $ \u3068\u3059\u308b\u3068 $ A_1\\ <\\ A_2 $ \u3067\u3042\u308a\u3001$ B_1=A_1=1,\\ B_2=A_1\\oplus\\ A_2=2 $ \u3088\u308a $ B_1\\ <\\ B_2 $ \u304c\u6210\u308a\u7acb\u3064\u306e\u3067\u6761\u4ef6\u3092\u6e80\u305f\u3057\u307e\u3059\u3002 \u3053\u306e\u4ed6\u306b\u306f $ (A_1,\\ A_2)=(1,\\ 2),\\ (1,\\ 4),\\ (2,\\ 4),\\ (3,\\ 4) $ \u304c\u6761\u4ef6\u3092\u6e80\u305f\u3057\u307e\u3059\u3002",
+    "translation": "\u7ed9\u5b9a $m,n$\uff0c\u5e0c\u671b\u6784\u9020\u957f\u5ea6\u4e3a $m$ \u7684\u6570\u5217 $a$ \u6ee1\u8db3\u6761\u4ef6\uff1a\n\n- $1\\le a_1<a_2<\\dots a_m\\le n$\u3002\n\n- \u4ee4 $b_i=\\oplus_{j=1}^i$\uff0c\u90a3\u4e48 $b$ \u662f\u5355\u589e\u7684\u3002\n\n\u6c42\u65b9\u6848\u4e2a\u6570\u3002"
+}

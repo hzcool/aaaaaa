@@ -1,0 +1,28 @@
+{
+    "description": "[problemUrl]: https://atcoder.jp/contests/code-festival-2014-china-open/tasks/code_festival_china_e\n\n",
+    "inputFormat": "Input is given in the following format.\n\n> $ N_1 $ $ N_2 $ $ N_3 $ $ P_1 $ $ P_2 $ $ P_3 $\n\n- On the first line, you will be given three integers $ N_1,N_2,N_3\\ (0\\ \\leq\\ N_1,N_2,N_3\\ \\leq\\ 100) $, the number of stages of each difficulty separated by space, respectively.\n- On the second line, you will be given three integers $ P_1,P_2,P_3\\ (1\\ \\leq\\ P_1,P_2,P_3\\ \\leq\\ 100) $, the probability of completing the stage of each difficulty in percentage separated by space, respectively.",
+    "outputFormat": "Output one line containing the expected value of cost you must pay to complete all stages when you followed the optimal strategy to minimize the total cost. Your answer is considered correct if it has an absolute or relative error less than $ 10^{-7} $. Make sure to insert a line break at the end of the line.",
+    "samples": [
+        [
+            "3 0 1\r\n100 100 100",
+            "1.0"
+        ],
+        [
+            "100 100 100\r\n100 100 100",
+            "75.0"
+        ],
+        [
+            "3 0 1\r\n50 100 50",
+            "5.0"
+        ],
+        [
+            "4 1 1\r\n50 25 10",
+            "17.01875"
+        ],
+        [
+            "11 13 17\r\n75 50 25",
+            "69.106100438"
+        ]
+    ],
+    "hint": "### Problem\n\nThere is a video game. In the game, there are $ N $ numbers of stages. There are $ 3 $ levels of difficulty and each stage has one of a difficulty in $ 1,2,3 $.\n\nThe number of stages of each difficulty is $ N_1,N_2,N_3\\ (N_1+N_2+N_3=N) $ For each difficulty, you know that the probability of completing the stage of that difficulty in one trial is $ P_1,P_2,P_3 $ (%).\n\nYou have to pay cost $ 1 $ to play the game. In one gameplay, you can play at least $ 1 $ stage, and at most $ 4 $ stages. The number of stages you can play with cost $ 1 $ depends as following.\n\n- If you complete the first trial, you can continue to play the second trial. If you couldn't complete the first trial, that's the end of that play.\n- If you complete the second trial, you can continue to play the final trial. If you couldn't complete the second trial, that's the end of that play.\n- If you complete the final trial and also if the difficulty of that stage was $ 2 $ or $ 3 $, you can continue to play the extra trial. If not, that's the end of that play.\n\nBefore starting each first, second, final, and extra trial, you may choose any stage of any difficulty to play. Also, you may choose the stage you have already completed before.\n\nFor example, if you paid cost $ 1 $ and started the game, completed the first trial, and failed the second trial, that's the end of the play for that time. You can't play the final trial in that case.\n\nYour aim is to complete all the $ N $ stages at least $ 1 $ time each. Regarding you followed a optimal strategy to minimize the total cost, calculate the expected value of cost you must pay to achieve that.\n\nWhenever you choose the stage to play, you can choose any stage using the information about all stages you have tried including the stages you have completed at previous trial.\n\n### Sample Explanation 1\n\nThere are $ 4 $ stages. you can surely complete the stage of any difficulty at once. Pay cost $ 1 $ to start the gameplay. For each trial, choose the stage as following and you can complete all the stages with no additional cost. - For the first trial, choose the stage of difficulty $ 1 $. - For the second trial, choose the stage of difficulty $ 1 $. - For the final trial, choose the stage of difficulty $ 3 $. - For the extra trial, choose the stage of difficulty $ 1 $."
+}

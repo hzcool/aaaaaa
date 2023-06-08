@@ -1,0 +1,20 @@
+{
+    "description": "[problemUrl]: https://atcoder.jp/contests/code-festival-2015-okinawa-open/tasks/code_festival_2015_okinawa_i\n\n",
+    "inputFormat": "Inputs will be given by standard input in following format\n\n> $ N $ $ A $ $ B $ $ M $ $ t_1 $ $ t_2 $ : $ t_M $\n\n- For the first line, integer $ N(1\u2266N\u22661,000,000,000) $, $ A(1\u2266A\u22661,000,000,000) $, $ B(1\u2266B\u22661,000,000,000) $, $ M(0\u2266M\u2266100,000) $ will be given divided by spaces. $ M $ represents the number of the decided rest days.\n- From the second line there are $ M $ additional lines to give the information about decided rest days. For the $ i_{th} $ line, an integer $ t_i(1\u2266t_i\u2266N) $ that represents the $ t_i $ th decided rest day will be given. Please note that if $ i\\ <\\ j $, then $ t_i\\ <\\ t_j $",
+    "outputFormat": "Please output the maximum value of the number of problems that can be solved during $ N $ days in one line.\n\nPrint a newline at the end of output.",
+    "samples": [
+        [
+            "5 6 2 0",
+            "20"
+        ],
+        [
+            "6 4 3 1\r\n3",
+            "13"
+        ],
+        [
+            "12 10 3 3\r\n2\r\n7\r\n10",
+            "71"
+        ]
+    ],
+    "hint": "### Problem\n\nWolf Sothe loves implementing online judge problems, he wants to solve as many problems as possible. However, if he keeps solving problems every day without a rest, day by day the number of problems that can be solved in a day will reduce.\n\nSo, sometimes Wolf Sothe takes a day off. On that day, Wolf Sothe will not solve any problem, then for the next day and later Wolf Sothe will be able to solve problems.\n\nThe number of problems that Wolf Sothe can solve in a day is as follows:\n\n- If that day is a working day, we define the number of days that Wolf Sothe has kept solving problems as $ k $ (not including that day). Then Wolf Sothe can solve $ max(0,\\ A\\ \u2212\\ k\\ \\times\\ B) $ problems during that day.\n- If that day is a rest day, during that day no problem will be solved.\n\nWolf Sothe wants to solve problems for $ N $ days. Let the $ N $ days be as a sequence from the 1st day to the $ N_{th} $ day. Suppose that Wolf Sothe doesn't solve problems before the 1st day.\n\nIn addition, we known in advance that there are some decided rest days.\n\nA list of all the decided rest days will be given. For any other day, you can mark it as a rest day or a working day. Please find the maximum value of the number of problems that can be solved during $ N $ days.\n\n### Sample Explanation 1\n\nSuppose that Wolf Sothe rest on the 3rd day and solve problems on the remaining $ 4 $ days. - For the 1st day, Wolf Sothe has kept solving problems for $ 0 $ day. Thus, $ max(0,\\ 6\\ \u2212\\ 0\\ \\times\\ 2)\\ =\\ 6 $ problems. - For the 2nd day, Wolf Sothe has kept solving problems for $ 1 $ day. Thus, $ max(0,6\\ \u2212\\ 1\\ \\times\\ 2)\\ =\\ 4 $ problems. - For the 3rd day, Wolf Sothe rests. Thus, $ 0 $ problem. - For the 4th day, Wolf Sothe has kept solving problems for $ 0 $ day. Thus, $ max(0,\\ 6\\ \u2212\\ 0\\ \\times\\ 2)\\ =\\ 6 $ problems. - For the 5th day, Wolf Sothe has kept solving problems for $ 1 $ day. Thus, $ max(0,\\ 6\\ \u2212\\ 1\\ \\times\\ 2)\\ =\\ 4 $ problems. In conclusion, $ 6\\ +\\ 4\\ +\\ 0\\ +\\ 6\\ +\\ 4\\ =\\ 20 $ will be solved in total."
+}

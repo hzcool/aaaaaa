@@ -1,0 +1,21 @@
+{
+    "description": "[problemUrl]: https://atcoder.jp/contests/jsc2019-final/tasks/jsc2019_final_f\n\n\u9577\u3055 $ N $ \u306e\u6570\u5217 $ A_0,A_1,\\cdots,A_{N-1} $ \u304c\u3042\u308a\u307e\u3059\u3002 \u6b21\u306e $ Q $ \u500b\u306e\u8cea\u554f\u306b\u7b54\u3048\u3066\u304f\u3060\u3055\u3044\u3002\n\n- \u8cea\u554f $ i $ ($ 0\\ \\leq\\ i\\ \\leq\\ Q-1 $): \u6574\u6570 $ L_i,R_i $ ($ 0\\ \\leq\\ L_i\\ <\\ R_i\\ \\leq\\ N $) \u304c\u4e0e\u3048\u3089\u308c\u308b\u3002 $ (0,1,\\cdots,N-1) $ \u306e\u9806\u5217 $ p_0,p_1,\\cdots,p_{N-1} $ \u3067\u3042\u3063\u3066\u3001\u6b21\u306e\u6761\u4ef6\u3092\u307f\u305f\u3059\u3082\u306e\u306e\u500b\u6570\u3092\u6c42\u3081\u3088\u3002\n  - \u5168\u3066\u306e $ j $ ($ L_i\\ \\leq\\ j\\ <\\ R_i $) \u306b\u3064\u3044\u3066\u3001$ p_j\\ \\neq\\ A_j $ \u3067\u3042\u308b\u3002\n\n\u305f\u3060\u3057\u3001\u7b54\u3048\u306f\u975e\u5e38\u306b\u5927\u304d\u304f\u306a\u308b\u3053\u3068\u304c\u3042\u308b\u306e\u3067\u3001$ 998244353 $ \u3067\u5272\u3063\u305f\u3042\u307e\u308a\u3092\u51fa\u529b\u3057\u3066\u304f\u3060\u3055\u3044\u3002",
+    "inputFormat": "\u5165\u529b\u306f\u4ee5\u4e0b\u306e\u5f62\u5f0f\u3067\u6a19\u6e96\u5165\u529b\u304b\u3089\u4e0e\u3048\u3089\u308c\u308b\u3002\n\n> $ N $ $ Q $ $ A_0 $ $ A_1 $ $ \\cdots $ $ A_{N-1} $ $ L_0 $ $ R_0 $ $ L_1 $ $ R_1 $ $ \\vdots $ $ L_{Q-1} $ $ R_{Q-1} $",
+    "outputFormat": "$ Q $ \u884c\u51fa\u529b\u305b\u3088\u3002 $ i+1 $ ($ 0\\ \\leq\\ i\\ \\leq\\ Q-1 $) \u884c\u76ee\u306b\u306f\u3001\u8cea\u554f $ i $ \u306e\u7b54\u3048\u3092 $ 998244353 $ \u3067\u5272\u3063\u305f\u3042\u307e\u308a\u3092\u51fa\u529b\u305b\u3088\u3002",
+    "samples": [
+        [
+            "3 6\r\n0 0 0\r\n0 1\r\n0 2\r\n0 3\r\n1 2\r\n1 3\r\n2 3",
+            "4\r\n2\r\n0\r\n4\r\n2\r\n4"
+        ],
+        [
+            "3 6\r\n0 1 2\r\n0 1\r\n0 2\r\n0 3\r\n1 2\r\n1 3\r\n2 3",
+            "4\r\n3\r\n2\r\n4\r\n3\r\n4"
+        ],
+        [
+            "10 10\r\n7 9 4 8 0 6 7 8 9 8\r\n0 5\r\n4 7\r\n3 10\r\n7 10\r\n7 9\r\n4 9\r\n0 3\r\n6 9\r\n4 9\r\n1 3",
+            "2170680\r\n2656080\r\n1712520\r\n2620800\r\n2943360\r\n2170680\r\n2656080\r\n2656080\r\n2170680\r\n2943360"
+        ]
+    ],
+    "hint": "### \u5236\u7d04\n\n- $ 1\\ \\leq\\ N\\ \\leq\\ 2000 $\n- $ 0\\ \\leq\\ A_i\\ \\leq\\ N-1 $\n- $ 1\\ \\leq\\ Q\\ \\leq\\ 2000 $\n- $ 0\\ \\leq\\ L_i\\ <\\ R_i\\ \\leq\\ N $\n- \u5165\u529b\u3055\u308c\u308b\u5024\u306f\u3059\u3079\u3066\u6574\u6570\u3067\u3042\u308b\u3002\n\n### Sample Explanation 1\n\n\u4f8b\u3048\u3070\u8cea\u554f $ 0 $ \u306b\u3064\u3044\u3066\u8003\u3048\u308b\u3068\u3001\u6761\u4ef6\u3092\u307f\u305f\u3059\u9806\u5217\u306f $ (1,0,2),(1,2,0),(2,0,1),(2,1,0) $ \u306e $ 4 $ \u901a\u308a\u3067\u3059\u3002",
+    "translation": "\u7ed9\u4f60\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u4e2a\u5e8f\u5217 $a$\uff0c\u5206\u522b\u662f $a_0,a_1, \\cdots ,a_{n-1}$\u3002\n\n$Q$ \u6b21\u8be2\u95ee\uff0c\u6bcf\u6b21\u8be2\u95ee\u4e00\u4e2a\u533a\u95f4 $[L,R)$\uff0c\u6709\u591a\u5c11\u4e2a $0 \\sim {n-1}$ \u7684\u6392\u5217 $p_0,p_1, \\cdots ,p_{n-1}$ \u6ee1\u8db3 $p_j \\neq a_j(L \\le j < R)$\uff0c\u7b54\u6848\u5bf9 $998244353$ \u53d6\u6a21\u3002\n\n\u6570\u636e\u89c4\u6a21\uff1a$1 \\le n,q \\le 2000,0 \\le a_i \\le n-1$\u3002"
+}

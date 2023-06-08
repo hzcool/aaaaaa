@@ -1,0 +1,25 @@
+{
+    "description": "[problemUrl]: https://atcoder.jp/contests/arc093/tasks/arc093_c\n\n$ N $ \u9802\u70b9 $ M $ \u8fba\u304b\u3089\u306a\u308b\u91cd\u307f\u4ed8\u304d\u7121\u5411\u30b0\u30e9\u30d5\u304c\u3042\u308a\u307e\u3059\u3002 \u30b0\u30e9\u30d5\u306e $ i $ \u756a\u76ee\u306e\u8fba\u306f\u9802\u70b9 $ U_i $ \u3068\u9802\u70b9 $ V_i $ \u3092\u7d50\u3093\u3067\u304a\u308a\u3001\u91cd\u307f\u306f $ W_i $ \u3067\u3059\u3002 \u3055\u3089\u306b\u3001\u6574\u6570 $ X $ \u304c\u4e0e\u3048\u3089\u308c\u307e\u3059\u3002\n\n\u3053\u306e\u30b0\u30e9\u30d5\u306e\u5404\u8fba\u3092\u767d\u307e\u305f\u306f\u9ed2\u306b\u5857\u308b\u65b9\u6cd5\u3067\u3042\u3063\u3066\u3001\u4ee5\u4e0b\u306e\u6761\u4ef6\u3092\u6e80\u305f\u3059\u3082\u306e\u306e\u500b\u6570\u3092 $ 10^9\\ +\\ 7 $ \u3067\u5272\u3063\u305f\u3042\u307e\u308a\u3092\u6c42\u3081\u3066\u304f\u3060\u3055\u3044\u3002\n\n- \u767d\u304f\u5857\u3089\u308c\u305f\u8fba\u3068\u9ed2\u304f\u5857\u3089\u308c\u305f\u8fba\u3092\u3068\u3082\u306b\u542b\u3080\u5168\u57df\u6728\u304c\u5b58\u5728\u3059\u308b\u3002\u3055\u3089\u306b\u3001\u305d\u306e\u3088\u3046\u306a\u5168\u57df\u6728\u306e\u3046\u3061\u6700\u3082\u91cd\u307f\u304c\u5c0f\u3055\u3044\u3082\u306e\u306e\u91cd\u307f\u306f $ X $ \u3067\u3042\u308b\u3002\n\n\u305f\u3060\u3057\u3001\u5168\u57df\u6728\u306e\u91cd\u307f\u3068\u306f\u3001\u305d\u306e\u5168\u57df\u6728\u306b\u542b\u307e\u308c\u308b\u8fba\u306e\u91cd\u307f\u306e\u548c\u3092\u8868\u3057\u307e\u3059\u3002",
+    "inputFormat": "\u5165\u529b\u306f\u4ee5\u4e0b\u306e\u5f62\u5f0f\u3067\u6a19\u6e96\u5165\u529b\u304b\u3089\u4e0e\u3048\u3089\u308c\u308b\u3002\n\n> $ N $ $ M $ $ X $ $ U_1 $ $ V_1 $ $ W_1 $ $ U_2 $ $ V_2 $ $ W_2 $ $ : $ $ U_M $ $ V_M $ $ W_M $",
+    "outputFormat": "\u7b54\u3048\u3092\u51fa\u529b\u305b\u3088\u3002",
+    "samples": [
+        [
+            "3 3\r\n2\r\n1 2 1\r\n2 3 1\r\n3 1 1",
+            "6"
+        ],
+        [
+            "3 3\r\n3\r\n1 2 1\r\n2 3 1\r\n3 1 2",
+            "2"
+        ],
+        [
+            "5 4\r\n1\r\n1 2 3\r\n1 3 3\r\n2 4 6\r\n2 5 8",
+            "0"
+        ],
+        [
+            "8 10\r\n49\r\n4 6 10\r\n8 4 11\r\n5 8 9\r\n1 8 10\r\n3 8 128773450\r\n7 8 10\r\n4 2 4\r\n3 4 1\r\n3 1 13\r\n5 2 2",
+            "4"
+        ]
+    ],
+    "hint": "### \u5236\u7d04\n\n- $ 1\\ \\leq\\ N\\ \\leq\\ 1,000 $\n- $ 1\\ \\leq\\ M\\ \\leq\\ 2,000 $\n- $ 1\\ \\leq\\ U_i,\\ V_i\\ \\leq\\ N $ ($ 1\\ \\leq\\ i\\ \\leq\\ M $)\n- $ 1\\ \\leq\\ W_i\\ \\leq\\ 10^9 $ ($ 1\\ \\leq\\ i\\ \\leq\\ M $)\n- $ i\\ \\neq\\ j $ \u306e\u3068\u304d\u3001$ (U_i,\\ V_i)\\ \\neq\\ (U_j,\\ V_j) $ \u304b\u3064 $ (U_i,\\ V_i)\\ \\neq\\ (V_j,\\ U_j) $\n- $ U_i\\ \\neq\\ V_i $ ($ 1\\ \\leq\\ i\\ \\leq\\ M $)\n- \u4e0e\u3048\u3089\u308c\u308b\u30b0\u30e9\u30d5\u306f\u9023\u7d50\u3067\u3042\u308b\u3002\n- $ 1\\ \\leq\\ X\\ \\leq\\ 10^{12} $\n- \u5165\u529b\u5024\u306f\u3059\u3079\u3066\u6574\u6570\u3067\u3042\u308b\u3002",
+    "translation": "\u5728\u4e00\u5f20\u56fe\u4e0a\u9ed1\u767d\u67d3\u8272\uff0c\u4f7f\u5f97\u540c\u65f6\u5305\u542b\u6709\u9ed1\u8fb9\u548c\u767d\u8fb9\u7684\u6700\u5c0f\u751f\u6210\u6811\u6743\u503c\u6070\u597d\u4e3aX\u3002\u95ee\u6709\u591a\u5c11\u79cd\u67d3\u8272\u65b9\u6cd5\uff1f"
+}
