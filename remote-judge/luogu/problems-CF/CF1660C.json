@@ -1,0 +1,13 @@
+{
+    "description": "A string $ a=a_1a_2\\dots a_n $ is called even if it consists of a concatenation (joining) of strings of length $ 2 $ consisting of the same characters. In other words, a string $ a $ is even if two conditions are satisfied at the same time:\n\n- its length $ n $ is even;\n- for all odd $ i $ ( $ 1 \\le i \\le n - 1 $ ), $ a_i = a_{i+1} $ is satisfied.\n\nFor example, the following strings are even: \"\" (empty string), \"tt\", \"aabb\", \"oooo\", and \"ttrrrroouuuuuuuukk\". The following strings are not even: \"aaa\", \"abab\" and \"abba\".\n\nGiven a string $ s $ consisting of lowercase Latin letters. Find the minimum number of characters to remove from the string $ s $ to make it even. The deleted characters do not have to be consecutive.",
+    "inputFormat": "The first line of input data contains an integer $ t $ ( $ 1 \\le t \\le 10^4 $ ) \u2014the number of test cases in the test.\n\nThe descriptions of the test cases follow.\n\nEach test case consists of one string $ s $ ( $ 1 \\le |s| \\le 2 \\cdot 10^5 $ ), where $ |s| $ \u2014 the length of the string $ s $ . The string consists of lowercase Latin letters.\n\nIt is guaranteed that the sum of $ |s| $ on all test cases does not exceed $ 2 \\cdot 10^5 $ .",
+    "outputFormat": "For each test case, print a single number \u2014 the minimum number of characters that must be removed to make $ s $ even.",
+    "samples": [
+        [
+            "6\naabbdabdccc\nzyx\naaababbb\naabbcc\noaoaaaoo\nbmefbmuyw",
+            "3\n3\n2\n0\n2\n7"
+        ]
+    ],
+    "hint": "In the first test case you can remove the characters with indices $ 6 $ , $ 7 $ , and $ 9 $ to get an even string \"aabbddcc\".\n\nIn the second test case, each character occurs exactly once, so in order to get an even string, you must remove all characters from the string.\n\nIn the third test case, you can get an even string \"aaaabb\" by removing, for example, $ 4 $ -th and $ 6 $ -th characters, or a string \"aabbbb\" by removing the $ 5 $ -th character and any of the first three.",
+    "translation": "$t$ \u7ec4\u6570\u636e\uff0c\u6bcf\u7ec4\u6570\u636e\u7ed9\u5b9a\u4e00\u4e2a\u5b57\u7b26\u4e32\uff0c\u95ee\u4f60\u81f3\u5c11\u5220\u53bb\u51e0\u4e2a\u5b57\u6bcd\u540e\u53ef\u4ee5\u4f7f\u539f\u5b57\u7b26\u4e32\u53d8\u6210\u7b26\u5408\u4ee5\u4e0b\u8981\u6c42\u7684\u5b57\u7b26\u4e32\uff1a\u8bbe\u8fd9\u4e2a\u5b57\u7b26\u4e32\u4e3a $s$\uff0c\u5b57\u6bcd\u4e2a\u6570\u4e3a\u5076\u6570 $n$\uff0c\u90a3\u4e48\u5bf9\u4e8e\u4efb\u610f\u5947\u6570 $i(1\\le i\\le n)$\uff0c\u6709 $s_i=s_{i+1}$\u3002"
+}

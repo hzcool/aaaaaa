@@ -1,0 +1,13 @@
+{
+    "description": "Bertown is a city with $ n $ buildings in a straight line.\n\nThe city's security service discovered that some buildings were mined. A map was compiled, which is a string of length $ n $ , where the $ i $ -th character is \"1\" if there is a mine under the building number $ i $ and \"0\" otherwise.\n\nBertown's best sapper knows how to activate mines so that the buildings above them are not damaged. When a mine under the building numbered $ x $ is activated, it explodes and activates two adjacent mines under the buildings numbered $ x-1 $ and $ x+1 $ (if there were no mines under the building, then nothing happens). Thus, it is enough to activate any one mine on a continuous segment of mines to activate all the mines of this segment. For manual activation of one mine, the sapper takes $ a $ coins. He can repeat this operation as many times as you want.\n\nAlso, a sapper can place a mine under a building if it wasn't there. For such an operation, he takes $ b $ coins. He can also repeat this operation as many times as you want.\n\nThe sapper can carry out operations in any order.\n\nYou want to blow up all the mines in the city to make it safe. Find the minimum number of coins that the sapper will have to pay so that after his actions there are no mines left in the city.",
+    "inputFormat": "The first line contains one positive integer $ t $ ( $ 1 \\le t \\le 10^5 $ ) \u2014 the number of test cases. Then $ t $ test cases follow.\n\nEach test case begins with a line containing two integers $ a $ and $ b $ ( $ 1 \\le a, b \\le 1000 $ ) \u2014 the cost of activating and placing one mine, respectively.\n\nThe next line contains a map of mines in the city \u2014 a string consisting of zeros and ones.\n\nThe sum of the string lengths for all test cases does not exceed $ 10^5 $ .",
+    "outputFormat": "For each test case, output one integer \u2014 the minimum number of coins that the sapper will have to pay.",
+    "samples": [
+        [
+            "2\n1 1\n01000010\n5 1\n01101110",
+            "2\n6"
+        ]
+    ],
+    "hint": "In the second test case, if we place a mine under the fourth building and then activate it, then all mines on the field are activated. The cost of such operations is six, $ b=1 $ coin for placing a mine and $ a=5 $ coins for activating.",
+    "translation": "\u4f60\u6709\u4e00\u6bb5$01$\u4e32\uff0c\u4f60\u53ef\u4ee5\u9009\u62e9\u82b1\u8d39$B$\u7684\u4ee3\u4ef7\u5c06\u4e00\u4e2a$0$\u53d8\u4e3a$1$\uff0c\u4e5f\u53ef\u4ee5\u82b1\u8d39$A$\u7684\u4ee3\u4ef7\u5c06\u4e00\u6bb5\u8fde\u7eed\u7684$1$\u53d8\u4e3a$0$\uff0c\u95ee\u4f60\u6700\u5c11\u9700\u8981\u591a\u5c11\u4ee3\u4ef7\uff0c\u624d\u80fd\u628a\u6574\u4e2a\u4e32\u90fd\u53d8\u4e3a$0$"
+}

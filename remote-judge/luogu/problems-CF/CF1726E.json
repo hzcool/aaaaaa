@@ -1,0 +1,13 @@
+{
+    "description": "A permutation $ p $ of length $ n $ is called almost perfect if for all integer $ 1 \\leq i \\leq n $ , it holds that $ \\lvert p_i - p^{-1}_i \\rvert \\le 1 $ , where $ p^{-1} $ is the inverse permutation of $ p $ (i.e. $ p^{-1}_{k_1} = k_2 $ if and only if $ p_{k_2} = k_1 $ ).\n\nCount the number of almost perfect permutations of length $ n $ modulo $ 998244353 $ .",
+    "inputFormat": "The first line contains a single integer $ t $ ( $ 1 \\leq t \\leq 1000 $ ) \u2014 the number of test cases. The description of each test case follows.\n\nThe first and only line of each test case contains a single integer $ n $ ( $ 1 \\leq n \\leq 3 \\cdot 10^5 $ ) \u2014 the length of the permutation.\n\nIt is guaranteed that the sum of $ n $ over all test cases does not exceed $ 3 \\cdot 10^5 $ .",
+    "outputFormat": "For each test case, output a single integer \u2014 the number of almost perfect permutations of length $ n $ modulo $ 998244353 $ .",
+    "samples": [
+        [
+            "3\n2\n3\n50",
+            "2\n4\n830690567"
+        ]
+    ],
+    "hint": "For $ n = 2 $ , both permutations $ [1, 2] $ , and $ [2, 1] $ are almost perfect.\n\nFor $ n = 3 $ , there are only $ 6 $ permutations. Having a look at all of them gives us:\n\n- $ [1, 2, 3] $ is an almost perfect permutation.\n- $ [1, 3, 2] $ is an almost perfect permutation.\n- $ [2, 1, 3] $ is an almost perfect permutation.\n- $ [2, 3, 1] $ is NOT an almost perfect permutation ( $ \\lvert p_2 - p^{-1}_2 \\rvert = \\lvert 3 - 1 \\rvert = 2 $ ).\n- $ [3, 1, 2] $ is NOT an almost perfect permutation ( $ \\lvert p_2 - p^{-1}_2 \\rvert = \\lvert 1 - 3 \\rvert = 2 $ ).\n- $ [3, 2, 1] $ is an almost perfect permutation.\n\nSo we get $ 4 $ almost perfect permutations.",
+    "translation": "\u5bf9\u4e8e\u6392\u5217 $p$\uff0c\u6211\u4eec\u79f0\u5b83\u662f\u57fa\u672c\u5b8c\u7f8e\u7684\uff0c\u5f53\u4e14\u4ec5\u5f53\u6392\u5217 $p$ \u7684\u9006\uff0c$q$\uff0c\u6ee1\u8db3 $\\forall 1\\le i\\le n,|p_i-q_i|\\le 1$\u3002\u4e00\u4e2a\u6392\u5217\u7684\u9006\u662f\u6ee1\u8db3 $\\forall 1\\le i\\le n,q_{p_i}=i$ \u7684\u552f\u4e00\u6392\u5217\u3002  \n\u8f93\u51fa $1\\sim n$ \u7684\u57fa\u672c\u5b8c\u7f8e\u6392\u5217\u7684\u6570\u91cf\uff0c\u5bf9 $998244353$ \u53d6\u6a21\u3002  \n\u672c\u9898\u591a\u6d4b\u3002\n\n\u6570\u636e\u8303\u56f4\uff1a$T\\le 1000$\uff0c$1\\le n,\\sum n\\le 3\\times 10^5$\u3002"
+}

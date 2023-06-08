@@ -1,0 +1,17 @@
+{
+    "description": "You are given an array of $ n $ integers $ a_1, a_2, \\ldots, a_n $ .\n\nYou will perform $ q $ operations. In the $ i $ -th operation, you have a symbol $ s_i $ which is either \"<\" or \">\" and a number $ x_i $ .\n\nYou make a new array $ b $ such that $ b_j = -a_j $ if $ a_j s_i x_i $ and $ b_j = a_j $ otherwise (i.e. if $ s_i $ is '>', then all $ a_j > x_i $ will be flipped). After doing all these replacements, $ a $ is set to be $ b $ .\n\nYou want to know what your final array looks like after all operations.",
+    "inputFormat": "The first line contains two integers $ n,q $ ( $ 1 \\leq n,q \\leq 10^5 $ ) \u2014 the number of integers and the number of queries.\n\nThe next line contains $ n $ integers $ a_1, a_2, \\ldots, a_n $ ( $ -10^5 \\leq a_i \\leq 10^5 $ ) \u2014 the numbers.\n\nEach of the next $ q $ lines contains a character and an integer $ s_i, x_i $ . ( $ s_i \\in \\{<, >\\}, -10^5 \\leq x_i \\leq 10^5 $ ) \u2013 the queries.",
+    "outputFormat": "Print $ n $ integers $ c_1, c_2, \\ldots, c_n $ representing the array after all operations.",
+    "samples": [
+        [
+            "11 3\n-5 -4 -3 -2 -1 0 1 2 3 4 5\n> 2\n> -4\n< 5",
+            "5 4 -3 -2 -1 0 1 2 -3 4 5\n"
+        ],
+        [
+            "5 5\n0 1 -2 -1 2\n< -2\n< -1\n< 0\n< 1\n< 2",
+            "0 -1 2 -1 2\n"
+        ]
+    ],
+    "hint": "In the first example, the array goes through the following changes:\n\n- Initial: $ [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5] $\n- $ > 2 $ : $ [-5, -4, -3, -2, -1, 0, 1, 2, -3, -4, -5] $\n- $ > -4 $ : $ [-5, -4, 3, 2, 1, 0, -1, -2, 3, -4, -5] $\n- $ < 5 $ : $ [5, 4, -3, -2, -1, 0, 1, 2, -3, 4, 5] $",
+    "translation": "\u6709\u4e00\u4e2a\u6570\u5217\uff0c\u6bcf\u6b21\u64cd\u4f5c\u4f1a\u7ed9\u5b9ax\u548c\u4e0d\u7b49\u53f7\uff0c\u53ef\u4ee5\u5c06$>x$\u6216$<x$\u7684\u6240\u6709\u6570\u4e58$-1$\u3002\u6c42\u6700\u540e\u7684\u6570\u5217\u3002\n"
+}

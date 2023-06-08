@@ -1,0 +1,24 @@
+{
+    "description": "Vittorio is playing with his new LEGO Duplo bricks. All the bricks have the shape of a square cuboid with a $ 2 \\times 2 $ square base and a height of $ 1 $ . They can be arranged in the 3D space to build structures, provided that the following rules are met:\n\n1. No two bricks can intersect, but they can touch on their faces.\n2. The corners of every brick must have integer coordinates (so bricks are axis-aligned) and the $ z $ coordinates of all corners must be non-negative.\n3. The square bases of every brick must be parallel to the ground (i.e. the plane $ z=0 $ ).\n4. The lower base of any brick that is not touching the ground must touch the upper base of some other brick in a region of positive area (when this happens, the two bricks stay attached to each other thanks to small studs).\n\nFor example, this is a valid structure:\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1776B/50a6ec76636f7a5cd263915e1fb86a1ec589d956.png)Vittorio wants to build a structure that includes purple bricks in the following $ n $ positions: $ (x_1, 0, h) $ , $ (x_2, 0, h) $ , $ \\dots $ , $ (x_n, 0, h) $ \u2014 these are the coordinates of the centers of their lower bases; note that all of these bricks have $ y $ coordinate equal to $ 0 $ and $ z $ coordinate equal to $ h $ . Vittorio will use additional bricks of other colors to support the purple bricks. He is willing to place bricks only in positions where the center of the lower base has $ y $ coordinate equal to $ 0 $ . What is the minimum number of additional bricks needed?\n\nIt can be shown that a valid construction always exists.",
+    "inputFormat": "The first line contains two integers $ n $ and $ h $ ( $ 1 \\le n \\le 300 $ , $ 0 \\le h \\le 10^9 $ ) \u2014 the number of purple bricks and their common $ z $ coordinate.\n\nThe second line contains $ n $ integers $ x_1, \\, x_2, \\, \\dots, \\, x_n $ ( $ 1 \\le x_i \\le 10^9 $ , $ x_i + 1 < x_{i+1} $ ) \u2014 the $ x $ coordinates of the purple bricks (centers of the bases), given in increasing order.",
+    "outputFormat": "Print the minimum number of additional bricks needed.",
+    "samples": [
+        [
+            "4 0\n2 7 11 13",
+            "0"
+        ],
+        [
+            "4 1\n2 7 11 13",
+            "3"
+        ],
+        [
+            "4 100\n2 7 11 13",
+            "107"
+        ],
+        [
+            "4 3\n2 5 8 11",
+            "8"
+        ]
+    ],
+    "hint": "In the first sample, all the purple bricks lie on the ground, so no additional bricks are needed.\n\nIn the second sample, Vittorio will have to place supporting bricks under the purple bricks, and he can use a single brick to support both the third and the fourth purple bricks. For example, he can place additional bricks at positions $ (3, 0, 0) $ , $ (7, 0, 0) $ and $ (12, 0, 0) $ . It can be shown that it is impossible to build a valid construction using less than $ 3 $ additional bricks.\n\nIn the fourth sample, a possible structure that minimizes the number of additional bricks is shown in the problem description."
+}

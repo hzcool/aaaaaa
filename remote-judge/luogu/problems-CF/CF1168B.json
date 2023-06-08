@@ -1,0 +1,17 @@
+{
+    "description": "Toad Rash has a binary string $ s $ . A binary string consists only of zeros and ones.\n\nLet $ n $ be the length of $ s $ .\n\nRash needs to find the number of such pairs of integers $ l $ , $ r $ that $ 1 \\leq l \\leq r \\leq n $ and there is at least one pair of integers $ x $ , $ k $ such that $ 1 \\leq x, k \\leq n $ , $ l \\leq x < x + 2k \\leq r $ , and $ s_x = s_{x+k} = s_{x+2k} $ .\n\nFind this number of pairs for Rash.",
+    "inputFormat": "The first line contains the string $ s $ ( $ 1 \\leq |s| \\leq 300\\,000 $ ), consisting of zeros and ones.",
+    "outputFormat": "Output one integer: the number of such pairs of integers $ l $ , $ r $ that $ 1 \\leq l \\leq r \\leq n $ and there is at least one pair of integers $ x $ , $ k $ such that $ 1 \\leq x, k \\leq n $ , $ l \\leq x < x + 2k \\leq r $ , and $ s_x = s_{x+k} = s_{x+2k} $ .",
+    "samples": [
+        [
+            "010101\n",
+            "3\n"
+        ],
+        [
+            "11001100\n",
+            "0\n"
+        ]
+    ],
+    "hint": "In the first example, there are three $ l $ , $ r $ pairs we need to count: $ 1 $ , $ 6 $ ; $ 2 $ , $ 6 $ ; and $ 1 $ , $ 5 $ .\n\nIn the second example, there are no values $ x $ , $ k $ for the initial string, so the answer is $ 0 $ .",
+    "translation": "\u7ed9\u51fa01\u4e32s\uff0c\u6c42\u6570\u5bf9[l,r]\u4e2a\u6570\uff0c\u4f7f\u5f97\u80fd\u627e\u5230\u81f3\u5c11\u4e00\u5bf9[x,k],\u4f7f1<=x,k<=|s|\u4e14l<=x<x+2k<=r\u4e14s[x]=s[x+k]=s[x+2k]"
+}

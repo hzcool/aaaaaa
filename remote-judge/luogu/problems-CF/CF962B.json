@@ -1,0 +1,25 @@
+{
+    "description": "There are $ n $ consecutive seat places in a railway carriage. Each place is either empty or occupied by a passenger.\n\nThe university team for the Olympiad consists of $ a $ student-programmers and $ b $ student-athletes. Determine the largest number of students from all $ a+b $ students, which you can put in the railway carriage so that:\n\n- no student-programmer is sitting next to the student-programmer;\n- and no student-athlete is sitting next to the student-athlete.\n\nIn the other words, there should not be two consecutive (adjacent) places where two student-athletes or two student-programmers are sitting.\n\nConsider that initially occupied seat places are occupied by jury members (who obviously are not students at all).",
+    "inputFormat": "The first line contain three integers $ n $ , $ a $ and $ b $ ( $ 1 \\le n \\le 2\\cdot10^{5} $ , $ 0 \\le a, b \\le 2\\cdot10^{5} $ , $ a + b > 0 $ ) \u2014 total number of seat places in the railway carriage, the number of student-programmers and the number of student-athletes.\n\nThe second line contains a string with length $ n $ , consisting of characters \".\" and \"\\*\". The dot means that the corresponding place is empty. The asterisk means that the corresponding place is occupied by the jury member.",
+    "outputFormat": "Print the largest number of students, which you can put in the railway carriage so that no student-programmer is sitting next to a student-programmer and no student-athlete is sitting next to a student-athlete.",
+    "samples": [
+        [
+            "5 1 1\n*...*\n",
+            "2\n"
+        ],
+        [
+            "6 2 3\n*...*.\n",
+            "4\n"
+        ],
+        [
+            "11 3 10\n.*....**.*.\n",
+            "7\n"
+        ],
+        [
+            "3 2 3\n***\n",
+            "0\n"
+        ]
+    ],
+    "hint": "In the first example you can put all student, for example, in the following way: \\*.AB\\*\n\nIn the second example you can put four students, for example, in the following way: \\*BAB\\*B\n\nIn the third example you can put seven students, for example, in the following way: B\\*ABAB\\*\\*A\\*B\n\nThe letter A means a student-programmer, and the letter B \u2014 student-athlete.",
+    "translation": "\u6709\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u53ea\u542b `*.` \u7684\u5b57\u7b26\u4e32\uff0c\u4f60\u53ef\u4ee5\u628a\u5176\u4e2d\u7684 `.` \u6362\u6210 `A` \u6216 `B`\uff0c\u8981\u6c42 `A` \u4e0d\u8d85\u8fc7 $a$ \u4e2a\uff0c `B` \u4e0d\u8d85\u8fc7 $b$ \u4e2a\uff0c\u4e14\u8fde\u7eed\u4e24\u4e2a\u5b57\u7b26\u4e0d\u80fd\u540c\u65f6\u662f `A` \u6216\u8005 `B`\uff0c\u6c42\u6700\u591a\u6709\u591a\u5c11\u4e2a `.` \u88ab\u66ff\u6362\u6389\u3002\n\n\u8f93\u5165\u7b2c\u4e00\u884c\u4e09\u4e2a\u6574\u6570\u8868\u793a $n,a,b$\uff0c\u7b2c\u4e8c\u884c\u8868\u793a\u7ed9\u5b9a\u5b57\u7b26\u4e32\uff1b\u8f93\u51fa\u4e00\u4e2a\u6574\u6570\u8868\u793a\u7ed3\u679c\u3002"
+}

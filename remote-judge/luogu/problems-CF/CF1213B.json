@@ -1,0 +1,13 @@
+{
+    "description": "Polycarp analyzes the prices of the new berPhone. At his disposal are the prices for $ n $ last days: $ a_1, a_2, \\dots, a_n $ , where $ a_i $ is the price of berPhone on the day $ i $ .\n\nPolycarp considers the price on the day $ i $ to be bad if later (that is, a day with a greater number) berPhone was sold at a lower price. For example, if $ n=6 $ and $ a=[3, 9, 4, 6, 7, 5] $ , then the number of days with a bad price is $ 3 $ \u2014 these are days $ 2 $ ( $ a_2=9 $ ), $ 4 $ ( $ a_4=6 $ ) and $ 5 $ ( $ a_5=7 $ ).\n\nPrint the number of days with a bad price.\n\nYou have to answer $ t $ independent data sets.",
+    "inputFormat": "The first line contains an integer $ t $ ( $ 1 \\le t \\le 10000 $ ) \u2014 the number of sets of input data in the test. Input data sets must be processed independently, one after another.\n\nEach input data set consists of two lines. The first line contains an integer $ n $ ( $ 1 \\le n \\le 150000 $ ) \u2014 the number of days. The second line contains $ n $ integers $ a_1, a_2, \\dots, a_n $ ( $ 1 \\le a_i \\le 10^6 $ ), where $ a_i $ is the price on the $ i $ -th day.\n\nIt is guaranteed that the sum of $ n $ over all data sets in the test does not exceed $ 150000 $ .",
+    "outputFormat": "Print $ t $ integers, the $ j $ -th of which should be equal to the number of days with a bad price in the $ j $ -th input data set.",
+    "samples": [
+        [
+            "5\n6\n3 9 4 6 7 5\n1\n1000000\n2\n2 1\n10\n31 41 59 26 53 58 97 93 23 84\n7\n3 2 1 2 3 4 5\n",
+            "3\n0\n1\n8\n2\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u6709\u4e00\u4e2a\u7269\u54c1\u9500\u552e\u4e86$n$\u5929\uff0c\u7b2c$i$\u5929\u7684\u552e\u4ef7\u4e3a$c_i$\u3002\u6211\u4eec\u5b9a\u4e49\u4e00\u5929\u7684\u552e\u4ef7\u662f\u201c\u4e0d\u5408\u7b97\u7684\u201d\u5982\u679c\u5728\u4ed6\u8fd9\u4e00\u5929\u540e\u9762\u7684\u67d0\u4e00\u5929\u4e2d\u8fd9\u4e2a\u7269\u54c1\u7684\u552e\u4ef7\u5c0f\u4e8e\u8fd9\u4e2a\u7269\u54c1\u8fd9\u4e00\u5929\u7684\u552e\u4ef7\u3002\u6c42\u6709\u591a\u5c11\u5929\u7684\u552e\u4ef7\u662f\u201c\u4e0d\u5408\u7b97\u7684\u201d\u3002\u6570\u636e\u5305\u542b\u591a\u6d4b\u3002\n\n**\u8f93\u5165\uff1a**\n\n\u7b2c\u4e00\u884c\uff0c\u4e00\u4e2a\u6574\u6570$T$$ (1 \\leq T \\leq 10^4)$\uff0c\u6570\u636e\u7ec4\u6570\u3002\n\n\u5bf9\u4e8e\u6bcf\u7ec4\u6570\u636e\uff0c\u7b2c\u4e00\u884c\uff0c\u4e00\u4e2a\u6574\u6570$n$$ (1 \\leq n \\leq 150000)$\uff0c\u7b2c\u4e8c\u884c\uff0c$n$\u4e2a\u6574\u6570$c_1,c_2,\\dots,c_n$$ (1 \\leq c_i \\leq 10^6)$\u3002\n\n**\u8f93\u51fa\uff1a**\n\n\u5bf9\u4e8e\u6bcf\u7ec4\u6570\u636e\uff0c\u8f93\u51fa\u7b54\u6848\u3002"
+}

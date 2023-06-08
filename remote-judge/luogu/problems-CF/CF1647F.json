@@ -1,0 +1,25 @@
+{
+    "description": "Madoka has become too lazy to write a legend, so let's go straight to the formal description of the problem.\n\nAn array of integers $ a_1, a_2, \\ldots, a_n $ is called a hill if it is not empty and there is an index $ i $ in it, for which the following is true: $ a_1 < a_2 < \\ldots < a_i > a_{i + 1} > a_{i + 2} > \\ldots > a_n $ .\n\nA sequence $ x $ is a subsequence of a sequence $ y $ if $ x $ can be obtained from $ y $ by deletion of several (possibly, zero or all) elements keeping the order of the other elements. For example, for an array $ [69, 1000, 228, -7] $ the array $ [1000, -7] $ is a subsequence, while $ [1] $ and $ [-7, 1000] $ are not.\n\nSplitting an array into two subsequences is called good if each element belongs to exactly one subsequence, and also each of these subsequences is a hill.\n\nYou are given an array of distinct positive integers $ a_1, a_2, \\ldots a_n $ . It is required to find the number of different pairs of maxima of the first and second subsequences among all good splits. Two pairs that only differ in the order of elements are considered same.",
+    "inputFormat": "The first line of input contains a single integer $ n $ ( $ 2 \\le n \\le 5 \\cdot 10^5 $ ) \u2014 array size.\n\nThe second line of input contains $ n $ integers $ a_1, a_2, \\dots, a_n $ ( $ 1 \\le a_i \\le 10^9 $ ) \u2014 the elements of the array. It is guaranteed that all $ a_i $ are pairwise distinct.",
+    "outputFormat": "In a single line, print exactly one number \u2014 the number of different pairs of maxima of the first and second subsequences among all good splits.",
+    "samples": [
+        [
+            "4\n1 2 4 3",
+            "3"
+        ],
+        [
+            "8\n2 12 13 7 14 6 11 8",
+            "4"
+        ],
+        [
+            "7\n9 5 3 10 2 6 8",
+            "0"
+        ],
+        [
+            "8\n8 6 10 9 1 5 2 14",
+            "0"
+        ]
+    ],
+    "hint": "In the first test case there are 3 possible pairs: $ (3, 4) $ , $ (2, 4) $ , $ (1, 4) $ . And they are achieved with the following partitions: $ [1, 2, 3], [4] $ ; $ [4, 3], [1, 2] $ ; $ [1], [2, 4, 3] $",
+    "translation": "- \u5b9a\u4e49\u4e00\u4e2a\u5e8f\u5217\u4e3a\u5355\u5cf0\u7684\uff0c\u5f53\u4e14\u4ec5\u5f53 $a_1<a_2<\\cdots<a_i>a_i+1>a_i+2>\\cdots>a_n$ \uff0c\u5176\u4e2d\uff0c$a_i$ \u4e3a\u5e8f\u5217\u7684\u5cf0\u3002\n- \u5b9a\u4e49 $b_i$ \u4e3a $a_i$ \u7684\u5b50\u5e8f\u5217\uff0c\u5373 $b_i$ \u4e2d\u4efb\u610f\u4e00\u4e2a\u5143\u7d20\u90fd\u5c5e\u4e8e $a_i$ \uff0c\u4e14\u76f8\u5bf9\u4f4d\u7f6e\u4e0d\u53d8\uff08\u4e0d\u8981\u6c42\u8fde\u7eed\uff09\u3002\u4f8b\u5982\uff0c\u5bf9\u4e8e\u5e8f\u5217 $[69,1000,228,\u22127]$ \uff0c $[1000, -7]$ \u662f\u5b83\u7684\u5b50\u5e8f\u5217\uff0c\u7136\u800c $[1]$ \u548c $[-7, 1000]$ \u5219\u4e0d\u662f\u5b83\u7684\u5b50\u5e8f\u5217\u3002\n\n\u73b0\u5728\u7ed9\u51fa\u4e00\u4e2a\u5e8f\u5217\uff0c\u628a\u5b83\u6070\u597d\u5206\u6210\u4e24\u4e2a\u5b50\u5e8f\u5217\uff0c\u4f7f\u5f97\u6bcf\u4e00\u4e2a\u5b50\u5e8f\u5217\u90fd\u662f\u5355\u5cf0\u7684\u3002\n\n\u6c42\u4e24\u4e2a\u5355\u5cf0\u5b50\u5e8f\u5217\u7684\u5cf0\u7684\u7ec4\u5408\uff0c\u6709\u591a\u5c11\u79cd\u60c5\u51b5\u3002\uff08\u4fdd\u8bc1\u7ed9\u51fa\u7684\u5e8f\u5217\u5143\u7d20\u4e92\u4e0d\u76f8\u540c\uff09"
+}

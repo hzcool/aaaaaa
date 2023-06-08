@@ -1,0 +1,17 @@
+{
+    "description": "Let the main characters of this problem be personages from some recent movie. New Avengers seem to make a lot of buzz. I didn't watch any part of the franchise and don't know its heroes well, but it won't stop me from using them in this problem statement. So, Thanos and Dr. Strange are doing their superhero and supervillain stuff, but then suddenly they stumble across a regular competitive programming problem.\n\nYou are given a tree with $ n $ vertices.\n\nIn each vertex $ v $ there is positive integer $ a_{v} $ .\n\nYou have to answer $ q $ queries.\n\nEach query has a from $ u $ $ v $ $ x $ .\n\nYou have to calculate $ \\prod_{w \\in P} gcd(x, a_{w}) \\mod (10^{9} + 7) $ , where $ P $ is a set of vertices on path from $ u $ to $ v $ . In other words, you are to calculate the product of $ gcd(x, a_{w}) $ for all vertices $ w $ on the path from $ u $ to $ v $ . As it might be large, compute it modulo $ 10^9+7 $ . Here $ gcd(s, t) $ denotes the greatest common divisor of $ s $ and $ t $ .\n\nNote that the numbers in vertices do not change after queries.\n\nI suppose that you are more interested in superhero business of Thanos and Dr. Strange than in them solving the problem. So you are invited to solve this problem instead of them.",
+    "inputFormat": "In the first line of input there is one integer $ n $ ( $ 1 \\le n \\le 10^{5} $ ) \u2014 the size of the tree.\n\nIn the next $ n-1 $ lines the edges of the tree are described. The $ i $ -th edge is described with two integers $ u_{i} $ and $ v_{i} $ ( $ 1 \\le u_{i}, v_{i} \\le n $ ) and it connects the vertices $ u_{i} $ and $ v_{i} $ . It is guaranteed that graph with these edges is a tree.\n\nIn the next line there are $ n $ integers $ a_1, a_2, \\ldots, a_n $ ( $ 1 \\le a_{v} \\le 10^{7} $ ).\n\nIn the next line there is one integer $ q $ ( $ 1 \\le q \\le 10^{5} $ ) \u2014 the number of queries.\n\nAnd in the next $ q $ lines the queries are described. Each query is described with three integers $ u_{i} $ , $ v_{i} $ and $ x_{i} $ ( $ 1 \\le u_{i}, v_{i} \\le n $ , $ 1 \\le x_{i} \\le 10^{7} $ ).",
+    "outputFormat": "Print $ q $ numbers \u2014 the answers to the queries in the order they are given in the input. Print each answer modulo $ 10^9+7 = 1000000007 $ . Print each number on a separate line.",
+    "samples": [
+        [
+            "4\n1 2\n1 3\n1 4\n6 4 9 5\n3\n2 3 6\n2 3 2\n3 4 7\n",
+            "36\n4\n1\n"
+        ],
+        [
+            "6\n1 2\n2 3\n2 4\n1 5\n5 6\n100000 200000 500000 40000 800000 250000\n3\n3 5 10000000\n6 2 3500000\n4 1 64000\n",
+            "196000\n12250\n999998215\n"
+        ]
+    ],
+    "hint": "",
+    "translation": " \u7ed9\u5b9a\u4f60\u4e00\u68f5\u6811\uff0c\u6709\u70b9\u6743$val_i\\le 10^7$\u3002\u73b0\u5728\u6709$m$\u7ec4\u8be2\u95ee\u7ed9\u5b9a\u53c2\u6570$x,y,w$\u95ee\u4f60\u5bf9\u4e8e$(x->y)$\u7684\u8def\u5f84\u7ecf\u8fc7\u7684\u70b9\u96c6$P$\uff0c\u95ee\u4f60\u8fd9\u4e2a\u4e1c\u897f\uff1a\r\n $$\r\n \\prod_{u \\in P} {\\mathrm{gcd}(w,val_u)} \\mod 1000000007\r\n $$"
+}

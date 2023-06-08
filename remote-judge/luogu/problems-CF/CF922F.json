@@ -1,0 +1,21 @@
+{
+    "description": "Imp is really pleased that you helped him. But it you solve the last problem, his gladness would raise even more.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF922F/80a786f701ecc7d26672fb3b926d9dbbafc0495c.png) Let's define ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF922F/473e0c7367d2c6c65b609424fc67aa6d9df96dba.png) for some set of integers ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF922F/b0118d24df19910ba6c937fa885fbcac0ee6712c.png) as the number of pairs $ a $ , $ b $ in ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF922F/b0118d24df19910ba6c937fa885fbcac0ee6712c.png), such that:- $ a $ is strictly less than $ b $ ;\n- $ a $ divides $ b $ without a remainder.\n\nYou are to find such a set ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF922F/b0118d24df19910ba6c937fa885fbcac0ee6712c.png), which is a subset of $ {1,2,...,n} $ (the set that contains all positive integers not greater than $ n $ ), that ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF922F/8b010c35295a2181d8d3d9dae7832a9cb8742631.png).",
+    "inputFormat": "The only line contains two integers $ n $ and $ k $ ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF922F/8abf4553781ebbfe2252497213ee6d6360c3f2f4.png).",
+    "outputFormat": "If there is no answer, print \"No\".\n\nOtherwise, in the first line print \"Yes\", in the second \u2014 an integer $ m $ that denotes the size of the set ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF922F/b0118d24df19910ba6c937fa885fbcac0ee6712c.png) you have found, in the second line print $ m $ integers \u2014 the elements of the set ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF922F/b0118d24df19910ba6c937fa885fbcac0ee6712c.png), in any order.\n\nIf there are multiple answers, print any of them.",
+    "samples": [
+        [
+            "3 3\n",
+            "No\n"
+        ],
+        [
+            "6 6\n",
+            "Yes\n5\n1 2 4 5 6 "
+        ],
+        [
+            "8 3\n",
+            "Yes\n4\n2 4 5 8\n"
+        ]
+    ],
+    "hint": "In the second sample, the valid pairs in the output set are $ (1,2) $ , $ (1,4) $ , $ (1,5) $ , $ (1,6) $ , $ (2,4) $ , $ (2,6) $ . Thus, ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF922F/4055df47b045359cddfa03da919a728d3502ec96.png).\n\nIn the third example, the valid pairs in the output set are $ (2,4) $ , $ (4,8) $ , $ (2,8) $ . Thus, ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF922F/8e639a6dd37ec9bd64a5d37b32a72070668e9569.png).",
+    "translation": "\u5bf9\u4e8e\u4e00\u4e2a\u6570\u96c6I\nf(I)\u8868\u793aI\u4e2d(a,b)\u7684\u5bf9\u6570\n\u6ee1\u8db3a<b,b%a=0\n\u627e\u51fa\u4e00\u4e2a\u6240\u6709\u5143\u7d20\u90fd\u4e0d\u5927\u4e8en\u7684\u96c6\u5408I\n\u4f7f\u5f97f(I)=k"
+}

@@ -1,0 +1,21 @@
+{
+    "description": "Little Petya very much likes rectangles and especially squares. Recently he has received 8 points on the plane as a gift from his mother. The points are pairwise distinct. Petya decided to split them into two sets each containing 4 points so that the points from the first set lay at the vertexes of some square and the points from the second set lay at the vertexes of a rectangle. Each point of initial 8 should belong to exactly one set. It is acceptable for a rectangle from the second set was also a square. If there are several partitions, Petya will be satisfied by any of them. Help him find such partition. Note that the rectangle and the square from the partition should have non-zero areas. The sides of the figures do not have to be parallel to the coordinate axes, though it might be the case.",
+    "inputFormat": "You are given 8 pairs of integers, a pair per line \u2014 the coordinates of the points Petya has. The absolute value of all coordinates does not exceed $ 10^{4} $ . It is guaranteed that no two points coincide.",
+    "outputFormat": "Print in the first output line \"YES\" (without the quotes), if the desired partition exists. In the second line output 4 space-separated numbers \u2014 point indexes from the input, which lie at the vertexes of the square. The points are numbered starting from 1. The numbers can be printed in any order. In the third line print the indexes of points lying at the vertexes of a rectangle in the similar format. All printed numbers should be pairwise distinct.\n\nIf the required partition does not exist, the first line should contain the word \"NO\" (without the quotes), after which no output is needed.",
+    "samples": [
+        [
+            "0 0\n10 11\n10 0\n0 11\n1 1\n2 2\n2 1\n1 2\n",
+            "YES\n5 6 7 8\n1 2 3 4\n"
+        ],
+        [
+            "0 0\n1 1\n2 2\n3 3\n4 4\n5 5\n6 6\n7 7\n",
+            "NO\n"
+        ],
+        [
+            "0 0\n4 4\n4 0\n0 4\n1 2\n2 3\n3 2\n2 1\n",
+            "YES\n1 2 3 4\n5 6 7 8\n"
+        ]
+    ],
+    "hint": "Pay attention to the third example: the figures do not necessarily have to be parallel to the coordinate axes.",
+    "translation": "### \u9898\u76ee\u63cf\u8ff0\r\nKc\u541f\u5531\u7740\u6b4c\u8c23\uff0c\u8eba\u5728\u8349\u576a\u4e0a\u8fb9\u60f3\u7740\u5979\u8fb9\u770b\u8d77\u4e86\u661f\u661f\u3002Kc\u521a\u521a\u7ed3\u8bc6\u4e86\u7b1b\u5361\u5c14\u8fd9\u4f4d\u597d\u57fa\u53cb\uff0c\u8ba4\u4e3a\u4ed6\u7684\u5750\u6807\u7cfb\u975e\u5e38\u795e\u5947\u3002\u4e8e\u662f\u4ed6\u968f\u673a\u5730\u9009\u51fa\u4e868\u9897\u661f\u661f\uff0c\u5e76\u4e14\u7ed9\u5b83\u4eec\u6807\u4e0a\u4e86\u5750\u6807\u3002Kc\u53c8\u4e0d\u7518\u5bc2\u5bde\uff0c\u4e8e\u662f\u601d\u8003\u8d77\u4e00\u4e2a\u95ee\u9898\uff1a\u8fd9\u516b\u4e2a\u70b9\u80fd\u5426\u6070\u597d\u6784\u6210\u4e00\u4e2a\u6b63\u65b9\u5f62\u548c\u4e00\u4e2a\u77e9\u5f62\u5462\uff1f\r\n### \u8f93\u5165\u683c\u5f0f\r\n\u8f93\u5165\u6587\u4ef6\u5305\u62ec8\u884c16\u4e2a\u6570\uff0c\u8868\u793a8\u4e2a\u661f\u661f\u7684\u5750\u6807\uff0c\u5750\u6807\u7edd\u5bf9\u503c\u4e0d\u8d85\u8fc710000\u3002\r\n### \u8f93\u51fa\u683c\u5f0f\r\n\u8f93\u51fa\u6587\u4ef6\u7b2c\u4e00\u884c\u662f\"YES\"\u6216\u8005\"NO\"\u3002\u8868\u793a\u662f\u5426\u6709\u89e3\u3002\r\n\r\n\u82e5\u6709\u89e3\u5219\u7b2c\u4e8c\u884c\u4f9d\u6b21\u8f93\u51fa\u6b63\u65b9\u5f62\u6bcf\u4e2a\u9876\u70b9\u7684\u5e8f\u53f7\u3002\u7b2c\u4e09\u884c\u4f9d\u6b21\u8f93\u51fa\u77e9\u5f62\u6bcf\u4e2a\u9876\u70b9\u7684\u5e8f\u53f7\u3002\u5e8f\u53f7\u5373\u4e3a\u8f93\u5165\u7684\u987a\u5e8f\u3002\r\n\r\n\u53e6\u5916\u6ce8\u610f\uff1a\u56e0\u4e3akc\u662f\u4e00\u4e2a\u5201\u7aef\u7684\u4eba\uff0c\u6240\u4ee5\u4ed6\u8981\u6c42\u7b2c\u4e8c\u884c\u548c\u7b2c\u4e09\u884c\u8fd9\u516b\u4e2a\u6570\u8981\u5b57\u5178\u5e8f\u6700\u5c0f\u3002\r\n\r\n\u56db\u70b9\u5171\u7ebf\u4e0d\u80fd\u8ba4\u4e3a\u662f\u6b63\u65b9\u5f62\u6216\u77e9\u5f62\r\n\r\n### \u8f93\u5165\u8f93\u51fa\u6837\u4f8b\r\n### \u8f93\u5165 #1\r\n0 0\r\n\r\n10 11\r\n\r\n10 0\r\n\r\n0 11\r\n\r\n1 1\r\n\r\n2 2\r\n\r\n2 1\r\n\r\n1 2\r\n### \u8f93\u51fa #1\r\nYES\r\n\r\n5 6 7 8\r\n\r\n1 2 3 4\r\n\r\n### \u8bf4\u660e/\u63d0\u793a\uff1a\r\n\u56fe\u5f62\u4e0d\u4e00\u5b9a\u8981\u4e0e\u5750\u6807\u8f74\u5e73\u884c\u3002"
+}

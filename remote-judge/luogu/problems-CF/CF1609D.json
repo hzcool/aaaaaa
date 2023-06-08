@@ -1,0 +1,17 @@
+{
+    "description": "![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1609D/bd782248ee184d971343d4489aa3f05723b81f9f.png)William arrived at a conference dedicated to cryptocurrencies. Networking, meeting new people, and using friends' connections are essential to stay up to date with the latest news from the world of cryptocurrencies.\n\nThe conference has $ n $ participants, who are initially unfamiliar with each other. William can introduce any two people, $ a $ and $ b $ , who were not familiar before, to each other.\n\nWilliam has $ d $ conditions, $ i $ 'th of which requires person $ x_i $ to have a connection to person $ y_i $ . Formally, two people $ x $ and $ y $ have a connection if there is such a chain $ p_1=x, p_2, p_3, \\dots, p_k=y $ for which for all $ i $ from $ 1 $ to $ k - 1 $ it's true that two people with numbers $ p_i $ and $ p_{i + 1} $ know each other.\n\nFor every $ i $ ( $ 1 \\le i \\le d $ ) William wants you to calculate the maximal number of acquaintances one person can have, assuming that William satisfied all conditions from $ 1 $ and up to and including $ i $ and performed exactly $ i $ introductions. The conditions are being checked after William performed $ i $ introductions. The answer for each $ i $ must be calculated independently. It means that when you compute an answer for $ i $ , you should assume that no two people have been introduced to each other yet.",
+    "inputFormat": "The first line contains two integers $ n $ and $ d $ ( $ 2 \\le n \\le 10^3, 1 \\le d \\le n - 1 $ ), the number of people, and number of conditions, respectively.\n\nEach of the next $ d $ lines each contain two integers $ x_i $ and $ y_i $ ( $ 1 \\le x_i, y_i \\le n, x_i \\neq y_i $ ), the numbers of people which must have a connection according to condition $ i $ .",
+    "outputFormat": "Output $ d $ integers. $ i $ th number must equal the number of acquaintances the person with the maximal possible acquaintances will have, if William performed $ i $ introductions and satisfied the first $ i $ conditions.",
+    "samples": [
+        [
+            "7 6\n1 2\n3 4\n2 4\n7 6\n6 5\n1 7",
+            "1\n1\n3\n3\n3\n6"
+        ],
+        [
+            "10 8\n1 2\n2 3\n3 4\n1 4\n6 7\n8 9\n8 10\n1 4",
+            "1\n2\n3\n4\n5\n5\n6\n8"
+        ]
+    ],
+    "hint": "The explanation for the first test case:\n\nIn this explanation, the circles and the numbers in them denote a person with the corresponding number. The line denotes that William introduced two connected people. The person marked with red has the most acquaintances. These are not the only correct ways to introduce people.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1609D/a4c52dc40d0c621cc37cb8aa412551d28349b4ab.png)",
+    "translation": "\u7ed9\u5b9a $n$ \u4e2a\u70b9\uff0c$d$ \u6761\u89c4\u5b9a\uff0c\u6bcf\u6761\u89c4\u5b9a\u6709\u4e24\u4e2a\u53c2\u6570 $x_i,y_i$\uff0c\u8868\u793a $x_i$ \u548c $y_i$ \u5fc5\u987b\u8fde\u901a\u3002\n\n$\\forall i\\in[1,d]$\uff0c\u6c42\u5728\u6ee1\u8db3 $[1,i]$ \u7684\u89c4\u5b9a\u7684\u524d\u63d0\u4e0b\u6070\u597d\u8fde $i$ \u6761\u8fb9\u7684\u65e0\u5411\u56fe\u4e2d\u5ea6\u6570\u6700\u5927\u7684\u70b9\u7684\u5ea6\u6570\u6700\u5927\u53ef\u80fd\u662f\u591a\u5c11\u3002\n\n$2\\le n\\le 10^3,1\\le d\\le n-1,1\\le x_i,y_i\\le n,x_i\\not=y_i$\u3002"
+}

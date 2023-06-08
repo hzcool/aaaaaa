@@ -1,0 +1,13 @@
+{
+    "description": "The Winter holiday will be here soon. Mr. Chanek wants to decorate his house's wall with ornaments. The wall can be represented as a binary string $ a $ of length $ n $ . His favorite nephew has another binary string $ b $ of length $ m $ ( $ m \\leq n $ ).\n\nMr. Chanek's nephew loves the non-negative integer $ k $ . His nephew wants exactly $ k $ occurrences of $ b $ as substrings in $ a $ .\n\nHowever, Mr. Chanek does not know the value of $ k $ . So, for each $ k $ ( $ 0 \\leq k \\leq n - m + 1 $ ), find the minimum number of elements in $ a $ that have to be changed such that there are exactly $ k $ occurrences of $ b $ in $ a $ .\n\nA string $ s $ occurs exactly $ k $ times in $ t $ if there are exactly $ k $ different pairs $ (p,q) $ such that we can obtain $ s $ by deleting $ p $ characters from the beginning and $ q $ characters from the end of $ t $ .",
+    "inputFormat": "The first line contains two integers $ n $ and $ m $ ( $ 1 \\leq m \\leq n \\leq 500 $ ) \u2014 size of the binary string $ a $ and $ b $ respectively.\n\nThe second line contains a binary string $ a $ of length $ n $ .\n\nThe third line contains a binary string $ b $ of length $ m $ .",
+    "outputFormat": "Output $ n - m + 2 $ integers \u2014 the $ (k+1) $ -th integer denotes the minimal number of elements in $ a $ that have to be changed so there are exactly $ k $ occurrences of $ b $ as a substring in $ a $ .",
+    "samples": [
+        [
+            "9 3\n100101011\n101",
+            "1 1 0 1 6 -1 -1 -1"
+        ]
+    ],
+    "hint": "For $ k = 0 $ , to make the string $ a $ have no occurrence of 101, you can do one character change as follows.\n\n100101011 $ \\rightarrow $ 100100011\n\nFor $ k = 1 $ , you can also change a single character.\n\n100101011 $ \\rightarrow $ 100001011\n\nFor $ k = 2 $ , no changes are needed.",
+    "translation": "- \u7ed9\u4f60\u4e24\u4e2a\u4e8c\u8fdb\u5236\u4e32 $a,b$\uff0c\u957f\u5ea6\u5206\u522b\u4e3a $n,m(m\\le n\\le 500)$\u3002\n- \u5bf9\u4e8e\u6bcf\u4e2a $i(0\\le i\\le n-m+1)$\uff0c\u4f60\u9700\u8981\u6c42\u51fa\u5bf9\u4e32 $a$ \u7ecf\u8fc7**\u6700\u5c0f**\u51e0\u6b21\u53d8\u6362\u540e\uff0c\u4f7f\u4e32\u4e2d\u51fa\u73b0\u4e32 $b$ \u7684**\u6b21\u6570**\u4e3a $i$\u3002\u82e5\u65e0\u6cd5\u5f97\u5230\uff0c\u5219\u8f93\u51fa-1\u3002\u6bcf\u6b21\u8be2\u95ee**\u72ec\u7acb**\uff0c\u4e0d\u53d7\u4e4b\u524d\u5f71\u54cd\u3002\n- \u6bcf\u6b21\u53d8\u6362\u80fd\u4f7f $a$ \u4e2d\u7684\u67d0\u4e00\u4f4d\u53d8\u62101\u62160\u3002"
+}

@@ -1,0 +1,25 @@
+{
+    "description": "Algebra Flash 2.2 has just been released!Changelog:\n\n- New gamemode!\n\nThank you for the continued support of the game!\n\n\n\n\n\nHuh, is that it? Slightly disappointed, you boot up the game and click on the new gamemode. It says \"Colored platforms\".\n\nThere are $ n $ platforms, numbered from $ 1 $ to $ n $ , placed one after another. There are $ m $ colors available in the game, numbered from $ 1 $ to $ m $ . The $ i $ -th platform is colored $ c_i $ .\n\nYou start on the platform $ 1 $ and want to reach platform $ n $ . In one move, you can jump from some platform $ i $ to platforms $ i + 1 $ or $ i + 2 $ .\n\nAll platforms are initially deactivated (including platforms $ 1 $ and $ n $ ). For each color $ j $ , you can pay $ x_j $ coins to activate all platforms of that color.\n\nYou want to activate some platforms so that you could start on an activated platform $ 1 $ , jump through some activated platforms and reach an activated platform $ n $ .\n\nWhat's the smallest amount of coins you can spend to achieve that?",
+    "inputFormat": "The first line contains two integers $ n $ and $ m $ ( $ 2 \\le n \\le 3 \\cdot 10^5 $ ; $ 1 \\le m \\le 40 $ ) \u2014 the number of platforms and the number of colors, respectively.\n\nThe second line contains $ n $ integers $ c_1, c_2, \\dots, c_n $ ( $ 1 \\le c_i \\le m $ ) \u2014 the colors of the platforms.\n\nThe third line contains $ m $ integers $ x_1, x_2, \\dots, x_m $ ( $ 1 \\le x_i \\le 10^7 $ ) \u2014 the cost of activating all platforms of each color.",
+    "outputFormat": "Print the smallest amount of coins you can spend to activate some platforms so that you could start on an activated platform $ 1 $ , jump through some activated platforms and reach an activated platform $ n $ .",
+    "samples": [
+        [
+            "5 3\n1 3 2 3 1\n1 10 100",
+            "11"
+        ],
+        [
+            "5 3\n1 3 2 3 1\n1 200 20",
+            "21"
+        ],
+        [
+            "4 2\n2 2 1 1\n5 5",
+            "10"
+        ],
+        [
+            "10 10\n3 8 6 2 10 5 2 3 7 3\n9 7 4 2 1 8 2 6 2 2",
+            "15"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u5c0f A \u5728\u7535\u8111\u4e0a\u73a9\u8df3\u683c\u5b50\u6e38\u620f\uff0c\u8be5\u6e38\u620f\u4e00\u5171\u6709\u6807\u53f7  $1$ ~ $n$ \u7684\u683c\u5b50\uff0c\u6bcf\u4e2a\u683c\u5b50\u90fd\u6709\u4e00\u4e2a\u989c\u8272 $c_i$\u3002\u5c0f A \u9700\u8981\u63a7\u5236\u8df3\u8df3\u9f99\u4ece $1$\u53f7\u683c\u5b50\u8df3\u5230 $n$ \u53f7\u683c\u5b50\uff0c\u6bcf\u6b21\u53ea\u80fd\u5f80\u524d\u8df3 $1$ \u4e2a\u6216 $2$ \u4e2a\u683c\u5b50\u3002\u521d\u59cb\u65f6\u6240\u6709\u683c\u5b50\u90fd\u672a\u6fc0\u6d3b\uff08\u5305\u62ec $1$ \u548c $n$\uff09\uff0c\u5904\u4e8e\u672a\u6fc0\u6d3b\u7684\u683c\u5b50\u6e38\u620f\u4f1a\u76f4\u63a5\u5931\u8d25\u3002\u4f46\u662f\u82b1\u8d39  $x_k$ \u91d1\u5e01\u53ef\u4ee5\u6fc0\u6d3b\u6240\u6709\u989c\u8272\u4e3a $k$ \u7684\u683c\u5b50\u3002\u6240\u4ee5\u6e38\u620f\u524d\uff0c\u4f60\u9700\u8981\u9884\u5b9a\u4e00\u4e2a\u8d2d\u4e70\u989c\u8272\u65b9\u6848\uff0c\u4f7f\u5f97\u5bf9\u5e94\u989c\u8272\u7684\u683c\u5b50\u5728\u6e38\u620f\u5f00\u59cb\u524d\u5c31\u88ab\u6fc0\u6d3b\uff0c\u4ee5\u4fbf\u4f60\u80fd\u63a7\u5236\u8df3\u8df3\u9f99\u5230\u8fbe\u7ec8\u70b9\u3002\u5c0f A \u5e0c\u671b\u82b1\u8d39\u6700\u5c11\u7684\u91d1\u5e01\u5b8c\u6210\u4efb\u52a1\uff0c\u8bf7\u6c42\u51fa\u6700\u5c0f\u82b1\u8d39\u3002"
+}

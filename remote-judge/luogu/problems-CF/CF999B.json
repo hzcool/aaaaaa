@@ -1,0 +1,21 @@
+{
+    "description": "A string $ s $ of length $ n $ can be encrypted by the following algorithm:\n\n- iterate over all divisors of $ n $ in decreasing order (i.e. from $ n $ to $ 1 $ ),\n- for each divisor $ d $ , reverse the substring $ s[1 \\dots d] $ (i.e. the substring which starts at position $ 1 $ and ends at position $ d $ ).\n\nFor example, the above algorithm applied to the string $ s $ =\"codeforces\" leads to the following changes: \"codeforces\" $ \\to $ \"secrofedoc\" $ \\to $ \"orcesfedoc\" $ \\to $ \"rocesfedoc\" $ \\to $ \"rocesfedoc\" (obviously, the last reverse operation doesn't change the string because $ d=1 $ ).\n\nYou are given the encrypted string $ t $ . Your task is to decrypt this string, i.e., to find a string $ s $ such that the above algorithm results in string $ t $ . It can be proven that this string $ s $ always exists and is unique.",
+    "inputFormat": "The first line of input consists of a single integer $ n $ ( $ 1 \\le n \\le 100 $ ) \u2014 the length of the string $ t $ . The second line of input consists of the string $ t $ . The length of $ t $ is $ n $ , and it consists only of lowercase Latin letters.",
+    "outputFormat": "Print a string $ s $ such that the above algorithm results in $ t $ .",
+    "samples": [
+        [
+            "10\nrocesfedoc\n",
+            "codeforces\n"
+        ],
+        [
+            "16\nplmaetwoxesisiht\n",
+            "thisisexampletwo\n"
+        ],
+        [
+            "1\nz\n",
+            "z\n"
+        ]
+    ],
+    "hint": "The first example is described in the problem statement.",
+    "translation": "\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u5b57\u7b26\u4e32 $a$ \u53ef\u4ee5\u88ab\u4ee5\u4e0b\u7b97\u6cd5\u52a0\u5bc6\uff1a\n\n- \u4ee5\u964d\u5e8f\u904d\u5386 $n$ \u7684\u6240\u6709\u9664\u6570\uff08\u5373\u4ece $n$ \u81f3 $1$\uff09\n- \u5bf9\u4e8e\u6bcf\u4e00\u4e2a\u9664\u6570 $d$ , \u53cd\u8f6c\u5b50\u5b57\u7b26\u4e32 $s[1\\dots d]$ \uff08\u5373\u4ece $1$ \u5f00\u59cb\u5230 $d$ \u7ed3\u5c3e\u7684\u5b57\u7b26\u4e32\uff09\n\n\n\n\u4f8b\u5982\uff0c\u5c06\u8be5\u7b97\u6cd5\u5e94\u7528\u5230\u5b57\u7b26\u4e32  `s = \"codeforces\"\u200b` \u5c06\u9020\u6210\u4ee5\u4e0b\u53d8\u5316\uff1a\n\n\u200b\t`\"codeforces\"` $\\to$ `\"secrofedoc\"` $\\to$ `\"orcesfedoc\"` $\\to$ `\"rocesfedoc\"` $\\to$ `\"rocesfedoc\"`\n\n\uff08\u663e\u7136\uff0c\u56e0\u4e3a $d = 1$ \u6240\u4ee5\u6700\u540e\u4e00\u6b21\u53cd\u8f6c\u64cd\u4f5c\u6ca1\u6709\u5bf9\u5b57\u7b26\u4e32\u9020\u6210\u53d8\u5316\uff09\n\n\n\n\u4f60\u7684\u7a0b\u5e8f\u5c06\u88ab\u7ed9\u4e88\u4e00\u4e2a\u52a0\u5bc6\u8fc7\u7684\u5b57\u7b26\u4e32 $t$ \u3002\u4f60\u7684\u4efb\u52a1\u662f\u89e3\u5bc6\u5b83\uff0c\u5373\u627e\u5230\u4e00\u4e2a\u5b57\u7b26\u4e32 $s$ \u88ab\u4ee5\u4e0a\u7b97\u6cd5\u52a0\u5bc6\u540e\u7ed3\u679c\u4e3a $t$ \u3002\u6570\u636e\u4fdd\u8bc1\u5b57\u7b26\u4e32 $s$ \u5b58\u5728\u4e14\u662f\u552f\u4e00\u7684\u3002\n\n#### \u8f93\u5165\n\n\u7b2c\u4e00\u884c\u5305\u62ec\u4e00\u4e2a\u6574\u6570 $n (1 \u2264 n \u2264 100)$ \u4e3a\u5b57\u7b26\u4e32 $t$ \u7684\u957f\u5ea6\u3002\n\n\u7b2c\u4e8c\u884c\u4e3a\u5b57\u7b26\u4e32 $t$ \uff0c\u53ea\u5305\u542b\u5c0f\u5199\u82f1\u6587\u5b57\u6bcd\u3002\n\n#### \u8f93\u51fa\n\n\u8f93\u51fa\u5b57\u7b26\u4e32 $s$ \u3002\n\n#### \u8bf4\u660e\n\n\u9898\u76ee\u63cf\u8ff0\u4e2d\u4ecb\u7ecd\u4e86\u7b2c\u4e00\u4e2a\u6837\u4f8b\u3002"
+}

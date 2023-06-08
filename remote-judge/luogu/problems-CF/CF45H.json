@@ -1,0 +1,17 @@
+{
+    "description": "The Berland capital (as you very well know) contains $ n $ junctions, some pairs of which are connected by two-way roads. Unfortunately, the number of traffic jams in the capital has increased dramatically, that's why it was decided to build several new roads. Every road should connect two junctions.\n\nThe city administration noticed that in the cities of all the developed countries between any two roads one can drive along at least two paths so that the paths don't share any roads (but they may share the same junction). The administration decided to add the minimal number of roads so that this rules was fulfilled in the Berland capital as well. In the city road network should exist no more than one road between every pair of junctions before or after the reform.",
+    "inputFormat": "The first input line contains a pair of integers $ n $ , $ m $ ( $ 2<=n<=900,1<=m<=100000 $ ), where $ n $ is the number of junctions and $ m $ is the number of roads. Each of the following $ m $ lines contains a description of a road that is given by the numbers of the connected junctions $ a_{i},b_{i} $ ( $ 1<=a_{i},b_{i}<=n,a_{i}\u2260b_{i} $ ). The junctions are numbered from 1 to $ n $ . It is possible to reach any junction of the city from any other one moving along roads.",
+    "outputFormat": "On the first line print $ t $ \u2014 the number of added roads. Then on $ t $ lines print the descriptions of the added roads in the format of the input data. You can use any order of printing the roads themselves as well as the junctions linked by every road. If there are several solutions to that problem, print any of them.\n\nIf the capital doesn't need the reform, print the single number 0.\n\nIf there's no solution, print the single number -1.",
+    "samples": [
+        [
+            "4 3\n1 2\n2 3\n3 4\n",
+            "1\n1 4\n"
+        ],
+        [
+            "4 4\n1 2\n2 3\n2 4\n3 4\n",
+            "1\n1 3\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "### \u9898\u76ee\u63cf\u8ff0\n\n\u4e00\u5f20\u65e0\u5411\u56fe\u6709 $ n $ \u4e2a\u9876\u70b9\uff0c$ m $ \u6761\u8fb9\u3002\u6c42\uff1a\u81f3\u5c11\u52a0\u5165\u51e0\u6761\u8fb9\uff0c\u4f7f\u5f97\u56fe\u4e2d\u4efb\u610f\u4e24\u70b9\u95f4\u6709\u4e24\u79cd\u4e0d\u540c\u7684\u8def\u5f84\uff08\u4e0d\u80fd\u7ecf\u8fc7\u540c\u4e00\u6761\u8fb9\uff0c\u53ef\u4ee5\u7ecf\u8fc7\u540c\u4e00\u4e2a\u9876\u70b9\uff09\n\n### \u8f93\u5165\u683c\u5f0f\n\n\u7b2c\u4e00\u884c\u4e24\u4e2a\u6574\u6570 $ n $ , $m$ \u3002( $2\\leq n\\leq$900 , $1\\leq m\\leq 100000 $ )\n\u4e4b\u540e $m$ \u884c\uff0c\u6bcf\u884c\u4e24\u4e2a\u6574\u6570 $u_{i}$ , $v_{i}$ ,\u8868\u793a\u4e00\u6761\u65e0\u5411\u8fb9\u8fde\u63a5\u7740\u7f16\u53f7\u4e3a $u_{i}$ , $v_{i}$ \u7684\u8fd9\u4e24\u4e2a\u70b9\u3002\n\n### \u8f93\u51fa\u683c\u5f0f\n\n* \u5982\u679c\u65e0\u89e3\uff0c\u8f93\u51fa \"-1\" \u3002\n* \u5982\u679c\u4e0d\u9700\u8981\u52a0\u8fb9\uff0c\u8f93\u51fa \"0\" \u3002\n* \u5426\u5219\u7b2c\u4e00\u884c\u4e00\u4e2a\u6574\u6570 $a$ ,\u8868\u793a\u81f3\u5c11\u8981\u52a0 $a$ \u6761\u8fb9\u3002\u63a5\u4e0b\u6765 $a$  \u884c\uff0c\u6bcf\u884c\u4e24\u4e2a\u6574\u6570 $u_{i}$ , $v_{i}$ \uff0c\u8868\u793a\u8981\u52a0\u4e00\u6761\u8fde\u63a5\u7740\u7f16\u53f7\u4e3a $u_{i}$ , $v_{i}$ \u7684\u8fd9\u4e24\u4e2a\u70b9\u7684\u65e0\u5411\u8fb9\u3002\uff08\u5982\u679c\u6709\u591a\u79cd\u89e3\u51b3\u65b9\u6848\uff0c\u8f93\u51fa\u4efb\u610f\u4e00\u4e2a\uff0c\u65b0\u589e\u8fb9\u7684\u8f93\u51fa\u987a\u5e8f\u65e0\u8981\u6c42\u3002\uff09"
+}

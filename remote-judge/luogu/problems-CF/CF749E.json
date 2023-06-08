@@ -1,0 +1,13 @@
+{
+    "description": "You are given a permutation of integers from $ 1 $ to $ n $ . Exactly once you apply the following operation to this permutation: pick a random segment and shuffle its elements. Formally:\n\n1. Pick a random segment (continuous subsequence) from $ l $ to $ r $ . All ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF749E/150441d31156a32e0b2da63844d600138a543898.png) segments are equiprobable.\n2. Let $ k=r-l+1 $ , i.e. the length of the chosen segment. Pick a random permutation of integers from $ 1 $ to $ k $ , $ p_{1},p_{2},...,p_{k} $ . All $ k! $ permutation are equiprobable.\n3. This permutation is applied to elements of the chosen segment, i.e. permutation $ a_{1},a_{2},...,a_{l-1},a_{l},a_{l+1},...,a_{r-1},a_{r},a_{r+1},...,a_{n} $ is transformed to $ a_{1},a_{2},...,a_{l-1},a_{l-1+p1},a_{l-1+p2},...,a_{l-1+pk-1},a_{l-1+pk},a_{r+1},...,a_{n} $ .\n\nInversion if a pair of elements (not necessary neighbouring) with the wrong relative order. In other words, the number of inversion is equal to the number of pairs $ (i,j) $ such that $ i&lt;j $ and $ a_{i}&gt;a_{j} $ . Find the expected number of inversions after we apply exactly one operation mentioned above.",
+    "inputFormat": "The first line contains a single integer $ n $ ( $ 1<=n<=100000 $ ) \u2014 the length of the permutation.\n\nThe second line contains $ n $ distinct integers from $ 1 $ to $ n $ \u2014 elements of the permutation.",
+    "outputFormat": "Print one real value \u2014 the expected number of inversions. Your answer will be considered correct if its absolute or relative error does not exceed $ 10^{-9} $ .\n\nNamely: let's assume that your answer is $ a $ , and the answer of the jury is $ b $ . The checker program will consider your answer correct, if ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF749E/d8d110e69d298146d951837cc2710d1c4cc74a7d.png).",
+    "samples": [
+        [
+            "3\n2 3 1\n",
+            "1.916666666666666666666666666667\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9\u51fa\u4e00\u4e2a $1\\sim n$ \u7684\u6392\u5217\uff0c\u4ece\u4e2d\u7b49\u6982\u7387\u7684\u9009\u53d6\u4e00\u4e2a\u8fde\u7eed\u6bb5\uff0c\u8bbe\u5176\u957f\u5ea6\u4e3a $l$\u3002\u5bf9\u8fde\u7eed\u6bb5\u91cd\u65b0\u8fdb\u884c\u7b49\u6982\u7387\u7684\u5168\u6392\u5217\uff0c\u6c42\u6392\u5217\u540e\u6574\u4e2a\u539f\u5e8f\u5217\u7684\u9006\u5e8f\u5bf9\u7684\u671f\u671b\u4e2a\u6570\u3002\n"
+}

@@ -1,0 +1,17 @@
+{
+    "description": "Vasya plays The Elder Trolls III: Morrowindows. He has a huge list of items in the inventory, however, there is no limits on the size of things. Vasya does not know the total amount of items but he is sure that are not more than $ x $ and not less than $ 2 $ items in his inventory. A new patch for the game appeared to view inventory in $ n $ different modes. Displaying in mode $ i $ is a partition of all inventory items on pages, each of which (except for maybe the last one) shows exactly $ a_{i} $ items. In addition, each mode shows how many pages $ b_{i} $ is in a complete list. Great! Perhaps this information will be enough for Vasya to find the required number. Moreover, it is very interesting, what is the fewest number of modes in which Vasya can see inventory to determine the number of items in it?\n\nVasya cannot use the information that was received while looking on inventory in some mode for selection of next actions. I. e. Vasya chooses some set of modes first, and then sees all the results and determines the size.\n\nKnowing the number of $ a_{i} $ , $ x $ and assuming that Vasya is very smart, check whether he can uniquely determine the number of items in his inventory, and how many modes he will need to do that if he knows numbers $ a_{i} $ , $ x $ and he is able to know number $ b_{i} $ after viewing items in mode $ i $ .",
+    "inputFormat": "The first line contains two integers $ n $ and $ x $ ( $ 0<=n<=10^{5},2<=x<=10^{9} $ ). The second line contains integers $ a_{i} $ ( $ 1<=a_{i}<=10^{9} $ ). Some numbers among all $ a_{i} $ may be equal.",
+    "outputFormat": "Output the fewest amount of modes required to uniquely determine amount of items in the inventory. If there is no solution output $ -1 $ .",
+    "samples": [
+        [
+            "2 4\n2 3\n",
+            "2\n"
+        ],
+        [
+            "1 4\n2\n",
+            "-1\n"
+        ]
+    ],
+    "hint": "In the second example Vasya is not able to determine items count uniquely because 3 items, as well as 4 items, can be displayed on two pages.",
+    "translation": "\u7ed9\u51fa $n$ \u4e2a\u4e0d\u540c\u7684\u6b63\u6574\u6570 $a_i$\uff0c\u53ef\u4ee5\u7528\u8fd9\u4e9b\u6570\u53bb\u6d4b\u8bd5\u4e00\u4e2a\u6570\uff0c\u5373\u5bf9\u4e8e\u4e00\u4e2a\u672a\u77e5\u6570 $y$\uff0c\u53ef\u4ee5\u5f97\u77e5 $\\lfloor \\dfrac{y}{a_i} \\rfloor$\uff0c\u95ee\u4ece\u8fd9 $n$ \u4e2a\u6570\u4e2d\u662f\u5426\u53ef\u4ee5\u9009\u51fa\u82e5\u5e72\u6570\u5b57\u4f7f\u5f97\u4ed6\u4eec\u53ef\u4ee5\u533a\u5206\u51fa $2$ \u5230 $x$ \u4e2d\u6240\u6709\u7684\u6570\uff0c\u5982\u679c\u53ef\u4ee5\u5219\u8981\u6c42\u9009\u53d6\u6700\u5c11\u6570\u91cf\u7684\u6570\uff0c\u5426\u5219\u8f93\u51fa $-1$\u3002"
+}

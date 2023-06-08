@@ -1,0 +1,17 @@
+{
+    "description": "Pasha has recently bought a new phone jPager and started adding his friends' phone numbers there. Each phone number consists of exactly $ n $ digits.\n\nAlso Pasha has a number $ k $ and two sequences of length $ n/k $ ( $ n $ is divisible by $ k $ ) $ a_{1},a_{2},...,a_{n/k} $ and $ b_{1},b_{2},...,b_{n/k} $ . Let's split the phone number into blocks of length $ k $ . The first block will be formed by digits from the phone number that are on positions $ 1 $ , $ 2 $ ,..., $ k $ , the second block will be formed by digits from the phone number that are on positions $ k+1 $ , $ k+2 $ , ..., $ 2\u00b7k $ and so on. Pasha considers a phone number good, if the $ i $ -th block doesn't start from the digit $ b_{i} $ and is divisible by $ a_{i} $ if represented as an integer.\n\nTo represent the block of length $ k $ as an integer, let's write it out as a sequence $ c_{1} $ , $ c_{2} $ ,..., $ c_{k} $ . Then the integer is calculated as the result of the expression $ c_{1}\u00b710^{k-1}+c_{2}\u00b710^{k-2}+...+c_{k} $ .\n\nPasha asks you to calculate the number of good phone numbers of length $ n $ , for the given $ k $ , $ a_{i} $ and $ b_{i} $ . As this number can be too big, print it modulo $ 10^{9}+7 $ .",
+    "inputFormat": "The first line of the input contains two integers $ n $ and $ k $ ( $ 1<=n<=100000 $ , $ 1<=k<=min(n,9) $ ) \u2014 the length of all phone numbers and the length of each block, respectively. It is guaranteed that $ n $ is divisible by $ k $ .\n\nThe second line of the input contains $ n/k $ space-separated positive integers \u2014 sequence $ a_{1},a_{2},...,a_{n/k} $ ( $ 1<=a_{i}&lt;10^{k} $ ).\n\nThe third line of the input contains $ n/k $ space-separated positive integers \u2014 sequence $ b_{1},b_{2},...,b_{n/k} $ ( $ 0<=b_{i}<=9 $ ).",
+    "outputFormat": "Print a single integer \u2014 the number of good phone numbers of length $ n $ modulo $ 10^{9}+7 $ .",
+    "samples": [
+        [
+            "6 2\n38 56 49\n7 3 4\n",
+            "8\n"
+        ],
+        [
+            "8 2\n1 22 3 44\n5 4 3 2\n",
+            "32400\n"
+        ]
+    ],
+    "hint": "In the first test sample good phone numbers are: 000000, 000098, 005600, 005698, 380000, 380098, 385600, 385698.",
+    "translation": "## \u9898\u76ee\u63cf\u8ff0 \r\n\u8ba9\u4f60\u6784\u9020\u957f\u5ea6\u4e3a n \u7684\u7535\u8bdd\u53f7\u7801\uff0c\u6ee1\u8db3\u5c06\u5176\u5747\u5206\u6210 k \u6bb5\u540e\uff0c\u7b2c i \u6bb5\u80fd\u88ab $a_i$ \u6574\u9664\u4e14\u5f00\u5934\u4e0d\u4e3a $b_i$ \u7684\u4e2a\u6570\u603b\u548c\uff0c\u7b54\u6848\u5bf9 $10^9+7$\u53d6\u6a21\u3002\r\n\r\n## \u8f93\u5165\u683c\u5f0f\r\n\r\n\u7b2c\u4e00\u884c\u4e24\u4e2a\u6574\u6570$n,k( 1<=n<=100000, 1<=k<=min(n,9))$\u3002\r\n\r\n\u7b2c\u4e8c\u884c$n/k$\u4e2a\u6570\uff0c\u8868\u793a$a_i$\u3002\r\n\r\n\u7b2c\u4e09\u884c$n/k$\u4e2a\u6570\uff0c\u8868\u793a$b_i$\u3002\r\n\r\n## \u8f93\u51fa\u683c\u5f0f\r\n\r\n\u4e00\u4e2a\u6574\u6570\uff0c\u7535\u8bdd\u53f7\u7801\u60c5\u51b5\u603b\u6570\u3002"
+}

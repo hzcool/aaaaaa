@@ -1,0 +1,21 @@
+{
+    "description": "Since Boboniu finished building his Jianghu, he has been doing Kungfu on these mountains every day.\n\nBoboniu designs a map for his $ n $ mountains. He uses $ n-1 $ roads to connect all $ n $ mountains. Every pair of mountains is connected via roads.\n\nFor the $ i $ -th mountain, Boboniu estimated the tiredness of doing Kungfu on the top of it as $ t_i $ . He also estimated the height of each mountain as $ h_i $ .\n\nA path is a sequence of mountains $ M $ such that for each $ i $ ( $ 1 \\le i <       |M| $ ), there exists a road between $ M_i $ and $ M_{i+1} $ . Boboniu would regard the path as a challenge if for each $ i $ ( $ 1\\le i<|M| $ ), $ h_{M_i}\\le h_{M_{i+1}} $ .\n\nBoboniu wants to divide all $ n-1 $ roads into several challenges. Note that each road must appear in exactly one challenge, but a mountain may appear in several challenges.\n\nBoboniu wants to minimize the total tiredness to do all the challenges. The tiredness of a challenge $ M $ is the sum of tiredness of all mountains in it, i.e. $ \\sum_{i=1}^{|M|}t_{M_i} $ .\n\nHe asked you to find the minimum total tiredness. As a reward for your work, you'll become a guardian in his Jianghu.",
+    "inputFormat": "The first line contains a single integer $ n $ ( $ 2 \\le n \\le       2 \\cdot 10^5 $ ), denoting the number of the mountains.\n\nThe second line contains $ n $ integers $ t_1, t_2, \\ldots,       t_n $ ( $ 1 \\le t_i \\le 10^6 $ ), denoting the tiredness for Boboniu to do Kungfu on each mountain.\n\nThe third line contains $ n $ integers $ h_1, h_2, \\ldots,       h_n $ ( $ 1 \\le h_i \\le 10^6 $ ), denoting the height of each mountain.\n\nEach of the following $ n - 1 $ lines contains two integers $ u_i $ , $ v_i $ ( $ 1 \\le u_i, v_i \\le n, u_i \\neq v_i $ ), denoting the ends of the road. It's guaranteed that all mountains are connected via roads.",
+    "outputFormat": "Print one integer: the smallest sum of tiredness of all challenges.",
+    "samples": [
+        [
+            "5\n40 10 30 50 20\n2 3 2 3 1\n1 2\n1 3\n2 4\n2 5",
+            "160"
+        ],
+        [
+            "5\n1000000 1 1 1 1\n1000000 1 1 1 1\n1 2\n1 3\n1 4\n1 5",
+            "4000004"
+        ],
+        [
+            "10\n510916 760492 684704 32545 484888 933975 116895 77095 127679 989957\n402815 705067 705067 705067 623759 103335 749243 138306 138306 844737\n1 2\n3 2\n4 3\n1 5\n6 4\n6 7\n8 7\n8 9\n9 10",
+            "6390572"
+        ]
+    ],
+    "hint": "For the first example:\n\n  ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1394D/6d7c9860b48141348a65d76336aec032250a8094.png)In the picture, the lighter a point is, the higher the mountain it represents. One of the best divisions is:\n\n- Challenge $ 1 $ : $ 3 \\to 1 \\to 2 $\n- Challenge $ 2 $ : $ 5 \\to 2 \\to 4 $\n\nThe total tiredness of Boboniu is $ (30 + 40 + 10) + (20 + 10 +       50) = 160 $ . It can be shown that this is the minimum total tiredness.",
+    "translation": "## \u9898\u76ee\u63cf\u8ff0\n\u6709\u4e00\u68f5 $n$ \u4e2a\u70b9\u7684\u6811\uff08$1\\le n\\le 2\\times10^5$\uff09\uff0c\u7b2c $i$ \u4e2a\u70b9\u6709\u53c2\u6570 $a_i,b_i$\u3002\uff08$1\\le a_i,b_i\\le10^6$\uff09\n\n\u73b0\u5728\u8981\u6c42\u628a\u8fd9\u68f5\u6811\u5256\u5206\u6210\u82e5\u5e72\u6761\u94fe\uff08\u94fe\u5305\u62ec\u7aef\u70b9\uff09\uff0c\u4f7f\u6bcf\u6761\u8fb9\u6070\u597d\u51fa\u73b0\u5728\u4e00\u6761\u94fe\u4e2d\uff0c\u4e14\u8981\u6c42\u94fe\u4e0a\u7684\u70b9\u7684 $b_i$ **\u5355\u8c03\u4e0d\u964d\u6216\u5355\u8c03\u4e0d\u589e**\u3002\u4e00\u6761\u94fe\u7684\u6743\u503c\u5b9a\u4e49\u4e3a\u94fe\u4e0a\u6240\u6709\u70b9\u7684 $a_i$ \u4e4b\u548c\u3002\n\n\u6c42\u5728\u6240\u6709\u5256\u5206\u65b9\u6848\u4e2d\uff0c\u94fe\u7684\u603b\u6743\u503c\u6700\u5c0f\u4e3a\u591a\u5c11\u3002\n## \u8f93\u5165\n\u7b2c\u4e00\u884c\u4e3a $n$\uff1b\n\n\u7b2c\u4e8c\u884c\u4e3a $n$ \u4e2a\u6574\u6570 $a_1,a_2\\dots,a_n$\uff1b\n\n\u7b2c\u4e09\u884c\u4e3a $n$ \u4e2a\u6574\u6570 $b_1,b_2\\dots,b_n$\uff1b\n\n\u63a5\u4e0b\u6765 $n-1$ \u884c\u6bcf\u884c\u4e00\u6761\u8fb9\uff0c\u8868\u793a\u8fd9\u68f5\u6811\u3002\n## \u8f93\u51fa\n\u4e00\u884c\u4e00\u4e2a\u6574\u6570\u8868\u793a\u7b54\u6848\u3002"
+}

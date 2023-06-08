@@ -1,0 +1,29 @@
+{
+    "description": "Fox Ciel has a board with $ n $ rows and $ n $ columns. So, the board consists of $ n\u00d7n $ cells. Each cell contains either a symbol '.', or a symbol '\\#'.\n\nA cross on the board is a connected set of exactly five cells of the board that looks like a cross. The picture below shows how it looks.\n\n![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF389B/5ccac31668e0d529fa8a5f9e69b4dcfcf1f3b650.png)Ciel wants to draw several (may be zero) crosses on the board. Each cross must cover exactly five cells with symbols '\\#', and any cell with symbol '\\#' must belong to some cross. No two crosses can share a cell.\n\nPlease, tell Ciel if she can draw the crosses in the described way.",
+    "inputFormat": "The first line contains an integer $ n $ ( $ 3<=n<=100 $ ) \u2014 the size of the board.\n\nEach of the next $ n $ lines describes one row of the board. The $ i $ -th line describes the $ i $ -th row of the board and consists of $ n $ characters. Each character is either a symbol '.', or a symbol '\\#'.",
+    "outputFormat": "Output a single line with \"YES\" if Ciel can draw the crosses in the described way. Otherwise output a single line with \"NO\".",
+    "samples": [
+        [
+            "5\n.#...\n####.\n.####\n...#.\n.....\n",
+            "YES\n"
+        ],
+        [
+            "4\n####\n####\n####\n####\n",
+            "NO\n"
+        ],
+        [
+            "6\n.#....\n####..\n.####.\n.#.##.\n######\n.#..#.\n",
+            "YES\n"
+        ],
+        [
+            "6\n.#..#.\n######\n.####.\n.####.\n######\n.#..#.\n",
+            "NO\n"
+        ],
+        [
+            "3\n...\n...\n...\n",
+            "YES\n"
+        ]
+    ],
+    "hint": "In example 1, you can draw two crosses. The picture below shows what they look like.\n\n![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF389B/2961c8465879f5caacf5ebd47c02d06b75cd444e.png)In example 2, the board contains 16 cells with '\\#', but each cross contains 5. Since 16 is not a multiple of 5, so it's impossible to cover all.",
+    "translation": "\u6709\u4e00\u4e2a $n\\times n$ \u7684\u77e9\u9635\uff0c\u6bcf\u4e2a\u70b9\u4e3a `.` \u6216 `#` \uff0c\u95ee\u8be5\u77e9\u9635\u662f\u5426\u80fd\u591f\u5206\u89e3\u6210\u591a\u4e2a\u5982\u4e0b\u56fe\u7684\u7531 `#` \u7ec4\u6210\u7684\u5341\u5b57\u5f62\uff1a\n```\nx # x\n# # #\nx # x\n```\n`x` \u8868\u793a\u4efb\u610f\u5b57\u6bcd\u3002"
+}

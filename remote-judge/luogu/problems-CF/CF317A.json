@@ -1,0 +1,21 @@
+{
+    "description": "Let us call a pair of integer numbers  $ m $ -perfect, if at least one number in the pair is greater than or equal to $ m $ . Thus, the pairs (3, 3) and (0, 2) are 2-perfect while the pair (-1, 1) is not.\n\nTwo integers $ x $ , $ y $ are written on the blackboard. It is allowed to erase one of them and replace it with the sum of the numbers, $ (x+y) $ .\n\nWhat is the minimum number of such operations one has to perform in order to make the given pair of integers $ m $ -perfect?",
+    "inputFormat": "Single line of the input contains three integers $ x $ , $ y $ and $ m $ ( $ -10^{18}<=x $ , $ y $ , $ m<=10^{18} $ ).\n\nPlease, do not use the %lld specifier to read or write 64-bit integers in C++. It is preffered to use the cin, cout streams or the %I64d specifier.",
+    "outputFormat": "Print the minimum number of operations or \"-1\" (without quotes), if it is impossible to transform the given pair to the $ m $ -perfect one.",
+    "samples": [
+        [
+            "1 2 5\n",
+            "2\n"
+        ],
+        [
+            "-1 4 15\n",
+            "4\n"
+        ],
+        [
+            "0 -1 5\n",
+            "-1\n"
+        ]
+    ],
+    "hint": "In the first sample the following sequence of operations is suitable: (1, 2) ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF317A/355fee5161a1808ee95ea5dc6d815d4071657131.png) (3, 2) ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF317A/355fee5161a1808ee95ea5dc6d815d4071657131.png) (5, 2).\n\nIn the second sample: (-1, 4) ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF317A/355fee5161a1808ee95ea5dc6d815d4071657131.png) (3, 4) ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF317A/355fee5161a1808ee95ea5dc6d815d4071657131.png) (7, 4) ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF317A/355fee5161a1808ee95ea5dc6d815d4071657131.png) (11, 4) ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF317A/355fee5161a1808ee95ea5dc6d815d4071657131.png) (15, 4).\n\nFinally, in the third sample $ x $ , $ y $ cannot be made positive, hence there is no proper sequence of operations.",
+    "translation": "\u9898\u76ee\u5927\u610f\uff1a\u5b9a\u4e49\u4e00\u5bf9\u6570(x,y)\uff0c\u82e5x\u3001y\u4e2d\u81f3\u5c11\u6709\u4e00\u4e2a\u5927\u4e8e\u7b49\u4e8em\uff0c\u5219\u79f0(x,y)\u5bf9m\u5b8c\u7f8e\u3002\n\n\u73b0\u5728\u7ed9\u5b9a\u4e00\u5bf9\u6570(x,y)\uff0c\u5141\u8bb8\u628a\u5176\u4e2d\u7684\u4e00\u4e2a\u6570\u6362\u6210x+y\uff0c\u95ee\u628a(x,y)\u53d8\u6210\u5bf9m\u5b8c\u7f8e\u7684\u6570\u5bf9\u81f3\u5c11\u9700\u8981\u51e0\u6b21\u64cd\u4f5c\u3002"
+}

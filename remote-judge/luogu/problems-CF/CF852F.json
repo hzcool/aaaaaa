@@ -1,0 +1,13 @@
+{
+    "description": "Consider an array $ A $ with $ N $ elements, all being the same integer $ a $ .\n\nDefine the product transformation as a simultaneous update $ A_{i}=A_{i}\u00b7A_{i+1} $ , that is multiplying each element to the element right to it for ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF852F/6fc715796ff6b053c1fbfce2cbd3ef15490be11e.png), with the last number $ A_{N} $ remaining the same. For example, if we start with an array $ A $ with $ a=2 $ and $ N=4 $ , then after one product transformation $ A=[4,\\ 4,\\ 4,\\ 2] $ , and after two product transformations $ A=[16,\\ 16,\\ 8,\\ 2] $ .\n\nYour simple task is to calculate the array $ A $ after $ M $ product transformations. Since the numbers can get quite big you should output them modulo $ Q $ .",
+    "inputFormat": "The first and only line of input contains four integers $ N $ , $ M $ , $ a $ , $ Q $ ( $ 7<=Q<=10^{9}+123 $ , $ 2<=a<=10^{6}+123 $ , ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF852F/7bf3dc8dfd4f63cf153f6d6469587d6914d2f757.png), ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF852F/f742a70333572ee21e11b5a43ec5f0a2a3c5a39d.png) is prime), where ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF852F/f742a70333572ee21e11b5a43ec5f0a2a3c5a39d.png) is the multiplicative order of the integer $ a $ modulo $ Q $ , see notes for definition.",
+    "outputFormat": "You should output the array $ A $ from left to right.",
+    "samples": [
+        [
+            "2 2 2 7\n",
+            "1 2 "
+        ]
+    ],
+    "hint": "The multiplicative order of a number $ a $ modulo $ Q $ ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF852F/f742a70333572ee21e11b5a43ec5f0a2a3c5a39d.png), is the smallest natural number $ x $ such that $ a^{x}\\ mod\\ Q=1 $ . For example, ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF852F/0356983d0321626e54baaf7ca150cf5fcbe1dd67.png).",
+    "translation": "\n\n\u6709\u4e00\u4e2a\u957f\u5ea6\u4e3an\u7684\u6570\u7ec4A\uff0c\u5f00\u59cb\u65f6\uff0cA\u5185\u7684\u5143\u7d20\u5168\u4e3aa\u3002\n\n\u73b0\u5728\u8fdb\u884cm\u6b21\u64cd\u4f5c\uff0c\u6bcf\u6b21\u64cd\u4f5c\u5c06A[i]\u53d8\u4e3aA[i]*A[i+1]\uff0c\u6700\u540e\u4e00\u4e2a\u5143\u7d20\u4e0d\u53d8\u3002\n\n\u73b0\u7ed9\u51fan,m,a,Q\uff0c\u8f93\u51fam\u6b21\u64cd\u4f5c\u540e\u7684A\u6570\u7ec4\uff0c\u6bcf\u4e2a\u5143\u7d20\u5bf9Q\u53d6\u6a21\u3002\n\n\u611f\u8c22@ObsdianGungnir \u63d0\u4f9b\u7684\u7ffb\u8bd1"
+}

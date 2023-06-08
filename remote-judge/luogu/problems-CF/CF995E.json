@@ -1,0 +1,17 @@
+{
+    "description": "Allen is playing Number Clicker on his phone.\n\nHe starts with an integer $ u $ on the screen. Every second, he can press one of 3 buttons.\n\n1. Turn $ u \\to u+1 \\pmod{p} $ .\n2. Turn $ u \\to u+p-1 \\pmod{p} $ .\n3. Turn $ u \\to u^{p-2} \\pmod{p} $ .\n\nAllen wants to press at most 200 buttons and end up with $ v $ on the screen. Help him!",
+    "inputFormat": "The first line of the input contains 3 positive integers: $ u, v, p $ ( $ 0 \\le u, v \\le p-1 $ , $ 3 \\le p \\le 10^9 + 9 $ ). $ p $ is guaranteed to be prime.",
+    "outputFormat": "On the first line, print a single integer $ \\ell $ , the number of button presses. On the second line, print integers $ c_1, \\dots, c_\\ell $ , the button presses. For $ 1 \\le i \\le \\ell $ , $ 1 \\le c_i \\le 3 $ .\n\nWe can show that the answer always exists.",
+    "samples": [
+        [
+            "1 3 5\n",
+            "2\n1 1\n"
+        ],
+        [
+            "3 2 5\n",
+            "1\n3\n"
+        ]
+    ],
+    "hint": "In the first example the integer on the screen changes as $ 1 \\to 2 \\to 3 $ .\n\nIn the second example the integer on the screen changes as $ 3 \\to 2 $ .",
+    "translation": "\u5c0fy\u5728\u73a9\u6570\u5b66\u6e38\u620f\uff0c\u4ed6\u6709\u4e09\u79cd\u53d8\u5316\u65b9\u5f0f\uff0c(1)\u5c06\u8be5\u6570+1\uff0c(2)\u5c06\u8be5\u6570-1\uff0c(3)\u5c06\u8be5\u6570\u53d8\u6210\u4ed6\u7684\u9006\u5143\uff08\u5373p-2\u6b21\u5e42\uff09\uff0c\u5f53\u7136\uff0c\u6211\u4eec\u6240\u4ee5\u64cd\u4f5c\u90fd\u662f\u5728mod p\u610f\u4e49\u4e0b\u7684\n\n\u73b0\u5728\u5c0fh\u77e5\u9053\u4e86\u53d8\u6362\u524d\u7684\u6570u\u548c\u53d8\u6362\u540e\u7684\u6570v\uff0c\u7ed9\u5b9a\u6a21\u6570p\u4fdd\u8bc1\u662f\u8d28\u6570\uff0c\u4ed6\u60f3\u77e5\u9053\u600e\u4e48\u5728200\u6b21\u64cd\u4f5c\u4e4b\u5185\u5f97\u5230v"
+}

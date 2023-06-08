@@ -1,0 +1,21 @@
+{
+    "description": "Mike has a sequence $ A=[a_{1},a_{2},...,a_{n}] $ of length $ n $ . He considers the sequence $ B=[b_{1},b_{2},...,b_{n}] $ beautiful if the $ gcd $ of all its elements is bigger than $ 1 $ , i.e. ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF798C/11fc4821110b970a70c2486c7b1391945362cd14.png).\n\nMike wants to change his sequence in order to make it beautiful. In one move he can choose an index $ i $ ( $ 1<=i&lt;n $ ), delete numbers $ a_{i},a_{i+1} $ and put numbers $ a_{i}-a_{i+1},a_{i}+a_{i+1} $ in their place instead, in this order. He wants perform as few operations as possible. Find the minimal number of operations to make sequence $ A $ beautiful if it's possible, or tell him that it is impossible to do so.\n\n![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF798C/99bfd9bc11b0e82a5c17dd17561cbac80e461b2d.png) is the biggest non-negative number $ d $ such that $ d $ divides $ b_{i} $ for every $ i $ ( $ 1<=i<=n $ ).",
+    "inputFormat": "The first line contains a single integer $ n $ ( $ 2<=n<=100000 $ ) \u2014 length of sequence $ A $ .\n\nThe second line contains $ n $ space-separated integers $ a_{1},a_{2},...,a_{n} $ ( $ 1<=a_{i}<=10^{9} $ ) \u2014 elements of sequence $ A $ .",
+    "outputFormat": "Output on the first line \"YES\" (without quotes) if it is possible to make sequence $ A $ beautiful by performing operations described above, and \"NO\" (without quotes) otherwise.\n\nIf the answer was \"YES\", output the minimal number of moves needed to make sequence $ A $ beautiful.",
+    "samples": [
+        [
+            "2\n1 1\n",
+            "YES\n1\n"
+        ],
+        [
+            "3\n6 2 4\n",
+            "YES\n0\n"
+        ],
+        [
+            "2\n1 3\n",
+            "YES\n1\n"
+        ]
+    ],
+    "hint": "In the first example you can simply make one move to obtain sequence $ [0,2] $ with ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF798C/6e6135886c5112f884827e3877151ef3f67508e1.png).\n\nIn the second example the $ gcd $ of the sequence is already greater than $ 1 $ .",
+    "translation": "#### \u9898\u76ee\u63cf\u8ff0\nMike \u6709\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u5e8f\u5217 $A=[a_1,a_2,\\dots,a_n]$\u3002\u4ed6\u8ba4\u4e3a\u4e00\u4e2a\u5e8f\u5217 $B=[b_1,b_2,\\dots,b_n]$ \u662f\u4f18\u7f8e\u7684\uff0c\u5f53\u4e14\u4ec5\u5f53\u5176\u6240\u6709\u5143\u7d20\u7684 $\\gcd$ \u5927\u4e8e $1$\uff0c\u5373 $\\gcd(b_1,b_2,\\dots,b_n)>1$\u3002\n\nMike \u60f3\u8981\u5bf9\u4ed6\u7684\u5e8f\u5217\u8fdb\u884c\u64cd\u4f5c\u6765\u4f7f\u5b83\u53d8\u4e3a\u4f18\u7f8e\u7684\u3002\u6bcf\u6b21\u64cd\u4f5c\uff0c\u4ed6\u53ef\u4ee5\u9009\u62e9\u4e00\u4e2a\u4e0b\u6807 $i(1\\leqslant i<n)$\uff0c\u5220\u9664 $a_i$ \u548c $a_{i+1}$\uff0c\u7136\u540e\u628a $a_i-a_{i+1}$ \u548c $a_i+a_{i+1}$ \u653e\u56de\u8fd9\u4e24\u4e2a\u4f4d\u7f6e\u4e0a\u3002\u4ed6\u5e0c\u671b\u64cd\u4f5c\u6b21\u6570\u5c3d\u53ef\u80fd\u5c11\u3002\u5982\u679c\u5e8f\u5217\u53ef\u4ee5\u53d8\u4e3a\u4f18\u7f8e\u7684\uff0c\u4f60\u9700\u8981\u7ed9\u51fa\u6700\u5c11\u64cd\u4f5c\u6b21\u6570\uff0c\u5426\u5219\uff0c\u6307\u51fa\u4e0d\u53ef\u80fd\u3002\n\n$\\gcd(b_1,b_2,\\dots,b_n)$ \u662f\u6700\u5927\u7684\u975e\u8d1f\u6574\u6570 $d$ \u4f7f\u5f97 $d$ \u6574\u9664\u6bcf\u4e00\u4e2a $b_i(1\\leqslant i\\leqslant n)$\u3002\n\n#### \u8f93\u5165\u683c\u5f0f\n\u7b2c\u4e00\u884c\u4e00\u4e2a\u6574\u6570 $n(2\\leqslant n\\leqslant 10^5)$\uff0c\u8868\u793a\u5e8f\u5217 $A$ \u7684\u957f\u5ea6\u3002\n\n\u4e4b\u540e\u4e00\u884c\uff0c$n$ \u4e2a\u88ab\u7a7a\u683c\u9694\u5f00\u7684\u6574\u6570 $a_1,a_2,\\dots,a_n(1\\leqslant a_i\\leqslant10^9)$\uff0c\u8868\u793a $A$ \u4e2d\u7684\u5143\u7d20\u3002\n\n#### \u8f93\u51fa\u683c\u5f0f\n\u5982\u679c\u53ef\u4ee5\u4f7f\u5e8f\u5217\u53d8\u4e3a\u4f18\u7f8e\u7684\uff0c\u7b2c\u4e00\u884c\u8f93\u51fa `YES`\uff0c\u7136\u540e\u7b2c\u4e8c\u884c\u8f93\u51fa\u6700\u5c0f\u64cd\u4f5c\u6b21\u6570\u3002\n\n\u5982\u679c\u4e0d\u53ef\u80fd\u4f7f\u5f97\u5e8f\u5217\u53d8\u4e3a\u4f18\u7f8e\u7684\uff0c\u5728\u7b2c\u4e00\u884c\u8f93\u51fa `NO`\u3002"
+}

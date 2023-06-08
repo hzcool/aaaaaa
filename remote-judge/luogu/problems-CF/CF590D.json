@@ -1,0 +1,21 @@
+{
+    "description": "A top-secret military base under the command of Colonel Zuev is expecting an inspection from the Ministry of Defence. According to the charter, each top-secret military base must include a top-secret troop that should... well, we cannot tell you exactly what it should do, it is a top secret troop at the end. The problem is that Zuev's base is missing this top-secret troop for some reasons.\n\nThe colonel decided to deal with the problem immediately and ordered to line up in a single line all $ n $ soldiers of the base entrusted to him. Zuev knows that the loquacity of the $ i $ -th soldier from the left is equal to $ q_{i} $ . Zuev wants to form the top-secret troop using $ k $ leftmost soldiers in the line, thus he wants their total loquacity to be as small as possible (as the troop should remain top-secret). To achieve this, he is going to choose a pair of consecutive soldiers and swap them. He intends to do so no more than $ s $ times. Note that any soldier can be a participant of such swaps for any number of times. The problem turned out to be unusual, and colonel Zuev asked you to help.\n\nDetermine, what is the minimum total loquacity of the first $ k $ soldiers in the line, that can be achieved by performing no more than $ s $ swaps of two consecutive soldiers.",
+    "inputFormat": "The first line of the input contains three positive integers $ n $ , $ k $ , $ s $ ( $ 1<=k<=n<=150 $ , $ 1<=s<=10^{9} $ ) \u2014 the number of soldiers in the line, the size of the top-secret troop to be formed and the maximum possible number of swap operations of the consecutive pair of soldiers, respectively.\n\nThe second line of the input contains $ n $ integer $ q_{i} $ ( $ 1<=q_{i}<=1000000 $ ) \u2014 the values of loquacity of soldiers in order they follow in line from left to right.",
+    "outputFormat": "Print a single integer \u2014 the minimum possible total loquacity of the top-secret troop.",
+    "samples": [
+        [
+            "3 2 2\n2 4 1\n",
+            "3\n"
+        ],
+        [
+            "5 4 2\n10 1 6 2 5\n",
+            "18\n"
+        ],
+        [
+            "5 2 3\n3 1 4 2 5\n",
+            "3\n"
+        ]
+    ],
+    "hint": "In the first sample Colonel has to swap second and third soldiers, he doesn't really need the remaining swap. The resulting soldiers order is: ( $ 2 $ , $ 1 $ , $ 4 $ ). Minimum possible summary loquacity of the secret troop is $ 3 $ . In the second sample Colonel will perform swaps in the following order:\n\n1. (10, 1, 6 \u2014 2, 5)\n2. (10, 1, 2, 6 \u2014 5)\n\nThe resulting soldiers order is (10, 1, 2, 5, 6).\n\nMinimum possible summary loquacity is equal to $ 18 $ .",
+    "translation": "### \u9898\u9762\u63cf\u8ff0\r\n\u6709n\u4e2a\u6570\uff0c\u6709s\u6b21\u64cd\u4f5c\uff0c\u6bcf\u6b21\u64cd\u4f5c\u53ef\u4ee5\u4ea4\u6362\u4e24\u4e2a\u76f8\u90bb\u7684\u6570\uff0c\u73b0\u5728\u8981\u6c42\u901a\u8fc7s\u6b21\u64cd\u4f5c\uff0c\u4f7f\u524dk\u4e2a\u6570\u7684\u548c\u6700\u5c0f\uff0c\u8f93\u51fa\u8fd9\u4e2a\u6700\u5c0f\u7684\u548c\r\n\r\n### \u8f93\u5165\r\nn,k,s$(1<=k<=n<=150,1<=s<=1e9)$,n\u4e2a\u6570$q_i$\r\n### \u8f93\u51fa \r\n\u6700\u5c0f\u7684\u548c"
+}

@@ -1,0 +1,21 @@
+{
+    "description": "You are given an array $ a $ consisting of $ n $ distinct positive integers.\n\nLet's consider an infinite integer set $ S $ which contains all integers $ x $ that satisfy at least one of the following conditions:\n\n1. $ x = a_i $ for some $ 1 \\leq i \\leq n $ .\n2. $ x = 2y + 1 $ and $ y $ is in $ S $ .\n3. $ x = 4y $ and $ y $ is in $ S $ .\n\nFor example, if $ a = [1,2] $ then the $ 10 $ smallest elements in $ S $ will be $ \\{1,2,3,4,5,7,8,9,11,12\\} $ .\n\nFind the number of elements in $ S $ that are strictly smaller than $ 2^p $ . Since this number may be too large, print it modulo $ 10^9 + 7 $ .",
+    "inputFormat": "The first line contains two integers $ n $ and $ p $ $ (1 \\leq n, p \\leq 2 \\cdot 10^5) $ .\n\nThe second line contains $ n $ integers $ a_1,a_2,\\ldots,a_n $ $ (1 \\leq a_i \\leq 10^9) $ .\n\nIt is guaranteed that all the numbers in $ a $ are distinct.",
+    "outputFormat": "Print a single integer, the number of elements in $ S $ that are strictly smaller than $ 2^p $ . Remember to print it modulo $ 10^9 + 7 $ .",
+    "samples": [
+        [
+            "2 4\n6 1",
+            "9"
+        ],
+        [
+            "4 7\n20 39 5 200",
+            "14"
+        ],
+        [
+            "2 200000\n48763 1000000000",
+            "448201910"
+        ]
+    ],
+    "hint": "In the first example, the elements smaller than $ 2^4 $ are $ \\{1, 3, 4, 6, 7, 9, 12, 13, 15\\} $ .\n\nIn the second example, the elements smaller than $ 2^7 $ are $ \\{5,11,20,23,39,41,44,47,79,80,83,89,92,95\\} $ .",
+    "translation": "\u7ed9\u5b9a\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u6570\u7ec4 $a$\u3002**\u4fdd\u8bc1\u6570\u7ec4 $a$ \u4e2d\u7684\u6240\u6709\u5143\u7d20\u4e92\u4e0d\u76f8\u540c**\u3002\n\n\u8ba9\u6211\u4eec\u89c4\u5b9a\u4e00\u4e2a\u65e0\u7a77\u6574\u6570\u96c6\u5408 $S$ \u5177\u6709\u5982\u4e0b\u6027\u8d28\uff1a\n\n- $\\forall 1\\leqslant i\\leqslant n$\uff0c$a_i$ \u4e00\u5b9a\u5728\u96c6\u5408 $S$ \u4e2d\u3002\n- \u5982\u679c $x$ \u5728\u96c6\u5408 $S$ \u4e2d\uff0c\u90a3\u4e48 $2x+1$ \u548c $4x$ \u4e5f\u4e00\u5b9a\u90fd\u5728\u96c6\u5408 $S$ \u4e2d\u3002\n\n\u8bf7\u6c42\u51fa\u96c6\u5408 $S$ \u4e2d**\u4e25\u683c\u5c0f\u4e8e** $2^p$ \u7684\u6570\u7684\u4e2a\u6570\u3002\u7531\u4e8e\u7ed3\u679c\u53ef\u80fd\u5f88\u5927\uff0c\u4f60\u53ea\u9700\u8981\u8f93\u51fa\u5176\u5bf9 $10^9+7$ \u53d6\u6a21\u4e4b\u540e\u7684\u503c\u3002\n\n\u6570\u636e\u8303\u56f4\uff1a\n\n- $1\\leqslant n,p\\leqslant 2\\times 10^5$\u3002\n- $1\\leqslant a_i\\leqslant 10^9$\u3002\n\nTranslated by Eason_AC"
+}

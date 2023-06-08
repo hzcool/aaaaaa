@@ -1,0 +1,21 @@
+{
+    "description": "For a vector $ \\vec{v} = (x, y) $ , define $ |v| = \\sqrt{x^2 + y^2} $ .\n\nAllen had a bit too much to drink at the bar, which is at the origin. There are $ n $ vectors $ \\vec{v_1}, \\vec{v_2}, \\cdots, \\vec{v_n} $ . Allen will make $ n $ moves. As Allen's sense of direction is impaired, during the $ i $ -th move he will either move in the direction $ \\vec{v_i} $ or $ -\\vec{v_i} $ . In other words, if his position is currently $ p = (x, y) $ , he will either move to $ p + \\vec{v_i} $ or $ p - \\vec{v_i} $ .\n\nAllen doesn't want to wander too far from home (which happens to also be the bar). You need to help him figure out a sequence of moves (a sequence of signs for the vectors) such that his final position $ p $ satisfies $ |p| \\le 1.5 \\cdot 10^6 $ so that he can stay safe.",
+    "inputFormat": "The first line contains a single integer $ n $ ( $ 1 \\le n \\le 10^5 $ ) \u2014 the number of moves.\n\nEach of the following lines contains two space-separated integers $ x_i $ and $ y_i $ , meaning that $ \\vec{v_i} = (x_i, y_i) $ . We have that $ |v_i| \\le 10^6 $ for all $ i $ .",
+    "outputFormat": "Output a single line containing $ n $ integers $ c_1, c_2, \\cdots, c_n $ , each of which is either $ 1 $ or $ -1 $ . Your solution is correct if the value of $ p = \\sum_{i = 1}^n c_i \\vec{v_i} $ , satisfies $ |p| \\le 1.5 \\cdot 10^6 $ .\n\nIt can be shown that a solution always exists under the given constraints.",
+    "samples": [
+        [
+            "3\n999999 0\n0 999999\n999999 0\n",
+            "1 1 -1 \n"
+        ],
+        [
+            "1\n-824590 246031\n",
+            "1 \n"
+        ],
+        [
+            "8\n-67761 603277\n640586 -396671\n46147 -122580\n569609 -2112\n400 914208\n131792 309779\n-850150 -486293\n5272 721899\n",
+            "1 1 1 1 1 1 1 -1 \n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u6709\u4e00\u5806\u5411\u91cf\uff0c\u4f60\u53ef\u4ee5\u5c06\u4e00\u4e9b\u53d6\u53cd\uff0c\u4f7f\u540e\u6240\u6709\u5411\u91cf\u4e4b\u548c\u7684\u957f\u5ea6\u5c0f\u4e8e$1.5\\times 10^6$\uff0c\u4fdd\u8bc1\u6709\u89e3\u3002\n\n## Input\n\n\u7b2c\u4e00\u884c\u4e00\u4e2a\u6b63\u6574\u6570$n$\u8868\u793a\u5411\u91cf\u4e2a\u6570\u3002\n\n\u63a5\u4e0b\u6765$n$\u884c\u6bcf\u884c\u4e24\u4e2a\u6b63\u6574\u6570$x, y$\u63cf\u8ff0\u4e00\u4e2a\u5411\u91cf\u3002\n\n## Output\n\n$n$\u4e2a\u6570\uff0c\u5982\u679c\u53d6\u53cd\u8f93\u51fa$-1$\uff0c\u5426\u5219\u8f93\u51fa$1$\u3002\n\n```\n\u6709\u4e00\u5806\u5411\u91cf\uff0c\u4f60\u53ef\u4ee5\u5c06\u4e00\u4e9b\u53d6\u53cd\uff0c\u4f7f\u540e\u6240\u6709\u5411\u91cf\u4e4b\u548c\u7684\u957f\u5ea6\u5c0f\u4e8e$1.5\\times 10^6$\uff0c\u4fdd\u8bc1\u6709\u89e3\u3002\n\n## Input\n\n\u7b2c\u4e00\u884c\u4e00\u4e2a\u6b63\u6574\u6570$n$\u8868\u793a\u5411\u91cf\u4e2a\u6570\u3002\n\n\u63a5\u4e0b\u6765$n$\u884c\u6bcf\u884c\u4e24\u4e2a\u6b63\u6574\u6570$x, y$\u63cf\u8ff0\u4e00\u4e2a\u5411\u91cf\u3002\n\n## Output\n\n$n$\u4e2a\u6570\uff0c\u5982\u679c\u53d6\u53cd\u8f93\u51fa$-1$\uff0c\u5426\u5219\u8f93\u51fa$1$\u3002\n```"
+}

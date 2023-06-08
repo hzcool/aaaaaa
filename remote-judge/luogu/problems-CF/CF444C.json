@@ -1,0 +1,21 @@
+{
+    "description": "DZY loves colors, and he enjoys painting.\n\nOn a colorful day, DZY gets a colorful ribbon, which consists of $ n $ units (they are numbered from $ 1 $ to $ n $ from left to right). The color of the $ i $ -th unit of the ribbon is $ i $ at first. It is colorful enough, but we still consider that the colorfulness of each unit is $ 0 $ at first.\n\nDZY loves painting, we know. He takes up a paintbrush with color $ x $ and uses it to draw a line on the ribbon. In such a case some contiguous units are painted. Imagine that the color of unit $ i $ currently is $ y $ . When it is painted by this paintbrush, the color of the unit becomes $ x $ , and the colorfulness of the unit increases by $ |x-y| $ .\n\nDZY wants to perform $ m $ operations, each operation can be one of the following:\n\n1. Paint all the units with numbers between $ l $ and $ r $ (both inclusive) with color $ x $ .\n2. Ask the sum of colorfulness of the units between $ l $ and $ r $ (both inclusive).\n\nCan you help DZY?",
+    "inputFormat": "The first line contains two space-separated integers $ n,m\u00a0(1<=n,m<=10^{5}) $ .\n\nEach of the next $ m $ lines begins with a integer $ type\u00a0(1<=type<=2) $ , which represents the type of this operation.\n\nIf $ type=1 $ , there will be $ 3 $ more integers $ l,r,x\u00a0(1<=l<=r<=n;\u00a01<=x<=10^{8}) $ in this line, describing an operation $ 1 $ .\n\nIf $ type=2 $ , there will be $ 2 $ more integers $ l,r\u00a0(1<=l<=r<=n) $ in this line, describing an operation $ 2 $ .",
+    "outputFormat": "For each operation $ 2 $ , print a line containing the answer \u2014 sum of colorfulness.",
+    "samples": [
+        [
+            "3 3\n1 1 2 4\n1 2 3 5\n2 1 3\n",
+            "8\n"
+        ],
+        [
+            "3 4\n1 1 3 4\n2 1 1\n2 2 2\n2 3 3\n",
+            "3\n2\n1\n"
+        ],
+        [
+            "10 6\n1 1 5 3\n1 2 7 9\n1 10 10 11\n1 3 8 12\n1 1 10 3\n2 1 10\n",
+            "129\n"
+        ]
+    ],
+    "hint": "In the first sample, the color of each unit is initially $ [1,2,3] $ , and the colorfulness is $ [0,0,0] $ .\n\nAfter the first operation, colors become $ [4,4,3] $ , colorfulness become $ [3,2,0] $ .\n\nAfter the second operation, colors become $ [4,5,5] $ , colorfulness become $ [3,3,2] $ .\n\nSo the answer to the only operation of type $ 2 $ is $ 8 $ .",
+    "translation": "- \u6709\u4e00\u4e2a $n$ \u4e2a\u5143\u7d20\u7ec4\u6210\u7684\u5e8f\u5217\uff0c\u6bcf\u4e2a\u5143\u7d20\u6709\u4e24\u4e2a\u5c5e\u6027\uff1a\u989c\u8272 $c_i$ \u548c\u6743\u503c $w_i$\u3002$c_i$ \u521d\u59cb\u4e3a $i$\uff0c$w_i$ \u521d\u59cb\u4e3a $0$\u3002$m$ \u6b21\u64cd\u4f5c\uff0c\u64cd\u4f5c\u6709\u4e24\u79cd\uff1a\n\t1. `1 l r x`\uff1a\u5bf9 $i\\in [l,r]$ \u7684\u6240\u6709 $i$ \u8fdb\u884c\u5982\u4e0b\u64cd\u4f5c\uff1a\u8bbe\u7b2c $i$ \u4e2a\u5143\u7d20 **\u539f\u6765** \u7684\u989c\u8272\u4e3a $y$\uff0c\u60a8\u8981\u628a\u7b2c $i$ \u4e2a\u5143\u7d20\u7684\u989c\u8272\u6539\u4e3a $x$\uff0c\u6743\u503c **\u589e\u52a0** $|y-x|$\u3002\n    2. `2 l r`\uff1a\u6c42 $\\displaystyle\\sum_{i=l}^r w_i$\u3002\n- $1\\le n,m\\le 10^5$\uff0c$1\\le x\\le 10^8$\u3002"
+}

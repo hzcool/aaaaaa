@@ -1,0 +1,21 @@
+{
+    "description": "You are given a sorted array $ a_1, a_2, \\dots, a_n $ (for each index $ i > 1 $ condition $ a_i \\ge a_{i-1} $ holds) and an integer $ k $ .\n\nYou are asked to divide this array into $ k $ non-empty consecutive subarrays. Every element in the array should be included in exactly one subarray.\n\nLet $ max(i) $ be equal to the maximum in the $ i $ -th subarray, and $ min(i) $ be equal to the minimum in the $ i $ -th subarray. The cost of division is equal to $ \\sum\\limits_{i=1}^{k} (max(i) - min(i)) $ . For example, if $ a = [2, 4, 5, 5, 8, 11, 19] $ and we divide it into $ 3 $ subarrays in the following way: $ [2, 4], [5, 5], [8, 11, 19] $ , then the cost of division is equal to $ (4 - 2) + (5 - 5) + (19 - 8) = 13 $ .\n\nCalculate the minimum cost you can obtain by dividing the array $ a $ into $ k $ non-empty consecutive subarrays.",
+    "inputFormat": "The first line contains two integers $ n $ and $ k $ ( $ 1 \\le k \\le n \\le 3 \\cdot 10^5 $ ).\n\nThe second line contains $ n $ integers $ a_1, a_2, \\dots, a_n $ ( $  1 \\le a_i \\le 10^9 $ , $ a_i \\ge a_{i-1} $ ).",
+    "outputFormat": "Print the minimum cost you can obtain by dividing the array $ a $ into $ k $ nonempty consecutive subarrays.",
+    "samples": [
+        [
+            "6 3\n4 8 15 16 23 42\n",
+            "12\n"
+        ],
+        [
+            "4 4\n1 3 3 7\n",
+            "0\n"
+        ],
+        [
+            "8 1\n1 1 2 3 5 8 13 21\n",
+            "20\n"
+        ]
+    ],
+    "hint": "In the first test we can divide array $ a $ in the following way: $ [4, 8, 15, 16], [23], [42] $ .",
+    "translation": "\u7ed9\u51fa\u4e00\u4e2a\u957f\u5ea6\u4e3an\u7684\u4e25\u683c\u5355\u8c03\u589e\u7684\u5e8f\u5217\uff0c\u5c06\u5176\u5206\u6210k\u6bb5\uff0c\u4f7f\u5f97\u6bcf\u4e00\u6bb5\u7684\u6781\u5dee\u7684\u548c\u6700\u5c0f\uff0c\u6c42\u8fd9\u4e2a\u6700\u5c0f\u7684\u548c\u3002\uff08\u6bcf\u6bb5\u957f\u5ea6\u81f3\u5c11\u4e3a1\uff0c\u5f53\u957f\u5ea6\u4e3a1\u65f6\uff0c\u5176\u6781\u5dee\u4e3a0\uff09"
+}

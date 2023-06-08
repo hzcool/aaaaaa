@@ -1,0 +1,21 @@
+{
+    "description": "Let's call the roundness of the number the number of zeros to which it ends.\n\nYou have an array of $ n $ numbers. You need to choose a subset of exactly $ k $ numbers so that the roundness of the product of the selected numbers will be maximum possible.",
+    "inputFormat": "The first line contains two integer numbers $ n $ and $ k $ ( $ 1<=n<=200,1<=k<=n $ ).\n\nThe second line contains $ n $ space-separated integer numbers $ a_{1},a_{2},...,a_{n} $ ( $ 1<=a_{i}<=10^{18} $ ).",
+    "outputFormat": "Print maximal roundness of product of the chosen subset of length $ k $ .",
+    "samples": [
+        [
+            "3 2\n50 4 20\n",
+            "3\n"
+        ],
+        [
+            "5 3\n15 16 3 25 9\n",
+            "3\n"
+        ],
+        [
+            "3 3\n9 77 13\n",
+            "0\n"
+        ]
+    ],
+    "hint": "In the first example there are 3 subsets of 2 numbers. $ [50,4] $ has product 200 with roundness 2, $ [4,20] $ \u2014 product 80, roundness 1, $ [50,20] $ \u2014 product 1000, roundness 3.\n\nIn the second example subset $ [15,16,25] $ has product 6000, roundness 3.\n\nIn the third example all subsets has product with roundness 0.",
+    "translation": "## \u9898\u76ee\u63cf\u8ff0\n\n\u6211\u4eec\u628a\u4e00\u4e2a\u6570\u7684 roundness \u503c\u5b9a\u4e49\u4e3a\u5b83\u672b\u5c3e $0$ \u7684\u4e2a\u6570\u3002\n\n\u7ed9\u4f60\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u6570\u5217\uff0c\u8981\u6c42\u4f60\u4ece\u4e2d\u9009\u51fa $k$ \u4e2a\u6570\uff0c\u4f7f\u5f97\u8fd9\u4e9b\u9009\u51fa\u7684\u6570\u7684\u79ef\u7684 roundness \u503c\u6700\u5927\u3002\n\n## \u8f93\u5165\u683c\u5f0f\n\n\u7b2c\u4e00\u884c\u5305\u62ec\u4e24\u4e2a\u6b63\u6574\u6570 $n$ \u548c $k$\uff08$1 \\leq n \\leq 200$\uff0c$1 \\leq k \\leq n$\uff09\u3002\n\n\u7b2c\u4e8c\u884c\u5305\u62ec $n$ \u4e2a\u7a7a\u767d\u5206\u9694\u7684\u6570 $a_1,a_2,\\ldots,a_n$\uff08$1 \\leq a_i \\leq 10^{18}$\uff09\u3002\n\n## \u8f93\u51fa\u683c\u5f0f\n\n\u8f93\u51fa\u4e00\u4e2a\u6574\u6570\uff0c\u662f\u9009\u62e9 $k$ \u4e2a\u6570\u5e76\u4f5c\u79ef\u7684\u6700\u5927 roundness \u503c\u3002\n\n## \u6837\u4f8b\u89e3\u91ca\n\n\u5728\u7b2c\u4e00\u4e2a\u4f8b\u5b50\u4e2d\uff0c\u6709\u4e09\u79cd\u9009\u6cd5\u3002$[50,4]$ \u7684\u79ef\u662f $200$\uff0croundness \u503c\u662f $2$\uff1b$[4,20]$ \u7684\u79ef\u662f $80$\uff0croundness \u503c\u662f $1$\uff1b$[50,20]$ \u7684\u79ef\u662f $1000$\uff0croundness \u503c\u662f $3$\u3002\n\n\u7b2c\u4e8c\u4e2a\u4f8b\u5b50\u4e2d\u9009\u6cd5 $[15,16,25]$ \u7684\u79ef\u662f $6000$\uff0croundness \u503c\u662f $3$\u3002\n\n\u7b2c\u4e09\u4e2a\u4f8b\u5b50\u4e2d\u6240\u6709\u7684\u9009\u6cd5\u7684\u79ef\u7684 roundness \u503c\u90fd\u662f $0$\u3002\n\ntranslated by @poorpool "
+}

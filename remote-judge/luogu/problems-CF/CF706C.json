@@ -1,0 +1,25 @@
+{
+    "description": "Vasiliy is fond of solving different tasks. Today he found one he wasn't able to solve himself, so he asks you to help.\n\nVasiliy is given $ n $ strings consisting of lowercase English letters. He wants them to be sorted in lexicographical order (as in the dictionary), but he is not allowed to swap any of them. The only operation he is allowed to do is to reverse any of them (first character becomes last, second becomes one before last and so on).\n\nTo reverse the $ i $ -th string Vasiliy has to spent $ c_{i} $ units of energy. He is interested in the minimum amount of energy he has to spent in order to have strings sorted in lexicographical order.\n\nString $ A $ is lexicographically smaller than string $ B $ if it is shorter than $ B $ ( $ |A|<|B| $ ) and is its prefix, or if none of them is a prefix of the other and at the first position where they differ character in $ A $ is smaller than the character in $ B $ .\n\nFor the purpose of this problem, two equal strings nearby do not break the condition of sequence being sorted lexicographically.",
+    "inputFormat": "The first line of the input contains a single integer $ n $ ( $ 2<=n<=100000 $ ) \u2014 the number of strings.\n\nThe second line contains $ n $ integers $ c_{i} $ ( $ 0<=c_{i}<=10^{9} $ ), the $ i $ -th of them is equal to the amount of energy Vasiliy has to spent in order to reverse the $ i $ -th string.\n\nThen follow $ n $ lines, each containing a string consisting of lowercase English letters. The total length of these strings doesn't exceed $ 100000 $ .",
+    "outputFormat": "If it is impossible to reverse some of the strings such that they will be located in lexicographical order, print $ -1 $ . Otherwise, print the minimum total amount of energy Vasiliy has to spent.",
+    "samples": [
+        [
+            "2\n1 2\nba\nac\n",
+            "1\n"
+        ],
+        [
+            "3\n1 3 1\naa\nba\nac\n",
+            "1\n"
+        ],
+        [
+            "2\n5 5\nbbb\naaa\n",
+            "-1\n"
+        ],
+        [
+            "2\n3 3\naaa\naa\n",
+            "-1\n"
+        ]
+    ],
+    "hint": "In the second sample one has to reverse string $ 2 $ or string $ 3 $ . To amount of energy required to reverse the string $ 3 $ is smaller.\n\nIn the third sample, both strings do not change after reverse and they go in the wrong order, so the answer is $ -1 $ .\n\nIn the fourth sample, both strings consists of characters 'a' only, but in the sorted order string \"aa\" should go before string \"aaa\", thus the answer is $ -1 $ .",
+    "translation": "\u4e00\u4e9b\u7531\u5c0f\u5199\u5b57\u6bcd\u7ec4\u6210\u7684\u5b57\u7b26\u4e32,\u4f60\u60f3\u628a\u5b83\u4eec\u6309\u7167\u5b57\u5178\u5e8f\u6392\u5e8f,\u4f46\u662f\u4f60\u4e0d\u80fd\u6539\u53d8\u5b83\u4eec\u7684\u987a\u5e8f,\u53ea\u80fd\u53cd\u8f6c\u5176\u4e2d\u4e00\u4e9b\u5b57\u7b26\u4e32.\u4f60\u8981\u60f3\u53cd\u8f6c\u67d0\u4e00\u4e2a\u5b57\u7b26\u4e32,\u4f60\u8981\u6d88\u8017\u5bf9\u5e94\u7684\u4e00\u4e9b\u4f53\u529b\u503c.\u5982\u679c\u65e0\u8bba\u600e\u4e48\u7ffb\u8f6c\u90fd\u4e0d\u80fd\u4f7f\u8fd9\u4e9b\u5b57\u7b26\u4e32\u6309\u7167\u5b57\u5178\u5e8f\u6392\u5e8f,\u8f93\u51fa\"-1\".\u5426\u5219\u8f93\u51fa\u6700\u5c11\u9700\u8981\u6d88\u8017\u7684\u4f53\u529b\u503c.\n\n\u611f\u8c22@Fuko_Ibuki \u63d0\u4f9b\u7684\u7ffb\u8bd1"
+}

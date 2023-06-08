@@ -1,0 +1,21 @@
+{
+    "description": "Petya learned a new programming language CALPAS. A program in this language always takes one non-negative integer and returns one non-negative integer as well.\n\nIn the language, there are only three commands: apply a bitwise operation AND, OR or XOR with a given constant to the current integer. A program can contain an arbitrary sequence of these operations with arbitrary constants from $ 0 $ to $ 1023 $ . When the program is run, all operations are applied (in the given order) to the argument and in the end the result integer is returned.\n\nPetya wrote a program in this language, but it turned out to be too long. Write a program in CALPAS that does the same thing as the Petya's program, and consists of no more than $ 5 $ lines. Your program should return the same integer as Petya's program for all arguments from $ 0 $ to $ 1023 $ .",
+    "inputFormat": "The first line contains an integer $ n $ ( $ 1<=n<=5\u00b710^{5} $ ) \u2014 the number of lines.\n\nNext $ n $ lines contain commands. A command consists of a character that represents the operation (\"&\", \"|\" or \"^\" for AND, OR or XOR respectively), and the constant $ x_{i} $ $ 0<=x_{i}<=1023 $ .",
+    "outputFormat": "Output an integer $ k $ ( $ 0<=k<=5 $ ) \u2014 the length of your program.\n\nNext $ k $ lines must contain commands in the same format as in the input.",
+    "samples": [
+        [
+            "3\n| 3\n^ 2\n| 1\n",
+            "2\n| 3\n^ 2\n"
+        ],
+        [
+            "3\n&amp; 1\n&amp; 3\n&amp; 5\n",
+            "1\n&amp; 1\n"
+        ],
+        [
+            "3\n^ 1\n^ 2\n^ 3\n",
+            "0\n"
+        ]
+    ],
+    "hint": "You can read about bitwise operations in [https://en.wikipedia.org/wiki/Bitwise\\_operation](https://en.wikipedia.org/wiki/Bitwise_operation).\n\nSecond sample:\n\nLet $ x $ be an input of the Petya's program. It's output is $ ((x&amp;1)&amp;3)&amp;5=x&amp;(1&amp;3&amp;5)=x&amp;1 $ . So these two programs always give the same outputs.",
+    "translation": "Petya\u5b66\u4e60\u4e86\u4e00\u79cd\u65b0\u7684\u7f16\u7a0b\u8bed\u8a00CALPAS\u3002\u5728\u8fd9\u79cd\u8bed\u8a00\u4e2d\uff0c\u7a0b\u5e8f\u603b\u662f\u63a5\u53d7\u4e00\u4e2a\u975e\u8d1f\u6574\u6570\uff0c\u5e76\u8fd4\u56de\u4e00\u4e2a\u975e\u8d1f\u6574\u6570\u3002\u5728\u8be5\u8bed\u8a00\u4e2d\uff0c\u53ea\u6709\u4e09\u4e2a\u547d\u4ee4\uff1a\u5bf9\u5f53\u524d\u6574\u6570\u5e94\u7528\u6309\u4f4d\u64cd\u4f5cAND\u3001OR\u6216XOR(\u7ed9\u5b9a\u5e38\u91cf)\u3002\u7a0b\u5e8f\u53ef\u4ee5\u5305\u542b\u4ece0\u52301023 1023\u4e4b\u95f4\u7684\u4efb\u610f\u5e38\u91cf\u7684\u8fd9\u4e9b\u64cd\u4f5c\u7684\u4efb\u610f\u5e8f\u5217\u3002\u5f53\u7a0b\u5e8f\u8fd0\u884c\u65f6\uff0c\u6240\u6709\u64cd\u4f5c(\u6309\u7ed9\u5b9a\u987a\u5e8f)\u5e94\u7528\u4e8e\u53c2\u6570\uff0c\u6700\u540e\u8fd4\u56de\u7ed3\u679c\u6574\u6570\u3002Petya\u7528\u8fd9\u79cd\u8bed\u8a00\u5199\u4e86\u4e00\u4e2a\u7a0b\u5e8f\uff0c\u4f46\u7ed3\u679c\u592a\u957f\u4e86\u3002\u7528CALPAS\u7f16\u5199\u4e00\u4e2a\u4e0ePetya\u7a0b\u5e8f\u76f8\u540c\u7684\u7a0b\u5e8f\uff0c\u8be5\u7a0b\u5e8f\u7531\u4e0d\u8d85\u8fc75\u884c\u7684\u4ee3\u7801\u7ec4\u6210\u3002\u5bf9\u4e8e\u4ece0\u52301023 1023\u7684\u6240\u6709\u53c2\u6570\uff0c\u60a8\u7684\u7a0b\u5e8f\u5e94\u8be5\u8fd4\u56de\u4e0ePetya\u7a0b\u5e8f\u76f8\u540c\u7684\u6574\u6570\u3002"
+}

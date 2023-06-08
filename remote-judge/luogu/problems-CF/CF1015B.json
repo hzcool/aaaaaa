@@ -1,0 +1,17 @@
+{
+    "description": "You are given two strings $ s $ and $ t $ . Both strings have length $ n $ and consist of lowercase Latin letters. The characters in the strings are numbered from $ 1 $ to $ n $ .\n\nYou can successively perform the following move any number of times (possibly, zero):\n\n- swap any two adjacent (neighboring) characters of $ s $ (i.e. for any $ i = \\{1, 2, \\dots, n - 1\\} $ you can swap $ s_i $ and $ s_{i + 1}) $ .\n\nYou can't apply a move to the string $ t $ . The moves are applied to the string $ s $ one after another.\n\nYour task is to obtain the string $ t $ from the string $ s $ . Find any way to do it with at most $ 10^4 $ such moves.\n\nYou do not have to minimize the number of moves, just find any sequence of moves of length $ 10^4 $ or less to transform $ s $ into $ t $ .",
+    "inputFormat": "The first line of the input contains one integer $ n $ ( $ 1 \\le n \\le 50 $ ) \u2014 the length of strings $ s $ and $ t $ .\n\nThe second line of the input contains the string $ s $ consisting of $ n $ lowercase Latin letters.\n\nThe third line of the input contains the string $ t $ consisting of $ n $ lowercase Latin letters.",
+    "outputFormat": "If it is impossible to obtain the string $ t $ using moves, print \"-1\".\n\nOtherwise in the first line print one integer $ k $ \u2014 the number of moves to transform $ s $ to $ t $ . Note that $ k $ must be an integer number between $ 0 $ and $ 10^4 $ inclusive.\n\nIn the second line print $ k $ integers $ c_j $ ( $ 1 \\le c_j < n $ ), where $ c_j $ means that on the $ j $ -th move you swap characters $ s_{c_j} $ and $ s_{c_j + 1} $ .\n\nIf you do not need to apply any moves, print a single integer $ 0 $ in the first line and either leave the second line empty or do not print it at all.",
+    "samples": [
+        [
+            "6\nabcdef\nabdfec\n",
+            "4\n3 5 4 5 \n"
+        ],
+        [
+            "4\nabcd\naccd\n",
+            "-1\n"
+        ]
+    ],
+    "hint": "In the first example the string $ s $ changes as follows: \"abcdef\" $ \\rightarrow $ \"abdcef\" $ \\rightarrow $ \"abdcfe\" $ \\rightarrow $ \"abdfce\" $ \\rightarrow $ \"abdfec\".\n\nIn the second example there is no way to transform the string $ s $ into the string $ t $ through any allowed moves.",
+    "translation": "\u7ed9\u5b9a\u4e24\u4e2a\u5b57\u7b26\u4e32s1,s2,\u53ea\u80fd\u4ea4\u6362s1\u7684\u76f8\u90bb\u5143\u7d20\uff0c\u4e3a\u6700\u5c11\u9700\u8981\u6b21\u53ef\u4ee5\u5c06s1\u6362\u6210s2.\u5982\u679c\u6ca1\u6709\u65b9\u6cd5\uff0c\u8f93\u51fa-1.\u5982\u679c\u6709\u65b9\u6cd5\uff0c\u5148\u8f93\u51fa\u6b65\u9aa4\u6570\uff0c\u7136\u540e\u8f93\u51fa\u6bcf\u4e00\u6b21\u79fb\u52a8\u7684\u4f4d\u7f6e\u3002\u6b65\u9aa4\u6570\u8981\u572810000\u4ee5\u5185"
+}

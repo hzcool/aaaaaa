@@ -1,0 +1,25 @@
+{
+    "description": "Vasya came up with his own weather forecasting method. He knows the information about the average air temperature for each of the last $ n $ days. Assume that the average air temperature for each day is integral.\n\nVasya believes that if the average temperatures over the last $ n $ days form an arithmetic progression, where the first term equals to the average temperature on the first day, the second term equals to the average temperature on the second day and so on, then the average temperature of the next $ (n+1) $ -th day will be equal to the next term of the arithmetic progression. Otherwise, according to Vasya's method, the temperature of the $ (n+1) $ -th day will be equal to the temperature of the $ n $ -th day.\n\nYour task is to help Vasya predict the average temperature for tomorrow, i. e. for the $ (n+1) $ -th day.",
+    "inputFormat": "The first line contains a single integer $ n $ ( $ 2<=n<=100 $ ) \u2014 the number of days for which the average air temperature is known.\n\nThe second line contains a sequence of integers $ t_{1},t_{2},...,t_{n} $ $ (-1000<=t_{i}<=1000) $ \u2014 where $ t_{i} $ is the average temperature in the $ i $ -th day.",
+    "outputFormat": "Print the average air temperature in the $ (n+1) $ -th day, which Vasya predicts according to his method. Note that the absolute value of the predicted temperature can exceed $ 1000 $ .",
+    "samples": [
+        [
+            "5\n10 5 0 -5 -10\n",
+            "-15\n"
+        ],
+        [
+            "4\n1 1 1 1\n",
+            "1\n"
+        ],
+        [
+            "3\n5 1 -5\n",
+            "-5\n"
+        ],
+        [
+            "2\n900 1000\n",
+            "1100\n"
+        ]
+    ],
+    "hint": "In the first example the sequence of the average temperatures is an arithmetic progression where the first term is $ 10 $ and each following terms decreases by $ 5 $ . So the predicted average temperature for the sixth day is $ -10-5=-15 $ .\n\nIn the second example the sequence of the average temperatures is an arithmetic progression where the first term is $ 1 $ and each following terms equals to the previous one. So the predicted average temperature in the fifth day is $ 1 $ .\n\nIn the third example the average temperatures do not form an arithmetic progression, so the average temperature of the fourth day equals to the temperature of the third day and equals to $ -5 $ .\n\nIn the fourth example the sequence of the average temperatures is an arithmetic progression where the first term is $ 900 $ and each the following terms increase by $ 100 $ . So predicted average temperature in the third day is $ 1000+100=1100 $ .",
+    "translation": "`Vasya`\u60f3\u51fa\u4e86\u4e00\u4e2a\u4ed6\u81ea\u5df1\u7684\u5929\u6c14\u9884\u62a5\u65b9\u6cd5\u3002\u4ed6\u77e5\u9053\u6700\u8fd1$n$\u5929\u6bcf\u5929\u7684\u5e73\u5747\u6c14\u6e29\u3002\u5047\u8bbe\u6bcf\u5929\u7684\u5e73\u5747\u6c14\u6e29\u662f\u4e2a\u6574\u6570\u3002\n\n`Vasya`\u76f8\u4fe1\u8fd9$n$\u5929\u6bcf\u5929\u7684\u5e73\u5747\u6c14\u6e29\u6784\u6210\u4e00\u4e2a\u7b49\u5dee\u6570\u5217\uff0c\u5728\u8fd9\u4e2a\u6570\u5217\u4e2d\uff0c\u7b2c\u4e00\u9879\u662f\u7b2c\u4e00\u5929\u7684\u5e73\u5747\u6c14\u6e29\uff0c\u7b2c\u4e8c\u9879\u662f\u7b2c\u4e8c\u5929\u7684\u5e73\u5747\u6c14\u6e29\uff0c\u4ee5\u6b64\u7c7b\u63a8\u3002\u90a3\u4e48\u7b2c$n+1$\u5929\uff08\u4e5f\u5c31\u662f\u660e\u5929\uff09\u7684\u5e73\u5747\u6c14\u6e29\u5c06\u662f\u8fd9\u4e2a\u6570\u5217\u7684\u7b2c$n+1$\u9879\u3002\u5982\u679c\u8fd9\u4e2a\u6570\u5217\u524d$n$\u9879\u5e76\u6ca1\u6709\u4ed6\u6240\u60f3\u7684\u90a3\u6837\u662f\u4e2a\u7b49\u5dee\u6570\u5217\uff0c\u90a3\u4e48\u6309`Vasya`\u7684\u7b97\u6cd5\uff0c\u7b2c$n+1$\u5929\u7684\u6c14\u6e29\u5c06\u7b49\u4e8e\u7b2c$n$\u5929\u7684\u6c14\u6e29\u3002\n\n\u4f60\u9700\u8981\u6839\u636e`Vasya`\u7684\u7b97\u6cd5\u6c42\u51fa\u660e\u5929\u7684\u5e73\u5747\u6c14\u6e29\u3002\n\n\u8f93\u5165\u683c\u5f0f\uff1a\u7b2c\u4e00\u884c\u4e00\u4e2a\u6570$n$\u3002\u7b2c\u4e8c\u884c$n$\u4e2a\u6570$t_i$\u5206\u522b\u8868\u793a\u7b2c$i$\u5929\u7684\u5e73\u5747\u6c14\u6e29\u3002\n\n\u8f93\u51fa\u683c\u5f0f\uff1a\u4e00\u4e2a\u6570\uff0c\u4f60\u7684\u7b54\u6848\u3002\u6ce8\u610f\u6e29\u5ea6\u7684\u7edd\u5bf9\u503c\u53ef\u80fd\u8d85\u8fc7$1000$\u3002"
+}

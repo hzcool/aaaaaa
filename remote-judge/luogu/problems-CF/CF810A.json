@@ -1,0 +1,17 @@
+{
+    "description": "Noora is a student of one famous high school. It's her final year in school \u2014 she is going to study in university next year. However, she has to get an \u00abA\u00bb graduation certificate in order to apply to a prestigious one.\n\nIn school, where Noora is studying, teachers are putting down marks to the online class register, which are integers from $ 1 $ to $ k $ . The worst mark is $ 1 $ , the best is $ k $ . Mark that is going to the certificate, is calculated as an average of all the marks, rounded to the closest integer. If several answers are possible, rounding up is produced. For example, $ 7.3 $ is rounded to $ 7 $ , but $ 7.5 $ and $ 7.8784 $ \u2014 to $ 8 $ .\n\nFor instance, if Noora has marks $ [8,9] $ , then the mark to the certificate is $ 9 $ , because the average is equal to $ 8.5 $ and rounded to $ 9 $ , but if the marks are $ [8,8,9] $ , Noora will have graduation certificate with $ 8 $ .\n\nTo graduate with \u00abA\u00bb certificate, Noora has to have mark $ k $ .\n\nNoora got $ n $ marks in register this year. However, she is afraid that her marks are not enough to get final mark $ k $ . Noora decided to ask for help in the internet, where hacker Leha immediately responded to her request. He is ready to hack class register for Noora and to add Noora any number of additional marks from $ 1 $ to $ k $ . At the same time, Leha want his hack be unseen to everyone, so he decided to add as less as possible additional marks. Please help Leha to calculate the minimal number of marks he has to add, so that final Noora's mark will become equal to $ k $ .",
+    "inputFormat": "The first line contains two integers $ n $ and $ k $ $ (1<=n<=100,1<=k<=100) $ denoting the number of marks, received by Noora and the value of highest possible mark.\n\nThe second line contains $ n $ integers $ a_{1},a_{2},...,a_{n} $ $ (1<=a_{i}<=k) $ denoting marks received by Noora before Leha's hack.",
+    "outputFormat": "Print a single integer \u2014 minimal number of additional marks, that Leha has to add in order to change Noora's final mark to $ k $ .",
+    "samples": [
+        [
+            "2 10\n8 9\n",
+            "4"
+        ],
+        [
+            "3 5\n4 4 4\n",
+            "3"
+        ]
+    ],
+    "hint": "Consider the first example testcase.\n\nMaximal mark is $ 10 $ , Noora received two marks \u2014 $ 8 $ and $ 9 $ , so current final mark is $ 9 $ . To fix it, Leha can add marks $ [10,10,10,10] $ ( $ 4 $ marks in total) to the registry, achieving Noora having average mark equal to ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF810A/b75d87f7c46ec7c9f8f2851b79244a71ffa349ba.png). Consequently, new final mark is $ 10 $ . Less number of marks won't fix the situation.\n\nIn the second example Leha can add $ [5,5,5] $ to the registry, so that making average mark equal to $ 4.5 $ , which is enough to have $ 5 $ in the certificate.",
+    "translation": "\u7ed9\u51fa\u4e00\u4e2a\u5305\u542bn\u4e2a\u6574\u6570\u7684\u5e8f\u5217\u548c\u76ee\u6807\u5e73\u5747\u6570k\uff0c\u6c42\u51fa\uff1a \u6700\u5c11\u8981\u5728\u8fd9\u4e2a\u5e8f\u5217\u4e2d\u52a0\u4e0a\u591a\u5c11\u4e2ak\uff0c\u624d\u80fd\u4f7f\u5e73\u5747\u6570\u56db\u820d\u4e94\u5165\u540e\u7b49\u4e8ek\uff1f\n\n\n\u611f\u8c22@iWApD3 \u63d0\u4f9b\u7684\u7ffb\u8bd1"
+}

@@ -1,0 +1,17 @@
+{
+    "description": "One day Vitaly was going home late at night and wondering: how many people aren't sleeping at that moment? To estimate, Vitaly decided to look which windows are lit in the house he was passing by at that moment.\n\nVitaly sees a building of $ n $ floors and $ 2\u00b7m $ windows on each floor. On each floor there are $ m $ flats numbered from $ 1 $ to $ m $ , and two consecutive windows correspond to each flat. If we number the windows from $ 1 $ to $ 2\u00b7m $ from left to right, then the $ j $ -th flat of the $ i $ -th floor has windows $ 2\u00b7j-1 $ and $ 2\u00b7j $ in the corresponding row of windows (as usual, floors are enumerated from the bottom). Vitaly thinks that people in the flat aren't sleeping at that moment if at least one of the windows corresponding to this flat has lights on.\n\nGiven the information about the windows of the given house, your task is to calculate the number of flats where, according to Vitaly, people aren't sleeping.",
+    "inputFormat": "The first line of the input contains two integers $ n $ and $ m $ ( $ 1<=n,m<=100 $ ) \u2014 the number of floors in the house and the number of flats on each floor respectively.\n\nNext $ n $ lines describe the floors from top to bottom and contain $ 2\u00b7m $ characters each. If the $ i $ -th window of the given floor has lights on, then the $ i $ -th character of this line is '1', otherwise it is '0'.",
+    "outputFormat": "Print a single integer \u2014 the number of flats that have lights on in at least one window, that is, the flats where, according to Vitaly, people aren't sleeping.",
+    "samples": [
+        [
+            "2 2\n0 0 0 1\n1 0 1 1\n",
+            "3\n"
+        ],
+        [
+            "1 3\n1 1 0 1 0 0\n",
+            "2\n"
+        ]
+    ],
+    "hint": "In the first test case the house has two floors, two flats on each floor. That is, in total there are 4 flats. The light isn't on only on the second floor in the left flat. That is, in both rooms of the flat the light is off.\n\nIn the second test case the house has one floor and the first floor has three flats. The light is on in the leftmost flat (in both windows) and in the middle flat (in one window). In the right flat the light is off.",
+    "translation": "\u4e00\u680b\u697c\u6709 $n$ \u5c42\uff0c\u6bcf\u5c42\u6709 $m$ \u6237\uff0c\u6bcf\u6237\u6709\u4e24\u6247\u7a97\uff0c$0$ \u4ee3\u8868\u7a97\u6ca1\u4eae\u7740\uff0c$1$ \u4ee3\u8868\u7a97\u4eae\u7740\uff0c\u6c42\u4e00\u5171\u6709\u591a\u5c11\u6237\u7684\u7a97\u4eae\u7740\u3002"
+}

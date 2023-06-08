@@ -1,0 +1,17 @@
+{
+    "description": "Someone give a strange birthday present to Ivan. It is hedgehog \u2014 connected undirected graph in which one vertex has degree at least $ 3 $ (we will call it center) and all other vertices has degree 1. Ivan thought that hedgehog is too boring and decided to make himself $ k $ -multihedgehog.\n\nLet us define $ k $ -multihedgehog as follows:\n\n- $ 1 $ -multihedgehog is hedgehog: it has one vertex of degree at least $ 3 $ and some vertices of degree 1.\n- For all $ k \\ge 2 $ , $ k $ -multihedgehog is $ (k-1) $ -multihedgehog in which the following changes has been made for each vertex $ v $ with degree 1: let $ u $ be its only neighbor; remove vertex $ v $ , create a new hedgehog with center at vertex $ w $ and connect vertices $ u $ and $ w $ with an edge. New hedgehogs can differ from each other and the initial gift.\n\nThereby $ k $ -multihedgehog is a tree. Ivan made $ k $ -multihedgehog but he is not sure that he did not make any mistakes. That is why he asked you to check if his tree is indeed $ k $ -multihedgehog.",
+    "inputFormat": "First line of input contains $ 2 $ integers $ n $ , $ k $ ( $ 1 \\le n \\le 10^{5} $ , $ 1 \\le k \\le 10^{9} $ ) \u2014 number of vertices and hedgehog parameter.\n\nNext $ n-1 $ lines contains two integers $ u $ $ v $ ( $ 1 \\le u, \\,\\, v \\le n; \\,\\, u \\ne v $ ) \u2014 indices of vertices connected by edge.\n\nIt is guaranteed that given graph is a tree.",
+    "outputFormat": "Print \"Yes\" (without quotes), if given graph is $ k $ -multihedgehog, and \"No\" (without quotes) otherwise.",
+    "samples": [
+        [
+            "14 2\n1 4\n2 4\n3 4\n4 13\n10 5\n11 5\n12 5\n14 5\n5 13\n6 7\n8 6\n13 6\n9 6\n",
+            "Yes\n"
+        ],
+        [
+            "3 1\n1 3\n2 3\n",
+            "No\n"
+        ]
+    ],
+    "hint": "2-multihedgehog from the first example looks like this:\n\n![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1067B/fa74b226e7f972e84df3729441b7e1df84488eb4.png)\n\nIts center is vertex $ 13 $ . Hedgehogs created on last step are: \\[4 (center), 1, 2, 3\\], \\[6 (center), 7, 8, 9\\], \\[5 (center), 10, 11, 12, 13\\].\n\nTree from second example is not a hedgehog because degree of center should be at least $ 3 $ .",
+    "translation": "\u3010\u9898\u610f\u7b80\u8ff0\u3011\\\r\n\u5b9a\u4e49\u4e00\u68f5\u6811 k-multihedgehog\uff1a\r\n\r\n\u5bf9\u4e8e 1-multihedgehog\uff0c\u5176\u4e2d\u4e00\u4e2a\u70b9\u5ea6\u6570 $\\ge3$ \uff0c\u5176\u5b83\u70b9\u5ea6\u6570\u5747\u4e3a $1$.\r\n\r\nk-multihedgehog \u662f\u5728 k-1-multihedgehog \u7684\u57fa\u7840\u4e0a\uff0c\u628a\u6240\u6709\u5ea6\u4e3a $1$ \u7684\u70b9\u66ff\u6362\u6210\u4e00\u4e2a 1-multihedgehog \u5e76\u4e0e\u539f\u56fe\u76f8\u8fde\u3002"
+}

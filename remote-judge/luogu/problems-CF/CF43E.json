@@ -1,0 +1,21 @@
+{
+    "description": "Today $ s $ kilometer long auto race takes place in Berland. The track is represented by a straight line as long as $ s $ kilometers. There are $ n $ cars taking part in the race, all of them start simultaneously at the very beginning of the track. For every car is known its behavior \u2014 the system of segments on each of which the speed of the car is constant. The $ j $ -th segment of the $ i $ -th car is pair $ (v_{i,j},t_{i,j}) $ , where $ v_{i,j} $ is the car's speed on the whole segment in kilometers per hour and $ t_{i,j} $ is for how many hours the car had been driving at that speed. The segments are given in the order in which they are \"being driven on\" by the cars.\n\nYour task is to find out how many times during the race some car managed to have a lead over another car. A lead is considered a situation when one car appears in front of another car. It is known, that all the leads happen instantly, i. e. there are no such time segment of positive length, during which some two cars drive \"together\". At one moment of time on one and the same point several leads may appear. In this case all of them should be taken individually. Meetings of cars at the start and finish are not considered to be counted as leads.",
+    "inputFormat": "The first line contains two integers $ n $ and $ s $ ( $ 2<=n<=100,1<=s<=10^{6} $ ) \u2014 the number of cars and the length of the track in kilometers. Then follow $ n $ lines \u2014 the description of the system of segments for each car. Every description starts with integer $ k $ ( $ 1<=k<=100 $ ) \u2014 the number of segments in the system. Then $ k $ space-separated pairs of integers are written. Each pair is the speed and time of the segment. These integers are positive and don't exceed 1000. It is guaranteed, that the sum of lengths of all segments (in kilometers) for each car equals to $ s $ ; and all the leads happen instantly.",
+    "outputFormat": "Print the single number \u2014 the number of times some car managed to take the lead over another car during the race.",
+    "samples": [
+        [
+            "2 33\n2 5 1 2 14\n1 3 11\n",
+            "1\n"
+        ],
+        [
+            "2 33\n2 1 3 10 3\n1 11 3\n",
+            "0\n"
+        ],
+        [
+            "5 33\n2 1 3 3 10\n1 11 3\n2 5 3 3 6\n2 3 1 10 3\n2 6 3 3 5\n",
+            "2\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u3010\u9898\u76ee\u5927\u610f\u3011 \u6c7d\u8f66\u8d5b\u6709n\u8f86\u8f66\uff0c\u5171s\u5343\u7c73\u3002\u6bcf\u8f86\u8f66\u5728\u4e0d\u540c\u65f6\u95f4\u6bb5\u7684\u901f\u5ea6\u4e0d\u540c\uff0c\u7b2ci\u8f86\u8f66\u5728\u7b2cj \u6bb5\u65f6\u95f4\u7684\u901f\u5ea6\u4e3avij\uff0c\u5e76\u6301\u7eedtij\u5c0f\u65f6\u3002\u6240\u6709\u8f66\u5728\u540c\u4e00\u65f6\u523b\u51fa\u53d1\uff0c\u73b0\u8981\u6c42\u6574\u573a\u6bd4\u8d5b\u4e2d\u7684\u603b\u5171\u8d85\u8f66\u6b21\u6570\uff0c\u6570\u636e\u4fdd\u8bc1\u4e0d\u4f1a\u6709\u4e24\u8f86\u8f66\u5728\u540c\u4e00\u65f6\u95f4\u5728\u540c\u4e00\u4f4d\u7f6e\u4e14\u901f\u5ea6\u76f8\u540c\u3002\n\n\u8f93\u5165\uff1a\n\n\u7b2c\u4e00\u884c2\u4e2a\u6b63\u6574\u6570n \u3001s\uff082<=n<=100 , 1<=s<=1000000\uff09\uff08\u610f\u4e49\u89c1\u9898\u76ee\u63cf\u8ff0\uff09\n\n\u63a5\u4e0b\u6765n\u884c\u6bcf\u884c\u7b2c\u4e00\u4e2a\u6b63\u6574\u6570k\uff081<=k<=100\uff09\uff0c\u8868\u793a \u7b2ci \u8f86\u8f66\u4e00\u5171\u6709k \u4e2a\u65f6\u95f4\u6bb5\uff0c\u63a5\u77402k\u4e2a\u6570vij \u3001 tij \uff08vij , tij <=1000 )\uff08\u610f\u4e49\u89c1\u9898\u76ee\u63cf\u8ff0\uff09\uff0c\u4fdd\u8bc1\u6bcf\u8f86\u8f66\u6700\u540e\u6070\u597d\u5230\u8fbe\u7ec8\u70b9\u3002\n\n\u8f93\u51fa\uff1a\n\n\u4e00\u4e2a\u6570\uff0c\u603b\u5171\u8d85\u8f66\u6b21\u6570\u3002\n\n\u611f\u8c22@\u6797\u5219\u5f90 \u63d0\u4f9b\u7684\u7ffb\u8bd1"
+}

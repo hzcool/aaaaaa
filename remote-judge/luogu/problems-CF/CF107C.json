@@ -1,0 +1,25 @@
+{
+    "description": "In the year 2500 the annual graduation ceremony in the German University in Cairo (GUC) has run smoothly for almost 500 years so far.\n\nThe most important part of the ceremony is related to the arrangement of the professors in the ceremonial hall.\n\nTraditionally GUC has $ n $ professors. Each professor has his seniority level. All seniorities are different. Let's enumerate the professors from $ 1 $ to $ n $ , with $ 1 $ being the most senior professor and $ n $ being the most junior professor.\n\nThe ceremonial hall has $ n $ seats, one seat for each professor. Some places in this hall are meant for more senior professors than the others. More specifically, $ m $ pairs of seats are in \"senior-junior\" relation, and the tradition requires that for all $ m $ pairs of seats $ (a_{i},b_{i}) $ the professor seated in \"senior\" position $ a_{i} $ should be more senior than the professor seated in \"junior\" position $ b_{i} $ .\n\nGUC is very strict about its traditions, which have been carefully observed starting from year 2001. The tradition requires that:\n\n- The seating of the professors changes every year.\n- Year 2001 ceremony was using lexicographically first arrangement of professors in the ceremonial hall.\n- Each consecutive year lexicographically next arrangement of the professors is used.\n\nThe arrangement of the professors is the list of $ n $ integers, where the first integer is the seniority of the professor seated in position number one, the second integer is the seniority of the professor seated in position number two, etc.\n\nGiven $ n $ , the number of professors, $ y $ , the current year and $ m $ pairs of restrictions, output the arrangement of the professors for this year.",
+    "inputFormat": "The first line contains three integers $ n $ , $ y $ and $ m $ ( $ 1<=n<=16,2001<=y<=10^{18},0<=m<=100 $ ) \u2014 the number of professors, the year for which the arrangement should be computed, and the number of pairs of seats for which the seniority relation should be kept, respectively.\n\nThe next $ m $ lines contain one pair of integers each, \" $ a_{i} $ $ b_{i} $ \", indicating that professor on the $ a_{i} $ -th seat is more senior than professor on the $ b_{i} $ -th seat ( $ 1<=a_{i},b_{i}<=n,a_{i}\u2260b_{i} $ ). Some pair may be listed more than once.\n\nPlease, do not use the %lld specificator to read or write 64-bit integers in \u0421++. It is preferred to use the cin stream (you may also use the %I64d specificator).",
+    "outputFormat": "Print the order in which the professors should be seated in the requested year.\n\nIf by this year the GUC would have ran out of arrangements, or the given \"senior-junior\" relation are contradictory, print \"The times have changed\" (without quotes).",
+    "samples": [
+        [
+            "3 2001 2\n1 2\n2 3\n",
+            "1 2 3\n"
+        ],
+        [
+            "7 2020 6\n1 2\n1 3\n2 4\n2 5\n3 6\n3 7\n",
+            "1 2 3 7 4 6 5\n"
+        ],
+        [
+            "10 3630801 0\n",
+            "The times have changed\n"
+        ],
+        [
+            "3 2001 3\n1 2\n2 3\n3 1\n",
+            "The times have changed\n"
+        ]
+    ],
+    "hint": "In the first example the lexicographically first order of seating is 1 2 3.\n\nIn the third example the GUC will run out of arrangements after the year 3630800.\n\nIn the fourth example there are no valid arrangements for the seating.\n\nThe lexicographical comparison of arrangements is performed by the < operator in modern programming languages. The arrangement $ a $ is lexicographically less that the arrangement $ b $ , if there exists such $ i $ ( $ 1<=i<=n $ ), that $ a_{i}&lt;b_{i} $ , and for any $ j $ ( $ 1<=j&lt;i $ ) $ a_{j}=b_{j} $ .",
+    "translation": "\u7ed9\u5b9a $n$ \u548c $m$ \u4e2a\u9650\u5236\u6761\u4ef6\uff08\u6bcf\u4e2a\u6761\u4ef6\u662f\u4e00\u4e2a\u6570\u5bf9 $a_i,b_i$\uff09\uff0c\u6c42\u6784\u9020\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u6392\u5217 $S$\uff0c\u6ee1\u8db3 $\\forall i,S_{a_i}\\le S_{b_i}$\u3002\u8bf7\u8f93\u51fa\u5b57\u5178\u5e8f\u7b2c $k$ \u5c0f\u7684\u65b9\u6848\uff0c\u5982\u679c\u65b9\u6848\u6570\u4e0d\u591f\u5219\u8f93\u51fa `The times have changed`\u3002"
+}

@@ -1,0 +1,21 @@
+{
+    "description": "Marina loves Sasha. But she keeps wondering whether Sasha loves her. Of course, the best way to know it is fortune telling. There are many ways of telling fortune, but Marina has picked the easiest one. She takes in her hand one or several camomiles and tears off the petals one by one. After each petal she pronounces alternatively \"Loves\" and \"Doesn't love\", at that Marina always starts with \"Loves\". There are $ n $ camomiles growing in the field, possessing the numbers of petals equal to $ a_{1},a_{2},...\\ a_{n} $ . Marina wants to pick a bouquet with the maximal possible total number of petals so that the result would still be \"Loves\". Help her do that; find the maximal number of petals possible in the bouquet.",
+    "inputFormat": "The first line contains an integer $ n $ ( $ 1<=n<=100 $ ), which is the number of flowers growing in the field. The second line contains $ n $ integers $ a_{i} $ ( $ 1<=a_{i}<=100 $ ) which represent the number of petals on a given $ i $ -th camomile.",
+    "outputFormat": "Print a single number which is the maximal number of petals in the bouquet, the fortune telling on which would result in \"Loves\". If there are no such bouquet, print $ 0 $ instead. The bouquet may consist of a single flower.",
+    "samples": [
+        [
+            "1\n1\n",
+            "1\n"
+        ],
+        [
+            "1\n2\n",
+            "0\n"
+        ],
+        [
+            "3\n5 6 7\n",
+            "13\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "###### \u9898\u76ee\u63cf\u8ff0\n\u739b\u4e3d\u5a1c\u559c\u6b22\u8428\u6c99\u3002\u4f46\u5979\u4e00\u76f4\u5728\u60f3\u8428\u6c99\u662f\u5426\u7231\u5979\u3002\u5f53\u7136\uff0c\u77e5\u9053\u7684\u6700\u597d\u65b9\u6cd5\u5c31\u662f\u53bb\u5360\u535c\u3002\u5360\u535c\u7684\u65b9\u6cd5\u6709\u5f88\u591a\uff0c\u4f46\u662f\u739b\u4e3d\u5a1c\u9009\u62e9\u4e86\u6700\u7b80\u5355\u7684\u4e00\u4e2a\u65b9\u6cd5\u3002\u5979\u62ff\u8d77\u4e00\u53ea\u6216\u51e0\u53ea\u7518\u83ca\uff0c\u4e00\u4e2a\u63a5\u4e00\u4e2a\u5730\u63b0\u4e0b\u82b1\u74e3\u3002\u5728\u6bcf\u4e2a\u82b1\u74e3\u4e4b\u540e\uff0c\u5979\u8bf4\u51fa\u201c\u7231\u201d\u6216\u201c\u4e0d\u7231\u201d\uff0c\u7b2c\u4e00\u4e2a\u63b0\u7684\u82b1\u74e3\u540e\u5148\u8bf4\u201c\u7231\u201d\u3002\u6709 $n$ \u6735\u7518\u83ca\u5728\u7530\u95f4\u751f\u957f\uff0c\u5b83\u4eec\u7684\u82b1\u74e3\u6570\u7b49\u4e8e$a_1$\uff0c$a_2$\uff0c$\\ldots$ $a_n$\u3002\u739b\u4e3d\u5a1c\u60f3\u6311\u4e00\u675f\u53ef\u80fd\u6709\u6700\u5927\u82b1\u74e3\u603b\u6570\u7684\u82b1\u675f\uff0c\u4e14\u7ed3\u679c\u4ecd\u7136\u662f\u201c\u7231\u201d\u3002\u5e2e\u5979\u505a\u5230\u8fd9\u4e00\u70b9\uff1a\u627e\u5230\u82b1\u74e3\u7684\u6700\u5927\u6570\u91cf\u53ef\u80fd\u5728\u54ea\u4e00\u4e2a\u82b1\u675f\u4e2d\u3002\n###### \u8f93\u5165\u8f93\u51fa\u683c\u5f0f\n**\u8f93\u5165\u683c\u5f0f\uff1a**\n\n\u7b2c\u4e00\u884c\u5305\u542b\u4e00\u4e2a\u6574\u6570 $n$\uff08$1\\leq n\\leq 10 0$\uff09\uff0c\u8fd9\u662f\u5728\u7530\u95f4\u79cd\u690d\u7684\u7518\u83ca\u6570\u91cf\u3002\u7b2c\u4e8c\u884c\u5305\u542b$n$\u4e2a\u6574\u6570 $a_i$\uff08$ 1 \\leq a_i\\leq100$\uff09\uff0c\u8868\u793a\u7b2c $i$ \u6735\u7518\u83ca\u7684\u82b1\u74e3\u6570\u91cf\u3002\n\n**\u8f93\u51fa\u683c\u5f0f\uff1a**\n\n\u8f93\u51fa\u4e00\u4e2a\u6570\u5b57\uff0c\u4ee3\u8868\u82b1\u675f\u4e2d\u6700\u5927\u7684\u82b1\u74e3\u6570\u91cf\uff0c\u8fd9\u5c31\u4f1a\u5bfc\u81f4\u201c\u7231\u201d\u3002\u5982\u679c\u6ca1\u6709\u8fd9\u6837\u7684\u82b1\u675f\uff0c\u8bf7\u8f93\u51fa$0$\u3002\u82b1\u675f\u53ef\u80fd\u53ea\u7531\u4e00\u6735\u82b1\u7ec4\u6210\u3002\n\u611f\u8c22@MarshalKen \u63d0\u4f9b\u7684\u7ffb\u8bd1"
+}

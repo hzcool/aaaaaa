@@ -1,0 +1,25 @@
+{
+    "description": "Students Vasya and Petya are studying at the BSU (Byteland State University). At one of the breaks they decided to order a pizza. In this problem pizza is a circle of some radius. The pizza was delivered already cut into $ n $ pieces. The $ i $ -th piece is a sector of angle equal to $ a_{i} $ . Vasya and Petya want to divide all pieces of pizza into two continuous sectors in such way that the difference between angles of these sectors is minimal. Sector angle is sum of angles of all pieces in it. Pay attention, that one of sectors can be empty.",
+    "inputFormat": "The first line contains one integer $ n $ ( $ 1<=n<=360 $ ) \u2014 the number of pieces into which the delivered pizza was cut.\n\nThe second line contains $ n $ integers $ a_{i} $ ( $ 1<=a_{i}<=360 $ ) \u2014 the angles of the sectors into which the pizza was cut. The sum of all $ a_{i} $ is 360.",
+    "outputFormat": "Print one integer \u2014 the minimal difference between angles of sectors that will go to Vasya and Petya.",
+    "samples": [
+        [
+            "4\n90 90 90 90\n",
+            "0\n"
+        ],
+        [
+            "3\n100 100 160\n",
+            "40\n"
+        ],
+        [
+            "1\n360\n",
+            "360\n"
+        ],
+        [
+            "4\n170 30 150 10\n",
+            "0\n"
+        ]
+    ],
+    "hint": "In first sample Vasya can take $ 1 $ and $ 2 $ pieces, Petya can take $ 3 $ and $ 4 $ pieces. Then the answer is $ |(90+90)-(90+90)|=0 $ .\n\nIn third sample there is only one piece of pizza that can be taken by only one from Vasya and Petya. So the answer is $ |360-0|=360 $ .\n\nIn fourth sample Vasya can take $ 1 $ and $ 4 $ pieces, then Petya will take $ 2 $ and $ 3 $ pieces. So the answer is $ |(170+10)-(30+150)|=0 $ .\n\nPicture explaning fourth sample:\n\n![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF895A/1fc194505b94d77e941b407c6a81292565b1ef2d.png)\n\nBoth red and green sectors consist of two adjacent pieces of pizza. So Vasya can take green sector, then Petya will take red sector.",
+    "translation": "### \u9898\u76ee\u63cf\u8ff0\n\n\u4e00\u4e2a\u5706\uff0c\u88ab\u5207\u6210\u4e86 $n$ \u5757\uff0c\u7b2c $i$ \u5757\u7684\u5706\u5fc3\u89d2\u4e3a $a_i$\u3002\n\n\u4f60\u53ef\u4ee5\u5c06\u76f8\u90bb\u7684\u5757\u5408\u5e76\uff0c\u76f4\u5230\u8fd9 $n$ \u5757\u7ec4\u5408\u6210\u4e24\u5927\u5757\uff0c\u4f60\u9700\u8981\u4f7f\u5f97\u8fd9\u4e24\u5927\u5757\u7684\u5706\u5fc3\u89d2\u4e4b\u5dee\u6700\u5c0f\u3002\n\n### \u8f93\u5165\u683c\u5f0f\n\n\u7b2c\u4e00\u884c\u5305\u62ec\u4e00\u4e2a\u6574\u6570 $n$\uff0c\u8868\u793a\u5706\u88ab\u5206\u6210\u7684\u5757\u6570\u3002\n\n\u7b2c\u4e8c\u884c\u5305\u62ec $n$ \u4e2a\u6574\u6570 $a_i$\uff0c\u8868\u793a\u7b2c $i$ \u5757\u7684\u5706\u5fc3\u89d2\u5ea6\u6570\u3002\n\n### \u8f93\u51fa\u683c\u5f0f\n\n\u4e00\u4e2a\u6574\u6570\uff0c\u8868\u793a\u6700\u5c0f\u7684\u5706\u5fc3\u89d2\u4e4b\u5dee\u3002\n\n### \u8bf4\u660e/\u63d0\u793a\n\n\u5bf9\u4e8e $100\\%$ \u7684\u6570\u636e\uff0c$1\\le n, a_i\\le 360$\u3002\n\n\u6570\u636e\u4fdd\u8bc1\u6240\u6709\u5706\u5fc3\u89d2\u5ea6\u6570\u4e4b\u548c\u4e3a $360$ \u5ea6\u3002\n\n\u6837\u4f8b\u4e00\u8bf4\u660e\uff1a\u7b2c $1$ \u5757\u548c\u7b2c $2$ \u5757\u7ec4\u6210\u4e00\u5757\uff0c\u7b2c $3$ \u5757\u548c\u7b2c $4$ \u5757\u7ec4\u6210\u4e00\u5757\uff0c\u7b54\u6848\u5373\u4e3a $[(90 + 90) - (90 + 90)] = 0$\u3002\n\n\u6837\u4f8b\u4e8c\u8bf4\u660e\uff1a\u7b2c $1$ \u5757\u548c\u7b2c $2$ \u5757\u7ec4\u6210\u4e00\u5757\uff0c\u7b2c $3$ \u5757\u5355\u72ec\u7ec4\u6210\u4e00\u5757\uff0c\u7b54\u6848\u5373\u4e3a $[(100 + 100) - 160] = 40$\u3002\n\n\u6837\u4f8b\u4e09\u8bf4\u660e\uff1a\u4e00\u5171\u53ea\u6709 $1$ \u5757\u62ab\u8428\uff0c\u53ea\u80fd\u88ab\u4e00\u4e2a\u4eba\u62ff\u8d70\uff0c\u7b54\u6848\u5373\u4e3a $(360 - 0) = 360$\u3002\n\n\u6837\u4f8b\u56db\u8bf4\u660e\uff1a\u7b2c $1$ \u5757\u548c\u7b2c $4$ \u5757\u7ec4\u6210\u4e00\u5757\uff0c\u7b2c $2$ \u5757\u548c\u7b2c $3$ \u5757\u7ec4\u6210\u4e00\u5757\uff0c\u7b54\u6848\u5373\u4e3a $[(170 + 10) - (30 + 150)] = 0$\u3002"
+}

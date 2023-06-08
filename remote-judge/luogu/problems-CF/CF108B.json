@@ -1,0 +1,17 @@
+{
+    "description": "Tattah's youngest brother, Tuftuf, is new to programming.\n\nSince his older brother is such a good programmer, his biggest dream is to outshine him. Tuftuf is a student at the German University in Cairo (GUC) where he learns to write programs in Gava.\n\nToday, Tuftuf was introduced to Gava's unsigned integer datatypes. Gava has $ n $ unsigned integer datatypes of sizes (in bits) $ a_{1},a_{2},...\\ a_{n} $ . The $ i $ -th datatype have size $ a_{i} $ bits, so it can represent every integer between $ 0 $ and $ 2^{a_{i}}-1 $ inclusive.\n\nTuftuf is thinking of learning a better programming language. If there exists an integer $ x $ , such that $ x $ fits in some type $ i $ (in $ a_{i} $ bits) and $ x\u00b7x $ does not fit in some other type $ j $ (in $ a_{j} $ bits) where $ a_{i}&lt;a_{j} $ , then Tuftuf will stop using Gava.\n\nYour task is to determine Tuftuf's destiny.",
+    "inputFormat": "The first line contains integer $ n $ ( $ 2<=n<=10^{5} $ ) \u2014 the number of Gava's unsigned integer datatypes' sizes. The second line contains a single-space-separated list of $ n $ integers ( $ 1<=a_{i}<=10^{9} $ ) \u2014 sizes of datatypes in bits. Some datatypes may have equal sizes.",
+    "outputFormat": "Print \"YES\" if Tuftuf will stop using Gava, and \"NO\" otherwise.",
+    "samples": [
+        [
+            "3\n64 16 32\n",
+            "NO\n"
+        ],
+        [
+            "4\n4 2 1 3\n",
+            "YES\n"
+        ]
+    ],
+    "hint": "In the second example, $ x=7 $ $ (111_{2}) $ fits in $ 3 $ bits, but $ x^{2}=49 $ $ (110001_{2}) $ does not fit in $ 4 $ bits.",
+    "translation": "\u9898\u610f\u5982\u4e0b\uff1a\r\n\u7ed9\u5b9a$n$\u4e2a\u6570$a_1,a_2,...,a_n$\r\n\r\n\u95ee\u662f\u5426\u5b58\u5728\u81ea\u7136\u6570$x$\u4f7f\u5f97\u6ee1\u8db3\u4ee5\u4e0b\u6761\u4ef6\uff1a\r\n\r\n>$$x < 2^{a_i}$$\r\n>$$x^2 > 2^{a_j}-1$$\r\n>$$a_i < a_j$$\r\n\u82e5\u5b58\u5728\u5219\u8f93\u51fa\"YES\"(\u6ca1\u6709\u53cc\u5f15\u53f7)\u4e0d\u7136\u8f93\u51fa\"NO\"\r\n\r\n\u5176\u4e2d$ 2\u2264n\u226410^5 $ $1\u2264a_i\u226410^9$"
+}

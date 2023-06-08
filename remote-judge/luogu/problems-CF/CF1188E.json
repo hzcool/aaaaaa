@@ -1,0 +1,25 @@
+{
+    "description": "At Moscow Workshops ICPC team gets a balloon for each problem they solved first. Team MSU Red Panda got so many balloons that they didn't know how to spend them. So they came up with a problem with them.\n\nThere are several balloons, not more than $ 10^6 $ in total, each one is colored in one of $ k $ colors. We can perform the following operation: choose $ k-1 $ balloons such that they are of $ k-1 $ different colors, and recolor them all into remaining color. We can perform this operation any finite number of times (for example, we can only perform the operation if there are at least $ k-1 $ different colors among current balls).\n\nHow many different balloon configurations can we get? Only number of balloons of each color matters, configurations differing only by the order of balloons are counted as equal. As this number can be very large, output it modulo $ 998244353 $ .",
+    "inputFormat": "The first line contains a single integer $ k $ ( $ 2 \\le k \\le 10^5 $ ) \u2014the number of colors.\n\nThe second line contains $ k $ integers $ a_1, a_2, \\ldots, a_k $ ( $ 0 \\le a_i $ ) \u2014initial configuration of balloons. $ a_i $ is number of balloons of color $ i $ . The total number of balloons doesn't exceed $ 10^6 $ . In other words,\n\n $ a_1 + a_2 + a_3 + \\ldots + a_k \\le 10^6 $ .",
+    "outputFormat": "Output number of possible configurations modulo $ 998244353 $ .",
+    "samples": [
+        [
+            "3\n0 1 2\n",
+            "3\n"
+        ],
+        [
+            "4\n1 1 1 1\n",
+            "5"
+        ],
+        [
+            "5\n0 0 1 2 3\n",
+            "1"
+        ],
+        [
+            "3\n2 2 8\n",
+            "31\n"
+        ]
+    ],
+    "hint": "In the first example, there are $ 3 $ configurations we can get: $ [0, 1, 2] $ , $ [2, 0, 1] $ , $ [1, 2, 0] $ .\n\nIn the second example, we can apply the operation not more than once, and possible configurations are: $ [1, 1, 1, 1] $ , $ [0, 0, 0, 4] $ , $ [0, 0, 4, 0] $ , $ [0, 4, 0, 0] $ , $ [4, 0, 0, 0] $ .\n\nIn the third example, we can't apply any operations, so the only achievable configuration is the starting one.",
+    "translation": "### \u9898\u76ee\u63cf\u8ff0\n\n\u6709\u4e0d\u8d85\u8fc7 $10^6$ \u4e2a\u6c14\u7403\uff0c\u6bcf\u4e2a\u6c14\u7403\u88ab\u67d3\u4e0a\u4e86 $k$ \u79cd\u989c\u8272\u4e2d\u7684\u4e00\u79cd\uff0c\u989c\u8272\u7528 $1 \\sim k$ \u8fdb\u884c\u6807\u53f7\u3002\u4f60\u53ef\u4ee5\u9009\u62e9\u505a\u82e5\u5e72\u6b21\uff08\u53ef\u4ee5\u4e0d\u505a\uff09\u4ee5\u4e0b\u64cd\u4f5c\uff1a\n\n- \u9009\u62e9\u4e00\u4e2a\u989c\u8272 $i \\in [1,k]$\uff0c\u5982\u679c\u5176\u4ed6\u7684 $k-1$ \u79cd\u989c\u8272\u7684\u6c14\u7403\u6bcf\u79cd\u90fd\u81f3\u5c11\u6709\u4e00\u4e2a\uff0c\u5219\u5728\u6bcf\u4e00\u79cd\u5176\u4ed6\u989c\u8272\u4e2d\u9009\u51fa\u4e00\u4e2a\u6c14\u7403\u67d3\u6210\u989c\u8272 $i$\u3002\n\n\u73b0\u5728\u7ed9\u51fa\u521d\u59cb\u6bcf\u79cd\u989c\u8272\u7684\u6c14\u7403\u6570\u91cf\uff0c\u4f60\u9700\u8981\u6c42\u51fa\u901a\u8fc7\u505a\u82e5\u5e72\u6b21\u64cd\u4f5c\u80fd\u591f\u5f97\u5230\u7684\u4e0d\u540c\u7684\u6c14\u7403\u7ec4\u5408\u65b9\u6848\u6570\u5bf9 $998244353$ \u53d6\u6a21\u3002\u4e24\u79cd\u6c14\u7403\u7ec4\u5408\u65b9\u6848\u4e0d\u540c\u5f53\u4e14\u4ec5\u5f53\u5176\u4e2d\u5b58\u5728\u4e00\u79cd\u989c\u8272\u6ee1\u8db3\u5728\u4e24\u79cd\u65b9\u6848\u4e2d\u67d3\u4e0a\u8fd9\u4e2a\u989c\u8272\u7684\u6c14\u7403\u6570\u91cf\u4e0d\u540c\u3002\n\n### \u8f93\u5165\u683c\u5f0f\n\n\u7b2c\u4e00\u884c\u4e00\u4e2a\u6574\u6570 $k$ \u8868\u793a\u989c\u8272\u6570\u91cf\uff0c\u63a5\u4e0b\u6765\u4e00\u884c $k$ \u4e2a\u975e\u8d1f\u6574\u6570 $a_1,a_2,...,a_k$ \u5206\u522b\u8868\u793a\u989c\u8272 $1,2,...,k$ \u7684\u6c14\u7403\u7684\u521d\u59cb\u6570\u91cf\u3002\n\n### \u8f93\u51fa\u683c\u5f0f\n\n\u4e00\u884c\u4e00\u4e2a\u6574\u6570\u8868\u793a\u65b9\u6848\u6570 $\\bmod\\ 998244353$\u3002\n\n### \u6570\u636e\u8303\u56f4 \n\n$2 \\leq k \\leq 10^5 , a_i \\geq 0,\\sum\\limits_{i=1}^k a_i \\leq 10^6$"
+}

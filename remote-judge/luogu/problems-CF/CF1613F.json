@@ -1,0 +1,21 @@
+{
+    "description": "You are given a rooted tree consisting of $ n $ vertices numbered from $ 1 $ to $ n $ . The root of the tree is the vertex $ 1 $ .\n\nYou have to color all vertices of the tree into $ n $ colors (also numbered from $ 1 $ to $ n $ ) so that there is exactly one vertex for each color. Let $ c_i $ be the color of vertex $ i $ , and $ p_i $ be the parent of vertex $ i $ in the rooted tree. The coloring is considered beautiful if there is no vertex $ k $ ( $ k > 1 $ ) such that $ c_k = c_{p_k} - 1 $ , i. e. no vertex such that its color is less than the color of its parent by exactly $ 1 $ .\n\nCalculate the number of beautiful colorings, and print it modulo $ 998244353 $ .",
+    "inputFormat": "The first line contains one integer $ n $ ( $ 2 \\le n \\le 250000 $ ) \u2014 the number of vertices in the tree.\n\nThen $ n-1 $ lines follow, the $ i $ -th line contains two integers $ x_i $ and $ y_i $ ( $ 1 \\le x_i, y_i \\le n $ ; $ x_i \\ne y_i $ ) denoting an edge between the vertex $ x_i $ and the vertex $ y_i $ . These edges form a tree.",
+    "outputFormat": "Print one integer \u2014 the number of beautiful colorings, taken modulo $ 998244353 $ .",
+    "samples": [
+        [
+            "5\n1 2\n3 2\n4 2\n2 5",
+            "42"
+        ],
+        [
+            "5\n1 2\n2 3\n3 4\n4 5",
+            "53"
+        ],
+        [
+            "20\n20 19\n20 4\n12 4\n5 8\n1 2\n20 7\n3 10\n7 18\n11 8\n9 10\n17 10\n1 15\n11 16\n14 11\n18 10\n10 1\n14 2\n13 17\n20 6",
+            "955085064"
+        ]
+    ],
+    "hint": "",
+    "translation": "- \u628a\u4e00\u68f5 $n$ \u4e2a\u70b9\u7684\u6709\u6839\u6811\u6d82 $n$ \u79cd\u989c\u8272\uff0c\u4f7f\u5f97\u4efb\u610f\u8282\u70b9\u989c\u8272\u4e0d\u7b49\u4e8e\u5176\u7236\u4eb2\u7684\u989c\u8272\u51cf\u4e00\uff0c\u4e14\u6bcf\u4e2a\u70b9\u6d82\u7684\u989c\u8272\u4e92\u4e0d\u76f8\u540c\u3002\n- \u6c42\u65b9\u6848\u6570\u53d6\u6a21 $998244353$"
+}

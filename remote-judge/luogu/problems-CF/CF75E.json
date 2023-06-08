@@ -1,0 +1,17 @@
+{
+    "description": "You have got a new job, and it's very interesting, you are a ship captain. Your first task is to move your ship from one point to another point, and for sure you want to move it at the minimum cost.\n\nAnd it's well known that the shortest distance between any 2 points is the length of the line segment between these 2 points. But unfortunately there is an island in the sea, so sometimes you won't be able to move your ship in the line segment between the 2 points.\n\nYou can only move to safe points. A point is called safe if it's on the line segment between the start and end points, or if it's on the island's edge.\n\nBut you are too lucky, you have got some clever and strong workers and they can help you in your trip, they can help you move the ship in the sea and they will take 1 Egyptian pound for each moving unit in the sea, and they can carry the ship (yes, they are very strong) and walk on the island and they will take 2 Egyptian pounds for each moving unit in the island. The money which you will give to them will be divided between all workers, so the number of workers does not matter here.\n\nYou can move your ship on the island edge, and it will be considered moving in the sea.\n\nNow you have a sea map, and you have to decide what is the minimum cost for your trip.\n\nYour starting point is ( $ xStart $ , $ yStart $ ), and the end point is ( $ xEnd $ , $ yEnd $ ), both points will be different.\n\nThe island will be a convex polygon and there will be no more than 2 polygon points on the same line, also the starting and the end points won't be inside or on the boundary of the island. The points for the polygon will be given in the anti-clockwise order.",
+    "inputFormat": "The first line contains 4 integers, $ xStart $ , $ yStart $ , $ xEnd $ and $ yEnd $ ( $ -100<=xStart,yStart,xEnd,yEnd<=100 $ ). The second line contains an integer $ n $ , which is the number of points in the polygon ( $ 3<=n<=30 $ ), followed by a line containing $ n $ pairs of integers $ x $ and $ y $ , which are the coordinates of the points ( $ -100<=x,y<=100 $ ), the polygon points will be distinct.",
+    "outputFormat": "Print one line which contains the minimum possible cost. The absolute or relative error in the answer should not exceed $ 10^{-6} $ .",
+    "samples": [
+        [
+            "1 7 6 7\n4\n4 2 4 12 3 12 3 2\n",
+            "6.000000000\n"
+        ],
+        [
+            "-1 0 2 0\n4\n0 0 1 0 1 1 0 1\n",
+            "3.000000000\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9\u4f60\u4e00\u5e45n\u4e2a\u70b9\uff0cm\u6761\u8fb9\u7684\u65e0\u5411\u56fe\uff0c\u6bcf\u6761\u8fb9\u6709\u6743\u503cd\uff0c\u73b0\u5728\u6709q\u6b21\u64cd\u4f5c\uff0c\u6709\u4e09\u79cd\u64cd\u4f5c\u3002 \r\n1\uff0c\u7ed9\u51fax,y,d\uff0c\u52a0\u5165\u8fde\u63a5x\uff0cy\u7684\u6743\u503c\u4e3ad\u7684\u8fb9 \r\n2\uff0c\u7ed9\u51fax,y\uff0c\u5220\u9664\u8fd9\u6761\u8fb9 \r\n3\uff0c\u7ed9\u51fax,y\uff0c\u95ee\u4ecex\u5230y\u7684\u8def\u5f84\u7684\u6700\u5c0f\u5f02\u6216\u548c\u3002 \r\n\u4fdd\u8bc1\u64cd\u4f5c\u5408\u6cd5\u4e14\u4e00\u76f4\u4e3a\u7b80\u5355\u8fde\u901a\u56fe \r\nn,m,q<=1e5 \r\n\u90e8\u5206\u5206\uff1aq=1,\u4e14\u4e3a\u64cd\u4f5c3\r\n\r\n\u672c\u9898\u7ffb\u8bd1\uff1alouhao088"
+}

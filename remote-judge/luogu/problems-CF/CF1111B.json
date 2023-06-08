@@ -1,0 +1,17 @@
+{
+    "description": "Every superhero has been given a power value by the Felicity Committee. The avengers crew wants to maximize the average power of the superheroes in their team by performing certain operations.\n\nInitially, there are $ n $ superheroes in avengers team having powers $ a_1, a_2, \\ldots, a_n $ , respectively. In one operation, they can remove one superhero from their team (if there are at least two) or they can increase the power of a superhero by $ 1 $ . They can do at most $ m $ operations. Also, on a particular superhero at most $ k $ operations can be done.\n\nCan you help the avengers team to maximize the average power of their crew?",
+    "inputFormat": "The first line contains three integers $ n $ , $ k $ and $ m $ ( $ 1 \\le n \\le 10^{5} $ , $ 1 \\le k \\le 10^{5} $ , $ 1 \\le m \\le 10^{7} $ ) \u2014 the number of superheroes, the maximum number of times you can increase power of a particular superhero, and the total maximum number of operations.\n\nThe second line contains $ n $ integers $ a_1, a_2, \\ldots, a_n $ ( $ 1 \\le a_i \\le 10^{6} $ ) \u2014 the initial powers of the superheroes in the cast of avengers.",
+    "outputFormat": "Output a single number \u2014 the maximum final average power.\n\nYour answer is considered correct if its absolute or relative error does not exceed $ 10^{-6} $ .\n\nFormally, let your answer be $ a $ , and the jury's answer be $ b $ . Your answer is accepted if and only if $ \\frac{|a - b|}{\\max{(1, |b|)}} \\le 10^{-6} $ .",
+    "samples": [
+        [
+            "2 4 6\n4 7\n",
+            "11.00000000000000000000\n"
+        ],
+        [
+            "4 2 6\n1 3 2 3\n",
+            "5.00000000000000000000\n"
+        ]
+    ],
+    "hint": "In the first example, the maximum average is obtained by deleting the first element and increasing the second element four times.\n\nIn the second sample, one of the ways to achieve maximum average is to delete the first and the third element and increase the second and the fourth elements by $ 2 $ each.",
+    "translation": "\u7ed9\u51fan,k,m\u548cn\u4e2a\u6570\uff0c\u8868\u793a\u6bcf\u4e2a\u4eba\u7684\u80fd\u529b\u503c\u3002\u8fdb\u884cm\u6b21\u64cd\u4f5c\uff0c\u6bcf\u6b21\u64cd\u4f5c\u53ef\u4ee5\u5220\u6389\u4e00\u4e2a\u4eba\uff08\u81f3\u5c11\u6709\u4e24\u4e2a\u4eba\uff09\u6216\u8005\u7ed9\u4e00\u4e2a\u4eba\u7684\u80fd\u529b\u503c+1,\u4e14\u6bcf\u4e2a\u4eba\u80fd\u529b\u503c\u52a0\u7684\u6b21\u6570\u4e0d\u80fd\u8d85\u8fc7k\u3002\u95ee\u6700\u540e\u6240\u6709\u5269\u4e0b\u7684\u4eba\u7684\u80fd\u529b\u503c\u7684\u5e73\u5747\u7684\u6700\u5927\u503c\u3002"
+}

@@ -1,0 +1,21 @@
+{
+    "description": "Consider a linear function $ f(x)=Ax+B $ . Let's define $ g^{(0)}(x)=x $ and $ g^{(n)}(x)=f(g^{(n-1)}(x)) $ for $ n&gt;0 $ . For the given integer values $ A $ , $ B $ , $ n $ and $ x $ find the value of $ g^{(n)}(x) $ modulo $ 10^{9}+7 $ .",
+    "inputFormat": "The only line contains four integers $ A $ , $ B $ , $ n $ and $ x $ ( $ 1<=A,B,x<=10^{9},1<=n<=10^{18} $ ) \u2014 the parameters from the problem statement.\n\nNote that the given value $ n $ can be too large, so you should use $ 64 $ -bit integer type to store it. In C++ you can use the long long integer type and in Java you can use long integer type.",
+    "outputFormat": "Print the only integer $ s $ \u2014 the value $ g^{(n)}(x) $ modulo $ 10^{9}+7 $ .",
+    "samples": [
+        [
+            "3 4 1 1\n",
+            "7\n"
+        ],
+        [
+            "3 4 2 1\n",
+            "25\n"
+        ],
+        [
+            "3 4 3 1\n",
+            "79\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u5b9a\u4e49\u51fd\u6570$g$:\n\n\u2460$g^0(x)=x$\n\n\u2461$g^n(x)=Ag^{n-1}(x)+B(n\u22600)$\n\n\u8bf7\u6c42\u51fa$g^{n}(x)$\u7684\u503c\u3002**\u7531\u4e8e\u7b54\u6848\u53ef\u80fd\u8fc7\u5927\uff0c\u8bf7\u5c06\u5176\u5bf9$10^9+7$\u53d6\u6a21**\u3002\n\nTranslate by @ducati"
+}

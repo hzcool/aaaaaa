@@ -1,0 +1,17 @@
+{
+    "description": "You are given $ n $ segments on the coordinate axis. The $ i $ -th segment is $ [l_i, r_i] $ . Let's denote the set of all integer points belonging to the $ i $ -th segment as $ S_i $ .\n\nLet $ A \\cup B $ be the union of two sets $ A $ and $ B $ , $ A \\cap B $ be the intersection of two sets $ A $ and $ B $ , and $ A \\oplus B $ be the symmetric difference of $ A $ and $ B $ (a set which contains all elements of $ A $ and all elements of $ B $ , except for the ones that belong to both sets).\n\nLet $ [\\mathbin{op}_1, \\mathbin{op}_2, \\dots, \\mathbin{op}_{n-1}] $ be an array where each element is either $ \\cup $ , $ \\oplus $ , or $ \\cap $ . Over all $ 3^{n-1} $ ways to choose this array, calculate the sum of the following values:\n\n $ $$$|(((S_1\\ \\mathbin{op}_1\\ S_2)\\ \\mathbin{op}_2\\ S_3)\\ \\mathbin{op}_3\\ S_4)\\ \\dots\\ \\mathbin{op}_{n-1}\\ S_n| $ $ </p><p>In this expression,  $ |S| $  denotes the size of the set  $ S$$$.",
+    "inputFormat": "The first line contains one integer $ n $ ( $ 2 \\le n \\le 3 \\cdot 10^5 $ ).\n\nThen, $ n $ lines follow. The $ i $ -th of them contains two integers $ l_i $ and $ r_i $ ( $ 0 \\le l_i \\le r_i \\le 3 \\cdot 10^5 $ ).",
+    "outputFormat": "Print one integer \u2014 the sum of $ |(((S_1\\ \\mathbin{op}_1\\ S_2)\\ \\mathbin{op}_2\\ S_3)\\ \\mathbin{op}_3\\ S_4)\\ \\dots\\ \\mathbin{op}_{n-1}\\ S_n| $ over all possible ways to choose $ [\\mathbin{op}_1, \\mathbin{op}_2, \\dots, \\mathbin{op}_{n-1}] $ . Since the answer can be huge, print it modulo $ 998244353 $ .",
+    "samples": [
+        [
+            "4\n3 5\n4 8\n2 2\n1 9",
+            "162"
+        ],
+        [
+            "4\n1 9\n3 5\n4 8\n2 2",
+            "102"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9\u5b9a $n$ \u4e2a\u96c6\u5408 $S_i$\uff0c\u4ee5 $l_i,r_i$ \u7684\u5f62\u5f0f\u7ed9\u51fa\uff0c\u96c6\u5408\u7684\u5143\u7d20\u5c31\u662f $\\{x|x\\in [l_i,r_i]\\cap \\mathbb{N}\\}$\u3002\n\n\u6709\u4e09\u79cd\u96c6\u5408\u95f4\u7684\u4e8c\u5143\u8fd0\u7b97\uff0c\u5206\u522b\u662f\u4ea4\uff08$\\cap$\uff09\u3001\u5e76\uff08$\\cup$\uff09\u3001\u5bf9\u79f0\u5dee\uff08$\\oplus$\uff09\u3002\n\n\u5176\u4e2d\u5bf9\u79f0\u5dee\uff08$A\\oplus B$\uff09\u7684\u5b9a\u4e49\u662f $\\{x|x\\in A,x\\not\\in B\\text{\u6216}x\\in B,x\\not\\in A\\}$\u3002\n\n\u73b0\u5728\u6709 $n-1$ \u4e2a\u672a\u77e5\u7684\u8fd0\u7b97\uff0c$op_1,op_2,\\cdots,op_{n-1}$\uff0c\u6bcf\u4e2a $op_i$ \u53ef\u4ee5\u662f\u4ea4\u3001\u5e76\u3001\u5bf9\u79f0\u5dee\u7684\u4efb\u610f\u4e00\u4e2a\u3002\n\n\u8bf7\u4f60\u5bf9\u4e8e $op_i$ \u7684 $3^{n-1}$ \u79cd\u8bbe\u7f6e\u65b9\u6848\uff0c\u6c42\u51fa\uff1a\n\n$$|(((S_1\\ op_1\\ S_2)\\ op_2\\ S_3)\\ op_3\\ S_4)\\cdots\\ op_{n-1}\\ S_n|$$\n\n\u4e4b\u548c\u3002\n\n\u5176\u4e2d $|A|$ \u4e3a\u96c6\u5408 $A$ \u7684\u5927\u5c0f\u3002\n\n$2\\leq n\\leq 3\\times 10^5,0\\leq l_i,r_i\\leq 3\\times 10^5$"
+}

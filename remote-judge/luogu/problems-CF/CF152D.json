@@ -1,0 +1,17 @@
+{
+    "description": "One day Vasya got hold of a sheet of checkered paper $ n\u00d7m $ squares in size. Our Vasya adores geometrical figures, so he painted two rectangles on the paper. The rectangles' sides are parallel to the coordinates' axes, also the length of each side of each rectangle is no less than 3 squares and the sides are painted by the grid lines. The sides can also be part of the sheet of paper's edge. Then Vasya hatched all squares on the rectangles' frames.\n\nLet's define a rectangle's frame as the set of squares inside the rectangle that share at least one side with its border.\n\nA little later Vasya found a sheet of paper of exactly the same size and couldn't guess whether it is the same sheet of paper or a different one. So, he asked you to check whether the sheet of paper he had found contains two painted frames and nothing besides them.\n\nPlease note that the frames painted by Vasya can arbitrarily intersect, overlap or even completely coincide.\n\nThe coordinates on the sheet of paper are introduced in such a way that the $ X $ axis goes from top to bottom, the $ x $ coordinates of the squares' numbers take values from $ 1 $ to $ n $ and the $ Y $ axis goes from the left to the right and the $ y $ coordinates of the squares' numbers take values from $ 1 $ to $ m $ .",
+    "inputFormat": "The first input line contains two integers $ n $ and $ m $ ( $ 3<=n,m<=1000 $ ) \u2014 the sizes of the sheet of paper Vasya found. Next $ n $ lines, each consisting of $ m $ symbols \".\" (dot) and \"\\#\" (number sign), describe the found sheet of paper. The symbol \"\\#\" represents a hatched square and the symbol \".\" represents a non-hatched square.",
+    "outputFormat": "In the first line print the single word \"YES\" or \"NO\", meaning whether it is true that the found sheet of paper has two frames painted on it. If the answer is positive, then print in the second line $ 4 $ integers: the coordinates of the upper left and lower right corners of the first frame. In the third line print $ 4 $ integers: the coordinates of the upper left and the lower right corners of the second frame. If there are multiple answers, print any of them.",
+    "samples": [
+        [
+            "4 5\n#####\n#.#.#\n###.#\n#####\n",
+            "YES\n1 1 3 3\n1 1 4 5\n"
+        ],
+        [
+            "5 6\n...###\n...###\n#####.\n#...#.\n#####.\n",
+            "NO\n"
+        ]
+    ],
+    "hint": "In the first sample there are two frames on the picture. The first one is:\n\n`###..<br></br>#.#..<br></br>###..<br></br>.....<br></br>`The second one is:\n\n`#####<br></br>#...#<br></br>#...#<br></br>#####<br></br>`In the second sample the painted figures are not frames. Note that the height and width of valid frames is no less than 3.",
+    "translation": "\u7ed9\u51fa\u4e00\u4e2a$n\\times m$\u5b57\u7b26\u77e9\u5f62\uff0c\u6bcf\u4e2a\u5b57\u7b26\u662f`.`\u6216`#`\uff0c\u4f60\u9700\u8981\u8bc6\u522b\u51fa\u4e24\u4e2a\u8fb9\u7531`#`\u7ec4\u6210\u7684\u77e9\u5f62\uff0c\u4e14\u8fd9\u4e24\u4e2a\u77e9\u5f62\u7684\u957f\u548c\u5bbd\u90fd\u5927\u4e8e$2$\uff0c\u6709\u89e3\u8f93\u51fa`YES`\u548c\u4efb\u610f\u4e00\u7ec4\u89e3\uff0c\u65e0\u89e3\u8f93\u51fa`NO`\u3002\n\n$3\\leq n,m\\leq 1000$"
+}

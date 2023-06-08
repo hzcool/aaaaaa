@@ -1,0 +1,17 @@
+{
+    "description": "Let us define a magic grid to be a square matrix of integers of size $ n \\times n $ , satisfying the following conditions.\n\n- All integers from $ 0 $ to $ (n^2 - 1) $ inclusive appear in the matrix exactly once.\n- [Bitwise XOR](https://en.wikipedia.org/wiki/Bitwise_operation#XOR) of all elements in a row or a column must be the same for each row and column.\n\nYou are given an integer $ n $ which is a multiple of $ 4 $ . Construct a magic grid of size $ n \\times n $ .",
+    "inputFormat": "The only line of input contains an integer $ n $ ( $ 4 \\leq n \\leq 1000 $ ). It is guaranteed that $ n $ is a multiple of $ 4 $ .",
+    "outputFormat": "Print a magic grid, i.e. $ n $ lines, the $ i $ -th of which contains $ n $ space-separated integers, representing the $ i $ -th row of the grid.\n\nIf there are multiple answers, print any. We can show that an answer always exists.",
+    "samples": [
+        [
+            "4\n",
+            "8 9 1 13\n3 12 7 5\n0 2 4 11\n6 10 15 14"
+        ],
+        [
+            "8\n",
+            "19 55 11 39 32 36 4 52\n51 7 35 31 12 48 28 20\n43 23 59 15 0 8 16 44\n3 47 27 63 24 40 60 56\n34 38 6 54 17 53 9 37\n14 50 30 22 49 5 33 29\n2 10 18 46 41 21 57 13\n26 42 62 58 1 45 25 61"
+        ]
+    ],
+    "hint": "In the first example, XOR of each row and each column is $ 13 $ .\n\nIn the second example, XOR of each row and each column is $ 60 $ .",
+    "translation": "### \u9898\u76ee\u63cf\u8ff0\n\n\u6211\u4eec\u5b9a\u4e49\u201c\u9b54\u6cd5\u7f51\u683c\u201d\u4e3a\u4e00\u4e2a\u6ee1\u8db3\u4ee5\u4e0b\u4e24\u4e2a\u6761\u4ef6\u7684\u5927\u5c0f\u4e3a $n \\times n$ \u7684\u6574\u6570\u65b9\u9635\uff1a\n\n $1.$ \u4ece $0$ \u5230 $n^2-1$ \u7684\u6240\u6709\u6574\u6570\u90fd\u5728\u77e9\u9635\u4e2d\u51fa\u73b0\u8fc7\u6070\u597d\u4e00\u6b21\u3002\n\n $2.$ \u77e9\u9635\u4e2d\u7684\u6bcf\u884c\u5143\u7d20\u7684\u6309\u4f4d\u5f02\u6216\u548c\u4e0e\u6bcf\u5217\u5143\u7d20\u7684\u6309\u4f4d\u5f02\u6216\u548c\u90fd\u76f8\u7b49\u3002\n\n\u6309\u4f4d\u5f02\u6216\uff0c\u5373 $C/C++$ \u4e2d\u7684 $\\wedge$ \u8fd0\u7b97\u7b26\u6216 $Pascal$ \u4e2d\u7684 $xor$ \u8fd0\u7b97\u7b26\u3002\n\n\u73b0\u5728\u7ed9\u4f60\u4e00\u4e2a $n$ \uff0c\u4fdd\u8bc1 $n$ \u662f $4$ \u7684\u500d\u6570\u3002\u8bf7\u6784\u9020\u4e00\u4e2a\u201c\u9b54\u6cd5\u7f51\u683c\u201d\u3002\n\n### \u8f93\u5165\u683c\u5f0f\n\n\u8f93\u5165\u4ec5\u5305\u542b\u4e00\u884c\uff0c\u4e3a\u4e00\u4e2a\u6574\u6570 $n$ \uff0c\u4fdd\u8bc1 $n$ \u662f $4$ \u7684\u500d\u6570\u3002\n\n### \u8f93\u51fa\u683c\u5f0f\n\n\u8f93\u51fa $n$ \u884c\uff0c\u6bcf\u884c $n$ \u4e2a\u6574\u6570\uff0c\u6bcf\u4e2a\u6574\u6570\u4e4b\u95f4\u7528\u4e00\u4e2a\u7a7a\u683c\u9694\u5f00\uff0c\u7b2c $i$ \u884c\u7b2c $j$ \u5217\u8f93\u51fa\u7684\u6570\u8868\u793a\u201c\u9b54\u6cd5\u7f51\u683c\u201d\u7684\u7b2c $i$ \u884c\u7b2c $j$ \u5217\u7684\u6570\u3002\n\n\u5982\u679c\u6709\u591a\u4e2a\u7b54\u6848\uff0c\u8bf7\u8f93\u5165\u4efb\u610f\u4e00\u4e2a\u3002\u4fdd\u8bc1\u6bcf\u7ec4\u6570\u636e\u81f3\u5c11\u6709\u4e00\u4e2a\u5408\u6cd5\u89e3\u3002"
+}

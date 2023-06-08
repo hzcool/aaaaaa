@@ -1,0 +1,13 @@
+{
+    "description": "The Great Mushroom King descended to the dwarves, but not everyone managed to see him. Only the few chosen ones could see the King.\n\nWe know that only $ LCM(k^{2^l}+1,k^{2^{l+1}}+1,...,k^{2^r}+1) $ dwarves can see the Great Mushroom King. Numbers $ k $ , $ l $ , $ r $ are chosen by the Great Mushroom King himself in some complicated manner which is unclear to common dwarves.\n\nThe dwarven historians decided to document all visits of the Great Mushroom King. For each visit the dwarven historians know three integers $ k_{i} $ , $ l_{i} $ , $ r_{i} $ , chosen by the Great Mushroom King for this visit. They also know a prime number $ p_{i} $ . Help them to count the remainder of dividing the number of dwarves who can see the King, by number $ p_{i} $ , for each visit.",
+    "inputFormat": "The first line contains the single integer $ t $ $ (1<=t<=10^{5}) $ \u2014 the number of the King's visits.\n\nEach of the following $ t $ input lines contains four space-separated integers $ k_{i} $ , $ l_{i} $ , $ r_{i} $ and $ p_{i} $ $ (1<=k_{i}<=10^{6} $ ; $ 0<=l_{i}<=r_{i}<=10^{18};\u00a02<=p_{i}<=10^{9}) $ \u2014 the numbers, chosen by the Great Mushroom King and the prime module, correspondingly.\n\nIt is guaranteed that for all visits number $ p_{i} $ is prime.\n\nPlease do not use the %lld specifier to read or write 64-bit integers in \u0421++. It is preferred to use the cin, cout streams or the %I64d specifier.",
+    "outputFormat": "For each visit print the answer on a single line \u2014 the remainder of dividing the number of the dwarves who can see the King this time, by number $ p_{i} $ . Print the answers for the visits in the order, in which the visits are described in the input.",
+    "samples": [
+        [
+            "2\n3 1 10 2\n5 0 4 3\n",
+            "0\n0\n"
+        ]
+    ],
+    "hint": "We consider that $ LCM(a_{1},a_{2},...,a_{n}) $ represents the least common multiple of numbers $ a_{1} $ , $ a_{2} $ , $ ... $ , $ a_{n} $ .\n\nWe consider that $ x^{0}=1 $ , for any $ x $ .",
+    "translation": "- $T(T\\leq 10^5)$ \u7ec4\u8be2\u95ee\uff0c\u6bcf\u7ec4\u8be2\u95ee\u7ed9\u51fa\u56db\u4e2a\u6570 $k,l,r,p$\uff0c\u5176\u4e2d $p$ \u4e3a\u8d28\u6570\u3002\n- \u6c42 $\\operatorname{lcm}(k^{2^{l}}+1,k^{2^{l+1}}+1,k^{2^{l+2}}+1,\\dots,k^{2^{r}}+1)\\bmod p$ \u7684\u503c\u3002\n- $k\\leq 10^6,l,r\\leq 10^{18},p\\leq 10^9$\u3002\n\n\u611f\u8c22 @tzc_wk \u63d0\u4f9b\u7684\u7ffb\u8bd1\u3002"
+}

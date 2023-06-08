@@ -1,0 +1,25 @@
+{
+    "description": "A star is a figure of the following type: an asterisk character '\\*' in the center of the figure and four rays (to the left, right, top, bottom) of the same positive length. The size of a star is the length of its rays. The size of a star must be a positive number (i.e. rays of length $ 0 $ are not allowed).\n\nLet's consider empty cells are denoted by '.', then the following figures are stars:\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1015E2/dbf078fd5a2d2cf23bed0e2a7fa98ea60f68c8e9.png)The leftmost figure is a star of size $ 1 $ , the middle figure is a star of size $ 2 $ and the rightmost figure is a star of size $ 3 $ .You are given a rectangular grid of size $ n \\times m $ consisting only of asterisks '\\*' and periods (dots) '.'. Rows are numbered from $ 1 $ to $ n $ , columns are numbered from $ 1 $ to $ m $ . Your task is to draw this grid using any number of stars or find out that it is impossible. Stars can intersect, overlap or even coincide with each other. The number of stars in the output can't exceed $ n \\cdot m $ . Each star should be completely inside the grid. You can use stars of same and arbitrary sizes.\n\nIn this problem, you do not need to minimize the number of stars. Just find any way to draw the given grid with at most $ n \\cdot m $ stars.",
+    "inputFormat": "The first line of the input contains two integers $ n $ and $ m $ ( $ 3 \\le n, m \\le 1000 $ ) \u2014 the sizes of the given grid.\n\nThe next $ n $ lines contains $ m $ characters each, the $ i $ -th line describes the $ i $ -th row of the grid. It is guaranteed that grid consists of characters '\\*' and '.' only.",
+    "outputFormat": "If it is impossible to draw the given grid using stars only, print \"-1\".\n\nOtherwise in the first line print one integer $ k $ ( $ 0 \\le k \\le n \\cdot m $ ) \u2014 the number of stars needed to draw the given grid. The next $ k $ lines should contain three integers each \u2014 $ x_j $ , $ y_j $ and $ s_j $ , where $ x_j $ is the row index of the central star character, $ y_j $ is the column index of the central star character and $ s_j $ is the size of the star. Each star should be completely inside the grid.",
+    "samples": [
+        [
+            "6 8\n....*...\n...**...\n..*****.\n...**...\n....*...\n........\n",
+            "3\n3 4 1\n3 5 2\n3 5 1\n"
+        ],
+        [
+            "5 5\n.*...\n****.\n.****\n..**.\n.....\n",
+            "3\n2 2 1\n3 3 1\n3 4 1\n"
+        ],
+        [
+            "5 5\n.*...\n***..\n.*...\n.*...\n.....\n",
+            "-1\n"
+        ],
+        [
+            "3 3\n*.*\n.*.\n*.*\n",
+            "-1\n"
+        ]
+    ],
+    "hint": "In the first example the output\n\n```\n<pre class=\"verbatim\">2<br></br>3 4 1<br></br>3 5 2<br></br>\n```\n\nis also correct.",
+    "translation": "**[\u9898\u76ee\u63cf\u8ff0]**  \n\u5b9a\u4e49\u4e00\u4e2a\u661f\u661f\u662f\u4e0b\u9762\u5f62\u72b6\u7684\u56fe\u5f62\uff1a  \n1. \u7531' $*$ '\u7ec4\u6210\uff1b  \n2. \u661f\u661f\u7684\u5927\u5c0f\u5c31\u662f\u5b83\u5411\u56db\u4e2a\u65b9\u5411\u5ef6\u4f38\u7684' $*$ '\u4e2a\u6570\uff0c\u6ce8\u610f\u56db\u4e2a\u65b9\u5411\u8981\u53d6\u6700\u77ed\u7684\uff0c\u4e0d\u5141\u8bb8\u51fa\u73b0\u5927\u5c0f\u4e3a$0$\u7684\u661f\u661f\u3002 \n\n\u7a7a\u7684\u683c\u5b50\u662f' $.$ '\uff0c\u4e0b\u9762\u662f\u51e0\u79cd\u661f\u661f\u7684\u4f8b\u5b50\uff1a  \n![](https://cdn.luogu.com.cn/upload/image_hosting/9pop6ksc.png)\n\u4e0d\u96be\u53d1\u73b0\uff0c\u5de6\u56fe\u662f\u5927\u5c0f\u4e3a$1$\u7684\u661f\u661f\uff0c\u4e2d\u95f4\u7684\u661f\u661f\u5927\u5c0f\u4e3a$2$\uff0c\u800c\u53f3\u4fa7\u7684\u661f\u661f\u5927\u5c0f\u4e3a$3$\u3002  \n\u73b0\u5728\u7ed9\u5b9a\u4e00\u4e2a\u5927\u5c0f\u4e3a$n\\times m$\uff0c\u7531' $.$ '\u548c' $*$ '\u6784\u6210\u7684\u7684\u77e9\u9635\u3002\u4f60\u7684\u4efb\u52a1\u662f\u4f7f\u7528\u4efb\u610f\u6570\u91cf\u548c\u5927\u5c0f\u7684\u661f\u661f\uff0c\u753b\u51fa\u8fd9\u4e2a\u77e9\u9635\u4e0a' $*$ '\u7684\u56fe\u6848\uff0c\u661f\u661f\u4e4b\u95f4\u53ef\u4ee5\u76f8\u4ea4\u6216\u91cd\u5408\u3002\u4f46\u661f\u661f\u4e0d\u80fd\u8d85\u51fa\u77e9\u9635\u3002  \n**[\u8f93\u5165\u683c\u5f0f]**  \n\u4e00\u4e2a\u5927\u5c0f\u4e3a$n\\times m(3\\le n,m\\le 1000)$\u7684\u5b57\u7b26\u77e9\u9635\uff0c\u8be6\u7ec6\u89c1\u9898\u9762  \n**[\u8f93\u51fa\u683c\u5f0f]**  \n\u82e5\u6709\u7684' $*$ '\u4e0d\u53ef\u80fd\u5f52\u5c5e\u4e8e\u4efb\u4f55\u661f\u661f\uff0c\u8f93\u51fa $-1$\u3002\u5426\u5219\u5148\u8f93\u51fa\u6240\u6709\u5408\u6cd5\u661f\u661f\u7684\u4e2a\u6570\uff0c\u63a5\u4e0b\u6765\u8f93\u51fa\u6240\u6709\u5408\u6cd5\u661f\u661f\u7684\u4e2d\u5fc3\u5750\u6807\u548c\u5927\u5c0f\uff08\u89c1\u6837\u4f8b\uff09"
+}

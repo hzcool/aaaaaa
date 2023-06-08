@@ -1,0 +1,25 @@
+{
+    "description": "Levko loves all sorts of sets very much.\n\nLevko has two arrays of integers $ a_{1},a_{2},...\\ ,a_{n} $ and $ b_{1},b_{2},...\\ ,b_{m} $ and a prime number $ p $ . Today he generates $ n $ sets. Let's describe the generation process for the $ i $ -th set:\n\n1. First it has a single number $ 1 $ .\n2. Let's take any element $ c $ from this set. For all $ j $ ( $ 1<=j<=m $ ) if number $ (c\u00b7a_{i}^{b_{j}})\u00a0mod\u00a0p $ doesn't occur in the set, then add it to the set.\n3. Repeat step $ 2 $ as long as we can add at least one element to our set.\n\nLevko wonders, how many numbers belong to at least one set. That is, he wants to know what size is the union of $ n $ generated sets.",
+    "inputFormat": "The first line contains three integers $ n $ , $ m $ and $ p $ ( $ 1<=n<=10^{4} $ , $ 1<=m<=10^{5} $ , $ 2<=p<=10^{9} $ ), $ p $ is prime.\n\nThe second line contains space-separated integers $ a_{1},a_{2},...\\ ,a_{n} $ ( $ 1<=a_{i}<p $ ). The third line contains space-separated integers $ b_{1},b_{2},...\\ ,b_{m} $ ( $ 1<=b_{i}<=10^{9} $ ).",
+    "outputFormat": "The single number \u2014 the size of the union of the sets.",
+    "samples": [
+        [
+            "1 1 7\n2\n5\n",
+            "3\n"
+        ],
+        [
+            "1 2 7\n2\n2 4\n",
+            "3\n"
+        ],
+        [
+            "2 1 7\n1 6\n2\n",
+            "1\n"
+        ],
+        [
+            "2 1 7\n1 6\n5\n",
+            "2\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u6709\u4e24\u4e2a\u6574\u6570\u6570\u7ec4$a_1,a_2......a_n$ \u548c$b_1,b_2......b_m$ \uff0c\u4e0e\u4e00\u4e2a\u8d28\u6570$p$ \uff0c\u73b0\u5728\u8981\u751f\u6210$n$ \u4e2a\u96c6\u5408\uff0c\u7b2c$i$ \u4e2a\u96c6\u5408\u751f\u6210\u65b9\u5f0f\u5982\u4e0b\uff1a  \n1.\u5f00\u59cb\uff0c\u96c6\u5408\u53ea\u6709\u5143\u7d201  \n2.\u4ece\u96c6\u5408\u4e2d\u9009\u4e00\u4e2a\u5143\u7d20$c$ \uff0c\u5bf9\u4e8e\u6240\u6709\u7684$j$ \uff0c\u5982\u679c\u8db3$c\\times a_i^{b_j}\\%p$ \u4e0d\u5728\u5f53\u524d\u96c6\u5408\uff0c\u5c31\u628a\u5b83\u52a0\u5165\u96c6\u5408  \n3.\u91cd\u590d\u4ee5\u4e0a\u6b65\u9aa4  \n\u6c42$n$ \u4e2a\u96c6\u5408\u7684\u5e76\u7684\u5927\u5c0f  \n\n\u611f\u8c22@Fheiwn \u63d0\u4f9b\u7684\u7ffb\u8bd1"
+}

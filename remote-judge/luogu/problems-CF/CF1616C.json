@@ -1,0 +1,13 @@
+{
+    "description": "An array $ a_1, a_2, \\ldots, a_n $ is good if and only if for every subsegment $ 1 \\leq l \\leq r \\leq n $ , the following holds: $ a_l + a_{l + 1} + \\ldots + a_r = \\frac{1}{2}(a_l + a_r) \\cdot (r - l + 1) $ .\n\nYou are given an array of integers $ a_1, a_2, \\ldots, a_n $ . In one operation, you can replace any one element of this array with any real number. Find the minimum number of operations you need to make this array good.",
+    "inputFormat": "The first line of input contains one integer $ t $ ( $ 1 \\leq t \\leq 100 $ ): the number of test cases.\n\nEach of the next $ t $ lines contains the description of a test case.\n\nIn the first line you are given one integer $ n $ ( $ 1 \\leq n \\leq 70 $ ): the number of integers in the array.\n\nThe second line contains $ n $ integers $ a_1, a_2, \\ldots, a_n $ ( $ -100 \\leq a_i \\leq 100 $ ): the initial array.",
+    "outputFormat": "For each test case, print one integer: the minimum number of elements that you need to replace to make the given array good.",
+    "samples": [
+        [
+            "5\n4\n1 2 3 4\n4\n1 1 2 2\n2\n0 -1\n6\n3 -2 4 -1 -4 0\n1\n-100",
+            "0\n2\n0\n3\n0"
+        ]
+    ],
+    "hint": "In the first test case, the array is good already.\n\nIn the second test case, one of the possible good arrays is $ [1, 1, \\underline{1}, \\underline{1}] $ (replaced elements are underlined).\n\nIn the third test case, the array is good already.\n\nIn the fourth test case, one of the possible good arrays is $ [\\underline{-2.5}, -2, \\underline{-1.5}, -1, \\underline{-0.5}, 0] $ .",
+    "translation": "\u6570\u7ec4 $ a_1,a_2,a_3...a_n $ \u662f\u597d\u7684\uff0c\u5f53\u4e14\u4ec5\u5f53\u5bf9\u4e8e\u6bcf\u4e00\u4e2a\u533a\u95f4 $ [l,r] (1 \\leq l \\leq r \\leq n) $\uff0c\u6ee1\u8db3\uff1a\n\n$ a_l+a_{l+1}+...+a_r = \\frac{1}{2}(a_l+a_r) \\cdot (r-l+1)$\n\n\u6bcf\u4e00\u6b21\u64cd\u4f5c\u4f60\u90fd\u53ef\u4ee5\u7528\u4efb\u610f\u4e00\u4e2a\u5b9e\u6570\u4ee3\u66ff\u4efb\u610f\u4e00\u4e2a\u5143\u7d20\uff0c\u95ee\u4f60\u6700\u5c11\u8981\u8fdb\u884c\u591a\u5c11\u6b21\u64cd\u4f5c\u624d\u80fd\u4f7f\u8fd9\u4e2a\u6570\u7ec4\u662f\u597d\u7684\u3002"
+}

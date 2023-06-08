@@ -1,0 +1,29 @@
+{
+    "description": "Santa Claus has Robot which lives on the infinite grid and can move along its lines. He can also, having a sequence of $ m $ points $ p_{1},p_{2},...,p_{m} $ with integer coordinates, do the following: denote its initial location by $ p_{0} $ . First, the robot will move from $ p_{0} $ to $ p_{1} $ along one of the shortest paths between them (please notice that since the robot moves only along the grid lines, there can be several shortest paths). Then, after it reaches $ p_{1} $ , it'll move to $ p_{2} $ , again, choosing one of the shortest ways, then to $ p_{3} $ , and so on, until he has visited all points in the given order. Some of the points in the sequence may coincide, in that case Robot will visit that point several times according to the sequence order.\n\nWhile Santa was away, someone gave a sequence of points to Robot. This sequence is now lost, but Robot saved the protocol of its unit movements. Please, find the minimum possible length of the sequence.",
+    "inputFormat": "The first line of input contains the only positive integer $ n $ ( $ 1<=n<=2\u00b710^{5} $ ) which equals the number of unit segments the robot traveled. The second line contains the movements protocol, which consists of $ n $ letters, each being equal either L, or R, or U, or D. $ k $ -th letter stands for the direction which Robot traveled the $ k $ -th unit segment in: L means that it moved to the left, R \u2014 to the right, U \u2014 to the top and D \u2014 to the bottom. Have a look at the illustrations for better explanation.",
+    "outputFormat": "The only line of input should contain the minimum possible length of the sequence.",
+    "samples": [
+        [
+            "4\nRURD\n",
+            "2\n"
+        ],
+        [
+            "6\nRRULDD\n",
+            "2\n"
+        ],
+        [
+            "26\nRRRULURURUULULLLDLDDRDRDLD\n",
+            "7\n"
+        ],
+        [
+            "3\nRLL\n",
+            "2\n"
+        ],
+        [
+            "4\nLRLR\n",
+            "4\n"
+        ]
+    ],
+    "hint": "The illustrations to the first three tests are given below.\n\n![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF748C/055feaa24aaf28c272b502eb1fa7804fe2ce0a51.png)![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF748C/795acf4da6085a8e5b976c179bfde9796711ae28.png)![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF748C/75228340b2ee205f332e39cf435e438e28662e9d.png)\n\nThe last example illustrates that each point in the sequence should be counted as many times as it is presented in the sequence.",
+    "translation": "\u673a\u5668\u4eba\u5728\u7f51\u683c\u7ebf\u4e0a\u884c\u8d70\uff0c\u4ece $p1$ \u70b9\u5f00\u59cb\uff0c\u6cbf\u6700\u77ed\u8def\u5f84\u5230 $p2$\uff0c\u518d\u6cbf\u6700\u77ed\u8def\u5f84\u5230 $p3$\uff0c\u4f9d\u6b64\u7c7b\u63a8\u3002\u5728\u6b64\u8fc7\u7a0b\u4e2d\u7559\u4e0b\u4e86\u884c\u8d70\u7684\u8fd0\u52a8\u8f68\u8ff9\uff0c\u7528 ```RULD``` \u8868\u793a\u3002\u95ee\u82e5\u53ea\u7ed9\u51fa\u8fd0\u52a8\u8f68\u8ff9\uff0c\u6c42\u6700\u5c11\u7684 $pi$ \u70b9\u7684\u4e2a\u6570\u3002"
+}

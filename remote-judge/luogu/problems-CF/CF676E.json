@@ -1,0 +1,21 @@
+{
+    "description": "100 years have passed since the last victory of the man versus computer in Go. Technologies made a huge step forward and robots conquered the Earth! It's time for the final fight between human and robot that will decide the faith of the planet.\n\nThe following game was chosen for the fights: initially there is a polynomial\n\n $ P(x)=a_{n}x^{n}+a_{n-1}x^{n-1}+...+a_{1}x+a_{0}, $  with yet undefined coefficients and the integer $ k $ . Players alternate their turns. At each turn, a player pick some index $ j $ , such that coefficient $ a_{j} $ that stay near $ x^{j} $ is not determined yet and sets it to any value (integer or real, positive or negative, $ 0 $ is also allowed). Computer moves first. The human will be declared the winner if and only if the resulting polynomial will be divisible by $ Q(x)=x-k $ .Polynomial $ P(x) $ is said to be divisible by polynomial $ Q(x) $ if there exists a representation $ P(x)=B(x)Q(x) $ , where $ B(x) $ is also some polynomial.\n\nSome moves have been made already and now you wonder, is it true that human can guarantee the victory if he plays optimally?",
+    "inputFormat": "The first line of the input contains two integers $ n $ and $ k $ ( $ 1<=n<=100000,|k|<=10000 $ ) \u2014 the size of the polynomial and the integer $ k $ .\n\nThe $ i $ -th of the following $ n+1 $ lines contain character '?' if the coefficient near $ x^{i-1} $ is yet undefined or the integer value $ a_{i} $ , if the coefficient is already known ( $ -10000<=a_{i}<=10000 $ ). Each of integers $ a_{i} $ (and even $ a_{n} $ ) may be equal to $ 0 $ .\n\nPlease note, that it's not guaranteed that you are given the position of the game where it's computer's turn to move.",
+    "outputFormat": "Print \"Yes\" (without quotes) if the human has winning strategy, or \"No\" (without quotes) otherwise.",
+    "samples": [
+        [
+            "1 2\n-1\n?\n",
+            "Yes\n"
+        ],
+        [
+            "2 100\n-10000\n0\n1\n",
+            "Yes"
+        ],
+        [
+            "4 5\n?\n1\n?\n1\n?\n",
+            "No"
+        ]
+    ],
+    "hint": "In the first sample, computer set $ a_{0} $ to $ -1 $ on the first move, so if human can set coefficient $ a_{1} $ to $ 0.5 $ and win.\n\nIn the second sample, all coefficients are already set and the resulting polynomial is divisible by $ x-100 $ , so the human has won.",
+    "translation": "\u673a\u5668\u4eba\u5728\u548c\u4eba\u7c7b\u8fdb\u884c\u5bf9\u51b3\uff0c\u73b0\u5728\u7ed9\u4f60\u4e00\u4e2a\u591a\u9879\u5f0f\u7684\u4e2d\u95f4\u72b6\u6001\uff0c\u6b64\u65f6\u6709\u4e9b\u7cfb\u6570\u53ef\u80fd\u662f\u786e\u5b9a\u7684\uff0c\u6709\u4e9b\u7cfb\u6570\u53ef\u80fd\u662f\u4e0d\u786e\u5b9a\u7684\uff08\u7528\uff1f\u8868\u793a\uff09\uff0c\u673a\u5668\u4eba\u548c\u4eba\u5c06\u8f6e\u6d41\u4e3a\u672a\u77e5\u6570\u8bbe\u503c\uff08\u7531\u4e8e\u662f\u4e2d\u95f4\u72b6\u6001\u6240\u4ee5\u5f53\u524d\u7b2c\u4e00\u4e2a\u8bbe\u503c\u7684\u4eba\u4e0d\u4e00\u5b9a\u662f\u673a\u5668\u4eba\uff09\uff0c\u6c42\u4eba\u7c7b\u5728\u4e0d\u7ba1\u673a\u5668\u4eba\u5982\u4f55\u8bbe\u503c\u7684\u60c5\u51b5\u4e0b\uff0c\u662f\u5426\u80fd\u8ba9\u6700\u7ec8\u7684f(k) = 0\u3002\r\n\r\n\u591a\u9879\u5f0f\u8868\u793a\u4e3a\uff1a\u8f93\u5165\u6574\u6570n\u548ck\uff0c\u4e0b\u9762\u7684n + 1\u884c\u4e2d\u6bcf\u884c\u4e3a\u4e00\u4e2a\u6574\u6570\u6216?\uff0c?\u8868\u793a\u672a\u786e\u5b9a\uff0c\u8fd9\u4e9b\u6574\u6570\u8868\u793a\u7684\u662f\u4e00\u4e2a\u591a\u9879\u5f0f\u7684\u7cfb\u6570\uff0c\u4e14\u4ece\u7b2c\u4e8c\u884c\u5f00\u59cb\u8d77\u7b2ci\u884c\u8868\u793a\u7684\u662fx ^ (i - 1)\u7684\u7cfb\u6570"
+}

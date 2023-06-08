@@ -1,0 +1,21 @@
+{
+    "description": "There are $ b $ blocks of digits. Each one consisting of the same $ n $ digits, which are given to you in the input. Wet Shark must choose exactly one digit from each block and concatenate all of those digits together to form one large integer. For example, if he chooses digit $ 1 $ from the first block and digit $ 2 $ from the second block, he gets the integer $ 12 $ .\n\nWet Shark then takes this number modulo $ x $ . Please, tell him how many ways he can choose one digit from each block so that he gets exactly $ k $ as the final result. As this number may be too large, print it modulo $ 10^{9}+7 $ .\n\nNote, that the number of ways to choose some digit in the block is equal to the number of it's occurrences. For example, there are $ 3 $ ways to choose digit $ 5 $ from block 3 5 6 7 8 9 5 1 1 1 1 5.",
+    "inputFormat": "The first line of the input contains four space-separated integers, $ n $ , $ b $ , $ k $ and $ x $ ( $ 2<=n<=50000,1<=b<=10^{9},0<=k&lt;x<=100,x>=2 $ ) \u2014 the number of digits in one block, the number of blocks, interesting remainder modulo $ x $ and modulo $ x $ itself.\n\nThe next line contains $ n $ space separated integers $ a_{i} $ ( $ 1<=a_{i}<=9 $ ), that give the digits contained in each block.",
+    "outputFormat": "Print the number of ways to pick exactly one digit from each blocks, such that the resulting integer equals $ k $ modulo $ x $ .",
+    "samples": [
+        [
+            "12 1 5 10\n3 5 6 7 8 9 5 1 1 1 1 5\n",
+            "3\n"
+        ],
+        [
+            "3 2 1 2\n6 2 2\n",
+            "0\n"
+        ],
+        [
+            "3 2 1 2\n3 1 2\n",
+            "6\n"
+        ]
+    ],
+    "hint": "In the second sample possible integers are $ 22 $ , $ 26 $ , $ 62 $ and $ 66 $ . None of them gives the remainder $ 1 $ modulo $ 2 $ .\n\nIn the third sample integers $ 11 $ , $ 13 $ , $ 21 $ , $ 23 $ , $ 31 $ and $ 33 $ have remainder $ 1 $ modulo $ 2 $ . There is exactly one way to obtain each of these integers, so the total answer is $ 6 $ .",
+    "translation": "\u9898\u76ee\u63cf\u8ff0\uff1a\n\n\u6709 $b$ \u4e2a\u683c\u5b50\uff0c\u6bcf\u4e2a\u683c\u5b50\u6709 $n$ \u4e2a\u6570\u5b57\uff0c\u5404\u4e2a\u683c\u5b50\u91cc\u9762\u7684\u6570\u5b57\u90fd\u662f\u76f8\u540c\u7684. \u6c42\u4ece $b$ \u4e2a\u683c\u5b50\u4e2d\u5404\u53d6\u4e00\u4e2a\u6570\u5b57, \u6784\u6210\u4e00\u4e2a $b$ \u4f4d\u6570, \u4f7f\u5f97\u8fd9\u4e2a $b$ \u4f4d\u6570\u6a21 $x$ \u4e3a $k$ \u7684\u65b9\u6848\u6570\uff08\u540c\u4e00\u683c\u5b50\u5185\u76f8\u540c\u7684\u6570\u5b57\u7b97\u4e0d\u540c\u65b9\u6848\uff09.\u7b54\u6848\u5bf9 $1\\times 10^9+7$ \u53d6\u6a21.\n\u8f93\u5165\u683c\u5f0f:\n\n\u7b2c\u4e00\u884c\u67094\u4e2a\u6574\u6570 $n,b,k,x$ ,\u5176\u4e2d $2\\leq n\\leq 50000,1\\leq b\\leq 10^{9},0\\leq k< x\\leq 100,x\\ge2$ \n\u7b2c\u4e8c\u884c\u6709 $n$ \u4e2a\u6570, \u4e3a\u6bcf\u4e2a\u683c\u5b50\u91cc\u9762\u7684\u6570\u5b57(\u6bcf\u4e2a\u683c\u5b50\u91cc\u9762\u7684\u6570\u5b57\u90fd\u662f\u76f8\u540c\u7684.)\n\u8f93\u51fa\u683c\u5f0f:\n\n\u5373\u4ece\u6bcf\u4e2a\u5757\u4e2d\u9009\u62e9\u4e00\u4e2a\u6570\u6784\u6210\u4e00\u4e2a\u5927\u6570, \u4f7f\u5f97\u5176\u6a21x\u4e3ak\u7684\u65b9\u6848\u6570\u5bf9 $1\\times 10^9+7$ \u53d6\u6a21.\n\u6ce8\u610f:\n\n\u6837\u4f8b\u4e8c\u4e2d\u6ca1\u6709\u4e00\u79cd\u65b9\u6848\u4f7f\u5f97\u6a212\u4e3a1\n\u6837\u4f8b\u4e09\u4e2d11,13,21,23,31,33\u6ee1\u8db3\u6a212\u4f591.\n\n\u611f\u8c22@aiyougege \u63d0\u4f9b\u7684\u7ffb\u8bd1"
+}

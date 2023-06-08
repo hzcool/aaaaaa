@@ -1,0 +1,25 @@
+{
+    "description": "Berland scientists noticed long ago that the world around them depends on Berland population. Due to persistent research in this area the scientists managed to find out that the Berland chronology starts from the moment when the first two people came to that land (it is considered to have happened in the first year). After one Berland year after the start of the chronology the population had already equaled 13 people (the second year). However, tracing the population number during the following years was an ultimately difficult task, still it was found out that if $ d_{i} $ \u2014 the number of people in Berland in the year of $ i $ , then either $ d_{i}=12d_{i-2} $ , or $ d_{i}=13d_{i-1}-12d_{i-2} $ . Of course no one knows how many people are living in Berland at the moment, but now we can tell if there could possibly be a year in which the country population equaled $ A $ . That's what we ask you to determine. Also, if possible, you have to find out in which years it could be (from the beginning of Berland chronology). Let's suppose that it could be in the years of $ a_{1},a_{2},...,a_{k} $ . Then you have to define how many residents could be in the country during those years apart from the $ A $ variant. Look at the examples for further explanation.",
+    "inputFormat": "The first line contains integer $ A $ ( $ 1<=A&lt;10^{300} $ ). It is guaranteed that the number doesn't contain leading zeros.",
+    "outputFormat": "On the first output line print YES, if there could be a year in which the total population of the country equaled $ A $ , otherwise print NO.\n\nIf the answer is YES, then you also have to print number $ k $ \u2014 the number of years in which the population could equal $ A $ . On the next line you have to output precisely $ k $ space-separated numbers \u2014 $ a_{1},a_{2},...,a_{k} $ . Those numbers have to be output in the increasing order.\n\nOn the next line you should output number $ p $ \u2014 how many variants of the number of people could be in the years of $ a_{1},a_{2},...,a_{k} $ , apart from the $ A $ variant. On each of the next $ p $ lines you have to print one number \u2014 the sought number of residents. Those number also have to go in the increasing order.\n\nIf any number (or both of them) $ k $ or $ p $ exceeds $ 1000 $ , then you have to print $ 1000 $ instead of it and only the first $ 1000 $ possible answers in the increasing order.\n\nThe numbers should have no leading zeros.",
+    "samples": [
+        [
+            "2\n",
+            "YES\n1\n1\n0\n"
+        ],
+        [
+            "3\n",
+            "NO\n"
+        ],
+        [
+            "13\n",
+            "YES\n1\n2\n0\n"
+        ],
+        [
+            "1729\n",
+            "YES\n1\n4\n1\n156\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "#### \u9898\u76ee\u63cf\u8ff0\uff1a\n\n\u4f60\u6709\u4e00\u4e2a\u6570\u5217 $A$\u3002\u5f00\u59cb\u65f6 $A_1=2\uff0cA_2=13$\u3002\u5df2\u77e5\uff1a$\\forall  i$ \u6709 $d_i=12 \\times d_{i-2}$ \u6216\u8005 $d_i=13\\times d_{i-1}-12\\times d_{i-2}$\u3002\u8f93\u5165\u4e00\u4e2a\u6570 $x$\uff0c\u5224\u65ad $x$ \u662f\u5426\u5728\u8be5\u6570\u5217\u4e2d\u3002\n\n#### \u8f93\u5165\u683c\u5f0f\uff1a\n\n\u4e00\u4e2a\u6570 $x$\uff08$1 \\leq x < 10^{300}$\uff09\u3002\n\n#### \u8f93\u51fa\u683c\u5f0f\uff1a\n\n\u7b2c\u4e00\u884c\uff1a\u5982\u679c $x$ \u5728\u6570\u5217 A \u4e2d\uff0c\u8f93\u51fa `YES`\uff0c\u5426\u5219\u8f93\u51fa `NO`\u3002\n\n\u5982\u679c\u7b2c\u4e00\u884c\u8f93\u51fa\u7684\u662f `YES`\uff0c\u7b2c\u4e8c\u884c\u8f93\u51fa\u4e00\u4e2a\u6574\u6570 $k$ \u8868\u793a\u6709\u591a\u5c11\u9879\u7684\u503c\u53ef\u80fd\u4e3a $x$\uff0c\u7b2c\u4e09\u884c $k$ \u4e2a\u6570 $a_1,a_2......a_k$ \u8868\u793a\u7b2c $a_i$ \u9879\u53ef\u80fd\u4e3a $x$\u3002\n\n\u7b2c\u56db\u884c\u4e00\u4e2a\u6574\u6570 $p$ \u8868\u793a\u7b2c $a_1,a_2,a_3......a_k$ \u5171\u6709\u5176\u4ed6 $p$ \u79cd\u53ef\u80fd\u7684\u503c\uff08\u9664 $x$ \u4e4b\u5916\uff09\u3002\u7b2c\u4e94\u884c $p$ \u4e2a\u6574\u6570\uff0c\u8868\u793a\u6240\u6709\u5176\u4ed6\u53ef\u80fd\u7684\u503c\u3002\n\n\u5982\u679c $k$ \u6216\u8005 $p$ \u8d85\u8fc7 1000 \u9879\uff0c\u53ea\u9700\u8f93\u51fa 1000 \u548c\u524d 1000 \u9879\u3002\n\n\u8f93\u51fa\u7684\u7b2c\u4e09\u884c\u548c\u7b2c\u4e94\u884c\u5fc5\u987b\u4e3a\u4e0d\u964d\u5e8f\uff0c\u4e14\u4e0d\u5e94\u8be5\u6709\u524d\u5bfc\u96f6\u3002"
+}

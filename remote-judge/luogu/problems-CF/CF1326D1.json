@@ -1,0 +1,13 @@
+{
+    "description": "This is the easy version of the problem. The difference is the constraint on the sum of lengths of strings and the number of test cases. You can make hacks only if you solve all versions of this task.\n\nYou are given a string $ s $ , consisting of lowercase English letters. Find the longest string, $ t $ , which satisfies the following conditions:\n\n- The length of $ t $ does not exceed the length of $ s $ .\n- $ t $ is a palindrome.\n- There exists two strings $ a $ and $ b $ (possibly empty), such that $ t = a + b $ ( \" $ + $ \" represents concatenation), and $ a $ is prefix of $ s $ while $ b $ is suffix of $ s $ .",
+    "inputFormat": "The input consists of multiple test cases. The first line contains a single integer $ t $ ( $ 1 \\leq t \\leq 1000 $ ), the number of test cases. The next $ t $ lines each describe a test case.\n\nEach test case is a non-empty string $ s $ , consisting of lowercase English letters.\n\nIt is guaranteed that the sum of lengths of strings over all test cases does not exceed $ 5000 $ .",
+    "outputFormat": "For each test case, print the longest string which satisfies the conditions described above. If there exists multiple possible solutions, print any of them.",
+    "samples": [
+        [
+            "5\na\nabcdfdcecba\nabbaxyzyx\ncodeforces\nacbba",
+            "a\nabcdfdcba\nxyzyx\nc\nabba"
+        ]
+    ],
+    "hint": "In the first test, the string $ s =  $ \"a\" satisfies all conditions.\n\nIn the second test, the string \"abcdfdcba\" satisfies all conditions, because:\n\n- Its length is $ 9 $ , which does not exceed the length of the string $ s $ , which equals $ 11 $ .\n- It is a palindrome.\n- \"abcdfdcba\" $ = $ \"abcdfdc\" $ + $ \"ba\", and \"abcdfdc\" is a prefix of $ s $ while \"ba\" is a suffix of $ s $ .\n\nIt can be proven that there does not exist a longer string which satisfies the conditions.\n\nIn the fourth test, the string \"c\" is correct, because \"c\" $ = $ \"c\" $ + $ \"\" and $ a $ or $ b $ can be empty. The other possible solution for this test is \"s\".",
+    "translation": "\u7ed9\u5b9a\u4e00\u4e2a\u5b57\u7b26\u4e32\u3002\u8981\u6c42\u9009\u53d6\u4ed6\u7684\u4e00\u4e2a\u524d\u7f00(\u53ef\u4ee5\u4e3a\u7a7a)\u548c\u4e0e\u8be5\u524d\u7f00\u4e0d\u76f8\u4ea4\u7684\u4e00\u4e2a\u540e\u7f00(\u53ef\u4ee5\u4e3a\u7a7a)\u62fc\u63a5\u6210\u56de\u6587\u4e32\uff0c\u4e14\u8be5\u56de\u6587\u4e32\u957f\u5ea6\u6700\u5927\u3002\u6c42\u8be5\u6700\u5927\u957f\u5ea6\u3002\n\n\u591a\u7ec4\u6570\u636e\u3002\u4fdd\u8bc1 $\\sum n\\leq 5000$ \u3002"
+}

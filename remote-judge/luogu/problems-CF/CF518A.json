@@ -1,0 +1,21 @@
+{
+    "description": "Vitaly is a diligent student who never missed a lesson in his five years of studying in the university. He always does his homework on time and passes his exams in time.\n\nDuring the last lesson the teacher has provided two strings $ s $ and $ t $ to Vitaly. The strings have the same length, they consist of lowercase English letters, string $ s $ is lexicographically smaller than string $ t $ . Vitaly wondered if there is such string that is lexicographically larger than string $ s $ and at the same is lexicographically smaller than string $ t $ . This string should also consist of lowercase English letters and have the length equal to the lengths of strings $ s $ and $ t $ .\n\nLet's help Vitaly solve this easy problem!",
+    "inputFormat": "The first line contains string $ s $ ( $ 1<=|s|<=100 $ ), consisting of lowercase English letters. Here, $ |s| $ denotes the length of the string.\n\nThe second line contains string $ t $ ( $ |t|=|s| $ ), consisting of lowercase English letters.\n\nIt is guaranteed that the lengths of strings $ s $ and $ t $ are the same and string $ s $ is lexicographically less than string $ t $ .",
+    "outputFormat": "If the string that meets the given requirements doesn't exist, print a single string \"No such string\" (without the quotes).\n\nIf such string exists, print it. If there are multiple valid strings, you may print any of them.",
+    "samples": [
+        [
+            "a\nc\n",
+            "b\n"
+        ],
+        [
+            "aaa\nzzz\n",
+            "kkk\n"
+        ],
+        [
+            "abcdefg\nabcdefh\n",
+            "No such string\n"
+        ]
+    ],
+    "hint": "String $ s=s_{1}s_{2}...\\ s_{n} $ is said to be lexicographically smaller than $ t=t_{1}t_{2}...\\ t_{n} $ , if there exists such $ i $ , that $ s_{1}=t_{1},s_{2}=t_{2},...\\ s_{i-1}=t_{i-1},s_{i}<t_{i} $ .",
+    "translation": "\u7ef4\u5854\u5229\u662f\u4e00\u4e2a\u52e4\u594b\u7684\u5b66\u751f\uff0c\u5728\u5927\u5b66\u9636\u6bb5\uff0c\u4ed6\u4ece\u6765\u6ca1\u6709\u9003\u8fc7\u4e00\u5802\u8bfe\u3002\u4ed6\u603b\u662f\u6309\u65f6\u505a\u4f5c\u4e1a\uff0c\u5e76\u987a\u5229\u901a\u8fc7\u8003\u8bd5\u3002\n\n\u5728\u4e0a\u4e00\u8282\u8bfe\uff0c\u8001\u5e08\u7ed9\u4e86\u4ed6\u4e24\u4e2a\u5b57\u7b26\u4e32s\u548ct\u3002\u8fd9\u4e24\u4e2a\u5b57\u7b26\u4e32\u7684\u957f\u5ea6\u76f8\u540c\uff0c\u7531\u5c0f\u5199\u82f1\u6587\u5b57\u6bcd\u7ec4\u6210\uff0c\u5b57\u7b26\u4e32s\u7684\u5b57\u5178\u5e8f\u6bd4\u4e32t\u5c0f\u3002\u7ef4\u5854\u5229\u60f3\u77e5\u9053\u662f\u5426\u6709\u8fd9\u6837\u7684\u5b57\u7b26\u4e32\uff1a\u5b57\u5178\u5e8f\u6bd4\u5b57\u7b26\u4e32s\u5927\uff0c\u540c\u65f6\u5b57\u5178\u5e8f\u5c0f\u4e8e\u4e32t\u3002\u6b64\u5b57\u7b26\u4e32\u4e5f\u5e94\u5305\u62ec\u5c0f\u5199\u82f1\u6587\u5b57\u6bcd\u548c\u76f8\u540c\u7684\u957f\u5ea6\u3002\n\n\u8ba9\u6211\u4eec\u5e2e\u7ef4\u5854\u5229\u89e3\u51b3\u8fd9\u4e2a\u7b80\u5355\u7684\u95ee\u9898\uff01\n\n\u7b2c\u4e00\u884c\u5305\u542b\u5b57\u7b26\u4e32s\uff081\u2264|s| \u2264100\uff09\uff0c\u7531\u5c0f\u5199\u82f1\u6587\u5b57\u6bcd\u7ec4\u6210\u3002\u8fd9\u91cc\uff0c|s| \u8868\u793a\u5b57\u7b26\u4e32s\u7684\u957f\u5ea6\u3002\n\n\u7b2c\u4e8c\u884c\u5305\u542b\u5b57\u7b26\u4e32t\uff08|t|=|s| \uff09\uff0c\u7531\u5c0f\u5199\u82f1\u6587\u5b57\u6bcd\u7ec4\u6210\u3002\n\n\u4fdd\u8bc1\u5b57\u7b26\u4e32s\u548ct\u7684\u957f\u5ea6\u662f\u76f8\u540c\u7684\uff0c\u5b57\u7b26\u4e32s\u5b57\u5178\u987a\u5e8f\u5c0f\u4e8e\u5b57\u7b26\u4e32t\u3002\n\n\u5982\u679c\u6ee1\u8db3\u8981\u6c42\u7684\u5b57\u7b26\u4e32\u4e0d\u5b58\u5728\uff0c\u5219\u8f93\u51faNo such string\u3002\n\n\u5982\u679c\u8fd9\u6837\u7684\u5b57\u7b26\u4e32\u5b58\u5728\uff0c\u5c31\u8f93\u51fa\u4efb\u4f55\u4e00\u4e2a\u6ee1\u8db3\u6761\u4ef6\u7684\u5b57\u7b26\u4e32\u3002( \u4e5f\u53ea\u80fd\u7531\u5c0f\u5199\u82f1\u6587\u5b57\u6bcda-z\u7ec4\u6210\uff09\n\nTranslated by @\u9992\u5934\u7cbe"
+}

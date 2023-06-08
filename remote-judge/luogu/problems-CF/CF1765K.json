@@ -1,0 +1,17 @@
+{
+    "description": "You are given a square grid with $ n $ rows and $ n $ columns, where each cell has a non-negative integer written in it. There is a chip initially placed at the top left cell (the cell with coordinates $ (1, 1) $ ). You need to move the chip to the bottom right cell (the cell with coordinates $ (n, n) $ ).\n\nIn one step, you can move the chip to the neighboring cell, but:\n\n1. you can move only right or down. In other words, if the current cell is $ (x, y) $ , you can move either to $ (x, y + 1) $ or to $ (x + 1, y) $ . There are two special cases: \n  - if the chip is in the last column (cell $ (x, n) $ ) and you're moving right, you'll teleport to the first column (to the cell $ (x, 1) $ );\n  - if the chip is in the last row (cell $ (n, y) $ ) and you're moving down, you'll teleport to the first row (to the cell $ (1, y) $ ).\n2. you cannot visit the same cell twice. The starting cell is counted visited from the beginning (so you cannot enter it again), and you can't leave the finishing cell once you visit it.\n\nYour total score is counted as the sum of numbers in all cells you have visited. What is the maximum possible score you can achieve?",
+    "inputFormat": "The first line contains the single integer $ n $ ( $ 2 \\le n \\le 200 $ ) \u2014 the number of rows and columns in the grid.\n\nNext $ n $ lines contains the description of each row of the grid. The $ i $ -th line contains $ n $ integers $ a_{i, 1}, a_{i, 2}, \\dots, a_{i, n} $ ( $ 0 \\le a_{i, j} \\le 10^9 $ ) where $ a_{i, j} $ is the number written in the cell $ (i, j) $ .",
+    "outputFormat": "Print one integer \u2014 the maximum possible score you can achieve.",
+    "samples": [
+        [
+            "2\n1 2\n3 4",
+            "8"
+        ],
+        [
+            "3\n10 10 10\n10 0 10\n10 10 10",
+            "80"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9\u5b9a\u4e00\u4e2a $n$ \u884c $n$ \u5217\u7684\u7f51\u683c\uff0c\u6bcf\u4e00\u683c\u5185\u90fd\u6709\u4e00\u4e2a\u975e\u8d1f\u6574\u6570\u3002\u4f60\u7684\u5206\u6570\u7b49\u4e8e\u4f60\u8d70\u8fc7\u683c\u5b50\u7684\u5206\u6570\u4e4b\u548c\u3002\u4f60\u9700\u8981\u4ece $(1,1)$ \u79fb\u52a8\u5230 $(n,n)$\uff0c\u5e76\u83b7\u53d6\u5c3d\u53ef\u80fd\u591a\u7684\u5206\u6570\u3002\u4f60\u53ef\u4ee5\u6267\u884c\u4ee5\u4e0b\u64cd\u4f5c\uff1a\n\n+ \u5411\u4e0b\u6216\u5411\u53f3\u8d70\u4e00\u683c\uff0c\u524d\u63d0\u662f\u4f60\u8d70\u5230\u7684\u683c\u5b50\u672a\u88ab\u8bbf\u95ee\u8fc7\uff1b\n\n+ \u5f53\u4f60\u8d70\u5230\u7ec8\u70b9\u540e\uff0c\u4f60\u65e0\u6cd5\u518d\u6b21\u79fb\u52a8\uff1b\n\n+ \u5982\u679c\u4f60\u5728 $(x,n)$\uff0c\u5f53\u4f60\u6267\u884c\u5411\u53f3\u7684\u64cd\u4f5c\u65f6\uff0c\u4f60\u4f1a\u51fa\u73b0\u5728 $(x,1)$\uff1b\n\n+ \u5982\u679c\u4f60\u5728 $(n,y)$\uff0c\u5f53\u4f60\u6267\u884c\u5411\u4e0b\u7684\u64cd\u4f5c\u65f6\uff0c\u4f60\u4f1a\u51fa\u73b0\u5728 $(1,y)$\u3002\n\n\u8f93\u51fa\u4f60\u80fd\u83b7\u53d6\u5230\u7684\u6700\u5927\u5206\u6570\u3002\n\n$2\\le n \\le 100$\uff0c\u6bcf\u4e2a\u65b9\u683c\u5185\u7684\u5206\u6570 $a_{i,j}\\le 10^9$\u3002"
+}

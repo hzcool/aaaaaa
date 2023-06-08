@@ -1,0 +1,25 @@
+{
+    "description": "Drazil has many friends. Some of them are happy and some of them are unhappy. Drazil wants to make all his friends become happy. So he invented the following plan.\n\nThere are $ n $ boys and $ m $ girls among his friends. Let's number them from $ 0 $ to $ n-1 $ and $ 0 $ to $ m-1 $ separately. In $ i $ -th day, Drazil invites $i\\bmod n$ -th boy and $i\\bmod m$ -th girl to have dinner together (as Drazil is programmer, $ i $ starts from $ 0 $ ). If one of those two people is happy, the other one will also become happy. Otherwise, those two people remain in their states. Once a person becomes happy (or if it is happy originally), he stays happy forever.\n\nDrazil wants to know on which day all his friends become happy or to determine if they won't become all happy at all.",
+    "inputFormat": "The first line contains two integer $ n $ and $ m $ ( $ 1\\leq n,m\\leq 10^{9} $ ).\n\nThe second line contains integer $ b $ ( $ 0\\leq b\\leq \\min(n,10^{5}) $ ), denoting the number of happy boys among friends of Drazil, and then follow $ b $ distinct integers $ x_{1},x_{2},\\cdots ,x_{b} $ ( $ 0\\leq x_{i} < n $ ), denoting the list of indices of happy boys.\n\nThe third line conatins integer $ g $ ( $ 0\\leq g\\leq \\min(m,10^{5}) $ ), denoting the number of happy girls among friends of Drazil, and then follow $ g $ distinct integers $ y_{1},y_{2},\\cdots,y_{g} $ ( $ 0\\leq y_{j} < m $ ), denoting the list of indices of happy girls.\n\nIt is guaranteed that there is at least one person that is unhappy among his friends.",
+    "outputFormat": "Print the number of the first day that all friends of Drazil become happy. If this day won't come at all, you print -1.",
+    "samples": [
+        [
+            "2 3\n0\n1 0\n",
+            "4\n"
+        ],
+        [
+            "2 4\n1 0\n1 2\n",
+            "-1\n"
+        ],
+        [
+            "2 3\n1 0\n1 1\n",
+            "2\n"
+        ],
+        [
+            "99999 100000\n2 514 415\n2 50216 61205\n",
+            "4970100515\n"
+        ]
+    ],
+    "hint": "By ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF516E/bc360a33d2d53f2f08a31e2a137952fc77466359.png) we define the remainder of integer division of $ i $ by $ k $ .\n\nIn first sample case:\n\n- On the 0-th day, Drazil invites 0-th boy and 0-th girl. Because 0-th girl is happy at the beginning, 0-th boy become happy at this day.\n- On the 1-st day, Drazil invites 1-st boy and 1-st girl. They are both unhappy, so nothing changes at this day.\n- On the 2-nd day, Drazil invites 0-th boy and 2-nd girl. Because 0-th boy is already happy he makes 2-nd girl become happy at this day.\n- On the 3-rd day, Drazil invites 1-st boy and 0-th girl. 0-th girl is happy, so she makes 1-st boy happy.\n- On the 4-th day, Drazil invites 0-th boy and 1-st girl. 0-th boy is happy, so he makes the 1-st girl happy. So, all friends become happy at this moment.",
+    "translation": "\u6709 $n$ \u4e2a\u7537\u751f $m$ \u4e2a\u5973\u751f\uff0c\u7f16\u53f7\u5206\u522b\u4e3a $0 \\sim n - 1$ \u548c $0 \\sim m - 1$\u3002\n\n\u6709 $b$ \u4e2a\u7537\u751f\u548c $g$ \u4e2a\u5973\u751f\u662f\u5feb\u4e50\u7684\uff0c\u5176\u4ed6\u4eba\u662f\u4e0d\u5feb\u4e50\u7684\u3002\n\n\u5728\u7b2c $i$ \u5929\uff0c\u7f16\u53f7\u4e3a $i \\bmod n$ \u7684\u7537\u751f\u548c\u7f16\u53f7\u4e3a $i \\bmod m$ \u7684\u5973\u751f\u4f1a\u4e00\u8d77\u73a9\u3002\n\n\u5982\u679c\u4ed6\u4eec\u4fe9\u4e2d\u6709\u4e00\u4e2a\u4eba\u662f\u5feb\u4e50\u7684\uff0c\u5219\u53e6\u4e00\u4e2a\u4eba\u4e5f\u4f1a\u53d8\u5feb\u4e50\u3002\n\n\u6c42\u81f3\u5c11\u8981\u591a\u5c11\u5929\u6240\u6709\u4eba\u90fd\u4f1a\u53d8\u5feb\u4e50\uff0c\u6216\u8005\u5224\u65ad\u4e0d\u53ef\u80fd\u6240\u6709\u4eba\u90fd\u53d8\u5feb\u4e50\u3002\n\n$n,m \\le 10^9$\uff0c$b,g \\le 10^5$\u3002"
+}

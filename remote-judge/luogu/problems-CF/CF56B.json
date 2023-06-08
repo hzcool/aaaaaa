@@ -1,0 +1,21 @@
+{
+    "description": "Vasya collects coins: he has exactly one coin for every year from $ 1 $ to $ n $ . Naturally, Vasya keeps all the coins in his collection in the order in which they were released. Once Vasya's younger brother made a change \u2014 he took all the coins whose release year dated from $ l $ to $ r $ inclusively and put them in the reverse order. That is, he took a certain segment $ [l,r] $ and reversed it. At that the segment's endpoints did not coincide. For example, if $ n=8 $ , then initially Vasya's coins were kept in the order 1 2 3 4 5 6 7 8. If Vasya's younger brother chose the segment $ [2,6] $ , then after the reversal the coin order will change to 1 6 5 4 3 2 7 8. Vasya suspects that someone else could have spoilt the permutation after his brother. Help him to find that out. Check if the given permutation can be obtained from the permutation 1 2 ... $ n $  using exactly one segment reversal. If it is possible, find the segment itself.",
+    "inputFormat": "The first line contains an integer $ n $ ( $ 1<=n<=1000 $ ) which is the number of coins in Vasya's collection. The second line contains space-separated $ n $ integers which are the spoilt sequence of coins. It is guaranteed that the given sequence is a permutation, i.e. it contains only integers from $ 1 $ to $ n $ , and every number is used exactly 1 time.",
+    "outputFormat": "If it is impossible to obtain the given permutation from the original one in exactly one action, print 0 0. Otherwise, print two numbers $ l $ $ r $ ( $ 1<=l&lt;r<=n $ ) which are the endpoints of the segment that needs to be reversed to obtain from permutation 1 2 ... $ n $  the given one.",
+    "samples": [
+        [
+            "8\n1 6 5 4 3 2 7 8\n",
+            "2 6\n"
+        ],
+        [
+            "4\n2 3 4 1\n",
+            "0 0\n"
+        ],
+        [
+            "4\n1 2 3 4\n",
+            "0 0\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9\u51fa\u4e00\u4e2a\u957f\u5ea6\u4e3a $ n $ \u7684\u5e8f\u5217\uff08\u4fdd\u8bc1\u5e8f\u5217\u4e2d $ 1-n $ \u6bcf\u4e2a\u6570\u6709\u4e14\u4ec5\u51fa\u73b01\u6b21\uff09\uff0c\u95ee\u80fd\u5426\u6070\u597d\u53cd\u8f6c\u5e8f\u5217\u4e2d\u7684\u4e00\u6bb5\uff0c\u4f7f\u5f97\u5e8f\u5217\u53d8\u6210 $ 1,2...n $ \u7684\u987a\u5e8f\u3002\n\n\u8f93\u5165\u683c\u5f0f\uff1a\u7b2c\u4e00\u884c\u8bfb\u5165\u4e00\u4e2a\u6574\u6570 $ n $ ,\u4e0b\u4e00\u884c\u8bfb\u5165 $ n $ \u4e2a\u6570\u5b57\uff0c\u5373\u8981\u5904\u7406\u7684\u5e8f\u5217\u3002\n\n\u8f93\u51fa\u683c\u5f0f\uff1a\u82e5\u65e0\u6cd5\u6070\u597d\u53cd\u8f6c\u5e8f\u5217\u4e2d\u7684\u4e00\u6bb5\u4f7f\u5f97\u5e8f\u5217\u53d8\u6210 $ 1,2...n $ \u7684\u987a\u5e8f\uff0c\u8f93\u51fa\"0 0\"\uff0c\u5426\u5219\u8f93\u51fa\u4e24\u4e2a\u6570\"L R\"\uff0c\u4ee3\u8868\u8981\u53cd\u8f6c\u7684\u533a\u95f4\u4e3a $ [L,R] $\u3002"
+}

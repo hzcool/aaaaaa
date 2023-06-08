@@ -1,0 +1,25 @@
+{
+    "description": "There are $ n $ houses in a row. They are numbered from $ 1 $ to $ n $ in order from left to right. Initially you are in the house $ 1 $ .\n\nYou have to perform $ k $ moves to other house. In one move you go from your current house to some other house. You can't stay where you are (i.e., in each move the new house differs from the current house). If you go from the house $ x $ to the house $ y $ , the total distance you walked increases by $ |x-y| $ units of distance, where $ |a| $ is the absolute value of $ a $ . It is possible to visit the same house multiple times (but you can't visit the same house in sequence).\n\nYour goal is to walk exactly $ s $ units of distance in total.\n\nIf it is impossible, print \"NO\". Otherwise print \"YES\" and any of the ways to do that. Remember that you should do exactly $ k $ moves.",
+    "inputFormat": "The first line of the input contains three integers $ n $ , $ k $ , $ s $ ( $ 2 \\le n \\le 10^9 $ , $ 1 \\le k \\le 2 \\cdot 10^5 $ , $ 1 \\le s \\le 10^{18} $ ) \u2014 the number of houses, the number of moves and the total distance you want to walk.",
+    "outputFormat": "If you cannot perform $ k $ moves with total walking distance equal to $ s $ , print \"NO\".\n\nOtherwise print \"YES\" on the first line and then print exactly $ k $ integers $ h_i $ ( $ 1 \\le h_i \\le n $ ) on the second line, where $ h_i $ is the house you visit on the $ i $ -th move.\n\nFor each $ j $ from $ 1 $ to $ k-1 $ the following condition should be satisfied: $ h_j \\ne h_{j + 1} $ . Also $ h_1 \\ne 1 $ should be satisfied.",
+    "samples": [
+        [
+            "10 2 15\n",
+            "YES\n10 4 \n"
+        ],
+        [
+            "10 9 45\n",
+            "YES\n10 1 10 1 2 1 2 1 6 \n"
+        ],
+        [
+            "10 9 81\n",
+            "YES\n10 1 10 1 10 1 10 1 10 \n"
+        ],
+        [
+            "10 9 82\n",
+            "NO\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "### \u9898\u76ee\u63cf\u8ff0\n\u5728\u4e00\u6761\u8def\u4e0a\uff0c$n$\u4e2a\u623f\u5b50\u88ab\u6392\u6210\u4e00\u6392\uff0c\u4ece\u4ece\u5de6\u5230\u53f3\u7f16\u53f7\u4e3a$1-n$\u3002\u4e00\u5f00\u59cb\uff0c\u4f60\u7ad9\u5728$1$\u53f7\u623f\u5b50\u524d\u3002\n\n\u4f60\u9700\u8981\u79fb\u52a8\u5230\u5176\u4ed6\u7684\u623f\u5b50$k$\u6b21\u3002\u6bcf\u4e00\u6b21\u79fb\u52a8\uff0c\u4f60\u4e0d\u80fd\u539f\u5730\u4e0d\u52a8\uff08\u5373\u79fb\u52a8\u540e\u4e0e\u79fb\u52a8\u524d\uff0c\u4f60\u5fc5\u987b\u5728\u4e0d\u540c\u7684\u623f\u5b50\u524d\u9762\uff09\u3002\u5982\u679c\u4f60\u4ece$x$\u623f\u5b50\u79fb\u52a8\u5230$y$\u623f\u5b50\uff0c\u90a3\u4e48\u4f60\u8d70\u8fc7\u7684\u8ddd\u79bb\u5c31\u662f$\\left| x-y \\right|$\uff0c\u8fd9\u91cc$\\left| a \\right|$\u8868\u793a$a$\u7684\u7edd\u5bf9\u503c\u3002\u5f53\u7136\uff0c\u4f60\u53ef\u4ee5\u8bbf\u95ee\u540c\u4e00\u4e2a\u623f\u5b50\u591a\u6b21\uff08\u53ea\u8981\u4e0d\u8fde\u7eed\u5c31\u884c\u4e86\uff09\n\n\u4f60\u7684\u76ee\u6807\u662f\u4e00\u5171\u8d70$s$\u4e2a\u5355\u4f4d\u957f\u5ea6\u3002\n\n\u5982\u679c\u662f\u4e0d\u53ef\u80fd\u7684\uff0c\u8f93\u51fa$NO$\uff0c\u5426\u5219\u8f93\u51fa$YES$\uff0c\u5e76\u8f93\u51fa\u4efb\u610f\u4e00\u79cd\u79fb\u52a8\u65b9\u6848\uff0c\u8bb0\u4f4f\u4f60\u53ea\u80fd\u8d70\u6070\u597d$k$\u6b21\u3002\n\n### \u8f93\u5165\u8f93\u51fa\u683c\u5f0f\n#### \u8f93\u5165\u683c\u5f0f\n\u7b2c\u4e00\u884c\u5305\u62ec\u4e09\u4e2a\u6574\u6570$n,k,s$\uff0c\u5206\u522b\u8868\u793a\u623f\u5b50\u7684\u6570\u76ee\uff0c\u4f60\u8981\u79fb\u52a8\u7684\u6b21\u6570\uff0c\u548c\u4f60\u4e00\u5171\u8981\u8d70\u7684\u8ddd\u79bb\u3002\u5176\u4e2d$2\\leqslant n\\leqslant 10^9,1\\leqslant k\\leqslant 2\\times 10^5,1\\leqslant s\\leqslant 10^{18}$\n\n#### \u8f93\u51fa\u683c\u5f0f\n\u5982\u679c\u4e0d\u80fd\u7528\u6070\u597d$k$\u6b21\u79fb\u52a8\u8d70\u8fc7$s$\u7684\u8ddd\u79bb\uff0c\u8f93\u51fa$NO$\u3002\n\n\u5426\u5219\u7b2c\u4e00\u884c\u8f93\u51fa$YES$\uff0c\u7136\u540e\u5728\u7b2c\u4e8c\u884c\u8f93\u51fa\u6070\u597d$k$\u4e2a\u6574\u6570$h_i\\left( 1\\leqslant h_i\\leqslant n \\right) $\uff0c$h_i$\u5c31\u662f\u4f60\u7b2c$i$\u6b21\u79fb\u52a8\u5230\u7684\u623f\u5b50\u3002\n\n\u5bf9\u4e8e\u6bcf\u4e2a$h_j\\left( 1\\leqslant j\\leqslant k-1 \\right) $\u5e94\u8be5\u6ee1\u8db3$h_j\\ne h_{j+1}$\uff0c\u5f53\u7136\u5982\u679c$h_1=1$\uff0c\u4f60\u5c31$\u5403\u7fd4$\u4e86\u3002"
+}

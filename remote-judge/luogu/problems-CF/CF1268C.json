@@ -1,0 +1,17 @@
+{
+    "description": "You are given a permutation $ p_1, p_2, \\ldots, p_n $ .\n\nIn one move you can swap two adjacent values.\n\nYou want to perform a minimum number of moves, such that in the end there will exist a subsegment $ 1,2,\\ldots, k $ , in other words in the end there should be an integer $ i $ , $ 1 \\leq i \\leq n-k+1 $ such that $ p_i = 1, p_{i+1} = 2, \\ldots, p_{i+k-1}=k $ .\n\nLet $ f(k) $ be the minimum number of moves that you need to make a subsegment with values $ 1,2,\\ldots,k $ appear in the permutation.\n\nYou need to find $ f(1), f(2), \\ldots, f(n) $ .",
+    "inputFormat": "The first line of input contains one integer $ n $ ( $ 1 \\leq n \\leq 200\\,000 $ ): the number of elements in the permutation.\n\nThe next line of input contains $ n $ integers $ p_1, p_2, \\ldots, p_n $ : given permutation ( $ 1 \\leq p_i \\leq n $ ).",
+    "outputFormat": "Print $ n $ integers, the minimum number of moves that you need to make a subsegment with values $ 1,2,\\ldots,k $ appear in the permutation, for $ k=1, 2, \\ldots, n $ .",
+    "samples": [
+        [
+            "5\n5 4 3 2 1\n",
+            "0 1 3 6 10 \n"
+        ],
+        [
+            "3\n1 2 3\n",
+            "0 0 0 \n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9\u5b9a $n$ \u548c\u4e00\u4e2a $1$ \u81f3 $n$ \u8fd9 $n$ \u4e2a\u6570\u7684\u6392\u5217 $p_1,p_2,p_3,\\dots,p_n$ \u3002\u5b9a\u4e49\u4e00\u6b21\u64cd\u4f5c\u53ef\u4ee5\u4ea4\u6362 $p$ \u4e2d\u76f8\u90bb\u7684\u4e24\u4e2a\u6570 $p_i,p_{i+1}$\u3002\u5b9a\u4e49\u51fd\u6570 $f$ \uff0c$f(k)$ \u8868\u793a\u80fd\u4f7f\u6570\u5217 $p$ \u4e2d\u5b58\u5728\u8fde\u7eed\u5b50\u5e8f\u5217 $1,2,3,\\dots,k$ \u7684\u6700\u5c11\u64cd\u4f5c\u6b21\u6570\u3002\n\n\u6c42\uff1a$f(1),f(2),f(3),\\dots,f(n)$ \u7684\u503c"
+}

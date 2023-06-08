@@ -1,0 +1,21 @@
+{
+    "description": "You are given an undirected graph, consisting of $ n $ vertices and $ m $ edges. The graph does not necessarily connected. Guaranteed, that the graph does not contain multiple edges (more than one edges between a pair of vertices) or loops (edges from a vertex to itself).\n\nA cycle in a graph is called a simple, if it contains each own vertex exactly once. So simple cycle doesn't allow to visit a vertex more than once in a cycle.\n\nDetermine the edges, which belong to exactly on one simple cycle.",
+    "inputFormat": "The first line contain two integers $ n $ and $ m $ $ (1 \\le n \\le 100\\,000 $ , $ 0 \\le m \\le \\min(n \\cdot (n - 1) / 2, 100\\,000)) $ \u2014 the number of vertices and the number of edges.\n\nEach of the following $ m $ lines contain two integers $ u $ and $ v $ ( $ 1 \\le u, v \\le n $ , $ u \\neq v $ ) \u2014 the description of the edges.",
+    "outputFormat": "In the first line print the number of edges, which belong to exactly one simple cycle.\n\nIn the second line print the indices of edges, which belong to exactly one simple cycle, in increasing order. The edges are numbered from one in the same order as they are given in the input.",
+    "samples": [
+        [
+            "3 3\n1 2\n2 3\n3 1\n",
+            "3\n1 2 3 \n"
+        ],
+        [
+            "6 7\n2 3\n3 4\n4 2\n1 2\n1 5\n5 6\n6 1\n",
+            "6\n1 2 3 5 6 7 \n"
+        ],
+        [
+            "5 6\n1 2\n2 3\n2 4\n4 3\n2 5\n5 3\n",
+            "0\n\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u5b9a\u4e49\u65e0\u5411\u56fe\u4e2d\u7b80\u5355\u73af\u4e3a\u6bcf\u4e2a\u9876\u70b9\u53ea\u5305\u542b\u4e86\u4e00\u6b21\u7684\u73af\uff08\u5373\u9664\u8d77\u70b9\u548c\u7ec8\u70b9\u5916\u6bcf\u4e2a\u70b9\u53ea\u7ecf\u8fc7\u4e00\u6b21\u7684\u56de\u8def\uff09\u3002\n\n\u73b0\u7ed9\u51fa\u4e00\u5f20 $n$ \u4e2a\u70b9 $m$ \u6761\u8fb9\u7684\u56fe\uff08$n,m\\leqslant100000$\uff09\uff0c\u6c42\u6070\u597d\u88ab\u5305\u542b\u5728\u4e00\u4e2a\uff08\u591a\u4e86\u5c11\u4e86\u90fd\u4e0d\u884c\uff09\u7b80\u5355\u73af\u4e2d\u7684\u8fb9\uff0c\u7b2c\u4e00\u884c\u8f93\u51fa\u8fd9\u4e9b\u8fb9\u4e2a\u6570\uff0c\u7b2c\u4e8c\u884c\u6839\u636e\u8f93\u5165\u987a\u5e8f\u8f93\u51fa\u8fd9\u4e9b\u8fb9\u7f16\u53f7\u3002\n\n\u6570\u636e\u4fdd\u8bc1\u65e0\u91cd\u8fb9\u81ea\u73af\uff0c\u4f46\u4e0d\u4e00\u5b9a\u4fdd\u8bc1\u8fde\u901a\u3002\n\n\u611f\u8c22 @cy1366371760 \u63d0\u4f9b\u7684\u7ffb\u8bd1\u3002"
+}

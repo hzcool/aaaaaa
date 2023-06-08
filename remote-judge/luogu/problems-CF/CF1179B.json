@@ -1,0 +1,17 @@
+{
+    "description": "This morning Tolik has understood that while he was sleeping he had invented an incredible problem which will be a perfect fit for Codeforces! But, as a \"Discuss tasks\" project hasn't been born yet (in English, well), he decides to test a problem and asks his uncle.\n\nAfter a long time thinking, Tolik's uncle hasn't any ideas on how to solve it. But, he doesn't want to tell Tolik about his inability to solve it, so he hasn't found anything better than asking you how to solve this task.\n\nIn this task you are given a cell field $ n \\cdot m $ , consisting of $ n $ rows and $ m $ columns, where point's coordinates $ (x, y) $ mean it is situated in the $ x $ -th row and $ y $ -th column, considering numeration from one ( $ 1 \\leq x \\leq n, 1 \\leq y \\leq m $ ). Initially, you stand in the cell $ (1, 1) $ . Every move you can jump from cell $ (x, y) $ , which you stand in, by any non-zero vector $ (dx, dy) $ , thus you will stand in the $ (x+dx, y+dy) $ cell. Obviously, you can't leave the field, but also there is one more important condition \u2014 you're not allowed to use one vector twice. Your task is to visit each cell of the field exactly once (the initial cell is considered as already visited).\n\nTolik's uncle is a very respectful person. Help him to solve this task!",
+    "inputFormat": "The first and only line contains two positive integers $ n, m $ ( $ 1 \\leq n \\cdot m \\leq 10^{6} $ ) \u2014 the number of rows and columns of the field respectively.",
+    "outputFormat": "Print \"-1\" (without quotes) if it is impossible to visit every cell exactly once.\n\nElse print $ n \\cdot m $ pairs of integers, $ i $ -th from them should contain two integers $ x_i, y_i $ ( $ 1 \\leq x_i \\leq n, 1 \\leq y_i \\leq m $ ) \u2014 cells of the field in order of visiting, so that all of them are distinct and vectors of jumps between them are distinct too.\n\nNotice that the first cell should have $ (1, 1) $ coordinates, according to the statement.",
+    "samples": [
+        [
+            "2 3\n",
+            "1 1\n1 3\n1 2\n2 2\n2 3\n2 1"
+        ],
+        [
+            "1 1\n",
+            "1 1\n"
+        ]
+    ],
+    "hint": "The vectors from the first example in the order of making jumps are $ (0, 2), (0, -1), (1, 0), (0, 1), (0, -2) $ .",
+    "translation": "\u6709\u4e00\u5929\uff0c_rqy\u60f3\u51fa\u6765\u4e86\u4e00\u9053\u6784\u9020\u9898\uff0c\u51fa\u7ed9\u4e86wqy\u53bb\u505a\u3002\u7136\u800cwqy\u4e0d\u4f1a\u505a\uff0c\u4e8e\u662f\u5c31\u6765\u627e\u4f60\u3002\n\n\u4f60\u6709\u4e00\u4e2a$n$\u884c$m$\u5217\u7684\u68cb\u76d8\uff0c\u5176\u4e2d\u7b2c$i$\u884c\u7b2c$j$\u5217\u7684\u683c\u5b50\u6807\u53f7\u4e3a$(i,j)$\u3002\u4f60\u9700\u8981\u4ece$(1,1)$\u5f00\u59cb\u904d\u5386\u8fd9\u4e2a\u68cb\u76d8\u3002\u6bcf\u4e00\u6b21\uff0c\u5982\u679c\u4f60\u5728$(x,y)$\uff0c\u4f60\u53ef\u4ee5\u9009\u62e9\u4e00\u4e2a\u5411\u91cf$(\\text{d}x,\\text{d}y)$\uff0c\u5e76\u4e14\u79fb\u52a8\u5230$(x+\\text{d}x,y+\\text{d}y)$\u8fd9\u4e2a\u683c\u5b50\u4e0a\u3002\n\n\u4f60\u4e0d\u80fd\u79bb\u5f00\u8fd9\u4e2a\u68cb\u76d8\uff0c\u540c\u65f6\u6bcf\u4e00\u4e2a\u5411\u91cf\u53ea\u80fd\u4f7f\u7528\u4e00\u6b21\u3002\u4f60\u7684\u4efb\u52a1\u662f\u5408\u7406\u5b89\u6392\u81ea\u5df1\u7684\u884c\u8d70\u8def\u7ebf\uff0c\u4f7f\u5f97\u6bcf\u4e00\u4e2a\u683c\u5b50\u90fd\u53ea\u88ab\u7ecf\u8fc7\u4e00\u6b21\u3002\u8f93\u51fa\u8fd9\u4e2a\u65b9\u6848\u3002\n\nwqy\u7ffb\u8bd1\u4e86\u90a3\u4e48\u591a\u9898\u9762\uff0c\u4f60\u4e00\u5b9a\u8981\u5e2e\u4ed6\u89e3\u51fa\u6765\uff01"
+}

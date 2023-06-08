@@ -1,0 +1,17 @@
+{
+    "description": "You are given $ n $ segments on a number line, numbered from $ 1 $ to $ n $ . The $ i $ -th segments covers all integer points from $ l_i $ to $ r_i $ and has a value $ w_i $ .\n\nYou are asked to select a subset of these segments (possibly, all of them). Once the subset is selected, it's possible to travel between two integer points if there exists a selected segment that covers both of them. A subset is good if it's possible to reach point $ m $ starting from point $ 1 $ in arbitrary number of moves.\n\nThe cost of the subset is the difference between the maximum and the minimum values of segments in it. Find the minimum cost of a good subset.\n\nIn every test there exists at least one good subset.",
+    "inputFormat": "The first line contains two integers $ n $ and $ m $ ( $ 1 \\le n \\le 3 \\cdot 10^5 $ ; $ 2 \\le m \\le 10^6 $ ) \u2014 the number of segments and the number of integer points.\n\nEach of the next $ n $ lines contains three integers $ l_i $ , $ r_i $ and $ w_i $ ( $ 1 \\le l_i < r_i \\le m $ ; $ 1 \\le w_i \\le 10^6 $ ) \u2014 the description of the $ i $ -th segment.\n\nIn every test there exists at least one good subset.",
+    "outputFormat": "Print a single integer \u2014 the minimum cost of a good subset.",
+    "samples": [
+        [
+            "5 12\n1 5 5\n3 4 10\n4 10 6\n11 12 5\n10 12 3",
+            "3"
+        ],
+        [
+            "1 10\n1 10 23",
+            "0"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u5728\u4e00\u4e2a $[1,m]$ \u7684\u6570\u8f74\u4e0a\u6709 n \u6761\u7ebf\u6bb5\uff0c\u7b2c i \u6761\u8986\u76d6\u4e86 $[l_i,r_i]$ \u7684\u533a\u95f4\uff0c\u6743\u503c\u4e3a $w_i$ \uff0c\u4f60\u7684\u4efb\u52a1\u662f\u4ece\u8fd9\u4e9b\u7ebf\u6bb5\u4e2d\u9009\u51fa\u82e5\u5e72\u6761\u9996\u5c3e\u76f8\u63a5\u7ebf\u6bb5\u8986\u76d6\u6574\u4e2a\u6570\u8f74\uff0c\u4f7f\u5f97\u8fd9\u4e9b\u7ebf\u6bb5\u6743\u503c\u6781\u5dee\u6700\u5c0f\u5316\uff0c\u8f93\u51fa\u8fd9\u4e2a\u6781\u5dee\n\n\u9996\u5c3e\u76f8\u63a5\u7684\u5b9a\u4e49\u662f\uff0c\u5047\u8bbe\u4f60\u6709\u673a\u4f1a\u4ece\u540c\u4e00\u6761\u7ebf\u6bb5\u8986\u76d6\u7684\u4efb\u610f\u4e24\u4e2a\u70b9\u4e2d\u79fb\u52a8\uff0c\u5982\u679c\u4f60\u53ef\u4ee5\u4ece\u4f4d\u7f6e 1 \u51fa\u53d1\uff0c\u7ecf\u8fc7\u4e00\u4e9b\u7ebf\u6bb5\u5230\u8fbe\u4f4d\u7f6e m \uff0c\u5c31\u79f0\u4e3a\u8fd9\u4e9b\u7ebf\u6bb5\u9996\u5c3e\u76f8\u63a5"
+}

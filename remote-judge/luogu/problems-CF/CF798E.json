@@ -1,0 +1,17 @@
+{
+    "description": "Mike has discovered a new way to encode permutations. If he has a permutation $ P=[p_{1},p_{2},...,p_{n}] $ , he will encode it in the following way:\n\nDenote by $ A=[a_{1},a_{2},...,a_{n}] $ a sequence of length $ n $ which will represent the code of the permutation. For each $ i $ from $ 1 $ to $ n $ sequentially, he will choose the smallest unmarked $ j $ ( $ 1<=j<=n $ ) such that $ p_{i}&lt;p_{j} $ and will assign to $ a_{i} $ the number $ j $ (in other words he performs $ a_{i}=j $ ) and will mark $ j $ . If there is no such $ j $ , he'll assign to $ a_{i} $ the number $ -1 $ (he performs $ a_{i}=-1 $ ).\n\nMike forgot his original permutation but he remembers its code. Your task is simple: find any permutation such that its code is the same as the code of Mike's original permutation.\n\nYou may assume that there will always be at least one valid permutation.",
+    "inputFormat": "The first line contains single integer $ n $ ( $ 1<=n<=500000 $ ) \u2014 length of permutation.\n\nThe second line contains $ n $ space-separated integers $ a_{1},a_{2},...,a_{n} $ ( $ 1<=a_{i}<=n $ or $ a_{i}=-1 $ ) \u2014 the code of Mike's permutation.\n\nYou may assume that all positive values from $ A $ are different.",
+    "outputFormat": "In first and only line print $ n $ numbers $ p_{1},p_{2},...,p_{n} $ ( $ 1<=p_{i}<=n $ ) \u2014 a permutation $ P $ which has the same code as the given one. Note that numbers in permutation are distinct.",
+    "samples": [
+        [
+            "6\n2 -1 1 5 -1 4\n",
+            "2 6 1 4 5 3\n"
+        ],
+        [
+            "8\n2 -1 4 -1 6 -1 8 -1\n",
+            "1 8 2 7 3 6 4 5\n"
+        ]
+    ],
+    "hint": "For the permutation from the first example:\n\n $ i=1 $ , the smallest $ j $ is $ 2 $ because $ p_{2}=6&gt;p_{1}=2 $ .\n\n $ i=2 $ , there is no $ j $ because $ p_{2}=6 $ is the greatest element in the permutation.\n\n $ i=3 $ , the smallest $ j $ is $ 1 $ because $ p_{1}=2&gt;p_{3}=1 $ .\n\n $ i=4 $ , the smallest $ j $ is $ 5 $ ( $ 2 $ was already marked) because $ p_{5}=5&gt;p_{4}=4 $ .\n\n $ i=5 $ , there is no $ j $ because $ 2 $ is already marked.\n\n $ i=6 $ , the smallest $ j $ is $ 4 $ because $ p_{4}=4&gt;p_{6}=3 $ .",
+    "translation": "\u5bf9\u4e8e\u4e00\u4e2a\u6392\u5217 $P=[p_1,p_2,\\dots,p_n]$\n\n\u5b9a\u4e49\u5b83\u7684\u7f16\u7801 $A$ \u4e3a\uff1a\u5bf9\u4e8e\u6bcf\u4e2a $i$\uff0c\u627e\u5230\u7b2c\u4e00\u4e2a\u672a\u88ab\u6807\u8bb0\u8fc7\u7684\u4f4d\u7f6e $j$ \u6ee1\u8db3 $p_j>p_i$\uff0c\u4ee4 $a_i=j$\uff0c\u5e76\u6253\u4e0a\u6807\u8bb0\uff1b\u82e5\u6ca1\u6709\u5408\u6cd5\u7684\uff0c\u5219 $a_i=-1$\u3002\n\n\u73b0\u7ed9\u51fa\u4e00\u4e2a\u7f16\u7801 $A$\uff08\u9664 $-1$ \u5916\u5404\u4e0d\u76f8\u540c\uff09\uff0c\u8bf7\u8f93\u51fa\u4e00\u4e2a\u5408\u6cd5\u7684 $P$\u3002"
+}

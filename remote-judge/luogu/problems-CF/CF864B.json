@@ -1,0 +1,21 @@
+{
+    "description": "Polycarp loves lowercase letters and dislikes uppercase ones. Once he got a string $ s $ consisting only of lowercase and uppercase Latin letters.\n\nLet $ A $ be a set of positions in the string. Let's call it pretty if following conditions are met:\n\n- letters on positions from $ A $ in the string are all distinct and lowercase;\n- there are no uppercase letters in the string which are situated between positions from $ A $ (i.e. there is no such $ j $ that $ s[j] $ is an uppercase letter, and $ a_{1}<j<a_{2} $ for some $ a_{1} $ and $ a_{2} $ from $ A $ ).\n\nWrite a program that will determine the maximum number of elements in a pretty set of positions.",
+    "inputFormat": "The first line contains a single integer $ n $ ( $ 1<=n<=200 $ ) \u2014 length of string $ s $ .\n\nThe second line contains a string $ s $ consisting of lowercase and uppercase Latin letters.",
+    "outputFormat": "Print maximum number of elements in pretty set of positions for string $ s $ .",
+    "samples": [
+        [
+            "11\naaaaBaabAbA\n",
+            "2\n"
+        ],
+        [
+            "12\nzACaAbbaazzC\n",
+            "3\n"
+        ],
+        [
+            "3\nABC\n",
+            "0\n"
+        ]
+    ],
+    "hint": "In the first example the desired positions might be $ 6 $ and $ 8 $ or $ 7 $ and $ 8 $ . Positions $ 6 $ and $ 7 $ contain letters 'a', position $ 8 $ contains letter 'b'. The pair of positions $ 1 $ and $ 8 $ is not suitable because there is an uppercase letter 'B' between these position.\n\nIn the second example desired positions can be $ 7 $ , $ 8 $ and $ 11 $ . There are other ways to choose pretty set consisting of three elements.\n\nIn the third example the given string $ s $ does not contain any lowercase letters, so the answer is $ 0 $ .",
+    "translation": "\u9898\u610f: \n    \u5df2\u77e5\u4e00\u4e2a\u53ea\u5305\u542b\u5927\u5199\u5b57\u6bcd\u548c\u5c0f\u5199\u5b57\u6bcd\u7684\u5b57\u7b26\u4e32s.\u73b0\u5728\u6709\u8fd9\u6837\u4e00\u4e2a\u96c6\u5408:\u5b83\u53ef\u4ee5\u5305\u542b\u5b57\u7b26\u4e32\u4e2d\u4e0d\u540c\u5c0f\u5199\u5b57\u6bcd\u7684\u4f4d\u7f6e,\u4f46\u662f\u8fd9\u4e9b\u4f4d\u7f6e\u4e2d\u4efb\u610f\u4e24\u4e2a\u4e4b\u95f4\u4e0d\u80fd\u6709\u5927\u5199\u5b57\u6bcd.\u73b0\u5728\u8bf7\u4f60\u5199\u4e00\u4e2a\u7a0b\u5e8f\u6c42\u96c6\u5408\u6700\u5927\u65f6\u7684\u5927\u5c0f. \n\u8f93\u5165:\n    \u7b2c\u4e00\u884c\u4e00\u4e2a\u6574\u6570n(1<=n<=200),\u8868\u793a\u5b57\u7b26\u4e32\u7684\u957f\u5ea6 \n    \u7b2c\u4e8c\u884c\u4e00\u4e2a\u5b57\u7b26\u4e32s \n\u8f93\u51fa:\n    \u8fd9\u4e2a\u96c6\u5408\u6700\u5927\u65f6\u7684\u5927\u5c0f \n\nTranslated by \u51cc\u5e7d"
+}

@@ -1,0 +1,13 @@
+{
+    "description": "You are given three positive (i.e. strictly greater than zero) integers $ x $ , $ y $ and $ z $ .\n\nYour task is to find positive integers $ a $ , $ b $ and $ c $ such that $ x = \\max(a, b) $ , $ y = \\max(a, c) $ and $ z = \\max(b, c) $ , or determine that it is impossible to find such $ a $ , $ b $ and $ c $ .\n\nYou have to answer $ t $ independent test cases. Print required $ a $ , $ b $ and $ c $ in any (arbitrary) order.",
+    "inputFormat": "The first line of the input contains one integer $ t $ ( $ 1       \\le t \\le 2 \\cdot 10^4 $ ) \u2014 the number of test cases. Then $ t $ test cases follow.\n\nThe only line of the test case contains three integers $ x $ , $ y $ , and $ z $ ( $ 1 \\le x, y, z \\le 10^9 $ ).",
+    "outputFormat": "For each test case, print the answer:\n\n- \"NO\" in the only line of the output if a solution doesn't exist;\n- or \"YES\" in the first line and any valid triple of positive integers $ a $ , $ b $ and $ c $ ( $ 1 \\le a, b, c \\le 10^9 $ ) in the second line. You can print $ a $ , $ b $ and $ c $ in any order.",
+    "samples": [
+        [
+            "5\n3 2 3\n100 100 100\n50 49 49\n10 30 20\n1 1000000000 1000000000",
+            "YES\n3 2 1\nYES\n100 100 100\nNO\nNO\nYES\n1 1 1000000000"
+        ]
+    ],
+    "hint": "",
+    "translation": "## \u9898\u9762\u63cf\u8ff0\r\n\r\n\u7ed9\u4f60\u4e09\u4e2a\u6b63\u6574\u6570$x,y,z$\u3002\r\n\r\n\u4f60\u9700\u8981\u627e\u5230\u4e09\u4e2a\u6b63\u6574\u6570$a,b,c$\uff0c\u4f7f\u5f97\u00a0$x=max(a,b)$\uff0c$y=max(a,c)$\uff0c$z=max(b,c)$\u3002\r\n\r\n## \u8f93\u5165\u683c\u5f0f\r\n\r\n\u7b2c\u4e00\u884c\u4e00\u4e2a\u6574\u6570$t$\uff08$1\u2264t\u22642$ \u22c5 $10^4$\uff09,\u8868\u793a\u5171\u6709$t$\u7ec4\u6570\u636e\u3002\r\n\r\n\u63a5\u4e0b\u6765\u7684$t$\u884c\uff0c\u6bcf\u884c\u4e09\u4e2a\u6b63\u6574\u6570$x,y,z$\r\n\r\n## \u8f93\u51fa\u683c\u5f0f\r\n\r\n\u5bf9\u4e8e\u6bcf\u7ec4\u6570\u636e\uff0c\u8f93\u51fa\u7b54\u6848\uff1a\r\n\r\n- \u5982\u679c\u4e0d\u5b58\u5728\u7b26\u5408\u8981\u6c42\u7684$a,b,c$\uff0c\u8f93\u51fa\u201cNO\u201d\r\n\r\n- \u5982\u679c\u5b58\u5728\u7b26\u5408\u8981\u6c42\u7684$a,b,c$\uff0c\u7b2c\u4e00\u884c\u8f93\u51fa\u201cYES\u201d\uff0c\u7b2c\u4e8c\u884c\u53ef\u4ee5\u7528\u4efb\u4f55\u987a\u5e8f\u8f93\u51fa$a,b,c$\uff08$1$ $\\le$ $a,b,c$ $\\le$$10^9$\uff09"
+}

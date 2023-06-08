@@ -1,0 +1,17 @@
+{
+    "description": "You are given a string $ s=s_1s_2\\dots s_n $ of length $ n $ , which only contains digits $ 1 $ , $ 2 $ , ..., $ 9 $ .\n\nA substring $ s[l \\dots r] $ of $ s $ is a string $ s_l s_{l + 1} s_{l + 2} \\ldots s_r $ . A substring $ s[l \\dots r] $ of $ s $ is called even if the number represented by it is even.\n\nFind the number of even substrings of $ s $ . Note, that even if some substrings are equal as strings, but have different $ l $ and $ r $ , they are counted as different substrings.",
+    "inputFormat": "The first line contains an integer $ n $ ( $ 1 \\le n \\le 65000 $ ) \u2014 the length of the string $ s $ .\n\nThe second line contains a string $ s $ of length $ n $ . The string $ s $ consists only of digits $ 1 $ , $ 2 $ , ..., $ 9 $ .",
+    "outputFormat": "Print the number of even substrings of $ s $ .",
+    "samples": [
+        [
+            "4\n1234\n",
+            "6"
+        ],
+        [
+            "4\n2244\n",
+            "10"
+        ]
+    ],
+    "hint": "In the first example, the $ [l, r] $ pairs corresponding to even substrings are:\n\n- $ s[1 \\dots 2] $\n- $ s[2 \\dots 2] $\n- $ s[1 \\dots 4] $\n- $ s[2 \\dots 4] $\n- $ s[3 \\dots 4] $\n- $ s[4 \\dots 4] $\n\nIn the second example, all $ 10 $ substrings of $ s $ are even substrings. Note, that while substrings $ s[1 \\dots 1] $ and $ s[2 \\dots 2] $ both define the substring \"2\", they are still counted as different substrings.",
+    "translation": "\u7ed9\u4f60\u4e00\u4e2a\u957f\u5ea6\u4e3a$n$\u7684\u5b57\u7b26\u4e32$s = s_1 s_2 \\dots s_n$\uff0c\u8be5\u5b57\u7b26\u4e32\u4ec5\u7531\u6570\u5b57\u7ec4\u6210\n\n\u6c42\u8be5\u5b57\u7b26\u4e32\u4e2d\u6709\u591a\u5c11\u4e2a\u8fde\u7eed\u7684\u5b50\u4e32\u6240\u4ee3\u8868\u7684\u6574\u6570\u4e3a\u5076\u6570 \n\n\u5982$s=1234$\uff0c\u6709\u5982\u4e0b$6$\u79cd\u65b9\u6848\uff1a\n\n* $s[1 \\dots 2]=12$ \n* $s[2 \\dots 2]=2$ \n* $s[1 \\dots 4]=1234$ \n* $s[2 \\dots 4]=234$ \n* $s[3 \\dots 4]=34$ \n* $s[4 \\dots 4]=4$ "
+}

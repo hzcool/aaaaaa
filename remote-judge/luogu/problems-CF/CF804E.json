@@ -1,0 +1,17 @@
+{
+    "description": "Seyyed and MoJaK are friends of Sajjad. Sajjad likes a permutation. Seyyed wants to change the permutation in a way that Sajjad won't like it. Seyyed thinks more swaps yield more probability to do that, so he makes MoJaK to perform a swap between every pair of positions $ (i,j) $ , where $ i&lt;j $ , exactly once. MoJaK doesn't like to upset Sajjad.\n\nGiven the permutation, determine whether it is possible to swap all pairs of positions so that the permutation stays the same. If it is possible find how to do that.",
+    "inputFormat": "The first line contains single integer $ n $ ( $ 1<=n<=1000 $ ) \u2014 the size of the permutation.\n\nAs the permutation is not important, you can consider $ a_{i}=i $ , where the permutation is $ a_{1},a_{2},...,a_{n} $ .",
+    "outputFormat": "If it is not possible to swap all pairs of positions so that the permutation stays the same, print \"NO\",\n\nOtherwise print \"YES\", then print ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF804E/c0359cb82752ff2b028ccb729bac55ece58968d2.png) lines: the $ i $ -th of these lines should contain two integers $ a $ and $ b $ ( $ a&lt;b $ ) \u2014 the positions where the $ i $ -th swap is performed.",
+    "samples": [
+        [
+            "3\n",
+            "NO\n"
+        ],
+        [
+            "1\n",
+            "YES\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u9898\u76ee\u63cf\u8ff0\r\n\r\n\u7ed9\u51fa\u4e00\u4e2a\u957f\u5ea6\u4e3a$n$\uff0c\u5143\u7d20\u4e92\u4e0d\u76f8\u540c\u7684\u5e8f\u5217$a_i$\uff0c\u6709\u4e00\u79cd\u4ea4\u6362\u64cd\u4f5c\uff1a\u5c06\u6570\u5217\u4e2d\u7684$a_i$\u4e0e$a_j$\u4ea4\u6362($i \\neq j$)\uff0c\u6613\u77e5\u672c\u8d28\u4e0d\u540c\u7684\u4ea4\u6362\u64cd\u4f5c\u6709$\\frac{n(n-1)}{2}$\u79cd\u3002\u73b0\u5728\u8bf7\u4f60\u5408\u7406\u5b89\u6392\u8fd9$\\frac{n(n-1)}{2}$\u4e2a\u4ea4\u6362\u64cd\u4f5c\u7684\u987a\u5e8f\uff0c\u4f7f\u5f97\u6309\u7167\u4f60\u7ed9\u51fa\u7684\u987a\u5e8f\u5bf9\u5e8f\u5217\u8fdb\u884c\u4ea4\u6362\u8fc7\u540e\u7684\u5e8f\u5217\u4e0e\u539f\u5e8f\u5217\u76f8\u540c\u3002\r\n\r\n\u8f93\u5165\u683c\u5f0f\r\n\r\n\u4e00\u884c\u4e00\u4e2a\u6574\u6570$n(1 \\leq n \\leq 1000)$\u8868\u793a\u5e8f\u5217\u957f\u5ea6\u3002\u56e0\u4e3a\u5e8f\u5217\u5143\u7d20\u5e76\u4e0d\u91cd\u8981\uff0c\u6240\u4ee5\u4f60\u53ef\u4ee5\u8ba4\u4e3a$a_i=i$\r\n\r\n\u8f93\u5165\u683c\u5f0f\r\n\r\n\u5982\u679c\u5b58\u5728\u4e00\u79cd\u987a\u5e8f\u6ee1\u8db3\u9898\u610f\uff0c\u90a3\u4e48\u7b2c\u4e00\u884c\u8f93\u51fa$Yes$\uff0c\u63a5\u7740\u8f93\u51fa$\\frac{n(n-1)}{2}$\u884c\uff0c\u5176\u4e2d\u7b2c$i$\u884c\u8f93\u51fa\u4e24\u4e2a\u6b63\u6574\u6570$a,b$\u8868\u793a\u7b2c$i$\u4e2a\u8fdb\u884c\u7684\u4ea4\u6362\u64cd\u4f5c\uff0c\u4e2d\u95f4\u7528\u4e00\u4e2a\u7a7a\u683c\u9694\u5f00\u3002\u5982\u679c\u4e0d\u5b58\u5728\u4efb\u4f55\u4e00\u79cd\u987a\u5e8f\u6ee1\u8db3\u9898\u610f\uff0c\u53ea\u9700\u8f93\u51fa\u4e00\u884c$No$\u3002"
+}

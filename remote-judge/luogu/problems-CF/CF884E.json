@@ -1,0 +1,21 @@
+{
+    "description": "You are given a matrix of size $ n\u00d7m $ . Each element of the matrix is either 1 or 0. You have to determine the number of connected components consisting of 1's. Two cells belong to the same component if they have a common border, and both elements in these cells are 1's.\n\nNote that the memory limit is unusual!",
+    "inputFormat": "The first line contains two numbers $ n $ and $ m $ ( $ 1<=n<=2^{12} $ , $ 4<=m<=2^{14} $ ) \u2014 the number of rows and columns, respectively. It is guaranteed that $ m $ is divisible by 4.\n\nThen the representation of matrix follows. Each of $ n $ next lines contains ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF884E/815399ca6efd4ff30245f3c2c7ed5eecede476cc.png) one-digit hexadecimal numbers (that is, these numbers can be represented either as digits from $ 0 $ to $ 9 $ or as uppercase Latin letters from $ A $ to $ F $ ). Binary representation of each of these numbers denotes next $ 4 $ elements of the matrix in the corresponding row. For example, if the number $ B $ is given, then the corresponding elements are 1011, and if the number is $ 5 $ , then the corresponding elements are 0101.\n\nElements are not separated by whitespaces.",
+    "outputFormat": "Print the number of connected components consisting of 1's.",
+    "samples": [
+        [
+            "3 4\n1\nA\n8\n",
+            "3\n"
+        ],
+        [
+            "2 8\n5F\nE3\n",
+            "2\n"
+        ],
+        [
+            "1 4\n0\n",
+            "0\n"
+        ]
+    ],
+    "hint": "In the first example the matrix is:\n\n`<br></br>0001<br></br>1010<br></br>1000<br></br>`It is clear that it has three components.\n\nThe second example:\n\n`<br></br>01011111<br></br>11100011<br></br>`It is clear that the number of components is 2.\n\nThere are no 1's in the third example, so the answer is 0.",
+    "translation": "\u6709\u4e00\u4e2a $n*m$ \u7684\u65b9\u9635,\u6784\u6210\u8fd9\u4e2a\u65b9\u9635\u7684\u6570\u5b57\u662f $1$ \u6216 $0$\n\n\u8f93\u5165\u4e3a $ 16 $ \u8fdb\u5236,\u5171$n$\u884c,\u6bcf\u884c$m/4$\u4e2a\u6570\n\n\u8f93\u5165 $5$ : $0101$\n\n\u8f93\u5165 $E$ : $1110$\n\n.... \u4ee5\u6b64\u7c7b\u63a8($16$\u8fdb\u5236\u6362$2$\u8fdb\u5236)\n\n\u6c42 $01$ \u65b9\u9635\u4e2d $1$ \u7684\u8fde\u901a\u5757\u4e2a\u6570"
+}

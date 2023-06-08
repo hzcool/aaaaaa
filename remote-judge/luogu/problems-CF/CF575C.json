@@ -1,0 +1,12 @@
+{
+    "description": "Note the unusual memory limit for the problem.\n\nPeople working in MDCS (Microsoft Development Center Serbia) like partying. They usually go to night clubs on Friday and Saturday.\n\nThere are $ N $ people working in MDCS and there are $ N $ clubs in the city. Unfortunately, if there is more than one Microsoft employee in night club, level of coolness goes infinitely high and party is over, so club owners will never let more than one Microsoft employee enter their club in the same week (just to be sure).\n\nYou are organizing night life for Microsoft employees and you have statistics about how much every employee likes Friday and Saturday parties for all clubs.\n\nYou need to match people with clubs maximizing overall sum of their happiness (they are happy as much as they like the club), while half of people should go clubbing on Friday and the other half on Saturday.",
+    "inputFormat": "The first line contains integer $ N $ \u2014 number of employees in MDCS.\n\nThen an $ N\u00d7N $ matrix follows, where element in $ i $ -th row and $ j $ -th column is an integer number that represents how much $ i $ -th person likes $ j $ -th club\u2019s Friday party.\n\nThen another $ N\u00d7N $ matrix follows, where element in $ i $ -th row and $ j $ -th column is an integer number that represents how much $ i $ -th person likes $ j $ -th club\u2019s Saturday party.\n\n- $ 2<=N<=20 $\n- $ N $ is even\n- $ 0<= $ level of likeness $ <=10^{6} $\n- All values are integers",
+    "outputFormat": "Output should contain a single integer \u2014 maximum sum of happiness possible.",
+    "samples": [
+        [
+            "4\n1 2 3 4\n2 3 4 1\n3 4 1 2\n4 1 2 3\n5 8 7 1\n6 9 81 3\n55 78 1 6\n1 1 1 1\n",
+            "167\n"
+        ]
+    ],
+    "hint": "Here is how we matched people with clubs:\n\nFriday: 1st person with 4th club (4 happiness) and 4th person with 1st club (4 happiness).\n\nSaturday: 2nd person with 3rd club (81 happiness) and 3rd person with 2nd club (78 happiness).\n\n4+4+81+78 = 167"
+}

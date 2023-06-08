@@ -1,0 +1,21 @@
+{
+    "description": "Professor GukiZ is concerned about making his way to school, because massive piles of boxes are blocking his way.\n\nIn total there are $ n $ piles of boxes, arranged in a line, from left to right, $ i $ -th pile ( $ 1<=i<=n $ ) containing $ a_{i} $ boxes. Luckily, $ m $ students are willing to help GukiZ by removing all the boxes from his way. Students are working simultaneously. At time $ 0 $ , all students are located left of the first pile. It takes one second for every student to move from this position to the first pile, and after that, every student must start performing sequence of two possible operations, each taking one second to complete. Possible operations are:\n\n1. If $ i\u2260n $ , move from pile $ i $ to pile $ i+1 $ ;\n2. If pile located at the position of student is not empty, remove one box from it.\n\nGukiZ's students aren't smart at all, so they need you to tell them how to remove boxes before professor comes (he is very impatient man, and doesn't want to wait). They ask you to calculate minumum time $ t $ in seconds for which they can remove all the boxes from GukiZ's way. Note that students can be positioned in any manner after $ t $ seconds, but all the boxes must be removed.",
+    "inputFormat": "The first line contains two integers $ n $ and $ m $ ( $ 1<=n,m<=10^{5} $ ), the number of piles of boxes and the number of GukiZ's students.\n\nThe second line contains $ n $ integers $ a_{1},a_{2},...\\ a_{n} $ ( $ 0<=a_{i}<=10^{9} $ ) where $ a_{i} $ represents the number of boxes on $ i $ -th pile. It's guaranteed that at least one pile of is non-empty.",
+    "outputFormat": "In a single line, print one number, minimum time needed to remove all the boxes in seconds.",
+    "samples": [
+        [
+            "2 1\n1 1\n",
+            "4\n"
+        ],
+        [
+            "3 2\n1 0 2\n",
+            "5\n"
+        ],
+        [
+            "4 100\n3 4 5 4\n",
+            "5\n"
+        ]
+    ],
+    "hint": "First sample: Student will first move to the first pile ( $ 1 $ second), then remove box from first pile ( $ 1 $ second), then move to the second pile ( $ 1 $ second) and finally remove the box from second pile ( $ 1 $ second).\n\nSecond sample: One of optimal solutions is to send one student to remove a box from the first pile and a box from the third pile, and send another student to remove a box from the third pile. Overall, $ 5 $ seconds.\n\nThird sample: With a lot of available students, send three of them to remove boxes from the first pile, four of them to remove boxes from the second pile, five of them to remove boxes from the third pile, and four of them to remove boxes from the fourth pile. Process will be over in $ 5 $ seconds, when removing the boxes from the last pile is finished.",
+    "translation": "\u6709$n$\u4e2a\u4f4d\u7f6e$(1\\sim n)$\uff0c\u7b2c$i$\u4e2a\u4f4d\u7f6e\u4e0a\u6709$a_i$\u4e2a\u7bb1\u5b50\u3002\u6709$m$\u4e2a\u4eba\uff0c\u5f00\u59cb\u5728$0$\u4f4d\u7f6e\uff08\u5373\u5728$1$\u53f7\u4f4d\u7f6e\u5de6\u8fb9\uff09\uff0c\u6bcf\u4e00\u79d2\u949f\u6bcf\u4e2a\u4eba\u90fd\u53ef\u4ee5\u9009\u62e9\u642c\u8d70\u81ea\u5df1\u4f4d\u7f6e\u4e0a\u7684\u4e00\u4e2a\u7bb1\u5b50\u6216\u5411\u524d\u8d70\u4e00\u6b65\uff08\u5373\u4ece\u4f4d\u7f6e$i$\u8d70\u5230\u4f4d\u7f6e$i+1$\uff09\u3002\u95ee\u6700\u5c11\u9700\u8981\u591a\u5c11\u65f6\u95f4\u624d\u53ef\u4ee5\u5c06\u7bb1\u5b50\u5168\u90e8\u642c\u5b8c\u3002\r\n\r\n\u8f93\u5165\u7b2c\u4e00\u884c\u4e24\u4e2a\u6b63\u6574\u6570$n, m(n, m\\le 10^5)$\uff0c\u7b2c\u4e8c\u884c$n$\u4e2a\u6574\u6570$a_i(0\\le a_i\\le 10^9)$\u3002\r\n\r\n\u8f93\u51fa\u4e00\u884c\u8868\u793a\u7b54\u6848\u3002"
+}

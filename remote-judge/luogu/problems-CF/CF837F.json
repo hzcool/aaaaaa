@@ -1,0 +1,21 @@
+{
+    "description": "Consider the function $ p(x) $ , where $ x $ is an array of $ m $ integers, which returns an array $ y $ consisting of $ m+1 $ integers such that $ y_{i} $ is equal to the sum of first $ i $ elements of array $ x $ ( $ 0<=i<=m $ ).\n\nYou have an infinite sequence of arrays $ A^{0},A^{1},A^{2}... $ , where $ A^{0} $ is given in the input, and for each $ i>=1 $ $ A^{i}=p(A^{i-1}) $ . Also you have a positive integer $ k $ . You have to find minimum possible $ i $ such that $ A^{i} $ contains a number which is larger or equal than $ k $ .",
+    "inputFormat": "The first line contains two integers $ n $ and $ k $ ( $ 2<=n<=200000 $ , $ 1<=k<=10^{18} $ ). $ n $ is the size of array $ A^{0} $ .\n\nThe second line contains $ n $ integers $ A^{0}_{0},A^{0}_{1}...\\ A^{0}_{n-1} $ \u2014 the elements of $ A^{0} $ ( $ 0<=A^{0}_{i}<=10^{9} $ ). At least two elements of $ A^{0} $ are positive.",
+    "outputFormat": "Print the minimum $ i $ such that $ A^{i} $ contains a number which is larger or equal than $ k $ .",
+    "samples": [
+        [
+            "2 2\n1 1\n",
+            "1\n"
+        ],
+        [
+            "3 6\n1 1 1\n",
+            "2\n"
+        ],
+        [
+            "3 1\n1 0 1\n",
+            "0\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u6709\u4e00\u4e2a\u51fd\u6570p(x),\u5176\u4e2dx\u662f\u4e00\u4e2a\u5305\u542bm\u4e2a\u6574\u6570\u7684\u6570\u7ec4\u3002p(x)\u4f1a\u8fd4\u56de\u4e00\u4e2a\u957f\u5ea6\u4e3am+1\u7684\u6570\u7ec4y\uff0cyi\u662fx\u6570\u7ec4\u524di\u9879\u7684\u548c\u3002\uff080<=i<=m\uff09\r\n\r\n\u4f8b\u5982\uff1ax={1,1,1}\t y=p(x)={0,1,2,3}\r\n\r\n\u73b0\u6709\u4e00\u5217\u6570\u7ec4A0,A1,A2,\u2026\u2026\u5176\u4e2dA0\u4e2d\u7684\u6570\u636e\u4f1a\u7ed9\u4f60\uff0c\u800cAi=p(A(i-1))\u3002\u6709\u4e00\u4e2a\u6574\u6570k\uff0c\u4f60\u8981\u6c42\u51fa\u4e00\u4e2ai,\u5728Ai\u4e2d\u7684\u67d0\u4e2a\u6570\u5927\u4e8e\u7b49\u4e8ek\u3002\r\n\r\n\u8f93\u5165\u7b2c\u4e00\u884c\u662fn,k,\u7b2c\u4e8c\u884c\u662fA0\u4e2d\u7684n\u4e2a\u6570\u3002\r\n\r\n\u8981\u6c42\u8f93\u51fa\u6700\u5c0f\u7684i\u3002"
+}

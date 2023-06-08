@@ -1,0 +1,13 @@
+{
+    "description": "You are given $ n $ points with integer coordinates on a coordinate axis $ OX $ . The coordinate of the $ i $ -th point is $ x_i $ . All points' coordinates are distinct and given in strictly increasing order.\n\nFor each point $ i $ , you can do the following operation no more than once: take this point and move it by $ 1 $ to the left or to the right (i..e., you can change its coordinate $ x_i $ to $ x_i - 1 $ or to $ x_i + 1 $ ). In other words, for each point, you choose (separately) its new coordinate. For the $ i $ -th point, it can be either $ x_i - 1 $ , $ x_i $ or $ x_i + 1 $ .\n\nYour task is to determine if you can move some points as described above in such a way that the new set of points forms a consecutive segment of integers, i. e. for some integer $ l $ the coordinates of points should be equal to $ l, l + 1, \\ldots, l + n - 1 $ .\n\nNote that the resulting points should have distinct coordinates.\n\nYou have to answer $ t $ independent test cases.",
+    "inputFormat": "The first line of the input contains one integer $ t $ ( $ 1 \\le t \\le 2 \\cdot 10^4 $ ) \u2014 the number of test cases. Then $ t $ test cases follow.\n\nThe first line of the test case contains one integer $ n $ ( $ 1 \\le n \\le 2 \\cdot 10^5 $ ) \u2014 the number of points in the set $ x $ .\n\nThe second line of the test case contains $ n $ integers $ x_1 < x_2 < \\ldots < x_n $ ( $ 1 \\le x_i \\le 10^6 $ ), where $ x_i $ is the coordinate of the $ i $ -th point.\n\nIt is guaranteed that the points are given in strictly increasing order (this also means that all coordinates are distinct). It is also guaranteed that the sum of $ n $ does not exceed $ 2 \\cdot 10^5 $ ( $ \\sum n \\le 2 \\cdot 10^5 $ ).",
+    "outputFormat": "For each test case, print the answer \u2014 if the set of points from the test case can be moved to form a consecutive segment of integers, print YES, otherwise print NO.",
+    "samples": [
+        [
+            "5\n2\n1 4\n3\n1 2 3\n4\n1 2 3 7\n1\n1000000\n3\n2 5 6",
+            "YES\nYES\nNO\nYES\nYES"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9\u51fa $n$ \u4e2a\u6570 $x_1, x_2, \\ldots, x_n$\uff0c\u4fdd\u8bc1\u5e8f\u5217 $x$ \u4e25\u683c\u9012\u589e\u3002\u5bf9\u4e8e\u6bcf\u4e2a\u6570 $x_i$\uff0c\u8fd9\u4e2a\u6570\u53ea\u80fd\u9009\u62e9\u6539\u53d8\u6210 $x_i - 1$ \u6216 $x_i + 1$\uff0c\u5f53\u7136\uff0c\u4e5f\u53ef\u4ee5\u4e0d\u53d8\u3002\u95ee\u80fd\u4e0d\u80fd\u4f7f\u6240\u6709\u6570\u6784\u6210\u4e00\u4e2a\u8fde\u7eed\u6574\u6570\u6bb5\u3002\u53ef\u4ee5\u8f93\u51fa $\\text{YES}$\uff0c\u5426\u5219\u8f93\u51fa $\\text{NO}$\u3002"
+}

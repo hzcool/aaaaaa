@@ -1,0 +1,21 @@
+{
+    "description": "An array is called beautiful if all the elements in the array are equal.\n\nYou can transform an array using the following steps any number of times:\n\n1. Choose two indices $ i $ and $ j $ ( $ 1 \\leq i,j \\leq n $ ), and an integer $ x $ ( $ 1 \\leq x \\leq a_i $ ). Let $ i $ be the source index and $ j $ be the sink index.\n2. Decrease the $ i $ -th element by $ x $ , and increase the $ j $ -th element by $ x $ . The resulting values at $ i $ -th and $ j $ -th index are $ a_i-x $ and $ a_j+x $ respectively.\n3. The cost of this operation is $ x \\cdot |j-i|  $ .\n4. Now the $ i $ -th index can no longer be the sink and the $ j $ -th index can no longer be the source.\n\n The total cost of a transformation is the sum of all the costs in step $ 3 $ .For example, array $ [0, 2, 3, 3] $ can be transformed into a beautiful array $ [2, 2, 2, 2] $ with total cost $ 1 \\cdot |1-3| + 1 \\cdot |1-4| = 5 $ .\n\nAn array is called balanced, if it can be transformed into a beautiful array, and the cost of such transformation is uniquely defined. In other words, the minimum cost of transformation into a beautiful array equals the maximum cost.\n\nYou are given an array $ a_1, a_2, \\ldots, a_n $ of length $ n $ , consisting of non-negative integers. Your task is to find the number of balanced arrays which are permutations of the given array. Two arrays are considered different, if elements at some position differ. Since the answer can be large, output it modulo $ 10^9 + 7 $ .",
+    "inputFormat": "The first line contains a single integer $ n $ ( $ 1 \\leq n \\leq 10^5 $ ) \u2014 the size of the array.\n\nThe second line contains $ n $ integers $ a_1, a_2, \\ldots, a_n $ ( $ 0 \\le a_i \\le 10^9 $ ).",
+    "outputFormat": "Output a single integer \u2014 the number of balanced permutations modulo $ 10^9+7 $ .",
+    "samples": [
+        [
+            "3\n1 2 3",
+            "6"
+        ],
+        [
+            "4\n0 4 0 4",
+            "2"
+        ],
+        [
+            "5\n0 11 12 13 14",
+            "120"
+        ]
+    ],
+    "hint": "In the first example, $ [1, 2, 3] $ is a valid permutation as we can consider the index with value $ 3 $ as the source and index with value $ 1 $ as the sink. Thus, after conversion we get a beautiful array $ [2, 2, 2] $ , and the total cost would be $ 2 $ . We can show that this is the only transformation of this array that leads to a beautiful array. Similarly, we can check for other permutations too.\n\nIn the second example, $ [0, 0, 4, 4] $ and $ [4, 4, 0, 0] $ are balanced permutations.\n\nIn the third example, all permutations are balanced.",
+    "translation": "\u6c42\u5c06\u8f93\u5165\u7684\u957f\u5ea6\u4e3a $n$ \u7684\u6570\u7ec4 $a$ \u91cd\u65b0\u6392\u5217\u5f97\u5230\u7684\u6ee1\u8db3\u4ee5\u4e0b\u6761\u4ef6\u7684\u4e0d\u540c\u6570\u7ec4 $b$ \u7684\u6570\u91cf\u3002\n\n- \u8fdb\u884c\u4efb\u610f\u6b21\u5982\u4e0b\u64cd\u4f5c\u53ef\u4ee5\u4f7f\u6240\u6709\u5143\u7d20\u76f8\u540c\u3002\n\t- \u627e\u5230\u4e0d\u540c\u4e0b\u6807 $i$ \u548c $j$\uff0c\u9009\u62e9\u4e00\u6574\u6570 $x$\uff0c\u82b1\u8d39 $x \\cdot |i-j|$ \u7684\u4ee3\u4ef7\u5c06 $a_i$ \u53d8\u6210 $a_i-x$\uff0c\u5c06 $a_j$ \u53d8\u6210 $a_j + x$\u3002\n    - $a_i$ \u51cf\u5c11\u540e\u4e0d\u80fd\u518d\u88ab\u589e\u52a0\uff08\u53ef\u4ee5\u518d\u88ab\u51cf\u5c11\uff09\uff0c$a_j$ \u589e\u52a0\u540e\u4e0d\u80fd\u518d\u88ab\u51cf\u5c11 \u3002\n- \u8fdb\u884c\u4efb\u610f\u6b21\u64cd\u4f5c\u4f7f\u6240\u6709\u5143\u7d20\u76f8\u540c\u7684\u6240\u6709\u65b9\u6848\u4ee3\u4ef7\u76f8\u540c\u3002"
+}

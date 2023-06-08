@@ -1,0 +1,17 @@
+{
+    "description": "Little X has $ n $ distinct integers: $ p_{1},p_{2},...,p_{n} $ . He wants to divide all of them into two sets $ A $ and $ B $ . The following two conditions must be satisfied:\n\n- If number $ x $ belongs to set $ A $ , then number $ a-x $ must also belong to set $ A $ .\n- If number $ x $ belongs to set $ B $ , then number $ b-x $ must also belong to set $ B $ .\n\nHelp Little X divide the numbers into two sets or determine that it's impossible.",
+    "inputFormat": "The first line contains three space-separated integers $ n,a,b $ $ (1<=n<=10^{5};\u00a01<=a,b<=10^{9}) $ . The next line contains $ n $ space-separated distinct integers $ p_{1},p_{2},...,p_{n}\u00a0(1<=p_{i}<=10^{9}) $ .",
+    "outputFormat": "If there is a way to divide the numbers into two sets, then print \"YES\" in the first line. Then print $ n $ integers: $ b_{1},b_{2},...,b_{n} $ ( $ b_{i} $ equals either $ 0 $ , or $ 1 $ ), describing the division. If $ b_{i} $ equals to $ 0 $ , then $ p_{i} $ belongs to set $ A $ , otherwise it belongs to set $ B $ .\n\nIf it's impossible, print \"NO\" (without the quotes).",
+    "samples": [
+        [
+            "4 5 9\n2 3 4 5\n",
+            "YES\n0 0 1 1\n"
+        ],
+        [
+            "3 3 4\n1 2 4\n",
+            "NO\n"
+        ]
+    ],
+    "hint": "It's OK if all the numbers are in the same set, and the other one is empty.",
+    "translation": "> \u7ed9\u51fa $n$ \u4e2a\u5404\u4e0d\u76f8\u540c\u7684\u6570\u5b57\uff0c\u5c06\u5b83\u4eec\u5206\u522b\u653e\u5165 $A$ \u548c $B$ \u4e24\u4e2a\u96c6\u5408\u4e2d\uff0c\u4f7f\u5b83\u4eec\u6ee1\u8db3\uff1a\n> * \u82e5\u6570\u5b57 $x$ \u5728\u96c6\u5408 $A$ \u4e2d\uff0c\u90a3\u4e48\u6570\u5b57 $a-x$ \u4e5f\u5728\u96c6\u5408 $A$ \u4e2d\uff1b\n> * \u82e5\u6570\u5b57 $x$ \u5728\u96c6\u5408 $B$ \u4e2d\uff0c\u90a3\u4e48\u6570\u5b57 $b-x$ \u4e5f\u5728\u96c6\u5408 $B$ \u4e2d\u3002\n> **\u8f93\u5165\u683c\u5f0f\uff1a**\n> \n> \u8f93\u5165\u7684\u7b2c\u4e00\u884c\u8f93\u5165\u4e09\u4e2a\u6574\u6570 $n,a,b (1 \\leq n \\leq 10^{5} ; 1 \\leq a,b \\leq 10^{9} )$\u3002\n> \n> \u8f93\u5165\u7684\u7b2c\u4e8c\u884c\u6709 $n$ \u4e2a\u5404\u4e0d\u76f8\u540c\u7684\u6b63\u6574\u6570\uff0c\u4e14\u6bcf\u4e2a\u6b63\u6574\u6570\u7684\u6570\u503c\u5927\u5c0f\u90fd\u5728 $[1,10^{9}]$ \u5185\u3002\n> **\u8f93\u51fa\u683c\u5f0f\uff1a**\n> \n> \u82e5\u4e0d\u80fd\u80fd\u5c06\u8fd9 $n$ \u4e2a\u6570\u5728\u6ee1\u8db3\u6761\u4ef6\u7684\u60c5\u51b5\u4e0b\u5168\u90e8\u653e\u5165 $A$ \u548c $B$ \u8fd9\u4e24\u4e2a\u96c6\u5408\u4e2d\uff0c\u5219\u8f93\u51fa `NO` \u3002\n>\n> \u82e5\u8fd9 $n$ \u4e2a\u6570\u5728\u6ee1\u8db3\u6761\u4ef6\u7684\u60c5\u51b5\u4e0b\u80fd\u88ab\u5168\u90e8\u653e\u5165 $A$ \u548c $B$ \u8fd9\u4e24\u4e2a\u96c6\u5408\u4e2d\uff0c\u5219\u7b2c\u4e00\u884c\u8f93\u51fa `YES` \uff0c\u7b2c\u4e8c\u884c\u8f93\u51fa $n$ \u4e2a\u6570 $0$ \u6216 $1$ \uff0c\u7b2c $i$ \u4e2a\u6570\u4e3a $0$ \u8868\u793a\u7b2c $i$ \u4e2a\u6570\u5728\u96c6\u5408 $A$ \u4e2d\uff0c\u7b2c $i$ \u4e2a\u6570\u4e3a $1$ \u8868\u793a\u7b2c $i$ \u4e2a\u6570\u5728\u96c6\u5408 $B$ \u4e2d\u3002"
+}

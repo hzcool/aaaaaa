@@ -1,0 +1,17 @@
+{
+    "description": "VK news recommendation system daily selects interesting publications of one of $ n $ disjoint categories for each user. Each publication belongs to exactly one category. For each category $ i $ batch algorithm selects $ a_i $ publications.\n\nThe latest A/B test suggests that users are reading recommended publications more actively if each category has a different number of publications within daily recommendations. The targeted algorithm can find a single interesting publication of $ i $ -th category within $ t_i $ seconds.\n\nWhat is the minimum total time necessary to add publications to the result of batch algorithm execution, so all categories have a different number of publications? You can't remove publications recommended by the batch algorithm.",
+    "inputFormat": "The first line of input consists of single integer $ n $ \u2014 the number of news categories ( $ 1 \\le n \\le 200\\,000 $ ).\n\nThe second line of input consists of $ n $ integers $ a_i $ \u2014 the number of publications of $ i $ -th category selected by the batch algorithm ( $ 1 \\le a_i \\le 10^9 $ ).\n\nThe third line of input consists of $ n $ integers $ t_i $ \u2014 time it takes for targeted algorithm to find one new publication of category $ i $ ( $ 1 \\le t_i \\le 10^5) $ .",
+    "outputFormat": "Print one integer \u2014 the minimal required time for the targeted algorithm to get rid of categories with the same size.",
+    "samples": [
+        [
+            "5\n3 7 9 7 8\n5 2 5 7 5",
+            "6"
+        ],
+        [
+            "5\n1 2 3 4 5\n1 1 1 1 1",
+            "0"
+        ]
+    ],
+    "hint": "In the first example, it is possible to find three publications of the second type, which will take 6 seconds.\n\nIn the second example, all news categories contain a different number of publications.",
+    "translation": "\u7ed9\u5b9a\u4e24\u4e2a $n$ \u957f\u5ea6\u7684\u6570\u7ec4 $a$ \u548c $t$\uff0c\u53ef\u4ee5\u82b1\u8d39 $t_i$ \u4f7f $a_i$ \u589e\u5927 $1$\uff0c\u95ee\u4f7f $a$ \u6570\u7ec4\u7684\u6240\u6709\u6570\u5b57\u90fd\u4e0d\u540c\u7684\u6700\u5c0f\u82b1\u8d39\u3002"
+}

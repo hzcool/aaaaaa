@@ -1,0 +1,17 @@
+{
+    "description": "Little Susie loves strings. Today she calculates distances between them. As Susie is a small girl after all, her strings contain only digits zero and one. She uses the definition of Hamming distance:\n\nWe will define the distance between two strings $ s $ and $ t $ of the same length consisting of digits zero and one as the number of positions $ i $ , such that $ s_{i} $ isn't equal to $ t_{i} $ .\n\nAs besides everything else Susie loves symmetry, she wants to find for two strings $ s $ and $ t $ of length $ n $ such string $ p $ of length $ n $ , that the distance from $ p $ to $ s $ was equal to the distance from $ p $ to $ t $ .\n\nIt's time for Susie to go to bed, help her find such string $ p $ or state that it is impossible.",
+    "inputFormat": "The first line contains string $ s $ of length $ n $ .\n\nThe second line contains string $ t $ of length $ n $ .\n\nThe length of string $ n $ is within range from $ 1 $ to $ 10^{5} $ . It is guaranteed that both strings contain only digits zero and one.",
+    "outputFormat": "Print a string of length $ n $ , consisting of digits zero and one, that meets the problem statement. If no such string exist, print on a single line \"impossible\" (without the quotes).\n\nIf there are multiple possible answers, print any of them.",
+    "samples": [
+        [
+            "0001\n1011\n",
+            "0011\n"
+        ],
+        [
+            "000\n111\n",
+            "impossible\n"
+        ]
+    ],
+    "hint": "In the first sample different answers are possible, namely \u2014 0010, 0011, 0110, 0111, 1000, 1001, 1100, 1101.",
+    "translation": "## \u9898\u76ee\u63cf\u8ff0\n\nSusie \u559c\u6b22\u5b57\u7b26\u4e32\u3002\u5979\u7684\u5b57\u7b26\u4e32\u53ea\u5305\u542b\u6570\u5b57 $0$ \u548c $1$\u3002\u4eca\u5929\uff0c\u5979\u4f7f\u7528\u4e86[\u6c49\u660e\u8ddd\u79bb\u6cd5](https://baike.baidu.com/item/%E6%B1%89%E6%98%8E%E8%B7%9D%E7%A6%BB/475174?fr=aladdin)\u8ba1\u7b97\u4e86\u5b83\u4eec\u4e4b\u95f4\u7684\u8ddd\u79bb\u3002\n\n\u6c49\u660e\u8ddd\u79bb\u7684\u5b9a\u4e49\u8868\u793a\u4e24\u4e2a\u76f8\u540c\u957f\u5ea6\u5b57\u7b26\u4e32\u5bf9\u5e94\u4f4d\u7f6e\u7684\u4e0d\u540c\u5b57\u7b26\u7684\u6570\u91cf\u3002\n\n\u67092\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u5b57\u7b26\u4e32 $s$ \u548c $t$ \u5979\u8fd8\u60f3\u8981\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u5b57\u7b26\u4e32 $p$ \u4f7f\u5f97 $p$ \u5230 $s$ \u7684\u8ddd\u79bb\u7b49\u4e8e $p$ \u5230 $t$ \u7684\u8ddd\u79bb\n\n\u8bf7\u4f60\u5e2e\u5979\u627e\u5230\u8fd9\u6837\u7684\u5b57\u7b26\u4e32 $p$\u3002\u53ef\u80fd\u6709\u5f88\u591a\u79cd\u7b54\u6848\uff0c\u627e\u5230\u4e00\u79cd\u5373\u53ef\u3002\n\n## \u8f93\u5165\u683c\u5f0f\n\n\u7b2c\u4e00\u884c\u662f\u5b57\u7b26\u4e32 $s$\n\n\u7b2c\u4e8c\u884c\u662f\u5b57\u7b26\u4e32 $t$\n\n## \u8f93\u51fa\u683c\u5f0f\n\n\u8f93\u51fa\u4e00\u884c\u5b57\u7b26\u4e32 $p$\uff0c\u5982\u679c\u4e0d\u5b58\u5728\u6ee1\u8db3\u8981\u6c42\u7684\u5b57\u7b26\u4e32 $p$\uff0c\u8f93\u51fa `impossible`\n\n## \u6837\u4f8b\u8bf4\u660e\n\n\u7b2c\u4e00\u7ec4\u6837\u4f8b\uff1a\u6c49\u660e\u8ddd\u79bb\u4e3a3\n\n\u7b54\u6848\u4e5f\u53ef\u4ee5\u4e3a $1001$\n\n\u7b2c\u4e8c\u7ec4\u6837\u4f8b\uff1a\u65e0\u6cd5\u627e\u5230\u6ee1\u8db3\u8981\u6c42\u7684\u5b57\u7b26\u4e32\n\ntranslated by [Yang080108](https://www.luogu.com.cn/user/422348)"
+}

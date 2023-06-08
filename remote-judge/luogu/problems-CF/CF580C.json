@@ -1,0 +1,17 @@
+{
+    "description": "Kefa decided to celebrate his first big salary by going to the restaurant.\n\nHe lives by an unusual park. The park is a rooted tree consisting of $ n $ vertices with the root at vertex $ 1 $ . Vertex $ 1 $ also contains Kefa's house. Unfortunaely for our hero, the park also contains cats. Kefa has already found out what are the vertices with cats in them.\n\nThe leaf vertices of the park contain restaurants. Kefa wants to choose a restaurant where he will go, but unfortunately he is very afraid of cats, so there is no way he will go to the restaurant if the path from the restaurant to his house contains more than $ m $ consecutive vertices with cats.\n\nYour task is to help Kefa count the number of restaurants where he can go.",
+    "inputFormat": "The first line contains two integers, $ n $ and $ m $ ( $ 2<=n<=10^{5} $ , $ 1<=m<=n $ ) \u2014 the number of vertices of the tree and the maximum number of consecutive vertices with cats that is still ok for Kefa.\n\nThe second line contains $ n $ integers $ a_{1},a_{2},...,a_{n} $ , where each $ a_{i} $ either equals to $ 0 $ (then vertex $ i $ has no cat), or equals to $ 1 $ (then vertex $ i $ has a cat).\n\nNext $ n-1 $ lines contains the edges of the tree in the format \" $ x_{i} $ $ y_{i} $ \" (without the quotes) ( $ 1<=x_{i},y_{i}<=n $ , $ x_{i}\u2260y_{i} $ ), where $ x_{i} $ and $ y_{i} $ are the vertices of the tree, connected by an edge.\n\nIt is guaranteed that the given set of edges specifies a tree.",
+    "outputFormat": "A single integer \u2014 the number of distinct leaves of a tree the path to which from Kefa's home contains at most $ m $ consecutive vertices with cats.",
+    "samples": [
+        [
+            "4 1\n1 1 0 0\n1 2\n1 3\n1 4\n",
+            "2\n"
+        ],
+        [
+            "7 1\n1 0 1 1 0 0 0\n1 2\n1 3\n2 4\n2 5\n3 6\n3 7\n",
+            "2\n"
+        ]
+    ],
+    "hint": "Let us remind you that a tree is a connected graph on $ n $ vertices and $ n-1 $ edge. A rooted tree is a tree with a special vertex called root. In a rooted tree among any two vertices connected by an edge, one vertex is a parent (the one closer to the root), and the other one is a child. A vertex is called a leaf, if it has no children.\n\nNote to the first sample test: ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF580C/3cc68e912c69745e5c96ffcfeb5680e415b9867a.png) The vertices containing cats are marked red. The restaurants are at vertices 2, 3, 4. Kefa can't go only to the restaurant located at vertex $ 2 $ .\n\nNote to the second sample test: ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF580C/3d11dcb54f6b1deed424e5699c584e06f67a1d2b.png) The restaurants are located at vertices 4, 5, 6, 7. Kefa can't go to restaurants 6, 7.",
+    "translation": "\u7ed9\u5b9a\u4e00\u68f5 N \u4e2a\u8282\u70b9\u7684\u6709\u6839\u6811\uff08\u5176\u4e2d\u6839\u8282\u70b9\u59cb\u7ec8\u4e3a 1 \u53f7\u8282\u70b9\uff09\uff0c\u70b9\u6709\u70b9\u6743\uff0c\u70b9\u6743\u53ea\u6709 1 \u548c 0 \u4e24\u79cd\uff0c\u6c42\u4ece\u6839\u8282\u70b9\u5230\u53f6\u5b50\u8282\u70b9\u7684\u8def\u5f84\u4e2d\uff0c\u6709\u591a\u5c11\u6761\u8def\u5f84\u6ee1\u8db3\uff1a\u8def\u5f84\u4e0a\u6700\u5927\u8fde\u7eed\u70b9\u6743\u4e3a 1 \u7684\u8282\u70b9\u4e2a\u6570\u4e0d\u8d85\u8fc7 M\u3002"
+}

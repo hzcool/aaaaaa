@@ -1,0 +1,21 @@
+{
+    "description": "A group of $ n $ alpinists has just reached the foot of the mountain. The initial difficulty of climbing this mountain can be described as an integer $ d $ .\n\nEach alpinist can be described by two integers $ s $ and $ a $ , where $ s $ is his skill of climbing mountains and $ a $ is his neatness.\n\nAn alpinist of skill level $ s $ is able to climb a mountain of difficulty $ p $ only if $ p \\leq s $ . As an alpinist climbs a mountain, they affect the path and thus may change mountain difficulty. Specifically, if an alpinist of neatness $ a $ climbs a mountain of difficulty $ p $ the difficulty of this mountain becomes $ \\max(p, a) $ .\n\nAlpinists will climb the mountain one by one. And before the start, they wonder, what is the maximum number of alpinists who will be able to climb the mountain if they choose the right order. As you are the only person in the group who does programming, you are to answer the question.\n\nNote that after the order is chosen, each alpinist who can climb the mountain, must climb the mountain at that time.",
+    "inputFormat": "The first line contains two integers $ n $ and $ d $ ( $ 1 \\leq n \\leq 500\\,000 $ ; $ 0 \\leq d \\leq 10^9 $ ) \u2014 the number of alpinists and the initial difficulty of the mountain.\n\nEach of the next $ n $ lines contains two integers $ s_i $ and $ a_i $ ( $ 0 \\leq s_i, a_i \\leq 10^9 $ ) that define the skill of climbing and the neatness of the $ i $ -th alpinist.",
+    "outputFormat": "Print one integer equal to the maximum number of alpinists who can climb the mountain if they choose the right order to do so.",
+    "samples": [
+        [
+            "3 2\n2 6\n3 5\n5 7",
+            "2"
+        ],
+        [
+            "3 3\n2 4\n6 4\n4 6",
+            "2"
+        ],
+        [
+            "5 0\n1 5\n4 8\n2 7\n7 6\n3 2",
+            "3"
+        ]
+    ],
+    "hint": "In the first example, alpinists $ 2 $ and $ 3 $ can climb the mountain if they go in this order. There is no other way to achieve the answer of $ 2 $ .\n\nIn the second example, alpinist $ 1 $ is not able to climb because of the initial difficulty of the mountain, while alpinists $ 2 $ and $ 3 $ can go up in any order.\n\nIn the third example, the mountain can be climbed by alpinists $ 5 $ , $ 3 $ and $ 4 $ in this particular order. There is no other way to achieve optimal answer.",
+    "translation": "## \u9898\u76ee\u63cf\u8ff0\n\n$n$ \u4e2a\u4eba\u76f8\u7ea6\u53bb\u722c\u5c71\u3002  \n\u5c71\u7684\u521d\u59cb\u6500\u767b\u96be\u5ea6\u4e3a $d$\u3002  \n\u6bcf\u4f4d\u767b\u5c71\u8005\u6709\u4e24\u4e2a\u5c5e\u6027\uff1a\u6280\u5de7 $s$ \u548c\u6574\u6d01\u5ea6 $a$\u3002\n\n\u6280\u5de7\u4e3a $s$ \u7684\u767b\u5c71\u8005\u80fd\u767b\u4e0a\u6500\u767b\u96be\u5ea6\u4e3a $p$ \u7684\u5c71\u5f53\u4e14\u4ec5\u5f53 $p\\leq s$\u3002  \n\u5728\u4e00\u4f4d\u6574\u6d01\u5ea6\u4e3a $a$ \u7684\u767b\u5c71\u8005\u767b\u4e0a\u6500\u767b\u96be\u5ea6\u4e3a $p$ \u7684\u5c71\u540e\uff0c\u5c71\u7684\u6500\u767b\u96be\u5ea6\u4f1a\u53d8\u4e3a $\\max(p,a)$\u3002\n\n\u8bf7\u7ed9\u8fd9\u4e9b\u767b\u5c71\u8005\u6307\u5b9a\u4e00\u4e2a\u722c\u5c71\u7684\u5148\u540e\u987a\u5e8f\uff0c\u6700\u5927\u5316\u767b\u4e0a\u5c71\u7684\u4eba\u6570\u3002  \n\u5982\u679c\u8f6e\u5230\u4e00\u4f4d\u767b\u5c71\u8005\u65f6\u4ed6\u80fd\u767b\u4e0a\u5c71\uff0c\u5219\u4ed6\u4e00\u5b9a\u4f1a\u9009\u62e9\u767b\u5c71\u3002\n\n## \u8f93\u5165\u683c\u5f0f\n\n\u7b2c\u4e00\u884c\u4e24\u4e2a\u6574\u6570 $n,d$\uff08$1\\leq n\\leq5\\times10^5$\uff0c$0\\leq d\\leq10^9$\uff09\u3002  \n\u63a5\u4e0b\u6765 $n$ \u884c\u6bcf\u884c\u4e24\u4e2a\u6574\u6570 $s_i,a_i$\uff0c\u63cf\u8ff0\u7b2c $i$ \u4e2a\u767b\u5c71\u8005\u7684\u4fe1\u606f\u3002\n\n## \u8f93\u51fa\u683c\u5f0f\n\n\u4e00\u884c\u4e00\u4e2a\u6574\u6570\uff0c\u4e3a\u767b\u4e0a\u5c71\u7684\u4eba\u6570\u7684\u6700\u5927\u503c\u3002"
+}

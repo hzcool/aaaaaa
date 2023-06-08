@@ -1,0 +1,17 @@
+{
+    "description": "Sereja has two sequences $ a $ and $ b $ and number $ p $ . Sequence $ a $ consists of $ n $ integers $ a_{1},a_{2},...,a_{n} $ . Similarly, sequence $ b $ consists of $ m $ integers $ b_{1},b_{2},...,b_{m} $ . As usual, Sereja studies the sequences he has. Today he wants to find the number of positions $ q $ $ (q+(m-1)\u00b7p<=n;\u00a0q>=1) $ , such that sequence $ b $ can be obtained from sequence $ a_{q},a_{q+p},a_{q+2p},...,a_{q+(m-1)p} $ by rearranging elements.\n\nSereja needs to rush to the gym, so he asked to find all the described positions of $ q $ .",
+    "inputFormat": "The first line contains three integers $ n $ , $ m $ and $ p $ $ (1<=n,m<=2\u00b710^{5},1<=p<=2\u00b710^{5}) $ . The next line contains $ n $ integers $ a_{1} $ , $ a_{2} $ , $ ... $ , $ a_{n} $ $ (1<=a_{i}<=10^{9}) $ . The next line contains $ m $ integers $ b_{1} $ , $ b_{2} $ , $ ... $ , $ b_{m} $ $ (1<=b_{i}<=10^{9}) $ .",
+    "outputFormat": "In the first line print the number of valid $ q $ s. In the second line, print the valid values in the increasing order.",
+    "samples": [
+        [
+            "5 3 1\n1 2 3 2 1\n1 2 3\n",
+            "2\n1 3\n"
+        ],
+        [
+            "6 3 2\n1 3 2 2 3 1\n1 2 3\n",
+            "2\n1 2\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "### \u9898\u76ee\u7ffb\u8bd1\n\nSereja \u6709\u4e24\u4e2a\u5e8f\u5217 $a$ \u548c $b$\uff0c\u8fd8\u6709\u4e00\u4e2a\u6570\u5b57 $p$\u3002$a$ \u5e8f\u5217\u4e3a $a_1,a_2,a_3,\\cdots,a_n$\uff0c$b$ \u5e8f\u5217\u4e3a $b_1,b_2,b_3,\\cdots,b_n$\u3002\n\nSereja \u50cf\u5f80\u5e38\u4e00\u6837\u5b66\u4e60\u4ed6\u7684\u5e8f\u5217\uff0c\u4eca\u5929\u4ed6\u60f3\u8981\u627e\u5230\u82e5\u5e72\u4e2a\u6b63\u6574\u6570 $q$ \u4f7f\u5f97 $q+(m-1) \\times p \\le n$ \u5e76\u4e14 $q \\ge 1$\uff0c\u540c\u65f6\u9700\u8981\u6ee1\u8db3\u7684\u662f $a_q,a_{q+p},a_{q+2 \\times p},\\cdots,a_{q+(m-1) \\times p}$ \u548c $b$ \u5e8f\u5217\u4e00\u6837\u3002\n\n\u5b9a\u4e49\u8fd9\u91cc\u7684\u5e8f\u5217\u4e00\u6837\u4e0d\u9700\u8981\u6bcf\u4e2a\u4f4d\u7f6e\u4e0a\u7684\u6570\u76f8\u540c\uff0c\u53ea\u9700\u8981\u4ed6\u4eec\u6240\u5305\u542b\u7684\u6570\u503c\u76f8\u540c\u3002\n\n\u6bd4\u5982 $1,2,3$ \u548c $1,3,2$ \u662f\u4e00\u6837\u7684\uff0c\u4f46\u662f $1,3,3$ \u548c $1,3,2$ \u662f\u4e0d\u4e00\u6837\u7684\u3002\n\n### \u8f93\u5165\u683c\u5f0f\n\n\u7b2c\u4e00\u884c\u4e09\u4e2a\u6b63\u6574\u6570 $n,m,q$\u3002\n\n\u7b2c\u4e8c\u884c\u662f $a$ \u5e8f\u5217\u3002\n\n\u7b2c\u4e09\u884c\u662f $b$ \u5e8f\u5217\u3002\n\n### \u8f93\u51fa\u683c\u5f0f\n\n\u7b2c\u4e00\u884c\uff0c\u8868\u793a $q$ \u6709\u591a\u5c11\u4e2a\u6570\u503c\u3002\n\n\u7b2c\u4e8c\u884c\u4ee5\u5347\u5e8f\u8f93\u51fa $q$\u3002"
+}

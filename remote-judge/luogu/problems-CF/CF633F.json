@@ -1,0 +1,17 @@
+{
+    "description": "Alice and Bob have a tree (undirected acyclic connected graph). There are $ a_{i} $ chocolates waiting to be picked up in the $ i $ -th vertex of the tree. First, they choose two different vertices as their starting positions (Alice chooses first) and take all the chocolates contained in them.\n\nThen, they alternate their moves, selecting one vertex at a time and collecting all chocolates from this node. To make things more interesting, they decided that one can select a vertex only if he/she selected a vertex adjacent to that one at his/her previous turn and this vertex has not been already chosen by any of them during other move.\n\nIf at any moment one of them is not able to select the node that satisfy all the rules, he/she will skip his turns and let the other person pick chocolates as long as he/she can. This goes on until both of them cannot pick chocolates any further.\n\nDue to their greed for chocolates, they want to collect as many chocolates as possible. However, as they are friends they only care about the total number of chocolates they obtain together. What is the maximum total number of chocolates they may pick?",
+    "inputFormat": "The first line of the input contains the single integer $ n $ ( $ 2<= $ n $ <=100000 $ ) \u2014 the number of vertices in the tree.\n\nThe second line contains $ n $ integers $ a_{i} $ ( $ 1<=a_{i}<=10^{9} $ ), $ i $ -th of these numbers stands for the number of chocolates stored at the node $ i $ .\n\nThen follow $ n-1 $ lines that describe the tree. Each of them contains two integers $ u_{i} $ and $ v_{i} $ ( $ 1<=u_{i},v_{i}<=n $ ) \u2014 indices of vertices connected by the $ i $ -th edge.",
+    "outputFormat": "Print the number of chocolates Alice and Bob can collect together if they behave optimally.",
+    "samples": [
+        [
+            "9\n1 2 3 4 5 6 7 8 9\n1 2\n1 3\n1 4\n1 5\n1 6\n1 7\n1 8\n1 9\n",
+            "25\n"
+        ],
+        [
+            "2\n20 10\n1 2\n",
+            "30\n"
+        ]
+    ],
+    "hint": "In the first sample, Alice may start at the vertex $ 9 $ and Bob at vertex $ 8 $ . Alice will select vertex $ 1 $ and Bob has no options now. Alice selects the vertex $ 7 $ and they both stop.\n\nIn the second sample, both of them will pick either of the nodes alternately.",
+    "translation": "\u7ed9\u51fa\u4e00\u68f5\u6811\uff0c\u6bcf\u4e2a\u8282\u70b9\u6709\u4e00\u4e2a\u6743\u503c\uff0c\u6c42\u51fa\u4e0d\u76f8\u4ea4\u7684\u4e24\u6761\u94fe\u7684\u6700\u5927\u6743\u503c\u548c\u3002"
+}

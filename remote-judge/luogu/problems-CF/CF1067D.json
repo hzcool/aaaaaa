@@ -1,0 +1,17 @@
+{
+    "description": "Ivan plays some computer game. There are $ n $ quests in the game. Each quest can be upgraded once, this increases the reward for its completion. Each quest has $ 3 $ parameters $ a_{i} $ , $ b_{i} $ , $ p_{i} $ : reward for completing quest before upgrade, reward for completing quest after upgrade ( $ a_{i} < b_{i} $ ) and probability of successful completing the quest.\n\nEach second Ivan can try to complete one quest and he will succeed with probability $ p_{i} $ . In case of success Ivan will get the reward and opportunity to upgrade any one quest (not necessary the one he just completed). In case of failure he gets nothing. Quests do not vanish after completing.\n\nIvan has $ t $ seconds. He wants to maximize expected value of his total gain after $ t $ seconds. Help him to calculate this value.",
+    "inputFormat": "First line contains $ 2 $ integers $ n $ ( $  1 \\le n \\le 10^{5} $ ) and $ t $ ( $  1 \\le t \\le 10^{10} $ ) \u2014 number of quests and total time.\n\nFollowing $ n $ lines contain description of quests. Each description is $ 3 $ numbers $ a_{i} $ $ b_{i} $ $ p_{i} $ ( $ 1 \\le a_{i} < b_{i} \\le 10^{8} $ , $ 0 < p_{i} < 1 $ ) \u2014 reward for completing quest before upgrade, reward for completing quest after upgrade and probability of successful completing of quest. $ a_{i} $ and $ b_{i} $ are integers. All probabilities are given with at most $ 9 $ decimal places.",
+    "outputFormat": "Print the expected value.\n\nYour answer will be accepted if absolute or relative error does not exceed $ 10^{-6} $ . Formally, let your answer be $ a $ , and the jury's answer be $ b $ . Your answer is considered correct if $ \\frac{|a-b|}{max\u2061(b, \\,\\, 1)} \\le 10^{-6} $ .",
+    "samples": [
+        [
+            "3 2\n3 1000 0.5\n1 2 0.48\n3 20 0.3\n",
+            "252.2500000000000\n"
+        ],
+        [
+            "2 2\n1 1000 0.1\n2 3 0.2\n",
+            "20.7200000000000\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u6709n\u4e2a\u6e38\u620f\uff0c\u6bcf\u4e2a\u6e38\u620f\u6709\u6536\u76caai\uff0c\u5347\u7ea7\u540e\u7684\u6536\u76cabi\uff0c\u6bcf\u6b21\u6210\u529f\u6982\u7387pi\u3002\u6bcf\u79d2\u53ef\u4ee5\u73a9\u4e00\u4e2a\u6e38\u620f\uff0c\u5982\u679c\u6210\u529f\u5219\u5f97\u5230\u5f53\u524d\u6536\u76ca\uff0c\u5e76\u4e14\u53ef\u4ee5\u5347\u7ea7\u4efb\u610f\u67d0\u4e2a\u6e38\u620f\u3002\u6c42t\u79d2\u540e\u7684\u671f\u671b\u6536\u76ca\u7684\u6700\u5927\u503c\u3002n\u22641e5\uff0ct\u22641e10\uff0ca<b"
+}

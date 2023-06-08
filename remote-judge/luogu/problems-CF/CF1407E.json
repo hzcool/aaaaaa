@@ -1,0 +1,21 @@
+{
+    "description": "Egor is a famous Russian singer, rapper, actor and blogger, and finally he decided to give a concert in the sunny Republic of Dagestan.\n\nThere are $ n $ cities in the republic, some of them are connected by $ m $ directed roads without any additional conditions. In other words, road system of Dagestan represents an arbitrary directed graph. Egor will arrive to the city $ 1 $ , travel to the city $ n $ by roads along some path, give a concert and fly away.\n\nAs any famous artist, Egor has lots of haters and too annoying fans, so he can travel only by safe roads. There are two types of the roads in Dagestan, black and white: black roads are safe at night only, and white roads \u2014 in the morning. Before the trip Egor's manager's going to make a schedule: for each city he'll specify it's color, black or white, and then if during the trip they visit some city, the only time they can leave it is determined by the city's color: night, if it's black, and morning, if it's white. After creating the schedule Egor chooses an available path from $ 1 $ to $ n $ , and for security reasons it has to be the shortest possible.\n\nEgor's manager likes Dagestan very much and wants to stay here as long as possible, so he asks you to make such schedule that there would be no path from $ 1 $ to $ n $ or the shortest path's length would be greatest possible.\n\nA path is one city or a sequence of roads such that for every road (excluding the first one) the city this road goes from is equal to the city previous road goes into. Egor can move only along paths consisting of safe roads only.\n\nThe path length is equal to the number of roads in it. The shortest path in a graph is a path with smallest length.",
+    "inputFormat": "The first line contains two integers $ n $ , $ m $ ( $ 1 \\leq n \\leq 500000 $ , $ 0 \\leq m \\leq 500000 $ ) \u2014 the number of cities and the number of roads.\n\nThe $ i $ -th of next $ m $ lines contains three integers \u2014 $ u_i $ , $ v_i $ and $ t_i $ ( $ 1 \\leq u_i, v_i \\leq n $ , $ t_i \\in \\{0, 1\\} $ ) \u2014 numbers of cities connected by road and its type, respectively ( $ 0 $ \u2014 night road, $ 1 $ \u2014 morning road).",
+    "outputFormat": "In the first line output the length of the desired path (or $ -1 $ , if it's possible to choose such schedule that there's no path from $ 1 $ to $ n $ ).\n\nIn the second line output the desired schedule \u2014 a string of $ n $ digits, where $ i $ -th digit is $ 0 $ , if the $ i $ -th city is a night one, and $ 1 $ if it's a morning one.\n\nIf there are multiple answers, print any.",
+    "samples": [
+        [
+            "3 4\n1 2 0\n1 3 1\n2 3 0\n2 3 1",
+            "2\n011"
+        ],
+        [
+            "4 8\n1 1 0\n1 3 0\n1 3 1\n3 2 0\n2 1 0\n3 4 1\n2 4 0\n2 4 1",
+            "3\n1101"
+        ],
+        [
+            "5 10\n1 2 0\n1 3 1\n1 4 0\n2 3 0\n2 3 1\n2 5 0\n3 4 0\n3 4 1\n4 2 1\n4 5 0",
+            "-1\n11111"
+        ]
+    ],
+    "hint": "For the first sample, if we paint city $ 1 $ white, the shortest path is $ 1 \\rightarrow 3 $ . Otherwise, it's $ 1 \\rightarrow 2 \\rightarrow 3 $ regardless of other cities' colors.\n\nFor the second sample, we should paint city $ 3 $ black, and there are both black and white roads going from $ 2 $ to $ 4 $ . Note that there can be a road connecting a city with itself.",
+    "translation": " $n$ \u4e2a\u70b9    $m$ \u6761\u8fb9\u7684\u6709\u5411\u56fe\uff0c\u8fb9\u6709\u9ed1\u767d\u4e24\u79cd\u989c\u8272\u3002\u73b0\u5728\u8981\u7ed9\u70b9\u67d3\u8272\uff0c\u6bcf\u4e2a\u70b9\u67d3\u6210\u9ed1\u6216\u767d\u8272\u3002\u767d\u70b9\u53ea\u80fd\u8d70\u5b83\u8fde\u51fa\u53bb\u7684\u767d\u8fb9\uff0c\u9ed1\u70b9\u53ea\u80fd\u8d70\u5b83\u8fde\u51fa\u53bb\u7684\u9ed1\u8fb9\u3002\u95ee\u662f\u5426\u5b58\u5728\u4e00\u79cd\u67d3\u8272\u65b9\u6848\uff0c\u4f7f\u5f97\u4e0d\u5b58\u5728\u4e00\u6761    $1\\rightarrow n$ \u7684\u8def\u5f84\u3002\u5982\u679c\u5b58\u5728\u8fd9\u6837\u7684\u67d3\u8272\u65b9\u6848\uff0c\u5728\u7b2c\u4e00\u884c\u8f93\u51fa `-1`\uff0c\u5426\u5219\u8f93\u51fa    $1\\rightarrow n$ \u6700\u957f\u7684\u6700\u77ed\u8def\u5f84\u957f\u5ea6\u3002\u5728\u7b2c\u4e8c\u884c\uff0c\u8f93\u51fa\u5bf9\u5e94\u7b2c\u4e00\u884c\u7b54\u6848\u7684\u67d3\u8272\u65b9\u6848\u3002"
+}

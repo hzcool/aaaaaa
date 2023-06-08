@@ -1,0 +1,21 @@
+{
+    "description": "You are given a string $ s $ , consisting of lowercase English letters, and the integer $ m $ .\n\nOne should choose some symbols from the given string so that any contiguous subsegment of length $ m $ has at least one selected symbol. Note that here we choose positions of symbols, not the symbols themselves.\n\nThen one uses the chosen symbols to form a new string. All symbols from the chosen position should be used, but we are allowed to rearrange them in any order.\n\nFormally, we choose a subsequence of indices $ 1<=i_{1}&lt;i_{2}&lt;...&lt;i_{t}<=|s| $ . The selected sequence must meet the following condition: for every $ j $ such that $ 1<=j<=|s|-m+1 $ , there must be at least one selected index that belongs to the segment $ [j,\u00a0j+m-1] $ , i.e. there should exist a $ k $ from $ 1 $ to $ t $ , such that $ j<=i_{k}<=j+m-1 $ .\n\nThen we take any permutation $ p $ of the selected indices and form a new string $ s_{ip1}s_{ip2}...\\ s_{ipt} $ .\n\nFind the lexicographically smallest string, that can be obtained using this procedure.",
+    "inputFormat": "The first line of the input contains a single integer $ m $ ( $ 1<=m<=100000 $ ).\n\nThe second line contains the string $ s $ consisting of lowercase English letters. It is guaranteed that this string is non-empty and its length doesn't exceed $ 100000 $ . It is also guaranteed that the number $ m $ doesn't exceed the length of the string $ s $ .",
+    "outputFormat": "Print the single line containing the lexicographically smallest string, that can be obtained using the procedure described above.",
+    "samples": [
+        [
+            "3\ncbabc\n",
+            "a\n"
+        ],
+        [
+            "2\nabcab\n",
+            "aab\n"
+        ],
+        [
+            "3\nbcabcbaccba\n",
+            "aaabb\n"
+        ]
+    ],
+    "hint": "In the first sample, one can choose the subsequence $ {3} $ and form a string \"a\".\n\nIn the second sample, one can choose the subsequence $ {1,2,4} $ (symbols on this positions are 'a', 'b' and 'a') and rearrange the chosen symbols to form a string \"aab\".",
+    "translation": "### \u9898\u76ee\u63cf\u8ff0\r\n\u7ed9\u5b9a\u957f\u5ea6\u4e3an(1 <= n <= 100,000) \u7684\u5b57\u7b26\u4e32s\uff0c\u73b0\u5728\u8981\u6c42\u9009\u53d6\u4e00\u4e9b\u5b57\u7b26\u4f7f\u5f97\u6bcf\u4e2a\u957f\u5ea6\u4e3am \u7684\u5b57\u7b26\u4e32\u533a\u95f4\u5747\u6709\u4e00\u4e2a\u88ab\u9009\u4e2d\u7684\u5b57\u7b26\uff0c\u4e14\u9009\u4e2d\u7684\u8fd9\u4e9b\u5b57\u7b26**\u91cd\u6392\u5217**\u540e\u5f97\u5230\u7684\u5b57\u7b26\u4e32\u5b57\u5178\u5e8f\u6700\u5c0f\r\n\r\n### \u8f93\u5165\u683c\u5f0f\r\n\u8f93\u5165\u5305\u62ec\u4e24\u884c\r\n\r\n\u7b2c\u4e00\u884c\u5305\u62ec\u4e00\u4e2a\u6b63\u6574\u6570m(1<=m<=100000) \u610f\u601d\u5982\u9898\u76ee\u63cf\u8ff0\u6240\u793a\uff0c\u7b2c\u4e8c\u884c\u5305\u62ec\u4e00\u6bb5\u5b57\u7b26\u4e32s\r\n\r\n### \u8f93\u51fa\u683c\u5f0f\r\n\u8f93\u51fa\u4ec5\u4e00\u884c\uff0c\u4e3a\u91cd\u6392\u5217\u540e\u7684\u9009\u4e2d\u5b57\u7b26\u4e32"
+}

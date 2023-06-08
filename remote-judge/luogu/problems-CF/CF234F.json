@@ -1,0 +1,21 @@
+{
+    "description": "Vasya should paint a fence in front of his own cottage. The fence is a sequence of $ n $ wooden boards arranged in a single row. Each board is a $ 1 $ centimeter wide rectangle. Let's number the board fence using numbers $ 1,2,...,n $ from left to right. The height of the $ i $ -th board is $ h_{i} $ centimeters.\n\nVasya has a $ 1 $ centimeter wide brush and the paint of two colors, red and green. Of course, the amount of the paint is limited. Vasya counted the area he can paint each of the colors. It turned out that he can not paint over $ a $ square centimeters of the fence red, and he can not paint over $ b $ square centimeters green. Each board of the fence should be painted exactly one of the two colors. Perhaps Vasya won't need one of the colors.\n\nIn addition, Vasya wants his fence to look smart. To do this, he should paint the fence so as to minimize the value that Vasya called the fence unattractiveness value. Vasya believes that two consecutive fence boards, painted different colors, look unattractive. The unattractiveness value of a fence is the total length of contact between the neighboring boards of various colors. To make the fence look nice, you need to minimize the value as low as possible. Your task is to find what is the minimum unattractiveness Vasya can get, if he paints his fence completely.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF234F/a14b673dce5ebb55793e288f9c6ca9cf6b548bb3.png)The picture shows the fence, where the heights of boards (from left to right) are 2,3,2,4,3,1. The first and the fifth boards are painted red, the others are painted green. The first and the second boards have contact length 2, the fourth and fifth boards have contact length 3, the fifth and the sixth have contact length 1. Therefore, the unattractiveness of the given painted fence is 2+3+1=6.",
+    "inputFormat": "The first line contains a single integer $ n $ ( $ 1<=n<=200 $ ) \u2014 the number of boards in Vasya's fence.\n\nThe second line contains two integers $ a $ and $ b $ ( $ 0<=a,b<=4\u00b710^{4} $ ) \u2014 the area that can be painted red and the area that can be painted green, correspondingly.\n\nThe third line contains a sequence of $ n $ integers $ h_{1},h_{2},...,h_{n} $ $ (1<=h_{i}<=200) $ \u2014 the heights of the fence boards.\n\nAll numbers in the lines are separated by single spaces.",
+    "outputFormat": "Print a single number \u2014 the minimum unattractiveness value Vasya can get if he paints his fence completely. If it is impossible to do, print $ -1 $ .",
+    "samples": [
+        [
+            "4\n5 7\n3 3 4 1\n",
+            "3\n"
+        ],
+        [
+            "3\n2 3\n1 3 1\n",
+            "2\n"
+        ],
+        [
+            "3\n3 3\n2 2 2\n",
+            "-1\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u957f\u5ea6\u4e3a$n$\u7684\u6805\u680f\uff0c\u7b2c$i$\u4e2a\u6805\u680f\u9ad8\u5ea6\u4e3a$h_i$,\u5bbd\u5ea6\u5747\u4e3a1\u3002\u73b0\u5728\u4f60\u9700\u8981\u5c06\u6240\u6709\u6805\u680f\u90fd\u6d82\u4e0a\u7ea2\u8272\u6216\u7eff\u8272\uff0c\u89c4\u5b9a\u540c\u4e00\u4e2a\u6805\u680f\u5fc5\u987b\u6d82\u4e00\u79cd\u989c\u8272\uff0c\u4e14\u7ea2\u8272\u603b\u9762\u79ef\u4e0d\u80fd\u8d85\u8fc7$a$\uff0c\u7eff\u8272\u603b\u9762\u79ef\u4e0d\u80fd\u8d85\u8fc7$b$\u3002\n\n\u6d82\u5b8c\u8272\u540e\u6805\u680f\u7684\u96be\u770b\u7a0b\u5ea6\u5b9a\u4e49\u4e3a\u76f8\u90bb\u4e14\u989c\u8272\u4e0d\u540c\u7684\u6805\u680f\u76f8\u4ea4\u90e8\u5206\u7684\u7ebf\u6bb5\u957f\u5ea6\u4e4b\u548c\uff0c\u6c42\u6700\u5c0f\u96be\u770b\u7a0b\u5ea6\u3002\n\n\u672c\u9898\u9700\u8981\u6587\u4ef6\u8f93\u5165\u8f93\u51fa\uff0c\u793a\u4f8b\u5982\u4e0b\uff1a\n```\n    freopen(\"input.txt\",\"r\",stdin);\n    freopen(\"output.txt\",\"w\",stdout);\n    \n```"
+}

@@ -1,0 +1,13 @@
+{
+    "description": "Slavic has an array of length $ n $ consisting only of zeroes and ones. In one operation, he removes either the first or the last element of the array.\n\nWhat is the minimum number of operations Slavic has to perform such that the total sum of the array is equal to $ s $ after performing all the operations? In case the sum $ s $ can't be obtained after any amount of operations, you should output -1.",
+    "inputFormat": "The first line contains a single integer $ t $ ( $ 1 \\leq t \\leq 10^4 $ ) \u2014 the number of test cases.\n\nThe first line of each test case contains two integers $ n $ and $ s $ ( $ 1 \\leq n, s \\leq 2 \\cdot 10^5 $ ) \u2014 the length of the array and the needed sum of elements.\n\nThe second line of each test case contains $ n $ integers $ a_i $ ( $ 0 \\leq a_i \\leq 1 $ ) \u2014 the elements of the array.\n\nIt is guaranteed that the sum of $ n $ over all test cases doesn't exceed $ 2 \\cdot 10^5 $ .",
+    "outputFormat": "For each test case, output a single integer \u2014 the minimum amount of operations required to have the total sum of the array equal to $ s $ , or -1 if obtaining an array with sum $ s $ isn't possible.",
+    "samples": [
+        [
+            "7\n3 1\n1 0 0\n3 1\n1 1 0\n9 3\n0 1 0 1 1 1 0 0 1\n6 4\n1 1 1 1 1 1\n5 1\n0 0 1 1 0\n16 2\n1 1 0 0 1 0 0 1 1 0 0 0 0 0 1 1\n6 3\n1 0 1 0 0 0",
+            "0\n1\n3\n2\n2\n7\n-1"
+        ]
+    ],
+    "hint": "In the first test case, the sum of the whole array is $ 1 $ from the beginning, so we don't have to make any operations.\n\nIn the second test case, the sum of the array is $ 2 $ and we want it to be equal to $ 1 $ , so we should remove the first element. The array turns into $ [1, 0] $ , which has a sum equal to $ 1 $ .\n\nIn the third test case, the sum of the array is $ 5 $ and we need it to be $ 3 $ . We can obtain such a sum by removing the first two elements and the last element, doing a total of three operations. The array turns into $ [0, 1, 1, 1, 0, 0] $ , which has a sum equal to $ 3 $ .",
+    "translation": "\u6709\u591a\u7ec4\u6570\u636e\u3002\n\n\u6bcf\u7ec4\u6570\u636e\u7ed9\u51fa $n$ \u4e2a\u6570\uff0c\u6bcf\u4e2a\u6570\u4e3a $0$ \u6216 $1$ \u3002\u4f60\u53ef\u4ee5\u9009\u62e9\u4ece\u4e24\u8fb9\u5220\u6570\uff0c\u6c42\u81f3\u5c11\u5220\u51e0\u4e2a\u6570\u624d\u53ef\u4ee5\u4f7f\u5269\u4e0b\u7684\u6570\u603b\u548c\u4e3a $s$ \u3002\n\n\u5982\u679c\u4e0d\u80fd\u8fbe\u5230 $s$ \uff0c\u5219\u8f93\u51fa $-1$ \u3002"
+}

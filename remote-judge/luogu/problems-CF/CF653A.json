@@ -1,0 +1,21 @@
+{
+    "description": "Limak is a little polar bear. He has $ n $ balls, the $ i $ -th ball has size $ t_{i} $ .\n\nLimak wants to give one ball to each of his three friends. Giving gifts isn't easy \u2014 there are two rules Limak must obey to make friends happy:\n\n- No two friends can get balls of the same size.\n- No two friends can get balls of sizes that differ by more than $ 2 $ .\n\nFor example, Limak can choose balls with sizes $ 4 $ , $ 5 $ and $ 3 $ , or balls with sizes $ 90 $ , $ 91 $ and $ 92 $ . But he can't choose balls with sizes $ 5 $ , $ 5 $ and $ 6 $ (two friends would get balls of the same size), and he can't choose balls with sizes $ 30 $ , $ 31 $ and $ 33 $ (because sizes $ 30 $ and $ 33 $ differ by more than $ 2 $ ).\n\nYour task is to check whether Limak can choose three balls that satisfy conditions above.",
+    "inputFormat": "The first line of the input contains one integer $ n $ ( $ 3<=n<=50 $ ) \u2014 the number of balls Limak has.\n\nThe second line contains $ n $ integers $ t_{1},t_{2},...,t_{n} $ ( $ 1<=t_{i}<=1000 $ ) where $ t_{i} $ denotes the size of the $ i $ -th ball.",
+    "outputFormat": "Print \"YES\" (without quotes) if Limak can choose three balls of distinct sizes, such that any two of them differ by no more than $ 2 $ . Otherwise, print \"NO\" (without quotes).",
+    "samples": [
+        [
+            "4\n18 55 16 17\n",
+            "YES\n"
+        ],
+        [
+            "6\n40 41 43 44 44 44\n",
+            "NO\n"
+        ],
+        [
+            "8\n5 972 3 4 1 4 970 971\n",
+            "YES\n"
+        ]
+    ],
+    "hint": "In the first sample, there are $ 4 $ balls and Limak is able to choose three of them to satisfy the rules. He must must choose balls with sizes $ 18 $ , $ 16 $ and $ 17 $ .\n\nIn the second sample, there is no way to give gifts to three friends without breaking the rules.\n\nIn the third sample, there is even more than one way to choose balls:\n\n1. Choose balls with sizes $ 3 $ , $ 4 $ and $ 5 $ .\n2. Choose balls with sizes $ 972 $ , $ 970 $ , $ 971 $ .",
+    "translation": "Limak\u662f\u4e00\u53ea\u5c0f\u5317\u6781\u718a\u3002\u4ed6\u6709N\u4e2a\u7403\uff0c\u6211\u7684\u7b2ci\u4e2a\u7403\u7684\u5927\u5c0f\u662fT[i]\u3002 Limak\u60f3\u7ed9\u4ed6\u7684\u4e09\u4e2a\u670b\u53cb\u6bcf\u4eba\u4e00\u4e2a\u7403\u3002 \u4f46\u662f\u8d60\u9001\u793c\u7269\u5e76\u4e0d\u5bb9\u6613\u2014\u2014\u83b1\u9a6c\u514b\u5fc5\u987b\u9075\u5b88\u4e24\u6761\u89c4\u5219\u624d\u80fd\u4f7f\u670b\u53cb\u5feb\u4e50\uff1a \u6ca1\u6709\u4e24\u4e2a\u670b\u53cb\u80fd\u5f97\u5230\u540c\u6837\u5927\u5c0f\u7684\u7403\u3002 \u6ca1\u6709\u4e24\u4e2a\u670b\u53cb\u80fd\u5f97\u5230\u5927\u5c0f\u8d85\u8fc72\u4e2a2\u7684\u7403\u3002\n\n\u4f8b\u5982\uff0cLimak\u53ef\u4ee5\u9009\u62e9\u5927\u5c0f\u4e3a4,5\u548c3\u7684\u7403\uff0c\u6216\u8005\u5927\u5c0f\u4e3a90,91\u548c92\u7684\u7403\u3002\u4f46\u4ed6\u4e0d\u80fd\u9009\u62e9\u5927\u5c0f\u4e3a5,5\u548c6\u7684\u7403(\u4e24\u4e2a\u670b\u53cb\u4f1a\u5f97\u5230\u540c\u6837\u5927\u5c0f\u7684\u7403),\u4ed6\u4e0d\u80fd\u9009\u62e9\u5927\u5c0f\u4e3a 30,31\u548c33\u7684\u7403(\u56e0\u4e3a\u5c3a\u5bf830\u548c33\u76f8\u5dee\u8d85\u8fc72)\u3002\n\n\u4f60\u7684\u4efb\u52a1\u662f\u68c0\u67e5Limak\u662f\u5426\u53ef\u4ee5\u9009\u62e9\u6ee1\u8db3\u4ee5\u4e0a\u6761\u4ef6\u7684\u4e09\u4e2a\u7403\u3002\n\n\u611f\u8c22@something \u63d0\u4f9b\u7684\u7ffb\u8bd1"
+}

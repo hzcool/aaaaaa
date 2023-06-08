@@ -1,0 +1,21 @@
+{
+    "description": "The Smart Beaver from ABBYY has a long history of cooperating with the \"Institute of Cytology and Genetics\". Recently, the Institute staff challenged the Beaver with a new problem. The problem is as follows.\n\nThere is a collection of $ n $ proteins (not necessarily distinct). Each protein is a string consisting of lowercase Latin letters. The problem that the scientists offered to the Beaver is to select a subcollection of size $ k $ from the initial collection of proteins so that the representativity of the selected subset of proteins is maximum possible.\n\nThe Smart Beaver from ABBYY did some research and came to the conclusion that the representativity of a collection of proteins can be evaluated by a single number, which is simply calculated. Let's suppose we have a collection $ {a_{1},...,a_{k}} $ consisting of $ k $ strings describing proteins. The representativity of this collection is the following value:\n\n![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF178F1/c7b3873e6751582bb5e2ad2c1deb58138ab9c543.png)where $ f(x,y) $ is the length of the longest common prefix of strings $ x $ and $ y $ ; for example, $ f( $ \"abc\", \"abd\" $ )=2 $ , and $ f( $ \"ab\", \"bcd\" $ )=0 $ .\n\nThus, the representativity of collection of proteins $ { $ \"abc\", \"abd\", \"abe\" $ } $ equals $ 6 $ , and the representativity of collection $ { $ \"aaa\", \"ba\", \"ba\" $ } $ equals $ 2 $ .\n\nHaving discovered that, the Smart Beaver from ABBYY asked the Cup contestants to write a program that selects, from the given collection of proteins, a subcollection of size $ k $ which has the largest possible value of representativity. Help him to solve this problem!",
+    "inputFormat": "The first input line contains two integers $ n $ and $ k $ ( $ 1<=k<=n $ ), separated by a single space. The following $ n $ lines contain the descriptions of proteins, one per line. Each protein is a non-empty string of no more than $ 500 $ characters consisting of only lowercase Latin letters (a $ ... $ z). Some of the strings may be equal.\n\nThe input limitations for getting 20 points are:\n\n- $ 1<=n<=20 $\n\nThe input limitations for getting 50 points are:\n\n- $ 1<=n<=100 $\n\nThe input limitations for getting 100 points are:\n\n- $ 1<=n<=2000 $",
+    "outputFormat": "Print a single number denoting the largest possible value of representativity that a subcollection of size $ k $ of the given collection of proteins can have.",
+    "samples": [
+        [
+            "3 2\naba\nbzd\nabq\n",
+            "2\n"
+        ],
+        [
+            "4 3\neee\nrrr\nttt\nqqq\n",
+            "0\n"
+        ],
+        [
+            "4 3\naaa\nabba\nabbc\nabbd\n",
+            "9\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9 $n$ \u4e2a\u5b57\u7b26\u4e32\uff0c\u8981\u6c42\u9009\u51fa\u4e00\u4e2a $k$ \u5143\u5b50\u96c6 $\\{a_k\\}$\uff0c\u4f7f\u5f97\n$$\\sum_{i=1}^n\\sum_{j=i+1}^n|\\operatorname{lcp}(a_i,a_j)|$$\n\u6700\u5927 .\n\n$n\\le 20$\uff0c\u5b57\u7b26\u4e32\u957f\u5ea6\u4e0d\u5927\u4e8e $500$ ."
+}

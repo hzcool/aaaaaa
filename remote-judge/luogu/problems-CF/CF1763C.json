@@ -1,0 +1,13 @@
+{
+    "description": "You are given an array $ a $ of $ n $ integers. You are allowed to perform the following operation on it as many times as you want (0 or more times):\n\n- Choose $ 2 $ indices $ i $ , $ j $ where $ 1 \\le i < j \\le n $ and replace $ a_k $ for all $ i \\leq k \\leq j $ with $ |a_i - a_j| $\n\nPrint the maximum sum of all the elements of the final array that you can obtain in such a way.",
+    "inputFormat": "The first line contains a single integer $ t $ ( $ 1 \\le t \\le 10^5 $ ) \u2014 the number of test cases.\n\nThe first line of each test case contains a single integer $ n $ ( $ 2 \\le n \\le 2 \\cdot 10^5 $ ) \u2014 the length of the array $ a $ .\n\nThe second line of each test case contains $ n $ integers $ a_1, a_2, \\ldots, a_n $ ( $ 1 \\le a_i \\le 10^9 $ ) \u2014 the elements of array $ a $ .\n\nIt's guaranteed that the sum of $ n $ over all test cases does not exceed $ 2 \\cdot 10^5 $ .",
+    "outputFormat": "For each test case, print the sum of the final array.",
+    "samples": [
+        [
+            "3\n3\n1 1 1\n2\n9 1\n3\n4 9 5",
+            "3\n16\n18"
+        ]
+    ],
+    "hint": "In the first test case, it is not possible to achieve a sum $ > 3 $ by using these operations, therefore the maximum sum is $ 3 $ .\n\nIn the second test case, it can be shown that the maximum sum achievable is $ 16 $ . By using operation $ (1,2) $ we transform the array from $ [9,1] $ into $ [8,8] $ , thus the sum of the final array is $ 16 $ .\n\nIn the third test case, it can be shown that it is not possible to achieve a sum $ > 18 $ by using these operations, therefore the maximum sum is $ 18 $ .",
+    "translation": "\u4f60\u6709\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u6570\u7ec4 $a$, \u4f60\u53ef\u4ee5\u5bf9\u5b83\u8fdb\u884c\u4ee5\u4e0b\u64cd\u4f5c\u4efb\u610f\u591a\u6b21\uff1a\n\n- \u9009\u62e9\u4e24\u4e2a\u4e0b\u6807 $i, j$, \u6ee1\u8db3 $1\\leq i<j\\leq n$, \u5c06 $a_i \\sim a_j$ \u4e4b\u95f4\u7684\u6240\u6709\u5143\u7d20\u66ff\u6362\u6210 $|a_i-a_j|$\u3002\n\n\u6c42\u6570\u7ec4\u80fd\u7ecf\u8fc7\u82e5\u5e72\u6b21\u64cd\u4f5c\u4ee5\u540e\u8fbe\u5230\u7684\u6240\u6709\u5143\u7d20\u7684\u6700\u5927\u548c\u3002\n\n\u6570\u636e\u8303\u56f4\uff1a$2\\leq n, \\sum n\\leq 2\\times 10^5, 1\\leq a_ i\\leq 10^9$\u3002\n\nTranslated by Microchip2333."
+}

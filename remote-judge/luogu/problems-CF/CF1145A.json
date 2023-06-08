@@ -1,0 +1,21 @@
+{
+    "description": "[Thanos sort](https://codegolf.stackexchange.com/questions/182221/implement-the-thanos-sorting-algorithm) is a supervillain sorting algorithm, which works as follows: if the array is not sorted, snap your fingers\\* to remove the first or the second half of the items, and repeat the process.\n\nGiven an input array, what is the size of the longest sorted array you can obtain from it using Thanos sort?\n\n\\*Infinity Gauntlet required.",
+    "inputFormat": "The first line of input contains a single number $ n $ ( $ 1 \\le n \\le 16 $ ) \u2014 the size of the array. $ n $ is guaranteed to be a power of 2.\n\nThe second line of input contains $ n $ space-separated integers $ a_i $ ( $ 1 \\le a_i \\le 100 $ ) \u2014 the elements of the array.",
+    "outputFormat": "Return the maximal length of a sorted array you can obtain using Thanos sort. The elements of the array have to be sorted in non-decreasing order.",
+    "samples": [
+        [
+            "4\n1 2 2 4\n",
+            "4\n"
+        ],
+        [
+            "8\n11 12 1 2 13 14 3 4\n",
+            "2\n"
+        ],
+        [
+            "4\n7 6 5 4\n",
+            "1\n"
+        ]
+    ],
+    "hint": "In the first example the array is already sorted, so no finger snaps are required.\n\nIn the second example the array actually has a subarray of 4 sorted elements, but you can not remove elements from different sides of the array in one finger snap. Each time you have to remove either the whole first half or the whole second half, so you'll have to snap your fingers twice to get to a 2-element sorted array.\n\nIn the third example the array is sorted in decreasing order, so you can only save one element from the ultimate destruction.",
+    "translation": "## \u9898\u76ee\u63cf\u8ff0\n[\u706d\u9738\u6392\u5e8f](https://codegolf.stackexchange.com/questions/182221/implement-the-thanos-sorting-algorithm)\u662f\u4e00\u79cd\u8d85\u7ea7\u53cd\u6d3e\u6392\u5e8f\u7b97\u6cd5\u3002\n\n\u5b83\u662f\u8fd9\u6837\u8fd0\u884c\u7684\uff1a  \n\u5bf9\u4e8e\u4e00\u4e2a\u5e8f\u5217$a$,\u6ee1\u8db3$\\forall i<j,a_i\\le a_j$\uff0c\u5c31\u505c\u6b62\u6392\u5e8f\uff1b  \n\u5426\u5219\u5220\u6389\u8fd9\u4e2a\u5e8f\u5217\u7684\u5de6\u534a\u8fb9\u6216\u53f3\u534a\u8fb9\u3002   \n\u6309\u6b64\u89c4\u5219\u91cd\u590d\u6267\u884c\uff0c\u76f4\u5230\u6ee1\u8db3\u4e0a\u8ff0\u6761\u4ef6\u3002  \n\n\u73b0\u5728\u7ed9\u4f60\u4e00\u4e2a\u5e8f\u5217\uff0c\u5bf9\u5176\u8fdb\u884c\u8fd9\u79cd\u6392\u5e8f\u7b97\u6cd5\u540e\uff0c\u6700\u5927\u957f\u5ea6\u4f1a\u662f\u591a\u5c11\u5462\uff1f  \n## \u8f93\u5165\u8f93\u51fa\u683c\u5f0f  \n### \u8f93\u5165\u683c\u5f0f\n\u7b2c\u4e00\u884c\u4e00\u4e2a\u6b63\u6574\u6570$n$  \n\u4e0b\u9762\u4e00\u884c$n$\u4e2a\u6b63\u6574\u6570$a_i$\uff0c\u8868\u793a\u5e8f\u5217$a$\u7684\u7b2c$i$\u9879\u3002    \n### \u8f93\u51fa\u683c\u5f0f  \n\u8f93\u51fa\u4e00\u4e2a\u6b63\u6574\u6570\uff0c\u8868\u793a\u6392\u5e8f\u540e\u5e8f\u5217$a$\u7684\u6700\u5927\u957f\u5ea6\u3002\n## \u8bf4\u660e  \n### \u6570\u636e\u8303\u56f4\uff1a  \n$n\\in\\{1,2,4,8,16\\}$  \n$1\\le a_i\\le 100$"
+}

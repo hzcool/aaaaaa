@@ -1,0 +1,13 @@
+{
+    "description": "You have a string $ s_1 s_2 \\ldots s_n $ and you stand on the left of the string looking right. You want to choose an index $ k $ ( $ 1 \\le k \\le n $ ) and place a mirror after the $ k $ -th letter, so that what you see is $ s_1 s_2 \\ldots s_k s_k s_{k - 1} \\ldots s_1 $ . What is the lexicographically smallest string you can see?\n\nA string $ a $ is lexicographically smaller than a string $ b $ if and only if one of the following holds:\n\n- $ a $ is a prefix of $ b $ , but $ a \\ne b $ ;\n- in the first position where $ a $ and $ b $ differ, the string $ a $ has a letter that appears earlier in the alphabet than the corresponding letter in $ b $ .",
+    "inputFormat": "The first line of input contains one integer $ t $ ( $ 1 \\leq t \\leq 10\\,000 $ ): the number of test cases.\n\nThe next $ t $ lines contain the description of the test cases, two lines per a test case.\n\nIn the first line you are given one integer $ n $ ( $ 1 \\leq n \\leq 10^5 $ ): the length of the string.\n\nThe second line contains the string $ s $ consisting of $ n $ lowercase English characters.\n\nIt is guaranteed that the sum of $ n $ over all test cases does not exceed $ 10^5 $ .",
+    "outputFormat": "For each test case print the lexicographically smallest string you can see.",
+    "samples": [
+        [
+            "4\n10\ncodeforces\n9\ncbacbacba\n3\naaa\n4\nbbaa",
+            "cc\ncbaabc\naa\nbb"
+        ]
+    ],
+    "hint": "In the first test case choose $ k = 1 $ to obtain \"cc\".\n\nIn the second test case choose $ k = 3 $ to obtain \"cbaabc\".\n\nIn the third test case choose $ k = 1 $ to obtain \"aa\".\n\nIn the fourth test case choose $ k = 1 $ to obtain \"bb\".",
+    "translation": "\u7ed9\u5b9a\u4e00\u4e2a\u5b57\u7b26\u4e32\uff0c\u4f60\u53ef\u4ee5\u5728\u7b2c k \u4e2a\u5b57\u7b26\u540e\u9762\u653e\u4e00\u9762\u955c\u5b50\uff0c\u8fd9\u6837\u8fd9\u4e2a\u5b57\u7b26\u4e32\u5c31\u4f1a\u53d8\u6210 $ s_1s_2s_3...s_{k-1}s_ks_{k-1}...s_3s_2s_1 $ \u8fd9\u79cd\u5f62\u5f0f\u3002\u95ee\u4f60\u653e\u5b8c\u955c\u5b50\u540e\u80fd\u770b\u5230\u7684\u5b57\u5178\u5e8f\u6700\u5c0f\u7684\u5b57\u7b26\u4e32\u3002\n\na \u7684\u5b57\u5178\u5e8f\u6bd4 b \u5c0f\uff0c\u6ee1\u8db3\uff1a\n\n- a \u662f b \u7684\u524d\u7f00\u4e14 $ a \\neq b $\n- a \u7b2c\u4e00\u4e2a\u4e0e b \u5bf9\u5e94\u4f4d\u7f6e\u4e0d\u540c\u7684\u5b57\u7b26\u5728\u5b57\u6bcd\u8868\u4e2d\u6bd4\u5bf9\u5e94 b \u7684\u5b57\u7b26\u5148\u51fa\u73b0\u3002"
+}

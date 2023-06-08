@@ -1,0 +1,25 @@
+{
+    "description": "A never-ending, fast-changing and dream-like world unfolds, as the secret door opens.\n\nA world is an unordered graph $ G $ , in whose vertex set $ V(G) $ there are two special vertices $ s(G) $ and $ t(G) $ . An initial world has vertex set $ {s(G),t(G)} $ and an edge between them.\n\nA total of $ n $ changes took place in an initial world. In each change, a new vertex $ w $ is added into $ V(G) $ , an existing edge $ (u,v) $ is chosen, and two edges $ (u,w) $ and $ (v,w) $ are added into $ E(G) $ . Note that it's possible that some edges are chosen in more than one change.\n\nIt's known that the capacity of the minimum $ s $ - $ t $ cut of the resulting graph is $ m $ , that is, at least $ m $ edges need to be removed in order to make $ s(G) $ and $ t(G) $ disconnected.\n\nCount the number of non-similar worlds that can be built under the constraints, modulo $ 10^{9}+7 $ . We define two worlds similar, if they are isomorphic and there is isomorphism in which the $ s $ and $ t $ vertices are not relabelled. Formally, two worlds $ G $ and $ H $ are considered similar, if there is a bijection between their vertex sets ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF848D/74c8e824289748b1c6091efe47efb3bcb1171b41.png), such that:\n\n- $ f(s(G))=s(H) $ ;\n- $ f(t(G))=t(H) $ ;\n- Two vertices $ u $ and $ v $ of $ G $ are adjacent in $ G $ if and only if $ f(u) $ and $ f(v) $ are adjacent in $ H $ .",
+    "inputFormat": "The first and only line of input contains two space-separated integers $ n $ , $ m $ ( $ 1<=n,m<=50 $ ) \u2014 the number of operations performed and the minimum cut, respectively.",
+    "outputFormat": "Output one integer \u2014 the number of non-similar worlds that can be built, modulo $ 10^{9}+7 $ .",
+    "samples": [
+        [
+            "3 2\n",
+            "6\n"
+        ],
+        [
+            "4 4\n",
+            "3\n"
+        ],
+        [
+            "7 3\n",
+            "1196\n"
+        ],
+        [
+            "31 8\n",
+            "64921457\n"
+        ]
+    ],
+    "hint": "In the first example, the following $ 6 $ worlds are pairwise non-similar and satisfy the constraints, with $ s(G) $ marked in green, $ t(G) $ marked in blue, and one of their minimum cuts in light blue.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF848D/90b84a165766ff5521c80894952d74b923bb189c.png)In the second example, the following $ 3 $ worlds satisfy the constraints.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF848D/4b5a0028f48d90305814af5a34f61e4d5a41012c.png)",
+    "translation": "\n\u7ed9\u5b9a $n,m$\uff0c\u73b0\u5728\u6309\u7167\u6b64\u89c4\u5219\u751f\u6210\u65e0\u5411\u56fe\uff0c\u521d\u59cb\u6211\u4eec\u6709\u4e00\u5f20\u56fe $G$\uff0c\u4ec5\u5305\u542b\u4e24\u4e2a\u8282\u70b9 $s,t$\uff0c\u4ee5\u53ca\u8fde\u63a5 $s\\to t$ \u7684\u8fb9\u3002\n\n\u6bcf\u6b21\u4f60\u53ef\u4ee5\u9009\u62e9\u4e00\u6761\u5df2\u7ecf\u5b58\u5728\u7684\u8fb9 $(u,v)$\uff0c\u7136\u540e\u5c06\u5f80\u56fe\u4e2d\u52a0\u5165\u8282\u70b9 $w$ \u548c\u8fb9 $(u,w),(w,v)$\uff0c\u8fd9\u6837\u64cd\u4f5c $n$ \u6b21\uff0c\u6211\u4eec\u5c06\u5f97\u5230\u4e00\u5f20\u56fe $G'$\n\n\u5b9a\u4e49 $G'$ \u5408\u6cd5\uff0c\u5f53\u4e14\u4ec5\u5f53 $\\textrm{mincut}(s,t)=m$\uff0c\u5373 $s\\to t$ \u7684\u6700\u5c0f\u5272\u4e3a $m$\n\n\u6c42\u672c\u8d28\u4e0d\u540c\u7684\u5408\u6cd5\u7684\u56fe $G'$ \u7684\u6570\u91cf\uff0c\u7b54\u6848\u5bf9 $10^9+7$ \u53d6\u6a21\u3002\n\n\u5176\u4e2d\uff0c\u4e24\u5f20\u56fe $G_1,G_2$ \u4e0d\u540c\uff0c\u5f53\u4e14\u4ec5\u5f53\u4e0d\u5b58\u5728\u4e00\u79cd\u4f5c\u7528\u4e8e\u70b9\u96c6\u7684\u7f6e\u6362\uff0c\u4f7f\u5f97\u8fb9\u5bf9\u5e94\u76f8\u540c\uff0c\u540c\u65f6 $s,t$ \u5bf9\u5e94\u76f8\u540c\u3002\n\n$n,m\\le 50$\n\ntranslated by EmptySoulist"
+}

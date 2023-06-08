@@ -1,0 +1,13 @@
+{
+    "description": "Carol is currently curling.\n\nShe has $ n $ disks each with radius $ r $ on the 2D plane.\n\nInitially she has all these disks above the line $ y=10^{100} $ .\n\nShe then will slide the disks towards the line $ y=0 $ one by one in order from $ 1 $ to $ n $ .\n\nWhen she slides the $ i $ -th disk, she will place its center at the point $ (x_{i},10^{100}) $ . She will then push it so the disk\u2019s $ y $ coordinate continuously decreases, and $ x $ coordinate stays constant. The disk stops once it touches the line $ y=0 $ or it touches any previous disk. Note that once a disk stops moving, it will not move again, even if hit by another disk.\n\nCompute the $ y $ -coordinates of centers of all the disks after all disks have been pushed.",
+    "inputFormat": "The first line will contain two integers $ n $ and $ r $ ( $ 1<=n,r<=1000 $ ), the number of disks, and the radius of the disks, respectively.\n\nThe next line will contain $ n $ integers $ x_{1},x_{2},...,x_{n} $ ( $ 1<=x_{i}<=1000 $ ) \u2014 the $ x $ -coordinates of the disks.",
+    "outputFormat": "Print a single line with $ n $ numbers. The $ i $ -th number denotes the $ y $ -coordinate of the center of the $ i $ -th disk. The output will be accepted if it has absolute or relative error at most $ 10^{-6} $ .\n\nNamely, let's assume that your answer for a particular value of a coordinate is $ a $ and the answer of the jury is $ b $ . The checker program will consider your answer correct if ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF908C/259203790d90e969d73ec841bd0673c1e8e7d69a.png) for all coordinates.",
+    "samples": [
+        [
+            "6 2\n5 5 6 8 3 12\n",
+            "2 6.0 9.87298334621 13.3370849613 12.5187346573 13.3370849613\n"
+        ]
+    ],
+    "hint": "The final positions of the disks will look as follows:\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF908C/d83c8ae09a1afba1002e3c764e58c1e7ac4abfee.png)In particular, note the position of the last disk.",
+    "translation": "\u9898\u610f\uff1a \u5df2\u77e5\u4e00\u4e9b\u5706\u5728($x_i$,$10^{100}$)\u5904\uff0c\u7136\u540e\u4f9d\u6b21\u843d\u4e0b\uff0c\u4e0b\u843d\u65f6\u53ea\u8981\u78b0\u5230\u67d0\u4e2a\u5706\uff0c\u5c31\u4f1a\u505c\u6b62\uff0c\u6c42\u8fd9\u4e9b\u5706\u7684\u6700\u540e\u7684y\u503c\uff0c\u4e5f\u5373\u662f\u6c34\u5e73\u9ad8\u5ea6\n\u76f8\u5207\u4e5f\u4f1a\u505c\u6b62\uff0c\u6c42\u7684\u662f\u5706\u5fc3\u7684y\u503c\nTranslated by @\u8fdc\u822a\u4e4b\u66f2 @yybyyb"
+}

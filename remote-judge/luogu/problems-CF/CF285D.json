@@ -1,0 +1,17 @@
+{
+    "description": "Permutation $ p $ is an ordered set of integers $ p_{1},p_{2},...,p_{n} $ , consisting of $ n $ distinct positive integers, each of them doesn't exceed $ n $ . We'll denote the $ i $ -th element of permutation $ p $ as $ p_{i} $ . We'll call number $ n $ the size or the length of permutation $ p_{1},p_{2},...,p_{n} $ .\n\nPetya decided to introduce the sum operation on the set of permutations of length $ n $ . Let's assume that we are given two permutations of length $ n $ : $ a_{1},a_{2},...,a_{n} $ and $ b_{1},b_{2},...,b_{n} $ . Petya calls the sum of permutations $ a $ and $ b $ such permutation $ c $ of length $ n $ , where $ c_{i}=((a_{i}-1+b_{i}-1)\\ mod\\ n)+1 $ $ (1<=i<=n) $ .\n\nOperation ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF285D/cb1d84ad58154eb7ea26b65d1ae0039570db9bb6.png) means taking the remainder after dividing number $ x $ by number $ y $ .\n\nObviously, not for all permutations $ a $ and $ b $ exists permutation $ c $ that is sum of $ a $ and $ b $ . That's why Petya got sad and asked you to do the following: given $ n $ , count the number of such pairs of permutations $ a $ and $ b $ of length $ n $ , that exists permutation $ c $ that is sum of $ a $ and $ b $ . The pair of permutations $ x,y $ $ (x\u2260y) $ and the pair of permutations $ y,x $ are considered distinct pairs.\n\nAs the answer can be rather large, print the remainder after dividing it by $ 1000000007 $ ( $ 10^{9}+7 $ ).",
+    "inputFormat": "The single line contains integer $ n\\ (1<=n<=16) $ .",
+    "outputFormat": "In the single line print a single non-negative integer \u2014 the number of such pairs of permutations $ a $ and $ b $ , that exists permutation $ c $ that is sum of $ a $ and $ b $ , modulo $ 1000000007 $ ( $ 10^{9}+7 $ ).",
+    "samples": [
+        [
+            "3\n",
+            "18\n"
+        ],
+        [
+            "5\n",
+            "1800\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u5bf9\u4e8e\u4ece $1$ \u5230 $n$ \u7684\u6392\u5217 $a$\uff0c$b$\uff0c\u5b9a\u4e49\u5e8f\u5217 $c$ \u6ee1\u8db3 $c_i=(a_i+b_i-2)\\bmod{n}+1$\uff0c\u6c42\u5bf9\u4e8e\u591a\u5c11\u5bf9 $(a,b)$ \u6ee1\u8db3\u5bf9\u5e94\u7684 $c$ \u662f\u4e00\u4e2a\u4ece $1$ \u5230 $n$ \u7684\u6392\u5217\u3002\n\n\u6ce8\u610f\u5982\u679c $a\\neq b$\uff0c$(a,b)$ \u4e0e $(b,a)$ \u7b97\u4f5c\u4e0d\u540c\u7684\u7ec4\u5408\u3002$1\\le n\\le 16$\u3002"
+}

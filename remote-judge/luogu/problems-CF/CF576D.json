@@ -1,0 +1,21 @@
+{
+    "description": "In the country there are exactly $ n $ cities numbered with positive integers from $ 1 $ to $ n $ . In each city there is an airport is located.\n\nAlso, there is the only one airline, which makes $ m $ flights. Unfortunately, to use them, you need to be a regular customer of this company, namely, you have the opportunity to enjoy flight $ i $ from city $ a_{i} $ to city $ b_{i} $ only if you have already made at least $ d_{i} $ flights before that.\n\nPlease note that flight $ i $ flies exactly from city $ a_{i} $ to city $ b_{i} $ . It can not be used to fly from city $ b_{i} $ to city $ a_{i} $ . An interesting fact is that there may possibly be recreational flights with a beautiful view of the sky, which begin and end in the same city.\n\nYou need to get from city $ 1 $ to city $ n $ . Unfortunately, you've never traveled by plane before. What minimum number of flights you have to perform in order to get to city $ n $ ?\n\nNote that the same flight can be used multiple times.",
+    "inputFormat": "The first line contains two integers, $ n $ and $ m $ ( $ 2<=n<=150 $ , $ 1<=m<=150 $ ) \u2014 the number of cities in the country and the number of flights the company provides.\n\nNext $ m $ lines contain numbers $ a_{i} $ , $ b_{i} $ , $ d_{i} $ ( $ 1<=a_{i},b_{i}<=n $ , $ 0<=d_{i}<=10^{9} $ ), representing flight number $ i $ from city $ a_{i} $ to city $ b_{i} $ , accessible to only the clients who have made at least $ d_{i} $ flights.",
+    "outputFormat": "Print \"Impossible\" (without the quotes), if it is impossible to get from city $ 1 $ to city $ n $ using the airways.\n\nBut if there is at least one way, print a single integer \u2014 the minimum number of flights you need to make to get to the destination point.",
+    "samples": [
+        [
+            "3 2\n1 2 0\n2 3 1\n",
+            "2\n"
+        ],
+        [
+            "2 1\n1 2 100500\n",
+            "Impossible\n"
+        ],
+        [
+            "3 3\n2 1 0\n2 3 6\n1 2 0\n",
+            "8\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "- \u7ed9\u5b9a\u4e00\u5f20 $n$ \u4e2a\u70b9 $m$ \u6761\u8fb9\u7684\u6709\u5411\u56fe\u3002\n- \u4e00\u5f00\u59cb\u4f60\u5728 $1$ \u53f7\u8282\u70b9\uff0c\u4f60\u8981\u8d70\u5230 $n$ \u53f7\u8282\u70b9\u53bb\u3002\n- \u53ea\u6709\u5f53\u4f60\u5df2\u7ecf\u8d70\u8fc7\u4e86\u81f3\u5c11 $d_i$ \u6761\u8fb9\u65f6\uff0c\u4f60\u624d\u80fd\u8d70\u7b2c $i$ \u6761\u8fb9\u3002\n- \u95ee\u6700\u5c11\u8981\u8d70\u591a\u5c11\u6761\u8fb9\uff0c\u6216\u5224\u65ad\u65e0\u6cd5\u5230\u8fbe\u3002\n- $n,m \\le 150$\uff0c$d_i \\le 10^9$\u3002"
+}

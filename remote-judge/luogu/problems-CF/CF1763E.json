@@ -1,0 +1,21 @@
+{
+    "description": "Let's call an ordered pair of nodes $ (u, v) $ in a directed graph unidirectional if $ u \\neq v $ , there exists a path from $ u $ to $ v $ , and there are no paths from $ v $ to $ u $ .\n\nA directed graph is called  $ p $ -reachable if it contains exactly $ p $ ordered pairs of nodes $ (u, v) $ such that $ u < v $ and $ u $ and $ v $ are reachable from each other. Find the minimum number of nodes required to create a $ p $ -reachable directed graph.\n\nAlso, among all such $ p $ -reachable directed graphs with the minimum number of nodes, let $ G $ denote a graph which maximizes the number of unidirectional pairs of nodes. Find this number.",
+    "inputFormat": "The first and only line contains a single integer $ p $ ( $ 0 \\le p \\le 2 \\cdot 10^5 $ ) \u2014 the number of ordered pairs of nodes.",
+    "outputFormat": "Print a single line containing two integers \u2014 the minimum number of nodes required to create a $ p $ -reachable directed graph, and the maximum number of unidirectional pairs of nodes among all such $ p $ -reachable directed graphs with the minimum number of nodes.",
+    "samples": [
+        [
+            "3",
+            "3 0"
+        ],
+        [
+            "4",
+            "5 6"
+        ],
+        [
+            "0",
+            "0 0"
+        ]
+    ],
+    "hint": "In the first test case, the minimum number of nodes required to create a $ 3 $ -reachable directed graph is $ 3 $ . Among all $ 3 $ -reachable directed graphs with $ 3 $ nodes, the following graph $ G $ is one of the graphs with the maximum number of unidirectional pairs of nodes, which is $ 0 $ .\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1763E/056ef4fb4b6b27a5f901099fab6d214793a2d54c.png)",
+    "translation": "\u5728\u4e00\u4e2a\u6709\u5411\u56fe\u4e2d\uff0c\u4e00\u4e2a\u8282\u70b9\u5bf9 $ ( u , v ) $ \u5982\u679c\u6ee1\u8db3 $ u \\ne v $\uff0c$ u $ \u80fd\u5230\u8fbe $ v $ \u4e14 $ v $ \u4e0d\u80fd\u5230\u8fbe $ u $\uff0c\u5219\u79f0\u5176\u4e3a\u5355\u5411\u8282\u70b9\u5bf9\u3002\n\n\u5982\u679c\u4e00\u4e2a\u6709\u5411\u56fe\u521a\u597d\u5b58\u5728 $ p $ \u5bf9\u8282\u70b9 $ ( u , v) $\uff08$ u < v $ \u4e14\u4e8c\u8005\u80fd\u4e92\u76f8\u5230\u8fbe\uff09\uff0c\u5219\u79f0\u8fd9\u662f\u4e00\u4e2a $ p $ \u53ef\u8fbe\u56fe\uff0c\u6c42\u8282\u70b9\u6700\u5c11\u7684 $ p $ \u53ef\u8fbe\u56fe\u7684\u8282\u70b9\u6570\u3002\n\n\u540c\u65f6\uff0c\u5b9a\u4e49\u56fe $ G $ \u4e3a\u5728\u6240\u6709\u8282\u70b9\u6570\u6700\u5c11\u7684 $ p $ \u53ef\u8fbe\u56fe\u4e2d\uff0c\u5355\u5411\u8282\u70b9\u5bf9\u6570\u91cf\u6700\u591a\u7684\u56fe\uff0c\u6c42\u51fa\u56fe $ G $ \u4e2d\u5355\u5411\u8282\u70b9\u5bf9\u7684\u4e2a\u6570\u3002"
+}

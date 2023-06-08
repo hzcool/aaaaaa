@@ -1,0 +1,13 @@
+{
+    "description": "You are given a pair of integers $ (a, b) $ and an integer $ x $ .\n\nYou can change the pair in two different ways:\n\n- set (assign) $ a := |a - b| $ ;\n- set (assign) $ b := |a - b| $ ,\n\n where $ |a - b| $ is the absolute difference between $ a $ and $ b $ .The pair $ (a, b) $ is called $ x $ -magic if $ x $ is obtainable either as $ a $ or as $ b $ using only the given operations (i.e. the pair $ (a, b) $ is $ x $ -magic if $ a = x $ or $ b = x $ after some number of operations applied). You can apply the operations any number of times (even zero).\n\nYour task is to find out if the pair $ (a, b) $ is $ x $ -magic or not.\n\nYou have to answer $ t $ independent test cases.",
+    "inputFormat": "The first line of the input contains one integer $ t $ ( $ 1 \\le t \\le 10^4 $ ) \u2014 the number of test cases. The next $ t $ lines describe test cases.\n\nThe only line of the test case contains three integers $ a $ , $ b $ and $ x $ ( $ 1 \\le a, b, x \\le 10^{18} $ ).",
+    "outputFormat": "For the $ i $ -th test case, print YES if the corresponding pair $ (a, b) $ is $ x $ -magic and NO otherwise.",
+    "samples": [
+        [
+            "8\n6 9 3\n15 38 7\n18 8 8\n30 30 30\n40 50 90\n24 28 20\n365 216 52\n537037812705867558 338887693834423551 3199921013340",
+            "YES\nYES\nYES\nYES\nNO\nYES\nYES\nYES"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9\u4e00\u4e2a\u6570\u5bf9 $(a,b)$ \uff0c\u6bcf\u6b21\u53ef\u4ee5\u8fdb\u884c\u64cd\u4f5c $(a,b) \\to (|a-b|,b)$ \u6216 $(a,|a-b|)$ \u3002\u95ee\u6700\u540e\u80fd\u5426\u4ee4 $a=x$ \u6216 $b=x$ \u3002$a,b,x \\le 10^{18}$"
+}

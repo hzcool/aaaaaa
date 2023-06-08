@@ -1,0 +1,17 @@
+{
+    "description": "Igor is in the museum and he wants to see as many pictures as possible.\n\nMuseum can be represented as a rectangular field of $ n\u00d7m $ cells. Each cell is either empty or impassable. Empty cells are marked with '.', impassable cells are marked with '\\*'. Every two adjacent cells of different types (one empty and one impassable) are divided by a wall containing one picture.\n\nAt the beginning Igor is in some empty cell. At every moment he can move to any empty cell that share a side with the current one.\n\nFor several starting positions you should calculate the maximum number of pictures that Igor can see. Igor is able to see the picture only if he is in the cell adjacent to the wall with this picture. Igor have a lot of time, so he will examine every picture he can see.",
+    "inputFormat": "First line of the input contains three integers $ n $ , $ m $ and $ k $ ( $ 3<=n,m<=1000,1<=k<=min(n\u00b7m,100000) $ ) \u2014 the museum dimensions and the number of starting positions to process.\n\nEach of the next $ n $ lines contains $ m $ symbols '.', '\\*' \u2014 the description of the museum. It is guaranteed that all border cells are impassable, so Igor can't go out from the museum.\n\nEach of the last $ k $ lines contains two integers $ x $ and $ y $ ( $ 1<=x<=n,1<=y<=m $ ) \u2014 the row and the column of one of Igor's starting positions respectively. Rows are numbered from top to bottom, columns \u2014 from left to right. It is guaranteed that all starting positions are empty cells.",
+    "outputFormat": "Print $ k $ integers \u2014 the maximum number of pictures, that Igor can see if he starts in corresponding position.",
+    "samples": [
+        [
+            "5 6 3\n******\n*..*.*\n******\n*....*\n******\n2 2\n2 5\n4 3\n",
+            "6\n4\n10\n"
+        ],
+        [
+            "4 4 1\n****\n*..*\n*.**\n****\n3 2\n",
+            "8\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9\u5b9a\u4e00\u4e2an\\*m\u7684\u5730\u56fe\uff0c\u6709k\u6b21\u67e5\u8be2\u3002\u6bcf\u6b21\u67e5\u8be2\uff0c\u8be2\u95ee\u4f4d\u7f6e\uff08x,y\uff09\u7684'.'\u8fde\u901a\u5757\u5468\u56f4\u6709\u591a\u5c11\u4e2a'*'"
+}

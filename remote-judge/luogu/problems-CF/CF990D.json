@@ -1,0 +1,17 @@
+{
+    "description": "Given three numbers $ n, a, b $ . You need to find an adjacency matrix of such an undirected graph that the number of components in it is equal to $ a $ , and the number of components in its complement is $ b $ . The matrix must be symmetric, and all digits on the main diagonal must be zeroes.\n\nIn an undirected graph loops (edges from a vertex to itself) are not allowed. It can be at most one edge between a pair of vertices.\n\nThe adjacency matrix of an undirected graph is a square matrix of size $ n $ consisting only of \"0\" and \"1\", where $ n $ is the number of vertices of the graph and the $ i $ -th row and the $ i $ -th column correspond to the $ i $ -th vertex of the graph. The cell $ (i,j) $ of the adjacency matrix contains $ 1 $ if and only if the $ i $ -th and $ j $ -th vertices in the graph are connected by an edge.\n\nA connected component is a set of vertices $ X $ such that for every two vertices from this set there exists at least one path in the graph connecting this pair of vertices, but adding any other vertex to $ X $ violates this rule.\n\nThe complement or inverse of a graph $ G $ is a graph $ H $ on the same vertices such that two distinct vertices of $ H $ are adjacent if and only if they are not adjacent in $ G $ .",
+    "inputFormat": "In a single line, three numbers are given $ n, a, b \\,(1 \\le n \\le 1000, 1 \\le a, b \\le n) $ : is the number of vertexes of the graph, the required number of connectivity components in it, and the required amount of the connectivity component in it's complement.",
+    "outputFormat": "If there is no graph that satisfies these constraints on a single line, print \"NO\" (without quotes).\n\nOtherwise, on the first line, print \"YES\"(without quotes). In each of the next $ n $ lines, output $ n $ digits such that $ j $ -th digit of $ i $ -th line must be $ 1 $ if and only if there is an edge between vertices $ i $ and $ j $ in $ G $ (and $ 0 $ otherwise). Note that the matrix must be symmetric, and all digits on the main diagonal must be zeroes.\n\nIf there are several matrices that satisfy the conditions \u2014 output any of them.",
+    "samples": [
+        [
+            "3 1 2\n",
+            "YES\n001\n001\n110\n"
+        ],
+        [
+            "3 3 3\n",
+            "NO\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u4e00\u5f20\u65e0\u5411\u56fe\u4e00\u5171\u6709n\u4e2a\u70b9,a\u4e2a\u8054\u901a\u5757,\u5b83\u7684\u8865\u56fe\u4e00\u5171\u6709b\u4e2a\u8054\u901a\u5757,\u5982\u679c\u80fd\u6784\u9020\u51fa\u8fd9\u5f20\u56fe\u8f93\u51fa'YES'\u5e76\u8f93\u51fa\u5b83\u7684\u90bb\u63a5\u77e9\u9635\uff0c\u5426\u5219\u8f93\u51fa'NO'\n\n\u8f93\u5165:\n\n\u4e09\u4e2a\u6574\u6570n,a,b\n\n\u8f93\u51fa\uff1a\n\n\u5982\u679c\u6709\u89e3\u8f93\u51fa'YES'\u548c\u90bb\u63a5\u77e9\u9635\uff0c\u5426\u5219\u8f93\u51fa'NO'\n\n\u611f\u8c22@zhaotiensn \u63d0\u4f9b\u7ffb\u8bd1"
+}

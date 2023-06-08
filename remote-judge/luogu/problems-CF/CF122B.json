@@ -1,0 +1,21 @@
+{
+    "description": "Petya loves lucky numbers. Everybody knows that lucky numbers are positive integers whose decimal representation contains only the lucky digits 4 and 7. For example, numbers 47, 744, 4 are lucky and 5, 17, 467 are not.\n\nOne day Petya was delivered a string $ s $ , containing only digits. He needs to find a string that\n\n- represents a lucky number without leading zeroes,\n- is not empty,\n- is contained in $ s $ as a substring the maximum number of times.\n\nAmong all the strings for which the three conditions given above are fulfilled, Petya only needs the lexicographically minimum one. Find this string for Petya.",
+    "inputFormat": "The single line contains a non-empty string $ s $ whose length can range from $ 1 $ to $ 50 $ , inclusive. The string only contains digits. The string can contain leading zeroes.",
+    "outputFormat": "In the only line print the answer to Petya's problem. If the sought string does not exist, print \"-1\" (without quotes).",
+    "samples": [
+        [
+            "047\n",
+            "4\n"
+        ],
+        [
+            "16\n",
+            "-1\n"
+        ],
+        [
+            "472747\n",
+            "7\n"
+        ]
+    ],
+    "hint": "The lexicographical comparison of strings is performed by the < operator in the modern programming languages. String $ x $ is lexicographically less than string $ y $ either if $ x $ is a prefix of $ y $ , or exists such $ i $ ( $ 1<=i<=min(|x|,|y|) $ ), that $ x_{i}&lt;y_{i} $ and for any $ j $ ( $ 1<=j&lt;i $ ) $ x_{j}=y_{j} $ . Here $ |a| $ denotes the length of string $ a $ .\n\nIn the first sample three conditions are fulfilled for strings \"4\", \"7\" and \"47\". The lexicographically minimum one is \"4\".\n\nIn the second sample $ s $ has no substrings which are lucky numbers.\n\nIn the third sample the three conditions are only fulfilled for string \"7\".",
+    "translation": "Petya\u559c\u6b22\u5e78\u8fd0\u6570\u5b57\u3002 \n\n\u6bcf\u4e2a\u4eba\u90fd\u77e5\u9053\u5e78\u8fd0\u6570\u5b57\u662f\u6b63\u6574\u6570\uff0c\u5176\u5c0f\u6570\u8868\u793a\u4ec5\u5305\u542b\u5e78\u8fd0\u6570\u5b574\u548c7\u3002\u4f8b\u5982\uff0c\u6570\u5b5747\u3001744\u30014\u662f\u5e78\u8fd0\u6570\u5b57\uff0c\u800c5\u300117\u3001467\u4e0d\u662f\u3002\n\nPetya\u6536\u5230\u4e86\u4e00\u4e2a\u4ec5\u5305\u542b\u6570\u5b57\u7684\u5b57\u7b26\u4e32s\u3002 \n\n\u4ed6\u9700\u8981\u627e\u5230\u4e00\u4e2a\u5b50\u5b57\u7b26\u4e32\n```\n\u662f\u6ca1\u6709\u524d\u5bfc\u96f6\u7684\u5e78\u8fd0\u6570\u5b57\uff0c\n\n\u4e0d\u4e3a\u7a7a\uff0c\n\n\u5728s\u4e2d\u4f5c\u4e3a\u5b50\u5b57\u7b26\u4e32\u5305\u542bs\u7684\u6700\u5927\u6b21\u6570\u3002\n```\n\u5728\u6ee1\u8db3\u4ee5\u4e0a\u4e09\u4e2a\u6761\u4ef6\u7684\u6240\u6709\u5b57\u7b26\u4e32\u4e2d\uff0cPetya\u4ec5\u9700\u6309\u5b57\u5178\u987a\u5e8f\u7684\u6700\u5c0f\u6761\u4ef6\u5373\u53ef\u3002 "
+}

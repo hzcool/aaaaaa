@@ -1,0 +1,37 @@
+{
+    "description": "Consider a hallway, which can be represented as the matrix with $ 2 $ rows and $ n $ columns. Let's denote the cell on the intersection of the $ i $ -th row and the $ j $ -th column as $ (i, j) $ . The distance between the cells $ (i_1, j_1) $ and $ (i_2, j_2) $ is $ |i_1 - i_2| + |j_1 - j_2| $ .\n\nThere is a cleaning robot in the cell $ (1, 1) $ . Some cells of the hallway are clean, other cells are dirty (the cell with the robot is clean). You want to clean the hallway, so you are going to launch the robot to do this.\n\nAfter the robot is launched, it works as follows. While at least one cell is dirty, the robot chooses the closest (to its current cell) cell among those which are dirty, moves there and cleans it (so the cell is no longer dirty). After cleaning a cell, the robot again finds the closest dirty cell to its current cell, and so on. This process repeats until the whole hallway is clean.\n\nHowever, there is a critical bug in the robot's program. If at some moment, there are multiple closest (to the robot's current position) dirty cells, the robot malfunctions.\n\nYou want to clean the hallway in such a way that the robot doesn't malfunction. Before launching the robot, you can clean some (possibly zero) of the dirty cells yourself. However, you don't want to do too much dirty work yourself while you have this nice, smart (yet buggy) robot to do this. Note that you cannot make a clean cell dirty.\n\nCalculate the maximum possible number of cells you can leave dirty before launching the robot, so that it doesn't malfunction.",
+    "inputFormat": "The first line contains one integer $ n $ ( $ 2 \\le n \\le 2 \\cdot 10^5 $ ) \u2014 the number of columns in the hallway.\n\nThen two lines follow, denoting the $ 1 $ -st and the $ 2 $ -nd row of the hallway. These lines contain $ n $ characters each, where 0 denotes a clean cell and 1 denotes a dirty cell. The starting cell of the robot $ (1, 1) $ is clean.",
+    "outputFormat": "Print one integer \u2014 the maximum possible number of cells you can leave dirty before launching the robot, so that it doesn't malfunction.",
+    "samples": [
+        [
+            "2\n01\n11",
+            "2"
+        ],
+        [
+            "2\n01\n01",
+            "2"
+        ],
+        [
+            "4\n0101\n1011",
+            "4"
+        ],
+        [
+            "4\n0000\n0000",
+            "0"
+        ],
+        [
+            "5\n00011\n10101",
+            "4"
+        ],
+        [
+            "6\n011111\n111111",
+            "8"
+        ],
+        [
+            "10\n0101001010\n1010100110",
+            "6"
+        ]
+    ],
+    "hint": "In the first example, you can clean the cell $ (1, 2) $ , so the path of the robot is $ (1, 1) \\rightarrow (2, 1) \\rightarrow (2, 2) $ .\n\nIn the second example, you can leave the hallway as it is, so the path of the robot is $ (1, 1) \\rightarrow (1, 2) \\rightarrow (2, 2) $ .\n\nIn the third example, you can clean the cell $ (1, 2) $ , so the path of the robot is $ (1, 1) \\rightarrow (2, 1) \\rightarrow (2, 3) \\rightarrow (2, 4) \\rightarrow (1, 4) $ .\n\nIn the fourth example, the hallway is already clean. Maybe you have launched the robot earlier?",
+    "translation": "\u7ed9\u5b9a\u4e00\u4e2a\u7531 $2\\times n$ \u4e2a\u683c\u5b50\u7ec4\u6210\u7684\u8d70\u5eca\u3002\u6709\u4e00\u4e9b\u683c\u5b50\u662f\u810f\u7684\u3002\u4f60\u4f1a\u4ece $(1,1)$ \u91ca\u653e\u4e00\u4e2a\u673a\u5668\u4eba\u3002\u6bcf\u6b21\u64cd\u4f5c\u673a\u5668\u4eba\u4f1a\u9009\u5b9a\u79bb\u5b83\u6700\u8fd1\u7684\u4e00\u4e2a\u810f\u683c\u5b50\uff0c\u79fb\u52a8\u5230\u90a3\u4e2a\u683c\u5b50\u4e0a\u5e76\u6e05\u7406\u8be5\u683c\u5b50\uff0c\u91cd\u590d\u6b64\u64cd\u4f5c\u76f4\u81f3\u5168\u90e8\u810f\u683c\u5b50\u88ab\u6e05\u7406\u3002\n\n\u7136\u800c\u673a\u5668\u4eba\u5982\u679c\u5728\u9009\u5b9a\u4e0b\u4e00\u4e2a\u6e05\u7406\u7684\u810f\u683c\u5b50\u65f6\uff0c\u6709\u4e24\u4e2a\u6216\u66f4\u591a\u810f\u683c\u5b50\u79bb\u5b83\u6700\u8fd1\uff0c\u90a3\u4e48\u673a\u5668\u4eba\u4f1a\u5d29\u6e83\u3002\n\n\u4f60\u7684\u4efb\u52a1\u662f\u4e8b\u5148\u6e05\u7406\u624b\u52a8\u5c3d\u91cf\u5c11\u7684\u810f\u683c\u5b50\uff0c\u4f7f\u5f97\u673a\u5668\u4eba\u53ef\u4ee5\u6b63\u5e38\u6e05\u7406\u5b8c\u6240\u6709\u683c\u5b50\u3002\n\n\u8f93\u51fa\u4f60\u6e05\u7406\u5b8c\u540e\u5269\u4e0b\u7684\u810f\u683c\u5b50\u6570\u91cf\u3002"
+}

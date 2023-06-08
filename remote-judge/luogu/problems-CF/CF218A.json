@@ -1,0 +1,17 @@
+{
+    "description": "Little Bolek has found a picture with $ n $ mountain peaks painted on it. The $ n $ painted peaks are represented by a non-closed polyline, consisting of $ 2n $ segments. The segments go through $ 2n+1 $ points with coordinates $ (1,y_{1}) $ , $ (2,y_{2}) $ , $ ... $ , $ (2n+1,y_{2n+1}) $ , with the $ i $ -th segment connecting the point $ (i,y_{i}) $ and the point $ (i+1,y_{i+1}) $ . For any even $ i $ $ (2<=i<=2n) $ the following condition holds: $ y_{i-1}&lt;y_{i} $ and $ y_{i}&gt;y_{i+1} $ .\n\nWe shall call a vertex of a polyline with an even $ x $ coordinate a mountain peak.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF218A/96f9e39adc23f097d41530b53dba00529f48c7bd.png) The figure to the left shows the initial picture, the figure to the right shows what the picture looks like after Bolek's actions. The affected peaks are marked red, $ k $ = 2. Bolek fancied a little mischief. He chose exactly $ k $ mountain peaks, rubbed out the segments that went through those peaks and increased each peak's height by one (that is, he increased the $ y $ coordinate of the corresponding points). Then he painted the missing segments to get a new picture of mountain peaks. Let us denote the points through which the new polyline passes on Bolek's new picture as $ (1,r_{1}) $ , $ (2,r_{2}) $ , $ ... $ , $ (2n+1,r_{2n+1}) $ .\n\nGiven Bolek's final picture, restore the initial one.",
+    "inputFormat": "The first line contains two space-separated integers $ n $ and $ k $ $ (1<=k<=n<=100) $ . The next line contains $ 2n+1 $ space-separated integers $ r_{1},r_{2},...,r_{2n+1} $ $ (0<=r_{i}<=100) $ \u2014 the $ y $ coordinates of the polyline vertices on Bolek's picture.\n\nIt is guaranteed that we can obtain the given picture after performing the described actions on some picture of mountain peaks.",
+    "outputFormat": "Print $ 2n+1 $ integers $ y_{1},y_{2},...,y_{2n+1} $ \u2014 the $ y $ coordinates of the vertices of the polyline on the initial picture. If there are multiple answers, output any one of them.",
+    "samples": [
+        [
+            "3 2\n0 5 3 5 1 5 2\n",
+            "0 5 3 4 1 4 2 \n"
+        ],
+        [
+            "1 1\n0 2 0\n",
+            "0 1 0 \n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9\u5b9a\u4e00\u4e2a\u957f\u5ea6\u4e3a $2\\times n+1$ \u7684\u5e8f\u5217\uff0c\u4e14\u8fd9\u4e2a\u5e8f\u5217\u6ee1\u8db3\uff1a\u5bf9\u4e8e\u6bcf\u4e2a $i$\uff08$1\\leq i\\leq 2\\times n+1$\uff09\uff0c\u5982\u679c $i$ \u662f\u5076\u6570\uff0c\u5219\u4e00\u5b9a\u6ee1\u8db3 $a_{i-1}<a_i$ \u4e14 $a_i>a_{i+1}$\u3002\u4f60\u9700\u8981\u6c42\u51fa\u4e00\u4e2a\u5e8f\u5217\uff0c\u5176\u4e2d\u6709 $k$ \u4e2a\u4e0b\u6807\u4e3a\u5076\u6570\u7684\u6570\u76f8\u6bd4\u8f93\u5165\u7684\u5e8f\u5217\u88ab\u51cf\u4e86 $1$\uff0c\u4f46\u662f\u8fd9\u4e2a\u5e8f\u5217\u4f9d\u7136\u6ee1\u8db3\u4e0a\u9762\u7684\u6761\u4ef6\u3002"
+}

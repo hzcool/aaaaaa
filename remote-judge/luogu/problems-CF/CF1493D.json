@@ -1,0 +1,13 @@
+{
+    "description": "You are given an array $ a $ of length $ n $ . You are asked to process $ q $ queries of the following format: given integers $ i $ and $ x $ , multiply $ a_i $ by $ x $ .\n\nAfter processing each query you need to output the [greatest common divisor (GCD)](https://en.wikipedia.org/wiki/Greatest_common_divisor) of all elements of the array $ a $ .\n\nSince the answer can be too large, you are asked to output it modulo $ 10^9+7 $ .",
+    "inputFormat": "The first line contains two integers \u2014 $ n $ and $ q $ ( $ 1 \\le n, q \\le 2 \\cdot 10^5 $ ).\n\nThe second line contains $ n $ integers $ a_1, a_2, \\ldots, a_n $ ( $ 1 \\le a_i \\le 2 \\cdot 10^5 $ ) \u2014 the elements of the array $ a $ before the changes.\n\nThe next $ q $ lines contain queries in the following format: each line contains two integers $ i $ and $ x $ ( $ 1 \\le i \\le n $ , $ 1 \\le x \\le 2 \\cdot 10^5 $ ).",
+    "outputFormat": "Print $ q $ lines: after processing each query output the GCD of all elements modulo $ 10^9+7 $ on a separate line.",
+    "samples": [
+        [
+            "4 3\n1 6 8 12\n1 12\n2 3\n3 3",
+            "2\n2\n6"
+        ]
+    ],
+    "hint": "After the first query the array is $ [12, 6, 8, 12] $ , $ \\operatorname{gcd}(12, 6, 8, 12) = 2 $ .\n\nAfter the second query \u2014 $ [12, 18, 8, 12] $ , $ \\operatorname{gcd}(12, 18, 8, 12) = 2 $ .\n\nAfter the third query \u2014 $ [12, 18, 24, 12] $ , $ \\operatorname{gcd}(12, 18, 24, 12) = 6 $ .\n\nHere the $ \\operatorname{gcd} $ function denotes the greatest common divisor.",
+    "translation": "\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u5e8f\u5217 $a$\u3002$m$ \u6b21\u64cd\u4f5c\uff0c\u6bcf\u6b21\u64cd\u4f5c\u4f60\u8981\u5c06 $a_x$ \u4e58 $y$\uff0c\u7136\u540e\u8f93\u51fa $\\gcd(a_1,\\cdots,a_n)\\bmod (10^9+7)$\u3002\n\n$1\\le n,m\\le 2\\times 10^5$\uff0c$1\\le a_i,y\\le 2\\times 10^5$\uff0c$1\\le x\\le n$\u3002"
+}

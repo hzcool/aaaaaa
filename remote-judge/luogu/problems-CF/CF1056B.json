@@ -1,0 +1,21 @@
+{
+    "description": "Arkady and his friends love playing checkers on an $ n \\times n $ field. The rows and the columns of the field are enumerated from $ 1 $ to $ n $ .\n\nThe friends have recently won a championship, so Arkady wants to please them with some candies. Remembering an old parable (but not its moral), Arkady wants to give to his friends one set of candies per each cell of the field: the set of candies for cell $ (i, j) $ will have exactly $ (i^2 + j^2) $ candies of unique type.\n\nThere are $ m $ friends who deserve the present. How many of these $ n \\times n $ sets of candies can be split equally into $ m $ parts without cutting a candy into pieces? Note that each set has to be split independently since the types of candies in different sets are different.",
+    "inputFormat": "The only line contains two integers $ n $ and $ m $ ( $ 1 \\le n \\le 10^9 $ , $ 1 \\le m \\le 1000 $ ) \u2014 the size of the field and the number of parts to split the sets into.",
+    "outputFormat": "Print a single integer \u2014 the number of sets that can be split equally.",
+    "samples": [
+        [
+            "3 3\n",
+            "1\n"
+        ],
+        [
+            "6 5\n",
+            "13\n"
+        ],
+        [
+            "1000000000 1\n",
+            "1000000000000000000\n"
+        ]
+    ],
+    "hint": "In the first example, only the set for cell $ (3, 3) $ can be split equally ( $ 3^2 + 3^2 = 18 $ , which is divisible by $ m=3 $ ).\n\nIn the second example, the sets for the following cells can be divided equally:\n\n- $ (1, 2) $ and $ (2, 1) $ , since $ 1^2 + 2^2 = 5 $ , which is divisible by $ 5 $ ;\n- $ (1, 3) $ and $ (3, 1) $ ;\n- $ (2, 4) $ and $ (4, 2) $ ;\n- $ (2, 6) $ and $ (6, 2) $ ;\n- $ (3, 4) $ and $ (4, 3) $ ;\n- $ (3, 6) $ and $ (6, 3) $ ;\n- $ (5, 5) $ .\n\nIn the third example, sets in all cells can be divided equally, since $ m = 1 $ .",
+    "translation": "\u6c42 $\\sum\\limits_{i=1}^{n}\\sum\\limits_{j=1}^{n}[m|i^2 + j^2]$\u3002\n\n$n \\leq 10^9$\uff0c$m \\leq 10^3$\u3002"
+}

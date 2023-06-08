@@ -1,0 +1,25 @@
+{
+    "description": "Mad scientist Mike has just finished constructing a new device to search for extraterrestrial intelligence! He was in such a hurry to launch it for the first time that he plugged in the power wires without giving it a proper glance and started experimenting right away. After a while Mike observed that the wires ended up entangled and now have to be untangled again.\n\nThe device is powered by two wires \"plus\" and \"minus\". The wires run along the floor from the wall (on the left) to the device (on the right). Both the wall and the device have two contacts in them on the same level, into which the wires are plugged in some order. The wires are considered entangled if there are one or more places where one wire runs above the other one. For example, the picture below has four such places (top view):\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF343B/800db6fdea950669ce9fc6c935adb535dd5b8f2e.png)Mike knows the sequence in which the wires run above each other. Mike also noticed that on the left side, the \"plus\" wire is always plugged into the top contact (as seen on the picture). He would like to untangle the wires without unplugging them and without moving the device. Determine if it is possible to do that. A wire can be freely moved and stretched on the floor, but cannot be cut.\n\nTo understand the problem better please read the notes to the test samples.",
+    "inputFormat": "The single line of the input contains a sequence of characters \"+\" and \"-\" of length $ n $ ( $ 1<=n<=100000 $ ). The $ i $ -th ( $ 1<=i<=n $ ) position of the sequence contains the character \"+\", if on the $ i $ -th step from the wall the \"plus\" wire runs above the \"minus\" wire, and the character \"-\" otherwise.",
+    "outputFormat": "Print either \"Yes\" (without the quotes) if the wires can be untangled or \"No\" (without the quotes) if the wires cannot be untangled.",
+    "samples": [
+        [
+            "-++-\n",
+            "Yes\n"
+        ],
+        [
+            "+-\n",
+            "No\n"
+        ],
+        [
+            "++\n",
+            "Yes\n"
+        ],
+        [
+            "-\n",
+            "No\n"
+        ]
+    ],
+    "hint": "The first testcase corresponds to the picture in the statement. To untangle the wires, one can first move the \"plus\" wire lower, thus eliminating the two crosses in the middle, and then draw it under the \"minus\" wire, eliminating also the remaining two crosses.\n\nIn the second testcase the \"plus\" wire makes one full revolution around the \"minus\" wire. Thus the wires cannot be untangled:\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF343B/f81d6f7313554e6a5de49b65ae625702d1770252.png)In the third testcase the \"plus\" wire simply runs above the \"minus\" wire twice in sequence. The wires can be untangled by lifting \"plus\" and moving it higher:\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF343B/0591f1878f2afff6996a70d247f5566c7ff69a4d.png)In the fourth testcase the \"minus\" wire runs above the \"plus\" wire once. The wires cannot be untangled without moving the device itself:\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF343B/3afabbb3af31d75ce8c264c63164da74053c1456.png)",
+    "translation": "## \u9898\u76ee\u63cf\u8ff0\n\n\u4e24\u6761\u7535\u7ebf\u5206\u522b\u63d2\u5165\u4e86\u6b63\u786e\u7684\u4f4d\u7f6e\uff0c\u4f46\u662f\u7f20\u7ed5\u5728\u4e00\u8d77\uff0c\u5982\u4e0b\u56fe\u6240\u793a\u3002\n\n![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF343B/800db6fdea950669ce9fc6c935adb535dd5b8f2e.png)\n\n\u7535\u7ebf\u4e0d\u80fd\u88ab\u526a\u65ad\u6216\u65ad\u5f00\uff0c\u63d2\u5165\u7684\u8bbe\u5907\u4e5f\u4e0d\u80fd\u88ab\u79fb\u52a8\uff0c\u8bf7\u95ee\u662f\u5426\u53ef\u4ee5\u5728\u8fd9\u79cd\u60c5\u51b5\u4e0b\u89e3\u5f00\u7535\u7ebf\uff1f\n\n\u4e3a\u4e86\u66f4\u597d\u5730\u7406\u89e3\u9898\u610f\uff0c\u8bf7\u9605\u8bfb\u6837\u4f8b\u7684\u89e3\u91ca\u3002\n\n## \u8f93\u5165\u683c\u5f0f\n\n\u8f93\u5165\u4e00\u884c\u5305\u542b\u5b57\u7b26\u4e3a `+` \u548c `-` \u7684\u5b57\u7b26\u5e8f\u5217$(1 \\le n \\le 1000000)$\u3002\n\n\u7b2c $i$ \u4e2a\u4f4d\u7f6e\u4e0a\u5982\u679c\u662f `+`\uff0c\u8bf4\u660e\u6b64\u4f4d\u7f6e\u6b63\u6781\u5728\u8d1f\u6781\u4e0a\u65b9\uff1b\u5982\u679c\u662f `-`\uff0c\u8bf4\u660e\u6b64\u4f4d\u7f6e\u8d1f\u6781\u5728\u6b63\u6781\u4e0a\u65b9\u3002\n\n## \u8f93\u51fa\u683c\u5f0f\n\n\u8f93\u51fa\u4e00\u884c\uff0c\u82e5\u80fd\u89e3\u5f00\u5219\u8f93\u51fa `Yes`\uff0c\u5426\u5219\u5219\u8f93\u51fa `No`\u3002"
+}

@@ -1,0 +1,29 @@
+{
+    "description": "The only difference between the easy and the hard version is the constraint on $ n $ .\n\nYou are given an undirected complete graph on $ n $ vertices. A complete graph is a graph where each pair of vertices is connected by an edge. You have to paint the edges of the graph into two colors, red and blue (each edge will have one color).\n\nA set of vertices $ S $ is red-connected if, for every pair of vertices $ (v_1, v_2) $ such that $ v_1 \\in S $ and $ v_2 \\in S $ , there exists a path from $ v_1 $ to $ v_2 $ that goes only through red edges and vertices from $ S $ . Similarly, a set of vertices $ S $ is blue-connected if, for every pair of vertices $ (v_1, v_2) $ such that $ v_1 \\in S $ and $ v_2 \\in S $ , there exists a path from $ v_1 $ to $ v_2 $ that goes only through blue edges and vertices from $ S $ .\n\nYou have to paint the graph in such a way that:\n\n- there is at least one red edge;\n- there is at least one blue edge;\n- for each set of vertices $ S $ such that $ |S| \\ge 2 $ , $ S $ is either red-connected or blue-connected, but not both.\n\nCalculate the number of ways to paint the graph, and print it modulo $ 998244353 $ .",
+    "inputFormat": "The first (and only) line contains one integer $ n $ ( $ 3 \\le n \\le 5 \\cdot 10^4 $ ).",
+    "outputFormat": "Print one integer \u2014 the number of ways to paint the graph, taken modulo $ 998244353 $ .",
+    "samples": [
+        [
+            "3",
+            "6"
+        ],
+        [
+            "4",
+            "50"
+        ],
+        [
+            "100",
+            "878752271"
+        ],
+        [
+            "1337",
+            "520628749"
+        ],
+        [
+            "42013",
+            "906821221"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7b80\u5355\u7248\u548c\u56f0\u96be\u7248\u4e4b\u95f4\u7684\u552f\u4e00\u533a\u522b\u662f $n$ \u7684\u6570\u636e\u8303\u56f4\u4e0d\u540c\u3002\n\n\u7ed9\u51fa\u4e00\u4e2a $n$ \u4e2a\u9876\u70b9\u7684\u65e0\u5411\u5b8c\u5168\u56fe\u3002\u5b8c\u5168\u56fe\u662f\u6307\u56fe\u4e0a\u4efb\u610f\u4e24\u4e2a\u9876\u70b9\u7686\u6709\u4e00\u6761\u8fb9\u76f8\u8fde\u3002\u4f60\u9700\u8981\u7ed9\u56fe\u4e0a\u7684\u6bcf\u6761\u8fb9\u67d3\u4e0a\u7ea2\u8272\u6216\u84dd\u8272\u3002\n\n\u4e00\u4e2a\u9876\u70b9\u7684\u96c6\u5408 $S$ \u88ab\u79f0\u4f5c\u662f**\u7ea2\u8272\u8fde\u63a5**\u7684\uff0c\u5982\u679c\u5bf9\u4e8e $S$ \u4e2d\u6bcf\u5bf9\u9876\u70b9 $(v_1,v_2)$\uff0c\u90fd\u5b58\u5728\u53ea\u901a\u8fc7\u7ea2\u8fb9\u548c $S$ \u4e2d\u9876\u70b9\u7684\u8def\u5f84\u3002\u76f8\u4eff\u5730\uff0c\u4e00\u4e2a\u9876\u70b9\u7684\u96c6\u5408 $S$ \u88ab\u79f0\u4f5c\u662f**\u84dd\u8272\u8fde\u63a5**\u7684\uff0c\u5982\u679c\u5bf9\u4e8e $S$ \u4e2d\u6bcf\u5bf9\u9876\u70b9 $(v_1,v_2)$\uff0c\u90fd\u5b58\u5728\u53ea\u901a\u8fc7\u84dd\u8fb9\u548c $S$ \u4e2d\u9876\u70b9\u7684\u8def\u5f84\u3002\n\n\u4f60\u9700\u8981\u4ee5\u5982\u4e0b\u65b9\u5f0f\u5bf9\u56fe\u8fdb\u884c\u67d3\u8272\uff1a\n\n- \u81f3\u5c11\u6709\u4e00\u6761\u7ea2\u8fb9\u3002\n- \u81f3\u5c11\u6709\u4e00\u6761\u84dd\u8fb9\u3002\n- \u5bf9\u4e8e\u6bcf\u4e2a\u5927\u5c0f\u4e0d\u5c0f\u4e8e $2$ \u7684\u9876\u70b9\u96c6 $S$\uff08\u4e5f\u5373 $|S|\\geqslant 2$\uff09\uff0c$S$ \u6216\u8005\u662f\u7ea2\u8272\u8fde\u63a5\u7684\uff0c\u6216\u8005\u662f\u84dd\u8272\u8fde\u63a5\u7684\uff0c\u4f46\u4e0d\u80fd\u540c\u65f6\u662f\u7ea2\u8272\u548c\u84dd\u8272\u8fde\u63a5\u7684\u3002\n\n\u8ba1\u7b97\u67d3\u8272\u65b9\u6cd5\u6570\u5bf9 $998244353$ \u53d6\u6a21\u540e\u7684\u7ed3\u679c\u3002"
+}

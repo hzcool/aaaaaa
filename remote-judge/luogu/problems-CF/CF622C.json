@@ -1,0 +1,13 @@
+{
+    "description": "You are given array $ a $ with $ n $ integers and $ m $ queries. The $ i $ -th query is given with three integers $ l_{i},r_{i},x_{i} $ .\n\nFor the $ i $ -th query find any position $ p_{i} $ ( $ l_{i}<=p_{i}<=r_{i} $ ) so that $ a_{pi}\u2260x_{i} $ .",
+    "inputFormat": "The first line contains two integers $ n,m $ ( $ 1<=n,m<=2\u00b710^{5} $ ) \u2014 the number of elements in $ a $ and the number of queries.\n\nThe second line contains $ n $ integers $ a_{i} $ ( $ 1<=a_{i}<=10^{6} $ ) \u2014 the elements of the array $ a $ .\n\nEach of the next $ m $ lines contains three integers $ l_{i},r_{i},x_{i} $ ( $ 1<=l_{i}<=r_{i}<=n,1<=x_{i}<=10^{6} $ ) \u2014 the parameters of the $ i $ -th query.",
+    "outputFormat": "Print $ m $ lines. On the $ i $ -th line print integer $ p_{i} $ \u2014 the position of any number not equal to $ x_{i} $ in segment $ [l_{i},r_{i}] $ or the value $ -1 $ if there is no such number.",
+    "samples": [
+        [
+            "6 4\n1 2 1 1 3 5\n1 4 1\n2 6 2\n3 4 1\n3 4 2\n",
+            "2\n6\n-1\n4\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u3010\u9898\u76ee\u63cf\u8ff0\u3011\r\n\r\n\u7ed9\u5b9a\u4e00\u4e2a\u6709n\u4e2a\u6574\u6570\u548cm\u4e2a\u67e5\u8be2\u7684A\u6570\u7ec4\u3002\u7b2ci\u4e2a\u67e5\u8be2\u662f\u4e09\u4e2a\u6574\u6570l[i]\uff0cr[i]\uff0cx[i]\u3002\u5bf9\u4e8e\u7b2ci\u4e2a\u67e5\u8be2\uff0c\u67e5\u627e\u4efb\u4f55\u4f4d\u7f6ep[i]\uff08l[i]<=p[i]<=r[i]\uff09\uff0c\u4ee5\u4fbfa[p[i]]\u2260x[i]\u3002\r\n\u3010\u8f93\u5165\u683c\u5f0f\u3011\r\n\r\n\u7b2c\u4e00\u884c\u5305\u542b\u4e24\u4e2a\u6574\u6570n\u548cm\uff081<=n\uff0cm<=2\u4e5810^5\uff09-a\u4e2d\u5143\u7d20\u7684\u6570\u76ee\u548c\u67e5\u8be2\u7684\u6570\u76ee\u3002\r\n\u7b2c\u4e8c\u884c\u5305\u542bn\uff0c\u6574\u6570a[i]\uff081<=a[i]<=10^6\uff09-\u6570\u7ec4a\u7684\u5143\u7d20\u3002\r\n\u63a5\u4e0b\u6765\u7684m\u884c\u4e2d\u7684\u6bcf\u4e00\u884c\u90fd\u5305\u542b\u4e09\u4e2a\u6574\u6570\uff0cl[i]\u3001r[i]\u3001x[i]\u3002\uff081<=l[i]<=r[i]<=n\uff0c1<=x[i]<=10^6\uff09-\u7b2ci\u4e2a\u67e5\u8be2\u7684\u53c2\u6570\u3002\r\n\u3010\u8f93\u51fa\u683c\u5f0f\u3011\r\n\r\n**\u8f93\u51fa\u4e3am\u884c**\u3002\u5728\u7b2ci\u884c\u6253\u5370\u6574\u6570p[i]\u2014\u2014\u6bb5[l[i]\uff0cr[i]]\u4e2d\u4e0d\u7b49\u4e8ex[i]\u7684\u4efb\u4f55\u6570\u5b57\u7684\u4f4d\u7f6e\uff0c**\u5982\u679c\u6ca1\u6709\u8be5\u6570\u5b57\uff0c\u8f93\u51fa-1\u3002**"
+}

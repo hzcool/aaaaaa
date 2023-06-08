@@ -1,0 +1,13 @@
+{
+    "description": "Game studio \"DbZ Games\" wants to introduce another map in their popular game \"Valiant\". This time, the map named \"Panvel\" will be based on the city of Mumbai.\n\nMumbai can be represented as $ n \\times m $ cellular grid. Each cell $ (i, j) $ ( $ 1 \\le i \\le n $ ; $ 1 \\le j \\le m $ ) of the grid is occupied by a cuboid building of height $ a_{i,j} $ .\n\nThis time, DbZ Games want to make a map that has perfect vertical gameplay. That's why they want to choose an $ l \\times l $ square inside Mumbai, such that each building inside the square has a height of at least $ l $ .\n\nCan you help DbZ Games find such a square of the maximum possible size $ l $ ?",
+    "inputFormat": "Each test contains multiple test cases. The first line contains the number of test cases $ t $ ( $ 1 \\leq t \\leq 1000 $ ). Description of the test cases follows.\n\nThe first line of each test case contains two positive integers $ n $ and $ m $ ( $ 1 \\le n \\le m $ ; $ 1 \\leq n \\cdot m \\leq 10^6 $ ).\n\nThe $ i $ -th of next $ n $ lines contains $ m $ integers $ a_{i,1}, a_{i,2}, \\dots, a_{i,m} $ ( $ 1 \\leq a_{i,j} \\leq 10^6 $ ) \u2014 heights of buildings on the $ i $ -th row.\n\nIt's guaranteed that the sum of $ n \\cdot m $ over all test cases doesn't exceed $ 10^6 $ .",
+    "outputFormat": "For each test case, print the maximum side length $ l $ of the square DbZ Games can choose.",
+    "samples": [
+        [
+            "4\n2 2\n2 3\n4 5\n1 3\n1 2 3\n2 3\n4 4 3\n2 1 4\n5 6\n1 9 4 6 5 8\n10 9 5 8 11 6\n24 42 32 8 11 1\n23 1 9 69 13 3\n13 22 60 12 14 17",
+            "2\n1\n1\n3"
+        ]
+    ],
+    "hint": "In the first test case, we can choose the square of side $ l = 2 $ (i. e. the whole grid) since the heights of all buildings are greater than or equal to $ 2 $ .\n\nIn the second test case, we can only choose the side as $ 1 $ , so the answer is $ 1 $ .\n\nIn the third test case, there are no squares of size $ 2 $ that have all buildings of height at least $ 2 $ , so the answer is $ 1 $ .",
+    "translation": "\u7ed9\u5b9a\u4e00\u4e2a\u5e26\u6743\u503c\u7684 $n\u00d7m$ \u7f51\u683c\uff0c\u4f60\u53ef\u4ee5\u9009\u53d6\u4e00\u5757\u8fb9\u957f\u4e3a $l$ \u7684\u6b63\u65b9\u5f62\u533a\u57df\u5f53\u4e14\u4ec5\u5f53\u8be5\u533a\u57df\u7684\u6240\u6709\u6743\u503c\u90fd\u5927\u4e8e\u7b49\u4e8e $l$\uff0c\u95ee\u53ef\u4ee5\u9009\u53d6\u7684\u6700\u5927\u6b63\u65b9\u5f62\u533a\u57df\u7684\u8fb9\u957f\u3002"
+}

@@ -1,0 +1,13 @@
+{
+    "description": "Dmitry has an array of $ n $ non-negative integers $ a_1, a_2, \\dots, a_n $ .\n\nIn one operation, Dmitry can choose any index $ j $ ( $ 1 \\le j \\le n $ ) and increase the value of the element $ a_j $ by $ 1 $ . He can choose the same index $ j $ multiple times.\n\nFor each $ i $ from $ 0 $ to $ n $ , determine whether Dmitry can make the $ \\mathrm{MEX} $ of the array equal to exactly $ i $ . If it is possible, then determine the minimum number of operations to do it.\n\nThe $ \\mathrm{MEX} $ of the array is equal to the minimum non-negative integer that is not in the array. For example, the $ \\mathrm{MEX} $ of the array $ [3, 1, 0] $ is equal to $ 2 $ , and the array $ [3, 3, 1, 4] $ is equal to $ 0 $ .",
+    "inputFormat": "The first line of input data contains a single integer $ t $ ( $ 1 \\le t \\le 10^4 $ ) \u2014 the number of test cases in the input.\n\nThe descriptions of the test cases follow.\n\nThe first line of the description of each test case contains a single integer $ n $ ( $ 1 \\le n \\le 2 \\cdot 10^5 $ ) \u2014 the length of the array $ a $ .\n\nThe second line of the description of each test case contains $ n $ integers $ a_1, a_2, \\dots, a_n $ ( $ 0 \\le a_i \\le n $ ) \u2014 elements of the array $ a $ .\n\nIt is guaranteed that the sum of the values $ n $ over all test cases in the test does not exceed $ 2\\cdot10^5 $ .",
+    "outputFormat": "For each test case, output $ n + 1 $ integer \u2014 $ i $ -th number is equal to the minimum number of operations for which you can make the array $ \\mathrm{MEX} $ equal to $ i $ ( $ 0 \\le i \\le n $ ), or -1 if this cannot be done.",
+    "samples": [
+        [
+            "5\n3\n0 1 3\n7\n0 1 2 3 4 3 2\n4\n3 0 0 0\n7\n4 6 2 3 5 0 5\n5\n4 0 1 0 4",
+            "1 1 0 -1 \n1 1 2 2 1 0 2 6 \n3 0 1 4 3 \n1 0 -1 -1 -1 -1 -1 -1 \n2 1 0 2 -1 -1"
+        ]
+    ],
+    "hint": "In the first set of example inputs, $ n=3 $ :\n\n- to get $ \\mathrm{MEX}=0 $ , it is enough to perform one increment: $ a_1 $ ++;\n- to get $ \\mathrm{MEX}=1 $ , it is enough to perform one increment: $ a_2 $ ++;\n- $ \\mathrm{MEX}=2 $ for a given array, so there is no need to perform increments;\n- it is impossible to get $ \\mathrm{MEX}=3 $ by performing increments.",
+    "translation": "\u7ed9\u4f60\u4e00\u4e2a\u6570\u5217\uff0c\u6bcf\u6b21\u53ef\u4ee5\u82b1\u8d39 $1$ \u4ee3\u4ef7\u5c06\u5176\u4e2d\u4e00\u4e2a\u6570\u52a0\u4e00\u3002\u4ece $0$ \u5230 $n$ \u5206\u522b\u8f93\u51fa\u81f3\u5c11\u8981\u82b1\u8d39\u591a\u5c11\u624d\u80fd\u4f7f\u8fd9\u4e2a\u6570\u662f\u6570\u5217\u4e2d\u6ca1\u6709\u51fa\u73b0\u7684\u6700\u5c0f\u7684\u975e\u8d1f\u6574\u6570\u3002"
+}

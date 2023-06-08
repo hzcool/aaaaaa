@@ -1,0 +1,13 @@
+{
+    "description": "You are given two integers $ n $ and $ d $ . You need to construct a rooted binary tree consisting of $ n $ vertices with a root at the vertex $ 1 $ and the sum of depths of all vertices equals to $ d $ .\n\nA tree is a connected graph without cycles. A rooted tree has a special vertex called the root. A parent of a vertex $ v $ is the last different from $ v $ vertex on the path from the root to the vertex $ v $ . The depth of the vertex $ v $ is the length of the path from the root to the vertex $ v $ . Children of vertex $ v $ are all vertices for which $ v $ is the parent. The binary tree is such a tree that no vertex has more than $ 2 $ children.\n\nYou have to answer $ t $ independent test cases.",
+    "inputFormat": "The first line of the input contains one integer $ t $ ( $ 1 \\le t \\le 1000 $ ) \u2014 the number of test cases.\n\nThe only line of each test case contains two integers $ n $ and $ d $ ( $ 2 \\le n, d \\le 5000 $ ) \u2014 the number of vertices in the tree and the required sum of depths of all vertices.\n\nIt is guaranteed that the sum of $ n $ and the sum of $ d $ both does not exceed $ 5000 $ ( $ \\sum n \\le 5000, \\sum d \\le 5000 $ ).",
+    "outputFormat": "For each test case, print the answer.\n\nIf it is impossible to construct such a tree, print \"NO\" (without quotes) in the first line. Otherwise, print \"{YES}\" in the first line. Then print $ n-1 $ integers $ p_2, p_3, \\dots, p_n $ in the second line, where $ p_i $ is the parent of the vertex $ i $ . Note that the sequence of parents you print should describe some binary tree.",
+    "samples": [
+        [
+            "3\n5 7\n10 19\n10 18",
+            "YES\n1 2 1 3 \nYES\n1 2 3 3 9 9 2 1 6 \nNO"
+        ]
+    ],
+    "hint": "Pictures corresponding to the first and the second test cases of the example:\n\n![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1311E/514e626aa001052fb71d69f413a53a8e6f0cb5f0.png)\n\n![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1311E/6407c12a699d89084b087667ed6f21f3aeed074d.png)",
+    "translation": "\u8981\u6c42\u6784\u9020\u4e00\u4e2an\u4e2a\u8282\u70b9\u7684\u4e8c\u53c9\u6811\uff08\u6bcf\u4e2a\u8282\u70b9\u62e5\u6709\u4e0d\u8d85\u8fc72\u4e2a\u5b69\u5b50\uff09\uff0c\u8282\u70b91\u4e3a\u6839\uff0c\u8981\u4f7f\u6240\u6709\u8282\u70b9\u5230\u6839\u7684\u8ddd\u79bb\u4e4b\u548c\u4e3ad\u3002\u8981\u6c42\u5148\u5224\u65ad\u53ef\u4e0d\u53ef\u4ee5\u6784\u9020\uff0c\u5982\u679c\u53ef\u4ee5\u8f93\u51fa\u201cYES\u201d\uff0c\u4e0b\u4e00\u884c\u8f93\u51fa2\u5230n\u53f7\u8282\u70b9\u7684\u7236\u4eb2\u8282\u70b9\uff0c\u5426\u5219\u8f93\u51fa\u201cNO\u201d\u3002\u6709\u591a\u7ec4\u8be2\u95ee\u3002"
+}

@@ -1,0 +1,21 @@
+{
+    "description": "There are $ n $ armchairs, numbered from $ 1 $ to $ n $ from left to right. Some armchairs are occupied by people (at most one person per armchair), others are not. The number of occupied armchairs is not greater than $ \\frac{n}{2} $ .\n\nFor some reason, you would like to tell people to move from their armchairs to some other ones. If the $ i $ -th armchair is occupied by someone and the $ j $ -th armchair is not, you can tell the person sitting in the $ i $ -th armchair to move to the $ j $ -th armchair. The time it takes a person to move from the $ i $ -th armchair to the $ j $ -th one is $ |i - j| $ minutes. You may perform this operation any number of times, but these operations must be done sequentially, i. e. you cannot tell a person to move until the person you asked to move in the last operation has finished moving to their destination armchair.\n\nYou want to achieve the following situation: every seat that was initially occupied must be free. What is the minimum time you need to do it?",
+    "inputFormat": "The first line contains one integer $ n $ ( $ 2 \\le n \\le 5000 $ ) \u2014 the number of armchairs.\n\nThe second line contains $ n $ integers $ a_1, a_2, \\dots, a_n $ ( $ 0 \\le a_i \\le 1 $ ). $ a_i = 1 $ means that the $ i $ -th armchair is initially occupied, $ a_i = 0 $ means that it is initially free. The number of occupied armchairs is at most $ \\frac{n}{2} $ .",
+    "outputFormat": "Print one integer \u2014 the minimum number of minutes you have to spend to achieve the following situation: every seat that was initially occupied must be free.",
+    "samples": [
+        [
+            "7\n1 0 0 1 0 0 1",
+            "3"
+        ],
+        [
+            "6\n1 1 1 0 0 0",
+            "9"
+        ],
+        [
+            "5\n0 0 0 0 0",
+            "0"
+        ]
+    ],
+    "hint": "In the first test, you can perform the following sequence:\n\n1. ask a person to move from armchair $ 1 $ to armchair $ 2 $ , it takes $ 1 $ minute;\n2. ask a person to move from armchair $ 7 $ to armchair $ 6 $ , it takes $ 1 $ minute;\n3. ask a person to move from armchair $ 4 $ to armchair $ 5 $ , it takes $ 1 $ minute.\n\nIn the second test, you can perform the following sequence:\n\n1. ask a person to move from armchair $ 1 $ to armchair $ 4 $ , it takes $ 3 $ minutes;\n2. ask a person to move from armchair $ 2 $ to armchair $ 6 $ , it takes $ 4 $ minutes;\n3. ask a person to move from armchair $ 4 $ to armchair $ 5 $ , it takes $ 1 $ minute;\n4. ask a person to move from armchair $ 3 $ to armchair $ 4 $ , it takes $ 1 $ minute.\n\nIn the third test, no seat is occupied so your goal is achieved instantly.",
+    "translation": "\u6709$n$\u4e2a\u4f4d\u7f6e\uff0c\u6bcf\u4e2a\u4f4d\u7f6e\u8981\u4e48\u662f\u6905\u5b50$(0)$\uff0c\u8981\u4e48\u662f\u4eba$(1)$\u3002\u73b0\u5728\u6bcf\u4e2a\u4eba\u90fd\u8981\u627e\u4e00\u628a\u6905\u5b50\u5750\u4e0b\uff0c\u4e00\u4e2a\u4eba\u5728$i$\u4f4d\u7f6e\u79fb\u52a8\u5230$j$\u4f4d\u7f6e\u7684\u6905\u5b50\u9700\u8981\u82b1\u8d39\u4ee3\u4ef7$|i-j|$\uff0c\u95ee\u6240\u6709\u4eba\u90fd\u505a\u5230\u81ea\u5df1\u7684\u6905\u5b50\u4e0a\u7684\u6700\u5c0f\u82b1\u8d39\u7684\u603b\u4ee3\u4ef7\u3002\u8f93\u51fa\u6700\u5c0f\u7684\u82b1\u8d39\u7684\u603b\u4ee3\u4ef7\u3002"
+}

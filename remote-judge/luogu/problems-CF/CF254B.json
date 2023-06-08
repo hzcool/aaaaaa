@@ -1,0 +1,21 @@
+{
+    "description": "In 2013, the writers of Berland State University should prepare problems for $ n $ Olympiads. We will assume that the Olympiads are numbered with consecutive integers from 1 to $ n $ . For each Olympiad we know how many members of the jury must be involved in its preparation, as well as the time required to prepare the problems for her. Namely, the Olympiad number $ i $ should be prepared by $ p_{i} $ people for $ t_{i} $ days, the preparation for the Olympiad should be a continuous period of time and end exactly one day before the Olympiad. On the day of the Olympiad the juries who have prepared it, already do not work on it.\n\nFor example, if the Olympiad is held on December 9th and the preparation takes 7 people and 6 days, all seven members of the jury will work on the problems of the Olympiad from December, 3rd to December, 8th (the jury members won't be working on the problems of this Olympiad on December 9th, that is, some of them can start preparing problems for some other Olympiad). And if the Olympiad is held on November 3rd and requires 5 days of training, the members of the jury will work from October 29th to November 2nd.\n\nIn order not to overload the jury the following rule was introduced: one member of the jury can not work on the same day on the tasks for different Olympiads. Write a program that determines what the minimum number of people must be part of the jury so that all Olympiads could be prepared in time.",
+    "inputFormat": "The first line contains integer $ n $ \u2014 the number of Olympiads in 2013 ( $ 1<=n<=100 $ ). Each of the following $ n $ lines contains four integers $ m_{i} $ , $ d_{i} $ , $ p_{i} $ and $ t_{i} $ \u2014 the month and day of the Olympiad (given without leading zeroes), the needed number of the jury members and the time needed to prepare the $ i $ -th Olympiad ( $ 1<=m_{i}<=12 $ , $ d_{i}>=1 $ , $ 1<=p_{i},t_{i}<=100 $ ), $ d_{i} $ doesn't exceed the number of days in month $ m_{i} $ . The Olympiads are given in the arbitrary order. Several Olympiads can take place in one day.\n\nUse the modern (Gregorian) calendar in the solution. Note that all dates are given in the year 2013. This is not a leap year, so February has 28 days. Please note, the preparation of some Olympiad can start in 2012 year.",
+    "outputFormat": "Print a single number \u2014 the minimum jury size.",
+    "samples": [
+        [
+            "2\n5 23 1 2\n3 13 2 3\n",
+            "2\n"
+        ],
+        [
+            "3\n12 9 2 1\n12 8 1 3\n12 8 2 2\n",
+            "3\n"
+        ],
+        [
+            "1\n1 10 1 13\n",
+            "1\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u6709 $n$ \u573a\u6bd4\u8d5b  \n\u6bcf\u573a\u6bd4\u8d5b\u6709\u56db\u4e2a\u6570\u503c\uff1a\u4e3e\u529e\u65f6\u7684\u6708\uff0c\u65e5\uff0c\u9700\u8981\u7684\u4eba\u6570\u4e0e\u6301\u7eed\u65f6\u95f4\uff0c\u6c42\u9700\u8981\u7684\u6700\u5c11\u4eba\u6570\uff1b\n\n\u6ce8\u610f\uff1a\u6bcf\u4e2a\u6708\u4efd\u6240\u6709\u7684\u5929\u6570\u6309\u71672013\u5e74\uff08\u5e73\u5e74\uff09\u8ba1\u7b97\uff01\uff08\u4e5f\u5c31\u662f\u8bf4\uff0c\u4e8c\u6708\u53ea\u670928\u5929\uff09"
+}

@@ -1,0 +1,17 @@
+{
+    "description": "Xenia lives in a city that has $ n $ houses built along the main ringroad. The ringroad houses are numbered 1 through $ n $ in the clockwise order. The ringroad traffic is one way and also is clockwise.\n\nXenia has recently moved into the ringroad house number 1. As a result, she's got $ m $ things to do. In order to complete the $ i $ -th task, she needs to be in the house number $ a_{i} $ and complete all tasks with numbers less than $ i $ . Initially, Xenia is in the house number 1, find the minimum time she needs to complete all her tasks if moving from a house to a neighboring one along the ringroad takes one unit of time.",
+    "inputFormat": "The first line contains two integers $ n $ and $ m $ $ (2<=n<=10^{5},1<=m<=10^{5}) $ . The second line contains $ m $ integers $ a_{1},a_{2},...,a_{m} $ $ (1<=a_{i}<=n) $ . Note that Xenia can have multiple consecutive tasks in one house.",
+    "outputFormat": "Print a single integer \u2014 the time Xenia needs to complete all tasks.\n\nPlease, do not use the %lld specifier to read or write 64-bit integers in \u0421++. It is preferred to use the cin, cout streams or the %I64d specifier.",
+    "samples": [
+        [
+            "4 3\n3 2 3\n",
+            "6\n"
+        ],
+        [
+            "4 3\n2 3 3\n",
+            "2\n"
+        ]
+    ],
+    "hint": "In the first test example the sequence of Xenia's moves along the ringroad looks as follows: $ 1\u21922\u21923\u21924\u21921\u21922\u21923 $ . This is optimal sequence. So, she needs 6 time units.",
+    "translation": "#  \u9898\u610f\nXenia\u4f4f\u5728\u4e00\u4e2a\u57ce\u5e02\u91cc\uff0c\u90a3\u91cc\u6240\u6709\u7684\u623f\u5b50\u90fd\u662f\u5efa\u5728\u4e00\u4e2a\u73af\u7ebf\u4e0a\u7684\uff0cXenia\u73b0\u5728\u57281\u53f7\u623f\u5b50\u91cc\uff0c\u5979\u6709m\u4e2a\u4efb\u52a1\u8981\u5b8c\u6210\uff0c\u5e76\u53ea\u80fd\u6309\u987a\u65f6\u9488\u65b9\u5411\u8d70\uff08\u623f\u5b50\u6392\u5217\u53f7\u7801\u4e5f\u4e3a\u987a\u65f6\u9488\u9012\u589e\uff09\u3002\u82e5\u5979\u8981\u5b8c\u6210\u7b2ci\u4e2a\u4efb\u52a1\uff0c\u5979\u5c06\u8981\u8d70\u5230\u7b2cai\u4e2a\u623f\u91cc\u3002\u8bf7\u95ee\u5979\u8981\u6700\u5c11\u8981\u8d70\u591a\u5c11\u4e2a\u5355\u4f4d\u957f\u5ea6\uff1f\uff08\u82e5\u4e24\u4e2a\u4efb\u52a1\u5728\u4e00\u4e2a\u623f\u5b50\u91cc\uff0c\u5219\u53ef\u4ee5\u4e0d\u8d70\uff09\u3002\n\n### \u8f93\u5165\n\u7b2c\u4e00\u884c2\u4e2a\u6570\uff1a\u7b2c\u4e00\u4e2a\u4e3a\u57ce\u5e02\u91cc\u623f\u5b50\u7684\u603b\u4e2a\u6570\uff0c\u7b2c\u4e8c\u4e2a\u4e3a\u6709\u51e0\u4e2a\u4efb\u52a1\u3002\n\n### \u8f93\u51fa\n\u5979\u6700\u5c11\u8981\u8d70\u7684\u6b65\u6570\u3002\n\n### \u8303\u56f4\n\n\uff082<=\u623f\u5b50\u4e2a\u6570<=100000)\n\n(1<=\u4efb\u52a1\u6570<=100000\uff09"
+}

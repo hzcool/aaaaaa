@@ -1,0 +1,13 @@
+{
+    "description": "Suppose you have an integer $ v $ . In one operation, you can:\n\n- either set $ v = (v + 1) \\bmod 32768 $\n- or set $ v = (2 \\cdot v) \\bmod 32768 $ .\n\nYou are given $ n $ integers $ a_1, a_2, \\dots, a_n $ . What is the minimum number of operations you need to make each $ a_i $ equal to $ 0 $ ?",
+    "inputFormat": "The first line contains the single integer $ n $ ( $ 1 \\le n \\le 32768 $ ) \u2014 the number of integers.\n\nThe second line contains $ n $ integers $ a_1, a_2, \\dots, a_n $ ( $ 0 \\le a_i < 32768 $ ).",
+    "outputFormat": "Print $ n $ integers. The $ i $ -th integer should be equal to the minimum number of operations required to make $ a_i $ equal to $ 0 $ .",
+    "samples": [
+        [
+            "4\n19 32764 10240 49",
+            "14 4 4 15"
+        ]
+    ],
+    "hint": "Let's consider each $ a_i $ :\n\n- $ a_1 = 19 $ . You can, firstly, increase it by one to get $ 20 $ and then multiply it by two $ 13 $ times. You'll get $ 0 $ in $ 1 + 13 = 14 $ steps.\n- $ a_2 = 32764 $ . You can increase it by one $ 4 $ times: $ 32764 \\rightarrow 32765 \\rightarrow 32766 \\rightarrow 32767 \\rightarrow 0 $ .\n- $ a_3 = 10240 $ . You can multiply it by two $ 4 $ times: $ 10240 \\rightarrow 20480 \\rightarrow 8192 \\rightarrow 16384 \\rightarrow 0 $ .\n- $ a_4 = 49 $ . You can multiply it by two $ 15 $ times.",
+    "translation": "\u7ed9\u5b9a $v$\uff0c\u53ef\u4ee5\u5c06 $v$ \u5982\u4e0b\u64cd\u4f5c\uff1a\n\n\u53d8\u6210 $(v + 1) \\% 32768$ \u6216\u8005 $2\\times v\\%32768$\uff0c\n\n\u6c42\u6700\u5c11\u7ecf\u8fc7\u51e0\u6b21\u64cd\u4f5c\u80fd\u5c06 $v$ \u53d8\u56de $0$\u3002"
+}

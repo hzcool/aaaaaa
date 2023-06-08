@@ -1,0 +1,21 @@
+{
+    "description": "Petya once wrote a sad love song and shared it to Vasya. The song is a string consisting of lowercase English letters. Vasya made up $ q $ questions about this song. Each question is about a subsegment of the song starting from the $ l $ -th letter to the $ r $ -th letter. Vasya considers a substring made up from characters on this segment and repeats each letter in the subsegment $ k $ times, where $ k $ is the index of the corresponding letter in the alphabet. For example, if the question is about the substring \"abbcb\", then Vasya repeats letter 'a' once, each of the letters 'b' twice, letter 'c\" three times, so that the resulting string is \"abbbbcccbb\", its length is $ 10 $ . Vasya is interested about the length of the resulting string.\n\nHelp Petya find the length of each string obtained by Vasya.",
+    "inputFormat": "The first line contains two integers $ n $ and $ q $ ( $ 1\\leq n\\leq 100\\,000 $ , $ 1\\leq q \\leq 100\\,000 $ ) \u2014 the length of the song and the number of questions.\n\nThe second line contains one string $ s $ \u2014 the song, consisting of $ n $ lowercase letters of English letters.\n\nVasya's questions are contained in the next $ q $ lines. Each line contains two integers $ l $ and $ r $ ( $ 1 \\leq l \\leq r \\leq n $ ) \u2014 the bounds of the question.",
+    "outputFormat": "Print $ q $ lines: for each question print the length of the string obtained by Vasya.",
+    "samples": [
+        [
+            "7 3\nabacaba\n1 3\n2 5\n1 7",
+            "4\n7\n11"
+        ],
+        [
+            "7 4\nabbabaa\n1 3\n5 7\n6 6\n2 4",
+            "5\n4\n1\n5"
+        ],
+        [
+            "13 7\nsonoshikumiwo\n1 5\n2 10\n7 7\n1 13\n4 8\n2 5\n3 9",
+            "82\n125\n9\n191\n62\n63\n97"
+        ]
+    ],
+    "hint": "In the first example Vasya is interested in three questions. In the first question Vasya considers the substring \"aba\", that transforms to \"abba\", so the answer is equal to $ 4 $ . In the second question Vasya considers \"baca\", that transforms to \"bbaccca\", so the answer is $ 7 $ . In the third question Vasya considers the string \"abacaba\",that transforms to \"abbacccabba\" of length $ 11 $ .",
+    "translation": "\u7ed9\u4f60\u4e00\u4e2a\u957f\u4e3a $ n $ \u7684\u5b57\u7b26\u4e32\u548c $ q $ \u4e2a\u533a\u95f4  $ [l,r] $ \u3002\u4e00\u4e2a\u5b57\u7b26\u7684\u503c\u5b9a\u4e49\u4e3a\u5176\u5728\u5b57\u6bcd\u8868\u4e2d\u7684\u5e8f\u53f7\u3002\u5bf9\u4e8e\u6bcf\u4e2a\u533a\u95f4\uff0c\u8f93\u51fa\u8fd9\u4e2a\u533a\u95f4\u5b57\u7b26\u7684\u503c\u7684\u603b\u548c\u3002\n\n$ 1 \\le n,t \\le 100000,1 \\le l \\le r \\le n $ ,\u4fdd\u8bc1\u5b57\u7b26\u4e32\u4e2d\u90fd\u662f\u5c0f\u5199\u5b57\u6bcd\u3002"
+}

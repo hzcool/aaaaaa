@@ -1,0 +1,17 @@
+{
+    "description": "All cinema halls in Berland are rectangles with $ K $ rows of $ K $ seats each, and $ K $ is an odd number. Rows and seats are numbered from $ 1 $ to $ K $ . For safety reasons people, who come to the box office to buy tickets, are not allowed to choose seats themselves. Formerly the choice was made by a cashier, but now this is the responsibility of a special seating program. It was found out that the large majority of Berland's inhabitants go to the cinema in order to watch a movie, that's why they want to sit as close to the hall center as possible. Moreover, a company of $ M $ people, who come to watch a movie, want necessarily to occupy $ M $ successive seats in one row. Let's formulate the algorithm, according to which the program chooses seats and sells tickets. As the request for $ M $ seats comes, the program should determine the row number $ x $ and the segment $ [y_{l},y_{r}] $ of the seats numbers in this row, where $ y_{r}-y_{l}+1=M $ . From all such possible variants as a final result the program should choose the one with the minimum function value of total seats remoteness from the center. Say, ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF10B/c9748a84837b67ee9aa2cbea2b55fdd9ec523940.png) \u2014 the row and the seat numbers of the most \"central\" seat. Then the function value of seats remoteness from the hall center is ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF10B/9bc644baca5d1a575e01b85fce16d96f8e180ca4.png). If the amount of minimum function values is more than one, the program should choose the one that is closer to the screen (i.e. the row number $ x $ is lower). If the variants are still multiple, it should choose the one with the minimum $ y_{l} $ . If you did not get yet, your task is to simulate the work of this program.\n",
+    "inputFormat": "The first line contains two integers $ N $ and $ K $ ( $ 1<=N<=1000,1<=K<=99 $ ) \u2014 the amount of requests and the hall size respectively. The second line contains $ N $ space-separated integers $ M_{i} $ from the range $ [1,K] $ \u2014 requests to the program.",
+    "outputFormat": "Output $ N $ lines. In the $ i $ -th line output \u00ab-1\u00bb (without quotes), if it is impossible to find $ M_{i} $ successive seats in one row, otherwise output three numbers $ x,y_{l},y_{r} $ . Separate the numbers with a space.",
+    "samples": [
+        [
+            "2 1\n1 1\n",
+            "1 1 1\n-1\n"
+        ],
+        [
+            "4 3\n1 2 3 1\n",
+            "2 2 2\n1 1 2\n3 1 3\n2 1 1\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u6709\u4e00\u4e2a\u7535\u5f71\u9662\uff0c\u5927\u5c0f\u4e3a $k^2$ \uff0c\u7136\u540e\u6709 $n$ \u6ce2\u4eba\u4f9d\u6b21\u5230\u6765\u3002\n\n\u6bcf\u4e00\u6ce2\u4eba\u90fd\u60f3\u9009\u62e9\u5c3d\u91cf\u9760\u4e2d\u95f4\u7684\u4f4d\u7f6e\uff0c\u5c31\u662f\u8fd9\u4e00\u6ce2\u4eba\u90fd\u5fc5\u987b\u5750\u5728\u540c\u4e00\u884c\uff0c\u5e76\u4e14\u6709\u4e00\u4e2a\u82b1\u8d39\u5c31\u662f $\\vert x-zx \\vert+\\vert y-zy \\vert$\u3002\n\n\u7136\u540e\u4f60\u9700\u8981\u7ed9\u4ed6\u4eec\u5b89\u6392\u5ea7\u4f4d\uff0c\u4f7f\u5f97\u82b1\u8d39\u6700\u5c0f\uff0c\u5982\u679c\u82b1\u8d39\u4e00\u6837\uff0c\u5c31\u5750\u5de6\u524d\u65b9\u3002\n\n\u6c42\u5982\u4f55\u5b89\u6392\u3002\n\nReformed by @devdede"
+}

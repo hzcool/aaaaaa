@@ -1,0 +1,13 @@
+{
+    "description": "You are given two integers $ a $ and $ b $ , and $ q $ queries. The $ i $ -th query consists of two numbers $ l_i $ and $ r_i $ , and the answer to it is the number of integers $ x $ such that $ l_i \\le x \\le r_i $ , and $ ((x \\bmod a)       \\bmod b) \\ne ((x \\bmod b) \\bmod a) $ . Calculate the answer for each query.\n\nRecall that $ y \\bmod z $ is the remainder of the division of $ y $ by $ z $ . For example, $ 5 \\bmod 3 = 2 $ , $ 7 \\bmod 8       = 7 $ , $ 9 \\bmod 4 = 1 $ , $ 9 \\bmod 9 = 0 $ .",
+    "inputFormat": "The first line contains one integer $ t $ ( $ 1 \\le t \\le       100 $ ) \u2014 the number of test cases. Then the test cases follow.\n\nThe first line of each test case contains three integers $ a $ , $ b $ and $ q $ ( $ 1 \\le a, b \\le 200 $ ; $ 1 \\le q \\le 500 $ ).\n\nThen $ q $ lines follow, each containing two integers $ l_i $ and $ r_i $ ( $ 1 \\le l_i \\le r_i \\le 10^{18} $ ) for the corresponding query.",
+    "outputFormat": "For each test case, print $ q $ integers \u2014 the answers to the queries of this test case in the order they appear.",
+    "samples": [
+        [
+            "2\n4 6 5\n1 1\n1 3\n1 5\n1 7\n1 9\n7 10 2\n7 8\n100 200",
+            "0 0 0 2 4 \n0 91"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9\u4e88\u4e24\u4e2a\u6570$a,b$\uff0c\u8fdb\u884c$q$\u6b21\u8be2\u95ee\u3002\u5bf9\u4e8e\u6bcf\u6b21\u8be2\u95ee\uff0c\u4f60\u9700\u8981\u56de\u7b54\uff1a\r\n\r\n- \u5728$[l,r]$\u4e2d\uff0c\u6ee1\u8db3\u4ee5\u4e0b\u6761\u4ef6\u7684$x$\u7684\u4e2a\u6570\uff1a\r\n\r\n\t$(x \\bmod a) \\bmod b \\neq (x \\bmod b) \\bmod a$\r\n    \r\n **\u8f93\u5165\u6709\u591a\u7ec4\u6570\u636e**\uff08$1 \\le T \\le 100$\uff09\uff0c\u4fdd\u8bc1\uff1a\r\n \r\n - $1 \\le a,b \\le 200$\r\n - $1 \\le q \\le 500$\r\n - $1 \\le l_i \\le r_i \\le 10^{18}$ "
+}

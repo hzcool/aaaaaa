@@ -1,0 +1,25 @@
+{
+    "description": "Your task is to calculate the number of arrays such that:\n\n- each array contains $ n $ elements;\n- each element is an integer from $ 1 $ to $ m $ ;\n- for each array, there is exactly one pair of equal elements;\n- for each array $ a $ , there exists an index $ i $ such that the array is strictly ascending before the $ i $ -th element and strictly descending after it (formally, it means that $ a_j < a_{j + 1} $ , if $ j < i $ , and $ a_j > a_{j + 1} $ , if $ j \\ge i $ ).",
+    "inputFormat": "The first line contains two integers $ n $ and $ m $ ( $ 2 \\le n \\le m \\le 2 \\cdot 10^5 $ ).",
+    "outputFormat": "Print one integer \u2014 the number of arrays that meet all of the aforementioned conditions, taken modulo $ 998244353 $ .",
+    "samples": [
+        [
+            "3 4",
+            "6"
+        ],
+        [
+            "3 5",
+            "10"
+        ],
+        [
+            "42 1337",
+            "806066790"
+        ],
+        [
+            "100000 200000",
+            "707899035"
+        ]
+    ],
+    "hint": "The arrays in the first example are:\n\n- $ [1, 2, 1] $ ;\n- $ [1, 3, 1] $ ;\n- $ [1, 4, 1] $ ;\n- $ [2, 3, 2] $ ;\n- $ [2, 4, 2] $ ;\n- $ [3, 4, 3] $ .",
+    "translation": "\u6c42\u6ee1\u8db3\u5982\u4e0b\u6761\u4ef6\u7684\u957f\u5ea6\u4e3a $n$ \u7684\u5e8f\u5217 $a$ \u7684\u4e2a\u6570\uff1a\n\n- $\\forall 1 \\leq i \\leq n$\uff0c\u90fd\u6709 $1 \\leq a_i \\leq m$\u3002\n- $a$ \u4e2d\u5b58\u5728\u4e14\u4ec5\u5b58\u5728\u4e00\u5bf9\u76f8\u540c\u7684\u5143\u7d20\n- \u5b58\u5728\u4e00\u4e2a\u4f4d\u7f6e $p$\uff0c\u4f7f\u5f97 $a_1 \\sim a_p$ \u4e3a\u4e25\u683c\u5355\u589e\u5e8f\u5217\uff0c$a_p \\sim a_n$ \u4e3a\u4e25\u683c\u5355\u51cf\u5e8f\u5217\u3002\u5373 $\\forall 0 < j < p$\uff0c\u90fd\u6709 $a_{j} < a_{j + 1}$\uff0c\u4e14 $\\forall p \\leq j < n$\uff0c\u90fd\u6709 $a_j > a_{j + 1}$\u3002\n\n$1 \\leq n, m \\leq 2 \\times 10^5$\u3002\n\n\u7b54\u6848\u5bf9 $998,244,353$ \u53d6\u6a21\u3002"
+}

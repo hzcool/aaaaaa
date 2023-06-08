@@ -1,0 +1,12 @@
+{
+    "description": "You are given a circular maze such as the ones shown in the figures.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1662O/b6cea444cf9c0138014a0dfcc590ddfaf1568305.png) Determine if it can be solved, i.e., if there is a path which goes from the center to the outside of the maze which does not touch any wall. The maze is described by $ n $ walls. Each wall can be either circular or straight. - Circular walls are described by a radius $ r $ , the distance from the center, and two angles $ \\theta_1, \\theta_2 $ describing the beginning and the end of the wall in the clockwise direction. Notice that swapping the two angles changes the wall.\n- Straight walls are described by an angle $ \\theta $ , the direction of the wall, and two radii $ r_1 < r_2 $ describing the beginning and the end of the wall.\n\nAngles are measured in degrees; the angle $ 0 $ corresponds to the upward pointing direction; and angles increase clockwise (hence the east direction corresponds to the angle $ 90 $ ).",
+    "inputFormat": "Each test contains multiple test cases. The first line contains an integer $ t $ ( $ 1\\le t\\le 20 $ ) \u2014 the number of test cases. The descriptions of the $ t $ test cases follow.\n\nThe first line of each test case contains an integer $ n $ ( $ 1 \\leq n \\leq 5000 $ ) \u2014 the number of walls.\n\nEach of the following $ n $ lines each contains a character (C for circular, and S for straight) and three integers:\n\n- either $ r, \\theta_1, \\theta_2 $ ( $ 1 \\leq r \\leq 20 $ and $ 0 \\leq \\theta_1,\\theta_2 < 360 $ with $ \\theta_1 \\neq \\theta_2 $ ) if the wall is circular,\n- or $ r_1 $ , $ r_2 $ and $ \\theta $ ( $ 1 \\leq r_1 < r_2 \\leq 20 $ and $ 0 \\leq \\theta < 360 $ ) if the wall is straight.\n\nIt is guaranteed that circular walls do not overlap (but two circular walls may intersect at one or two points), and that straight walls do not overlap (but two straight walls may intersect at one point). However, circular and straight walls can intersect arbitrarily.",
+    "outputFormat": "For each test case, print YES if the maze can be solved and NO otherwise.",
+    "samples": [
+        [
+            "2\n5\nC 1 180 90\nC 5 250 230\nC 10 150 140\nC 20 185 180\nS 1 20 180\n6\nC 1 180 90\nC 5 250 230\nC 10 150 140\nC 20 185 180\nS 1 20 180\nS 5 10 0",
+            "YES\nNO"
+        ]
+    ],
+    "hint": "The two sample test cases correspond to the two mazes in the picture."
+}

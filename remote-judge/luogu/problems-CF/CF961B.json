@@ -1,0 +1,13 @@
+{
+    "description": "Your friend Mishka and you attend a calculus lecture. Lecture lasts $ n $ minutes. Lecturer tells $ a_{i} $ theorems during the $ i $ -th minute.\n\nMishka is really interested in calculus, though it is so hard to stay awake for all the time of lecture. You are given an array $ t $ of Mishka's behavior. If Mishka is asleep during the $ i $ -th minute of the lecture then $ t_{i} $ will be equal to $ 0 $ , otherwise it will be equal to $ 1 $ . When Mishka is awake he writes down all the theorems he is being told \u2014 $ a_{i} $ during the $ i $ -th minute. Otherwise he writes nothing.\n\nYou know some secret technique to keep Mishka awake for $ k $ minutes straight. However you can use it only once. You can start using it at the beginning of any minute between $ 1 $ and $ n-k+1 $ . If you use it on some minute $ i $ then Mishka will be awake during minutes $ j $ such that ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF961B/74a70105e36a7144196883409708a1b859a35796.png) and will write down all the theorems lecturer tells.\n\nYou task is to calculate the maximum number of theorems Mishka will be able to write down if you use your technique only once to wake him up.",
+    "inputFormat": "The first line of the input contains two integer numbers $ n $ and $ k $ ( $ 1<=k<=n<=10^{5} $ ) \u2014 the duration of the lecture in minutes and the number of minutes you can keep Mishka awake.\n\nThe second line of the input contains $ n $ integer numbers $ a_{1},a_{2},...\\ a_{n} $ ( $ 1<=a_{i}<=10^{4} $ ) \u2014 the number of theorems lecturer tells during the $ i $ -th minute.\n\nThe third line of the input contains $ n $ integer numbers $ t_{1},t_{2},...\\ t_{n} $ ( $ 0<=t_{i}<=1 $ ) \u2014 type of Mishka's behavior at the $ i $ -th minute of the lecture.",
+    "outputFormat": "Print only one integer \u2014 the maximum number of theorems Mishka will be able to write down if you use your technique only once to wake him up.",
+    "samples": [
+        [
+            "6 3\n1 3 5 2 5 4\n1 1 0 1 0 0\n",
+            "16\n"
+        ]
+    ],
+    "hint": "In the sample case the better way is to use the secret technique at the beginning of the third minute. Then the number of theorems Mishka will be able to write down will be equal to $ 16 $ .",
+    "translation": "\u7ed9\u5b9a$n,a_{1\\dots n},t_{1\\dots n}$\n\n\u4f60\u53ef\u4ee5\u628a\u4e00\u4e2a\u533a\u95f4$[i,i+k-1]$\u4e2d\u7684$t$\u7684\u503c\u90fd\u53d8\u4e3a$1$\n\n\u6c42\u6700\u5927\u7684$\\sum_{i=1}^n a_it_i$\n\n\u611f\u8c22@huhao \u63d0\u4f9b\u7684\u7ffb\u8bd1"
+}

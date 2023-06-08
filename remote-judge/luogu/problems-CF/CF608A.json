@@ -1,0 +1,17 @@
+{
+    "description": "Saitama accidentally destroyed a hotel again. To repay the hotel company, Genos has volunteered to operate an elevator in one of its other hotels. The elevator is special \u2014 it starts on the top floor, can only move down, and has infinite capacity. Floors are numbered from $ 0 $ to $ s $ and elevator initially starts on floor $ s $ at time $ 0 $ .\n\nThe elevator takes exactly $ 1 $ second to move down exactly $ 1 $ floor and negligible time to pick up passengers. Genos is given a list detailing when and on which floor passengers arrive. Please determine how long in seconds it will take Genos to bring all passengers to floor $ 0 $ .",
+    "inputFormat": "The first line of input contains two integers $ n $ and $ s $ ( $ 1<=n<=100 $ , $ 1<=s<=1000 $ ) \u2014 the number of passengers and the number of the top floor respectively.\n\nThe next $ n $ lines each contain two space-separated integers $ f_{i} $ and $ t_{i} $ ( $ 1<=f_{i}<=s $ , $ 1<=t_{i}<=1000 $ ) \u2014 the floor and the time of arrival in seconds for the passenger number $ i $ .",
+    "outputFormat": "Print a single integer \u2014 the minimum amount of time in seconds needed to bring all the passengers to floor $ 0 $ .",
+    "samples": [
+        [
+            "3 7\n2 1\n3 8\n5 2\n",
+            "11\n"
+        ],
+        [
+            "5 10\n2 77\n3 33\n8 21\n9 12\n10 64\n",
+            "79\n"
+        ]
+    ],
+    "hint": "In the first sample, it takes at least $ 11 $ seconds to bring all passengers to floor $ 0 $ . Here is how this could be done:\n\n1\\. Move to floor $ 5 $ : takes $ 2 $ seconds.\n\n2\\. Pick up passenger $ 3 $ .\n\n3\\. Move to floor $ 3 $ : takes $ 2 $ seconds.\n\n4\\. Wait for passenger $ 2 $ to arrive: takes $ 4 $ seconds.\n\n5\\. Pick up passenger $ 2 $ .\n\n6\\. Go to floor $ 2 $ : takes $ 1 $ second.\n\n7\\. Pick up passenger $ 1 $ .\n\n8\\. Go to floor $ 0 $ : takes $ 2 $ seconds.\n\nThis gives a total of $ 2+2+4+1+2=11 $ seconds.",
+    "translation": "# \u9898\u9762\n\u57fc\u7389\u8001\u5e08\u53c8\u610f\u5916\u5730\u6467\u6bc1\u4e86\u4e00\u5bb6\u9152\u5e97\u3002\u4e3a\u4e86\u8d54\u507f\u9152\u5e97\u516c\u53f8\uff0c\u6770\u8bfa\u65af\u81ea\u613f\u5728\u5176\u53e6\u4e00\u5bb6\u9152\u5e97\u7ecf\u8425\u7535\u68af\u3002\u7535\u68af\u5f88\u7279\u522b\uff0c\u5b83\u4ece\u9876\u5c42\u5f00\u59cb\uff0c\u53ea\u80fd\u5411\u4e0b\u79fb\u52a8\uff0c\u5e76\u4e14\u6709\u65e0\u9650\u7684\u5bb9\u91cf\u3002\u697c\u5c42\u7f16\u53f7\u4ece0\u5230S\uff0c\u7535\u68af\u5f00\u59cb\u4e8eS\u5c42\uff0c\u65f6\u95f4\u4e3a0\u3002\n\n\u7535\u68af\u53ea\u97001\u79d2\u949f\u5c31\u53ef\u4ee5\u5411\u4e0b\u79fb\u52a81\u5c42\u697c\uff0c\u63a5\u9001\u4e58\u5ba2\u7684\u65f6\u95f4\u53ef\u4ee5\u5ffd\u7565\u4e0d\u8ba1\u3002\u6770\u8bfa\u65af\u6709\u4e00\u4efd\u8be6\u7ec6\u7684\u65c5\u5ba2\u5230\u8fbe\u65f6\u95f4\u548c\u5730\u70b9\u7684\u6e05\u5355\u3002\u8bf7\u786e\u5b9a\u6770\u8bfa\u65af\u5c06\u6240\u6709\u4e58\u5ba2\u5e26\u52300\u697c\u9700\u8981\u591a\u957f\u65f6\u95f4\u3002\n# \u8f93\u5165\nn\u548cs(1<=n<=100)(1<=s<=1000)\n\n\u5373 \u4e58\u5ba2\u4eba\u6570 \u548c \u9898\u9762\u4e2d\u7684S\uff08\u4ee5\u79d2\u4e3a\u5355\u4f4d\uff09\n\n\u63a5\u4e0b\u6765n\u884c\u5305\u542b\u4e24\u4e2a\u6570\u5b57\uff0cn\u4e2a\u4e58\u5ba2\u7684\u697c\u5c42 \u548c \u5230\u8fbe\u65f6\u95f4\n# \u8f93\u51fa\n\u5c06\u6240\u6709\u4e58\u5ba2\u5e26\u52300\u697c\u9700\u8981\u7684\u65f6\u95f4\u3002"
+}

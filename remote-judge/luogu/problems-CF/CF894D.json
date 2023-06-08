@@ -1,0 +1,17 @@
+{
+    "description": "Ralph is in the Binary Country. The Binary Country consists of $ n $ cities and $ (n-1) $ bidirectional roads connecting the cities. The roads are numbered from $ 1 $ to $ (n-1) $ , the $ i $ -th road connects the city labeled ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF894D/680973cce2f1e5e60b4409ccf1cbf5b447773a47.png) (here $ \u230a\\ x\u230b $ denotes the $ x $ rounded down to the nearest integer) and the city labeled $ (i+1) $ , and the length of the $ i $ -th road is $ L_{i} $ .\n\nNow Ralph gives you $ m $ queries. In each query he tells you some city $ A_{i} $ and an integer $ H_{i} $ . He wants to make some tours starting from this city. He can choose any city in the Binary Country (including $ A_{i} $ ) as the terminal city for a tour. He gains happiness $ (H_{i}-L) $ during a tour, where $ L $ is the distance between the city $ A_{i} $ and the terminal city.\n\nRalph is interested in tours from $ A_{i} $ in which he can gain positive happiness. For each query, compute the sum of happiness gains for all such tours.\n\nRalph will never take the same tour twice or more (in one query), he will never pass the same city twice or more in one tour.",
+    "inputFormat": "The first line contains two integers $ n $ and $ m $ ( $ 1<=n<=10^{6} $ , $ 1<=m<=10^{5} $ ).\n\n $ (n-1) $ lines follow, each line contains one integer $ L_{i} $ ( $ 1<=L_{i}<=10^{5} $ ), which denotes the length of the $ i $ -th road.\n\n $ m $ lines follow, each line contains two integers $ A_{i} $ and $ H_{i} $ ( $ 1<=A_{i}<=n $ , $ 0<=H_{i}<=10^{7} $ ).",
+    "outputFormat": "Print $ m $ lines, on the $ i $ -th line print one integer \u2014 the answer for the $ i $ -th query.",
+    "samples": [
+        [
+            "2 2\n5\n1 8\n2 4\n",
+            "11\n4\n"
+        ],
+        [
+            "6 4\n2\n1\n1\n3\n2\n2 4\n1 3\n3 2\n1 7\n",
+            "11\n6\n3\n28\n"
+        ]
+    ],
+    "hint": "Here is the explanation for the second sample.\n\nRalph's first query is to start tours from city $ 2 $ and $ H_{i} $ equals to $ 4 $ . Here are the options:\n\n- He can choose city $ 5 $ as his terminal city. Since the distance between city $ 5 $ and city $ 2 $ is $ 3 $ , he can gain happiness $ 4-3=1 $ .\n- He can choose city $ 4 $ as his terminal city and gain happiness $ 3 $ .\n- He can choose city $ 1 $ as his terminal city and gain happiness $ 2 $ .\n- He can choose city $ 3 $ as his terminal city and gain happiness $ 1 $ .\n- Note that Ralph can choose city $ 2 $ as his terminal city and gain happiness $ 4 $ .\n- Ralph won't choose city $ 6 $ as his terminal city because the distance between city $ 6 $ and city $ 2 $ is $ 5 $ , which leads to negative happiness for Ralph.\n\nSo the answer for the first query is $ 1+3+2+1+4=11 $ .",
+    "translation": "\u7ed9\u5b9a\u6709 $n$ \u4e2a\u8282\u70b9\u7684\u6811\uff0c\u8282\u70b9 $i$ \u4e0e $\\lfloor i/2\\rfloor$ \u6709\u8ddd\u79bb\u4e3a $L_i$ \u7684\u8fb9\u3002\n\n$m$ \u6b21\u8be2\u95ee\uff0c\u6bcf\u6b21\u8be2\u95ee\u7ed9\u51fa $A_i,H_i$\uff0c\u82e5\u67d0\u4e2a\u8282\u70b9\u5230 $A_i$ \u7684\u8ddd\u79bb $L$ \u6ee1\u8db3 $H_i-L$ \u4e3a\u6b63\u6570\uff0c\u5219\u4f1a\u4ea7\u751f $H_i-L$ \u7684\u8d21\u732e\uff0c\u95ee\u6811\u4e0a\u6240\u6709\u70b9\u4e0e$A_i$\n\u4ea7\u751f\u7684\u8d21\u732e\u4e4b\u548c\u3002"
+}

@@ -1,0 +1,13 @@
+{
+    "description": "You've got a string $ s=s_{1}s_{2}...\\ s_{|s|} $ of length $ |s| $ , consisting of lowercase English letters. There also are $ q $ queries, each query is described by two integers $ l_{i},r_{i} $ $ (1<=l_{i}<=r_{i}<=|s|) $ . The answer to the query is the number of substrings of string $ s[l_{i}...\\ r_{i}] $ , which are palindromes.\n\nString $ s[l...\\ r]=s_{l}s_{l+1}...\\ s_{r} $ $ (1<=l<=r<=|s|) $ is a substring of string $ s=s_{1}s_{2}...\\ s_{|s|} $ .\n\nString $ t $ is called a palindrome, if it reads the same from left to right and from right to left. Formally, if $ t=t_{1}t_{2}...\\ t_{|t|}=t_{|t|}t_{|t|-1}...\\ t_{1} $ .",
+    "inputFormat": "The first line contains string $ s $ $ (1<=|s|<=5000) $ . The second line contains a single integer $ q $ $ (1<=q<=10^{6}) $ \u2014 the number of queries. Next $ q $ lines contain the queries. The $ i $ -th of these lines contains two space-separated integers $ l_{i},r_{i} $ $ (1<=l_{i}<=r_{i}<=|s|) $ \u2014 the description of the $ i $ -th query.\n\nIt is guaranteed that the given string consists only of lowercase English letters.",
+    "outputFormat": "Print $ q $ integers \u2014 the answers to the queries. Print the answers in the order, in which the queries are given in the input. Separate the printed numbers by whitespaces.",
+    "samples": [
+        [
+            "caaaba\n5\n1 1\n1 4\n2 3\n4 6\n4 5\n",
+            "1\n7\n3\n4\n2\n"
+        ]
+    ],
+    "hint": "Consider the fourth query in the first test case. String $ s[4...\\ 6] $ = \u00ababa\u00bb. Its palindrome substrings are: \u00aba\u00bb, \u00abb\u00bb, \u00aba\u00bb, \u00ababa\u00bb.",
+    "translation": "\n\u9898\u76ee\u63cf\u8ff0\n\n\u7ed9\u4f60\u4e00\u4e2a\u5b57\u7b26\u4e32s\u7531\u5c0f\u5199\u5b57\u6bcd\u7ec4\u6210\uff0c\u6709q\u7ec4\u8be2\u95ee\uff0c\u6bcf\u7ec4\u8be2\u95ee\u7ed9\u4f60\u4e24\u4e2a\u6570\uff0cl\u548cr\uff0c\u95ee\u5728\u5b57\u7b26\u4e32\u533a\u95f4l\u5230r\u7684\u5b57\u4e32\u4e2d\uff0c\u5305\u542b\u591a\u5c11\u56de\u6587\u4e32\u3002\n\n\u8f93\u5165\u683c\u5f0f\n\n\u7b2c1\u884c\uff0c\u7ed9\u51fas\uff0cs\u7684\u957f\u5ea6\u5c0f\u4e8e5000\n\u7b2c2\u884c\u7ed9\u51faq(1<=q<=10^6)\n\u7b2c2\u81f32+q\u884c \u7ed9\u51fa\u6bcf\u7ec4\u8be2\u95ee\u7684l\u548cr\n\n\u8f93\u51fa\u683c\u5f0f\n\n\u8f93\u51fa\u6bcf\u7ec4\u8be2\u95ee\u6240\u95ee\u7684\u6570\u91cf\u3002\n\n"
+}

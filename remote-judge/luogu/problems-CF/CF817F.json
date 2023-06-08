@@ -1,0 +1,17 @@
+{
+    "description": "You are given a set of integer numbers, initially it is empty. You should perform $ n $ queries.\n\nThere are three different types of queries:\n\n- 1 $ l $ $ r $ \u2014 Add all missing numbers from the interval $ [l,r] $\n- 2 $ l $ $ r $ \u2014 Remove all present numbers from the interval $ [l,r] $\n- 3 $ l $ $ r $ \u2014 Invert the interval $ [l,r] $ \u2014 add all missing and remove all present numbers from the interval $ [l,r] $\n\nAfter each query you should output MEX of the set \u2014 the smallest positive (MEX $ >=1 $ ) integer number which is not presented in the set.",
+    "inputFormat": "The first line contains one integer number $ n $ ( $ 1<=n<=10^{5} $ ).\n\nNext $ n $ lines contain three integer numbers $ t,l,r $ ( $ 1<=t<=3,1<=l<=r<=10^{18} $ ) \u2014 type of the query, left and right bounds.",
+    "outputFormat": "Print MEX of the set after each query.",
+    "samples": [
+        [
+            "3\n1 3 4\n3 1 6\n2 1 3\n",
+            "1\n3\n1\n"
+        ],
+        [
+            "4\n1 1 3\n3 5 6\n2 4 4\n3 1 6\n",
+            "4\n4\n4\n1\n"
+        ]
+    ],
+    "hint": "Here are contents of the set after each query in the first example:\n\n1. $ {3,4} $ \u2014 the interval $ [3,4] $ is added\n2. $ {1,2,5,6} $ \u2014 numbers $ {3,4} $ from the interval $ [1,6] $ got deleted and all the others are added\n3. $ {5,6} $ \u2014 numbers $ {1,2} $ got deleted",
+    "translation": "- \u7ef4\u62a4\u4e00\u4e2a\u96c6\u5408\uff0c\u521d\u59cb\u4e3a\u7a7a\u3002\n- \u6709 $3$ \u79cd\u64cd\u4f5c\uff1a\n    1. \u628a $[l,r]$ \u4e2d\u5728\u96c6\u5408\u4e2d\u6ca1\u6709\u51fa\u73b0\u8fc7\u7684\u6570\u6dfb\u52a0\u5230\u96c6\u5408\u4e2d\u3002\n    2. \u628a $[l,r]$ \u4e2d\u5728\u96c6\u5408\u4e2d\u51fa\u73b0\u8fc7\u7684\u6570\u4ece\u96c6\u5408\u4e2d\u5220\u6389\u3002\n    3. \u628a $[l,r]$ \u4e2d\u5728\u96c6\u5408\u4e2d\u6ca1\u6709\u51fa\u73b0\u8fc7\u7684\u6570\u6dfb\u52a0\u5230\u96c6\u5408\u4e2d\uff0c\u5e76\u628a $[l,r]$ \u4e2d\u5728\u96c6\u5408\u4e2d\u51fa\u73b0\u8fc7\u7684\u6570\u4ece\u96c6\u5408\u4e2d\u5220\u6389\u3002\n- \u6bcf\u6b21\u64cd\u4f5c\u540e\u8f93\u51fa\u96c6\u5408\u7684 $\\operatorname{MEX}$ \u2014\u2014 \u5728\u96c6\u5408\u4e2d\u6ca1\u6709\u51fa\u73b0\u8fc7\u7684\u6700\u5c0f\u6b63\u6574\u6570\u3002\n- $1\\le n\\le 10^5$\uff0c$1\\le l\\le r\\le 10^{18}$\u3002"
+}

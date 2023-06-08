@@ -1,0 +1,21 @@
+{
+    "description": "Berland has a long and glorious history. To increase awareness about it among younger citizens, King of Berland decided to compose an anthem.\n\nThough there are lots and lots of victories in history of Berland, there is the one that stand out the most. King wants to mention it in the anthem as many times as possible.\n\nHe has already composed major part of the anthem and now just needs to fill in some letters. King asked you to help him with this work.\n\nThe anthem is the string $ s $ of no more than $ 10^{5} $ small Latin letters and question marks. The most glorious victory is the string $ t $ of no more than $ 10^{5} $ small Latin letters. You should replace all the question marks with small Latin letters in such a way that the number of occurrences of string $ t $ in string $ s $ is maximal.\n\nNote that the occurrences of string $ t $ in $ s $ can overlap. Check the third example for clarification.",
+    "inputFormat": "The first line contains string of small Latin letters and question marks $ s $ ( $ 1<=|s|<=10^{5} $ ).\n\nThe second line contains string of small Latin letters $ t $ ( $ 1<=|t|<=10^{5} $ ).\n\nProduct of lengths of strings $ |s|\u00b7|t| $ won't exceed $ 10^{7} $ .",
+    "outputFormat": "Output the maximum number of occurrences of string $ t $ you can achieve by replacing all the question marks in string $ s $ with small Latin letters.",
+    "samples": [
+        [
+            "winlose???winl???w??\nwin\n",
+            "5\n"
+        ],
+        [
+            "glo?yto?e??an?\nor\n",
+            "3\n"
+        ],
+        [
+            "??c?????\nabcab\n",
+            "2\n"
+        ]
+    ],
+    "hint": "In the first example the resulting string $ s $ is \"winlosewinwinlwinwin\"\n\nIn the second example the resulting string $ s $ is \"glorytoreorand\". The last letter of the string can be arbitrary.\n\nIn the third example occurrences of string $ t $ are overlapping. String $ s $ with maximal number of occurrences of $ t $ is \"abcabcab\".",
+    "translation": "\u7ed9\u5b9a $s$ \u4e32\u548c $t$ \u4e32\uff0c\u5176\u4e2d $s$ \u4e32\u5305\u542b\u5c0f\u5199\u5b57\u6bcd\u548c\u95ee\u53f7\uff0c$t$ \u4e32\u53ea\u5305\u542b\u5c0f\u5199\u5b57\u6bcd\u3002\n\n\u5047\u8bbe\u5171\u6709 $k$ \u4e2a\u95ee\u53f7\u3002\n\n\u4f60\u9700\u8981\u7ed9\u628a\u6bcf\u4e2a\u95ee\u53f7\u53d8\u6210\u4e00\u4e2a\u5c0f\u5199\u5b57\u6bcd\uff0c\u5171\u6709 $26^k$ \u79cd\u53ef\u80fd\u3002\n\n\u5bf9\u4e8e\u6bcf\u79cd\u53ef\u80fd\uff0c\u8bbe $t$ \u5339\u914d $s$ \u7684\u6b21\u6570\u4e3a $f_i$\uff0c\u8bf7\u8f93\u51fa $\\max(f_i)$ \u3002\n\n$1\\leq |s|,|t|\\leq 10^5,|s|\\cdot |t|\\leq 10^7$\n\n\u7531 @Ghastlcon \u63d0\u4f9b\u7ffb\u8bd1"
+}

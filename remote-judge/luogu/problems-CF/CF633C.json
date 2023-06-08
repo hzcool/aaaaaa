@@ -1,0 +1,17 @@
+{
+    "description": "After observing the results of Spy Syndrome, Yash realised the errors of his ways. He now believes that a super spy such as Siddhant can't use a cipher as basic and ancient as Caesar cipher. After many weeks of observation of Siddhant\u2019s sentences, Yash determined a new cipher technique.\n\nFor a given sentence, the cipher is processed as:\n\n1. Convert all letters of the sentence to lowercase.\n2. Reverse each of the words of the sentence individually.\n3. Remove all the spaces in the sentence.\n\nFor example, when this cipher is applied to the sentence\n\nKira is childish and he hates losing\n\nthe resulting string is\n\nariksihsidlihcdnaehsetahgnisol\n\nNow Yash is given some ciphered string and a list of words. Help him to find out any original sentence composed using only words from the list. Note, that any of the given words could be used in the sentence multiple times.",
+    "inputFormat": "The first line of the input contains a single integer $ n $ ( $ 1<=n<=10000 $ ) \u2014 the length of the ciphered text. The second line consists of $ n $ lowercase English letters \u2014 the ciphered text $ t $ .\n\nThe third line contains a single integer $ m $ ( $ 1<=m<=100000 $ ) \u2014 the number of words which will be considered while deciphering the text. Each of the next $ m $ lines contains a non-empty word $ w_{i} $ ( $ |w_{i}|<=1000 $ ) consisting of uppercase and lowercase English letters only. It's guaranteed that the total length of all words doesn't exceed $ 1000000 $ .",
+    "outputFormat": "Print one line \u2014 the original sentence. It is guaranteed that at least one solution exists. If there are multiple solutions, you may output any of those.",
+    "samples": [
+        [
+            "30\nariksihsidlihcdnaehsetahgnisol\n10\nKira\nhates\nis\nhe\nlosing\ndeath\nchildish\nL\nand\nNote\n",
+            "Kira is childish and he hates losing \n"
+        ],
+        [
+            "12\niherehtolleh\n5\nHI\nHo\nthere\nHeLLo\nhello\n",
+            "HI there HeLLo \n"
+        ]
+    ],
+    "hint": "In sample case 2 there may be multiple accepted outputs, \"HI there HeLLo\" and \"HI there hello\" you may output any of them.",
+    "translation": "\u7ed9\u5b9a\u957f\u4e3a(n <= 10000)\u7684\u4e3b\u4e32\uff0c\u7ed9(m <= 100000)\u4e2a\u4e0d\u8d85\u8fc7 1000\n\u7684\u5b50\u4e32\uff0c\u603b\u957f\u4e0d\u8d85\u8fc7 1000000\u3002\u95ee\u4e3b\u4e32\u662f\u5426\u80fd\u7531\u5b50\u4e32\u62fc\u51fa\uff0c\u6bcf\u4e2a\u5b50\u4e32\u53ef\u4ee5\u591a\u6b21\u4f7f\u7528"
+}

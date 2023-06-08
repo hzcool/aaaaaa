@@ -1,0 +1,21 @@
+{
+    "description": "Help! A robot escaped our lab and we need help finding it.\n\nThe lab is at the point $ (0,0) $ of the coordinate plane, at time 0 the robot was there. The robot's movements are defined by a program \u2014 a string of length $ l $ , consisting of characters U, L, D, R. Each second the robot executes the next command in his program: if the current coordinates of the robot are $ (x,y) $ , then commands U, L, D, R move it to cells $ (x,y+1) $ , $ (x-1,y) $ , $ (x,y-1) $ , $ (x+1,y) $ respectively. The execution of the program started at time 0. The program is looped, i.e. each $ l $ seconds of executing the program start again from the first character. Unfortunately, we don't know what program was loaded into the robot when he left the lab.\n\nOur radars managed to find out the position of the robot at $ n $ moments of time: we know that at the moment of time $ t_{i} $ the robot is at the point $ (x_{i},y_{i}) $ . Given this data, either help to determine what program could be loaded into the robot, or determine that no possible program meets the data and the robot must have broken down.",
+    "inputFormat": "The first line of the input contains two space-separated integers $ n $ and $ l $ ( $ 1<=n<=2\u00b710^{5} $ , $ 1<=l<=2\u00b710^{6} $ ).\n\nNext $ n $ lines contain three space-separated integers \u2014 $ t_{i} $ , $ x_{i} $ , $ y_{i} $ ( $ 1<=t_{i}<=10^{18} $ , $ -10^{18}<=x_{i},y_{i}<=10^{18} $ ). The radar data is given chronologically, i.e. $ t_{i}&lt;t_{i+1} $ for all $ i $ from 1 to $ n-1 $ .",
+    "outputFormat": "Print any of the possible programs that meet the data. If no program meets the data, print a single word 'NO' (without the quotes).",
+    "samples": [
+        [
+            "3 3\n1 1 0\n2 1 -1\n3 0 -1\n",
+            "RDL\n"
+        ],
+        [
+            "2 2\n1 1 0\n999 1 0\n",
+            "RL\n"
+        ],
+        [
+            "2 5\n10 10 0\n20 0 0\n",
+            "NO\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u6709\u4e00\u4e2a\u673a\u5668\u4eba\uff0c\u7b2c $0$ \u79d2\u65f6\u5728 $(0,0)$ \u4f4d\u7f6e\u3002\n\n\u673a\u5668\u4eba\u4f1a\u5faa\u73af\u6267\u884c\u4e00\u4e2a\u957f\u5ea6\u4e3a $l$ \u7684\u6307\u4ee4\u5e8f\u5217\uff0c\u6bcf\u79d2\u6267\u884c\u4e00\u4e2a\u6307\u4ee4\u3002\n\n\u6307\u4ee4\u6709 `ULDR` \u56db\u79cd\uff0c\u5206\u522b\u4ee3\u8868\u5411\u4e0a/\u5de6/\u4e0b/\u53f3\u79fb\u52a8\u4e00\u683c\u3002\n\n\u4f60\u4e0d\u77e5\u9053\u8fd9\u4e2a\u6307\u4ee4\u5e8f\u5217\u5177\u4f53\u662f\u4ec0\u4e48\uff0c\u4f46\u662f\u4f60\u77e5\u9053 $n$ \u6761\u4fe1\u606f\uff0c\u7b2c $i$ \u6761\u4fe1\u606f\u4e3a\u300c\u7b2c $t_i$ \u79d2\u65f6\u673a\u5668\u4eba\u5728 $(x_i,y_i)$\u300d\uff0c\u4fdd\u8bc1 $t$ \u9012\u589e\u3002\n\n\u4f60\u9700\u8981\u6784\u9020\u4e00\u4e2a\u6ee1\u8db3\u8fd9\u4e9b\u4fe1\u606f\u7684\u6307\u4ee4\u5e8f\u5217\uff0c\u6216\u5224\u65ad\u4e0d\u5b58\u5728\u3002\n\n$n \\le 2 \\times 10^5$\uff0c$l \\le 2 \\times 10^6$\uff0c$t_i,|x_i|,|y_i| \\le 10^{18}$\u3002"
+}

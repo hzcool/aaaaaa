@@ -1,0 +1,17 @@
+{
+    "description": "You are given $ n $ elements numbered from $ 1 $ to $ n $ , the element $ i $ has value $ a_i $ and color $ c_i $ , initially, $ c_i = 0 $ for all $ i $ .\n\nThe following operation can be applied:\n\n- Select three elements $ i $ , $ j $ and $ k $ ( $ 1 \\leq i < j < k \\leq n $ ), such that $ c_i $ , $ c_j $ and $ c_k $ are all equal to $ 0 $ and $ a_i = a_k $ , then set $ c_j = 1 $ .\n\nFind the maximum value of $ \\sum\\limits_{i=1}^n{c_i} $ that can be obtained after applying the given operation any number of times.",
+    "inputFormat": "The first line contains an integer $ n $ ( $ 3 \\leq n \\leq 2 \\cdot 10^5 $ ) \u2014 the number of elements.\n\nThe second line consists of $ n $ integers $ a_1, a_2, \\dots, a_n $ ( $ 1 \\leq a_i \\leq n $ ), where $ a_i $ is the value of the $ i $ -th element.",
+    "outputFormat": "Print a single integer in a line \u2014 the maximum value of $ \\sum\\limits_{i=1}^n{c_i} $ that can be obtained after applying the given operation any number of times.",
+    "samples": [
+        [
+            "7\n1 2 1 2 7 4 7",
+            "2"
+        ],
+        [
+            "13\n1 2 3 2 1 3 3 4 5 5 5 4 7",
+            "7"
+        ]
+    ],
+    "hint": "In the first test, it is possible to apply the following operations in order:\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1630C/7c496bb097d511fd66adf529c361a9334d75c9e9.png)",
+    "translation": "\u7ed9\u5b9a $n$ \u4e2a\u5143\u7d20\uff0c\u7b2c $i$ \u4e2a\u5143\u7d20\u6709\u4e00\u4e2a\u503c $a_i$ \u548c\u4e00\u4e2a\u989c\u8272 $c_i$\uff0c\u521d\u59cb\u65f6\uff0c$a_i$ \u5728\u8f93\u5165\u4e2d\u7ed9\u5b9a\uff0c$c_i=0$\u3002\u4f60\u53ef\u4ee5\u6267\u884c\u82e5\u5e72\u6b21\u64cd\u4f5c\uff0c\u6bcf\u6b21\u64cd\u4f5c\u4f60\u53ef\u4ee5\u9009\u62e9\u6ee1\u8db3 $1\\leqslant i<j<k\\leqslant n$\uff0c$c_i=c_j=c_k=0$ \u4e14 $a_i=a_k$ \u7684\u4e09\u4e2a\u4f4d\u7f6e $i,j,k$\uff0c\u7136\u540e\u5c06 $c_j$ \u53d8\u4e3a $1$\u3002\u4f60\u5e0c\u671b\u6700\u5927\u5316 $\\sum\\limits_{i=1}^n c_i$ \u7684\u503c\uff0c\u6c42\u8fd9\u4e2a\u6700\u5927\u503c\u3002\n\n\u6570\u636e\u8303\u56f4\uff1a\n\n- $3\\leqslant n\\leqslant 2\\times 10^5$\u3002\n- $1\\leqslant a_i\\leqslant n$\u3002\n\nTranslated by Eason_AC  \n2022.1.28"
+}

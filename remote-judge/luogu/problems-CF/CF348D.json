@@ -1,0 +1,17 @@
+{
+    "description": "You've got a table of size $ n\u00d7m $ . We'll consider the table rows numbered from top to bottom 1 through $ n $ , and the columns numbered from left to right 1 through $ m $ . Then we'll denote the cell in row $ x $ and column $ y $ as $ (x,y) $ .\n\nInitially cell $ (1,1) $ contains two similar turtles. Both turtles want to get to cell $ (n,m) $ . Some cells of the table have obstacles but it is guaranteed that there aren't any obstacles in the upper left and lower right corner. A turtle (one or the other) can go from cell $ (x,y) $ to one of two cells $ (x+1,y) $ and $ (x,y+1) $ , as long as the required cell doesn't contain an obstacle. The turtles have had an argument so they don't want to have any chance of meeting each other along the way. Help them find the number of ways in which they can go from cell $ (1,1) $ to cell $ (n,m) $ .\n\nMore formally, find the number of pairs of non-intersecting ways from cell $ (1,1) $ to cell $ (n,m) $ modulo $ 1000000007 $ $ (10^{9}+7) $ . Two ways are called non-intersecting if they have exactly two common points \u2014 the starting point and the final point.",
+    "inputFormat": "The first line contains two integers $ n,m $ $ (2<=n,m<=3000) $ . Each of the following $ n $ lines contains $ m $ characters describing the table. The empty cells are marked by characters \".\", the cells with obstacles are marked by \"\\#\".\n\nIt is guaranteed that the upper left and the lower right cells are empty.",
+    "outputFormat": "In a single line print a single integer \u2014 the number of pairs of non-intersecting paths from cell $ (1,1) $ to cell $ (n,m) $ modulo $ 1000000007 $ $ (10^{9}+7) $ .",
+    "samples": [
+        [
+            "4 5\n.....\n.###.\n.###.\n.....\n",
+            "1\n"
+        ],
+        [
+            "2 3\n...\n...\n",
+            "1\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "## \u9898\u76ee\u63cf\u8ff0\r\n\u4e00\u5f20$n$\u884c$m$\u5217\u7684\u7f51\u683c\u56fe\uff0c\u56fe\u4e2d\u7684\u6709\u4e9b\u683c\u5b50\u4e0a\u9762\u6709\u969c\u788d\u7269\uff0c\u4f46\u4fdd\u8bc1$(1,1)$\u548c$(n,m)$\u4e0a\u9762\u90fd\u6ca1\u6709\u969c\u788d\u7269\u3002\u5728$(1,1)$\u5904\u6709\u4e24\u53ea\u4e4c\u9f9f\uff0c\u90fd\u60f3\u8981\u53bb$(n,m)$\u3002\u4e4c\u9f9f\u6bcf\u6b21\u90fd\u53ef\u4ee5\u5411\u4e0b\u6216\u8005\u5411\u53f3\u8d70\u4e00\u683c\uff0c\u524d\u63d0\u662f\u683c\u5b50\u4e0a\u6ca1\u6709\u4efb\u4f55\u969c\u788d\u7269\u3002\u8981\u6c42\u4e24\u53ea\u4e4c\u9f9f\u5728\u524d\u5f80$(n,m)$\u7684\u8def\u9014\u4e2d\u4e0d\u53ef\u4ee5\u76f8\u9047\uff0c\u5373\u9664\u4e86\u8d77\u70b9\u548c\u7ec8\u70b9\uff0c\u4ed6\u4eec\u7684\u8def\u5f84\u6ca1\u6709\u5176\u4ed6\u516c\u5171\u70b9\u3002\u6c42\u51fa\u4ece\u8d77\u70b9\u5230\u7ec8\u70b9\u7684\u4e0d\u540c\u8def\u5f84\u5bf9\u6570\u3002\u7b54\u6848\u5bf9$10^9+7$\u53d6\u6a21\u3002\r\n\r\n\u6ce8\uff1a$(route_a,route_b)$\u548c$(route_b,route_a)$\u88ab\u89c6\u4e3a\u540c\u4e00\u5bf9\u8def\u5f84\u3002\r\n\r\n## \u8f93\u5165\u683c\u5f0f\r\n\u7b2c\u4e00\u884c\u5305\u542b\u4e86$n,m$,$(2\u2264n,m\u22643000)$\uff0c\u540e\u9762$n$\u884c\uff0c\u6bcf\u884c\u6709$m$\u4e2a\u5b57\u7b26\uff0c\u7b2c$i$\u884c\u7b2c$j$\u4e2a\u5b57\u7b26\u8868\u793a$(i,j)$\u7684\u72b6\u6001\uff08$'.'$\u4e3a\u7a7a\u683c,$'\\#'$\u4e3a\u969c\u788d\u7269\u3002\uff09\r\n\r\n## \u8f93\u51fa\u683c\u5f0f\r\n\u4e00\u884c\uff0c\u5bf9$10^9+7$\u53d6\u6a21\u540e\u7684\u4ece\u8d77\u70b9\u5230\u7ec8\u70b9\u7684\u4e0d\u540c\u8def\u5f84\u5bf9\u6570\u3002"
+}

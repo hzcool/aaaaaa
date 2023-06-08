@@ -1,0 +1,17 @@
+{
+    "description": "The main server of Gomble company received a log of one top-secret process, the name of which can't be revealed. The log was written in the following format: \u00ab\\[date:time\\]: message\u00bb, where for each \u00ab\\[date:time\\]\u00bb value existed not more than 10 lines. All the files were encoded in a very complicated manner, and only one programmer \u2014 Alex \u2014 managed to decode them. The code was so complicated that Alex needed four weeks to decode it. Right after the decoding process was finished, all the files were deleted. But after the files deletion, Alex noticed that he saved the recordings in format \u00ab\\[time\\]: message\u00bb. So, information about the dates was lost. However, as the lines were added into the log in chronological order, it's not difficult to say if the recordings could appear during one day or not. It is possible also to find the minimum amount of days during which the log was written.\n\nSo, to make up for his mistake Alex has to find the minimum amount of days covered by the log. Note that Alex doesn't have to find the minimum amount of days between the beginning and the end of the logging, he has to find the minimum amount of dates in which records could be done. (See Sample test 2 for further clarifications).\n\nWe should remind you that the process made not more than 10 recordings in a minute. Consider that a midnight belongs to coming day.",
+    "inputFormat": "The first input line contains number $ n $ ( $ 1<=n<=100 $ ). The following $ n $ lines contain recordings in format \u00ab\\[time\\]: message\u00bb, where time is given in format \u00abhh:mm x.m.\u00bb. For hh two-digit numbers from 01 to 12 are used, for mm two-digit numbers from 00 to 59 are used, and x is either character \u00aba\u00bb or character \u00abp\u00bb. A message is a non-empty sequence of Latin letters and/or spaces, it doesn't start or end with a space. The length of each message doesn't exceed 20.",
+    "outputFormat": "Output one number \u2014 the minimum amount of days covered by the log.",
+    "samples": [
+        [
+            "5\n[05:00 a.m.]: Server is started\n[05:00 a.m.]: Rescan initialized\n[01:13 p.m.]: Request processed\n[01:10 p.m.]: Request processed\n[11:40 p.m.]: Rescan completed\n",
+            "2\n"
+        ],
+        [
+            "3\n[09:00 a.m.]: User logged in\n[08:00 a.m.]: User logged in\n[07:00 a.m.]: User logged in\n",
+            "3\n"
+        ]
+    ],
+    "hint": "Formally the 12-hour time format is described at:\n\n- http://en.wikipedia.org/wiki/12-hour\\_clock.\n\n The problem authors recommend you to look through these descriptions before you start with the problem.",
+    "translation": "\u7ed9\u5b9a $n$ \u6761\u7531 `[time] message` \u7ec4\u6210\u7684\u8bb0\u5f55\uff0c\u5176\u4e2d $time$ \u7531 `hour:minute am/pm` \u8868\u793a\uff0c\u8bf7\u4f60\u6c42\u51fa\u8fd9\u4e9b\u8bb0\u5f55\u6240\u8986\u76d6\u7684\u6700\u5c0f\u5929\u6570\u3002\n\n$n\\leq100$\uff0c\u4fdd\u8bc1\u4e00\u5206\u949f\u5185\u6d88\u606f\u4e0d\u8d85\u8fc7 $10$ \u4e2a\u3002"
+}

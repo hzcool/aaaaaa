@@ -1,0 +1,13 @@
+{
+    "description": "Alice and Bob play a game. They have a binary string $ s $ (a string such that each character in it is either $ 0 $ or $ 1 $ ). Alice moves first, then Bob, then Alice again, and so on.\n\nDuring their move, the player can choose any number (not less than one) of consecutive equal characters in $ s $ and delete them.\n\nFor example, if the string is $ 10110 $ , there are $ 6 $ possible moves (deleted characters are bold):\n\n1. $ \\textbf{1}0110 \\to 0110 $ ;\n2. $ 1\\textbf{0}110 \\to 1110 $ ;\n3. $ 10\\textbf{1}10 \\to 1010 $ ;\n4. $ 101\\textbf{1}0 \\to 1010 $ ;\n5. $ 10\\textbf{11}0 \\to 100 $ ;\n6. $ 1011\\textbf{0} \\to 1011 $ .\n\nAfter the characters are removed, the characters to the left and to the right of the removed block become adjacent. I. e. the following sequence of moves is valid: $ 10\\textbf{11}0 \\to       1\\textbf{00} \\to 1 $ .\n\nThe game ends when the string becomes empty, and the score of each player is the number of $ 1 $ -characters deleted by them.\n\nEach player wants to maximize their score. Calculate the resulting score of Alice.",
+    "inputFormat": "The first line contains one integer $ T $ ( $ 1 \\le T \\le       500 $ ) \u2014 the number of test cases.\n\nEach test case contains exactly one line containing a binary string $ s $ ( $ 1 \\le |s| \\le 100 $ ).",
+    "outputFormat": "For each test case, print one integer \u2014 the resulting score of Alice (the number of $ 1 $ -characters deleted by her).",
+    "samples": [
+        [
+            "5\n01111001\n0000\n111111\n101010101\n011011110111",
+            "4\n0\n6\n3\n6"
+        ]
+    ],
+    "hint": "Questions about the optimal strategy will be ignored.",
+    "translation": "$\\text{Alice}$ \u548c $\\text{Bob}$ \u5728\u73a9\u4e00\u4e2a\u6e38\u620f\u3002  \n\u6bcf\u4e00\u6b21 $\\text{Alice}$ \u5148\u64cd\u4f5c\uff0c\u7136\u540e\u662f $\\text{Bob}$ \uff0c\u518d\u5230 $\\text{Alice}$ \uff0c\u5982\u6b64\u7ee7\u7eed\u3002  \n\u6709\u4e00\u4e2a $01$ \u4e32 $s$ \uff0c\u6bcf\u4e00\u6b21\uff0c\u73a9\u5bb6\u53ef\u4ee5\u9009\u62e9\u4efb\u610f\u957f\u5ea6\uff08\u81f3\u5c11\u4e3a $1$ \uff09\u7684\u5b50\u4e32\u5220\u9664\uff0c\u5b50\u4e32\u4e2d\u7684\u5143\u7d20\u9700\u8981\u76f8\u7b49\u3002\u5728\u5220\u9664\u540e\uff0c\u539f\u5b50\u4e32\u4e24\u8fb9\u7684\u5143\u7d20\u9700\u8981\u5408\u5e76\u3002  \n\u6e38\u620f\u5c06\u4f1a\u5728 $s$ \u4e32\u4e3a\u7a7a\u65f6\u7ed3\u675f\u3002\u73a9\u5bb6\u7684\u5206\u6570\u88ab\u5b9a\u4e49\u4e3a\u81ea\u5df1\u5220\u9664\u7684 $1$ \u7684\u4e2a\u6570\u3002  \n$\\text{Alice}$ \u548c $\\text{Bob}$ \u90fd\u60f3\u8ba9\u81ea\u5df1\u7684\u5206\u6570\u6700\u5927\u3002\u8bf7\u8f93\u51fa\u8fd9\u79cd\u60c5\u51b5\u4e0b\uff0c$\\text{Alice}$ \u7684\u5206\u6570\u3002"
+}

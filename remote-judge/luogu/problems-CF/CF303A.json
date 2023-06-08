@@ -1,0 +1,17 @@
+{
+    "description": "Bike is interested in permutations. A permutation of length $ n $ is an integer sequence such that each integer from 0 to $ (n-1) $ appears exactly once in it. For example, $ [0,2,1] $ is a permutation of length 3 while both $ [0,2,2] $ and $ [1,2,3] $ is not.\n\nA permutation triple of permutations of length $ n $ $ (a,b,c) $ is called a Lucky Permutation Triple if and only if ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF303A/bd0aa9c2cfa6e7dfc9681d8813c19703f16dbc42.png). The sign $ a_{i} $ denotes the $ i $ -th element of permutation $ a $ . The modular equality described above denotes that the remainders after dividing $ a_{i}+b_{i} $ by $ n $ and dividing $ c_{i} $ by $ n $ are equal.\n\nNow, he has an integer $ n $ and wants to find a Lucky Permutation Triple. Could you please help him?",
+    "inputFormat": "The first line contains a single integer $ n $ $ (1<=n<=10^{5}) $ .",
+    "outputFormat": "If no Lucky Permutation Triple of length $ n $ exists print -1.\n\nOtherwise, you need to print three lines. Each line contains $ n $ space-seperated integers. The first line must contain permutation $ a $ , the second line \u2014 permutation $ b $ , the third \u2014 permutation $ c $ .\n\nIf there are multiple solutions, print any of them.",
+    "samples": [
+        [
+            "5\n",
+            "1 4 3 2 0\n1 0 2 4 3\n2 4 0 1 3\n"
+        ],
+        [
+            "2\n",
+            "-1\n"
+        ]
+    ],
+    "hint": "In Sample 1, the permutation triple $ ([1,4,3,2,0],[1,0,2,4,3],[2,4,0,1,3]) $ is Lucky Permutation Triple, as following holds:\n\n- ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF303A/6124807a627fcd49ae8fab0d91c9fa90239af12b.png);\n- ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF303A/598c5f3180986ca384de6df51e7cb84d8ea4e757.png);\n- ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF303A/66b44a153ea212b6a13d195278ac6715ce383457.png);\n- ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF303A/dd4f61ae15bc4151613d0da9fe47b466aa949e1e.png);\n- ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF303A/0ea0fc069d3b3e3451d396fd4b6ef6f3d9456398.png).\n\nIn Sample 2, you can easily notice that no lucky permutation triple exists.",
+    "translation": "bike\u8ba4\u4e3a[0,n-1]\u4e2d\u7684\u6bcf\u4e2a\u6570\u51fa\u73b0\u4e00\u6b21\u4e3a\u4e00\u4e2a\u6570\u5217\uff08\u957f\u5ea6\u4e3an\uff09\uff0c\u4e09\u4e2a\u957f\u5ea6\u4e3an\u7684\u6570\u5217\uff0c\u4e14![](http://codeforces.com/predownloaded/10/4a/104a8a429d0985a2c14e7bf3482a92b9c849276c.png)\u53eb\u505a\u5e78\u8fd0\u6392\u5217\u4e09\u5143\u7ec4\uff0c\u8981\u4f60\u627e\u51fa\u8fd9\u6837\u7684\u4e09\u5143\u7ec4\uff0c\u82e5\u6ca1\u6709\u8f93\u51fa-1\uff0c\u82e5\u6709\u591a\u79cd\u7b54\u6848\u8f93\u51fa\u5176\u4e2d\u4e00\u4e2a\u7b54\u6848"
+}

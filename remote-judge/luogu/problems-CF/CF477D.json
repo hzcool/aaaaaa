@@ -1,0 +1,17 @@
+{
+    "description": "Dreamoon saw a large integer $ x $ written on the ground and wants to print its binary form out. Dreamoon has accomplished the part of turning $ x $ into its binary format. Now he is going to print it in the following manner.\n\nHe has an integer $ n=0 $ and can only perform the following two operations in any order for unlimited times each:\n\n1. Print n in binary form without leading zeros, each print will append to the right of previous prints.\n2. Increase n by 1.\n\nLet's define an ideal sequence as a sequence of operations that can successfully print binary representation of $ x $ without leading zeros and ends with a print operation (i.e. operation 1). Dreamoon wants to know how many different ideal sequences are there and the length (in operations) of the shortest ideal sequence.\n\nThe answers might be large so please print them modulo 1000000007 ( $ 10^{9}+7 $ ).\n\nLet's define the string representation of an ideal sequence as a string of '1' and '2' where the $ i $ -th character in the string matches the $ i $ -th operation performed. Two ideal sequences are called different if their string representations are different.",
+    "inputFormat": "The single line of the input contains a binary integer representing $ x $ ( $ 1<=x<2^{5000} $ ) without leading zeros.",
+    "outputFormat": "The first line of the output should contain an integer representing the number of different ideal sequences modulo 1000000007 ( $ 10^{9}+7 $ ).\n\nThe second line of the output contains an integer representing the minimal length of an ideal sequence modulo 1000000007 ( $ 10^{9}+7 $ ).",
+    "samples": [
+        [
+            "101\n",
+            "1\n6\n"
+        ],
+        [
+            "11010\n",
+            "3\n5\n"
+        ]
+    ],
+    "hint": "For the first sample, the shortest and the only ideal sequence is \u00ab222221\u00bb of length $ 6 $ .\n\nFor the second sample, there are three ideal sequences \u00ab21211\u00bb, \u00ab212222222221\u00bb, \u00ab222222222222222222222222221\u00bb. Among them the shortest one has length $ 5 $ .",
+    "translation": "\u6709\u4e00\u53f0\u7279\u6b8a\u7684\u6253\u5370\u673a\uff0c\u8fd9\u53f0\u6253\u5370\u673a\u5185\u7f6e\u4e00\u4e2a\u521d\u59cb\u4e3a 0 \u53ef\u4ee5\u4efb\u610f\u5927\u7684\u6574\u6570 ? \u548c\u4e00\u4e2a \u521d\u59cb\u4e3a\u7a7a\u7684\u4e32\uff0c\u8be5\u6253\u5370\u673a\u9664\u4e86\u521d\u59cb\u5316\u4e4b\u5916\uff0c\u8fd8\u53ef\u4ee5\u8fdb\u884c\u4e0b\u8ff0\u4e24\u79cd\u64cd\u4f5c\uff1a \n\n1\u3001 \u5728\u5f53\u524d\u4e32\u672b\u5c3e\u6253\u5370 ? \u7684\u4e0d\u5e26\u524d\u5bfc 0 \u7684\u4e8c\u8fdb\u5236\u8868\u793a\u4e32\uff08\u5373\u672b\u5c3e\u6dfb\u52a0\u4e32\uff09\n\n2\u3001 \u4ee4 ? = ? + 1\n\n\u73b0\u5728\u8981\u6c42\u6253\u5370\u673a\u6070\u597d\u6253\u5370\u51fa\u8fd9\u4e2a\u4e32\u3002\u5728\u6b64\u57fa\u7840\u4e0a\uff0c\u6700\u5c11\u9700\u8981\u8fdb\u884c\u51e0\u6b21\u64cd\u4f5c\u624d\u53ef\u4ee5\u5c06\u8fd9\u4e2a 01 \u4e32\u6253\u5370\u51fa\u6765\uff0c\u4ee5\u53ca\u6709\u591a\u5c11\u79cd\u65b9\u6848\u80fd\u591f\u6253\u5370\u51fa\u8fd9\u4e2a\u4e32\uff0c\u7531\u4e8e\u8fd9\u4e24\u4e2a\u6570\u53ef\u80fd\u8fc7\u5927\uff0c\u56e0\n\u6b64\u4f60\u53ea\u9700\u8981\u8f93\u51fa\u5176\u6a211e9 + 7\u7684\u7ed3\u679c\u3002"
+}

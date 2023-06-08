@@ -1,0 +1,21 @@
+{
+    "description": "In the evening, after the contest Ilya was bored, and he really felt like maximizing. He remembered that he had a set of $ n $ sticks and an instrument. Each stick is characterized by its length $ l_{i} $ .\n\nIlya decided to make a rectangle from the sticks. And due to his whim, he decided to make rectangles in such a way that maximizes their total area. Each stick is used in making at most one rectangle, it is possible that some of sticks remain unused. Bending sticks is not allowed.\n\nSticks with lengths $ a_{1} $ , $ a_{2} $ , $ a_{3} $ and $ a_{4} $ can make a rectangle if the following properties are observed:\n\n- $ a_{1}<=a_{2}<=a_{3}<=a_{4} $\n- $ a_{1}=a_{2} $\n- $ a_{3}=a_{4} $\n\nA rectangle can be made of sticks with lengths of, for example, $ 3\u00a03\u00a03\u00a03 $ or $ 2\u00a02\u00a04\u00a04 $ . A rectangle cannot be made of, for example, sticks $ 5\u00a05\u00a05\u00a07 $ .\n\nIlya also has an instrument which can reduce the length of the sticks. The sticks are made of a special material, so the length of each stick can be reduced by at most one. For example, a stick with length $ 5 $ can either stay at this length or be transformed into a stick of length $ 4 $ .\n\nYou have to answer the question \u2014 what maximum total area of the rectangles can Ilya get with a file if makes rectangles from the available sticks?",
+    "inputFormat": "The first line of the input contains a positive integer $ n $ ( $ 1<=n<=10^{5} $ ) \u2014 the number of the available sticks.\n\nThe second line of the input contains $ n $ positive integers $ l_{i} $ ( $ 2<=l_{i}<=10^{6} $ ) \u2014 the lengths of the sticks.",
+    "outputFormat": "The first line of the output must contain a single non-negative integer \u2014 the maximum total area of the rectangles that Ilya can make from the available sticks.",
+    "samples": [
+        [
+            "4\n2 4 4 2\n",
+            "8\n"
+        ],
+        [
+            "4\n2 2 3 5\n",
+            "0\n"
+        ],
+        [
+            "4\n100003 100004 100005 100006\n",
+            "10000800015\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9\u5b9a $n$ \u6839\u6728\u68cd\u7684\u957f\u5ea6 $f[i]$ \uff0c\u6728\u68cd\u957f\u5ea6\u53ef\u4ee5\u6839\u636e\u9700\u8981\uff0c\u524a\u51cf $1$ \u4e2a\u5355\u4f4d\uff0c\u73b0\u5728\u8981\u5728 $n$ \u6839\u6728\u68cd\u4e2d\u9009\u51fa\u4e00\u4e9b\u6728\u68cd\uff0c\u62fc\u6210\u82e5\u5e72\u4e2a\u957f\u65b9\u5f62\uff0c\u6c42\u6700\u5927\u9762\u79ef\u548c\u3002"
+}

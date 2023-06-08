@@ -1,0 +1,25 @@
+{
+    "description": "You are given two arrays $ a $ and $ b $ , each contains $ n $ integers.\n\nYou want to create a new array $ c $ as follows: choose some real (i.e. not necessarily integer) number $ d $ , and then for every $ i \\in [1, n] $ let $ c_i := d \\cdot a_i + b_i $ .\n\nYour goal is to maximize the number of zeroes in array $ c $ . What is the largest possible answer, if you choose $ d $ optimally?",
+    "inputFormat": "The first line contains one integer $ n $ ( $ 1 \\le n \\le 2 \\cdot 10^5 $ ) \u2014 the number of elements in both arrays.\n\nThe second line contains $ n $ integers $ a_1 $ , $ a_2 $ , ..., $ a_n $ ( $ -10^9 \\le a_i \\le 10^9 $ ).\n\nThe third line contains $ n $ integers $ b_1 $ , $ b_2 $ , ..., $ b_n $ ( $ -10^9 \\le b_i \\le 10^9 $ ).",
+    "outputFormat": "Print one integer \u2014 the maximum number of zeroes in array $ c $ , if you choose $ d $ optimally.",
+    "samples": [
+        [
+            "5\n1 2 3 4 5\n2 4 7 11 3\n",
+            "2\n"
+        ],
+        [
+            "3\n13 37 39\n1 2 3\n",
+            "2\n"
+        ],
+        [
+            "4\n0 0 0 0\n1 2 3 4\n",
+            "0\n"
+        ],
+        [
+            "3\n1 2 -1\n-6 -12 6\n",
+            "3\n"
+        ]
+    ],
+    "hint": "In the first example, we may choose $ d = -2 $ .\n\nIn the second example, we may choose $ d = -\\frac{1}{13} $ .\n\nIn the third example, we cannot obtain any zero in array $ c $ , no matter which $ d $ we choose.\n\nIn the fourth example, we may choose $ d = 6 $ .",
+    "translation": "# \u96f6\u6570\u6700\u5927\u5316\r\n## \u9898\u76ee\u63cf\u8ff0\r\n\u7ed9\u51fa\u4e24\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u6570\u7ec4 $a,b$\u3002\r\n\r\n\u4f60\u60f3\u8981\u521b\u5efa\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u6570\u7ec4 $c$\uff0c\u4e14$c_i=d*a_i+b_i,i\\in[1, n]$\uff0c\u8981\u6c42\u4f60\u7ed9 $d$ \u8d4b\u503c\uff0c\u4f7f\u5f97\u6570\u7ec4 $c$ \u4e2d\u7684 $0$ \u7684\u4e2a\u6570\u6700\u591a\u5e76\u8f93\u51fa\u6700\u591a\u7684 $0$ \u7684\u4e2a\u6570\u3002\r\n## \u8f93\u5165\u683c\u5f0f\r\n\u7b2c\u4e00\u884c\u4e00\u4e2a\u6574\u6570 $n$\uff0c\r\n\u7b2c\u4e8c\u884c $n$ \u4e2a\u6574\u6570\u4e3a\u6570\u7ec4 $a$\uff0c\r\n\u7b2c\u4e8c\u884c $n$ \u4e2a\u6574\u6570\u4e3a\u6570\u7ec4 $b$\uff0c\r\n## \u8f93\u51fa\u683c\u5f0f\r\n\u4e00\u4e2a\u6570\u4e3a\u6570\u7ec4 $c$ \u4e2d\u6700\u591a\u7684 $0$ \u7684\u4e2a\u6570"
+}

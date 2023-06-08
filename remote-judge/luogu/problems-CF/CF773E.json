@@ -1,0 +1,17 @@
+{
+    "description": "It's well-known that blog posts are an important part of Codeforces platform. Every blog post has a global characteristic changing over time \u2014 its community rating. A newly created blog post's community rating is 0. Codeforces users may visit the blog post page and rate it, changing its community rating by +1 or -1.\n\nConsider the following model of Codeforces users' behavior. The $ i $ -th user has his own estimated blog post rating denoted by an integer $ a_{i} $ . When a user visits a blog post page, he compares his estimated blog post rating to its community rating. If his estimated rating is higher, he rates the blog post with +1 (thus, the blog post's community rating increases by 1). If his estimated rating is lower, he rates the blog post with -1 (decreasing its community rating by 1). If the estimated rating and the community rating are equal, user doesn't rate the blog post at all (in this case we'll say that user rates the blog post for 0). In any case, after this procedure user closes the blog post page and never opens it again.\n\nConsider a newly created blog post with the initial community rating of 0. For each of $ n $ Codeforces users, numbered from 1 to $ n $ , his estimated blog post rating $ a_{i} $ is known.\n\nFor each $ k $ from 1 to $ n $ , inclusive, the following question is asked. Let users with indices from 1 to $ k $ , in some order, visit the blog post page, rate the blog post and close the page. Each user opens the blog post only after the previous user closes it. What could be the maximum possible community rating of the blog post after these $ k $ visits?",
+    "inputFormat": "The first line contains a single integer $ n $ ( $ 1<=n<=5\u00b710^{5} $ ) \u2014 the number of Codeforces users.\n\nThe second line contains $ n $ integers $ a_{1},a_{2},...,a_{n} $ ( $ -5\u00b710^{5}<=a_{i}<=5\u00b710^{5} $ ) \u2014 estimated blog post ratings for users in order from 1 to $ n $ .",
+    "outputFormat": "For each $ k $ from 1 to $ n $ , output a single integer equal to the maximum possible community rating of the blog post after users with indices from 1 to $ k $ , in some order, visit the blog post page, rate the blog post, and close the page.",
+    "samples": [
+        [
+            "4\n2 0 2 2\n",
+            "1\n1\n2\n2\n"
+        ],
+        [
+            "7\n2 -3 -2 5 0 -3 1\n",
+            "1\n0\n-1\n0\n1\n1\n2\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u5bf9\u4e00\u4e2a\u6392\u597d\u5e8f\u7684\u6570\u7ec4 $a$, \u6211\u4eec\u8ba1\u7b97\u8fd9\u6837\u4e00\u4e2a\u51fd\u6570 F \u3002\n\nF \u521d\u503c\u4e3a 0 \u3002\n\u6309\u987a\u5e8f\u4f9d\u6b21\u5c06 F \u4e0e $a_i$ \u6bd4\u8f83\n\n\u5982\u679c F < $a_i$ \uff0c F++ \u3002\n\n\u5982\u679c F = $a_i$ \uff0c F \u4e0d\u53d8 \u3002\n\n\u5982\u679c F > $a_i$ \uff0c F-- \u3002\n\n\u4f9d\u6b21\u63d2\u5165 n \u4e2a\u6570\u5b57\uff0c\u4fdd\u8bc1\u4e4b\u540e\u6570\u7ec4\u6709\u5e8f\uff0c\u7ef4\u62a4\u6bcf\u6b21\u52a0\u5165\u540e\u7684 F \u503c\u3002\n\n$n \\le 5\\times 10^5$"
+}

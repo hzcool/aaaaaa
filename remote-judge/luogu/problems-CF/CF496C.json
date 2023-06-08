@@ -1,0 +1,21 @@
+{
+    "description": "You are given an $ n\u00d7m $ rectangular table consisting of lower case English letters. In one operation you can completely remove one column from the table. The remaining parts are combined forming a new table. For example, after removing the second column from the table\n\n`<br></br>abcd<br></br>edfg<br></br>hijk<br></br>`we obtain the table:\n\n`<br></br>acd<br></br>efg<br></br>hjk<br></br>`A table is called good if its rows are ordered from top to bottom lexicographically, i.e. each row is lexicographically no larger than the following one. Determine the minimum number of operations of removing a column needed to make a given table good.",
+    "inputFormat": "The first line contains two integers \u2014 $ n $ and $ m $ ( $ 1<=n,m<= $ 100).\n\nNext $ n $ lines contain $ m $ small English letters each \u2014 the characters of the table.",
+    "outputFormat": "Print a single number \u2014 the minimum number of columns that you need to remove in order to make the table good.",
+    "samples": [
+        [
+            "1 10\ncodeforces\n",
+            "0\n"
+        ],
+        [
+            "4 4\ncase\ncare\ntest\ncode\n",
+            "2\n"
+        ],
+        [
+            "5 4\ncode\nforc\nesco\ndefo\nrces\n",
+            "4\n"
+        ]
+    ],
+    "hint": "In the first sample the table is already good.\n\nIn the second sample you may remove the first and third column.\n\nIn the third sample you have to remove all the columns (note that the table where all rows are empty is considered good by definition).\n\nLet strings $ s $ and $ t $ have equal length. Then, $ s $ is lexicographically larger than $ t $ if they are not equal and the character following the largest common prefix of $ s $ and $ t $ (the prefix may be empty) in $ s $ is alphabetically larger than the corresponding character of $ t $ .",
+    "translation": "# \u9898\u76ee\u63cf\u8ff0\uff1a\r\n\r\n\u7ed9\u4f60\u4e00\u4e2a$n$*$m$\u7684\u5c0f\u5199\u5b57\u7b26\u77e9\u9635\uff0c\u4f60\u53ef\u4ee5\u9009\u62e9\u5220\u9664\u4e00\u4e9b\u5217\uff0c\u4f7f\u5f97\u5269\u4e0b\u7684\u5b57\u7b26\u77e9\u9635\u7684\u6bcf\u4e00\u884c\u7684\u5b57\u7b26\u4e32\u4ece\u4e0a\u5230\u4e0b\u7684\u5b57\u5178\u5e8f\u975e\u51cf\u3002\r\n\r\n\u6c42\u6700\u5c11\u5220\u9664\u591a\u5c11\u5217\r\n\r\n# \u8f93\u5165\u683c\u5f0f\uff1a\r\n\r\n\u7b2c\u4e00\u884c\u8f93\u5165\u4e24\u4e2a\u6574\u6570n,m\r\n\u63a5\u4e0b\u6765n\u884c\u6bcf\u884c\u8f93\u5165m\u4e2a\u5b57\u7b26\r\n\r\n# \u8f93\u51fa\u683c\u5f0f\uff1a\r\n\r\n\u8f93\u51fa\u4e00\u4e2a\u6574\u6570\u8868\u793a\u6700\u5c11\u5220\u9664\u7684\u5217"
+}

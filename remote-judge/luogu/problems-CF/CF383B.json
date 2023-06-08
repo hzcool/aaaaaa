@@ -1,0 +1,21 @@
+{
+    "description": "Iahub got lost in a very big desert. The desert can be represented as a $ n\u00d7n $ square matrix, where each cell is a zone of the desert. The cell $ (i,j) $ represents the cell at row $ i $ and column $ j $ $ (1<=i,j<=n) $ . Iahub can go from one cell $ (i,j) $ only down or right, that is to cells $ (i+1,j) $ or $ (i,j+1) $ .\n\nAlso, there are $ m $ cells that are occupied by volcanoes, which Iahub cannot enter.\n\nIahub is initially at cell $ (1,1) $ and he needs to travel to cell $ (n,n) $ . Knowing that Iahub needs $ 1 $ second to travel from one cell to another, find the minimum time in which he can arrive in cell $ (n,n) $ .",
+    "inputFormat": "The first line contains two integers $ n $ $ (1<=n<=10^{9}) $ and $ m $ $ (1<=m<=10^{5}) $ . Each of the next $ m $ lines contains a pair of integers, $ x $ and $ y $ $ (1<=x,y<=n) $ , representing the coordinates of the volcanoes.\n\nConsider matrix rows are numbered from 1 to $ n $ from top to bottom, and matrix columns are numbered from 1 to $ n $ from left to right. There is no volcano in cell $ (1,1) $ . No two volcanoes occupy the same location.",
+    "outputFormat": "Print one integer, the minimum time in which Iahub can arrive at cell $ (n,n) $ . If no solution exists (there is no path to the final cell), print -1.",
+    "samples": [
+        [
+            "4 2\n1 3\n1 4\n",
+            "6\n"
+        ],
+        [
+            "7 8\n1 6\n2 6\n3 5\n3 6\n4 3\n5 1\n5 2\n5 3\n",
+            "12\n"
+        ],
+        [
+            "2 2\n1 2\n2 1\n",
+            "-1\n"
+        ]
+    ],
+    "hint": "Consider the first sample. A possible road is: $ (1,1) $ $ \u2192 $ $ (1,2) $ $ \u2192 $ $ (2,2) $ $ \u2192 $ $ (2,3) $ $ \u2192 $ $ (3,3) $ $ \u2192 $ $ (3,4) $ $ \u2192 $ $ (4,4) $ .",
+    "translation": "Iahub \u5728\u4e00\u7247\u6c99\u6f20\u4e2d\u8ff7\u8def\u4e86\u3002\n\n\u6c99\u6f20\u662f\u4e00\u7247 $n\\times n$ \u7684\u7f51\u683c\uff0c\u91cc\u9762\u6709 $m$ \u5ea7\u706b\u5c71\uff0c\u7b2c $i$ \u5ea7\u706b\u5c71\u4f4d\u4e8e $(x_i,y_i)$\uff0c\u4fdd\u8bc1\u6ca1\u6709\u706b\u5c71\u4f4d\u4e8e $(1,1)$\uff0c\u6ca1\u6709\u4e24\u5ea7\u706b\u5c71\u4f4d\u4e8e\u540c\u4e00\u4e2a\u4f4d\u7f6e\u3002\n\nIahub \u5728 $(1,1)$\uff0c\u4ed6\u8981\u53bb $(n,n)$\u3002\u5728\u6bcf\u4e00\u79d2\uff0c\u4ed6\u53ef\u4ee5\u4ece $(x,y)$ \u8d70\u5230 $(x+1,y)$ \u6216\u8005 $(x,y+1)$\u3002\u4f46\u662f\u4ed6\u4e0d\u80fd\u8d70\u8fdb\u706b\u5c71\u3002\n\n\u8bf7\u4f60\u544a\u8bc9 Iahub \u4ed6\u9700\u8981\u591a\u5c11\u79d2\u624d\u80fd\u5230\u8fbe\u76ee\u7684\u5730\u3002\u5982\u679c\u4ed6\u65e0\u8bba\u5982\u4f55\u4e5f\u5230\u8fbe\u4e0d\u4e86\uff0c\u8f93\u51fa $-1$\u3002\n\n$1\\le x_i,y_i\\le n\\le 10^9,1\\le m\\le 10^5$"
+}

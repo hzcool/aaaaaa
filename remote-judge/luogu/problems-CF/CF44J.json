@@ -1,0 +1,25 @@
+{
+    "description": "There are many interesting tasks on domino tilings. For example, an interesting fact is known. Let us take a standard chessboard ( $ 8\u00d78 $ ) and cut exactly two squares out of it. It turns out that the resulting board can always be tiled using dominoes $ 1\u00d72 $ , if the two cut out squares are of the same color, otherwise it is impossible.\n\nPetya grew bored with dominoes, that's why he took a chessboard (not necessarily $ 8\u00d78 $ ), cut some squares out of it and tries to tile it using triminoes. Triminoes are reactangles $ 1\u00d73 $ (or $ 3\u00d71 $ , because triminoes can be rotated freely), also the two extreme squares of a trimino are necessarily white and the square in the middle is black. The triminoes are allowed to put on the chessboard so that their squares matched the colors of the uncut squares of the chessboard, and also the colors must match: the black squares must be matched with the black ones only and the white ones \u2014 with the white squares. The triminoes must not protrude above the chessboard or overlap each other. All the uncut squares of the board must be covered with triminoes.\n\nHelp Petya find out if it is possible to tile his board using triminos in the described way and print one of the variants of tiling.",
+    "inputFormat": "The first line contains two integers $ n $ and $ m $ ( $ 1<=n,m<=1000 $ ) \u2014 the board size. Next $ n $ lines contain $ m $ symbols each and represent the board description. If some position contains \".\", then the square in this position has been cut out. Symbol \"w\" stands for a white square, \"b\" stands for a black square. It is guaranteed that through adding the cut squares can result in a correct chessboard (i.e. with alternating black and white squares), thought, perhaps, of a non-standard size.",
+    "outputFormat": "If at least one correct tiling exists, in the first line print \"YES\" (without quotes), and then \u2014 the tiling description. The description must contain $ n $ lines, $ m $ symbols in each. The cut out squares, as well as in the input data, are marked by \".\". To denote triminoes symbols \"a\", \"b\", \"c\", \"d\" can be used, and all the three squares of each trimino must be denoted by the same symbol. If two triminoes share a side, than they must be denoted by different symbols. Two triminoes not sharing a common side can be denoted by one and the same symbol (c.f. sample).\n\nIf there are multiple correct ways of tiling, it is allowed to print any. If it is impossible to tile the board using triminoes or the correct tiling, for which four symbols \"a\", \"b\", \"c\", \"d\" would be enough, doesn't exist, print \"NO\" (without quotes) in the first line.",
+    "samples": [
+        [
+            "6 10\n.w.wbw.wbw\nwbwbw.w.w.\nbw.wbwbwbw\nw.wbw.wbwb\n...wbw.w.w\n..wbw.wbw.\n",
+            "YES\n.a.aaa.ccc\nbaccc.c.a.\nba.dddcbab\nb.aaa.cbab\n...bbb.b.b\n..ccc.ddd."
+        ],
+        [
+            "2 2\nwb\nbw\n",
+            "NO\n"
+        ],
+        [
+            "1 3\nwbw\n",
+            "YES\nbbb\n"
+        ],
+        [
+            "1 3\n...\n",
+            "YES\n...\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u9898\u76ee\u63cf\u8ff0\n\u7ed9\u51fa\u4e00\u4e2a$n \\times m$\u7684\u68cb\u76d8\uff0c\u68cb\u76d8\u7528\u9ed1\u767d\u4e24\u8272\u67d3\u8272\uff08\u67d3\u8272\u89c4\u5219\u4e0e\u56fd\u9645\u8c61\u68cb\u68cb\u76d8\u76f8\u540c\uff09\uff0c\u5176\u4e0a\u67d0\u4e9b\u683c\u5b50\u88ab\u6316\u6389\u4e86\uff0c\u95ee\u80fd\u5426\u4f7f\u7528$1 \\times 3$\u548c$3 \\times 1$\u7684\u77e9\u5f62\u4e0d\u91cd\u4e0d\u6f0f\u5730\u8986\u76d6\u6ca1\u6709\u6316\u7a7a\u7684\u68cb\u76d8\u90e8\u5206\u3002\n\n\u6ce8\u610f\uff1a\u77e9\u5f62\u653e\u7f6e\u7684\u4e2d\u95f4\u7684\u683c\u5b50\u5fc5\u987b\u8981\u662f\u9ed1\u8272\n\n\u8f93\u5165\u683c\u5f0f\n\n\u7b2c\u4e00\u884c\u4e24\u4e2a\u6b63\u6574\u6570$n,m(1 \\leq n,m \\leq 1000)$\n\n\u63a5\u4e0b\u6765$n$\u884c\u6bcf\u884c\u4e00\u4e2a\u957f\u5ea6\u4e3a$m$\u7684\u5b57\u7b26\u4e32\u8868\u793a\u68cb\u76d8\u3002\u5b57\u7b26\u4e3a$'\\ .\\ '$\u8868\u793a\u8fd9\u4e00\u4e2a\u683c\u5b50\u88ab\u6316\u7a7a\u4e86\uff0c\u4e3a$w$\u6216$b$\u8868\u793a\u8fd9\u4e2a\u683c\u5b50\u6ca1\u6709\u88ab\u6316\u7a7a\uff0c\u989c\u8272\u4e3a\u767d\u8272\u6216\u9ed1\u8272\u3002\n\n\u8f93\u51fa\u683c\u5f0f\n\n\u5982\u679c\u4e0d\u5b58\u5728\u65b9\u6848\uff0c\u8f93\u51fa\u4e00\u884c$NO$\uff0c\u5426\u5219\u8f93\u51fa\u4e00\u884c$YES$\u540e\u8f93\u51fa\u4e00\u4e2a$n \\times m$\u7684\u77e9\u9635\uff0c\u8868\u793a\u8986\u76d6\u65b9\u6848\u3002\u539f\u68cb\u76d8\u4e2d\u7684\u6316\u7a7a\u90e8\u5206\u4ecd\u7136\u8f93\u51fa$'\\ .\\ '$\uff0c\u672a\u88ab\u6316\u7a7a\u7684\u90e8\u5206\u9700\u8981\u7528$a,b,c,d$\u5176\u4e2d\u4e4b\u4e00\u4ee3\u66ff\uff0c\u8f93\u51fa\u4e2d\u4e09\u4e2a\u8fde\u7eed\u7684$a,b,c,d$\u8868\u793a\u4e00\u4e2a$1 \\times 3$\u6216$3 \\times 1$\u7684\u77e9\u5f62"
+}

@@ -1,0 +1,13 @@
+{
+    "description": "On an $ 8 \\times 8 $ grid, some horizontal rows have been painted red, and some vertical columns have been painted blue, in some order. The stripes are drawn sequentially, one after the other. When the stripe is drawn, it repaints all the cells through which it passes.\n\nDetermine which color was used last.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1742C/6f423ce4b1dd07561098c185bf230d882c12b3e9.png)The red stripe was painted after the blue one, so the answer is R.",
+    "inputFormat": "The first line of the input contains a single integer $ t $ ( $ 1 \\leq t \\leq 4000 $ ) \u2014 the number of test cases. The description of test cases follows. There is an empty line before each test case.\n\nEach test case consists of $ 8 $ lines, each containing $ 8 $ characters. Each of these characters is either 'R', 'B', or '.', denoting a red square, a blue square, and an unpainted square, respectively.\n\nIt is guaranteed that the given field is obtained from a colorless one by drawing horizontal red rows and vertical blue columns.\n\nAt least one stripe is painted.",
+    "outputFormat": "For each test case, output 'R' if a red stripe was painted last, and 'B' if a blue stripe was painted last (without quotes).",
+    "samples": [
+        [
+            "4\n\n\n....B...\n....B...\n....B...\nRRRRRRRR\n....B...\n....B...\n....B...\n....B...\n\n\nRRRRRRRB\nB......B\nB......B\nB......B\nB......B\nB......B\nB......B\nRRRRRRRB\n\n\nRRRRRRBB\n.B.B..BB\nRRRRRRBB\n.B.B..BB\n.B.B..BB\nRRRRRRBB\n.B.B..BB\n.B.B..BB\n\n\n........\n........\n........\nRRRRRRRR\n........\n........\n........\n........",
+            "R\nB\nB\nR"
+        ]
+    ],
+    "hint": "The first test case is pictured in the statement.\n\nIn the second test case, the first blue column is painted first, then the first and last red rows, and finally the last blue column. Since a blue stripe is painted last, the answer is B.",
+    "translation": "$8\\times8$ \u7684\u67d3\u8272\u5730\u56fe\uff0c\u521d\u59cb\u662f\u767d\u8272\uff0c\u7ed9\u4f60\u67d3\u5b8c\u8272\u7684\u5730\u56fe\uff0c`.` \u4ee3\u8868\u767d\u8272\uff0c`R` \u4ee3\u8868\u7ea2\u8272\uff0c`B` \u4ee3\u8868\u84dd\u8272\u3002\n\n\u5176\u4e2d\u67d3\u7ea2\u8272\u7684\u7b56\u7565\u5fc5\u5b9a\u662f\u6d82\u4e00\u884c\uff0c\u67d3\u84dd\u8272\u7684\u7b56\u7565\u5fc5\u5b9a\u662f\u6d82\u4e00\u5217\u3002\u989c\u8272\u4f1a\u8986\u76d6\u3002\n\n\u6c42\u6700\u540e\u6d82\u7684\u989c\u8272\u662f\u4ec0\u4e48\uff0c`R`\u4ee3\u8868\u7ea2\uff0c`B` \u4ee3\u8868\u84dd\u3002"
+}

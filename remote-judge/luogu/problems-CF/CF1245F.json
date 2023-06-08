@@ -1,0 +1,13 @@
+{
+    "description": "While doing some spring cleaning, Daniel found an old calculator that he loves so much. However, it seems like it is broken. When he tries to compute $ 1 + 3 $ using the calculator, he gets $ 2 $ instead of $ 4 $ . But when he tries computing $ 1 + 4 $ , he gets the correct answer, $ 5 $ . Puzzled by this mystery, he opened up his calculator and found the answer to the riddle: the full adders became half adders!\n\nSo, when he tries to compute the sum $ a + b $ using the calculator, he instead gets the xorsum $ a \\oplus b $ (read the definition by the link: [https://en.wikipedia.org/wiki/Exclusive\\_or](https://en.wikipedia.org/wiki/Exclusive_or)).\n\nAs he saw earlier, the calculator sometimes gives the correct answer. And so, he wonders, given integers $ l $ and $ r $ , how many pairs of integers $ (a, b) $ satisfy the following conditions: $ $$$a + b = a \\oplus b $ $   $ $ l \\leq a \\leq r $ $   $ $ l \\leq b \\leq r $ $$$\n\nHowever, Daniel the Barman is going to the bar and will return in two hours. He tells you to solve the problem before he returns, or else you will have to enjoy being blocked.",
+    "inputFormat": "The first line contains a single integer $ t $ ( $ 1 \\le t \\le 100 $ ) \u2014 the number of testcases.\n\nThen, $ t $ lines follow, each containing two space-separated integers $ l $ and $ r $ ( $ 0 \\le l \\le r \\le 10^9 $ ).",
+    "outputFormat": "Print $ t $ integers, the $ i $ -th integer should be the answer to the $ i $ -th testcase.",
+    "samples": [
+        [
+            "3\n1 4\n323 323\n1 1000000\n",
+            "8\n0\n3439863766\n"
+        ]
+    ],
+    "hint": " $ a \\oplus b $ denotes the bitwise XOR of $ a $ and $ b $ .\n\nFor the first testcase, the pairs are: $ (1, 2) $ , $ (1, 4) $ , $ (2, 1) $ , $ (2, 4) $ , $ (3, 4) $ , $ (4, 1) $ , $ (4, 2) $ , and $ (4, 3) $ .",
+    "translation": "## \u9898\u76ee\u63cf\u8ff0\n\u7ed9\u5b9a$l,r$\uff0c\u6c42\n$$\\sum_{a=l}^r\\sum_{b=l}^r[a+b=a\\oplus b]$$\n\n## \u8f93\u5165\u683c\u5f0f\n\u7b2c\u4e00\u884c$t(1\\le t\\le100)$\uff0c\u8868\u793a\u6570\u636e\u7ec4\u6570\n\n\u63a5\u4e0b\u6765$t$\u884c\uff0c\u6bcf\u884c$l,r$\n## \u8f93\u51fa\u683c\u5f0f\n\u5171$t$\u884c\uff0c\u7b54\u6848\u4e3a\u9898\u76ee\u6240\u8ff0"
+}

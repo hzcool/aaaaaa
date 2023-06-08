@@ -1,0 +1,21 @@
+{
+    "description": "It's a very unfortunate day for Volodya today. He got bad mark in algebra and was therefore forced to do some work in the kitchen, namely to cook borscht (traditional Russian soup). This should also improve his algebra skills.\n\nAccording to the borscht recipe it consists of $ n $ ingredients that have to be mixed in proportion ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF42A/d1dbd0f9d6798ddec90e02f2dc1080980bfbe962.png) litres (thus, there should be $ a_{1}\u00b7x,...,a_{n}\u00b7x $ litres of corresponding ingredients mixed for some non-negative $ x $ ). In the kitchen Volodya found out that he has $ b_{1},...,b_{n} $ litres of these ingredients at his disposal correspondingly. In order to correct his algebra mistakes he ought to cook as much soup as possible in a $ V $ litres volume pan (which means the amount of soup cooked can be between $ 0 $ and $ V $ litres). What is the volume of borscht Volodya will cook ultimately?",
+    "inputFormat": "The first line of the input contains two space-separated integers $ n $ and $ V $ ( $ 1<=n<=20,1<=V<=10000 $ ). The next line contains $ n $ space-separated integers $ a_{i} $ ( $ 1<=a_{i}<=100 $ ). Finally, the last line contains $ n $ space-separated integers $ b_{i} $ ( $ 0<=b_{i}<=100 $ ).",
+    "outputFormat": "Your program should output just one real number \u2014 the volume of soup that Volodya will cook. Your answer must have a relative or absolute error less than $ 10^{-4} $ .",
+    "samples": [
+        [
+            "1 100\n1\n40\n",
+            "40.0\n"
+        ],
+        [
+            "2 100\n1 1\n25 30\n",
+            "50.0\n"
+        ],
+        [
+            "2 100\n1 1\n60 60\n",
+            "100.0\n"
+        ]
+    ],
+    "hint": "",
+    "translation": " ## \u9898\u76ee\u63cf\u8ff0\n\n\u4eca\u5929\u5bf9Volodya\u6765\u8bf4\u662f\u5341\u5206\u4e0d\u5e78\u7684\u4e00\u5929\u3002\u4ed6\u7684\u4ee3\u6570\u8003\u8bd5\u6302\u6389\u4e86\uff0c\u5e76\u4e14\u4e0d\u5f97\u4e0d\u5728\u53a8\u623f\u91cc\u5e72\u6d3b\uff0c\u5373\u505a\u7f57\u5b8b\u6c64\uff08\u4e00\u79cd\u4f20\u7edf\u7684\u4fc4\u7f57\u65af\u6c64\uff09\u3002\u901a\u8fc7\u8fd9\u6837\u4e5f\u80fd\u63d0\u9ad8\u4ed6\u7684\u4ee3\u6570\u6c34\u5e73\u3002\n\n\u6839\u636e\u7f57\u5b8b\u6c64\u7684\u914d\u65b9,\u7f57\u5b8b\u6c64\u7531$n$\u90e8\u5206\u7ec4\u6210\uff0c\u5e76\u4e14\u5b83\u4eec\u5fc5\u987b\u6309\u6bd4\u4f8b\uff08$a_1:a_2:\\ldots:a_n$\uff09\u6df7\u5408\uff08\u56e0\u6b64\uff0c\u5bf9\u4e8e\u4e00\u4e2a\u975e\u8d1f\u7684$x$\uff0c\u5b83\u4eec\u4e3a$a_1*x,a_2*x,\\ldots,a_n*x$\u5347\uff09\uff0c\u5728\u53a8\u623f\u91cc Volodya\u53d1\u73b0\u6bcf\u79cd\u914d\u6599\u4ed6\u76f8\u5e94\u7684\u6709$b_1,b_2,\\ldots,b_n$\u5347\u4f9b\u4ed6\u4f7f\u7528\u3002\u4e3a\u4e86\u7ea0\u6b63\u4ed6\u5728\u4ee3\u6570\u4e0a\u7684\u9519\u8bef\uff0c\u4ed6\u51b3\u5b9a\u7528\u4e00\u4e2a\u5bb9\u91cf\u4e3a$V$\u5347\u7684\u9505\u5c3d\u53ef\u80fd\u7684\u591a\u505a\u6c64\uff08\u8fd9\u610f\u5473\u7740\u8fd9\u5b83\u80fd\u591f\u505a$0$\u5230$V$\u5347\u7684\u6c64\uff09\u3002Volodya\u6700\u591a\u80fd\u505a\u591a\u5c11\u6c64\uff1f\n\n ### \u8f93\u5165\u683c\u5f0f\uff1a\n\n\u7b2c\u4e00\u884c\u5305\u542b\u4e24\u4e2a\u7528\u7a7a\u683c\u5206\u5f00\u7684\u6574\u6570$n$\u548c$V$\uff08$1\\leq n\\leq20,1\\leq V\\leq10000$\uff09\u3002\u4e0b\u4e00\u884c\u5305\u542b$n$\u4e2a\u7528\u7a7a\u683c\u5206\u5f00\u7684\u6574\u6570$a_i$\uff08$1\\leq a_i\\leq100$\uff09\u3002\n\u6700\u540e\u4e00\u884c\u5305\u542b$n$\u4e2a\u7a7a\u683c\u5206\u5f00\u7684\u6574\u6570$b_i$\uff08$0\\leq b_i\\leq100$\uff09\n\n\n ### \u8f93\u51fa\u683c\u5f0f\uff1a\n\n\u4f60\u7684\u7a0b\u5e8f\u5e94\u5f53\u4ec5\u4ec5\u8f93\u51fa\u4e00\u4e2a\u5b9e\u6570 \u2014 Volodya\u6700\u591a\u80fd\u505a\u7684\u6c64\u7684\u4f53\u79ef\u3002\u4f60\u7684\u7b54\u6848\u5fc5\u987b\u548c\u6807\u51c6\u7b54\u6848\u76f8\u5dee\u4e0d\u8d85\u8fc7$10^{-4}$\nTranslated by @Khassar "
+}

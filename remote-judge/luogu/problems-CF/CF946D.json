@@ -1,0 +1,17 @@
+{
+    "description": "Ivan is a student at Berland State University (BSU). There are $ n $ days in Berland week, and each of these days Ivan might have some classes at the university.\n\nThere are $ m $ working hours during each Berland day, and each lesson at the university lasts exactly one hour. If at some day Ivan's first lesson is during $ i $ -th hour, and last lesson is during $ j $ -th hour, then he spends $ j-i+1 $ hours in the university during this day. If there are no lessons during some day, then Ivan stays at home and therefore spends $ 0 $ hours in the university.\n\nIvan doesn't like to spend a lot of time in the university, so he has decided to skip some lessons. He cannot skip more than $ k $ lessons during the week. After deciding which lessons he should skip and which he should attend, every day Ivan will enter the university right before the start of the first lesson he does not skip, and leave it after the end of the last lesson he decides to attend. If Ivan skips all lessons during some day, he doesn't go to the university that day at all.\n\nGiven $ n $ , $ m $ , $ k $ and Ivan's timetable, can you determine the minimum number of hours he has to spend in the university during one week, if he cannot skip more than $ k $ lessons?",
+    "inputFormat": "The first line contains three integers $ n $ , $ m $ and $ k $ ( $ 1<=n,m<=500 $ , $ 0<=k<=500 $ ) \u2014 the number of days in the Berland week, the number of working hours during each day, and the number of lessons Ivan can skip, respectively.\n\nThen $ n $ lines follow, $ i $ -th line containing a binary string of $ m $ characters. If $ j $ -th character in $ i $ -th line is 1, then Ivan has a lesson on $ i $ -th day during $ j $ -th hour (if it is 0, there is no such lesson).",
+    "outputFormat": "Print the minimum number of hours Ivan has to spend in the university during the week if he skips not more than $ k $ lessons.",
+    "samples": [
+        [
+            "2 5 1\n01001\n10110\n",
+            "5\n"
+        ],
+        [
+            "2 5 0\n01001\n10110\n",
+            "8\n"
+        ]
+    ],
+    "hint": "In the first example Ivan can skip any of two lessons during the first day, so he spends $ 1 $ hour during the first day and $ 4 $ hours during the second day.\n\nIn the second example Ivan can't skip any lessons, so he spends $ 4 $ hours every day.",
+    "translation": "\u9898\u76ee\u5927\u610f\uff1a\u7ed9\u51fan\u884cm\u521701\u4e32\uff0c\u5bf9\u4e8e\u6bcf\u4e00\u884c\u6240\u8981\u82b1\u8d39\u7684\u4ee3\u4ef7\u662f\u884c\u4e2d\u7b2c\u4e00\u4e2a1\u548c\u6700\u540e\u4e00\u4e2a1\u4e4b\u95f4\u7684\u8ddd\u79bb\u52a0\u4e00\uff0c\u73b0\u5728\u4f60\u6709\u9b54\u6cd5\u53ef\u4ee5\u53bb\u9664\u6389k\u4e2a1\uff0c\u95ee\u53bb\u6389\u4e0d\u591a\u4e8ek\u4e2a1\u7684\u60c5\u51b5\u4e0b\uff0c\u4f60\u6240\u80fd\u83b7\u5f97\u7684\u6700\u5c0f\u4ee3\u4ef7\u662f\u591a\u5c11\u3002\n\n\u7531 @LJC00118 \u63d0\u4f9b\u7ffb\u8bd1"
+}

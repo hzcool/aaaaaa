@@ -1,0 +1,17 @@
+{
+    "description": "Let's denote $ d(n) $ as the number of divisors of a positive integer $ n $ . You are given three integers $ a $ , $ b $ and $ c $ . Your task is to calculate the following sum:\n\n![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF236B/6b4d9893ce96bd0459ff1289a8bf3491052ac12a.png)Find the sum modulo $ 1073741824 $ $ (2^{30}) $ .",
+    "inputFormat": "The first line contains three space-separated integers $ a $ , $ b $ and $ c $ ( $ 1<=a,b,c<=100 $ ).",
+    "outputFormat": "Print a single integer \u2014 the required sum modulo $ 1073741824 $ $ (2^{30}) $ .",
+    "samples": [
+        [
+            "2 2 2\n",
+            "20\n"
+        ],
+        [
+            "5 6 7\n",
+            "1520\n"
+        ]
+    ],
+    "hint": "For the first example.\n\n- $ d(1\u00b71\u00b71)=d(1)=1 $ ;\n- $ d(1\u00b71\u00b72)=d(2)=2 $ ;\n- $ d(1\u00b72\u00b71)=d(2)=2 $ ;\n- $ d(1\u00b72\u00b72)=d(4)=3 $ ;\n- $ d(2\u00b71\u00b71)=d(2)=2 $ ;\n- $ d(2\u00b71\u00b72)=d(4)=3 $ ;\n- $ d(2\u00b72\u00b71)=d(4)=3 $ ;\n- $ d(2\u00b72\u00b72)=d(8)=4 $ .\n\nSo the result is $ 1+2+2+3+2+3+3+4=20 $ .",
+    "translation": "\u7ed9\u5b9a $\\text{a, b, c}$ \u4e09\u4e2a\u6570\uff0c$d_i$ \u8868\u793a $\\text{i}$ \u7684\u56e0\u5b50\u7684\u4e2a\u6570\u3002\u6c42 $\\sum^{a}_{i=1} \\sum^{b}_{j=1} \\sum^{c}_{k=1} d \\left(i \\cdot j \\cdot k \\right)$ \u7684\u503c\u3002\u7ed3\u679c\u5bf91073741824 ( $2^{30}$ )\u53d6\u6a21\u3002"
+}

@@ -1,0 +1,17 @@
+{
+    "description": "Petya recently found a game \"Choose a Square\". In this game, there are $ n $ points numbered from $ 1 $ to $ n $ on an infinite field. The $ i $ -th point has coordinates $ (x_i, y_i) $ and cost $ c_i $ .\n\nYou have to choose a square such that its sides are parallel to coordinate axes, the lower left and upper right corners belong to the line $ y = x $ , and all corners have integer coordinates.\n\nThe score you get is the sum of costs of the points covered by the selected square minus the length of the side of the square. Note that the length of the side can be zero.\n\nPetya asks you to calculate the maximum possible score in the game that can be achieved by placing exactly one square.",
+    "inputFormat": "The first line of the input contains one integer $ n $ ( $ 1 \\le n \\le 5 \\cdot 10^5 $ ) \u2014 the number of points on the field.\n\nEach of the following $ n $ lines contains three integers $ x_i, y_i, c_i $ ( $ 0 \\le x_i, y_i \\le 10^9, -10^6 \\le c_i \\le 10^6 $ ) \u2014 coordinates of the $ i $ -th point and its cost, respectively.",
+    "outputFormat": "In the first line print the maximum score Petya can achieve.\n\nIn the second line print four integers $ x_1, y_1, x_2, y_2 $ ( $ 0 \\le x_1, y_1, x_2, y_2 \\le 2 \\cdot 10^9, x_1 = y_1, x_2 = y_2, x_1 \\le x_2 $ ) separated by spaces \u2014 the coordinates of the lower left and upper right corners of the square which Petya has to select in order to achieve the maximum score.",
+    "samples": [
+        [
+            "6\n0 0 2\n1 0 -5\n1 1 3\n2 3 4\n1 4 -4\n3 1 -1\n",
+            "4\n1 1 3 3\n"
+        ],
+        [
+            "5\n3 3 0\n3 3 -3\n0 2 -1\n3 1 3\n0 0 -2\n",
+            "0\n1 1 1 1\n"
+        ]
+    ],
+    "hint": "The field corresponding to the first example: ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1221F/e9d6acfe5801db49535c73c7e3aac9d122102fde.png)",
+    "translation": "\u9898\u610f\u5927\u6982\u5c31\u662f\u6709$n$\u4e2a\u70b9\uff0c\u6bcf\u4e2a\u70b9\u5176\u5750\u6807$x_i,y_i$\u4e0e\u6743\u503c$c_i$\uff0c\u5176\u4e2d$1\\le n\\le 5\\cdot 10^5,0\\le x_i,y_i\\le 10^9,-10^6\\le c_i\\le 10^6$\u3002\r\n\r\n\u8ba9\u4f60\u9009\u4e00\u4e2a\u6b63\u65b9\u5f62\uff0c\u8be5\u6b63\u65b9\u5f62\u7684\u5de6\u4e0b\u89d2\u53ca\u53f3\u4e0a\u89d2\u5fc5\u987b\u5728$y=x$\u8fd9\u6761\u76f4\u7ebf\u4e0a\u3002\u6240\u83b7\u5f97\u7684\u6743\u503c\u4e3a\u5728\u6b63\u65b9\u5f62\u5185\u7684\u70b9\u7684\u6743\u503c\u548c\u51cf\u53bb\u6b63\u65b9\u5f62\u7684\u8fb9\u6743\u3002\u8f93\u51fa\u6240\u83b7\u7684\u6700\u5927\u6743\u503c\u53ca\u5176\u9009\u62e9\u6b63\u65b9\u5f62\u7684\u5de6\u4e0b\u89d2$x_1,y_1$\u53ca\u53f3\u4e0a\u89d2$x_2,y_2$\uff0c\u8981\u6c42$0\\le x_1=y_1\\le x_2=y_2\\le 2\\cdot 10^9$\u3002"
+}

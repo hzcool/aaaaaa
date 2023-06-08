@@ -1,0 +1,21 @@
+{
+    "description": "Heidi's friend Jenny is asking Heidi to deliver an important letter to one of their common friends. Since Jenny is Irish, Heidi thinks that this might be a prank. More precisely, she suspects that the message she is asked to deliver states: \"Send the fool further!\", and upon reading it the recipient will ask Heidi to deliver the same message to yet another friend (that the recipient has in common with Heidi), and so on.\n\nHeidi believes that her friends want to avoid awkward situations, so she will not be made to visit the same person (including Jenny) twice. She also knows how much it costs to travel between any two of her friends who know each other. She wants to know: what is the maximal amount of money she will waste on travel if it really is a prank?\n\nHeidi's $ n $ friends are labeled $ 0 $ through $ n-1 $ , and their network of connections forms a tree. In other words, every two of her friends $ a $ , $ b $ know each other, possibly indirectly (there is a sequence of friends starting from $ a $ and ending on $ b $ and such that each two consecutive friends in the sequence know each other directly), and there are exactly $ n-1 $ pairs of friends who know each other directly.\n\nJenny is given the number $ 0 $ .",
+    "inputFormat": "The first line of the input contains the number of friends $ n $ ( $ 3<=n<=100 $ ). The next $ n-1 $ lines each contain three space-separated integers $ u $ , $ v $ and $ c $ ( $ 0<=u,v<=n-1 $ , $ 1<=c<=10^{4} $ ), meaning that $ u $ and $ v $ are friends (know each other directly) and the cost for travelling between $ u $ and $ v $ is $ c $ .\n\nIt is guaranteed that the social network of the input forms a tree.",
+    "outputFormat": "Output a single integer \u2013 the maximum sum of costs.",
+    "samples": [
+        [
+            "4\n0 1 4\n0 2 2\n2 3 3\n",
+            "5\n"
+        ],
+        [
+            "6\n1 2 3\n0 2 100\n1 4 2\n0 3 7\n3 5 10\n",
+            "105\n"
+        ],
+        [
+            "11\n1 0 1664\n2 0 881\n3 2 4670\n4 2 1555\n5 1 1870\n6 2 1265\n7 2 288\n8 7 2266\n9 2 1536\n10 6 3378\n",
+            "5551\n"
+        ]
+    ],
+    "hint": "In the second example, the worst-case scenario goes like this: Jenny sends Heidi to the friend labeled by number $ 2 $ (incurring a cost of $ 100 $ ), then friend $ 2 $ sends her to friend $ 1 $ (costing Heidi $ 3 $ ), and finally friend $ 1 $ relays her to friend $ 4 $ (incurring an additional cost of $ 2 $ ).",
+    "translation": "\u7ed9\u4f60\u4e00\u68f5\u6709 $n$ \u4e2a\u8282\u70b9\u5e76\u4ee5\u8282\u70b9 $0$ \u4e3a\u6839\u7684\u6811\uff0c\u6bcf\u6761\u8fb9\u6709\u4e00\u4e2a\u6743\u503c\uff0c\u6743\u503c\u4e3a\u6b63\u6574\u6570\u3002\n\n\u8ba9\u4f60\u4ece\u6839\u5f00\u59cb\u627e\u4e00\u6761\u8def\u5f84\uff0c\u8def\u5f84\u7684\u8fb9\u7684\u6743\u503c\u4e4b\u548c\u6700\u5927\u3002"
+}

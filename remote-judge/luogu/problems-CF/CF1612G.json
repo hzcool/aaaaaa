@@ -1,0 +1,21 @@
+{
+    "description": "You are given an array $ c = [c_1, c_2, \\dots, c_m] $ . An array $ a = [a_1, a_2, \\dots, a_n] $ is constructed in such a way that it consists of integers $ 1, 2, \\dots, m $ , and for each $ i \\in [1,m] $ , there are exactly $ c_i $ occurrences of integer $ i $ in $ a $ . So, the number of elements in $ a $ is exactly $ \\sum\\limits_{i=1}^{m} c_i $ .\n\nLet's define for such array $ a $ the value $ f(a) $ as $ $$$f(a) = \\sum_{\\substack{1 \\le i < j \\le n\\\\ a_i = a_j}}{j - i}. $ $ </p><p>In other words,  $ f(a) $  is the total sum of distances between all pairs of equal elements.</p><p>Your task is to calculate the maximum possible value of  $ f(a) $  and the number of arrays yielding the maximum possible value of  $ f(a)$$$. Two arrays are considered different, if elements at some position differ.",
+    "inputFormat": "The first line contains a single integer $ m $ ( $ 1 \\le m \\le 5 \\cdot 10^5 $ ) \u2014 the size of the array $ c $ .\n\nThe second line contains $ m $ integers $ c_1, c_2, \\dots, c_m $ ( $ 1 \\le c_i \\le 10^6 $ ) \u2014 the array $ c $ .",
+    "outputFormat": "Print two integers \u2014 the maximum possible value of $ f(a) $ and the number of arrays $ a $ with such value. Since both answers may be too large, print them modulo $ 10^9 + 7 $ .",
+    "samples": [
+        [
+            "6\n1 1 1 1 1 1",
+            "0 720"
+        ],
+        [
+            "1\n1000000",
+            "499833345 1"
+        ],
+        [
+            "7\n123 451 234 512 345 123 451",
+            "339854850 882811119"
+        ]
+    ],
+    "hint": "In the first example, all possible arrays $ a $ are permutations of $ [1, 2, 3, 4, 5, 6] $ . Since each array $ a $ will have $ f(a) = 0 $ , so maximum value is $ f(a) = 0 $ and there are $ 6! = 720 $ such arrays.\n\nIn the second example, the only possible array consists of $ 10^6 $ ones and its $ f(a) = \\sum\\limits_{1 \\le i < j \\le 10^6}{j - i} = 166\\,666\\,666\\,666\\,500\\,000 $ and $ 166\\,666\\,666\\,666\\,500\\,000 \\bmod{10^9 + 7} = 499\\,833\\,345 $ .",
+    "translation": "- \u7ed9\u5b9a\u4e00\u4e2a\u957f\u4e3a $m$ \u7684\u5e8f\u5217 $c_1,c_2,\\dots,c_m$\u3002\n- \u5e8f\u5217 $A$ \u6ee1\u8db3\uff1a\u5bf9\u4e8e\u6240\u6709 $1 \\leq i \\leq m$\uff0c$i$ \u5728 $A$ \u4e2d\u51fa\u73b0\u4e86 $c_i$ \u6b21\u3002\n- \u5b9a\u4e49\u4e00\u4e2a\u5e8f\u5217 $A$ \u7684\u503c\u5982\u4e0b\uff1a\n$$f(A)=\\sum_{1 \\leq i<j \\leq n,a_i=a_j}j-i$$\n- \u6c42\u6ee1\u8db3\u6761\u4ef6\u7684 $f(A)$ \u7684\u6700\u5927\u503c\uff0c\u53ca\u5728\u53d6\u6700\u5927\u503c\u65f6\u6709\u591a\u5c11\u79cd\u5e8f\u5217 $A$\u3002\n- $1 \\leq m \\leq 5 \\times 10^5,1 \\leq c_i \\leq 10^6$\u3002"
+}

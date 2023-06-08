@@ -1,0 +1,17 @@
+{
+    "description": "There are $ n $ phone numbers in Polycarp's contacts on his phone. Each number is a 9-digit integer, starting with a digit different from $ 0 $ . All the numbers are distinct.\n\nThere is the latest version of Berdroid OS installed on Polycarp's phone. If some number is entered, is shows up all the numbers in the contacts for which there is a substring equal to the entered sequence of digits. For example, is there are three phone numbers in Polycarp's contacts: $ 123456789 $ , $ 100000000 $ and $ 100123456 $ , then:\n\n- if he enters $ 00 $ two numbers will show up: $ 100000000 $ and $ 100123456 $ ,\n- if he enters $ 123 $ two numbers will show up $ 123456789 $ and $ 100123456 $ ,\n- if he enters $ 01 $ there will be only one number $ 100123456 $ .\n\nFor each of the phone numbers in Polycarp's contacts, find the minimum in length sequence of digits such that if Polycarp enters this sequence, Berdroid shows this only phone number.",
+    "inputFormat": "The first line contains single integer $ n $ ( $ 1<=n<=70000 $ ) \u2014 the total number of phone contacts in Polycarp's contacts.\n\nThe phone numbers follow, one in each line. Each number is a positive 9-digit integer starting with a digit from $ 1 $ to $ 9 $ . All the numbers are distinct.",
+    "outputFormat": "Print exactly $ n $ lines: the $ i $ -th of them should contain the shortest non-empty sequence of digits, such that if Polycarp enters it, the Berdroid OS shows up only the $ i $ -th number from the contacts. If there are several such sequences, print any of them.",
+    "samples": [
+        [
+            "3\n123456789\n100000000\n100123456\n",
+            "9\n000\n01\n"
+        ],
+        [
+            "4\n123456789\n193456789\n134567819\n934567891\n",
+            "2\n193\n81\n91\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u6709 $n$ \u4e2a\u957f\u5ea6\u4e3a $9$ \u4e14\u53ea\u5305\u542b\u6570\u5b57\u5b57\u7b26\u4e14 **\u4e92\u4e0d\u76f8\u540c** \u7684\u4e32\u3002\n\n\u9700\u8981\u5bf9\u4e8e\u6bcf\u4e2a\u4e32\u627e\u5230\u4e00\u4e2a **\u957f\u5ea6\u6700\u77ed** \u7684\u8bc6\u522b\u7801\uff0c\u4f7f\u5f97\u8fd9\u4e2a\u8bc6\u522b\u7801 **\u5f53\u4e14\u4ec5\u5f53** \u4e3a\u8fd9\u4e2a\u4e32\u7684\u5b50\u4e32\u3002"
+}

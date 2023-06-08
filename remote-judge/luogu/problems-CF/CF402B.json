@@ -1,0 +1,17 @@
+{
+    "description": "The Queen of England has $ n $ trees growing in a row in her garden. At that, the $ i $ -th $ (1<=i<=n) $ tree from the left has height $ a_{i} $ meters. Today the Queen decided to update the scenery of her garden. She wants the trees' heights to meet the condition: for all $ i $ $ (1<=i&lt;n) $ , $ a_{i+1}-a_{i}=k $ , where $ k $ is the number the Queen chose.\n\nUnfortunately, the royal gardener is not a machine and he cannot fulfill the desire of the Queen instantly! In one minute, the gardener can either decrease the height of a tree to any positive integer height or increase the height of a tree to any positive integer height. How should the royal gardener act to fulfill a whim of Her Majesty in the minimum number of minutes?",
+    "inputFormat": "The first line contains two space-separated integers: $ n $ , $ k $ ( $ 1<=n,k<=1000) $ . The second line contains $ n $ space-separated integers $ a_{1},a_{2},...,a_{n} $ ( $ 1<=a_{i}<=1000 $ ) \u2014 the heights of the trees in the row.",
+    "outputFormat": "In the first line print a single integer $ p $ \u2014 the minimum number of minutes the gardener needs. In the next $ p $ lines print the description of his actions.\n\nIf the gardener needs to increase the height of the $ j $ -th ( $ 1<=j<=n $ ) tree from the left by $ x $ $ (x>=1) $ meters, then print in the corresponding line \"+ j x\". If the gardener needs to decrease the height of the $ j $ -th ( $ 1<=j<=n $ ) tree from the left by $ x $ $ (x>=1) $ meters, print on the corresponding line \"- j x\".\n\nIf there are multiple ways to make a row of trees beautiful in the minimum number of actions, you are allowed to print any of them.",
+    "samples": [
+        [
+            "4 1\n1 2 1 5\n",
+            "2\n+ 3 2\n- 4 1\n"
+        ],
+        [
+            "4 1\n1 2 3 4\n",
+            "0\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "## \u9898\u610f\n\u6709$n$\u4e2a\u6b63\u6574\u6570\uff0c\u53ef\u4ee5\u5bf9\u4e00\u4e2a\u6570\u8fdb\u884c\u4fee\u6539(\u4fee\u6539\u540e\u4e5f\u662f\u6b63\u6574\u6570)\uff0c\u8981\u6c42\u4fee\u6539\u4e4b\u540e\u6ee1\u8db3$a_i+k=a_{i+1}$,\u6c42\u6700\u5c11\u7684\u4fee\u6539\u6b21\u6570\u4ee5\u53ca\u5177\u4f53\u7684\u4fee\u6539\u65b9\u6848\n\n## \u8f93\u5165\u683c\u5f0f\n\u7b2c\u4e00\u884c:$n$\u548c$k$\n\n\u7b2c\u4e8c\u884c:$n$\u4e2a\u6570,\u8868\u793a\u521d\u59cb\u7684$a_i$\n\n## \u8f93\u51fa\u683c\u5f0f\n \u82e5\u4e0d\u7528\u4fee\u6539,\u53ea\u8981\u8f93\u51fa0\n\n \u82e5\u9700\u8981\u4fee\u6539;\n \n - \u7b2c\u4e00\u884c:\u6700\u5c0f\u7684\u4fee\u6539\u6b21\u6570\n - \u63a5\u4e0b\u6765\u7684\u82e5\u5e72\u884c,\u5bf9\u4e8e**\u88ab\u4fee\u6539\u7684**$a_i$,\u5176\u4fee\u6539\u540e\u503c\u4e3a$b_i$,\u82e5$b_i>a_i$,\u8f93\u51fa:\"+ i ($b_i-a_i$)\";\u82e5$a_i>b_i$,\u8f93\u51fa:\"- i $(a_i-b_i)$\"\n"
+}

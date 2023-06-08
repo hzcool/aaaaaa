@@ -1,0 +1,17 @@
+{
+    "description": "Little Artem found a grasshopper. He brought it to his house and constructed a jumping area for him.\n\nThe area looks like a strip of cells $ 1\u00d7n $ . Each cell contains the direction for the next jump and the length of that jump. Grasshopper starts in the first cell and follows the instructions written on the cells. Grasshopper stops immediately if it jumps out of the strip. Now Artem wants to find out if this will ever happen.",
+    "inputFormat": "The first line of the input contains a single integer $ n $ ( $ 1<=n<=100000 $ ) \u2014 length of the strip.\n\nNext line contains a string of length $ n $ which consists of characters \"<\" and \">\" only, that provide the direction of the jump from the corresponding cell. Next line contains $ n $ integers $ d_{i} $ ( $ 1<=d_{i}<=10^{9} $ ) \u2014 the length of the jump from the $ i $ -th cell.",
+    "outputFormat": "Print \"INFINITE\" (without quotes) if grasshopper will continue his jumps forever. Otherwise print \"FINITE\" (without quotes).",
+    "samples": [
+        [
+            "2\n&gt;&lt;\n1 2\n",
+            "FINITE\n"
+        ],
+        [
+            "3\n&gt;&gt;&lt;\n2 1 1\n",
+            "INFINITE"
+        ]
+    ],
+    "hint": "In the first sample grasshopper starts from the first cell and jumps to the right on the next cell. When he is in the second cell he needs to jump two cells left so he will jump out of the strip.\n\nSecond sample grasshopper path is $ 1 $ - $ 3 $ - $ 2 $ - $ 3 $ - $ 2 $ - $ 3 $ and so on. The path is infinite.",
+    "translation": "## \u9898\u76ee\u63cf\u8ff0                        \r\n\u6709\u4e00\u53ea\u86b1\u8722\u548c\u4e00\u4e2a\u6709\u7740$n$\u4e2a\u683c\u5b50\u7684\u6761\u5b50\uff0c\u86b1\u8722\u521a\u5f00\u59cb\u5728\u7b2c$1$\u4e2a\u683c\u5b50\u4e0a\u3002\u6bcf\u4e2a\u683c\u5b50\u4e0a\u90fd\u6807\u6709\u4e0b\u6b21\u8df3\u7684\u65b9\u5411\u4ee5\u53ca\u8ddd\u79bb\u3002\u5f53\u86b1\u8722\u8df3\u51fa\u8fb9\u754c\u65f6\u5c31\u4f1a\u505c\u6b62\u3002\u8bf7\u95ee\u86b1\u8722\u662f\u5426\u4f1a\u4e00\u76f4\u8df3\u4e0b\u53bb\uff1f              \r\n\r\n## \u8f93\u5165\u8f93\u51fa\u683c\u5f0f\r\n\r\n### \u8f93\u5165\u683c\u5f0f\uff1a                                \r\n\u7b2c\u4e00\u884c\uff0c\u4e00\u4e2a\u6b63\u6574\u6570$n$($1$<=$n$<=$100000$)\uff0c\u8868\u793a\u6761\u5b50\u957f\u5ea6\u3002                    \r\n\u7b2c\u4e8c\u884c\uff0c$n$\u4e2a\u5b57\u7b26\uff0c\u7b2c$i$\u4e2a\u5b57\u7b26\u8868\u793a\u7b2c$i$\u4e2a\u683c\u5b50\u4e0a\u8868\u793a\u65b9\u5411\u7684\u6807\u8bc6\uff0c`<`\u8868\u793a\u5f80\u5de6\u8df3\uff0c`>`\u8868\u793a\u5f80\u53f3\u8df3\u3002\uff08\u6837\u4f8b\u4e2d\u7684`&lt;`\u5373\u4e3a`<`\uff0c`&gt;`\u5373\u4e3a`>`\u3002\u4e2d\u95f4\u6ca1\u6709\u7a7a\u683c\uff09            \r\n\u7b2c\u4e09\u884c\uff0c$n$\u4e2a\u6570\u5b57\uff0c\u7b2c$i$\u4e2a\u6570\u5b57\u8868\u793a\u7b2c$i$\u4e2a\u683c\u5b50\u4e0a\u8868\u793a\u8ddd\u79bb\u7684\u6807\u8bc6\u3002 \uff08\u7a7a\u683c\u9694\u5f00\uff09\r\n\r\n### \u8f93\u51fa\u683c\u5f0f\uff1a                    \r\n\u5982\u679c\u86b1\u8722\u4f1a\u6c38\u8fdc\u8df3\u4e0b\u53bb\uff0c\u8f93\u51fa`INFINITE`\uff0c\u5426\u5219\u8f93\u51fa`FINITE`\u3002   \r\n\r\n\r\n$Translate$ $by$ $U144044$                      \r\n$\\color{white}\\texttt{\u86b1\u8722\u6c38\u8fdc\u8df3\u4e0b\u53bb\u4e0d\u4f1a\u7d2f\u6b7b\u5417}$     "
+}

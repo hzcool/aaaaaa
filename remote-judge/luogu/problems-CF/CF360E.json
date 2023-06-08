@@ -1,0 +1,21 @@
+{
+    "description": "Levko loves sports pathfinding competitions in his city very much. In order to boost his performance, Levko spends his spare time practicing. The practice is a game.\n\nThe city consists of $ n $ intersections connected by $ m+k $ directed roads. Two or more roads can connect the same pair of intersections. Besides, there can be roads leading from an intersection to itself.\n\nLevko and Zenyk are playing a game. First Levko stands on intersection $ s_{1} $ , and Zenyk stands on intersection $ s_{2} $ . They both want to get to intersection $ f $ . The person who does it quicker wins. If they get there at the same time, the game ends with a draw. By agreement both players start simultaneously and move with the same speed.\n\nLevko wants to win very much. He knows the lengths of all the roads in the city. Also he knows that he can change the lengths of some roads (there are $ k $ such roads at all) if he pays the government. So, the government can change the length of the $ i $ -th road to any integer value in the segment \\[ $ l_{i} $ , $ r_{i} $ \\] (both borders inclusive). Levko wondered if he can reconstruct the roads so as to win the game and whether he can hope for the draw if he cannot win.\n\nYou should consider that both players play optimally well. It is guaranteed that we can get from intersections $ s_{1} $ and $ s_{2} $ to intersection $ f $ .",
+    "inputFormat": "The first line contains three integers $ n $ , $ m $ and $ k $ ( $ 1<=n,m<=10^{4} $ , $ 1<=k<=100 $ ). The second line contains three integers $ s_{1} $ , $ s_{2} $ and $ f $ ( $ 1<=s_{1},s_{2},f<=n $ ).\n\nThe next $ m $ lines contains the descriptions of the roads that cannot be changed by Levko. Each line contains three integers $ a_{i} $ , $ b_{i} $ and $ c_{i} $ ( $ 1<=a_{i},b_{i}<=n,1<=c_{i}<=10^{9} $ ), representing a road from intersection $ a_{i} $ to intersection $ b_{i} $ of length $ c_{i} $ .\n\nThe next $ k $ lines contains the descriptions of the roads that can be changed by Levko. Each line contains four integers $ a_{i} $ , $ b_{i} $ , $ l_{i} $ and $ r_{i} $ ( $ 1<=a_{i},b_{i}<=n,1<=l_{i}<=r_{i}<=10^{9} $ ), representing a road from intersection $ a_{i} $ to intersection $ b_{i} $ , Levko can set the road's length within limits $ [l_{i},r_{i}] $ .\n\nConsider all intersections numbered from 1 to $ n $ . It is guaranteed that you can get from intersections $ s_{1} $ and $ s_{2} $ to intersection $ f $ .",
+    "outputFormat": "In the first line print string \"WIN\" (without the quotes) if Levko can win this game, string \"DRAW\" (without the quotes) if Levko can end the game with a draw and \"LOSE\" (without the quotes) if he loses for sure.\n\nIf the answer is \"WIN\" or \"DRAW\", then print on the second line $ k $ space-separated integers \u2014 the length of the roads Levko sets in the order they occur in the input.",
+    "samples": [
+        [
+            "4 1 3\n1 3 4\n3 2 2\n1 2 1 3\n2 4 1 3\n3 4 1 3\n",
+            "WIN\n1 1 3 "
+        ],
+        [
+            "4 1 3\n1 3 4\n3 2 2\n1 2 1 3\n2 4 1 3\n3 4 1 2\n",
+            "DRAW\n1 1 2 "
+        ],
+        [
+            "5 4 2\n1 2 5\n1 3 3\n1 4 4\n2 3 2\n2 4 3\n3 5 1 5\n4 5 4 7\n",
+            "LOSE\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u4f60\u548c\u4f60\u7684\u670b\u53cb\u5728\u4e00\u5f20\u6709 $n$\uff08$n\\le 10^4$\uff09\u4e2a\u70b9\uff0c $m+k$\uff08$m \\le 10^4$\uff0c$k\\le 100$\uff09\u6761\u8fb9\u7684\u5e26\u6743\u6709\u5411\u56fe\u4e0a\u73a9\u4e00\u4e2a\u6e38\u620f.\n    \n\u4e00\u5f00\u59cb\u4f60\u4eec\u5206\u522b\u5904\u5728$S_1$\u548c$S_2$\u4e0a,\u4f60\u4eec\u9700\u8981\u5230\u8fbe$T$.\n    \n\u4f60\u53ef\u4ee5\u5c06\u7ed9\u5b9a\u7684$k$(\u2264$100$)\u6761\u8fb9\u7684\u6743\u503c\u4fee\u6539\u4e3a$[L,R]$\u4e2d\u4efb\u4f55\u6570.\n    \n\u5728\u5f00\u5c40\u65f6,\u6bcf\u6761\u8fb9\u7684\u6743\u503c\u90fd\u5728$[L,R]$\u4e2d.\n    \n\u95ee\u4f60\u662f\u5426\u80fd\u5148\u5230\u8fbe$T$,\u5982\u679c\u4e0d\u80fd,\u80fd\u5426\u8fbe\u6210\u5e73\u5c40.\n"
+}

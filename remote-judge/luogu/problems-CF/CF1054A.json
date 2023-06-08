@@ -1,0 +1,21 @@
+{
+    "description": "Masha lives in a multi-storey building, where floors are numbered with positive integers. Two floors are called adjacent if their numbers differ by one. Masha decided to visit Egor. Masha lives on the floor $ x $ , Egor on the floor $ y $ (not on the same floor with Masha).\n\nThe house has a staircase and an elevator. If Masha uses the stairs, it takes $ t_1 $ seconds for her to walk between adjacent floors (in each direction). The elevator passes between adjacent floors (in each way) in $ t_2 $ seconds. The elevator moves with doors closed. The elevator spends $ t_3 $ seconds to open or close the doors. We can assume that time is not spent on any action except moving between adjacent floors and waiting for the doors to open or close. If Masha uses the elevator, it immediately goes directly to the desired floor.\n\nComing out of the apartment on her floor, Masha noticed that the elevator is now on the floor $ z $ and has closed doors. Now she has to choose whether to use the stairs or use the elevator.\n\nIf the time that Masha needs to get to the Egor's floor by the stairs is strictly less than the time it will take her using the elevator, then she will use the stairs, otherwise she will choose the elevator.\n\nHelp Mary to understand whether to use the elevator or the stairs.",
+    "inputFormat": "The only line contains six integers $ x $ , $ y $ , $ z $ , $ t_1 $ , $ t_2 $ , $ t_3 $ ( $ 1 \\leq x, y, z, t_1, t_2, t_3 \\leq 1000 $ ) \u2014 the floor Masha is at, the floor Masha wants to get to, the floor the elevator is located on, the time it takes Masha to pass between two floors by stairs, the time it takes the elevator to pass between two floors and the time it takes for the elevator to close or open the doors.\n\nIt is guaranteed that $ x \\ne y $ .",
+    "outputFormat": "If the time it will take to use the elevator is not greater than the time it will take to use the stairs, print \u00abYES\u00bb (without quotes), otherwise print \u00abNO> (without quotes).\n\nYou can print each letter in any case (upper or lower).",
+    "samples": [
+        [
+            "5 1 4 4 2 1\n",
+            "YES"
+        ],
+        [
+            "1 6 6 2 1 1\n",
+            "NO"
+        ],
+        [
+            "4 1 7 4 1 2\n",
+            "YES"
+        ]
+    ],
+    "hint": "In the first example:\n\nIf Masha goes by the stairs, the time she spends is $ 4 \\cdot 4 = 16 $ , because she has to go $ 4 $ times between adjacent floors and each time she spends $ 4 $ seconds.\n\nIf she chooses the elevator, she will have to wait $ 2 $ seconds while the elevator leaves the $ 4 $ -th floor and goes to the $ 5 $ -th. After that the doors will be opening for another $ 1 $ second. Then Masha will enter the elevator, and she will have to wait for $ 1 $ second for the doors closing. Next, the elevator will spend $ 4 \\cdot 2 = 8 $ seconds going from the $ 5 $ -th floor to the $ 1 $ -st, because the elevator has to pass $ 4 $ times between adjacent floors and spends $ 2 $ seconds each time. And finally, it will take another $ 1 $ second before the doors are open and Masha can come out.\n\nThus, all the way by elevator will take $ 2 + 1 + 1 + 8 + 1 = 13 $ seconds, which is less than $ 16 $ seconds, so Masha has to choose the elevator.\n\nIn the second example, it is more profitable for Masha to use the stairs, because it will take $ 13 $ seconds to use the elevator, that is more than the $ 10 $ seconds it will takes to go by foot.\n\nIn the third example, the time it takes to use the elevator is equal to the time it takes to walk up by the stairs, and is equal to $ 12 $ seconds. That means Masha will take the elevator.",
+    "translation": "Masha\u8981\u4ece$x$\u697c\u5230$y$\u697c\u627eEgor\uff08$x \\neq y$\uff09\u3002\u5979\u53ef\u4ee5\u8d70\u697c\u68af\u6216\u5750\u7535\u68af\u3002\u5728\u76f8\u90bb\uff08\u6570\u5b57\u5dee$1$\uff09\u4e24\u5c42\u4e4b\u95f4\uff0c\u8d70\u697c\u68af\u8981$t_1$\u65f6\u95f4\uff0c\u5750\u7535\u68af\u8981$t_2$\u65f6\u95f4\u3002\u7535\u68af\u505c\u697c\u5c42\u8981$t_3$\u65f6\u95f4\u3002\u73b0\u5728\u7535\u68af\u5728$z$\u697c\u3002\u5982\u679c\u4ece$x$\u697c\u5230$y$\u697c\u5750\u7535\u68af\u4e0d\u6bd4\u8d70\u697c\u68af\u6162\uff0c\u90a3\u4e48\u8f93\u51fa`YES`\uff1b\u5426\u5219\u8f93\u51fa`NO`\u3002"
+}

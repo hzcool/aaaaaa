@@ -1,0 +1,21 @@
+{
+    "description": "There is a rectangular grid of size $ n \\times m $ . Each cell has a number written on it; the number on the cell ( $ i, j $ ) is $ a_{i, j} $ . Your task is to calculate the number of paths from the upper-left cell ( $ 1, 1 $ ) to the bottom-right cell ( $ n, m $ ) meeting the following constraints:\n\n- You can move to the right or to the bottom only. Formally, from the cell ( $ i, j $ ) you may move to the cell ( $ i, j + 1 $ ) or to the cell ( $ i + 1, j $ ). The target cell can't be outside of the grid.\n- The xor of all the numbers on the path from the cell ( $ 1, 1 $ ) to the cell ( $ n, m $ ) must be equal to $ k $ (xor operation is the bitwise exclusive OR, it is represented as '^' in Java or C++ and \"xor\" in Pascal).\n\nFind the number of such paths in the given grid.",
+    "inputFormat": "The first line of the input contains three integers $ n $ , $ m $ and $ k $ ( $ 1 \\le n, m \\le 20 $ , $ 0 \\le k \\le 10^{18} $ ) \u2014 the height and the width of the grid, and the number $ k $ .\n\nThe next $ n $ lines contain $ m $ integers each, the $ j $ -th element in the $ i $ -th line is $ a_{i, j} $ ( $ 0 \\le a_{i, j} \\le 10^{18} $ ).",
+    "outputFormat": "Print one integer \u2014 the number of paths from ( $ 1, 1 $ ) to ( $ n, m $ ) with xor sum equal to $ k $ .",
+    "samples": [
+        [
+            "3 3 11\n2 1 5\n7 10 0\n12 6 4\n",
+            "3\n"
+        ],
+        [
+            "3 4 2\n1 3 3 3\n0 3 3 2\n3 0 1 1\n",
+            "5\n"
+        ],
+        [
+            "3 4 1000000000000000000\n1 3 3 3\n0 3 3 2\n3 0 1 1\n",
+            "0\n"
+        ]
+    ],
+    "hint": "All the paths from the first example:\n\n- $ (1, 1) \\rightarrow (2, 1) \\rightarrow (3, 1) \\rightarrow (3, 2) \\rightarrow (3, 3) $ ;\n- $ (1, 1) \\rightarrow (2, 1) \\rightarrow (2, 2) \\rightarrow (2, 3) \\rightarrow (3, 3) $ ;\n- $ (1, 1) \\rightarrow (1, 2) \\rightarrow (2, 2) \\rightarrow (3, 2) \\rightarrow (3, 3) $ .\n\nAll the paths from the second example:\n\n- $ (1, 1) \\rightarrow (2, 1) \\rightarrow (3, 1) \\rightarrow (3, 2) \\rightarrow (3, 3) \\rightarrow (3, 4) $ ;\n- $ (1, 1) \\rightarrow (2, 1) \\rightarrow (2, 2) \\rightarrow (3, 2) \\rightarrow (3, 3) \\rightarrow (3, 4) $ ;\n- $ (1, 1) \\rightarrow (2, 1) \\rightarrow (2, 2) \\rightarrow (2, 3) \\rightarrow (2, 4) \\rightarrow (3, 4) $ ;\n- $ (1, 1) \\rightarrow (1, 2) \\rightarrow (2, 2) \\rightarrow (2, 3) \\rightarrow (3, 3) \\rightarrow (3, 4) $ ;\n- $ (1, 1) \\rightarrow (1, 2) \\rightarrow (1, 3) \\rightarrow (2, 3) \\rightarrow (3, 3) \\rightarrow (3, 4) $ .",
+    "translation": "\u7ed9\u51fa\u4e00\u4e2a n \u00d7 m \u7684\u7f51\u683c\uff0c\u6bcf\u4e2a\u683c\u5b50\u4e0a\u6709\u6743\u503c a[i][j]\uff0c\u73b0\u5728zhqwq\u8981\u4ece (1,1) \u8d70\u5230 (n,m)\u53bb\u62b1\u8d70wyz\uff0c\u6bcf\u6b21\u53ea\u80fd\u5411\u53f3\u6216\u5411\u4e0b\u8d70\uff0c\n\u6cbf\u8def\u8ba1\u7b97\u5f02\u6216\u548c\uff0c\u6c42\u5f02\u6216\u548c\u7b49\u4e8e k \u7684\u8def\u5f84\u6570\u3002\n## Input\n\u7b2c\u4e00\u884c\u5305\u542b\u4e09\u4e2a\u6574\u6570 n,m,k(1 \u2264 n,m \u2264 20; $0 \\le k \\le 10^{18}$)\u3002\n\u63a5\u4e0b\u6765 n \u884c\uff0c\u6bcf\u884c\u5305\u542b m \u4e2a\u6574\u6570\uff0c\u8868\u793a\u683c\u4e0a\u7684\u6743\u503c\u3002\n## Output\n1\u4e2a\u6574\u6570\uff0c\u8868\u793a\u8def\u5f84\u6570\u3002"
+}

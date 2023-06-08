@@ -1,0 +1,25 @@
+{
+    "description": "One day, $ n $ people ( $ n $ is an even number) met on a plaza and made two round dances, each round dance consists of exactly $ \\frac{n}{2} $ people. Your task is to find the number of ways $ n $ people can make two round dances if each round dance consists of exactly $ \\frac{n}{2} $ people. Each person should belong to exactly one of these two round dances.\n\nRound dance is a dance circle consisting of $ 1 $ or more people. Two round dances are indistinguishable (equal) if one can be transformed to another by choosing the first participant. For example, round dances $ [1, 3, 4, 2] $ , $ [4, 2, 1, 3] $ and $ [2, 1, 3, 4] $ are indistinguishable.\n\nFor example, if $ n=2 $ then the number of ways is $ 1 $ : one round dance consists of the first person and the second one of the second person.\n\nFor example, if $ n=4 $ then the number of ways is $ 3 $ . Possible options:\n\n- one round dance \u2014 $ [1,2] $ , another \u2014 $ [3,4] $ ;\n- one round dance \u2014 $ [2,4] $ , another \u2014 $ [3,1] $ ;\n- one round dance \u2014 $ [4,1] $ , another \u2014 $ [3,2] $ .\n\nYour task is to find the number of ways $ n $ people can make two round dances if each round dance consists of exactly $ \\frac{n}{2} $ people.",
+    "inputFormat": "The input contains one integer $ n $ ( $ 2 \\le n \\le 20 $ ), $ n $ is an even number.",
+    "outputFormat": "Print one integer \u2014 the number of ways to make two round dances. It is guaranteed that the answer fits in the $ 64 $ -bit integer data type.",
+    "samples": [
+        [
+            "2",
+            "1"
+        ],
+        [
+            "4",
+            "3"
+        ],
+        [
+            "8",
+            "1260"
+        ],
+        [
+            "20",
+            "12164510040883200"
+        ]
+    ],
+    "hint": "",
+    "translation": "## \u9898\u76ee\u63cf\u8ff0\n\u6709\u4e00\u5929\uff0c$n$ \u4eba\uff08$n$ \u662f\u5076\u6570\uff09\u5728\u5e7f\u573a\u4e0a\u76f8\u9047\uff0c\u8df3\u4e86\u4e24\u652f\u5706\u821e\u66f2\uff0c\u6bcf\u652f\u5706\u821e\u66f2\u6b63\u597d\u7531$\\frac{n}{2}$\u4eba\u7ec4\u6210\u3002\u4f60\u7684\u4efb\u52a1\u662f\u627e\u51fa $n$ \u4eba\u53ef\u4ee5\u8df3\u4e24\u652f\u5706\u821e\u7684\u65b9\u6848\u6570\u91cf\u3002\u6bcf\u4e2a\u4eba\u5e94\u8be5\u6b63\u597d\u5c5e\u4e8e\u8fd9\u4e24\u79cd\u5706\u821e\u4e2d\u7684\u4e00\u79cd\u3002\n\n\u5706\u821e\u662f\u7531 $1$ \u4eba\u6216\u66f4\u591a\u7684\u4eba\u7ec4\u6210\u7684\u821e\u8e48\u5708\u3002\u5982\u679c\u4e24\u4e2a\u5706\u821e\u53ef\u4ee5\u901a\u8fc7\u9009\u62e9\u7b2c\u4e00\u4e2a\u53c2\u4e0e\u8005\u8f6c\u5316\u4e3a\u53e6\u4e00\u4e2a\u5706\u821e\uff0c\u5219\u4e24\u4e2a\u5706\u821e\u662f\u65e0\u6cd5\u533a\u5206\uff08\u76f8\u7b49\uff09\u7684\u3002\u4f8b\u5982\uff0c\u5706\u821e $[1,3,4,2]$ \uff0c$[4,2,1,3] $\u548c $[2,1,3,4] $\u662f\u4e0d\u53ef\u533a\u5206\u7684\u3002\n\n\u4f8b\u5982\uff0c\u5982\u679c $n=2$\uff0c\u90a3\u4e48\u65b9\u5f0f\u7684\u6570\u91cf\u662f $1$\uff1a\u4e00\u4e2a\u5706\u821e\u66f2\u7531\u7b2c\u4e00\u4e2a\u4eba\u7ec4\u6210\uff0c\u7b2c\u4e8c\u4e2a\u4eba\u7684\u5706\u821e\u66f2\u7531\u7b2c\u4e8c\u4e2a\u4eba\u7ec4\u6210\u3002\n\n\u4f8b\u5982\uff0c\u5982\u679c $n=4$\uff0c\u90a3\u4e48\u8def\u6570\u662f  $3$ \u3002\u53ef\u80fd\u7684\u65b9\u6848\uff1a\n\n- \u4e00\u4e2a\u5706\u821e\u66f2 $[1,2]$ , \u53e6\u4e00\u4e2a $[3,4]$ \u3002\n-  \u4e00\u652f\u5706\u821e $[2,4]$ \uff0c\u53e6\u4e00\u652f $ [3,1] $\u3002\n- \u4e00\u4e2a\u5706\u821e$ [4,1]$\uff0c\u53e6\u4e00\u4e2a $ [3,2]$ \u3002\n\n\u4f60\u7684\u4efb\u52a1\u662f\uff1a\u5982\u679c\u6bcf\u4e2a\u5706\u821e\u66f2\u6b63\u597d\u7531$\\frac{n}{2}$\u4eba\u7ec4\u6210\uff0c\u627e\u51fa $n$ \u4eba\u53ef\u4ee5\u8df3\u4e24\u652f\u5706\u821e\u66f2\u7684\u65b9\u6848\u6570\u91cf\u3002\n\n## \u8f93\u5165\u683c\u5f0f\n\u5305\u542b\u4e00\u4e2a\u6574\u6570 $n\\,(2\\le n\\le20)$\u3002\n\n## \u8f93\u51fa\u683c\u5f0f\n\u4e00\u4e2a\u6574\u6570\uff0c\u8868\u793a\u65b9\u6848\u6570\u91cf\uff0c\u4fdd\u8bc1\u7ed3\u679c\u4e0d\u8d85\u8fc7$64$\u4f4d\u6574\u6570\u7684\u9650\u5236\u3002"
+}

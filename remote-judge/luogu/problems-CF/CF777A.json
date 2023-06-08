@@ -1,0 +1,17 @@
+{
+    "description": "Bomboslav likes to look out of the window in his room and watch lads outside playing famous shell game. The game is played by two persons: operator and player. Operator takes three similar opaque shells and places a ball beneath one of them. Then he shuffles the shells by swapping some pairs and the player has to guess the current position of the ball.\n\nBomboslav noticed that guys are not very inventive, so the operator always swaps the left shell with the middle one during odd moves (first, third, fifth, etc.) and always swaps the middle shell with the right one during even moves (second, fourth, etc.).\n\nLet's number shells from $ 0 $ to $ 2 $ from left to right. Thus the left shell is assigned number $ 0 $ , the middle shell is $ 1 $ and the right shell is $ 2 $ . Bomboslav has missed the moment when the ball was placed beneath the shell, but he knows that exactly $ n $ movements were made by the operator and the ball was under shell $ x $ at the end. Now he wonders, what was the initial position of the ball?",
+    "inputFormat": "The first line of the input contains an integer $ n $ ( $ 1<=n<=2\u00b710^{9} $ ) \u2014 the number of movements made by the operator.\n\nThe second line contains a single integer $ x $ ( $ 0<=x<=2 $ ) \u2014 the index of the shell where the ball was found after $ n $ movements.",
+    "outputFormat": "Print one integer from $ 0 $ to $ 2 $ \u2014 the index of the shell where the ball was initially placed.",
+    "samples": [
+        [
+            "4\n2\n",
+            "1\n"
+        ],
+        [
+            "1\n1\n",
+            "0\n"
+        ]
+    ],
+    "hint": "In the first sample, the ball was initially placed beneath the middle shell and the operator completed four movements.\n\n1. During the first move operator swapped the left shell and the middle shell. The ball is now under the left shell.\n2. During the second move operator swapped the middle shell and the right one. The ball is still under the left shell.\n3. During the third move operator swapped the left shell and the middle shell again. The ball is again in the middle.\n4. Finally, the operators swapped the middle shell and the right shell. The ball is now beneath the right shell.",
+    "translation": "\u7ed9\u4f60\u4e09\u5f20\u724c0\uff0c1\uff0c2\u3002\n\u6700\u521d\u9009\u4e00\u5f20\uff0c\u7136\u540e\u4f9d\u6b21\u8fdb\u884cn\u6b21\u4ea4\u6362\uff0c\u4ea4\u6362\u89c4\u5219\u4e3a\uff1a\u4e2d\u95f4\u4e00\u5f20\u548c\u5de6\u8fb9\u7684\u4e00\u5f20\uff0c\u4e2d\u95f4\u4e00\u5f20\u548c\u53f3\u8fb9\u4e00\u5f20\uff0c\u4e2d\u95f4\u4e00\u5f20\u548c\u5de6\u8fb9\u4e00\u5f20......\n\u6700\u540e\u95ee\u9009\u7684\u90a3\u5f20\u5728\u54ea\u4e2a\u4f4d\u7f6e\u3002\n(YRH)"
+}

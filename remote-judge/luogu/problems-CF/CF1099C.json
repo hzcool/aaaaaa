@@ -1,0 +1,29 @@
+{
+    "description": "Andrey received a postcard from Irina. It contained only the words \"Hello, Andrey!\", and a strange string consisting of lowercase Latin letters, snowflakes and candy canes. Andrey thought that this string is an encrypted message, and decided to decrypt it.\n\nAndrey noticed that snowflakes and candy canes always stand after the letters, so he supposed that the message was encrypted as follows. Candy cane means that the letter before it can be removed, or can be left. A snowflake means that the letter before it can be removed, left, or repeated several times.\n\nFor example, consider the following string:\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1099C/29c2aaaec4bcea3ed5c1b5a1ebd8cbd0c6df45f2.png)This string can encode the message \u00abhappynewyear\u00bb. For this, candy canes and snowflakes should be used as follows:\n\n- candy cane 1: remove the letter w,\n- snowflake 1: repeat the letter p twice,\n- candy cane 2: leave the letter n,\n- snowflake 2: remove the letter w,\n- snowflake 3: leave the letter e.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1099C/26482915a1d9df0d76c8d735f29de9bbb88caf58.png)Please note that the same string can encode different messages. For example, the string above can encode \u00abhayewyar\u00bb, \u00abhapppppynewwwwwyear\u00bb, and other messages.\n\nAndrey knows that messages from Irina usually have a length of $ k $ letters. Help him to find out if a given string can encode a message of $ k $ letters, and if so, give an example of such a message.",
+    "inputFormat": "The first line contains the string received in the postcard. The string consists only of lowercase Latin letters, as well as the characters \u00ab\\*\u00bb and \u00ab?\u00bb, meaning snowflake and candy cone, respectively. These characters can only appear immediately after the letter. The length of the string does not exceed $ 200 $ .\n\nThe second line contains an integer number $ k $ ( $ 1 \\leq k \\leq 200 $ ), the required message length.",
+    "outputFormat": "Print any message of length $ k $ that the given string can encode, or \u00abImpossible\u00bb if such a message does not exist.",
+    "samples": [
+        [
+            "hw?ap*yn?eww*ye*ar\n12\n",
+            "happynewyear\n"
+        ],
+        [
+            "ab?a\n2\n",
+            "aa"
+        ],
+        [
+            "ab?a\n3\n",
+            "aba"
+        ],
+        [
+            "ababb\n5\n",
+            "ababb"
+        ],
+        [
+            "ab?a\n1\n",
+            "Impossible"
+        ]
+    ],
+    "hint": "",
+    "translation": "## Description\r\n\r\n\u7ed9\u5b9a\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u5b57\u7b26\u4e32\uff0c\u5c3d\u53ef\u80fd\u5305\u542b\u5c0f\u5199\u5b57\u6bcd\uff0c\u5b57\u7b26 '?' \u548c\u5b57\u7b26 \u2018*\u2019\u3002\u4fdd\u8bc1\u4e0a\u9762\u4e24\u79cd\u7279\u6b8a\u5b57\u7b26\u82e5\u51fa\u73b0\u5219\u4e00\u5b9a\u51fa\u73b0\u5728\u4e00\u4e2a\u5c0f\u5199\u5b57\u6bcd\u7684\u540e\u9762\u4e00\u4f4d\u3002\u8981\u6c42\u6784\u9020\u4e00\u4e2a\u957f\u5ea6\u4e3a $k$ \u7684\u65b0\u5b57\u7b26\u4e32\uff0c\u5b83\u548c\u539f\u4e32\u6709\u5982\u4e0b\u5173\u7cfb\uff1a\r\n\r\n> \u6309\u7167\u539f\u4e32\u7684\u5b57\u6bcd\u987a\u5e8f\u5411\u65b0\u4e32\u4e2d\u586b\u5145\uff0c\u65b0\u4e32\u4e2d\u542b\u4e14\u4ec5\u542b\u5c0f\u5199\u5b57\u6bcd\u3002\r\n>\r\n> \u82e5\u539f\u4e32\u7684\u67d0\u5c0f\u5199\u5b57\u6bcd\u540e\u6ca1\u6709\u7279\u6b8a\u5b57\u7b26\uff0c\u5219\u8fd9\u4e2a\u5b57\u6bcd\u5728\u65b0\u4e32\u4e2d\u5fc5\u987b\u4fdd\u7559\r\n>\r\n> \u82e5\u539f\u4e32\u7684\u67d0\u5c0f\u5199\u5b57\u6bcd\u540e\u6709\u5b57\u7b26 '?'\uff0c\u5219\u8fd9\u4e2a\u5b57\u6bcd\u5728\u65b0\u4e32\u4e2d\u53ef\u4ee5\u88ab\u4fdd\u7559\uff0c\u4e5f\u53ef\u4ee5\u88ab\u5220\u9664\r\n>\r\n> \u82e5\u539f\u4e32\u67d0\u5c0f\u5199\u5b57\u6bcd\u540e\u6709\u5b57\u7b26 '*'\uff0c\u5219\u8fd9\u4e2a\u5b57\u6bcd\u5728\u65b0\u4e32\u4e2d\u53ef\u4ee5\u88ab\u4fdd\u7559\uff0c\u53ef\u4ee5\u88ab\u5220\u9664\uff0c\u4e5f\u53ef\u4ee5\u88ab\u590d\u8bfb\u5f88\u591a\u904d\u3002\r\n\r\n## Input\r\n\r\n\u7b2c\u4e00\u884c\u662f\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u5b57\u7b26\u4e32\uff0c\u4fdd\u8bc1\u8f93\u5165\u5408\u6cd5\r\n\r\n\u7b2c\u4e8c\u884c\u662f\u4e00\u4e2a\u6574\u6570 $k$ \u4ee3\u8868\u8981\u6c42\u6784\u9020\u7684\u65b0\u4e32\u957f\u5ea6\r\n\r\n## Output\r\n\r\n\u8f93\u51fa\u4e00\u884c\u4e00\u4e2a\u957f\u5ea6\u4e3a $k$ \u7684\u5b57\u7b26\u4e32\uff0c\u4e3a\u6784\u9020\u51fa\u7684\u4e32\u3002\r\n\r\n\u82e5\u4e0d\u5b58\u5728\u8fd9\u6837\u7684\u4e32\uff0c\u8f93\u51fa\u201cImpossible\u201d\uff08\u4e0d\u542b\u5f15\u53f7\uff09\r\n\r\n## Hint\r\n\r\n$1~\\leq~n,k~\\leq~200$\r\n\r\ntranslated by @\u4e00\u6276\u82cf\u4e00"
+}

@@ -1,0 +1,17 @@
+{
+    "description": "Last year Bob earned by selling memory sticks. During each of $ n $ days of his work one of the two following events took place:\n\n- A customer came to Bob and asked to sell him a $ 2^{x} $ MB memory stick. If Bob had such a stick, he sold it and got $ 2^{x} $ berllars.\n- Bob won some programming competition and got a $ 2^{x} $ MB memory stick as a prize. Bob could choose whether to present this memory stick to one of his friends, or keep it.\n\nBob never kept more than one memory stick, as he feared to mix up their capacities, and deceive a customer unintentionally. It is also known that for each memory stick capacity there was at most one customer, who wanted to buy that memory stick. Now, knowing all the customers' demands and all the prizes won at programming competitions during the last $ n $ days, Bob wants to know, how much money he could have earned, if he had acted optimally.",
+    "inputFormat": "The first input line contains number $ n $ ( $ 1<=n<=5000 $ ) \u2014 amount of Bob's working days. The following $ n $ lines contain the description of the days. Line sell x stands for a day when a customer came to Bob to buy a $ 2^{x} $ MB memory stick ( $ 0<=x<=2000 $ ). It's guaranteed that for each $ x $ there is not more than one line sell x. Line win x stands for a day when Bob won a $ 2^{x} $ MB memory stick ( $ 0<=x<=2000 $ ).",
+    "outputFormat": "Output the maximum possible earnings for Bob in berllars, that he would have had if he had known all the events beforehand. Don't forget, please, that Bob can't keep more than one memory stick at a time.",
+    "samples": [
+        [
+            "7\nwin 10\nwin 5\nwin 3\nsell 5\nsell 3\nwin 10\nsell 10\n",
+            "1056\n"
+        ],
+        [
+            "3\nwin 5\nsell 6\nsell 4\n",
+            "0\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u9898\u76ee\u63cf\u8ff0:\u4f60\u80fd\u591f\u6309\u987a\u5e8f\u83b7\u5f97\u4e00\u4e9b\u5bb9\u91cf\u4e3a 2^x MB\u7684\u786c\u76d8\uff0c\u4f60\u53ef\u4ee5\u4fdd\u7559\u5b83\uff0c\u4f46\u662f\u4f60\u5728\u5356\u6389\u5f53\u524d\u8fd9\u4e2a\u4e4b\u524d\u662f\u4e0d\u80fd\u4fdd\u7559\u5176\u4ed6\u7684\u786c\u76d8\u7684\uff08\u5356\u6389\u8fd9\u4e2a\u786c\u76d8\u7684\u6536\u76ca\u4e3a2^x\uff09\u3002\u5728\u5df2\u7ecf\u77e5\u9053\u4ec0\u4e48\u65f6\u5019\u4f1a\u6709\u4eba\u4e70\u4ec0\u4e48\u7c7b\u578b\u7684\u786c\u76d8\u7684\u524d\u63d0\u4e0b\uff0c\u95ee\u4f60\u80fd\u83b7\u5f97\u7684\u6700\u5927\u6536\u76ca\u662f\u591a\u5c11\u3002\n\u8f93\u5165:\u7b2c\u4e00\u884c\u4e00\u4e2a\u6570n\uff0c\u8868\u793a\u603b\u5171\u6709n\u5929,\n\u4e4b\u540en\u884c,\u6bcf\u884c\u4e00\u4e2a\u5b57\u7b26\u4e32\u548c\u4e00\u4e2a\u6574\u6570x,\n\u82e5\u5f00\u5934\u4e3a\"win\"\uff0c\u5219\u8868\u793a\u8be5\u5929\u83b7\u5f97\u4e86\u4e00\u4e2a\u5bb9\u91cf\u4e3a2^xMB\u7684\u786c\u76d8\uff1b\n\u82e5\u5f00\u5934\u4e3a\"sell\"\uff0c\u5219\u8868\u793a\u8be5\u5929\u6709\u987e\u5ba2\u6765\u4e70\u5bb9\u91cf\u4e3a2^xMB\u7684\u786c\u76d8\n\n\u8f93\u51fa:\u4e00\u4e2a\u6570w\uff0c\u8868\u793a\u6700\u5927\u6536\u76ca\n\n1<=n<=5000\n0<=x<=2000\n\ntranslated by \u7a00\u795e\u63a2\u5973"
+}

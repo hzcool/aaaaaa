@@ -1,0 +1,25 @@
+{
+    "description": "Omkar is creating a mosaic using colored square tiles, which he places in an $ n \\times n $ grid. When the mosaic is complete, each cell in the grid will have either a glaucous or sinoper tile. However, currently he has only placed tiles in some cells.\n\nA completed mosaic will be a mastapeece if and only if each tile is adjacent to exactly $ 2 $ tiles of the same color ( $ 2 $ tiles are adjacent if they share a side.) Omkar wants to fill the rest of the tiles so that the mosaic becomes a mastapeece. Now he is wondering, is the way to do this unique, and if it is, what is it?",
+    "inputFormat": "The first line contains a single integer $ n $ ( $ 1 \\leq n \\leq 2000 $ ).\n\nThen follow $ n $ lines with $ n $ characters in each line. The $ i $ -th character in the $ j $ -th line corresponds to the cell in row $ i $ and column $ j $ of the grid, and will be $ S $ if Omkar has placed a sinoper tile in this cell, $ G $ if Omkar has placed a glaucous tile, $ . $ if it's empty.",
+    "outputFormat": "On the first line, print UNIQUE if there is a unique way to get a mastapeece, NONE if Omkar cannot create any, and MULTIPLE if there is more than one way to do so. All letters must be uppercase.\n\nIf you print UNIQUE, then print $ n $ additional lines with $ n $ characters in each line, such that the $ i $ -th character in the $ j^{\\text{th}} $ line is $ S $ if the tile in row $ i $ and column $ j $ of the mastapeece is sinoper, and $ G $ if it is glaucous.",
+    "samples": [
+        [
+            "4\nS...\n..G.\n....\n...S",
+            "MULTIPLE"
+        ],
+        [
+            "6\nS.....\n....G.\n..S...\n.....S\n....G.\nG.....",
+            "NONE"
+        ],
+        [
+            "10\n.S....S...\n..........\n...SSS....\n..........\n..........\n...GS.....\n....G...G.\n..........\n......G...\n..........",
+            "UNIQUE\nSSSSSSSSSS\nSGGGGGGGGS\nSGSSSSSSGS\nSGSGGGGSGS\nSGSGSSGSGS\nSGSGSSGSGS\nSGSGGGGSGS\nSGSSSSSSGS\nSGGGGGGGGS\nSSSSSSSSSS"
+        ],
+        [
+            "1\n.",
+            "NONE"
+        ]
+    ],
+    "hint": "For the first test case, Omkar can make the mastapeeces\n\nSSSS\n\nSGGS\n\nSGGS\n\nSSSS\n\nand\n\nSSGG\n\nSSGG\n\nGGSS\n\nGGSS.\n\nFor the second test case, it can be proven that it is impossible for Omkar to add tiles to create a mastapeece.\n\nFor the third case, it can be proven that the given mastapeece is the only mastapeece Omkar can create by adding tiles.\n\nFor the fourth test case, it's clearly impossible for the only tile in any mosaic Omkar creates to be adjacent to two tiles of the same color, as it will be adjacent to $ 0 $ tiles total.",
+    "translation": "\u7ed9\u60a8\u4e00\u4e2a $n \\times n$ \u7684\u7f51\u683c\uff0c\u5bf9\u6240\u6709\u683c\u5b50\u8fdb\u884c\u9ed1\u767d\u67d3\u8272\uff0c\u6bcf\u4e2a\u683c\u5b50\u90fd\u8981\u4e0e\u5176\u76f8\u90bb\u7684\u683c\u5b50\u4e2d\u6070\u6709 $2$ \u4e2a\u4e0e\u5176\u989c\u8272\u76f8\u540c\u3002\n\n\u7ed9\u60a8\u4e00\u90e8\u5206\u989c\u8272\u5df2\u7ecf\u786e\u5b9a\u7684\u683c\u5b50\uff0c\u5224\u65ad\u662f\u5426\u5b58\u5728\u5408\u6cd5\u7684\u67d3\u8272\u65b9\u6848\u4e14\u662f\u5426\u552f\u4e00\uff0c\u5b58\u5728\u7684\u8bdd\uff0c\u8bf7\u60a8\u7ed9\u51fa\u6784\u9020\u3002"
+}

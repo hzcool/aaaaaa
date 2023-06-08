@@ -1,0 +1,21 @@
+{
+    "description": "Vasya has $ n $ days of vacations! So he decided to improve his IT skills and do sport. Vasya knows the following information about each of this $ n $ days: whether that gym opened and whether a contest was carried out in the Internet on that day. For the $ i $ -th day there are four options:\n\n1. on this day the gym is closed and the contest is not carried out;\n2. on this day the gym is closed and the contest is carried out;\n3. on this day the gym is open and the contest is not carried out;\n4. on this day the gym is open and the contest is carried out.\n\nOn each of days Vasya can either have a rest or write the contest (if it is carried out on this day), or do sport (if the gym is open on this day).\n\nFind the minimum number of days on which Vasya will have a rest (it means, he will not do sport and write the contest at the same time). The only limitation that Vasya has \u2014 he does not want to do the same activity on two consecutive days: it means, he will not do sport on two consecutive days, and write the contest on two consecutive days.",
+    "inputFormat": "The first line contains a positive integer $ n $ ( $ 1<=n<=100 $ ) \u2014 the number of days of Vasya's vacations.\n\nThe second line contains the sequence of integers $ a_{1},a_{2},...,a_{n} $ ( $ 0<=a_{i}<=3 $ ) separated by space, where:\n\n- $ a_{i} $ equals 0, if on the $ i $ -th day of vacations the gym is closed and the contest is not carried out;\n- $ a_{i} $ equals 1, if on the $ i $ -th day of vacations the gym is closed, but the contest is carried out;\n- $ a_{i} $ equals 2, if on the $ i $ -th day of vacations the gym is open and the contest is not carried out;\n- $ a_{i} $ equals 3, if on the $ i $ -th day of vacations the gym is open and the contest is carried out.",
+    "outputFormat": "Print the minimum possible number of days on which Vasya will have a rest. Remember that Vasya refuses:\n\n- to do sport on any two consecutive days,\n- to write the contest on any two consecutive days.",
+    "samples": [
+        [
+            "4\n1 3 2 0\n",
+            "2\n"
+        ],
+        [
+            "7\n1 3 3 2 1 2 3\n",
+            "0\n"
+        ],
+        [
+            "2\n2 2\n",
+            "1\n"
+        ]
+    ],
+    "hint": "In the first test Vasya can write the contest on the day number 1 and do sport on the day number 3. Thus, he will have a rest for only 2 days.\n\nIn the second test Vasya should write contests on days number 1, 3, 5 and 7, in other days do sport. Thus, he will not have a rest for a single day.\n\nIn the third test Vasya can do sport either on a day number 1 or number 2. He can not do sport in two days, because it will be contrary to the his limitation. Thus, he will have a rest for only one day.",
+    "translation": "Vasya \u6709 $n$ \u5929\u7684\u5047\u671f\uff0c\u6bcf\u5929\u6709\u56db\u79cd\u9009\u62e9\uff1a\n\n+ \u5728\u8fd9\u4e00\u5929\uff0c\u5065\u8eab\u623f\u5173\u95ed\uff0c\u6bd4\u8d5b\u4e0d\u8fdb\u884c\uff0c\u8868\u793a\u4e3a $0$\uff1b\n\n+ \u5728\u8fd9\u4e00\u5929\uff0c\u5065\u8eab\u623f\u5173\u95ed\uff0c\u6bd4\u8d5b\u8fdb\u884c\uff0c\u8868\u793a\u4e3a $1$\uff1b\n\n+ \u5728\u8fd9\u4e00\u5929\uff0c\u5065\u8eab\u623f\u662f\u5f00\u653e\u7684\uff0c\u6bd4\u8d5b\u4e0d\u8fdb\u884c\uff0c\u8868\u793a\u4e3a $2$\uff1b\n\n+ \u5728\u8fd9\u4e00\u5929\uff0c\u5065\u8eab\u623f\u662f\u5f00\u653e\u7684\uff0c\u6bd4\u8d5b\u662f\u8fdb\u884c\u7684\uff0c\u8868\u793a\u4e3a $3$\u3002\n\n\u5728\u6bcf\u4e00\u5929\uff0cVasya \u53ef\u4ee5\u4f11\u606f\u3001\u6bd4\u8d5b (\u5982\u679c\u5728\u8fd9\u4e00\u5929\u8fdb\u884c)\uff0c\u6216\u8005\u505a\u8fd0\u52a8 (\u5982\u679c\u5065\u8eab\u623f\u5728\u8fd9\u4e00\u5929\u662f\u5f00\u653e\u7684)\u3002\n\n\u4f46 Vasya \u4e0d\u60f3\u8fde\u7eed\u4e24\u5929\u505a\u540c\u6837\u7684\u6d3b\u52a8\uff0c\u8fd9\u610f\u5473\u7740\uff0c\u4ed6\u4e0d\u4f1a\u8fde\u7eed\u4e24\u5929\u505a\u8fd0\u52a8\uff0c\u4e5f\u4e0d\u4f1a\u5728\u8fde\u7eed\u4e24\u5929\u5199\u6bd4\u8d5b\u3002\n\n\u627e\u51fa Vasya \u4f11\u606f\u7684\u6700\u5c11\u5929\u6570\u3002\n\n$1\\le n\\le 100$\uff0c$0\\le a_i\\le 3$\u3002"
+}

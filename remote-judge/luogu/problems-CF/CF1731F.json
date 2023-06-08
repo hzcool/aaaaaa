@@ -1,0 +1,21 @@
+{
+    "description": "Suppose you have an integer array $ a_1, a_2, \\dots, a_n $ .\n\nLet $ \\operatorname{lsl}(i) $ be the number of indices $ j $ ( $ 1 \\le j < i $ ) such that $ a_j < a_i $ .\n\nAnalogically, let $ \\operatorname{grr}(i) $ be the number of indices $ j $ ( $ i < j \\le n $ ) such that $ a_j > a_i $ .\n\nLet's name position $ i $ good in the array $ a $ if $ \\operatorname{lsl}(i) < \\operatorname{grr}(i) $ .\n\nFinally, let's define a function $ f $ on array $ a $ $ f(a) $ as the sum of all $ a_i $ such that $ i $ is good in $ a $ .\n\nGiven two integers $ n $ and $ k $ , find the sum of $ f(a) $ over all arrays $ a $ of size $ n $ such that $ 1 \\leq a_i \\leq k $ for all $ 1 \\leq i \\leq n $ modulo $ 998\\,244\\,353 $ .",
+    "inputFormat": "The first and only line contains two integers $ n $ and $ k $ ( $ 1 \\leq n \\leq 50 $ ; $ 2 \\leq k < 998\\,244\\,353 $ ).",
+    "outputFormat": "Output a single integer \u2014 the sum of $ f $ over all arrays $ a $ of size $ n $ modulo $ 998\\,244\\,353 $ .",
+    "samples": [
+        [
+            "3 3",
+            "28"
+        ],
+        [
+            "5 6",
+            "34475"
+        ],
+        [
+            "12 30",
+            "920711694"
+        ]
+    ],
+    "hint": "In the first test case:\n\n  $ f([1,1,1]) = 0 $  $ f([2,2,3]) = 2 + 2 = 4 $  $ f([1,1,2]) = 1 + 1 = 2 $  $ f([2,3,1]) = 2 $  $ f([1,1,3]) = 1 + 1 = 2 $  $ f([2,3,2]) = 2 $  $ f([1,2,1]) = 1 $  $ f([2,3,3]) = 2 $  $ f([1,2,2]) = 1 $  $ f([3,1,1]) = 0 $  $ f([1,2,3]) = 1 $  $ f([3,1,2]) = 1 $  $ f([1,3,1]) = 1 $  $ f([3,1,3]) = 1 $  $ f([1,3,2]) = 1 $  $ f([3,2,1]) = 0 $  $ f([1,3,3]) = 1 $  $ f([3,2,2]) = 0 $  $ f([2,1,1]) = 0 $  $ f([3,2,3]) = 2 $  $ f([2,1,2]) = 1 $  $ f([3,3,1]) = 0 $  $ f([2,1,3]) = 2 + 1 = 3 $  $ f([3,3,2]) = 0 $  $ f([2,2,1]) = 0 $  $ f([3,3,3]) = 0 $  $ f([2,2,2]) = 0 $ Adding up all of these values, we get $ 28 $ as the answer.",
+    "translation": "\u9898\u76ee\u5927\u610f\uff1a\n\n\u5bf9\u4e8e\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u6570\u5217 $a$\u3002\n\n\u5b9a\u4e49 $lsl(i)$ \u8868\u793a $i$ \u5de6\u8fb9\u7684\u6570\u4e2d\u6bd4 $a_i$ \u5c0f\u7684\u6570\u7684\u4e2a\u6570\uff0c\u5373 $\\sum\\limits_{j = 1}^{i - 1}[a_j < a_i]$\u3002\n\n\u540c\u6837\u7684\u5b9a\u4e49 $grr(i)$ \u8868\u793a $i$ \u53f3\u8fb9\u7684\u6bd4 $a_i$ \u5927\u7684\u6570\u7684\u4e2a\u6570\uff0c\u5373 $\\sum\\limits_{j = i + 1}^n[a_j > a_i]$\u3002\n\n\u6211\u4eec\u79f0\u4e00\u4e2a\u4f4d\u7f6e\u662f\u597d\u7684\u5f53\u4e14\u4ec5\u5f53 $lsl(i) < grr(i)$\u3002\n\n\u6211\u4eec\u518d\u5bf9\u4e8e\u4e00\u4e2a\u6570\u5217 $a$ \u5b9a\u4e49\u4e00\u4e2a\u51fd\u6570 $f(a)$ \u4e3a $\\sum\\limits_{i = 1}^na_i[i\\  \\text{is good}]$\u3002\n\n\u73b0\u5728\u7ed9\u5b9a\u4e24\u4e2a\u6574\u6570 $n, k$\uff0c\u8bf7\u4f60\u6c42\u51fa\u5bf9\u4e8e\u6240\u6709\u957f\u5ea6\u4e3a $n$ \u4e14 $1 \\leq a_i \\leq k$ \u7684\u6570\u5217 $a$ \u7684 $f(a)$ \u7684\u548c\u662f\u591a\u5c11\u3002\n\n\u7b54\u6848\u5bf9 $\\text{998244353}$ \u53d6\u6a21\u3002"
+}

@@ -1,0 +1,25 @@
+{
+    "description": "A false witness that speaketh lies!\n\nYou are given a sequence containing $ n $ integers. There is a variable $ res $ that is equal to $ 0 $ initially. The following process repeats $ k $ times.\n\nChoose an index from $ 1 $ to $ n $ uniformly at random. Name it $ x $ . Add to $ res $ the multiply of all $ a_{i} $ 's such that $ 1<=i<=n $ , but $ i\u2260x $ . Then, subtract $ a_{x} $ by $ 1 $ .\n\nYou have to find expected value of $ res $ at the end of the process. It can be proved that the expected value of $ res $ can be represented as an irreducible fraction ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF891E/2c40be71c60fe708ee9e4e80e2cd7a26163f3bd6.png). You have to find ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF891E/9a9fda8924087f2c7a7148a751aac9511d3b1e3c.png).",
+    "inputFormat": "The first line contains two integers $ n $ and $ k $ ( $ 1<=n<=5000 $ , $ 1<=k<=10^{9} $ ) \u2014 the number of elements and parameter $ k $ that is specified in the statement.\n\nThe second line contains $ n $ space separated integers $ a_{1},a_{2},...,a_{n} $ ( $ 0<=a_{i}<=10^{9} $ ).",
+    "outputFormat": "Output a single integer \u2014 the value ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF891E/9a9fda8924087f2c7a7148a751aac9511d3b1e3c.png).",
+    "samples": [
+        [
+            "2 1\n5 5\n",
+            "5"
+        ],
+        [
+            "1 10\n80\n",
+            "10"
+        ],
+        [
+            "2 2\n0 0\n",
+            "500000003"
+        ],
+        [
+            "9 4\n0 11 12 9 20 7 8 18 2\n",
+            "169316356"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u4f60\u6709 $n$ \u4e2a\u6570 $a_1,a_2,\\dots,a_n$ \u8981\u8fdb\u884c $k$ \u6b21\u64cd\u4f5c\uff0c\u6bcf\u6b21\u968f\u673a\u9009\u62e9\u4e00\u4e2a\u6570 $x \\in [1,n]$\uff0c\u628a $a_x$ \u51cf\u4e00\uff0c\u5e76\u5c06\u7b54\u6848\u589e\u52a0\u9664 $a_x$ \u5916\u6240\u6709\u6570\u7684\u4e58\u79ef\u3002  \n\n\u6c42\u6700\u7ec8\u7b54\u6848\u7684\u671f\u671b\uff0c\u7b54\u6848\u5bf9 $10^9 + 7$ \u53d6\u6a21\u3002"
+}

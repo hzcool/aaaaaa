@@ -1,0 +1,25 @@
+{
+    "description": "Shaass thinks a kitchen with all white floor tiles is so boring. His kitchen floor is made of $ n\u00b7m $ square tiles forming a $ n\u00d7m $ rectangle. Therefore he's decided to color some of the tiles in black so that the floor looks like a checkerboard, which is no two side-adjacent tiles should have the same color.\n\nShaass wants to use a painter robot to color the tiles. In the beginning the robot is standing in a border tile $ (x_{s},y_{s}) $ facing a diagonal direction (i.e. upper-left, upper-right, down-left or down-right). As the robot walks in the kitchen he paints every tile he passes even if it's painted before. Painting each tile consumes one unit of black paint. If at any moment the robot hits a wall of the kitchen he changes his direction according the reflection rules. Note that a tile gets painted when the robot enters the tile from another tile, in other words changing direction in the same tile doesn't lead to any painting. The first tile the robot is standing on, is also painted.\n\nThe robot stops painting the first moment the floor is checkered. Given the dimensions of the kitchen and the position of the robot, find out the amount of paint the robot consumes before it stops painting the floor.\n\nLet's consider an examples depicted below.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF294D/9a76f461f123d79b09ad121ee5e2505584689476.png)If the robot starts at tile number 1 (the tile $ (1,1) $ ) of the left grid heading to down-right it'll pass tiles 1354236 and consumes 7 units of black paint on his way until he stops at tile number 6. But if it starts at tile number 1 in the right grid heading to down-right it will get stuck in a loop painting tiles 1, 2, and 3.",
+    "inputFormat": "The first line of the input contains two integers $ n $ and $ m $ , $ (2<=n,m<=10^{5}) $ . The second line contains two integers $ x_{s} $ and $ y_{s} $ $ (1<=x_{s}<=n,1<=y_{s}<=m) $ and the direction robot is facing initially. Direction is one of the strings: \"UL\" (upper-left direction), \"UR\" (upper-right), \"DL\" (down-left) or \"DR\" (down-right).\n\nNote, that record $ (x_{s},y_{s}) $ denotes the tile that is located at the $ x_{s} $ -th row from the top and at the $ y_{s} $ -th column from the left of the kitchen.\n\nIt's guaranteed that the starting position will be a border tile (a tile with less than four side-adjacent tiles).",
+    "outputFormat": "Print the amount of paint the robot consumes to obtain a checkered kitchen floor. Or print -1 if it never happens.\n\nPlease do not use the %lld specificator to read or write 64-bit integers in \u0421++. It is preferred to use the cin, cout streams or the %I64d specificator.",
+    "samples": [
+        [
+            "3 4\n1 1 DR\n",
+            "7\n"
+        ],
+        [
+            "3 4\n3 3 DR\n",
+            "11\n"
+        ],
+        [
+            "3 3\n1 1 DR\n",
+            "-1\n"
+        ],
+        [
+            "3 3\n1 2 DL\n",
+            "4\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "Shaass\u6709\u4e2a\u673a\u5668\u4eba\u6b63\u5728\u7ed9\u53a8\u623f\u7684n\u884cm\u5217\u74f7\u7816\u4e0a\u8272\u3002\u521d\u59cb\u65f6\u673a\u5668\u4eba\u7ad9\u5728$(X_s,Y_s)$\u4e0a\u3002Shass\u5e0c\u671b\u53a8\u623f\u74f7\u7816\u6700\u540e\u50cf\u68cb\u76d8\u4e00\u6837\u9ed1\u767d\u76f8\u95f4\u3002\u5373\uff1a\u6ca1\u6709\u4e24\u5757\u76f8\u90bb\u74f7\u7816\u989c\u8272\u76f8\u540c\u3002\r\n\r\n\u673a\u5668\u4eba\u6709\"UL\"\u5de6\u4e0a\uff0c\"UR\"\u53f3\u4e0a\uff0c\"DL\"\u5de6\u4e0b\uff0c\"DR\"\u53f3\u4e0b\u56db\u79cd\u79fb\u52a8\u65b9\u5f0f\uff0c\u5f53\u5b83\u649e\u5899\u65f6\u4f1a\u9075\u5faa\u3010\u5149\u7684\u53cd\u5c04\u3011\u539f\u5219\u53cd\u5f39\u3002\u6bcf\u5f53\u673a\u5668\u4eba\u79fb\u52a8\u5230\u4e00\u5757\u74f7\u7816\u4e0a\uff0c\u5b83\u5c31\u7ed9\u8fd9\u5757\u74f7\u7816\u4e0a\u8272\uff08\u6240\u4ee5\u53ef\u80fd\u91cd\u590d\u591a\u6b21\u4e0a\u8272\uff09\r\n\r\n\u5982\u56fe\uff0c\u673a\u5668\u4eba\u4e00\u6b21\u7ecf\u8fc71-3-5-4-2-3-6,\u4e00\u51717\u6b21\u7ed9\u74f7\u7816\u4e0a\u8272\uff0c\u4f7f\u5f97\u67096\u5757\u74f7\u7816\u6709\u989c\u8272\u3002\r\n\r\n\u8f93\u51fa\u673a\u5668\u4eba\u7684\u6b65\u6570\uff0c\u5f53\u673a\u5668\u4eba\u4e0d\u80fd\u5b8c\u6210\u4efb\u52a1\uff0c\u8f93\u51fa-1."
+}

@@ -1,0 +1,21 @@
+{
+    "description": "You are given an array $ a_1, a_2, \\dots, a_n $ and an integer $ k $ .\n\nYou are asked to divide this array into $ k $ non-empty consecutive subarrays. Every element in the array should be included in exactly one subarray. Let $ f(i) $ be the index of subarray the $ i $ -th element belongs to. Subarrays are numbered from left to right and from $ 1 $ to $ k $ .\n\nLet the cost of division be equal to $ \\sum\\limits_{i=1}^{n} (a_i \\cdot f(i)) $ . For example, if $ a = [1, -2, -3, 4, -5, 6, -7] $ and we divide it into $ 3 $ subbarays in the following way: $ [1, -2, -3], [4, -5], [6, -7] $ , then the cost of division is equal to $ 1 \\cdot 1 - 2 \\cdot 1 - 3 \\cdot 1 + 4 \\cdot 2 - 5 \\cdot 2 + 6 \\cdot 3 - 7 \\cdot 3 = -9 $ .\n\nCalculate the maximum cost you can obtain by dividing the array $ a $ into $ k $ non-empty consecutive subarrays.",
+    "inputFormat": "The first line contains two integers $ n $ and $ k $ ( $ 1 \\le k \\le n \\le 3 \\cdot 10^5 $ ).\n\nThe second line contains $ n $ integers $ a_1, a_2, \\dots, a_n $ ( $  |a_i| \\le 10^6 $ ).",
+    "outputFormat": "Print the maximum cost you can obtain by dividing the array $ a $ into $ k $ nonempty consecutive subarrays.",
+    "samples": [
+        [
+            "5 2\n-1 -2 5 -4 8\n",
+            "15\n"
+        ],
+        [
+            "7 6\n-3 0 -1 -2 -2 -4 -1\n",
+            "-45\n"
+        ],
+        [
+            "4 1\n3 -1 6 0\n",
+            "8\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9\u5b9a\u5e8f\u5217 $a_1, a_2, \\cdots, a_n$ \u548c\u6574\u6570 $k$\uff0c\u4f60\u7684\u4efb\u52a1\u662f\u5c06 $a_1, a_2, \\cdots, a_n$ \u5206\u6210 $k$ \u6bb5\uff0c\u6bcf\u4e2a\u6bb5\u4ece\u5de6\u5230\u53f3\u7684\u7f16\u53f7\u4f9d\u6b21\u662f $1,2,\\cdots, k$\n\n\u4ee4 $f(i)$ \u8868\u793a\u4f4d\u7f6e $i$ \u5c5e\u4e8e\u7684\u6bb5\u7684\u7f16\u53f7\uff0c\u4f60\u9700\u8981\u8ba9 $ \\sum\\limits_{i=1}^{n} (a_i \\cdot f(i)) $ \u6700\u5927\u3002\u8f93\u51fa\u8fd9\u4e2a\u6700\u5927\u503c\u3002\n"
+}

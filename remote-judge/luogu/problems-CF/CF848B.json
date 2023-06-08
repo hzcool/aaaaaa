@@ -1,0 +1,17 @@
+{
+    "description": "Wherever the destination is, whoever we meet, let's render this song together.\n\nOn a Cartesian coordinate plane lies a rectangular stage of size $ w\u00d7h $ , represented by a rectangle with corners $ (0,0) $ , $ (w,0) $ , $ (w,h) $ and $ (0,h) $ . It can be seen that no collisions will happen before one enters the stage.\n\nOn the sides of the stage stand $ n $ dancers. The $ i $ -th of them falls into one of the following groups:\n\n- Vertical: stands at $ (x_{i},0) $ , moves in positive $ y $ direction (upwards);\n- Horizontal: stands at $ (0,y_{i}) $ , moves in positive $ x $ direction (rightwards).\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF848B/78a4617a270ecba0555a87f4deb825cf1f501330.png)According to choreography, the $ i $ -th dancer should stand still for the first $ t_{i} $ milliseconds, and then start moving in the specified direction at $ 1 $ unit per millisecond, until another border is reached. It is guaranteed that no two dancers have the same group, position and waiting time at the same time.\n\nWhen two dancers collide (i.e. are on the same point at some time when both of them are moving), they immediately exchange their moving directions and go on.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF848B/14a342567b0e0e96e2854bafb4e39a8b293ebae4.png)Dancers stop when a border of the stage is reached. Find out every dancer's stopping position.",
+    "inputFormat": "The first line of input contains three space-separated positive integers $ n $ , $ w $ and $ h $ ( $ 1<=n<=100000 $ , $ 2<=w,h<=100000 $ ) \u2014 the number of dancers and the width and height of the stage, respectively.\n\nThe following $ n $ lines each describes a dancer: the $ i $ -th among them contains three space-separated integers $ g_{i} $ , $ p_{i} $ , and $ t_{i} $ ( $ 1<=g_{i}<=2 $ , $ 1<=p_{i}<=99999 $ , $ 0<=t_{i}<=100000 $ ), describing a dancer's group $ g_{i} $ ( $ g_{i}=1 $ \u2014 vertical, $ g_{i}=2 $ \u2014 horizontal), position, and waiting time. If $ g_{i}=1 $ then $ p_{i}=x_{i} $ ; otherwise $ p_{i}=y_{i} $ . It's guaranteed that $ 1<=x_{i}<=w-1 $ and $ 1<=y_{i}<=h-1 $ . It is guaranteed that no two dancers have the same group, position and waiting time at the same time.",
+    "outputFormat": "Output $ n $ lines, the $ i $ -th of which contains two space-separated integers $ (x_{i},y_{i}) $ \u2014 the stopping position of the $ i $ -th dancer in the input.",
+    "samples": [
+        [
+            "8 10 8\n1 1 10\n1 4 13\n1 7 1\n1 8 2\n2 2 0\n2 5 14\n2 6 0\n2 6 1\n",
+            "4 8\n10 5\n8 8\n10 6\n10 2\n1 8\n7 8\n10 6\n"
+        ],
+        [
+            "3 2 3\n1 1 2\n2 1 1\n1 1 5\n",
+            "1 3\n2 1\n1 3\n"
+        ]
+    ],
+    "hint": "The first example corresponds to the initial setup in the legend, and the tracks of dancers are marked with different colours in the following figure.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF848B/d441e2a826ff927d107333215574de12d2f00a07.png)In the second example, no dancers collide.",
+    "translation": "\u597d\u591a\u4e2a\u4eba\u5206\u522b\u4ecex,y\u8f74\u4e0d\u540c\u4f4d\u7f6e\u4e0d\u540c\u65f6\u95f4\u5f80\u5782\u76f4\u5750\u6807\u8f74\u65b9\u5411\u79fb\u52a8\uff0c\u4e00\u65e6\u76f8\u9047\u4ed6\u4eec\u8f6c\u5411\uff0c\u95ee\u6240\u6709\u4eba\u7684\u5230\u8fbe\u8fb9\u7f18\u7684\u4f4d\u7f6e\u3002"
+}

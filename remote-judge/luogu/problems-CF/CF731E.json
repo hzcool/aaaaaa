@@ -1,0 +1,17 @@
+{
+    "description": "Once upon a time Petya and Gena gathered after another programming competition and decided to play some game. As they consider most modern games to be boring, they always try to invent their own games. They have only stickers and markers, but that won't stop them.\n\nThe game they came up with has the following rules. Initially, there are $ n $ stickers on the wall arranged in a row. Each sticker has some number written on it. Now they alternate turn, Petya moves first.\n\nOne move happens as follows. Lets say there are $ m>=2 $ stickers on the wall. The player, who makes the current move, picks some integer $ k $ from $ 2 $ to $ m $ and takes $ k $ leftmost stickers (removes them from the wall). After that he makes the new sticker, puts it to the left end of the row, and writes on it the new integer, equal to the sum of all stickers he took on this move.\n\nGame ends when there is only one sticker left on the wall. The score of the player is equal to the sum of integers written on all stickers he took during all his moves. The goal of each player is to maximize the difference between his score and the score of his opponent.\n\nGiven the integer $ n $ and the initial sequence of stickers on the wall, define the result of the game, i.e. the difference between the Petya's and Gena's score if both players play optimally.",
+    "inputFormat": "The first line of input contains a single integer $ n $ ( $ 2<=n<=200000 $ ) \u2014 the number of stickers, initially located on the wall.\n\nThe second line contains $ n $ integers $ a_{1} $ , $ a_{2} $ , ..., $ a_{n} $ ( $ -10000<=a_{i}<=10000 $ ) \u2014 the numbers on stickers in order from left to right.",
+    "outputFormat": "Print one integer \u2014 the difference between the Petya's score and Gena's score at the end of the game if both players play optimally.",
+    "samples": [
+        [
+            "3\n2 4 8\n",
+            "14\n"
+        ],
+        [
+            "4\n1 -7 -2 3\n",
+            "-3\n"
+        ]
+    ],
+    "hint": "In the first sample, the optimal move for Petya is to take all the stickers. As a result, his score will be equal to $ 14 $ and Gena's score will be equal to $ 0 $ .\n\nIn the second sample, the optimal sequence of moves is the following. On the first move Petya will take first three sticker and will put the new sticker with value $ -8 $ . On the second move Gena will take the remaining two stickers. The Petya's score is $ 1+(-7)+(-2)=-8 $ , Gena's score is $ (-8)+3=-5 $ , i.e. the score difference will be $ -3 $ .",
+    "translation": "\u4e00\u4e2a\u957f\u5ea6\u4e3a N \u7684\u5e8f\u5217 ai \uff0c\u53cc\u65b9\u8f6e\u6d41\u64cd\u4f5c\n\n\u6bcf\u6b21\u7684\u64cd\u4f5c\u662f\u9009\u62e9\u4e00\u4e2a\u957f\u5ea6\u5927\u4e8e 1 \u7684\u524d\u7f00\uff0c\u8ba1\u7b97\u5b83\u7684\u548c s \uff0c\u7136\u540e \u7528 s \u66ff\u6362\u5b83\u7684\u524d\u7f00\uff0c\u540c\u65f6\u5f53\u524d\u73a9\u5bb6\u83b7\u5f97 s \u7684\u5206\u6570\u3002\n\n\u5f53\u53ea\u5269\u4e0b\u4e00\u4e2a\u5143\u7d20\uff0c\u6e38\u620f\u7ed3\u675f\u3002\n\n\u53cc\u65b9\u5747\u60f3\u6700\u5927\u5316 \u81ea\u5df1\u7684\u5206\u6570-\u5bf9\u624b\u7684\u5206\u6570\uff0c\u8ba1\u7b97\u8fd9\u4e2a\u503c\u3002"
+}

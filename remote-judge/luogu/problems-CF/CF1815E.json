@@ -1,0 +1,25 @@
+{
+    "description": "Bosco is studying the behaviour of particles. He decided to investigate on the peculiar behaviour of the so-called \"four-one-two\" particle. He does the following:\n\nThere is a line of length $ n+1 $ , where the topmost point is position $ 0 $ and bottommost is position $ n+1 $ . The particle is initially (at time $ t=0 $ ) at position $ 0 $ and heading downwards. The particle moves at the speed of $ 1 $ unit per second. There are $ n $ oscillators at positions $ 1,2,\\ldots,n $ .\n\nEach oscillator can be described by a binary string. The initial state of each oscillator is the first character of its binary string. When the particle hits with an oscillator, the particle reverses its direction if its current state is $ \\texttt{1} $ and continues to move at the same direction if its current state is $ \\texttt{0} $ , and that oscillator moves on to the next state (the next state of the last state is defined as the first state). Additionally, the particle always reverses its direction when it is at position $ 0 $ or $ n+1 $ at time $ t > 0 $ .\n\nBosco would like to know the cycle length of the movement of particle. The cycle length is defined as the minimum value of $ c $ such that for any time $ t \\ge 0 $ , the position of the particle at time $ t $ is same as the position of the particle at time $ t+c $ . It can be proved that such value $ c $ always exists. As he realises the answer might be too large, he asks you to output your answer modulo $ 998244353 $ .",
+    "inputFormat": "The first line contains an integer $ n $ ( $ 1\\le n\\le10^6 $ ) \u2014 the number of oscillators.\n\nThe $ i $ -th of the next $ n $ line contains a binary string $ s_i $ ( $ 1\\le\\left|s_i\\right|\\le10^6 $ ) \u2014 the binary string, that contains only characters $ \\texttt{0} $ and $ \\texttt{1} $ , describing the oscillator at position $ i $ .\n\nIt is guaranteed that the sum of all $ |s_i| $ does not exceed $ 10^6 $ .",
+    "outputFormat": "Output a single integer integer \u2014 the cycle length of the movement of the particle, modulo $ 998244353 $ .",
+    "samples": [
+        [
+            "1\n00",
+            "4"
+        ],
+        [
+            "2\n01\n010",
+            "16"
+        ],
+        [
+            "4\n0101\n000\n1\n01",
+            "12"
+        ],
+        [
+            "4\n01010\n0001\n11\n0001",
+            "120"
+        ]
+    ],
+    "hint": "In the first sample, the only oscillator at position $ 1 $ always has state $ \\texttt{0} $ . At time moments $ 0,1,2,3 $ positions the particle are $ 0,1,2,1 $ respectively. Then the same positions will be repeated, so $ c=4 $ .\n\nAnimation for the second sample: [here](https://u.cubeupload.com/culver0412/GJ5PNy.png) or [a smoother animation](https://i.imgur.com/X35t71G.gif).",
+    "translation": "\u6709\u4e2a\u7c92\u5b50\u521d\u59cb\u5728 $0$ \u4f4d\u7f6e\uff0c$1\\cdots n$ \u4f4d\u7f6e\u5206\u522b\u4e3a\u6709\u4e00\u4e2a\u5bf9\u649e\u5668\uff0c\u5982\u679c\u5728 $0$ \u4f4d\u7f6e\u5219\u5411\u53f3\uff0c\u5982\u679c\u5728 $n + 1$ \u4f4d\u7f6e\u5219\u5411\u5de6\u3002\u6bcf\u4e2a\u5bf9\u649e\u5668\u6709\u4e00\u4e2a $01$ \u4e32\uff0c\u521d\u59cb\u6240\u6709\u5bf9\u649e\u5668\u7684\u6307\u9488\u90fd\u5728\u5f00\u5934\uff0c\u5f53\u7c92\u5b50\u8d70\u5230 $i$ \u4f4d\u7f6e\u65f6\uff0c\u5bf9\u649e\u5668\u6240\u6307\u7684\u503c\u4e3a $0$ \u5219\u4e0d\u6539\u53d8\u65b9\u5411\uff0c\u5426\u5219\u53cd\u5411\uff0c\u6307\u9488\u6307\u5411\u4e0b\u4e00\u4e2a\u4f4d\u7f6e\uff0c\u5982\u679c\u5728\u4e32\u7684\u672b\u5c3e\u5219\u6307\u5411\u5f00\u5934\u3002\u6c42\u6700\u5c0f\u7684\u5468\u671f\u957f\u5ea6 $c$ \u6ee1\u8db3\u4efb\u610f $t$ \u65f6\u95f4\u548c $t + c$ \u65f6\u95f4\u7c92\u5b50\u5728\u540c\u4e00\u4f4d\u7f6e\u3002\n\n$1\\le n \\le 10^6$\uff0c$\\sum |s_i|\\le 10^6$\u3002\n\n\u7ffb\u8bd1\u6765\u81ea @zlxFTH\u3002"
+}

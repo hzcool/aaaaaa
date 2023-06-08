@@ -1,0 +1,13 @@
+{
+    "description": "After learning about polynomial hashing, Heidi decided to learn about shift-xor hashing. In particular, she came across this interesting problem.\n\nGiven a bitstring $ y \\in \\{0,1\\}^n $ find out the number of different $ k $ ( $ 0 \\leq k < n $ ) such that there exists $ x \\in \\{0,1\\}^n $ for which $ y = x \\oplus \\mbox{shift}^k(x). $\n\nIn the above, $ \\oplus $ is the xor operation and $ \\mbox{shift}^k $ is the operation of shifting a bitstring cyclically to the right $ k $ times. For example, $ 001 \\oplus 111 = 110 $ and $ \\mbox{shift}^3(00010010111000) = 00000010010111 $ .",
+    "inputFormat": "The first line contains an integer $ n $ ( $ 1 \\leq n \\leq 2 \\cdot 10^5 $ ), the length of the bitstring $ y $ .\n\nThe second line contains the bitstring $ y $ .",
+    "outputFormat": "Output a single integer: the number of suitable values of $ k $ .",
+    "samples": [
+        [
+            "4\n1010\n",
+            "3\n"
+        ]
+    ],
+    "hint": "In the first example:\n\n- $ 1100\\oplus \\mbox{shift}^1(1100) = 1010 $\n- $ 1000\\oplus \\mbox{shift}^2(1000) = 1010 $\n- $ 0110\\oplus \\mbox{shift}^3(0110) = 1010 $\n\nThere is no $ x $ such that $ x \\oplus x = 1010 $ , hence the answer is $ 3 $ .",
+    "translation": "- \u7ed9\u5b9a\u4e00\u4e2a \u957f\u5ea6\u4e3a $n$ \u7684 01 \u4e32 $y$\r\n- \u6211\u4eec\u7ed9\u5b9a\u4e00\u4e2a\u51fd\u6570 $\\text{shift}$ \u4f7f\u5f97\u5bf9\u4e8e\u4efb\u610f\u4e00\u4e2a\u6570 $a$\uff0c$\\text{shift}^a$ \u6307\u7684\u662f\u5bf9\u4e8e\u7ed9\u5b9a\u7684 01 \u4e32\u5faa\u73af\u53f3\u79fb $a$ \u4e2a\u5b57\u7b26\r\n- \u73b0\u5728\u6c42\u6ee1\u8db3\r\n\t- $x$ \u4e5f\u662f\u4e00\u4e2a\u957f\u4e3a $n$ \u7684 01 \u4e32\r\n    - $y=x\\ \u2295\\ \\text{shift}^k(x)$\r\n    - $\u2295$ \u4e3a\u5f02\u6216\r\n- \u7684 01 \u4e32\u4e2a\u6570\u3002\uff08\u4e0a\u8ff0\u5f0f\u5b50\u7684 $k$ \u4e3a $1$ \u5230\u6ee1\u8db3\u4e0a\u8ff0 01 \u4e32\u7684\u4e2a\u6570\u7684\u5176\u4e2d\u4e00\u4e2a\u6570\uff0c\u5e76\u4e14\u4e0d\u80fd\u91cd\u590d\uff09"
+}

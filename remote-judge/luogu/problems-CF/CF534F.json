@@ -1,0 +1,21 @@
+{
+    "description": "In this task you have to write a program dealing with nonograms on fields no larger than $ 5\u00d720 $ .\n\nSimplified nonogram is a task where you have to build such field (each cell is either white or black) that satisfies the given information about rows and columns. For each row and each column the number of contiguous black segments is specified.\n\nFor example if size of the field is $ n=3,m=5 $ , \u0430nd numbers of contiguous black segments in rows are: $ [2,3,2] $ and in columns are: $ [1,0,1,2,1] $ then the solution may look like:\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF534F/6475e8c66c897f247015722a0394e139a91bb231.png)It is guaranteed that on each test in the testset there exists at least one solution.",
+    "inputFormat": "In the first line there follow two integers $ n $ , $ m $ ( $ 1<=n<=5,1<=m<=20 $ ) \u2014 number of rows and number of columns respectively.\n\nSecond line contains $ n $ integers $ a_{1},a_{2},...,a_{n} $ where $ a_{i} $ is the number of contiguous black segments in $ i $ -th row of the field.\n\nSimilarly, third line contains $ m $ integers $ b_{1},b_{2},...,b_{m} $ where $ b_{i} $ is the number of contiguous black segments in the $ i $ -th column of the field.\n\nIt is guaranteed that there exists at least one solution.",
+    "outputFormat": "Output any possible solution. Output should consist of $ n $ lines each containing $ m $ characters. Denote white cell as \".\" and black cell as \"\\*\".",
+    "samples": [
+        [
+            "3 5\n2 3 2\n1 0 1 2 1\n",
+            "*.**.\n*.*.*\n*..**"
+        ],
+        [
+            "3 3\n2 1 2\n2 1 2\n",
+            "*.*\n.*.\n*.*\n"
+        ],
+        [
+            "3 3\n1 0 1\n2 2 2\n",
+            "***\n...\n***\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9\u51fa\u5e8f\u5217 $ a_{1},a_{2},\\cdots,a_{n} $\uff0c$ b_{1},b_{2},\\cdots,b_{m} $\uff0c\u6784\u9020\u4e00\u4e2a $n\\times m$ \u7684 $01$ \u77e9\u9635\uff0c\u6ee1\u8db3\uff1a\n\n- \u5bf9\u6bcf\u4e2a $1\\le i\\le n$\uff0c\u7b2c $i$ \u884c\u7684\u6781\u957f\u8fde\u7eed $1$ \u6bb5\u6570\u91cf\u4e3a $a_i$\u3002\n- \u5bf9\u6bcf\u4e2a $1\\le j\\le m$\uff0c\u7b2c $j$ \u5217\u7684\u6781\u957f\u8fde\u7eed $1$ \u6bb5\u6570\u91cf\u4e3a $b_i$\u3002\n\n\u8f93\u51fa\u65f6\u5bf9 $0$ \u8f93\u51fa `.`\uff0c\u5bf9 $1$ \u8f93\u51fa `*`\u3002\n\n$1\\le n\\le 5$\uff0c$1\\le m\\le 20$\uff0c\u4fdd\u8bc1\u6709\u89e3\u3002"
+}

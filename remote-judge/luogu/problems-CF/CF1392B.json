@@ -1,0 +1,13 @@
+{
+    "description": "Being stuck at home, Ray became extremely bored. To pass time, he asks Lord Omkar to use his time bending power: Infinity Clock! However, Lord Omkar will only listen to mortals who can solve the following problem:\n\nYou are given an array $ a $ of $ n $ integers. You are also given an integer $ k $ . Lord Omkar wants you to do $ k $ operations with this array.\n\nDefine one operation as the following:\n\n1. Set $ d $ to be the maximum value of your array.\n2. For every $ i $ from $ 1 $ to $ n $ , replace $ a_{i} $ with $ d-a_{i} $ .\n\nThe goal is to predict the contents in the array after $ k $ operations. Please help Ray determine what the final sequence will look like!",
+    "inputFormat": "Each test contains multiple test cases. The first line contains the number of cases $ t $ ( $ 1 \\le t \\le 100 $ ). Description of the test cases follows.\n\nThe first line of each test case contains two integers $ n $ and $ k $ ( $ 1 \\leq n \\leq 2 \\cdot 10^5, 1 \\leq k \\leq       10^{18} $ ) \u2013 the length of your array and the number of operations to perform.\n\nThe second line of each test case contains $ n $ integers $ a_{1},a_{2},...,a_{n} $ $ (-10^9 \\leq a_{i} \\leq 10^9) $ \u2013 the initial contents of your array.\n\nIt is guaranteed that the sum of $ n $ over all test cases does not exceed $ 2 \\cdot 10^5 $ .",
+    "outputFormat": "For each case, print the final version of array $ a $ after $ k $ operations described above.",
+    "samples": [
+        [
+            "3\n2 1\n-199 192\n5 19\n5 -1 4 2 0\n1 2\n69",
+            "391 0\n0 6 1 3 5\n0"
+        ]
+    ],
+    "hint": "In the first test case the array changes as follows:\n\n- Initially, the array is $ [-199, 192] $ . $ d = 192 $ .\n- After the operation, the array becomes $ [d-(-199), d-192] =           [391, 0] $ .",
+    "translation": "### \u9898\u76ee\u63cf\u8ff0\n\u7ed9\u51fa\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u5e8f\u5217 $a$ \u4ee5\u53ca\u4e00\u4e2a $k$\uff0c\u6211\u4eec\u5b9a\u4e49\u8fdb\u884c\u4e00\u6b21\u64cd\u4f5c\u5206\u4ee5\u4e0b\u4e24\u6b65\uff1a\n\n1. \u8bbe $d$ \u8868\u793a\u5e8f\u5217\u4e2d\u7684\u6700\u5927\u503c\n2. \u5bf9\u4e8e\u6bcf\u4e2a $i\\in[1,n]$\uff0c\u5c06 $a_i$ \u66ff\u6362\u6210 $d-a_i$\u3002\n\n\u73b0\u5728\u8bf7\u4f60\u8f93\u51fa\u8fdb\u884c $k$ \u6b21\u64cd\u4f5c\u540e\u7684\u5e8f\u5217\u3002"
+}

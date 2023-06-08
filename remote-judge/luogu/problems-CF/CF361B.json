@@ -1,0 +1,17 @@
+{
+    "description": "Levko loves permutations very much. A permutation of length $ n $ is a sequence of distinct positive integers, each is at most $ n $ .\n\nLet\u2019s assume that value $ gcd(a,b) $ shows the greatest common divisor of numbers $ a $ and $ b $ . Levko assumes that element $ p_{i} $ of permutation $ p_{1},p_{2},...\\ ,p_{n} $ is good if $ gcd(i,p_{i})&gt;1 $ . Levko considers a permutation beautiful, if it has exactly $ k $ good elements. Unfortunately, he doesn\u2019t know any beautiful permutation. Your task is to help him to find at least one of them.",
+    "inputFormat": "The single line contains two integers $ n $ and $ k $ ( $ 1<=n<=10^{5} $ , $ 0<=k<=n $ ).",
+    "outputFormat": "In a single line print either any beautiful permutation or -1, if such permutation doesn\u2019t exist.\n\nIf there are multiple suitable permutations, you are allowed to print any of them.",
+    "samples": [
+        [
+            "4 2\n",
+            "2 4 3 1"
+        ],
+        [
+            "1 1\n",
+            "-1\n"
+        ]
+    ],
+    "hint": "In the first sample elements $ 4 $ and $ 3 $ are good because $ gcd(2,4)=2&gt;1 $ and $ gcd(3,3)=3&gt;1 $ . Elements $ 2 $ and $ 1 $ are not good because $ gcd(1,2)=1 $ and $ gcd(4,1)=1 $ . As there are exactly 2 good elements, the permutation is beautiful.\n\nThe second sample has no beautiful permutations.",
+    "translation": "\u7ed9\u5b9a $n,k$\uff0c\u4f60\u9700\u8981\u6784\u9020\u4e00\u4e2a\u5e8f\u5217\uff0c\u4f7f\u5f97\u96c6\u5408 $\\{i|_{1\\le i \\le n,gcd(i,a_i)>1}\\}$ \u7684\u5143\u7d20\u4e2a\u6570\u6070\u597d\u4e3a $k$\u3002"
+}

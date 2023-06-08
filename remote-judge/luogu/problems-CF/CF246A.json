@@ -1,0 +1,13 @@
+{
+    "description": "Little boy Valera studies an algorithm of sorting an integer array. After studying the theory, he went on to the practical tasks. As a result, he wrote a program that sorts an array of $ n $ integers $ a_{1},a_{2},...,a_{n} $ in the non-decreasing order. The pseudocode of the program, written by Valera, is given below. The input of the program gets number $ n $ and array $ a $ .\n\n`<br></br>loop integer variable  $ i $  from  $ 1 $  to  $ n-1 $ <br></br>\u00a0\u00a0\u00a0\u00a0loop integer variable  $ j $  from  $ i $  to  $ n-1 $ <br></br>\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0if  $ (a_{j}&gt;a_{j+1}) $ , then swap the values of elements  $ a_{j} $  and  $ a_{j+1} $ <br></br>`But Valera could have made a mistake, because he hasn't yet fully learned the sorting algorithm. If Valera made a mistake in his program, you need to give a counter-example that makes his program work improperly (that is, the example that makes the program sort the array not in the non-decreasing order). If such example for the given value of $ n $ doesn't exist, print -1.",
+    "inputFormat": "You've got a single integer $ n $ $ (1<=n<=50) $ \u2014 the size of the sorted array.",
+    "outputFormat": "Print $ n $ space-separated integers $ a_{1},a_{2},...,a_{n} $ $ (1<=a_{i}<=100 $ ) \u2014 the counter-example, for which Valera's algorithm won't work correctly. If the counter-example that meets the described conditions is impossible to give, print -1.\n\nIf there are several counter-examples, consisting of $ n $ numbers, you are allowed to print any of them.",
+    "samples": [
+        [
+            "1\n",
+            "-1\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "Valera \u5199\u4e86\u4e00\u4e2a\u6392\u5e8f\u7684\u7b97\u6cd5\uff08\u4f2a\u4ee3\u7801\uff09\uff1a\n```cpp\nfor(int i=1;i<n;++i)\n    for(int j=i;j<n;++j)\n        if(a[j]>a[j+1])\n             swap(a[j],a[j+1]);//\u8fd9\u662f\u9519\u7684\n```\n\n\u7ed9\u4f60\u4e00\u4e2a $n$ \u8868\u793a\u6570\u7ec4\u7684\u957f\u5ea6\uff0c \u8bf7\u4f60\u6784\u9020\u4e00\u7ec4\u6570\u636e\uff0cHack \u6389\u4ed6\u7684\u7b97\u6cd5\u3002\n\n\u5982\u679c\u65e0\u6cd5 Hack\uff0c\u5c31\u8f93\u51fa $- 1$\u3002"
+}

@@ -1,0 +1,25 @@
+{
+    "description": "This problem's actual name, \"Lexicographically Largest Palindromic Subsequence\" is too long to fit into the page headline.\n\nYou are given string $ s $ consisting of lowercase English letters only. Find its lexicographically largest palindromic subsequence.\n\nWe'll call a non-empty string $ s[p_{1} $ $ p_{2}...\\ p_{k}] $ = $ s_{p1}s_{p2}...\\ s_{pk} $ ( $ 1 $ $ <= $ $ p_{1}&lt;p_{2}&lt;...&lt;p_{k} $ $ <= $ $ |s| $ ) a subsequence of string $ s $ = $ s_{1} $ $ s_{2}...\\ s_{|s|} $ , where $ |s| $ is the length of string $ s $ . For example, strings \"abcb\", \"b\" and \"abacaba\" are subsequences of string \"abacaba\".\n\nString $ x $ = $ x_{1} $ $ x_{2}...\\ x_{|x|} $ is lexicographically larger than string $ y $ = $ y_{1} $ $ y_{2}...\\ y_{|y|} $ if either $ |x| $ > $ |y| $ and $ x_{1}=y_{1} $ , $ x_{2}=y_{2} $ , ..., $ x_{|y|}=y_{|y|} $ , or there exists such number $ r $ ( $ r&lt;|x| $ , $ r&lt;|y| $ ) that $ x_{1}=y_{1} $ , $ x_{2}=y_{2} $ , ..., $ x_{r}=y_{r} $ and $ x_{r+1}&gt;y_{r+1} $ . Characters in the strings are compared according to their ASCII codes. For example, string \"ranger\" is lexicographically larger than string \"racecar\" and string \"poster\" is lexicographically larger than string \"post\".\n\nString $ s $ = $ s_{1} $ $ s_{2}...\\ s_{|s|} $ is a palindrome if it matches string $ rev(s) $ = $ s_{|s|} $ $ s_{|s|-1}...\\ s_{1} $ . In other words, a string is a palindrome if it reads the same way from left to right and from right to left. For example, palindromic strings are \"racecar\", \"refer\" and \"z\".",
+    "inputFormat": "The only input line contains a non-empty string $ s $ consisting of lowercase English letters only. Its length does not exceed $ 10 $ .",
+    "outputFormat": "Print the lexicographically largest palindromic subsequence of string $ s $ .",
+    "samples": [
+        [
+            "radar\n",
+            "rr\n"
+        ],
+        [
+            "bowwowwow\n",
+            "wwwww\n"
+        ],
+        [
+            "codeforces\n",
+            "s\n"
+        ],
+        [
+            "mississipp\n",
+            "ssss\n"
+        ]
+    ],
+    "hint": "Among all distinct subsequences of string \"radar\" the following ones are palindromes: \"a\", \"d\", \"r\", \"aa\", \"rr\", \"ada\", \"rar\", \"rdr\", \"raar\" and \"radar\". The lexicographically largest of them is \"rr\".",
+    "translation": "### \u9898\u76ee\u63cf\u8ff0\n\u7ed9\u4f60\u4e00\u4e2a\u5b57\u7b26\u4e32 $S$\uff0c\u4f60\u8981\u5728\u5b57\u7b26\u4e32\u4e2d\u9009\u4e00\u4e9b\u5b57\u7b26\uff08\u4e00\u4e2a\u4e5f\u884c\uff09\uff0c\u4f7f\u5b83\u4eec\u7ec4\u6210\u4e00\u4e2a\u56de\u6587\u5b57\u7b26\u4e32\uff0c\u8f93\u51fa\u53ef\u4ee5\u7ec4\u6210\u7684\u6700\u5927\u56de\u6587\u4e32\uff08\u6309\u5b57\u5178\u5e8f\u6392\uff09\u3002\n\n### \u8f93\u5165\u683c\u5f0f\n\u4e00\u4e2a\u4e0d\u4e3a\u7a7a\u4e32\u7684\u5b57\u7b26\u4e32 $S$\uff0c$S$\u53ea\u5305\u542b\u5c0f\u5199\u5b57\u6bcd\uff0c\u4e14\u957f\u5ea6\u4e0d\u8d85\u8fc7 $10$\u3002\n\n### \u8f93\u51fa\u683c\u5f0f\n\u4e00\u4e2a\u5b57\u7b26\u4e32\uff0c\u5373\u6700\u5927\u56de\u6587\u4e32\u3002\n\n### \u8bf4\u660e/\u63d0\u793a\n\u7b2c\u4e00\u4e2a\u6837\u4f8b\u201crader\u201d\u4e2d\u53ef\u4ee5\u5f97\u5230\u7684\u56de\u6587\u4e32\u4e3a\"a\", \"d\", \"r\", \"aa\", \"rr\", \"ada\", \"rar\", \"rdr\", \"raar\" and \"radar\"\uff0c\u5176\u4e2d\u201crr\u201c\u6700\u5927\u3002"
+}

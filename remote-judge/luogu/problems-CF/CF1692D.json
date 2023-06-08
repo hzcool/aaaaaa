@@ -1,0 +1,13 @@
+{
+    "description": "Victor has a [24-hour clock](https://en.wikipedia.org/wiki/24-hour_clock) that shows the time in the format \"HH:MM\" (00 $ \\le $ HH $ \\le $ 23, 00 $ \\le $ MM $ \\le $ 59). He looks at the clock every $ x $ minutes, and the clock is currently showing time $ s $ .\n\nHow many different palindromes will Victor see in total after looking at the clock every $ x $ minutes, the first time being at time $ s $ ?\n\nFor example, if the clock starts out as 03:12 and Victor looks at the clock every $ 360 $ minutes (i.e. every $ 6 $ hours), then he will see the times 03:12, 09:12, 15:12, 21:12, 03:12, and the times will continue to repeat. Here the time 21:12 is the only palindrome he will ever see, so the answer is $ 1 $ .\n\nA palindrome is a string that reads the same backward as forward. For example, the times 12:21, 05:50, 11:11 are palindromes but 13:13, 22:10, 02:22 are not.",
+    "inputFormat": "The first line of the input contains an integer $ t $ ( $ 1 \\leq t \\leq 100 $ ) \u2014 the number of test cases. The description of each test case follows.\n\nThe only line of each test case contains a string $ s $ of length $ 5 $ with the format \"HH:MM\" where \"HH\" is from \"00\" to \"23\" and \"MM\" is from \"00\" to \"59\" (both \"HH\" and \"MM\" have exactly two digits) and an integer $ x $ ( $ 1 \\leq x \\leq 1440 $ ) \u2014 the number of minutes Victor takes to look again at the clock.",
+    "outputFormat": "For each test case, output a single integer \u2014 the number of different palindromes Victor will see if he looks at the clock every $ x $ minutes starting from time $ s $ .",
+    "samples": [
+        [
+            "6\n03:12 360\n00:00 1\n13:22 2\n15:15 10\n11:11 1440\n22:30 27",
+            "1\n16\n10\n0\n1\n1"
+        ]
+    ],
+    "hint": "The first test case is explained in the statement.",
+    "translation": "### \u9898\u76ee\u63cf\u8ff0\n\u4ece\u4e00\u4e2a`24`\u5c0f\u65f6\u5236\u7684\u65f6\u95f4\u70b9\u5f00\u59cb\uff0c\u6bcf\u9694 $x$ \u5206\u949f\u770b\u4e00\u6b21\u624b\u8868\uff0c\u6c42\u5230\u91cd\u65b0\u770b\u5230\u6b64\u65f6\u95f4\u70b9\u4e3a\u6b62\u4e00\u5171\u770b\u5230\u4e86\u591a\u5c11\u4e2a\u56de\u6587\u65f6\u95f4\u70b9\u3002\n\n\u56de\u6587\u65f6\u95f4\u70b9\uff1a\u8bf8\u5982`13:31`,`25:52`\u7b49\u65f6\u95f4\u70b9\u3002\n\n### \u8f93\u5165\n\u7b2c\u4e00\u884c\u4e00\u4e2a\u6570 $T$ \u8868\u793a\u6570\u636e\u7ec4\u6570\uff0c\n\n\u63a5\u4e0b\u6765 $T$ \u884c\u6bcf\u884c\u4e00\u4e2a\u65f6\u95f4\u70b9 `xx:xx` \u548c\u65f6\u95f4\u95f4\u9694 $x$ \uff0c\u4f7f\u7528\u7a7a\u683c\u5206\u9694\u3002\n\n### \u8f93\u51fa\n\u5bf9\u4e8e\u6bcf\u4e00\u7ec4\u6570\u636e\uff0c\u8f93\u51fa\u4e00\u4e2a $ans$ \u8868\u793a\u770b\u5230\u7684\u56de\u6587\u65f6\u95f4\u70b9\u7684\u6570\u91cf\u3002"
+}

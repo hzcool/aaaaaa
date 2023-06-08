@@ -1,0 +1,25 @@
+{
+    "description": "Little Petya very much likes rectangular tables that consist of characters \"0\" and \"1\". Recently he has received one such table as a gift from his mother. The table contained $ n $ rows and $ m $ columns. The rows are numbered from top to bottom from $ 1 $ to $ n $ , the columns are numbered from the left to the right from $ 1 $ to $ m $ . Petya immediately decided to find the longest cool cycle whatever it takes.\n\nA cycle is a sequence of pairwise distinct cells where each two consecutive cells have a common side; besides, the first cell has a common side with the last cell. A cycle is called cool if it fulfills all the following conditions simultaneously:\n\n- The cycle entirely consists of the cells that contain \"1\".\n- Each cell that belongs to the cycle, has a common side with exactly two other cells that belong to the cycle.\n- Each cell of the table that contains \"1\" either belongs to the cycle or is positioned outside of it (see definition below).\n\nTo define the notion of \"outside\" formally, let's draw a cycle on a plane. Let each cell of the cycle $ (i,j) $ ( $ i $ is the row number, $ j $ is the column number) correspond to the point $ (i,j) $ on the coordinate plane. Let a straight line segment join each pair of points that correspond to the cells belonging to the cycle and sharing a side. Thus, we will get a closed polyline that has no self-intersections and self-touches. The polyline divides the plane into two connected parts: the part of an infinite area and the part of a finite area. It is considered that cell $ (r,c) $ lies outside of the cycle if it does not belong to the cycle and the corresponding point on the plane with coordinates $ (r,c) $ lies in the part with the infinite area.\n\nHelp Petya to find the length of the longest cool cycle in the table. The cycle length is defined as the number of cells that belong to the cycle.",
+    "inputFormat": "The first line contains two integers $ n $ and $ m $ ( $ 1<=n,m<=1000 $ ) \u2014 the number of rows and columns in the table, respectively. Each of the following $ n $ lines contains $ m $ characters. Each character can be either \"0\" or \"1\".",
+    "outputFormat": "Print a single number \u2014 the length of the longest cool cycle in the table. If such cycles do not exist, print 0.",
+    "samples": [
+        [
+            "3 3\n111\n101\n111\n",
+            "8\n"
+        ],
+        [
+            "5 5\n01010\n10101\n01010\n10101\n01010\n",
+            "0\n"
+        ],
+        [
+            "7 7\n1111111\n1000101\n1000101\n1000101\n1000111\n1000001\n1111111\n",
+            "24\n"
+        ],
+        [
+            "5 5\n11111\n10001\n10101\n10001\n11111\n",
+            "0\n"
+        ]
+    ],
+    "hint": "In the first example there's only one cycle and it is cool.\n\nIn the second sample there's no cycle at all.\n\nIn the third sample there are two cool cycles: their lengths are 12 and 24.\n\nIn the fourth sample there also is only one cycle but it isn't cool as there's a cell containing \"1\" inside this cycle.",
+    "translation": "\u7ed9\u5b9a\u4e00\u4e2a $n$ \u884c $m$ \u5217\u7684\u77e9\u9635\uff0c\u6bcf\u4e2a\u5143\u7d20\u53ea\u53ef\u80fd\u662f $0$ \u6216 $1$\uff0c\u5e0c\u671b\u627e\u51fa\u6700\u957f\u7684\u7531\u6743\u503c\u4e3a $1$ \u7684\u4f4d\u7f6e\u6784\u6210\u7684\u5408\u6cd5\u5e8f\u5217\u3002\u5408\u6cd5\u5e8f\u5217\u5e94\u5f53\u6ee1\u8db3\u4ee5\u4e0b\u6761\u4ef6\uff1a\n\n- \u5e8f\u5217\u4e2d\u4e0d\u5b58\u5728\u91cd\u590d\u7684\u4f4d\u7f6e\u3002\n- \u5e8f\u5217\u4e2d\u76f8\u90bb\u7684\u4f4d\u7f6e\uff08\u5305\u62ec\u7b2c\u4e00\u4e2a\u548c\u6700\u540e\u4e00\u4e2a\u4e4b\u95f4\uff09\u5e94\u5f53\u56db\u8054\u901a\uff0c\u5373\u6709\u516c\u5171\u8fb9\u3002\n- \u5e8f\u5217\u6700\u540e\u663e\u7136\u4f1a\u5f62\u6210\u4e00\u4e2a\u95ed\u5408\u7684\u73af\uff0c\u5e94\u5f53\u6ee1\u8db3**\u73af\u5185**\u6ca1\u6709\u6743\u503c\u4e3a $1$ \u7684\u70b9\uff08\u770b\u6837\u4f8b\u5e94\u8be5\u5c31\u80fd\u7406\u89e3\u4e86\uff09\u3002"
+}

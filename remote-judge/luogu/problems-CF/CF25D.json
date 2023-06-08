@@ -1,0 +1,17 @@
+{
+    "description": "Berland Government decided to improve relations with neighboring countries. First of all, it was decided to build new roads so that from each city of Berland and neighboring countries it became possible to reach all the others. There are $ n $ cities in Berland and neighboring countries in total and exactly $ n-1 $ two-way roads. Because of the recent financial crisis, the Berland Government is strongly pressed for money, so to build a new road it has to close some of the existing ones. Every day it is possible to close one existing road and immediately build a new one. Your task is to determine how many days would be needed to rebuild roads so that from each city it became possible to reach all the others, and to draw a plan of closure of old roads and building of new ones.",
+    "inputFormat": "The first line contains integer $ n $ ( $ 2<=n<=1000 $ ) \u2014 amount of cities in Berland and neighboring countries. Next $ n-1 $ lines contain the description of roads. Each road is described by two space-separated integers $ a_{i} $ , $ b_{i} $ ( $ 1<=a_{i},b_{i}<=n,a_{i}\u2260b_{i} $ ) \u2014 pair of cities, which the road connects. It can't be more than one road between a pair of cities. No road connects the city with itself.",
+    "outputFormat": "Output the answer, number $ t $ \u2014 what is the least amount of days needed to rebuild roads so that from each city it became possible to reach all the others. Then output $ t $ lines \u2014 the plan of closure of old roads and building of new ones. Each line should describe one day in the format i j u v \u2014 it means that road between cities i and j became closed and a new road between cities u and v is built. Cities are numbered from 1. If the answer is not unique, output any.",
+    "samples": [
+        [
+            "2\n1 2\n",
+            "0\n"
+        ],
+        [
+            "7\n1 2\n2 3\n3 1\n4 5\n5 6\n6 7\n",
+            "1\n3 1 3 7\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9\u5b9a\u4e00\u4e2a\u6709n\u4e2a\u9876\u70b9\uff0cn-1\u6761\u8fb9\u7684\u65e0\u5411\u56fe\uff0c\u6bcf\u4e00\u6b21\u64cd\u4f5c\u90fd\u80fd\u53bb\u6389\u4e00\u6761\u8fb9\uff0c\u5e76\u4e14\u91cd\u65b0\u5728\u67d0\u4e24\u4e2a\u9876\u70b9\u4e4b\u95f4\u8fde\u4e00\u6761\u65b0\u8fb9\u3002\u8bd5\u6c42\u9700\u8981\u591a\u5c11\u6b21\u64cd\u4f5c\uff0c\u624d\u80fd\u4f7f\u5f97\u4ece\u4efb\u4e00\u9876\u70b9\u90fd\u80fd\u5230\u8fbe\u5176\u4ed6\u7684\u6240\u6709\u9876\u70b9\u3002\n\u8f93\u5165:\u7b2c\u4e00\u884c\u4e00\u4e2a\u6b63\u6574\u6570n\uff0c\u4e4b\u540en-1\u884c\u6bcf\u884c\u4e24\u4e2a\u6574\u6570\u8868\u793a\u4e00\u6761\u65e0\u5411\u8fb9\n\u8f93\u51fa:\u7b2c\u4e00\u884c\u4e00\u4e2a\u6574\u6570t\uff0c\u8868\u793a\u9700\u8981\u7684\u6700\u5c11\u64cd\u4f5c\u6570\uff0c\u4e4b\u540et\u884c\u6bcf\u884c\u56db\u4e2a\u6574\u6570a,b,c,d\uff0c\u8868\u793a\u62c6\u6389ab\u95f4\u7684\u8fb9\uff0c\u5728cd\u95f4\u8fde\u4e00\u6761\u65b0\u8fb9\n\n2<=n<=1000\n\nTranslated by \u7a00\u795e\u63a2\u5973"
+}

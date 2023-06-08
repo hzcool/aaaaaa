@@ -1,0 +1,17 @@
+{
+    "description": "Whoso in ignorance draws near to them and hears the Sirens' voice, he nevermore returns.Homer, Odyssey\n\n\n\n\n\nIn the times of Jason and the Argonauts, it was well known that sirens use the sound of their songs to lure sailors into their demise. Yet only a few knew that every time sirens call a sailor by his name, his will weakens, making him more vulnerable.\n\nFor the purpose of this problem, both siren songs and names of the sailors will be represented as strings of lowercase English letters. The more times the sailor's name occurs as a contiguous substring of the song, the greater danger he is in.\n\nJason found out that sirens can sing one of the $ n+1 $ songs, which have the following structure: let $ s_i $ ( $ 0 \\leq i \\leq n $ ) be the $ i $ -th song and $ t $ be a string of length $ n $ , then for every $ i < n $ : $ s_{i+1} = s_i t_i s_i $ . In other words $ i+1 $ -st song is the concatenation of $ i $ -th song, $ i $ -th letter ( $ 0 $ -indexed) of $ t $ and the $ i $ -th song.\n\nFortunately, he also knows $ s_0 $ and $ t $ . Jason wonders how many times a sailor's name is mentioned in a particular song. Answer $ q $ queries: given the sailor's name ( $ w $ ) and the index of a song ( $ i $ ) output the number of occurrences of $ w $ in $ s_i $ as a substring. As this number can be quite large, output its remainder modulo $ 10^9+7 $ .",
+    "inputFormat": "In the first line of input there are two integers $ n $ , $ q $ ( $  1 \\leq n, q \\leq 10^5 $ ) meaning that there are $ n+1 $ songs and $ q $ queries. In the next two lines strings $ s_0 $ and $ t $ follow ( $ 1 \\leq |s_0| \\leq 100, |t| = n $ ).\n\nNext $ q $ lines describe the queries; each one contains an integer $ k $ ( $  0 \\leq k \\leq n $ ), the index of the song sung by the sirens, and a non-empty string $ w $ , which is the name of a sailor. All strings in this problem consist only of lowercase English letters, and the sum of lengths of sailors' names does not exceed $ 10^6 $ .",
+    "outputFormat": "Output $ q $ lines, $ i $ -th of them should contain the remainder modulo $ 10^9+7 $ of the number of occurrences of $ w $ in $ s_k $ .",
+    "samples": [
+        [
+            "3 3\naa\nbcd\n2 aba\n3 ca\n3 aa",
+            "2\n2\n8"
+        ],
+        [
+            "4 5\naba\nbbac\n1 a\n3 baca\n3 ab\n2 bab\n4 aba",
+            "4\n0\n14\n6\n28"
+        ]
+    ],
+    "hint": "In the first example songs of the sirens are as follows:\n\n- Song $ 0 $ : aa\n- Song $ 1 $ : aabaa\n- Song $ 2 $ : aabaacaabaa\n- Song $ 3 $ : aabaacaabaadaabaacaabaa",
+    "translation": "\u7ed9\u5b9a\u5b57\u7b26\u4e32 $s_0,t$\uff0c\u6ee1\u8db3 $s_{i+1}=s_it_is_i$\u3002\u591a\u6b21\u8be2\u95ee\uff0c\u6bcf\u6b21\u8be2\u95ee\u5b57\u7b26\u4e32 $w$ \u5728\u6307\u5b9a\u7684 $s_k$ \u4e2d\u7684\u51fa\u73b0\u6b21\u6570\u3002\u7b54\u6848\u5bf9 $10^9+7$ \u53d6\u6a21\u3002"
+}

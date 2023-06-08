@@ -1,0 +1,17 @@
+{
+    "description": "\"We've tried solitary confinement, waterboarding and listening to Just In Beaver, to no avail. We need something extreme.\"\n\n\"Little Alena got an array as a birthday present $ ... $ \"\n\nThe array $ b $ of length $ n $ is obtained from the array $ a $ of length $ n $ and two integers $ l $ and $ r $ ( $ l<=r $ ) using the following procedure:\n\n $ b_{1}=b_{2}=b_{3}=b_{4}=0 $ .\n\nFor all $ 5<=i<=n $ :\n\n- $ b_{i}=0 $ if $ a_{i},a_{i-1},a_{i-2},a_{i-3},a_{i-4}&gt;r $ and $ b_{i-1}=b_{i-2}=b_{i-3}=b_{i-4}=1 $\n- $ b_{i}=1 $ if $ a_{i},a_{i-1},a_{i-2},a_{i-3},a_{i-4}&lt;l $ and $ b_{i-1}=b_{i-2}=b_{i-3}=b_{i-4}=0 $\n- $ b_{i}=b_{i-1} $ otherwise\n\nYou are given arrays $ a $ and $ b' $ of the same length. Find two integers $ l $ and $ r $ ( $ l<=r $ ), such that applying the algorithm described above will yield an array $ b $ equal to $ b' $ .\n\nIt's guaranteed that the answer exists.",
+    "inputFormat": "The first line of input contains a single integer $ n $ ( $ 5<=n<=10^{5} $ ) \u2014 the length of $ a $ and $ b' $ .\n\nThe second line of input contains $ n $ space separated integers $ a_{1},...,a_{n} $ ( $ -10^{9}<=a_{i}<=10^{9} $ ) \u2014 the elements of $ a $ .\n\nThe third line of input contains a string of $ n $ characters, consisting of 0 and 1 \u2014 the elements of $ b' $ . Note that they are not separated by spaces.",
+    "outputFormat": "Output two integers $ l $ and $ r $ ( $ -10^{9}<=l<=r<=10^{9} $ ), conforming to the requirements described above.\n\nIf there are multiple solutions, output any of them.\n\nIt's guaranteed that the answer exists.",
+    "samples": [
+        [
+            "5\n1 2 3 4 5\n00001\n",
+            "6 15\n"
+        ],
+        [
+            "10\n-10 -9 -8 -7 -6 6 7 8 9 10\n0000111110\n",
+            "-5 5\n"
+        ]
+    ],
+    "hint": "In the first test case any pair of $ l $ and $ r $ pair is valid, if $ 6<=l<=r<=10^{9} $ , in that case $ b_{5}=1 $ , because $ a_{1},...,a_{5}&lt;l $ .",
+    "translation": "\u7ed9\u51fa\u4e24\u4e2a\u957f\u5ea6\u4e3aN\u7684\u6570\u7ec4A\uff0cB\uff0c\u4ee5\u53ca\u4e00\u79cd\u8ba1\u7b97\u89c4\u5f8b\uff1a \n\n\u82e5t[i]=1\uff0c\u9700\u6ee1\u8db3t[i-1]=t[i-2]=t[i-3]=t[i-4]=0\uff0c\u4ee5\u53camax{A[i],A[i-1],A[i-2],A[i-3],A[i-4]} < l \n\n\u82e5t[i]=0\uff0c\u9700\u6ee1\u8db3t[i-1]=t[i-2]=t[i-3]=t[i-4]=1\uff0c\u4ee5\u53camin{A[i],A[i-1],A[i-2],A[i-3],A[i-4]} > r \n\n\u5176\u4ed6\u60c5\u51b5:t[i]=t[i-1]\uff08|l|,|r|\u226410^9\uff09\n\n\u73b0\u5728\u8981\u4f7f\u5f97\u8fd0\u7b97\u4e00\u6b21\u7684\u7ed3\u679ct=B\uff0c\u6c42\u6ee1\u8db3\u6761\u4ef6\u7684l,r\uff08\u4fdd\u8bc1\u6709\u89e3\uff09 \n\nN\u2264100000"
+}

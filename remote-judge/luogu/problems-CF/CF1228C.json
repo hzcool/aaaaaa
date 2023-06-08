@@ -1,0 +1,21 @@
+{
+    "description": "Let's introduce some definitions that will be needed later.\n\nLet $ prime(x) $ be the set of prime divisors of $ x $ . For example, $ prime(140) = \\{ 2, 5, 7 \\} $ , $ prime(169) = \\{ 13 \\} $ .\n\nLet $ g(x, p) $ be the maximum possible integer $ p^k $ where $ k $ is an integer such that $ x $ is divisible by $ p^k $ . For example:\n\n- $ g(45, 3) = 9 $ ( $ 45 $ is divisible by $ 3^2=9 $ but not divisible by $ 3^3=27 $ ),\n- $ g(63, 7) = 7 $ ( $ 63 $ is divisible by $ 7^1=7 $ but not divisible by $ 7^2=49 $ ).\n\nLet $ f(x, y) $ be the product of $ g(y, p) $ for all $ p $ in $ prime(x) $ . For example:\n\n- $ f(30, 70) = g(70, 2) \\cdot g(70, 3) \\cdot g(70, 5) = 2^1 \\cdot 3^0 \\cdot 5^1 = 10 $ ,\n- $ f(525, 63) = g(63, 3) \\cdot g(63, 5) \\cdot g(63, 7) = 3^2 \\cdot 5^0 \\cdot 7^1 = 63 $ .\n\nYou have integers $ x $ and $ n $ . Calculate $ f(x, 1) \\cdot f(x, 2) \\cdot \\ldots \\cdot f(x, n) \\bmod{(10^{9} + 7)} $ .",
+    "inputFormat": "The only line contains integers $ x $ and $ n $ ( $ 2 \\le x \\le 10^{9} $ , $ 1 \\le n \\le 10^{18} $ ) \u2014 the numbers used in formula.",
+    "outputFormat": "Print the answer.",
+    "samples": [
+        [
+            "10 2\n",
+            "2\n"
+        ],
+        [
+            "20190929 1605\n",
+            "363165664\n"
+        ],
+        [
+            "947 987654321987654321\n",
+            "593574252\n"
+        ]
+    ],
+    "hint": "In the first example, $ f(10, 1) = g(1, 2) \\cdot g(1, 5) = 1 $ , $ f(10, 2) = g(2, 2) \\cdot g(2, 5) = 2 $ .\n\nIn the second example, actual value of formula is approximately $ 1.597 \\cdot 10^{171} $ . Make sure you print the answer modulo $ (10^{9} + 7) $ .\n\nIn the third example, be careful about overflow issue.",
+    "translation": "\u9996\u5148\u5148\u4ecb\u7ecd\u4e00\u4e9b\u6d89\u53ca\u5230\u7684\u5b9a\u4e49\uff1a\n\n\u5b9a\u4e49$prime(x)$\u8868\u793ax\u7684\u8d28\u56e0\u5b50\u96c6\u5408\u3002\u4e3e\u4f8b\u6765\u8bf4\uff0c$prime(140) = \\{2, 5, 7\\}$\uff0c$prime(169) = \\{13\\}$\u3002\n\n\u5b9a\u4e49$g(x, p)$\u8868\u793a\u5b58\u5728\u4e00\u4e2a\u6700\u5927\u7684$k \\in N^*$\uff0c\u4f7f\u5f97x\u53ef\u4ee5\u88ab$p^k$\u6574\u9664\uff08\u5373$p^k | x \\ \\&\\ p^{k+1}\\nmid x$\uff09\uff0c\u90a3\u4e48$g(x, p) = p^k$\u3002\u4e3e\u4f8b\u6765\u8bf4\uff1a\n\n- $g(45, 3) = 9$ \uff08$45$\u53ef\u4ee5\u88ab$3^2 = 9$\u6574\u9664\u4f46\u662f\u4e0d\u80fd\u88ab$3^3=27$\u6574\u9664\uff09\n- $g(63, 7) = 7$ \uff0863\u53ef\u4ee5\u88ab$7^1 = 7$\u6574\u9664\u4f46\u662f\u4e0d\u80fd\u88ab$7^2=49$\u6574\u9664\uff09\n\n\u5b9a\u4e49$f(x, y)$\u8868\u793a\u6240\u6709$g(y, p)~~(p \\in prime(x))$\u7684\u4e58\u79ef\uff0c\u4e3e\u4f8b\u6765\u8bf4\uff1a\n\n- $f(30, 70) = g(70,2)\u00b7g(70,3)\u00b7g(70, 5) = 2^1\u00b73^0\u00b75^1 = 10$\n- $f(525,63) = g(63,3)\u00b7g(63,5)\u00b7g(63,7) = 3^2\u00b75^0\u00b77^1 = 63$\n\n\u73b0\u5728\u7ed9\u51fa\u4e24\u4e2a\u6574\u6570$x$\u548c$n$\uff0c\u8bf7\u8ba1\u7b97\u51fa$f(x,1)\u00b7f(x,2)\\dots f(x,n)~mod~(10^9+7)$\u7684\u503c\u3002\n\n"
+}

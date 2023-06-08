@@ -1,0 +1,21 @@
+{
+    "description": "Valera is a little boy. Yesterday he got a huge Math hometask at school, so Valera didn't have enough time to properly learn the English alphabet for his English lesson. Unfortunately, the English teacher decided to have a test on alphabet today. At the test Valera got a square piece of squared paper. The length of the side equals $ n $ squares ( $ n $ is an odd number) and each unit square contains some small letter of the English alphabet.\n\nValera needs to know if the letters written on the square piece of paper form letter \"X\". Valera's teacher thinks that the letters on the piece of paper form an \"X\", if:\n\n- on both diagonals of the square paper all letters are the same;\n- all other squares of the paper (they are not on the diagonals) contain the same letter that is different from the letters on the diagonals.\n\nHelp Valera, write the program that completes the described task for him.",
+    "inputFormat": "The first line contains integer $ n $ ( $ 3<=n&lt;300 $ ; $ n $ is odd). Each of the next $ n $ lines contains $ n $ small English letters \u2014 the description of Valera's paper.",
+    "outputFormat": "Print string \"YES\", if the letters on the paper form letter \"X\". Otherwise, print string \"NO\". Print the strings without quotes.",
+    "samples": [
+        [
+            "5\nxooox\noxoxo\nsoxoo\noxoxo\nxooox\n",
+            "NO\n"
+        ],
+        [
+            "3\nwsw\nsws\nwsw\n",
+            "YES\n"
+        ],
+        [
+            "3\nxpx\npxp\nxpe\n",
+            "NO\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "Valera\u662f\u4e00\u4e2a\u5c0f\u7537\u5b69\u3002\u6628\u5929\uff0c\u4ed6\u7684\u6570\u5b66\u4f5c\u4e1a\u5f88\u591a\uff0c\u56e0\u6b64\u4ed6\u6ca1\u6709\u65f6\u95f4\u53bb\u6e29\u4e60\u82f1\u8bed\u8bfe\u7684\u5355\u8bcd\u8868\u3002\u4e0d\u5e78\u7684\u662f\uff0c\u82f1\u8bed\u8001\u5e08\u51b3\u5b9a\u5728\u4eca\u5929\u7684\u8bfe\u4e0a\u8fdb\u884c\u4e00\u573a\u5355\u8bcd\u5c0f\u6d4b\u3002\u6d4b\u8bd5\u4e2d\uff0c\u53d1\u4e0b\u7684\u8bd5\u5377\u662f\u6b63\u65b9\u5f62\u7684\uff0c\u7531\u8bb8\u591a\u5c0f\u683c\u5b50\u7ec4\u6210\uff0c\u5171\u6709n\u884cn\u5217\uff08n\u662f\u5947\u6570\uff09\uff0c\u6bcf\u4e2a\u5355\u4f4d\u7684\u5c0f\u683c\u5b50\u90fd\u5305\u542b\u4e00\u4e2a\u82f1\u6587\u5b57\u6bcd\u3002\n\nValera\u9700\u8981\u77e5\u9053\u8bd5\u5377\u4e0a\u7684\u5c0f\u5b57\u6bcd\u662f\u5426\u4f1a\u7ec4\u6210\u4e00\u4e2a\u5927\u5199\u5b57\u6bcd\u201cX\u201d\u7684\u5f62\u72b6\u3002Valera\u7684\u8001\u5e08\u8ba4\u4e3a\u8bd5\u5377\u4e0a\u7684\u5b57\u6bcd\u4f1a\u6784\u6210\u201cX\u201d\uff0c\u5f53\u4e14\u4ec5\u5f53\uff1a\n\n1\u3001\u6240\u6709\u5bf9\u89d2\u7ebf\u4e0a\u7684\u683c\u5b50\u6240\u5305\u542b\u7684\u5b57\u6bcd\u5fc5\u987b\u4e00\u81f4\u3002\n\n2\u3001\u5176\u4ed6\u6240\u6709\u683c\u5b50\uff08\u4e0d\u5728\u5bf9\u89d2\u7ebf\u4e0a\u7684\uff09\uff0c\u4e5f\u5fc5\u987b\u7531\u76f8\u540c\u7684\u5b57\u6bcd\u6240\u7ec4\u6210\u4e14\u8fd9\u4e2a\u5b57\u6bcd\u4e0d\u80fd\u4e0e\u5bf9\u89d2\u7ebf\u4e0a\u7684\u5b57\u6bcd\u76f8\u540c\u3002\n\n\u8bf7\u4f60\u6309\u7167\u9898\u9762\u63cf\u8ff0\uff0c\u7f16\u7a0b\u5e2eValera\u89e3\u51b3\u8fd9\u4e2a\u95ee\u9898\u3002\n\n\n\u8f93\u5165\u683c\u5f0f\uff1a\n\n\u7b2c1\u884c\u5305\u542b\u4e00\u4e2a\u6574\u6570n\uff083 <= n < 300\uff0cn\u662f\u5947\u6570\uff09\n\n\u7b2c2~n+1\u884c\uff0c\u6bcf\u884c\u5305\u542bn\u4e2a\u82f1\u6587\u5b57\u6bcd\uff0c\u5982\u9898\u9762\u63cf\u8ff0\u3002\n\n\u8f93\u51fa\u683c\u5f0f\n\n\u5982\u679c\u8bd5\u5377\u4e0a\u7684\u5b57\u6bcd\u80fd\u6784\u6210\u201cX\u201d\uff0c\u8f93\u51fa\u5b57\u7b26\u4e32\u201cYES\u201d\uff1b\u5982\u679c\u4e0d\u80fd\uff0c\u5219\u8f93\u51fa\u5b57\u7b26\u4e32\u201cNO\u201d\u3002\n\n\u8f93\u51fa\u4e0d\u52a0\u53cc\u5f15\u53f7\u3002"
+}

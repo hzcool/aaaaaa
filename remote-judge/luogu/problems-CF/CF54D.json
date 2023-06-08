@@ -1,0 +1,21 @@
+{
+    "description": "One of the Hedgehog and his friend's favorite entertainments is to take some sentence or a song and replace half of the words (sometimes even all of them) with each other's names.\n\nThe friend's birthday is approaching and the Hedgehog decided to make a special present to his friend: a very long song, where his name will be repeated many times. But try as he might, he can't write a decent song!\n\nThe problem is that the Hedgehog has already decided how long the resulting sentence should be (i.e. how many letters it should contain) and in which positions in the sentence the friend's name should occur, and it must not occur in any other position in the sentence. Besides, the Hedgehog decided to limit himself to using only the first $ K $ letters of an English alphabet in this sentence (so it will be not even a sentence, but one long word).\n\nThe resulting problem is indeed quite complicated, that's why the Hedgehog asks you to help him and write a program that will make the desired word by the given name $ P $ , the length $ N $ of the required word, the given positions of the occurrences of the name $ P $ in the desired word and the alphabet's size $ K $ . Note that the occurrences of the name can overlap with each other.",
+    "inputFormat": "The first line contains numbers $ N $ and $ K $ which are the length of the required string and the alphabet size accordingly. The limitations are: $ 1<=N<=100 $ , $ 2<=K<=26 $ .\n\nThe second line contains the name $ P $ which is a non-empty string whose length does not exceed $ N $ characters. The string consists only of the first $ K $ lowercase symbols of an English alphabet.\n\nThe third line contains the string of length $ N-length(P)+1 $ , consisting only of numbers zero and one. A number one in the $ i $ -th position means that an occurrence of the name $ P $ should start from $ i $ -th position of the desired word, while a zero means that there is no occurrence starting here.",
+    "outputFormat": "Print the desired word $ S $ . If there are several answers, print any of them.\n\nIf there is no solution, then print \"No solution\".",
+    "samples": [
+        [
+            "5 2\naba\n101\n",
+            "ababa"
+        ],
+        [
+            "5 2\na\n10001\n",
+            "abbba"
+        ],
+        [
+            "6 2\nabba\n101\n",
+            "No solution"
+        ]
+    ],
+    "hint": "",
+    "translation": "**\u9898\u76ee\u5927\u610f**\r\n\r\n\u6c42\u4e00\u4e2a\u5b57\u7b26\u4e32s\uff0c\u6ee1\u8db3\u8be5\u4e32\u957f\u5ea6\u4e3an\uff0c\u53ea\u51fa\u73b0\u5b57\u6bcd\u8868\u4e2d\u524dk\u4e2a\u5b57\u6bcd\uff0c\u5e76\u4e14\u5728\u6307\u5b9a\u4f4d\u7f6e\u5fc5\u987b\u51fa\u73b0\u6307\u5b9a\u5b57\u7b26\u4e32p\r\n\r\n**\u8f93\u5165\u683c\u5f0f**\r\n\r\n\u7b2c\u4e00\u884c n\uff0ck\u3002(n\u4e3a\u6240\u9700\u5b57\u7b26\u4e32\u7684\u957f\u5ea6 n<=100\uff0ck\u4e3a\u76f8\u5e94\u7684\u5b57\u6bcd\u5927\u5c0f 2<=k<=26)\r\n\r\n\u7b2c\u4e8c\u884c p\u3002\uff08\u4e00\u4e2a\u957f\u5ea6\u5c0f\u4e8en\uff0c\u53ea\u5305\u542b\u5b57\u6bcd\u8868\u4e2d\u524dk\u4e2a\u5b57\u6bcd\u7684\u5b57\u7b26\u4e32\uff09\r\n\r\n\u7b2c\u4e09\u884c 01\u4e32\u3002\uff08\u5728\u7b2ci\u4e2a\u4f4d\u7f6e\u7684\u6570\u5b571\u8868\u793ap\u7684\u51fa\u73b0\u5e94\u8be5\u4eces\u7684\u7b2ci\u4e2a\u4f4d\u7f6e\u5f00\u59cb\uff0c\u800c0\u8868\u793a\u4ece\u8fd9\u91cc\u5f00\u59cb\u6ca1\u6709\u51fa\u73b0\u3002\uff09\r\n\r\n**\u8f93\u51fa\u683c\u5f0f**\r\n\r\n\u8f93\u51fa\u4efb\u610f\u4e00\u4e2a\u7b26\u5408\u9898\u610f\u7684\u5b57\u7b26\u4e32s\r\n\r\n\u82e5\u65e0\uff0c\u8f93\u51fa\u201cNo solution\u201d"
+}

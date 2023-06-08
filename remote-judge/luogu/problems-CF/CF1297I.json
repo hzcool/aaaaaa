@@ -1,0 +1,16 @@
+{
+    "description": "Recently, Polycarp has invented a new mobile game with falling blocks.\n\nIn the game, $ n $ blocks are falling down, one at a time, towards a flat surface with length $ d $ units. Each block can be represented as a rectangle with coordinates from $ l_i $ to $ r_i $ and unit height, dropped downwards from very high up. A block falls until it comes in contact with the flat surface or any other block. Let's define that block $ a $ covers block $ b $ if $ l_a \\le l_b \\le r_b \\le r_a $ .\n\nConsider what happens when a new block $ i $ falls. If the new (upper) block $ i $ comes in contact with any block $ j $ such that block $ i $ does not cover block $ j $ , block $ i $ will stick to block $ j $ , and no blocks will disappear. Otherwise, all blocks that block $ i $ covers and is in contact with will be vaporized, and block $ i $ will continue falling with the ability to vaporize lower blocks.\n\nFor example, consider what happens when three blocks $ (1,2) $ , $ (2,3) $ and $ (1,3) $ fall, in that order. The first block will stick to the flat surface. Then, the second block will stick to the first block. Finally, the third block will vaporize the second block, keep falling, vaporize the first block, and stick to the flat surface.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1297I/975bcd8d973536ab709883dbc6383c0d4a662d84.png)Here is a graphic for the first example.After each block falls, help Polycarp determine how many blocks will remain!",
+    "inputFormat": "The first line contains two integers $ n $ and $ d $ ( $ 1 \\le n, d \\le 10^5 $ ) \u2014 the number of falling blocks and the length of the flat surface.\n\nThe $ i $ -th of the following $ n $ lines contains integers $ l_i $ and $ r_i $ ( $ 1 \\le l_i \\le r_i \\le d $ ) \u2014 the coordinates of the $ i $ -th block.",
+    "outputFormat": "Output $ n $ integers. The $ i $ -th integer should be the number of blocks that will be left after the $ i $ -th block falls.",
+    "samples": [
+        [
+            "3 3\n1 2\n2 3\n1 3",
+            "1\n2\n1"
+        ],
+        [
+            "8 6\n1 2\n3 3\n2 3\n1 3\n2 4\n3 6\n1 5\n1 5",
+            "1\n2\n3\n1\n2\n3\n4\n4"
+        ]
+    ],
+    "hint": "The first example is explained above.\n\nIn the second example, this is what happens after each block falls:\n\n- Block $ 1 $ will stick to the flat surface.\n- Block $ 2 $ will stick to the flat surface.\n- Block $ 3 $ will stick to blocks $ 1 $ and $ 2 $ . Note that block $ 3 $ will not vaporize block $ 2 $ because it does not cover block $ 1 $ and is in contact with it.\n- Block $ 4 $ will vaporize all the blocks and stick to the flat surface.\n- Block $ 5 $ will stick to block $ 4 $\n- Block $ 6 $ will stick to block $ 5 $ .\n- Block $ 7 $ will stick to block $ 6 $ . Note that no blocks are vaporized because although block $ 7 $ covers block $ 4 $ and block $ 5 $ , they never come in contact.\n- Block $ 8 $ vaporizes block $ 7 $ and sticks to block $ 6 $ ."
+}

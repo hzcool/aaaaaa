@@ -1,0 +1,17 @@
+{
+    "description": "Vasya has got a magic matrix $ a $ of size $ n \\times m $ . The rows of the matrix are numbered from $ 1 $ to $ n $ from top to bottom, the columns are numbered from $ 1 $ to $ m $ from left to right. Let $ a_{ij} $ be the element in the intersection of the $ i $ -th row and the $ j $ -th column.\n\nVasya has also got a chip. Initially, the chip is in the intersection of the $ r $ -th row and the $ c $ -th column (that is, in the element $ a_{rc} $ ). Vasya performs the following process as long as possible: among all elements of the matrix having their value less than the value of the element with the chip in it, Vasya randomly and equiprobably chooses one element and moves his chip to this element.\n\nAfter moving the chip, he adds to his score the square of the Euclidean distance between these elements (that is, between the element in which the chip is now and the element the chip was moved from). The process ends when there are no elements having their values less than the value of the element with the chip in it.\n\nEuclidean distance between matrix elements with coordinates $ (i_1, j_1) $ and $ (i_2, j_2) $ is equal to $ \\sqrt{(i_1-i_2)^2 + (j_1-j_2)^2} $ .\n\nCalculate the expected value of the Vasya's final score.\n\nIt can be shown that the answer can be represented as $ \\frac{P}{Q} $ , where $ P $ and $ Q $ are coprime integer numbers, and $ Q \\not\\equiv 0~(mod ~ 998244353) $ . Print the value $ P \\cdot Q^{-1} $ modulo $ 998244353 $ .",
+    "inputFormat": "The first line of the input contains two integers $ n $ and $ m $ $ (1 \\le n, m \\le 1\\,000) $ \u2014 the number of rows and the number of columns in the matrix $ a $ .\n\nThe following $ n $ lines contain description of the matrix $ a $ . The $ i $ -th line contains $ m $ integers $ a_{i1}, a_{i2}, \\dots, a_{im} ~ (0 \\le a_{ij} \\le 10^9) $ .\n\nThe following line contains two integers $ r $ and $ c $ $ (1 \\le r \\le n, 1 \\le c \\le m) $ \u2014 the index of row and the index of column where the chip is now.",
+    "outputFormat": "Print the expected value of Vasya's final score in the format described in the problem statement.",
+    "samples": [
+        [
+            "1 4\n1 1 2 1\n1 3\n",
+            "2\n"
+        ],
+        [
+            "2 3\n1 5 7\n2 3 1\n1 2\n",
+            "665496238\n"
+        ]
+    ],
+    "hint": "In the first example, Vasya will move his chip exactly once. The expected value of the final score is equal to $ \\frac{1^2 + 2^2+ 1^2}{3} = 2 $ .",
+    "translation": "\u4e00\u4e2a$n$\u884c$m$\u5217\u7684\u77e9\u9635,\u6bcf\u4e2a\u4f4d\u7f6e\u6709\u6743\u503c$a_{i,j}$\n\n\u7ed9\u5b9a\u4e00\u4e2a\u51fa\u53d1\u70b9,\u6bcf\u6b21\u53ef\u4ee5\u7b49\u6982\u7387\u7684\u79fb\u52a8\u5230\u4e00\u4e2a\u6743\u503c\u5c0f\u4e8e\u5f53\u524d\u70b9\u6743\u503c\u7684\u70b9,\u540c\u65f6\u5f97\u5206\u52a0\u4e0a\u4e24\u4e2a\u70b9\u4e4b\u95f4\u6b27\u51e0\u91cc\u5f97\u8ddd\u79bb\u7684\u5e73\u65b9(\u6b27\u51e0\u91cc\u5f97\u8ddd\u79bb:$\\sqrt{(x_1-x_2)^2+(y_1-y_2)^2}$)),\u95ee\u5f97\u5206\u7684\u671f\u671b"
+}

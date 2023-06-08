@@ -1,0 +1,25 @@
+{
+    "description": "You are given two strings $ s $ and $ t $ . In a single move, you can choose any of two strings and delete the first (that is, the leftmost) character. After a move, the length of the string decreases by $ 1 $ . You can't choose a string if it is empty.\n\nFor example:\n\n- by applying a move to the string \"where\", the result is the string \"here\",\n- by applying a move to the string \"a\", the result is an empty string \"\".\n\nYou are required to make two given strings equal using the fewest number of moves. It is possible that, in the end, both strings will be equal to the empty string, and so, are equal to each other. In this case, the answer is obviously the sum of the lengths of the initial strings.\n\nWrite a program that finds the minimum number of moves to make two given strings $ s $ and $ t $ equal.",
+    "inputFormat": "The first line of the input contains $ s $ . In the second line of the input contains $ t $ . Both strings consist only of lowercase Latin letters. The number of letters in each string is between 1 and $ 2\\cdot10^5 $ , inclusive.",
+    "outputFormat": "Output the fewest number of moves required. It is possible that, in the end, both strings will be equal to the empty string, and so, are equal to each other. In this case, the answer is obviously the sum of the lengths of the given strings.",
+    "samples": [
+        [
+            "test\nwest\n",
+            "2\n"
+        ],
+        [
+            "codeforces\nyes\n",
+            "9\n"
+        ],
+        [
+            "test\nyes\n",
+            "7\n"
+        ],
+        [
+            "b\nab\n",
+            "1\n"
+        ]
+    ],
+    "hint": "In the first example, you should apply the move once to the first string and apply the move once to the second string. As a result, both strings will be equal to \"est\".\n\nIn the second example, the move should be applied to the string \"codeforces\" $ 8 $ times. As a result, the string becomes \"codeforces\" $ \\to $ \"es\". The move should be applied to the string \"yes\" once. The result is the same string \"yes\" $ \\to $ \"es\".\n\nIn the third example, you can make the strings equal only by completely deleting them. That is, in the end, both strings will be empty.\n\nIn the fourth example, the first character of the second string should be deleted.",
+    "translation": "\u6709\u4e24\u4e2a\u5b57\u7b26\u4e32 $s$ \u548c $t$\uff0c\u6bcf\u6b21\u64cd\u4f5c\u53ef\u4ee5\u5220\u9664\u4e00\u4e2a\u5b57\u7b26\u4e32\u7684\u7b2c\u4e00\u4e2a\u5b57\u7b26\uff08\u5982\u679c\u8be5\u5b57\u7b26\u4e32\u4e3a\u7a7a\u4e32\u5219\u4e0d\u80fd\u5220\u9664\uff09\uff0c\u6c42\u8ba9 $s$ \u548c $t$ \u76f8\u540c\u7684\u6700\u5c0f\u64cd\u4f5c\u6570\u3002"
+}

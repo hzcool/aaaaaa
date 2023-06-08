@@ -1,0 +1,13 @@
+{
+    "description": "You are given a grid with $ n $ rows and $ m $ columns. We denote the square on the $ i $ -th ( $ 1\\le i\\le n $ ) row and $ j $ -th ( $ 1\\le j\\le m $ ) column by $ (i, j) $ and the number there by $ a_{ij} $ . All numbers are equal to $ 1 $ or to $ -1 $ .\n\nYou start from the square $ (1, 1) $ and can move one square down or one square to the right at a time. In the end, you want to end up at the square $ (n, m) $ .\n\nIs it possible to move in such a way so that the sum of the values written in all the visited cells (including $ a_{11} $ and $ a_{nm} $ ) is $ 0 $ ?\n\n![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1695C/8f2d98d121e7e351eaa9a88e08080da6d06835b5.png)",
+    "inputFormat": "Each test contains multiple test cases. The first line contains the number of test cases $ t $ ( $ 1 \\leq t \\leq 10^4 $ ). Description of the test cases follows.\n\nThe first line of each test case contains two integers $ n $ and $ m $ ( $ 1 \\le n, m \\le 1000 $ ) \u2014 the size of the grid.\n\nEach of the following $ n $ lines contains $ m $ integers. The $ j $ -th integer on the $ i $ -th line is $ a_{ij} $ ( $ a_{ij} = 1 $ or $ -1 $ ) \u2014 the element in the cell $ (i, j) $ .\n\nIt is guaranteed that the sum of $ n\\cdot m $ over all test cases does not exceed $ 10^6 $ .",
+    "outputFormat": "For each test case, print \"YES\" if there exists a path from the top left to the bottom right that adds up to $ 0 $ , and \"NO\" otherwise. You can output each letter in any case.",
+    "samples": [
+        [
+            "5\n1 1\n1\n1 2\n1 -1\n1 4\n1 -1 1 -1\n3 4\n1 -1 -1 -1\n-1 1 1 -1\n1 1 1 -1\n3 4\n1 -1 1 1\n-1 1 -1 1\n1 -1 1 1",
+            "NO\nYES\nYES\nYES\nNO"
+        ]
+    ],
+    "hint": "One possible path for the fourth test case is given in the picture in the statement.",
+    "translation": "\u7ed9\u4f60\u4e00\u4e2a $n \\times m$ ($1 \\le n, m \\le 1000$) \u7684\u683c\u70b9\u56fe\uff0c\u6bcf\u4e2a\u683c\u5b50\u7684\u503c\u8981\u4e48\u662f $-1$\uff0c\u8981\u4e48\u662f $1$\uff0c\u73b0\u5728\u95ee\u4f60\uff0c\u662f\u5426\u6709\u4e00\u6761\u4ece $(1, 1)$ \u5230 $(n, m)$ \u7684\u8def\u5f84\uff0c\u4f7f\u5f97\u8def\u5f84\u4e0a\u7ecf\u8fc7\u7684\u683c\u70b9\u7684\u503c\u7684\u548c\u4e3a $0$\u3002\u5728\u8def\u5f84\u4e2d\uff0c\u53ea\u80fd\u4ece $a_{i, j}$ \u79fb\u52a8\u5230 $a_{i + 1, j}$ \u6216\u662f $a_{i, j + 1}$\uff08\u5411\u53f3\u6216\u662f\u5411\u4e0b\u8d70\uff09\u3002\n\n\u7531 [tzyt](https://www.luogu.com.cn/user/394488) \u7ffb\u8bd1"
+}

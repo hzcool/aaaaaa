@@ -1,0 +1,13 @@
+{
+    "description": "Let's denote the $ f(x) $ function for a string $ x $ as the number of distinct characters that the string contains. For example $ f(\\texttt{abc}) = 3 $ , $ f(\\texttt{bbbbb}) = 1 $ , and $ f(\\texttt{babacaba}) = 3 $ .\n\nGiven a string $ s $ , split it into two non-empty strings $ a $ and $ b $ such that $ f(a) + f(b) $ is the maximum possible. In other words, find the maximum possible value of $ f(a) + f(b) $ such that $ a + b = s $ (the concatenation of string $ a $ and string $ b $ is equal to string $ s $ ).",
+    "inputFormat": "The input consists of multiple test cases. The first line contains an integer $ t $ ( $ 1 \\leq t \\leq 10^4 $ ) \u2014 the number of test cases. The description of the test cases follows.\n\nThe first line of each test case contains an integer $ n $ ( $ 2 \\leq n \\leq 2\\cdot10^5 $ ) \u2014 the length of the string $ s $ .\n\nThe second line contains the string $ s $ , consisting of lowercase English letters.\n\nIt is guaranteed that the sum of $ n $ over all test cases does not exceed $ 2\\cdot10^5 $ .",
+    "outputFormat": "For each test case, output a single integer \u2014 the maximum possible value of $ f(a) + f(b) $ such that $ a + b = s $ .",
+    "samples": [
+        [
+            "5\n2\naa\n7\nabcabcd\n5\naaaaa\n10\npaiumoment\n4\naazz",
+            "2\n7\n2\n10\n3"
+        ]
+    ],
+    "hint": "For the first test case, there is only one valid way to split $ \\texttt{aa} $ into two non-empty strings $ \\texttt{a} $ and $ \\texttt{a} $ , and $ f(\\texttt{a}) + f(\\texttt{a}) = 1 + 1 = 2 $ .\n\nFor the second test case, by splitting $ \\texttt{abcabcd} $ into $ \\texttt{abc} $ and $ \\texttt{abcd} $ we can get the answer of $ f(\\texttt{abc}) + f(\\texttt{abcd}) = 3 + 4 = 7 $ which is maximum possible.\n\nFor the third test case, it doesn't matter how we split the string, the answer will always be $ 2 $ .",
+    "translation": "\u5b9a\u4e49\u51fd\u6570 $f(s)$ \u8868\u793a\u5b57\u7b26\u4e32 $s$ \u4e2d\u6709\u591a\u5c11\u4e2a\u4e0d\u540c\u7684\u5b57\u7b26\uff0c\u4f8b\u5982 $f(\\texttt{abc})=3, f(\\texttt{abababbb})=2$\u3002\n\n\u73b0\u7ed9\u5b9a\u4e00\u4e2a\u5b57\u7b26\u4e32 $s$\uff0c\u6c42 $\\max\\{f(a)+f(b)\\}$\uff0c$a$ \u548c $b$ \u62fc\u63a5\u5728\u4e00\u8d77\u4e3a $s$\u3002"
+}

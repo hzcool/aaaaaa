@@ -1,0 +1,17 @@
+{
+    "description": "Polycarp takes part in a math show. He is given $ n $ tasks, each consists of $ k $ subtasks, numbered $ 1 $ through $ k $ . It takes him $ t_{j} $ minutes to solve the $ j $ -th subtask of any task. Thus, time required to solve a subtask depends only on its index, but not on the task itself. Polycarp can solve subtasks in any order.\n\nBy solving subtask of arbitrary problem he earns one point. Thus, the number of points for task is equal to the number of solved subtasks in it. Moreover, if Polycarp completely solves the task (solves all $ k $ of its subtasks), he recieves one extra point. Thus, total number of points he recieves for the complete solution of the task is $ k+1 $ .\n\nPolycarp has $ M $ minutes of time. What is the maximum number of points he can earn?",
+    "inputFormat": "The first line contains three integer numbers $ n $ , $ k $ and $ M $ ( $ 1<=n<=45 $ , $ 1<=k<=45 $ , $ 0<=M<=2\u00b710^{9} $ ).\n\nThe second line contains $ k $ integer numbers, values $ t_{j} $ ( $ 1<=t_{j}<=1000000 $ ), where $ t_{j} $ is the time in minutes required to solve $ j $ -th subtask of any task.",
+    "outputFormat": "Print the maximum amount of points Polycarp can earn in $ M $ minutes.",
+    "samples": [
+        [
+            "3 4 11\n1 2 3 4\n",
+            "6\n"
+        ],
+        [
+            "5 5 10\n1 2 4 8 16\n",
+            "7\n"
+        ]
+    ],
+    "hint": "In the first example Polycarp can complete the first task and spend $ 1+2+3+4=10 $ minutes. He also has the time to solve one subtask of the second task in one minute.\n\nIn the second example Polycarp can solve the first subtask of all five tasks and spend $ 5\u00b71=5 $ minutes. Also he can solve the second subtasks of two tasks and spend $ 2\u00b72=4 $ minutes. Thus, he earns $ 5+2=7 $ points in total.",
+    "translation": "\u591a\u9c7c\u53c2\u52a0\u4e86\u4e00\u4e2a\u6570\u5b66\u8282\u76ee\u3002\u4ed6\u88ab\u8d4b\u4e88N\u4e2a\u4efb\u52a1\uff0c\u6bcf\u4e2a\u7531K\u4e2a\u5b50\u4efb\u52a1\u7ec4\u6210\uff0c\u7f16\u53f7\u4e3a1\u5230K\u3002\u8fd9\u9700\u8981\u4ed6\u5728t[j]\u5206\u949f\u5185\u89e3\u51b3\u7b2cj\u4e2a\u5b50\u4efb\u52a1\u3002\u56e0\u6b64\uff0c\u89e3\u7b54\u5b50\u4efb\u52a1\u6240\u9700\u7684\u65f6\u95f4\u53ea\u53d6\u51b3\u4e8e\u5b83\u7684\u7d22\u5f15\uff0c\u800c\u4e0d\u53d6\u51b3\u4e8e\u4efb\u52a1\u672c\u8eab\u3002\u591a\u9c7c\u53ef\u4ee5\u6309\u4efb\u4f55\u987a\u5e8f\u89e3\u5b50\u4efb\u52a1\u3002  \n\u901a\u8fc7\u89e3\u51b3\u4efb\u610f\u95ee\u9898\u7684\u6b21\u8981\u4efb\u52a1\uff0c\u4ed6\u5f97\u4e86\u4e00\u5206\u3002\u8fd9\u6837\uff0c\u4efb\u52a1\u7684\u70b9\u6570\u5c31\u7b49\u4e8e\u5176\u4e2d\u89e3\u51fa\u7684\u5b50\u4efb\u52a1\u7684\u4e2a\u6570\u3002\u6b64\u5916\uff0c\u5982\u679c\u805a\u9c7c\u5b8c\u5168\u89e3\u51b3\u4e86\u8fd9\u4e2a\u95ee\u9898\uff08\u89e3\u51b3\u4e86\u5b83\u6240\u6709\u7684\u5b50\u4efb\u52a1\u7684K\uff09\uff0c\u4ed6\u4f1a\u591a\u5f97\u4e00\u5206\u3002\u8fd9\u6837\uff0c\u4ed6\u6240\u5f97\u5230\u7684\u4efb\u52a1\u5b8c\u5168\u89e3\u7684\u603b\u70b9\u6570\u4e3aK+1\u3002  \n\u591a\u9c7c\u6709m\u5206\u949f\u7684\u65f6\u95f4\u3002\u4ed6\u6700\u591a\u80fd\u6323\u591a\u5c11\u5206\uff1f  \n\u7b2c\u4e00\u884c3\u4e2a\u6574\u6570n,k,N\u3002  \n\u7b2c\u4e8c\u884ck\u4e2a\u6574\u6570t[j]"
+}

@@ -1,0 +1,17 @@
+{
+    "description": "Dima and Seryozha live in an ordinary dormitory room for two. One day Dima had a date with his girl and he asked Seryozha to leave the room. As a compensation, Seryozha made Dima do his homework.\n\nThe teacher gave Seryozha the coordinates of $ n $ distinct points on the abscissa axis and asked to consecutively connect them by semi-circus in a certain order: first connect the first point with the second one, then connect the second point with the third one, then the third one with the fourth one and so on to the $ n $ -th point. Two points with coordinates $ (x_{1},0) $ and $ (x_{2},0) $ should be connected by a semi-circle that passes above the abscissa axis with the diameter that coincides with the segment between points. Seryozha needs to find out if the line on the picture intersects itself. For clarifications, see the picture Seryozha showed to Dima (the left picture has self-intersections, the right picture doesn't have any).\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF358A/055f7a9956e4776dad6e638193fc0fef424d2028.png)Seryozha is not a small boy, so the coordinates of the points can be rather large. Help Dima cope with the problem.",
+    "inputFormat": "The first line contains a single integer $ n $ $ (1<=n<=10^{3}) $ . The second line contains $ n $ distinct integers $ x_{1},x_{2},...,x_{n} $ $ (-10^{6}<=x_{i}<=10^{6}) $ \u2014 the $ i $ -th point has coordinates $ (x_{i},0) $ . The points are not necessarily sorted by their $ x $ coordinate.",
+    "outputFormat": "In the single line print \"yes\" (without the quotes), if the line has self-intersections. Otherwise, print \"no\" (without the quotes).",
+    "samples": [
+        [
+            "4\n0 10 5 15\n",
+            "yes\n"
+        ],
+        [
+            "4\n0 15 5 10\n",
+            "no\n"
+        ]
+    ],
+    "hint": "The first test from the statement is on the picture to the left, the second test is on the picture to the right.",
+    "translation": "\u3010\u95ee\u9898\u63cf\u8ff0\u3011\r\n\r\n\u5728$x$\u8f74\u4e0a\u5b58\u5728$n$\u4e2a\u70b9$(x1,0),(x2,0),(x3,0)...(xn,0)$,\u4ee5\u76f8\u90bb\u4e24\u70b9$(xi,0)$\u4e0e$(xi+1,0)$\u8fde\u7ebf\u4f5c\u4e3a\u76f4\u5f84\u5411\u4e0a\u4f5c\u534a\u5706\uff0c\u95ee\u662f\u5426\u6709\u9664$x$\u8f74\u4e0a\u7684\u4ea4\u70b9\u3002 \r\n\r\n\u3010\u8f93\u5165\u683c\u5f0f\u3011\r\n\r\n\u6bcf\u7ec4\u8f93\u5165\u5305\u542b$n+1$\u884c$:$\r\n\r\n\u7b2c$1$\u884c\u662f\u6574\u6570$n$\uff0c\u8868\u793a\u5e8f\u5217\u957f\u5ea6\u3002\r\n\r\n\u7b2c$2$~$n+1$\u884c\u6bcf\u884c\u4e00\u4e2a\u6574\u6570\u8868\u793a\u5e8f\u5217\u4e2d\u5404\u6570\u3002\r\n\r\n\u3010\u8f93\u51fa\u683c\u5f0f\u3011\r\n\r\n\u5bf9\u4e8e\u6bcf\u7ec4\u8f93\u5165\u8f93\u51fa\u4e00\u884c\uff0c\u82e5\u76f8\u4ea4\uff0c\u8f93\u51fa$'yes'$\uff0c\u5426\u5219\u8f93\u51fa$'no'$\u3002\r\n\r\n\u3010\u6570\u636e\u8303\u56f4\u3011\r\n\r\n$100$%\u7684\u6570\u636e\u6ee1\u8db3\uff1a$1<=n<=10^3, - 10^6 \u2264 xi \u2264 10^6$\uff0c\u6700\u591a\u4e94\u7ec4\u6570\u636e"
+}

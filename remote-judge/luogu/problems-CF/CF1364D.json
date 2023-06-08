@@ -1,0 +1,25 @@
+{
+    "description": "Given a connected undirected graph with $ n $ vertices and an integer $ k $ , you have to either:\n\n- either find an independent set that has exactly $ \\lceil\\frac{k}{2}\\rceil $ vertices.\n- or find a simple cycle of length at most $ k $ .\n\nAn independent set is a set of vertices such that no two of them are connected by an edge. A simple cycle is a cycle that doesn't contain any vertex twice.\n\nI have a proof that for any input you can always solve at least one of these problems, but it's left as an exercise for the reader.",
+    "inputFormat": "The first line contains three integers $ n $ , $ m $ , and $ k $ ( $ 3 \\le k \\le n \\le 10^5 $ , $ n-1 \\le m \\le 2 \\cdot 10^5 $ ) \u2014 the number of vertices and edges in the graph, and the parameter $ k $ from the statement.\n\nEach of the next $ m $ lines contains two integers $ u $ and $ v $ ( $ 1 \\le u,v \\le n $ ) that mean there's an edge between vertices $ u $ and $ v $ . It's guaranteed that the graph is connected and doesn't contain any self-loops or multiple edges.",
+    "outputFormat": "If you choose to solve the first problem, then on the first line print $ 1 $ , followed by a line containing $ \\lceil\\frac{k}{2}\\rceil $ distinct integers not exceeding $ n $ , the vertices in the desired independent set.\n\nIf you, however, choose to solve the second problem, then on the first line print $ 2 $ , followed by a line containing one integer, $ c $ , representing the length of the found cycle, followed by a line containing $ c $ distinct integers not exceeding $ n $ , the vertices in the desired cycle, in the order they appear in the cycle.",
+    "samples": [
+        [
+            "4 4 3\n1 2\n2 3\n3 4\n4 1",
+            "1\n1 3"
+        ],
+        [
+            "4 5 3\n1 2\n2 3\n3 4\n4 1\n2 4",
+            "2\n3\n2 3 4"
+        ],
+        [
+            "4 6 3\n1 2\n2 3\n3 4\n4 1\n1 3\n2 4",
+            "2\n3\n1 2 3"
+        ],
+        [
+            "5 4 5\n1 2\n1 3\n2 4\n2 5",
+            "1\n1 4 5"
+        ]
+    ],
+    "hint": "In the first sample:\n\n![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1364D/d88a261fa9a66f32b8e1ea751b0f14dbdbd48167.png)\n\nNotice that printing the independent set $ \\{2,4\\} $ is also OK, but printing the cycle $ 1-2-3-4 $ isn't, because its length must be at most $ 3 $ .\n\nIn the second sample:\n\n![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1364D/82eb155f88993f877d4d28e552ae881205f0be8e.png)\n\nNotice that printing the independent set $ \\{1,3\\} $ or printing the cycle $ 2-1-4 $ is also OK.\n\nIn the third sample:\n\n![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1364D/2c8156bfe6625e5c46e8dbef417d8ad710f6c977.png)\n\nIn the fourth sample:\n\n![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1364D/e5b84e0ab62337c524394523ccb0de61f016a191.png)",
+    "translation": "### \u9898\u76ee\u63cf\u8ff0\n\u7ed9\u51fa\u4e00\u5f20 $n$ \u4e2a\u70b9\u7684\u65e0\u5411\u8fde\u901a\u56fe\u548c\u4e00\u4e2a\u5e38\u6570 $k$\u3002\n\n\u4f60\u9700\u8981\u89e3\u51b3\u4ee5\u4e0b\u4e24\u4e2a\u95ee\u9898\u7684\u4efb\u4f55\u4e00\u4e2a\uff1a\n1. \u627e\u51fa\u4e00\u4e2a\u5927\u5c0f\u4e3a $\\lceil\\frac k2\\rceil$ \u7684\u72ec\u7acb\u96c6\u3002\n2. \u627e\u51fa\u4e00\u4e2a\u5927\u5c0f\u4e0d\u8d85\u8fc7 $k$ \u7684\u73af\u3002\n\n\u72ec\u7acb\u96c6\u662f\u4e00\u4e2a\u70b9\u7684\u96c6\u5408\uff0c\u6ee1\u8db3\u5176\u4e2d\u4efb\u610f\u4e24\u70b9\u4e4b\u95f4\u5728\u539f\u56fe\u4e0a\u6ca1\u6709\u8fb9\u76f4\u63a5\u76f8\u8fde\u3002\n\n\u53ef\u4ee5\u8bc1\u660e\u8fd9\u4e24\u4e2a\u95ee\u9898\u5fc5\u7136\u6709\u4e00\u4e2a\u53ef\u4ee5\u88ab\u89e3\u51b3\u3002\n### \u8f93\u5165\u683c\u5f0f\n\u7b2c\u4e00\u884c\u4e09\u4e2a\u6574\u6570 $n, m, k$\u3002\n\n\u4e4b\u540e $m$ \u884c\uff0c\u6bcf\u884c\u4e24\u4e2a\u6574\u6570 $u, v$\uff0c\u8868\u793a\u5728\u56fe\u4e0a\u6709\u4e00\u6761 $u, v$ \u4e4b\u95f4\u7684\u53cc\u5411\u8fb9\u3002\n\n\u4fdd\u8bc1 $3\\le k\\le n\\le10^5$\uff0c$n-1\\le m\\le2\\times10^5$\uff0c$1\\le u,v\\le n$\u3002\n### \u8f93\u51fa\u683c\u5f0f\n\u7b2c\u4e00\u884c\u8f93\u51fa\u4f60\u89e3\u51b3\u7684\u95ee\u9898\u7f16\u53f7\uff0c\u5373 `1` \u6216 `2`\u3002\n\n\u82e5\u4f60\u89e3\u51b3\u7684\u662f\u95ee\u9898  1\uff0c\u5219\u7b2c\u4e8c\u884c\u9700\u8981\u8f93\u51fa $\\lceil\\frac k2\\rceil$ \u4e2a\u6574\u6570\uff0c\u8868\u793a\u4f60\u627e\u5230\u7684\u72ec\u7acb\u96c6\u4e2d\u70b9\u7684\u7f16\u53f7\u3002\n\n\u5426\u5219\u4f60\u9700\u8981\u5728\u7b2c\u4e8c\u884c\u8f93\u51fa\u4e00\u4e2a\u6574\u6570 $c$\uff0c\u8868\u793a\u4f60\u627e\u5230\u7684\u73af\u7684\u5927\u5c0f\uff0c\u4e4b\u540e\u7b2c\u4e09\u884c\u8f93\u51fa $c$ \u4e2a\u6574\u6570\u8868\u793a\u73af\u4e0a\u7684\u70b9\uff0c\u4f60\u9700\u8981\u4fdd\u8bc1\u8fd9 $c$ \u4e2a\u70b9\u4e2d\u76f8\u90bb\u7684\u70b9\u4e4b\u95f4\u6709\u8fb9\u3002"
+}

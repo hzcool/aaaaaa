@@ -1,0 +1,13 @@
+{
+    "description": "The weight of a sequence is defined as the number of unordered pairs of indexes $ (i,j) $ (here $ i \\lt j $ ) with same value ( $ a_{i} = a_{j} $ ). For example, the weight of sequence $ a = [1, 1, 2, 2, 1] $ is $ 4 $ . The set of unordered pairs of indexes with same value are $ (1, 2) $ , $ (1, 5) $ , $ (2, 5) $ , and $ (3, 4) $ .\n\nYou are given a sequence $ a $ of $ n $ integers. Print the sum of the weight of all subsegments of $ a $ .\n\nA sequence $ b $ is a subsegment of a sequence $ a $ if $ b $ can be obtained from $ a $ by deletion of several (possibly, zero or all) elements from the beginning and several (possibly, zero or all) elements from the end.",
+    "inputFormat": "Each test contains multiple test cases. The first line contains the number of test cases $ t $ ( $ 1 \\le t \\le 10^5 $ ). Description of the test cases follows.\n\nThe first line of each test case contains a single integer $ n $ ( $ 1 \\le n \\le 10^5 $ ).\n\nThe second line of each test case contains $ n $ integers $ a_1, a_2, \\ldots, a_n $ ( $ 1 \\le a_i \\le 10^9 $ ).\n\nIt is guaranteed that the sum of $ n $ over all test cases does not exceed $ 10^5 $ .",
+    "outputFormat": "For each test case, print a single integer \u2014 the sum of the weight of all subsegments of $ a $ .",
+    "samples": [
+        [
+            "2\n4\n1 2 1 1\n4\n1 2 3 4",
+            "6\n0"
+        ]
+    ],
+    "hint": "- In test case $ 1 $ , all possible subsegments of sequence $ [1, 2, 1, 1] $ having size more than $ 1 $ are: \n  1. $ [1, 2] $ having $ 0 $ valid unordered pairs;\n  2. $ [2, 1] $ having $ 0 $ valid unordered pairs;\n  3. $ [1, 1] $ having $ 1 $ valid unordered pair;\n  4. $ [1, 2, 1] $ having $ 1 $ valid unordered pairs;\n  5. $ [2, 1, 1] $ having $ 1 $ valid unordered pair;\n  6. $ [1, 2, 1, 1] $ having $ 3 $ valid unordered pairs.\n  \n   Answer is $ 6 $ .\n- In test case $ 2 $ , all elements of the sequence are distinct. So, there is no valid unordered pair with the same value for any subarray. Answer is $ 0 $ .",
+    "translation": "\u7ed9\u5b9a\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u5e8f\u5217 $a$\uff0c\u6c42\n$$\n\\sum_{1\\le l<r\\le n}\\sum_{l\\le x<y\\le r}[a_x=a_y]\n$$\n\u6570\u636e\u8303\u56f4\uff1a$T\\le 10^5,\\sum n\\le 10^5$."
+}

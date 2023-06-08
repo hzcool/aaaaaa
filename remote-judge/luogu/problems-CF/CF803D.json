@@ -1,0 +1,17 @@
+{
+    "description": "The main city magazine offers its readers an opportunity to publish their ads. The format of the ad should be like this:\n\nThere are space-separated non-empty words of lowercase and uppercase Latin letters.\n\nThere are hyphen characters '-' in some words, their positions set word wrapping points. Word can include more than one hyphen.\n\nIt is guaranteed that there are no adjacent spaces and no adjacent hyphens. No hyphen is adjacent to space. There are no spaces and no hyphens before the first word and after the last word.\n\nWhen the word is wrapped, the part of the word before hyphen and the hyphen itself stay on current line and the next part of the word is put on the next line. You can also put line break between two words, in that case the space stays on current line. Check notes for better understanding.\n\nThe ad can occupy no more that $ k $ lines and should have minimal width. The width of the ad is the maximal length of string (letters, spaces and hyphens are counted) in it.\n\nYou should write a program that will find minimal width of the ad.",
+    "inputFormat": "The first line contains number $ k $ ( $ 1<=k<=10^{5} $ ).\n\nThe second line contains the text of the ad \u2014 non-empty space-separated words of lowercase and uppercase Latin letters and hyphens. Total length of the ad don't exceed $ 10^{6} $ characters.",
+    "outputFormat": "Output minimal width of the ad.",
+    "samples": [
+        [
+            "4\ngarage for sa-le\n",
+            "7\n"
+        ],
+        [
+            "4\nEdu-ca-tion-al Ro-unds are so fun\n",
+            "10\n"
+        ]
+    ],
+    "hint": "Here all spaces are replaced with dots.\n\nIn the first example one of possible results after all word wraps looks like this:\n\n`<br></br>garage.<br></br>for.<br></br>sa-<br></br>le<br></br>`The second example:\n\n`<br></br>Edu-ca-<br></br>tion-al.<br></br>Ro-unds.<br></br>are.so.fun<br></br>`",
+    "translation": "\n\n\u57ce\u5e02\u6742\u5fd7\u4e3a\u8bfb\u8005\u63d0\u4f9b\u53d1\u5e03\u5e7f\u544a\u7684\u673a\u4f1a\u3002 \u5e7f\u544a\u7684\u683c\u5f0f\u5e94\u8be5\u662f\u8fd9\u6837\u7684\uff1a\n\n\u6709\u7a7a\u683c\u5206\u9694\u7684\u975e\u7a7a\u5b57\u6bcd\u7684\u5c0f\u5199\u548c\u5927\u5199\u5b57\u6bcd\u3002\n\n\u9664\u6b64\u4e4b\u5916\uff0c\u5b57\u7b26\u4e32\u7684\u4e2d\u95f4\u6709\u5f88\u591a - \u7b26\u53f7\u3002\n\n\u73b0\u5728\u8981\u5c06\u5b57\u7b26\u4e32\u5212\u4e3akkk \u884c\uff0c\u6bcf\u4e00\u884c\u53ea\u80fd\u5728\u7a7a\u683c\u6216\u8005 - \u540e\u622a\u65ad\uff0c\u73b0\u5728\u95ee\u6700\u957f\u7684\u4e00\u884c\u6700\u77ed\u957f\u5ea6\u662f\u591a\u5c11\u3002\n"
+}

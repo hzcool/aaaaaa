@@ -1,0 +1,17 @@
+{
+    "description": "As we know, DZY loves playing games. One day DZY decided to play with a $ n\u00d7m $ matrix. To be more precise, he decided to modify the matrix with exactly $ k $ operations.\n\nEach modification is one of the following:\n\n1. Pick some row of the matrix and decrease each element of the row by $ p $ . This operation brings to DZY the value of pleasure equal to the sum of elements of the row before the decreasing.\n2. Pick some column of the matrix and decrease each element of the column by $ p $ . This operation brings to DZY the value of pleasure equal to the sum of elements of the column before the decreasing.\n\nDZY wants to know: what is the largest total value of pleasure he could get after performing exactly $ k $ modifications? Please, help him to calculate this value.",
+    "inputFormat": "The first line contains four space-separated integers $ n,m,k $ and $ p $ $ (1<=n,m<=10^{3};\u00a01<=k<=10^{6};\u00a01<=p<=100) $ .\n\nThen $ n $ lines follow. Each of them contains $ m $ integers representing $ a_{ij}\u00a0(1<=a_{ij}<=10^{3}) $ \u2014 the elements of the current row of the matrix.",
+    "outputFormat": "Output a single integer \u2014 the maximum possible total pleasure value DZY could get.",
+    "samples": [
+        [
+            "2 2 2 2\n1 3\n2 4\n",
+            "11\n"
+        ],
+        [
+            "2 2 5 2\n1 3\n2 4\n",
+            "11\n"
+        ]
+    ],
+    "hint": "For the first sample test, we can modify: column 2, row 2. After that the matrix becomes:\n\n`<br></br>1 1<br></br>0 0<br></br><br></br>`For the second sample test, we can modify: column 2, row 2, row 1, column 1, column 2. After that the matrix becomes:\n\n`<br></br>-3 -3<br></br>-2 -2<br></br><br></br>`",
+    "translation": "\u7ed9\u51fa\u4e00\u4e2a $n\\times m$ \u7684\u77e9\u9635\uff0c\u5e76\u8fdb\u884c $k$ \u6b21\u64cd\u4f5c\uff0c\u6bcf\u6b21\u64cd\u4f5c\u5c06\u77e9\u9635\u7684\u4e00\u884c\u6216\u4e00\u5217\u7684\u6240\u6709\u5143\u7d20\u7684\u503c\u51cf $p$ \uff0c\u5f97\u5230\u7684\u5206\u6570\u4e3a\u8fd9\u6b21\u4fee\u6539\u4e4b\u524d\u8fd9\u4e00\u5217 / \u4e00\u884c\u7684\u5143\u7d20\u548c\uff0c\u6c42\u5206\u6570\u6700\u5927\u503c\u3002\n\n$n,m\\le 10^3$ , $a_{i,j}\\le10^3$ , $k\\le 10^6$ , $p\\le 100$"
+}

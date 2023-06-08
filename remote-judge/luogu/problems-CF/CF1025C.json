@@ -1,0 +1,17 @@
+{
+    "description": "Is there anything better than going to the zoo after a tiresome week at work? No wonder Grisha feels the same while spending the entire weekend accompanied by pretty striped zebras.\n\nInspired by this adventure and an accidentally found plasticine pack (represented as a sequence of black and white stripes), Grisha now wants to select several consequent (contiguous) pieces of alternating colors to create a zebra. Let's call the number of selected pieces the length of the zebra.\n\nBefore assembling the zebra Grisha can make the following operation $ 0 $ or more times. He splits the sequence in some place into two parts, then reverses each of them and sticks them together again. For example, if Grisha has pieces in the order \"bwbbw\" (here 'b' denotes a black strip, and 'w' denotes a white strip), then he can split the sequence as bw|bbw (here the vertical bar represents the cut), reverse both parts and obtain \"wbwbb\".\n\nDetermine the maximum possible length of the zebra that Grisha can produce.",
+    "inputFormat": "The only line contains a string $ s $ ( $ 1 \\le |s| \\le 10^5 $ , where $ |s| $ denotes the length of the string $ s $ ) comprised of lowercase English letters 'b' and 'w' only, where 'w' denotes a white piece and 'b' denotes a black piece.",
+    "outputFormat": "Print a single integer \u2014 the maximum possible zebra length.",
+    "samples": [
+        [
+            "bwwwbwwbw\n",
+            "5\n"
+        ],
+        [
+            "bwwbwwb\n",
+            "3\n"
+        ]
+    ],
+    "hint": "In the first example one of the possible sequence of operations is bwwwbww|bw $ \\to $ w|wbwwwbwb $ \\to $ wbwbwwwbw, that gives the answer equal to $ 5 $ .\n\nIn the second example no operation can increase the answer.",
+    "translation": "\u7ed9\u4f60\u4e00\u4e2a\u957f\u5ea6\u4e3a $\\left|s\\right|$ \u768401\u4e32 $s$\uff0c\u6bcf\u6b21\u64cd\u4f5c\u4f60\u53ef\u4ee5\u4efb\u9009\u4e00\u4e2a $k$ \uff0c\u4f7f01\u4e32\u7684 $[1,k]$ \u548c $(k,\\left|s\\right|]$ \u5206\u522b\u7ffb\u8f6c\uff08\u5176\u4e2d\u4e00\u4e2a\u533a\u95f4\u53ef\u4ee5\u4e3a\u7a7a\uff09\uff0c\u6c42\u7ecf\u8fc7\u4efb\u610f\u6b21\u64cd\u4f5c\u540e\u80fd\u5f97\u5230\u7684\u6700\u957f\u768401\u4ea4\u66ff\u51fa\u73b0\u7684\u5b50\u4e32\u7684\u957f\u5ea6\u3002\uff08\u5b9e\u9645\u9898\u76ee\u4e2d01\u7528w\u548cb\u4ee3\u66ff\uff09"
+}

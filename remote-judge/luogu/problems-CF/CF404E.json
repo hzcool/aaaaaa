@@ -1,0 +1,17 @@
+{
+    "description": "Valera has a strip infinite in both directions and consisting of cells. The cells are numbered by integers. The cell number $ 0 $ has a robot.\n\nThe robot has instructions \u2014 the sequence of moves that he must perform. In one move, the robot moves one cell to the left or one cell to the right, according to instructions. Before the robot starts moving, Valera puts obstacles in some cells of the strip, excluding cell number $ 0 $ . If the robot should go into the cell with an obstacle according the instructions, it will skip this move.\n\nAlso Valera indicates the finish cell in which the robot has to be after completing the entire instructions. The finishing cell should be different from the starting one. It is believed that the robot completed the instructions successfully, if during the process of moving he visited the finish cell exactly once \u2014 at its last move. Moreover, the latter move cannot be skipped.\n\nLet's assume that $ k $ is the minimum number of obstacles that Valera must put to make the robot able to complete the entire sequence of instructions successfully and end up in some finishing cell. You need to calculate in how many ways Valera can choose $ k $ obstacles and the finishing cell so that the robot is able to complete the instructions successfully.",
+    "inputFormat": "The first line contains a sequence of characters without spaces $ s_{1}s_{2}...\\ s_{n} $ $ (1<=n<=10^{6}) $ , consisting only of letters \"L\" and \"R\". If character $ s_{i} $ equals \"L\", then the robot on the $ i $ -th move must try to move one cell to the left. If the $ s_{i} $ -th character equals \"R\", then the robot on the $ i $ -th move must try to move one cell to the right.",
+    "outputFormat": "Print a single integer \u2014 the required number of ways. It's guaranteed that this number fits into 64-bit signed integer type.",
+    "samples": [
+        [
+            "RR\n",
+            "1\n"
+        ],
+        [
+            "RRL\n",
+            "1\n"
+        ]
+    ],
+    "hint": "In the first sample Valera mustn't add any obstacles and his finishing cell must be cell $ 2 $ .\n\nIn the second sample, Valera must add an obstacle in cell number $ 1 $ , and his finishing cell must be cell number $ -1 $ . In this case robot skips the first two moves and on the third move he goes straight from the starting cell to the finishing one. But if Valera doesn't add any obstacles, or adds an obstacle to another cell, then the robot visits the finishing cell more than once.",
+    "translation": "\u4e00\u4e2a\u673a\u5668\u4eba\u5728\u6570\u8f74\u4e0a\u76840\u70b9\u3002\u7ed9\u4e00\u4e32\u6307\u4ee4\uff0c\u673a\u5668\u4eba\u6309\u7167\u6307\u4ee4\u8d70\u3002\u4e3a\u4e86\u4f7f\u673a\u5668\u4eba\u6700\u540e\u4e00\u6b65\u8d70\u5230\u4e00\u4e2a\u4ece\u6765\u6ca1\u6765\u8fc7\u7684\u4f4d\u7f6e\uff0c\u6211\u4eec\u53ef\u4ee5\u5728\u6570\u8f74\u4e0a\u653e\u77f3\u5934\u3002\u6bcf\u6b21\u673a\u5668\u4eba\u88ab\u77f3\u5934\u5361\u4f4f\u4ed6\u5c31\u8df3\u8fc7\u5f53\u524d\u7684\u90a3\u4e2a\u6307\u4ee4\u3002\u95ee\uff1a\u6700\u5c11\u4f7f\u7528\u77f3\u5934\u7684\u524d\u63d0\u4e0b\uff0c\u4e00\u5171\u6709\u51e0\u79cd\u653e\u77f3\u5934\u65b9\u6cd5\u3002"
+}

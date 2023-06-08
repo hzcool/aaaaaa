@@ -1,0 +1,17 @@
+{
+    "description": "Today is Matvey's birthday. He never knows what to ask as a present so friends gave him a string $ s $ of length $ n $ . This string consists of only first eight English letters: 'a', 'b', $ ... $ , 'h'.\n\nFirst question that comes to mind is: who might ever need some string? Matvey is a special boy so he instantly found what to do with this string. He used it to build an undirected graph where vertices correspond to position in the string and there is an edge between distinct positions $ a $ and $ b $ ( $ 1<=a,b<=n $ ) if at least one of the following conditions hold:\n\n1. $ a $ and $ b $ are neighbouring, i.e. $ |a-b|=1 $ .\n2. Positions $ a $ and $ b $ contain equal characters, i.e. $ s_{a}=s_{b} $ .\n\nThen Matvey decided to find the diameter of this graph. Diameter is a maximum distance (length of the shortest path) among all pairs of vertices. Also, Matvey wants to find the number of pairs of vertices such that the distance between them is equal to the diameter of the graph. As he is very cool and experienced programmer he managed to solve this problem very fast. Will you do the same?",
+    "inputFormat": "The first line of the input contains a single integer $ n $ ( $ 2<=n<=100000 $ ) \u2014 the length of the string.\n\nThe second line contains the string $ s $ itself. It's guaranteed that $ s $ consists of only first eight letters of English alphabet.",
+    "outputFormat": "Print two integers \u2014 the diameter of the graph and the number of pairs of positions with the distance equal to the diameter.",
+    "samples": [
+        [
+            "3\nabc\n",
+            "2 1\n"
+        ],
+        [
+            "7\naaabaaa\n",
+            "2 4\n"
+        ]
+    ],
+    "hint": "Consider the second sample.\n\nThe maximum distance is $ 2 $ . It's obtained for pairs $ (1,4) $ , $ (2,4) $ , $ (4,6) $ and $ (4,7) $ .",
+    "translation": "\u7ed9\u5b9a\u4e00\u4e2a\u4ec5\u5305\u542b `a`~`h` \u7684\u5b57\u7b26\u4e32\u3002\n\n\u6709\u4e00\u4e2a $n$ \u4e2a\u7ed3\u70b9\u7684\u65e0\u5411\u56fe\uff0c\u7f16\u53f7\u4e3a $0$ \u5230 $n\u22121$\u3002\u7ed3\u70b9 $i$ \u4e0e\u7ed3\u70b9 $j$ \u95f4\u6709\u8fb9\u76f8\u8fde\u5f53\u4e14\u4ec5\u5f53 $|i-j|=1$ \u6216 $S_i=S_j$\u3002\n\n\n\u6c42\u8fd9\u4e2a\u65e0\u5411\u56fe\u7684\u76f4\u5f84\u548c\u6709\u591a\u5c11\u5bf9\u70b9\u95f4\u7684\u6700\u77ed\u8ddd\u79bb\u4e0e\u76f4\u5f84\u76f8\u540c\u3002"
+}

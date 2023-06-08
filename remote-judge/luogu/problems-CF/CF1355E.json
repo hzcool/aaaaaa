@@ -1,0 +1,29 @@
+{
+    "description": "You have to restore the wall. The wall consists of $ N $ pillars of bricks, the height of the $ i $ -th pillar is initially equal to $ h_{i} $ , the height is measured in number of bricks. After the restoration all the $ N $ pillars should have equal heights.\n\nYou are allowed the following operations:\n\n- put a brick on top of one pillar, the cost of this operation is $ A $ ;\n- remove a brick from the top of one non-empty pillar, the cost of this operation is $ R $ ;\n- move a brick from the top of one non-empty pillar to the top of another pillar, the cost of this operation is $ M $ .\n\nYou cannot create additional pillars or ignore some of pre-existing pillars even if their height becomes $ 0 $ .\n\nWhat is the minimal total cost of restoration, in other words, what is the minimal total cost to make all the pillars of equal height?",
+    "inputFormat": "The first line of input contains four integers $ N $ , $ A $ , $ R $ , $ M $ ( $ 1 \\le N \\le 10^{5} $ , $ 0 \\le A, R, M \\le       10^{4} $ ) \u2014 the number of pillars and the costs of operations.\n\nThe second line contains $ N $ integers $ h_{i} $ ( $ 0 \\le       h_{i} \\le 10^{9} $ ) \u2014 initial heights of pillars.",
+    "outputFormat": "Print one integer \u2014 the minimal cost of restoration.",
+    "samples": [
+        [
+            "3 1 100 100\n1 3 8",
+            "12"
+        ],
+        [
+            "3 100 1 100\n1 3 8",
+            "9"
+        ],
+        [
+            "3 100 100 1\n1 3 8",
+            "4"
+        ],
+        [
+            "5 1 2 4\n5 5 3 6 5",
+            "4"
+        ],
+        [
+            "5 1 2 2\n5 5 3 6 5",
+            "3"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u4f60\u8981\u4fee\u7406\u4e00\u5835\u5899\uff0c\u8fd9\u5835\u5899\u7531 $N$ \u4e2a\u5bbd\u5ea6\u4e3a\u4e00\u7684\u7816\u5757\u6784\u6210\uff0c\u5176\u4e2d\u7b2c $i$ \u5757\u7816\u7684\u9ad8\u5ea6\u4e3a $h_i$ \u3002\u4f60\u9700\u8981\u6267\u884c\u4e0b\u5217\u64cd\u4f5c\u8ba9\u8fd9 $N$ \u5757\u7816\u7684\u9ad8\u5ea6\u53d8\u5f97\u5168\u90e8\u76f8\u7b49\u3002\n\n1\u3001\u4f7f\u4e00\u5757\u7816\u7684\u9ad8\u5ea6\u52a0\u4e00\uff0c\u8fd9\u9700\u8981\u82b1\u8d39 $A$ \u7684\u4ee3\u4ef7\u3002\n\n2\u3001\u4f7f\u4e00\u5757\u9ad8\u5ea6\u4e3a\u6b63\u7684\u7816\u7684\u9ad8\u5ea6\u51cf\u4e00\uff0c\u8fd9\u9700\u8981\u82b1\u8d39 $R$ \u7684\u4ee3\u4ef7\u3002\n\n3\u3001\u4f7f\u4e00\u5757\u9ad8\u5ea6\u4e3a\u6b63\u7684\u7816\u7684\u9ad8\u5ea6\u51cf\u4e00\uff0c\u53e6\u4e00\u5757\u7816\u7684\u9ad8\u5ea6\u52a0\u4e00\uff0c\u8fd9\u9700\u8981\u82b1\u8d39 $M$ \u7684\u4ee3\u4ef7\u3002\n\n\u7ed9\u5b9a $N,A,R,M$ \uff0c\u4f60\u9700\u8981\u6c42\u51fa\u4f7f\u6240\u6709\u7816\u7684\u9ad8\u5ea6\u53d8\u5f97\u76f8\u540c\u7684\u6700\u5c0f\u4ee3\u4ef7\u3002"
+}

@@ -1,0 +1,17 @@
+{
+    "description": "George is a cat, so he loves playing very much.\n\nVitaly put $ n $ cards in a row in front of George. Each card has one integer written on it. All cards had distinct numbers written on them. Let's number the cards from the left to the right with integers from $ 1 $ to $ n $ . Then the $ i $ -th card from the left contains number $ p_{i} $ ( $ 1<=p_{i}<=n $ ).\n\nVitaly wants the row to have exactly $ k $ cards left. He also wants the $ i $ -th card from left to have number $ b_{i} $ written on it. Vitaly gave a task to George, to get the required sequence of cards using the remove operation $ n-k $ times.\n\nIn one remove operation George can choose $ w $ ( $ 1<=w $ ; $ w $ is not greater than the current number of cards in the row) contiguous cards (contiguous subsegment of cards). Let's denote the numbers written on these card as $ x_{1},x_{2},...,x_{w} $ (from the left to the right). After that, George can remove the card $ x_{i} $ , such that $ x_{i}<=x_{j} $ for each $ j $ $ (1<=j<=w) $ . After the described operation George gets $ w $ pieces of sausage.\n\nGeorge wondered: what maximum number of pieces of sausage will he get in total if he reaches his goal and acts optimally well? Help George, find an answer to his question!",
+    "inputFormat": "The first line contains integers $ n $ and $ k $ ( $ 1<=k<=n<=10^{6} $ ) \u2014 the initial and the final number of cards.\n\nThe second line contains $ n $ distinct space-separated integers $ p_{1},p_{2},...,p_{n} $ ( $ 1<=p_{i}<=n $ ) \u2014 the initial row of cards.\n\nThe third line contains $ k $ space-separated integers $ b_{1},b_{2},...,b_{k} $ \u2014 the row of cards that you need to get. It is guaranteed that it's possible to obtain the given row by using the remove operation for $ n-k $ times.",
+    "outputFormat": "Print a single integer \u2014 the maximum number of pieces of sausage that George can get if he acts optimally well.",
+    "samples": [
+        [
+            "3 2\n2 1 3\n1 3\n",
+            "1\n"
+        ],
+        [
+            "10 5\n1 2 3 4 5 6 7 8 9 10\n2 4 6 8 10\n",
+            "30\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9\u51fa\u4e00\u4e2a $1$ \u5230 $n$ \u7684\u6392\u5217\uff08\u8f93\u5165\u4e2d\u7684\u6570\u7ec4 $p$ \uff09\uff0c\u5e76\u7ed9\u51fa\u4e00\u4e2a\u957f\u4e3a $k$ \u7684\u6570\u7ec4 $b$ \uff0c\u8981\u6c42\u4ece $p$ \u4e2d\u5220\u53bb $n - k$ \u4e2a\u5143\u7d20\u540e\u5f97\u5230\u6570\u7ec4 $b$ \u3002\n\n\u5220\u9664\u64cd\u4f5c\u7684\u5b9a\u4e49\uff1a\u9009\u53d6\u4e00\u4e2a\u533a\u95f4 $[l, r]$ \uff0c\u5220\u53bb\u5176\u4e2d\u6700\u5c0f\u7684\u5143\u7d20\uff0c\u5e76\u83b7\u5f97 $r - l + 1$ \u7684\u5206\u6570\u3002\n\n\u8bf7\u4f60\u8f93\u51fa\u6700\u7ec8\u5f97\u5206\u7684\u6700\u5927\u503c\uff0c\u4fdd\u8bc1\u6709\u89e3\u3002\n\n$1 \\leq k \\leq n \\leq 10^{6}$"
+}

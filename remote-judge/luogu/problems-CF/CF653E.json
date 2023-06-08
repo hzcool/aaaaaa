@@ -1,0 +1,17 @@
+{
+    "description": "A tree is a connected undirected graph consisting of $ n $ vertices and $ n-1 $ edges. Vertices are numbered $ 1 $ through $ n $ .\n\nLimak is a little polar bear. He once had a tree with $ n $ vertices but he lost it. He still remembers something about the lost tree though.\n\nYou are given $ m $ pairs of vertices $ (a_{1},b_{1}),(a_{2},b_{2}),...,(a_{m},b_{m}) $ . Limak remembers that for each $ i $ there was no edge between $ a_{i} $ and $ b_{i} $ . He also remembers that vertex $ 1 $ was incident to exactly $ k $ edges (its degree was equal to $ k $ ).\n\nIs it possible that Limak remembers everything correctly? Check whether there exists a tree satisfying the given conditions.",
+    "inputFormat": "The first line of the input contains three integers $ n $ , $ m $ and $ k $ (![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF653E/c397b4548a4ab37dd7d160c3cf4973cb7d9aa698.png)) \u2014 the number of vertices in Limak's tree, the number of forbidden pairs of vertices, and the degree of vertex $ 1 $ , respectively.\n\nThe $ i $ -th of next $ m $ lines contains two distinct integers $ a_{i} $ and $ b_{i} $ ( $ 1<=a_{i},b_{i}<=n,a_{i}\u2260b_{i} $ ) \u2014 the $ i $ -th pair that is forbidden. It's guaranteed that each pair of vertices will appear at most once in the input.",
+    "outputFormat": "Print \"possible\" (without quotes) if there exists at least one tree satisfying the given conditions. Otherwise, print \"impossible\" (without quotes).",
+    "samples": [
+        [
+            "5 4 2\n1 2\n2 3\n4 2\n4 1\n",
+            "possible\n"
+        ],
+        [
+            "6 5 3\n1 2\n1 3\n1 4\n1 5\n1 6\n",
+            "impossible\n"
+        ]
+    ],
+    "hint": "In the first sample, there are $ n=5 $ vertices. The degree of vertex $ 1 $ should be $ k=2 $ . All conditions are satisfied for a tree with edges $ 1-5 $ , $ 5-2 $ , $ 1-3 $ and $ 3-4 $ .\n\nIn the second sample, Limak remembers that none of the following edges existed: $ 1-2 $ , $ 1-3 $ , $ 1-4 $ , $ 1-5 $ and $ 1-6 $ . Hence, vertex $ 1 $ couldn't be connected to any other vertex and it implies that there is no suitable tree.",
+    "translation": "\u4e00\u68f5$n$ \u4e2a\u70b9\u7684\u6811\uff0c\u518d\u7ed9\u51fa\u5982\u4e0b\u4fe1\u606f\uff1a\r\n\r\n+ \u70b9 $1$ \u7684\u5ea6\u6570\u662f $k$\r\n\r\n+ \u7ed9\u5b9a $m$ \u5bf9 $u$\u548c$v$\uff0c\u6ee1\u8db3 $u$ \u548c $v$ \u4e4b\u95f4**\u4e0d\u5b58\u5728**\u8fb9\r\n\r\n\u8be2\u95ee\u4ee5\u4e0a\u4fe1\u606f\u662f\u5426\u5408\u6cd5\uff08\u662f\u5426\u5b58\u5728\u8fd9\u6837\u7684\u6811\uff09\r\n\r\n\u5408\u6cd5\u8f93\u51fa possible\uff0c\u5426\u5219\u8f93\u51fa impossible\r\n"
+}

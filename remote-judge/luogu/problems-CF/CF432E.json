@@ -1,0 +1,21 @@
+{
+    "description": "You have an $ n\u00d7m $ rectangle table, its cells are not initially painted. Your task is to paint all cells of the table. The resulting picture should be a tiling of the table with squares. More formally:\n\n- each cell must be painted some color (the colors are marked by uppercase Latin letters);\n- we will assume that two cells of the table are connected if they are of the same color and share a side; each connected region of the table must form a square.\n\nGiven $ n $ and $ m $ , find lexicographically minimum coloring of the table that meets the described properties.",
+    "inputFormat": "The first line contains two integers, $ n $ and $ m $ $ (1<=n,m<=100) $ .",
+    "outputFormat": "Print lexicographically minimum coloring of the table that meets the described conditions.\n\nOne coloring (let's call it X) is considered lexicographically less than the other one (let's call it Y), if:\n\n- consider all the table cells from left to right and from top to bottom (first, the first cell in the first row, then the second cell in the first row and so on);\n- let's find in this order the first cell that has distinct colors in two colorings;\n- the letter that marks the color of the cell in X, goes alphabetically before the letter that marks the color of the cell in Y.",
+    "samples": [
+        [
+            "1 3\n",
+            "ABA\n"
+        ],
+        [
+            "2 2\n",
+            "AA\nAA\n"
+        ],
+        [
+            "3 4\n",
+            "AAAB\nAAAC\nAAAB\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9\u5b9a\u4e00\u4e2a$n\\times m$\u7684\u77e9\u9635\uff0c\u8981\u6c42\u6bcf\u4e2a\u683c\u5b50\u586b\u5145\u4e00\u4e2a\u5927\u5199\u5b57\u6bcd\uff0c\u76f8\u540c\u5927\u5199\u5b57\u6bcd\u7ec4\u6210\u7684\u8fde\u901a\u5757\u5fc5\u987b\u662f\u4e00\u4e2a\u6b63\u65b9\u5f62\uff0c\u6c42\u5b57\u5178\u5e8f\u6700\u5c0f\u7684\u586b\u5145\u65b9\u6cd5\u3002\r\n\r\n\u6bd4\u8f83\u5b57\u5178\u5e8f\uff08\u8bbe2\u4e2a\u77e9\u9635\u4e3a$X$\u3001$Y$\uff09\uff1a\r\n\r\n\u4ee4\u5b57\u7b26\u4e32$S_X=X_{1,1}X_{1,2}...X_{2,1}X_{2,2}...X_{n,m}$\uff0c$S_Y=Y_{1,1}Y_{1,2}...aY_{2,1}Y_{2,2}...Y_{n,m}$\uff08\u5176\u4e2d$X_{i,j}$\u8868\u793a$X$\u77e9\u9635\u7b2c$i$\u884c\u7b2c$j$\u5217\u7684\u5927\u5199\u5b57\u6bcd,$Y_{i,j}$\u540c\u7406\uff09\u3002\r\n\r\n\u4e24\u4e2a\u77e9\u9635\u7684\u5b57\u5178\u5e8f\u5927\u5c0f\u5c31\u662f\u5b57\u7b26\u4e32$S_X$\u548c\u5b57\u7b26\u4e32$S_Y$\u7684\u5b57\u5178\u5e8f\u5927\u5c0f\u3002\r\n\r\n\u7ed9\u5b9a$n,m$\uff0c\u8f93\u51fa\u5b57\u5178\u5e8f\u6700\u5c0f\u7684\u77e9\u9635"
+}

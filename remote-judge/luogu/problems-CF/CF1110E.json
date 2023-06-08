@@ -1,0 +1,17 @@
+{
+    "description": "Grigory has $ n $ magic stones, conveniently numbered from $ 1 $ to $ n $ . The charge of the $ i $ -th stone is equal to $ c_i $ .\n\nSometimes Grigory gets bored and selects some inner stone (that is, some stone with index $ i $ , where $ 2 \\le i \\le n - 1 $ ), and after that synchronizes it with neighboring stones. After that, the chosen stone loses its own charge, but acquires the charges from neighboring stones. In other words, its charge $ c_i $ changes to $ c_i' = c_{i + 1} + c_{i - 1} - c_i $ .\n\nAndrew, Grigory's friend, also has $ n $ stones with charges $ t_i $ . Grigory is curious, whether there exists a sequence of zero or more synchronization operations, which transforms charges of Grigory's stones into charges of corresponding Andrew's stones, that is, changes $ c_i $ into $ t_i $ for all $ i $ ?",
+    "inputFormat": "The first line contains one integer $ n $ ( $ 2 \\le n \\le 10^5 $ ) \u2014 the number of magic stones.\n\nThe second line contains integers $ c_1, c_2, \\ldots, c_n $ ( $ 0 \\le c_i \\le 2 \\cdot 10^9 $ ) \u2014 the charges of Grigory's stones.\n\nThe second line contains integers $ t_1, t_2, \\ldots, t_n $ ( $ 0 \\le t_i \\le 2 \\cdot 10^9 $ ) \u2014 the charges of Andrew's stones.",
+    "outputFormat": "If there exists a (possibly empty) sequence of synchronization operations, which changes all charges to the required ones, print \"Yes\".\n\nOtherwise, print \"No\".",
+    "samples": [
+        [
+            "4\n7 2 4 12\n7 15 10 12\n",
+            "Yes\n"
+        ],
+        [
+            "3\n4 4 4\n1 2 3\n",
+            "No\n"
+        ]
+    ],
+    "hint": "In the first example, we can perform the following synchronizations ( $ 1 $ -indexed):\n\n- First, synchronize the third stone $ [7, 2, \\mathbf{4}, 12] \\rightarrow [7, 2, \\mathbf{10}, 12] $ .\n- Then synchronize the second stone: $ [7, \\mathbf{2}, 10, 12] \\rightarrow [7, \\mathbf{15}, 10, 12] $ .\n\nIn the second example, any operation with the second stone will not change its charge.",
+    "translation": "**\u9898\u610f\uff1a**\n\n\u4e00\u6b21\u64cd\u4f5c\u9009\u62e9$1<i<n$\uff0c\u4f7f$c_i$\u53d8\u4e3a$c_i'$\uff0c$c_i'=c_{i+1}+c_{i-1}-c_i$\n\n\u662f\u5426\u80fd\u505a\u82e5\u5e72\u6b21\u64cd\u4f5c\uff0c\u4f7f\u6bcf\u4e2a$c_i$\u548c$t_i$\u76f8\u7b49\uff1f\n\n**\u6570\u636e\u8303\u56f4\uff1a**\n\n$2\\le n\\le 10^5, 0\\le c_i\\le 2*10^9, 0\\le t_i\\le 2*10^9$\n\n**\u8f93\u5165\u65b9\u5f0f\uff1a**\n\n\u884c1 $n$\n\n\u884c2 $c_1, \\cdots, c_n$\n\n\u884c3 $t_1, \\cdots, t_n$\n\n**\u8f93\u51fa\u65b9\u5f0f\uff1a**\n\nYes/No"
+}

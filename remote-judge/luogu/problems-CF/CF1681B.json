@@ -1,0 +1,13 @@
+{
+    "description": "Monocarp has just learned a new card trick, and can't wait to present it to you. He shows you the entire deck of $ n $ cards. You see that the values of cards from the topmost to the bottommost are integers $ a_1, a_2, \\dots, a_n $ , and all values are different.\n\nThen he asks you to shuffle the deck $ m $ times. With the $ j $ -th shuffle, you should take $ b_j $ topmost cards and move them under the remaining $ (n - b_j) $ cards without changing the order.\n\nAnd then, using some magic, Monocarp tells you the topmost card of the deck. However, you are not really buying that magic. You tell him that you know the topmost card yourself. Can you surprise Monocarp and tell him the topmost card before he shows it?",
+    "inputFormat": "The first line contains a single integer $ t $ ( $ 1 \\le t \\le 10^4 $ ) \u2014 the number of testcases.\n\nThe first line of each testcase contains a single integer $ n $ ( $ 2 \\le n \\le 2 \\cdot 10^5 $ ) \u2014 the number of cards in the deck.\n\nThe second line contains $ n $ pairwise distinct integers $ a_1, a_2, \\dots, a_n $ ( $ 1 \\le a_i \\le n $ ) \u2014 the values of the cards.\n\nThe third line contains a single integer $ m $ ( $ 1 \\le m \\le 2 \\cdot 10^5 $ ) \u2014 the number of shuffles.\n\nThe fourth line contains $ m $ integers $ b_1, b_2, \\dots, b_m $ ( $ 1 \\le b_j \\le n - 1 $ ) \u2014 the amount of cards that are moved on the $ j $ -th shuffle.\n\nThe sum of $ n $ over all testcases doesn't exceed $ 2 \\cdot 10^5 $ . The sum of $ m $ over all testcases doesn't exceed $ 2 \\cdot 10^5 $ .",
+    "outputFormat": "For each testcase, print a single integer \u2014 the value of the card on the top of the deck after the deck is shuffled $ m $ times.",
+    "samples": [
+        [
+            "3\n2\n1 2\n3\n1 1 1\n4\n3 1 4 2\n2\n3 1\n5\n2 1 5 4 3\n5\n3 2 1 2 1",
+            "2\n3\n3"
+        ]
+    ],
+    "hint": "In the first testcase, each shuffle effectively swaps two cards. After three swaps, the deck will be $ [2, 1] $ .\n\nIn the second testcase, the second shuffle cancels what the first shuffle did. First, three topmost cards went underneath the last card, then that card went back below the remaining three cards. So the deck remained unchanged from the initial one \u2014 the topmost card has value $ 3 $ .",
+    "translation": "\u7ed9\u5b9a\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u6570\u7ec4\uff0c\u5bf9\u5176\u8fdb\u884c $m$ \u6b21\u64cd\u4f5c\uff0c\u6bcf\u6b21\u64cd\u4f5c\u662f\u4e00\u4e2a\u6570 $b_j$\uff0c\u610f\u601d\u662f\u5c06\u6570\u7ec4\u524d $b_j$ \u4e2a\u5143\u7d20\u653e\u5230\u6570\u7ec4\u6700\u540e\u9762\u3002\u95ee\u6267\u884c\u5b8c\u64cd\u4f5c\u540e\u6570\u7ec4\u7b2c\u4e00\u4e2a\u5143\u7d20\u662f\u5565\u3002"
+}

@@ -1,0 +1,13 @@
+{
+    "description": "Manao is solving a problem with the following statement:\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF338E/5342825b0bbcbbc06536e5a019fb46969a4849f8.png)He came up with a solution that produces the correct answers but is too slow. You are given the pseudocode of his solution, where the function getAnswer calculates the answer to the problem:\n\n`<br></br>getAnswer(a[1..n], b[1..len], h)<br></br>  answer = 0<br></br>  for i = 1 to n-len+1<br></br>    answer = answer + f(a[i..i+len-1], b, h, 1)<br></br>  return answer<br></br><br></br>f(s[1..len], b[1..len], h, index)<br></br>  if index = len+1 then<br></br>    return 1<br></br>  for i = 1 to len<br></br>    if s[index] + b[i] >= h<br></br>      mem = b[i]<br></br>      b[i] = 0<br></br>      res = f(s, b, h, index + 1)<br></br>      b[i] = mem<br></br>      if res > 0<br></br>        return 1<br></br>  return 0<br></br>`Your task is to help Manao optimize his algorithm.",
+    "inputFormat": "The first line contains space-separated integers $ n $ , $ len $ and $ h $ ( $ 1<=len<=n<=150000;\u00a01<=h<=10^{9} $ ). The second line contains $ len $ space-separated integers $ b_{1},b_{2},...,b_{len} $ ( $ 1<=b_{i}<=10^{9} $ ). The third line contains $ n $ space-separated integers $ a_{1},a_{2},...,a_{n} $ ( $ 1<=a_{i}<=10^{9} $ ).",
+    "outputFormat": "Print a single number \u2014 the answer to Manao's problem.",
+    "samples": [
+        [
+            "5 2 10\n5 3\n1 8 5 5 7\n",
+            "2\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u9898\u610f\uff1a\n\n\u6c42 A \u6709\u591a\u5c11\u957f\u5ea6\u4e3a len \u7684\u533a\n\u95f4\u4e2d\u7684\u6570\u548c B \u4e2d\u7684\u6570\u5b8c\u7f8e\u5339\u914d\u3002\u4e24\u4e2a\u6570\u5339\u914d\u5f53\u4e14\u4ec5\u5f53\u5176\u548c\u4e0d\u5c0f\u4e8e h\u3002\n(\u533a\u95f4\u5fc5\u987b\u8fde\u7eed)"
+}

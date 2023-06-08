@@ -1,0 +1,21 @@
+{
+    "description": "Bakry got bored of solving problems related to xor, so he asked you to solve this problem for him.\n\nYou are given an array $ a $ of $ n $ integers $ [a_1, a_2, \\ldots, a_n] $ .\n\nLet's call a subarray $ a_{l}, a_{l+1}, a_{l+2}, \\ldots, a_r $ good if $ a_l \\, \\& \\, a_{l+1} \\, \\& \\, a_{l+2} \\, \\ldots \\, \\& \\, a_r > a_l \\oplus a_{l+1} \\oplus a_{l+2} \\ldots \\oplus a_r $ , where $ \\oplus $ denotes the [bitwise XOR operation](https://en.wikipedia.org/wiki/Bitwise_operation#XOR) and $ \\& $ denotes the [bitwise AND operation](https://en.wikipedia.org/wiki/Bitwise_operation#AND).\n\nFind the length of the longest good subarray of $ a $ , or determine that no such subarray exists.",
+    "inputFormat": "The first line contains a single integer $ n $ ( $ 1 \\le n \\le 10^6 $ ) \u2014 the length of the array.\n\nThe second line contains $ n $ integers $ a_1, a_2, \\ldots, a_n $ ( $ 1 \\le a_i \\le 10^6 $ ) \u2014 elements of the array.",
+    "outputFormat": "Print a single integer \u2014 the length of the longest good subarray. If there are no good subarrays, print $ 0 $ .",
+    "samples": [
+        [
+            "2\n5 6",
+            "2"
+        ],
+        [
+            "3\n2 4 3",
+            "0"
+        ],
+        [
+            "6\n8 1 3 3 1 2",
+            "4"
+        ]
+    ],
+    "hint": "In the first case, the answer is $ 2 $ , as the whole array is good: $ 5 \\& 6 = 4 > 5 \\oplus 6 = 3 $ .\n\nIn the third case, the answer is $ 4 $ , and one of the longest good subarrays is $ [a_2, a_3, a_4, a_5] $ : $ 1\\& 3 \\& 3 \\&1 = 1 > 1\\oplus 3 \\oplus 3\\oplus 1 = 0 $ .",
+    "translation": "\u7ed9\u5b9a\u4e00\u4e2a $n$ \u4e2a\u6570\u7684\u6570\u7ec4\uff0c\u8981\u6c42\u627e\u4e00\u4e2a\u8fde\u7eed\u5b50\u533a\u95f4\uff0c\u6ee1\u8db3\u8be5\u5b50\u533a\u95f4\u7684\u533a\u95f4 $\\&$ \u548c $>$ \u533a\u95f4\u5f02\u6216\u548c\u3002\u6c42\u8be5\u5b50\u533a\u95f4\u7684\u6700\u5927\u957f\u5ea6\u3002\n\nTranslated by [Tony102](https://tony102.com)"
+}

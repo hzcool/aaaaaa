@@ -1,0 +1,25 @@
+{
+    "description": "The teacher gave Anton a large geometry homework, but he didn't do it (as usual) as he participated in a regular round on Codeforces. In the task he was given a set of $ n $ lines defined by the equations $ y=k_{i}\u00b7x+b_{i} $ . It was necessary to determine whether there is at least one point of intersection of two of these lines, that lays strictly inside the strip between $ x_{1}&lt;x_{2} $ . In other words, is it true that there are $ 1<=i&lt;j<=n $ and $ x',y' $ , such that:\n\n- $ y'=k_{i}*x'+b_{i} $ , that is, point $ (x',y') $ belongs to the line number $ i $ ;\n- $ y'=k_{j}*x'+b_{j} $ , that is, point $ (x',y') $ belongs to the line number $ j $ ;\n- $ x_{1}&lt;x'&lt;x_{2} $ , that is, point $ (x',y') $ lies inside the strip bounded by $ x_{1}&lt;x_{2} $ .\n\nYou can't leave Anton in trouble, can you? Write a program that solves the given task.",
+    "inputFormat": "The first line of the input contains an integer $ n $ ( $ 2<=n<=100000 $ ) \u2014 the number of lines in the task given to Anton. The second line contains integers $ x_{1} $ and $ x_{2} $ ( $ -1000000<=x_{1}&lt;x_{2}<=1000000 $ ) defining the strip inside which you need to find a point of intersection of at least two lines.\n\nThe following $ n $ lines contain integers $ k_{i} $ , $ b_{i} $ ( $ -1000000<=k_{i},b_{i}<=1000000 $ ) \u2014 the descriptions of the lines. It is guaranteed that all lines are pairwise distinct, that is, for any two $ i\u2260j $ it is true that either $ k_{i}\u2260k_{j} $ , or $ b_{i}\u2260b_{j} $ .",
+    "outputFormat": "Print \"Yes\" (without quotes), if there is at least one intersection of two distinct lines, located strictly inside the strip. Otherwise print \"No\" (without quotes).",
+    "samples": [
+        [
+            "4\n1 2\n1 2\n1 0\n0 1\n0 2\n",
+            "NO"
+        ],
+        [
+            "2\n1 3\n1 0\n-1 3\n",
+            "YES"
+        ],
+        [
+            "2\n1 3\n1 0\n0 2\n",
+            "YES"
+        ],
+        [
+            "2\n1 3\n1 0\n0 3\n",
+            "NO"
+        ]
+    ],
+    "hint": "In the first sample there are intersections located on the border of the strip, but there are no intersections located strictly inside it.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF593B/e1a49e4b0c04e7481c4ca085ab81f29a92c6744a.png)",
+    "translation": "**\u3010\u9898\u76ee\u63cf\u8ff0\u3011**\n\n\u7ed9\u5b9a $n$ \u6761\u5f62\u5982 $y=k_ix+b_i$ \u7684\u76f4\u7ebf\uff0c\u4f60\u9700\u8981\u5224\u65ad\u662f\u5426\u5b58\u5728\u4e24\u6761\u76f4\u7ebf $a,b$\uff0c\u4f7f $a,b$ \u7684\u4ea4\u70b9 $(x_0,y_0)$ \u6ee1\u8db3 $x_1<x_0<x_2$\u3002\n\n**\u3010\u8f93\u5165\u683c\u5f0f\u3011**\n\n\u7b2c\u4e00\u884c\u4e09\u4e2a\u6574\u6570 $n,x_1,x_2$\uff0c\u610f\u4e49\u5982\u9898\u8ff0\u3002\n\n\u63a5\u4e0b\u6765 $n$ \u884c\uff0c\u6bcf\u884c\u4e24\u4e2a\u6574\u6570 $k_i,b_i$\uff0c\u63cf\u8ff0\u6bcf\u6761\u76f4\u7ebf\u3002\n\n**\u3010\u8f93\u51fa\u683c\u5f0f\u3011**\n\n\u5982\u679c\u5b58\u5728\u8fd9\u6837\u7684\u4ea4\u70b9\uff0c\u8f93\u51fa `YES`\u3002\u5426\u5219\u8f93\u51fa `NO`\u3002\n\n**\u3010\u6570\u636e\u89c4\u6a21\u4e0e\u7ea6\u5b9a\u3011**\n\n$1\\le n\\le 10^5$\uff0c$-10^6\\le x_1,x_2,k_i,b_i\\le 10^6$\u3002\n\n\u6570\u636e\u4fdd\u8bc1\u5bf9\u4e8e\u6bcf\u4e24\u6761\u76f4\u7ebf $i,j(i\\ne j)$\uff0c\u90fd\u6709 $k_i\\ne k_j$ \u6216 $b_i\\ne b_j$\u3002\n\nTranslated By [Sept](/user/224931)"
+}

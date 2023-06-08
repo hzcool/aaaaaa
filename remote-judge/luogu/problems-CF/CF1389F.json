@@ -1,0 +1,21 @@
+{
+    "description": "You are given $ n $ segments $ [l_1, r_1], [l_2, r_2], \\dots,       [l_n, r_n] $ . Each segment has one of two colors: the $ i $ -th segment's color is $ t_i $ .\n\nLet's call a pair of segments $ i $ and $ j $ bad if the following two conditions are met:\n\n- $ t_i \\ne t_j $ ;\n- the segments $ [l_i, r_i] $ and $ [l_j, r_j] $ intersect, embed or touch, i. e. there exists an integer $ x $ such that $ x \\in [l_i, r_i] $ and $ x \\in [l_j, r_j] $ .\n\nCalculate the maximum number of segments that can be selected from the given ones, so that there is no bad pair among the selected ones.",
+    "inputFormat": "The first line contains a single integer $ n $ ( $ 1 \\le n \\le       2 \\cdot 10^5 $ ) \u2014 number of segments.\n\nThe next $ n $ lines contains three integers $ l_i, r_i,       t_i $ ( $ 1 \\le l_i \\le r_i \\le 10^9; t_i \\in \\{1, 2\\} $ ) \u2014 description of the $ i $ -th segment.",
+    "outputFormat": "Print the maximum number of segments that can be selected, so that there is no bad pair among the selected segments.",
+    "samples": [
+        [
+            "3\n1 3 1\n4 6 2\n2 5 1",
+            "2"
+        ],
+        [
+            "5\n5 8 1\n1 3 2\n3 4 2\n6 6 1\n2 10 2",
+            "4"
+        ],
+        [
+            "7\n19 20 1\n13 15 2\n6 11 2\n4 10 1\n14 17 1\n13 13 2\n5 9 1",
+            "5"
+        ]
+    ],
+    "hint": "",
+    "translation": "### \u9898\u76ee\u63cf\u8ff0\n\n\u7ed9\u4f60 $n$ \u6761\u7ebf\u6bb5 $[l_1, r_1], [l_2, r_2], \\ldots, [l_n, r_n]$\u3002\u7ebf\u6bb5\u6709\u4e24\u79cd\u989c\u8272\uff0c\u7b2c $i$ \u6761\u7ebf\u6bb5\u7684\u989c\u8272\u4e3a $t_i$\u3002\n\n\u6211\u4eec\u79f0\u4e00\u5bf9\u7ebf\u6bb5 $i, j$ \u662f\u4e0d\u597d\u7684\uff0c\u5f53\u4e14\u4ec5\u5f53\u4ee5\u4e0b\u4e24\u4e2a\u6761\u4ef6\u540c\u65f6\u6ee1\u8db3\uff1a\n\n- $t_i \\neq t_j$\uff1b\n- \u7ebf\u6bb5 $[l_i, r_i]$ \u548c $[l_j, r_j]$ \u76f8\u4ea4\u3001\u76f8\u5d4c\u6216\u76f8\u5207\u3002\u6362\u53e5\u8bdd\u8bf4\uff0c\u5b58\u5728\u8fd9\u6837\u4e00\u4e2a\u6574\u6570 $x$\uff0c\u4f7f\u5f97 $x \\in [l_i, r_i]$ \u4e14 $x \\in [l_j, r_j]$\u3002\n\n\u8bf7\u95ee\u6700\u591a\u53ef\u4ee5\u9009\u62e9\u7ed9\u5b9a\u7684\u8fd9\u4e9b\u7ebf\u6bb5\u4e2d\u7684\u591a\u5c11\u6761\uff0c\u4f7f\u5f97\u9009\u62e9\u7684\u7ebf\u6bb5\u4e2d\u6ca1\u6709\u4efb\u4f55\u4e00\u5bf9\u7ebf\u6bb5\u662f\u4e0d\u597d\u7684\u3002\n\n### \u8f93\u5165\u683c\u5f0f\n\n\u7b2c\u4e00\u884c\u8f93\u5165\u4e00\u4e2a\u6574\u6570 $n ~ (1 \\le n \\le 2 \\cdot 10 ^ 5)$\uff0c\u8868\u793a\u7ebf\u6bb5\u6570\u3002\n\n\u63a5\u4e0b\u6765 $n$ \u884c\uff0c\u6bcf\u884c\u8f93\u5165\u4e09\u4e2a\u6574\u6570 $l_i, r_i, t_i ~ (1 \\le l_i \\le r_i \\le 10 ^ 9; t_i \\in \\{1, 2\\})$\uff0c\u63cf\u8ff0\u7b2c $i$ \u6761\u7ebf\u6bb5\u3002\n\n### \u8f93\u51fa\u683c\u5f0f\n\n\u8f93\u51fa\u4e00\u884c\u4e00\u4e2a\u6574\u6570\uff0c\u8868\u793a\u6700\u591a\u53ef\u4ee5\u9009\u62e9\u7ed9\u5b9a\u7684\u8fd9\u4e9b\u7ebf\u6bb5\u4e2d\u7684\u591a\u5c11\u6761\uff0c\u4f7f\u5f97\u9009\u62e9\u7684\u7ebf\u6bb5\u4e2d\u6ca1\u6709\u4efb\u4f55\u4e00\u5bf9\u7ebf\u6bb5\u662f\u4e0d\u597d\u7684\u3002"
+}

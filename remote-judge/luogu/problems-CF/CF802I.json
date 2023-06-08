@@ -1,0 +1,13 @@
+{
+    "description": "Now that you have proposed a fake post for the HC $ ^{2} $ Facebook page, Heidi wants to measure the quality of the post before actually posting it. She recently came across a (possibly fake) article about the impact of fractal structure on multimedia messages and she is now trying to measure the self-similarity of the message, which is defined as\n\n![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF802I/cdbfdfc02921b55d94f8e9715364be36292f81c3.png)where the sum is over all nonempty strings $ p $ and ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF802I/aea1d5f3b9f7520d94fcc0daea05a447b5429c82.png) is the number of occurences of $ p $ in $ s $ as a substring. (Note that the sum is infinite, but it only has a finite number of nonzero summands.)\n\nHeidi refuses to do anything else until she knows how to calculate this self-similarity. Could you please help her? (If you would like to instead convince Heidi that a finite string cannot be a fractal anyway \u2013 do not bother, we have already tried.)",
+    "inputFormat": "The input starts with a line indicating the number of test cases $ T $ ( $ 1<=T<=10 $ ). After that, $ T $ test cases follow, each of which consists of one line containing a string $ s $ ( $ 1<=|s|<=100000 $ ) composed of lowercase letters (a-z).",
+    "outputFormat": "Output $ T $ lines, every line containing one number \u2013 the answer to the corresponding test case.",
+    "samples": [
+        [
+            "4\naa\nabcd\nccc\nabcc\n",
+            "5\n10\n14\n12\n"
+        ]
+    ],
+    "hint": "A string $ s $ contains another string $ p $ as a substring if $ p $ is a contiguous subsequence of $ s $ . For example, ab is a substring of cab but not of acb.",
+    "translation": "$T$ \u7ec4\u6570\u636e\uff0c\n\n\u5bf9\u4e8e\u5b57\u7b26\u4e32 $s$ \u6c42 $\\sum_p cnt(s,p)^2$\u3002\n\n\u5176\u4e2d $cnt_{s,p}$ \u8868\u793a\u5b50\u4e32 $p$ \u5728 $s$ \u4e2d\u7684\u51fa\u73b0\u6b21\u6570\u3002\n\n$|s|\\le 10^5,T\\le 10$"
+}

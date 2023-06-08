@@ -1,0 +1,17 @@
+{
+    "description": "Arkady coordinates rounds on some not really famous competitive programming platform. Each round features $ n $ problems of distinct difficulty, the difficulties are numbered from $ 1 $ to $ n $ .\n\nTo hold a round Arkady needs $ n $ new (not used previously) problems, one for each difficulty. As for now, Arkady creates all the problems himself, but unfortunately, he can't just create a problem of a desired difficulty. Instead, when he creates a problem, he evaluates its difficulty from $ 1 $ to $ n $ and puts it into the problems pool.\n\nAt each moment when Arkady can choose a set of $ n $ new problems of distinct difficulties from the pool, he holds a round with these problems and removes them from the pool. Arkady always creates one problem at a time, so if he can hold a round after creating a problem, he immediately does it.\n\nYou are given a sequence of problems' difficulties in the order Arkady created them. For each problem, determine whether Arkady held the round right after creating this problem, or not. Initially the problems pool is empty.",
+    "inputFormat": "The first line contains two integers $ n $ and $ m $ ( $ 1 \\le n, m \\le 10^5 $ ) \u2014 the number of difficulty levels and the number of problems Arkady created.\n\nThe second line contains $ m $ integers $ a_1, a_2, \\ldots, a_m $ ( $ 1 \\le a_i \\le n $ ) \u2014 the problems' difficulties in the order Arkady created them.",
+    "outputFormat": "Print a line containing $ m $ digits. The $ i $ -th digit should be $ 1 $ if Arkady held the round after creation of the $ i $ -th problem, and $ 0 $ otherwise.",
+    "samples": [
+        [
+            "3 11\n2 3 1 2 2 2 3 2 2 3 1\n",
+            "00100000001\n"
+        ],
+        [
+            "4 8\n4 1 3 3 2 3 3 3\n",
+            "00001000\n"
+        ]
+    ],
+    "hint": "In the first example Arkady held the round after the first three problems, because they are of distinct difficulties, and then only after the last problem.",
+    "translation": "### \u9898\u76ee\u5927\u610f\n\u6709$n$\u4e2a\u9898\uff0c\u6bcf\u4e2a\u9898\u6709\u4e00\u4e2a\u96be\u5ea6$a_i(1\\le a_i\\le m)$\uff0c\u4ece\u5de6\u5f80\u53f3\u52a0\u5165\u9898\uff0c\u5f53\u52a0\u5165\u7684\u9898\u4e2d$m$\u4e2a\u96be\u5ea6\u90fd\u51fa\u73b0\u65f6\uff0c\u8f93\u51fa$1$\u5e76\u628a\u6bcf\u4e2a\u96be\u5ea6\u90fd\u5220\u9664\u4e00\u9053\u9898\uff0c\u5426\u5219\u8f93\u51fa$0$\uff0c\u6c42\u8f93\u51fa\u5e8f\u5217\n\n### \u8f93\u5165\u683c\u5f0f\n\u7b2c\u4e00\u884c\u4e24\u4e2a\u6570$m,n$\uff0c\u8868\u793a\u96be\u5ea6\u4e2a\u6570\u548c\u9898\u76ee\u4e2a\u6570\n\n\u7b2c\u4e8c\u884c$n$\u4e2a\u6574\u6570\uff0c\u8868\u793a\u9898\u76ee\u96be\u5ea6\n\n### \u8f93\u51fa\u683c\u5f0f\n\u4e00\u884c\uff0c\u8868\u793a\u8f93\u51fa\u5e8f\u5217"
+}

@@ -1,0 +1,17 @@
+{
+    "description": "Polycarp and Vasiliy love simple logical games. Today they play a game with infinite chessboard and one pawn for each player. Polycarp and Vasiliy move in turns, Polycarp starts. In each turn Polycarp can move his pawn from cell $ (x,y) $ to $ (x-1,y) $ or $ (x,y-1) $ . Vasiliy can move his pawn from $ (x,y) $ to one of cells: $ (x-1,y),(x-1,y-1) $ and $ (x,y-1) $ . Both players are also allowed to skip move.\n\nThere are some additional restrictions \u2014 a player is forbidden to move his pawn to a cell with negative $ x $ -coordinate or $ y $ -coordinate or to the cell containing opponent's pawn The winner is the first person to reach cell $ (0,0) $ .\n\nYou are given the starting coordinates of both pawns. Determine who will win if both of them play optimally well.",
+    "inputFormat": "The first line contains four integers: $ x_{p},y_{p},x_{v},y_{v} $ ( $ 0<=x_{p},y_{p},x_{v},y_{v}<=10^{5}) $ \u2014 Polycarp's and Vasiliy's starting coordinates.\n\nIt is guaranteed that in the beginning the pawns are in different cells and none of them is in the cell $ (0,0) $ .",
+    "outputFormat": "Output the name of the winner: \"Polycarp\" or \"Vasiliy\".",
+    "samples": [
+        [
+            "2 1 2 2\n",
+            "Polycarp\n"
+        ],
+        [
+            "4 7 7 4\n",
+            "Vasiliy\n"
+        ]
+    ],
+    "hint": "In the first sample test Polycarp starts in $ (2,1) $ and will move to $ (1,1) $ in the first turn. No matter what his opponent is doing, in the second turn Polycarp can move to $ (1,0) $ and finally to $ (0,0) $ in the third turn.",
+    "translation": "$\\texttt{Polycarp}$ \u548c $\\texttt{Vasiliy}$ \u5404\u6709\u4e00\u4e2a\u68cb\u5b50\uff0c\u5b83\u4eec\u5206\u522b\u5728 $(x_p,y_p)$ \u548c $(x_v,y_v)$\u3002\u6bcf\u4eba\u53ea\u80fd\u79fb\u52a8\u81ea\u5df1\u7684\u68cb\u5b50\u3002\n\n\u82e5\u68cb\u5b50\u5728 $(x,y)$\uff0c\u4e00\u6b21\u79fb\u52a8\u53ef\u4ee5\u5c06\u5176\u79fb\u52a8\u5230 $(x-1,y)$ \u6216\u8005 $(x,y-1)$\uff0c\u5e76\u4e14\u4e0d\u80fd\u79fb\u52a8\u5230\u4e0d\u5408\u6cd5\u4f4d\u7f6e\u3002\n\n\u5982\u679c $(x,y)$ \u6ee1\u8db3\u4ee5\u4e0b\u4efb\u4e00\u6761\uff0c\u90a3\u4e48\u5b83\u662f\u4e0d\u5408\u6cd5\u7684\uff1a\n\n+ $x<0$\u3002\n\n+ $y<0$\u3002\n\n+ \u522b\u4eba\u7684\u68cb\u5b50\u5728 $(x,y)$\u3002\n\n\u6bcf\u6b21\u64cd\u4f5c\u53ef\u4ee5\u5728\u4ee5\u4e0b\u4e8b\u60c5\u4e2d\u4efb\u9009\u4e00\u4ef6\u505a\uff1a\n\n+ \u79fb\u52a8\u4e00\u6b21\u68cb\u5b50\n\n+ \u4ec0\u4e48\u90fd\u4e0d\u505a\n\n$\\texttt{Polycarp}$ \u5148\u624b\uff0c\u4e24\u4eba\u8f6e\u6d41\u64cd\u4f5c\u3002\n\n\u5c06\u68cb\u5b50\u79fb\u52a8\u5230 $(0,0)$ \u7684\u4eba\u83b7\u5f97\u80dc\u5229\u3002\n\n\u73b0\u5728\u5047\u8bbe $\\texttt{Polycarp}$ \u548c $\\texttt{Vasiliy}$ \u90fd\u8db3\u591f\u806a\u660e\uff0c\u95ee\u8c01\u80fd\u80dc\u5229\u3002\n\n$0\\le x_p,y_p,x_v,y_v\\le 10^5$\uff0c\u4fdd\u8bc1\u6700\u5f00\u59cb\u65f6\u4e24\u4e2a\u68cb\u5b50\u4e0d\u5728\u540c\u4e00\u4f4d\u7f6e\u5e76\u4e14\u6ca1\u6709\u68cb\u5b50\u5728 $(0,0)$\u3002"
+}

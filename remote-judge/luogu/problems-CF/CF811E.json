@@ -1,0 +1,13 @@
+{
+    "description": "In his spare time Vladik estimates beauty of the flags.\n\nEvery flag could be represented as the matrix $ n\u00d7m $ which consists of positive integers.\n\nLet's define the beauty of the flag as number of components in its matrix. We call component a set of cells with same numbers and between any pair of cells from that set there exists a path through adjacent cells from same component. Here is the example of the partitioning some flag matrix into components:\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF811E/9c3d5d03c8614a33f231cd8f8efd0e706383885b.png)But this time he decided to change something in the process. Now he wants to estimate not the entire flag, but some segment. Segment of flag can be described as a submatrix of the flag matrix with opposite corners at $ (1,l) $ and $ (n,r) $ , where conditions $ 1<=l<=r<=m $ are satisfied.\n\nHelp Vladik to calculate the beauty for some segments of the given flag.",
+    "inputFormat": "First line contains three space-separated integers $ n $ , $ m $ , $ q $ ( $ 1<=n<=10 $ , $ 1<=m,q<=10^{5} $ ) \u2014 dimensions of flag matrix and number of segments respectively.\n\nEach of next $ n $ lines contains $ m $ space-separated integers \u2014 description of flag matrix. All elements of flag matrix is positive integers not exceeding $ 10^{6} $ .\n\nEach of next $ q $ lines contains two space-separated integers $ l $ , $ r $ ( $ 1<=l<=r<=m $ ) \u2014 borders of segment which beauty Vladik wants to know.",
+    "outputFormat": "For each segment print the result on the corresponding line.",
+    "samples": [
+        [
+            "4 5 4\n1 1 1 1 1\n1 2 2 3 3\n1 1 1 2 5\n4 4 5 5 5\n1 5\n2 5\n1 2\n4 5\n",
+            "6\n7\n3\n4\n"
+        ]
+    ],
+    "hint": "Partitioning on components for every segment from first test case:\n\n![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF811E/d3d891fc856386c8b0c1e1a004521369cd8ed774.png)",
+    "translation": "\u5728\u4e00\u4e2a n*m \u7684\u7f51\u683c\u4e0a\u6bcf\u4e2a\u683c\u5b50\u90fd\u6709\u989c\u8272\uff0cq \u6b21\u8be2\u95ee\uff0c\u6bcf\u6b21\u8be2\u95ee\u53ea\u4fdd\u7559 l \u81f3 r \u5217\u65f6\u6709\u591a\u5c11\u4e2a\u56db\u8fde\u901a\u7684\u989c\u8272\u5757\u3002\u4e24\u4e2a\u683c\u5b50\u540c\u8272\u4f46\u4e0d\u8fde\u901a\u7b97\u5728\u4e0d\u540c\u7684\u989c\u8272\u5757\u5185\u3002"
+}

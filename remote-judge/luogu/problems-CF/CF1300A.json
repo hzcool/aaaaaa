@@ -1,0 +1,13 @@
+{
+    "description": "Guy-Manuel and Thomas have an array $ a $ of $ n $ integers \\[ $ a_1, a_2, \\dots, a_n $ \\]. In one step they can add $ 1 $ to any element of the array. Formally, in one step they can choose any integer index $ i $ ( $ 1 \\le i \\le n $ ) and do $ a_i := a_i + 1 $ .\n\nIf either the sum or the product of all elements in the array is equal to zero, Guy-Manuel and Thomas do not mind to do this operation one more time.\n\nWhat is the minimum number of steps they need to do to make both the sum and the product of all elements in the array different from zero? Formally, find the minimum number of steps to make $ a_1 + a_2 + $ $ \\dots $ $ + a_n \\ne 0 $ and $ a_1 \\cdot a_2 \\cdot $ $ \\dots $ $ \\cdot a_n \\ne 0 $ .",
+    "inputFormat": "Each test contains multiple test cases.\n\nThe first line contains the number of test cases $ t $ ( $ 1 \\le t \\le 10^3 $ ). The description of the test cases follows.\n\nThe first line of each test case contains an integer $ n $ ( $ 1 \\le n \\le 100 $ ) \u2014 the size of the array.\n\nThe second line of each test case contains $ n $ integers $ a_1, a_2, \\dots, a_n $ ( $ -100 \\le a_i \\le 100 $ ) \u2014 elements of the array .",
+    "outputFormat": "For each test case, output the minimum number of steps required to make both sum and product of all elements in the array different from zero.",
+    "samples": [
+        [
+            "4\n3\n2 -1 -1\n4\n-1 0 0 1\n2\n-1 2\n3\n0 -2 1",
+            "1\n2\n0\n2"
+        ]
+    ],
+    "hint": "In the first test case, the sum is $ 0 $ . If we add $ 1 $ to the first element, the array will be $ [3,-1,-1] $ , the sum will be equal to $ 1 $ and the product will be equal to $ 3 $ .\n\nIn the second test case, both product and sum are $ 0 $ . If we add $ 1 $ to the second and the third element, the array will be $ [-1,1,1,1] $ , the sum will be equal to $ 2 $ and the product will be equal to $ -1 $ . It can be shown that fewer steps can't be enough.\n\nIn the third test case, both sum and product are non-zero, we don't need to do anything.\n\nIn the fourth test case, after adding $ 1 $ twice to the first element the array will be $ [2,-2,1] $ , the sum will be $ 1 $ and the product will be $ -4 $ .",
+    "translation": "- \u7ed9\u5b9a\u4e00\u4e2a\u542b\u6709 $n$ \u4e2a\u6574\u6570\u7684\u6570\u5217\u3002\r\n- \u6bcf\u6b21\u53ef\u4ee5\u5c06\u5176\u4e2d\u7684\u4e00\u4e2a\u6570\u52a0\u4e00\uff0c\u8bb0\u4e3a\u4e00\u6b21\u64cd\u4f5c\u3002\r\n- \u95ee\u4f7f\u5f97\u6570\u5217**\u6240\u6709\u6570\u4e4b\u548c**\u4e0e\u6570\u5217**\u6240\u6709\u6570\u7684\u4e58\u79ef**\u90fd\u4e0d\u4e3a $0$ \u7684\u64cd\u4f5c\u6b21\u6570\u3002\r\n\r\n- translate by @[ShineEternal](https://www.luogu.com.cn/user/45475)\u3002"
+}

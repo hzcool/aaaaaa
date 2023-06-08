@@ -1,0 +1,17 @@
+{
+    "description": "There are $ n $ employees in Alternative Cake Manufacturing (ACM). They are now voting on some very important question and the leading world media are trying to predict the outcome of the vote.\n\nEach of the employees belongs to one of two fractions: depublicans or remocrats, and these two fractions have opposite opinions on what should be the outcome of the vote. The voting procedure is rather complicated:\n\n1. Each of $ n $ employees makes a statement. They make statements one by one starting from employees $ 1 $ and finishing with employee $ n $ . If at the moment when it's time for the $ i $ -th employee to make a statement he no longer has the right to vote, he just skips his turn (and no longer takes part in this voting).\n2. When employee makes a statement, he can do nothing or declare that one of the other employees no longer has a right to vote. It's allowed to deny from voting people who already made the statement or people who are only waiting to do so. If someone is denied from voting he no longer participates in the voting till the very end.\n3. When all employees are done with their statements, the procedure repeats: again, each employees starting from $ 1 $ and finishing with $ n $ who are still eligible to vote make their statements.\n4. The process repeats until there is only one employee eligible to vote remaining and he determines the outcome of the whole voting. Of course, he votes for the decision suitable for his fraction.\n\nYou know the order employees are going to vote and that they behave optimal (and they also know the order and who belongs to which fraction). Predict the outcome of the vote.",
+    "inputFormat": "The first line of the input contains a single integer $ n $ ( $ 1<=n<=200000 $ ) \u2014 the number of employees.\n\nThe next line contains $ n $ characters. The $ i $ -th character is 'D' if the $ i $ -th employee is from depublicans fraction or 'R' if he is from remocrats.",
+    "outputFormat": "Print 'D' if the outcome of the vote will be suitable for depublicans and 'R' if remocrats will win.",
+    "samples": [
+        [
+            "5\nDDRRR\n",
+            "D\n"
+        ],
+        [
+            "6\nDDRRRR\n",
+            "R\n"
+        ]
+    ],
+    "hint": "Consider one of the voting scenarios for the first sample:\n\n1. Employee $ 1 $ denies employee $ 5 $ to vote.\n2. Employee $ 2 $ denies employee $ 3 $ to vote.\n3. Employee $ 3 $ has no right to vote and skips his turn (he was denied by employee $ 2 $ ).\n4. Employee $ 4 $ denies employee $ 2 $ to vote.\n5. Employee $ 5 $ has no right to vote and skips his turn (he was denied by employee $ 1 $ ).\n6. Employee $ 1 $ denies employee $ 4 $ .\n7. Only employee $ 1 $ now has the right to vote so the voting ends with the victory of depublicans.",
+    "translation": "\u7ed9\u5b9a\u4e00\u4e2a\u5b57\u7b26\u4e32\uff0c\u5b57\u7b26\u4e32\u4e2d\u5b57\u7b26\u4e3aD\u6216R\uff0c\u4ee3\u8868\u4e24\u4e2a\u56e2\u961f\n\n\u4ece1\u5f00\u59cb\uff0c\u6bcf\u4e2a\u4eba\u90fd\u6709\u53d1\u8a00\u7684\u6743\u5229\uff0c\u53d1\u8a00\u65f6\uff0c\u53ef\u4ee5\u7981\u8a00\u4e00\u4e2a\u4eba\uff0c\u4f7f\u90a3\u4e2a\u4eba\u4ee5\u540e\u90fd\u4e0d\u80fd\u53d1\u8a00\n\n\u5982\u679c\u4e00\u5708\u53d1\u8a00\u5b8c\u8fd8\u67091\u4e2a\u4ee5\u4e0a\u7684\u4eba\u80fd\u53d1\u8a00\uff0c\u5c31\u4ece1\u91cd\u65b0\u5f00\u59cb\uff0c\u76f4\u5230\u53ea\u67091\u4e2a\u4eba\u80fd\u53d1\u8a00\uff0c\u90a3\u4e2a\u4eba\u6240\u5728\u7684\u56e2\u961f\u83b7\u80dc"
+}

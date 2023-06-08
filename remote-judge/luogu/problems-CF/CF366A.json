@@ -1,0 +1,21 @@
+{
+    "description": "Nothing has changed since the last round. Dima and Inna still love each other and want to be together. They've made a deal with Seryozha and now they need to make a deal with the dorm guards...\n\nThere are four guardposts in Dima's dorm. Each post contains two guards (in Russia they are usually elderly women). You can bribe a guard by a chocolate bar or a box of juice. For each guard you know the minimum price of the chocolate bar she can accept as a gift and the minimum price of the box of juice she can accept as a gift. If a chocolate bar for some guard costs less than the minimum chocolate bar price for this guard is, or if a box of juice for some guard costs less than the minimum box of juice price for this guard is, then the guard doesn't accept such a gift.\n\nIn order to pass through a guardpost, one needs to bribe both guards.\n\nThe shop has an unlimited amount of juice and chocolate of any price starting with $ 1 $ . Dima wants to choose some guardpost, buy one gift for each guard from the guardpost and spend exactly $ n $ rubles on it.\n\nHelp him choose a post through which he can safely sneak Inna or otherwise say that this is impossible. Mind you, Inna would be very sorry to hear that!",
+    "inputFormat": "The first line of the input contains integer $ n\u00a0(1<=n<=10^{5}) $ \u2014 the money Dima wants to spend. Then follow four lines describing the guardposts. Each line contains four integers $ a,b,c,d\u00a0(1<=a,b,c,d<=10^{5}) $ \u2014 the minimum price of the chocolate and the minimum price of the juice for the first guard and the minimum price of the chocolate and the minimum price of the juice for the second guard, correspondingly.",
+    "outputFormat": "In a single line of the output print three space-separated integers: the number of the guardpost, the cost of the first present and the cost of the second present. If there is no guardpost Dima can sneak Inna through at such conditions, print -1 in a single line.\n\nThe guardposts are numbered from $ 1 $ to $ 4 $ according to the order given in the input.\n\nIf there are multiple solutions, you can print any of them.",
+    "samples": [
+        [
+            "10\n5 6 5 6\n6 6 7 7\n5 8 6 6\n9 9 9 9\n",
+            "1 5 5\n"
+        ],
+        [
+            "10\n6 6 6 6\n7 7 7 7\n4 4 4 4\n8 8 8 8\n",
+            "3 4 6\n"
+        ],
+        [
+            "5\n3 3 3 3\n3 3 3 3\n3 3 3 3\n3 3 3 3\n",
+            "-1\n"
+        ]
+    ],
+    "hint": "Explanation of the first example.\n\nThe only way to spend 10 rubles to buy the gifts that won't be less than the minimum prices is to buy two 5 ruble chocolates to both guards from the first guardpost.\n\nExplanation of the second example.\n\nDima needs 12 rubles for the first guardpost, 14 for the second one, 16 for the fourth one. So the only guardpost we can sneak through is the third one. So, Dima can buy 4 ruble chocolate for the first guard and 6 ruble juice of the second guard.",
+    "translation": "### \u9898\u610f\u7ffb\u8bd1\n\u7ed9\u4f60 $4$ \u884c\uff0c\u6bcf\u884c $4$ \u4e2a\u6570\uff0c\u5206\u522b\u4e3a $a$\uff0c$b$\uff0c$c$\uff0c$d$\u3002\u95ee\u662f\u5426\u5b58\u5728\u4e00\u7ec4  $\\min(a,b) \\le x ; \\min(c,d) \\le y;min(a,b) \\le x;min(c,d) \\le y$ \u4e14 $x+y=n$\u3002"
+}

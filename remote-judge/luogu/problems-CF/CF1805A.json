@@ -1,0 +1,13 @@
+{
+    "description": "There is an array $ a $ consisting of non-negative integers. You can choose an integer $ x $ and denote $ b_i=a_i \\oplus x $ for all $ 1 \\le i \\le n $ , where $ \\oplus $ denotes the [bitwise XOR operation](https://en.wikipedia.org/wiki/Bitwise_operation#XOR). Is it possible to choose such a number $ x $ that the value of the expression $ b_1 \\oplus b_2 \\oplus \\ldots \\oplus b_n $ equals $ 0 $ ?\n\nIt can be shown that if a valid number $ x $ exists, then there also exists $ x $ such that ( $ 0 \\le x < 2^8 $ ).",
+    "inputFormat": "Each test contains multiple test cases. The first line contains the number of test cases $ t $ ( $ 1 \\le t \\le 1000 $ ). The description of the test cases follows.\n\nThe first line of the test case contains one integer $ n $ ( $ 1 \\le n \\le 10^3 $ ) \u2014 the length of the array $ a $ .\n\nThe second line of the test case contains $ n $ integers \u2014 array $ a $ ( $ 0 \\le a_i < 2^8 $ ).\n\nIt is guaranteed that the sum of $ n $ over all test cases does not exceed $ 10^3 $ .",
+    "outputFormat": "For each set test case, print the integer $ x $ ( $ 0 \\le x < 2^8 $ ) if it exists, or $ -1 $ otherwise.",
+    "samples": [
+        [
+            "5\n3\n1 2 5\n3\n1 2 3\n4\n0 1 2 3\n4\n1 2 2 3\n1\n1",
+            "6\n0\n3\n-1\n1"
+        ]
+    ],
+    "hint": "In the first test case, after applying the operation with the number $ 6 $ the array $ b $ becomes $ [7, 4, 3] $ , $ 7 \\oplus 4 \\oplus 3 = 0 $ .\n\nThere are other answers in the third test case, such as the number $ 0 $ .",
+    "translation": "\u7ed9\u51fa\u4e00\u4e2a\u7531\u975e\u8d1f\u6574\u6570\u7ec4\u6210\u7684\u5e8f\u5217 $a$\uff0c\u8bf7\u4f60\u9009\u62e9\u4e00\u4e2a $x$\uff0c\u4f7f\u5f97 $ (a_1 \\oplus x) \\oplus (a_2 \\oplus x) \\oplus \\dots \\oplus (a_n \\oplus x) = 0$\u3002\u8bf7\u6c42\u51fa $x$\uff0c\u6216\u8005\u8f93\u51fa $-1$ \u8868\u793a\u4e0d\u53ef\u80fd\u3002"
+}

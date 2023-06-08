@@ -1,0 +1,29 @@
+{
+    "description": "Ksenia has a chessboard of size $ n\u00d7m $ . Each cell of the chessboard contains one of the characters: \"<\", \">\", \"^\", \"v\", \"\\#\". The cells that contain character \"\\#\" are blocked. We know that all chessboard cells that touch the border are blocked.\n\nKsenia is playing with two pawns on this chessboard. Initially, she puts the pawns on the chessboard. One cell of the chessboard can contain two pawns if and only if the cell is blocked. In other cases two pawns can not stand in one cell. The game begins when Ksenia put pawns on the board. In one move, Ksenia moves each pawn to a side adjacent cell in the direction of arrows painted on the cell on which the corresponding pawn sits (if the pawn sits on \"\\#\", it does not move). Assume that Ksenia moves pawns simultaneously (see the second test case).\n\nOf course, Ksenia plays for points. How can one calculate the points per game? Very simply! Let's count how many movements the first pawn made and how many movements the second pawn made, sum these two numbers \u2014 it will be the resulting score of the game.\n\nKsenia wonders: what is the maximum number of points she can earn (for that, she should place the pawns optimally well early in the game). Help her and find that number.",
+    "inputFormat": "The first line contains two integers, $ n $ and $ m $ $ (1<=n,m<=2000) $ \u2014 the sizes of the board. Each of the following $ n $ lines contains $ m $ characters \u2013 the board's description. Each character is one of the characters: \"<\", \">\", \"^\", \"v\", \"\\#\".\n\nIt is guaranteed that the border cells of the table are blocked cells (with character \"\\#\").",
+    "outputFormat": "If Ksenia can get infinitely many points, print -1. Otherwise, print the maximum number of points she can get.",
+    "samples": [
+        [
+            "1 1\n#\n",
+            "0\n"
+        ],
+        [
+            "3 4\n####\n#&gt;^{}#\n####\n",
+            "3"
+        ],
+        [
+            "3 4\n####\n#&gt;&lt;#\n####\n",
+            "-1"
+        ],
+        [
+            "7 5\n#####\n##v##\n##v##\n#####\n##^{}##\n##^{}##\n#####\n",
+            "4"
+        ],
+        [
+            "7 5\n#####\n##v##\n##v##\n##&lt;##\n##^{}##\n##^{}##\n#####",
+            "5"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u6709\u4e00\u4e2a $n\\times m$ \u7684\u68cb\u76d8\uff0c\u68cb\u76d8\u4e2d\u7684\u6bcf\u4e00\u683c\u90fd\u5199\u7740\u4ee5\u4e0b\u4e94\u4e2a\u5b57\u7b26\u4e4b\u4e00\uff1a`<`, `>`, `^`, `v`, `#`\uff0c\u5176\u4e2d `#` \u8868\u793a\u683c\u5b50\u88ab\u963b\u6321\u3002\u5df2\u77e5\u6240\u6709\u4f4d\u4e8e\u68cb\u76d8\u8fb9\u754c\u7684\u683c\u5b50\u90fd\u88ab\u963b\u6321\u3002\n\n\u521d\u59cb\u65f6\u628a\u4e24\u4e2a\u58eb\u5175\u4efb\u610f\u653e\u5728\u68cb\u76d8\u4e0a\u3002\u9664\u4e86\u88ab\u963b\u6321\u7684\u683c\u5b50\u53ef\u5bb9\u7eb3\u4e24\u4e2a\u58eb\u5175\u4ee5\u5916\uff0c\u5176\u4f59\u683c\u5b50\u6700\u591a\u80fd\u5bb9\u7eb3\u4e00\u4e2a\u58eb\u5175\u3002\u5728\u6e38\u620f\u7684\u6bcf\u4e00\u8f6e\u4e2d\uff0c\u6bcf\u4e2a\u58eb\u5175\u5411\u6240\u5728\u683c\u5b50\u7684\u7bad\u5934\u65b9\u5411\u79fb\u52a8\u4e00\u683c\uff08\u82e5\u5728\u88ab\u963b\u6321\u7684\u683c\u5b50\u4e0a\u5219\u65e0\u6cd5\u79fb\u52a8\uff09\u3002\u5047\u8bbe\u4e24\u4e2a\u58eb\u5175\u662f\u540c\u65f6\u79fb\u52a8\u7684\u3002\n\n\u6e38\u620f\u7684\u5f97\u5206\u8bb0\u4e3a\u4e24\u4e2a\u58eb\u5175\u6240\u8d70\u8fc7\u7684\u6b65\u6570\u4e4b\u548c\u3002\u5bf9\u4e8e\u4e0d\u540c\u7684\u58eb\u5175\u521d\u59cb\u4f4d\u7f6e\uff0c\u5f97\u5206\u4e5f\u4e0d\u76f8\u540c\u3002\u8bf7\u8f93\u51fa\u53ef\u80fd\u83b7\u5f97\u7684\u6700\u5927\u5f97\u5206\u3002\u82e5\u5f97\u5206\u53ef\u8fbe\u5230\u4efb\u610f\u5927\uff0c\u8f93\u51fa $-1$\u3002"
+}

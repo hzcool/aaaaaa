@@ -1,0 +1,17 @@
+{
+    "description": "There are $ n $ stone quarries in Petrograd.\n\nEach quarry owns $ m_{i} $ dumpers ( $ 1<=i<=n $ ). It is known that the first dumper of the $ i $ -th quarry has $ x_{i} $ stones in it, the second dumper has $ x_{i}+1 $ stones in it, the third has $ x_{i}+2 $ , and the $ m_{i} $ -th dumper (the last for the $ i $ -th quarry) has $ x_{i}+m_{i}-1 $ stones in it.\n\nTwo oligarchs play a well-known game Nim. Players take turns removing stones from dumpers. On each turn, a player can select any dumper and remove any non-zero amount of stones from it. The player who cannot take a stone loses.\n\nYour task is to find out which oligarch will win, provided that both of them play optimally. The oligarchs asked you not to reveal their names. So, let's call the one who takes the first stone \u00abtolik\u00bb and the other one \u00abbolik\u00bb.",
+    "inputFormat": "The first line of the input contains one integer number $ n $ ( $ 1<=n<=10^{5} $ ) \u2014 the amount of quarries. Then there follow $ n $ lines, each of them contains two space-separated integers $ x_{i} $ and $ m_{i} $ ( $ 1<=x_{i},m_{i}<=10^{16} $ ) \u2014 the amount of stones in the first dumper of the $ i $ -th quarry and the number of dumpers at the $ i $ -th quarry.",
+    "outputFormat": "Output \u00abtolik\u00bb if the oligarch who takes a stone first wins, and \u00abbolik\u00bb otherwise.",
+    "samples": [
+        [
+            "2\n2 1\n3 2\n",
+            "tolik\n"
+        ],
+        [
+            "4\n1 1\n1 1\n1 1\n1 1\n",
+            "bolik\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7b2c\u4e00\u884c\u7ed9\u51fa $N$ \u8868\u793a\u6709 $N$ \u4e2a\u91c7\u77f3\u573a\uff0c\u63a5\u4e0b\u6765 $N$ \u884c\u6bcf\u4e00\u884c\u4e00\u4e2a $X_i$ \u4e00\u4e2a $M_i$\uff0c\u8868\u793a\u7b2c $i$ \u4e2a\u91c7\u77f3\u573a\u6709 $M_i$ \u8f86\u8f66\uff0c\u8fd9\u4e2a\u91c7\u77f3\u573a\u4e2d\u7b2c $1$ \u8f86\u8f66\u7684\u77f3\u5934\u6570\u91cf\u662f $X_i$\uff0c\u7b2c $2$ \u8f86\u8f66\u4e2d\u6709 $X_i+1$ \u4e2a\u77f3\u5934......\u7b2c $M_i$ \u8f86\u8f66\u7684\u77f3\u5934\u7684\u6570\u91cf\u662f $X_i+M_i-1$\u3002\n\n\u6709\u4e24\u4e2a\u4eba\u6bcf\u6b21\u4ece\u4efb\u610f\u4e00\u8f86\u8f66\u4e2d\u53d6\u4efb\u610f\u6570\u91cf\u7684\u77f3\u5934\uff08\u4e0d\u80fd\u4e3a $0$ \uff09\uff0c\u6700\u540e\u4e00\u4e2a\u53d6\u5b8c\u6240\u6709\u77f3\u5934\u7684\u8d62\u3002\u82e5\u5148\u624b\u8d62\u8f93\u51fa\"tolik\"\uff0c\u540e\u624b\u8d62\u8f93\u51fa\"bolik\"\u3002\n\n$1\\le n\\le 10^5$\n\n$1\\le x_i,m_i\\le 10^{16}$\n"
+}

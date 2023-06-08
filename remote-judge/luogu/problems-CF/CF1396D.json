@@ -1,0 +1,21 @@
+{
+    "description": "Shrimpy Duc is a fat and greedy boy who is always hungry. After a while of searching for food to satisfy his never-ending hunger, Shrimpy Duc finds M&amp;M candies lying unguarded on a $ L \\times       L $ grid. There are $ n $ M&amp;M candies on the grid, the $ i $ -th M&amp;M is currently located at $ (x_i + 0.5, y_i +       0.5), $ and has color $ c_i $ out of a total of $ k $ colors (the size of M&amp;Ms are insignificant).\n\nShrimpy Duc wants to steal a rectangle of M&amp;Ms, specifically, he wants to select a rectangle with integer coordinates within the grid and steal all candies within the rectangle. Shrimpy Duc doesn't need to steal every single candy, however, he would like to steal at least one candy for each color.\n\nIn other words, he wants to select a rectangle whose sides are parallel to the coordinate axes and whose left-bottom vertex $ (X_1, Y_1) $ and right-top vertex $ (X_2, Y_2) $ are points with integer coordinates satisfying $ 0 \\le X_1 < X_2 \\le L $ and $ 0 \\le Y_1 < Y_2 \\le L $ , so that for every color $ 1       \\le c \\le k $ there is at least one M&amp;M with color $ c $ that lies within that rectangle.\n\nHow many such rectangles are there? This number may be large, so you only need to find it modulo $ 10^9 + 7 $ .",
+    "inputFormat": "The first line contains three positive integers $ n, k, L $ $ (1 \\leq k \\leq n \\leq 2 \\cdot 10^3, 1 \\leq L \\leq 10^9 ) $ \u2014 the number of M&amp;Ms, the number of colors and the length of the grid respectively.\n\nThe following $ n $ points describe the M&amp;Ms. Each line contains three integers $ x_i, y_i, c_i $ $ (0 \\leq x_i, y_i       < L, 1 \\le c_i \\le k) $ \u2014 the coordinates and color of the $ i $ -th M&amp;M respectively.\n\nDifferent M&amp;Ms have different coordinates ( $ x_i \\ne x_j $ or $ y_i \\ne y_j $ for every $ i \\ne j $ ), and for every $ 1       \\le c \\le k $ there is at least one M&amp;M with color $ c $ .",
+    "outputFormat": "Output a single integer \u2014 the number of rectangles satisfying Shrimpy Duc's conditions, modulo $ 10^9 + 7 $ .",
+    "samples": [
+        [
+            "4 2 4\n3 2 2\n3 1 1\n1 1 1\n1 2 1",
+            "20"
+        ],
+        [
+            "5 3 10\n6 5 3\n5 3 1\n7 9 1\n2 3 2\n5 0 2",
+            "300"
+        ],
+        [
+            "10 4 10\n5 4 4\n0 0 3\n6 0 1\n3 9 2\n8 7 1\n8 1 3\n2 1 3\n6 3 2\n3 5 3\n4 3 4",
+            "226"
+        ]
+    ],
+    "hint": "Grid for the first sample:\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1396D/87d4986f66d2e50903924ec6780f2b0776d8fbb4.png)",
+    "translation": "\u4f60\u6709\u4e00\u4e2a $L \\times L$ \u7684\u77e9\u5f62\uff08$L \\le {10}^9$\uff09\uff0c\u518d\u7ed9\u4f60 $n$ \u4e2a\u70b9\uff08$n \\le 2 \\times {10}^3$\uff09\u3002\u6bcf\u4e2a\u70b9\u7531\u4e09\u4e2a\u975e\u8d1f\u6574\u6570 $x, y, c$\u3002\u8868\u793a\u5b83\u7684\u4f4d\u7f6e\u662f $(x+0.5, y+0.5)$\uff0c\u989c\u8272\u662f $c$\uff0c\u8bf7\u4f60\u6c42\u51fa\u6709\u591a\u5c11\u4e2a\u7aef\u70b9\u662f\u6574\u70b9\u7684\u77e9\u5f62\u53ef\u4ee5\u5708\u51fa\u6240\u6709\u989c\u8272\u7684\u70b9\u81f3\u5c11\u6709\u4e00\u4e2a\u3002\u60a8\u9700\u8981\u5bf9\u8fd9\u4e2a\u7b54\u6848\u6a21\u4e0a ${10}^9 + 7$\u3002"
+}

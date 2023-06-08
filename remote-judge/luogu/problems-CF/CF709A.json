@@ -1,0 +1,25 @@
+{
+    "description": "Kolya is going to make fresh orange juice. He has $ n $ oranges of sizes $ a_{1},a_{2},...,a_{n} $ . Kolya will put them in the juicer in the fixed order, starting with orange of size $ a_{1} $ , then orange of size $ a_{2} $ and so on. To be put in the juicer the orange must have size not exceeding $ b $ , so if Kolya sees an orange that is strictly greater he throws it away and continues with the next one.\n\nThe juicer has a special section to collect waste. It overflows if Kolya squeezes oranges of the total size strictly greater than $ d $ . When it happens Kolya empties the waste section (even if there are no more oranges) and continues to squeeze the juice. How many times will he have to empty the waste section?",
+    "inputFormat": "The first line of the input contains three integers $ n $ , $ b $ and $ d $ ( $ 1<=n<=100000 $ , $ 1<=b<=d<=1000000 $ ) \u2014 the number of oranges, the maximum size of the orange that fits in the juicer and the value $ d $ , which determines the condition when the waste section should be emptied.\n\nThe second line contains $ n $ integers $ a_{1},a_{2},...,a_{n} $ ( $ 1<=a_{i}<=1000000 $ ) \u2014 sizes of the oranges listed in the order Kolya is going to try to put them in the juicer.",
+    "outputFormat": "Print one integer \u2014 the number of times Kolya will have to empty the waste section.",
+    "samples": [
+        [
+            "2 7 10\n5 6\n",
+            "1\n"
+        ],
+        [
+            "1 5 10\n7\n",
+            "0\n"
+        ],
+        [
+            "3 10 10\n5 7 7\n",
+            "1\n"
+        ],
+        [
+            "1 1 1\n1\n",
+            "0\n"
+        ]
+    ],
+    "hint": "In the first sample, Kolya will squeeze the juice from two oranges and empty the waste section afterwards.\n\nIn the second sample, the orange won't fit in the juicer so Kolya will have no juice at all.",
+    "translation": "### \u9898\u76ee\u5927\u610f\n\u5df2\u77e5\u4e00\u6761\u6d41\u6c34\u7ebf\u6709 $n$ \u4e2a\u8d27\u7269\u8981\u88c5\u8f7d\uff0c\u9700\u8981\u88c5\u8f7d\u8d27\u7269\u7684\u5bb9\u91cf\u5206\u522b\u662f $a_1$\uff0c$a_2$\uff0c$\\dots$\uff0c$a_n$\uff0c\u5982\u679c\u67d0\u4ef6\u8d27\u7269\u5bb9\u91cf\u8d85\u8fc7 $b$\uff0c\u4e3a\u4e0d\u5408\u683c\u8d27\u7269\uff0c\u4e0d\u88c5\u8f7d\uff0c\u4e22\u5f03\u3002  \n\u3000  \n\u88c5\u8f7d\u8d27\u7269\u7684\u7bb1\u5b50\u5bb9\u91cf\u4e3a $d$\uff0c\u53ef\u4ee5\u4e00\u76f4\u88c5\u8f7d\u6d41\u6c34\u7ebf\u8fc7\u6765\u7684\u5408\u683c\u8d27\u7269\uff0c\u76f4\u5230\u8d85\u8fc7\u5bb9\u91cf $d$ \u65f6\uff0c\u505a\u4e00\u6b21\u7279\u6b8a\u7684\u538b\u7f29\u5904\u7406\uff0c\u7136\u540e\u5c01\u88c5\uff0c\u4e4b\u540e\u6362\u65b0\u7684\u7bb1\u5b50\u7ee7\u7eed\u5982\u6b64\u5b89\u88c5\u3002  \n\u3000  \n### \u6570\u636e\u8f93\u5165\n\n\u7b2c\u4e00\u884c\uff0c\u8f93\u5165\u4e09\u4e2a\u6574\u6570 $n$\uff0c$b$\uff0c$d$  \n\u7b2c\u4e8c\u884c\uff0c\u8f93\u5165 $n$ \u4e2a\u6574\u6570 $a_i$\n\n### \u6570\u636e\u8f93\u51fa  \n\n\u4e00\u884c\uff0c\u8f93\u51fa\u538b\u7f29\u5904\u7406\u7684\u6b21\u6570 $cnt$\n\n### \u6837\u4f8b\u89e3\u91ca\n\n\u6837\u4f8b $2$\uff1a\u6b64\u6837\u4f8b\u6ca1\u6709\u5408\u683c\u4ea7\u54c1  \n  \u3000   \n\u6837\u4f8b $3$\uff1a$5$ \u548c $7$ \u7279\u6b8a\u538b\u7f29\u4e00\u6b21  \n\u3000  \n\u6837\u4f8b $4$\uff1a\u5bb9\u91cf\u53ea\u6709 $1$\uff0c\u6ca1\u6709\u8d85\u8fc7 $1$\uff0c\u4e0d\u9700\u8981\u7279\u6b8a\u538b\u7f29\n\n### \u6570\u636e\u89c4\u6a21\n\n$1\\leq n\\leq 100000$  \n$1\\leq b\\leq d\\leq 1000000$  \n$1\\leq a_i\\leq 1000000$  "
+}

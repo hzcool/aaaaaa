@@ -1,0 +1,17 @@
+{
+    "description": "You are given a directed graph with $ n $ nodes and $ m $ edges, with all edges having a certain weight.\n\nThere might be multiple edges and self loops, and the graph can also be disconnected.\n\nYou need to choose a path (possibly passing through same vertices multiple times) in the graph such that the weights of the edges are in strictly increasing order, and these edges come in the order of input. Among all such paths, you need to find the the path that has the maximum possible number of edges, and report this value.\n\nPlease note that the edges picked don't have to be consecutive in the input.",
+    "inputFormat": "The first line contains two integers $ n $ and $ m $ ( $ 1<=n<=100000 $ , $ 1<=m<=100000 $ ) \u2014 the number of vertices and edges in the graph, respectively.\n\n $ m $ lines follows.\n\nThe $ i $ -th of these lines contains three space separated integers $ a_{i} $ , $ b_{i} $ and $ w_{i} $ ( $ 1<=a_{i},b_{i}<=n $ , $ 0<=w_{i}<=100000 $ ), denoting an edge from vertex $ a_{i} $ to vertex $ b_{i} $ having weight $ w_{i} $",
+    "outputFormat": "Print one integer in a single line \u2014 the maximum number of edges in the path.",
+    "samples": [
+        [
+            "3 3\n3 1 3\n1 2 1\n2 3 2\n",
+            "2"
+        ],
+        [
+            "5 5\n1 3 2\n3 2 3\n3 4 5\n5 4 0\n4 5 8\n",
+            "3"
+        ]
+    ],
+    "hint": "The answer for the first sample input is $ 2 $ : ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF960F/64f1808592d29bd3c0ddf93b30b30da2e43f461a.png). Note that you cannot traverse ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF960F/701350564a202a853dc0a2e9276e318c9ca164a2.png) because edge ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF960F/b59064b21bfeab8af7de18849682bc80881d0361.png) appears earlier in the input than the other two edges and hence cannot be picked/traversed after either of the other two edges.\n\nIn the second sample, it's optimal to pick $ 1 $ -st, $ 3 $ -rd and $ 5 $ -th edges to get the optimal answer: ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF960F/da8446025ba10d3435163cc331ea49b0612f49e8.png).",
+    "translation": "### \u9898\u76ee\u63cf\u8ff0\n\n\u7ed9\u5b9a $n$ \u4e2a\u70b9 $m$ \u6761\u8fb9\u7684\u6709\u5411\u56fe\uff0c\u53ef\u80fd\u4e0d\u8fde\u901a\uff0c\u53ef\u80fd\u6709\u91cd\u8fb9\uff0c\u4e5f\u53ef\u80fd\u4f1a\u6709\u81ea\u73af\u3002\u6c42\u6700\u957f\u7684\u8def\u5f84(\u53ef\u4ee5\u7ecf\u8fc7\u91cd\u590d\u8282\u70b9)\uff0c\u4f7f\u5f97\u8fd9\u6761\u8def\u5f84\u7684\u7f16\u53f7\u548c\u6743\u503c\u90fd**\u4e25\u683c**\u5355\u8c03\u9012\u589e\uff0c\u5176\u4e2d\u7f16\u53f7\u6307\u8f93\u5165\u7684\u987a\u5e8f\u3002\u8def\u5f84\u7684\u957f\u5ea6\u662f\u6307\u7ecf\u8fc7\u8fb9\u7684\u6570\u91cf\u3002\n\n### \u8f93\u5165\u683c\u5f0f\n\n\u7b2c\u4e00\u884c\u4e24\u4e2a\u6574\u6570 $n,m$\u3002\n\n\u7b2c\u4e8c\u884c\u5230\u7b2c $m+1$ \u884c\uff0c\u6bcf\u884c\u4e09\u4e2a\u6574\u6570 $a,b,k$\uff0c\u8868\u793a\u9876\u70b9 $a$ \u4e0e\u9876\u70b9 $b$ \u6709\u4e00\u6761\u8fb9\u76f8\u8fde\uff0c\u8fb9\u6743\u4e3a $k$\u3002\n\n### \u8f93\u51fa\u683c\u5f0f \n\n\u4e00\u884c\u4e00\u4e2a\u6574\u6570\uff0c\u8868\u793a\u6700\u957f\u7684\u8def\u5f84\u7684\u957f\u5ea6\u3002\n\n\n$1\\leq n,m\\leq10^5$\uff0c$0\\le w_i\\le10^5$\u3002\n\nretranslated by @\u768e\u6708\u534a\u6d12\u82b1\u3002"
+}

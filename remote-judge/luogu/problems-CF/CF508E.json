@@ -1,0 +1,25 @@
+{
+    "description": "Notice that the memory limit is non-standard.\n\nRecently Arthur and Sasha have studied correct bracket sequences. Arthur understood this topic perfectly and become so amazed about correct bracket sequences, so he even got himself a favorite correct bracket sequence of length $ 2n $ . Unlike Arthur, Sasha understood the topic very badly, and broke Arthur's favorite correct bracket sequence just to spite him.\n\nAll Arthur remembers about his favorite sequence is for each opening parenthesis ('(') the approximate distance to the corresponding closing one (')'). For the $ i $ -th opening bracket he remembers the segment $ [l_{i},r_{i}] $ , containing the distance to the corresponding closing bracket.\n\nFormally speaking, for the $ i $ -th opening bracket (in order from left to right) we know that the difference of its position and the position of the corresponding closing bracket belongs to the segment $ [l_{i},r_{i}] $ .\n\nHelp Arthur restore his favorite correct bracket sequence!",
+    "inputFormat": "The first line contains integer $ n $ ( $ 1<=n<=600 $ ), the number of opening brackets in Arthur's favorite correct bracket sequence.\n\nNext $ n $ lines contain numbers $ l_{i} $ and $ r_{i} $ ( $ 1<=l_{i}<=r_{i}&lt;2n $ ), representing the segment where lies the distance from the $ i $ -th opening bracket and the corresponding closing one.\n\nThe descriptions of the segments are given in the order in which the opening brackets occur in Arthur's favorite sequence if we list them from left to right.",
+    "outputFormat": "If it is possible to restore the correct bracket sequence by the given data, print any possible choice.\n\nIf Arthur got something wrong, and there are no sequences corresponding to the given information, print a single line \"IMPOSSIBLE\" (without the quotes).",
+    "samples": [
+        [
+            "4\n1 1\n1 1\n1 1\n1 1\n",
+            "()()()()\n"
+        ],
+        [
+            "3\n5 5\n3 3\n1 1\n",
+            "((()))\n"
+        ],
+        [
+            "3\n5 5\n3 3\n2 2\n",
+            "IMPOSSIBLE\n"
+        ],
+        [
+            "3\n2 3\n1 4\n1 4\n",
+            "(())()\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u4e00\u4e2a\u957f\u4e3a2n\u7684\u62ec\u53f7\u5e8f\u5217\uff0c\u5de6\u62ec\u53f7\u548c\u53f3\u62ec\u53f7\u90fd\u662fn\u4e2a\u3002\r\n\r\n\u5bf9\u4e8e\u4ece\u5de6\u5230\u53f3\u7684\u7b2ci\u4e2a\u5de6\u62ec\u53f7\uff0c\u5bf9\u4e0e\u5176\u914d\u5bf9\u7684\u53f3\u62ec\u53f7\u6709\u5982\u4e0b\u9650\u5236\uff1a\r\n\r\n\u4e0e\u5176\u914d\u5bf9\u7684\u53f3\u62ec\u53f7\u548c\u8fd9\u4e2a\u5de6\u62ec\u53f7\u4e4b\u95f4\u7684\u8ddd\u79bb\u9700\u8981\u5728 [ Li , Ri ] \u4e4b\u95f4\u3002\r\n\r\n\u8f93\u5165\u7684\u7b2c\u4e00\u884c\u7ed9\u51fan\uff081<=n<=600\uff09\u3002\r\n\r\n\u4e4b\u540e\u7684n\u884c\uff0c\u7ed9\u51fa\u9650\u5236\uff1aLi\u3001Ri\u3002\r\n\r\n\u5982\u679c\u6ee1\u8db3\u9650\u5236\u7684\u62ec\u53f7\u5e8f\u5217\u5b58\u5728\uff0c\u8f93\u51fa\u4efb\u610f\u4e00\u4e2a\u5373\u53ef\u3002\r\n\r\n\u5426\u5219\u8f93\u51fa\"IMPOSSIBLE\"\uff08\u4e0d\u5305\u542b\u5f15\u53f7\uff09\u3002"
+}

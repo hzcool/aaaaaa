@@ -1,0 +1,21 @@
+{
+    "description": "You are an adventurer currently journeying inside an evil temple. After defeating a couple of weak zombies, you arrived at a square room consisting of tiles forming an $ n\u00d7n $ grid. The rows are numbered $ 1 $ through $ n $ from top to bottom, and the columns are numbered $ 1 $ through $ n $ from left to right. At the far side of the room lies a door locked with evil magical forces. The following inscriptions are written on the door:\n\n The cleaning of all evil will awaken the door!Being a very senior adventurer, you immediately realize what this means. You notice that every single cell in the grid are initially evil. You should purify all of these cells.\n\nThe only method of tile purification known to you is by casting the \"Purification\" spell. You cast this spell on a single tile \u2014 then, all cells that are located in the same row and all cells that are located in the same column as the selected tile become purified (including the selected tile)! It is allowed to purify a cell more than once.\n\nYou would like to purify all $ n\u00d7n $ cells while minimizing the number of times you cast the \"Purification\" spell. This sounds very easy, but you just noticed that some tiles are particularly more evil than the other tiles. You cannot cast the \"Purification\" spell on those particularly more evil tiles, not even after they have been purified. They can still be purified if a cell sharing the same row or the same column gets selected by the \"Purification\" spell.\n\nPlease find some way to purify all the cells with the minimum number of spells cast. Print -1 if there is no such way.",
+    "inputFormat": "The first line will contain a single integer $ n $ ( $ 1<=n<=100 $ ). Then, $ n $ lines follows, each contains $ n $ characters. The $ j $ -th character in the $ i $ -th row represents the cell located at row $ i $ and column $ j $ . It will be the character 'E' if it is a particularly more evil cell, and '.' otherwise.",
+    "outputFormat": "If there exists no way to purify all the cells, output -1. Otherwise, if your solution casts $ x $ \"Purification\" spells (where $ x $ is the minimum possible number of spells), output $ x $ lines. Each line should consist of two integers denoting the row and column numbers of the cell on which you should cast the \"Purification\" spell.",
+    "samples": [
+        [
+            "3\n.E.\nE.E\n.E.\n",
+            "1 1\n2 2\n3 3\n"
+        ],
+        [
+            "3\nEEE\nE..\nE.E\n",
+            "-1\n"
+        ],
+        [
+            "5\nEE.EE\nE.EE.\nE...E\n.EE.E\nEE.EE\n",
+            "3 3\n1 3\n2 2\n4 4\n5 3"
+        ]
+    ],
+    "hint": "The first example is illustrated as follows. Purple tiles are evil tiles that have not yet been purified. Red tile is the tile on which \"Purification\" is cast. Yellow tiles are the tiles being purified as a result of the current \"Purification\" spell. Green tiles are tiles that have been purified previously.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF329A/04b73f6bd6d4f5c1ba16b8072ebad28ccdfa62cc.png)In the second example, it is impossible to purify the cell located at row $ 1 $ and column $ 1 $ .\n\nFor the third example:\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF329A/8ffcc7f3e4ed4b4242d89f880e88ffce0ed4e4ab.png)",
+    "translation": "\u7ffb\u8bd1\uff1a\u4f60\u8981\u51c0\u5316\u4e00\u7247\u5927\u5c0f\u4e3a $ n \\times n $ \u7684\u571f\u5730\u3002\u5b9a\u4e49\u4e00\u6b21\u64cd\u4f5c\uff1a\u4f60\u53ef\u4ee5\u9009\u4e00\u4e2a\u4e0d\u662f $ \\texttt {E} $ \u70b9\u7684\u70b9\uff0c\u5f53\u4f60\u9009\u62e9\u4e00\u4e2a\u70b9\u65f6\uff0c\u4e0e\u8fd9\u4e2a\u70b9\u7684\u6a2a\u5750\u6807\u6216\u7eb5\u5750\u6807\u76f8\u7b49\u7684\u70b9\u5168\u88ab\u51c0\u5316\uff0c\u6bcf\u4e2a\u70b9\u53ef\u4ee5\u88ab\u51c0\u5316\u591a\u6b21\uff0c\u4f60\u8981\u7528\u6700\u5c11\u7684\u64cd\u4f5c\u6b21\u6570\u628a\u8fd9\u7247\u571f\u5730\u51c0\u5316\u5b8c\uff0c\u8f93\u51fa\u6240\u6709\u4f60\u9009\u62e9\u7684\u70b9\u7684\u5750\u6807\u3002\n\nby [UID 593299](https://www.luogu.com.cn/user/593299)"
+}

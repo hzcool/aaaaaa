@@ -1,0 +1,17 @@
+{
+    "description": "This is an easier version of the problem with smaller constraints.\n\nKorney Korneevich dag up an array $ a $ of length $ n $ . Korney Korneevich has recently read about the operation [bitwise XOR](https://en.wikipedia.org/wiki/Bitwise_operation#XOR), so he wished to experiment with it. For this purpose, he decided to find all integers $ x \\ge 0 $ such that there exists an increasing subsequence of the array $ a $ , in which the bitwise XOR of numbers is equal to $ x $ .\n\nIt didn't take a long time for Korney Korneevich to find all such $ x $ , and he wants to check his result. That's why he asked you to solve this problem!\n\nA sequence $ s $ is a subsequence of a sequence $ b $ if $ s $ can be obtained from $ b $ by deletion of several (possibly, zero or all) elements.\n\nA sequence $ s_1, s_2, \\ldots , s_m $ is called increasing if $ s_1 < s_2 < \\ldots < s_m $ .",
+    "inputFormat": "The first line contains a single integer $ n $ ( $ 1 \\le n \\le 10^5 $ ).\n\nThe second line contains $ n $ integers $ a_1, a_2, \\ldots, a_n $ ( $ 0 \\le a_i \\le 500 $ ) \u2014 the elements of the array $ a $ .",
+    "outputFormat": "In the first line print a single integer $ k $ \u2014 the number of found $ x $ values.\n\nIn the second line print $ k $ integers in increasing order $ x_1, x_2, \\ldots x_k $ ( $ 0 \\le x_1 < \\ldots < x_k $ ) \u2014 found $ x $ values.",
+    "samples": [
+        [
+            "4\n4 2 2 4",
+            "4\n0 2 4 6"
+        ],
+        [
+            "8\n1 0 1 7 12 5 3 2",
+            "12\n0 1 2 3 4 5 6 7 10 11 12 13"
+        ]
+    ],
+    "hint": "In the first test case:\n\n- To get value $ x = 0 $ it is possible to choose and empty subsequence\n- To get value $ x = 2 $ it is possible to choose a subsequence $ [2] $\n- To get value $ x = 4 $ it is possible to choose a subsequence $ [4] $\n- To get value $ x = 6 $ it is possible to choose a subsequence $ [2, 4] $",
+    "translation": "### \u9898\u76ee\u63cf\u8ff0\n\u7ed9\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u5e8f\u5217 $a_1,a_2,\\dots,a_n$ \uff0c\u5bfb\u627e\u5728 $a$ \u7684\u6240\u6709\u9012\u589e\u5b50\u5e8f\u5217\uff08\u53ef\u4ee5\u4e3a\u7a7a\uff09\u7684\u5f02\u6216\u548c\u4e2d\u51fa\u73b0\u7684\u6570\u3002\n### \u8f93\u5165\u683c\u5f0f\n\u7b2c\u4e00\u884c\u4e00\u4e2a\u6b63\u6574\u6570 $n$ \u8868\u793a\u5e8f\u5217\u957f\u5ea6\u3002\n\n\u7b2c\u4e8c\u884c $n$ \u4e2a\u6574\u6570\u8868\u793a\u5e8f\u5217 $a$ \u3002\n### \u8f93\u51fa\u683c\u5f0f\n\u4ece\u5c0f\u5230\u5927\u8f93\u51fa\u5728 $a$ \u7684\u6240\u6709\u5b50\u5e8f\u5217\uff08\u53ef\u4ee5\u4e3a\u7a7a\uff09\u7684\u5f02\u6216\u548c\u4e2d\u51fa\u73b0\u7684\u6570\u3002\n### \u6570\u636e\u8303\u56f4\n$1\\le n\\le10^5,0\\le a_i\\le500$ \u3002\n### \u6837\u4f8b\u89e3\u91ca\n\u5bf9\u4e8e\u7b2c\u4e00\u4e2a\u6837\u4f8b\uff1a\n- \u5b50\u5e8f\u5217 $\\{\\}$ \u7684\u5f02\u6216\u548c\u4e3a $0$ \u3002\n- \u5b50\u5e8f\u5217 $\\{2\\}$ \u7684\u5f02\u6216\u548c\u4e3a $2$ \u3002\n- \u5b50\u5e8f\u5217 $\\{4\\}$ \u7684\u5f02\u6216\u548c\u4e3a $4$ \u3002\n- \u5b50\u5e8f\u5217 $\\{2,4\\}$ \u7684\u5f02\u6216\u548c\u4e3a $6$ \u3002\n\n\u5176\u4ed6\u5b50\u5e8f\u5217\u7684\u5f02\u6216\u548c\u4e0e\u4e0a\u8ff0\u5176\u4e2d\u4e00\u4e2a\u5b50\u5e8f\u5217\u7684\u5f02\u6216\u548c\u76f8\u7b49\u3002"
+}

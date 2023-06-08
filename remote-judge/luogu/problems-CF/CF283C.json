@@ -1,0 +1,21 @@
+{
+    "description": "In the Isle of Guernsey there are $ n $ different types of coins. For each $ i $ $ (1<=i<=n) $ , coin of type $ i $ is worth $ a_{i} $ cents. It is possible that $ a_{i}=a_{j} $ for some $ i $ and $ j $ $ (i\u2260j) $ .\n\nBessie has some set of these coins totaling $ t $ cents. She tells Jessie $ q $ pairs of integers. For each $ i $ $ (1<=i<=q) $ , the pair $ b_{i},c_{i} $ tells Jessie that Bessie has a strictly greater number of coins of type $ b_{i} $ than coins of type $ c_{i} $ . It is known that all $ b_{i} $ are distinct and all $ c_{i} $ are distinct.\n\nHelp Jessie find the number of possible combinations of coins Bessie could have. Two combinations are considered different if there is some $ i $ $ (1<=i<=n) $ , such that the number of coins Bessie has of type $ i $ is different in the two combinations. Since the answer can be very large, output it modulo $ 1000000007 $ $ (10^{9}+7) $ .\n\nIf there are no possible combinations of coins totaling $ t $ cents that satisfy Bessie's conditions, output 0.",
+    "inputFormat": "The first line contains three space-separated integers, $ n,q $ and $ t $ $ (1<=n<=300;\u00a00<=q<=n;\u00a01<=t<=10^{5}) $ . The second line contains $ n $ space separated integers, $ a_{1},a_{2},...,a_{n} $ $ (1<=a_{i}<=10^{5}) $ . The next $ q $ lines each contain two distinct space-separated integers, $ b_{i} $ and $ c_{i} $ $ (1<=b_{i},c_{i}<=n;\u00a0b_{i}\u2260c_{i}) $ .\n\nIt's guaranteed that all $ b_{i} $ are distinct and all $ c_{i} $ are distinct.",
+    "outputFormat": "A single integer, the number of valid coin combinations that Bessie could have, modulo $ 1000000007 $ $ (10^{9}+7) $ .",
+    "samples": [
+        [
+            "4 2 17\n3 1 2 5\n4 2\n3 4\n",
+            "3\n"
+        ],
+        [
+            "3 2 6\n3 1 1\n1 2\n2 3\n",
+            "0\n"
+        ],
+        [
+            "3 2 10\n1 2 3\n1 2\n2 1\n",
+            "0\n"
+        ]
+    ],
+    "hint": "For the first sample, the following 3 combinations give a total of 17 cents and satisfy the given conditions: $ {0\u00a0of\u00a0type\u00a01,1\u00a0of\u00a0type\u00a02,3\u00a0of\u00a0type\u00a03,2\u00a0of\u00a0type\u00a04},{0,0,6,1},{2,0,3,1} $ .\n\nNo other combinations exist. Note that even though 4 occurs in both $ b_{i} $ and $ c_{i}, $ the problem conditions are still satisfied because all $ b_{i} $ are distinct and all $ c_{i} $ are distinct.",
+    "translation": "\u6709$n$\u79cd\u4e0d\u540c\u7684\u786c\u5e01\uff0c\u6bcf\u4e2a\u786c\u5e01\u6709\u4e00\u4e2a\u4ef7\u503c$a_i$\uff08\u4e0d\u540c\u786c\u5e01\u4ef7\u503c\u53ef\u80fd\u76f8\u540c).\n\n$Bessie$\u6709\u82e5\u5e72\u79cd\u9009\u62e9\u786c\u5e01\u7684\u65b9\u6cd5\u4f7f\u5f97\u9009\u51fa\u7684\u786c\u5e01\u603b\u4ef7\u503c\u4e3a$t.Bessie$\u4f1a\u7ed9\u4f60$q$\u5bf9$(b,c),$\u5e76\u544a\u8bc9\u4f60\u7b2c$b$\u79cd\u786c\u5e01\u7684\u6570\u91cf\u4e25\u683c\u5927\u4e8e\u7b2c$c$\u79cd\u786c\u5e01\u7684\u6570\u91cf.\u4fdd\u8bc1\u8fd9$q$\u5bf9$(b,c)$\u4e2d\u6240\u6709$b$\u90fd\u4e0d\u540c\u4e14\u6240\u6709$c$\u4e5f\u90fd\u4e0d\u540c\u3002 \u95ee\u6709\u591a\u5c11\u79cd\u9009\u62e9\u786c\u5e01\u7684\u65b9\u6cd5\u6ee1\u8db3\u9009\u51fa\u7684\u786c\u5e01\u603b\u4ef7\u503c\u4e3a$t?$\n\n$Bessie$\u8ba4\u4e3a\u4e24\u79cd\u65b9\u6848\u4e0d\u540c\u6307\u7684\u662f\u4e24\u79cd\u65b9\u6848\u5b58\u5728\u81f3\u5c11\u4e00\u79cd\u786c\u5e01\u6570\u91cf\u4e0d\u540c\u3002\n\n\u7b54\u6848\u5bf9$10^9+7$\u53d6\u6a21\u3002"
+}

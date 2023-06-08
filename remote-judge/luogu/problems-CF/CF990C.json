@@ -1,0 +1,17 @@
+{
+    "description": "A bracket sequence is a string containing only characters \"(\" and \")\".\n\nA regular bracket sequence is a bracket sequence that can be transformed into a correct arithmetic expression by inserting characters \"1\" and \"+\" between the original characters of the sequence. For example, bracket sequences \"()()\", \"(())\" are regular (the resulting expressions are: \"(1)+(1)\", \"((1+1)+1)\"), and \")(\" and \"(\" are not.\n\nYou are given $ n $ bracket sequences $ s_1, s_2, \\dots , s_n $ . Calculate the number of pairs $ i, j \\, (1 \\le i, j \\le n) $ such that the bracket sequence $ s_i + s_j $ is a regular bracket sequence. Operation $ + $ means concatenation i.e. \"()(\" + \")()\" = \"()()()\".\n\nIf $ s_i + s_j $ and $ s_j + s_i $ are regular bracket sequences and $ i \\ne j $ , then both pairs $ (i, j) $ and $ (j, i) $ must be counted in the answer. Also, if $ s_i + s_i $ is a regular bracket sequence, the pair $ (i, i) $ must be counted in the answer.",
+    "inputFormat": "The first line contains one integer $ n \\, (1 \\le n \\le 3 \\cdot 10^5) $ \u2014 the number of bracket sequences. The following $ n $ lines contain bracket sequences \u2014 non-empty strings consisting only of characters \"(\" and \")\". The sum of lengths of all bracket sequences does not exceed $ 3 \\cdot 10^5 $ .",
+    "outputFormat": "In the single line print a single integer \u2014 the number of pairs $ i, j \\, (1 \\le i, j \\le n) $ such that the bracket sequence $ s_i + s_j $ is a regular bracket sequence.",
+    "samples": [
+        [
+            "3\n)\n()\n(\n",
+            "2\n"
+        ],
+        [
+            "2\n()\n()\n",
+            "4\n"
+        ]
+    ],
+    "hint": "In the first example, suitable pairs are $ (3, 1) $ and $ (2, 2) $ .\n\nIn the second example, any pair is suitable, namely $ (1, 1), (1, 2), (2, 1), (2, 2) $ .",
+    "translation": "\u7ed9\u51fan\u4e2a\u5b57\u7b26\u4e32\uff0c\u4fdd\u8bc1\u53ea\u5305\u542b'('\u548c')'\uff0c\u6c42\u4ece\u4e2d\u53d62\u4e2a\u5b57\u7b26\u4e32\u94fe\u63a5\u540e\u5f62\u6210\u6b63\u786e\u7684\u62ec\u53f7\u5e8f\u5217\u7684\u65b9\u6848\u6570\uff08\u6bcf\u4e2a\u4e32\u90fd\u53ef\u4ee5\u91cd\u590d\u4f7f\u7528\uff09\uff08\u50cf'()()'\u548c'(())'\u8fd9\u6837\u7684\u90fd\u662f\u5408\u6cd5\u7684\uff0c\u50cf')('\u548c'('\u8fd9\u6837\u7684\u662f\u4e0d\u5408\u6cd5\u7684\uff09\n\n\u8f93\u5165\uff1a\n\n\u7b2c\u4e00\u884c\u4e00\u4e2a\u6574\u6570n\n\n\u7b2c\u4e8c\u884c\u5230\u7b2cn+1\u884c\u6bcf\u884c\u4e00\u4e2a\u5b57\u7b26\u4e32\n\n\u8f93\u51fa\uff1a\n\n\u65b9\u6848\u6570\n\n\u611f\u8c22@zhaotiensn \u63d0\u4f9b\u7ffb\u8bd1"
+}

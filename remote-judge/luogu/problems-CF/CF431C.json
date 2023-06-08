@@ -1,0 +1,25 @@
+{
+    "description": "Quite recently a creative student Lesha had a lecture on trees. After the lecture Lesha was inspired and came up with the tree of his own which he called a $ k $ -tree.\n\nA $ k $ -tree is an infinite rooted tree where:\n\n- each vertex has exactly $ k $ children;\n- each edge has some weight;\n- if we look at the edges that goes from some vertex to its children (exactly $ k $ edges), then their weights will equal $ 1,2,3,...,k $ .\n\nThe picture below shows a part of a 3-tree.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF431C/83eea7df0a509cbc1e6d27ff0b5f74fa2e2e451c.png)\n\n As soon as Dima, a good friend of Lesha, found out about the tree, he immediately wondered: \"How many paths of total weight $ n $ (the sum of all weights of the edges in the path) are there, starting from the root of a $ k $ -tree and also containing at least one edge of weight at least $ d $ ?\".Help Dima find an answer to his question. As the number of ways can be rather large, print it modulo $ 1000000007 $ ( $ 10^{9}+7 $ ).",
+    "inputFormat": "A single line contains three space-separated integers: $ n $ , $ k $ and $ d $ ( $ 1<=n,k<=100; $ $ 1<=d<=k $ ).",
+    "outputFormat": "Print a single integer \u2014 the answer to the problem modulo $ 1000000007 $ ( $ 10^{9}+7 $ ).",
+    "samples": [
+        [
+            "3 3 2\n",
+            "3\n"
+        ],
+        [
+            "3 3 3\n",
+            "1\n"
+        ],
+        [
+            "4 3 2\n",
+            "6\n"
+        ],
+        [
+            "4 5 2\n",
+            "7\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "## \u9898\u76ee\u63cf\u8ff0\n\u6700\u8fd1\u6709\u4e00\u4e2a\u5bcc\u6709\u521b\u9020\u529b\u7684\u5b66\u751fLesha\u542c\u4e86\u4e00\u4e2a\u5173\u4e8e\u6811\u7684\u8bb2\u5ea7\u3002\u5728\u542c\u5b8c\u8bb2\u5ea7\u4e4b\u540e\uff0cLesha\u53d7\u5230\u4e86\u542f\u53d1\uff0c\u5e76\u4e14\u4ed6\u6709\u4e00\u4e2a\u5173\u4e8ek-tree\uff08k\u53c9\u6811\uff09\u7684\u60f3\u6cd5\u3002\nk-tree\u90fd\u662f\u65e0\u6839\u6811\uff0c\u5e76\u4e14\u6ee1\u8db3\uff1a\n1. \u6bcf\u4e00\u4e2a\u975e\u53f6\u5b50\u8282\u70b9\u90fd\u6709k\u4e2a\u5b69\u5b50\u8282\u70b9\uff1b\n2. \u6bcf\u4e00\u6761\u8fb9\u90fd\u6709\u4e00\u4e2a\u8fb9\u6743\uff1b\n3. \u6bcf\u4e00\u4e2a\u975e\u53f6\u5b50\u8282\u70b9\u6307\u5411\u5176k\u4e2a\u5b69\u5b50\u8282\u70b9\u7684k\u6761\u8fb9\u7684\u6743\u503c\u5206\u522b\u4e3a1,2,3,...,k\u3002\n\n---------------\n\n\u5f53Lesha\u7684\u597d\u670b\u53cbDima\u770b\u5230\u8fd9\u79cd\u6811\u65f6\uff0cDima\u9a6c\u4e0a\u60f3\u5230\u4e86\u4e00\u4e2a\u95ee\u9898\uff1a\u201c\u6709\u591a\u5c11\u6761\u4ecek-tree\u7684\u6839\u8282\u70b9\u51fa\u53d1\u7684\u8def\u4e0a\u7684\u8fb9\u6743\u4e4b\u548c\u7b49\u4e8en\uff0c\u5e76\u4e14\u7ecf\u8fc7\u7684\u8fd9\u4e9b\u8fb9\u4e2d\u81f3\u5c11\u6709\u4e00\u6761\u8fb9\u7684\u8fb9\u6743\u5927\u4e8e\u7b49\u4e8ed\u5462?\u201d\n\u73b0\u5728\u4f60\u9700\u8981\u5e2e\u52a9Dima\u89e3\u51b3\u8fd9\u4e2a\u95ee\u9898\u3002\u8003\u8651\u5230\u8def\u5f84\u603b\u6570\u53ef\u80fd\u4f1a\u975e\u5e38\u5927\uff0c\u6240\u4ee5\u53ea\u9700\u8f93\u51fa\u8def\u5f84\u603b\u6570 mod 1000000007 \u5373\u53ef\u3002\uff081000000007=10^9+7\uff09\n## \u8f93\u5165\u8f93\u51fa\u683c\u5f0f\n### \u8f93\u5165\u683c\u5f0f\uff1a\n\u53ea\u6709\u4e00\u884c\u6570\uff0cn\uff0ck\uff0cd. (1 <= n, k <= 100; 1 <= d <= k; n, d, k \u4e09\u8005\u7528\u7a7a\u683c\u9694\u5f00)\u3002\n### \u8f93\u51fa\u683c\u5f0f\uff1a\n\u53ea\u6709\u4e00\u884c\uff0c\u4e00\u4e2a\u6574\u6570\uff0c\u5373\u8f93\u51fa\u8def\u5f84\u603b\u6570 mod 1000000007\u3002"
+}

@@ -1,0 +1,13 @@
+{
+    "description": "Madoka is a very strange girl, and therefore she suddenly wondered how many pairs of integers $ (a, b) $ exist, where $ 1 \\leq a, b \\leq n $ , for which $ \\frac{\\operatorname{lcm}(a, b)}{\\operatorname{gcd}(a, b)} \\leq 3 $ .\n\nIn this problem, $ \\operatorname{gcd}(a, b) $ denotes [the greatest common divisor](<https://en.wikipedia.org/wiki/Greatest_common_divisor >) of the numbers $ a $ and $ b $ , and $ \\operatorname{lcm}(a, b) $ denotes [the smallest common multiple](<https://en.wikipedia.org/wiki/Least_common_multiple >) of the numbers $ a $ and $ b $ .",
+    "inputFormat": "The input consists of multiple test cases. The first line contains a single integer $ t $ ( $ 1 \\le t \\le 10^4 $ ) \u2014 the number of test cases. Description of the test cases follows.\n\nThe first and the only line of each test case contains the integer $ n $ ( $ 1 \\le n \\le 10^8 $ ).",
+    "outputFormat": "For each test case output a single integer \u2014 the number of pairs of integers satisfying the condition.",
+    "samples": [
+        [
+            "6\n1\n2\n3\n4\n5\n100000000",
+            "1\n4\n7\n10\n11\n266666666"
+        ]
+    ],
+    "hint": "For $ n = 1 $ there is exactly one pair of numbers \u2014 $ (1, 1) $ and it fits.\n\nFor $ n = 2 $ , there are only $ 4 $ pairs \u2014 $ (1, 1) $ , $ (1, 2) $ , $ (2, 1) $ , $ (2, 2) $ and they all fit.\n\nFor $ n = 3 $ , all $ 9 $ pair are suitable, except $ (2, 3) $ and $ (3, 2) $ , since their $ \\operatorname{lcm} $ is $ 6 $ , and $ \\operatorname{gcd} $ is $ 1 $ , which doesn't fit the condition.",
+    "translation": "### \u9898\u76ee\u63cf\u8ff0\n\n\u7ed9\u5b9a\u4e00\u4e2a\u6574\u6570 $n$\uff0c\u6c42\u51fa\u6709\u591a\u5c11\u7ec4\u6ee1\u8db3\u6761\u4ef6\u7684 $\\left ( a, b\\right) (1 \\le a, b \\le n)$\uff0c\u4f7f\u5f97 $\\frac{\\operatorname{lcm}(a, b) }{\\gcd(a, b) } \\le 3$\u3002\n\n\u5728\u8be5\u9898\u76ee\u4e2d\uff0c$\\gcd(a, b)$ \u6307\u7684\u662f $a$ \u548c $b$ \u7684\u6700\u5927\u516c\u7ea6\u6570\uff0c\u800c $lcm(a, b)$ \u6307\u7684\u662f $a$ \u548c $b$ \u7684\u6700\u5c0f\u516c\u500d\u6570\u3002\n\n### \u8f93\u5165\u683c\u5f0f\n\n\u7b2c\u4e00\u884c\u8f93\u5165\u4e00\u4e2a\u6574\u6570 $t(1 \\le t \\le 10^4)$\uff0c\u4ee3\u8868\u6d4b\u8bd5\u6570\u636e\u7684\u7ec4\u6570\u3002\n\n\u63a5\u4e0b\u6765 $t$ \u884c\uff0c\u6bcf\u884c\u4e00\u4e2a\u6574\u6570 $n(1 \\le n \\le 10^8)$\uff0c\u4ee3\u8868\u9898\u76ee\u4e2d\u7684\u6574\u6570 $n$\u3002\n\n### \u8f93\u51fa\u683c\u5f0f\n\n\u5bf9\u4e8e\u6bcf\u4e2a\u6d4b\u8bd5\u6570\u636e\uff0c\u8f93\u51fa\u4e00\u4e2a\u6574\u6570\uff0c\u4ee3\u8868\u6ee1\u8db3\u6761\u4ef6\u7684 $(a, b)$ \u7684\u6570\u91cf\u3002"
+}

@@ -1,0 +1,21 @@
+{
+    "description": "Little boy Gerald studies at school which is quite far from his house. That's why he has to go there by bus every day. The way from home to school is represented by a segment of a straight line; the segment contains exactly $ n+1 $ bus stops. All of them are numbered with integers from $ 0 $ to $ n $ in the order in which they follow from Gerald's home. The bus stop by Gerald's home has number $ 0 $ and the bus stop by the school has number $ n $ .\n\nThere are $ m $ buses running between the house and the school: the $ i $ -th bus goes from stop $ s_{i} $ to $ t_{i} $ ( $ s_{i}&lt;t_{i} $ ), visiting all the intermediate stops in the order in which they follow on the segment. Besides, Gerald's no idiot and he wouldn't get off the bus until it is still possible to ride on it closer to the school (obviously, getting off would be completely pointless). In other words, Gerald can get on the $ i $ -th bus on any stop numbered from $ s_{i} $ to $ t_{i}-1 $ inclusive, but he can get off the $ i $ -th bus only on the bus stop $ t_{i} $ .\n\nGerald can't walk between the bus stops and he also can't move in the direction from the school to the house.\n\nGerald wants to know how many ways he has to get from home to school. Tell him this number. Two ways are considered different if Gerald crosses some segment between the stops on different buses. As the number of ways can be too much, find the remainder of a division of this number by $ 1000000007 $ ( $ 10^{9}+7 $ ).",
+    "inputFormat": "The first line contains two space-separated integers: $ n $ and $ m $ ( $ 1<=n<=10^{9},0<=m<=10^{5} $ ). Then follow $ m $ lines each containing two integers $ s_{i},t_{i} $ . They are the numbers of starting stops and end stops of the buses ( $ 0<=s_{i}&lt;t_{i}<=n $ ).",
+    "outputFormat": "Print the only number \u2014 the number of ways to get to the school modulo $ 1000000007 $ ( $ 10^{9}+7 $ ).",
+    "samples": [
+        [
+            "2 2\n0 1\n1 2\n",
+            "1\n"
+        ],
+        [
+            "3 2\n0 1\n1 2\n",
+            "0\n"
+        ],
+        [
+            "5 5\n0 1\n0 2\n0 3\n0 4\n0 5\n",
+            "16\n"
+        ]
+    ],
+    "hint": "The first test has the only variant to get to school: first on bus number one to the bus stop number one; then on bus number two to the bus stop number two.\n\nIn the second test no bus goes to the third bus stop, where the school is positioned. Thus, the correct answer is $ 0 $ .\n\nIn the third test Gerald can either get or not on any of the first four buses to get closer to the school. Thus, the correct answer is $ 2^{4}=16 $ .",
+    "translation": "Gerald\u5bb6\u4f4f\u5728\u79bb\u5b66\u6821\u5f88\u8fdc\u7684\u5730\u65b9\uff0c\u4ed6\u6bcf\u5929\u4e0a\u5b66\u90fd\u8981\u505a\u516c\u4ea4\u8f66\u3002\nGerald\u5bb6\u88ab\u6807\u4e3a0\u53f7\u8f66\u7ad9\uff0c\u5b66\u6821\u88ab\u6807\u4e3an\u53f7\u8f66\u7ad9\uff0c\u518dGerald\u5bb6\u548c\u5b66\u6821\u4e4b\u95f4\u8fd8\u6709n-1\u4e2a\u8f66\u7ad9\u3002\n\u5728Gerald\u5bb6\u548c\u5b66\u6821\u4e4b\u95f4\uff0c\u6709m\u8f86\u516c\u4ea4\u8f66\u3002\u7b2ci\u8f86\u516c\u4ea4\u8f66\u4ece\u7b2csi\u4e2a\u8f66\u7ad9\u9a76\u5f80\u7b2cti\u4e2a\u8f66\u7ad9\u3002Gerald\u53ef\u4ee5\u5728\u7b2csi\u4e2a\u8f66\u7ad9\u5230\u7b2c\uff08ti-1\uff09\u4e2a\u8f66\u7ad9\u4e4b\u95f4\u4efb\u610f\u4e00\u4e2a\u8f66\u7ad9\u4e0a\u8fd9\u8f86\u516c\u4ea4\u8f66\uff0c\u4f46\u662f\u53ea\u80fd\u5728\u7b2cti\u4e2a\u8f66\u7ad9\u4e0b\u8f66\u3002\nGerald\u4e0d\u80fd\u5728\u4e24\u4e2a\u8f66\u7ad9\u4e2d\u95f4\u8d70\u52a8\uff0c\u4e5f\u4e0d\u80fd\u6cbf\u8fd4\u56de\u7684\u8def\u7ebf\u8d70\u3002\n\u95eeGerald\u6709\u591a\u5c11\u79cd\u4e0d\u540c\u7684\u4ece\u5bb6\u5230\u5b66\u6821\u7684\u65b9\u6cd5\u3002\u8f93\u51fa\u7b54\u6848\u6a211e9+7\u3002\n**\u6807\u51c6\u8f93\u5165**\n\u4e24\u4e2a\u6570\u5b57n\u548cm\uff0c\u8868\u793a\u7ad9\u53f0\u7684\u4e2a\u6570\u548c\u516c\u4ea4\u8f66\u7684\u4e2a\u6570\n\u63a5\u4e0b\u6765m\u884c\u6bcf\u884c\u4e24\u4e2a\u6570\u5b57\uff0c\u4e3asi\u548cti\n**\u6807\u51c6\u8f93\u51fa**\n\u8f93\u51fa\u4e00\u4e2a\u6570\u5b57\uff0c\u5373\u672c\u9898\u7684\u7b54\u6848\u3002"
+}

@@ -1,0 +1,21 @@
+{
+    "description": "Toad Ivan has $ m $ pairs of integers, each integer is between $ 1 $ and $ n $ , inclusive. The pairs are $ (a_1, b_1), (a_2, b_2), \\ldots, (a_m, b_m) $ .\n\nHe asks you to check if there exist two integers $ x $ and $ y $ ( $ 1 \\leq x < y \\leq n $ ) such that in each given pair at least one integer is equal to $ x $ or $ y $ .",
+    "inputFormat": "The first line contains two space-separated integers $ n $ and $ m $ ( $ 2 \\leq n \\leq 300\\,000 $ , $ 1 \\leq m \\leq 300\\,000 $ ) \u2014 the upper bound on the values of integers in the pairs, and the number of given pairs.\n\nThe next $ m $ lines contain two integers each, the $ i $ -th of them contains two space-separated integers $ a_i $ and $ b_i $ ( $ 1 \\leq a_i, b_i \\leq n, a_i \\neq b_i $ ) \u2014 the integers in the $ i $ -th pair.",
+    "outputFormat": "Output \"YES\" if there exist two integers $ x $ and $ y $ ( $ 1 \\leq x < y \\leq n $ ) such that in each given pair at least one integer is equal to $ x $ or $ y $ . Otherwise, print \"NO\". You can print each letter in any case (upper or lower).",
+    "samples": [
+        [
+            "4 6\n1 2\n1 3\n1 4\n2 3\n2 4\n3 4\n",
+            "NO\n"
+        ],
+        [
+            "5 4\n1 2\n2 3\n3 4\n4 5\n",
+            "YES\n"
+        ],
+        [
+            "300000 5\n1 2\n1 2\n1 2\n1 2\n1 2\n",
+            "YES\n"
+        ]
+    ],
+    "hint": "In the first example, you can't choose any $ x $ , $ y $ because for each such pair you can find a given pair where both numbers are different from chosen integers.\n\nIn the second example, you can choose $ x=2 $ and $ y=4 $ .\n\nIn the third example, you can choose $ x=1 $ and $ y=2 $ .",
+    "translation": "\u7ed9\u5b9a $ m $ \u4e2a\u6570\u5bf9$ \\ (a_i, \\ b_i) \\ $ \u5176\u4e2d $ \\ a_i, \\ b_i $ \u662f\u5728$ [1, n]$\u8303\u56f4\u7684\u6574\u6570\n\n\u8bf7\u95ee\u662f\u5426\u80fd\u627e\u5230\u4e24\u4e2a\u6574\u6570$ \\ x, y \\ (1 \\le x < y \\le n)$ \u4f7f\u5f97\u6bcf\u4e00\u4e2a\u6570\u5bf9\u4e2d\u81f3\u5c11\u6709\u4e00\u4e2a\u6570\u7b49\u4e8e $ x $ \u6216 $ y$   "
+}

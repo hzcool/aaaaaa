@@ -1,0 +1,12 @@
+{
+    "description": "A binary string $ ^\\dagger $ $ b $ of odd length $ m $ is good if $ b_i $ is the median $ ^\\ddagger $ of $ b[1,i]^\\S $ for all odd indices $ i $ ( $ 1 \\leq i \\leq m $ ).\n\nFor a binary string $ a $ of length $ k $ , a binary string $ b $ of length $ 2k-1 $ is an extension of $ a $ if $ b_{2i-1}=a_i $ for all $ i $ such that $ 1 \\leq i \\leq k $ . For example, 1001011 and 1101001 are extensions of the string 1001. String $ x= $ 1011011 is not an extension of string $ y= $ 1001 because $ x_3 \\neq y_2 $ . Note that there are $ 2^{k-1} $ different extensions of $ a $ .\n\nYou are given a binary string $ s $ of length $ n $ . Find the sum of the number of good extensions over all prefixes of $ s $ . In other words, find $ \\sum_{i=1}^{n} f(s[1,i]) $ , where $ f(x) $ gives number of good extensions of string $ x $ . Since the answer can be quite large, you only need to find it modulo $ 998\\,244\\,353 $ .\n\n $ ^\\dagger $ A binary string is a string whose elements are either $ \\mathtt{0} $ or $ \\mathtt{1} $ .\n\n $ ^\\ddagger $ For a binary string $ a $ of length $ 2m-1 $ , the median of $ a $ is the (unique) element that occurs at least $ m $ times in $ a $ .\n\n $ ^\\S $ $ a[l,r] $ denotes the string of length $ r-l+1 $ which is formed by the concatenation of $ a_l,a_{l+1},\\ldots,a_r $ in that order.",
+    "inputFormat": "Each test contains multiple test cases. The first line contains the number of test cases $ t $ ( $ 1 \\le t \\le 10^4 $ ). The description of the test cases follows.\n\nThe first line of each test case contains a single integer $ n $ ( $ 1 \\le n \\le 2 \\cdot 10^5 $ ), where $ n $ is the length of the binary string $ s $ .\n\nThe second line of each test case contains the binary string $ s $ of length $ n $ .\n\nIt is guaranteed that the sum of $ n $ over all test cases does not exceed $ 2 \\cdot 10^5 $ .",
+    "outputFormat": "For each test case, print the answer modulo $ 998\\,244\\,353 $ .",
+    "samples": [
+        [
+            "6\n1\n1\n1\n0\n2\n11\n3\n010\n9\n101101111\n37\n1011011111011010000011011111111011111",
+            "1\n1\n3\n3\n21\n365"
+        ]
+    ],
+    "hint": "In the first and second test cases, $ f(s[1,1])=1 $ .\n\nIn the third test case, the answer is $ f(s[1,1])+f(s[1,2])=1+2=3 $ .\n\nIn the fourth test case, the answer is $ f(s[1,1])+f(s[1,2])+f(s[1,3])=1+1+1=3 $ .\n\n $ f(\\mathtt{11})=2 $ because two good extensions are possible: 101 and 111.\n\n $ f(\\mathtt{01})=1 $ because only one good extension is possible: 011."
+}

@@ -1,0 +1,21 @@
+{
+    "description": "A country called Flatland is an infinite two-dimensional plane. Flatland has $ n $ cities, each of them is a point on the plane.\n\nFlatland is ruled by king Circle IV. Circle IV has 9 sons. He wants to give each of his sons part of Flatland to rule. For that, he wants to draw four distinct straight lines, such that two of them are parallel to the $ Ox $ axis, and two others are parallel to the $ Oy $ axis. At that, no straight line can go through any city. Thus, Flatland will be divided into 9 parts, and each son will be given exactly one of these parts. Circle IV thought a little, evaluated his sons' obedience and decided that the $ i $ -th son should get the part of Flatland that has exactly $ a_{i} $ cities.\n\nHelp Circle find such four straight lines that if we divide Flatland into 9 parts by these lines, the resulting parts can be given to the sons so that son number $ i $ got the part of Flatland which contains $ a_{i} $ cities.",
+    "inputFormat": "The first line contains integer $ n\\ (9<=n<=10^{5}) $ \u2014 the number of cities in Flatland. Next $ n $ lines each contain two space-separated integers: $ x_{i},y_{i}\\ (-10^{9}<=x_{i},y_{i}<=10^{9}) $ \u2014 the coordinates of the $ i $ -th city. No two cities are located at the same point. The last line contains nine space-separated integers: ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF260E/8e882aa22699e3ae56d95dbb5dcc548b415f27bc.png).",
+    "outputFormat": "If there is no solution, print a single integer -1.\n\nOtherwise, print in the first line two distinct real space-separated numbers: $ x_{1},x_{2} $ \u2014 the abscissas of the straight lines that are parallel to the $ Oy $ axis. And in the second line print two distinct real space-separated numbers: $ y_{1},y_{2} $ \u2014 the ordinates of the straight lines, parallel to the $ Ox $ . If there are multiple solutions, print any of them.\n\nWhen the answer is being checked, a city is considered to lie on a straight line, if the distance between the city and the line doesn't exceed $ 10^{-6} $ . Two straight lines are considered the same if the distance between them doesn't exceed $ 10^{-6} $ .",
+    "samples": [
+        [
+            "9\n1 1\n1 2\n1 3\n2 1\n2 2\n2 3\n3 1\n3 2\n3 3\n1 1 1 1 1 1 1 1 1\n",
+            "1.5000000000 2.5000000000\n1.5000000000 2.5000000000\n"
+        ],
+        [
+            "15\n4 4\n-1 -3\n1 5\n3 -4\n-4 4\n-1 1\n3 -3\n-4 -5\n-3 3\n3 2\n4 1\n-4 2\n-2 -5\n-3 4\n-1 4\n2 1 2 1 2 1 3 2 1\n",
+            "-3.5000000000 2.0000000000\n3.5000000000 -1.0000000000\n"
+        ],
+        [
+            "10\n-2 10\n6 0\n-16 -6\n-4 13\n-4 -2\n-17 -10\n9 15\n18 16\n-5 2\n10 -5\n2 1 1 1 1 1 1 1 1\n",
+            "-1\n"
+        ]
+    ],
+    "hint": "The solution for the first sample test is shown below:\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF260E/f25dd1f6e7f7e19d7007bdb9da678c4a92207eda.png)The solution for the second sample test is shown below:\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF260E/cfb5bf22cb67c702c1b27adab1d86b1bf50d84b5.png)There is no solution for the third sample test.",
+    "translation": "\n\n\u5e73\u9762\u4e0a\u6709n\u4e2a\u70b9\uff0c\u8fd8\u6709\u4e00\u4e2a\u957f\u5ea6\u4e3a\u2468\u7684\u6570\u5217$a_1,a_2......a_9\u200b$\u6ee1\u8db3$\\sum_{i=1}^na_i=n $\n\n\u4f60\u9700\u8981\u753b\u4e24\u6761\u6c34\u5e73\u76f4\u7ebf\u548c\u4e24\u6761\u7ad6\u76f4\u76f4\u7ebf\u5c06\u5e73\u9762\u5212\u4e3a\u2468\u5404\u90e8\u5206\uff0c\u6bcf\u90e8\u5206\u70b9\u6570\u8bb0\u4e3a$b_1,b_2......b_9$\n\n\u8981\u6c42b\u662fa\u7684\u4e00\u79cd\u6392\u5217\n\n\u4f60\u7684\u76f4\u7ebf\u5750\u6807\u53ef\u4ee5\u662f\u5b9e\u6570\uff0c\u6784\u9020\u4e00\u7ec4\u89e3\uff0c\u6216\u65e0\u89e3\uff08\u8f93\u51fa-1\uff09\n\nTranslated by Fheiwn"
+}

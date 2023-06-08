@@ -1,0 +1,21 @@
+{
+    "description": "This is an easier version of the problem. In this version, $ n \\le 500 $ .\n\nVasya is an experienced developer of programming competitions' problems. As all great minds at some time, Vasya faced a creative crisis. To improve the situation, Petya gifted him a string consisting of opening and closing brackets only. Petya believes, that the beauty of the bracket string is a number of its cyclical shifts, which form a correct bracket sequence.\n\nTo digress from his problems, Vasya decided to select two positions of the string (not necessarily distinct) and swap characters located at this positions with each other. Vasya will apply this operation exactly once. He is curious what is the maximum possible beauty he can achieve this way. Please help him.\n\nWe remind that bracket sequence $ s $ is called correct if:\n\n- $ s $ is empty;\n- $ s $ is equal to \"( $ t $ )\", where $ t $ is correct bracket sequence;\n- $ s $ is equal to $ t_1 t_2 $ , i.e. concatenation of $ t_1 $ and $ t_2 $ , where $ t_1 $ and $ t_2 $ are correct bracket sequences.\n\nFor example, \"(()())\", \"()\" are correct, while \")(\" and \"())\" are not.\n\nThe cyclical shift of the string $ s $ of length $ n $ by $ k $ ( $ 0 \\leq k < n $ ) is a string formed by a concatenation of the last $ k $ symbols of the string $ s $ with the first $ n - k $ symbols of string $ s $ . For example, the cyclical shift of string \"(())()\" by $ 2 $ equals \"()(())\".\n\nCyclical shifts $ i $ and $ j $ are considered different, if $ i \\ne j $ .",
+    "inputFormat": "The first line contains an integer $ n $ ( $ 1 \\le n \\le 500 $ ), the length of the string.\n\nThe second line contains a string, consisting of exactly $ n $ characters, where each of the characters is either \"(\" or \")\".",
+    "outputFormat": "The first line should contain a single integer \u2014 the largest beauty of the string, which can be achieved by swapping some two characters.\n\nThe second line should contain integers $ l $ and $ r $ ( $ 1 \\leq l, r \\leq n $ ) \u2014 the indices of two characters, which should be swapped in order to maximize the string's beauty.\n\nIn case there are several possible swaps, print any of them.",
+    "samples": [
+        [
+            "10\n()()())(()\n",
+            "5\n8 7\n"
+        ],
+        [
+            "12\n)(()(()())()\n",
+            "4\n5 10\n"
+        ],
+        [
+            "6\n)))(()\n",
+            "0\n1 1\n"
+        ]
+    ],
+    "hint": "In the first example, we can swap $ 7 $ -th and $ 8 $ -th character, obtaining a string \"()()()()()\". The cyclical shifts by $ 0, 2, 4, 6, 8 $ of this string form a correct bracket sequence.\n\nIn the second example, after swapping $ 5 $ -th and $ 10 $ -th character, we obtain a string \")(())()()(()\". The cyclical shifts by $ 11, 7, 5, 3 $ of this string form a correct bracket sequence.\n\nIn the third example, swap of any two brackets results in $ 0 $ cyclical shifts being correct bracket sequences.",
+    "translation": "\u6709\u4e00\u4e2a\u62ec\u53f7\u5e8f\u5217\uff0c\u4f60\u53ef\u4ee5\u9009\u62e9\u4e24\u4e2a\u4f4d\u7f6ei\uff0cj\uff08i\u53ef\u4ee5\u7b49\u4e8ej\uff09\uff0c\u8fdb\u884c\u4ea4\u6362\u3002\u4f7f\u5f97\u6700\u540e\u7684\u5faa\u73af\u4f4d\u7f6e\uff08i\u7684\u6570\u76ee\uff09\u6700\u5927\u3002\r\n\r\n\u5faa\u73af\u4f4d\u7f6e\uff1ai\uff080<=i<len\uff09\uff0c\u5c06\u524di\u4e2a\u5b57\u7b26\u79fb\u5230\u6700\u540e\uff0c\u5f97\u5230\u7684\u65b0\u5e8f\u5217\u662f\u5408\u6cd5\u7684\u62ec\u53f7\u5e8f\u5217\u3002\r\n- )()()( \u7684\u5faa\u73af\u4f4d\u7f6e\u6709 1\u30013\u30015\r\n- )((()))( \u7684\u5faa\u73af\u4f4d\u7f6e\u6709 1\u30017"
+}

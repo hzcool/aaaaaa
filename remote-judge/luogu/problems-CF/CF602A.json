@@ -1,0 +1,21 @@
+{
+    "description": "After seeing the \"ALL YOUR BASE ARE BELONG TO US\" meme for the first time, numbers $ X $ and $ Y $ realised that they have different bases, which complicated their relations.\n\nYou're given a number $ X $ represented in base $ b_{x} $ and a number $ Y $ represented in base $ b_{y} $ . Compare those two numbers.",
+    "inputFormat": "The first line of the input contains two space-separated integers $ n $ and $ b_{x} $ ( $ 1<=n<=10 $ , $ 2<=b_{x}<=40 $ ), where $ n $ is the number of digits in the $ b_{x} $ -based representation of $ X $ .\n\nThe second line contains $ n $ space-separated integers $ x_{1},x_{2},...,x_{n} $ ( $ 0<=x_{i}&lt;b_{x} $ ) \u2014 the digits of $ X $ . They are given in the order from the most significant digit to the least significant one.\n\nThe following two lines describe $ Y $ in the same way: the third line contains two space-separated integers $ m $ and $ b_{y} $ ( $ 1<=m<=10 $ , $ 2<=b_{y}<=40 $ , $ b_{x}\u2260b_{y} $ ), where $ m $ is the number of digits in the $ b_{y} $ -based representation of $ Y $ , and the fourth line contains $ m $ space-separated integers $ y_{1},y_{2},...,y_{m} $ ( $ 0<=y_{i}&lt;b_{y} $ ) \u2014 the digits of $ Y $ .\n\nThere will be no leading zeroes. Both $ X $ and $ Y $ will be positive. All digits of both numbers are given in the standard decimal numeral system.",
+    "outputFormat": "Output a single character (quotes for clarity):\n\n- '<' if $ X&lt;Y $\n- '>' if $ X&gt;Y $\n- '=' if $ X=Y $",
+    "samples": [
+        [
+            "6 2\n1 0 1 1 1 1\n2 10\n4 7\n",
+            "=\n"
+        ],
+        [
+            "3 3\n1 0 2\n2 5\n2 4\n",
+            "&lt;\n"
+        ],
+        [
+            "7 16\n15 15 4 0 0 7 10\n7 9\n4 8 0 3 1 5 0\n",
+            "&gt;\n"
+        ]
+    ],
+    "hint": "In the first sample, $ X=101111_{2}=47_{10}=Y $ .\n\nIn the second sample, $ X=102_{3}=21_{5} $ and $ Y=24_{5}=112_{3} $ , thus $ X&lt;Y $ .\n\nIn the third sample, ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF602A/3af4a723fb1330e2df57121d231422a1cbe8a641.png) and $ Y=4803150_{9} $ . We may notice that $ X $ starts with much larger digits and $ b_{x} $ is much larger than $ b_{y} $ , so $ X $ is clearly larger than $ Y $ .",
+    "translation": "\u7ed9\u4f60\u4e00\u4e2a $n$ \u8fdb\u5236 $a$ \u4f4d\u6574\u6570 $x$ \u548c\u4e00\u4e2a $m$ \u8fdb\u5236 $b$ \u4f4d\u6574\u6570 $y$\uff0c\n\n\u6bd4\u8f83 $x$ \u4e0e $y$ \u7684\u5927\u5c0f\u3002\n\n\u8f93\u5165\uff1a\n\n\u7b2c\u4e00\u884c\u5206\u522b\u4e3a $a$ \u548c $n$\uff1b\n\n\u7b2c\u4e8c\u884c $a$ \u4e2a\u6570\u5206\u522b\u4e3a $x$ \u4ece\u9ad8\u5230\u4f4e\u6bcf\u4e00\u4f4d\u4e0a\u7684\u6570\u7684\u5341\u8fdb\u5236\u5f62\u5f0f\uff1b\n\n\u7b2c\u4e09\u884c\u5206\u522b\u4e3a $b$ \u548c $m$\uff1b\u7b2c\u56db\u884c\u7684 $b$ \u4e2a\u6570\u5206\u522b\u4e3a $x$ \u4ece\u9ad8\u5230\u4f4e\u6bcf\u4e00\u4f4d\u4e0a\u7684\u6570\u7684\u5341\u8fdb\u5236\u5f62\u5f0f\u3002\n\n\u8f93\u51fa\uff1a\n\n\u82e5 $x>y,$ \u8f93\u51fa `>`\uff1b\n\n\u82e5 $x<y,$ \u8f93\u51fa `<`\uff1b\n\n\u82e5 $x=y,$ \u8f93\u51fa `=`\u3002"
+}

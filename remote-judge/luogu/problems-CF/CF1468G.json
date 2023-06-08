@@ -1,0 +1,21 @@
+{
+    "description": "The hobbits Frodo and Sam are carrying the One Ring to Mordor. In order not to be spotted by orcs, they decided to go through the mountains.\n\nThe mountain relief can be represented as a polyline with $ n $ points $ (x_i, y_i) $ , numbered from $ 1 $ to $ n $ ( $ x_i < x_{i + 1} $ for $ 1 \\le i \\le n - 1 $ ). Hobbits start their journey at the point $ (x_1, y_1) $ and should reach the point $ (x_n, y_n) $ to complete their mission.\n\nThe problem is that there is a tower with the Eye of Sauron, which watches them. The tower is located at the point $ (x_n, y_n) $ and has the height $ H $ , so the Eye is located at the point $ (x_n, y_n + H) $ . In order to complete the mission successfully, the hobbits have to wear cloaks all the time when the Sauron Eye can see them, i. e. when there is a direct line from the Eye to the hobbits which is not intersected by the relief.\n\nThe hobbits are low, so their height can be considered negligibly small, but still positive, so when a direct line from the Sauron Eye to the hobbits only touches the relief, the Eye can see them.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1468G/6125df61b8e9323ee46f8b93d743d2617a04d6a9.png)The Sauron Eye can't see hobbits when they are in the left position, but can see them when they are in the right position.The hobbits do not like to wear cloaks, so they wear them only when they can be spotted by the Eye. Your task is to calculate the total distance the hobbits have to walk while wearing cloaks.",
+    "inputFormat": "The first line of the input contains two integers $ n $ and $ H $ ( $ 2 \\le n \\le 2 \\cdot 10^5 $ ; $ 1 \\le H \\le 10^4 $ ) \u2014 the number of vertices in polyline and the tower height.\n\nThe next $ n $ lines contain two integers $ x_i, y_i $ each ( $ 0 \\le x_i \\le 4 \\cdot 10^5 $ ; $ 0 \\le y_i \\le 10^4 $ ) \u2014 the coordinates of the polyline vertices. It is guaranteed that $ x_i < x_{i + 1} $ for $ 1 \\le i \\le n - 1 $ .",
+    "outputFormat": "Print one real number \u2014 the total distance the hobbits have to walk while wearing cloaks. Your answer will be considered correct if its absolute or relative error does not exceed $ 10^{-6} $ \u2014 formally, if your answer is $ a $ , and the jury's answer is $ b $ , your answer will be accepted if $ \\dfrac{|a - b|}{\\max(1, b)} \\le 10^{-6} $ .",
+    "samples": [
+        [
+            "6 10\n10 40\n20 10\n25 30\n30 15\n50 15\n65 30",
+            "70.4034587602"
+        ],
+        [
+            "9 5\n0 0\n5 10\n15 10\n20 0\n25 11\n30 0\n35 10\n50 10\n60 5",
+            "27.2787986124"
+        ],
+        [
+            "2 10000\n0 10000\n400000 0",
+            "400124.9804748512"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9\u51fa\u4e00\u6761\u6298\u7ebf $L$\uff0c\u6298\u7ebf\u7531 $n$ \u4e2a\u70b9 $(x_1, y_1) \\rightarrow \\ldots \\rightarrow (x_n, y_n)$ \u6784\u6210\uff0c\u5176\u4e2d $x_i < x_{i + 1}$\u3002\n\n\u5728 $(x_n, y_n + H)$ \u5904\u6709\u4e00\u4e2a\u5149\u6e90\uff0c\u5411\u5168\u65b9\u4f4d\u53d1\u5c04\u5149\u7ebf\u3002\u5149\u7ebf\u4e3a\u76f4\u7ebf\uff0c\u4e14\u9047\u5230\u6298\u7ebf $L$ \u5c31\u4f1a\u505c\u6b62\uff08\u5373\u4e0d\u4f1a\u7a7f\u900f\uff09\u3002\n\n\u6c42\u6298\u7ebf $L$ \u4e0a\uff0c\u88ab\u5149\u7167\u5230\u90e8\u5206\u7684\u957f\u5ea6\u3002"
+}

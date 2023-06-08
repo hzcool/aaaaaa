@@ -1,0 +1,25 @@
+{
+    "description": "Imagine that your city is an infinite 2D plane with Cartesian coordinate system. The only crime-affected road of your city is the $ x $ -axis. Currently, there are $ n $ criminals along the road. No police station has been built on this road yet, so the mayor wants to build one.\n\nAs you are going to be in charge of this new police station, the mayor has asked you to choose a suitable position (some integer point) for building it. You should choose the best position for the police station, so that you could minimize the total time of your criminal catching mission. Your mission of catching the criminals will operate only from this station.\n\nThe new station will have only one patrol car. You will go to the criminals by this car, carry them on the car, bring them back to the police station and put them in prison. The patrol car can carry at most $ m $ criminals at a time. Note that, the criminals don't know about your mission. So, they will stay where they are instead of running away.\n\nYour task is to find the position for the police station, so that total distance you need to cover to catch all the criminals will be minimum possible. Note that, you also can built the police station on the positions where one or more criminals already exist. In such a case all these criminals are arrested instantly.",
+    "inputFormat": "The first line of the input will have two integers $ n\u00a0(1<=n<=10^{6}) $ and $ m\u00a0(1<=m<=10^{6}) $ separated by spaces. The next line will contain $ n $ integers separated by spaces. The $ i^{th} $ integer is the position of the $ i^{th} $ criminal on the $ x $ -axis. Absolute value of positions will not exceed $ 10^{9} $ . If a criminal has position $ x $ , he/she is located in the point $ (x,0) $ of the plane.\n\nThe positions of the criminals will be given in non-decreasing order. Note, that there can be more than one criminal standing at some point of the plane.\n\nNote: since the size of the input/output could be very large, don't use slow input/output techniques in your language. For example, do not use input/output streams (cin, cout) in C++.",
+    "outputFormat": "Print a single integer, that means the minimum possible distance you need to cover to catch all the criminals.",
+    "samples": [
+        [
+            "3 6\n1 2 3\n",
+            "4\n"
+        ],
+        [
+            "5 5\n-7 -6 -3 -1 1\n",
+            "16\n"
+        ],
+        [
+            "1 369\n0\n",
+            "0\n"
+        ],
+        [
+            "11 2\n-375 -108 1336 1453 1598 1892 2804 3732 4291 4588 4822\n",
+            "18716\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "## \u9898\u9762\u63cf\u8ff0\r\n\u5728\u4e00\u6761\u6570\u8f74\u4e0a\u6709 $n$ $(1<=n<=10^6)$ \u4e2a\u7f6a\u72af\uff0c\u7b2c $i$ \u4e2a\u7f6a\u72af\u7684\u5750\u6807\u4e3a $a_i$ $(\\left|a_i\\right|<=10^9)$ \u3002\u8b66\u5bdf\u4eec\u8981\u9009\u62e9\u4e00\u4e2a\u5730\u70b9\u4f5c\u4e3a\u8b66\u5bdf\u5c40\u3002\u4ed6\u4eec\u6709\u4e00\u8f86\u8b66\u8f66\uff0c\u53ef\u5bb9\u7eb3 $m$ $(1<=m<=10^6)$ \u4e2a\u7f6a\u72af\u3002\u90a3\u4e48\u95ee\u9898\u6765\u4e86\uff0c\u628a\u8b66\u5bdf\u5c40\u5efa\u5728\u54ea\u80fd\u4f7f\u8b66\u5bdf\u6293\u6355\u8fd9\u4e9b\u7f6a\u72af\u7684\u884c\u7a0b\u603b\u548c\u6700\u77ed\u3002\r\n\r\n\u6ce8\u610f\uff1a\u7f6a\u72af**\u4e0d\u4f1a**\u9003\u8d70\u3002\r\n\r\n## \u8f93\u5165\u683c\u5f0f\r\n\u7b2c\u4e00\u884c\u4e24\u4e2a\u6574\u6570 $n$ , $m$ \u3002\u5206\u522b\u4e3a\u7f6a\u72af\u4e2a\u6570\u548c\u8b66\u8f66\u5bb9\u7eb3\u7f6a\u72af\u4e2a\u6570\u3002\r\n\r\n\u7b2c\u4e8c\u884c $n$ \u4e2a\u6574\u6570\uff0c\u4e3a\u7f6a\u72af\u7684\u5750\u6807\u3002\r\n\r\n## \u8f93\u51fa\u683c\u5f0f\r\n\u8f93\u51fa\u4e00\u4e2a\u6570\uff0c\u5373\u6700\u77ed\u884c\u7a0b\u548c\u3002"
+}

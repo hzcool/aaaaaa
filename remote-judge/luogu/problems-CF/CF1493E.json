@@ -1,0 +1,17 @@
+{
+    "description": "You are given two integers $ l $ and $ r $ in binary representation. Let $ g(x, y) $ be equal to the [bitwise XOR](https://en.wikipedia.org/wiki/Bitwise_operation#XOR) of all integers from $ x $ to $ y $ inclusive (that is $ x \\oplus (x+1) \\oplus \\dots \\oplus (y-1) \\oplus y $ ). Let's define $ f(l, r) $ as the maximum of all values of $ g(x, y) $ satisfying $ l \\le x \\le y \\le r $ .\n\nOutput $ f(l, r) $ .",
+    "inputFormat": "The first line contains a single integer $ n $ ( $ 1 \\le n \\le 10^6 $ ) \u2014 the length of the binary representation of $ r $ .\n\nThe second line contains the binary representation of $ l $ \u2014 a string of length $ n $ consisting of digits $ 0 $ and $ 1 $ ( $ 0 \\le l < 2^n $ ).\n\nThe third line contains the binary representation of $ r $ \u2014 a string of length $ n $ consisting of digits $ 0 $ and $ 1 $ ( $ 0 \\le r < 2^n $ ).\n\nIt is guaranteed that $ l \\le r $ . The binary representation of $ r $ does not contain any extra leading zeros (if $ r=0 $ , the binary representation of it consists of a single zero). The binary representation of $ l $ is preceded with leading zeros so that its length is equal to $ n $ .",
+    "outputFormat": "In a single line output the value of $ f(l, r) $ for the given pair of $ l $ and $ r $ in binary representation without extra leading zeros.",
+    "samples": [
+        [
+            "7\n0010011\n1111010",
+            "1111111"
+        ],
+        [
+            "4\n1010\n1101",
+            "1101"
+        ]
+    ],
+    "hint": "In sample test case $ l=19 $ , $ r=122 $ . $ f(x,y) $ is maximal and is equal to $ 127 $ , with $ x=27 $ , $ y=100 $ , for example.",
+    "translation": "\u5b9a\u4e49 $g(x,y)=x\\ \u2295\\ (x+1)\\ \u2295\\dots\\ \u2295\\ (y-1)\\ \u2295\\ y$ \uff0c$f(l,r)$ \u4e3a\u6240\u6709\u6ee1\u8db3 $l\\leq x\\leq y\\leq r$ \u7684 $g(x,y)$ \u7684\u6700\u5927\u503c\u3002\n\n\u7ed9\u5b9a\u4e24\u4e2a $n$ \u4f4d\u4e8c\u8fdb\u5236\u6570 $l$ \u548c $r$ \uff0c\u6c42 $f(l,r)$"
+}

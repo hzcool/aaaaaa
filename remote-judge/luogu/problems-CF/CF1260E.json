@@ -1,0 +1,17 @@
+{
+    "description": "You are organizing a boxing tournament, where $ n $ boxers will participate ( $ n $ is a power of $ 2 $ ), and your friend is one of them. All boxers have different strength from $ 1 $ to $ n $ , and boxer $ i $ wins in the match against boxer $ j $ if and only if $ i $ is stronger than $ j $ .\n\nThe tournament will be organized as follows: $ n $ boxers will be divided into pairs; the loser in each pair leaves the tournament, and $ \\frac{n}{2} $ winners advance to the next stage, where they are divided into pairs again, and the winners in all pairs advance to the next stage, and so on, until only one boxer remains (who is declared the winner).\n\nYour friend really wants to win the tournament, but he may be not the strongest boxer. To help your friend win the tournament, you may bribe his opponents: if your friend is fighting with a boxer you have bribed, your friend wins even if his strength is lower.\n\nFurthermore, during each stage you distribute the boxers into pairs as you wish.\n\nThe boxer with strength $ i $ can be bribed if you pay him $ a_i $ dollars. What is the minimum number of dollars you have to spend to make your friend win the tournament, provided that you arrange the boxers into pairs during each stage as you wish?",
+    "inputFormat": "The first line contains one integer $ n $ ( $ 2 \\le n \\le 2^{18} $ ) \u2014 the number of boxers. $ n $ is a power of $ 2 $ .\n\nThe second line contains $ n $ integers $ a_1 $ , $ a_2 $ , ..., $ a_n $ , where $ a_i $ is the number of dollars you have to pay if you want to bribe the boxer with strength $ i $ . Exactly one of $ a_i $ is equal to $ -1 $ \u2014 it means that the boxer with strength $ i $ is your friend. All other values are in the range $ [1, 10^9] $ .",
+    "outputFormat": "Print one integer \u2014 the minimum number of dollars you have to pay so your friend wins.",
+    "samples": [
+        [
+            "4\n3 9 1 -1\n",
+            "0"
+        ],
+        [
+            "8\n11 -1 13 19 24 7 17 5\n",
+            "12"
+        ]
+    ],
+    "hint": "In the first test case no matter how you will distribute boxers into pairs, your friend is the strongest boxer and anyway wins the tournament.\n\nIn the second test case you can distribute boxers as follows (your friend is number $ 2 $ ):\n\n $ 1 : 2, 8 : 5, 7 : 3, 6 : 4 $ (boxers $ 2, 8, 7 $ and $ 6 $ advance to the next stage);\n\n $ 2 : 6, 8 : 7 $ (boxers $ 2 $ and $ 8 $ advance to the next stage, you have to bribe the boxer with strength $ 6 $ );\n\n $ 2 : 8 $ (you have to bribe the boxer with strength $ 8 $ );",
+    "translation": "\u6709 $n$ \u4e2a\u4eba\uff0c\u8d3f\u8d42\u4ed6\u7684\u4ee3\u4ef7\u4e3a $a[i]$\u3002\u8fd9\u4e9b\u4eba\u4e2d\uff0c\u8d3f\u8d42\u4ee3\u4ef7\u4e3a $-1$ \u7684\u662f\u4f60\u7684\u670b\u53cb\u3002\u73b0\u5728\uff0c\u4f60\u53ef\u4ee5\u4e24\u4e24\u914d\u5bf9\uff0c\u4f7f\u5f97\u7f16\u53f7\u5c0f\u7684\u88ab\u6dd8\u6c70\uff0c\u4f46\u662f\uff0c\u5982\u679c\u4f60\u8d3f\u8d42\u4e86\u7f16\u53f7\u5927\u7684\uff0c\u90a3\u4e48\u7f16\u53f7\u5927\u7684\u88ab\u6dd8\u6c70\uff0c\u800c\u7f16\u53f7\u5c0f\u7684\u7559\u4e0b\u3002\u95ee\uff1a\u4f7f\u5f97\u4f60\u670b\u53cb\u593a\u5f97\u51a0\u519b\u7684\u6700\u5c0f\u4ee3\u4ef7"
+}

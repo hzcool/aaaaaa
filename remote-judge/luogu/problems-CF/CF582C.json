@@ -1,0 +1,21 @@
+{
+    "description": "You are given an infinite periodic array $ a_{0},a_{1},...,a_{n-1},... $ with the period of length $ n $ . Formally, ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF582C/aa44e9dfb7106bc0c4afdc0035ceead70e7d91ec.png). A periodic subarray $ (l,s) $ ( $ 0<=l&lt;n $ , $ 1<=s&lt;n $ ) of array $ a $ is an infinite periodic array with a period of length $ s $ that is a subsegment of array $ a $ , starting with position $ l $ .\n\nA periodic subarray $ (l,s) $ is superior, if when attaching it to the array $ a $ , starting from index $ l $ , any element of the subarray is larger than or equal to the corresponding element of array $ a $ . An example of attaching is given on the figure (top \u2014 infinite array $ a $ , bottom \u2014 its periodic subarray $ (l,s) $ ):\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF582C/3459142ae634f6d125367238083d1b99f717b1ba.png)Find the number of distinct pairs $ (l,s) $ , corresponding to the superior periodic arrays.",
+    "inputFormat": "The first line contains number $ n $ ( $ 1<=n<=2\u00b710^{5} $ ). The second line contains $ n $ numbers $ a_{0},a_{1},...,a_{n-1} $ ( $ 1<=a_{i}<=10^{6} $ ), separated by a space.",
+    "outputFormat": "Print a single integer \u2014 the sought number of pairs.",
+    "samples": [
+        [
+            "4\n7 1 2 3\n",
+            "2\n"
+        ],
+        [
+            "2\n2 1\n",
+            "1\n"
+        ],
+        [
+            "3\n1 1 1\n",
+            "6\n"
+        ]
+    ],
+    "hint": "In the first sample the superior subarrays are (0, 1) and (3, 2).\n\nSubarray (0, 1) is superior, as $ a_{0}>=a_{0},a_{0}>=a_{1},a_{0}>=a_{2},a_{0}>=a_{3},a_{0}>=a_{0},... $\n\nSubarray (3, 2) is superior $ a_{3}>=a_{3},a_{0}>=a_{0},a_{3}>=a_{1},a_{0}>=a_{2},a_{3}>=a_{3},... $\n\nIn the third sample any pair of $ (l,s) $ corresponds to a superior subarray as all the elements of an array are distinct.",
+    "translation": "\u7ed9\u5b9a\u4e00\u4e2a\u5faa\u73af\u8282\u957f\u5ea6\u4e3a $n$ \u7684\u65e0\u9650\u5faa\u73af\u6570\u5217 $a$\uff0c\u5b9a\u4e49 $(l,s)$ \u8868\u793a\u8d77\u70b9\u4e3a $l$ \u7684\u957f\u5ea6\u4e3a $s$ \u7684\u5b50\u4e32\u3002\n\n\u79f0\u4e00\u7ec4 $(l,s)$ \u662f\u5408\u6cd5\u7684\uff0c\u5f53\u4e14\u6743\u5f53\u8be5\u5b50\u4e32\u4ece $l$ \u5f00\u59cb\u4ee5 $s$ \u4e3a\u5faa\u73af\u8282\u957f\u5ea6\u7684\u65e0\u9650\u5faa\u73af\u6570\u5217\u4e2d\u7684\u6bcf\u4e2a\u6570\u90fd\u5927\u4e8e\u7b49\u4e8e\u539f\u6570\u5217\u4e2d\u5bf9\u5e94\u4f4d\u7f6e\u7684\u6570\u3002\n\n\u4f60\u9700\u8981\u6c42\u51fa\u5408\u6cd5\u7684 $(l,s)$ \u7ec4\u6570\u3002$(0 \\leq l \\leq n,1 \\leq s \\leq n)$"
+}

@@ -1,0 +1,13 @@
+{
+    "description": "Let's name a pair of positive integers $ (x, y) $ lucky if the greatest common divisor of them is equal to $ 1 $ ( $ \\gcd(x, y) = 1 $ ).\n\nLet's define a chain induced by $ (x, y) $ as a sequence of pairs $ (x, y) $ , $ (x + 1, y + 1) $ , $ (x + 2, y + 2) $ , $ \\dots $ , $ (x + k, y + k) $ for some integer $ k \\ge 0 $ . The length of the chain is the number of pairs it consists of, or $ (k + 1) $ .\n\nLet's name such chain lucky if all pairs in the chain are lucky.\n\nYou are given $ n $ pairs $ (x_i, y_i) $ . Calculate for each pair the length of the longest lucky chain induced by this pair. Note that if $ (x_i, y_i) $ is not lucky itself, the chain will have the length $ 0 $ .",
+    "inputFormat": "The first line contains a single integer $ n $ ( $ 1 \\le n \\le 10^6 $ ) \u2014 the number of pairs.\n\nNext $ n $ lines contains $ n $ pairs \u2014 one per line. The $ i $ -th line contains two integers $ x_i $ and $ y_i $ ( $ 1 \\le x_i < y_i \\le 10^7 $ ) \u2014 the corresponding pair.",
+    "outputFormat": "Print $ n $ integers, where the $ i $ -th integer is the length of the longest lucky chain induced by $ (x_i, y_i) $ or $ -1 $ if the chain can be infinitely long.",
+    "samples": [
+        [
+            "4\n5 15\n13 37\n8 9\n10009 20000",
+            "0\n1\n-1\n79"
+        ]
+    ],
+    "hint": "In the first test case, $ \\gcd(5, 15) = 5 > 1 $ , so it's already not lucky, so the length of the lucky chain is $ 0 $ .\n\nIn the second test case, $ \\gcd(13 + 1, 37 + 1) = \\gcd(14, 38) = 2 $ . So, the lucky chain consists of the single pair $ (13, 37) $ .",
+    "translation": "- \u7ed9\u51fa\u4e24\u4e2a\u6b63\u6574\u6570 $(x,y)$\uff0c\u6ee1\u8db3 $(x,y),(x+1,y+1),(x+2,y+2),\\dots,(x+k,y+k)$ \u90fd\u662f\u4e92\u8d28\u7684\uff0c\u76f4\u5230 $(x+k+1,y+k+1)$ \u8d77\u4e0d\u4e92\u8d28\n- \u95ee $k$ \u7684\u503c\uff0c\u6216\u6307\u51fa\u8fd9\u4e2a\u4e92\u8d28\u7684\u5e8f\u5217\u957f\u5ea6\u4e3a $0$ \u6216\u662f\u65e0\u9650\u957f\u7684\n\n\u7ffb\u8bd1\u63d0\u4f9b\u8005\uff1ahttps://www.luogu.com.cn/user/36285"
+}

@@ -1,0 +1,21 @@
+{
+    "description": "User ainta loves to play with cards. He has $ a $ cards containing letter \"o\" and $ b $ cards containing letter \"x\". He arranges the cards in a row, and calculates the score of the deck by the formula below.\n\n1. At first, the score is $ 0 $ .\n2. For each block of contiguous \"o\"s with length $ x $ the score increases by $ x^{2} $ .\n3. For each block of contiguous \"x\"s with length $ y $ the score decreases by $ y^{2} $ .\n\nFor example, if $ a=6,b=3 $ and ainta have arranged the cards in the order, that is described by string \"ooxoooxxo\", the score of the deck equals $ 2^{2}-1^{2}+3^{2}-2^{2}+1^{2}=9 $ . That is because the deck has 5 blocks in total: \"oo\", \"x\", \"ooo\", \"xx\", \"o\".\n\nUser ainta likes big numbers, so he wants to maximize the score with the given cards. Help ainta make the score as big as possible. Note, that he has to arrange all his cards.",
+    "inputFormat": "The first line contains two space-separated integers $ a $ and $ b $ ( $ 0<=a,b<=10^{5};\u00a0a+b>=1 $ ) \u2014 the number of \"o\" cards and the number of \"x\" cards.",
+    "outputFormat": "In the first line print a single integer $ v $ \u2014 the maximum score that ainta can obtain.\n\nIn the second line print $ a+b $ characters describing the deck. If the $ k $ -th card of the deck contains \"o\", the $ k $ -th character must be \"o\". If the $ k $ -th card of the deck contains \"x\", the $ k $ -th character must be \"x\". The number of \"o\" characters must be equal to $ a $ , and the number of \"x \" characters must be equal to $ b $ . If there are many ways to maximize $ v $ , print any.\n\nPlease, do not write the %lld specifier to read or write 64-bit integers in \u0421++. It is preferred to use the cin, cout streams or the %I64d specifier.",
+    "samples": [
+        [
+            "2 3\n",
+            "-1\nxoxox\n"
+        ],
+        [
+            "4 0\n",
+            "16\noooo"
+        ],
+        [
+            "0 4\n",
+            "-16\nxxxx"
+        ]
+    ],
+    "hint": "",
+    "translation": "1. \u521d\u59cb\u5206\u6570\u4e3a0\n1. \u5bf9\u4e8e\u6bcf\u4e00\u6bb5\u8fde\u7eed'o',\u5982\u679c\u957f\u5ea6\u4e3a$x$\uff0c\u90a3\u4e48\u4f60\u7684\u5f97\u5206\u4e3a$x^2$\n1. \u5bf9\u4e8e\u6bcf\u4e00\u6bb5\u8fde\u7eed'x',\u5982\u679c\u957f\u5ea6\u4e3a$x$\uff0c\u90a3\u4e48\u4f60\u7684\u5f97\u5206\u4e3a$-x^2$\n\n\u4f8b\u5982\"ooxoooxx\"\u5f97\u5206\u4e3a\n$2^2-1^2+3^2-2^2+1^1=9$\n\n\u73b0\u5728\u8f93\u5165a\u548cb\uff0c\u5206\u522b\u8868\u793a'o'\u7684\u6570\u91cf\u548c'x'\u7684\u6570\u91cf\uff0c\u6c42\u4e00\u4e2a\u5e8f\u5217\uff0c\u4f7f\u5f97\u5206\u6700\u5927\u3002\n\n\u4f60\u9700\u8981\u5728\u7b2c\u4e00\u884c\u8f93\u51fa\u6700\u5927\u5f97\u5206\uff0c\u7b2c\u4e8c\u884c\u8f93\u51fa\u4f60\u6392\u51fa\u6765\u7684\u5e8f\u5217\uff0c\u6709\u591a\u4e2a\u7b54\u6848\u65f6\u8f93\u51fa\u4efb\u610f\u4e00\u4e2a\uff08special judge\uff09\u3002"
+}

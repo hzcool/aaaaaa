@@ -1,0 +1,21 @@
+{
+    "description": "Many years have passed, and $ n $ friends met at a party again. Technologies have leaped forward since the last meeting, cameras with timer appeared and now it is not obligatory for one of the friends to stand with a camera, and, thus, being absent on the photo.\n\nSimply speaking, the process of photographing can be described as follows. Each friend occupies a rectangle of pixels on the photo: the $ i $ -th of them in a standing state occupies a $ w_{i} $ pixels wide and a $ h_{i} $ pixels high rectangle. But also, each person can lie down for the photo, and then he will occupy a $ h_{i} $ pixels wide and a $ w_{i} $ pixels high rectangle.\n\nThe total photo will have size $ W\u00d7H $ , where $ W $ is the total width of all the people rectangles, and $ H $ is the maximum of the heights. The friends want to determine what minimum area the group photo can they obtain if no more than $ n/2 $ of them can lie on the ground (it would be strange if more than $ n/2 $ gentlemen lie on the ground together, isn't it?..)\n\nHelp them to achieve this goal.",
+    "inputFormat": "The first line contains integer $ n $ ( $ 1<=n<=1000 $ ) \u2014 the number of friends.\n\nThe next $ n $ lines have two integers $ w_{i},h_{i} $ ( $ 1<=w_{i},h_{i}<=1000 $ ) each, representing the size of the rectangle, corresponding to the $ i $ -th friend.",
+    "outputFormat": "Print a single integer equal to the minimum possible area of the photo containing all friends if no more than $ n/2 $ of them can lie on the ground.",
+    "samples": [
+        [
+            "3\n10 1\n20 2\n30 3\n",
+            "180\n"
+        ],
+        [
+            "3\n3 1\n2 2\n4 3\n",
+            "21\n"
+        ],
+        [
+            "1\n5 10\n",
+            "50\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u5f88\u591a\u5e74\u8fc7\u53bb\u4e86\uff0c\u6709n\u4e2a\u670b\u53cb\u5728\u4e00\u6b21\u6d3e\u5bf9\u4e2d\u76f8\u805a\u3002\u4ece\u4ed6\u4eec\u4e0a\u4e00\u6b21\u76f8\u805a\u5230\u73b0\u5728\uff0c\u79d1\u6280\u5df2\u7ecf\u98de\u901f\u53d1\u5c55\uff0c\u53ef\u4ee5\u5ef6\u65f6\u6444\u5f71\u7684\u76f8\u673a\u5df2\u7ecf\u51fa\u73b0\uff0c\u73b0\u5728\u5df2\u7ecf\u6ca1\u6709\u5fc5\u8981\u8ba9\u4e00\u4e2a\u4eba\u5728\u7167\u76f8\u673a\u524d\u7167\u76f8\uff0c\u90a3\u6837\u4f1a\u4f7f\u5f97\u4ed6\u4e0d\u5728\u8fd9\u4e2a\u7167\u7247\u5f53\u4e2d\u3002\r\n\r\n\u7b80\u5355\u6765\u8bf4\uff0c\u62cd\u7167\u8fc7\u7a0b\u5982\u4e0b\uff1a\u6bcf\u4e00\u4e2a\u4eba\u5728\u7167\u7247\u4e2d\u90fd\u4f1a\u5360\u4e00\u4e2a\u77e9\u5f62\u50cf\u7d20\uff1a\u7b2ci\u4e2a\u4eba\u6240\u5360\u7684\u5bbd\u5ea6\u4e3aw[i],\u9ad8\u5ea6\u4e3ah[i] .\u4f46\u662f\uff0c\u6bcf\u4e00\u4e2a\u4eba\u53ef\u4ee5\u5728\u62cd\u7167\u65f6\u8eba\u4e0b\uff0c\u90a3\u4e48\u7b2ci\u4e2a\u4eba\u8eba\u4e0b\u6240\u5360\u7684\u5bbd\u5ea6\u4e3ah[i],\u9ad8\u5ea6\u4e3aw[i]\uff0c\uff08\u5c31\u662f\u9ad8\u548c\u5bbd\u53cd\u8fc7\u6765\u4e86\uff09\r\n\r\n\u6574\u5f20\u7167\u7247\u7684\u5927\u5c0f\u4e3aW*H\u3002W\u662f\u6240\u6709\u4eba\u5bbd\u7684\u603b\u548c\uff0cH\u662f\u7167\u7247\u5f53\u4e2d\u6700\u9ad8\u7684\u90a3\u4e2a\u4eba\u7684\u9ad8\u5ea6\u3002\u670b\u53cb\u4eec\u60f3\u8ba9\u4e00\u4e2a\u80fd\u88c5\u4e0b\u4ed6\u4eec\u6240\u6709\u4eba\u7684\u7167\u7247\u5e76\u4e14\u8ba9\u8fd9\u5f20\u7167\u7247\u7684\u5927\u5c0f\u5c3d\u53ef\u80fd\u5c0f\uff0c\u5e76\u4e14\u4e0d\u80fd\u6709\u8d85\u8fc7\u4e00\u534a\u4ee5\u4e0a\u7684\u4eba\u8eba\u4e0b\u3002\uff08\u5982\u679c\u6709\u8d85\u8fc7\u4e00\u534a\u4ee5\u4e0a\u7684\u4eba\u8eba\u5728\u5730\u4e0a\u4f1a\u663e\u5f97\u5f88\u5947\u602a\uff0c\u96be\u9053\u4e0d\u662f\u5417\uff1f\uff1f\uff09\r\n\u8bf7\u5e2e\u52a9\u4ed6\u4eec\u8fbe\u5230\u8fd9\u4e2a\u8981\u6c42\u3002"
+}

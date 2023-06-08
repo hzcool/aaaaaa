@@ -1,0 +1,13 @@
+{
+    "description": "A snowflake graph is generated from two integers $ x $ and $ y $ , both greater than $ 1 $ , as follows:\n\n- Start with one central vertex.\n- Connect $ x $ new vertices to this central vertex.\n- Connect $ y $ new vertices to each of these $ x $ vertices.\n\n For example, below is a snowflake graph for $ x=5 $ and $ y=3 $ .  ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1829F/8093abf53ab9afd4293f2937f4849e3ca604a47a.png)The snowflake graph above has a central vertex $ 15 $ , then $ x=5 $ vertices attached to it ( $ 3 $ , $ 6 $ , $ 7 $ , $ 8 $ , and $ 20 $ ), and then $ y=3 $ vertices attached to each of those.\n\n Given a snowflake graph, determine the values of $ x $ and $ y $ .",
+    "inputFormat": "The first line contains a single integer $ t $ ( $ 1 \\leq t \\leq 1000 $ ) \u2014 the number of test cases.\n\nThe first line of each test case contains two integers $ n $ and $ m $ ( $ 2 \\leq n \\leq 200 $ ; $ 1 \\leq m \\leq \\min\\left(1000, \\frac{n(n-1)}{2}\\right) $ ) \u2014 the number of vertices and edges in the graph, respectively.\n\nThe next $ m $ lines each contain two integers each $ u $ and $ v $ ( $ 1 \\leq u, v \\leq n $ , $ u \\neq v $ ) \u2014 the numbers of vertices connected by an edge. The graph does not contain multiple edges and self-loops.\n\nIt is guaranteed that this graph is a snowflake graph for some integers $ x $ and $ y $ both greater than $ 1 $ .",
+    "outputFormat": "For each test case, on a separate line output the values of $ x $ and $ y $ , in that order, separated by a space.",
+    "samples": [
+        [
+            "3\n21 20\n21 20\n5 20\n13 20\n1 3\n11 3\n10 3\n4 8\n19 8\n14 8\n9 7\n12 7\n17 7\n18 6\n16 6\n2 6\n6 15\n7 15\n8 15\n20 15\n3 15\n7 6\n1 2\n1 3\n2 4\n2 5\n3 6\n3 7\n9 8\n9 3\n3 6\n6 2\n2 1\n5 2\n2 7\n4 3\n3 8",
+            "5 3\n2 2\n2 3"
+        ]
+    ],
+    "hint": "The first test case is pictured in the statement. Note that the output 3 5 is incorrect, since $ x $ should be output before $ y $ .",
+    "translation": "\u7ed9\u5b9a\u4e00\u4e2a $n$ \u4e2a\u8282\u70b9\u7684\u5c42\u6570\u4e3a $3$\uff08\u6839\u8282\u70b9\u5c42\u6570\u4e3a $1$\uff09\u7684\u6811\uff0c\u6c42\u6839\u8282\u70b9\u7684\u5ea6\u6570\u548c\u6839\u8282\u70b9\u7684\u513f\u5b50\u7684\u513f\u5b50\u6570\u3002\n\nTranslated by @[_JYqwq_](/user/400269)"
+}

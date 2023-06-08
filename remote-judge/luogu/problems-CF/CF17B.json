@@ -1,0 +1,17 @@
+{
+    "description": "Nick's company employed $ n $ people. Now Nick needs to build a tree hierarchy of \u00absupervisor-surbodinate\u00bb relations in the company (this is to say that each employee, except one, has exactly one supervisor). There are $ m $ applications written in the following form: \u00abemployee $ a_{i} $ is ready to become a supervisor of employee $ b_{i} $ at extra cost $ c_{i} $ \u00bb. The qualification $ q_{j} $ of each employee is known, and for each application the following is true: $ q_{ai}>q_{bi} $ .\n\nWould you help Nick calculate the minimum cost of such a hierarchy, or find out that it is impossible to build it.",
+    "inputFormat": "The first input line contains integer $ n $ ( $ 1<=n<=1000 $ ) \u2014 amount of employees in the company. The following line contains $ n $ space-separated numbers $ q_{j} $ ( $ 0<=q_{j}<=10^{6} $ )\u2014 the employees' qualifications. The following line contains number $ m $ ( $ 0<=m<=10000 $ ) \u2014 amount of received applications. The following $ m $ lines contain the applications themselves, each of them in the form of three space-separated numbers: $ a_{i} $ , $ b_{i} $ and $ c_{i} $ ( $ 1<=a_{i},b_{i}<=n $ , $ 0<=c_{i}<=10^{6} $ ). Different applications can be similar, i.e. they can come from one and the same employee who offered to become a supervisor of the same person but at a different cost. For each application $ q_{ai}>q_{bi} $ .",
+    "outputFormat": "Output the only line \u2014 the minimum cost of building such a hierarchy, or -1 if it is impossible to build it.",
+    "samples": [
+        [
+            "4\n7 2 3 1\n4\n1 2 5\n2 4 1\n3 4 1\n1 3 5\n",
+            "11\n"
+        ],
+        [
+            "3\n1 2 3\n2\n3 1 2\n3 1 3\n",
+            "-1\n"
+        ]
+    ],
+    "hint": "In the first sample one of the possible ways for building a hierarchy is to take applications with indexes 1, 2 and 4, which give 11 as the minimum total cost. In the second sample it is impossible to build the required hierarchy, so the answer is -1.",
+    "translation": "### \u9898\u76ee\u63cf\u8ff0\n\n\u5c0f $n$ \u7684\u516c\u53f8\u6709 $n$ \u4e2a\u5458\u5de5\uff0c\u6bcf\u4e2a\u5458\u5de5 $i$ \u6709\u4e00\u4e2a\u521d\u59cb\u7684\u6743\u503c $q_i$ \uff0c\u6bcf\u4e00\u4e2a\u5458\u5de5\u6709\u4e14\u53ea\u6709\u4e00\u4e2a\u4e0a\u53f8\u3002 \u6709 $m$ \u6761\u7533\u8bf7\uff0c\u6bcf\u4e2a\u7533\u8bf7\u7531\u4e09\u4e2a\u6570 $a_i$\uff0c$b_i$\uff0c$c_i$ \u6784\u6210\uff0c\u4ee3\u8868\u5c06 $a_i$ \u4efb\u547d\u4e3a $b_i$ \u7684\u4e0a\u53f8\u6240\u9700\u8981\u7684\u82b1\u8d39\u4e3a$c_i$\uff0c\u540c\u65f6\u5fc5\u987b\u4fdd\u8bc1 $q_{a_i}>q_{b_i}$\u3002\u8bd5\u6c42\u4f7f\u6bcf\u4e2a\u5458\u5de5(\u9876\u5934\u4e0a\u53f8\u9664\u5916)\u90fd\u6709\u4e14\u53ea\u6709\u4e00\u4e2a\u4e0a\u53f8\u6240\u82b1\u8d39\u7684\u6700\u5c0f\u4ee3\u4ef7\u3002\n\n### \u8f93\u5165\u683c\u5f0f\n\n\u7b2c\u4e00\u884c $n$\uff0c\u7b2c\u4e8c\u884c $n$ \u4e2a\u6570\u8868\u793a $q_i$\uff0c\u7b2c\u4e09\u884c $m$\uff0c\u4e4b\u540e $m$ \u884c\u6bcf\u884c\u4e09\u4e2a\u6570\u8868\u793a$a_i$ \uff0c$b_i$\uff0c$c_i$\u3002 \n\n### \u8f93\u51fa\u683c\u5f0f\n\n\u4e00\u4e2a\u6574\u6570\u8868\u793a\u6700\u5c0f\u4ee3\u4ef7\uff0c\u82e5\u65e0\u89e3\u5219\u8f93\u51fa `-1`\u3002\n\n### \u8bf4\u660e/\u63d0\u793a\n\n#### \u6570\u636e\u89c4\u6a21\u4e0e\u7ea6\u5b9a\n\n$1 \\le n \\le 10^3$\uff0c$0 \\le m \\le 10^4$, $0 \\le q_i \\le 10^6$\uff0c$0 \\le c_i \\le 10^6$\uff0c$1 \\le a_i,b_i \\le n$ \u3002"
+}

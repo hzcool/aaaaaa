@@ -1,0 +1,25 @@
+{
+    "description": "You're given a tree consisting of $ n $ nodes. Every node $ u $ has a weight $ a_u $ . You want to choose an integer $ k $ $ (1 \\le k \\le n) $ and then choose $ k $ connected components of nodes that don't overlap (i.e every node is in at most 1 component). Let the set of nodes you chose be $ s $ . You want to maximize:\n\n $ $$$\\frac{\\sum\\limits_{u \\in s} a_u}{k} $ $ </p><p>In other words, you want to maximize the sum of weights of nodes in  $ s $  divided by the number of connected components you chose. Also, if there are several solutions, you want to <span class=\"tex-font-style-bf\">maximize  $ k$$$.\n\nNote that adjacent nodes can belong to different components. Refer to the third sample.",
+    "inputFormat": "The first line contains the integer $ n $ $ (1 \\le n \\le 3 \\cdot 10^5) $ , the number of nodes in the tree.\n\nThe second line contains $ n $ space-separated integers $ a_1 $ , $ a_2 $ , $ \\dots $ , $ a_n $ $ (|a_i| \\le 10^9) $ , the weights of the nodes.\n\nThe next $ n-1 $ lines, each contains 2 space-separated integers $ u $ and $ v $ $ (1 \\le u,v \\le n) $ which means there's an edge between $ u $ and $ v $ .",
+    "outputFormat": "Print the answer as a non-reduced fraction represented by 2 space-separated integers. The fraction itself should be maximized and if there are several possible ways, you should maximize the denominator. See the samples for a better understanding.",
+    "samples": [
+        [
+            "3\n1 2 3\n1 2\n1 3\n",
+            "6 1"
+        ],
+        [
+            "1\n-2\n",
+            "-2 1"
+        ],
+        [
+            "3\n-1 -1 -1\n1 2\n2 3\n",
+            "-3 3"
+        ],
+        [
+            "3\n-1 -2 -1\n1 2\n1 3\n",
+            "-2 2"
+        ]
+    ],
+    "hint": "A connected component is a set of nodes such that for any node in the set, you can reach all other nodes in the set passing only nodes in the set.\n\nIn the first sample, it's optimal to choose the whole tree.\n\nIn the second sample, you only have one choice (to choose node 1) because you can't choose 0 components.\n\nIn the third sample, notice that we could've, for example, chosen only node 1, or node 1 and node 3, or even the whole tree, and the fraction would've had the same value (-1), but we want to maximize $ k $ .\n\nIn the fourth sample, we'll just choose nodes 1 and 3.",
+    "translation": "## Description\r\n\r\n\u7ed9\u5b9a\u4e00\u68f5 $n$ \u4e2a\u8282\u70b9\u7684\u6811\uff0c\u70b9\u6709\u70b9\u6743 $a_u$\uff0c\u53ef\u80fd\u4e3a\u8d1f\u3002\u73b0\u5728\u8bf7\u4f60\u5728\u6811\u4e0a\u627e\u51fa $k~(1~\\leq~k~\\leq~n)$ \u4e2a\u4e0d\u76f8\u4ea4\u96c6\u5408\uff0c\u4f7f\u5f97\u6bcf\u4e2a\u96c6\u5408\u4e2d\u7684\u6bcf\u5bf9\u70b9\u90fd\u53ef\u4ee5\u901a\u8fc7\u672c\u96c6\u5408\u4e2d\u7684\u70b9\u4e92\u76f8\u5230\u8fbe\uff0c\u5047\u8bbe\u9009\u51fa\u7684 $k$ \u4e2a\u96c6\u5408\u7684\u5e76\u96c6\u4e3a $s$\uff0c\u8981\u6c42\u6700\u5927\u5316\uff1a\r\n\r\n$$\\frac{\\sum_{u \\in s} a_u}{k}$$\r\n\r\n\u5982\u679c\u6709\u591a\u89e3\u8bf7\u8f93\u51fa $k$ \u6700\u5927\u7684\u89e3\r\n\r\n## Input\r\n\r\n\u7b2c\u4e00\u884c\u662f\u8282\u70b9\u4e2a\u6570 $n$\u3002\r\n\r\n\u4e0b\u9762\u4e00\u884c $n$ \u4e2a\u6570\u4ee3\u8868\u70b9\u6743\r\n\r\n\u4e0b\u9762 $n - 1$ \u884c\u63cf\u8ff0\u8fd9\u68f5\u6811\r\n\r\n## Output\r\n\r\n\u8f93\u51fa\u4e00\u884c\u4e24\u4e2a\u6574\u6570\uff0c\u5206\u522b\u662f\u9009\u51fa\u7684\u70b9\u6743\u548c\u4ee5\u53ca $k$\r\n\r\n**\u4e0d\u7ea6\u5206**\r\n\r\nTranslated by @ \u4e00\u6276\u82cf\u4e00"
+}

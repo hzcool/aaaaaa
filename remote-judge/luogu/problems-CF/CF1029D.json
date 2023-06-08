@@ -1,0 +1,21 @@
+{
+    "description": "You are given an array $ a $ , consisting of $ n $ positive integers.\n\nLet's call a concatenation of numbers $ x $ and $ y $ the number that is obtained by writing down numbers $ x $ and $ y $ one right after another without changing the order. For example, a concatenation of numbers $ 12 $ and $ 3456 $ is a number $ 123456 $ .\n\nCount the number of ordered pairs of positions $ (i,j) $ ( $ i\u2260j $ ) in array $ a $ such that the concatenation of $ a_{i} $ and $ a_{j} $ is divisible by $ k $ .",
+    "inputFormat": "The first line contains two integers $ n $ and $ k $ ( $ 1<=n<=2\u00b710^{5} $ , $ 2<=k<=10^{9} $ ).\n\nThe second line contains $ n $ integers $ a_{1},a_{2},...,a_{n} $ ( $ 1<=a_{i}<=10^{9} $ ).",
+    "outputFormat": "Print a single integer \u2014 the number of ordered pairs of positions $ (i,j) $ ( $ i\u2260j $ ) in array $ a $ such that the concatenation of $ a_{i} $ and $ a_{j} $ is divisible by $ k $ .",
+    "samples": [
+        [
+            "6 11\n45 1 10 12 11 7\n",
+            "7\n"
+        ],
+        [
+            "4 2\n2 78 4 10\n",
+            "12\n"
+        ],
+        [
+            "5 2\n3 7 19 3 3\n",
+            "0\n"
+        ]
+    ],
+    "hint": "In the first example pairs $ (1,2) $ , $ (1,3) $ , $ (2,3) $ , $ (3,1) $ , $ (3,4) $ , $ (4,2) $ , $ (4,3) $ suffice. They produce numbers $ 451 $ , $ 4510 $ , $ 110 $ , $ 1045 $ , $ 1012 $ , $ 121 $ , $ 1210 $ , respectively, each of them is divisible by $ 11 $ .\n\nIn the second example all $ n(n-1) $ pairs suffice.\n\nIn the third example no pair is sufficient.",
+    "translation": "\u7ed9\u51fa$n(n\\in[1,2\\cdot10^5])$\u4e2a\u6570$a_1,a_2,\\dots,a_n(a_i\\in[1,10^9])$\u548c$k$,\u6c42\u5bf9\u4e8e\u4efb\u610f\u7684\u4e24\u4e2a\u6570$a_i,a_j(i\\neq j\\text{\u4e14}i,j\\in [1,n])$,\u4f7f\u5f97\u4e24\u6570\u8fde\u63a5\u8d77\u6765\u7ec4\u6210\u7684\u65b0\u6570(\u5982$12$\u4e0e$3456$\u8fde\u63a5\u7ec4\u6210$123456$)\u80fd\u88ab$k(k\\in [2,10^9])$\u6574\u9664\u7684\u9009\u5b9a\u65b9\u5f0f\u5171\u6709\u591a\u5c11\u79cd. \n\nTranslated by @BLUESKY007"
+}

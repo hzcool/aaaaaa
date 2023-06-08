@@ -1,0 +1,13 @@
+{
+    "description": "A tree is an undirected connected graph without cycles.\n\nYou are given a tree of $ n $ vertices. Find the number of ways to choose exactly $ k $ vertices in this tree (i. e. a $ k $ -element subset of vertices) so that all pairwise distances between the selected vertices are equal (in other words, there exists an integer $ c $ such that for all $ u, v $ ( $ u \\ne v $ , $ u, v $ are in selected vertices) $ d_{u,v}=c $ , where $ d_{u,v} $ is the distance from $ u $ to $ v $ ).\n\nSince the answer may be very large, you need to output it modulo $ 10^9 + 7 $ .",
+    "inputFormat": "The first line contains one integer $ t $ ( $ 1 \\le t \\le 10 $ ) \u2014 the number of test cases. Then $ t $ test cases follow.\n\nEach test case is preceded by an empty line.\n\nEach test case consists of several lines. The first line of the test case contains two integers $ n $ and $ k $ ( $ 2 \\le k \\le n \\le 100 $ ) \u2014 the number of vertices in the tree and the number of vertices to be selected, respectively. Then $ n - 1 $ lines follow, each of them contains two integers $ u $ and $ v $ ( $ 1 \\le u, v \\le n $ , $ u \\neq v $ ) which describe a pair of vertices connected by an edge. It is guaranteed that the given graph is a tree and has no loops or multiple edges.",
+    "outputFormat": "For each test case output in a separate line a single integer \u2014 the number of ways to select exactly $ k $ vertices so that for all pairs of selected vertices the distances between the vertices in the pairs are equal, modulo $ 10^9 + 7 $ (in other words, print the remainder when divided by $ 1000000007 $ ).",
+    "samples": [
+        [
+            "3\n\n4 2\n1 2\n2 3\n2 4\n\n3 3\n1 2\n2 3\n\n5 3\n1 2\n2 3\n2 4\n4 5",
+            "6\n0\n1"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9\u5b9a\u4e00\u68f5\u6709 $n$ \u4e2a\u70b9\u7684\u6811\uff0c\u8981\u6c42\u9009\u51fa $k$ \u4e2a\u70b9\uff0c\u4f7f\u5f97\u8fd9 $k$ \u4e2a\u70b9\u4e24\u4e24\u8ddd\u79bb\u76f8\u540c\u3002\u7b54\u6848\u6a21 $10^9+7$ \u3002\n\n\u8f93\u5165\u6570\u636e\u6709 $t$ \u7ec4\uff08 $1 \\leq t \\leq 10$ \uff09\uff0c\u6bcf\u7ec4\u6570\u636e\u7b2c\u4e00\u884c\u6709\u4e24\u4e2a\u6570 $ n $ \u548c $k$ \uff08 $ 2 \\leq k \\leq n \\leq 100$ \uff09\uff0c\u610f\u4e49\u5982\u4e0a\uff0c\u4e0b\u9762 $ n-1$ \u884c\u6bcf\u884c\u6709\u4e24\u4e2a\u6570 $u,v$ \u4ee3\u8868\u6709\u4e00\u6761\u8fb9\u8fde\u63a5 $u,v$ \u4e24\u4e2a\u70b9\u3002\n\n\u5bf9\u4e8e\u6bcf\u7ec4\u6570\u636e\uff0c\u8f93\u51fa\u9009\u51fa $k$ \u4e2a\u70b9\uff0c\u4f7f\u5f97\u8fd9 $k$ \u4e2a\u70b9\u4e24\u4e24\u8ddd\u79bb\u76f8\u540c\u7684\u65b9\u6848\u6570\uff0c\u7b54\u6848\u6a21 $10^9+7$\u3002"
+}

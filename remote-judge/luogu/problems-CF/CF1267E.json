@@ -1,0 +1,21 @@
+{
+    "description": "Byteburg Senate elections are coming. Usually \"United Byteland\", the ruling Byteland party, takes all the seats in the Senate to ensure stability and sustainable development. But this year there is one opposition candidate in one of the constituencies. Even one opposition member can disturb the stability in the Senate, so the head of the Party asks you to ensure that the opposition candidate will not be elected.\n\nThere are $ n $ candidates, numbered from 1 to $ n $ . Candidate $ n $ is the opposition candidate. There are $ m $ polling stations in the constituency, numbered from 1 to $ m $ . You know the number of votes cast for each candidate at each polling station. The only thing you can do to prevent the election of the opposition candidate is to cancel the election results at some polling stations. The opposition candidate will be elected if the sum of the votes cast in their favor at all non-canceled stations will be strictly greater than the analogous sum for every other candidate.\n\nYour task is to prevent the election of the opposition candidate by canceling the election results at the minimal possible number of polling stations. Notice that solution always exists, because if you cancel the elections at all polling stations, the number of votes for each candidate will be 0, and the opposition candidate will not be elected.",
+    "inputFormat": "The first line of the input contains two integers $ n $ and $ m $ ( $ 2\\le n\\le 100 $ ; $ 1\\le m \\le 100 $ ) \u2014 the number of candidates and the number of polling stations. The next $ m $ lines contain the election results at each polling station with $ n $ numbers on each line. In the $ i $ -th line the $ j $ -th number is $ a_{i,j} $ \u2014 the number of votes cast for the candidate $ j $ at the station $ i $ ( $ 0\\le a_{i,j} \\le 1\\,000 $ ).",
+    "outputFormat": "In the first line output integer $ k $ \u2014 the minimal number of the polling stations in which you need to cancel the election results. In the second line output $ k $ integers \u2014 the indices of canceled polling stations, in any order. If there are multiple ways to cancel results at $ k $ stations, output any one of them.",
+    "samples": [
+        [
+            "5 3\n6 3 4 2 8\n3 7 5 6 7\n5 2 4 7 9\n",
+            "2\n3 1 \n"
+        ],
+        [
+            "2 1\n1 1\n",
+            "0\n\n"
+        ],
+        [
+            "3 3\n2 3 8\n4 2 9\n3 1 7\n",
+            "3\n1 2 3 \n"
+        ]
+    ],
+    "hint": "In the first example, the candidates from 1 to 5 received 14, 12, 13, 15, and 24 votes correspondingly. The opposition candidate has the most votes. However, if you cancel the election results at the first and the third polling stations, then only the result from the second polling station remains and the vote sums become 3, 7, 5, 6, and 7, without the opposition candidate being in the lead anymore.",
+    "translation": "## \u9898\u76ee\u63cf\u8ff0\r\n\u6709n(n<=100)\u4e2a\u4eba,m(m<=100)\u4e2a\u6295\u7968\u7ad9,\u6bcf\u4e2a\u6295\u7968\u7ad9\u5bf9\u6bcf\u4e2a\u4eba\u90fd\u6709\u4e00\u5b9a\u7684\u7968\u6570(<=1000).  \r\n\u7b2cn\u4e2a\u662f\u574f\u86cb,\u8bf7\u95ee\u53bb\u9664\u6389\u54ea\u51e0\u4e2a\u6295\u7968\u7ad9\u624d\u80fd\u4f7f\u4ed6\u7684\u7968\u6570\u4e25\u683c\u5c0f\u4e8e\u5176\u4ed6\u6bcf\u4e2a\u4eba\u4e2d\u7684\u4e00\u4e2a\uff0c\u4e5f\u5c31\u662f\u4e0d\u80fd\u8ba9\u7b2cn\u4e2a\u4eba\u7684\u603b\u7968\u6570\u6700\u591a\u3002\r\n### \u8f93\u5165\u683c\u5f0f\r\n\u7b2c\u4e00\u884c\u662f\u4e24\u4e2a\u6574\u6570\uff0c\u5206\u522b\u662fn\u548cm.  \r\n\u63a5\u4e0b\u6765m\u884cn\u5217\uff0c\u4ee3\u8868\u6bcf\u4e2a\u6295\u7968\u7ad9\u5bf9\u8fd9n\u4e2a\u4eba\u7684\u7968\u6570\u3002\r\n### \u8f93\u51fa\u683c\u5f0f\r\n\u7b2c\u4e00\u884c\u4e00\u4e2a\u6574\u6570k\uff0c\u4ee3\u8868\u9700\u8981\u53bb\u6389\u51e0\u4e2a\u6295\u7968\u7ad9\u3002  \r\n\u7b2c\u4e8c\u884c\u6709k\u4e2a\u6570\uff0c\u4ee3\u8868\u6295\u7968\u7ad9\u7684\u53f7\u6570\uff0c\u4e0d\u8981\u6c42\u5b57\u5178\u5e8f."
+}

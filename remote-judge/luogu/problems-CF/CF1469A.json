@@ -1,0 +1,13 @@
+{
+    "description": "A bracket sequence is called regular if it is possible to obtain correct arithmetic expression by inserting characters + and 1 into this sequence. For example, sequences (())(), () and (()(())) are regular, while )(, (() and (()))( are not. Let's call a regular bracket sequence \"RBS\".\n\nYou are given a sequence $ s $ of $ n $ characters (, ), and/or ?. There is exactly one character ( and exactly one character ) in this sequence.\n\nYou have to replace every character ? with either ) or ( (different characters ? can be replaced with different brackets). You cannot reorder the characters, remove them, insert other characters, and each ? must be replaced.\n\nDetermine if it is possible to obtain an RBS after these replacements.",
+    "inputFormat": "The first line contains one integer $ t $ ( $ 1 \\le t \\le 1000 $ ) \u2014 the number of test cases.\n\nEach test case consists of one line containing $ s $ ( $ 2 \\le |s| \\le 100 $ ) \u2014 a sequence of characters (, ), and/or ?. There is exactly one character ( and exactly one character ) in this sequence.",
+    "outputFormat": "For each test case, print YES if it is possible to obtain a regular bracket sequence, or NO otherwise}.\n\nYou may print each letter in any case (for example, YES, Yes, yes, yEs will all be recognized as positive answer).",
+    "samples": [
+        [
+            "5\n()\n(?)\n(??)\n??()\n)?(?",
+            "YES\nNO\nYES\nYES\nNO"
+        ]
+    ],
+    "hint": "In the first test case, the sequence is already an RBS.\n\nIn the third test case, you can obtain an RBS as follows: ()() or (()).\n\nIn the fourth test case, you can obtain an RBS as follows: ()().",
+    "translation": "\u591a\u6d4b\u3002\n\n\u7ed9\u5b9a\u4e00\u4e2a\u5305\u542b `(`,`)`,`?` \u4e09\u79cd\u5b57\u7b26\u7684\u5b57\u7b26\u4e32\uff0c\u5e76\u4e14\u4fdd\u8bc1\u53ea\u6709\u4e00\u4e2a `(` \u548c\u4e00\u4e2a `)` \u3002\n\n\u5176\u4e2d\u4f60\u53ef\u4ee5\u5c06 `?` \u66ff\u6362\u6210 `(` or `)`\u3002\n\n\u95ee\u662f\u5426\u5b58\u5728\u4e00\u79cd\u66ff\u6362\u65b9\u6848\uff0c\u4f7f\u5f97\u66ff\u6362\u540e\u7684\u4e32\u5de6\u53f3\u62ec\u53f7\u5339\u914d\u3002\n\n\u6ce8\u610f `?` \u5fc5\u987b\u5f97\u66ff\u6362\u6389\uff0c\u6700\u540e\u7559\u4e0b\u7684\u5fc5\u987b\u662f\u4e2a\u62ec\u53f7\u4e32\u3002\n\n\u5b58\u5728\u8f93\u51fa\u4e00\u884c `YES`\uff0c\u5426\u5219\u8f93\u51fa\u4e00\u884c `NO`\u3002"
+}

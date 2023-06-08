@@ -1,0 +1,21 @@
+{
+    "description": "User ainta has a stack of $ n $ red and blue balls. He can apply a certain operation which changes the colors of the balls inside the stack.\n\n- While the top ball inside the stack is red, pop the ball from the top of the stack.\n- Then replace the blue ball on the top with a red ball.\n- And finally push some blue balls to the stack until the stack has total of $ n $ balls inside.\n\nIf there are no blue balls inside the stack, ainta can't apply this operation. Given the initial state of the stack, ainta wants to know the maximum number of operations he can repeatedly apply.",
+    "inputFormat": "The first line contains an integer $ n $ ( $ 1<=n<=50 $ ) \u2014 the number of balls inside the stack.\n\nThe second line contains a string $ s $ ( $ |s|=n $ ) describing the initial state of the stack. The $ i $ -th character of the string $ s $ denotes the color of the $ i $ -th ball (we'll number the balls from top to bottom of the stack). If the character is \"R\", the color is red. If the character is \"B\", the color is blue.",
+    "outputFormat": "Print the maximum number of operations ainta can repeatedly apply.\n\nPlease, do not write the %lld specifier to read or write 64-bit integers in \u0421++. It is preferred to use the cin, cout streams or the %I64d specifier.",
+    "samples": [
+        [
+            "3\nRBR\n",
+            "2\n"
+        ],
+        [
+            "4\nRBBR\n",
+            "6\n"
+        ],
+        [
+            "5\nRBBRR\n",
+            "6\n"
+        ]
+    ],
+    "hint": "The first example is depicted below.\n\nThe explanation how user ainta applies the first operation. He pops out one red ball, changes the color of the ball in the middle from blue to red, and pushes one blue ball.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF399B/46d99e80a224613ca49d2dd409a2bd590f3a143b.png)The explanation how user ainta applies the second operation. He will not pop out red balls, he simply changes the color of the ball on the top from blue to red.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF399B/ba104f84149ca3428e863eb38f8da803a6fe6f63.png)From now on, ainta can't apply any operation because there are no blue balls inside the stack. ainta applied two operations, so the answer is 2.\n\nThe second example is depicted below. The blue arrow denotes a single operation.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF399B/246415b97c6930634b8753ec3ac33ff3b80befc8.png)",
+    "translation": "## \u3010\u9898\u76ee\u63cf\u8ff0\u3011\n\u4e00\u4e2a\u6808\u5185\u521d\u59cb\u6709n\u4e2a\u7ea2\u8272\u548c\u84dd\u8272\u7684\u5c0f\u7403\uff0c\u8bf7\u4f60\u6309\u7167\u4ee5\u4e0b\u89c4\u5219\u8fdb\u884c\u64cd\u4f5c\n1.\u53ea\u8981\u6808\u9876\u7684\u5c0f\u7403\u662f\u7ea2\u8272\u7684\uff0c\u5c06\u5176\u53d6\u51fa\uff0c\u76f4\u5230\u6808\u9876\u7684\u7403\u662f\u84dd\u8272\n2.\u7136\u540e\u5c06\u6808\u9876\u7684\u84dd\u7403\u53d8\u6210\u7ea2\u8272\n3.\u6700\u540e\u653e\u5165\u82e5\u5e72\u4e2a\u84dd\u7403\u76f4\u5230\u6808\u4e2d\u7684\u7403\u6570\u4e3an\n\u4ee5\u4e0a3\u6b65\u9aa4\u4e3a\u4e00\u6b21\u64cd\u4f5c\n\u5982\u6808\u4e2d\u90fd\u662f\u7ea2\u8272\u7403\uff0c\u5219\u64cd\u4f5c\u505c\u6b62\uff0c\u8bf7\u95ee\u51e0\u6b21\u64cd\u4f5c\u540e\u505c\u6b62\nainta\u51fa\u5b8c\u9898\u53d1\u73b0\u4ed6\u81ea\u5df1\u4e0d\u80fdAC\u6240\u4ee5\u60f3\u8bf7\u4f60\u5e2e\u5fd9\n## \u3010\u8f93\u5165\u683c\u5f0f\u3011\n\u7b2c\u4e00\u884c\u4e3a\u4e00\u4e2a\u6574\u6570n\uff0c\u8868\u793a\u6808\u7684\u5bb9\u91cf\u4e3an\n\u7b2c\u4e8c\u884c\u4e3a\u4e00\u4e2a\u5b57\u7b26\u4e32\uff0c\u7b2ci\u4e2a\u5b57\u7b26\u8868\u793a\u81ea\u9876\u5411\u4e0b\u7684\u7b2ci\u4e2a\u7403\u7684\u989c\u8272\uff0cR\u4ee3\u8868\u7ea2\u8272\uff0cB\u4ee3\u8868\u84dd\u8272\n## \u3010\u8f93\u51fa\u683c\u5f0f\u3011\n\u4e00\u4e2a\u6574\u6570\u8868\u793a\u64cd\u4f5c\u6570\n## \u3010\u6837\u4f8b\u8f93\u5165\u3011\n### \u6837\u4f8b1\uff1a\n3\nRBR\n### \u6837\u4f8b2\uff1a\n4\nRBBR\n## \u3010\u6837\u4f8b\u8f93\u51fa\u3011\n\u6837\u4f8b1\uff1a2\n\u6837\u4f8b2\uff1a6\n## \u3010\u6837\u4f8b\u89e3\u91ca\u3011\n\u6837\u4f8b1\uff1a\uff08\u5982\u56fe\uff09\n\n\u6837\u4f8b2\uff1a\uff08\u5982\u56fe\uff09\n\n## \u3010\u6570\u636e\u8303\u56f4\u3011\n50%\u7684\u6570\u636e\uff0c1<=n<=20\n\n100%\u7684\u6570\u636e\uff0c1<=n<=50\n\n\u7ffb\u8bd1\u63d0\u4f9b\u8005\uff1aleonyy"
+}

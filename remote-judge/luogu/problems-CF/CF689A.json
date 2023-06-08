@@ -1,0 +1,25 @@
+{
+    "description": "While swimming at the beach, Mike has accidentally dropped his cellphone into the water. There was no worry as he bought a cheap replacement phone with an old-fashioned keyboard. The keyboard has only ten digital equal-sized keys, located in the following way:\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF689A/0342f4147f163e7abcc57c3f34c170ac4ad52a2c.png)Together with his old phone, he lost all his contacts and now he can only remember the way his fingers moved when he put some number in. One can formally consider finger movements as a sequence of vectors connecting centers of keys pressed consecutively to put in a number. For example, the finger movements for number \"586\" are the same as finger movements for number \"253\":\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF689A/1ee471f119d0342dde68609c8abcbc49afcbf489.png) ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF689A/030b9a0e4d0e91a9966bf07663da14ee536572b7.png)Mike has already put in a number by his \"finger memory\" and started calling it, so he is now worrying, can he be sure that he is calling the correct number? In other words, is there any other number, that has the same finger movements?",
+    "inputFormat": "The first line of the input contains the only integer $ n $ ( $ 1<=n<=9 $ ) \u2014 the number of digits in the phone number that Mike put in.\n\nThe second line contains the string consisting of $ n $ digits (characters from '0' to '9') representing the number that Mike put in.",
+    "outputFormat": "If there is no other phone number with the same finger movements and Mike can be sure he is calling the correct number, print \"YES\" (without quotes) in the only line.\n\nOtherwise print \"NO\" (without quotes) in the first line.",
+    "samples": [
+        [
+            "3\n586\n",
+            "NO\n"
+        ],
+        [
+            "2\n09\n",
+            "NO\n"
+        ],
+        [
+            "9\n123456789\n",
+            "YES\n"
+        ],
+        [
+            "3\n911\n",
+            "YES\n"
+        ]
+    ],
+    "hint": "You can find the picture clarifying the first sample case in the statement above.",
+    "translation": "\u9898\u76ee\u63cf\u8ff0\n\u8fc8\u514b\u5728\u6d77\u6ee9\u6e38\u6cf3\u65f6\u4e0d\u5c0f\u5fc3\u5c06\u624b\u673a\u653e\u5165\u6c34\u4e2d\u3002\u4ed6\u4e70\u4e86\u4e00\u4e2a\u5e26\u6709\u8001\u5f0f\u952e\u76d8\u7684\u624b\u673a\u3002\u952e\u76d8\u53ea\u6709\u5341\u4e2a\u6570\u5b57\u5927\u5c0f\u7684\u952e\uff0c\u4f4d\u4e8e\u4ee5\u4e0b\u65b9\u5f0f\uff1a\n\n| 1 | 2 | 3 |\n| -----------: | -----------: | -----------: |\n| 4 | 5 | 6 |\n| 7 | 8 | 9 |\n|   | 0 |   |   |\n\u8054\u7cfb\u4eba\u4e0e\u4ed6\u7684\u65e7\u624b\u673a\u4e00\u8d77\u6d88\u5931\u4e86\uff0c\u4ed6\u73b0\u5728\u53ea\u80fd\u8bb0\u4f4f\u4ed6\u7684\u624b\u6307\u5728\u4ed6\u8f93\u5165\u4e00\u4e9b\u6570\u5b57\u65f6\u7684\u79fb\u52a8\u65b9\u5f0f\u3002\u4eba\u4eec\u53ef\u4ee5\u5c06\u624b\u6307\u52a8\u4f5c\u89c6\u4e3a\u8fde\u63a5\u6309\u4e0b\u6309\u952e\u7684\u4e00\u7cfb\u5217\u52a8\u4f5c\u3002\u4f8b\u5982\uff0c\u6570\u5b57\u201c586\u201d\u7684\u624b\u6307\u79fb\u52a8\u52a8\u4f5c\u4e0e\u6570\u5b57\u201c253\u201d\u7684\u624b\u6307\u79fb\u52a8\u52a8\u4f5c\u76f8\u540c\u3002\nMike\u901a\u8fc7\u4ed6\u7684\u201c\u624b\u6307\u8bb0\u5fc6\u201d\u8f93\u5165\u4e86\u4e00\u4e2a\u6570\u5b57\u5e76\u5f00\u59cb\u8c03\u7528\u5b83\uff0c\u6240\u4ee5\u4ed6\u73b0\u5728\u62c5\u5fc3\uff0c\u6709\u6ca1\u6709\u5176\u4ed6\u6570\u5b57\uff0c\u6709\u76f8\u540c\u7684\u624b\u6307\u52a8\u4f5c\uff1f\n\n\u8f93\u5165\u683c\u5f0f\uff1a\n\u8f93\u5165\u7684\u7b2c\u4e00\u884c\u5305\u542b\u552f\u4e00\u7684\u6574\u6570n\uff081<=N<=9\uff09\u8868\u793aMike\u8f93\u5165\u7684\u7535\u8bdd\u53f7\u7801\u4e2d\u7684\u4f4d\u6570\u3002\u7b2c\u4e8c\u884c\u75311\u52309\u7ec4\u6210\u7684n\u4e2a\u5b57\u7b26\u7684\u5b57\u7b26\u4e32\u3002\n\n\u8f93\u51fa\u683c\u5f0f\uff1a\n\u5982\u679c\u6ca1\u6709\u5176\u4ed6\u7535\u8bdd\u53f7\u7801\u5177\u6709\u76f8\u540c\u7684\u624b\u6307\u79fb\u52a8\uff0c\u5219\u8f93\u51fa\u201cYES\u201d\uff0c\u5426\u5219\u8f93\u51fa\u201cNO\u201d\uff08\u4e0d\u5e26\u5f15\u53f7\uff09\u3002"
+}

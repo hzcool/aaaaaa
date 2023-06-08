@@ -1,0 +1,29 @@
+{
+    "description": "Heidi enjoyed performing the simulation because she knew exactly when a new universe would be formed and where, and when a non-existent link would be broken and where.\n\nHowever, the multiverse itself works in mysterious ways. Well, it works using probabilities, which to some people is mysterious.\n\nAt each unit time, when a decision is made, one of the two events will happen randomly. Let's denote $ l $ as the current length of the multiverse. With a probability of $ p_{create} = 1 - \\frac{l}{m} $ , a universe will be created. With a probability of $ p_{break}=\\frac{l}{m} $ , a non-existent link will be broken at some position.\n\nMore specifically,\n\n- When a universe is created, it will manifest itself between any two adjacent universes or at one of the ends. Each position occurs with a probability of $ \\frac{1}{l + 1} $ .\n- When a link is broken, it could be cut between any two adjacent universes, each with a probability of $ \\frac{1}{l-1} $ . After separating the multiverse into two segments, the segment NOT containing the Doctor will cease to exist.\n\nAs earlier, the Doctor remains in the same universe. However, if at some point the multiverse breaks in such a way that the Doctor finds himself at the leftmost or rightmost end of it, the TARDIS stops functioning.\n\nIn such a case, the Doctor must actually walk across the multiverse to find the tools to fix it.\n\nWe are interested in the expected value of the length of the multiverse when such an event occurs.",
+    "inputFormat": "The first and only line contains three integers $ n $ , $ k $ and $ m $ $ (1 \\le k \\le n \\le m \\le 250) $ , the initial length of the multiverse, the initial position of the Doctor, and the maximum possible length of the multiverse.",
+    "outputFormat": "Output a single integer on a single line, indicating the expected length of the multiverse.\n\nIf the answer is $ \\frac{p}{q} $ , please print $ r $ where $ p \\equiv r \\cdot q (\\text{mod } 10^9 + 7) $ .",
+    "samples": [
+        [
+            "2 1 2\n",
+            "2\n"
+        ],
+        [
+            "2 2 10\n",
+            "2\n"
+        ],
+        [
+            "3 2 3\n",
+            "2\n"
+        ],
+        [
+            "3 2 5\n",
+            "941659828\n"
+        ],
+        [
+            "10 4 20\n",
+            "196683114\n"
+        ]
+    ],
+    "hint": "For the first and the second test case, without any change to the multiverse, the Doctor is already at one of the ends.\n\nFor the third test case, the multiverse can only break at a position, which renders the Doctor at one of its ends.\n\nFor the fourth case, things seem to be a little more complicated, because the multiverse can grow and then be broken again.",
+    "translation": "\u6d77\u5730\u559c\u6b22\u89c2\u5bdf\u5b87\u5b99\u3002\n\n\u6709\u4e00\u5929\uff0c\u4ed6\u53d1\u660e\u4e86\u4e00\u4e2a\u5b87\u5b99\u89c2\u5bdf\u5668\uff0c\u53ef\u4ee5\u89c2\u5bdf\u5230\u6240\u6709\u7684\u5b87\u5b99\u3002\u8fd9\u4e9b\u5b87\u5b99\u76ee\u524d\u4e00\u5171\u6709 $n$ \u4e2a\uff0c\u5b83\u4eec\u6392\u6210\u4e00\u884c\uff0c\u6d77\u5730\u5728\u7b2c $k$ \u4e2a\u5b87\u5b99\u91cc\u3002\u7ecf\u8fc7\u89c2\u5bdf\uff0c\u4ed6\u53d1\u73b0\uff0c\u4ed6\u5728\u6bcf\u5355\u4f4d\u65f6\u95f4\u53ef\u4ee5\u5728\u4efb\u610f\u4e24\u4e2a\u5b87\u5b99\u4e4b\u95f4\u6216\u662f\u6240\u6709\u5b87\u5b99\u7684\u4e24\u7aef\u63d2\u5165\u4e00\u4e2a\u5b87\u5b99\uff0c\u6216\u8005\u5c06\u6574\u4e2a\u5b87\u5b99\u5e8f\u5217\u5212\u5206\u4e3a\u975e\u7a7a\u7684\u4e24\u90e8\u5206\uff0c\u5e76\u4e22\u6389\u4e0d\u5305\u542b\u81ea\u5df1\u6240\u5728\u5b87\u5b99\u7684\u90a3\u4e00\u90e8\u5206\uff0c\u4e14\u4ed6\u6bcf\u5355\u4f4d\u65f6\u95f4\u5fc5\u987b\u8fdb\u884c\u4e00\u6b21\u64cd\u4f5c\uff0c\u4e0d\u80fd\u4e0d\u64cd\u4f5c\u3002\u540c\u65f6\uff0c\u4ed6\u8fd8\u53d1\u73b0\u5b87\u5b99\u7684\u603b\u4e2a\u6570\u4e0d\u4f1a\u8d85\u8fc7 $m$ \u4e2a\u3002\n\n\u5f62\u5f0f\u5316\u5730\uff0c\u4ed6\u63d2\u5165\u5b87\u5b99\u7684\u6982\u7387\u4e3a $1-\\dfrac{l}{m}$ \uff0c\u5220\u9664\u5b87\u5b99\u7684\u6982\u7387\u4e3a $\\dfrac{l}{m}$ \uff0c\u5176\u4e2d $l$ \u4e3a\u5f53\u524d\u5b87\u5b99\u7684\u6570\u91cf\u3002\u663e\u7136\u5730\uff0c\u4e00\u5171\u6709 $l+1$ \u4e2a\u4f4d\u7f6e\u53ef\u4ee5\u63d2\u5165\u5b87\u5b99\uff0c\u63d2\u5165\u6bcf\u4e2a\u4f4d\u7f6e\u7684\u6982\u7387\u76f8\u7b49\uff1b\u4e00\u5171\u6709 $l-1$ \u4e2a\u4f4d\u7f6e\u53ef\u4ee5\u8fdb\u884c\u5212\u5206\uff0c\u6bcf\u4e2a\u4f4d\u7f6e\u8fdb\u884c\u5212\u5206\u7684\u6982\u7387\u76f8\u7b49\u3002\n\n\u6bcf\u5f53\u6d77\u5730\u53d1\u73b0\u81ea\u5df1\u5904\u4e8e\u6700\u5de6\u7aef\u6216\u8005\u6700\u53f3\u7aef\u7684\u5b87\u5b99\u65f6\uff0c\u4ed6\u5c31\u4f1a\u7ed3\u675f\u8fd9\u4e9b\u64cd\u4f5c\u3002\u4ed6\u60f3\u77e5\u9053\uff0c\u6700\u540e\u5b87\u5b99\u6570\u91cf\u7684\u671f\u671b\u503c\u662f\u591a\u5c11\uff1f\u4f60\u53ea\u9700\u8981\u56de\u7b54\u4ed6\u5bf9 $1e9+7$ \u53d6\u6a21\u7684\u7ed3\u679c\u5373\u53ef\u3002"
+}

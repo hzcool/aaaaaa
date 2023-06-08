@@ -1,0 +1,13 @@
+{
+    "description": "You are given an array $ a_1, a_2, \\dots, a_n $ , where all elements are different.\n\nYou have to perform exactly $ k $ operations with it. During each operation, you do exactly one of the following two actions (you choose which to do yourself):\n\n- find two minimum elements in the array, and delete them;\n- find the maximum element in the array, and delete it.\n\nYou have to calculate the maximum possible sum of elements in the resulting array.",
+    "inputFormat": "The first line contains one integer $ t $ ( $ 1 \\le t \\le 10^4 $ ) \u2014 the number of test cases.\n\nEach test case consists of two lines:\n\n- the first line contains two integers $ n $ and $ k $ ( $ 3 \\le n \\le 2 \\cdot 10^5 $ ; $ 1 \\le k \\le 99999 $ ; $ 2k < n $ ) \u2014 the number of elements and operations, respectively.\n- the second line contains $ n $ integers $ a_1, a_2, \\dots, a_n $ ( $ 1 \\le a_i \\le 10^9 $ ; all $ a_i $ are different) \u2014 the elements of the array.\n\nAdditional constraint on the input: the sum of $ n $ does not exceed $ 2 \\cdot 10^5 $ .",
+    "outputFormat": "For each test case, print one integer \u2014 the maximum possible sum of elements in the resulting array.",
+    "samples": [
+        [
+            "6\n5 1\n2 5 1 10 6\n5 2\n2 5 1 10 6\n3 1\n1 2 3\n6 1\n15 22 12 10 13 11\n6 2\n15 22 12 10 13 11\n5 1\n999999996 999999999 999999997 999999998 999999995",
+            "21\n11\n3\n62\n46\n3999999986"
+        ]
+    ],
+    "hint": "In the first testcase, applying the first operation produces the following outcome:\n\n- two minimums are $ 1 $ and $ 2 $ ; removing them leaves the array as $ [5, 10, 6] $ , with sum $ 21 $ ;\n- a maximum is $ 10 $ ; removing it leaves the array as $ [2, 5, 1, 6] $ , with sum $ 14 $ .\n\n $ 21 $ is the best answer.\n\nIn the second testcase, it's optimal to first erase two minimums, then a maximum.",
+    "translation": "**\u672c\u9898\u6709\u591a\u7ec4\u6d4b\u8bd5\u6570\u636e**\n\n\u7ed9\u5b9a\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u6570\u5217\uff0c\u5176\u4e2d\u6bcf\u4e2a\u5143\u7d20\u4e92\u4e0d\u76f8\u540c\uff0c\u8fdb\u884c $k$ \u6b21\u64cd\u4f5c\uff0c\u6bcf\u6b21\u53ef\u4ee5\u9009\u62e9\u5220\u9664\u5e8f\u5217\u4e2d\u6700\u5c0f\u7684\u4e24\u4e2a\u6570\u6216\u6700\u5927\u7684\u4e00\u4e2a\u6570\u3002\u6c42\u64cd\u4f5c\u540e\u5269\u4f59\u6570\u7684\u548c\u7684\u6700\u5927\u503c\u3002\n\n$3 \\leq n \\leq 2 \\times 10^{5}\uff0c1 \\leq k \\leq 99999\uff0c2k \\leq n$\u3002"
+}

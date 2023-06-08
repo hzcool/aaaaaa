@@ -1,0 +1,25 @@
+{
+    "description": "Integers from $ 1 $ to $ n $ (inclusive) were sorted lexicographically (considering integers as strings). As a result, array $ a_1, a_2, \\dots, a_n $ was obtained.\n\nCalculate value of $ (\\sum_{i = 1}^n ((i - a_i) \\mod 998244353)) \\mod 10^9 + 7 $ .\n\n $ x \\mod y $ here means the remainder after division $ x $ by $ y $ . This remainder is always non-negative and doesn't exceed $ y - 1 $ . For example, $ 5 \\mod 3 = 2 $ , $ (-1) \\mod 6 = 5 $ .",
+    "inputFormat": "The first line contains the single integer $ n $ ( $ 1 \\leq n \\leq 10^{12} $ ).",
+    "outputFormat": "Print one integer \u2014 the required sum.",
+    "samples": [
+        [
+            "3",
+            "0"
+        ],
+        [
+            "12",
+            "994733045"
+        ],
+        [
+            "21",
+            "978932159"
+        ],
+        [
+            "1000000000000",
+            "289817887"
+        ]
+    ],
+    "hint": "A string $ a $ is lexicographically smaller than a string $ b $ if and only if one of the following holds:\n\n- $ a $ is a prefix of $ b $ , but $ a \\ne b $ ;\n- in the first position where $ a $ and $ b $ differ, the string $ a $ has a letter that appears earlier in the alphabet than the corresponding letter in $ b $ .\n\nFor example, $ 42 $ is lexicographically smaller than $ 6 $ , because they differ in the first digit, and $ 4 < 6 $ ; $ 42 < 420 $ , because $ 42 $ is a prefix of $ 420 $ .\n\nLet's denote $ 998244353 $ as $ M $ .\n\nIn the first example, array $ a $ is equal to $ [1, 2, 3] $ .\n\n- $ (1 - 1) \\mod M = 0 \\mod M = 0 $\n- $ (2 - 2) \\mod M = 0 \\mod M = 0 $\n- $ (3 - 3) \\mod M = 0 \\mod M = 0 $\n\nAs a result, $ (0 + 0 + 0) \\mod 10^9 + 7 = 0 $\n\nIn the second example, array $ a $ is equal to $ [1, 10, 11, 12, 2, 3, 4, 5, 6, 7, 8, 9] $ .\n\n- $ (1 - 1) \\mod M = 0 \\mod M = 0 $\n- $ (2 - 10) \\mod M = (-8) \\mod M = 998244345 $\n- $ (3 - 11) \\mod M = (-8) \\mod M = 998244345 $\n- $ (4 - 12) \\mod M = (-8) \\mod M = 998244345 $\n- $ (5 - 2) \\mod M = 3 \\mod M = 3 $\n- $ (6 - 3) \\mod M = 3 \\mod M = 3 $\n- $ (7 - 4) \\mod M = 3 \\mod M = 3 $\n- $ (8 - 5) \\mod M = 3 \\mod M = 3 $\n- $ (9 - 6) \\mod M = 3 \\mod M = 3 $\n- $ (10 - 7) \\mod M = 3 \\mod M = 3 $\n- $ (11 - 8) \\mod M = 3 \\mod M = 3 $\n- $ (12 - 9) \\mod M = 3 \\mod M = 3 $\n\nAs a result, $ (0 + 998244345 + 998244345 + 998244345 + 3 + 3 + 3 + 3 + 3 + 3 + 3 + 3) \\mod 10^9 + 7 $ $ = $ $ 2994733059 \\mod 10^9 + 7 $ $ = $ $ 994733045 $",
+    "translation": "## \u9898\u76ee\u63cf\u8ff0\n\n\u6709\u4e00\u4e2a\u6570\u5217 $ \\{a_1,a_2,\\dots,a_n\\}$\u662f\u4e00\u4e2a1~n\u7684\u6392\u5217\uff0c\u4e14\u6240\u6709\u7684\u6570\u90fd\u6309\u7167**\u5b57\u5178\u5e8f**\u6392\u5e8f\uff0c\u73b0\u5728\u7ed9\u51fa\u6574\u6570 $n(1\\le n\\le 10^{12})$\uff0c \u6c42 $(\\sum_{i=1}^{n}((i-a_i)\\mod 998244353))\\mod 10^9+7$ \uff0c\u6ce8\u610f\u8fd9\u91cc\u7684 $x\\mod y$\u7684\u7ed3\u679c\u4e3a\u6b63\u6570\n\n## \u8f93\u5165\u683c\u5f0f\n\n\u4e00\u884c\u4e00\u4e2a\u6b63\u6574\u6570 $n$\n\n## \u8f93\u51fa\u683c\u5f0f\n\n\u4e00\u884c\u4e00\u4e2a\u975e\u8d1f\u6574\u6570\uff0c\u4ee3\u8868\u4f60\u7684\u7b54\u6848"
+}

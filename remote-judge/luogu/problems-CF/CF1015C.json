@@ -1,0 +1,17 @@
+{
+    "description": "Ivan has $ n $ songs on his phone. The size of the $ i $ -th song is $ a_i $ bytes. Ivan also has a flash drive which can hold at most $ m $ bytes in total. Initially, his flash drive is empty.\n\nIvan wants to copy all $ n $ songs to the flash drive. He can compress the songs. If he compresses the $ i $ -th song, the size of the $ i $ -th song reduces from $ a_i $ to $ b_i $ bytes ( $ b_i < a_i $ ).\n\nIvan can compress any subset of the songs (possibly empty) and copy all the songs to his flash drive if the sum of their sizes is at most $ m $ . He can compress any subset of the songs (not necessarily contiguous).\n\nIvan wants to find the minimum number of songs he needs to compress in such a way that all his songs fit on the drive (i.e. the sum of their sizes is less than or equal to $ m $ ).\n\nIf it is impossible to copy all the songs (even if Ivan compresses all the songs), print \"-1\". Otherwise print the minimum number of songs Ivan needs to compress.",
+    "inputFormat": "The first line of the input contains two integers $ n $ and $ m $ ( $ 1 \\le n \\le 10^5, 1 \\le m \\le 10^9 $ ) \u2014 the number of the songs on Ivan's phone and the capacity of Ivan's flash drive.\n\nThe next $ n $ lines contain two integers each: the $ i $ -th line contains two integers $ a_i $ and $ b_i $ ( $ 1 \\le a_i, b_i \\le 10^9 $ , $ a_i > b_i $ ) \u2014 the initial size of the $ i $ -th song and the size of the $ i $ -th song after compression.",
+    "outputFormat": "If it is impossible to compress a subset of the songs in such a way that all songs fit on the flash drive, print \"-1\". Otherwise print the minimum number of the songs to compress.",
+    "samples": [
+        [
+            "4 21\n10 8\n7 4\n3 1\n5 4\n",
+            "2\n"
+        ],
+        [
+            "4 16\n10 8\n7 4\n3 1\n5 4\n",
+            "-1\n"
+        ]
+    ],
+    "hint": "In the first example Ivan can compress the first and the third songs so after these moves the sum of sizes will be equal to $ 8 + 7 + 1 + 5 = 21 \\le 21 $ . Also Ivan can compress the first and the second songs, then the sum of sizes will be equal $ 8 + 4 + 3 + 5 = 20 \\le 21 $ . Note that compressing any single song is not sufficient to copy all the songs on the flash drive (for example, after compressing the second song the sum of sizes will be equal to $ 10 + 4 + 3 + 5 = 22 > 21 $ ).\n\nIn the second example even if Ivan compresses all the songs the sum of sizes will be equal $ 8 + 4 + 1 + 4 = 17 > 16 $ .",
+    "translation": "\u73b0\u6709 $n$\uff08$1 \\le n \\le {10}^5$\uff09\u4e2a\u7269\u54c1\uff0c\u7b2c $i$ \u4e2a\u7269\u54c1\u7684\u91cd\u91cf\u4e3a $a_i$\uff0c\u53ef\u4ee5\u8fdb\u884c $1$ \u6b21\u64cd\u4f5c\u4f7f $a_i$ \u53d8\u4e3a $b_i$\uff08\u4fdd\u8bc1 $1 \\le b_i<a_i \\le {10}^9$\uff09\u3002\n\n\u95ee\u6700\u5c11\u591a\u5c11\u6b21\u64cd\u4f5c\u540e\u80fd\u5c06\u6240\u6709\u7269\u54c1\u88c5\u5165\u7a7a\u95f4\u4e3a $m$\uff08$1 \\le m \\le {10}^9$\uff09\u7684\u80cc\u5305\u3002\n\n\u82e5\u65e0\u8bba\u5982\u4f55\u4e5f\u65e0\u6cd5\u5b8c\u6210\uff0c\u8bf7\u8f93\u51fa `-1`\u3002"
+}

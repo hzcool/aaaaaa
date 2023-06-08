@@ -1,0 +1,20 @@
+{
+    "description": "Polycarpus enjoys studying Berland hieroglyphs. Once Polycarp got hold of two ancient Berland pictures, on each of which was drawn a circle of hieroglyphs. We know that no hieroglyph occurs twice in either the first or the second circle (but in can occur once in each of them).\n\nPolycarpus wants to save these pictures on his laptop, but the problem is, laptops do not allow to write hieroglyphs circles. So Polycarp had to break each circle and write down all of its hieroglyphs in a clockwise order in one line. A line obtained from the first circle will be called $ a $ , and the line obtained from the second one will be called $ b $ .\n\nThere are quite many ways to break hieroglyphic circles, so Polycarpus chooses the method, that makes the length of the largest substring of string $ a $ , which occurs as a subsequence in string $ b $ , maximum.\n\nHelp Polycarpus \u2014 find the maximum possible length of the desired substring (subsequence) if the first and the second circles are broken optimally.\n\nThe length of string $ s $ is the number of characters in it. If we denote the length of string $ s $ as $ |s| $ , we can write the string as $ s=s_{1}s_{2}...\\ s_{|s|} $ .\n\nA substring of $ s $ is a non-empty string $ x=s[a...\\ b]=s_{a}s_{a+1}...\\ s_{b} $ ( $ 1<=a<=b<=|s| $ ). For example, \"code\" and \"force\" are substrings of \"codeforces\", while \"coders\" is not.\n\nA subsequence of $ s $ is a non-empty string $ y=s[p_{1}p_{2}...\\ p_{|y|}]=s_{p1}s_{p2}...\\ s_{p|y|} $ ( $ 1<=p_{1}&lt;p_{2}&lt;...&lt;p_{|y|}<=|s| $ ). For example, \"coders\" is a subsequence of \"codeforces\".",
+    "inputFormat": "The first line contains two integers $ l_{a} $ and $ l_{b} $ ( $ 1<=l_{a},l_{b}<=1000000 $ ) \u2014 the number of hieroglyphs in the first and second circles, respectively.\n\nBelow, due to difficulties with encoding of Berland hieroglyphs, they are given as integers from $ 1 $ to $ 10^{6} $ .\n\nThe second line contains $ l_{a} $ integers \u2014 the hieroglyphs in the first picture, in the clockwise order, starting with one of them.\n\nThe third line contains $ l_{b} $ integers \u2014 the hieroglyphs in the second picture, in the clockwise order, starting with one of them.\n\nIt is guaranteed that the first circle doesn't contain a hieroglyph, which occurs twice. The second circle also has this property.",
+    "outputFormat": "Print a single number \u2014 the maximum length of the common substring and subsequence. If at any way of breaking the circles it does not exist, print 0.",
+    "samples": [
+        [
+            "5 4\n1 2 3 4 5\n1 3 5 6\n",
+            "2\n"
+        ],
+        [
+            "4 6\n1 3 5 2\n1 2 3 4 5 6\n",
+            "3\n"
+        ],
+        [
+            "3 3\n1 2 3\n3 2 1\n",
+            "2\n"
+        ]
+    ],
+    "hint": "In the first test Polycarpus picks a string that consists of hieroglyphs 5 and 1, and in the second sample \u2014 from hieroglyphs 1, 3 and 5."
+}

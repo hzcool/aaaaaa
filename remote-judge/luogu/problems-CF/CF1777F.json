@@ -1,0 +1,13 @@
+{
+    "description": "You are given an array $ a $ consisting of $ n $ non-negative integers.\n\nThe numbness of a subarray $ a_l, a_{l+1}, \\ldots, a_r $ (for arbitrary $ l \\leq r $ ) is defined as $\\max(a_l, a_{l+1}, \\ldots, a_r) \\oplus (a_l \\oplus a_{l+1} \\oplus \\ldots \\oplus a_r)$, where  $\\oplus$ denotes the [bitwise XOR operation](https://en.wikipedia.org/wiki/Bitwise_operation#XOR).\n\nFind the maximum numbness over all subarrays.",
+    "inputFormat": "Each test contains multiple test cases. The first line contains the number of test cases $ t $ ( $ 1 \\le t \\le 1000 $ ). The description of the test cases follows.\n\nThe first line of each test case contains a single integer $ n $ ( $ 1 \\leq n \\leq 2 \\cdot 10^5 $ ).\n\nThe second line of each test case contains $ n $ integers $ a_1, a_2, \\ldots, a_n $ ( $ 0 \\leq a_i \\leq 10^9 $ ).\n\nIt is guaranteed that the sum of $ n $ over all test cases does not exceed $ 2 \\cdot 10^5 $ .",
+    "outputFormat": "For each test case, print one integer \u2014 the maximum numbness over all subarrays of the given array.",
+    "samples": [
+        [
+            "2\n5\n1 2 3 4 5\n3\n10 47 52",
+            "7\n47"
+        ]
+    ],
+    "hint": "For the first test case, for the subarray $ [3, 4, 5] $ , its maximum value is $ 5 $ . Hence, its numbness is $ 3 \\oplus 4 \\oplus 5 \\oplus 5 $ = $ 7 $ . This is the maximum possible numbness in this array.\n\nIn the second test case the subarray $ [47, 52] $ provides the maximum numbness.",
+    "translation": "\u7ed9\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u5e8f\u5217 $a$\uff0c\u5bf9\u4e8e\u8fde\u7eed\u5b50\u5e8f\u5217 $a[l \\cdots r]$\uff0c\u5b9a\u4e49\u5176\u5206\u6570\u4e3a $a_l \\oplus a_{l+1} \\oplus a_{l+2} \\oplus \\cdots \\oplus a_r \\oplus \\max\\{a[l \\cdots r]\\}$\uff0c\u5176\u4e2d $\\oplus$ \u8868\u793a\u5f02\u6216\u3002\n\n\u6c42 $a$ \u4e2d\u6240\u6709\u8fde\u7eed\u5b50\u5e8f\u5217\u7684\u6700\u5927\u5206\u6570\u3002"
+}

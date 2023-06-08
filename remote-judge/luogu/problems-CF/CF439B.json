@@ -1,0 +1,21 @@
+{
+    "description": "Devu is a dumb guy, his learning curve is very slow. You are supposed to teach him $ n $ subjects, the $ i^{th} $ subject has $ c_{i} $ chapters. When you teach him, you are supposed to teach all the chapters of a subject continuously.\n\nLet us say that his initial per chapter learning power of a subject is $ x $ hours. In other words he can learn a chapter of a particular subject in $ x $ hours.\n\nWell Devu is not complete dumb, there is a good thing about him too. If you teach him a subject, then time required to teach any chapter of the next subject will require exactly 1 hour less than previously required (see the examples to understand it more clearly). Note that his per chapter learning power can not be less than 1 hour.\n\nYou can teach him the $ n $ subjects in any possible order. Find out minimum amount of time (in hours) Devu will take to understand all the subjects and you will be free to do some enjoying task rather than teaching a dumb guy.\n\nPlease be careful that answer might not fit in 32 bit data type.",
+    "inputFormat": "The first line will contain two space separated integers $ n $ , $ x $ ( $ 1<=n,x<=10^{5} $ ). The next line will contain $ n $ space separated integers: $ c_{1},c_{2},...,c_{n} $ ( $ 1<=c_{i}<=10^{5} $ ).",
+    "outputFormat": "Output a single integer representing the answer to the problem.",
+    "samples": [
+        [
+            "2 3\n4 1\n",
+            "11\n"
+        ],
+        [
+            "4 2\n5 1 2 1\n",
+            "10\n"
+        ],
+        [
+            "3 3\n1 1 1\n",
+            "6\n"
+        ]
+    ],
+    "hint": "Look at the first example. Consider the order of subjects: $ 1 $ , $ 2 $ . When you teach Devu the first subject, it will take him $ 3 $ hours per chapter, so it will take $ 12 $ hours to teach first subject. After teaching first subject, his per chapter learning time will be $ 2 $ hours. Now teaching him second subject will take $ 2\u00d71=2 $ hours. Hence you will need to spend $ 12+2=14 $ hours.\n\nConsider the order of subjects: $ 2 $ , $ 1 $ . When you teach Devu the second subject, then it will take him $ 3 $ hours per chapter, so it will take $ 3\u00d71=3 $ hours to teach the second subject. After teaching the second subject, his per chapter learning time will be $ 2 $ hours. Now teaching him the first subject will take $ 2\u00d74=8 $ hours. Hence you will need to spend $ 11 $ hours.\n\nSo overall, minimum of both the cases is $ 11 $ hours.\n\nLook at the third example. The order in this example doesn't matter. When you teach Devu the first subject, it will take him $ 3 $ hours per chapter. When you teach Devu the second subject, it will take him $ 2 $ hours per chapter. When you teach Devu the third subject, it will take him $ 1 $ hours per chapter. In total it takes $ 6 $ hours.",
+    "translation": "\u4f60\u8981\u6559 Devu \u5b66\u4e60 $n$ \u4e2a\u7ae0\u8282\u3002\u7b2c $i$ \u4e2a\u7ae0\u8282\u6709 $c_{i}$ \u8282\u8bfe\u3002\u5f53\u4f60\u6559\u4e86\u67d0\u4e2a\u7ae0\u8282\u7684\u5176\u4e2d\u4e00\u8282\u8bfe\uff0c\u4f60\u5e94\u8be5\u6559\u5b8c\u8fd9\u4e2a\u5b66\u79d1\u7684\u6240\u6709\u7ae0\u8282\u3002Devu \u5bf9\u6bcf\u8282\u8bfe\u7684\u521d\u59cb\u5b66\u4e60\u65f6\u95f4\u4e3a $X$ \u5c0f\u65f6\u3002\n\n\u4f60\u6bcf\u6559\u5b8c\u4ed6\u4e00\u4e2a\u7ae0\u8282\uff0c\u90a3\u4e48\u6559\u4e0b\u4e00\u4e2a\u7ae0\u8282\u7684\u4efb\u4f55\u4e00\u8282\u8bfe\u6240\u9700\u7684\u65f6\u95f4\u5c06\u6bd4\u4ee5\u524d\u6240\u9700\u7684\u65f6\u95f4\u5c11 $1$ \u4e2a\u5c0f\u65f6\u3002\uff08\u8bf7\u53c2\u9605\u793a\u4f8b\u4ee5\u66f4\u6e05\u695a\u5730\u7406\u89e3\u5b83\uff09\u3002\u4ed6\u6bcf\u7ae0\u7684\u5b66\u4e60\u65f6\u95f4\u4e0d\u80fd\u4f4e\u4e8e $1$ \u5c0f\u65f6\u3002\n\n\u4f60\u53ef\u4ee5\u968f\u610f\u5730\u5b89\u6392\u6559\u6bcf\u4e2a\u7ae0\u8282\u7684\u987a\u5e8f\u3002\u627e\u51fa Devu \u7406\u89e3\u6240\u6709\u79d1\u76ee\u6240\u9700\u7684\u6700\u77ed\u65f6\u95f4\u3002"
+}

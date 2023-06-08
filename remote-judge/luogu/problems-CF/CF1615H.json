@@ -1,0 +1,21 @@
+{
+    "description": "There are $ n $ reindeer at the North Pole, all battling for the highest spot on the \"Top Reindeer\" leaderboard on the front page of CodeNorses (a popular competitive reindeer gaming website). Interestingly, the \"Top Reindeer\" title is just a measure of upvotes and has nothing to do with their skill level in the reindeer games, but they still give it the utmost importance.\n\nCurrently, the $ i $ -th reindeer has a score of $ a_i $ . You would like to influence the leaderboard with some operations. In an operation, you can choose a reindeer, and either increase or decrease his score by $ 1 $ unit. Negative scores are allowed.\n\nYou have $ m $ requirements for the resulting scores. Each requirement is given by an ordered pair $ (u, v) $ , meaning that after all operations, the score of reindeer $ u $ must be less than or equal to the score of reindeer $ v $ .\n\nYour task is to perform the minimum number of operations so that all requirements will be satisfied.",
+    "inputFormat": "The first line contains two integers $ n $ and $ m $ ( $ 2\\le n\\le 1000 $ ; $ 1\\le m\\le 1000 $ ) \u2014 the number of reindeer and requirements, respectively.\n\nThe second line contains $ n $ integers $ a_1,\\ldots, a_n $ ( $ 1\\le a_i\\le 10^9 $ ), where $ a_i $ is the current score of reindeer $ i $ .\n\nThe next $ m $ lines describe the requirements.\n\nThe $ i $ -th of these lines contains two integers $ u_i $ and $ v_i $ ( $ 1\\le u_i, v_i\\le n $ ; $ u_i\\ne v_i $ ) \u2014 the two reindeer of the $ i $ -th requirement.",
+    "outputFormat": "Print $ n $ integers $ b_1,\\ldots, b_n $ ( $ -10^{15}\\le b_i\\le 10^{15} $ ), where $ b_i $ is the score of the $ i $ -th reindeer after all operations.\n\nIf there are multiple solutions achieving the minimum number of operations, you may output any.\n\nWe can prove that there is always an optimal solution such that $ |b_i|\\le 10^{15} $ for all $ i $ .",
+    "samples": [
+        [
+            "7 6\n3 1 4 9 2 5 6\n1 2\n2 3\n3 4\n4 5\n5 6\n6 7",
+            "1 1 4 4 4 5 6"
+        ],
+        [
+            "4 6\n6 5 8 2\n3 1\n4 1\n3 2\n1 2\n2 3\n3 1",
+            "6 6 6 2"
+        ],
+        [
+            "10 18\n214 204 195 182 180 176 176 172 169 167\n1 2\n3 2\n4 2\n5 2\n6 2\n7 2\n8 2\n9 2\n10 2\n6 1\n6 2\n6 3\n6 4\n6 5\n6 7\n6 8\n6 9\n6 10",
+            "204 204 195 182 180 167 176 172 169 167"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u6709 $n$ \u4e2a\u70b9\uff0c\u6bcf\u4e2a\u70b9\u6709\u521d\u59cb\u6743\u503c $a_i$ \u3002\n\n\u4f60\u53ef\u4ee5\u8fdb\u884c\u4efb\u610f\u6b21\u64cd\u4f5c\uff0c\u4f7f\u4e00\u4e2a\u70b9\u6743\u503c $+1$ \u6216 $-1$ \uff0c\u53ef\u4ee5\u51fa\u73b0\u8d1f\u6743 \u3002\n\n\u53e6\u6709 $m$ \u6761\u9650\u5236\uff0c\u6bcf\u6761\u9650\u5236\u7ed9\u51fa\u4e24\u4e2a\u70b9 $u$ \u548c $v$\uff0c\u8bbe\u6bcf\u4e2a\u70b9\u6700\u7ec8\u6743\u503c\u4e3a $b_i$\uff0c\u5219\u8981\u6c42 $b_ u\\leq b_v$ \u3002\n\n\u6700\u5c0f\u5316\u64cd\u4f5c\u6b21\u6570\u4ee5\u6ee1\u8db3\u6240\u6709\u9650\u5236 \uff0c\u5e76\u8f93\u51fa\u6bcf\u4e2a\u70b9\u6700\u7ec8\u6743\u503c $b_i$ \u3002\n\n$ (2\\leq n\\leq 1000 $\uff1b$2\\leq m\\leq 1000 $ ; $  1\\le a_i\\le 10^9 )$\n\n\u8981\u6c42\u6700\u7ec8\u6743\u503c $-10^{15}\\le b_i\\le 10^{15} $ \uff0c\u8f93\u5165\u4fdd\u8bc1\u6709\u89e3\u3002"
+}

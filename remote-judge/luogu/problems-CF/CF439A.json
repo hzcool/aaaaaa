@@ -1,0 +1,17 @@
+{
+    "description": "Devu is a renowned classical singer. He is invited to many big functions/festivals. Recently he was invited to \"All World Classical Singing Festival\". Other than Devu, comedian Churu was also invited.\n\nDevu has provided organizers a list of the songs and required time for singing them. He will sing $ n $ songs, $ i^{th} $ song will take $ t_{i} $ minutes exactly.\n\nThe Comedian, Churu will crack jokes. All his jokes are of 5 minutes exactly.\n\nPeople have mainly come to listen Devu. But you know that he needs rest of 10 minutes after each song. On the other hand, Churu being a very active person, doesn't need any rest.\n\nYou as one of the organizers should make an optimal s\u0441hedule for the event. For some reasons you must follow the conditions:\n\n- The duration of the event must be no more than $ d $ minutes;\n- Devu must complete all his songs;\n- With satisfying the two previous conditions the number of jokes cracked by Churu should be as many as possible.\n\nIf it is not possible to find a way to conduct all the songs of the Devu, output -1. Otherwise find out maximum number of jokes that Churu can crack in the grand event.",
+    "inputFormat": "The first line contains two space separated integers $ n $ , $ d $ $ (1<=n<=100;\u00a01<=d<=10000) $ . The second line contains $ n $ space-separated integers: $ t_{1},t_{2},...,t_{n} $ $ (1<=t_{i}<=100) $ .",
+    "outputFormat": "If there is no way to conduct all the songs of Devu, output -1. Otherwise output the maximum number of jokes that Churu can crack in the grand event.",
+    "samples": [
+        [
+            "3 30\n2 2 1\n",
+            "5\n"
+        ],
+        [
+            "3 20\n2 1 1\n",
+            "-1\n"
+        ]
+    ],
+    "hint": "Consider the first example. The duration of the event is $ 30 $ minutes. There could be maximum $ 5 $ jokes in the following way:\n\n- First Churu cracks a joke in $ 5 $ minutes.\n- Then Devu performs the first song for $ 2 $ minutes.\n- Then Churu cracks $ 2 $ jokes in $ 10 $ minutes.\n- Now Devu performs second song for $ 2 $ minutes.\n- Then Churu cracks $ 2 $ jokes in $ 10 $ minutes.\n- Now finally Devu will perform his last song in $ 1 $ minutes.\n\nTotal time spent is $ 5+2+10+2+10+1=30 $ minutes.\n\nConsider the second example. There is no way of organizing Devu's all songs. Hence the answer is -1.",
+    "translation": "Devu \u6709\u4e00\u4efd\u6b4c\u66f2\u6e05\u5355\uff1a\u4ed6\u4f1a\u5531 n \u9996\u6b4c\uff0c\u7b2c ith \u9996\u6b4c\u8981\u82b1 ti \u5206\u949f\u3002\n\n\u540c\u65f6 Churu \u4f1a\u8bb2\u7b11\u8bdd\uff0c\u4ed6\u6240\u6709\u7684\u7b11\u8bdd\u90fd\u9700\u8981 5 \u5206\u949f\u3002\n\nDevu \u5531\u5b8c\u6bcf\u9996\u6b4c\u540e\u9700\u8981\u4f11\u606f 10 \u5206\u949f\u3002\n\n\n\u4f60\u5e94\u8be5\u4e3a\u4e8b\u4ef6\u505a\u51fa\u6700\u4f73\u7684\u9009\u62e9\uff0c\u9700\u9075\u5faa\u4ee5\u4e0b\u6761\u4ef6\uff1a\n\n\u2022 \u6d3b\u52a8\u65f6\u95f4\u4e0d\u5f97\u8d85\u8fc7d\u5206\u949f\uff1b\n\n\u2022 Devu \u5fc5\u987b\u5b8c\u6210\u4ed6\u7684\u6240\u6709\u6b4c\u66f2\uff1b\n\n\u2022 \u5728\u6ee1\u8db3\u524d\u4e24\u4e2a\u6761\u4ef6\u7684\u60c5\u51b5\u4e0b\uff0cChuru \u8bb2\u7684\u7b11\u8bdd\u5e94\u5c3d\u53ef\u80fd\u591a\u3002\n\n\u5982\u679c\u4e0d\u53ef\u80fd\u627e\u5230\u4e00\u79cd\u65b9\u6cd5\u4f7f Devu \u5531\u5b8c\u6240\u6709 \u7684\u6b4c \uff0c\u8f93\u51fa -1 \uff0c\u5426\u5219\u627e\u51fa Churu \u80fd\u8bb2\u7684\u7b11\u8bdd\u6570\u3002"
+}

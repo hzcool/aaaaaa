@@ -1,0 +1,25 @@
+{
+    "description": "You are given an array $ a_1, a_2, \\dots, a_n $ . You can perform the following operation any number of times:\n\n- Choose a pair of two neighboring equal elements $ a_i = a_{i + 1} $ (if there is at least one such pair).\n- Replace them by one element with value $ a_i + 1 $ .\n\nAfter each such operation, the length of the array will decrease by one (and elements are renumerated accordingly). What is the minimum possible length of the array $ a $ you can get?",
+    "inputFormat": "The first line contains the single integer $ n $ ( $ 1 \\le n \\le 500 $ ) \u2014 the initial length of the array $ a $ .\n\nThe second line contains $ n $ integers $ a_1, a_2, \\dots, a_n $ ( $ 1 \\le a_i \\le 1000 $ ) \u2014 the initial array $ a $ .",
+    "outputFormat": "Print the only integer \u2014 the minimum possible length you can get after performing the operation described above any number of times.",
+    "samples": [
+        [
+            "5\n4 3 2 2 3",
+            "2"
+        ],
+        [
+            "7\n3 3 4 4 4 3 3",
+            "2"
+        ],
+        [
+            "3\n1 3 5",
+            "3"
+        ],
+        [
+            "1\n1000",
+            "1"
+        ]
+    ],
+    "hint": "In the first test, this is one of the optimal sequences of operations: $ 4 $ $ 3 $ $ 2 $ $ 2 $ $ 3 $ $ \\rightarrow $ $ 4 $ $ 3 $ $ 3 $ $ 3 $ $ \\rightarrow $ $ 4 $ $ 4 $ $ 3 $ $ \\rightarrow $ $ 5 $ $ 3 $ .\n\nIn the second test, this is one of the optimal sequences of operations: $ 3 $ $ 3 $ $ 4 $ $ 4 $ $ 4 $ $ 3 $ $ 3 $ $ \\rightarrow $ $ 4 $ $ 4 $ $ 4 $ $ 4 $ $ 3 $ $ 3 $ $ \\rightarrow $ $ 4 $ $ 4 $ $ 4 $ $ 4 $ $ 4 $ $ \\rightarrow $ $ 5 $ $ 4 $ $ 4 $ $ 4 $ $ \\rightarrow $ $ 5 $ $ 5 $ $ 4 $ $ \\rightarrow $ $ 6 $ $ 4 $ .\n\nIn the third and fourth tests, you can't perform the operation at all.",
+    "translation": "### \u9898\u76ee\u63cf\u8ff0\r\n\r\n\u7ed9\u4f60\u4e00\u4e2a\u957f\u5ea6\u4e3a $n(1 \\le n \\le 500)$ \u7684\u6570\u7ec4 $a$\uff0c\u6bcf\u6b21\u4f60\u53ef\u4ee5\u8fdb\u884c\u4ee5\u4e0b\u4e24\u6b65\u64cd\u4f5c\uff1a\r\n\r\n1. \u627e\u5230 $i \\in [1, n)$\uff0c\u4f7f\u5f97 $a_i = a_{i + 1}$\uff1b\r\n\r\n2. \u5c06 **\u5b83\u4eec** \u66ff\u6362\u4e3a $a_i + 1$\u3002\r\n\r\n\u6bcf\u8f6e\u64cd\u4f5c\u4e4b\u540e\uff0c\u663e\u7136\u6570\u7ec4\u7684\u957f\u5ea6\u4f1a\u51cf\u5c0f $1$\uff0c\u95ee\u5269\u4f59\u6570\u7ec4\u957f\u5ea6\u7684\u6700\u5c0f\u503c\u3002\r\n\r\n### \u8f93\u5165\u683c\u5f0f\r\n\r\n\u7b2c\u4e00\u884c\u5305\u542b\u4e00\u4e2a\u6574\u6570 $n(1 \\le n \\le 500)$\uff0c\u8868\u793a\u6570\u7ec4\u7684\u539f\u957f\u3002\r\n\r\n\u7b2c\u4e8c\u884c\u5305\u542b $n$ \u4e2a\u6574\u6570 $a_1, a_2, \\cdots a_n (1 \\le a_i \\le 1000)$\uff0c\u8868\u793a\u539f\u6570\u7ec4 $a$\u3002\r\n\r\n### \u8f93\u51fa\u683c\u5f0f\r\n\r\n\u5171\u4e00\u884c\u4ec5\u4e00\u4e2a\u6574\u6570 $num$\uff0c\u8868\u793a\u8fdb\u884c\u8bb8\u591a\u8f6e\u64cd\u4f5c\u4e4b\u540e\uff0c$a$ \u5269\u4f59\u957f\u5ea6\u7684\u6700\u5c0f\u503c\u3002\r\n\r\n### \u6837\u4f8b\u89e3\u91ca\r\n\r\n\u7b2c\u4e00\u7ec4\u6837\u4f8b\u4e2d\uff0c\u6700\u4f18\u64cd\u4f5c\u4e4b\u4e00\u4e3a $\\text{4 3 2 2 3} \\to \\text{4 3 3 3} \\to \\text{4 4 3} \\to \\text{5 3}$\r\n\r\n\u7b2c\u4e8c\u7ec4\u6837\u4f8b\u4e2d\uff0c\u6700\u4f18\u64cd\u4f5c\u4e4b\u4e00\u4e3a $\\text{3 3 4 4 4 3 3} \\to \\text{4 4 4 4 3 3} \\to \\text{4 4 4 4 4} \\to \\text{5 4 4 4} \\to \\text{5 5 4} \\to \\text{6 4}$\r\n\r\n\u5bf9\u4e8e\u7b2c\u4e09\u548c\u7b2c\u56db\u7ec4\u6837\u4f8b\uff0c\u4f60\u5e76\u4e0d\u80fd\u8fdb\u884c\u4efb\u4f55\u64cd\u4f5c\u3002\r\n"
+}

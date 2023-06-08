@@ -1,0 +1,25 @@
+{
+    "description": "Calculate the number of ways to place $ n $ rooks on $ n       \\times n $ chessboard so that both following conditions are met:\n\n- each empty cell is under attack;\n- exactly $ k $ pairs of rooks attack each other.\n\nAn empty cell is under attack if there is at least one rook in the same row or at least one rook in the same column. Two rooks attack each other if they share the same row or column, and there are no other rooks between them. For example, there are only two pairs of rooks that attack each other in the following picture:\n\n  ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1342E/91e1a952e84863deabd2acee6b4796ec5e713ad0.png)One of the ways to place the rooks for $ n = 3 $ and $ k = 2 $  Two ways to place the rooks are considered different if there exists at least one cell which is empty in one of the ways but contains a rook in another way.\n\nThe answer might be large, so print it modulo $ 998244353 $ .",
+    "inputFormat": "The only line of the input contains two integers $ n $ and $ k $ ( $ 1 \\le n \\le 200000 $ ; $ 0 \\le k \\le \\frac{n(n - 1)}{2} $ ).",
+    "outputFormat": "Print one integer \u2014 the number of ways to place the rooks, taken modulo $ 998244353 $ .",
+    "samples": [
+        [
+            "3 2",
+            "6"
+        ],
+        [
+            "3 3",
+            "0"
+        ],
+        [
+            "4 0",
+            "24"
+        ],
+        [
+            "1337 42",
+            "807905441"
+        ]
+    ],
+    "hint": "",
+    "translation": "## \u9898\u76ee\u63cf\u8ff0\n\n$\\mathsf E \\color{red}\\mathsf{ntropyIncreaser}$ \u662f\u56fd\u9645\u8c61\u68cb\u5927\u5e08\u3002\n\n\u6709\u8fd9\u6837\u4e00\u4e2a\u95ee\u9898\uff1a\n\n\u5728 $n \\times n$ \u7684\u56fd\u9645\u8c61\u68cb\u68cb\u76d8\u4e0a\u653e $n$ \u4e2a\u8f66\uff0c\u8981\u6c42\u6ee1\u8db3\u4e24\u4e2a\u6761\u4ef6\uff1a\n\n- \u6240\u6709\u7684\u7a7a\u683c\u5b50\u90fd\u80fd\u88ab\u81f3\u5c11\u4e00\u4e2a\u8f66\u653b\u51fb\u5230\u3002\n- **\u6070\u597d**\u6709 $k$ \u5bf9\u8f66\u53ef\u4ee5\u4e92\u76f8\u653b\u51fb\u5230\u3002\n\n\u7b54\u6848\u5bf9 $998244353$ \u53d6\u6a21\u3002\n\n$\\mathsf E \\color{red}\\mathsf{ntropyIncreaser}$ \u4e00\u773c\u5c31\u4f1a\u4e86\uff1b\u4f46 NaCly\\_Fish \u592a\u83dc\uff0c\u5e76\u4e0d\u4f1a\u505a\uff0c\u8bf7\u4f60\u5e2e\u5e2e\u5979\u5427\u3002\n\n## \u8f93\u5165\u683c\u5f0f\n\n\u8f93\u5165\u4e00\u884c\u4e24\u4e2a\u6574\u6570 $n,k$\u3002\n\n## \u8f93\u51fa\u683c\u5f0f\n\n\u8f93\u51fa\u4e00\u884c\u4e00\u4e2a\u6574\u6570\uff0c\u8868\u793a\u7b54\u6848\u3002\n\n## \u6570\u636e\u8303\u56f4\n$1\\le n \\le 2\\times 10^5$\uff0c$0 \\le k \\le  \\frac{n(n-1)}{2}$\u3002"
+}

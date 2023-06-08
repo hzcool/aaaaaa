@@ -1,0 +1,21 @@
+{
+    "description": "There is a sand trail in front of Alice's home.\n\nIn daytime, people walk over it and leave a footprint on the trail for their every single step. Alice cannot distinguish the order of the footprints, but she can tell whether each footprint is made by left foot or right foot. Also she's certain that all people are walking by alternating left foot and right foot.\n\nFor example, suppose that one person walked through the trail and left some footprints. The footprints are RRLRL in order along the trail ('R' means right foot and 'L' means left foot). You might think the outcome of the footprints is strange. But in fact, some steps are resulting from walking backwards!\n\nThere are some possible order of steps that produce these footprints such as $ 1\u21923\u21922\u21925\u21924 $ or $ 2\u21923\u21924\u21925\u21921 $ (we suppose that the distance between two consecutive steps can be arbitrarily long). The number of backward steps from above two examples are $ 2 $ and $ 1 $ separately.\n\nAlice is interested in these footprints. Whenever there is a person walking trough the trail, she takes a picture of all these footprints along the trail and erase all of them so that next person will leave a new set of footprints. We know that people walk by alternating right foot and left foot, but we don't know if the first step is made by left foot or right foot.\n\nAlice wants to know the minimum possible number of backward steps made by a person. But it's a little hard. Please help Alice to calculate it. You also need to construct one possible history of these footprints.",
+    "inputFormat": "Only one line containing the string $ S $ ( $ 1<=|S|<=100000 $ ) containing all footprints in order along the trail from entrance to exit.\n\nIt is guaranteed that there is at least one possible footprint history.",
+    "outputFormat": "You should output $ 2 $ lines.\n\nThe first line should contain a number denoting the minimum number of backward steps.\n\nThe second line should contain a permutation of integers from 1 to $ |S| $ . This permutation should denote the order of footprints that may possible be used by person walked there.\n\nIf there are several possible answers, you may output any of them.",
+    "samples": [
+        [
+            "RRLRL\n",
+            "1\n2 5 1 3 4\n"
+        ],
+        [
+            "RLRLRLRLR\n",
+            "0\n1 2 3 4 5 6 7 8 9\n"
+        ],
+        [
+            "RRRRRLLLL\n",
+            "4\n4 9 3 8 2 7 1 6 5\n"
+        ]
+    ],
+    "hint": "For the first sample, one possible order is $ 2\u21925\u21921\u21923\u21924 $ , among them only the step $ 5\u21921 $ is backward step so the answer is $ 1 $ .\n\nFor the second example one possible order is just to follow the order of input, thus there are no backward steps.\n\nFor the third sample, there will be $ 4 $ backward steps because every step from L to R will be a backward step.",
+    "translation": "- \u7ed9\u5b9a\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u53ea\u5305\u542b `L,R` \u7684\u5b57\u7b26\u4e32 $s$\u3002\n- \u6784\u9020\u4e00\u4e2a $n$ \u6392\u5217 $p$ \u6ee1\u8db3 $s[p_i] \\ne s[p_{i+1}](1 \\le i < n)$\u3002\n- \u6700\u5c0f\u5316 $p$ \u4e2d $p_i > p_{i+1}(1 \\le i < n)$ \u7684\u6570\u91cf\u3002\n- $n \\le 10^5$\uff0c\u6570\u636e\u4fdd\u8bc1\u6709\u89e3\u3002"
+}

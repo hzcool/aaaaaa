@@ -1,0 +1,25 @@
+{
+    "description": "Naman has two binary strings $ s $ and $ t $ of length $ n $ (a binary string is a string which only consists of the characters \"0\" and \"1\"). He wants to convert $ s $ into $ t $ using the following operation as few times as possible.\n\nIn one operation, he can choose any subsequence of $ s $ and rotate it clockwise once.\n\nFor example, if $ s = 1\\textbf{1}101\\textbf{00} $ , he can choose a subsequence corresponding to indices ( $ 1 $ -based) $ \\{2, 6, 7 \\} $ and rotate them clockwise. The resulting string would then be $ s = 1\\textbf{0}101\\textbf{10} $ .\n\nA string $ a $ is said to be a subsequence of string $ b $ if $ a $ can be obtained from $ b $ by deleting some characters without changing the ordering of the remaining characters.\n\nTo perform a clockwise rotation on a sequence $ c $ of size $ k $ is to perform an operation which sets $ c_1:=c_k,       c_2:=c_1, c_3:=c_2, \\ldots, c_k:=c_{k-1} $ simultaneously.\n\nDetermine the minimum number of operations Naman has to perform to convert $ s $ into $ t $ or say that it is impossible.",
+    "inputFormat": "The first line contains a single integer $ n $ $ (1 \\le n \\le       10^6) $ \u2014 the length of the strings.\n\nThe second line contains the binary string $ s $ of length $ n $ .\n\nThe third line contains the binary string $ t $ of length $ n $ .",
+    "outputFormat": "If it is impossible to convert $ s $ to $ t $ after any number of operations, print $ -1 $ .\n\nOtherwise, print the minimum number of operations required.",
+    "samples": [
+        [
+            "6\n010000\n000001",
+            "1"
+        ],
+        [
+            "10\n1111100000\n0000011111",
+            "5"
+        ],
+        [
+            "8\n10101010\n01010101",
+            "1"
+        ],
+        [
+            "10\n1111100000\n1111100001",
+            "-1"
+        ]
+    ],
+    "hint": "In the first test, Naman can choose the subsequence corresponding to indices $ \\{2, 6\\} $ and rotate it once to convert $ s $ into $ t $ .\n\nIn the second test, he can rotate the subsequence corresponding to all indices $ 5 $ times. It can be proved, that it is the minimum required number of operations.\n\nIn the last test, it is impossible to convert $ s $ into $ t $ .",
+    "translation": "## \u9898\u76ee\u63cf\u8ff0\r\n\u7ed9\u5b9a\u4e24\u4e2a\u957f\u5ea6\u4e3a$n$\u7684$01$\u4e32$a$\u548c$b$\uff0c\u8981\u6c42\u4e32$a$\u7684\u4efb\u610f\u5b50\u5e8f\u5217\u7ecf\u8fc7\u82e5\u5e72\u6b21\u201c\u65cb\u8f6c\u201d\u64cd\u4f5c\u53d8\u4e3a\u4e32$b$\r\n\r\n\u5bf9\u4e8e\u4e00\u6b21\u201c\u65cb\u8f6c\u64cd\u4f5c\u201d\u6211\u4eec\u8fd9\u6837\u5b9a\u4e49\uff1a\r\n\u5982\u679c\u6211\u4eec\u8981\u65cb\u8f6c\u7684\u5e8f\u5217\u4e3a\r\n\r\n$c_1,c_2,c_3,c_4,c_5...c_n$\r\n\r\n\u90a3\u4e48\u65cb\u8f6c\u4e4b\u540e\u7684\u5e8f\u5217\u4e3a$c_n,c_1,c_2,c_3,c_4...c_{n-1}$\r\n\r\n\u4f8b\u5982\u5bf9\u4e8e$s=1110100$\r\n\r\n\u5982\u679c\u6211\u4eec\u65cb\u8f6c\u7684\u5b50\u5e8f\u5217\u7684\u4e0b\u6807\u4e3a${2,6,7}$\uff08\u4ece1\u5f00\u59cb\uff09\r\n\r\n\u90a3\u4e48\u65cb\u8f6c\u4e4b\u540e\u7684\u4e32\u4e3a$1010110 $\r\n\r\n\u6c42\u81f3\u5c11\u8fdb\u884c\u591a\u5c11\u6b21\u201c\u65cb\u8f6c\u201d\u64cd\u4f5c\uff0c\u80fd\u591f\u628a\u4e32$a$\u53d8\u6210\u4e32$b$\r\n## \u8f93\u5165\u683c\u5f0f\r\n\u8f93\u5165\u4e00\u5171\u4e09\u884c\r\n\r\n\u7b2c\u4e00\u884c\u8f93\u5165\u4e00\u4e2a\u6574\u6570$n(1\u2264n\u226410^6)$\r\n\u7b2c\u4e8c\u884c\u8f93\u5165\u4e32$a$\r\n\r\n\u7b2c\u4e09\u884c\u8f93\u5165\u4e32$b$\r\n\r\n## \u8f93\u51fa\u683c\u5f0f\r\n\u8f93\u51fa\u4e3a$1$\u884c\uff0c\u4e3a\u6700\u5c0f\u7684\u64cd\u4f5c\u6b21\u6570\r\n"
+}

@@ -1,0 +1,17 @@
+{
+    "description": "You are given a tree with $ n $ vertices and you are allowed to perform no more than $ 2n $ transformations on it. Transformation is defined by three vertices $ x,y,y' $ and consists of deleting edge $ (x,y) $ and adding edge $ (x,y') $ . Transformation $ x,y,y' $ could be performed if all the following conditions are satisfied:\n\n1. There is an edge $ (x,y) $ in the current tree.\n2. After the transformation the graph remains a tree.\n3. After the deletion of edge $ (x,y) $ the tree would consist of two connected components. Let's denote the set of nodes in the component containing vertex $ x $ by $ V_{x} $ , and the set of nodes in the component containing vertex $ y $ by $ V_{y} $ . Then condition $ |V_{x}|&gt;|V_{y}| $ should be satisfied, i.e. the size of the component with $ x $ should be strictly larger than the size of the component with $ y $ .\n\nYou should minimize the sum of squared distances between all pairs of vertices in a tree, which you could get after no more than $ 2n $ transformations and output any sequence of transformations leading initial tree to such state.\n\nNote that you don't need to minimize the number of operations. It is necessary to minimize only the sum of the squared distances.",
+    "inputFormat": "The first line of input contains integer $ n $ ( $ 1<=n<=2\u00b710^{5} $ ) \u2014 number of vertices in tree.\n\nThe next $ n-1 $ lines of input contains integers $ a $ and $ b $ ( $ 1<=a,b<=n,a\u2260b $ ) \u2014 the descriptions of edges. It is guaranteed that the given edges form a tree.",
+    "outputFormat": "In the first line output integer $ k $ ( $ 0<=k<=2n $ ) \u2014 the number of transformations from your example, minimizing sum of squared distances between all pairs of vertices.\n\nIn each of the next $ k $ lines output three integers $ x,y,y' $ \u2014 indices of vertices from the corresponding transformation.\n\nTransformations with $ y=y' $ are allowed (even though they don't change tree) if transformation conditions are satisfied.\n\nIf there are several possible answers, print any of them.",
+    "samples": [
+        [
+            "3\n3 2\n1 3\n",
+            "0\n"
+        ],
+        [
+            "7\n1 2\n2 3\n3 4\n4 5\n5 6\n6 7\n",
+            "2\n4 3 2\n4 5 6"
+        ]
+    ],
+    "hint": "This is a picture for the second sample. Added edges are dark, deleted edges are dotted.\n\n![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF843C/5905cec6b2c0826d6ba38e3611ad2a2ba852ba57.png)",
+    "translation": "\u6bcf\u6b21\u53ef\u4ee5\u5bf9\u4e00\u4e2a\u6811\u7ecf\u884c\u6700\u591a $2n$ \u6b21\u64cd\u4f5c  $(x,y,y')$ \u8868\u793a\u5c06 $(x,y)$ \u5220\u9664\uff0c\u540c\u65f6\u52a0\u5165\u4e00\u6761\u8fb9 $(x,y')$ \u3002\n\n\u6bcf\u6b21\u64cd\u4f5c\u8981\u6c42 \uff1a\n\n1. \u6bcf\u6b21\u64cd\u4f5c\u4e2d $(x,y)$ \u5b58\u5728\u3002\n\n1. \u64cd\u4f5c\u540e\u4ecd\u7136\u662f\u6811\u3002\n\n1. \u6bcf\u6b21\u5220\u4e86 $(x,y)$ \u65f6\uff0c\u5fc5\u987b\u4fdd\u8bc1\u5305\u542b $x$ \u7684\u5b50\u6811\u4e2d\u7684\u8282\u70b9\u6570\u6bd4\u5305\u542b $y$ \u7684\u8282\u70b9\u6570\u5927\u3002\n\n\u6700\u540e\u4f7f\u5f97\u6240\u6709\u70b9\u8ddd\u79bb\u7684\u5e73\u65b9\u548c\u6700\u5c0f\u3002\u8f93\u51fa\u4e00\u79cd\u64cd\u4f5c\u7684\u65b9\u6848\u3002"
+}

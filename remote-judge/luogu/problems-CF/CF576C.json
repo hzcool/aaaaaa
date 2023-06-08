@@ -1,0 +1,13 @@
+{
+    "description": "On a plane are $ n $ points ( $ x_{i} $ , $ y_{i} $ ) with integer coordinates between $ 0 $ and $ 10^{6} $ . The distance between the two points with numbers $ a $ and $ b $ is said to be the following value: ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF576C/a7b10c3a7062b1d795a13da5c9f45189a64ee615.png) (the distance calculated by such formula is called Manhattan distance).\n\nWe call a hamiltonian path to be some permutation $ p_{i} $ of numbers from $ 1 $ to $ n $ . We say that the length of this path is value ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF576C/78b5c50a357f607418f8669a3857aad07c09d987.png).\n\nFind some hamiltonian path with a length of no more than $ 25\u00d710^{8} $ . Note that you do not have to minimize the path length.",
+    "inputFormat": "The first line contains integer $ n $ ( $ 1<=n<=10^{6} $ ).\n\nThe $ i+1 $ -th line contains the coordinates of the $ i $ -th point: $ x_{i} $ and $ y_{i} $ ( $ 0<=x_{i},y_{i}<=10^{6} $ ).\n\nIt is guaranteed that no two points coincide.",
+    "outputFormat": "Print the permutation of numbers $ p_{i} $ from $ 1 $ to $ n $ \u2014 the sought Hamiltonian path. The permutation must meet the inequality ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF576C/2d8fdd98534a91e5b367141c299ffdad8da235c6.png).\n\nIf there are multiple possible answers, print any of them.\n\nIt is guaranteed that the answer exists.",
+    "samples": [
+        [
+            "5\n0 7\n8 10\n3 4\n5 0\n9 12\n",
+            "4 3 1 2 5 \n"
+        ]
+    ],
+    "hint": "In the sample test the total distance is:\n\n![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF576C/1f55becbebb3a433830fac06fad46fefec8bbb8f.png)\n\n $ (|5-3|+|0-4|)+(|3-0|+|4-7|)+(|0-8|+|7-10|)+(|8-9|+|10-12|)=2+4+3+3+8+3+1+2=26 $",
+    "translation": "\u9898\u76ee\u63cf\u8ff0\r\n\r\n\u7ed9\u51fa$N$\u4e2a\u6574\u70b9$(x_i,y_i)$\uff0c\u6c42\u4e00\u4e2a\u6392\u5217$p_i$\uff0c\u4f7f\u5f97$\\sum\\limits_{i=2}^N |x_{p_i} - x_{p_{i-1}}| + |y_{p_i} - y_{p_{i-1}}| \\leq 2.5 \\times 10^9$\u3002\r\n\r\n\u8f93\u5165\u6570\u636e\r\n\r\n\u8f93\u5165\u7684\u7b2c\u4e00\u884c\u4e00\u4e2a\u6b63\u6574\u6570$N(1 \\leq N \\leq 10^6)$\u8868\u793a\u70b9\u7684\u6570\u91cf\uff0c\u63a5\u4e0b\u6765$N$\u884c\u6bcf\u884c\u4e24\u4e2a\u975e\u8d1f\u6574\u6570$x_i,y_i(0 \\leq x_i,y_i \\leq 10^6)$\u63cf\u8ff0\u4e00\u4e2a\u70b9\u3002\r\n\r\n\u8f93\u51fa\u6570\u636e\r\n\r\n\u4e00\u884c$N$\u4e2a\u6570\u8868\u793a\u4f60\u7ed9\u51fa\u7684\u6392\u5217\uff0c\u6bcf\u4e24\u4e2a\u6570\u4e4b\u95f4\u7528\u4e00\u4e2a\u7a7a\u683c\u9694\u5f00\u3002"
+}

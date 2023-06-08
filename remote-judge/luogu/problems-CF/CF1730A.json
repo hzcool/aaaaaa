@@ -1,0 +1,17 @@
+{
+    "description": "One day, Vogons wanted to build a new hyperspace highway through a distant system with $ n $ planets. The $ i $ -th planet is on the orbit $ a_i $ , there could be multiple planets on the same orbit. It's a pity that all the planets are on the way and need to be destructed.\n\nVogons have two machines to do that.\n\n- The first machine in one operation can destroy any planet at cost of $ 1 $ Triganic Pu.\n- The second machine in one operation can destroy all planets on a single orbit in this system at the cost of $ c $ Triganic Pus.\n\nVogons can use each machine as many times as they want.\n\nVogons are very greedy, so they want to destroy all planets with minimum amount of money spent. Can you help them to know the minimum cost of this project?",
+    "inputFormat": "The first line contains a single integer $ t $ ( $ 1 \\le t \\le 100 $ ) \u2014 the number of test cases. Then the test cases follow.\n\nEach test case consists of two lines.\n\nThe first line contains two integers $ n $ and $ c $ ( $ 1 \\le n, c \\le 100 $ ) \u2014 the number of planets and the cost of the second machine usage.\n\nThe second line contains $ n $ integers $ a_1, a_2, \\dots, a_n $ ( $ 1 \\le a_i \\le 100 $ ), where $ a_i $ is the orbit of the $ i $ -th planet.",
+    "outputFormat": "For each test case print a single integer \u2014 the minimum cost of destroying all planets.",
+    "samples": [
+        [
+            "4\n10 1\n2 1 4 5 2 4 5 5 1 2\n5 2\n3 2 1 2 2\n2 2\n1 1\n2 2\n1 2",
+            "4\n4\n2\n2"
+        ],
+        [
+            "1\n1 100\n1",
+            "1"
+        ]
+    ],
+    "hint": "In the first test case, the cost of using both machines is the same, so you can always use the second one and destroy all planets in orbit $ 1 $ , all planets in orbit $ 2 $ , all planets in orbit $ 4 $ , all planets in orbit $ 5 $ .\n\nIn the second test case, it is advantageous to use the second machine for $ 2 $ Triganic Pus to destroy all the planets in orbit $ 2 $ , then destroy the remaining two planets using the first machine.\n\nIn the third test case, you can use the first machine twice or the second machine once.\n\nIn the fourth test case, it is advantageous to use the first machine twice.",
+    "translation": "\u7ed9\u4f60\u4e00\u4e2a\u5e8f\u5217 $a$\uff0c\u4f60\u53ef\u4ee5\u5206\u522b\u8fdb\u884c\u5982\u4e0b\u64cd\u4f5c\u4efb\u610f\u6b21\uff1a\n- \u82b1\u8d39 $1$ \u7684\u4ee3\u4ef7\u5220\u9664 $a_i$\u3002\n- \u82b1\u8d39 $c$ \u7684\u4ee3\u4ef7\u5220\u9664 $\\forall a_i=x$\uff0c$x$\u81ea\u5b9a\u3002\n\n\u6c42\u5220\u9664\u6574\u4e2a\u5e8f\u5217\u7684\u6700\u5c0f\u4ee3\u4ef7\u3002**\u591a\u6d4b**\u3002"
+}

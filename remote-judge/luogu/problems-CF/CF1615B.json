@@ -1,0 +1,13 @@
+{
+    "description": "You are given an array consisting of all integers from $ [l, r] $ inclusive. For example, if $ l = 2 $ and $ r = 5 $ , the array would be $ [2, 3, 4, 5] $ . What's the minimum number of elements you can delete to make the [bitwise AND](https://en.wikipedia.org/wiki/Bitwise_operation#AND) of the array non-zero?\n\nA bitwise AND is a binary operation that takes two equal-length binary representations and performs the AND operation on each pair of the corresponding bits.",
+    "inputFormat": "The first line contains one integer $ t $ ( $ 1 \\leq t \\leq 10^4 $ ) \u2014 the number of test cases. Then $ t $ cases follow.\n\nThe first line of each test case contains two integers $ l $ and $ r $ ( $ 1 \\leq l \\leq r \\leq 2 \\cdot 10^5 $ ) \u2014 the description of the array.",
+    "outputFormat": "For each test case, output a single integer \u2014 the answer to the problem.",
+    "samples": [
+        [
+            "5\n1 2\n2 8\n4 5\n1 5\n100000 200000",
+            "1\n3\n0\n2\n31072"
+        ]
+    ],
+    "hint": "In the first test case, the array is $ [1, 2] $ . Currently, the bitwise AND is $ 0 $ , as $ 1\\ \\& \\ 2 = 0 $ . However, after deleting $ 1 $ (or $ 2 $ ), the array becomes $ [2] $ (or $ [1] $ ), and the bitwise AND becomes $ 2 $ (or $ 1 $ ). This can be proven to be the optimal, so the answer is $ 1 $ .\n\nIn the second test case, the array is $ [2, 3, 4, 5, 6, 7, 8] $ . Currently, the bitwise AND is $ 0 $ . However, after deleting $ 4 $ , $ 5 $ , and $ 8 $ , the array becomes $ [2, 3, 6, 7] $ , and the bitwise AND becomes $ 2 $ . This can be proven to be the optimal, so the answer is $ 3 $ . Note that there may be other ways to delete $ 3 $ elements.",
+    "translation": "\u7ed9\u5b9a\u4e00\u4e2a\u5305\u542b $[l,r]$ \u8303\u56f4\u5185\u6240\u6709\u6574\u6570\u7684\u6570\u7ec4\uff0c\u6c42\u6700\u5c11\u8981\u5220\u9664\u591a\u5c11\u5143\u7d20\uff0c\u4f7f\u5f97\u8fd9\u4e2a\u6570\u7ec4\u91cc\u9762\u6240\u6709\u5143\u7d20\u6309\u4f4d\u4e0e\u4e4b\u540e\u7684\u7ed3\u679c\u975e\u96f6\uff1f\n\n\u6570\u636e\u8303\u56f4\uff1a\n- $t$ \u7ec4\u6570\u636e\uff0c$1\\leqslant t\\leqslant 10^4$\u3002\n- $1\\leqslant l\\leqslant r\\leqslant 2\\times 10^5$\u3002\n\nTranslated by Eason_AC  \n2021.12.25"
+}

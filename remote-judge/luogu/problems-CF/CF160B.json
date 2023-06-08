@@ -1,0 +1,21 @@
+{
+    "description": "Each of you probably has your personal experience of riding public transportation and buying tickets. After a person buys a ticket (which traditionally has an even number of digits), he usually checks whether the ticket is lucky. Let us remind you that a ticket is lucky if the sum of digits in its first half matches the sum of digits in its second half.\n\nBut of course, not every ticket can be lucky. Far from it! Moreover, sometimes one look at a ticket can be enough to say right away that the ticket is not lucky. So, let's consider the following unluckiness criterion that can definitely determine an unlucky ticket. We'll say that a ticket is definitely unlucky if each digit from the first half corresponds to some digit from the second half so that each digit from the first half is strictly less than the corresponding digit from the second one or each digit from the first half is strictly more than the corresponding digit from the second one. Each digit should be used exactly once in the comparisons. In other words, there is such bijective correspondence between the digits of the first and the second half of the ticket, that either each digit of the first half turns out strictly less than the corresponding digit of the second half or each digit of the first half turns out strictly more than the corresponding digit from the second half.\n\nFor example, ticket $ 2421 $ meets the following unluckiness criterion and will not be considered lucky (the sought correspondence is $ 2&gt;1 $ and $ 4&gt;2 $ ), ticket $ 0135 $ also meets the criterion (the sought correspondence is $ 0&lt;3 $ and $ 1&lt;5 $ ), and ticket $ 3754 $ does not meet the criterion.\n\nYou have a ticket in your hands, it contains $ 2n $ digits. Your task is to check whether it meets the unluckiness criterion.",
+    "inputFormat": "The first line contains an integer $ n $ ( $ 1<=n<=100 $ ). The second line contains a string that consists of $ 2n $ digits and defines your ticket.",
+    "outputFormat": "In the first line print \"YES\" if the ticket meets the unluckiness criterion. Otherwise, print \"NO\" (without the quotes).",
+    "samples": [
+        [
+            "2\n2421\n",
+            "YES\n"
+        ],
+        [
+            "2\n0135\n",
+            "YES\n"
+        ],
+        [
+            "2\n3754\n",
+            "NO\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\n\u7ed9\u51fa\u4e00\u4e2a 2\u00d7n \u4f4d\u7684\u6570\u5b57\uff0c\u5982\u679c\u524d\u534a\u90e8\u5206\u7684\u6bcf\u4e2a\u6570\u5b57\u4e0e\u4e0b\u534a\u90e8\u5206\u7684\u67d0\u4e2a\u6570\u5b57\u76f8\u5bf9\u5e94\uff0c\u800c\u4e14\u524d\u534a\u90e8\u5206\u7684\u6bcf\u4e2a\u6570\u5b57\u4e25\u683c\u5c0f\u4e8e\u4e0b\u534a\u90e8\u5206\u7684\u5bf9\u5e94\u6570\u5b57\uff0c\u6216\u8005\u524d\u534a\u90e8\u5206\u7684\u6bcf\u4e2a\u6570\u5b57\u90fd\u4e25\u683c\u5927\u4e8e\u4e0b\u534a\u90e8\u5206\u7684\u5bf9\u5e94\u6570\u5b57\uff0c\u90a3\u4e48\u6211\u4eec\u5c31\u8bf4\uff0c\u4e00\u5f20\u7968\u662f\u4e0d\u5409\u5229\u7684\u3002"
+}

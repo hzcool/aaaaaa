@@ -1,0 +1,13 @@
+{
+    "description": "You're given a positive integer $ n $ .\n\nFind a permutation $ a_1, a_2, \\dots, a_n $ such that for any $ 1 \\leq l < r \\leq n $ , the sum $ a_l + a_{l+1} + \\dots + a_r $ is not divisible by $ r-l+1 $ .\n\nA permutation of length $ n $ is an array consisting of $ n $ distinct integers from $ 1 $ to $ n $ in arbitrary order. For example, $ [2,3,1,5,4] $ is a permutation, but $ [1,2,2] $ is not a permutation ( $ 2 $ appears twice in the array), and $ [1,3,4] $ is also not a permutation ( $ n=3 $ but there is $ 4 $ in the array).",
+    "inputFormat": "Each test contains multiple test cases. The first line contains the number of test cases $ t $ ( $ 1 \\le t \\le 100 $ ). Description of the test cases follows.\n\nThe first line of each test case contain a single integer $ n $ ( $ 1 \\leq n \\leq 100 $ ) \u2014 the size of the desired permutation.",
+    "outputFormat": "For each test case, if there is no such permutation print $ -1 $ .\n\nOtherwise, print $ n $ distinct integers $ p_1, p_{2}, \\dots, p_n $ ( $ 1 \\leq p_i \\leq n $ ) \u2014 a permutation satisfying the condition described in the statement.\n\nIf there are multiple solutions, print any.",
+    "samples": [
+        [
+            "3\n1\n2\n3",
+            "1\n1 2\n-1"
+        ]
+    ],
+    "hint": "In the first example, there are no valid pairs of $ l < r $ , meaning that the condition is true for all such pairs.\n\nIn the second example, the only valid pair is $ l=1 $ and $ r=2 $ , for which $ a_1 + a_2 = 1+2=3 $ is not divisible by $ r-l+1=2 $ .\n\nin the third example, for $ l=1 $ and $ r=3 $ the sum $ a_1+a_2+a_3 $ is always $ 6 $ , which is divisible by $ 3 $ .",
+    "translation": "#### \u9898\u76ee\u63cf\u8ff0\n\u7ed9\u5b9a\u4e00\u4e2a\u6574\u6570 $n$\u3002\n\n\u4f60\u9700\u8981\u6784\u9020\u4e00\u4e2a\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u6392\u5217 $A$\uff0c\u4f7f\u5f97\u5bf9\u4e8e\u4efb\u610f\u4e00\u5bf9 $l,r$\uff08$1\\le l<r\\le n$\uff09\uff0c\u90fd\u6ee1\u8db3 $A_l+A_{l+1}+\\dots+A_r$ \u4e0d\u53ef\u4ee5\u88ab $r-l+1$ \u6574\u9664\u3002\n\n#### \u8f93\u5165\u683c\u5f0f\n\n\u8f93\u5165\u4e00\u4e2a $t(1\\le t\\le 100)$ \u8868\u793a\u6570\u636e\u7ec4\u6570\u3002\n\n\u6bcf\u7ec4\u6570\u636e\u4e00\u884c\u4e00\u4e2a\u6574\u6570 $n(1\\le n\\le100)$\uff0c\u5373\u6392\u5217\u7684\u957f\u5ea6\u3002\n\n#### \u8f93\u51fa\u683c\u5f0f\n\n\u5bf9\u4e8e\u6bcf\u7ec4\u6570\u636e\uff0c\u82e5\u6240\u6c42\u6392\u5217\u4e0d\u5b58\u5728\uff0c\u8f93\u51fa `-1`\uff0c\u5426\u5219\u8f93\u51fa\u4efb\u610f\u4e00\u4e2a\u5408\u6cd5\u7684\u6392\u5217\u3002\n"
+}

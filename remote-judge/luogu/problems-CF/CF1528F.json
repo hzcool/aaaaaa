@@ -1,0 +1,29 @@
+{
+    "description": "To AmShZ, all arrays are equal, but some arrays are more-equal than others. Specifically, the arrays consisting of $ n $ elements from $ 1 $ to $ n $ that can be turned into permutations of numbers from $ 1 $ to $ n $ by adding a non-negative integer to each element.\n\nMashtali who wants to appear in every problem statement thinks that an array $ b $ consisting of $ k $ elements is compatible with a more-equal array $ a $ consisting of $ n $ elements if for each $ 1 \\le i \\le k $ we have $ 1 \\le b_i \\le n $ and also $ a_{b_1} = a_{b_2} = \\ldots = a_{b_k} $ .\n\nFind the number of pairs of arrays $ a $ and $ b $ such that $ a $ is a more-equal array consisting of $ n $ elements and $ b $ is an array compatible with $ a $ consisting of $ k $ elements modulo $ 998244353 $ .\n\nNote that the elements of $ b $ are not necessarily distinct, same holds for $ a $ .",
+    "inputFormat": "The first line of input contains two integers $ n $ and $ k $ $ (1 \\le n \\le 10^9 , 1 \\le k \\le 10^5) $ .",
+    "outputFormat": "Print a single integer \u2014 the answer to the problem modulo $ 998244353 $ .",
+    "samples": [
+        [
+            "1 1",
+            "1"
+        ],
+        [
+            "2 2",
+            "8"
+        ],
+        [
+            "5 4",
+            "50400"
+        ],
+        [
+            "20 100",
+            "807645526"
+        ],
+        [
+            "10000000 10000",
+            "883232350"
+        ]
+    ],
+    "hint": "There are eight possible pairs for the second example:\n\n1. $ a = \\{1, 1\\}, b = \\{1, 1\\} $\n2. $ a = \\{1, 1\\}, b = \\{1, 2\\} $\n3. $ a = \\{1, 1\\}, b = \\{2, 1\\} $\n4. $ a = \\{1, 1\\}, b = \\{2, 2\\} $\n5. $ a = \\{1, 2\\}, b = \\{1, 1\\} $\n6. $ a = \\{1, 2\\}, b = \\{2, 2\\} $\n7. $ a = \\{2, 1\\}, b = \\{1, 1\\} $\n8. $ a = \\{2, 1\\}, b = \\{2, 2\\} $",
+    "translation": "\u7ed9\u5b9a $n,k$\uff0c\u95ee\u6709\u591a\u5c11\u5bf9\u6b63\u6574\u6570\u5e8f\u5217 $a,b$\uff0c\u6ee1\u8db3\n\n* $a$ \u7684\u957f\u5ea6\u4e3a $n$\uff0c$b$ \u7684\u957f\u5ea6\u4e3a $k$\u3002$a,b$ \u4e2d\u7684\u6bcf\u4e2a\u6570\u90fd\u5728 $[1,n]$\u3002\n* \u5c06 $a$ \u7684\u6bcf\u4e2a\u6570\u52a0\u4e0a\u4e00\u4e2a\u975e\u8d1f\u6574\u6570\u540e\u53ef\u4ee5\u5f97\u5230\u4e00\u4e2a $1\\dots n$ \u7684\u6392\u5217\u3002\n* \u6240\u6709\u7684 $a_{b_i}(1\\le i\\le k)$ \u76f8\u7b49\u3002\n\n\u7b54\u6848\u5bf9 $998244353$ \u53d6\u6a21\u3002"
+}

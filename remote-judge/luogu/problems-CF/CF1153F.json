@@ -1,0 +1,25 @@
+{
+    "description": "Getting closer and closer to a mathematician, Serval becomes a university student on math major in Japari University. On the Calculus class, his teacher taught him how to calculate the expected length of a random subsegment of a given segment. Then he left a bonus problem as homework, with the award of a garage kit from IOI. The bonus is to extend this problem to the general case as follows.\n\nYou are given a segment with length $ l $ . We randomly choose $ n $ segments by choosing two points (maybe with non-integer coordinates) from the given segment equiprobably and the interval between the two points forms a segment. You are given the number of random segments $ n $ , and another integer $ k $ . The $ 2n $ endpoints of the chosen segments split the segment into $ (2n+1) $ intervals. Your task is to calculate the expected total length of those intervals that are covered by at least $ k $ segments of the $ n $ random segments.\n\nYou should find the answer modulo $ 998244353 $ .",
+    "inputFormat": "First line contains three space-separated positive integers $ n $ , $ k $ and $ l $ ( $ 1\\leq k \\leq n \\leq 2000 $ , $ 1\\leq l\\leq 10^9 $ ).",
+    "outputFormat": "Output one integer \u2014 the expected total length of all the intervals covered by at least $ k $ segments of the $ n $ random segments modulo $ 998244353 $ .\n\nFormally, let $ M = 998244353 $ . It can be shown that the answer can be expressed as an irreducible fraction $ \\frac{p}{q} $ , where $ p $ and $ q $ are integers and $ q \\not \\equiv 0 \\pmod{M} $ . Output the integer equal to $ p \\cdot q^{-1} \\bmod M $ . In other words, output such an integer $ x $ that $ 0 \\le x < M $ and $ x \\cdot q \\equiv p \\pmod{M} $ .",
+    "samples": [
+        [
+            "1 1 1\n",
+            "332748118\n"
+        ],
+        [
+            "6 2 1\n",
+            "760234711\n"
+        ],
+        [
+            "7 5 3\n",
+            "223383352\n"
+        ],
+        [
+            "97 31 9984524\n",
+            "267137618\n"
+        ]
+    ],
+    "hint": "In the first example, the expected total length is $ \\int_0^1 \\int_0^1 |x-y| \\,\\mathrm{d}x\\,\\mathrm{d}y = {1\\over 3} $ , and $ 3^{-1} $ modulo $ 998244353 $ is $ 332748118 $ .",
+    "translation": "\u6709\u4e00\u6bb5\u957f\u4e3a$l$\u7684\u7ebf\u6bb5\uff0c\u6709$n$\u4e2a\u533a\u95f4\uff0c\u5de6\u53f3\u7aef\u70b9\u5728$[0,l)$\u95f4\u5747\u5300\u968f\u673a\uff08\u53ef\u80fd\u4e0d\u662f\u6574\u6570\uff09\n\n\u6c42\u671f\u671b\u88ab\u81f3\u5c11$k$\u6bb5\u533a\u95f4\u8986\u76d6\u7684\u957f\u5ea6\uff0c\u5bf9998244353\u53d6\u819c"
+}

@@ -1,0 +1,33 @@
+{
+    "description": "A cubeword is a special type of a crossword. When building a cubeword, you start by choosing a positive integer $ a $ : the side length of the cube. Then, you build a big cube consisting of $ a \\times a \\times a $ unit cubes. This big cube has 12 edges. Then, you discard all unit cubes that do not touch the edges of the big cube. The figure below shows the object you will get for $ a=6 $ .\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1192C/a0e96dd13d6681a558f1021dc0e785cc5ce2afe1.png)Finally, you assign a letter to each of the unit cubes in the object. You must get a meaningful word along each edge of the big cube. Each edge can be read in either direction, and it is sufficient if one of the two directions of reading gives a meaningful word.\n\nThe figure below shows the object for $ a=6 $ in which some unit cubes already have assigned letters. You can already read the words 'SUBMIT', 'ACCEPT' and 'TURING' along three edges of the big cube.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1192C/77981496816d7f5aeed8003b9d41c46904dc5517.png)You are given a list of valid words. Each word from the wordlist may appear on arbitrarily many edges of a valid cubeword. Find and report the number of different cubewords that can be constructed, modulo $ 998,244,353 $ .\n\nIf one cubeword can be obtained from another by rotation or mirroring, they are considered distinct.",
+    "inputFormat": "The first line contains a single integer $ n $ ( $ 1 \\leq n \\leq 100,000 $ ) \u2013 the number of words.\n\nThen, $ n $ lines follow. Each of these lines contains one word that can appear on the edges of the big cube. The length of each word is between 3 and 10, inclusive.\n\nIt is guaranteed that all words are different.",
+    "outputFormat": "Output a single integer, the number of distinct cubewords for the given list of valid words modulo $ 998,244,353 $ .\n\nScoring\n\nSubtask 1 (21 points): the words consist only of letters 'a' - 'f' (lowercase)\n\nSubtask 2 (29 points): the words consist only of letters 'a' - 'p' (lowercase)\n\nSubtask 3 (34 points): the words consist of letters 'a' - 'p' (lowercase) and 'A' - 'P' (uppercase)\n\nSubtask 4 (16 points): the words consist of letters 'a' - 'z' (lowercase), 'A' - 'Z' (uppercase) and digits '0' - '9'",
+    "samples": [
+        [
+            "1\nradar\n",
+            "1\n"
+        ],
+        [
+            "1\nrobot\n",
+            "2\n"
+        ],
+        [
+            "2\nFLOW\nWOLF\n",
+            "2\n"
+        ],
+        [
+            "2\nbaobab\nbob\n",
+            "4097\n"
+        ],
+        [
+            "3\nTURING\nSUBMIT\nACCEPT\n",
+            "162\n"
+        ],
+        [
+            "3\nMAN1LA\nMAN6OS\nAN4NAS\n",
+            "114\n"
+        ]
+    ],
+    "hint": "In the first sample, the only possibility is for the word \"radar\" to be on each edge of the cube.\n\nIn the second sample, there are two cubes, which are just rotations of each other \u2013 the word \"robot\" is on every edge, and the difference between the two cubes is whether the lower left front corner contains 'r' or 't'.\n\nThe third sample is similar to the second one. The fact that we can read the word on each edge in both directions does not affect the answer.\n\nIn the fourth sample, there is one cube with the word \"bob\" on each edge. There are also $ 2^{12} = 4096 $ cubes with the word \"baobab\" on each edge. (For each of the 12 edges, we have two possible directions in which the word \"baobab\" can appear.)",
+    "translation": "\u3010**\u9898\u76ee\u63cf\u8ff0**\u3011\n\n\u7acb\u65b9\u586b\u8bcd\u662f\u4e00\u79cd\u7279\u6b8a\u7684\u586b\u8bcd\u6e38\u620f\u3002\u586b\u8bcd\u4e4b\u524d\uff0c\u4f60\u9700\u8981\u9009\u62e9\u7acb\u65b9\u4f53\u7684\u8fb9\u957f $a$\uff0c\u7136\u540e\u4f60\u5c31\u53ef\u4ee5\u5efa\u7acb\u4e00\u4e2a\u6709 $a^3$\u4e2a\u5355\u4f4d\u7acb\u65b9\u4f53\u7684\u7acb\u65b9\u4f53\u4e86\u3002\u8fd9\u4e2a\u5927\u7acb\u65b9\u4f53\u6709 $12$ \u6761\u8fb9\u3002\u7136\u540e\uff0c\u4f60\u53bb\u6389\u6240\u6709\u6ca1\u6709\u63a5\u89e6\u5927\u7acb\u65b9\u4f53\u8fb9\u7684\u5355\u4f4d\u7acb\u65b9\u4f53\u3002\u4e0b\u56fe\u5c55\u793a\u4e86\u5f53 $a=6$ \u65f6\u5efa\u7acb\u7684\u6700\u7ec8\u7acb\u65b9\u4f53\u3002\n![](https://espresso.codeforces.com/743579208d31cd16eff004ef390b8dac9e629deb.png)\n\u6700\u540e\uff0c\u4f60\u9700\u8981\u7ed9\u5269\u4e0b\u7684\u6bcf\u4e2a\u5355\u4f4d\u7acb\u65b9\u4f53\u586b\u4e0a\u4e00\u4e2a\u5b57\u6bcd\u3002\u5bf9\u4e8e\u8fd9\u4e2a\u7acb\u65b9\u4f53\uff0c\u586b\u8bcd\u4e4b\u540e\uff0c\u6bcf\u6761\u8fb9\u4e0a\u7684\u5355\u8bcd\u90fd\u5e94\u8be5\u662f\u6709\u610f\u4e49\u7684\u3002\u6bcf\u6761\u8fb9\u90fd\u53ef\u4ee5\u53cc\u5411\u9605\u8bfb\uff0c\u53ea\u8981\u4ece\u4e00\u4e2a\u65b9\u5411\u8bfb\u8d77\u6765\u6709\u610f\u4e49\u5373\u53ef\u3002\n\n\u4e0b\u56fe\u5c55\u793a\u4e86\u5f53 $a=6$ \u65f6\u7684\u4e00\u4e2a\u7acb\u65b9\u4f53\u3002\u4e00\u4e9b\u5355\u4f4d\u7acb\u65b9\u4f53\u5df2\u7ecf\u586b\u4e0a\u4e86\u5b57\u6bcd\u3002\u4f60\u5df2\u7ecf\u53ef\u4ee5\u6cbf\u8fd9\u4e2a\u5927\u7acb\u65b9\u4f53\u7684\u4e09\u6761\u8fb9\u8bfb\u5230 `SUBMIT`\uff0c`ACCEPT` \u548c `TURING` \u4e09\u4e2a\u5355\u8bcd\u4e86\u3002\n![](https://espresso.codeforces.com/445fa4bb5fa3a176392f5a5a8932ea96dcad7e94.png)\n\u7ed9\u5b9a\u4e00\u7cfb\u5217\u6709\u610f\u4e49\u7684\u5355\u8bcd\uff0c\u6bcf\u4e2a\u5355\u8bcd\u53ef\u4ee5\u5728\u5408\u6cd5\u7684\u7acb\u65b9\u4f53\u7684\u4efb\u610f\u4e00\u6761\u8fb9\u4e0a\u51fa\u73b0\u3002\u6c42\u53ef\u4ee5\u6784\u9020\u591a\u5c11\u79cd\u4e0d\u540c\u7684\u7acb\u65b9\u4f53\u5bf9 $998244353$ \u53d6\u6a21\u3002\n\n\u5982\u679c\u4e00\u4e2a\u7acb\u65b9\u4f53\u53ef\u4ee5\u901a\u8fc7\u65cb\u8f6c\u548c\u955c\u50cf\u64cd\u4f5c\u53d8\u6210\u53e6\u4e00\u4e2a\u7acb\u65b9\u4f53\uff0c\u5219\u8ba4\u4e3a\u8fd9\u4e24\u4e2a\u7acb\u65b9\u4f53\u662f\u4e0d\u540c\u7684\u3002\n\n\u3010**\u8f93\u5165\u683c\u5f0f**\u3011\n\n\u7b2c\u4e00\u884c\u4e00\u4e2a\u6574\u6570 $n$\uff0c\u8868\u793a\u5355\u8bcd\u7684\u4e2a\u6570\u3002\n\n\u63a5\u4e0b\u6765 $n$ \u884c\uff0c\u6bcf\u884c\u4e00\u4e2a\u5355\u8bcd\uff0c\u8868\u793a\u53ef\u4ee5\u5728\u5927\u7acb\u65b9\u4f53\u7684\u8fb9\u4e0a\u51fa\u73b0\u7684\u5355\u8bcd\u3002\u5355\u8bcd\u957f\u5ea6\u5927\u4e8e\u7b49\u4e8e $3$\uff0c\u5e76\u4e14\u5c0f\u4e8e\u7b49\u4e8e $10$\u3002\n\n\u4fdd\u8bc1\u6240\u6709\u5355\u8bcd\u90fd\u4e0d\u540c\u3002\n\n\u3010**\u8f93\u51fa\u683c\u5f0f**\u3011\n\n\u8f93\u51fa\u4e00\u4e2a\u6574\u6570\uff0c\u8868\u793a\u53ef\u4ee5\u6784\u9020\u7684\u4e0d\u540c\u7acb\u65b9\u4f53\u6570\u5bf9 $998244353$ \u53d6\u6a21\u540e\u7684\u7ed3\u679c\u3002"
+}

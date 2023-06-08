@@ -1,0 +1,21 @@
+{
+    "description": "Polycarpus has $ n $ friends in Tarasov city. Polycarpus knows phone numbers of all his friends: they are strings $ s_{1},s_{2},...,s_{n} $ . All these strings consist only of digits and have the same length.\n\nOnce Polycarpus needed to figure out Tarasov city phone code. He assumed that the phone code of the city is the longest common prefix of all phone numbers of his friends. In other words, it is the longest string $ c $ which is a prefix (the beginning) of each $ s_{i} $ for all $ i $ ( $ 1<=i<=n $ ). Help Polycarpus determine the length of the city phone code.",
+    "inputFormat": "The first line of the input contains an integer $ n $ ( $ 2<=n<=3\u00b710^{4} $ ) \u2014 the number of Polycarpus's friends. The following $ n $ lines contain strings $ s_{1},s_{2},...,s_{n} $ \u2014 the phone numbers of Polycarpus's friends. It is guaranteed that all strings consist only of digits and have the same length from $ 1 $ to $ 20 $ , inclusive. It is also guaranteed that all strings are different.",
+    "outputFormat": "Print the number of digits in the city phone code.",
+    "samples": [
+        [
+            "4\n00209\n00219\n00999\n00909\n",
+            "2\n"
+        ],
+        [
+            "2\n1\n2\n",
+            "0\n"
+        ],
+        [
+            "3\n77012345678999999999\n77012345678901234567\n77012345678998765432\n",
+            "12\n"
+        ]
+    ],
+    "hint": "A prefix of string $ t $ is a string that is obtained by deleting zero or more digits from the end of string $ t $ . For example, string \"00209\" has 6 prefixes: \"\" (an empty prefix), \"0\", \"00\", \"002\", \"0020\", \"00209\".\n\nIn the first sample the city phone code is string \"00\".\n\nIn the second sample the city phone code is an empty string.\n\nIn the third sample the city phone code is string \"770123456789\".",
+    "translation": "\u6709 N\uff081< N < 30001\uff09 \u4e2a\u957f\u5ea6\u5728\uff081\u2014\u201420\uff09\u4e2a\u5b57\u7b26\u7684\u7535\u8bdd\u53f7\u7801\uff0c\u6c42\u6700\u5927\u7684 k \uff0c\u4f7f\u5f97 N \u4e2a\u7535\u8bdd\u53f7\u7801\u7684\u524d k \u4f4d\u5b8c\u5168\u76f8\u540c"
+}

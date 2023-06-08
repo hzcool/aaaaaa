@@ -1,0 +1,21 @@
+{
+    "description": "The blinds are known to consist of opaque horizontal stripes that can be rotated thus regulating the amount of light flowing in the room. There are $ n $ blind stripes with the width of 1 in the factory warehouse for blind production. The problem is that all of them are spare details from different orders, that is, they may not have the same length (it is even possible for them to have different lengths)\n\nEvery stripe can be cut into two or more parts. The cuttings are made perpendicularly to the side along which the length is measured. Thus the cuttings do not change the width of a stripe but each of the resulting pieces has a lesser length (the sum of which is equal to the length of the initial stripe)\n\nAfter all the cuttings the blinds are constructed through consecutive joining of several parts, similar in length, along sides, along which length is measured. Also, apart from the resulting pieces an initial stripe can be used as a blind if it hasn't been cut. It is forbidden to construct blinds in any other way.\n\nThus, if the blinds consist of $ k $ pieces each $ d $ in length, then they are of form of a rectangle of $ k\u00d7d $ bourlemeters.\n\nYour task is to find for what window possessing the largest possible area the blinds can be made from the given stripes if on technical grounds it is forbidden to use pieces shorter than $ l $ bourlemeter. The window is of form of a rectangle with side lengths as positive integers.",
+    "inputFormat": "The first output line contains two space-separated integers $ n $ and $ l $ ( $ 1<=n,l<=100 $ ). They are the number of stripes in the warehouse and the minimal acceptable length of a blind stripe in bourlemeters. The second line contains space-separated $ n $ integers $ a_{i} $ . They are the lengths of initial stripes in bourlemeters ( $ 1<=a_{i}<=100 $ ).",
+    "outputFormat": "Print the single number \u2014 the maximal area of the window in square bourlemeters that can be completely covered. If no window with a positive area that can be covered completely without breaking any of the given rules exist, then print the single number $ 0 $ .",
+    "samples": [
+        [
+            "4 2\n1 2 3 4\n",
+            "8\n"
+        ],
+        [
+            "5 3\n5 5 7 3 1\n",
+            "15\n"
+        ],
+        [
+            "2 3\n1 2\n",
+            "0\n"
+        ]
+    ],
+    "hint": "In the first sample test the required window is $ 2\u00d74 $ in size and the blinds for it consist of 4 parts, each 2 bourlemeters long. One of the parts is the initial stripe with the length of 2, the other one is a part of a cut stripe with the length of 3 and the two remaining stripes are parts of a stripe with the length of 4 cut in halves.",
+    "translation": "\u6709 $n$ \u6761\u957f\u5ea6\u4e3a $a_i$ \u5bbd\u5ea6\u4e3a $1$ \u7684\u6a2a\u6761\uff0c\u7528\u8fd9 $n$ \u4e2a\u6a2a\u6761\u505a\u4e00\u4e2a\u767e\u53f6\u7a97\uff0c\u767e\u53f6\u7a97\u6bcf\u884c\u7684\u6a2a\u6761\u957f\u5ea6\u5747\u8981\u76f8\u540c\u4e14\u4e0d\u5c0f\u4e8e $l$ \uff0c\u6a2a\u6761\u53ef\u4ee5\u5207\u65ad\u4f46\u4e0d\u80fd\u62fc\u63a5\uff0c\u4e14\u767e\u53f6\u7a97\u6bcf\u884c\u7684\u6a2a\u6761\u957f\u5ea6\u4e3a\u6b63\u6574\u6570\uff0c\u8f93\u51fa\u767e\u53f6\u7a97\u7684\u6700\u5927\u9762\u79ef\u3002"
+}

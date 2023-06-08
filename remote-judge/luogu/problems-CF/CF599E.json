@@ -1,0 +1,29 @@
+{
+    "description": "Rooted tree is a connected graph without any simple cycles with one vertex selected as a root. In this problem the vertex number $ 1 $ will always serve as a root.\n\nLowest common ancestor of two vertices $ u $ and $ v $ is the farthest from the root vertex that lies on both the path from $ u $ to the root and on path from $ v $ to the root. We will denote it as $ LCA(u,v) $ .\n\nSandy had a rooted tree consisting of $ n $ vertices that she used to store her nuts. Unfortunately, the underwater storm broke her tree and she doesn't remember all it's edges. She only managed to restore $ m $ edges of the initial tree and $ q $ triples $ a_{i} $ , $ b_{i} $ and $ c_{i} $ , for which she supposes $ LCA(a_{i},b_{i})=c_{i} $ .\n\nHelp Sandy count the number of trees of size $ n $ with vertex $ 1 $ as a root, that match all the information she remembered. If she made a mess and there are no such trees then print $ 0 $ . Two rooted trees are considered to be distinct if there exists an edge that occur in one of them and doesn't occur in the other one.",
+    "inputFormat": "The first line of the input contains three integers $ n $ , $ m $ and $ q $ ( $ 1<=n<=13,0<=m<n,0<=q<=100 $ ) \u2014 the number of vertices, the number of edges and $ LCA $ triples remembered by Sandy respectively.\n\nEach of the next $ m $ lines contains two integers $ u_{i} $ and $ v_{i} $ ( $ 1<=u_{i},v_{i}<=n,u_{i}\u2260v_{i} $ ) \u2014 the numbers of vertices connected by the $ i $ -th edge. It's guaranteed that this set of edges is a subset of edges of some tree.\n\nThe last $ q $ lines contain the triplets of numbers $ a_{i} $ , $ b_{i} $ , $ c_{i} $ ( $ 1<=a_{i},b_{i},c_{i}<=n) $ . Each of these triples define $ LCA(a_{i},b_{i})=c_{i} $ . It's not guaranteed that there exists a tree that satisfy all the given $ LCA $ conditions.",
+    "outputFormat": "Print a single integer \u2014 the number of trees of size $ n $ that satisfy all the conditions.",
+    "samples": [
+        [
+            "4 0 0\n",
+            "16\n"
+        ],
+        [
+            "4 0 1\n3 4 2\n",
+            "1\n"
+        ],
+        [
+            "3 1 0\n1 2\n",
+            "2\n"
+        ],
+        [
+            "3 0 2\n2 3 2\n2 3 1\n",
+            "0\n"
+        ],
+        [
+            "4 1 2\n1 2\n2 2 2\n3 4 2\n",
+            "1\n"
+        ]
+    ],
+    "hint": "In the second sample correct answer looks like this:\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF599E/3a06f49f1bab15c25fa9029dff674e9bd2958cf5.png)In the third sample there are two possible trees:\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF599E/5bc65707292dd568a0ac7a018a2f94f9303bf3c4.png) ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF599E/bacea40f00b7ff26956d9e8aa34e3c4499c85dc6.png)In the fourth sample the answer is $ 0 $ because the information about $ LCA $ is inconsistent.",
+    "translation": "\u4f60\u66fe\u7ecf\u6709\u4e00\u68f5\uff08\u4ee5 $1$ \u53f7\u70b9\u4e3a\u6839\u7684\uff09\u6811\uff0c\u4f46\u4f60\u5374\u5fd8\u8bb0\u4e86\u5b83\u7684\u5f62\u6001\uff0c\u53ea\u8bb0\u5f97\u5176\u4e2d\u7684 $m$ \u6761\u8fb9\uff0c\u4ee5\u53ca $q$ \u5bf9\u5173\u7cfb\uff1a$a_i$ \u53f7\u70b9\u548c $b_i$ \u53f7\u70b9\u7684 $\\text{LCA}$ \u4e3a $c_i$ \u53f7\u70b9\u3002\u73b0\u5728\u4f60\u60f3\u77e5\u9053\u6709\u591a\u5c11\u79cd\u6ee1\u8db3\u8fd9\u4e9b\u6761\u4ef6\u7684\u6811\u3002"
+}

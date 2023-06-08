@@ -1,0 +1,17 @@
+{
+    "description": "There are $ n $ cities and $ m $ bidirectional roads in the country. The roads in the country form an undirected weighted graph. The graph is not guaranteed to be connected. Each road has it's own parameter $ w $ . You can travel through the roads, but the government made a new law: you can only go through two roads at a time (go from city $ a $ to city $ b $ and then from city $ b $ to city $ c $ ) and you will have to pay $ (w_{ab} + w_{bc})^2 $ money to go through those roads. Find out whether it is possible to travel from city $ 1 $ to every other city $ t $ and what's the minimum amount of money you need to get from $ 1 $ to $ t $ .",
+    "inputFormat": "First line contains two integers $ n $ , $ m $ ( $ 2 \\leq n \\leq 10^5 $ , $ 1 \\leq m \\leq min(\\frac{n \\cdot (n - 1)}{2}, 2 \\cdot 10^5) $ ).\n\nNext $ m $ lines each contain three integers $ v_i $ , $ u_i $ , $ w_i $ ( $ 1 \\leq v_i, u_i \\leq n $ , $ 1 \\leq w_i \\leq 50 $ , $ u_i \\neq v_i $ ). It's guaranteed that there are no multiple edges, i.e. for any edge $ (u_i, v_i) $ there are no other edges $ (u_i, v_i) $ or $ (v_i, u_i) $ .",
+    "outputFormat": "For every city $ t $ print one integer. If there is no correct path between $ 1 $ and $ t $ output $ -1 $ . Otherwise print out the minimum amount of money needed to travel from $ 1 $ to $ t $ .",
+    "samples": [
+        [
+            "5 6\n1 2 3\n2 3 4\n3 4 5\n4 5 6\n1 5 1\n2 4 2",
+            "0 98 49 25 114"
+        ],
+        [
+            "3 2\n1 2 1\n2 3 2",
+            "0 -1 9"
+        ]
+    ],
+    "hint": "The graph in the first example looks like this.\n\n![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1486E/d05a9b1774a0eade44485bb99ef938693d1a95f9.png)\n\nIn the second example the path from $ 1 $ to $ 3 $ goes through $ 2 $ , so the resulting payment is $ (1 + 2)^2 = 9 $ .\n\n![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1486E/9c27ff1803f812784d9dc5ba8f09e905e17b3714.png)",
+    "translation": "\u7ed9\u5b9a\u56fe $G=\\lang V,E\\rang$\uff08\u4e0d\u4e00\u5b9a\u4fdd\u8bc1 $G$ \u662f\u4e00\u4e2a\u8fde\u901a\u56fe\uff09\uff0c\u8bf7\u4f60\u627e\u5230\u4ece $1$ \u5f00\u59cb\u5230\u8fbe\u4efb\u610f\u4e00\u4e2a\u70b9 $t(t\\in [1,n])$ \u7684\u6700\u77ed\u8def\u957f\u5ea6\u3002\n\n\u4f46\u662f\u6bcf\u6b21\u4f60\u4e0d\u80fd\u53ea\u8d70 $E$ \u4e2d\u7684\u4e00\u6761\u8fb9\uff0c\u800c\u662f\u9009\u62e9\u4e24\u6761\u8fb9 $e_1,e_2\\in E\\;\\text{s.t.}\\;e_1=\\lang x,u,w_1\\rang,e_2=\\lang u,y,w_2\\rang$\uff0c\u7136\u540e\uff0c\u6267\u884c $x\\overset{e_1}\\rightarrow u\\overset{e_2}\\rightarrow y$ \u4e14\u6bcf\u6b21\u8d70\u7684\u82b1\u8d39\u662f $(w_1+w_2)^2$.\n\n\u4fdd\u8bc1 $|V|\\le 10^5,|E|\\le \\min\\left\\{2\\times 10^5,{|V|\\times (|V|-1)\\over 2}\\right\\},\\forall e=\\lang u,v,w\\rang \\in E,w\\le 50$."
+}

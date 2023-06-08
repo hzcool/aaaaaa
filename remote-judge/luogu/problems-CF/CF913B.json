@@ -1,0 +1,21 @@
+{
+    "description": "Consider a rooted tree. A rooted tree has one special vertex called the root. All edges are directed from the root. Vertex $ u $ is called a child of vertex $ v $ and vertex $ v $ is called a parent of vertex $ u $ if there exists a directed edge from $ v $ to $ u $ . A vertex is called a leaf if it doesn't have children and has a parent.\n\nLet's call a rooted tree a spruce if its every non-leaf vertex has at least $ 3 $ leaf children. You are given a rooted tree, check whether it's a spruce.\n\nThe definition of a rooted tree can be found [here](https://goo.gl/1dqvzz).",
+    "inputFormat": "The first line contains one integer $ n $ \u2014 the number of vertices in the tree ( $ 3<=n<=1000 $ ). Each of the next $ n-1 $ lines contains one integer $ p_{i} $ ( $ 1<=i<=n-1 $ ) \u2014 the index of the parent of the $ i+1 $ -th vertex ( $ 1<=p_{i}<=i $ ).\n\nVertex $ 1 $ is the root. It's guaranteed that the root has at least $ 2 $ children.",
+    "outputFormat": "Print \"Yes\" if the tree is a spruce and \"No\" otherwise.",
+    "samples": [
+        [
+            "4\n1\n1\n1\n",
+            "Yes\n"
+        ],
+        [
+            "7\n1\n1\n1\n2\n2\n2\n",
+            "No\n"
+        ],
+        [
+            "8\n1\n1\n1\n1\n3\n3\n3\n",
+            "Yes\n"
+        ]
+    ],
+    "hint": "The first example:\n\n![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF913B/3d87b6a6cda0ba6f4ad05908fb42ae8248c8369b.png)\n\nThe second example:\n\n![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF913B/bd0b03933e2dbb274b2b58b0c7a13d930c39c80b.png)\n\nIt is not a spruce, because the non-leaf vertex $ 1 $ has only $ 2 $ leaf children.\n\nThe third example:\n\n![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF913B/a9d72240b2a5e338c43541d320aabfb5ee526dff.png)",
+    "translation": "### \u9898\u76ee\u63cf\u8ff0\n\n\u7ed9\u5b9a\u4e00\u68f5\u6811\uff0c\u5176\u4e2d\u7684\u6bcf\u4e2a\u975e\u53f6\u5b50\u8282\u70b9\u7684\u513f\u5b50\u4e2d\uff0c\u5fc5\u987b\u6709\u4e0d\u5c11\u4e8e\u4e09\u4e2a\u8282\u70b9\u662f\u53f6\u5b50\u8282\u70b9\uff0c\u6ee1\u8db3\u8f93\u51fa `YES`\uff0c\u5426\u5219\u8f93\u51fa `NO`\u3002\n\n### \u8f93\u5165\u683c\u5f0f\n\n\u7b2c\u4e00\u884c\u5305\u542b\u4e00\u4e2a\u6574\u6570 $n(3\\le n\\le 1000)$\uff0c\u8868\u793a\u6811\u7684\u8282\u70b9\u6570\u3002 \u63a5\u4e0b\u6765\u7684 $n-1$ \u884c\u6bcf\u884c\u5305\u542b\u4e00\u4e2a\u6574\u6570 $p_i(1\\le p_i\\le i)$\uff0c$p_i$ \u8868\u793a\u7b2c $i+1$ \u53f7\u8282\u70b9\u7684\u7236\u4eb2\u3002"
+}

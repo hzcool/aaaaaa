@@ -1,0 +1,17 @@
+{
+    "description": "Bessie and the cows have recently been playing with \"cool\" sequences and are trying to construct some. Unfortunately they are bad at arithmetic, so they need your help!\n\nA pair $ (x,y) $ of positive integers is \"cool\" if $ x $ can be expressed as the sum of $ y $ consecutive integers (not necessarily positive). A sequence $ (a_{1},a_{2},...,a_{n}) $ is \"cool\" if the pairs $ (a_{1},a_{2}),(a_{2},a_{3}),...,(a_{n-1},a_{n}) $ are all cool.\n\nThe cows have a sequence of $ n $ positive integers, $ a_{1},a_{2},...,a_{n} $ . In one move, they may replace some $ a_{i} $ with any other positive integer (there are no other limits on the new value of $ a_{i} $ ). Determine the smallest number of moves needed to make the resulting sequence cool.",
+    "inputFormat": "The first line contains a single integer, $ n $ ( $ 2<=n<=5000 $ ). The next line contains $ n $ space-separated integers, $ a_{1},a_{2},...,a_{n} $ ( $ 1<=a_{i}<=10^{15} $ ).\n\nPlease do not use the %lld specifier to read or write 64-bit integers in \u0421++. It is preferred to use the cin, cout streams or the %I64d specifier.",
+    "outputFormat": "A single integer, the minimum number of $ a_{i} $ that must be changed to make the sequence cool.",
+    "samples": [
+        [
+            "3\n6 4 1\n",
+            "0\n"
+        ],
+        [
+            "4\n20 6 3 4\n",
+            "2\n"
+        ]
+    ],
+    "hint": "In the first sample, the sequence is already cool, so we don't need to change any elements. In the second sample, we can change $ a_{2} $ to 5 and $ a_{3} $ to 10 to make (20, 5, 10, 4) which is cool. This changes 2 elements.",
+    "translation": "\u5b9a\u4e49\u4e00\u4e2a\u6570\u5bf9 $(x,y)$ \u662f\u597d\u7684\u5f53\u4e14\u4ec5\u5f53\uff0c $x$ \u53ef\u8868\u793a\u4e3a $y$ \u4e2a\u8fde\u7eed\u6570\u7684\u548c\u3002\r\n\r\n\u9700\u8981\u6ce8\u610f\u8fd9\u4e9b\u8fde\u7eed\u6570\u7684\u5f00\u5934\u4e0d\u4e00\u5b9a\u9700\u8981\u662f\u6b63\u6570\uff0c\u8d1f\u6574\u6570\u4e5f\u53ef\u4ee5\u3002\r\n\r\n\u6bd4\u5982 $(2,4)$ \u662f\u597d\u7684\u56e0\u4e3a $2=-1+0+1+2$ \u3002\r\n\r\n\u5b9a\u4e49\u4e00\u4e2a\u5e8f\u5217 $a$ \u662f\u597d\u7684\u5f53\u4e14\u4ec5\u5f53\u5bf9\u4e8e\u4efb\u610f\u7684 $i$ \u6ee1\u8db3 $1\\le i<n$ \u6709 $(a_i,a_{i+1})$ \u662f\u597d\u7684\u3002\r\n\r\n\u6c42\u5c06\u4e00\u4e2a\u7ed9\u5b9a\u5e8f\u5217 $a$ \u53d8\u6210\u597d\u7684\u6700\u5c11\u9700\u8981\u4fee\u6539\u591a\u5c11\u4e2a\u4f4d\u7f6e\u7684\u503c\uff0c\u6ce8\u610f\uff0c\u4f60\u53ef\u4ee5\u5c06\u5176\u6539\u6210\u4efb\u610f\u503c\u3002\r\n\r\n\u6570\u636e\u8303\u56f4\uff1a$n\\le 5000,1\\le a_i\\le 10^{15}$\u3002\r\n\r\n\u7ffb\u8bd1\uff1aby EmptySoulist"
+}

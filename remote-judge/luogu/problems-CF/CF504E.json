@@ -1,0 +1,13 @@
+{
+    "description": "Misha has a tree with characters written on the vertices. He can choose two vertices $ s $ and $ t $ of this tree and write down characters of vertices lying on a path from $ s $ to $ t $ . We'll say that such string corresponds to pair $ (s,t) $ .\n\nMisha has $ m $ queries of type: you are given $ 4 $ vertices $ a $ , $ b $ , $ c $ , $ d $ ; you need to find the largest common prefix of the strings that correspond to pairs $ (a,b) $ and $ (c,d) $ . Your task is to help him.",
+    "inputFormat": "The first line contains integer $ n $ ( $ 1<=n<=300000 $ ) \u2014 the number of vertices in the tree.\n\nNext follows a line consisting of $ n $ small English letters. The $ i $ -th character of the string corresponds to the character written on the $ i $ -th vertex.\n\nNext $ n-1 $ lines contain information about edges. An edge is defined by a pair of integers $ u $ , $ v $ ( $ 1<=u,v<=n $ , $ u\u2260v $ ), separated by spaces.\n\nThe next line contains integer $ m $ ( $ 1<=m<=1000000 $ ) \u2014 the number of queries.\n\nNext $ m $ lines contain information about queries. A query is defined by four integers $ a $ , $ b $ , $ c $ , $ d $ ( $ 1<=a,b,c,d<=n $ ), separated by spaces.",
+    "outputFormat": "For each query print the length of the largest common prefix on a separate line.",
+    "samples": [
+        [
+            "6\nbbbabb\n2 1\n3 2\n4 3\n5 2\n6 5\n6\n2 5 3 1\n1 5 2 3\n5 6 5 6\n6 3 4 1\n6 2 3 4\n2 2 4 5\n",
+            "2\n2\n2\n0\n1\n0\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "- \u7ed9\u5b9a\u4e00\u68f5 $n$ \u4e2a\u8282\u70b9\u7684\u6811\uff0c\u6bcf\u4e2a\u8282\u70b9\u6709\u4e00\u4e2a\u5c0f\u5199\u5b57\u6bcd\u3002\n- \u6709 $m$ \u7ec4\u8be2\u95ee\uff0c\u6bcf\u7ec4\u8be2\u95ee\u4e3a\u6811\u4e0a $a \\to b$ \u548c $c \\to d$ \u7ec4\u6210\u7684\u5b57\u7b26\u4e32\u7684\u6700\u957f\u516c\u5171\u524d\u7f00\u3002\n- $n \\le 3 \\times 10^5$\uff0c$m \\le 10^6$\u3002\n"
+}

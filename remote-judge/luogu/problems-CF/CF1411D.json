@@ -1,0 +1,25 @@
+{
+    "description": "Currently, XXOC's rap is a string consisting of zeroes, ones, and question marks. Unfortunately, haters gonna hate. They will write $ x $ angry comments for every occurrence of subsequence 01 and $ y $ angry comments for every occurrence of subsequence 10. You should replace all the question marks with 0 or 1 in such a way that the number of angry comments would be as small as possible.\n\nString $ b $ is a subsequence of string $ a $ , if it can be obtained by removing some characters from $ a $ . Two occurrences of a subsequence are considered distinct if sets of positions of remaining characters are distinct.",
+    "inputFormat": "The first line contains string $ s $ \u2014 XXOC's rap ( $ 1 \\le |s| \\leq 10^5 $ ). The second line contains two integers $ x $ and $ y $ \u2014 the number of angry comments XXOC will recieve for every occurrence of 01 and 10 accordingly ( $ 0 \\leq x, y \\leq 10^6 $ ).",
+    "outputFormat": "Output a single integer \u2014 the minimum number of angry comments.",
+    "samples": [
+        [
+            "0?1\n2 3",
+            "4"
+        ],
+        [
+            "?????\n13 37",
+            "0"
+        ],
+        [
+            "?10?\n239 7",
+            "28"
+        ],
+        [
+            "01101001\n5 7",
+            "96"
+        ]
+    ],
+    "hint": "In the first example one of the optimum ways to replace is 001. Then there will be $ 2 $ subsequences 01 and $ 0 $ subsequences 10. Total number of angry comments will be equal to $ 2 \\cdot 2 + 0 \\cdot 3 = 4 $ .\n\nIn the second example one of the optimum ways to replace is 11111. Then there will be $ 0 $ subsequences 01 and $ 0 $ subsequences 10. Total number of angry comments will be equal to $ 0 \\cdot 13 + 0 \\cdot 37 = 0 $ .\n\nIn the third example one of the optimum ways to replace is 1100. Then there will be $ 0 $ subsequences 01 and $ 4 $ subsequences 10. Total number of angry comments will be equal to $ 0 \\cdot 239 + 4 \\cdot 7 = 28 $ .\n\nIn the fourth example one of the optimum ways to replace is 01101001. Then there will be $ 8 $ subsequences 01 and $ 8 $ subsequences 10. Total number of angry comments will be equal to $ 8 \\cdot 5 + 8 \\cdot 7 = 96 $ .",
+    "translation": "\u7ed9\u5b9a\u7531\u5b57\u7b26 `0 1 ?` \u6240\u7ec4\u6210\u7684\u5b57\u7b26\u4e32 $s$ \u548c\u53c2\u6570 $x,y$\uff0c\u4f60\u9700\u8981\u5728\u6240\u6709\u5b57\u7b26\u4e3a `?` \u7684\u4f4d\u7f6e\u586b\u5165\u5b57\u7b26 `0` \u6216\u8005 `1`\u3002\n\n\u6211\u4eec\u89c4\u5b9a\u8fd9\u4e2a\u5b57\u7b26\u4e32\u7684\u4ef7\u503c\u4e3a\uff1a\n\n`01` \u5b50\u5e8f\u5217\u7684\u6570\u91cf $\\times x\\ +$ `10` \u5b50\u5e8f\u5217\u7684\u6570\u91cf $\\times y$\n\n\u6c42\u5b57\u7b26\u4e32\u4ef7\u503c\u6700\u5c0f\u503c\u3002\n\n$1\\leq |s|\\leq10^5,0\\leq x,y\\leq10^6.$"
+}

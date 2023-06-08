@@ -1,0 +1,17 @@
+{
+    "description": "Fox Ciel has a board with $ n $ rows and $ n $ columns, there is one integer in each cell.\n\nIt's known that $ n $ is an odd number, so let's introduce ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF321D/6479833d305e8df8be298c6d130b2c56818252f6.png). Fox Ciel can do the following operation many times: she choose a sub-board with size $ x $ rows and $ x $ columns, then all numbers in it will be multiplied by -1.\n\nReturn the maximal sum of numbers in the board that she can get by these operations.",
+    "inputFormat": "The first line contains an integer $ n $ , ( $ 1<=n<=33 $ , and $ n $ is an odd integer) \u2014 the size of the board.\n\nEach of the next $ n $ lines contains $ n $ integers \u2014 the numbers in the board. Each number doesn't exceed $ 1000 $ by its absolute value.",
+    "outputFormat": "Output a single integer: the maximal sum of numbers in the board that can be accomplished.",
+    "samples": [
+        [
+            "3\n-1 -1 1\n-1 1 -1\n1 -1 -1\n",
+            "9\n"
+        ],
+        [
+            "5\n-2 0 0 0 -2\n0 -2 0 -2 0\n0 0 -2 0 0\n0 -2 0 -2 0\n-2 0 0 0 -2\n",
+            "18\n"
+        ]
+    ],
+    "hint": "In the first test, we can apply this operation twice: first on the top left $ 2\u00d72 $ sub-board, then on the bottom right $ 2\u00d72 $ sub-board. Then all numbers will become positive.\n\n![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF321D/bba86be06e5760920ea393fc6a496f40415e324b.png)",
+    "translation": "\u5728\u4e00\u5f20 $n\\times n$\uff08$n$ \u4e3a\u5947\u6570\uff09\u7684\u7f51\u683c\u4e2d\uff0c\u6bcf\u4e2a\u4f4d\u7f6e\u4e0a\u6709\u4e00\u4e2a\u6570 $a_{i,j}$\uff08$1\\leq i,j\\leq n$\uff09\u3002\n\n\u8bbe $m=\\frac{n+1}2$\u3002\u73b0\u5728\u4f60\u53ef\u4ee5\u6267\u884c\u4efb\u610f\u6b21\u64cd\u4f5c\uff1a\u9009\u5b9a\u4e00\u4e2a $m\\times m$ \u7684\u5b50\u77e9\u9635\uff0c\u5c06\u5b50\u77e9\u9635\u4e2d\u7684\u6570\u5168\u90e8\u53d8\u4e3a\u5176\u76f8\u53cd\u6570\u3002\n\n\u6c42\u6700\u7ec8\u53ef\u80fd\u8fbe\u5230\u7684\u3001\u77e9\u9635\u4e2d\u6240\u6709\u6570\u548c\u7684\u6700\u5927\u503c\u3002"
+}

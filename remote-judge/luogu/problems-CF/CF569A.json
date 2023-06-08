@@ -1,0 +1,21 @@
+{
+    "description": "Little Lesha loves listening to music via his smartphone. But the smartphone doesn't have much memory, so Lesha listens to his favorite songs in a well-known social network InTalk.\n\nUnfortunately, internet is not that fast in the city of Ekaterinozavodsk and the song takes a lot of time to download. But Lesha is quite impatient. The song's duration is $ T $ seconds. Lesha downloads the first $ S $ seconds of the song and plays it. When the playback reaches the point that has not yet been downloaded, Lesha immediately plays the song from the start (the loaded part of the song stays in his phone, and the download is continued from the same place), and it happens until the song is downloaded completely and Lesha listens to it to the end. For $ q $ seconds of real time the Internet allows you to download $ q-1 $ seconds of the track.\n\nTell Lesha, for how many times he will start the song, including the very first start.",
+    "inputFormat": "The single line contains three integers $ T,S,q $ ( $ 2<=q<=10^{4} $ , $ 1<=S&lt;T<=10^{5} $ ).",
+    "outputFormat": "Print a single integer \u2014 the number of times the song will be restarted.",
+    "samples": [
+        [
+            "5 2 2\n",
+            "2\n"
+        ],
+        [
+            "5 4 7\n",
+            "1\n"
+        ],
+        [
+            "6 2 3\n",
+            "1\n"
+        ]
+    ],
+    "hint": "In the first test, the song is played twice faster than it is downloaded, which means that during four first seconds Lesha reaches the moment that has not been downloaded, and starts the song again. After another two seconds, the song is downloaded completely, and thus, Lesha starts the song twice.\n\nIn the second test, the song is almost downloaded, and Lesha will start it only once.\n\nIn the third sample test the download finishes and Lesha finishes listening at the same moment. Note that song isn't restarted in this case.",
+    "translation": "#### \u9898\u610f\n\u6709\u4e00\u9996\u957f\u5ea6\u4e3a $T$ \u79d2\u7684\u6b4c\uff0c\u521d\u59cb\u65f6\u5df2\u4e0b\u8f7d\u4e86\u5f00\u5934 $S$ \u79d2\uff0c\u4e4b\u540e\u4ee5\u6bcf $q$ \u79d2\u4e0b\u8f7d $q-1$ \u79d2\u6b4c\u7684\u901f\u5ea6\u8fdb\u884c\u4e0b\u8f7d\u3002\n\n\u4ece\u521d\u59cb\u65f6\u5f00\u59cb\u542c\u6b4c\uff0c\u6bcf\u6b21\u542c\u5230\u8fd8\u6ca1\u6709\u4e0b\u8f7d\u7684\u4f4d\u7f6e\u65f6\uff0c\u5012\u56de\u5230\u521d\u59cb\u4f4d\u7f6e\u91cd\u65b0\u5f00\u59cb\u542c\u3002\n\n\u8be2\u95ee\u8981\u4ece\u521d\u59cb\u4f4d\u7f6e\u5f00\u59cb\u542c\u51e0\u6b21\u624d\u80fd\u542c\u5b8c\u8fd9\u9996\u6b4c\uff08\u5305\u62ec\u7b2c\u4e00\u6b21\u542c\u6b4c\uff09\u3002\n#### \u8f93\u5165\n\u4e00\u884c\u4e09\u4e2a\u6574\u6570 $T,S,q$\u3002\n\n\u4fdd\u8bc1 $1\\le S<T\\le10^5$\uff0c$2\\le q\\le10^4$\u3002\n#### \u8f93\u51fa\n\u8f93\u51fa\u4e00\u4e2a\u6574\u6570\uff0c\u8868\u793a\u9700\u8981\u542c\u7684\u6b21\u6570\u3002"
+}

@@ -1,0 +1,13 @@
+{
+    "description": "This in an interactive problem.\n\nThere is an unknown tree consisting of $ n $ nodes, which has exactly one centroid. You only know $ n $ at first, and your task is to find the centroid of the tree.\n\nYou can ask the distance between any two vertices for at most $ 2\\cdot10^5 $ times.\n\nNote that the interactor is not adaptive. That is, the tree is fixed in each test beforehand and does not depend on your queries.\n\nA vertex is called a centroid if its removal splits the tree into subtrees with at most $ \\lfloor\\frac{n}{2}\\rfloor $ vertices each.",
+    "inputFormat": "The only line of the input contains an integer $ n $ ( $ 3\\le n\\le 7.5\\cdot10^4 $ ) \u2014 the number of nodes in the tree.",
+    "outputFormat": "Start interaction by reading $ n $ .\n\nTo ask a query about the distance between two nodes $ u, v $ ( $ 1 \\le u, v \\le n $ ), output \"? u v\".\n\nIf you determine that the centroid of the tree is $ x $ , use \"! x\" to report.\n\nAfter printing a query, do not forget to output the end of a line and flush the output. Otherwise, you will get Idleness limit exceeded. To do this, use:\n\n- fflush(stdout) or cout.flush() in C++;\n- System.out.flush() in Java;\n- flush(output) in Pascal;\n- stdout.flush() in Python;\n- see documentation for other languages.\n\nHacks are disabled in this problem.\n\nIt's guaranteed that there are at most $ 500 $ tests in this problem.",
+    "samples": [
+        [
+            "5\n\n2\n\n1\n\n2\n\n3\n\n1\n\n1\n\n1",
+            "? 1 2\n\n? 1 3\n\n? 1 4\n\n? 1 5\n\n? 2 3\n\n? 3 4\n\n? 4 5\n\n! 3"
+        ]
+    ],
+    "hint": "Here is an image of the tree from the sample.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1761G/98bb859f14104a55707d7de6fc6821a6b281529d.png)",
+    "translation": "- \u7ed9\u5b9a\u4e00\u68f5 $n$ \u4e2a\u70b9\u7684\u6811\uff0c\u4fdd\u8bc1\u91cd\u5fc3\u552f\u4e00\u3002\n- \u4f60\u53ef\u4ee5\u8be2\u95ee\u4e0d\u8d85\u8fc7 $m$ \u6b21\u4efb\u610f\u4e24\u70b9\u7684\u8ddd\u79bb\u3002\n- \u6c42\u51fa\u6811\u7684\u91cd\u5fc3\u3002\n- $3\\leq n\\leq 7.5\\times 10^4$\uff0c$m=2\\times 10^5$\u3002\n- \u672c\u9898\u5171 $500$ \u4e2a\u6d4b\u8bd5\u70b9\u3002"
+}

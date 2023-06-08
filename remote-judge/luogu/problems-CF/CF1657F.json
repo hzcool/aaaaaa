@@ -1,0 +1,25 @@
+{
+    "description": "You are given a tree consisting of $ n $ vertices, and $ q $ triples $ (x_i, y_i, s_i) $ , where $ x_i $ and $ y_i $ are integers from $ 1 $ to $ n $ , and $ s_i $ is a string with length equal to the number of vertices on the simple path from $ x_i $ to $ y_i $ .\n\nYou want to write a lowercase Latin letter on each vertex in such a way that, for each of $ q $ given triples, at least one of the following conditions holds:\n\n- if you write out the letters on the vertices on the simple path from $ x_i $ to $ y_i $ in the order they appear on this path, you get the string $ s_i $ ;\n- if you write out the letters on the vertices on the simple path from $ y_i $ to $ x_i $ in the order they appear on this path, you get the string $ s_i $ .\n\nFind any possible way to write a letter on each vertex to meet these constraints, or report that it is impossible.",
+    "inputFormat": "The first line contains two integers $ n $ and $ q $ ( $ 2 \\le n \\le 4 \\cdot 10^5 $ ; $ 1 \\le q \\le 4 \\cdot 10^5 $ ) \u2014 the number of vertices in the tree and the number of triples, respectively.\n\nThen $ n - 1 $ lines follow; the $ i $ -th of them contains two integers $ u_i $ and $ v_i $ ( $ 1 \\le u_i, v_i \\le n $ ; $ u_i \\ne v_i $ ) \u2014 the endpoints of the $ i $ -th edge. These edges form a tree.\n\nThen $ q $ lines follow; the $ j $ -th of them contains two integers $ x_j $ and $ y_j $ , and a string $ s_j $ consisting of lowercase Latin letters. The length of $ s_j $ is equal to the number of vertices on the simple path between $ x_j $ and $ y_j $ .\n\nAdditional constraint on the input: $ \\sum \\limits_{j=1}^{q} |s_j| \\le 4 \\cdot 10^5 $ .",
+    "outputFormat": "If there is no way to meet the conditions on all triples, print NO. Otherwise, print YES in the first line, and a string of $ n $ lowercase Latin letters in the second line; the $ i $ -th character of the string should be the letter you write on the $ i $ -th vertex. If there are multiple answers, print any of them.",
+    "samples": [
+        [
+            "3 2\n2 3\n2 1\n2 1 ab\n2 3 bc",
+            "YES\nabc"
+        ],
+        [
+            "3 2\n2 3\n2 1\n2 1 ab\n2 3 cd",
+            "NO"
+        ],
+        [
+            "10 10\n1 2\n1 3\n1 4\n1 5\n1 6\n1 7\n1 8\n1 9\n1 10\n1 2 ab\n1 3 ab\n1 4 ab\n1 5 ab\n1 6 ab\n1 7 ab\n1 8 ab\n1 9 ab\n1 10 ab\n10 2 aba",
+            "YES\nbaaaaaaaaa"
+        ],
+        [
+            "10 10\n1 2\n1 3\n1 4\n1 5\n1 6\n1 7\n1 8\n1 9\n1 10\n1 2 ab\n1 3 ab\n1 4 aa\n1 5 ab\n1 6 ab\n1 7 ab\n1 8 ab\n1 9 ab\n1 10 ab\n10 2 aba",
+            "NO"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9\u5b9a\u4e00\u68f5 $n$ \u4e2a\u8282\u70b9\u7684\u6811\uff0c\u4ee5\u53ca $q$ \u4e2a\u4e09\u5143\u7ec4\uff0c\u6bcf\u4e2a\u4e09\u5143\u7ec4\u5f62\u5f0f\u90fd\u4e3a $(x_i,y_i,s_i)$\uff0c\u5176\u4e2d $s_i$ \u662f\u4e00\u4e2a\u957f\u5ea6\u7b49\u4e8e\u6811\u4e0a\u8282\u70b9 $x_i$ \u5230\u8282\u70b9 $y_i$ \u8ddd\u79bb\u7684\u7531\u5c0f\u5199\u5b57\u6bcd\u7ec4\u6210\u7684\u5b57\u7b26\u4e32\u3002\n\n\u4f60\u9700\u8981\u5728\u6bcf\u4e00\u4e2a\u8282\u70b9\u4e0a\u5199\u4e00\u4e2a\u5c0f\u5199\u5b57\u6bcd\uff0c\u4f7f\u5f97\u5bf9\u4e8e\u6bcf\u4e00\u4e2a\u7ed9\u5b9a\u7684\u4e09\u5143\u7ec4\uff0c\u90fd\u6ee1\u8db3\u5982\u4e0b\u6761\u4ef6\u4e2d\u7684\u81f3\u5c11\u4e00\u4e2a\uff1a\n\n- \u5c06\u4ece $x_i$ \u5230 $y_i$ \u7684\u8def\u5f84\u4e0a\u7684\u5b57\u7b26\u4f9d\u6b21\u5199\u4e0b\uff0c\u53ef\u4ee5\u5f97\u5230\u5b57\u7b26\u4e32 $s_i$\u3002\n- \u5c06\u4ece $y_i$ \u5230 $x_i$ \u7684\u8def\u5f84\u4e0a\u7684\u5b57\u7b26\u4f9d\u6b21\u5199\u4e0b\uff0c\u53ef\u4ee5\u5f97\u5230\u5b57\u7b26\u4e32 $s_i$\uff08\u4e0e\u4e0a\u4e00\u4e2a\u6761\u4ef6\u7684\u8def\u5f84\u65b9\u5411\u76f8\u53cd\uff09\u3002\n\n\u4f60\u7684\u4efb\u52a1\u662f\u5224\u65ad\u662f\u5426\u6709\u89e3\uff0c\u5982\u679c\u6709\u89e3\uff0c\u8bf7\u6784\u9020\u51fa\u4e00\u7ec4\u89e3\u3002"
+}

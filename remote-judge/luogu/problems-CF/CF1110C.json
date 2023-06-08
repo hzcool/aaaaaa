@@ -1,0 +1,13 @@
+{
+    "description": "Can the greatest common divisor and bitwise operations have anything in common? It is time to answer this question.\n\nSuppose you are given a positive integer $ a $ . You want to choose some integer $ b $ from $ 1 $ to $ a - 1 $ inclusive in such a way that the [greatest common divisor (GCD)](https://en.wikipedia.org/wiki/Greatest_common_divisor) of integers $ a \\oplus b $ and $ a \\> \\& \\> b $ is as large as possible. In other words, you'd like to compute the following function:\n\n $ $$$f(a) = \\max_{0 < b < a}{gcd(a \\oplus b, a \\> \\& \\> b)}. $ $ </p><p>Here  $ \\\\oplus $  denotes the <a href=\"https://en.wikipedia.org/wiki/Bitwise_operation#XOR\">bitwise XOR operation</a>, and  $ \\\\& $  denotes the <a href=\"https://en.wikipedia.org/wiki/Bitwise_operation#AND\">bitwise AND operation</a>.</p><p>The greatest common divisor of two integers  $ x $  and  $ y $  is the largest integer  $ g $  such that both  $ x $  and  $ y $  are divided by  $ g $  without remainder.</p><p>You are given  $ q $  integers  $ a\\_1, a\\_2, \\\\ldots, a\\_q $ . For each of these integers compute the largest possible value of the greatest common divisor (when  $ b$$$ is chosen optimally).",
+    "inputFormat": "The first line contains an integer $ q $ ( $ 1 \\le q \\le 10^3 $ ) \u2014 the number of integers you need to compute the answer for.\n\nAfter that $ q $ integers are given, one per line: $ a_1, a_2, \\ldots, a_q $ ( $ 2 \\le a_i \\le 2^{25} - 1 $ ) \u2014 the integers you need to compute the answer for.",
+    "outputFormat": "For each integer, print the answer in the same order as the integers are given in input.",
+    "samples": [
+        [
+            "3\n2\n3\n5\n",
+            "3\n1\n7\n"
+        ]
+    ],
+    "hint": "For the first integer the optimal choice is $ b = 1 $ , then $ a \\oplus b = 3 $ , $ a \\> \\& \\> b = 0 $ , and the greatest common divisor of $ 3 $ and $ 0 $ is $ 3 $ .\n\nFor the second integer one optimal choice is $ b = 2 $ , then $ a \\oplus b = 1 $ , $ a \\> \\& \\> b = 2 $ , and the greatest common divisor of $ 1 $ and $ 2 $ is $ 1 $ .\n\nFor the third integer the optimal choice is $ b = 2 $ , then $ a \\oplus b = 7 $ , $ a \\> \\& \\> b = 0 $ , and the greatest common divisor of $ 7 $ and $ 0 $ is $ 7 $ .",
+    "translation": "\u5b9a\u4e49\u51fd\u6570 $f(a)$ \u7684\u503c\u4e3a\uff1a\n\n$$f(a)=\\max_{0<b<a}\\gcd(a\\oplus b,a\\ \\&\\ b)$$\n\n\u7ed9\u51fa $q$ \u4e2a\u8be2\u95ee\uff0c\u6bcf\u4e2a\u8be2\u95ee\u4e3a\u4e00\u4e2a\u6574\u6570 $a_i$\u3002\u4f60\u9700\u8981\u5bf9\u4e8e\u6bcf\u4e2a\u8be2\u95ee\uff0c\u6c42\u51fa $f(a_i)$  \u7684\u503c\u3002\n\n\u6570\u636e\u8303\u56f4\uff1a$1\\le q\\le 10^3$\uff0c$2\\le a_i\\le 2^{25}-1$"
+}

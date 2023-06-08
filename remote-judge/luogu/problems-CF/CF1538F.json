@@ -1,0 +1,13 @@
+{
+    "description": "You are given two integers $ l $ and $ r $ , where $ l < r $ . We will add $ 1 $ to $ l $ until the result is equal to $ r $ . Thus, there will be exactly $ r-l $ additions performed. For each such addition, let's look at the number of digits that will be changed after it.\n\nFor example:\n\n- if $ l=909 $ , then adding one will result in $ 910 $ and $ 2 $ digits will be changed;\n- if you add one to $ l=9 $ , the result will be $ 10 $ and $ 2 $ digits will also be changed;\n- if you add one to $ l=489999 $ , the result will be $ 490000 $ and $ 5 $ digits will be changed.\n\nChanged digits always form a suffix of the result written in the decimal system.\n\nOutput the total number of changed digits, if you want to get $ r $ from $ l $ , adding $ 1 $ each time.",
+    "inputFormat": "The first line contains an integer $ t $ ( $ 1 \\le t \\le 10^4 $ ). Then $ t $ test cases follow.\n\nEach test case is characterized by two integers $ l $ and $ r $ ( $ 1 \\le l < r \\le 10^9 $ ).",
+    "outputFormat": "For each test case, calculate the total number of changed digits if you want to get $ r $ from $ l $ , adding one each time.",
+    "samples": [
+        [
+            "4\n1 9\n9 10\n10 20\n1 1000000000",
+            "8\n2\n11\n1111111110"
+        ]
+    ],
+    "hint": "",
+    "translation": "**\u3010\u9898\u76ee\u63cf\u8ff0\u3011**\n\n\u7ed9\u5b9a\u4e24\u4e2a\u6b63\u6574\u6570 $l, r$\uff08$l < r$\uff09\uff0c\u5c06 $l$ \u4e0d\u65ad\u52a0 $1$ \u76f4\u5230 $l = r$\uff0c\u6c42\u51fa\u8fd9\u4e00\u8fc7\u7a0b\u4e2d $l$ \u53d1\u751f\u53d8\u5316\u7684\u4f4d\u6570**\u603b\u6570**\u3002\n\n\u4f4d\u6570\u53d8\u5316\u6307\uff1a\n\n- $l=909$\uff0c\u5c06 $l+1$ \u540e\u6709 $2$ \u4f4d\u6570\u5b57\u53d1\u751f\u53d8\u5316\u3002\n- $l=9$\uff0c\u5c06 $l+1$ \u540e\u4e5f\u6709 $2$ \u4f4d\u6570\u5b57\u53d1\u751f\u53d8\u5316\u3002\n- $l=489999$\uff0c\u5c06 $l+1$ \u540e\u6709 $5$ \u4f4d\u6570\u5b57\u53d1\u751f\u53d8\u5316\u3002\n\n\u800c\u603b\u6570\u6307\uff1a\n\n- $l=10$\uff0c$r=20$\uff0c\u4e2a\u4f4d\u53d8\u5316\u4e86 $10$ \u6b21\uff0c\u5341\u4f4d\u53d8\u5316\u4e86 $1$ \u6b21\uff0c\u6240\u4ee5\u603b\u6570\u4e3a $11$\u3002\n\n**\u3010\u8f93\u5165\u683c\u5f0f\u3011**\n\n\u5728\u8f93\u5165\u7684\u7b2c\u4e00\u884c\u4e3a\u4e00\u4e2a\u6574\u6570 $t$\uff08$1 \\le t \\le {10}^4$\uff09\uff0c\u4e3a\u6570\u636e\u7ec4\u6570\u3002\n\n\u63a5\u4e0b\u6765\u5bf9\u4e8e\u6bcf\u7ec4\u6570\u636e\uff0c\u8f93\u5165\u4e24\u4e2a\u6574\u6570 $l,r$\uff08$1 \\le l < r \\le {10}^9$\uff09\uff0c\u542b\u4e49\u89c1\u4e0a\u6587\u3002\n\n**\u3010\u8f93\u51fa\u683c\u5f0f\u3011**\n\n\u5bf9\u4e8e\u6bcf\u7ec4\u6570\u636e\uff0c\u8f93\u51fa\u4e00\u4e2a\u6574\u6570\u8868\u793a\u53d1\u751f\u53d8\u5316\u7684\u4f4d\u6570\u603b\u6570\u3002"
+}

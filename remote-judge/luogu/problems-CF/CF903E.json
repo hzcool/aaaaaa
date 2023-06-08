@@ -1,0 +1,21 @@
+{
+    "description": "We had a string $ s $ consisting of $ n $ lowercase Latin letters. We made $ k $ copies of this string, thus obtaining $ k $ identical strings $ s_{1},s_{2},...,s_{k} $ . After that, in each of these strings we swapped exactly two characters (the characters we swapped could be identical, but they had different indices in the string).\n\nYou are given $ k $ strings $ s_{1},s_{2},...,s_{k} $ , and you have to restore any string $ s $ so that it is possible to obtain these strings by performing aforementioned operations. Note that the total length of the strings you are given doesn't exceed 5000 (that is, $ k\u00b7n<=5000 $ ).",
+    "inputFormat": "The first line contains two integers $ k $ and $ n $ ( $ 1<=k<=2500,2<=n<=5000,k\u00a0\u00b7\u00a0n<=5000 $ ) \u2014 the number of strings we obtained, and the length of each of these strings.\n\nNext $ k $ lines contain the strings $ s_{1},s_{2},...,s_{k} $ , each consisting of exactly $ n $ lowercase Latin letters.",
+    "outputFormat": "Print any suitable string $ s $ , or -1 if such string doesn't exist.",
+    "samples": [
+        [
+            "3 4\nabac\ncaab\nacba\n",
+            "acab\n"
+        ],
+        [
+            "3 4\nkbbu\nkbub\nubkb\n",
+            "kbub\n"
+        ],
+        [
+            "5 4\nabcd\ndcba\nacbd\ndbca\nzzzz\n",
+            "-1\n"
+        ]
+    ],
+    "hint": "In the first example $ s_{1} $ is obtained by swapping the second and the fourth character in acab, $ s_{2} $ is obtained by swapping the first and the second character, and to get $ s_{3} $ , we swap the third and the fourth character.\n\nIn the second example $ s_{1} $ is obtained by swapping the third and the fourth character in kbub, $ s_{2} $ \u2014 by swapping the second and the fourth, and $ s_{3} $ \u2014 by swapping the first and the third.\n\nIn the third example it's impossible to obtain given strings by aforementioned operations.",
+    "translation": "[\u9898\u76ee\u63cf\u8ff0]\n\n\u7ed9\u4f60 $k$ \u4e2a\u4e32\uff0c\u6bcf\u4e2a\u4e32\u957f\u5ea6\u90fd\u662f $n$\uff0c\u73b0\u5728\u95ee\u4f60\u662f\u5426\u53ef\u80fd\u8fd9\u4e9b\u4e32\u662f\u540c\u4e00\u4e2a\u4e32\u4ea4\u6362\u4e24\u4e2a\u4f4d\u7f6e\u7684\u5b57\u7b26\u6240\u4ea7\u751f\u7684\uff0c\u8f93\u51fa\u8fd9\u4e2a\u539f\u4e32\u3002\n\n[\u8f93\u5165\u683c\u5f0f]\n\n\u7b2c\u4e00\u884c\u5305\u542b\u4e24\u4e2a\u6574\u6570 $k$ \u548c $n$ \u2014\u6211\u4eec\u83b7\u5f97\u7684\u5b57\u7b26\u4e32\u6570\uff0c\u4ee5\u53ca\u6bcf\u4e2a\u5b57\u7b26\u4e32\u7684\u957f\u5ea6\u3002\u63a5\u4e0b\u6765\u7684 $k$ \u884c\u5305\u542b\u5b57\u7b26\u4e32 $s_1$\uff0c$s_2$\uff0c$s_3$\uff0c... \uff0c$s_k$ \u6bcf\u4e2a\u5b57\u7b26\u4e32\u5747\u7531 $n$ \u4e2a\u5c0f\u5199\u62c9\u4e01\u5b57\u6bcd\u7ec4\u6210\u3002\n\n[\u8f93\u51fa\u683c\u5f0f]\n\n\u8f93\u51fa\u539f\u4e32\uff0c\u5982\u679c\u4e0d\u5b58\u5728\u5219\u8f93\u51fa\"-1\"\u3002"
+}

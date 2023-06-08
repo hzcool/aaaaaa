@@ -1,0 +1,29 @@
+{
+    "description": "There is an infinite board of square tiles. Initially all tiles are white.\n\nVova has a red marker and a blue marker. Red marker can color $ a $ tiles. Blue marker can color $ b $ tiles. If some tile isn't white then you can't use marker of any color on it. Each marker must be drained completely, so at the end there should be exactly $ a $ red tiles and exactly $ b $ blue tiles across the board.\n\nVova wants to color such a set of tiles that:\n\n- they would form a rectangle, consisting of exactly $ a+b $ colored tiles;\n- all tiles of at least one color would also form a rectangle.\n\nHere are some examples of correct colorings:\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1029F/4e60c629e360885141e5179d3d4cdaf35671b392.png)Here are some examples of incorrect colorings:\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1029F/8bb11d3a5c5094b0326713ae6edbddbecf3531f0.png)Among all correct colorings Vova wants to choose the one with the minimal perimeter. What is the minimal perimeter Vova can obtain?\n\nIt is guaranteed that there exists at least one correct coloring.",
+    "inputFormat": "A single line contains two integers $ a $ and $ b $ ( $ 1 \\le a, b \\le 10^{14} $ ) \u2014 the number of tiles red marker should color and the number of tiles blue marker should color, respectively.",
+    "outputFormat": "Print a single integer \u2014 the minimal perimeter of a colored rectangle Vova can obtain by coloring exactly $ a $ tiles red and exactly $ b $ tiles blue.\n\nIt is guaranteed that there exists at least one correct coloring.",
+    "samples": [
+        [
+            "4 4\n",
+            "12\n"
+        ],
+        [
+            "3 9\n",
+            "14\n"
+        ],
+        [
+            "9 3\n",
+            "14\n"
+        ],
+        [
+            "3 6\n",
+            "12\n"
+        ],
+        [
+            "506 2708\n",
+            "3218\n"
+        ]
+    ],
+    "hint": "The first four examples correspond to the first picture of the statement.\n\nNote that for there exist multiple correct colorings for all of the examples.\n\nIn the first example you can also make a rectangle with sides $ 1 $ and $ 8 $ , though its perimeter will be $ 18 $ which is greater than $ 8 $ .\n\nIn the second example you can make the same resulting rectangle with sides $ 3 $ and $ 4 $ , but red tiles will form the rectangle with sides $ 1 $ and $ 3 $ and blue tiles will form the rectangle with sides $ 3 $ and $ 3 $ .",
+    "translation": "\u9898\u76ee\u5927\u610f:\u7ed9\u5b9a\u4e24\u4e2a\u6570$a,b(1\\leq a,b\\leq 10^{14})$\u5206\u522b\u8868\u793a\u7ea2\u8272\u65b9\u683c\u4e2a\u6570\u548c\u84dd\u8272\u65b9\u683c\u4e2a\u6570,\u6c42\u8fd9$a$\u4e2a\u7ea2\u8272\u65b9\u683c\u548c$b$\u4e2a\u84dd\u8272\u65b9\u683c\u6784\u6210\u7684\u77e9\u5f62\u5468\u957f\u7684\u6700\u5c0f\u503c,\u4e14\u6ee1\u8db3\u5728\u6240\u6784\u6210\u7684\u77e9\u5f62\u4e2d\u81f3\u5c11\u6709\u4e00\u79cd\u989c\u8272\u7684\u6240\u6709\u65b9\u5757\u4e5f\u80fd\u6784\u6210\u4e00\u4e2a\u77e9\u5f62,\u6570\u636e\u4fdd\u8bc1\u5b58\u5728\u81f3\u5c11\u4e00\u79cd\u5408\u6cd5\u7684\u67d3\u8272\u65b9\u6848."
+}

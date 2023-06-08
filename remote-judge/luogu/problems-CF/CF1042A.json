@@ -1,0 +1,25 @@
+{
+    "description": "There are $ n $ benches in the Berland Central park. It is known that $ a_i $ people are currently sitting on the $ i $ -th bench. Another $ m $ people are coming to the park and each of them is going to have a seat on some bench out of $ n $ available.\n\nLet $ k $ be the maximum number of people sitting on one bench after additional $ m $ people came to the park. Calculate the minimum possible $ k $ and the maximum possible $ k $ .\n\nNobody leaves the taken seat during the whole process.",
+    "inputFormat": "The first line contains a single integer $ n $ $ (1 \\le n \\le 100) $ \u2014 the number of benches in the park.\n\nThe second line contains a single integer $ m $ $ (1 \\le m \\le 10\\,000) $ \u2014 the number of people additionally coming to the park.\n\nEach of the next $ n $ lines contains a single integer $ a_i $ $ (1 \\le a_i \\le 100) $ \u2014 the initial number of people on the $ i $ -th bench.",
+    "outputFormat": "Print the minimum possible $ k $ and the maximum possible $ k $ , where $ k $ is the maximum number of people sitting on one bench after additional $ m $ people came to the park.",
+    "samples": [
+        [
+            "4\n6\n1\n1\n1\n1\n",
+            "3 7\n"
+        ],
+        [
+            "1\n10\n5\n",
+            "15 15\n"
+        ],
+        [
+            "3\n6\n1\n6\n5\n",
+            "6 12\n"
+        ],
+        [
+            "3\n7\n1\n6\n5\n",
+            "7 13\n"
+        ]
+    ],
+    "hint": "In the first example, each of four benches is occupied by a single person. The minimum $ k $ is $ 3 $ . For example, it is possible to achieve if two newcomers occupy the first bench, one occupies the second bench, one occupies the third bench, and two remaining \u2014 the fourth bench. The maximum $ k $ is $ 7 $ . That requires all six new people to occupy the same bench.\n\nThe second example has its minimum $ k $ equal to $ 15 $ and maximum $ k $ equal to $ 15 $ , as there is just a single bench in the park and all $ 10 $ people will occupy it.",
+    "translation": "```\n## \u9898\u76ee\u5927\u610f\uff1a\n\u516c\u56ed\u91cc\u6709n\u628a\u957f\u6905\uff0c\u7b2ci\u628a\u957f\u6905\u4e0a\u5750\u7740$a_i$\u4e2a\u4eba\uff0c\u73b0\u5728\uff0c\u4f1a\u65b0\u6765m\u4e2a\u4eba\uff0c\u8fd9m\u4e2a\u4eba\u6bcf\u4eba\u90fd\u4f1a\u627e\u4e00\u628a\u957f\u6905\u5750\u4e0b\u3002\u8bf7\u6c42\u51fa\u6765\u4e86m\u4e2a\u4eba\u540e\u4eba\u6570\u6700\u591a\u7684\u90a3\u628a\u957f\u6905\u4e0a\u6700\u591a\u4f1a\u6709\u591a\u5c11\u4eba\uff1f\u6700\u5c11\u4f1a\u6709\u591a\u5c11\u4eba\uff1f\n## \u8f93\u5165\u8f93\u51fa\u683c\u5f0f\uff1a\n### \u8f93\u5165\u683c\u5f0f\uff1a\n\u7b2c\u4e00\u884c\u4e3a1\u4e2a\u6574\u6570n(1\u2264n\u2264100)\uff0c\u8868\u793a\u6709n\u628a\u957f\u6905  \n\u7b2c\u4e8c\u884c\u4e3a1\u4e2am(1\u2264m\u226410000)\uff0c\u8868\u793a\u4f1a\u65b0\u6765m\u4e2a\u4eba  \n\u63a5\u4e0b\u6765n\u884c\uff0c\u6bcf\u884c\u4e00\u4e2a\u6570$a_i$(1\u2264$ai$\u2264100) \uff0c\u8868\u793a\u7b2ci\u628a\u957f\u6905\u4e0a\u6700\u521d\u6709$a_i$\u4e2a\u4eba \n### \u8f93\u51fa\u683c\u5f0f\uff1a\n\u4e00\u884c\uff0c\u4e24\u4e2a\u6570\uff0c\u5206\u522b\u8868\u793a\u6765\u4e86m\u4e2a\u4eba\u540e\u4eba\u6570\u6700\u591a\u7684\u90a3\u628a\u957f\u6905\u4e0a\u6700\u591a\u4f1a\u6709\u7684\u4eba\u6570\uff0c\u6700\u5c11\u4f1a\u6709\u7684\u4eba\u6570\n```"
+}

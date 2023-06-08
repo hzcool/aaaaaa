@@ -1,0 +1,17 @@
+{
+    "description": "Consider an $ n\u00d7m $ grid. Initially all the cells of the grid are colored white. Lenny has painted some of the cells (at least one) black. We call a painted grid convex if one can walk from any black cell to any another black cell using a path of side-adjacent black cells changing his direction at most once during the path. In the figure below, the left grid is convex while the right one is not convex, because there exist two cells which need more than one time to change direction in their path.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF275B/78281bc2a35cb460c013c77e911494012fd2bb87.png)You're given a painted grid in the input. Tell Lenny if the grid is convex or not.",
+    "inputFormat": "The first line of the input contains two integers $ n $ and $ m $ $ (1<=n,m<=50) $ \u2014 the size of the grid. Each of the next $ n $ lines contains $ m $ characters \"B\" or \"W\". Character \"B\" denotes a black cell of the grid and \"W\" denotes a white cell of the grid.\n\nIt's guaranteed that the grid has at least one black cell.",
+    "outputFormat": "On the only line of the output print \"YES\" if the grid is convex, otherwise print \"NO\". Do not print quotes.",
+    "samples": [
+        [
+            "3 4\nWWBW\nBWWW\nWWWB\n",
+            "NO\n"
+        ],
+        [
+            "3 1\nB\nB\nW\n",
+            "YES\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "### \u9898\u610f\r\n\r\n\u6709\u4e00\u4e2a $n \\times m$ \u7684\u65b9\u683c\u9635\u3002\u5f00\u59cb\u65f6\uff0c\u6240\u6709\u7684\u65b9\u683c\u90fd\u662f\u767d\u8272\u7684\u3002\u5c0f $Z$ \u5df2\u7ecf\u628a\u5176\u4e2d\u7684\u4e00\u4e9b\u65b9\u683c\uff08\u81f3\u5c11 $1$ \u4e2a\uff09\u6d82\u6210\u4e86\u9ed1\u8272\u3002\u5982\u679c\u5728\u65b9\u683c\u4e2d\u4ece\u4efb\u610f\u4e00\u4e2a\u9ed1\u8272\u65b9\u683c\u6cbf\u7740\u9ed1\u8272\u65b9\u683c\u8d70\u5230\u53e6\u4e00\u4e2a\u9ed1\u8272\u65b9\u683c\u6700\u591a\u53ea\u9700\u8981\u62d0\u5f2f\u4e00\u6b21\u7684\u8bdd\uff0c\u6211\u4eec\u5c31\u79f0\u9ed1\u8272\u65b9\u683c\u7ec4\u6210\u7684\u533a\u57df\u4e3a\u51f8\u591a\u8fb9\u5f62\u3002\u5982\u4e0b\u56fe\u6240\u793a\uff0c\u5de6\u8fb9\u662f\u51f8\u591a\u8fb9\u5f62\u800c\u53f3\u8fb9\u7684\u4e0d\u662f\u3002\r\n\r\n\u73b0\u5728\u4f60\u9700\u8981\u5224\u65ad\u4e00\u4e2a\u65b9\u9635\u4e2d\u9ed1\u8272\u683c\u5b50\u7ec4\u6210\u7684\u56fe\u5f62\u662f\u4e0d\u662f\u51f8\u591a\u8fb9\u5f62\u3002\r\n\r\n### \u8f93\u5165\u683c\u5f0f\r\n\r\n\u7b2c\u4e00\u884c\u8f93\u5165\u4e24\u4e2a\u6574\u6570 $n$ \uff0c $m$ \u8868\u793a\u65b9\u683c\u9635\u7684\u884c\u6570\u548c\u5217\u6570\uff08 $1 \\leqslant n,m \\leqslant 50$ \uff09\uff0c\u63a5\u4e0b\u6765\u7684 $n$ \u884c\u6bcf\u884c\u662f\u4e00\u4e2a\u957f\u5ea6\u4e3a $m$ \u7531 $W$ \u6216\u8005 $B$ \u7ec4\u6210\u7684\u5b57\u7b26\u4e32\uff0c\u8868\u793a\u65b9\u683c\u7684\u989c\u8272\u4e3a\u767d\u8272\u6216\u9ed1\u8272\u3002\r\n\r\n### \u8f93\u51fa\u683c\u5f0f\r\n\r\n\u8f93\u51fa\u4e00\u884c\uff0c\u5982\u679c\u56fe\u5f62\u662f\u51f8\u591a\u8fb9\u5f62\u5219\u8f93\u51fa $YES$ ,\u5426\u5219\u8f93\u51fa $NO$ \u3002"
+}

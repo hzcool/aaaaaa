@@ -1,0 +1,13 @@
+{
+    "description": "Let $ D(x) $ be the number of positive divisors of a positive integer $ x $ . For example, $ D(2)=2 $ ( $ 2 $ is divisible by $ 1 $ and $ 2 $ ), $ D(6)=4 $ ( $ 6 $ is divisible by $ 1 $ , $ 2 $ , $ 3 $ and $ 6 $ ).\n\nYou are given an array $ a $ of $ n $ integers. You have to process two types of queries:\n\n1. REPLACE $ l $ $ r $ \u2014 for every ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF920F/8c67e39bbb4a436ecb9bbf84b28c1b332f05ca94.png) replace $ a_{i} $ with $ D(a_{i}) $ ;\n2. SUM $ l $ $ r $ \u2014 calculate ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF920F/1deabb69ce88e0c9a5b8e5232e5782460ccfe87b.png).\n\nPrint the answer for each SUM query.",
+    "inputFormat": "The first line contains two integers $ n $ and $ m $ ( $ 1<=n,m<=3\u00b710^{5} $ ) \u2014 the number of elements in the array and the number of queries to process, respectively.\n\nThe second line contains $ n $ integers $ a_{1} $ , $ a_{2} $ , ..., $ a_{n} $ ( $ 1<=a_{i}<=10^{6} $ ) \u2014 the elements of the array.\n\nThen $ m $ lines follow, each containing $ 3 $ integers $ t_{i} $ , $ l_{i} $ , $ r_{i} $ denoting $ i $ -th query. If $ t_{i}=1 $ , then $ i $ -th query is REPLACE $ l_{i} $ $ r_{i} $ , otherwise it's SUM $ l_{i} $ $ r_{i} $ ( $ 1<=t_{i}<=2 $ , $ 1<=l_{i}<=r_{i}<=n $ ).\n\nThere is at least one SUM query.",
+    "outputFormat": "For each SUM query print the answer to it.",
+    "samples": [
+        [
+            "7 6\n6 4 1 10 3 2 4\n2 1 7\n2 4 5\n1 3 5\n2 4 4\n1 5 7\n2 1 7\n",
+            "30\n13\n4\n22\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "- \u7ed9\u5b9a $n$ \u4e2a\u6570\u7684\u6570\u7ec4 $a$\uff0c$m$ \u6b21\u64cd\u4f5c\u3002\u64cd\u4f5c\u6709\u4e24\u79cd\uff1a\n    1. \u5c06 $i\\in[l,r]$ \u4e2d\u7684\u6240\u6709 $a_i$ \u66ff\u6362\u4e3a $d(a_i)$\u3002$d(x)$ \u8868\u793a $x$ \u7684\u6b63\u7ea6\u6570\u7684\u4e2a\u6570\u3002\n    2. \u6c42 $\\displaystyle\\sum_{i=l}^r a_i$\u3002\n- $1\\le n,m\\le 3\\times 10^5$\uff0c$1\\le a_i\\le 10^6$\u3002"
+}

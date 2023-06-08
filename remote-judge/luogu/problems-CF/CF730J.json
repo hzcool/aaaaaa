@@ -1,0 +1,21 @@
+{
+    "description": "Nick has $ n $ bottles of soda left after his birthday. Each bottle is described by two values: remaining amount of soda $ a_{i} $ and bottle volume $ b_{i} $ ( $ a_{i}<=b_{i} $ ).\n\nNick has decided to pour all remaining soda into minimal number of bottles, moreover he has to do it as soon as possible. Nick spends $ x $ seconds to pour $ x $ units of soda from one bottle to another.\n\nNick asks you to help him to determine $ k $ \u2014 the minimal number of bottles to store all remaining soda and $ t $ \u2014 the minimal time to pour soda into $ k $ bottles. A bottle can't store more soda than its volume. All remaining soda should be saved.",
+    "inputFormat": "The first line contains positive integer $ n $ ( $ 1<=n<=100 $ ) \u2014 the number of bottles.\n\nThe second line contains $ n $ positive integers $ a_{1},a_{2},...,a_{n} $ ( $ 1<=a_{i}<=100 $ ), where $ a_{i} $ is the amount of soda remaining in the $ i $ -th bottle.\n\nThe third line contains $ n $ positive integers $ b_{1},b_{2},...,b_{n} $ ( $ 1<=b_{i}<=100 $ ), where $ b_{i} $ is the volume of the $ i $ -th bottle.\n\nIt is guaranteed that $ a_{i}<=b_{i} $ for any $ i $ .",
+    "outputFormat": "The only line should contain two integers $ k $ and $ t $ , where $ k $ is the minimal number of bottles that can store all the soda and $ t $ is the minimal time to pour the soda into $ k $ bottles.",
+    "samples": [
+        [
+            "4\n3 3 4 3\n4 7 6 5\n",
+            "2 6\n"
+        ],
+        [
+            "2\n1 1\n100 100\n",
+            "1 1\n"
+        ],
+        [
+            "5\n10 30 5 6 24\n10 41 7 8 24\n",
+            "3 11\n"
+        ]
+    ],
+    "hint": "In the first example Nick can pour soda from the first bottle to the second bottle. It will take 3 seconds. After it the second bottle will contain $ 3+3=6 $ units of soda. Then he can pour soda from the fourth bottle to the second bottle and to the third bottle: one unit to the second and two units to the third. It will take $ 1+2=3 $ seconds. So, all the soda will be in two bottles and he will spend $ 3+3=6 $ seconds to do it.",
+    "translation": "### \u9898\u76ee\u63cf\u8ff0\n\n\u6709 $n$ \u74f6\u6c34\uff0c\u7b2c $i$ \u74f6\u6c34\u7684\u6c34\u91cf\u4e3a $a_i$\uff0c\u5bb9\u91cf\u4e3a $b_i$\u3002\u5c06 $1$ \u5355\u4f4d\u6c34\u4ece\u4e00\u4e2a\u74f6\u5b50\u8f6c\u79fb\u5230\u53e6\u4e00\u4e2a\u74f6\u5b50\u6240\u6d88\u8017\u65f6\u95f4\u4e3a $1$ \u79d2\uff0c\u4e14\u53ef\u4ee5\u8fdb\u884c\u65e0\u9650\u6b21\u8f6c\u79fb\u3002\u6c42\u50a8\u5b58\u6240\u6709\u6c34\u6240\u9700\u6700\u5c0f\u74f6\u5b50\u6570 $k$ \u4ee5\u53ca\u8be5\u60c5\u51b5\u4e0b\u6240\u7528\u6700\u5c0f\u65f6\u95f4 $t$\u3002\n\n### \u8f93\u5165\u683c\u5f0f\n\n\u7b2c\u4e00\u884c\u8f93\u5165\u4e00\u4e2a\u6b63\u6574\u6570 $n$\uff08$1\\le n\\le 100$\uff09\u3002\n\n\u7b2c\u4e8c\u884c\u8f93\u5165 $n$ \u4e2a\u6b63\u6574\u6570\uff0c\u7b2c $i$ \u4e2a\u6b63\u6574\u6570\u8868\u793a $a_i$\uff08$1\\le a_i \\le 100$\uff09\u3002\n\n\u7b2c\u4e09\u884c\u8f93\u5165 $n$ \u4e2a\u6b63\u6574\u6570\uff0c\u7b2c $i$ \u4e2a\u6b63\u6574\u6570\u8868\u793a $b_i$\uff08$1\\le b_i \\le100$\uff09\u3002\n\n\u5bf9\u4e8e\u6bcf\u4e00\u4e2a $i$\uff0c\u6ee1\u8db3$a_i\\le b_i$\u3002\n\n### \u8f93\u51fa\u683c\u5f0f\n\n\u8f93\u51fa\u4e00\u884c\u4e24\u4e2a\u6574\u6570\uff1a$k$ \u548c $t$\u3002"
+}

@@ -1,0 +1,29 @@
+{
+    "description": "Given a list of distinct values, we denote with first minimum, second minimum, and third minimum the three smallest values (in increasing order).\n\nA permutation $ p_1, p_2, \\dots, p_n $ is good if the following statement holds for all pairs $ (l,r) $ with $ 1\\le l < l+2 \\le r\\le n $ .\n\n- If $ \\{p_l, p_r\\} $ are (not necessarily in this order) the first and second minimum of $ p_l, p_{l+1}, \\dots, p_r $ then the third minimum of $ p_l, p_{l+1},\\dots, p_r $ is either $ p_{l+1} $ or $ p_{r-1} $ .\n\nYou are given an integer $ n $ and a string $ s $ of length $ m $ consisting of characters \"&lt;\" and \"&gt;\".\n\nCount the number of good permutations $ p_1, p_2,\\dots, p_n $ such that, for all $ 1\\le i\\le m $ ,\n\n- $ p_i < p_{i+1} $ if $ s_i = $ \"&lt;\";\n- $ p_i > p_{i+1} $ if $ s_i = $ \"&gt;\".\n\n As the result can be very large, you should print it modulo $ 998\\,244\\,353 $ .",
+    "inputFormat": "The first line contains two integers $ n $ and $ m $ ( $ 2 \\le n \\le 2 \\cdot 10^5 $ , $ 1 \\leq m \\leq \\min(100, n-1) $ ).\n\nThe second line contains a string $ s $ of length $ m $ , consisting of characters \"&lt;\" and \"&gt;\".",
+    "outputFormat": "Print a single integer: the number of good permutations satisfying the constraints described in the statement, modulo $ 998\\,244\\,353 $ .",
+    "samples": [
+        [
+            "5 3\n>>>\n",
+            "5"
+        ],
+        [
+            "5 1\n<\n",
+            "56"
+        ],
+        [
+            "6 5\n<<><>\n",
+            "23"
+        ],
+        [
+            "10 5\n><<><\n",
+            "83154"
+        ],
+        [
+            "1008 20\n<><<>>><<<<<>>>>>>>>\n",
+            "284142857"
+        ]
+    ],
+    "hint": "In the first test, there are $ 5 $ good permutations satisfying the constraints given by the string $ s $ : $ [4, 3, 2, 1, 5] $ , $ [5, 3, 2, 1, 4] $ , $ [5, 4, 2, 1, 3] $ , $ [5, 4, 3, 1, 2] $ , $ [5, 4, 3, 2, 1] $ . Each of them\n\n- is good;\n- satisfies $ p_1 > p_2 $ ;\n- satisfies $ p_2 > p_3 $ ;\n- satisfies $ p_3 > p_4 $ .\n\nIn the second test, there are $ 60 $ permutations such that $ p_1 < p_2 $ . Only $ 56 $ of them are good: the permutations $ [1, 4, 3, 5, 2] $ , $ [1, 5, 3, 4, 2] $ , $ [2, 4, 3, 5, 1] $ , $ [2, 5, 3, 4, 1] $ are not good because the required condition doesn't hold for $ (l, r) $ = $ (1, 5) $ . For example, for the permutation $ [2, 4, 3, 5, 1] $ ,\n\n- the first minimum and the second minimum are $ p_5 $ and $ p_1 $ , respectively (so they are $ \\{p_l, p_r\\} $ up to reordering);\n- the third minimum is $ p_3 $ (neither $ p_{l+1} $ nor $ p_{r-1} $ ).\n\nIn the third test, there are $ 23 $ good permutations satisfying the constraints given by the string $ s $ : $ [1, 2, 4, 3, 6, 5] $ , $ [1, 2, 5, 3, 6, 4] $ , $ [1, 2, 6, 3, 5, 4] $ , $ [1, 3, 4, 2, 6, 5] $ , $ [1, 3, 5, 2, 6, 4] $ , $ [1, 3, 6, 2, 5, 4] $ , $ [1, 4, 5, 2, 6, 3] $ , $ [1, 4, 6, 2, 5, 3] $ , $ [1, 5, 6, 2, 4, 3] $ , $ [2, 3, 4, 1, 6, 5] $ , $ [2, 3, 5, 1, 6, 4] $ , $ [2, 3, 6, 1, 5, 4] $ , $ [2, 4, 5, 1, 6, 3] $ , $ [2, 4, 6, 1, 5, 3] $ , $ [2, 5, 6, 1, 4, 3] $ , $ [3, 4, 5, 1, 6, 2] $ , $ [3, 4, 5, 2, 6, 1] $ , $ [3, 4, 6, 1, 5, 2] $ , $ [3, 4, 6, 2, 5, 1] $ , $ [3, 5, 6, 1, 4, 2] $ , $ [3, 5, 6, 2, 4, 1] $ , $ [4, 5, 6, 1, 3, 2] $ , $ [4, 5, 6, 2, 3, 1] $ .",
+    "translation": "* \u4e00\u4e2a\u6392\u5217\u662f\u597d\u7684\uff0c\u5f53\u4e14\u4ec5\u5f53\u5176\u6240\u6709\u957f\u5ea6 $\\geq 3$ \u7684\u5b50\u4e32 $[l,r]$ \u90fd\u6ee1\u8db3\u4ee5\u4e0b\u6761\u4ef6\uff1a\n* \u5982\u679c $p_l,p_r$ \u662f\u5b50\u4e32\u6700\u5c0f\u7684\u4e24\u4e2a\u503c\uff0c\u5219\u5b50\u4e32\u7b2c\u4e09\u5c0f\u503c\u8981\u4e48\u662f $p_{l+1}$\uff0c\u8981\u4e48\u662f $p_{r-1}$\u3002\n* \u6709 $m$ \u4e2a\u989d\u5916\u7ea6\u675f\u3002\u7ed9\u5b9a\u4e00\u4e2a\u957f\u5ea6\u4e3a $m$ \u7684\u5b57\u7b26\u4e32\uff0c\u53ea\u5305\u542b ``<`` \u548c ``>``\u3002\n* \u5982\u679c\u7b2c $i$ \u4e2a\u5b57\u7b26\u4e3a ``<``\uff0c\u5219\u7b2c $i$ \u4e2a\u7ea6\u675f\u4e3a $p_i<p_{i+1}$\u3002\n* \u5982\u679c\u7b2c $i$ \u4e2a\u5b57\u7b26\u4e3a ``>``\uff0c\u5219\u7b2c $i$ \u4e2a\u7ea6\u675f\u4e3a $p_i>p_{i+1}$\u3002\n* \u7edf\u8ba1\u6709\u591a\u5c11\u597d\u7684\u6392\u5217\u6ee1\u8db3\u6240\u6709\u7ea6\u675f\uff0c\u5bf9 $998244353$ \u53d6\u6a21\u3002\n* $1\\leq m<n\\leq 2\\times 10^5$\uff0c$m\\leq 100$\u3002"
+}

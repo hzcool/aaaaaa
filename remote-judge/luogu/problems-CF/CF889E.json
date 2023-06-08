@@ -1,0 +1,21 @@
+{
+    "description": "You are given a sequence of integers $ a_{1},a_{2},...,a_{n} $ . Let ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF889E/babd3332060a4ee6973a9fa3f688c744930d9a0a.png), and ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF889E/3a61ca4726dc1db34df92b20859e100704661de5.png) for $ 1<=i&lt;n $ . Here, ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF889E/609a42354b344d4b30f3720c48d42a71dbe37fb8.png) denotes the modulus operation. Find the maximum value of $ f(x,1) $ over all nonnegative integers $ x $ .",
+    "inputFormat": "The first line contains a single integer $ n $ ( $ 1<=n<=200000 $ ) \u2014 the length of the sequence.\n\nThe second lines contains $ n $ integers $ a_{1},a_{2},...,a_{n} $ ( $ 1<=a_{i}<=10^{13} $ ) \u2014 the elements of the sequence.",
+    "outputFormat": "Output a single integer \u2014 the maximum value of $ f(x,1) $ over all nonnegative integers $ x $ .",
+    "samples": [
+        [
+            "2\n10 5\n",
+            "13\n"
+        ],
+        [
+            "5\n5 4 3 2 1\n",
+            "6\n"
+        ],
+        [
+            "4\n5 10 5 10\n",
+            "16\n"
+        ]
+    ],
+    "hint": "In the first example you can choose, for example, $ x=19 $ .\n\nIn the second example you can choose, for example, $ x=3 $ or $ x=2 $ .",
+    "translation": "$$f(x,n) =   x \\mod a_n$$\n$$f(x,i) = ( x \\mod a_i ) + f(x \\mod a_i,i+1)$$\n\n\u7ed9\u51faa\u5e8f\u5217\uff0c\u5f53x\u53d6\u904d\u6240\u6709\u975e\u8d1f\u6574\u6570\u65f6$f(x,1)$\u7684\u6700\u5927\u503c\u3002"
+}

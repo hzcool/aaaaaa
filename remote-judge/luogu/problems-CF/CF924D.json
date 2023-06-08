@@ -1,0 +1,17 @@
+{
+    "description": "Arkady the air traffic controller is now working with $ n $ planes in the air. All planes move along a straight coordinate axis with Arkady's station being at point $ 0 $ on it. The $ i $ -th plane, small enough to be represented by a point, currently has a coordinate of $ x_{i} $ and is moving with speed $ v_{i} $ . It's guaranteed that $ x_{i}\u00b7v_{i}<0 $ , i.e., all planes are moving towards the station.\n\nOccasionally, the planes are affected by winds. With a wind of speed $ v_{wind} $ (not necessarily positive or integral), the speed of the $ i $ -th plane becomes $ v_{i}+v_{wind} $ .\n\nAccording to weather report, the current wind has a steady speed falling inside the range $ [-w,w] $ (inclusive), but the exact value cannot be measured accurately since this value is rather small \u2014 smaller than the absolute value of speed of any plane.\n\nEach plane should contact Arkady at the exact moment it passes above his station. And you are to help Arkady count the number of pairs of planes $ (i,j) $ ( $ i<j $ ) there are such that there is a possible value of wind speed, under which planes $ i $ and $ j $ contact Arkady at the same moment. This value needn't be the same across different pairs.\n\nThe wind speed is the same for all planes. You may assume that the wind has a steady speed and lasts arbitrarily long.",
+    "inputFormat": "The first line contains two integers $ n $ and $ w $ ( $ 1<=n<=100000 $ , $ 0<=w<10^{5} $ ) \u2014 the number of planes and the maximum wind speed.\n\nThe $ i $ -th of the next $ n $ lines contains two integers $ x_{i} $ and $ v_{i} $ ( $ 1<=|x_{i}|<=10^{5} $ , $ w+1<=|v_{i}|<=10^{5} $ , $ x_{i}\u00b7v_{i}<0 $ ) \u2014 the initial position and speed of the $ i $ -th plane.\n\nPlanes are pairwise distinct, that is, no pair of $ (i,j) $ ( $ i<j $ ) exists such that both $ x_{i}=x_{j} $ and $ v_{i}=v_{j} $ .",
+    "outputFormat": "Output a single integer \u2014 the number of unordered pairs of planes that can contact Arkady at the same moment.",
+    "samples": [
+        [
+            "5 1\n-3 2\n-3 3\n-1 2\n1 -3\n3 -5\n",
+            "3\n"
+        ],
+        [
+            "6 1\n-3 2\n-2 2\n-1 2\n1 -2\n2 -2\n3 -2\n",
+            "9\n"
+        ]
+    ],
+    "hint": "In the first example, the following $ 3 $ pairs of planes satisfy the requirements:\n\n- $ (2,5) $  passes the station at time $ 3/4 $ with $ v_{wind}=1 $ ;\n- $ (3,4) $  passes the station at time $ 2/5 $ with $ v_{wind}=1/2 $ ;\n- $ (3,5) $  passes the station at time $ 4/7 $ with $ v_{wind}=-1/4 $ .\n\nIn the second example, each of the $ 3 $ planes with negative coordinates can form a valid pair with each of the other $ 3 $ , totaling $ 9 $ pairs.",
+    "translation": "\u4e00\u6761\u6570\u8f74\u4e0a\u6709$n(n\\le 10^5)$\u4e2a\u70b9\uff0c\u7b2c$i$\u4e2a\u70b9\u5750\u6807\u4e3a$x_i$\uff0c\u901f\u5ea6\u4e3a$v_i$\uff0c\u4fdd\u8bc1$x_i\\cdot v_i<0$\u5373\u6240\u6709\u70b9\u90fd\u50cf\u539f\u70b9\u79fb\u52a8\uff0c\u5176\u4e2d$x_i,v_i$\u5747\u662f\u6574\u6570\u3002\r\n\r\n\u73b0\u5728\u4f60\u6709\u80fd\u529b\u522e\u4e00\u80a1\u5927\u98ce\uff0c\u98ce\u901f\u53ef\u4ee5\u4e3a$[w,-w](w<\\min\\{|v_i|\\})$\u7684\u4efb\u610f**\u5b9e\u6570**\uff0c\u4f7f\u5f97\u7b2c$i$\u70b9\u7684\u901f\u5ea6\u4e3a$v_i+v_{\\text{\u98ce}}$\u3002\r\n\r\n\u73b0\u5728\u60f3\u8981\u95ee\u4f60\u7684\u662f\u6709\u591a\u5c11\u5bf9\u70b9\u5f53\u4f60\u8c03\u6574\u5230\u4e00\u5b9a\u98ce\u901f\u4e4b\u540e\u4ed6\u4eec\u4f1a\u5728\u539f\u70b9\u76f8\u9047\u3002"
+}

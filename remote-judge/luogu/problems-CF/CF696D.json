@@ -1,0 +1,17 @@
+{
+    "description": "Barney was hanging out with Nora for a while and now he thinks he may have feelings for her. Barney wants to send her a cheesy text message and wants to make her as happy as possible.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF696D/5ab3ea47563ae6400cc578e63bb9e0de4cf3a082.png)Initially, happiness level of Nora is $ 0 $ . Nora loves some pickup lines like \"I'm falling for you\" and stuff. Totally, she knows $ n $ pickup lines, each consisting only of lowercase English letters, also some of them may be equal (in writing, but different in pronouncing or meaning though). Every time Nora sees $ i $ -th pickup line as a consecutive subsequence of Barney's text message her happiness level increases by $ a_{i} $ . These substrings may overlap, for example, Nora will see the pickup line aa twice and the pickup line ab once in text message aaab.\n\nDue to texting app limits, Barney's text may have up to $ l $ characters.\n\nBarney asked you to help him make Nora as much happy as possible, it's gonna be legen...",
+    "inputFormat": "The first line of input contains two integers $ n $ and $ l $ ( $ 1<=n<=200,1<=l<=10^{14} $ ) \u2014 the number of pickup lines and the maximum length of Barney's text.\n\nThe second line contains $ n $ integers $ a_{1},a_{2},...,a_{n} $ ( $ 1<=a_{i}<=100 $ ), meaning that Nora's happiness level increases by $ a_{i} $ after every time seeing $ i $ -th pickup line.\n\nThe next $ n $ lines contain the pickup lines. $ i $ -th of them contains a single string $ s_{i} $ consisting of only English lowercase letter. Summary length of all pickup lines does not exceed $ 200 $ .\n\nAll strings are not empty.",
+    "outputFormat": "Print the only integer \u2014 the maximum possible value of Nora's happiness level after reading Barney's text.",
+    "samples": [
+        [
+            "3 6\n3 2 1\nheart\nearth\nart\n",
+            "6\n"
+        ],
+        [
+            "3 6\n3 2 8\nheart\nearth\nart\n",
+            "16\n"
+        ]
+    ],
+    "hint": "An optimal answer for the first sample case is hearth containing each pickup line exactly once.\n\nAn optimal answer for the second sample case is artart.",
+    "translation": "\n\nBarney\u4e0eNora\u4e00\u8d77\u73a9\u7684\u65f6\u5019\uff0c\u89c9\u5f97\u81ea\u5df1\u559c\u6b22\u4e0aNora\u4e86\u3002\u4ed6\u60f3\u7ed9\u5979\u53d1\u4e00\u6bb5\u4fe1\u606f\u8ba9\u5979\u5f00\u5fc3\u3002\n\nNora\u7684\u521d\u59cb\u5feb\u4e50\u503c\u662f0 \u3002Nora\u559c\u6b22\u201c\u6211\u6df1\u6df1\u5730\u7231\u4e0a\u4f60\u4e86\u201d\u8fd9\u6837\u7684\u60c5\u8bdd\u3002\u5979\u4e00\u5171\u77e5\u9053n\u53e5\u60c5\u8bdd\uff0c\u6bcf\u53e5\u4ec5\u5305\u542b\u5c0f\u5199\u82f1\u6587\u5b57\u6bcd\uff0c\u5176\u4e2d\u7684\u4e00\u4e9b\u53ef\u80fd\u76f8\u540c\uff08\u5199\u6cd5\u76f8\u540c\uff0c\u4f46\u8bfb\u97f3\u6216\u610f\u601d\u662f\u4e0d\u540c\u7684\uff09\u3002\u6bcf\u6b21Nora\u5728Barney\u7684\u4fe1\u606f\u4e2d\u770b\u5230\u7b2ci\u53e5\u60c5\u8bdd\uff0c\u5979\u7684\u5feb\u4e50\u503c\u5c31\u4f1a\u589e\u52a0$a_i$ \u3002\u8fd9\u4e9b\u60c5\u8bdd\u5728\u4fe1\u606f\u4e2d\u53ef\u80fd\u91cd\u53e0\u3002\u4f8b\u5982\uff0c\u5728aaab \u4e2d\uff0cNora\u4f1a\u770b\u5230aa \u4e24\u6b21\uff0c\u770b\u5230ab \u4e00\u6b21\u3002\n\n\u56e0\u4e3a\u77ed\u4fe1\u7684\u957f\u5ea6\u9650\u5236\uff0cBarney\u7684\u77ed\u4fe1\u6700\u957f\u542b\u6709lll \u4e2a\u5b57\u7b26\u3002Barney\u60f3\u8ba9\u4f60\u5e2e\u4ed6\u8ba9Nora\u5c3d\u53ef\u80fd\u5f00\u5fc3\u3002\n"
+}

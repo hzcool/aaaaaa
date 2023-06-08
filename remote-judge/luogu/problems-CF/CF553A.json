@@ -1,0 +1,17 @@
+{
+    "description": "Kyoya Ootori has a bag with $ n $ colored balls that are colored with $ k $ different colors. The colors are labeled from $ 1 $ to $ k $ . Balls of the same color are indistinguishable. He draws balls from the bag one by one until the bag is empty. He noticed that he drew the last ball of color $ i $ before drawing the last ball of color $ i+1 $ for all $ i $ from $ 1 $ to $ k-1 $ . Now he wonders how many different ways this can happen.",
+    "inputFormat": "The first line of input will have one integer $ k $ ( $ 1<=k<=1000 $ ) the number of colors.\n\nThen, $ k $ lines will follow. The $ i $ -th line will contain $ c_{i} $ , the number of balls of the $ i $ -th color ( $ 1<=c_{i}<=1000 $ ).\n\nThe total number of balls doesn't exceed 1000.",
+    "outputFormat": "A single integer, the number of ways that Kyoya can draw the balls from the bag as described in the statement, modulo $ 1000000007 $ .",
+    "samples": [
+        [
+            "3\n2\n2\n1\n",
+            "3\n"
+        ],
+        [
+            "4\n1\n2\n3\n4\n",
+            "1680\n"
+        ]
+    ],
+    "hint": "In the first sample, we have 2 balls of color 1, 2 balls of color 2, and 1 ball of color 3. The three ways for Kyoya are:\n\n`<br></br>1 2 1 2 3<br></br>1 1 2 2 3<br></br>2 1 1 2 3<br></br>`",
+    "translation": "\u4e00\u4e2a\u888b\u5b50\u4e2d\u6709 $n$ \u4e2a\u5f69\u7403\uff0c\u4ed6\u4eec\u7528 $k$ \u79cd\u4e0d\u540c\u7684\u989c\u8272\u67d3\u8272\u3002\u989c\u8272\u88ab\u4ece $1$ \u5230 $k$ \u7f16\u53f7\u3002\u540c\u4e00\u79cd\u989c\u8272\u7684\u7403\u770b\u6210\u662f\u4e00\u6837\u7684\u3002\u73b0\u5728\u4ece\u888b\u4e2d\u4e00\u4e2a\u4e00\u4e2a\u7684\u62ff\u51fa\u7403\u6765\uff0c\u76f4\u5230\u62ff\u5b8c\u6240\u6709\u7684\u7403\u3002\u5bf9\u4e8e\u6240\u6709\u989c\u8272\u4e3a $i(1 \\le i \\le k-1)$ \u7684\u7403\uff0c\u4ed6\u7684\u6700\u540e\u4e00\u4e2a\u7403\u603b\u662f\u5728\u7f16\u53f7\u6bd4\u4ed6\u5927\u7684\u7403\u62ff\u5b8c\u4e4b\u524d\u62ff\u5b8c\uff0c\u95ee\u8fd9\u6837\u60c5\u51b5\u6709\u591a\u5c11\u79cd\uff0c\u7b54\u6848\u5bf9 $10^9+7$ \u53d6\u6a21\u3002\n\n\u8f93\u5165\u5355\u7ec4\u6d4b\u8bd5\u6570\u636e\u3002 \u7b2c\u4e00\u884c\u7ed9\u51fa\u4e00\u4e2a\u6574\u6570 $k(1 \\le k \\le 1000)$\uff0c\u8868\u793a\u7403\u7684\u79cd\u7c7b\u3002 \u63a5\u4e0b\u6765 $k$ \u884c\uff0c\u6bcf\u884c\u4e00\u4e2a\u6574\u6570 $c_i$\uff0c\u8868\u793a\u7b2c $i$ \u79cd\u989c\u8272\u7684\u7403\u6709 $c_i$ \u4e2a $(1 \\le c_i \\le 1000)$\u3002 \u7403\u7684\u603b\u6570\u76ee\u4e0d\u8d85\u8fc7 $1000$\u3002"
+}

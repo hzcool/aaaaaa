@@ -1,0 +1,17 @@
+{
+    "description": "You are given an array $ a $ with $ n $ distinct integers. Construct an array $ b $ by permuting $ a $ such that for every non-empty subset of indices $ S={x_{1},x_{2},...,x_{k}} $ ( $ 1<=x_{i}<=n $ , $ 0&lt;k&lt;n $ ) the sums of elements on that positions in $ a $ and $ b $ are different, i. e.\n\n![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF891B/3cd3fa1580a1bdd16185974adbd0425cf2d97136.png)",
+    "inputFormat": "The first line contains one integer $ n $ ( $ 1<=n<=22 $ ) \u2014 the size of the array.\n\nThe second line contains $ n $ space-separated distinct integers $ a_{1},a_{2},...,a_{n} $ ( $ 0<=a_{i}<=10^{9} $ ) \u2014 the elements of the array.",
+    "outputFormat": "If there is no such array $ b $ , print -1.\n\nOtherwise in the only line print $ n $ space-separated integers $ b_{1},b_{2},...,b_{n} $ . Note that $ b $ must be a permutation of $ a $ .\n\nIf there are multiple answers, print any of them.",
+    "samples": [
+        [
+            "2\n1 2\n",
+            "2 1 \n"
+        ],
+        [
+            "4\n1000 100 10 1\n",
+            "100 1 1000 10\n"
+        ]
+    ],
+    "hint": "An array $ x $ is a permutation of $ y $ , if we can shuffle elements of $ y $ such that it will coincide with $ x $ .\n\nNote that the empty subset and the subset containing all indices are not counted.",
+    "translation": "\u7ed9\u5b9a\u4e00\u4e2a\u6709 $n$ \u4e2a\u4e92\u4e0d\u76f8\u540c\u5143\u7d20\u7684\u6570\u7ec4 $a$\uff0c\u6784\u9020\u4e00\u4e2a\u6570\u7ec4 $b$\uff0c\u6ee1\u8db3\uff1a\n\n- $b$ \u662f $a$ \u7684\u4e00\u4e2a\u6392\u5217\uff1b\n- \u9009\u62e9\u4efb\u610f\u4e00\u4e2a\u4e0b\u6807\u7684\u96c6\u5408 $\\{x_1, x_2, \\cdots, x_k\\}(1\\le k<n)$\uff0c\u90fd\u6ee1\u8db3 $\\sum_{i=1}^k a_{x_i} \\ne \\sum_{i=1}^k b_{x_i}$\u3002\n\n\u5982\u679c\u4e0d\u5b58\u5728\u8fd9\u6837\u7684 $b$\uff0c\u8f93\u51fa $-1$\u3002"
+}

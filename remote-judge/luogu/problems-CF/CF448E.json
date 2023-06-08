@@ -1,0 +1,21 @@
+{
+    "description": "Bizon the Champion isn't just friendly, he also is a rigorous coder.\n\nLet's define function $ f(a) $ , where $ a $ is a sequence of integers. Function $ f(a) $ returns the following sequence: first all divisors of $ a_{1} $ go in the increasing order, then all divisors of $ a_{2} $ go in the increasing order, and so on till the last element of sequence $ a $ . For example, $ f([2,9,1])=[1,2,1,3,9,1] $ .\n\nLet's determine the sequence $ X_{i} $ , for integer $ i $ $ (i>=0) $ : $ X_{0}=[X] $ ( $ [X] $ is a sequence consisting of a single number $ X $ ), $ X_{i}=f(X_{i-1}) $ $ (i&gt;0) $ . For example, at $ X=6 $ we get $ X_{0}=[6] $ , $ X_{1}=[1,2,3,6] $ , $ X_{2}=[1,1,2,1,3,1,2,3,6] $ .\n\nGiven the numbers $ X $ and $ k $ , find the sequence $ X_{k} $ . As the answer can be rather large, find only the first $ 10^{5} $ elements of this sequence.",
+    "inputFormat": "A single line contains two space-separated integers \u2014 $ X $ $ (1<=X<=10^{12}) $ and $ k $ $ (0<=k<=10^{18}) $ .",
+    "outputFormat": "Print the elements of the sequence $ X_{k} $ in a single line, separated by a space. If the number of elements exceeds $ 10^{5} $ , then print only the first $ 10^{5} $ elements.",
+    "samples": [
+        [
+            "6 1\n",
+            "1 2 3 6 \n"
+        ],
+        [
+            "4 2\n",
+            "1 1 2 1 2 4 \n"
+        ],
+        [
+            "10 3\n",
+            "1 1 1 2 1 1 5 1 1 2 1 5 1 2 5 10 \n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u6211\u4eec\u7684\u51a0\u519b Bizon \u4e0d\u4ec5\u662f\u4e00\u4e2a\u53cb\uff08you\uff09\u597d\uff08qu\uff09\u7684\u7a0b\u5e8f\u733f\uff0c\u4e5f\u662f\u4e00\u53ea\u4e25\u8c28\u7684\u7a0b\u5e8f\u5458\u3002~~\uff08\u65e0\u89c6\u91cf\u8bcd\u87f9\u87f9\uff09~~\r\n\r\n\u5b9a\u4e49\u51fd\u6570 $f(a)$ \uff08 $a$ \u662f\u4e00\u4e2a\u4e0d\u5b9a\u957f\u5ea6\u7684\u6574\u6570\u96c6\u5408\uff0c\u8fd9\u91cc\u7528 $n$ \u8868\u793a\u5b83\u7684\u957f\u5ea6\uff09\u7684\u8fd4\u56de\u503c\u4e3a\u5982\u4e0b\u7684\u53e6\u4e00\u96c6\u5408 $b$ \uff0c\u5b83\u5305\u542b $a$ \u4e2d\u7684\u7b2c\u4e00\u4e2a\u6570 $a_1$ \u7684\u6240\u6709\u7ea6\u6570\uff0c\u7b2c\u4e8c\u4e2a\u6570 $a_2$ \u7684\u6240\u6709\u7ea6\u6570\uff0c\u2026\u2026\uff0c\u4e00\u76f4\u5230\u7b2c $n$ \u4e2a\u6570 $a_n$ \u7684\u6240\u6709\u7ea6\u6570\uff08\u6bcf\u4e00\u4e2a\u6570\u7684\u7ea6\u6570\u8981\u6c42\u4ece\u5c0f\u5230\u5927\u6392\u5e8f\uff09\u3002\r\n\r\n\u4f8b\u5982\uff1a$f[2,9,1]=[1,2,1,3,9,1]$\uff0c$f[1,2,4,8]=[1,1,2,1,2,4,1,2,4,8]$\u3002\r\n\r\n\u7136\u540e\uff0c\u5b9a\u4e49\u96c6\u5408 $X_i$\uff0c\u5bf9\u4e8e\u4efb\u610f\u6b63\u6574\u6570 $X$ \uff0c$X_0=[x]$\uff0c\uff08\u5373 $X_0$ \u53ea\u5305\u542b\u4e00\u4e2a\u6570 $x$ \uff09\u3002\u5bf9\u4e8e\u4efb\u610f\u6b63\u6574\u6570 $i$ \uff0c$X_i=f(X_{i-1})$\u3002\r\n\r\n\u4f8b\u5982\uff1a\u5f53 $X=6$ \u65f6\uff0c\u6211\u4eec\u53ef\u4ee5\u5f97\u5230 $X_0= [ 6 ] $\uff0c$X_1=f(6)=[1,2,3,6]$ \uff0c$X_2=f[1,2,3,6]=[1,1,2,1,3,1,2,3,6]$ \u3002\r\n\r\n\u8f93\u5165\u4f1a\u7ed9\u51fa\u4e24\u4e2a\u6b63\u6574\u6570 $X$ \u548c $k$ \uff0c\u8f93\u51fa\u96c6\u5408 $X_k$\u3002\u8003\u8651\u5230\u7ed3\u679c\u53ef\u80fd\u5f88\u5927\uff0c\u53ea\u8981\u8f93\u51fa\u8fd9\u4e2a\u96c6\u5408\u7684\u524d    $10^5$\u4e2a\u6570\u5373\u53ef\uff08\u5982\u679c\u6709\u7684\u8bdd\uff09\u3002"
+}

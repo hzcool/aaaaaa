@@ -1,0 +1,21 @@
+{
+    "description": "Guy-Manuel and Thomas are going to build a polygon spaceship.\n\nYou're given a strictly convex (i. e. no three points are collinear) polygon $ P $ which is defined by coordinates of its vertices. Define $ P(x,y) $ as a polygon obtained by translating $ P $ by vector $ \\overrightarrow {(x,y)} $ . The picture below depicts an example of the translation:\n\n![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1299B/83c2f1baf8b89730630e4ed629298d51b68af048.png)\n\nDefine $ T $ as a set of points which is the union of all $ P(x,y) $ such that the origin $ (0,0) $ lies in $ P(x,y) $ (both strictly inside and on the boundary). There is also an equivalent definition: a point $ (x,y) $ lies in $ T $ only if there are two points $ A,B $ in $ P $ such that $ \\overrightarrow {AB} = \\overrightarrow {(x,y)} $ . One can prove $ T $ is a polygon too. For example, if $ P $ is a regular triangle then $ T $ is a regular hexagon. At the picture below $ P $ is drawn in black and some $ P(x,y) $ which contain the origin are drawn in colored:\n\n![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1299B/7e534d615e6a5f78b53ffae5177d7d1ddaf49471.png)\n\nThe spaceship has the best aerodynamic performance if $ P $ and $ T $ are similar. Your task is to check whether the polygons $ P $ and $ T $ are [similar](https://tinyurl.com/vp5m7vl).",
+    "inputFormat": "The first line of input will contain a single integer $ n $ ( $ 3 \\le n \\le 10^5 $ ) \u2014 the number of points.\n\nThe $ i $ -th of the next $ n $ lines contains two integers $ x_i, y_i $ ( $ |x_i|, |y_i| \\le 10^9 $ ), denoting the coordinates of the $ i $ -th vertex.\n\nIt is guaranteed that these points are listed in counterclockwise order and these points form a strictly convex polygon.",
+    "outputFormat": "Output \"YES\" in a separate line, if $ P $ and $ T $ are similar. Otherwise, output \"NO\" in a separate line. You can print each letter in any case (upper or lower).",
+    "samples": [
+        [
+            "4\n1 0\n4 1\n3 4\n0 3",
+            "YES"
+        ],
+        [
+            "3\n100 86\n50 0\n150 0",
+            "nO"
+        ],
+        [
+            "8\n0 0\n1 0\n2 1\n3 3\n4 6\n3 6\n2 5\n1 3",
+            "YES"
+        ]
+    ],
+    "hint": "The following image shows the first sample: both $ P $ and $ T $ are squares. The second sample was shown in the statements.\n\n![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1299B/e9bf2b6bd412db56abfa4dcfff0f19e57982f841.png)",
+    "translation": "- \u7ed9\u5b9a\u4e00\u4e2a\u7531 $n$ \u4e2a\u70b9\u7ec4\u6210\u7684**\u4e25\u683c**\uff08\u4e0d\u5b58\u5728\u4e09\u70b9\u5171\u7ebf\uff09\u51f8\u591a\u8fb9\u5f62\u3002\r\n\r\n- \u4f60\u8981\u5c06\u8fd9\u4e2a\u56fe\u5f62\u5e73\u79fb $n$ \u6b21\uff0c\u6bcf\u6b21\u5c06\u4e00\u4e2a\u9876\u70b9\u4e0e\u539f\u70b9 $(0,0)$ \u91cd\u5408\u3002\r\n\r\n- \u8bf7\u5224\u65ad\u8fd9 $n$ \u4e2a\u5e73\u79fb\u540e\u7684\u591a\u8fb9\u5f62\u9664\u4e86\u4e0e\u539f\u70b9\u91cd\u5408\u7684\u70b9\u4e4b\u5916\u7684\u70b9\u7ec4\u6210\u7684\u591a\u8fb9\u5f62\u662f\u5426\u4e0e\u539f\u56fe\u5f62[\u76f8\u4f3c](https://tinyurl.com/vp5m7vl)\u3002\r\n\r\n- \u5728\u8bfb\u5165\u4e2d\uff0c\u4fdd\u8bc1\u8f93\u5165\u7684\u70b9\u6309\u9006\u65f6\u9488\u987a\u5e8f\u6392\u5217\uff0c\u5f62\u6210\u4e25\u683c\u51f8\u591a\u8fb9\u5f62\u3002\r\n\r\n- $3\\le n\\le 10^5$\r\n\r\n- translate by @[ShineEternal](https://www.luogu.com.cn/user/45475)\u3002"
+}

@@ -1,0 +1,21 @@
+{
+    "description": "And here goes another problem on arrays. You are given positive integer $ len $ and array $ a $ which consists of $ n $ integers $ a_{1} $ , $ a_{2} $ , ..., $ a_{n} $ . Let's introduce two characteristics for the given array.\n\n- Let's consider an arbitrary interval of the array with length $ len $ , starting in position $ i $ . Value ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF182C/a67922122e1d38581ab8c091ae9897d972811ca1.png), is the modular sum on the chosen interval. In other words, the modular sum is the sum of integers on the chosen interval with length $ len $ , taken in its absolute value.\n- Value ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF182C/93dd358f9082d67d4f803ced64f412bb80cdf4c2.png) is the optimal sum of the array. In other words, the optimal sum of an array is the maximum of all modular sums on various intervals of array with length $ len $ .\n\nYour task is to calculate the optimal sum of the given array $ a $ . However, before you do the calculations, you are allowed to produce no more than $ k $ consecutive operations of the following form with this array: one operation means taking an arbitrary number from array $ a_{i} $ and multiply it by -1. In other words, no more than $ k $ times you are allowed to take an arbitrary number $ a_{i} $ from the array and replace it with $ -a_{i} $ . Each number of the array is allowed to choose an arbitrary number of times.\n\nYour task is to calculate the maximum possible optimal sum of the array after at most $ k $ operations described above are completed.",
+    "inputFormat": "The first line contains two integers $ n $ , $ len $ ( $ 1<=len<=n<=10^{5} $ ) \u2014 the number of elements in the array and the length of the chosen subinterval of the array, correspondingly.\n\nThe second line contains a sequence consisting of $ n $ integers $ a_{1} $ , $ a_{2} $ , ..., $ a_{n} $ $ (|a_{i}|<=10^{9}) $ \u2014 the original array.\n\nThe third line contains a single integer $ k $ ( $ 0<=k<=n $ ) \u2014 the maximum allowed number of operations.\n\nAll numbers in lines are separated by a single space.",
+    "outputFormat": "In a single line print the maximum possible optimal sum after no more than $ k $ acceptable operations are fulfilled.\n\nPlease do not use the %lld specifier to read or write 64-bit integers in \u0421++. It is preferred to use cin, cout streams or the %I64d specifier.",
+    "samples": [
+        [
+            "5 3\n0 -2 3 -5 1\n2\n",
+            "10\n"
+        ],
+        [
+            "5 2\n1 -3 -10 4 1\n3\n",
+            "14\n"
+        ],
+        [
+            "3 3\n-2 -5 4\n1\n",
+            "11\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u6709\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u6570\u5217 $a$\uff0c\u53ef\u4ee5\u5bf9\u5b83\u8fdb\u884c\u6700\u591a $k$ \u6b21\u64cd\u4f5c\uff0c\u6bcf\u6b21\u64cd\u4f5c\u53ef\u4ee5\u5c06\u4e00\u4e2a\u6570\u53d8\u4e3a\u5b83\u7684\u76f8\u53cd\u6570\uff0c\u8f93\u51fa\u6700\u540e\u6240\u6709\u957f\u5ea6\u4e3a $len$ \u7684\u6570\u5217\u7684\u548c\u7684\u7edd\u5bf9\u503c\u7684\u6700\u5927\u503c\uff08\u662f\u5b50\u4e32\u548c\u7684\u6700\u5927\u503c\uff0c\u800c\u4e0d\u662f\u5b50\u4e32\u548c\u7684\u548c\u7684\u6700\u5927\u503c\uff09\u3002"
+}

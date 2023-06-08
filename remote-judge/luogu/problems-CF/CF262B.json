@@ -1,0 +1,17 @@
+{
+    "description": "Roma works in a company that sells TVs. Now he has to prepare a report for the last year.\n\nRoma has got a list of the company's incomes. The list is a sequence that consists of $ n $ integers. The total income of the company is the sum of all integers in sequence. Roma decided to perform exactly $ k $ changes of signs of several numbers in the sequence. He can also change the sign of a number one, two or more times.\n\nThe operation of changing a number's sign is the operation of multiplying this number by - $ 1 $ .\n\nHelp Roma perform the changes so as to make the total income of the company (the sum of numbers in the resulting sequence) maximum. Note that Roma should perform exactly $ k $ changes.",
+    "inputFormat": "The first line contains two integers $ n $ and $ k $ $ (1<=n,k<=10^{5}) $ , showing, how many numbers are in the sequence and how many swaps are to be made.\n\nThe second line contains a non-decreasing sequence, consisting of $ n $ integers $ a_{i} $ $ (|a_{i}|<=10^{4}) $ .\n\nThe numbers in the lines are separated by single spaces. Please note that the given sequence is sorted in non-decreasing order.",
+    "outputFormat": "In the single line print the answer to the problem \u2014 the maximum total income that we can obtain after exactly $ k $ changes.",
+    "samples": [
+        [
+            "3 2\n-1 -1 1\n",
+            "3\n"
+        ],
+        [
+            "3 1\n-1 -1 1\n",
+            "1\n"
+        ]
+    ],
+    "hint": "In the first sample we can get sequence \\[1, 1, 1\\], thus the total income equals $ 3 $ .\n\nIn the second test, the optimal strategy is to get sequence \\[-1, 1, 1\\], thus the total income equals $ 1 $ .",
+    "translation": "## \u9898\u76ee\u63cf\u8ff0\r\n\u4e00\u4e2a\u4eba\u8981\u7edf\u8ba1\u4ed6\u6240\u5728\u516c\u53f8\u7684\u603b\u6536\u5165\u5e76\u4e14\u4ed6\u60f3\u4f7f\u603b\u6536\u5165\u8fbe\u5230\u6700\u5927\uff0c\u6536\u5165\u5199\u5728\u4e00\u6761\u6e05\u5355\u4e0a\uff0c\u603b\u6536\u5165\u662f\u6e05\u5355\u4e0a\u6240\u6709\u6570\u4e4b\u548c\u3002\r\n\r\n\u4ed6\u6709 $k$ \u6b21\u64cd\u4f5c\u7684\u673a\u4f1a\uff0c\u6bcf\u6b21\u64cd\u4f5c\u53ef\u4ee5\u5c06\u67d0\u4e2a\u6570\u4e00\u4e2a\u6570\u53d8\u6210\u5176\u76f8\u53cd\u6570\uff0c\u4f8b\u5982 $1$ \u53d8\u6210 $\u22121$ \uff08\u6ce8\u610f\uff0c\u4ed6\u5fc5\u987b\u4e25\u683c\u6267\u884c $k$ \u6b21\uff09\u95ee\u603b\u6536\u5165\u6700\u5927\u662f\u591a\u5c11\uff1f\r\n\r\n## \u8f93\u5165\u683c\u5f0f\r\n\u7b2c\u4e00\u884c\u6709\u4e24\u4e2a\u6574\u6570 $n,k$ $(1<=n,k<=105)$\r\n\r\n\u7b2c\u4e8c\u884c\u6709 n \u4e2a\u6309\u5347\u5e8f\u6392\u5217\u6574\u6570 $a_1, a_2, a_3 ... a_n$ $(|a_i|<=10^4)$\r\n\r\n## \u8f93\u51fa\u683c\u5f0f\r\n\u4e00\u4e2a\u6570\r\n\r\n## \u8f93\u5165\u8f93\u51fa\u6837\u4f8b\r\n### \u8f93\u5165 #1               \r\n\t3 2\r\n\t-1 -1 1\r\n### \u8f93\u51fa #1\r\n\t3\r\n### \u8f93\u5165 #2\r\n\t3 1\r\n\t-1 -1 1\r\n### \u8f93\u51fa #2\r\n\t1\r\n\r\n## \u8bf4\u660e/\u63d0\u793a\r\n\u5728\u7b2c\u4e00\u4e2a\u6837\u4f8b\u4e2d\uff0c\u6211\u4eec\u53ef\u4ee5\u5f97\u5230\u5e8f\u5217 $[1,1,1]$ \uff0c\u56e0\u6b64\u603b\u6536\u5165\u7b49\u4e8e $3$\u3002\r\n\r\n\u5728\u7b2c\u4e8c\u4e2a\u6837\u4f8b\u4e2d\uff0c\u6211\u4eec\u53ef\u4ee5\u5f97\u5230\u5e8f\u5217 $[-1,1,1]$\uff0c\u56e0\u6b64\u603b\u6536\u5165\u7b49\u4e8e $1$\u3002"
+}

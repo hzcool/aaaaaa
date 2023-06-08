@@ -1,0 +1,25 @@
+{
+    "description": "Fox Ciel is playing a game. In this game there is an infinite long tape with cells indexed by integers (positive, negative and zero). At the beginning she is standing at the cell 0.\n\nThere are also $ n $ cards, each card has 2 attributes: length $ l_{i} $ and cost $ c_{i} $ . If she pays $ c_{i} $ dollars then she can apply $ i $ -th card. After applying $ i $ -th card she becomes able to make jumps of length $ l_{i} $ , i. e. from cell $ x $ to cell $ (x-l_{i}) $ or cell $ (x+l_{i}) $ .\n\nShe wants to be able to jump to any cell on the tape (possibly, visiting some intermediate cells). For achieving this goal, she wants to buy some cards, paying as little money as possible.\n\nIf this is possible, calculate the minimal cost.",
+    "inputFormat": "The first line contains an integer $ n $ ( $ 1<=n<=300 $ ), number of cards.\n\nThe second line contains $ n $ numbers $ l_{i} $ ( $ 1<=l_{i}<=10^{9} $ ), the jump lengths of cards.\n\nThe third line contains $ n $ numbers $ c_{i} $ ( $ 1<=c_{i}<=10^{5} $ ), the costs of cards.",
+    "outputFormat": "If it is impossible to buy some cards and become able to jump to any cell, output -1. Otherwise output the minimal cost of buying such set of cards.",
+    "samples": [
+        [
+            "3\n100 99 9900\n1 1 1\n",
+            "2\n"
+        ],
+        [
+            "5\n10 20 30 40 50\n1 1 1 1 1\n",
+            "-1\n"
+        ],
+        [
+            "7\n15015 10010 6006 4290 2730 2310 1\n1 1 1 1 1 1 10\n",
+            "6\n"
+        ],
+        [
+            "8\n4264 4921 6321 6984 2316 8432 6120 1026\n4264 4921 6321 6984 2316 8432 6120 1026\n",
+            "7237\n"
+        ]
+    ],
+    "hint": "In first sample test, buying one card is not enough: for example, if you buy a card with length 100, you can't jump to any cell whose index is not a multiple of 100. The best way is to buy first and second card, that will make you be able to jump to any cell.\n\nIn the second sample test, even if you buy all cards, you can't jump to any cell whose index is not a multiple of 10, so you should output -1.",
+    "translation": "\u7ed9\u51fa $n$ \u5f20\u5361\u7247\uff0c\u5206\u522b\u6709 $l_i$ \u548c $c_i$\u3002\u5728\u4e00\u6761\u65e0\u9650\u957f\u7684\u7eb8\u5e26\u4e0a\uff0c\u4f60\u53ef\u4ee5\u9009\u62e9\u82b1 $c_i$ \u7684\u94b1\u6765\u8d2d\u4e70\u5361\u7247 $i$\uff0c\u4ece\u6b64\u4ee5\u540e\u53ef\u4ee5\u5411\u5de6\u6216\u5411\u53f3\u8df3 $l_i$ \u4e2a\u5355\u4f4d\u3002\u95ee\u4f60\u81f3\u5c11\u82b1\u591a\u5c11\u5143\u94b1\u624d\u80fd\u591f\u8df3\u5230\u7eb8\u5e26\u4e0a\u5168\u90e8\u4f4d\u7f6e\u3002\u82e5\u4e0d\u884c\uff0c\u8f93\u51fa $-1$\u3002"
+}

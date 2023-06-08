@@ -1,0 +1,21 @@
+{
+    "description": "You are given an array $ a_1, a_2, \\dots, a_n $ of integer numbers.\n\nYour task is to divide the array into the maximum number of segments in such a way that:\n\n- each element is contained in exactly one segment;\n- each segment contains at least one element;\n- there doesn't exist a non-empty subset of segments such that bitwise XOR of the numbers from them is equal to $ 0 $ .\n\nPrint the maximum number of segments the array can be divided into. Print -1 if no suitable division exists.",
+    "inputFormat": "The first line contains a single integer $ n $ ( $ 1 \\le n \\le 2 \\cdot 10^5 $ ) \u2014 the size of the array.\n\nThe second line contains $ n $ integers $ a_1, a_2, \\dots, a_n $ ( $ 0 \\le a_i \\le 10^9 $ ).",
+    "outputFormat": "Print the maximum number of segments the array can be divided into while following the given constraints. Print -1 if no suitable division exists.",
+    "samples": [
+        [
+            "4\n5 5 7 2\n",
+            "2\n"
+        ],
+        [
+            "3\n1 2 3\n",
+            "-1\n"
+        ],
+        [
+            "3\n3 1 10\n",
+            "3\n"
+        ]
+    ],
+    "hint": "In the first example $ 2 $ is the maximum number. If you divide the array into $ \\{[5], [5, 7, 2]\\} $ , the XOR value of the subset of only the second segment is $ 5 \\oplus 7 \\oplus 2 = 0 $ . $ \\{[5, 5], [7, 2]\\} $ has the value of the subset of only the first segment being $ 5 \\oplus 5 = 0 $ . However, $ \\{[5, 5, 7], [2]\\} $ will lead to subsets $ \\{[5, 5, 7]\\} $ of XOR $ 7 $ , $ \\{[2]\\} $ of XOR $ 2 $ and $ \\{[5, 5, 7], [2]\\} $ of XOR $ 5 \\oplus 5 \\oplus 7 \\oplus 2 = 5 $ .\n\nLet's take a look at some division on $ 3 $ segments \u2014 $ \\{[5], [5, 7], [2]\\} $ . It will produce subsets:\n\n- $ \\{[5]\\} $ , XOR $ 5 $ ;\n- $ \\{[5, 7]\\} $ , XOR $ 2 $ ;\n- $ \\{[5], [5, 7]\\} $ , XOR $ 7 $ ;\n- $ \\{[2]\\} $ , XOR $ 2 $ ;\n- $ \\{[5], [2]\\} $ , XOR $ 7 $ ;\n- $ \\{[5, 7], [2]\\} $ , XOR $ 0 $ ;\n- $ \\{[5], [5, 7], [2]\\} $ , XOR $ 5 $ ;\n\nAs you can see, subset $ \\{[5, 7], [2]\\} $ has its XOR equal to $ 0 $ , which is unacceptable. You can check that for other divisions of size $ 3 $ or $ 4 $ , non-empty subset with $ 0 $ XOR always exists.\n\nThe second example has no suitable divisions.\n\nThe third example array can be divided into $ \\{[3], [1], [10]\\} $ . No subset of these segments has its XOR equal to $ 0 $ .",
+    "translation": "\u9898\u610f\u7b80\u8ff0\n\n\u7ed9\u51fa\u4e00\u4e2a\u5e8f\u5217$\\{a_i\\}$\uff0c\u8bd5\u5c06\u5176\u5212\u5206\u4e3a\u5c3d\u53ef\u80fd\u591a\u7684\u975e\u7a7a\u5b50\u6bb5\uff0c\u6ee1\u8db3\u6bcf\u4e00\u4e2a\u5143\u7d20\u51fa\u73b0\u4e14\u4ec5\u51fa\u73b0\u5728\u5176\u4e2d\u4e00\u4e2a\u5b50\u6bb5\u4e2d\uff0c\u4e14\u5728\u8fd9\u4e9b\u5b50\u6bb5\u4e2d\u4efb\u53d6\u82e5\u5e72\u5b50\u6bb5\uff0c\u5b83\u4eec\u5305\u542b\u7684\u6240\u6709\u6570\u7684\u5f02\u6216\u548c\u4e0d\u80fd\u4e3a$0$\uff0e\n\n\u8f93\u5165\u683c\u5f0f\n\n\u7b2c\u4e00\u884c\u4e00\u4e2a\u6574\u6570$n(1 \\leq n \\leq 2*10^5)$\u8868\u793a\u5e8f\u5217\u957f\u5ea6\n\n\u63a5\u4e0b\u6765\u4e00\u884c$n$\u4e2a\u6574\u6570$a_i(0 \\leq a_i \\leq 10^9)$\u63cf\u8ff0\u8fd9\u4e2a\u5e8f\u5217\n\n\u8f93\u51fa\u683c\u5f0f\n\n\u4e00\u884c\uff0c\u5982\u679c\u4e0d\u5b58\u5728\u65b9\u6848\u8f93\u51fa`-1`\uff0c\u5426\u5219\u8f93\u51fa\u6240\u6709\u5408\u6cd5\u7684\u5212\u5206\u65b9\u6848\u4e2d\u6700\u5927\u7684\u5212\u5206\u6570"
+}

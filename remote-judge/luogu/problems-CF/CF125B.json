@@ -1,0 +1,17 @@
+{
+    "description": "Let's define a string <x> as an opening tag, where $ x $ is any small letter of the Latin alphabet. Each opening tag matches a closing tag of the type </x>, where $ x $ is the same letter.\n\nTegs can be nested into each other: in this case one opening and closing tag pair is located inside another pair.\n\nLet's define the notion of a XML-text:\n\n- an empty string is a XML-text\n- if $ s $ is a XML-text, then $ s' $ =<a>+ $ s $ +</a> also is a XML-text, where $ a $ is any small Latin letter\n- if $ s_{1} $ , $ s_{2} $ are XML-texts, then $ s_{1} $ + $ s_{2} $ also is a XML-text\n\nYou are given a XML-text (it is guaranteed that the text is valid), your task is to print in the following form:\n\n- each tag (opening and closing) is located on a single line\n- print before the tag $ 2*h $ spaces, where $ h $ is the level of the tag's nestedness.",
+    "inputFormat": "The input data consists on the only non-empty string \u2014 the XML-text, its length does not exceed 1000 characters. It is guaranteed that the text is valid. The text contains no spaces.",
+    "outputFormat": "Print the given XML-text according to the above-given rules.",
+    "samples": [
+        [
+            "<a><b><c></c></b></a>\n",
+            "<a>\n  <b>\n    <c>\n    </c>\n  </b>\n</a>\n"
+        ],
+        [
+            "<a><b></b><d><c></c></d></a>\n",
+            "<a>\n  <b>\n  </b>\n  <d>\n    <c>\n    </c>\n  </d>\n</a>\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u4e00\u4e2a $\\texttt{XML}$ \u8868\u683c\u7531\u591a\u4e2a\u5f62\u5982 $\\texttt{<x>}$ \u6216\u8005 $\\texttt{</x>}$ \u7684\u64cd\u4f5c\u7ec4\u6210\uff0c\u5176\u4e2d $\\texttt{x}$ \u8868\u793a\u4e00\u4e2a\u82f1\u6587\u5b57\u6bcd\u3002\n\n\u73b0\u5728\uff0c\u7ed9\u51fa\u4e00\u4e2a\u957f\u5ea6\u4e3a $s$ \u7684 $\\texttt{XML}$ \u8868\u683c\uff08**\u4fdd\u8bc1\u6ca1\u6709\u7a7a\u683c**\uff09\uff0c\u8bf7\u4f60\u6309\u7167 $\\texttt{XML}$ \u8868\u683c\u7684\u683c\u5f0f\u8f93\u51fa\uff1a\n\n- \u524d\u9762\u5e94\u8be5\u6709 $2\\times h$ \u7684\u7a7a\u683c\u7f29\u8fdb\uff0c\u5176\u4e2d $h$ \u8868\u793a\u5f53\u524d\u6807\u7b7e\u7684\u7ea7\u6570\u3002\n- \u6bcf\u4e00\u4e2a\u5f62\u5982 $\\texttt{<x>}$ \u6216\u8005 $\\texttt{</x>}$ \u7684\u64cd\u4f5c\u3002\n\n\u7ffb\u8bd1\u8005\u63d0\u793a\uff1a\u5982\u679c\u5bf9\u9898\u610f\u4e0d\u7406\u89e3\uff0c\u53ef\u4ee5\u8003\u8651\u4e00\u4e0b $\\texttt{C++}$ \u4e2d\u5d4c\u5957\u5faa\u73af\u7684\u683c\u5f0f\u3002\n\n**\u6570\u636e\u8303\u56f4\uff1a$s\\leqslant1000$\u3002**"
+}

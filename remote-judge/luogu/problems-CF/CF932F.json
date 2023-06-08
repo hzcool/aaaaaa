@@ -1,0 +1,17 @@
+{
+    "description": "You are given a tree with $ n $ nodes (numbered from $ 1 $ to $ n $ ) rooted at node $ 1 $ . Also, each node has two values associated with it. The values for $ i $ -th node are $ a_{i} $ and $ b_{i} $ .\n\nYou can jump from a node to any node in its subtree. The cost of one jump from node $ x $ to node $ y $ is the product of $ a_{x} $ and $ b_{y} $ . The total cost of a path formed by one or more jumps is sum of costs of individual jumps. For every node, calculate the minimum total cost to reach any leaf from that node. Pay attention, that root can never be leaf, even if it has degree $ 1 $ .\n\nNote that you cannot jump from a node to itself.",
+    "inputFormat": "The first line of input contains an integer $ n $ ( $ 2<=n<=10^{5} $ ) \u2014 the number of nodes in the tree.\n\nThe second line contains $ n $ space-separated integers $ a_{1},a_{2},...,a_{n}(-10^{5}<=a_{i}<=10^{5}) $ .\n\nThe third line contains $ n $ space-separated integers $ b_{1},b_{2},...,b_{n}(-10^{5}<=b_{i}<=10^{5}) $ .\n\nNext $ n-1 $ lines contains two space-separated integers $ u_{i} $ and $ v_{i} $ ( $ 1<=u_{i},v_{i}<=n $ ) describing edge between nodes $ u_{i} $ and $ v_{i} $ in the tree.",
+    "outputFormat": "Output $ n $ space-separated integers, $ i $ -th of which denotes the minimum cost of a path from node $ i $ to reach any leaf.",
+    "samples": [
+        [
+            "3\n2 10 -1\n7 -7 5\n2 3\n2 1\n",
+            "10 50 0 "
+        ],
+        [
+            "4\n5 -10 5 7\n-8 -80 -3 -10\n2 1\n2 4\n1 3\n",
+            "-300 100 0 0 "
+        ]
+    ],
+    "hint": "In the first example, node $ 3 $ is already a leaf, so the cost is $ 0 $ . For node $ 2 $ , jump to node $ 3 $ with cost $ a_{2}\u00d7b_{3}=50 $ . For node $ 1 $ , jump directly to node $ 3 $ with cost $ a_{1}\u00d7b_{3}=10 $ .\n\nIn the second example, node $ 3 $ and node $ 4 $ are leaves, so the cost is $ 0 $ . For node $ 2 $ , jump to node $ 4 $ with cost $ a_{2}\u00d7b_{4}=100 $ . For node $ 1 $ , jump to node $ 2 $ with cost $ a_{1}\u00d7b_{2}=-400 $ followed by a jump from $ 2 $ to $ 4 $ with cost $ a_{2}\u00d7b_{4}=100 $ .",
+    "translation": "\u6709\u4e00\u9897 $n$ \u4e2a\u8282\u70b9\u7684\u6811\uff08\u8282\u70b9\u4ece $1$ \u5230 $n$ \u4f9d\u6b21\u7f16\u53f7\uff09\uff0c\u6839\u8282\u70b9\u4e3a $1$\u3002\u6bcf\u4e2a\u8282\u70b9\u6709\u4e24\u4e2a\u6743\u503c\uff0c\u7b2c $i$ \u4e2a\u8282\u70b9\u7684\u6743\u503c\u4e3a $a_i,b_i$\u3002\n\n\u4f60\u53ef\u4ee5\u4ece\u4e00\u4e2a\u8282\u70b9\u8df3\u5230\u5b83\u7684\u5b50\u6811\u5185\u4efb\u610f\u4e00\u4e2a\u8282\u70b9\u4e0a\u3002\u4ece\u8282\u70b9 $x$ \u8df3\u5230\u8282\u70b9 $y$ \u4e00\u6b21\u7684\u82b1\u8d39\u4e3a $a_x\\times b_y$\u3002\u8df3\u8dc3\u591a\u6b21\u8d70\u8fc7\u4e00\u6761\u8def\u5f84\u7684\u603b\u8d39\u7528\u4e3a\u6bcf\u6b21\u8df3\u8dc3\u7684\u8d39\u7528\u4e4b\u548c\u3002\u8bf7\u5206\u522b\u8ba1\u7b97\u51fa\u6bcf\u4e2a\u8282\u70b9\u5230\u8fbe\u6811\u7684\u6bcf\u4e2a\u53f6\u5b50\u8282\u70b9\u7684\u8d39\u7528\u4e2d\u7684\u6700\u5c0f\u503c\u3002\n\n\u6ce8\u610f\uff1a\u5c31\u7b97\u6839\u8282\u70b9\u7684\u5ea6\u6570\u4e3a $1$\uff0c\u6839\u8282\u70b9\u4e5f\u4e0d\u7b97\u505a\u53f6\u5b50\u8282\u70b9\u3002\u53e6\u5916\uff0c\u4e0d\u80fd\u4ece\u4e00\u4e2a\u8282\u70b9\u8df3\u5230\u5b83\u81ea\u5df1.\n\n$2\\leq n\\leq 10^5$\uff0c$-10^5\\leq a_i\\leq 10^5$\uff0c$-10^5\\leq b_i\\leq 10^5$\u3002"
+}

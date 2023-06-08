@@ -1,0 +1,29 @@
+{
+    "description": "It's now $ 260 $ AD. Shapur, being extremely smart, became the King of Persia. He is now called Shapur, His majesty King of kings of Iran and Aniran.\n\nRecently the Romans declared war on Persia. They dreamed to occupy Armenia. In the recent war, the Romans were badly defeated. Now their senior army general, Philip is captured by Shapur and Shapur is now going to capture Valerian, the Roman emperor.\n\nBeing defeated, the cowardly Valerian hid in a room at the top of one of his castles. To capture him, Shapur has to open many doors. Fortunately Valerian was too scared to make impenetrable locks for the doors.\n\nEach door has $ 4 $ parts. The first part is an integer number $ a $ . The second part is either an integer number $ b $ or some really odd sign which looks like R. The third one is an integer $ c $ and the fourth part is empty! As if it was laid for writing something. Being extremely gifted, after opening the first few doors, Shapur found out the secret behind the locks.\n\n $ c $ is an integer written in base $ a $ , to open the door we should write it in base $ b $ . The only bad news is that this R is some sort of special numbering system that is used only in Roman empire, so opening the doors is not just a piece of cake!\n\nHere's an explanation of this really weird number system that even doesn't have zero:\n\nRoman numerals are based on seven symbols: a stroke (identified with the letter I) for a unit, a chevron (identified with the letter V) for a five, a cross-stroke (identified with the letter X) for a ten, a C (identified as an abbreviation of Centum) for a hundred, etc.:\n\n- I= $ 1 $\n- V= $ 5 $\n- X= $ 10 $\n- L= $ 50 $\n- C= $ 100 $\n- D= $ 500 $\n- M= $ 1000 $\n\nSymbols are iterated to produce multiples of the decimal ( $ 1 $ , $ 10 $ , $ 100 $ , $ 1,000 $ ) values, with V, L, D substituted for a multiple of five, and the iteration continuing: I $ 1 $ , II $ 2 $ , III $ 3 $ , V $ 5 $ , VI $ 6 $ , VII $ 7 $ , etc., and the same for other bases: X $ 10 $ , XX $ 20 $ , XXX $ 30 $ , L $ 50 $ , LXXX $ 80 $ ; CC $ 200 $ , DCC $ 700 $ , etc. At the fourth and ninth iteration, a subtractive principle must be employed, with the base placed before the higher base: IV $ 4 $ , IX $ 9 $ , XL $ 40 $ , XC $ 90 $ , CD $ 400 $ , CM $ 900 $ .\n\nAlso in bases greater than $ 10 $ we use A for $ 10 $ , B for $ 11 $ , etc.\n\nHelp Shapur capture Valerian and bring peace back to Persia, especially Armenia.",
+    "inputFormat": "The first line contains two integers $ a $ and $ b $ ( $ 2<=a,b<=25 $ ). Only $ b $ may be replaced by an R which indicates Roman numbering system.\n\nThe next line contains a single non-negative integer $ c $ in base $ a $ which may contain leading zeros but its length doesn't exceed $ 10^{3} $ .\n\nIt is guaranteed that if we have Roman numerals included the number would be less than or equal to $ 3000_{10} $ and it won't be $ 0 $ . In any other case the number won't be greater than $ 10^{15}_{10} $ .",
+    "outputFormat": "Write a single line that contains integer $ c $ in base $ b $ . You must omit leading zeros.",
+    "samples": [
+        [
+            "10 2\n1\n",
+            "1\n"
+        ],
+        [
+            "16 R\n5\n",
+            "V\n"
+        ],
+        [
+            "5 R\n4\n",
+            "IV\n"
+        ],
+        [
+            "2 2\n1111001\n",
+            "1111001\n"
+        ],
+        [
+            "12 13\nA\n",
+            "A\n"
+        ]
+    ],
+    "hint": "You can find more information about roman numerals here: http://en.wikipedia.org/wiki/Roman\\_numerals",
+    "translation": "\u8f93\u5165n,m,\u4e00\u4e2an\u8fdb\u5236\u7684\u6570,\u5c06\u5b83\u8f6c\u6362\u6210m\u8fdb\u5236\u540e\u8f93\u51fa\r\n\u7279\u6b8a\u8fdb\u5236\uff1a\u7f57\u9a6c\u6570\u5b57\r\n>I= 1;\r\nV= 5;\r\nX= 10;\r\nL= 50;\r\nC= 100;\r\nD= 500;\r\nM= 1000"
+}

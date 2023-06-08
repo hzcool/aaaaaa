@@ -1,0 +1,17 @@
+{
+    "description": "Barney lives in country USC (United States of Charzeh). USC has $ n $ cities numbered from $ 1 $ through $ n $ and $ n-1 $ roads between them. Cities and roads of USC form a rooted tree (Barney's not sure why it is rooted). Root of the tree is the city number $ 1 $ . Thus if one will start his journey from city $ 1 $ , he can visit any city he wants by following roads.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF696B/ba3e1e6f719802c9fe4b318c8d8513024bc088eb.png)Some girl has stolen Barney's heart, and Barney wants to find her. He starts looking for in the root of the tree and (since he is Barney Stinson not a random guy), he uses a random DFS to search in the cities. A pseudo code of this algorithm is as follows:\n\n```plain\nlet starting_time be an array of length n\ncurrent_time = 0\ndfs(v):\n\tcurrent_time = current_time + 1\n\tstarting_time[v] = current_time\n\tshuffle children[v] randomly (each permutation with equal possibility)\n\t// children[v] is vector of children cities of city v\n\tfor u in children[v]:\n\t\tdfs(u)\n```\n\nAs told before, Barney will start his journey in the root of the tree (equivalent to call dfs(1)).\n\nNow Barney needs to pack a backpack and so he wants to know more about his upcoming journey: for every city $ i $ , Barney wants to know the expected value of starting\\_time\\[i\\]. He's a friend of Jon Snow and knows nothing, that's why he asked for your help.",
+    "inputFormat": "The first line of input contains a single integer $ n $ ( $ 1<=n<=10^{5} $ ) \u2014 the number of cities in USC.\n\nThe second line contains $ n-1 $ integers $ p_{2},p_{3},...,p_{n} $ ( $ 1<=p_{i}&lt;i $ ), where $ p_{i} $ is the number of the parent city of city number $ i $ in the tree, meaning there is a road between cities numbered $ p_{i} $ and $ i $ in USC.",
+    "outputFormat": "In the first and only line of output print $ n $ numbers, where $ i $ -th number is the expected value of starting\\_time\\[i\\].\n\nYour answer for each city will be considered correct if its absolute or relative error does not exceed $ 10^{-6} $ .",
+    "samples": [
+        [
+            "7\n1 2 1 1 4 4\n",
+            "1.0 4.0 5.0 3.5 4.5 5.0 5.0 \n"
+        ],
+        [
+            "12\n1 1 2 2 4 4 3 3 1 10 8\n",
+            "1.0 5.0 5.5 6.5 7.5 8.0 8.0 7.0 7.5 6.5 7.5 8.0 \n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u6709\u4e00\u68f5\u6811\uff0c\u5171\u6709N($ 1<=n<=10^5$)\u4e2a\u8282\u70b9\uff0c\u4ed6\u4f1a\u4f7f\u7528\u4e0b\u5217DFS\u7b97\u6cd5\u5bf9\u8be5\u6811\u8fdb\u884c\u904d\u5386\u3002\n```\nstarting_time\u662f\u4e00\u4e2a\u5bb9\u91cf\u4e3an\u7684\u6570\u7ec4\ncurrent_time = 0\n    dfs(v):\n    current_time =current_time+1\n    starting_time[v] = current_time\n    \u5c06children[v]\u7684\u987a\u5e8f\u968f\u673a\u6392\u5217 (\u6bcf\u4e2a\u6392\u5217\u7684\u6982\u7387\u76f8\u540c)\n    // children[v]v\u7684\u76f4\u63a5\u513f\u5b50\u7ec4\u6210\u7684\u6570\u7ec4\n    for u in children[v]:\n        dfs(u)\n```\n\n1\u662f\u8fd9\u68f5\u6811\u7684\u6839\uff0cBob\u4f1a\u4ece1\u51fa\u53d1\uff0c\u5373\u8fd0\u884cdfs(1)\uff0c\u73b0\u5728\u4ed6\u60f3\u77e5\u9053\u6bcf\u4e2a\u70b9starting_time\u7684\u671f\u671b\u503c\u3002\n\ntranslator\uff1akfhkx"
+}
