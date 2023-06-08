@@ -1,0 +1,18 @@
+[
+    {
+        "content": "\u8fd9\u9053\u9898\u53ea\u8981\u904d\u5386\u6570\u7ec4\u5c31\u884c\u4e86\n\n\u6ce8\u91ca\u5728\u7a0b\u5e8f\u91cc\u6253\uff0c\u56e0\u4e3a\u6ca1\u4ec0\u4e48\u53ef\u4ee5\u8bf4\u7684\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include<iostream>\n#include<cmath>\n#include<algorithm>\n#include<cstdio>\nusing namespace std;\nint n1,n2,t,j,k;  //\u5b9a\u4e49\u53d8\u91cf\nint a[1000+5];  //\u8fd9\u662f\u6e38\u620f\nint b[1000+5];  //\u8fd9\u662f\u94b1\nint main()\n{\n    cin>>n1>>n2;  //\u8f93\u5165\n    for(int i=0;i<n1;i++)\n\tcin>>a[i];  //\u5faa\u73af\u8f93\u5165\u6e38\u620f\n    for(int i=0;i<n2;i++)\n\tcin>>b[i];  //\u5faa\u73af\u8f93\u5165\u94b1\n    while(j<n2&&k<n1)  //\u8fdb\u5165\u6700\u7ec8\u73af\u8282\n    {\n        if(a[k]<=b[j])  //\u5982\u679c\u53ef\u4ee5\u8d2d\u4e70\n\t{\n            k++;\n\t    j++;\n\t    t++;\n            //\u4e0b\u6807\u548c\u6570\u91cf\u5c31++\n        }\n        else  //\u5426\u5219\u4e0d\u80fd\u8d2d\u4e70\n            k++;  //\u4e0b\u6807++\n    }\n    cout<<t;  //\u8f93\u51fa\u6700\u7ec8\u7ed3\u679c\n    return 0;\n}  \n```\n",
+        "postTime": 1572061070,
+        "uid": 90316,
+        "name": "\u6797\u5bb6\u4e09\u5c11",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1009A \u3010Game Shopping\u3011"
+    },
+    {
+        "content": "\u601d\u8def\uff1a\u53ea\u8981\u904d\u5386\u6570\u7ec4\u5373\u53ef\uff0c\u6bcf\u6b21\u6bd4\u5bf9\u5927\u5c0f\uff0c\u5927\u4e86\u4e0d\u4e70\uff0c\u5c0f\u4e86\u5c31\u4e70\n```\n#include <iostream>\nusing namespace std;\n\nint n1,n2,t;//n1\u4e3a\u6e38\u620f\u6570\u91cf\uff0cn2\u4e3a\u94b1\u7684\u6570\u91cf\uff0ct\u4e3a\u7b54\u6848\nint a[1005];//\u50a8\u5b58\u6e38\u620f\nint b[1005];//\u50a8\u5b58\u94b1\n\nint main(){\n\tcin>>n1>>n2;//\u8f93\u5165\n\tint j=0;//b\u6570\u7ec4\u7684\u4e0b\u6807\n\tint k=0;//a\u6570\u7ec4\u7684\u4e0b\u6807\n\tfor(int i=0;i<n1;i++) cin>>a[i];//\u8f93\u5165a\n\tfor(int i=0;i<n2;i++) cin>>b[i];//\u8f93\u5165b\n\twhile(j<n2&&k<n1){//\u5982\u679c\u8fd8\u6709\u94b1\uff0c\u5e76\u4e14\u6e38\u620f\u6ca1\u6709\u904d\u5386\u5b8c\n\t\tif(a[k]<=b[j]){//\u53ef\u4ee5\u8d2d\u4e70\n\t\t\tk++,j++,t++;//\u4e24\u4e2a\u4e0b\u6807++\uff0c\u6570\u91cf++\n\t\t}\n\t\telse{\n\t\t\tk++;//a\u6570\u7ec4\u4e0b\u6807++\n\t\t}\n\t}\n\tcout<<t;//\u8f93\u51fa\n\treturn 0;\n}\t\t\n```",
+        "postTime": 1532954654,
+        "uid": 55206,
+        "name": "ComeOver\u00b7",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1009A \u3010Game Shopping\u3011"
+    }
+]

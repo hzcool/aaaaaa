@@ -1,0 +1,58 @@
+[
+    {
+        "content": "## \u9898\u76ee\u5927\u610f \n\n\u7ef4\u62a4\u4e00\u4e2a\u521d\u59cb\u4e3a\u7a7a\u7684\u70b9\u96c6\uff0c\u652f\u6301\u4e24\u79cd\u64cd\u4f5c\uff1a\n\n$ +\\ x\\ y$\uff1a\u5411\u70b9\u96c6\u4e2d\u52a0\u5165 (x,y)\u3002\n\n$ ?\\ h\\ w $\uff1a\u67e5\u8be2\u662f\u5426\u5bf9\u4e8e\u70b9\u96c6\u4e2d\u7684\u6240\u6709\u70b9\u90fd\u6ee1\u8db3 $ x \\leq h \\&\\& y \\leq w  $ \u6216\u8005 $ x \\leq w \\&\\& y \\leq h $\n\n## \u89e3\u6cd5\n\n1.\u5982\u679c $ x > y $\uff0c\u5148 $ swap(x,y) $ .\n\n2.\u8bb0\u5f55\u6700\u5927\u503c maxx \u548c maxy\uff0c\u6bcf\u6b21\u8be2\u95ee \u5982\u679c $ maxx \\leq x  \\&\\&  maxy \\leq y$ \u5c31\u8f93\u51fa YES \u5426\u5219\u8f93\u51fa NO\u3002\n\n## \u4ee3\u7801\n\n```cpp\n#include <bits/stdc++.h>\n\nusing namespace std;\n\nint main(){\n\t\n\tint n,maxx=0,maxy=0;\n\t\n\tscanf(\"%d\",&n);\n\t\n\tfor(int i=1;i<=n;i++){\n\t\tchar op;\n\t\tint x,y;\n\t\tscanf(\" %c %d %d\",&op,&x,&y);\n\t\tif(x<y) swap(x,y);//\u4e3a\u4e86\u65b9\u4fbf\u6bd4\u8f83\n\t\tif(op=='+'){\n\t\t\tmaxx=max(maxx,x);\n\t\t\tmaxy=max(maxy,y);//\u7ef4\u62a4\u6700\u5927\u503c\n\t\t}else{\n\t\t\tif(maxx<=x&&maxy<=y) puts(\"YES\");//\u5982\u4e0a\u6587\n\t\t\telse puts(\"NO\");\n\t\t}\n\t}\n\t\n\treturn 0;\n}\n```\n",
+        "postTime": 1637899793,
+        "uid": 234469,
+        "name": "hxyqwq",
+        "ccfLevel": 6,
+        "title": "CF1101E \u9898\u89e3"
+    },
+    {
+        "content": "\u4e24\u79cd\u64cd\u4f5c\uff1a$1.$\u6dfb\u52a0\u4e00\u4e2a$x\\times y$\u7684\u77e9\u5f62\n\n$2.$\u67e5\u8be2\u4e4b\u524d\u7684\u6240\u6709\u77e9\u5f62\u662f\u5426\u90fd\u80fd\u653e\u5728$h\\times w$\u7684\u65b9\u6846\u5185\n\n\u4e3a\u4e86\u65b9\u4fbf\uff0c\u5982\u679c$x>y$\u6216\u8005$h>w$\uff0c\u90fd$swap$\u4e00\u4e0b\n\n\u7136\u540e\u8bb0\u5f55\u6dfb\u52a0\u4e86\u7684\u6700\u5927\u7684$x,y$\uff0c\u548c\u67e5\u8be2\u7684$h,w$\u5bf9\u6bd4\uff0c\u5982\u679c$max\\_x \\leq h$\u5e76\u4e14$max\\_y \\leq w$\uff0c\u5c31\u662f$YES$\uff0c\u5426\u5219\u5c31\u662f$NO$\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main()\n{\n    int n;\n    cin>>n;\n    char opt[4];\n    int x,y;\n    int maxx=0,maxy=0;\n    for(int i=1;i<=n;i++)\n    {\n        scanf(\"%s%d%d\",opt,&x,&y);\n        if(opt[0]=='+')\n        {\n            if(x>y)\n            {\n                swap(x,y);\n            }\n            maxx=max(maxx,x);\n            maxy=max(maxy,y);\n        }\n        else\n        {\n            if(x>y)\n            {\n                swap(x,y);\n            }\n            if(x>=maxx&&y>=maxy)\n            {\n                printf(\"YES\\n\");\n            }\n            else\n            {\n                printf(\"NO\\n\");\n            }\n        }\n    }\n}\n```\n\n",
+        "postTime": 1547278459,
+        "uid": 48265,
+        "name": "decoqwq",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1101E \u3010Polycarp's New Job\u3011"
+    },
+    {
+        "content": "\u8003\u524d\u5199\u9898\u89e3\u636e\u8bf4\u80fd\u589e\u52a0 rp\uff08\n\n## \u601d\u8def\n\n\u5bf9\u4e8e\u6bcf\u6b21\u64cd\u4f5c\uff0c\u5982\u679c $x > y$\uff0c\u5148\u4ea4\u6362 $x,y$\u3002\n\n\u4e8e\u662f\u53ea\u9700\u8981\u7ef4\u62a4 $x,y$ \u7684\u6700\u5927\u503c\uff0c\u7136\u540e\u8be2\u95ee\u65f6\u6bd4\u8f83\u5c31\u53ef\u4ee5\u4e86\u3002\n\n\u65f6\u95f4\u590d\u6742\u5ea6 $O(n)$\u3002\n\n## \u4ee3\u7801\n\n```cpp\n/*\n\np_b_p_b txdy\nAThousandMoon txdy\nAThousandSuns txdy\nhxy txdy\n\n*/\n\n#include <bits/stdc++.h>\n#define pb push_back\n#define fst first\n#define scd second\n\nusing namespace std;\ntypedef long long ll;\ntypedef pair<ll, ll> pii;\n\nint n, mx, my;\n\nvoid solve() {\n\tscanf(\"%d\", &n);\n\tfor (int i = 0; i < n; ++i) {\n\t\tchar op[9];\n\t\tint x, y;\n\t\tscanf(\"%s%d%d\", op, &x, &y);\n\t\tif (x > y) {\n\t\t\tswap(x, y);\n\t\t}\n\t\tif (op[0] == '+') {\n\t\t\tmx = max(mx, x);\n\t\t\tmy = max(my, y);\n\t\t} else {\n\t\t\tputs(mx <= x && my <= y ? \"YES\" : \"NO\");\n\t\t}\n\t}\n}\n\nint main() {\n\tint T = 1;\n\t// scanf(\"%d\", &T);\n\twhile (T--) {\n\t\tsolve();\n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1637366156,
+        "uid": 275273,
+        "name": "zltqwq",
+        "ccfLevel": 0,
+        "title": "CF1101E \u9898\u89e3"
+    },
+    {
+        "content": "\u5728\u6bcf\u6b21\u52a0\u70b9\u64cd\u4f5c\u65f6\uff0c\u82e5 $x_i>y_i$\uff0c\u5219\u4ea4\u6362 $x_i$ \u548c $y_i$\u3002\n\u8bb0 $xa$ \u4e3a\u6240\u6709 $x_i$ \u7684\u6700\u5927\u503c\uff0c$ya$ \u4e3a\u6240\u6709 $y_i$ \u7684\u6700\u5927\u503c\u3002\n\n\u5728\u6bcf\u6b21\u8be2\u95ee\u64cd\u4f5c\u65f6\uff0c\u82e5 $h_i>h_i$\uff0c\u5219\u4ea4\u6362 $h_i$ \u548c $w_i$\u3002\n\u82e5 $h_i>xa$ \u5e76\u4e14 $w_i>ya$\uff0c\u8f93\u51fa`YES`\uff0c\u5426\u5219\uff0c\u8f93\u51fa`NO`\u3002\n\n\u65f6\u95f4\u590d\u6742\u5ea6\uff1a$\\mathcal O(n)$\u3002\n\n## Code\n```\n#include<cstdio>\nint n,x,y,xa,ya;\nchar s[1];\nint main(){\n\tfor(scanf(\"%d\",&n);n--;){\n\t\tscanf(\"%s%d%d\",s,&x,&y);\n\t\tif(x>y)x^=y^=x^=y;\n\t\tif(s[0]=='+'){\n\t\t\tif(x>xa)xa=x;\n\t\t\tif(y>ya)ya=y;\n\t\t}\n\t\telse\n\t\t\tputs(xa<=x&&ya<=y?\"YES\":\"NO\");\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1682173864,
+        "uid": 530915,
+        "name": "zyc200156",
+        "ccfLevel": 5,
+        "title": "Polycarp's New Job"
+    },
+    {
+        "content": "## \u601d\u8def\uff1a\n\n\u5982\u679c\u662f\u52a0\u53f7\uff1a\n\n\u6211\u4eec\u5f80\u70b9\u96c6\u91cc\u52a0\u5165 $x,y$\uff0c\u6211\u4eec\u7528 `maxx` \u8bb0\u5f55\u6700\u5927\u7684\uff0c`maxy` \u8bb0\u5f55\u6700\u5c0f\u4e2d\u6700\u5927\u7684\uff0c\u5f53 $x<y$ \u65f6\uff0c\u5c06\u5176\u4ea4\u6362\u3002\n\n\u5982\u679c\u662f\u95ee\u53f7\uff1a\n\n\u6211\u4eec\u770b\u80fd\u5426\u6ee1\u8db3\u6761\u4ef6\uff0c\u5f97\u76ca\u4e8e\u521a\u521a\u8bb0\u5f55\u597d\u7684 `maxx` \u548c `maxy`\uff0c\u6211\u4eec\u76f4\u63a5\u7528 `if` \u8bed\u53e5\u5224\u65ad `x>=maxx&&y>=maxy` \u5373\u53ef\uff0c\u7136\u540e\u6839\u636e\u9898\u76ee\u8981\u6c42\u8f93\u51fa `YES` \u6216 `NO`\u3002\n\n\u6839\u636e\u601d\u8def\u5176\u5b9e\u91cd\u8981\u4ee3\u7801\u677f\u5757\u90fd\u51fa\u6765\u4e86\uff0c\u4ee3\u7801\u5c31\u4e0d\u653e\u4e86\u3002",
+        "postTime": 1653566397,
+        "uid": 470883,
+        "name": "Kyron",
+        "ccfLevel": 0,
+        "title": "CF1101E"
+    },
+    {
+        "content": "### \u3010\u5f15\u8a00\u3011\n~~\u545c\u545c\u545c\uff0c\u6ca1\u6709\u8d21\u732e\u5206\u4e86~~\uff0c\u6211\u770bCF\u7684\u9898\u592a\u53ef\u7231\u4e86\uff0c\u6765\u5207\u51e0\u9053\uff0c\u6765\u51e0\u7bc7\u9898\u89e3\n\n### \u3010\u601d\u8def\u5206\u6790\u3011\uff1a\n\n\u6211\u4eec\u770b\u5230\u9898\u76ee\u4e2d\u8981\u6c42\uff0c\u52a0\u5165\u70b9\u96c6$(x,y)$,\u5f88\u5bb9\u6613\u5c31\u60f3\u5230\u8fd9\u662f\u4e00\u4e2a\u7c7b\u4f3c\u4e8e\u76f4\u89d2\u5750\u6807\u7cfb\u4e4b\u7c7b\u7684\uff0c\u5728\u5c31\u662f\u67e5\u8be2\u4ece\u5934\u5230\u70b9$(x,y)$,\u4e0d\u96be\u60f3\u5230\u9700\u8981\u5efa\u7acb\u4e00\u4e2a$n * m$\u7684\u77e9\u9635\u5c31\u53ef\u4ee5\u6ee1\u8db3\u8fd9\u7c7b\u6761\u4ef6\n\n----\n### \u3010\u4ee3\u7801\u5b9e\u73b0\u3011\uff1a\n1. \u5efa\u7acb\u77e9\u9635\u5c31\u4e0d\u5fc5\u8bf4\u4e86\n\n2. \u5efa\u7acb\u5b8c\u77e9\u9635\u6dfb\u52a0\u70b9\u96c6\uff0c\u4e5f\u5c31\u662f\u76f4\u63a5\u52a0\u5165\u5c31\u53ef\u4ee5\u4e86\n\n3. \u67e5\u8be2$(x,y)$\u8fd9\u4e00\u4e2a\u533a\u95f4\uff0c\u8fd9\u4e9b\u6570\uff0c\u662f\u5426\u90fd\u6ee1\u8db3\uff0c\u6211\u4eec\u53ea\u9700\u8981\u8bb0\u5f55\u4e00\u4e0b\u8fd9\u4e2a\u533a\u95f4\u7684\u6700\u5927\u503c\u548c$h,w$\u6bd4\u8f83\u4e00\u4e0b,\u4e5f\u5c31\u662f\u8bb0\u5f55\u4e00\u4e0b\u6700\u5927\u503c\u5373\u53ef\u3002\n\n---\n### \u3010code\u3011:\n```\n#include <bits/stdc++.h>\ninline int read()\n{\n  int x=0 , f=1; char ch=getchar();\n  while( !isdigit(ch) ){ if(ch == '-')f = -1; ch = getchar();}\n  while( isdigit(ch) ){ x = x *10 + ch - '0';ch = getchar();}\n  return x * f;\n}\nint n ;\nint max_x,max_y;\nint main()\n{\n    n = read();\n    while(n--)\n    {\n        char opt = getchar();\n        int x = read(), y = read();\n        if(x > y) std::swap( x , y );\n        if(opt == '+')\n        {\n            max_x = std:: max( max_x , x) ;\n            max_y = std:: max( max_y , y) ;\n        }\n        if(opt == '?')\n        {\n            if( x >= max_x && y >= max_y )\n            {\n                printf(\"YES\\n\");\n            }\n            else\n            {\n                printf(\"NO\\n\");\n            }\n        }\n    }\n    return 0;//\u597d\u4e60\u60ef \n}\n```",
+        "postTime": 1606914694,
+        "uid": 174683,
+        "name": "\u7ea2\u5c18\u4ed9",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1101E \u3010Polycarp's New Job\u3011"
+    },
+    {
+        "content": "\u5f00\u5b66\u7b2c\u4e00\u5929\u7559\u5ff5\n___\n### \u9898\u76ee\u5927\u610f\n\n\u7ed9\u5b9a $n$ \u4e2a\u64cd\u4f5c\uff1a\n\n1. \u63d2\u5165\u4e00\u4e2a $x\\times y$ \u7684\u77e9\u5f62\u3002\n2. \u8be2\u95ee\u6240\u6709\u63d2\u5165\u7684\u77e9\u5f62\u662f\u5426\u90fd\u53ef\u4ee5\u653e\u8fdb\u4e00\u4e2a $h\\times w$ \u7684\u77e9\u5f62\u3002\n\n### \u601d\u8def\n\n\u4e3a\u4e86\u65b9\u4fbf\uff0c\u6211\u4eec\u76f4\u63a5\u5904\u7406\u6210 $x<y,h<w$ \u7684\u5f62\u5f0f\u3002\n\n\u8fd9\u6837\u6211\u4eec\u53ea\u8981\u7ef4\u62a4\u4e24\u4e2a\u91cf\uff1a$\\max x,\\max y$\uff0c\u6bcf\u6b21\u64cd\u4f5c\u5224\u65ad $\\max x<h \\text{ and }\\max y<w$ \u662f\u5426\u6210\u7acb\u5373\u53ef\u3002\n\n### $\\mathcal{Code}$\n\n```cpp\nscanf(\"%s%d%d\", opt, &x, &y);\nif(x > y) Swap(x, y);\nif(opt[0] == '+'){\n    Max_x = max(Max_x, x);\n\tMax_y = max(Max_y, y);\n}\nif(opt[0] == '?')\n\tputs((Max_x <= x && Max_y <= y) ? \"YES\" : \"NO\");\n```",
+        "postTime": 1598866956,
+        "uid": 224931,
+        "name": "CSP_Sept",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF1101E \u3010Polycarp's New Job\u3011"
+    }
+]

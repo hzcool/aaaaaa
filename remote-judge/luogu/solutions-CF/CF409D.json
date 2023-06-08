@@ -1,0 +1,98 @@
+[
+    {
+        "content": "\u53c8\u662f\u4e00\u9053\u611a\u4eba\u8282\u7684\u9898\u76ee\u3002\u8fd9\u9053\u9898\u76ee\u5176\u5b9e\u5f88\u5751\uff0c\u770b\u8d77\u6765\u9898\u76ee\u63cf\u8ff0\u4e00\u5927\u5806\uff0c\u5176\u5b9e\u4e00\u5171\u670916\u53e5\u8bdd\u3002\u8f93\u5165\u4e00\u4e2an\uff0c\u5c31\u8981\u8f93\u51fa\u90a3\u53e5\u8bdd\u662f\u5426\u6b63\u786e\u3002\u6b63\u786e\u8f93\u51fa1\uff0c\u9519\u8bef\u8f93\u51fa0\u3002\u4e00\u5207\u90fd\u662f\u53ef\u4ee5\u7528\u767e\u5ea6\u89e3\u51b3\u7684\u3002\n\n```cpp\n#include <cstdio>  \nchar s[] = \"1001010111001010\";  \nint main() \n{  \n    int n;  \n    scanf(\"%d\", &n);  \n    printf(\"%c\\n\", s[n-1]);  \n    return 0;  \n}  \n```",
+        "postTime": 1517451349,
+        "uid": 8457,
+        "name": "chen_zhe",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF409D \u3010Big Data\u3011"
+    },
+    {
+        "content": "\u80af\u5b9a\u662f\u6211\u5403\u7684\u592a\u9971\u4e86\uff0c\u8fd9\u9053\u9898\u6709\u4e00\u79cd\u5f88~~\u7279\u522b\u7684~~\u89e3\u6cd5\n\n\u6211\u53d1\u73b0\u4e86$n$\u6240\u5bf9\u5e94\u7684\u6570\u662f\n\n> $1$\u548c$\\sqrt2$\u7684\u7b97\u672f\u51e0\u4f55\u5e73\u5747\u7684\u6781\u9650\u7684\u6570\u8f6c\u5316\u6210$2$\u8fdb\u5236\u540e\u7684\u5c0f\u6570\u90e8\u5206\u7684\u7b2c$(n+3)$\u4f4d\u3002\n\n\n$link:$[\u7b97\u672f\u51e0\u4f55\u5e73\u5747_\u767e\u5ea6\u767e\u79d1](https://baike.baidu.com/item/%E7%AE%97%E6%9C%AF%E5%87%A0%E4%BD%95%E5%B9%B3%E5%9D%87)\n\n\u5f53\u7136\uff0c\u5982\u679c\u4f60\u4e0d\u60f3\u770b\uff0c\u6211\u5c31\u8bf4\u4e00\u4e0b\uff0c\u5dee\u4e0d\u591a\u662f\u9012\u63a8\u5f0f\u5427\uff1a\n\n> $$A_0=a,B_0=b$$\n$$A_n=\\frac{A_{n-1}+B_{n-1}}{2},B_n=\\sqrt{A_{n-1}B_{n-1}},n>0$$\n\n\u5f53$n$\u8db3\u591f\u5927\u65f6\uff0c$A_n$\u548c$B_n$\u4f1a\u8d8b\u8fd1\u4e8e\u4e00\u4e2a\u540c\u6837\u7684\u503c\uff0c\u8fd9\u4e2a\u503c\u5c31\u662f$AGM(a,b)$\u3002\n\n$AGM(1,\\sqrt2)=1.1981402347\\dots$\n\n\u628a\u5b83\u8f6c\u6210\u4e8c\u8fdb\u5236\u540e\u5c31\u662f$1.001\\color{red}100101011100101\\color{black}010\\dots$\n\n\u770b\u5230\u7ea2\u8272\u7684\u5b57\u6ca1\u6709\uff0c\u90a3\u6b63\u662f\u6211\u4eec\u6240\u9700\u8981\u7684\u3002\n\n\u662f\u65f6\u5019\u8d34\u4ee3\u7801\u4e86\uff1a\n```\n#include<bits/stdc++.h>\nusing namespace std;\ndouble a[10005],b[10005],AGM;//\u6a21\u62df\u9700\u8981\u7684\u6570\u7ec4\u548c\u7b97\u51fa\u6765\u7684\u6781\u9650\nvoid f(){\n\ta[0]=1.0;\n\tb[0]=sqrt(2);//\u9884\u5904\u7406\u524d\u4e24\u9879\n\tfor(int i=0;i<10000;i++){//\u7b9710000\u6b21\u591f\u4e86\n\t\ta[i+1]=(a[i]+b[i])/2;\n\t\tb[i+1]=sqrt(a[i]*b[i]);//\u6a21\u62df\u8ba1\u7b97\n\t}\n\tAGM=a[10000];//\u83b7\u5f97\u6781\u9650\n}\nint main(){\n\tf();//\u7b97\u51fa\u6781\u9650\n\tint x;\n\tcin>>x;\n\tx+=3;//\u5148\u63d0\u524d\u52a0\u4e09\u4f4d\n\tfor(int i=0;i<x;i++)AGM=(double)(AGM-(int)AGM)*2;//\u7b97\u51fa\u7b2cx\u4f4d\uff0cAGM-(int)AGM\u4ee3\u8868\u53d6\u5c0f\u6570\u90e8\u5206\n\tcout<<int(AGM);//\u8f93\u51fa\u7b54\u6848\n\treturn 0;\n}\n\n```",
+        "postTime": 1560941971,
+        "uid": 58546,
+        "name": "CZQ_King",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF409D \u3010Big Data\u3011"
+    },
+    {
+        "content": "## \u7a81\u7136\u53d1\u73b0\u53ea\u6709\u6211\u826f\u5fc3\u5730\u53d1\u4e0a\u4e86\u7ffb\u8bd1\uff08\u767e\u5ea6nb\uff09\u3002\u3002\u3002\n## ~~\u6211\u624d\u4e0d\u4f1a\u50cf\u5927\u4f6c\u4eec\u4e00\u6837char\u6570\u7ec4\u548c\u75af\u72c2if\u5462~~ \n~~\u6765\u4e2a\u6570\u7ec4emmm~~\n\n1.The highest mountain above sea level in the world is Mount Everest. Its peak rises to 8848 m.\n\u4e16\u754c\u4e0a\u6d77\u62d4\u6700\u9ad8\u7684\u5c71\u662f\u73e0\u5cf0\u3002\u5176\u5cf0\u503c\u4e0a\u5347\u52308848\u7c73\u3002\n\n2.The largest board game tournament consisted of 958 participants playing chapaev.\n\u6700\u5927\u7684\u68cb\u5c40\u9526\u6807\u8d5b\u7531958\u540d\u53c2\u52a0\u67e5\u5e15\u8036\u592b\u7684\u53c2\u8d5b\u8005\u7ec4\u6210\u3002\n\n3.The largest online maths competition consisted of 12766 participants.\n\u6700\u5927\u7684\u5728\u7ebf\u6570\u5b66\u7ade\u8d5b\u753112766\u540d\u53c2\u4e0e\u8005\u7ec4\u6210\u3002\n\n4.The Nile is credited as the longest river in the world. From its farthest stream in Burundi, it extends 6695 km in length.\n\u5c3c\u7f57\u6cb3\u88ab\u8a89\u4e3a\u4e16\u754c\u4e0a\u6700\u957f\u7684\u6cb3\u6d41\u3002\u4ece\u5e03\u9686\u8fea\u6700\u8fdc\u7684\u6cb3\u6d41\u5ef6\u4f386695\u516c\u91cc\u3002\n\n5.While not in flood, the main stretches of the Amazon river in South America can reach widths of up to 1100 km at its widest points.\n\u867d\u7136\u6ca1\u6709\u6d2a\u6c34\uff0c\u4f46\u5357\u7f8e\u6d32\u4e9a\u9a6c\u900a\u6cb3\u7684\u4e3b\u8981\u6cb3\u6bb5\u5728\u5176\u6700\u5bbd\u5904\u53ef\u4ee5\u8fbe\u52301100\u516c\u91cc\u7684\u5bbd\u5ea6\u3002\n\n6.Angel Falls is the highest waterfall. Its greatest single drop measures 807 m.\n\u5b89\u8d6b\u5c14\u7011\u5e03\u662f\u6700\u9ad8\u7684\u7011\u5e03\u3002\u5176\u6700\u5927\u5355\u6ef4\u6d4b\u91cf\u503c\u4e3a807\u7c73\u3002\n\n7.The Hotel Everest View above Namche, Nepal \u2014 the village closest to Everest base camp \u2013 is at a record height of 31962 m.\n\u4f4d\u4e8e\u5c3c\u6cca\u5c14\u6700\u9760\u8fd1\u73e0\u7a46\u6717\u739b\u5cf0\u8425\u5730\u7684NAMCHE\u4ee5\u4e0a\u7684\u73e0\u7a46\u6717\u739b\u9152\u5e97\uff0c\u8fbe\u523031962\u7c73\u7684\u6700\u9ad8\u7eaa\u5f55\u3002\n\n8.Uranium is the heaviest of all the naturally occurring elements. Its most common isotope has a nucleus containing 146 neutrons.\n\u6700\u51b7\u7684\u6c38\u4e45\u5c45\u4f4f\u5730\u662f\u897f\u4f2f\u5229\u4e9a\u7684Oymyakon\u6751\uff0c\u90a3\u91cc\u572820\u4e16\u7eaa\u66fe\u6709-68\u2103\u7684\u6e29\u5ea6\u3002\n\n9.The longest snake held in captivity is over 25 feet long. Its name is Medusa.\n\u56da\u7981\u7684\u6700\u957f\u7684\u86c7\u8d85\u8fc725\u82f1\u5c3a\u957f\u3002\u5b83\u7684\u540d\u5b57\u53eb\u7f8e\u675c\u838e\u3002\n\n10.Colonel Meow holds the world record for longest fur on a cat \u2014 almost 134 centimeters.\nMeo\u4e0a\u6821\u62e5\u6709\u732b\u79d1\u52a8\u7269\u6700\u957f\u6bdb\u76ae\u7684\u4e16\u754c\u7eaa\u5f55\u2014\u2014\u5c06\u8fd1134\u5398\u7c73\u3002\n\n11.Colonel Meow holds the world record for longest fur on a cat \u2014 almost 134 centimeters.\n\u6d77\u736d\u6bcf\u5e73\u65b9\u82f1\u5bf8\u53ef\u4ee5\u670910000\u6839\u6bdb\u53d1\u3002\u8fd9\u662f\u52a8\u7269\u738b\u56fd\u91cc\u6700\u8302\u5bc6\u7684\u6bdb\u76ae\u3002\n\n12.The largest state of USA is Alaska; its area is 663268 square miles.\n\u7f8e\u56fd\u6700\u5927\u7684\u5dde\u662f\u963f\u62c9\u65af\u52a0\uff0c\u5b83\u7684\u9762\u79ef\u662f663268\u5e73\u65b9\u82f1\u91cc\u3002\n13.Alaska has a longer coastline than all of the other 49 U.S. States put together: it is 154103 miles long.\n\u963f\u62c9\u65af\u52a0\u7684\u6d77\u5cb8\u7ebf\u6bd4\u7f8e\u56fd\u5176\u4ed649\u4e2a\u5dde\u7684\u6d77\u5cb8\u7ebf\u8fd8\u8981\u957f\uff1a154103\u82f1\u91cc\u957f\u3002\n\n14.Lake Baikal is the largest freshwater lake in the world. It reaches 1642 meters in depth and contains around one-fifth of the world\u2019s unfrozen fresh water.\n\u8d1d\u52a0\u5c14\u6e56\u662f\u4e16\u754c\u4e0a\u6700\u5927\u7684\u6de1\u6c34\u6e56\u3002\u5b83\u7684\u6df1\u5ea6\u8fbe\u52301642\u7c73\uff0c\u7ea6\u5360\u4e16\u754c\u51b0\u51bb\u6de1\u6c34\u7684\u4e94\u5206\u4e4b\u4e00\u3002\n\n15.The most colorful national flag is the one of Turkmenistan, with 106 colors.\n\u6700\u9c9c\u8273\u7684\u56fd\u65d7\u662f\u571f\u5e93\u66fc\u65af\u5766\u7684\u56fd\u65d7\uff0c\u56fd\u65d7\u4e0a\u6709106\u79cd\u989c\u8272\u3002\n\n\u5176\u4e2d\u6b63\u786e\u7684\u662f1,4,6,8,9,10,13,15\n \n\u9644\u4e0a\u4ee3\u7801\uff1a\n\n\n \n\n```cpp\n#include<map>\n#include<list>\n#include<cmath>\n#include<cstdio>\n#include<cstring>\n#include<iostream>\n#include<algorithm>\n#define in inline\n#define ri register int\nusing namespace std;\nint a[]{0,1,4,6,8,9,10,13,15},n;\nint main(){\n    scanf(\"%d\",&n);\n    for(ri i=1;i<=8;i++)\n        if(n==a[i]){\n            putchar('1');\n            return ~~(0-0);//\u5356\u4e2a\u840c\u6c42\u901a\u8fc7 \n        }\n    putchar('0'); \n    return ~~(0-0);\n}\n\n```",
+        "postTime": 1538535254,
+        "uid": 90610,
+        "name": "\u4faf\u4f73\u660a",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF409D \u3010Big Data\u3011"
+    },
+    {
+        "content": "\u5e9f\u8bdd\u4e0d\u591a\u8bf4\uff0cPython\u4e00\u884c\u4ee3\u7801\u641e\u5b9a\n\n```python\nprint(\"01001010111001010\"[int(input())])\n```\n\n\u7531\u4e8e\u5b57\u7b26\u4e32\u662f\u4ece\u7b2c0\u4f4d\u5f00\u59cb\u5b58\u7684\uff0c\u6240\u4ee5\u6211\u4eec\u5c06\u5b57\u7b26\u4e32\u7684\u7b2c0\u4f4d\u8bbe\u4e3a'0'\uff08\u6216\u5176\u4ed6\u4efb\u4f55\u5b57\u7b26\uff09\u3002",
+        "postTime": 1552181331,
+        "uid": 106140,
+        "name": "e3c12195e3beef64f29a",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF409D \u3010Big Data\u3011"
+    },
+    {
+        "content": "\u76f4\u63a5\u4e0a\u4ee3\u7801\uff0c1\uff0c4,6,8,9,10,13,15\u4e3a\u6b63\u786e\u7684  \n\u5224\u65ad\u4e00\u4e0b\u5c31\u884c\u4e86\n```cpp\n#include <iostream>\nusing namespace std;\nint main(){\n\tint i;\n\tcin>>i;\n\tif(i==1||i==4||i==6||i==8||i==9||i==10||i==13||i==15) cout<<1;\n\telse cout<<0;\n}\n```\nAC\u54c8\u54c8\u54c8\u54c8\u54c8\uff0c\u6700\u8fd1\u75af\u72c2\u505acf\u9898\uff0c\u5176\u5b9e\u90fd\u597d\u505a\uff0c  \n\u8c22\u8c22\u4e86\n",
+        "postTime": 1553307644,
+        "uid": 114352,
+        "name": "sky5168",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF409D \u3010Big Data\u3011"
+    },
+    {
+        "content": "\u6b64\u9898\u5c5e\u4e8e\u611a\u4eba\u9898\uff0c**\u8981\u5224\u65ad16\u53e5\u8bdd\u7684\u6b63\u786e\u6027**\u3002\n\n\u53ef\u7528**\u767e\u5ea6**\u89e3\u51b3\uff0c\u5176\u5b9e\u5f88\u591a\u8bed\u53e5\u4e00\u773c\u5c31\u80fd\u770b\u51fa\u662f\u5426\u6b63\u786e\u3002\n\n\u4ee3\u7801\uff1a\n\n```\n#include<cstdio>\n#include<iostream>\n#include<cstring>\n#include<cmath>\n#include<algorithm>\nusing namespace std;\nint main()\n{\n\tint n;\n\tcin>>n;\n\tif (n==1)\n\t{\n\t\tcout<<\"1\"; \n\t}\n\telse\n\tif (n==2)\n\t{\n\t\tcout<<\"0\";\n\t}\n\telse\n\tif (n==3)\n\t{\n\t\tcout<<\"0\"; \n\t}\n\telse\n\tif (n==4)\n\t{\n\t\tcout<<\"1\";\n\t}\n\telse\n\tif (n==5)\n\t{\n\t\tcout<<\"0\";\n\t}\n\telse\n\tif (n==6)\n\t{\n\t\tcout<<\"1\";\n\t}\n\telse\n\tif (n==7)\n\t{\n\t\tcout<<\"0\";\n\t}\n\telse\n\tif (n==8)\n\t{\n\t\tcout<<\"1\";\n\t}\n\telse\n\tif (n==9)\n\t{\n\t\tcout<<\"1\";\n\t}\n\telse\n\tif (n==10)\n\t{\n\t\tcout<<\"1\";\n\t}\n\telse\n\tif (n==11)\n\t{\n\t\tcout<<\"0\";\n\t}\n\telse\n\tif (n==12)\n\t{\n\t\tcout<<\"0\";\n\t}\n\telse\n\tif (n==13)\n\t{\n\t\tcout<<\"1\";\n\t}\n\telse\n\tif (n==14)\n\t{\n\t\tcout<<\"0\";\n\t}\n\telse\n\tif (n==15)\n\t{\n\t\tcout<<\"1\";\n\t}\n\telse\n\tif (n==16)\n\t{\n\t\tcout<<\"0\";\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1517895187,
+        "uid": 43395,
+        "name": "Dream_It_Possible",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF409D \u3010Big Data\u3011"
+    },
+    {
+        "content": "~~\u4e0d\u6c34\u4e00\u6ce2\u600e\u80fd\u5bf9\u5f97\u8d77\u84dd\u9898\u5462\uff1f~~\\\n\u770b\u8d77\u6765\u5413\u4eba\uff0c\u5176\u5b9e\n# \u90fd\u662f\u5047\u8c61\uff01\uff01\uff01\n\u7ffb\u8bd1\uff1a\n1.\u4e16\u754c\u4e0a\u6d77\u62d4\u6700\u9ad8\u7684\u5c71\u662f\u73e0\u7a46\u6717\u739b\u5cf0\u3002\u5176\u5cf0\u503c\u5347\u81f38848m\u3002\uff08\u771f\uff09\\\n2.\u6700\u5927\u7684\u68cb\u76d8\u6bd4\u8d5b\u7531958\u540d\u53c2\u4e0e\u8005\u7ec4\u6210\uff0c\u4ed6\u4eec\u5728\u67e5\u5e15\u8036\u592b\u6bd4\u8d5b\u3002\uff08\u5047\uff09\\\n3.\u6700\u5927\u7684\u5728\u7ebf\u6570\u5b66\u7ade\u8d5b\u670912766\u4eba\u53c2\u52a0\u3002\uff08\u5047\uff09\\\n4.\u5c3c\u7f57\u6cb3\u88ab\u8a89\u4e3a\u4e16\u754c\u4e0a\u6700\u957f\u7684\u6cb3\u6d41\u3002\u4ece\u5b83\u5728\u5e03\u9686\u8fea\u6700\u8fdc\u7684\u6cb3\u6d41\uff0c\u5b83\u7684\u957f\u5ea66695\u516c\u91cc\u3002\uff08\u771f\uff09\\\n5.\u5728\u6ca1\u6709\u6d2a\u6c34\u7684\u60c5\u51b5\u4e0b\uff0c\u5357\u7f8e\u4e9a\u9a6c\u900a\u6cb3\u7684\u4e3b\u8981\u90e8\u5206\u6700\u5bbd\u5904\u53ef\u8fbe1100\u516c\u91cc\u3002\uff08\u5047\uff09\\\n6.\u5929\u4f7f\u7011\u5e03\u662f\u6700\u9ad8\u7684\u7011\u5e03\u3002\u5b83\u6700\u5927\u7684\u5355\u6ef4\u91cf\u4e3a807M\u3002\uff08\u771f\uff09\\\n7.\u7eb3\u59c6\u5207\uff0c\u5c3c\u6cca\u5c14----\u79bb\u73e0\u7a46\u6717\u739b\u5cf0\u5927\u672c\u8425\u6700\u8fd1\u7684\u6751\u5e84----\u4e0a\u9762\u7684\u9152\u5e97\u73e0\u7a46\u6717\u739b\u5cf0\u7684\u666f\u8272\u8fbe\u5230\u4e86\u521b\u7eaa\u5f55\u76843196M\u9ad8\u5ea6\u3002\uff08\u5047\uff09\\\n8.\u94c0\u662f\u6240\u6709\u81ea\u7136\u5b58\u5728\u5143\u7d20\u4e2d\u6700\u91cd\u7684\u3002\u5b83\u6700\u5e38\u89c1\u7684\u540c\u4f4d\u7d20\u6709\u4e00\u4e2a\u5305\u542b146\u4e2a\u4e2d\u5b50\u7684\u539f\u5b50\u6838\u3002\uff08\u771f\uff09\\\n9.\u6700\u5bd2\u51b7\u7684\u957f\u671f\u6709\u4eba\u5c45\u4f4f\u7684\u5730\u65b9\u662f\u897f\u4f2f\u5229\u4e9a\u7684\u6b27\u7c73\u4e9a\u80af\u6751\u5e84\uff0c\u90a3\u91cc\u7684\u6e29\u5ea6\u572820\u4e16\u7eaa\u8bb0\u5f55\u4e3a-68\u00b0c\u3002\uff08\u771f\uff09\\\n10.\u5708\u517b\u65f6\u95f4\u6700\u957f\u7684\u86c7\u8d85\u8fc725\u82f1\u5c3a\u957f\u3002\u5b83\u7684\u540d\u5b57\u53eb\u7f8e\u675c\u838e\u3002\uff08\u771f\uff09\\\n11.\u55b5\u4e0a\u6821\u4fdd\u6301\u7740\u732b\u8eab\u4e0a\u6700\u957f\u6bdb\u76ae\u7684\u4e16\u754c\u7eaa\u5f55\u2014\u2014\u5c06\u8fd1134\u5398\u7c73\u3002\uff08\u5047\uff09\\\n12.\u6d77\u736d\u6bcf\u5e73\u65b9\u82f1\u5bf8\u53ef\u4ee5\u670910000\u6839\u6bdb\u53d1\u3002\u8fd9\u662f\u52a8\u7269\u754c\u6700\u6d53\u5bc6\u7684\u6bdb\u76ae\u3002\uff08\u5047\uff09\\\n13.\u7f8e\u56fd\u6700\u5927\u7684\u5dde\u662f\u963f\u62c9\u65af\u52a0\uff0c\u9762\u79ef663268\u5e73\u65b9\u82f1\u91cc\u3002\uff08\u771f\uff09\\\n14.\u963f\u62c9\u65af\u52a0\u7684\u6d77\u5cb8\u7ebf\u6bd4\u7f8e\u56fd\u5176\u4ed649\u4e2a\u5dde\u52a0\u8d77\u6765\u8fd8\u8981\u957f\uff1a\u957f154103\u82f1\u91cc\u3002\uff08\u5047\uff09\\\n15.\u8d1d\u52a0\u5c14\u6e56\u662f\u4e16\u754c\u4e0a\u6700\u5927\u7684\u6de1\u6c34\u6e56\u3002\u5b83\u7684\u6df1\u5ea6\u8fbe\u52301642\u7c73\uff0c\u542b\u6709\u4e16\u754c\u4e0a\u7ea6\u4e94\u5206\u4e4b\u4e00\u7684\u672a\u7ed3\u51b0\u6de1\u6c34\u3002\uff08\u771f\uff09\\\n16.\u6700\u9c9c\u8273\u7684\u56fd\u65d7\u662f\u571f\u5e93\u66fc\u65af\u5766\u56fd\u65d7\uff0c\u6709106\u79cd\u989c\u8272\u3002\uff08\u5047\uff09\\\n\n---\n\u9644\u4e0aAC\u4ee3\u7801\uff1a\n```cpp\n#include<cstdio>\nint n;\nint main(void)\n{\n    scanf(\"%d\",&n);\n    switch(n)\n    {\n        case 1:cout<<\"1\";break;\n        case 2:cout<<\"0\";break;\n        case 3:cout<<\"0\";break;\n        case 4:cout<<\"1\";break;\n        case 5:cout<<\"0\";break;\n        case 6:cout<<\"1\";break;\n        case 7:cout<<\"0\";break;\n        case 8:cout<<\"1\";break;\n        case 9:cout<<\"1\";break;\n        case 10:cout<<\"1\";break;\n        case 11:cout<<\"0\";break;\n        case 12:cout<<\"0\";break;\n        case 13:cout<<\"1\";break;\n        case 14:cout<<\"0\";break;\n        case 15:cout<<\"1\";break;\n        case 16:cout<<\"0\";break;\n    }\n}\n```\n\u7b2cN\u6b21\u53d1\u9898\u89e3\uff0c~~\u6c42\u8fc7QWQ~~",
+        "postTime": 1552119932,
+        "uid": 109442,
+        "name": "IAK_IOI",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF409D \u3010Big Data\u3011"
+    },
+    {
+        "content": "\u8fd9\u662f\u672c\u4f2a\u88c5\u6210\u5927\u4f6c\u7684\u849f\u84bb\u5199\u7684\u7b2c\u4e00\u7bc7\u9898\u89e3\u3002\u54ea\u91cc\u9519\u4e86\u671b\u5404\u4f4d\u5927\u4f6c\u4eec\u6307\u51fa\u6765\u3002\n\n\u8fd9\u662fCF\u7684\u611a\u4eba\u8282\u9898\u76ee\uff0c\u53ea\u8981English\u597d\uff0cGeography\u597d\uff0c\u5c31\u80fd\u505a\u51fa\u6765\u3002\n\nGoogle\u544a\u8bc9\u6211\u4eec\uff0c\u4ed6\u4eec\u7684\u771f\u5047\u5206\u522b\u662f\uff1a`1001010111001010`\u3002\n\n\u597d\u4e86\uff0c\u6253\u8868\u5f00\u59cb\uff01\n\n```pascal\nCONST\n\u3000s='1001010111001010'\uff1b\nVAR\n\u3000n:longint\uff1b\nBEGIN\n\u3000readln(n)\uff1b\n\u3000writeln(s[n])\uff1b\nEND.\n```",
+        "postTime": 1534832699,
+        "uid": 87551,
+        "name": "pascalfans",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF409D \u3010Big Data\u3011"
+    },
+    {
+        "content": "# \u53c8\u662f\u4e00\u9053\u611a\u4eba\u8282\u9898\u76ee~\n\u4e0d\u8fc7\u5927\u4f6c\u4eec\u90fd\u662fC++\u4ee3\u7801\uff0c\u8ba9\u6211\u6765\u5199\u4e00\u7bc7pascal\u9898\u89e3~\n\n\u6839\u636e\u5ea6\u5a18\u544a\u8bc9\u6211\u4eec\u7684\u6570\u5217\uff0c\u6211\u4eec\u5c31\u53ef\u4ee5\u5f00\u59cb\u6253\u8868\u4e86~~\u6570\u5217\u5982\u4e0b\n```cpp\n1001010111001010\n```\n\n\u6253\u8868\u4ee3\u7801\u5982\u4e0b\uff1a\n```pascal\nConst s='1001010111001010';//\u5b9a\u4e49\u6570\u5217\u5e38\u91cf\nVar n:longint;\nBegin\n        read(n);//\u8f93\u5165\n        write(s[n]);//\u8f93\u51fa\u6570\u5217\u7684\u7b2cn\u4e2a\u6570\nend.\n```",
+        "postTime": 1534767755,
+        "uid": 96544,
+        "name": "willbe233",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF409D \u3010Big Data\u3011"
+    },
+    {
+        "content": "### \u8fd9\u9898\u662f\u4e00\u9053\u611a\u4eba\u8282\uff0c\u5ea6\u5a18\u4f1a\u544a\u8bc9\u6211\u4eec\u4e00\u5207\n\n## \u653e\u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>//\u4e07\u80fd\u5934\u6587\u4ef6\nusing namespace std;\nint n;//\u5b9a\u4e49n\nint main()\n{\t\n    cin>>n; //\u8f93\u5165n\n\tif(n==1||n==4||n==6||n==8||n==9||n==10||n==13||n==15)cout<<\"1\";//\u6839\u636e\u7ffb\u8bd1\u544a\u8bc9\u6211\u4eec\u7684\u6d88\u606f\uff0c\u6b63\u786e\u7684\u662f1,4,6,8,9,10,13,15\uff0c\u6240\u4ee5\u8f93\u51fa1\n\telse cout<<\"0\"; //\u5426\u5219\u8f93\u51fa0\n    return 0;//\u5b8c\u7f8e\u7ed3\u675f\n}\n```\n",
+        "postTime": 1573707451,
+        "uid": 93213,
+        "name": "\u5411\u65e5\u8475\u5c0f\u73ed",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF409D \u3010Big Data\u3011"
+    },
+    {
+        "content": "\u53c8\u662f\u4e00\u9053\u5e38\u8bc6\u9898\uff0c\u53ea\u662f\u9898\u76ee\u63cf\u8ff0\u6709\u70b9\u552c\u4eba\u3002\n\n~~\u5f88\u7b80\u5355\u7684\u5e38\u8bc6\uff0c~~\u4e0d\u4f1a\u53ef\u4ee5\u4e0a\u767e\u5ea6\u3002\n\n\u4e4b\u524d\u6709\u8fc7C++\u7684\uff0c\u56e0\u6b64\u6211\u62ff\u6765\u4e86\u4e00\u4e2aPython\u3002\n\n```python\nans = [\"1\", \"0\", \"0\", \"1\", \"0\", \"1\", \"0\", \"1\", \"1\", \"1\", \"0\", \"0\", \"1\", \"0\", \"1\", \"0\"]\n\nn = input()\nprint(a[n-1])  #\u4e0b\u6807\u4ece0\u5f00\u59cb\n```",
+        "postTime": 1546419249,
+        "uid": 122461,
+        "name": "rui_er",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF409D \u3010Big Data\u3011"
+    },
+    {
+        "content": "\u679c\u7136\u662f\u611a\u4eba\u8282\u9898\u76ee\u554a\u3002\u3002\u3002\u3002\n\n\u767e\u5ea6\u4e00\u4e0b\u5c31\u884c\u4e86\n\n\u6211\u7528\u7684\u662fPython3~~\uff0c\u522b\u6284\u9519\u4e86~~\n\n$code$\n\n```python\na = ['1','0','0','1','0','1','0','1','1','1','0','0','1','0','1','0'] # \u628a\u8868\u5148\u6253\u597d\nx = int(input()) # \u8f93\u5165\nprint (a[x - 1]) # \u8f93\u51fa\n```",
+        "postTime": 1538489029,
+        "uid": 46747,
+        "name": "Aehnuwx",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF409D \u3010Big Data\u3011"
+    }
+]

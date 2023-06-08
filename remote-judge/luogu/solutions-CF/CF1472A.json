@@ -1,0 +1,82 @@
+[
+    {
+        "content": "# [\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/CF1472A)\n\n\u53c8\u662f\u4e00\u9053 $CF$ \u7684\u5927\u6c34\u9898\u5462\u3002\n\n\u8bf4\u767d\u4e86\uff0c\u53ea\u8981\u957f\u6216\u5bbd\u80fd\u591f\u9664\u4ee5$2$\uff0c\u5c31\u4e00\u76f4\u526a\u4e0b\u53bb\uff0c\u4e5f\u5c31\u662f\u8bf4\uff0c\u5047\u5982$w=2^x \\times y$\uff0c$h=2^p \\times q$,\u5c31\u80fd\u526a$2^\\text{x+p}$\u5f20\u3002\n\n\u5982\u56fe\uff1a\n![](https://cdn.luogu.com.cn/upload/image_hosting/2k3cp2ca.png)\n\u957f\u548c\u5bbd\u90fd\u662f2\uff0c\u5373$2^1$,\u6240\u4ee5\u5171\u80fd\u526a$2^\\text{1+1}\\text{\u5373}2^2$\n\u5f20\uff0c\u90a3\u4e48\u8fd9\u5f20\u56fe\u7684\u7b54\u6848\u5c31\u662f$4$.\n\n\n\u7406\u89e3\u539f\u7406\u540e\uff0c\u90a3\u4e48\u4ee3\u7801\u5c31\u5f88\u7b80\u5355\uff0c$Code$\u8d70\u8d77\uff1a\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint t;\nint main(){\n    scanf(\"%d\",&t);\n    while(t--){\n        int n,l,h;\n        scanf(\"%d%d%d\",&l,&h,&n);\n        int cnt=1;\n        while(l%2==0){\n            l/=2;\n            cnt*=2;\n        }\n        while(h%2==0){\n            h/=2;\n            cnt*=2;\n        }\n        if(cnt>=n){\n            printf(\"YES\\n\");\n        }else{\n            printf(\"NO\\n\");\n        }\n    }\n    return 0;\n}\n```\n",
+        "postTime": 1610260905,
+        "uid": 359614,
+        "name": "Forever1507",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF1472A \u3010Cards for Friends\u3011"
+    },
+    {
+        "content": "\u6211\u53c8\u6765\u5199\u9898\u89e3\u60f9~\n\n~~\u4e00\u9053\u6c34\u9898~~\n\n# \u5206\u6790\n\n\u53ea\u9700\u518d\u5b9a\u4e49\u4e00\u4e2a\u53d8\u91cf $cnt$\uff0c\u8868\u793a\u76ee\u524d\u7684\u7eb8\u7247\u6570\u3002\n\n\u9898\u76ee\u7684\u610f\u601d\u8bf4\u767d\u4e86\uff1a\u7ed9\u4f60\u4e24\u4e2a\u6570\uff0c\u7b2c\u4e00\u4e2a\u5982\u679c\u662f\u5076\u6570\uff0c\u5c31\u9664\u4ee5\u4e8c\uff0c\u7eb8\u7247\u6570\u7ffb\u500d\uff0c\u76f4\u5230\u8fd9\u4e2a\u6570\u53d8\u6210\u5947\u6570\uff0c\u8df3\u51fa\u5faa\u73af\u3002\n\n\u5bf9\u4e8e\u7b2c\u4e8c\u4e2a\u6570\u7ee7\u7eed\u8fd9\u6837\u505a\uff0c\u6ce8\u610f\u8fd9\u65f6$cnt$\u8981\u5728\u539f\u6765\u57fa\u7840\u4e0a\u7ee7\u7eed\u4e58\u4ee5\u4e8c\u5373\u53ef\u3002\n\n\u4e00\u7ec4\u6570\u636e\u5904\u7406\u5b8c\u6bd5\u540e\uff0c\u522b\u5fd8\u4e86\u5c06$cnt$\u91cd\u7f6e\u4e3a1\uff0c\u7ee7\u7eed\u4f7f\u7528\u3002\n\n\n# \u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint t,n,w,h,cnt=1;\nint main(){\n\tcin>>t;\n\twhile(t--){\n\t\tcin>>w>>h>>n;\n\t\twhile(w%2==0){\n        w/=2;\n        cnt*=2;\n        }\n\t\twhile(h%2==0){\n        h/=2;\n        cnt*=2;\n         }\n\t\tif(cnt>=n) cout<<\"YES\"<<endl;\n\t\telse cout<<\"NO\"<<endl;  \n       cnt=1;\n\t}\n\treturn 0;\n}\n```\n\n\n",
+        "postTime": 1610165891,
+        "uid": 363708,
+        "name": "wgy23672",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 CF1472A \u3010Cards for Friends\u3011"
+    },
+    {
+        "content": "## \u524d\u7f6e\u77e5\u8bc6\n\u4f4d\u8fd0\u7b97\u57fa\u672c\u64cd\u4f5c\u3002\n\n$(a >> k)\\ \\&\\ 1$\uff1a\u53d6\u51fa $a$ \u5728\u4e8c\u8fdb\u5236\u4e0b\u7b2c $k$ \u4f4d\uff08\u6700\u4f4e\u4f4d\u4e3a\u7b2c $0$ \u4f4d\uff09\u3002\n\n## \u601d\u8def\n\u63d0\u4f9b\u4e00\u4e2a\u4f4d\u8fd0\u7b97\u7248\u672c\u3002\n\n\u56e0\u4e3a $w$ \u4e3a\u5076\u6570\u6216 $h$ \u4e3a\u5076\u6570\u65f6\u624d\u80fd\u5bf9\u534a\u526a\u5f00\uff0c\u6240\u4ee5\u6211\u4eec\u53ea\u7528\u7edf\u8ba1 $w$\u3001$h$ \u4e00\u5171\u80fd\u88ab $2$ \u6574\u9664\u591a\u5c11\u6b21\uff0c\u800c\u8fd9\u7b49\u540c\u4e0e\u8ba1\u7b97\u4e00\u4e2a\u6570\u5728\u4e8c\u8fdb\u5236\u4e0b\u672b\u5c3e $0$ \u7684\u4e2a\u6570\u3002\n\n\u4e3a\u4e86\u65b9\u4fbf\uff0c\u6211\u4eec\u4e00\u5f00\u59cb\u5c31\u5c06 $w$ \u4e0e $h$ \u76f8\u4e58\uff08\u56e0\u4e3a\u8d28\u56e0\u5b50 $2$ \u7684\u4e2a\u6570\u4e0d\u6539\u53d8\uff0c\u6240\u4ee5\u4e0d\u5f71\u54cd\u7ed3\u679c\uff09\uff0c\u505a\u4e0a\u9762\u7684\u8ba1\u7b97\uff0c\u5e76\u4ee4\u7ed3\u679c\u4e3a $ans$\uff0c\u90a3\u4e48\u80fd\u526a\u51fa\u7684\u7eb8\u7247\u6570\u76ee\u5c31\u662f $2^{ans}$\uff0c\u5c06\u5176\u4e0e $n$ \u6bd4\u8f83\u5373\u53ef\u3002\n### $Tips:$\n\u6ce8\u610f\u8fd0\u7b97\u7b26\u4f18\u5148\u7ea7\uff0c\u4e0d\u786e\u5b9a\u7684\u53ef\u4ee5\u6bcf\u4e2a\u8fd0\u7b97\u7b26\u90fd\u52a0\u4e00\u5c42\u62ec\u53f7\u3002\n## \u4ee3\u7801\n```cpp\n#include <iostream>\nusing namespace std;\n\nint w, h, n;\n\nint main() {\n\tios::sync_with_stdio(false);\n\tcin.tie(0); cout.tie(0);\n    int t; cin >> t;\n    while(t--) {\n        cin >> w >> h >> n;\n        int c = w * h;\n        int i = 0;\n\t\twhile(((c >> i) & 1) == 0) i++;\t\n        int ans = 1;\n        while(i--) ans <<= 1;\n        cout << (ans < n ? \"NO\" : \"YES\") << endl;    \n    }\n    return 0;\n}\n```\n[AC\u8bb0\u5f55](https://www.luogu.com.cn/record/45215858)\n\n---\n$\\large\\text{THE\\ \\ \\ END}$",
+        "postTime": 1611149289,
+        "uid": 227623,
+        "name": "John_yangliwu",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1472A \u3010Cards for Friends\u3011"
+    },
+    {
+        "content": "### 0.Description\n\u6709\u4e00\u5f20 $w\\times h$ \u7684\u5361\u7247\uff0c\u6bcf\u6b21\u53ea\u80fd\u5c06\u5176\u6cbf\u957f\u6216\u5bbd\u7b49\u5206\uff08\u5982\u679c\u662f\u5947\u6570\u5219\u4e0d\u80fd\u7b49\u5206\uff09\u3002\u95ee\u80fd\u5426\u5206\u51fa\u4e0d\u5c11\u4e8e $n$ \u5f20\u5361\u7247\u3002\n### 1.Solution\n\u53ef\u4ee5\u770b\u51fa\u9898\u76ee\u5c31\u662f\u8981\u6c42\u6211\u4eec\u5c06\u957f\u548c\u5bbd\u4e0d\u65ad\u9664\u4ee5\u4e8c\uff0c\u6bcf\u6b21\u9664\u4ee5\u4e8c\u4f1a\u5bfc\u81f4\u7b54\u6848\u591a\u51fa\u4e00\u500d\u3002\u5bf9\u4e8e $w$ \u548c $h$ \u5206\u522b\u8ba1\u7b97\uff0c\u7edf\u8ba1\u7b54\u6848\u5373\u53ef\u3002\n### 2.Code\n```cpp\nLL T,n,w,h,cnt;\nint main(){\n\tRead(T);\n\twhile(T--){\n\t\tRead(w),Read(h),Read(n);\n\t\tcnt=1;\n\t\twhile(w%2==0)w>>=1,cnt<<=1;\n\t\twhile(h%2==0)h>>=1,cnt<<=1;\n\t\tif(cnt>=n)cout<<\"YES\\n\";\n\t\telse cout<<\"NO\\n\";\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1610098172,
+        "uid": 220524,
+        "name": "_ajthreac_",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF1472A \u3010Cards for Friends\u3011"
+    },
+    {
+        "content": "[CF1472A Cards for Friends](https://www.luogu.com.cn/problem/CF1472A)\n====\n\u601d\u8def\uff1a\n----\n $w=k\u00b72^n$\n \n $h=l\u00b72^m$\n \n \u53ea\u9700\u5224\u65ad$2^n\u00b72^m$\u662f\u5426\u5927\u4e8e$N$\u5373\u53ef\n\n```\n#include <bits/stdc++.h>\nusing namespace std;\nint main(){\n\tint t;//t\u7ec4\u6570\u636e\n\tcin>>t;\n\twhile(t--){\n\t\tint n,m,k;\n\t\tcin>>n>>m>>k;\n\t\tint cn=1,cm=1;\n\t\twhile(n%2==0){//\u6c42\u51fan\n\t\t\tn/=2;\n\t\t\tcn*=2;\n\t\t}\n\t\twhile(m%2==0){//\u6c42\u51fam\n\t\t\tm/=2;\n\t\t\tcm*=2;\n\t\t}\n\t\tif(cn*cm>=k){//\u5224\u65ad\n\t\t\tcout<<\"YES\"<<endl; \n\t\t}else{\n\t\t\tcout<<\"NO\"<<endl;\n\t\t}\n\t} \n    return 0;\n}\n```\n",
+        "postTime": 1611216252,
+        "uid": 180654,
+        "name": "B_lhx",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF1472A \u3010Cards for Friends\u3011"
+    },
+    {
+        "content": "## 1. \u9898\u610f\u7b80\u8ff0\n\n\u591a\u7ec4\u6570\u636e\uff0c\u7ed9\u5b9a\u7eb8\u7684\u5927\u5c0f$w\u00d7h$\uff0c\u95ee\u6709\u6ca1\u6709\u53ea\u4f7f\u7528\u8fd9\u4e24\u4e2a\u529e\u6cd5\u7684\u4e00\u79cd\u5206\u6cd5\uff0c\u628a\u7eb8\u5f20\u526a\u51fa $n$ \u5f20\u6216\u66f4\u591a\u3002\uff08\u529e\u6cd5\u4e00\uff1a\u5982\u679c $w$ \u662f\u5076\u6570\uff0c\u53ef\u4ee5\u5c06\u8be5\u7eb8\u7247\u5bf9\u534a\u526a\u5f00\u3002\u529e\u6cd5\u4e8c\uff1a\u5982\u679c $h$ \u662f\u5076\u6570\uff0c\u53ef\u4ee5\u5c06\u8be5\u7eb8\u7247\u5bf9\u534a\u526a\u5f00\u3002\uff09\n\n\u80fd \u8f93\u51fa\u201cYES\u201d\uff08\u4e0d\u8f93\u51fa\u5f15\u53f7\uff09\uff0c\u4e0d\u80fd \u8f93\u51fa\u201cNO\u201d\uff08\u4e0d\u8f93\u51fa\u5f15\u53f7\uff09\u3002$1\u2264t\u226410^4,1\u2264w,h\u226410^4,1\u2264n\u226410^9$\n\n## 2. \u9898\u76ee\u7b80\u6790\n\n\u8003\u70b9\uff1a\u6570\u8bba\n\n\u8fd9\u9053\u9898\u76f8\u5bf9\u8f83\u7b80\u5355\uff0c\u4f46\u662f\u8981\u601d\u8003\u4e00\u4f1a\u513f\u624d\u53ef\u4ee5\u505a\u51fa\u6765\u3002\n\n\u6839\u636e\u9898\u610f\uff0c\u603b\u4e2a\u6570\u8d77\u59cb\u4e3a\u4e00\u3002\n\n\u5982\u679c$w,h$\u9664\u4ee5\u4e8c\u90fd\u6574\u9664\uff0c\u90a3\u4e48\u603b\u4e2a\u6570\u4e58\u56db\uff0c$w,h$\u9664\u4ee5\u4e8c\uff1b\n\n\u5982\u679c$w$\u9664\u4ee5\u4e8c\u6574\u9664\uff0c\u90a3\u4e48\u603b\u4e2a\u6570\u4e58\u4e8c\uff0c$w$\u9664\u4ee5\u4e8c\uff1b\n\n\u5982\u679c$h$\u9664\u4ee5\u4e8c\u6574\u9664\uff0c\u90a3\u4e48\u603b\u4e2a\u6570\u4e58\u4e8c\uff0c$h$\u9664\u4ee5\u4e8c\uff1b\n\n\u5982\u679c$w,h$\u9664\u4ee5\u4e8c\u90fd\u4e0d\u6574\u9664\uff0c\u90a3\u4e48\u9000\u51fa\u5faa\u73af\u3002\n\n\u6700\u540e\u8ba9\u603b\u4e2a\u6570\u4e0e$n$\u6bd4\u8f83\u5373\u53ef\u3002\n\n## 3. \u4e3b\u4ee3\u7801 \u548c \u7b80\u5355\u8bb2\u89e3\n\n```cpp\nint w,h,n,ge=1;\ncin>>w>>h>>n;\nwhile(1){//\u4e00\u76f4\u5224\u65ad\uff0c\u5728\u5faa\u73af\u5185\u90e8\u8bbe\u7f6e\u6761\u4ef6\uff08\u9000\u51fa\u5faa\u73af\uff09\n    if(w%2==0&&h%2==0){//w,h\u9664\u4ee5\u4e8c\u90fd\u6574\u9664\n        w=w/2;\n        h=h/2;\n        ge=ge*2*2;\n    }\n    else if(w%2==0){//w\u9664\u4ee5\u4e8c\u6574\u9664\n        w=w/2;\n        ge=ge*2;\n    }\n    else if(h%2==0){//h\u9664\u4ee5\u4e8c\u6574\u9664\n        h=h/2;\n        ge=ge*2;\n    }\n    else{\n        break;//\u9000\u51fa\u5faa\u73af\n    }\n}\nif(ge>=n){\n    cout<<\"YES\\n\";\n}\nelse{\n    cout<<\"NO\\n\";\n}\n```\n\n## 4. \u5168\u4ee3\u7801\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main()\n{\n\tint t,i;\n\tcin>>t;\n\tfor(i=1;i<=t;i++){\n\t\tint w,h,n,ge=1;\n\t\tcin>>w>>h>>n;\n\t\twhile(1){\n            if(w%2==0&&h%2==0){\n                w=w/2;\n                h=h/2;\n                ge=ge*2*2;\n            }\n\t\t\telse if(w%2==0){\n\t\t\t\tw=w/2;\n\t\t\t\tge=ge*2;\n\t\t\t}\n\t\t\telse if(h%2==0){\n\t\t\t\th=h/2;\n\t\t\t\tge=ge*2;\n\t\t\t}\n\t\t\telse{\n\t\t\t\tbreak;\n\t\t\t}\n\t\t}\n\t\tif(ge>=n){\n\t\t\tcout<<\"YES\\n\";\n\t\t}\n\t\telse{\n\t\t\tcout<<\"NO\\n\";\n\t\t}\n\t}\n\treturn 0;\n}\n```\n\n## 5. \u5c0f\u7ed3\n\n\u672c\u9898\u89e3\u4f7f\u7528C++\uff0c\u6b22\u8fce\u5927\u4f6c\u6307\u6b63\uff01",
+        "postTime": 1610119210,
+        "uid": 392157,
+        "name": "xueshenwudi",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF1472A \u3010Cards for Friends\u3011"
+    },
+    {
+        "content": "# Solution\n\n\u628a\u957f\u548c\u5bbd\u5206\u89e3\uff0c\u4e4b\u540e\u76f8\u4e58\u770b\u7ed3\u679c\n\n\u53ef\u4ee5\u5b9a\u4e49\u4e00\u4e2a\u51fd\u6570\u5b9e\u73b0\u5206\u89e3\uff0c\u91c7\u7528\u9012\u63a8\u7684\u5f62\u5f0f\n\n\u7136\u540e\u4e00\u4e2a`while`\u5faa\u73af\u5b9e\u73b0\n\n```cpp\n#include<cstdio>\n#include<cstring>\n#include<iostream>\n#include<algorithm>\nusing namespace std;\n\nint t, cn = 1, w, h, n, cnt;\n\nint qwq(int a) //\u5206\u89e3\u51fd\u6570\n{\n    if(a % 2 == 0)\n    {\n        a /= 2;\n        cn *= 2;\n        qwq(a);\n    }\n    return cn;\n}\n\nint main()\n{\n    scanf(\"%d\", &t);\n    while(t--)\n    {\n        scanf(\"%d%d%d\", &w, &h, &n);\n        cn = 1; //\u8fd8\u539f\uff01\uff01\uff01\n        cnt = qwq(w);  //\u8ba1\u6570\n        cn = 1; //\u8fd8\u539f\uff01\uff01\uff01\n        cnt *= qwq(h); //\u8ba1\u6570\n        if(cnt >= n) printf(\"YES\\n\"); //\u82e5\u5927\u4e8e\n        else printf(\"NO\\n\");\n    }\n    return 0;\n}\n```",
+        "postTime": 1610029316,
+        "uid": 344373,
+        "name": "W_RB",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1472A \u3010Cards for Friends\u3011"
+    },
+    {
+        "content": "## \u601d\u8def\uff1a\n\n\u6bcf\u6b21\u64cd\u4f5c\u5982\u4e0b\uff1a\n\n- \u5982\u679c $w$ \u662f\u5076\u6570\uff0c$w$ \u5c31\u9664\u4ee5\u4e8c\uff0c\u8ba1\u6570\u5668\u4e58\u4ee5 $2$\u3002\n\n- \u5982\u679c $h$ \u662f\u5076\u6570\uff0c$h$ \u5c31\u9664\u4ee5\u4e8c\uff0c\u8ba1\u6570\u5668\u4e58\u4ee5 $2$\u3002\n\n- \u5982\u679c $w,h$ \u90fd\u662f\u6574\u6570\uff0c\u5c31\u6309 $w$ \u662f\u5076\u6570\u6765\u64cd\u4f5c\u3002\n\n- \u5f53 $w,h$ \u90fd\u662f\u5947\u6570\u65f6\u5c31\u7ed3\u675f\u64cd\u4f5c\u3002\n\n\u4e00\u4e2a $while$ \u5faa\u73af\u5c31\u80fd\u5b9e\u73b0\u3002\n\n\u7531\u4e8e\u6495\u4e00\u4e0b\u4ee5\u540e\uff0c$1$ \u5f20\u7eb8\u4f1a\u53d8\u4e3a $2$ \u5f20\u7eb8\uff0c\u6240\u4ee5\u8ba1\u6570\u5668\u8981\u4e58\u4ee5 $2$\u3002\n\n\u591a\u7ec4\u6d4b\u8bd5\u6570\u636e\u8981\u6e05\u96f6\u3002\n\n-----\n\n## $Code:$\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint T;\nint w,h,n;\nint cnt = 1;\nint main() {\n\tcin>>T;\n\twhile(T--) {\n\t\tscanf(\"%d%d%d\",&w,&h,&n);\n\t\twhile(1) {\n\t\t\tif (w % 2 == 0) {\n\t\t\t\tw /= 2;\n\t\t\t\tcnt *= 2;\n\t\t\t}\n\t\t\telse if (h % 2 == 0) {\n\t\t\t\th /= 2;\n\t\t\t\tcnt *= 2;\n\t\t\t}\n\t\t\tif (w % 2 == 1 && h % 2 == 1) break;\n\t\t}\n\t//\tcout<<cnt<<endl;\n\t\tif (cnt >= n) printf(\"YES\\n\");\n\t\telse printf(\"NO\\n\");\n\t\tcnt = 1;\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1610016938,
+        "uid": 351320,
+        "name": "RBI_GL",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1472A \u3010Cards for Friends\u3011"
+    },
+    {
+        "content": "\u4e00\u4e2a\u5f88\u7b80\u5355\u7684\u7ed3\u8bba\uff1a\u8bbe $w$ \u80fd\u88ab $2$ \u6574\u9664 $k_1$ \u6b21\uff0c $h$ \u80fd\u88ab $2$ \u6574\u9664 $k_2$ \u6b21\uff0c\u90a3\u4e48\u603b\u7eb8\u5f20\u6570\u7b49\u4e8e $2^{k_1+k_2}$\u3002\u6bd4\u8f83\u4e00\u4e0b\u5373\u53ef\u3002\n\n```cpp\n#include<iostream>\n#include<cstdio>\nusing namespace std;\nint main(){\n\tint t;scanf(\"%d\",&t);\n\twhile(t--){\n\t\tint w,h,n;scanf(\"%d%d%d\",&w,&h,&n);\n\t\tint ans=1;\n\t\twhile(ans<n&&w%2==0) w/=2,ans*=2;\n\t\twhile(ans<n&&h%2==0) h/=2,ans*=2;\n\t\tif(ans<n) puts(\"NO\");\n\t\telse puts(\"YES\");\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1609943999,
+        "uid": 258085,
+        "name": "\u6c5f\u6237\u5ddd\u00b7\u841d\u535c",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF1472A \u3010Cards for Friends\u3011"
+    },
+    {
+        "content": "### 0x01 \u601d\u8def\n\u53ea\u8981\u6709\u4e00\u4e2a $w$ \u6216 $h$ \u662f\u5076\u6570\uff0c\u6211\u4eec\u5c31\u53ef\u4ee5\u5c06\u5b83\u4eec\u9664\u4ee5 $2$ \uff0c\u603b\u5361\u724c\u6570\u4e58 $2$\u3002  \n\u5bf9\u4e8e\u6bcf\u7ec4\u6570\u636e \uff0c\u6211\u4eec\u8ba9\u603b\u5361\u724c\u6570\u53d8\u7684\u6700\u5927\u3002  \n\u6700\u540e\u7528\u5f97\u51fa\u7684\u6700\u5927\u7684\u5361\u724c\u6570\u548c $n$ \u6bd4\u8f83\u5373\u53ef\u3002  \n\u65f6\u95f4\u590d\u6742\u5ea6\uff1a$\\Theta(T \\times \\log_2w \\times \\log_2h)$\n\n\u8981\u6ce8\u610f\u4e24\u70b9\uff1a\n1. `CardCnt` \u5373\u603b\u5361\u724c\u6570\u8981**\u5f52\u4e00**\n2. \u8981\u8f93\u51fa\u6362\u884c\n\n------------\n### 0x02 \u4ee3\u7801\n```cpp\n#include <iostream>\nusing namespace std;\nint main()\n{\n    int TestCase = 0;\n    cin >> TestCase;\n    while(TestCase--)\n    {\n        int w,h,n;\n        cin>>w>>h>>n;\n        int CardCnt = 1;\n        // \u603b\u5361\u6570\n        while(!(w & 1))CardCnt <<= 1 , w >>= 1; \n        while(!(h & 1))CardCnt <<= 1 , h >>= 1; \n        if(CardCnt >= n)puts(\"YES\");\n        else puts(\"NO\");\n    }\n    return 0;\n}\n```",
+        "postTime": 1610338528,
+        "uid": 366338,
+        "name": "fjy666",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1472A \u3010Cards for Friends\u3011"
+    }
+]

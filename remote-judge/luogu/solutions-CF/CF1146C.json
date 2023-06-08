@@ -1,0 +1,26 @@
+[
+    {
+        "content": "\u8fd9\u4e2a\u505a\u6cd5\u53ea\u8981$7$\u6b21\u8be2\u95ee\u5c31\u884c\u4e86\uff0c\u6bd4std\u4f18\u79c0\u4e00\u70b9\u3002\n\n\u8003\u8651$query(S)=\\max_{a,b\\in S}dist(a,b)$\uff0c\u7b54\u6848\u5c31\u662f$query(\\{1,2,...,n\\})$\u3002\n\n$query(S)$\u53ef\u4ee5\u5148\u5c06$S$\u5206\u6210\u4e24\u4e2a\u96c6\u5408$A,B$\uff0c\u8be2\u95ee$A,B$\uff0c\u518d\u5206\u522b\u5904\u7406$query(A)$\u548c$query(B)$\uff0c$query(S)$\u5c31\u662f\u8fd9\u4e9b\u7684\u6700\u5927\u503c\u3002\u5982\u679cA,B\u5c3d\u91cf\u5e73\u5747\u5206\u914d\uff0c\u90a3\u4e48\u53ea\u9700\u8981$\\log n$\u6b21\u5c31\u53ef\u4ee5\u5c06$S$\u5206\u7684\u53ea\u5269\u4e00\u4e2a\u70b9\u3002\u4f46\u662f\u8fd9\u6837\u597d\u50cf\u8fd8\u662f$O(n)$\u7684\uff0c\u7136\u540e\u53c8\u53d1\u73b0\u53ef\u4ee5\u5206\u522b\u5904\u7406$query(A)$\u548c$query(B)$\u7684\u65f6\u5019\uff0c\u5c06$A$\u5206\u6210$A_1,A_2$\uff0c$B$\u5206\u6210$B_1,B_2$\uff0c\u90a3\u4e48\u8be2\u95ee\u53ef\u4ee5\u5408\u5728\u4e00\u8d77\u8be2\u95ee\u3002\u6bcf\u4e00\u5c42\u90fd\u5408\u5728\u4e00\u8d77\u8be2\u95ee\u5c31\u53ea\u9700\u8981$\\log n$\u4e86\uff08\u6240\u4ee5$n$\u8fd8\u80fd\u51fa\u5927\u4e00\u70b9\uff1f\uff09\n\nhttps://codeforces.com/contest/1146/submission/53065055\n\nhttps://www.cnblogs.com/xzz_233/p/10744690.html",
+        "postTime": 1555933185,
+        "uid": 23118,
+        "name": "\u03bb\u1d09\u028d",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1146C \u3010Tree Diameter\u3011"
+    },
+    {
+        "content": "\u4e8c\u8fdb\u5236\u5206\u7ec4\u3002\n\n\u4e00\u4e2a\u6570\u4e0e\u53e6\u5916\u4e00\u4e2a\u6570\u5728\u4e8c\u8fdb\u5236\u4e0a\u81f3\u5c11\u6709\u4e00\u4f4d\u4e0d\u540c\u3002\n\n\u6240\u4ee5\u6bcf\u6b21\u8be2\u95ee\u628a\u6709\u4e8c\u8fdb\u5236\u76f8\u540c\u4f4d\u7684\u653e\u5728\u4e00\u8d77\uff0c\u5176\u4ed6\u7684\u653e\u5728\u4e00\u8d77\u8be2\u95ee\u5373\u53ef\u3002\n\n```cpp\n#include<cstdio>\nconst int N=105;\nint T,n,a[N],b[N],cnt,cmt,x,Ans;\nint main(){\n\tfor(scanf(\"%d\",&T);T;T--){\n\t\tscanf(\"%d\",&n);Ans=0;\n\t\tfor(int i=1;i<=n;i<<=1){//\u679a\u4e3e\u4e8c\u8fdb\u5236\u4f4d\n\t\t\tcnt=cmt=0;\n\t\t\tfor(int j=1;j<=n;j++)\n\t\t\tif(i&j)a[++cnt]=j;//\u4e8c\u8fdb\u5236\u5206\u7ec4\n\t\t\telse b[++cmt]=j;\n\t\t\tprintf(\"%d %d \",cnt,cmt);\n\t\t\tfor(int j=1;j<=cnt;j++)printf(\"%d \",a[j]);\n\t\t\tfor(int j=1;j<=cmt;j++)printf(\"%d \",b[j]);\n\t\t\tfflush(stdout);\n\t\t\tscanf(\"%d\",&x);\n\t\t\tif(Ans<x)Ans=x;\n\t\t}\n\t\tprintf(\"-1 %d\\n\",Ans);\n\t\tfflush(stdout);\n\t}\n} \n```",
+        "postTime": 1555898615,
+        "uid": 50092,
+        "name": "da32s1da",
+        "ccfLevel": 8,
+        "title": "\u9898\u89e3 CF1146C \u3010Tree Diameter\u3011"
+    },
+    {
+        "content": "\u4ea4\u6362\u9898\u3002\n\n\u4e00\u68f5\u6811\n\n\u6bcf\u6b21\u95ee\u4e24\u4e2a\u96c6\u5408\uff0c\u56de\u7b54\u4ed6\u4eec\u7684\u6700\u8fdc\u70b9\u5bf9\n\n\u6c42\u8fd9\u68f5\u6811\u662f\u76f4\u5f84\n\n------------------\n\n\u6211\u4eec\u53ef\u4ee5\u6bcf\u6b21\u8be2\u95ee\u7684\u65f6\u5019 \u6309\u7167\u7f16\u53f7\u4e8c\u8fdb\u5236\u6bcf\u4e00\u4f4d 0/1 \u5206\u7ec4\u8be2\u95ee\n\n\u8fd9\u6837\uff0c\u5bf9\u4e8e\u4efb\u610f\u4e00\u7ec4\u70b9 \u663e\u7136\u4f1a\u5728\u81f3\u5c11\u4e00\u4f4d\u4e8c\u8fdb\u5236\u4e0d\u540c \uff0c\u5219\u4f1a\u5728\u4e00\u6b21\u8be2\u95ee\u88ab\u5206\u4e3a\u4e0d\u540c\u7684\u4e24\u7ec4\n\n\u8fd9\u6837\u76f8\u5f53\u4e8e\u6211\u4eec\u5c31\u8be2\u95ee\u4e86\u4efb\u610f\u4e24\u7ec4\u70b9\u7684\u8ddd\u79bb\u6700\u5927\u503c\n\n\u4e5f\u5c31\u6c42\u51fa\u4e86\u6811\u7684\u76f4\u5f84\n\n```\n#include<bits/stdc++.h>\nusing namespace std;\n\n#define int long long\n#define LL long long\n#define INF (LL)(0x3f3f3f3f)*(LL)0x3f3f3f3f\n#define MAXN 100005 \n\nLL n,m,t;\nint a[MAXN],b[MAXN],cnt1,cnt2;\nint ans = 0;\n\nvoid qaq(int x) {// \u6309\u7167\u7b2cx\u4f4d \u5206\u7ec4\n\tcnt1 = 0;\n\tcnt2 = 0;\n\tfor(int i = 1; i <= n; i ++) \n\tif(i&(1<<x)){\n\t\tcnt1 ++;\n\t\ta[cnt1] = i;//\u7b2c\u4e00\u7ec4\n\t} else  {\n\t\tcnt2 ++;\n\t\tb[cnt2] = i;//\u7b2c\u4e8c\u7ec4\n\t}\n\tif(cnt1 == 0 || cnt2 == 0) return;\n\tcout<<cnt1<<\" \"<<cnt2<<\" \";\n\tfor(int i = 1; i <= cnt1; i ++) cout<<a[i]<<\" \";\n\tfor(int i = 1; i <= cnt2; i ++) cout << b[i] <<\" \"; \n\tcout<<\"\\n\";\n\tcout.flush();\n\tint y;\n\tcin >> y;\n\tans = max(ans,y);\n\t\n}\n\nsigned main()\n{\n\tcin >> t;\n\twhile(t --) {\n\t\tcin >> n;\n\t\tans = 0;\n\t\tfor(int i = 0; i <= 7; i ++)\n\t\t\tqaq(i);\n\t\tcout<<-1<<\" \"<<ans<<\"\\n\";\n\t\tcout.flush();\n\t}\n\treturn 0;\n } \n```",
+        "postTime": 1555896304,
+        "uid": 88256,
+        "name": "LJC00753",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1146C \u3010Tree Diameter\u3011"
+    }
+]

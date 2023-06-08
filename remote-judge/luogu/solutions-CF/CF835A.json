@@ -1,0 +1,58 @@
+[
+    {
+        "content": "\u6b64\u9898\u5bf9\u5165\u95e8\u5c0f\u767d\u6709\u597d\u5904\n\nt1(\u5ef6\u65f6\u7528\u65f6)\u662f\u5b58\u5728\u4e8e\u5f00\u59cb\u524d\u548c\u5f00\u59cb\u540e\u7684\uff0c\u6240\u4ee5\u65f6\u95f4\u4e3a2*t1 \n\nv1(\u6bcf\u4e2a\u5b57\u7b26\u6570\u6240\u9700\u65f6\u95f4)\uff0cs\u8868\u793a\u603b\u5b57\u7b26\u6570\uff0cv1*s\u8868\u793a\u6253\u5b57\u7684\u603b\u65f6\u95f4\n\n\u90a3\u4e48 (2*t1)+(v1*s)\u8868\u793a\u9009\u624b\u4e00\u6240\u7528\u65f6\u95f4\n\n\u9009\u624b\u4e8c\u540c\u7406\n\n\u8d34\u4ee3\u7801QAQ\n```pascal\nvar i,k,k1,s,v1,v2,t1,t2:longint;\n begin\n    readln(s,v1,v2,t1,t2);//\u8f93\u5165\n     k:=s*v1+2*t1;//\u4e24\u4f4d\u9009\u624b\u7684\u65f6\u95f4\n     k1:=s*v2+t2*2;\n   if k<k1 then write('First');//\u6ce8\u610f\u65f6\u95f4\u5c11\u7684\u83b7\u80dc\uff01\n   if k>k1 then write('Second');\n   if k=k1 then write('Friendship');\n end.\n```",
+        "postTime": 1531969075,
+        "uid": 29694,
+        "name": "\u590f\u771f\u8bda",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF835A \u3010Key races\u3011"
+    },
+    {
+        "content": "~~\u6c34\u9898~~ \u6a21\u62df\u9898\u4e00\u9053\u3002\n\n\u76f4\u63a5\u6309\u7167\u9898\u610f\u6a21\u62df\uff0c\u5206\u60c5\u51b5\u8f93\u51fa\u5373\u53ef\u3002\u8fd9\u9898\u5c31\u662f\u8003\u5bdf $if$ \u8bed\u53e5\u548c\u57fa\u7840\u8ba1\u7b97\uff0c\u7ec6\u5fc3\u5373\u53ef\u3002\u4ee3\u7801\u6ca1\u4ec0\u4e48\u597d\u8bf4\u7684\uff0c\u5eb7\u5eb7\u5c31\u597d\u4e86\u3002\u6ca1\u6709\u9632\u6284\u88ad\uff0c\u4f46**\u8bf7\u4e0d\u8981\u6284\u9898\u89e3\uff01**\n\n$Python\\ 3$:\n```python\nc=input().split()\ns=int(c[0])\nva=int(c[1])\nvb=int(c[2])\nta=int(c[1])\ntb=int(c[2])                  #\u8f93\u5165\uff0c\u8bb0\u5f97\u8f6c\u6362\u6210\u6574\u578b\ntta=s*va+ta*2                 #1\u7684\u603b\u7528\u65f6\nttb=s*vb+tb*2                 #2\u7684\u603b\u7528\u65f6\nif tta==ttb:                      #\u76f8\u540c\n    print(\"Friendship\")\nif tta>ttb:                      #2\u5feb\n    print(\"Second\")\nif tta<ttb:                       #1\u5feb\n    print(\"First\")\n\n```\n\n$C++$:\n```cpp\n#include<bits/stdc++.h>    //\u4e07\u80fd\u7684\u8111\u888b\n#pragma GCC optimize(3)   //\u5438\u81ed\u6c27\uff08\u867d\u7136\u6839\u672c\u6ca1\u5fc5\u8981\uff09\nusing namespace std;\nint s,va,vb,ta,tb;       //\u5b9a\u4e49\nint main()\n{\n    cin>>s>>b1>>b2>>a1>>a2;  //\u8bfb\u5165\n    if((a1+a1+b1*s)<(a2+a2+b2*s))     //1\u5feb\n    {\n        cout<<\"First\";\n    }\n    else if((a1+a1+b1*s)>(a2+a2+b2*s))//2\u5feb\n    {\n        cout<<\"Second\";\n    }\n    else              //\u4e00\u6837\n    {\n        cout<<\"Friendship\";\n    }\n    return 0;\n}\n```\n\n\n$C$:\n```c\n#include<stdio.h>\n#include<math.h>    //\u5934\u6587\u4ef6\nint s,va,vb,ta,tb;       //\u5b9a\u4e49\u53d8\u91cf\nint main()\n{\n    scanf(\"%d%d%d%d%d\",&s,&va,&vb,&ta,&tb);//\u8bfb\u5165\n    if((a2+a2+b2*s)>(a1+a1+b1*s))     //1\u5feb\n    {\n        printf(\"First\");\n    }\n    else if((a1+a1+b1*s)>(a2+a2+b2*s))//2\u5feb\n    {\n        printf(\"Second\");\n    }\n    else                 //\u4e00\u6837\u5feb\n    {\n        printf(\"Friendship\");\n    }\n    return 0;\n}\n```\n\n##### \u6c42\u8fc7\uff01\uff08\u8d85\u5c0f\u58f0",
+        "postTime": 1586597101,
+        "uid": 197599,
+        "name": "\u9ad8\u96cd\u535a",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 CF835A \u3010Key races\u3011"
+    },
+    {
+        "content": "\u7b80\u5355\u7684\u6a21\u62df\u3002\n\n\u56e0\u4e3a\u5f00\u59cb\u548c\u7ed3\u675f\u65f6\u90fd\u8981\u7528\u6389 $t_i$\uff08$i$ \u4e3a\u7b2c\u51e0\u540d\u53c2\u8d5b\u8005\uff09\u6beb\u79d2\uff0c\u4e14\u5728\u8f93\u5165\u6587\u672c\u7684\u65f6\u5019\u8981\u7528\u6389 $s \\times v_i$ \u6beb\u79d2\uff0c\u6240\u4ee5\u7b2c $i$ \u540d\u53c2\u8d5b\u8005\u6240\u9700\u7684\u603b\u65f6\u95f4\u4e3a $t_i \\times 2 + s \\times v_i$\u3002\n\n\u7136\u540e\u5224\u65ad\u54ea\u4e2a\u53c2\u8d5b\u8005\u7528\u65f6\u77ed\uff0c\u8f93\u51fa\u5373\u53ef\u3002\n\nAC\u4ee3\u7801\uff1a\n\n```cpp\n#include <bits/stdc++.h>//\u5934\u6587\u4ef6 \n#define int long long//\u5b8f\u5b9a\u4e49\uff0c\u4e2a\u4eba\u4e60\u60ef \nusing namespace std;//\u547d\u540d\u7a7a\u95f4 \ninline int read() { //\u5feb\u8bfb \n    int s = 0, v = 1;\n    char c = getchar();\n    while (!isdigit(c)) {if (c == '-') v = -1; c = getchar();}\n    while (isdigit(c)) s = s * 10 + c - '0', c = getchar();\n    return s * v;\n}\nint s = read(), v1 = read(), v2 = read(), t1 = read(), t2 = read(), sum1, sum2; //\u5b9a\u4e49 + \u8bfb\u5165\uff0csum1\u4ee3\u8868\u7b2c1\u4e2a\u4eba\u7684\u7528\u65f6\uff0csum2\u540c\u7406 \nsigned main(void) { //\u4e3b\u51fd\u6570 \n\tsum1 = t1 * 2 + s * v1;//\u8ba1\u7b97\u603b\u65f6\u95f4 \n\tsum2 = t2 * 2 + s * v2;//\u540c\u4e0a \n\tif (sum1 < sum2) printf(\"First\\n\");//\u5982\u679c\u7b2c\u4e00\u4f4d\u53c2\u8d5b\u8005\u7528\u7684\u65f6\u95f4\u6bd4\u7b2c\u4e8c\u4f4d\u77ed\uff0c\u7b2c\u4e00\u4f4d\u83b7\u80dc \n\telse if (sum2 < sum1) printf(\"Second\\n\");//\u540c\u7406\uff0c\u5982\u679c\u7b2c\u4e8c\u4f4d\u53c2\u8d5b\u8005\u7528\u7684\u65f6\u95f4\u6bd4\u7b2c\u4e00\u4f4d\u77ed\uff0c\u7b2c\u4e8c\u4f4d\u83b7\u80dc\n\telse printf(\"Friendship\\n\");//\u5982\u679c\u7528\u65f6\u4e00\u6837\uff0c\u5c31\u662f\u5e73\u5c40 \n    return 0;//\u7ed3\u675f \n}\n```",
+        "postTime": 1585800356,
+        "uid": 205301,
+        "name": "Tazuaki",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF835A \u3010Key races\u3011"
+    },
+    {
+        "content": "\u8fd9\u9898\u76f4\u63a5\u6a21\u62df\u5c31OK\u4e86\n\n\u56e0\u4e3a~~\u6211\u61d2~~\u5176\u4ed6dalao\u90fd\u5df2\u7ecf\u8bb2\u4e86\u601d\u8def\u4e86\uff0c\u6240\u4ee5\u6211\u5c31\u76f4\u63a5\u4e0a\u4ee3\u7801\u4e86\uff1a\n\n```cpp\n#include<iostream>  //\u6253\u597d\u6587\u4ef6\u5934\n#include<cstdio>\n#include<algorithm>\nusing namespace std;\nint a1,a2,b1,b2,s; //\u672c\u4eba\u5f3a\u70c8\u5efa\u8bae\u5728main\u5916\u5b9a\u4e49\nint main()\n{\n    cin>>s>>b1>>b2>>a1>>a2;  //\u8f93\u5165\n    if((a1+a1+b1*s)<(a2+a2+b2*s)) cout<<\"First\"<<endl;  \n    //\u7b2c\u4e00\u79cd\u60c5\u51b5\u5c31\u8f93\u51fa'First'\n    else if((a1+a1+b1*s)>(a2+a2+b2*s)) cout<<\"Second\"<<endl;\n    //\u7b2c\u4e8c\u79cd\u60c5\u51b5\u5c31\u8f93\u51fa'Second'\n    else cout<<\"Friendship\"<<endl;\n    //\u7b2c\u4e09\u79cd\u60c5\u51b5\u5c31\u8f93\u51fa'Friendship'\n    return 0;\n}\n```\n\u5b8c\u7f8e\u7ed3\u675f\uff0c~~\u6c42\u8fc7qwq~~",
+        "postTime": 1571299606,
+        "uid": 90316,
+        "name": "\u6797\u5bb6\u4e09\u5c11",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF835A \u3010Key races\u3011"
+    },
+    {
+        "content": "> \u9898\u610f\uff1a\u4e24\u4f4d\u53c2\u8d5b\u8005\u53c2\u52a0\u6587\u5b57\u8f93\u5165\u6bd4\u8d5b\uff0c\u6587\u5b57\u957f\u5ea6\u4e3as\u5b57\u7b26\u3002\u7b2c\u4e00\u4f4d\u53c2\u4e0e\u8005\u5728v1\u6beb\u79d2\u5185\u8f93\u5165\u4e00\u4e2a\u5b57\u7b26\uff0c\u5ef6\u8fdft1\u6beb\u79d2\u3002\u7b2c\u4e8c\u4e2a\u53c2\u4e0e\u8005\u5728v2\u6beb\u79d2\u5185\u952e\u5165\u4e00\u4e2a\u5b57\u7b26\uff0c\u5ef6\u8fdft2\u6beb\u79d2\u3002\u6c42\u90a3\u4e2a\u4eba\u8f93\u5165\u5f97\u66f4\u5feb\u3002\n\n\u76f4\u63a5\u6a21\u62df\u5373\u53ef\uff1a\n```cpp\n#include <iostream>\nusing namespace std;\nint main()\n{\n    ios::sync_with_stdio(false);\n    int t1,t2,v1,v2,s;\n    cin>>s>>v1>>v2>>t1>>t2;\n    if((t1+t1+v1*s)<(t2+t2+v2*s))//\u7b2c\u4e00\u4f4d\u9009\u624b\u66f4\u5feb\n    {\n        cout<<\"First\"<<endl;\n    }\n    else if((t1+t1+v1*s)>(t2+t2+v2*s))//\u7b2c\u4e8c\u4f4d\u9009\u624b\u66f4\u5feb\n    {\n        cout<<\"Second\"<<endl;\n    }\n    else\n    {\n        cout<<\"Friendship\"<<endl;\n    }\n    return 0;\n}\n```",
+        "postTime": 1548853212,
+        "uid": 40198,
+        "name": "FP\u00b7\u8377\u5170\u732a",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF835A \u3010Key races\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u6bd4\u8f83\u7b80\u5355\uff0c\u8981\u6ce8\u610f\u5ef6\u8fdf\u662f\u5728\u5f00\u59cb\u548c\u6700\u540e\u624d\u9700\u8981\u7b97\uff0c\u5e76\u4e0d\u662f\u4e00\u4e2a\u5b57\u7b26\u4e00\u4e2a\u5ef6\u8fdf\uff0c\u56e0\u4e3a\u4e2d\u95f4\u7684\u5ef6\u8fdf\u662f\u5728\u6253\u5b57\u4e0d\u7528\u7b97\u4e0a\u5ef6\u8fdf\uff0c\u6240\u4ee5\u53ea\u7528\u7b97\u4e24\u4e2a\u5ef6\u8fdf\uff0c\u6bcf\u4e2a\u4eba\u7684\u7528\u65f6\u5747\u4e3at+t+v*s\uff0c\u4ee3\u7801\u5982\u4e0b\uff1a\n```cpp\n#include<iostream>\n#include<cstdio>\nusing namespace std;\nint main()\n{\n    int s,v1,v2,t1,t2,p1,p2;\n    scanf(\"%d%d%d%d%d\",&s,&v1,&v2,&t1,&t2);\n    p1=t1+t1+v1*s;\n    p2=t2+t2+v2*s;\n    if(p1>p2) printf(\"Second\");//\u8fd9\u91cc\u9700\u8981\u6ce8\u610f\uff0c\u56e0\u4e3a\u662f\u6bd4\u8f83\u8c01\u66f4\u5feb\uff0c\u6240\u4ee5\u7528\u65f6\u5c11\u7684\u4eba\u8d62\n    if(p1<p2) printf(\"First\");\n    if(p1==p2) printf(\"Friendship\");\n    return 0;\n}\n```\n",
+        "postTime": 1550653354,
+        "uid": 126666,
+        "name": "emm\u00b7\u00b7\u00b7",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF835A \u3010Key races\u3011"
+    },
+    {
+        "content": "\u697c\u4e0b\u5927\u4f6c\u63d0\u4f9b\u4e86P\u9898\u89e3\uff0c\u4e0b\u9762\u8ba9\u6211\u53d1\u4e00\u4e2ac++\u9898\u89e3\n\n\u8fd9\u9898\u4e3b\u8981\u8003if\u7684\u5e94\u7528\uff0c\u5f88\u9002\u5408c++\u521d\u5b66\u8005\uff0c\u65e2\u8003\u6761\u4ef6\u53c8\u8003\u6a21\u62df\uff0c\u5f88\u68d2\u68d2\uff01\n\n\u8d34\u4ee3\u7801\uff1a\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{long long t1,t2,v1,v2,s;\ncin>>s>>v1>>v2>>t1>>t2;\nif((2*t1+v1*s)<(2*t2+v2*s))\ncout<<\"First\";\nelse if((2*t1+v1*s)>(2*t2+v2*s))\ncout<<\"Second\";\nelse\ncout<<\"Frindship\";\nreturn 0;\n}\n```\n\u5bf9\u4e8e\u521d\u5b66\u8005\uff0c\u5e94\u8be5\u7406\u89e3\uff0c\u7406\u89e3\u624d\u662f\u738b\u9053",
+        "postTime": 1533177106,
+        "uid": 95569,
+        "name": "Teddy\u00b7Bear",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF835A \u3010Key races\u3011c++"
+    }
+]

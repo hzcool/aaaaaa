@@ -1,0 +1,50 @@
+[
+    {
+        "content": "\u672c\u9898\u849f\u84bb\u751a\u662f\u60ca\u8bb6\n\n\u600e\u4e48\u8fd9\u9898\u9898\u89e3\u57fa\u672c\u4e0a\u90fd\u7528\u6570\u7ec4\uff1f\uff01\n\n\u849f\u84bb\u6765\u63d0\u4f9b\u4e00\u4e2a\u65b0\u7684\u65b9\u6cd5\n\n\u53ea\u8981\u4e24\u4e2a\u53d8\u91cf\n\n\u6211\u4eec\u5b9a\u4e49n\uff0c\u5728\u5b9a\u4e49\u4e00\u4e2a\u5b58\u50a8\u4e0a\u6b21\u7684\u6570\uff0c\u4e00\u76f4\u66f4\u65b0\u8f93\u51fa\u5373\u53ef\n\n\u4e0a\u4ee3\u7801\uff1a\n\n```cpp\n#include<iostream>//\u5934\u6587\u4ef6 \n#include<cstdio>\n#include<algorithm>\n#include<cstring>\n#include<cmath>\n#include<string>\n#include<cstdlib>\nusing namespace std;\nint n,last;//\u5b9a\u4e49 \nint main(){\n    cin>>n;//\u8bfb\u5165 \n    last=1;//\u8bb0\u5f97\u521d\u59cb\u5316F0 \n\tfor(int i=1;i<n;i++){//\u4eceF1\u6c42\u5230Fn-1 \n\t\tlast=((last+i-1)%n)+1;//\u66f4\u65b0 \n\t\tcout<<last<<\" \";//\u8f93\u51fa \n\t} \n    return 0;//\u5b8c\u7ed3\u6492\u82b1 \n}\n```\n\n## ~~\u65e0\u803b\u5730~~\u6c42\u4e2a\u8d5e\uff01\uff01\n\n~~\uff08\u849f\u84bb\u5df2\u7ecf\u9003\u8dd1\u4e86\uff0c\u6ca1\u6cd5\u548c\u6ce5\u840c\u8bf4\u518d\u89c1\u4e86\uff09~~",
+        "postTime": 1583315363,
+        "uid": 307603,
+        "name": "_cmh",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF46A \u3010Ball Game\u3011"
+    },
+    {
+        "content": "```\n\u5176\u5b9e\u8fd9\u9053\u9898\u76ee\u5f88\u7b80\u5355\uff0c\n\u56e0\u4e3a\uff0c\u9898\u76ee\u4e2d\u5df2\u7ecf\u5c06\u516c\u5f0f\u544a\u8bc9\u4e86\u6211\u4eec\n```\n$f$ \uff0c $f_0 = 1$ \uff0c $f_i=((f_{i-1}+i-1)\\;mod\\;n)+1$ \u3002\u8f93\u51fa $f_1$ ~ $f_{n-1}$\n\n``\n\u4e8e\u662f\u5c31\u53ef\u4ee5\u5199\u51fa\u4ee5\u4e0b\u516c\u5f0f\u54e6~~~\n``\n```cpp\nf[i]=(f[i-1]+i-1)%n+1;\n```\n```\n\u548c\u4ee3\u7801\n```\n```cpp\n#include<bits/stdc++.h>\n#define TP int\nusing namespace std;\ninline TP read(){\n    char c=getchar();\n    TP x=0;\n    bool f=0;\n    while(!isdigit(c))f^=!(c^45),c=getchar();\n    while(isdigit(c))x=(x<<1)+(x<<3)+(c^48),c=getchar();\n    if(f)x=-x;return x;\n}\nint main(){\n\tint n=read();\n\tint f[n+1];\n\tfor(int i=1;i<n;i++){\n\t\tf[i]=(f[i-1]+i-1)%n+1;\n\t\tcout<<f[i];\n\t\tcout<<\" \";\n\t}\n\treturn 0;\n}\n```\n**\u4f46\u662f\uff0c\u7b2c\u4e00\u4e2a\u70b9\u5c31\u4f1aWA\u8fd9\u662f\u4e3a\u4ec0\u4e48\u5462\uff1f**\n```cpp\n\u8fd9\u662f\u4e00\u4e2a\u5f88\u597d\u7684\u6559\u8bad\uff0cf[0]\u8981\u521d\u59cb\u5316\u4e3a\"1\"\n```\n```cpp\n#include<bits/stdc++.h>\n#define TP int\nusing namespace std;\ninline TP read(){\n    char c=getchar();\n    TP x=0;\n    bool f=0;\n    while(!isdigit(c))f^=!(c^45),c=getchar();\n    while(isdigit(c))x=(x<<1)+(x<<3)+(c^48),c=getchar();\n    if(f)x=-x;return x;\n}\nint main(){\n\tint n=read();\n\tint f[n+1];\n\tf[0]=1;\n\tfor(int i=1;i<n;i++){\n\t\tf[i]=(f[i-1]+i-1)%n+1;\n\t\tcout<<f[i];\n\t\tcout<<\" \";\n\t}\n\treturn 0;\n}\n```\n**\u6240\u4ee5\u8fd9\u6b21\u544a\u8bc9\u6211\u4eec\uff0c\u4efb\u4f55\u65f6\u5019\u90fd\u4e0d\u8981\u5fd8\u4e86\u521d\u59cb\u5316~~~**",
+        "postTime": 1556329626,
+        "uid": 191132,
+        "name": "GusyNight",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF46A \u3010Ball Game\u3011"
+    },
+    {
+        "content": "\u4f5c\u4e3a\u4e00\u540d~~\u8d44\u6df1~~\u849f\u84bb\uff0c\u6211\u4e00\u773c\u5c31\u770b\u51fa\u8fd9\u9053\u9898\u662f\u4e00\u9053\u6807\u51c6\u7684~~\n\n\u6c34\u9898\uff01\n\n\u54b3\u54b3\uff0c\u8bdd\u4e0d\u591a\u8bf4\uff0c\u6211\u4eec\u6765\u8bb2\u89e3\u4e00\u4e0b\u8fd9\u9053\u9898\n\n\u9898\u76ee\u7684\u610f\u601d\u662f\u8fd9\u6837\u7684\uff1a\n\n\u6709\u4e00\u4e2a\u6570 x\n\n\u7b2c\u4e00\u79d2\uff0cx\u4e3a1\n\n\u4e4b\u540e\u7684i: 2~n\u79d2\uff0cx\u4f1a\u6269\u5c55\u4e3ax+i-1\n\n\u4f46\u662f\u53ea\u8981x\u6bd4N\u5927\uff0c\u5b83\u5c31\u5fc5\u987b%=n\n\n\u56e0\u4e3a\u5c0f\u670b\u53cb\u53ea\u6709N\u4e2a\n\n\u6240\u4ee5 \u6211\u4eec\u53ef\u4ee5\u5f97\u5230\u5982\u4e0b\u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n;\nint x;\nint main()\n{\n\tcin>>n;\n\tx=1;\n\tfor(int i=2;i<=n;i++)\n\t{\n\t\tx=(x+i-1-1)%n+1;//\u51d1\u6574\u516c\u5f0f\uff0c\u539f\u5f0f\u4e3ax=(x-1)%n+1,\u518d\u52a0\u4e0a\u4e4b\u524d\u63a8\u51fa\u7684\u516c\u5f0f\uff0c\u5373\u5f97\u6b64\u516c\u5f0f\n\t\tprintf(\"%d \",x);\n\t} \n\treturn 0;\n} \n```\n",
+        "postTime": 1569716342,
+        "uid": 222849,
+        "name": "\u6c5f\u5c71_\u8fdc\u65b9",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF46A \u3010Ball Game\u3011"
+    },
+    {
+        "content": "//\u8fd9\u9053\u9898\u4e0d\u77e5\u9053\u4e3a\u4ec0\u4e48\u5199\u9898\u89e3\u7684\u4eba\u8fd9\u4e48\u5c11\uff0c\u90a3\u6211\u5c31\u6765\u51d1\u51d1\u6570\u5427\n\n//\u8fd9\u9053\u9898\u6709\u4e00\u4e2a\u5751\u70b9\uff0c\u5c31\u662f\u6574\u9664\u7684\u65f6\u5019\u600e\u4e48\u529e\uff0c\u5982\u679c\u4e0d\u5904\u7406\uff0c\u8f93\u51fa\u96f6\uff0c\u90a3\u4ee3\u7801\u5c31\u9519\u4e86\n\n//\u6240\u4ee5\u5fc5\u987b\u8fdb\u884c\u5904\u7406\uff0c\u4e8e\u662f\u5c31\u6709\u4e86\u672c\u849f\u84bb\u4e0b\u9762\u7684\u4ee3\u7801\uff08\u9644\u5e26\u6ce8\u91ca\uff09\uff1a\n\n```\n#include<bits/stdc++.h>//\u5077\u61d2\u4e13\u7528\u5e93 \nusing namespace std;//\u7edd\u5bf9\u4e0d\u53ef\u5c11\u7684\u4e1c\u897f \ninline int read()\n{\n\tchar c=getchar();int x=0,f=1;\n\twhile(c<'0'||c>'9'){if(c=='-') c=-1;c=getchar();}\n\twhile(c>='0'&&c<='9'){x=x*10+c-'0';c=getchar();}\n\treturn x*f;\n}//\u6b64\u5904\u4e3a\u5feb\u8bfb\uff0c\u53ef\u4f9b\u501f\u9274\uff0c\u4e5f\u53ef\u4ee5\u5ffd\u7565\uff0c\u6362\u6210cin\u6216\u8005scanf \nint n,f[100000];//n\u662f\u6570\u636e\u8303\u56f4\uff0cf\u7528\u6765\u5b58\u6570 \nint main()//\u5f00\u59cb\u4e3b\u51fd\u6570 \n{\n\tn=read();//\u8bfb\u5165\uff0c\u53ef\u4ee5\u6362\u6210cin\u6216\u8005scanf\n\tint z=1;//\u89d2\u6807 \n\tf[0]=1;//\u9898\u76ee\u63cf\u8ff0 \n\tf[1]=1;//\u56e0\u4e3a\u4ed6\u662f\u4ece\u7b2c\u4e00\u4e2a\u4eba\u5f00\u59cb\u6570\uff0c\u4e0d\u662f\u7b2c\u96f6\u4e2a\uff0c\u6240\u4ee5\u8981\u628af\u30101\u3011\u6c42\u51fa\u6765 \n\twhile(z<n)//\u7ed3\u675f\u6761\u4ef6 \n\t {\n\t \tz++;//\u89d2\u6807\u81ea\u52a0 \n\t \tf[z]=((f[z-1]+z-1)%n);//\u6c42\u51fa\u6b64\u65f6\u7684\u6570 \n\t \tif(f[z]==0)//\u5982\u679c\u521a\u597d\u6574\u9664\uff0c\u4ee3\u8868\u662f\u6700\u540e\u4e00\u4e2a\uff0c\u6240\u4ee5\u8f93\u51fan\uff0c\u4e0d\u8fd9\u4e48\u505a\u4f1a\u8f93\u51fa\u96f6\uff0c\u5bf9\u4e24\u4e2a\u70b9\u5c31\u5361\u4e86 \n\t \t cout<<n<<\" \";\n\t \telse//\u5176\u4ed6\u60c5\u51b5\u76f4\u63a5\u8f93\u51fa \n\t     cout<<f[z]<<\" \";\n\t }\n\treturn 0;//\u5b8c\u7f8e\u800c\u4e0d\u5931\u98ce\u5ea6\u7684\u7ed3\u675f \n}\n```\n//\u8fd8\u5e0c\u671b\u80fd\u591f\u901a\u8fc7",
+        "postTime": 1556026392,
+        "uid": 188217,
+        "name": "\u4e03\u591c",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF46A \u3010Ball Game\u3011"
+    },
+    {
+        "content": "\u4e2a\u4eba\u8ba4\u4e3a\u7ea2\u9898\u5427\uff0c\u56e0\u4e3a\u89c4\u5f8b\u5df2\u7ecf\u51fa\u6765\u4e86\uff1a\n\n\u5c31\u662f$f_i=((f_{i-1}+i-1)\\;mod\\;n)+1$\n\n\u6c42\u5f53\u65f6\u7684$f_i$\n\n\u90a3\u4e48\u9644\u4e0a\u4ee3\u7801\uff1a\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint n;     //\u5b9a\u4e49\nint main()\n{\n\tcin>>n;\n\tint f[n+1];  //\u8282\u7ea6\u7a7a\u95f4\n\tf[0]=1;     //\u5148\u5b9a\u4e49\u7b2c\u96f6\u4e2a\u6570\u7ec4\n\tfor(int i=1;i<n;i++)\n\t{\n\t\tf[i]=(f[i-1]+i-1)%n+1;   //\u8fdb\u884c\u9012\u5f52QAQ\n\t\tcout<<f[i]<<\" \";     //\u5e76\u8f93\u51fa\n\t}\n\treturn 0;\n}\n```\n\n\u662f\u4e0d\u662f\u5f88\u7b80\u5355\u660e\u4e86QAQ\u5982\u679c\u6709\u95ee\u9898\uff0c\u8bf7\u5728**\u53f3\u4fa7**\u63d0\u51fa\uff0c\u87f9\u87f9QAQ",
+        "postTime": 1554181337,
+        "uid": 46105,
+        "name": "applese",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF46A \u3010Ball Game\u3011"
+    },
+    {
+        "content": "# \u9898\u610f\n\n\u6709\u6570\u5217 $f$ \uff0c $f_0 = 1$ \uff0c $f_i=((f_{i-1}+i-1)\\;mod\\;n)+1$ \u3002\u8f93\u51fa $f_1$ ~ $f_{n-1}$ \u3002\n\n\u6765\u81ea@\u949f\u6893\u4fca \u3002\n\n## \u9898\u9762\u6e90\u4ee3\u7801\n\n```\n\u6709\u6570\u5217 $f$ \uff0c $f_0 = 1$ \uff0c $f_i=((f_{i-1}+i-1)\\;mod\\;n)+1$ \u3002\u8f93\u51fa $f_1$ ~ $f_{n-1}$ \u3002\n```\n\n# \u601d\u8def\n\n\u5f88\u660e\u663e\uff0c\u7167\u9898\u610f\u6a21\u62df\u5373\u53ef\u3002\n\n## \u7ec6\u8282\n\n\u5f53$f_i\\%n=0$\u65f6\uff0c\u5e94\u5f53\u8f93\u51fa$n$\u800c\u4e0d\u662f$0$\u3002\n\n# \u4ee3\u7801\n\n\u4ee3\u7801\u5982\u4e0b\u3002\n\n```\n#include<stdio.h>\n\nint n;\n\nint main(void){\n\tregister int i,j;//\u7528\u53d8\u91cfj\u6765\u4ee3\u66ff\u6570\u5217f\u4e2d\u7684\u5143\u7d20\n\tscanf(\"%d\",&n);\n\tfor(i=j=1;i<n;i++)\n\t\tprintf(\"%d \",((j+=i)%n?j%n:n));//\u5f53f_i\\%n=0\u65f6\uff0c\u5e94\u5f53\u8f93\u51fan\u800c\u4e0d\u662f0\n\treturn 0;\n}\n```\n\n## [\u6211\u7684\u6d4b\u8bc4\u8bb0\u5f55](https://www.luogu.org/record/show?rid=9688269)",
+        "postTime": 1534214391,
+        "uid": 38502,
+        "name": "agicy",
+        "ccfLevel": 9,
+        "title": "\u9898\u89e3 CF46A \u3010Ball Game\u3011"
+    }
+]

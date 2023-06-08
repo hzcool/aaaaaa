@@ -1,0 +1,26 @@
+[
+    {
+        "content": "**\u9898\u610f\u7b80\u8ff0**\n\n\u4e8e\u662f\u9898\u610f\u53ef\u4ee5\u8f6c\u5316\u4e3a\u7ed9\u5b9a\u4e00\u4e2a\u6570 $k+2n$\uff0c\u5224\u65ad\u8fd9\u4e2a\u6570\u662f\u4e0d\u662f\u5076\u6570\uff0c\u4e14\u8fd9\u4e2a\u6570\u7684\u4e00\u534a\u53ef\u4ee5\u7531 1 \u548c 2 \u7ec4\u6210\u3002\n\n\u4ece\u6b63\u9762\u601d\u8003\u5f88\u96be\uff0c\u6b63\u96be\u5219\u53cd\u3002\n\n\u4e0d\u80fd\u7684\u60c5\u51b5\u53ea\u6709\u4e24\u79cd\uff1a\n\n- $k \\bmod 2 = 1$\uff0c\u6b64\u65f6 $k + 2n$ \u662f\u5947\u6570\u3002\n- $k = 0, n \\bmod 2 = 0$\uff0c\u6b64\u65f6\u8fd9\u4e2a\u6570\u7684\u4e00\u534a\u662f\u5947\u6570\uff0c\u4e5f\u6ca1\u6709\u5947\u6570\u53ef\u4ee5\u8865\u5145\u3002\n\n\u6ce8\u610f\u7b2c\u4e8c\u79cd\u60c5\u51b5\u4e0d\u80fd\u6f0f\u3002\n\n\u5224\u65ad\u4e00\u4e2a\u6570 $a$ \u662f\u5426\u662f\u5947\u6570\uff1a\n\n```cpp\na & 1\na % 2 == 1\n```\n\n\u7531\u4e8e\u4f4d\u8fd0\u7b97\u8f83\u5feb\uff0c\u6240\u4ee5\u4f7f\u7528\u4f4d\u8fd0\u7b97\u5b9e\u73b0\u3002\n\n\u4ee3\u7801\u5b9e\u73b0\u5982\u4e0b\u3002\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint a[101] , n ; \n\nint cnt1 , cnt2 ; \n \nint main()\n{\n  cin >> n;\n  for(int i = 1; i <= n; i ++) {\n  \tcin >> a[i];\n  \tif(a[i] == 100) {\n  \t\tcnt1 ++ ; \n\t}\n\tif(a[i] == 200) {\n  \t\tcnt2 ++ ; \n\t}\n  }\n  if(cnt1 & 1 || ((cnt2 & 1) && !cnt1)) {\n  \tputs(\"NO\");\n  } else {\n  \tputs(\"YES\");\n  }\n}\n```",
+        "postTime": 1583146649,
+        "uid": 250147,
+        "name": "BAED0023",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF433A \u3010Kitahara Haruki's Gift\u3011"
+    },
+    {
+        "content": "```\n#include<bits/stdc++.h>\nusing namespace std;\nint a[101],n,sum,a_100,i;\nint main(){\n\tcin>>n;\n\tfor(i=1;i<=n;i++){\n\t\tcin>>a[i],sum+=a[i];\n\t\tif(a[i]==100) a_100++;//\u7edf\u8ba1100\u51fa\u73b0\u7684\u6b21\u6570 \n\t}\n\tsum/=2;//\u5e73\u5206 \n\tif(sum%100!=0){//\u8868\u793a\u9700\u8981\u628a100\u5206\u6210\u4e24\u4e2a50,\u4e0d\u884c \n\t\tcout<<\"NO\";\n\t\treturn 0;\n\t}\n\tif(a_100==0&&sum%200!=0){//\u8868\u793a\u5168\u662f200\u800c\u9700\u8981100,\u4e0d\u884c \n\t\tcout<<\"NO\";\n\t\treturn 0;\n\t}\n\tcout<<\"YES\";//\u82e5\u90fd\u4e0d\u662f\u5219\u53ef\u4ee5 \n\treturn 0;\n}\n```",
+        "postTime": 1543998591,
+        "uid": 25051,
+        "name": "\u0430\u0431\u0432\u0433",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF433A \u3010Kitahara Haruki's Gift\u3011"
+    },
+    {
+        "content": "~~\u53c8\u5230\u4e86\u767d\u8272\u76f8\u7c3f\u7684\u5b63\u8282~~\n\n# \u9898\u89e3\n\n\u5176\u5b9e\u8f6c\u5316\u4e00\u4e0b\u5c31\u53ef\u4ee5\u53d8\u6210\u4e00\u4e2a$01$\u80cc\u5305\u95ee\u9898\uff0c\u7269\u54c1\u4ef7\u503c\u5c31\u7b49\u4e8e\u7269\u54c1\u7684\u91cd\u91cf\u3002\n\n\u8bbe\u82f9\u679c\u7684\u91cd\u91cf\u548c\u4e3a$sum$\uff0c\u90a3\u4e48\u53ea\u8981\u8f6c\u5316\u4e3a\u4e00\u4e2a\u5177\u6709\u5982\u4e0b\u6761\u4ef6\u7684$01$\u80cc\u5305\uff1a\n\n- \u80cc\u5305\u5bb9\u91cf\u4e3a$\\frac{1}{2}sum$\n\n- \u7269\u54c1\u6570\u91cf\u4e3a$n$\n\n- \u7269\u54c1\u7684\u91cd\u91cf\u4e0e\u4ef7\u503c\u90fd\u5206\u522b\u7b49\u4e8e\u82f9\u679c\u7684\u91cd\u91cf\n\n\u7136\u540e$dp$\u4e00\u4e0b\u5c31\u53ef\u4ee5\u4e86\uff0c\u5982\u679c\u80cc\u5305\u5bb9\u91cf\u4e3a$\\frac{1}{2}sum$\u65f6\u65e0\u6cd5\u88c5\u6ee1\uff08$\\ne\\frac{1}{2}sum$\uff09\u3002\n\n---\n\n# \u4ee3\u7801\n\n```cpp\n#include<stdio.h>\n#include<iostream>\nint n,w[105],sum,f[10010];\nint main()\n{\n\tscanf(\"%d\",&n);\n\tfor(register int i=1;i<=n;++i)\n\t{\n\t\tscanf(\"%d\",&w[i]);\n\t\tsum+=w[i]; //\u6c42\u82f9\u679c\u603b\u8d28\u91cf\n\t}\n\tsum>>=1; //\u4e3a\u4e86\u65b9\u4fbf\u8ba1\u7b97\u5148\u628asum/2\n\tfor(register int i=1;i<=n;++i)\n\t\tfor(register int j=sum;j>=w[i];j--) f[j]=std::max(f[j],f[j-w[i]]+w[i]); //\u4f7f\u7528\u6eda\u52a8\u6570\u7ec4\u768401\u80cc\u5305\n\tif(f[sum]==sum) printf(\"YES\\n\"); //\u5224\u65ad\n\telse printf(\"NO\\n\");\n\treturn 0;\n}\n```\n\n---\n\n## \u8bf4\u660e\n\n\u5173\u4e8e\u672c\u7bc7\u6d89\u53ca\u5230\u7684\u4f4d\u8fd0\u7b97\u7684\u8bb2\u89e3\uff08\u5176\u5b9e\u5c31\u4e00\u4e2a\uff0c\u5927\u4f6c\u4eec\u80af\u5b9a\u90fd\u4f1a\uff09\n\n```x>>1```\u8868\u793a```x/2```\uff0c\u5176\u5b9e$x$>>$i$ $=\\frac{x}{2^{i}}$\u3002",
+        "postTime": 1542536680,
+        "uid": 55112,
+        "name": "damage",
+        "ccfLevel": 0,
+        "title": "CF433A\u9898\u89e3"
+    }
+]

@@ -1,0 +1,82 @@
+[
+    {
+        "content": "### \u9898\u610f\u7b80\u8ff0\n\n\u7ed9\u5b9a\u4e00\u4e2a\u5b57\u7b26\u4e32\uff0c\u5b57\u6bcd\u5982\u679c\u662f\u7b2c\u4e00\u6b21\u51fa\u73b0\u8bb0 $2$ \u5206\u3002\u5426\u5219\u8bb0 $1$ \u5206\u3002\n\n### \u601d\u8def\n\n\u6309\u7167\u9898\u610f\u6a21\u62df\u5373\u53ef\u3002\u6211\u4eec\u53ef\u4ee5\u4f7f\u7528 `map` \u8bb0\u5f55\u8fd9\u4e2a\u5b57\u6bcd\u662f\u5426\u51fa\u73b0\u8fc7\u3002\u7b2c\u4e00\u6b21\u51fa\u73b0\u7684\u5b57\u6bcd\uff0c\u52a0 $2$ \u5206\u540e\u6253\u4e0a\u6807\u8bb0\uff0c\u4ee5\u540e\u9047\u5230\u8fd9\u4e2a\u5b57\u6bcd\u5c31\u52a0 $1$ \u5206\u3002\n\n### Code\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nchar s[55];\nmap<char,bool>mapp;  //\u4f7f\u7528map\u8bb0\u5f55\u8fd9\u4e2a\u5b57\u6bcd\u662f\u5426\u51fa\u73b0\u8fc7\nint main(){\n\tint n,sum,a;\n\tscanf(\"%d\",&n);\n\twhile(n--){\n\t\tsum=0;\n\t\tmapp.clear();  //\u8bb0\u5f97\u591a\u6d4b\u6e05\u7a7a\n\t\tscanf(\"%d%s\",&a,s);\n\t\tfor(int i=0;i<=a-1;i++){\n\t\t\tif(!mapp[s[i]]){  //\u6ca1\u51fa\u73b0\u8fc7\uff0c+2\n\t\t\t\tsum+=2;\n\t\t\t\tmapp[s[i]]=1;  //\u8bb0\u5f97\u6253\u6807\u8bb0\n\t\t\t}\n\t\t\telse{  //\u51fa\u73b0\u8fc7\u4e86\uff0c+1\n\t\t\t\tsum++;\n\t\t\t}\n\t\t}\n\t\tprintf(\"%d\\n\",sum);\n\t}\n}\n```",
+        "postTime": 1657854308,
+        "uid": 393934,
+        "name": "zhicheng",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF1703B ICPC Balloons"
+    },
+    {
+        "content": "[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/CF1703B)\n\n## \u9898\u76ee\u5206\u6790\n\n\u5b57\u7b26\u4e32\u5165\u95e8\u9898\u3002\n\n\u7528\u4e00\u4e2a\u6876\u6765\u8bb0\u5f55\u6bcf\u4e2a\u5b57\u6bcd\u662f\u5426\u51fa\u73b0\u8fc7\uff0c\u6bcf\u51fa\u73b0\u591a\u4e00\u6b21\u5c31\u8ba9\u7b54\u6848 $+1$\uff0c\u5982\u679c\u662f\u9996\u6b21\u51fa\u73b0\u5c31\u518d $+1$\u3002\n\n## \u4ee3\u7801\u5b9e\u73b0\n```cpp\n#include<iostream>\n#include<cstring>\n#include<string>\n#include<cstdio>\nusing namespace std;\nint t,n,cnt=0;\nbool a[30];\nstring s;\nint main(){\n\tscanf(\"%d\",&t);\n\twhile(t--){\n\t\tmemset(a,false,sizeof a);//\u8bb0\u5f97\u6e05\u7a7a\n\t\tcnt=0;\n\t\tscanf(\"%d\",&n);\n\t\tcin>>s;\n\t\tfor(int i=0;i<s.length();++i){\n\t\t\tif(!a[s[i]-'A']) ++cnt,a[s[i]-'A']=1;\n\t\t\t++cnt;\n\t\t}\n\t\tprintf(\"%d\\n\",cnt);\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1657855365,
+        "uid": 324350,
+        "name": "xiaomuyun",
+        "ccfLevel": 5,
+        "title": "CF1703B ICPC Balloons \u9898\u89e3"
+    },
+    {
+        "content": "### **[\u9898\u76ee\u4f20\u9001\u95e8\uff08CF\uff09](https://codeforces.com/problemset/problem/1703/B)**\n## \u9898\u76ee\u5927\u610f\n\u7ed9\u51fa T \u7ec4\u6570\u636e\uff0c\u6bcf\u7ec4\u6570\u636e\u7ed9\u51fa\u4e00\u4e2a $n$\uff0c\u518d\u7ed9\u51fa\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u5b57\u7b26\u4e32\uff0c\u6709 ABCD...... \u5982\u679c\u6709\u4e00\u4e2a\u5b57\u6bcd\u662f\u7b2c\u4e00\u4e2a\u51fa\u73b0\u7684\uff0c\u90a3\u4e48\u6c14\u7403\u6570\uff08\u7b54\u6848\uff09\u5c31\u52a0 $2$ \u5982\u679c\u5df2\u7ecf\u51fa\u73b0\u8fc7\u4e86\u5c31\u53ea\u52a0 $1$\uff0c\u5982 EEEX \u5176\u4e2d $E$ \u548c $X$ \u7b2c\u4e00\u6b21\u51fa\u73b0\u4e86\uff0c\u8fd8\u6709 $2$ \u4e2a $E$ \u6240\u4ee5\u6c14\u7403\u6570\u5c31\u662f $2+2+1+1=6$\u3002\n## \u9898\u76ee\u5206\u6790\n\u6211\u4eec\u53ef\u4ee5\u7528\u4e00\u4e2a\u6570\u7ec4\u6765\u6807\u8bb0\u8fd9\u4e9b\u5b57\u6bcd\u51fa\u73b0\u4e86\u6ca1\u6709\uff0c\u51fa\u73b0\u4e86\u5c31\u52a0 $1$ \uff0c\u672a\u51fa\u73b0\u5c31\u52a0 $2$\u3002\n\u4e5f\u5c31\u662f $!f_{str_{i-'A'}}$ \uff0c\u8fd9\u6837\u770b\u8fd9\u9053\u9898\u4e5f\u5c31\u89e3\u51b3\u4e86\uff08\u63d0\u793a\uff0c\u6bcf\u7ec4\u6570\u636e\u8bb0\u5f97\u6e05\u7a7a\u6807\u8bb0\u6570\u7ec4\u548c\u8ba1\u6570\u6570\u54e6~\uff09\n## AC Code\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n#define ull unsigned long long\n#define MAX 10100\ninline int read() {\n\tint x = 0;\n\tchar c = getchar();\n\twhile (c < '0' || c > '9') c = getchar();\n\twhile (c >= '0' && c <= '9') x = x * 10 + c - '0', c = getchar();\n\treturn x;\n}\nint T = read(), n;\nchar str[MAX];\nint main() {\n\twhile (T--) {\n\t\tn = read();\n\t\tint cnt = 0;\n\t\tbool f[27] = {};\n\t\tfor (int i = 1; i <= n; i++) {\n\t\t\tcin >> str[i];\n\t\t\tif (!f[str[i] - 'A'])f[str[i] - 'A'] = 1, cnt += 2;\n\t\t\telse cnt++;\n\t\t}\n\t\tcout << cnt << endl;\n\t}\n\treturn 0;\n}\n```\n### [\u63d0\u4ea4\u8bb0\u5f55](https://codeforces.com/contest/1703/submission/164195357)",
+        "postTime": 1657839763,
+        "uid": 352536,
+        "name": "MH_SLC",
+        "ccfLevel": 0,
+        "title": "CF1703B ICPC Balloons \u9898\u89e3"
+    },
+    {
+        "content": "\u5bf9\u4e8e\u8fd9\u9053\u9898\uff0c\u6211\u4eec\u53ef\u4ee5\u5efa\u4e00\u4e2a `vis` \u6570\u7ec4\uff0c\u6765\u6807\u8bb0\u6bcf\u4e2a\u4efb\u52a1\u662f\u5426\u88ab\u5b8c\u6210\u8fc7\uff0c\u5982\u679c\u6ca1\u6709\uff0c\u5c31\u7b54\u6848\u52a0 $2$\uff0c\u5982\u679c\u6709\uff0c\u5c31\u7b54\u6848\u52a0 $1$\u3002\n\n\u6700\u540e\u518d\u8f93\u51fa\u5f97\u5230\u7684\u65b9\u6570\u5373\u53ef\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include<cstdio>\n#include<iostream>\n#include<string>\n#include<cstring>\n\nusing namespace std;\n\nint t;\nint a[1000010];\nstring s;\nint n;\nbool vis[1010];\n\nint main(){\n    scanf(\"%d\",&t);\n    while(t--){\n        scanf(\"%d\",&n);\n        cin>>s;\n        int ans=0;\n        memset(vis,0,sizeof(vis));\n        for(int i=0;i<s.length();i++){\n            if(!vis[s[i]]) ans+=2;\n            else ans++;\n            vis[s[i]]=1;\n        }\n        printf(\"%d\\n\",ans);\n    }\n    return 0;\n}\n```\n",
+        "postTime": 1657846750,
+        "uid": 593299,
+        "name": "iyag",
+        "ccfLevel": 5,
+        "title": "CF1703B ICPC Balloons \u9898\u89e3"
+    },
+    {
+        "content": "\u9898\u610f\uff1a\u5224\u65ad\u8fd9\u4e2a\u5b57\u7b26\u662f\u5426\u662f\u7b2c\u4e00\u6b21\u51fa\u73b0\uff0c\u662f\u5c31\u52a0\u4e8c\uff0c\u5426\u5219\u52a0\u4e00\u3002\n\n\u601d\u8def\uff1a\u6211\u4eec\u53ef\u4ee5\u7528\u96c6\u5408\u6765\u5224\u65ad\u662f\u5426\u7b2c\u4e00\u6b21\u51fa\u73b0\u3002\u6211\u4eec\u5faa\u73af\u904d\u5386\u5b57\u7b26\u4e32\uff0c\u5bf9\u4e8e\u6bcf\u4e2a\u5b57\u7b26\uff0c\u82e5\u5728\u96c6\u5408\u4e2d\u627e\u4e0d\u5230\uff0c\u8bf4\u660e\u662f\u7b2c\u4e00\u6b21\u51fa\u73b0\uff0c\u5219\u52a0\u4e8c\uff0c\u7136\u540e\u5c06\u5176\u6dfb\u52a0\u8fdb\u96c6\u5408\u91cc\u3002\u5426\u5219\u52a0\u4e00\u5c31\u597d\u4e86\u3002\n\n\u4ee3\u7801\uff08\u52a0\u89e3\u91ca\uff09\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nstring str;\nset<char> s; // \u96c6\u5408\u5177\u6709\u53bb\u91cd\uff0c\u6392\u5e8f\u529f\u80fd\nint t,n,ans;\nint main()\n{\n\tcin>>t;\n\twhile(t--)\n\t{\n\t\ts.clear(); // \u8bb0\u5f97\u6bcf\u6b21\u6e05\u7a7a\u96c6\u5408\n\t\tans=0;\n\t\tcin>>n>>str;\n\t\tfor(int i=0;i<str.size();i++)\n\t\t\tif(s.find(str[i])==s.end()){ans+=2;s.insert(str[i]);}\n\t\t\telse ans++; // \u5982\u4e0a\u6240\u8bf4\u5224\u65ad\u52a0\u591a\u5c11\uff0c\u662f\u5426\u52a0\u5165\u96c6\u5408\n\t\tcout<<ans<<endl; // \u8f93\u51fa\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1657843526,
+        "uid": 514610,
+        "name": "mzyc_yang2021",
+        "ccfLevel": 4,
+        "title": "CF1703B ICPC Balloons"
+    },
+    {
+        "content": "## \u601d\u8def\u8bb2\u89e3\n\n\u672c\u9898\u5bf9\u4e8e\u6bcf\u4e00\u7ec4\u6570\u636e\uff0c\u4f1a\u7ed9\u5b9a\u4e00\u4e2a\u957f\u5ea6\u662f $n$ \u7684\u5b57\u7b26\u4e32\uff0c\u5176\u4e2d\u7684\u6bcf\u4e00\u4f4d\u90fd\u662f $\\texttt{A}$ \u5230 $\\texttt{Z}$ \u4e2d\u7684\u4e00\u4e2a\u5b57\u6bcd\uff0c\u8868\u793a\u4e00\u573a\u6bd4\u8d5b\u4e2d\u6539\u9898\u88ab\u4e00\u4e2a\u961f\u4f0d\u901a\u8fc7\u4e86\u3002\n\n\u6700\u540e\u9700\u8981\u8ba1\u7b97\u6709\u591a\u5c11\u4e2a\u6c14\u7403\u88ab\u53d1\u51fa\u53bb\u4e86\uff0c\u4e5f\u5c31\u7b49\u4ef7\u4e8e\u603b AC \u6570\u91cf\u52a0\u4e0a\u9996\u6b21 AC \u4e2a\u6570\uff08\u5b57\u7b26\u4e32\u4e2d\u9898\u76ee\u4e2a\u6570\uff09\u3002\n\n\u66b4\u529b\u5f00\u6570\u7ec4\u7edf\u8ba1\u5373\u53ef\uff0c\u4e0d\u8981\u5fd8\u8bb0\u591a\u6d4b\u6e05\u7a7a\u54e6~qwq\n\n## AC Code\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\ntypedef long long ll;\nll T,n;\nll a[30],ans=0;\nchar c;\nint main()\n{\n\tscanf(\"%lld\",&T);\n\twhile(T--)\n\t{\n\t\tans=0;\n\t\tmemset(a,0,sizeof(a));\n\t\tscanf(\"%lld\",&n);\n\t\tfor(int i=1;i<=n;i++)\n\t\t{\n\t\t\tcin>>c;\n\t\t\ta[c-64]++;\n\t\t}\n\t\tfor(int i=1;i<=26;i++)\n\t\t{\n\t\t\tans+=a[i];\n\t\t\tans+=(a[i]!=0);\n\t\t}\n\t\tprintf(\"%lld\\n\",ans);\n\t}\n\treturn 0;\n}\n```\n\u8c22\u8c22\u89c2\u770b\u55b5~",
+        "postTime": 1657853615,
+        "uid": 575320,
+        "name": "yinhy09",
+        "ccfLevel": 5,
+        "title": "CF1703B \u9898\u89e3"
+    },
+    {
+        "content": "# \u4e00 \u9898\u610f\u7b80\u8ff0\n## \u9898\u76ee\u63cf\u8ff0\n\u5728 ICPC \u6bd4\u8d5b\u4e2d\uff0c\u7ec4\u7ec7\u8005\u4f1a\u8fd9\u4e48\u53d1\u6c14\u7403\uff1a\n\n- \u6bcf\u4e2a\u56e2\u961f AC \u4e00\u9053\u9898\u76ee\u90fd\u80fd\u83b7\u5f97\u4e00\u4e2a\u6c14\u7403\u3002\n- \u6bcf\u9053\u9898\u76ee\u6700\u5148 AC \u7684\u56e2\u961f\u80fd\u989d\u5916\u83b7\u5f97\u4e00\u4e2a\u6c14\u7403\u3002\n\n\u6bcf\u573a\u6bd4\u8d5b\u6709 A ~ Z \u8fd9\u4e8c\u5341\u516d\u9053\u9898\u76ee\uff0c\u8f93\u5165\u4e00\u4e2a\u5b57\u7b26\u4e32\u8868\u793a\u8fd9\u4e9b\u9898\u76ee\u88ab AC \u7684\u8bb0\u5f55\uff0c\u6bcf\u9053\u9898\u76ee\u53ef\u80fd\u88ab\u591a\u4e2a\u56e2\u961f AC\uff0c\u4e5f\u6709\u53ef\u80fd\u6ca1\u6709\u56e2\u961f AC\uff0c\u8bf7\u4f60\u8ba1\u7b97\u6bd4\u8d5b\u603b\u5171\u8981\u53d1\u51fa\u591a\u5c11\u4e2a\u6c14\u7403\u3002\n\n## \u8f93\u5165\u683c\u5f0f\n\u7b2c\u4e00\u884c\u4e00\u4e2a\u6574\u6570 $t$ \u8868\u793a\u6d4b\u8bd5\u6570\u636e\u7ec4\u6570\u3002\n\n\u5bf9\u4e8e\u6bcf\u7ec4\u6570\u636e\uff0c\u7b2c\u4e00\u884c\u8f93\u5165\u4e00\u4e2a\u6574\u6570 $n$ \u8868\u793a\u6709\u591a\u5c11\u6b21 AC\uff0c\u63a5\u4e0b\u6765\u4e00\u884c $n$ \u4e2a\u5b57\u7b26\u8868\u793a AC \u8bb0\u5f55\u3002\n\n## \u8f93\u51fa\u683c\u5f0f\n\u6bcf\u7ec4\u6570\u636e\u4e00\u884c\u4e00\u4e2a\u6574\u6570\uff0c\u8868\u793a\u53d1\u51fa\u7684\u6c14\u7403\u603b\u6570\u3002\n\n# \u4e8c \u89e3\u9898\u601d\u8def\n\u7528\u6570\u7ec4\u8bb0\u5f55\u4e0b\u90a3\u4e9b\u9898\u76ee\u5df2\u7ecf\u88ab AC \u4e86\uff0c\u5bf9\u4e8e\u65b0\u88ab AC \u7684\u9898\u76ee\uff0c\u7b54\u6848\u52a0\u4e0a $2$\uff0c\u5426\u5219\u52a0\u4e0a $1$\u3002\n\n\u6ce8\u610f\uff1a\u6570\u7ec4\u8bb0\u5f97\u53ca\u65f6\u6e05\u7a7a\u3002\n\n# \u4e09 \u4ee3\u7801\n```cpp\n# include <bits/stdc++.h>\n#define ll long long\n#define re register\n#define il inline\nusing namespace std;\nint ac[30];\nint main()\n{\n\tint t;\n\tscanf(\"%d\", &t);\n\twhile (t--)\n\t{\n\t\tint ans = 0, n;\n\t\tmemset(ac, 0, sizeof(ac));\n\t\tcin >> n;\n\t\tfor (int i = 1; i <= n; ++i)\n\t\t{\n\t\t\tchar c; cin >> c;\n\t\t\tif (ac[c - 'A'] == 0) {ans += 2; ac[c - 'A'] = 1;}\n\t\t\telse ans += 1;\n\t\t}\n\t\tprintf(\"%d\\n\", ans);\n\t}\n\treturn 0;\n}\n\n```\n",
+        "postTime": 1657852043,
+        "uid": 425694,
+        "name": "\u90d1\u671d\u66e6zzx",
+        "ccfLevel": 6,
+        "title": "CF1703B ICPC Balloons \u9898\u89e3"
+    },
+    {
+        "content": "### \u9898\u610f\u7cbe\u7b80\uff1a\n\u7ed9\u5b9a $n$ \u4e2a\u5747\u4e3a\u5927\u5199\u5b57\u6bcd\u6784\u6210\u7684\u5b57\u7b26\u4e32\uff0c\u5bf9\u4e8e\u6bcf\u4e2a\u5b57\u7b26\u4e32\u4e00\u4e2a\u8f93\u51fa\uff0c\u6bcf\u4e2a\u5b57\u7b26\u4e32\u67d0\u5b57\u6bcd\u7b2c\u4e00\u6b21\u51fa\u73b0\u5219\u8f93\u51fa\u7b54\u6848\u52a0 $2$\uff0c\u5426\u5219\u5c06\u8f93\u51fa\u7b54\u6848\u52a0 $1$\u3002\n\n### \u601d\u8def\u6982\u8ff0\uff1a\n\u7528\u4e00\u4e2a\u6570\u7ec4\u6807\u8bb0\u6bcf\u4e00\u4e2a\u5b57\u7b26\u4e32\u4e2d\u7684\u5b57\u6bcd\u51fa\u73b0\u60c5\u51b5\uff0c\u5982\u679c\u7b2c\u4e00\u6b21\u51fa\u73b0\uff0c\u5219\u5c06\u8f93\u51fa\u7b54\u6848\u52a0 $2$ \u5e76\u6807\u8bb0\uff0c\u5426\u5219\u53ea\u5c06\u8f93\u51fa\u7b54\u6848\u52a0 $1$\uff0c\u8bb0\u5f97\u6bcf\u4e2a\u5b57\u7b26\u4e32\u90fd\u8981\u6e05\u7a7a\u6807\u8bb0\u5373\u53ef\u3002\n\n#### \u53c2\u8003\u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h> \n#define ll long long\nusing namespace std;\nll t,n,ans;\nchar b;\nbool cf[27];\nint main()\n{\n\tios::sync_with_stdio(0);cin.tie(0);cout.tie(0);\n\tcin>>t;\n\twhile(t--)\n\t{\n\t\tcin>>n;ans=0;\n\t\tmemset(cf,0,sizeof(cf));\n\t\tfor(ll i=1;i<=n;++i)\n\t\t{\n\t\t\tcin>>b;\n\t\t\tif(!cf[b-'A'+1])\n\t\t\t\tans+=2,cf[b-'A'+1]=1;\n\t\t\telse\n\t\t\t\t++ans;\n\t\t}\n\t\tcout<<ans<<\"\\n\";\n\t}\n}\n```\n",
+        "postTime": 1657851822,
+        "uid": 443649,
+        "name": "NATO",
+        "ccfLevel": 5,
+        "title": "CF1703B"
+    },
+    {
+        "content": "## \u9898\u76ee\u5927\u610f\n\u6709\u51e0\u652f\u961f\u4f0d\u6253\u6bd4\u8d5b\uff0cA \u4e00\u9053\u9898\u52a0\u4e00\u5206\uff0c\u9996 A \u52a0\u4e24\u5206\uff0c\u7ed9\u5b9a\u4e00\u4e2a\u5b57\u7b26\u4e32\uff0c\u4e3a\u6240\u6709\u961f\u4f0d\u7684A\u9898\u987a\u5e8f\uff0c\u6c42\u6240\u6709\u961f\u4f0d\u603b\u5171\u5f97\u4e86\u591a\u5c11\u5206\u3002\n\n## \u5206\u6790\n\n\u8fd9\u9053\u9898\u4e3b\u8981\u8003\u5bdf\u7406\u89e3\u80fd\u529b\uff0c\u56e0\u4e3a\u53eb\u4f60\u6c42\u603b\u5171\u5f97\u4e86\u591a\u5c11\u5206\uff0c\u5c31\u4e0d\u7528\u6c42\u4e2a\u4f53\uff08\u4e5f\u6c42\u4e0d\u51fa\u6765\uff09\uff0c\u56e0\u6b64\u9996 A \u7684\u987a\u5e8f\u4e5f\u5c31\u4e0d\u91cd\u8981\u4e86\uff0c\u53ea\u9700\u8981\u5224\u65ad\u6709\u591a\u5c11\u4e2a\u9996 A\uff0c\u7136\u540e\u52a0\u4e0a\u5b57\u7b26\u4e32\u957f\u5ea6\u5c31\u53ef\u4ee5\u4e86\u3002\n\n\u6211\u4eec\u8003\u8651\u7528\u4e00\u4e2a\u6570\u7ec4\u5b58\u662f\u5426\u51fa\u73b0\u8fc7\u8be5\u5b57\u7b26\uff0c\u5982\u679c\u51fa\u73b0\u8fc7\u4e0d\u7ba1\uff0c\u6ca1\u51fa\u73b0\u5c31\u662f\u9996 A\uff0c\u7b54\u6848\u52a0\u4e00\uff0c\u6700\u540e\u52a0\u4e0a\u957f\u5ea6\uff0c\u5c31\u662f\u6700\u7ec8\u7684\u7b54\u6848\u3002\n\n## Code\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint a[260];\nint main()\n{\n\tint t;\n\tcin>>t;\n\twhile(t--)\n\t{\n\t\tmemset(a,0,sizeof(a));\n\t\t\n\t\tint n;\n\t\tcin>>n;\n\t\tint ans=n;\n\t\tchar x;\n\t\tfor(int i=0;i<n;i++)\n\t\t{\n\t\t\tcin>>x;\n\t\t\tif(a[x-'A']==0)\n\t\t\t{\n\t\t\t\tans++;\n\t\t\t\ta[x-'A']=1;\n\t\t\t}\n\t\t}\n\t\tcout<<ans<<'\\n';\n\t } \n}\n```",
+        "postTime": 1657851480,
+        "uid": 441247,
+        "name": "Halberd_Cease",
+        "ccfLevel": 5,
+        "title": "CF1703B \u9898\u89e3"
+    },
+    {
+        "content": "\u9898\u610f\uff1a\u8f93\u5165\u6bcf\u4e2a\u56e2\u961f\u53ca\u56e2\u961f\u7684\u89e3\u51b3\u95ee\u9898\u6570\uff0c\u82e5\u662f\u7b2c\u4e00\u6b21\u89e3\u51b3\u5219\u83b7\u5f97\u4e24\u4e2a\u6c14\u7403\uff0c\u5176\u4f59\u83b7\u5f97\u4e00\u4e2a\u6c14\u7403\u3002\n\n\u505a\u6cd5\uff1a\u5f00\u4e00\u4e2a\u6570\u7ec4\u8bb0\u5f55\u662f\u5426\u4e3a\u7b2c\u4e00\u6b21\u89e3\u51b3\u8be5\u95ee\u9898\uff0c\u662f\u5219\u52a0 $2$\uff0c\u5426\u5219\u52a0 $1$\uff0c\u76f4\u63a5\u6a21\u62df\uff0c\u6ce8\u610f\u6e05\u7a7a\u3002\n```cpp\n#include<cstdio>\n#include<iostream>\n#include<cstring>\nusing namespace std;\nint s[600];//\u8bb0\u5f55\u662f\u5426\u4e3a\u7b2c\u4e00\u6b21\nint t,n;\nint ans;//\u8bb0\u5f55\u7b54\u6848\nint main(){\n\tscanf(\"%d\",&t);\n\twhile(t--){\n\t\tchar c;\n\t\tans=0;//\u6e05\u7a7a\n\t\tmemset(s,0,sizeof(s));//\u6e05\u7a7a\n\t\tscanf(\"%d\",&n);\n\t\tfor(int i=0;i<n;i++){\n\t\t\tscanf(\" %c\",&c);\n\t\t\tif(!s[c]){//\u7b2c\u4e00\u6b21\u8f93\u5165\n\t\t\t\ts[c]=1;//\u8bb0\u5f55\n\t\t\t\tans+=2;\n\t\t\t}\n\t\t\telse ans+=1;//\u7b2c\u4e8c\u6b21\u8f93\u5165\n\t\t}\n\t\tprintf(\"%d\\n\",ans);//\u8f93\u51fa\u7b54\u6848\n\t}\n\treturn 0;\n}\n\n```\n",
+        "postTime": 1657845604,
+        "uid": 448593,
+        "name": "ldh081122",
+        "ccfLevel": 4,
+        "title": "CF1703B ICPC Balloons \u9898\u89e3"
+    }
+]

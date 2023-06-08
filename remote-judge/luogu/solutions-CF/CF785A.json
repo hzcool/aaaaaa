@@ -1,0 +1,42 @@
+[
+    {
+        "content": "\u6574\u4f53\u601d\u8def\uff1a\u56e0\u4e3a\u8fd9\u56db\u4e2a\u5355\u8bcd\u9996\u5b57\u6bcd\u90fd\u4e0d\u540c\uff0c\u6240\u4ee5\u53ea\u9700\u8981\u6bd4\u8f83\u9996\u5b57\u6bcd\u5373\u53ef\u3002\n\nAC Code:\n```cpp\n#include<iostream>\n#include<cstring>\n\nusing namespace std;\n\nint main()\n{\n    string s;\n    int n;\n    int ans=0;\n    cin>>n;\n    while(n--)\n    {\n        cin>>s;\n        if(s[0]=='T')//Tetrahedron\n        {\n            ans+=4;\n        }\n        if(s[0]=='C')//Cube\n        {\n            ans+=6;\n        }\n        if(s[0]=='O')//Octahedron\n        {\n            ans+=8;\n        }\n        if(s[0]=='D')//Dodecahedron\n        {\n            ans+=12;\n        }       \n        if(s[0]=='I')//Icosahedron\n        {\n            ans+=20;\n        }            \n    }\n    cout<<ans<<endl;\n    return 0;\n}\n```",
+        "postTime": 1583542026,
+        "uid": 291314,
+        "name": "MrFish",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF785A \u3010Anton and Polyhedrons\u3011"
+    },
+    {
+        "content": "\u672c\u9898\u601d\u8def\uff1a\n\n\u672c\u9898\u7684\u7b54\u6848\u4e0d\u5c31\u662f\u6240\u6709\u6b63\u591a\u9762\u4f53\u7684\u9762\u6570\u4e4b\u548c\u5417\uff1f\n\n\u53ea\u8981\u4e00\u4e2a\u4e00\u4e2a\u5224\u65ad\u8fc7\u53bb\u5373\u53ef\u3002\n\n$AC$ $Code$\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,sum;\nstring a;\nint main()\n{\n\tcin>>n;\n\twhile(n--)\n\t{\n\t\tcin>>a;\n\t\tif(a==\"Tetrahedron\")sum+=4;//\u5982\u679c\u662f\u56db\u9762\u4f53\u5c31\u52a04\n\t\tif(a==\"Cube\")sum+=6;//\u5982\u679c\u662f\u7acb\u65b9\u4f53\u5c31\u52a06\n\t\tif(a==\"Octahedron\")sum+=8;//\u5982\u679c\u662f\u516b\u9762\u4f53\u5c31\u52a06\n\t\tif(a==\"Dodecahedron\")sum+=12;//\u5982\u679c\u662f\u5341\u4e8c\u9762\u4f53\u5c31\u52a012\n\t\tif(a==\"Icosahedron\")sum+=20;//\u5982\u679c\u662f\u4e8c\u5341\u9762\u4f53\u5c31\u52a020\n\t}\n\tcout<<sum<<endl;\n\treturn 0;\n}\n```\n",
+        "postTime": 1582447072,
+        "uid": 237940,
+        "name": "crpQwQ",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF785A \u3010Anton and Polyhedrons\u3011"
+    },
+    {
+        "content": "\u53ea\u662f\u4e00\u9053~~\u6c34~~\u82f1\u6587\u9898\u3002\u3002\u3002\n\n### \u4ecb\u7ecd\u4e00\u4e2a$STL$\uff1a`map`\n\n~~\u51c6\u786e\u8bf4\u5c31\u662f\u81ea\u5b9a\u4e49\u4e0b\u6807\u548c\u503c\u7684\u4e0d\u5b9a\u957f\u6570\u7ec4~~\n\n\u65f6\u95f4\u590d\u6742\u5ea6$O(logN)$\n\n\u5b9e\u73b0\u65b9\u5f0f\u662f~~\u7ea2\u9ed1\u6811~~\n\n\u5982`map<int,int>`\u5c31\u662f\u4e00\u4e2a\u4e0b\u6807\u4e3a$int$\uff0c\u503c\u4e3a$int$\u7684\u6570\u7ec4;\n# \u7262\u8bb0\uff1a$map$\u7b2c\u4e00\u4e2a\u662f\u4e0b\u6807\uff0c\u7b2c\u4e8c\u4e2a\u662f\u503c\uff01\uff01\uff01\n\n```cpp\n#include<bit/stdc++.h>\ntypedef long long ll;\t\t\t\t//\u675c\u7eddlonglong\uff0c\u53ea\u7528ll\n\t\t\t\t\t\t\t\t\t//\u4e5f\u662f\u4e00\u4e2a\u5361\u70b9\nusing namespace std;\nint main()/\n{\n\tmap<string,ll>Map;\t\t\t\t//STL\u5927\u6cd5\uff08\u4e0b\u6807\u4e3astring\uff0c\u503c\u4e3all\u7684\u6570\u7ec4\uff09\n\tMap[\"Icosahedron\"]=20;\n\tMap[\"Dodecahedron\"]=12;\n\tMap[\"Octahedron\"]=8;\n\tMap[\"Cube\"]=6;\n\tMap[\"Tetrahedron\"]=4;\t\t\t//\u9898\u610f\u590d\u5236\u9ecf\u8d34\n\tll n,ans=0;\n\tscanf(\"%lld\",&n);//\u8f93\u5165\n\tstring tmp;\n\tfor(register ll i=1;i<=n;++i)\n\t\tcin>>tmp,ans+=Map[tmp]; \t//\u4e00\u8fb9\u8f93\u5165\u4e00\u8fb9\u6c42\u548c\n\tprintf(\"%lld\\n\",ans);\n\treturn 0;\t\t\t\t\t\t//return 0 \u8fd8\u662f\u8981\u6253\u7684\n}\n```\n",
+        "postTime": 1558334269,
+        "uid": 125430,
+        "name": "LJA001125",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF785A \u3010Anton and Polyhedrons\u3011"
+    },
+    {
+        "content": "\u6211\u4eec\u7684\u9996\u8981\u4efb\u52a1\u5c31\u662f\u5c06\u672c\u9898\u7684\u6570\u636e\u8fdb\u884c\u5b58\u50a8\u2014\u2014\u5373\uff0c\u628a\u51e0\u4f55\u4f53\u540d\u79f0\u548c\u9762\u6570$\\red{\\text{\u6309\u7167\u987a\u5e8f}}$\u8fdb\u884c\u5b58\u50a8\u3002\u7136\u540e\u4e0d\u505c\u5730\u5faa\u73af\u8f93\u5165\u5e76\u7d2f\u52a0\u5373\u53ef\u3002\n\n$AC$\u4ee3\u7801\uff1a\n\n```cpp\n#include<iostream>\nusing namespace std;\nstring t,s[]={\"Tetrahedron\",\"Cube\",\"Octahedron\",\"Dodecahedron\",\"Icosahedron\"};\nint n,a[]={4,6,8,12,20},i,x;\nint main()\n{\n    ios::sync_with_stdio(0);//\u5173\u540c\u6b65\uff0c\u7701\u65f6\u95f4\n    cin>>n;//\u8f93\u5165\n    while(n--)//\u5faa\u73af\n    {\n        cin>>t;//\u8f93\u5165\u5b57\u7b26\u4e32\n        for(i=0;i<5;i++)if(s[i]==t)break;//\u7531\u4e8ei\u662f\u5168\u5c40\u53d8\u91cf\uff0c\u56e0\u6b64break\u4e4b\u540ei\u7684\u503c\u5c31\u4f1a\u505c\u7559\u5728\u6267\u884cbreak\u7684\u90a3\u4e00\u4e2ai\u503c\u4e0a\n        x+=a[i];//\u7d2f\u52a0\n    }\n    cout<<x;//\u8f93\u51fa\n}\n```\n",
+        "postTime": 1583674762,
+        "uid": 137367,
+        "name": "hensier",
+        "ccfLevel": 6,
+        "title": "CF785A Anton and Polyhedrons \u9898\u89e3"
+    },
+    {
+        "content": "# CF785A\n\n\u975e\u5e38\u6c34\u7684~~\u82f1\u8bed\u9898~~\u3002\n\n\u5927\u5bb6\u4e00\u8d77\u6765\u5b66\u4e60\u82f1\u8bed...Tetrahedron \u56db\u9762\u4f53\uff0cCube \u516d\u9762\u4f53\uff0cOctahedron \u516b\u9762\u4f53\uff0cDodecahedron \u5341\u4e8c\u9762\u4f53\uff0cIcosahedron \u4e8c\u5341\u9762\u4f53\u3002\n\n\u8fd9\u9053\u9898\u628a\u6240\u6709\u8f93\u5165\u7684\u5b57\u7b26\u4e32\u6240\u4ee3\u8868\u7684\u591a\u9762\u4f53\u7684\u9762\u90fd\u52a0\u8d77\u6765\uff0c\u5c31A\u4e86...\n\n```c++\n#include <bits/stdc++.h>\nusing namespace std;\n\nconst int maxn = 100005;\n\nint n;\nint main() {\n  string s;\n  cin >> n;\n  long long ans = 0;\n  while (n--) {\n    cin >> s;\n    if (s == \"Tetrahedron\") ans += 4;\n    if (s == \"Cube\") ans += 6;\n    if (s == \"Octahedron\") ans += 8;\n    if (s == \"Dodecahedron\") ans += 12;\n    if (s == \"Icosahedron\") ans += 20;\n  }\n  cout << ans;\n  return 0;\n}\n```",
+        "postTime": 1531997899,
+        "uid": 53067,
+        "name": "YuntianZhao",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF785A \u3010Anton and Polyhedrons\u3011"
+    }
+]

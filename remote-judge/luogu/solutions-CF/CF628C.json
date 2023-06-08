@@ -1,0 +1,18 @@
+[
+    {
+        "content": "\u8fd9\u4e2a\u9898\u76ee\u8bf4\u5f97\u592a\u590d\u6742\u4e86\uff0c\u7528\u4e00\u53e5\u8bdd\u6982\u62ec\uff0c\u5c31\u662f\u5bf9\u4e8e\u4e00\u4e2a\u5b57\u7b26\u4e32 $s$ \uff0c\u662f\u5426\u5b58\u5728\u5b57\u7b26\u4e32 $s'$ s.t. $\\sum\\limits_{i=1}^n\\left\\vert s[i]-s'[i]\\right\\vert=k$\n\n\u4e8b\u5b9e\u4e0a\uff0c\u6211\u4eec\u53ef\u4ee5\u5f97\u5230 $\\sum\\limits_{i=1}^n\\left\\vert s[i]-s'[i]\\right\\vert$ \u7684\u53d6\u503c\u8303\u56f4\u4e3a $[0,\\sum\\limits_{i=1}^n\\left\\vert \\max(s[i]-\\text{a},\\text{z}-s[i])\\right\\vert]$ \uff0c\u56e0\u6b64\uff0c\u53ea\u9700\u6c42\u51fa\u4e0a\u9650\u4e0e $k$ \u7684\u5927\u5c0f\u5373\u53ef\n\n\u9700\u8981\u6ce8\u610f\u7684\u662f\uff0c\u5f53 $k$ \u88ab\u9012\u51cf\u5230 $0$ \u540e\uff0c\u5c31\u53ef\u4ee5\u63a8\u51fa\u5faa\u73af\uff0c\u5e76\u4e14\u5728\u51cf\u5230\u6700\u5c0f\u4e4b\u524d\u65f6\uff0c\u8981\u5224\u65ad\u76f8\u51cf\u540e $k$ \u662f\u5426\u4e3a\u6b63\n\n[$\\mathcal{AC\\text{ }CODE}$](https://www.luogu.com.cn/record/76830737)\uff08 c++ \u7248\uff09\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n, k;\nchar c[100010];\nsigned main()\n{\n\tcin >> n >> k >> c;\n\tfor (int i = 0; i < n; i++)\n\t{\n\t\tif (abs(c[i] - 'a') >= abs(c[i] - 'z'))\n\t\t{\n\t\t\tif (k < (c[i] - 'a')) c[i] -= k, k = 0;\n\t\t\telse k -= (c[i] - 'a'), c[i] = 'a';\n\t\t}\n\t\telse \n\t\t{\n\t\t\tif (k < ('z' - c[i])) c[i] += k, k = 0;\n\t\t\telse k -= ('z' - c[i]), c[i] = 'z';\n\t\t}\n\t\tif (k == 0) break;\n\t}\n\tif (k) cout << -1;\n\telse cout << c;\n\treturn 0;\n}\n```\n\u4e0d\u6284\u4ee3\u7801\uff0c\u4ece\u6211\u505a\u8d77",
+        "postTime": 1654240712,
+        "uid": 321482,
+        "name": "wangyixiao",
+        "ccfLevel": 0,
+        "title": "CF628C\u9898\u89e3"
+    },
+    {
+        "content": "## \u5927\u610f\n\n\u7ed9\u4f60\u4e00\u4e2a\u957f\u5ea6\u4e3a $ n $ \u5b57\u7b26\u4e32 $ s $ \u548c\u4e00\u4e2a\u6b63\u6574\u6570 $ k $ \uff0c\u6c42\u4efb\u610f\u4e00\u4e2a\u957f\u5ea6\u4e3a $ n $ \u5b57\u7b26\u4e32 $ t $ \uff0c\u4f7f\u5f97\n\n$$ \\sum_{i=1}^n \\lvert s_i - t_i \\rvert = k $$\n\n\u6216\u8005\u8bf4\u4e0d\u5b58\u5728\u3002\n\n## \u601d\u8def\n\n\u56e0\u4e3a\u9898\u76ee\u8981\u6c42\u6c42\u7684\u662f\u4efb\u610f\u4e00\u4e2a\uff0c\u6240\u4ee5\u5e94\u8be5\u5c3d\u91cf\u6700\u5927\u5316\u6bcf\u4e00\u4e2a $ \\lvert s_i - t_i \\rvert $ \uff0c\u76f4\u5230 $ k $ \u88ab\u8017\u5c3d\u3002\n\n\u5982\u679c $ s_i - {}\\! $ `a` $ \\leq $ `z` $ \\! {} -s_i $ \uff0c\u90a3\u4e48\u8ba9 $ t_i $ \u53d6`z`\u65f6\u6d88\u8017\u7684 $ k $ \u503c\u6700\u591a\uff0c\u53cd\u4e4b\u53d6`a`\u3002\n\n## \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\n#define int long long\nusing namespace std;\nint n,k;\nchar ch[1000006];\nint dis(char a,char b){\n\treturn abs(a-b);\n}\nsigned main(){\n\tcin>>n>>k>>ch+1;\n\tfor(int i=1;i<=n;i++){\n\t\tif(dis(ch[i],'a')>=dis(ch[i],'z')){\n\t\t\twhile(k&&ch[i]>'a'){\n\t\t\t\tch[i]--;\n\t\t\t\tk--;\n\t\t\t}\n\t\t}\n\t\telse{\n\t\t\twhile(k&&ch[i]<'z'){\n\t\t\t\tch[i]++;\n\t\t\t\tk--;\n\t\t\t}\n\t\t}\n\t\tif(k==0) break;\n\t}\n\tif(k) cout<<-1;\n\telse cout<<ch+1;\n\treturn 0;\n}\n```",
+        "postTime": 1643450311,
+        "uid": 429147,
+        "name": "hxhhxh",
+        "ccfLevel": 0,
+        "title": "CF628C"
+    }
+]

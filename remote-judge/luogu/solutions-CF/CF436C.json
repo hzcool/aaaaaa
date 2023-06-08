@@ -1,0 +1,10 @@
+[
+    {
+        "content": "# Solution\n\n\u9898\u610f\u5927\u6982\u662f\u8bf4\uff0c\u4e24\u4e2a\u77e9\u9635\u7684\u8f6c\u79fb\u8d39\u7528\u4e3a\u4e0d\u540c\u7684\u5b57\u7b26\u6570 $* w$ \u6216 $ n * m $\uff0c\u53ea\u80fd\u7531\u5df2\u7ecf\u8f6c\u79fb\u51fa\u7684\u77e9\u9635\u8f6c\u79fb\uff0c\u6c42\u6700\u5c0f\u8d39\u7528\u3002 \n\n~~\u663e\u7136~~\u53ef\u4ee5\u5c06\u8f6c\u79fb\u8d39\u7528\u8f6c\u5316\u4e3a\u56fe\u4e0a\u7684\u8fb9\uff0c\u7136\u540e\u662f\u6bcf\u4e2a\u70b9\u80fd\u88ab\u8f6c\u79fb\u5230\u4e14\u603b\u8d39\u7528\u6700\u5c0f\uff0c\u90a3\u4e48\u4e00\u4e2a~~\u5f88\u663e\u7136\u7684~~\u601d\u8def\u5c31\u662f\u6700\u5c0f\u751f\u6210\u6811\u3002\n\u8dd1\u4e00\u904d $Kruscal$ \u5373\u53ef\u3002\n\n# Code \n\n```cpp\n\n#include<bits/stdc++.h>\nusing namespace std;\n#define rep(i,l,r) for(int i=l;i<=r;++i)\n\nint n,m,k,w,f[1005],ans,cnt,t;\nchar a[1005][15][15];\nvector<int> v[1005];\nstruct rec\n{\n\tint x,y,z;\n\t\n}e[1050005];\n\nbool operator <(rec a,rec b)\n{\n\treturn(a.z<b.z);\n}\n\nint find(int x)\n{\n\tif(f[x]==x)return x;else return(f[x]=find(f[x]));\n}\n\nvoid dfs(int x,int fa)\n{\n\tif(x>0)cout<<x<<\" \"<<fa<<\"\\n\";\n\tfor(auto y:v[x])if(y!=fa)dfs(y,x);\n}\n\nint main()\n{\n\tcin>>n>>m>>k>>w;\n\trep(i,1,k)\n\t{\n\t\trep(j,1,n)rep(k,1,m)cin>>a[i][j][k];\n\t\te[++cnt].x=0,e[cnt].y=i,e[cnt].z=n*m;\n\t\trep(j,1,i-1)\n\t\t{\n\t\t\tint sum=0;\n\t\t\trep(k,1,n)rep(l,1,m)if(a[j][k][l]!=a[i][k][l])sum+=w;\n\t\t\te[++cnt].x=i,e[cnt].y=j,e[cnt].z=sum;\n\t\t}\n\t}\n\tsort(e+1,e+cnt+1);\n\trep(i,0,k)f[i]=i;\n\trep(i,1,cnt)\n\t{\n\t\tint p=find(e[i].x),q=find(e[i].y); \n\t\tif(p!=q)\n\t\t{\n\t\t\tf[p]=q;\n\t\t\tans+=e[i].z;\n\t\t\tv[e[i].x].push_back(e[i].y),v[e[i].y].push_back(e[i].x);\n\t\t\t++t;\n\t\t\tif(t==k)break;\n\t\t}\n\t}\n\tcout<<ans<<\"\\n\";\n\tdfs(0,-1);\n\treturn 0;\n}\n\n```",
+        "postTime": 1604582126,
+        "uid": 154285,
+        "name": "YanYou",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF436C \u3010Dungeons and Candies\u3011"
+    }
+]

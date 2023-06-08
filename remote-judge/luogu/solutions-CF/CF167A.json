@@ -1,0 +1,10 @@
+[
+    {
+        "content": "# \u601d\u8def:\n\n### ~~\u7269\u7406\u6a21\u62df\u9898~~,\u5224\u65ad\u5728\u5230\u8fbe\u7ec8\u70b9\u7684\u65f6\u5019\u901f\u5ea6\u662f\u5426\u8fbe\u5230\u6700\u5927\u503c,\u5206\u60c5\u51b5\u8ba8\u8bba\u5373\u53ef\n\n~~\u4e0b\u9762\u4e0a\u4ee3\u7801~~~~\uff08\u9003~~\n\n\n\n------------\n\n\n```cpp\n#include<cstdio>\n#include<cmath>\n#include<algorithm>\nusing namespace std;\ndouble ans[110000];\nint main()\n{\n\tdouble n,a,d;scanf(\"%lf%lf%lf\",&n,&a,&d);\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tdouble t,v;scanf(\"%lf%lf\",&t,&v);\n\t\tif(v*v>=2*a*d)ans[i]=sqrt(2*d/a)+t;\n\t\telse\n\t\t{\n\t\t\tdouble tmp=v*v/2/a;\n\t\t\tdouble x=tmp;\n\t\t\ttmp=d-tmp;\n\t\t\tans[i]=tmp/v+sqrt(2*x/a)+t;\n\t\t}\n\t}\n\tfor(int i=2;i<=n;i++)ans[i]=max(ans[i],ans[i-1]);\n\tfor(int i=1;i<=n;i++)printf(\"%.7f\\n\",ans[i]);\n\treturn 0;\n}\n```",
+        "postTime": 1546434657,
+        "uid": 118376,
+        "name": "WLR__jr",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF167A \u3010Wizards and Trolleybuses\u3011"
+    }
+]

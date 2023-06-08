@@ -1,0 +1,74 @@
+[
+    {
+        "content": "\u771f\u4e0d\u61c2\u4e3a\u4ec0\u4e48\u8981\u5f04\u5f97\u90a3\u4e48\u9ebb\u70e6\uff0c\u4e0d\u5c31\u662f\u4e00\u4e2a\u5411\u4e0a\u53d6\u6574\u561b  \n\u76f4\u63a5\u4e0a\u4ee3\u7801\uff0c\u53cd\u6b63\u90fd~~\u770b\u5f97\u61c2~~\n```cpp\n#include <iostream>\nusing namespace std;\nint n,k,r,g,b,ans,t; //r:\u7ea2\u8272,g:\u7eff\u8272,b:\u84dd\u8272\nint main(){\n\tcin>>n>>k;\n\tr=n*2;g=n*5;b=n*8;//\u7edf\u8ba1\u6bcf\u79cd\u989c\u8272\u6240\u9700\u5f20\u6570\n    \n\tt=r/k;\n\tif(r%k!=0)t++;\n\tans+=t;\t\t\t//\u7ea2\u8272\u9700\u8981\u51e0\u672c\n    \n\tt=g/k;\n\tif(g%k!=0)t++;\n\tans+=t;\t\t\t//\u7eff\u8272\u9700\u8981\u51e0\u672c\n    \n\tt=b/k;\n\tif(b%k!=0)t++;\n\tans+=t;\t\t\t//\u84dd\u8272\u9700\u8981\u51e0\u672c\n    \n\tcout<<ans<<endl;\n\treturn 0;\n}\n```",
+        "postTime": 1543152493,
+        "uid": 78873,
+        "name": "wangyujun",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1080A \u3010Petya and Origami\u3011"
+    },
+    {
+        "content": "### \u9898\u610f\uff1a\n\n\u4e00\u5f20\u9080\u8bf7\u51fd\u8981\u8017\u8d39 $2$ \u5f20\u7ea2\u7eb8\uff0c $5$ \u5f20\u7eff\u7eb8\uff0c $8$ \u5f20\u84dd\u7eb8\u3002\n\n\u4f60\u9700\u8981\u53bb\u5546\u5e97\u4e70\u7eb8\uff0c\u53ea\u662f\u6309\u7167\u5806\u6765\u5356\u7684\uff0c\u6bcf\u5806\u7eb8\u6709 $k$ \u5f20\uff0c\u95ee\u4e00\u5171\u9700\u8981\u4e70\u51e0\u5806\u7eb8\u3002\n\n---\n\n### \u5206\u6790\uff1a\n\n\u5176\u5b9e\u8fd9\u9898\u5c31\u76f8\u5f53\u4e8e\u662f\u5c0f\u5b66\u6570\u5b66\uff0c\u7528\u4eba\u8111\u6765\u7b97\u975e\u5e38\u7b80\u5355\u3002\n\n\u8fd9\u9053\u9898\u7528\u5230\u7684\u662f\u8fdb\u4e00\u6cd5\uff08\u548c\u53bb\u5c3e\u6cd5\u76f8\u5bf9\uff09\uff0c\u5373\u5728\u7b97\u51fa\u6700\u540e\u7ed3\u679c\u65f6\uff0c\u4e0d\u8db3\u4e00\u7684\u8981\u5f53\u6210\u4e00\u6765\u7b97\uff0c\u6bd4\u5982\u4e00\u7fa4\u4eba\u5750\u5927\u5df4\u8f66\uff0c\u4e00\u5171 $41$ \u4e2a\u4eba\uff0c\u6bcf\u8f86\u5927\u5df4\u8f66\u53ef\u4ee5\u575010\u4eba\uff0c\u90a3\u4e48\u5fc5\u987b\u8981\u79df $5$ \u8f86\u5927\u5df4\u8f66\uff08\u4f60\u4e0d\u80fd\u628a\u5269\u4e0b\u7684\u4e00\u4e2a\u4eba\u4e22\u6389\u4e0d\u7ba1\u5427\uff01\uff01\uff01\uff09\u3002\n\n\u5176\u5b9e\u8fd9\u9053\u9898\u548c\u4e0a\u9762\u7684\u4f8b\u5b50\u4e00\u6837\uff0c\u4f60\u9700\u8981 $41$ \u5f20\u7eb8\uff0c\u6bcf\u5806\u7eb8\u6709 $10$ \u5f20\uff0c\u4f60\u5fc5\u987b\u4e70 $5$ \u5806\u7eb8\u3002 C++ \u4e2d\u81ea\u5e26\u5411\u4e0a\u53d6\u6574\u7684\u51fd\u6570\uff0c\u51fd\u6570\u540d\u4e3a ceil \uff0c\u4f7f\u7528\u5b83\u65f6\u5e94\u6ce8\u610f\uff0c\u5b83\u53ea\u80fd\u5bf9\u6d6e\u70b9\u6570\u8fdb\u884c\u53d6\u6574\u3002\n\n---\n\n\u77e5\u9053\u4e86\u8fd9\u4e9b\u5c31\u6765\u4ee3\u7801\u5b9e\u73b0\u5427\uff01\n\n```cpp\n#include<iostream>\n#include<cmath>  //ceil \u7684\u51fd\u6570\u5e93\nusing namespace std;\nint main()\n{\n\tdouble n,k;\n\tcin>>n>>k;\n\tdouble red=2*n,green=5*n,blue=8*n;  //\u53d8\u91cf\u540d\u6709\u70b9\u4e11\uff0c\u4e0d\u597d\u610f\u601d\n\tint dui=ceil(red/k)+ceil(green/k)+ceil(blue/k);  //\u5982\u9898\n\tcout<<dui;\n\treturn 0;\n}\n```\n",
+        "postTime": 1618915962,
+        "uid": 359107,
+        "name": "Chtholly_L",
+        "ccfLevel": 5,
+        "title": "CF1080A\u306e\u9898\u89e3"
+    },
+    {
+        "content": "### \u9898\u610f\n\u4e00\u4e2a\u4eba\u8981\u7ed9$n$ \u4e2a\u670b\u53cb\u53d1\u9080\u8bf7\u51fd\uff0c\u6bcf\u5f20\u9080\u8bf7\u51fd\u89812\u5f20\u7ea2\u7eb8\uff0c5\u5f20\u7eff\u7eb8\uff0c8\u5f20\u84dd\u7eb8\uff0c\u73b0\u5546\u5e97\u4e2d\u51fa\u552e\u8fd9\u8fd9\u4e9b\u7eb8\u5f20\uff0c\u4f46\u53ea\u80fd\u6309\u5806\u4e70\uff0c\u4e00\u5806$k$ \u5f20\u7eb8\uff08\u4efb\u610f\u989c\u8272\uff09\uff0c\u6c42\u4e00\u5171\u8981\u591a\u5c11\u5806\u7eb8\u3002\n### \u505a\u6cd5\n\u56e0\u4e3a\u7eb8\u662f\u6309\u5806\u4e70\uff0c\u6240\u4ee5\u8981\u5411\u4e0a\u53d6\u6574\uff0c\u5c31\u9700\u8981\u7528\u5230c++\u7684\u5411\u4e0a\u53d6\u6574\u51fd\u6570`ceil`(\u8bb0\u5f97\u5199\u4e0a\u5934\u6587\u4ef6)\uff0c\u7136\u540e\u5c31\u53bb\u7b97\u7ea2\u3001\u7eff\u3001\u84dd\u7eb8\u6bcf\u79cd\u6240\u9700\u7684\u5806\u6570\uff08\u8981\u4e3adouble\u7c7b\u578b\uff09\uff0c\u5373\u4e3a$ \\lceil n * a / k \\rceil $ \uff08a\u4e3a\u7ea2\u3001\u7eff\u3001\u84dd\u7eb8\u6bcf\u5c01\u4fe1\u6240\u9700\u5f20\u6570\uff09\uff0c\u4ee3\u7801\u4e3a\uff1a`ans += ceil(a[i] * n / k);` \n\u5c06\u5806\u6570\u52a0\u5230\u603b\u5806\u6570\u4e2d\uff0c\u6700\u540e\u8f93\u51fa\uff08\u5751\u70b9\uff1a$n$ \u548c$k$ \u4e5f\u8981\u4e3adouble\u7c7b\u578b\uff0c\u56e0\u4e3a`ceil`\u6240\u8fdb\u884c\u7684\u53d6\u6574\u64cd\u4f5c\u53ea\u80fd\u4f5c\u7528\u4e8e\u5c0f\u6570\uff09\uff0c\u4e0a\u4ee3\u7801\u3002\n### Code\n```cpp\n#include <iostream>\n#include <cmath>//ceil\u6240\u9700\u51fd\u6570\n\nusing namespace std;\nint a[4] = {0 ,2 ,5 ,8}, ans;//\u4e00\u5c01\u4fe1\u6240\u9700\u7684\u7ea2\u7eb8\uff0c\u7eff\u7eb8\uff0c\u84dd\u7eb8\u5f20\u6570\u548c\u603b\u5806\u6570\ndouble n, k;//\u8981\u5b9a\u4e49\u6210double\n\nint main() {\n\tcin >> n >> k;\n\tfor(int i = 1; i <= 3; i++) {\n\t\tans += ceil(a[i] * n / k);//\u5c06\u5206\u522b\u6240\u9700\u5806\u6570\u52a0\u5165\u603b\u5806\u6570\n\t}\n\tcout << ans;//\u8f93\u51fa\n\treturn 0;//\u5b8c\u7f8e\u7ed3\u675f\n}\n```\n### \u603b\u7ed3\n\u8fd9\u9053\u9898\u4e3b\u8981\u5c31\u662f\u8003\u5bdf\u5bf9\u4e8e`ceil`\u7684\u8fd0\u7528\uff0c\u5982\u679c\u4e0d\u4e3a\u5c0f\u6570\uff0c\u5c31\u4f1a\u76f4\u63a5\u4fdd\u7559\u539f\u6570\u3002",
+        "postTime": 1618915147,
+        "uid": 420129,
+        "name": "Nt_Tsumiki",
+        "ccfLevel": 5,
+        "title": "CF1080A\u9898\u89e3"
+    },
+    {
+        "content": "\u9898\u76ee\u4f20\u9001\u95e8[CF1080A](https://www.luogu.com.cn/problem/CF1080A)\n\n\u8fd9\u9053\u9898\u9898\u76ee\u5f88\u7b80\u5355\uff0c\u5c31\u662f\u4e00\u4e2a\u5411\u4e0a\u53d6\u6574\u800c\u5df2\uff0c\u4e0d\u591a\u8d58\u8ff0\n\n\u8fd9\u91cc\u6211\u770b\u5176\u4ed6\u9898\u89e3\u90fd\u6ca1\u5199\uff0c\u7ed9\u51fa\u4e00\u79cd\u6bd4\u8f83\u7b80\u5355\u7684\u6574\u6570\u5411\u4e0a\u53d6\u6574\u7684\u529e\u6cd5\uff0c\u4f8b\u5982 $ \\lceil a/b \\rceil $ \u53ef\u4ee5\u76f4\u63a5\u5199\u6210`(a+b-1)/b`\uff0c\u5f53 $a$ \u80fd\u6574\u9664 $b$ \u65f6\uff0c\u7ed3\u679c\u5c31\u662f`a/b`\uff0c\u82e5\u4e0d\u80fd\u6574\u9664\uff0c\u56e0\u4e3a\u662f`a+b-1`\uff0c\u6240\u4ee5\u9664 $b$ \u7684\u7ed3\u679c\u5c31\u662f `a/b+1`\uff0c\u5c31\u53ef\u4ee5\u8fbe\u5230\u5411\u4e0a\u53d6\u6574\u7684\u76ee\u7684\u4e86\n\n\u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n\tint n, k;\n\tscanf(\"%d%d\", &n, &k);\n\tint s = (n*2+k-1)/k + (n*5+k-1)/k + (n*8+k-1)/k;\n\tprintf(\"%d\", s);\n\treturn 0;\n}\n```",
+        "postTime": 1618913762,
+        "uid": 239167,
+        "name": "Ptilopsis_w",
+        "ccfLevel": 7,
+        "title": "CF1080A\u9898\u89e3"
+    },
+    {
+        "content": "## Content\n\u5c0f P \u60f3\u7ed9 $n$ \u4f4d\u670b\u53cb\u5404\u53d1\u4e00\u5f20\u9080\u8bf7\u51fd\uff0c\u6bcf\u5f20\u9080\u8bf7\u51fd\u9700\u8981\u8017\u8d39 $2$ \u5f20\u7ea2\u8272\u7eb8\uff0c$5$ \u5f20\u7eff\u8272\u7eb8\u548c $8$ \u5f20\u84dd\u8272\u7eb8\u3002\u5546\u5e97\u91cc\u9762\u7684\u7eb8\u662f\u4e00\u5806\u4e00\u5806\u5356\u7684\uff0c\u6bcf\u5806\u91cc\u9762\u6709 $k$ \u5f20\u53ea\u542b\u6709\u7ea2\u3001\u7eff\u3001\u84dd\u4e09\u79cd\u989c\u8272\u4e2d\u7684\u4e00\u4e2a\u989c\u8272\u7684\u7eb8\u3002\u6c42\u5c0f P \u81f3\u5c11\u8981\u4e70\u591a\u5c11\u5806\u3002\n\n**\u6570\u636e\u8303\u56f4\uff1a$1\\leqslant n,k\\leqslant 10^8$\u3002**\n## Solution\n\u76f4\u63a5\u770b\u6bcf\u79cd\u989c\u8272\u9700\u8981\u591a\u5c11\u5806\uff0c\u7531\u4e8e\u53ea\u80fd\u4e00\u5806\u4e00\u5806\u5730\u4e70\uff0c\u6240\u4ee5\u53ea\u80fd\u591a\u4e70\uff0c\u4e0d\u80fd\u5c11\u4e70\uff0c\u56e0\u6b64\u7b54\u6848\u5c31\u5f88\u663e\u800c\u6613\u89c1\u4e86\uff0c\u5206\u522b\u662f $\\left\\lceil\\dfrac{2n}{k}\\right\\rceil,\\left\\lceil\\dfrac{5n}{k}\\right\\rceil$ \u548c $\\left\\lceil\\dfrac{8n}{k}\\right\\rceil$\u3002\n## Code\n```cpp\nint n, k;\n\nint main() {\n\tgetint(n), getint(k);\n\tint ans = ceil(n * 2.0 / k) + ceil(n * 5.0 / k) + ceil(n * 8.0 / k);\n\twriteint(ans);\n\treturn 0;\n}\n```",
+        "postTime": 1602515370,
+        "uid": 112917,
+        "name": "Eason_AC",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF1080A \u3010Petya and Origami\u3011"
+    },
+    {
+        "content": "\u9898\u76ee\uff1a[Petya and Origami](https://www.luogu.org/problemnew/show/CF1080A)\n\n---\n\n\u601d\u8def\uff1a\n\n\u819c\u4f60\u9898\uff0c\u5c31\u662f\u8f93\u51fax/k+y/k+z/k\u5c31\u53ef\u4ee5\u4e86\u3002\n\n\u8981\u6ce8\u610f\u5411\u4e0a\u53d6\u6574\u3002\n\n---\n\n\u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n\n#define maxn 100000000\n#define read(x) scanf(\"%d\",&x)\n\nint n,k;\n\nint main() {\n\tread(n),read(k);\n\tint x=n*2,y=n*5,z=n*8;\n\t\n\tprintf(\"%d\",x/k+(x%k!=0)+y/k+(y%k!=0)+z/k+(z%k!=0));\n\t\n\treturn 0;\n}\n```\n",
+        "postTime": 1545730240,
+        "uid": 13117,
+        "name": "Ouaoan",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1080A \u3010Petya and Origami\u3011"
+    },
+    {
+        "content": "\u6839\u636e\u9898\u76ee\u6761\u4ef6\u6c42\u51fa\u6bcf\u79cd\u989c\u8272\u9700\u8981\u591a\u5c11\u4e2a\uff0c\u5206\u522b\u9664k\u5411\u4e0a\u53d6\u6574\u76f8\u52a0\u5c31\u662f\u7b54\u6848\n```\n#include <bits/stdc++.h>\n#define jh(x,y) (x^=y^=x^=y)\n#define lowbit(x) (x&-x)\nconst double PI = acos(-1.0);\nconst int N = 1e5 + 10, mod = 1e9 + 7;\nusing namespace std;\nnamespace fast_IO {\n    int read()\n    {\n        register int num = 0;\n        register char ch;\n        register bool flag = false;\n        while ((ch = getchar()) == ' ' || ch == '\\n' || ch == '\\r');\n        if (ch == EOF)return ch; if (ch == '-')flag = true; else num = ch ^ 48;\n        while ((ch = getchar()) != ' '&&ch != '\\n'&&ch != '\\r'&&~ch)\n            num = (num << 1) + (num << 3) + (ch ^ 48);\n        if (flag)return -num; return num;\n    }\n    void write(register int x) { if (x < 0)putchar('-'), x = -x; if (x >= 10)write(x / 10); putchar(x % 10 ^ 48); }\n};\n\n\nint main()\n{\n    register int n = fast_IO::read(), k = fast_IO::read();\n    fast_IO::write((n * 2 + k - 1) / k + (n * 5 + k - 1) / k + (n * 8 + k - 1) / k);\n    return 0;\n}\n```\n",
+        "postTime": 1543106658,
+        "uid": 87283,
+        "name": "Zechariah",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1080A \u3010Petya and Origami\u3011"
+    },
+    {
+        "content": "# \u9898\u89e3 CF1080A \u3010Petya and Origami\u3011\n\n## [\u5b89\u5229\u535a\u5ba2](https://www.cnblogs.com/little-sun0331/p/10014591.html)\n\n\u8fd9\u9053\u9898\u5176\u5b9e\u8981\u6211\u4eec\u6c42\u7684\u5c31\u662f\n$$\\lceil 2*n/k \\rceil + \\lceil 5*n/k \\rceil + \\lceil 2*n/k \\rceil$$\n\u7136\u540e\u5c31\u505a\u5b8c\u4e86\n```cpp\n# include <bits/stdc++.h>\n\n# define ll long long\n\nint main()\n{\n    ll n, k;\n    scanf(\"%lld%lld\", &n, &k);\n    ll ans = ((2 * n) / k) + ((5 * n) / k) + ((8 * n) / k) + bool((2 * n) % k != 0) + bool((5 * n) % k != 0) + bool((8 * n) % k != 0);\n    printf(\"%lld\\n\", ans);\n    return 0;\n}\n```\n\n",
+        "postTime": 1543106409,
+        "uid": 61966,
+        "name": "little_sun",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF1080A \u3010Petya and Origami\u3011"
+    },
+    {
+        "content": "\u539f\u6bd4\u8d5b\u9898\u89e3\uff1a[https://www.cnblogs.com/nblyz2003/p/10014521.html]()\n\n\u9898\u610f\uff1aPetya\u8981\u53d1\u51fan\u5f20\u9080\u8bf7\u51fd\uff0c\u6bcf\u5f20\u8bf7\u51fd\u9700\u89812\u5f20\u7ea2\u7eb8\uff0c5\u5f20\u7eff\u7eb8\uff0c8\u5f20\u84dd\u7eb8\u3002\u73b0\u5728\u5546\u5e97\u91cc\u6709\u4e00\u4e9b\u4e0d\u540c\u989c\u8272\u7684\u7b14\u8bb0\u672c\uff0c\u6bcf\u672c\u4e2d\u6709k\u5f20\u989c\u8272\u76f8\u540c\u7684\u7eb8\uff0c\u6c42\u6700\u5c11\u8981\u4e70\u51e0\u672c\u7b14\u8bb0\u672c\u3002\n\n\u8fd9\u9898\u5c31\u662f\u4e00\u9053\u6a21\u62df\u9898\uff0c\u7b97\u51fa\u6bcf\u79cd\u7eb8\u7684\u6570\u91cf\uff0c\u7b54\u6848\u52a0\u4e0a\u6570\u91cf\u9664\u4ee5k\uff0c\u5bf9\u4e8e\u6bcf\u5f20\u989c\u8272\u5982\u679c\u8fd8\u6709\u4f59\u6570\uff0c\u7b54\u6848\u52a0\u4e00\u3002\n\n \n\n\u4ee3\u7801\u5982\u4e0b\uff1a\n```cpp\n#include <iostream>\n#include <cstdio>\n#include <algorithm>\n#include <cstring>\n#include <vector>\n#define rep(x, l, r) for(int x = l; x <= r; x++)\n#define repd(x, r, l) for(int x = r; x >= l; x--)\n#define clr(x,y) memset(x, y, sizeof(x))\n#define all(x) x.begin(), x.end()\n#define pb push_back\n#define mp make_pair\n#define MAXN\n#define fi first\n#define se second\n#define SZ(x) ((int)x.size())\nusing namespace std;\ntypedef long long LL;\ntypedef vector<int> vi;\ntypedef pair<int, int> pii;\nconst int INF = 1 << 30;\nconst int p = 10000007;\nint lowbit(int x){ return x & -x; }\nint fast_power(int a, int b){ int x; for(x = 1; b; b >>= 1){ if(b & 1) x = 1ll * x * a % p; a = 1ll * a * a % p; } return x; }\n//head by DYH\n\nint main(){\n    int n, k;\n    scanf(\"%d%d\", &n, &k);\n    int a = n * 2, b = n * 5, c = n * 8;\n    int ans = a / k + b / k + c / k;\n    if(a % k) ans++;\n    if(b % k) ans++;\n    if(c % k) ans++;\n    printf(\"%d\\n\", ans);\n    return 0;\n}\n```\nProblem-A",
+        "postTime": 1543090245,
+        "uid": 149312,
+        "name": "wze\u63cd\u6241\u4e86nm",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1080A \u3010Petya and Origami\u3011"
+    }
+]

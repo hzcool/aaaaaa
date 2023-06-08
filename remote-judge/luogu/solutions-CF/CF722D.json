@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u7ffb\u8bd1\uff1a\u627e\u4e00\u4e2a\u5927\u5c0f\u4e3an\u7684\u96c6\u5408x\uff0c\u4f7f\u5f97\u96c6\u5408y\u4e2d\u7684\u5143\u7d20\u90fd\u53ef\u4ee5\u7531\u96c6\u5408x\u8fdb\u884c\u6216\u5f97\u5230\uff0c\u53ef\u4ee5\u64cd\u4f5c\u7531\u64cd\u4f5c\u5f97\u6765\u7684\u5143\u7d20\uff0c\u6c42\u6700\u5927\u5143\u7d20\u6700\u5c0f\u7684\u96c6\u5408x \u3002\n\n\u7b97\u6cd5\uff1a\u8d2a\u5fc3\n\n\u8d2a\u5fc3\u601d\u8def\uff1a\u6bcf\u6b21\u53d6\u51fa\u6700\u5927\u7684\u6570\u5b57\uff0c\u4e0d\u65ad\u9664\u4ee52\uff0c\u5982\u679c\u6ca1\u6709\u91cd\u590d\u5143\u7d20\u7684\u8bdd\u5c31\u7ed3\u675f\u5e76\u4e14\u653e\u56de\u96c6\u5408\u91cc\u9762\uff0c\u4e00\u76f4\u8fd9\u6837\u64cd\u4f5c\u76f4\u5230\u6700\u5927\u7684\u6570\u5b57\u65e0\u6cd5\u53d8\u5316\u4e3a\u6b62\u3002\n\n\u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,t,a[50010];\nset<int> tree;\nint main()\n{\n\tcin>>n;\n\tfor(int i=1;i<=n;i++) \n\t{\n\t\tscanf(\"%d\",&a[i]);\n\t\ttree.insert(a[i]);\n\t}\n\twhile(1)\n\t{\n        set<int>::iterator i=tree.end();\n        i--;\n        t=*i;\n        while(tree.find(t)!=tree.end()&&t)\n        {\n            t>>=1;\n        }\n        if(t==0) break;\n        tree.erase(i);\n        tree.insert(t);\n\t}\n    for(set<int>::iterator i=tree.begin();i!=tree.end();i++)\n    {\n        cout<<*i<<' ';\n    }\n} \n```\n[\u539f\u6587\u5730\u5740](https://blog.csdn.net/ddmxynl793173/article/details/102021782)",
+        "postTime": 1601045058,
+        "uid": 223290,
+        "name": "\u4ed7\u5251_\u5929\u6daf",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 CF722D \u3010Generating Sets\u3011"
+    }
+]

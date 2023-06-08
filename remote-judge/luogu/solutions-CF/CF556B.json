@@ -1,0 +1,18 @@
+[
+    {
+        "content": "\u8d2a\u5fc3\u7b97\u6cd5\u6211\u6765\u8bf4\uff1a\n\n\u6bd4\u5982\u4e24\u4e2a\u9f7f\u8f6e\uff0c\u7b2c\u4e00\u4e2a\u5e26\u7740\u540e\u9762\u7684\u52a8\uff0c\u5c31\u4e0d\u80fd\u8003\u8651\u8fd9\u79cd\u60c5\u51b5\u3002\n\n\u5bf9\u4e8e\u6392\u9664\u8fd9\u79cd\u60c5\u51b5\uff0c\u6709\u4e24\u79cd\u529e\u6cd5\uff1a\n\n\u8bbe\u4e00\u4e2a $flag$\uff0c\u5982\u679c\u4ece\u7b2c\u4e00\u4e2a\u5728\u52a8\u7684\u65f6\u5019\u7b2c\u4e8c\u4e2a\u6ca1\u52a8\uff0c$flag=-1$\uff0c\u7136\u540e\u8df3\u51fa\u5c31\u884c\u4e86\u3002\n\n\u8fd8\u6709\uff1a\u53ef\u4ee5\u53ea\u4ece\u5de6\u5f80\u53f3\u5224\u65ad\uff0c\u4e0d\u95f4\u65ad\u3002\n\n\u6b64\u7247\u9898\u89e3\u8bf7\u7ed3\u5408\u8fd9@[\u6d41\u7eea\n](https://www.luogu.com.cn/user/287610)\u7684\u9898\u89e3\u6765\u770b\uff0c\u6211\u5e2e\u4ed6\u8865\u5145\u4e00\u4e0b\u3002",
+        "postTime": 1633062801,
+        "uid": 481337,
+        "name": "Farewell_Bye",
+        "ccfLevel": 0,
+        "title": "CF556B Case of Fake Numbers \u9898\u89e3"
+    },
+    {
+        "content": "\u6a21\u62df\uff01\n\n\u56e0\u4e3a\u540e\u9762\u7684\u6bcf\u4e2a\u9f7f\u8f6e\u90fd\u662f\u7531\u7b2c\u4e00\u4e2a\u9f7f\u8f6e\u5e26\u52a8\u7684\uff0c\u6240\u4ee5\u6211\u4eec\u53ea\u8981\u8003\u8651\u7b2c\u4e00\u4e2a\u9f7f\u8f6e\u8f6c\u5230 0 \u8981\u8f6c\u51e0\u6b65\uff0c\u540e\u9762\u7684\u90fd\u662f\u4e00\u6837\u7684\u6b65\u6570\uff0c\u53ea\u8981\u6ce8\u610f\u5947\u5076\u8f6c\u52a8\u65b9\u5411\u4e0d\u4e00\u6837\u5c31\u597d\u5566\uff01\n\n\u6211\u4eec\u5b9a\u4e49\u4e00\u4e2a\u8f6c\u52a8\u51fd\u6570\uff1a\n```cpp\nbool turn(int i,int j,int s,int d)\n{\n\tif(i%2==0)\n\t\td*=-1;\n\tint p=(a[i]+s*d);\n\tif(p<0)\n\t\tp=n+p;\n\telse\n\t\tp%=n;\n//\tcout << p <<\" \" << a[i]<< \" \" << i << \" \" << s <<endl;\n\tif(p==j)\n\t\treturn 1;\n\treturn 0; \n}\n```\n\u4f20\u5165\u7684\u53c2\u6570\u610f\u4e49\u662f\uff1a\u73b0\u5728\u8f6c\u7684\u9f7f\u8f6e i\uff0ci \u8981\u5bf9\u5e94\u7684\u503c j\uff0c\u8f6c\u52a8\u6b65\u6570 s\uff0c\u65b9\u5411 d\n\n\u6211\u4eec\u6bcf\u6b21\u4f20\u5165\u7684\u65b9\u5411\u90fd\u662f 1\uff0c\u5982\u679c i \u662f\u5076\u6570\u90a3\u4e58\u4e2a -1\u6765\u8868\u793a\u65b9\u5411\u4e0d\u540c\u3002\n\n\u7136\u540e\u5f00\u59cb\u6539\u53d8\u8fd9\u4e2a\u9f7f\u8f6e\u7684\u503c\uff0c\u6539\u53d8\u5b8c\u4e86\u5982\u679c\u7b49\u4e8e j \u5c31\u8fd4\u56de 1 \u8868\u793a\u6210\u529f\uff0c\u53cd\u4e4b\u8fd4\u56de 0 \u8868\u793a\u5931\u8d25\uff0c\u5982\u679c\u6709\u4e00\u4e2a\u5931\u8d25\u4e86\uff0c\u5c31\u4e0d\u53ef\u80fd\u8f6c\u51fa\u7b26\u5408\u9898\u76ee\u7684\u9f7f\u8f6e\u4e86\uff0c\u7528 flag=0 \u8bb0\u5f55\u4e0b\u6765\uff0c\u6700\u540e\u6839\u636e flag \u6765\u8f93\u51fa\u5c31\u597d\u5566\uff01\n\n\u4e0b\u9762\u662f AC \u4ee3\u7801\u3002\n```cpp\n#include<bits/stdc++.h>\n#include<cstring>\n#define ll long long\n#define ld long double\n#define inf 0x7f7f7f7f\n#define maxn 1000010\nusing namespace std;\nint a[maxn];\nint n;\nbool turn(int i,int j,int s,int d)\n{\n\tif(i%2==0)\n\t\td*=-1;\n\tint p=(a[i]+s*d);\n\tif(p<0)\n\t\tp=n+p;\n\telse\n\t\tp%=n;\n//\tcout << p <<\" \" << a[i]<< \" \" << i << \" \" << s <<endl;\n\tif(p==j)\n\t\treturn 1;\n\treturn 0; \n}\nint main()\n{\n\tios::sync_with_stdio(false);\n\tcin >> n;\n\tfor(int i=1;i<=n;i++)\n\t\tcin >> a[i];\n\tint c;\n\tc=n-a[1];\n\tint flag = 1;\n\tfor(int i=2;i<=n;i++)\n\t\tif(!turn(i,i-1,c,1))\n\t\t\tflag=0;\n\tif(flag)\n\t\tcout << \"Yes\";\n\telse\n\t\tcout << \"No\";\t\t \n\treturn 0; \n}  \n```\n",
+        "postTime": 1581744124,
+        "uid": 287610,
+        "name": "\u6d41\u7eea",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF556B \u3010Case of Fake Numbers\u3011"
+    }
+]

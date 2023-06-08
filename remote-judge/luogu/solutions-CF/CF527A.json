@@ -1,0 +1,42 @@
+[
+    {
+        "content": "\u8fd9\u9898\u5f00\u59cb\u65f6\u60f3\u5230\u7684\u662f\u6a21\u62df\u5b83\u6bcf\u6b21\u51cf\u53bb\u7684\u8fc7\u7a0b\u5c31\u53ef\u4ee5\u4e86\uff0c\u7528\u4e00\u4e2awhile\u5faa\u73af\u4e00\u76f4\u5230\u5176\u4e2d\u4e00\u4e2a\u4e3a0\u7ed3\u675f\n\n```\nwhile(a!=0&&b!=0){\n\t\tif(a<b) swap(a,b);\n\t\ta-=b,ans++;\n}\n```\n\n\u4ee3\u7801\u5982\u4e0a\uff0c\u4f46\u662f\u663e\u7136\u4e0d\u884c\uff0c\u5c31\u7b2c\u4e09\u4e2a\u6837\u4f8b\u5c31\u77e5\u9053\u4e86\uff0c\u4f1a\u6709\u5927\u7684\u90a3\u4e2a\u6570\u4f1a\u5927\u5c0f\u7684\u5f88\u591a\u500d\uff0c\u6240\u4ee5\u5e72\u8106\u76f4\u63a5\u4e00\u6b21\u51cf\u53bb\u500d\u6570\u5c31\u53ef\u4ee5\u4e86\n\n\n```\n#include<iostream>\n#include<algorithm>\nusing namespace std;\n\nint main(){\n\tlong long a,b,ans=0; cin>>a>>b;\n\twhile(a!=0&&b!=0){\n\t\tif(a<b) swap(a,b);\n\t\tans+=a/b,a-=b*(a/b);\n\t}\n\tcout<<ans<<endl;\n\treturn 0;\n}\n```",
+        "postTime": 1530876195,
+        "uid": 39654,
+        "name": "LW_h_FP",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF527A \u3010Playing with Paper\u3011"
+    },
+    {
+        "content": "[\u535a\u5ba2\u98df\u7528\u66f4\u4f73](https://www.luogu.com.cn/blog/Q--w--Q/solution-cf527a)\n\n\u770b\u5230\u8fd9\u9053\u9898\u76ee\u4e4b\u540e\uff0c\u4fbf\u60f3\u5230\u80af\u5b9a\u662f\u6a21\u62df\uff0c\u5c31\u6253\u51fa\u4e86\u4ee5\u4e0b\u7a0b\u5e8f\uff1a\n\n```\nvar\n a,b,s,t:longint;\nbegin\n readln(a,b);\n while not((a=0)or(b=0)) do\n  begin\n   if a<b then begin t:=a;a:=b;b:=t; end;\n   inc(s);\n   a:=a-b;\n  end;\n write(s);\nend.\n```\n\u7136\u800cRE\u4e86\n![](https://s1.ax1x.com/2020/04/26/JgBFZ8.md.png)\n\n\u6211\u53c8\u4ed4\u7ec6\u7684\u770b\u4e86\u770b\u9898\u76ee\uff0c\u53d1\u73b0\u4e86\u4e00\u4e2a\u91cd\u70b9\uff1a\n![](https://s1.ax1x.com/2020/04/26/JgDJ78.png)\n\n\u4e8e\u662f\u6539\u4e86\u6539\u7a0b\u5e8f\uff1a\n```\nvar\n a,b,s,t:int64;\nbegin\n readln(a,b);\n while not((a=0)or(b=0)) do\n  begin\n   if a<b then begin t:=a;a:=b;b:=t; end;\n   inc(s);\n   a:=a-b;\n  end;\n write(s);\nend.\n```\n\u7136\u800c\u8fd8\u662f\u9519\u4e86\uff1a\n![](https://s1.ax1x.com/2020/04/26/JgD2h4.png)\n\n\u4e8e\u662f\u6211\u628a\u7a0b\u5e8f\u4f18\u5316\u4e86\u4e00\u4e0b\uff1a\n```\nvar\n a,b,s,t:int64;\nbegin\n readln(a,b);\n while not((a=0)or(b=0)) do\n  begin\n   s:=s+a div b;\n   a:=a-b*(a div b);\n   if a<b then begin t:=a;a:=b;b:=t; end;\n  end;\n write(s);\nend.\n```\n\u89e3\u91ca\uff1a\n\nwhile\u5faa\u73af\u91cc\u7684\u5185\u5bb9\u610f\u601d\u5206\u522b\u662f\n\n- \u628aa\u5bf9\u6298a div b\u6b21\u5e76\u7d2f\u52a0\u5230s\u91cc\uff1b\n\n- \u628aa\u5bf9\u6298\u7684\u526a\u6389\uff1b\n\n- \u5224\u65ad\u5e76\u4ea4\u6362\uff08\u4e5f\u53ef\u4ee5\u76f4\u63a5\u4ea4\u6362\uff09\u3002\n\n\u6700\u540ewhile\u8bed\u53e5\u5916\u5728\u8f93\u51fa\u5373\u53ef\u3002\n\n## \u7ec8\u4e8e\u6210\u529f\u7684A\u4e86\uff1a\n\n![](https://s1.ax1x.com/2020/04/26/Jg6nbt.png)",
+        "postTime": 1587903752,
+        "uid": 202829,
+        "name": "Tiago",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF527A \u3010Playing with Paper\u3011"
+    },
+    {
+        "content": "- [\u535a\u5ba2\u98df\u7528\u66f4\u4f73](https://www.luogu.com.cn/blog/yx20070829/solution-cf527a)\n- \u9898\u610f\uff1a\u7ed9\u51fa\u4e24\u4e2a\u6570\u5b57\uff0c\u5927\u51cf\u5c0f\u4e00\u76f4\u5230\u6709\u4e00\u4e2a\u6570\u4e3a0\u6216\u90fd\u4e3a0\uff0c\u6ce8\u610f\u4e00\u4e0b\u6570\u636e\u8303\u56f4\uff0c\u8981\u5f00long long\n- \u601d\u8def\uff1a\u7eaf\u6a21\u62df\n\t- \u4f46\u662f\u56e0\u4e3a\u6709\u65f6\u4e00\u4e2a\u6570\u4f1a\u6bd4\u53e6\u4e00\u4e2a\u6570\u7684\u51e0\u500d\u8fd8\u5927\uff0c\u6240\u4ee5\u6211\u4eec\u8981\u5b9e\u73b0\u4e00\u6b21\u51cf\u5f88\u591a\u6b21\n- \u76f4\u63a5\u653e\u4ee3\u7801\uff0c\u601d\u8def\u5f88\u6e05\u6670\uff0c\u4ee3\u7801\u5f88\u7b80\u5355\n\n```cpp\n#include<bits/stdc++.h>\t//\u61d2\u4eba\u4e07\u80fd\u5e93\nusing namespace std;\nlong long a,b,ans;//\u5206\u522b\u4e3a\u9898\u76ee\u4e2d\u7684a\uff0cb\u3001\u7b54\u6848\uff0c\u6ce8\u610f\u4e00\u5b9a\u8981\u5f00long long\nint main() \n{\n\tscanf(\"%lld%lld\",&a,&b);//\u8bfb\u5165\n\twhile(a&&b)//\u53ea\u8981ab\u6709\u4e00\u65b9\u4e3a0\u5c31\u505c\u6b62\u5faa\u73af\uff0c\u5426\u5219\u5c06\u4e00\u76f4\u5faa\u73af\n\t{\n\t\tans+=a/b;//\u9996\u5148\u8981\u8bb0\u5f55\u7b54\u6848\uff0c\u4e00\u5b9a\u8981\u653e\u5728\u524d\u9762\uff0c\u4e00\u6b21\u51cf\u6700\u591a\n\t\ta-=b*(a/b);//\u5b9e\u9645\u51cf\u53bb\u503c\n\t\tswap(a,b);//\u56e0\u4e3a\u51cf\u5b8ca\u4e00\u5b9a<=b\u6240\u4ee5\u7528swap\u51fd\u6570\u6765\u4ea4\u6362\u4f4d\u7f6e\t\n\t}\n\tprintf(\"%lld\",ans);//\u8f93\u51fa\n\treturn 0;//\u7a0b\u5e8f\u518d\u89c1\n}\n```\n",
+        "postTime": 1587863933,
+        "uid": 239075,
+        "name": "Eon_Floating",
+        "ccfLevel": 5,
+        "title": "CF527A \u3010Playing with Paper\u3011\u3010\u9898\u89e3\u3011"
+    },
+    {
+        "content": "***\u672c\u9898\u89e3\u7531 \u7f18\uff0c\u4e3a\u4f55\u7269\uff1f \u63d0\u4f9b~~~***\n\n**Hi**\n\n**\u8fd9\u662f\u6211\u7684\u7b2c12\u7bc7\u9898\u89e3!**\n```\n\u5148\u4ecb\u7ecd\u4e00\u4e2a\u51fd\u6570\uff0c\n\u7528\u6765\u5199\u8fd9\u9053\u9898\u76ee\uff0c\n\u8fd9\u4e2a\u51fd\u6570\u5c31\u662f\"PlayingwithPaper\";\n```\n```cpp\nint PlayingwithPaper(){\n\tlong long temp=n1/n2;\n\tans=ans+temp;\n\tn1=n1-n2*temp;\n}\n```\n**\u7136\u540e\uff0c\u53ea\u8981\u5224\u65ad\u6709\u6ca1\u6709\u4f7fn1,n2\u6709\u6ca1\u6709\u90fd\u7b49\u4e8e0\u5c31\u53ef\u4ee5\u9000\u51fa**\n```\n\u65b9\u6cd5\u4e00\uff1a\nwhile()\n```\n```cpp\nwhile(1){\n\t\tif(n1<n2){\n\t\t\tlong long s1=n1,s2=n2;\n\t\t\tn1=s2,n2=s1;\n\t\t}\n\t\tPlayingwithPaper();\n\t\tif(n1==0&&n2==0){\n\t\t\tbreak;\n\t\t}\n\t}\n```\n```\n\u65b9\u6cd5\u4e8c:\nfor(;;)\n```\n```cpp\nfor(;n1!=0&&n2!=0;){\n\t\tif(n1<n2){\n\t\t\tlong long s1=n1,s2=n2;\n\t\t\tn1=s2,n2=s1;\n\t\t}\n\t\tPlayingwithPaper();\n\t}\n```\nAC\u4ee3\u7801\n=\n```cpp\n#include<bits/stdc++.h>\n#define TP int\nusing namespace std;\ninline TP read(){\n    char c=getchar();\n    TP x=0;\n    bool f=0;\n    while(!isdigit(c))f^=!(c^45),c=getchar();\n    while(isdigit(c))x=(x<<1)+(x<<3)+(c^48),c=getchar();\n    if(f)x=-x;return x;\n}\nlong long n1=read(),n2=read(),ans=0;\nint PlayingwithPaper(){\n\tlong long temp=n1/n2;\n\tans=ans+temp;\n\tn1=n1-n2*temp;\n}\nint main(){\n\tfor(;n1!=0&&n2!=0;){\n\t\tif(n1<n2){\n\t\t\tlong long s1=n1,s2=n2;\n\t\t\tn1=s2,n2=s1;\n\t\t}\n\t\tPlayingwithPaper();\n\t}\n    cout<<ans;\n    return 0;\n}\n```",
+        "postTime": 1557971868,
+        "uid": 191132,
+        "name": "GusyNight",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF527A \u3010Playing with Paper\u3011"
+    },
+    {
+        "content": "\u770b\u6ca1\u4eba\u53d1\u641c\u7d22\uff0c\u672c\u849f\u84bb\u6765\u4e00\u53d1\u641c\u7d22\u9898\u89e3\n\n\u6ce8\u610f\uff01\n\n\u5341\u5e74OI\u4e00\u573a\u7a7a\uff0c~~\u4e00\u9053\u72b6\u538b~~\u4e0d\u5f00long long\u89c1\u7956\u5b97!!!\n\n\u5f00\u4e86long long \u5199\u641c\u7d22\uff0c\u90a3\u90fd\u4e0d\u662f\u4e8b\u513f\uff01\n\n\u53bb\u5427\uff0c\u4ee3\u7801\u541b\uff01\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nlong long MIN;\nlong long n,m;\nvoid bigsort(long long &x,long long &y)//\u5c06x,y\u53d8\u4e3a\u5927\u6570\u5728\u524d\uff0c\u5c0f\u6570\u5728\u540e\n{\n\tlong long a=max(x,y),b=min(x,y);\n\tx=a;\n\ty=b;\n}\nvoid dfs(long long x,long long y,long long s)//\u9012\u5f52\uff0c\u4e00\u6b21\u51cf\u53bb\u4ed6\u4eec\u7684\u500d\u6570\u5dee\uff0c\u4ee5\u9632\u6b62\u8d85\u65f6\uff0c\u82e5\u662f\u6574\u500d\u6570\uff0c\u5219\u53ef\u76f4\u63a5\u8fd4\u56de\n{\n\tbigsort(x,y);\n\tif(x%y==0)\n\t{\n\t\tcout<<s+x/y<<endl;\n\t\treturn ;\n\t}\n\telse dfs(y,x%y,s+x/y);\n} \nint main()\n{\n\tcin>>n>>m;//\u8bfb\u5165\n\tdfs(n,m,0);//\u8c03\u7528\u9012\u5f52\n\treturn 0;\n} \n```\n~~AC\u62b1\u56de\u5bb6~~",
+        "postTime": 1572687363,
+        "uid": 222849,
+        "name": "\u6c5f\u5c71_\u8fdc\u65b9",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF527A \u3010Playing with Paper\u3011"
+    }
+]

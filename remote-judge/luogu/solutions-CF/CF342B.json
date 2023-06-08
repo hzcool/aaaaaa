@@ -1,0 +1,18 @@
+[
+    {
+        "content": "### \u4e3b\u8981\u601d\u60f3\uff1a\u8d2a\u5fc3\n\n\u53ef\u4ee5\u8bc1\u660e\uff0c\u5982\u679c $s$ \u5728 $f$ \u53f3\u8fb9\uff0c\u90a3\u4e48\u5c06\u7eb8\u6761\u5411\u5de6\u4f20\u5c31\u7edd\u5bf9\u4e0d\u662f\u6700\u4f18\u89e3\u3002\u53cd\u4e4b\u4ea6\u7136\u3002\u800c\u62e5\u6709\u7eb8\u6761\u7684\u4eba\u80fd\u4f20\u5219\u5fc5\u4f20\uff0c\u4e0d\u4f20\u5219 \"X\" \u7684\u6570\u91cf\u7edd\u4e0d\u4f1a\u51cf\u5c11\u3002\n\n\u800c\u4e0d\u5728 $s$ \u548c $f$ \u4e4b\u95f4\u7684\u4eba\u90fd\u53ef\u4ee5\u5ffd\u7565\u3002\n\n\u81f3\u4e8e\u76d1\u89c6\u7684\u65f6\u95f4\u548c\u8303\u56f4\u53ef\u4ee5\u7528 map \u5b58\u3002\n\n\u8fd9\u6837\u4ee3\u7801\u5c31\u5f88\u7b80\u5355\u4e86\uff0c\u53ea\u9700\u8981\u4ece $s$ \u5230 $f$ \u5faa\u73af\u4e00\u904d\uff0c\u5176\u4e2d\u6bcf\u4e2a\u4eba\u5224\u65ad\u662f\u5426\u9700\u8981\u505c\u4ee5\u53ca\u9700\u8981\u505c\u591a\u4e45\u3002\n\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nstruct js{\n\tint l,r;\n};\nint n,m,s,f,t;\nmap<int,js>k;\t\t\t\t\t\t\t\t\t\t//STL\u5927\u6cd5\u597d \nstring ans;\nint main(){\n\tscanf(\"%d%d%d%d\",&n,&m,&s,&f);\n\tfor(int i=1;i<=m;i++){\n\t\tint ti,li,ri;\n\t\tscanf(\"%d%d%d\",&ti,&li,&ri);\n\t\tk[ti]=(js){li,ri};\n\t}\n\tif(s<f){\n\t\tfor(int i=s;i<f;i++){\n\t\t\twhile(++t){\n\t\t\t\tif(k[t].r>=i&&k[t].l<=i+1)\t\t\t//\u5224\u65ad\u6709\u7eb8\u6761\u7684\u4eba\u548c\u8981\u4f20\u7ed9\u7684\u4eba\u662f\u5426\u88ab\u76d1\u89c6 \n\t\t\t\t\tans+='X';\t\t\t\t\t\t//\u662f\u5219\u8f93\u51faX \n\t\t\t\telse break;\n\t\t\t}\n\t\t\tans+='R';\t\t\t\t\t\t\t\t//\u80fd\u4f20\u5219\u4f20 \n\t\t}\n\t}\n\telse{\n\t\tfor(int i=s;i>f;i--){\n\t\t\twhile(++t){\n\t\t\t\tif(k[t].r>=i-1&&k[t].l<=i)\n\t\t\t\t\tans+='X';\n\t\t\t\telse break;\n\t\t\t}\n\t\t\tans+='L';\n\t\t}\n\t}\n\tcout<<ans;\n}\n\n\n\n```\n\n",
+        "postTime": 1644668205,
+        "uid": 542748,
+        "name": "Meta1_",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF342B Xenia and Spies"
+    },
+    {
+        "content": "\u8fd9\u9898\u53ef\u4ee5\u7528\u8d2a\u5fc3\uff0c\u4e5f\u5c31\u662f\u5c3d\u53ef\u80fd\u5411\u76ee\u6807\u4f20\u9012\u7eb8\u6761\u3002\n\n\u5047\u8bbe $f>s$\uff0c\u73b0\u5728\u7eb8\u6761\u5728 $a$\u3002\u5982\u679c\u4ed6\u5411\u5de6\u4f20\u7eb8\u6761\uff0c\u90a3\u4e48\u4e3a\u4e86\u4f20\u56de\u6765\u4f1a\u6d6a\u8d39\u81f3\u5c11 2 \u79d2\uff0c\u90a3\u4e48\u4f20\u5230 $a+1$ \u6240\u9700\u65f6\u95f4\u4e00\u5b9a\u4e0d\u4f1a\u66f4\u77ed\u3002\u540c\u7406\uff0c\u4f20\u5230 $a+2,a+3,\\cdots,f$ \u6240\u9700\u65f6\u95f4\u4e5f\u65e0\u6cd5\u7f29\u77ed\u3002\n\n\u8fd9\u6837\u6bcf\u79d2\u53ea\u9700\u8981\u5224\u65ad\u81ea\u5df1\u548c\u4e0b\u4e00\u4e2a\u4eba\u7684\u72b6\u6001\uff0c\u5c31\u53ef\u4ee5\u5728 $O(t)$\uff08t \u4e3a\u6240\u7528\u65f6\u95f4\uff09\u5185\u5b8c\u6210\u3002\u540c\u65f6\u6613\u5f97 $t\\le n+m \\le 200000$\uff0c\u56e0\u6b64\u53ef\u4ee5\u7528\u5927\u5e38\u6570\u7684\u7b97\u6cd5\uff0c\u5c31\u662f map \u5957 pair\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std; \nconst int N=100007;\nint n,m,s,f,a,b,c,t;\nmap<int,pair<int,int>> mp;\ninline bool chk(int k){\n\tif (!mp.count(t)) return 0;\n\tif (mp[t].first<=k&&k<=mp[t].second) return 1;return 0;\n}\nint main(){\n\tcin>>n>>m>>s>>f;\n\twhile(m--){\n\t\tcin>>a>>b>>c;\n\t\tmp[a]=make_pair(b,c);\n\t}\n\twhile(s<f){\n\t\t++t;\n\t\tif (chk(s)||chk(s+1)){\n\t\t\tputchar('X');\n\t\t}\n\t\telse{\n\t\t\tputchar('R');++s;\n\t\t}\n\t}\n\twhile(s>f){\n\t\t++t;\n\t\tif (chk(s)||chk(s-1)){\n\t\t\tputchar('X');\n\t\t}\n\t\telse{\n\t\t\tputchar('L');--s;\n\t\t}\n\t}\n    return 0;\n}\n```",
+        "postTime": 1654167227,
+        "uid": 369782,
+        "name": "_lmh_",
+        "ccfLevel": 6,
+        "title": "CF342B\u9898\u89e3"
+    }
+]

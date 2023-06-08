@@ -1,0 +1,58 @@
+[
+    {
+        "content": "\u6b64\u9898\u9002\u5408\u7528\u4e8e\u65b0\u624b\u5b66\u6d6e\u70b9\u6570\uff0c\u7ec6\u8282\u5f88\u591a\u3002\n\nAC \u65f6\u95f4\uff1a5 \u5206\u949f\u3002\n\n\u505a\u6cd5\u5f88\u7b80\u5355\uff0c\u5b9a\u4e49\u4e00\u4e2a\u6570 now\uff0c\u8868\u793a\u5f53\u524d\u7684\u4f4d\u7f6e\u7684\u524d k \u4e2a\u6570\u5b57\u7684\u548c\u3002\u5230\u7b2c i \u4f4d\u65f6\uff0c\u8fdb\u884c\u5982\u4e0b\u64cd\u4f5c\uff1a\n```\nnow=now+num[i]-num[i-k];\nans+=now/(n-k+1);\n```\n\u6700\u540e\u7684 ans \u5c31\u662f\u6b63\u786e\u7b54\u6848\u3002\u6ce8\u610f\uff0c\u8fd9\u91cc ans \u8981\u7528 long double\uff0c\u5e76\u4e14\u5fc5\u987b\u5728 now \u7684\u65f6\u5019\u5c31\u9664\uff0c\u5426\u5219\u4f1a\u7206\u3002\n\n\u4e8e\u662f\u5f97\u5230\u4e86 AC \u4ee3\u7801\uff1a\n```cpp\n#include<cstdio>\n#include<algorithm>\nusing namespace std;\nint main(){\n\tlong double ans=0,now=0;int n,num[200005],k,i;\n\tscanf(\"%d%d\",&n,&k);num[0]=0;\n\tfor(i=1;i<=n;++i)scanf(\"%d\",num+i);\n\tfor(i=1;i<k;++i)now+=num[i];\n\tfor(i=k;i<=n;++i){\n\t\tnow+=num[i]-num[i-k];\n\t\tans+=now/(n-k+1);\n\t}\n\tprintf(\"%.9Lf\\n\",ans);\n\treturn 0;\n}\n```\n\u5207\u8bb0\u5360\u4f4d\u7b26\u662f Lf\uff01\uff01\uff01",
+        "postTime": 1630037994,
+        "uid": 502410,
+        "name": "EnofTaiPeople",
+        "ccfLevel": 0,
+        "title": "CF808B\u9898\u89e3"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u7b2c\u4e00\u773c\u770b\u5230\u53ef\u4ee5\u60f3\u5230\u662f\u8ba1\u7b97\u51fa\u6bcf\u4e2a\u533a\u95f4\u7684\u548c\u53bb\u9664\u4ee5\u533a\u95f4\u603b\u6570\uff0c\u4f46\u662f\u5982\u679c\u66b4\u529b\u679a\u4e3e\u7684\u8bdd\uff0c\u6700\u574f\u60c5\u51b5\u4e3a $k=\\dfrac{n}{2}$\uff0c\u6b64\u60c5\u51b5\u4e0b\u65f6\u95f4\u590d\u6742\u5ea6\u4e3a $O(\\dfrac{n^2}{4})$\uff0c\u5fc5\u5b9a\u8d85\u65f6\u5566\uff0c\u6240\u4ee5\u6211\u4eec\u8981\u60f3\u5230\u4f18\u5316\uff0c\u6700\u7b80\u5355\u76f4\u63a5\u7684\u5c31\u662f**\u524d\u7f00\u548c**\u5566\uff01\n\n\u6ce8\u610f\u4e00\u70b9\u7ec6\u8282\uff1a\u8bb0\u5f97\u5f00`long long`\u54e6\uff0c\u6c42\u548c\u53d8\u91cf\u4e0d\u5f00`long long`\u4f1aWA#17\uff0c\n\u524d\u7f00\u548c\u6570\u7ec4\u4e0d\u5f00`long long`\u4f1aWA#21\u54e6\uff01\n\n# Code:\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint n,k,a[200005];\nlong long s[200005];\nint main()\n{\n\tcin >> n >> k;\n\tfor (int i=1;i<=n;i++)\n\t{\n\t\tscanf(\"%d\",&a[i]);\n\t\ts[i]=s[i-1]+a[i];//\u8ba1\u7b97\u524d\u7f00\u548c\u3002\n\t}\n\tlong long sum=0;\n\tfor (int i=1;i<=n-k+1;i++)\n\t\tsum += s[i+k-1]-s[i-1];//\u52a0\u4e0a\u6bcf\u4e2a\u533a\u95f4\u3002\n\tprintf(\"%.9f\",sum * 1.0 / (n-k+1));//\u7b97\u5e73\u5747\u6570\uff0c\u4fdd\u7559\u4e5d\u4f4d\u5c0f\u6570\u3002\n\treturn 0;\t\n}\n```",
+        "postTime": 1624094140,
+        "uid": 236514,
+        "name": "_Harrisonwhl_",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3Average Sleep Time"
+    },
+    {
+        "content": "## Content\n\u7ed9\u5b9a $n$ \u4e2a\u6570 $a_1,a_2,a_3,...,a_n$\uff0c\u6c42\u6240\u6709\u957f\u5ea6\u4e3a $k$ \u7684\u8fde\u7eed\u533a\u95f4 $[a_1,a_k],[a_2,a_{k+1}],...[a_{n-k+1},a_n]$ \u7684\u548c\u7684\u5e73\u5747\u503c\u3002\n\n**\u6570\u636e\u8303\u56f4\uff1a$1\\leqslant n,k\\leqslant 2\\times 10^5,1\\leqslant a_i\\leqslant 10^5$\u3002**\n## Solution\n\u9996\u5148\uff0c\u6211\u4eec\u53ef\u4ee5\u53d1\u73b0\uff0c\u76f4\u63a5\u66b4\u529b\u679a\u4e3e\u7684 $\\mathcal{O}(nk)$ \u7684\u590d\u6742\u5ea6\u662f\u4e0d\u53ef\u80fd\u901a\u8fc7\u8fd9\u9053\u9898\u76ee\u7684\u3002\u90a3\u4e48\u600e\u4e48\u529e\uff1f\n\n\u7b54\u6848\u662f\uff1a\u524d\u7f00\u548c\u3002\u524d\u7f00\u548c\u662f\u6307\u4ece $1$ \u5f00\u59cb\u5230\u6bcf\u4e2a\u4f4d\u7f6e\u7684\u548c\uff0c\u4e5f\u5c31\u662f\u4ece $1$ \u5230 $2,3,4,...,n$ \u7684\u524d\u7f00\u548c\uff0c\u4e00\u822c\u7528 $s_i$ \u6765\u8868\u793a $[1,i]$ \u7684\u548c\uff0c\u4e0b\u9762\u7684 $s_i$ \u610f\u4e49\u4e0e\u6b64\u76f8\u540c\u3002\n\n\u90a3\u4e48\u8fd9\u9053\u9898\u76ee\u5c31\u6709\u529e\u6cd5\u4e86\uff1a\u5148\u9884\u5904\u7406\u51fa\u6240\u6709 $s_i$\uff0c\u7136\u540e\u7b54\u6848\u5c31\u662f $\\dfrac{\\sum\\limits_{i=1}^{n-k+1}s_{i+k-1}-s_{i-1}}{n-k+1}$\u3002\n## Code\n```cpp\nll n, k, a[200007], s[200007], sum;\n\nint main() {\n\tgetll(n), getll(k);\n\tfor(ll i = 1; i <= n; ++i) {\n\t\tgetll(a[i]);\n\t\ts[i] = s[i - 1] + a[i];\n\t}\n\tfor(ll i = 1; i <= n - k + 1; ++i)\n\t\tsum += s[i + k - 1] - s[i - 1];\n\tprintf(\"%.9lf\", (sum * 1.0 / (n - k + 1)));\n\treturn 0;\n}\n```",
+        "postTime": 1602246939,
+        "uid": 112917,
+        "name": "Eason_AC",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF808B \u3010Average Sleep Time\u3011"
+    },
+    {
+        "content": "### Update\n\n2022/7/28 \u4fee\u6539\u4e86\u4e00\u4e2a\u7b14\u8bef\uff08$sum_l\\rightarrow sum_{l-1}$\uff09\u5e76\u5220\u53bb\u4e86\u4e0d\u53cb\u597d\u4e14\u6ca1\u6709\u4f18\u52bf\u7684\u7ebf\u6bb5\u6811\u505a\u6cd5\n***\n\u524d\u7f00\u548c\u53ef\u4ee5\u5f88\u5feb\u5730\u6c42\u51fa\u9759\u6001\u533a\u95f4\u548c\uff0c\u4f8b\u5982\u6c42\u533a\u95f4 $[l,r]$ \u7684\u548c\uff0c\u53ef\u4ee5\u76f4\u63a5\u7528 $sum_r-sum_{l-1}$\uff0c\u5176\u4e2d `sum` \u8868\u793a\u524d\u7f00\u548c\uff0c\u5373\u4e3a\u7528\u533a\u95f4 $[1,r]$ \u7684\u548c\u51cf\u53bb\u533a\u95f4 $[1,l-1]$ \u7684\u548c\uff0c\u5373\u4e3a\u6c42\u51fa $r$ \u524d\u9762\u6240\u6709\u6570\u7684\u5305\u62ec\u5b83\u672c\u8eab\u7684\u548c\uff0c\u518d\u51cf\u53bb $l$ \u524d\u9762\u7684\u6570\u7684\u4e0d\u5305\u62ec\u5b83\u672c\u8eab\u7684\u548c\u3002\u65f6\u95f4\u590d\u6742\u5ea6\u4e3a $O(n)$\u3002\u6700\u540e\u8981\u6ce8\u610f\uff0c\u6211\u7684\u4ee3\u7801\u4fdd\u7559 $9$ \u4f4d\u8fc7\u4e0d\u4e86\uff0c\u4fdd\u7559\u4e86 $10$ \u4f4d\u624d\u8fc7\uff08\u6700\u540e\u4e00\u4e2a\u6837\u4f8b\u4e5f\u662f $10$ \u4f4d\uff09\u3002\n### AC Code:\n```cpp\n#include<bits/stdc++.h>\n#define int long long\nusing namespace std;\nconst int maxn=2e5+5;\nint n,m,a[maxn];\ndouble sum;\nsigned main(){\n\tscanf(\"%lld%lld\",&n,&m);\n\tfor(int i=1;i<=n;i++)\n\t\tscanf(\"%lld\",&a[i]),a[i]+=a[i-1];//\u524d\u7f00\u548c\n\tdouble k=n-m+1;\n\tfor(int i=1;i<=k;i++)\n\t\tsum+=(a[i+m-1]-a[i-1]);//\u5e26\u516c\u5f0f\n\tprintf(\"%.10lf\",sum*1.0/k);\n\treturn 0;\n}\n```",
+        "postTime": 1636609100,
+        "uid": 556362,
+        "name": "UnnamedOrNamed",
+        "ccfLevel": 5,
+        "title": "CF808B Average Sleep Time \u9898\u89e3"
+    },
+    {
+        "content": "## [\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/CF808B)\n\n## \u6e29\u99a8\u63d0\u9192\n\n\u5341\u5e74  OI  \u4e00\u573a\u7a7a\uff0c\u4e0d\u5f00  long long  \u89c1\u7956\u5b97\uff01\uff01\n\n## \u601d\u8def\n\n### \u5bfb\u627e\u9898\u773c\uff1a\u8fde\u7eed\u6570\u5b57\u7684\u548c\uff01\n\n\u7531\u6b64\u8054\u60f3\u5230\u524d\u7f00\u548c\uff0c\u7528 $ sum[i] $ \u8bb0\u5f55\u524d $ i $ \u4e2a\u6570\u5b57\u7684\u548c\uff0c\u4ece\u7b2c $ i-k $ \u5230\u7b2c $ i $ \u4e2a\u6570\u7684\u548c\u4e3a $ sum[i]-sum[i-k] $ \uff0c\u6700\u540e\u7528 $ ans $ \u6c42\u548c\u8ba1\u7b97\u5e73\u5747\u6570\u5c31\u884c\u4e86\u3002\n\n## \u4ee3\u7801\n\n```cpp\n  #include<bits/stdc++.h>\n  using namespace std;\n  long long n,k,sum[200005],a[200005];//\u4e00\u5b9a\u8981\u5f00 long long \n  double ans;\n  int main(){\n      cin>>n>>k;\n      for(int i=1;i<=n;i++){\n          cin>>a[i];\n          sum[i]=sum[i-1]+a[i];\n      }\n      for(int i=k;i<=n;i++){\n          ans+=(sum[i]-sum[i-k])*1.0;//\u5229\u7528\u524d\u7f00\u548c\u8ba1\u7b97\u6bcf\u8fde\u7eed k \u4e2a\u6570\u5b57\u7684\u548c\n      }\n      printf(\"%.9lf\",ans/(n-k+1));//\u5e73\u5747\u6570=\u603b\u548c/\u6570\u91cf\uff0c\u9898\u76ee\u7ed9\u51fa\u4e86\u6570\u91cf\u4e3a (n-k+1)\n      return 0;\n  }\n```\n\n\n",
+        "postTime": 1636607304,
+        "uid": 557117,
+        "name": "I_love_JTL_forever",
+        "ccfLevel": 0,
+        "title": "CF808B Average Sleep Time \u9898\u89e3"
+    },
+    {
+        "content": "\u8fd9\u9898\uff0c\u6709\u4eba\u7528\u524d\u7f00\u548c\u3002\n\n\u6211\u8fd9\u4e2a\u849f\u84bb\u65e0\u8bba\u5982\u4f55\u90fd\u4e0d\u80fd\u628a\u6b64\u9898\u4e0e\u524d\u7f00\u548c\u8054\u7cfb\u5728\u4e00\u8d77qwq\uff0c\u6240\u4ee5\uff0c\u6211\u6765\u4e3a\u524d\u7f00\u548c\u6ca1\u5b66\u61c2\u7684\u4eba\u8865\u4e00\u7bc7\u9898\u89e3\u3002\n\n\u6211\u7684\u601d\u8def\u662f\u6570$a_i$\u80fd\u5728\u591a\u5c11\u4e2a\u8fde\u7eed\u7684$k$\u4e2a\u6570\u5b57\u4e2d\u51fa\u73b0\uff0c\u7136\u540e\u518d\u7528$a_i$\u4e58\u4e0a\u8fd9\u4e2a\u7cfb\u6570\uff0c$a_i$\u80fd\u5728\u591a\u5c11\u4e2a\u8fde\u7eed\u7684$k$\u4e2a\u6570\u5b57\u4e2d\u51fa\u73b0\u7684\u516c\u5f0f\u663e\uff08shi\uff09\u800c\uff08fen\uff09\u6613\uff08xuan\uff09\u89c1\uff08xue\uff09\uff0c\u5982\u4e0b\uff1a\n\n$min(i,n-i+1,k,n-k+1)$\n\n\u7528c++\u5199\u5c31\u662f\u8fd9\u6837\uff1a\n\n$min(min(i,n-i+1),min(k,n-k+1))$\n\n\u4e00\u5207\u51c6\u5907\u5c31\u7eea\uff0cCode\u5448\u4e0a\uff08\u6539\u4e86\u53d8\u91cf\u540d\uff09\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nlong long sum,a,b,c[200005],k;\nint main(){\n\tcin>>a>>b;\n\tk=a-b+1;\n\tfor(long long i=1;i<=a;i++){\n\t\tcin>>c[i];\n\t\tsum+=c[i]*min(min(i,a-i+1),min(b,k));\n\t}\n\tprintf(\"%.10f\",sum*1.0/k);\n}\n```\n\n\n## \u6700\u540e\u8bf4\u4e00\u53e5\uff0c\u5341\u5e74OI\u4e00\u573a\u7a7a\uff0c\u4e0d\u5f00long long\u89c1\u7956\u5b97\uff01\u6211\u5c31\u56e0\u4e3a\u6ca1\u5f00long long WA \u4e86\u534a\u4e2a\u5c0f\u65f6qwq\u3002",
+        "postTime": 1582898726,
+        "uid": 223797,
+        "name": "Remake_",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF808B \u3010Average Sleep Time\u3011"
+    },
+    {
+        "content": "\u524d\u7f00\u548c!\n\n\u5982\u679c\u76f4\u63a5\u6bcf\u4e00\u6bb5\u6c42\u548c\u518d\u52a0\u8d77\u6765,\u90a3\u4e48\u6700\u5927\u662f (n-k+1)*k\uff0c\u6839\u636e\u9898\u76ee\u7684\u8303\u56f4\u6765\u770b\u6781\u9650\u53ef\u80fd\u662f n=k=1e5\uff0c\u90a3\u4e48 1e10 \u7684\u590d\u6742\u5ea6\uff0c\u80af\u5b9a T \u4e86\uff0c\u6240\u4ee5\u6211\u4eec\u8003\u8651\u600e\u4e48\u7b80\u5316\u5b83\uff01\n\u6240\u4ee5\u6211\u4eec\u8003\u8651\u524d\u7f00\u548c\uff0c\u5b83\u53ef\u4ee5 O(n) \u6c42\u548c\uff0c\u7136\u540e O(1) \u67e5\u8be2,\u8fd9\u65f6\u5019\u590d\u6742\u5ea6\u662f O(n) \u6700\u5927 2e5 \u53ef\u4ee5\u63a5\u53d7\u3002\n\n\u8fd8\u6709\u4e00\u79cd\u65b9\u6cd5\u662f\u6ed1\u52a8\u7a97\u53e3\uff0c\u597d\u50cf\u548c\u524d\u7f00\u548c\u4e5f\u5dee\u4e0d\u591a...\u6ed1\u52a8\u7a97\u53e3\u53ef\u4ee5\u5728\u6d1b\u8c37\u9898\u5e93\u91cc\u641c\uff0c\u524d\u7f00\u548c\u767e\u5ea6\u6709\u5f88\u8be6\u7ec6\u7684\u89e3\u91ca\n\n\u4e0b\u9762\u662f AC \u4ee3\u7801\uff0c\u7ec6\u8282\u6ce8\u91ca\u5728\u4ee3\u7801\u91cc\u4e86\n```cpp\n#include<bits/stdc++.h>\n#include<cstring>\n#define ll long long\n#define ld long double\n#define inf 0x7f7f7f7f\n#define maxn 1000010\nusing namespace std;\nll sum[maxn]={0};\nint main()\n{\n\tios::sync_with_stdio(false);\n\tint n,k;\n\tcin >> n >> k;\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tint x;\n\t\tcin >> x;\n\t\tsum[i] = sum[i-1]+x;//\u8ba1\u7b97\u524d\u7f00\u548c\n\t}\n\tll ans=0.0;//\u603b\u7684\u548c\n\tfor(int i=k,j=i-k;i<=n;i++,j++)//i \u662f\u5de6\u7aef\u70b9,j\u662f\u53f3\u7aef\u70b9,\u6784\u6210\u957f\u5ea6k\u7684\u4e00\u6bb5\n\t\tans += sum[i]-sum[j];\n\tprintf(\"%.10lf\",ans/(n-k+1.0));//\u6574\u578b\u8f6c\u5316\u4e3a\u6d6e\u70b9\u578b\n\treturn 0; \n}  \n```\n",
+        "postTime": 1581663429,
+        "uid": 287610,
+        "name": "\u6d41\u7eea",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF808B \u3010Average Sleep Time\u3011"
+    }
+]

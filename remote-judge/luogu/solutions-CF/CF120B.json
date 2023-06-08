@@ -1,0 +1,90 @@
+[
+    {
+        "content": "[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/CF120B)\r\n\r\n# \u9898\u76ee\u5927\u610f\r\n\r\n\u7ed9\u5b9a $n$ \u4e2a\u503c\u4e3a $0$ \u6216 $1$ \u7684\u6570\u56f4\u6210\u4e00\u4e2a\u73af\uff0c\u7b2c\u4e00\u4e2a\u6570\u7684\u4f4d\u7f6e\u662f $1$\u3002\u7ed9\u5b9a\u4e00\u4e2a\u6570 $k$\uff0c\u6c42\u4ece\u7b2c $k$ \u4e2a\u6570\u5f00\u59cb\u987a\u65f6\u9488\u904d\u5386\u6574\u4e2a\u73af\uff0c\u7b2c\u4e00\u4e2a\u9047\u5230\u7684 $1$ \u7684\u4f4d\u7f6e\u3002\r\n\r\n# \u601d\u8def\r\n\r\n\u6a21\u62df\u5373\u53ef\u3002\r\n\r\n\u4e5f\u4e0d\u9700\u8981\u7528\u4ec0\u4e48\u961f\u5217\uff0c\u4e0d\u7528\u4ec0\u4e48 `%` \u8fd0\u7b97\uff0c\u54b1\u76f4\u63a5\u5c06\u539f\u6570\u7ec4\u590d\u5236\u4e00\u904d\u5230\u540e\u9762\u63a5\u7740\uff0c\u7136\u540e\u4ece\u7b2c $k$ \u4e2a\u6570\u5f00\u59cb\u5224\u65ad\uff0c\u78b0\u5230\u4e00\u4e2a $1$ \u8f93\u51fa\u5c31\u884c\u4e86\u3002\r\n\r\n\u6bd4\u8f83\u7384\u5b66\u7684\u662f\uff0c\u8fd9\u9898\u8fd8\u8981\u6587\u4ef6\u8f93\u5165\u8f93\u51fa...\u6240\u4ee5\u8981\u52a0\u4e0a\u4e24\u53e5\uff1a\r\n\r\n```cpp\r\nfreopen(\"input.txt\",\"r\",stdin);\r\nfreopen(\"output.txt\",\"w\",stdout);\r\n```\r\n\r\n# \u4ee3\u7801\r\n\r\n```cpp\r\n#include <iostream>\r\nusing namespace std;\r\nint n,k,a[2005]; // \u7531\u4e8e\u8981\u590d\u5236\u6570\u7ec4\uff0c\u6240\u4ee5\u5f00\u4e24\u500d\u7a7a\u95f4\r\n\r\nint main(){\r\n\tfreopen(\"input.txt\",\"r\",stdin);\r\n\tfreopen(\"output.txt\",\"w\",stdout); // \u6587\u4ef6\u8f93\u5165\u8f93\u51fa\r\n\tcin >> n >> k;\r\n\tfor(int i=1; i<=n; i++){\r\n\t\tcin >> a[i];\r\n\t\ta[i+n]=a[i]; // \u4e00\u8fb9\u8f93\u5165\u4e00\u8fb9\u590d\u5236\r\n\t}\r\n\twhile(!a[k++]); // \u627e\u7b2c\u4e00\u4e2a 1\r\n\tcout << (k-2)%n+1 << endl;\r\n\t// \u627e\u5230 1 \u4e4b\u540e k \u4f1a\u591a\u4e00\u4f4d\uff0c\u7136\u540e\u7531\u4e8e\u4e0b\u6807\u4ece 1 \u5f00\u59cb\u53c8\u591a\u4e86\r\n\t// \u6240\u4ee5\u8981 (k-1)%n\r\n\t// (k-1)%n \u4e4b\u540e\u7684\u8303\u56f4\u53c8\u5728 [0,n-1]\uff0c\u6240\u4ee5\u8981\u52a0\u4e00\uff0c\u53d8\u6210[1,n]\u3002\r\n\treturn 0;\r\n}\r\n```\r\n\r\n",
+        "postTime": 1643431565,
+        "uid": 399116,
+        "name": "LYqwq",
+        "ccfLevel": 0,
+        "title": "\u300e\u9898\u89e3\u300fCodeForces CF120B Quiz League"
+    },
+    {
+        "content": "\u8fd9\u9898\u4e0d\u662f\u5f88\u96be\u3002\n## \u601d\u8def\uff1a\n\u9898\u76ee\u5927\u610f\uff1a\u8f93\u5165\u4e00\u4e2a\u73af\u5f62\uff0c\u4ece\u7b2c $k$ \u4e2a\u4f4d\u7f6e\u7b97\uff0c\u627e\u5230\u7b2c\u4e00\u4e2a $1$ \uff0c\u7136\u540e\u8f93\u51fa\u8fd9\u4e2a\u4f4d\u7f6e\u3002\n\n\u76f4\u63a5\u6a21\u62df\uff1a\n\n\u7528\u5bf9 $n$ \u53d6\u6a21\u7684\u65b9\u5f0f\u6765\u89e3\u51b3\u73af\u7684\u95ee\u9898\uff0c\u7136\u540e\u5faa\u73af\u5c31\u53ef\u4ee5\u4e86\u3002\n\n\u9700\u8981\u6ce8\u610f\uff1a\u672c\u9898\u9700\u91c7\u7528\u6587\u4ef6\u8bfb\u5199\n## \u6587\u4ef6\u8bfb\u5199\u4ee3\u7801\uff1a\n```cpp\nfreopen(\"input.txt\",\"r\",stdin);\nfreopen(\"output.txt\",\"w\",stdout);\n```\n## AC CODE:\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,num,a[1005];\nint main(){\n    freopen(\"input.txt\",\"r\",stdin);\n    freopen(\"output.txt\",\"w\",stdout);\n    scanf(\"%d%d\",&n,&num);\n    for(int i=0;i<n;i++) scanf(\"%d\",&a[i]);\n    while(!a[(num-1)%n])  num++;\n    printf(\"%d\",(num-1)%n+1);\n    return 0;\n}\n```",
+        "postTime": 1643361530,
+        "uid": 326779,
+        "name": "ThomasSTH_rdfz",
+        "ccfLevel": 5,
+        "title": "CF120B"
+    },
+    {
+        "content": "[\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/CF120B)\n\n### \u9898\u610f\u7b80\u8ff0\uff1a  \n\u7ed9\u5b9a\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684 ```01``` \u5b57\u7b26\u4e32\uff0c\u7136\u540e\u5c06\u8fd9\u4e2a\u5b57\u7b26\u4e32\u56f4\u6210\u4e00\u4e2a\u5708\uff0c\u4ece\u7b2c $k$ \u4e2a\u6570\u5f00\u59cb\u5f80\u540e\u627e\uff0c\u627e\u5230\u7b2c\u4e00\u4e2a ```1```\uff0c\u8f93\u51fa\u5b83\u7684\u4f4d\u7f6e\u3002\n\n### \u601d\u8def\uff1a  \n\u8fd9\u9898\u5176\u5b9e\u633a\u6c34\u7684\uff0c\u53ea\u8981\u7528 while \u6a21\u62df\u6574\u4e2a\u8fc7\u7a0b\u5c31\u53ef\u4ee5\u4e86\u3002\n\n### \u6ce8\u610f\u4e8b\u9879\uff1a  \n\n>+ \u4e0b\u6807\u8981\u4ece $k$ \u5f00\u59cb\u3002\n>+ \u8981\u52a0\u8fd9\u4e2a\u7384\u5b66\u73a9\u610f $\\Downarrow$ ,\u4e0d\u7136\u4f1a\u8d85\u65f6\u3002\n> ```cpp\n>   freopen(\"input.txt\",\"r\",stdin);\n>   freopen(\"output.txt\",\"w\",stdout);\n> ```  \n>+ \u5f53\u4e0b\u6807\u5927\u4e8e $n$ \u65f6\uff0c\u8981\u5c06\u4e0b\u6807\u91cd\u65b0\u8d4b\u503c\u4e3a $1$\u3002\n\n### \u4ee3\u7801\uff1a  \n```cpp\n#include<bits/stdc++.h>\n#define int long long\nusing namespace std;\nint n,k,pos,a[1005];\nsigned main()\n{\n    freopen(\"input.txt\",\"r\",stdin); \n    freopen(\"output.txt\",\"w\",stdout);\n    cin >> n >> k;\n    for(int i=1; i<=n; i++)\n        cin >> a[i];\n    pos=k;\n    while(a[pos]==0)\n    {\n        pos++;\n        if (pos>n)\n            pos=1;\n    }\n    cout << pos;\n    return 0;\n}\n```",
+        "postTime": 1642991598,
+        "uid": 367194,
+        "name": "kdy20100729",
+        "ccfLevel": 0,
+        "title": "CF120B \u9898\u89e3"
+    },
+    {
+        "content": "1.\u5206\u6790\uff1a\u6b64\u9898\u65e2\u53ef\u4ee5\u6a21\u62df\uff0c\u4e5f\u53ef\u4ee5\u4e8c\u5206\n\n2.\u89e3\u6cd5\uff1a\u76f4\u63a5\u627e\u51fa\u6240\u6709\u6ca1\u6709\u56de\u7b54\u95ee\u9898\u7684\u4eba\uff0c\u7136\u540e\u4e8c\u5206\n\n2.\u4ee3\u7801\n```\n#include<bits/stdc++.h> \nusing namespace std;\nint num[1234];\nint main() { \n\tfreopen(\"input.txt\",\"r\",stdin); \n\tfreopen(\"output.txt\",\"w\",stdout);\n\tint len,que,a,flag = 0; \n\tscanf(\"%d%d\",&len,&que);\n\tfor(int i = 1;i<=len;i++){ \n    \t\tscanf(\"%d\",&a);\n         if(a) \tnum[flag++] = i; } num[flag++] = len+num[0]; int ans=lower_bound(num,num+flag,que)-num; \n\tprintf(\"%d\\n\",num[ans]>len?num[ans]-len:num[ans]);\n\treturn 0; \n}\n```\n\n",
+        "postTime": 1639545488,
+        "uid": 617860,
+        "name": "great_mind",
+        "ccfLevel": 0,
+        "title": "CF120B Quiz League \u9898\u89e3"
+    },
+    {
+        "content": "## [CF120B Quiz League](https://www.luogu.com.cn/problem/CF120B)\n### \u9898\u76ee\u5927\u610f\n\u8fd9\u9053\u9898\u5176\u5b9e\u5c31\u662f\u8ba9\u4f60\u628a\u4ed6\u7684\u8f93\u5165\u6570\u636e\u6446\u6210\u4e00\u4e2a\u73af\u5f62\uff0c\u53eb\u4f60\u4ece\u7b2c $k$ \u4e2a\u4f4d\u7f6e\u8d77\u5f80\u540e\u7b97\uff0c\u627e\u5230\u7b2c\u4e00\u4e2a```1```\uff0c\u7136\u540e\u8f93\u51fa\u8fd9\u4e2a\u4f4d\u7f6e\u3002\n\n---\n\n### \u6ce8\u610f\n\u8fd9\u9898\u5176\u5b9e\u4e0d\u96be\uff0c\u53ea\u9700\u8981\u6a21\u62df\u73af\u5f62\u7136\u540e\u987a\u5e8f\u67e5\u627e\u5c31\u53ef\u4ee5\u4e86\uff1b\n\n\u4f46\u662f\u6700\u7384\u5b66\u7684\u5730\u65b9\u5c31\u662f\u8fd9\u73a9\u610f\u513f\u4e0d\u52a0```freopen()```\u4f1a\u8d85\u65f6\uff0c\u7ecf\u8fc7~~\u6211\u548c~~\u540c\u673a\u623f\u5927\u4f6c\u7684\u7384\u5b66\u63d0\u4ea4\u52a0\u4e0a\u8ba8\u8bba\u533a\u7684\u5e2e\u52a9\uff0c\u628a\u8fd9\u4e2a\u73a9\u610f\u513f\u641e\u4e86\u51fa\u6765\uff1a\n```cpp\nfreopen(\"input.txt\",\"r\",stdin);\nfreopen(\"output.txt\",\"w\",stdout);\n```\n~~\u5c45\u7136\u4e0d\u662f```.out```\u540e\u7f00~~\n## \u4ee3\u7801\n\u4e3b\u8981\u90e8\u5206\u5982\u4e0b\n```cpp\nfor(int i=k;;i++)\n    {\n        if(i>n)i=1;//\u6a21\u62df\u73af\u5f62\uff0c\u5c3e\u90e8\u8f6c\u5934\u90e8\n        if(a[i])//\u627e\u5230\u4e86\n        {\n            cout<<i;\n            return 0;\n        }\n    }\n```",
+        "postTime": 1637215141,
+        "uid": 441247,
+        "name": "Halberd_Cease",
+        "ccfLevel": 5,
+        "title": "CF120B \u9898\u89e3"
+    },
+    {
+        "content": "\u6e29\u99a8\u63d0\u793a\uff1a\u672c\u9898\u9700\u8981\u6587\u64cd ~~(\u522b\u95ee\u6211\u600e\u4e48\u77e5\u9053\u7684)~~\n\n\u53ef\u4ee5\u7528\u5bf9n\u53d6\u6a21\u7684\u65b9\u5f0f\u6765\u89e3\u51b3\u73af\u7684\u95ee\u9898\uff0c\u7136\u540e\u5faa\u73af\u5c31\u53ef\u4ee5\u4e86\n\n```\n#include <bits/stdc++.h>\nusing namespace std;\nint n,k,a[1010];\nint main()\n{\n    ;;;;;\n\tfreopen(\"input.txt\",\"r\",stdin);\n\tfreopen(\"output.txt\",\"w\",stdout);\n    cin>>n>>k;\n    for (int i=0;i<n;i++) cin>>a[i];\n    while (!a[(k-1)%n]) k++;//\u5224\u65ad\u4f4d\u7f6e\uff0c\u82e5\u4e3a0\u5219\u7ec8\u6b62\n    cout<<(k-1)%n+1<<\"\\n\";\n    return 0;\n}\n```",
+        "postTime": 1595766576,
+        "uid": 71491,
+        "name": "shenmadongdong",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF120B \u3010Quiz League\u3011"
+    },
+    {
+        "content": "### \u9898\u76ee\u5927\u610f\n\n\u7ed9\u5b9a\u4e00\u4e2a $n$ \u4e2a\u6570\u7684\u73af\uff0c\u6c42\u7b2c $k$ \u4e2a\u6570\u5f80\u540e\u627e\u5230\u7684\u7b2c\u4e00\u4e2a $1$ \u7684\u4f4d\u7f6e\u3002\n\n### \u601d\u8def\u5206\u6790\n\n\u6a21\u62df\u4e00\u904d\u3002\u5982\u679c\u8fc7\u7a0b\u4e2d\u53d1\u73b0\u4e86\u5f53\u524d\u7684 $k>n$\uff0c\u5c31\u8bf4\u660e\u56de\u5230\u4e86\u539f\u70b9\uff0c\u8981\u5c06 $k$ \u51cf\u53bb $n$\u3002\u5982\u679c\u5f53\u524d\u4f4d\u7f6e\u4e3a $1$\uff0c\u5c31\u8bf4\u660e\u627e\u5230\u7b54\u6848\u4e86\uff0c\u5c31\u8f93\u51fa\u4e0b\u6807\u5373\u53ef\u3002\n\n### \u6e29\u99a8\u63d0\u793a\n\n\u8fd9\u9053\u9898\u5c45\u7136\u8981\u7528\u6587\u4ef6\u64cd\u4f5c\u3002\n\n```cpp\nfreopen(\"input.txt\",\"r\",stdin);\nfreopen(\"output.txt\",\"w\",stdout);\n```\n\n### \u6838\u5fc3\u4ee3\u7801\n\n```cpp\nwhile(!a[k])\n{\n\tif(k>n)\n\t\tk-=n;\n\tk++;\n}\n```",
+        "postTime": 1643421209,
+        "uid": 327444,
+        "name": "Tothetime_tolife",
+        "ccfLevel": 0,
+        "title": "CF120B"
+    },
+    {
+        "content": "### \u611f\u53d7\n\n\u7b2c\u4e00\u6b21\u505a\u8fd9\u6837\u7684\u9898\uff0c\u7adf\u7136\u8981\u7528\u5230\u6587\u4ef6\u64cd\u4f5c\uff01\uff01\u8fd9\u4e5f\u5bfc\u81f4\u6211`RE`\u4e86\u4e00\u6b21\u3002\n\n### \u6587\u4ef6\u64cd\u4f5c\u683c\u5f0f\n\n```cpp\nfreopen(\"input.txt\",\"r\",stdin);\nfreopen(\"output.txt\",\"w\",stdout);\n```\n\n\u6ce8\u610f\uff1a**\u540e\u7f00\u662f`txt`**\u3002\n\n## \u9898\u76ee\u5206\u6790\n\n\u8f93\u5165\u4e00\u4e2a\u73af\u5f62\uff0c\u4ece\u7b2c $k$ \u4e2a\u4f4d\u7f6e\u7b97\uff0c\u627e\u5230\u7b2c\u4e00\u4e2a $1$  \uff0c\u7136\u540e\u8f93\u51fa\u8fd9\u4e2a\u4f4d\u7f6e\u5373\u53ef\u3002\n\n## \u89e3\u51b3\u65b9\u6848\n\n\u53ef\u4ee5\u7528\u5bf9 $n$ \u53d6\u6a21\u7684\u65b9\u5f0f\u6765\u89e3\u51b3\u73af\u7684\u95ee\u9898\uff0c\u7136\u540e\u5faa\u73af\u5c31\u53ef\u4ee5\u4e86\u3002\n\n#### ACcode:\n\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint n,b,a[1010];\nint main(){\n\t  \u6587\u4ef6\u64cd\u4f5c\n    freopen(\"input.txt\",\"r\",stdin);\n    freopen(\"output.txt\",\"w\",stdout);\n    cin>>n>>b;\n    for(int i=0;i<n;i++) cin>>a[i];\n    while(!a[(b-1)%n]){\n        b++;\n    }\n    cout<<(b-1)%n+1<<endl;\n    return 0;\n}\n```",
+        "postTime": 1643010213,
+        "uid": 559502,
+        "name": "TsH_GD",
+        "ccfLevel": 4,
+        "title": "CF120B"
+    },
+    {
+        "content": "[Quiz League](https://www.luogu.com.cn/problem/CF120B)\n\n\u8fd9\u662f\u4e00\u9053\u975e\u5e38\u7b80\u5355\u7ea2\u9898\uff0c\u7528 while \u67e5\u627e\u518d\u52a0\u4e0a\u7279\u5224\u5c31\u597d\u4e86\u3002\n\n### \u6ce8\u610f\uff1a\n\n\u672c\u9898\u9700\u8981\u6587\u4ef6\u64cd\u4f5c\uff01\uff01\uff01\n\n### \u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint a[1005];\nint main()\n{\n\tfreopen(\"input.txt\",\"r\",stdin);\n\tfreopen(\"output.txt\",\"w\",stdout);\n\tint n,k; \n    cin>>n>>k;\n    for(int i=1;i<=n;i++)\n\tcin>>a[i];\n    while(!a[k])//\u5f53 k=0 \u65f6\u4e00\u76f4\u5faa\u73af\u67e5\u627e\n    {\n    \tk++;\n    \tif(k>n)\n    \tk-=n;//\u5c06 k \u8d4b\u503c\u4e3a 1\uff0c\u76f8\u5f53\u4e8e k=1\n\t}\n    cout<<k;\n    return 0;\n}\n```",
+        "postTime": 1638334495,
+        "uid": 448951,
+        "name": "_JX_",
+        "ccfLevel": 0,
+        "title": "Quiz League"
+    },
+    {
+        "content": "### [\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/CF120B)\n\n\u8fd9\u5c31\u662f\u4e00\u9053\u5165\u95e8\u7ea7\u522b\u7684\u5faa\u73af\u52a0\u53d6\u6a21\uff0c\u7a0d\u5fae\u60f3\u60f3\u5c31\u53ef\u4ee5\u4e86\u3002\n### \u9898\u610f\uff1a\n\u8f93\u5165\u4e00\u4e2a\u73af\u5f62\uff0c\u4ece\u7b2c $k$ \u4e2a\u4f4d\u7f6e\u7b97\uff0c\u627e\u5230\u7b2c\u4e00\u4e2a 1\uff0c\u7136\u540e\u8f93\u51fa\u8fd9\u4e2a\u4f4d\u7f6e\u5373\u53ef\u3002\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nlong long n,k,a[1005];\nint main()\n{\n\tfreopen(\"input.txt\",\"r\",stdin);\n\tfreopen(\"output.txt\",\"w\",stdout);\n\tcin>>n>>k;\n\tfor(int i=1;i<=n;i++)\n\tcin>>a[i];\n\twhile(a[k]==0)\n\t{\n\t\tk++;\n\t\tif(k>n) \n\t\tk=1;\n\t}\n\tprintf(\"%lld\\n\",k);\n   return 0;\n}\n```\n# \u6ce8\u610f:\n\u4e00\u5b9a\u8981\u6709\u6587\u64cd\u3002",
+        "postTime": 1637209787,
+        "uid": 481323,
+        "name": "mzyc_pzx",
+        "ccfLevel": 0,
+        "title": "CF120B Quiz League"
+    },
+    {
+        "content": "[Quiz League](https://www.luogu.com.cn/problem/CF120B)\n\n\u8fd9\u9053\u9898\u975e\u5e38\u7b80\u5355\uff0c\u4e5f\u5c31\u7ea2\u9898\u96be\u5ea6\uff08~~\u6211\u624d\u4e0d\u4f1a\u544a\u8bc9\u4f60\u6211\u63d0\u4ea4\u4e86\u4e09\u6b21\u624d\u8fc7~~\uff09\n\n### \u9898\u76ee\u5927\u610f\uff1a\n\u7ed9\u5b9a\u957f\u5ea6\u4e3a $n$ \u7684\u73af\uff0c\u6c42\u7b2c $k$ \u4f4d\u4ee5\u540e\u7684\u7b2c\u4e00\u4e2a $1$ \u7684\u4f4d\u7f6e\u3002\n\n### \u601d\u8def\uff1a\n\u5faa\u73af\u5224\u65ad k \u540e\u9762\u7b2c\u4e00\u4e2a\u4e3a 1 \u7684\u6570\uff0c\u5f53 $k>n$ \u65f6\uff0c\u5c06 k \u6539\u4e3a 1\uff08\u56e0\u4e3a\u662f\u4e00\u4e2a\u8f6c\u76d8\uff09\u3002\n\n### \u6ce8\u610f\uff1a\n**\u672c\u9898\u9700\u8981\u6587\u4ef6\u8f93\u5165\u8f93\u51fa\uff01\uff01\uff01**\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint a[1001];\nint main()\n{\n\tfreopen(\"input.txt\",\"r\",stdin);\n\tfreopen(\"output.txt\",\"w\",stdout);\n\tint n,k; \n    cin>>n>>k;\n    for(int i=1;i<=n;i++)\n\tcin>>a[i];\n    while(a[k]==0)\n    {\n    \tk++;\n    \tif(k>n)//\u4e0d\u662f>=\n    \tk=1;\n\t}\n    cout<<k;\n    return 0;\n}\n```",
+        "postTime": 1637209678,
+        "uid": 545692,
+        "name": "mzyc_jx",
+        "ccfLevel": 0,
+        "title": "Quiz League \u9898\u89e3"
+    }
+]

@@ -1,0 +1,18 @@
+[
+    {
+        "content": "\u7ed3\u8bba\u5c31\u662f $ans=\\max_{i=1}^{n}w(i,i+n-1)$ \uff0c\u5176\u4e2d $w(l,r)$ \u8868\u793a $[l,r]$ \u4e2d W \u7684\u4e2a\u6570\u3002\n\n\u4ee4 $w(k,k+n-1)=ans$ \u3002\n\u5bf9\u4e8e\u6240\u6709 $l<k$ \uff0c\u4e00\u5b9a\u53ef\u4ee5\u627e\u5230\u4e00\u4e2a\u53f3\u7aef\u70b9\u4f7f\u5f97 $w(l,R_l)=ans$ \uff0c\u5e76\u4e14 $R_l\\leq k+n-1$ \uff1b\n\u5bf9\u4e8e\u6240\u6709 $r>k+n-1$ \uff0c\u4e00\u5b9a\u80fd\u591f\u627e\u5230\u4e00\u4e2a\u5de6\u7aef\u70b9\u4f7f\u5f97 $(L_r,r)=ans$ \uff0c\u5e76\u4e14 $L_r\\geq l$ \u3002\n\u6240\u4ee5\u81f3\u5c11\u80fd\u591f\u627e\u5230 $n$ \u4e2a $w(l,r)=ans$ \u7684\u533a\u95f4\u3002",
+        "postTime": 1677227925,
+        "uid": 44395,
+        "name": "Ruizhangj",
+        "ccfLevel": 9,
+        "title": "CF1776G Another Wine Tasting Event"
+    },
+    {
+        "content": "\u8fd9\u79cd\u4e1c\u897f\u80af\u5b9a\u8981\u8003\u8651\u6784\u9020\u4e00\u7ec4\u7279\u6b8a\u89e3\u3002\n\n\u8003\u8651\u5c1d\u8bd5\u628a $r - l + 1 \\geq n$ \u53d8\u6210\u94a6\u5b9a\u5176\u4e2d\u67d0\u4e2a $r - l + 1 = n$\uff0c\u5219\u6211\u4eec\u53ef\u4ee5\u5f97\u51fa\u5bf9\u5e94\u7684 $x$\u3002\n\n\u6211\u4eec\u671f\u5f85\u7684 $[l, r]$ \u80af\u5b9a\u4e5f\u4e0d\u662f\u968f\u4fbf\u67d0\u4e00\u4e2a\u5c31\u884c\uff0c\u6bd4\u5982\u8bf4\u6211\u4eec\u94a6\u5b9a\u5176\u4e3a $x$ \u6700\u5c0f\u8005\u3002\n\n\u4f46\u6211\u4eec\u5f88\u5feb\u5c31\u4f1a\u53d1\u73b0\u8fd9\u6837\u6709\u95ee\u9898\u3002\u6bd4\u5982\u8bf4 $x = 0$ \u65f6\uff0c\u6211\u4eec\u53ef\u4ee5\u6784\u9020 $n$ \u4e2a `R` \u4e0e $n - 1$ \u4e2a `W` \u7684\u62fc\u63a5\uff0c\u7136\u540e\u5c31\u5bc4\u4e86\u2026\u2026\n\n\u8f6c\u800c\u8003\u8651\u94a6\u5b9a\u5176\u4e3a $x$ \u6700\u5927\u8005\uff0c\u7136\u540e\u6211\u4eec\u6765\u8003\u8651\u5982\u4f55\u6784\u9020\uff1a\n\n- $\\forall 1 \\leq l' < l$\uff0c\u6307\u6d3e\u4e00\u4e2a $r' \\leq r$ \u5373\u53ef\u3002\n- $\\forall r < r' \\leq 2n - 1$\uff0c\u6307\u6d3e\u4e00\u4e2a $l' \\geq l$ \u5373\u53ef\u3002\n\n\u663e\u7136\u6b64\u65f6 $[l', r']$ \u5747\u7b26\u5408\u957f\u5ea6\u9650\u5236\u3002\n\n\u524d\u7f00\u548c\u6c42\u51fa $x$ \u5373\u53ef\u3002\u65f6\u95f4\u590d\u6742\u5ea6\u4e3a $O(n)$\u3002\n\n\u4ee3\u7801\uff1a\n```cpp\n#include <stdio.h>\n\nint sum[2000007];\nchar s[2000007];\n\ninline int max(int a, int b){\n\treturn a > b ? a : b;\n}\n\nint main(){\n\tint n, m, ans = 0;\n\tscanf(\"%d\", &n);\n\tscanf(\"%s\", &s[1]);\n\tm = n * 2 - 1;\n\tfor (int i = 1; i <= m; i++){\n\t\tsum[i] = sum[i - 1] + (s[i] == 'W' ? 1 : 0);\n\t}\n\tfor (int i = 1; i <= n; i++){\n\t\tans = max(ans, sum[i + n - 1] - sum[i - 1]);\n\t}\n\tprintf(\"%d\", ans);\n\treturn 0;\n}\n```",
+        "postTime": 1679718846,
+        "uid": 201007,
+        "name": "Leasier",
+        "ccfLevel": 8,
+        "title": "\u9898\u89e3 CF1776G \u3010Another Wine Tasting Event\u3011"
+    }
+]

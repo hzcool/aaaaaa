@@ -1,0 +1,114 @@
+[
+    {
+        "content": "## CF1057B DDoS \n\n\u524d\u7f00\u548c\u7ec3\u4e60\u9898\u3002\n\n\u5927\u6982\u662f\u666e\u53ca\u7ec4\u7b2c\u4e8c\u9898\u7684\u96be\u5ea6\u3002\n\n\u9898\u76ee\u5927\u610f\uff1a\u7ed9\u51fa\u4e00\u4e2a\u5e8f\u5217\uff0c\u95ee\u4f60\u7684\u67d0\u4e00\u6bb5\u8fde\u7eed\u5e8f\u5217 $[i,j]$ \u7684\u548c\u662f\u5426\u5927\u4e8e\u4e00\u4e2a $100\\times (j-i+1)$\uff0c\u627e\u8fd9\u4e2a\u5e8f\u5217\u7684\u957f\u5ea6\u6700\u5927\u3002\n\n\u7531\u4e8e\u662f\u9759\u6001\u67e5\u8be2\u533a\u95f4\u548c\uff0c\u663e\u7136\u53ef\u4ee5\u7528\u524d\u7f00\u548c\u7b97\u6cd5\uff0c\u7531\u4e8e $n \\le 5000$\uff0c\u663e\u7136\u53ef\u4ee5\u4f7f\u7528 $n^2$ \u7684\u529e\u6cd5\u53bb\u904d\u5386\u6bcf\u4e00\u4e2a\u533a\u95f4\uff0c\u800c\u524d\u7f00\u548c\u4f18\u5316\u7684\u5c31\u662f\u8fd9\u4e2a\u67e5\u8be2\u8fd9\u4e2a\u533a\u95f4\u548c\u7684\u8fc7\u7a0b\u3002\n\n\u6700\u540e\u7edf\u8ba1\u533a\u95f4\u957f\u5ea6\u6700\u5927\u5c31\u7ed3\u675f\u4e86\u3002\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nconst int N =1e6+10;\nint a[N],s[N];\nint main()\n{\n\tint n;\n\tcin>>n;\n\tfor(int i=1;i<=n;i++)\n\t\tcin>>a[i],s[i]=s[i-1]+a[i];\n\tint maxx=0;\n\tfor(int i=1;i<=n;i++)\n\t\tfor(int j=0;j<i;j++)\n\t\t\tif(s[i]-s[j]>100*(i-j))\n\t\t\t\tmaxx=max(maxx,i-j);\n\tcout<<maxx<<endl;\n\treturn 0;\n}\n```\n",
+        "postTime": 1677130249,
+        "uid": 361141,
+        "name": "_JF_",
+        "ccfLevel": 0,
+        "title": "CF1057B DDoS"
+    },
+    {
+        "content": "\u5173\u4e8e [DDoS](https://baike.baidu.com/item/%E5%88%86%E5%B8%83%E5%BC%8F%E6%8B%92%E7%BB%9D%E6%9C%8D%E5%8A%A1%E6%94%BB%E5%87%BB/3802159?fromtitle=DDOS%E6%94%BB%E5%87%BB&fromid=177090&fr=aladdin) \u653b\u51fb\uff0c\u4e00\u5b9a\u662f\u5f88\u591a\u4eba\u90fd\u5bb3\u6015\u7684\u653b\u51fb\u4e86\u3002\n\n\u4f46\u8fd9\u9053\u9898\u4e0e DDoS \u6beb\u65e0\u5173\u8054\u3002\n\n#### \u9898\u610f\n\n\u7ed9\u4f60\u4e2a\u6570\u7ec4 $a$\uff0c\u627e\u5230 $a$ \u4e2d\u6700\u957f\u7684\u4e00\u4e2a\u5e8f\u5217\uff0c\u8fd9\u4e2a\u5e8f\u5217\u7684\u5de6\u53f3\u5750\u6807\u5206\u522b\u4e3a $l$ \u548c $r$\uff0c\u6ee1\u8db3 $a_l$ \u81f3 $a_r$ \u7684\u548c\u5927\u4e8e $100 \\times (r-l+1)$\u3002\n\n#### \u9898\u89e3\n\n\u7b97\u51fa\u524d\u7f00\u548c\uff0c\u66b4\u529b\u6c42\u5c31\u597d\u4e86\u3002\n\n\u6240\u6709\u7684\u5e8f\u5217\u5305\u62ec\uff1a\n\n$l=1,r=2$ ~ $n$\n\n$l=2,r=3$ ~ $n$\n\n$l=3,r=4$ ~ $n$\n\n\u2026\u2026\n\n$l=n-1,r=n$\n\n\u6240\u4ee5\u8fd1\u4f3c\u590d\u6742\u5ea6\u662f $O(n^2)$\n\n\u5c31 $\\texttt{AC}$ \u4e86\n\n#### \u4ee3\u7801\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint a[5005];\nint q[5005];\nint main(int argc, const char * argv[]) {\n    // insert code here...\n    int n;\n    scanf(\"%d\",&n);\n    for(int i=1;i<=n;i++){\n        scanf(\"%d\",&a[i]);\n        q[i]=q[i-1]+a[i];\n    }\n    int MAX=0;\n    for(int i=1;i<=n;i++){\n        for(int j=1;j<=n;j++){\n            if(100*(j-i+1)<(q[j]-q[i-1])){\n                MAX=max(MAX,j-i+1);\n            }\n        }\n    }\n    printf(\"%d\",MAX);\n    return 0;\n}\n```",
+        "postTime": 1656221240,
+        "uid": 742036,
+        "name": "BinarySearchTree",
+        "ccfLevel": 0,
+        "title": "CF1057B DDoS \u9898\u89e3"
+    },
+    {
+        "content": "## Content\n\u6709\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u6570\u5217 $a_1,a_2,...,a_n$\uff0c\u6c42\u51fa\u6ee1\u8db3 $\\sum\\limits_{i=l}^r a_i>100\\times(r-l+1)$ \u7684\u533a\u95f4 $[l,r]$ \u957f\u5ea6\u7684\u6700\u5927\u503c\u3002\n\n**\u6570\u636e\u8303\u56f4\uff1a$1\\leqslant n\\leqslant 5000,0\\leqslant a_i\\leqslant 5000$\u3002**\n## Solution\n\u524d\u7f00\u548c\u7b80\u5355\u9898\uff0c\u6211\u4eec\u9884\u5904\u7406\u51fa\u6240\u6709\u7684\u524d\u7f00\u548c\u4e4b\u540e\uff0c\u518d\u76f4\u63a5 $\\mathcal{O}(n^2)$ \u679a\u4e3e\u6240\u6709\u6ee1\u8db3\u6761\u4ef6\u7684\u533a\u95f4\u957f\u5ea6\uff0c\u53d6\u5176\u6700\u5927\u503c\u5373\u53ef\u3002\n## Code\n```cpp\nint n, r, s[5007], ans;\n\nint main() {\n\tscanf(\"%d\", &n);\n\tfor(int i = 1; i <= n; ++i) {scanf(\"%d\", &r); s[i] = s[i - 1] + r;}\n\tfor(int i = 1; i <= n; ++i)\n\t\tfor(int j = i; j <= n; ++j)\n\t\t\tif(s[j] - s[i - 1] > 100 * (j - i + 1)) ans = max(ans, j - i + 1);\n\tprintf(\"%d\", ans);\n\treturn 0;\n}\n```",
+        "postTime": 1603783059,
+        "uid": 112917,
+        "name": "Eason_AC",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF1057B \u3010DDoS\u3011"
+    },
+    {
+        "content": "- \u4e00\u53e5\u8bdd\u9898\u610f\uff1a\u627e\u51fa\u6700\u957f\u4e00\u6bb5\u5e73\u5747\u6570\u5927\u4e8e $100$ \u7684\u6570\u5217\u3002\n\n\u8003\u8651\u524d\u7f00\u548c\uff0c\u9884\u5904\u7406\u540e\u679a\u4e3e\u6ee1\u8db3\u6761\u4ef6\u7684\u6700\u5927\u533a\u95f4\u957f\u5ea6\u5373\u53ef\uff0c\u4e00\u8fb9\u679a\u4e3e\u4e00\u8fb9\u66f4\u65b0\u7b54\u6848\u3002\u65f6\u95f4\u590d\u6742\u5ea6\u4e3a $O(n^2)$\uff0c$n\\leq5000$\uff0c\u53ef\u4ee5\u901a\u8fc7\u6b64\u9898\u3002\n\n- code:\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n\ntypedef long long LL;\n\ninline int read(){\n\tint f=1,s=0;char ch=getchar();\n\twhile(ch<'0' or ch>'9'){if(ch=='-')f=-1;ch=getchar();}\n\twhile(ch>='0' and ch<='9')s=(s<<1)+(s<<3)+(ch^48),ch=getchar();\n\treturn f*s;\n}\n\ninline void write(int num){\n\tif(num<0)num=-num,putchar('-');\n\tif(num>9)write(num/10);\n\tputchar(num%10+48);\n}\n\nconst int N=5e3+5;\nint n,a[N],sum[N],ans;\n\nint main(){\n    n=read();\n    for(int i=1;i<=n;++i)\n        a[i]=read(),sum[i]=sum[i-1]+a[i];\n    for(int i=1;i<=n;++i)\n        for(int j=1;j<=n;++j)\n            if(100*(j-i+1)<sum[j]-sum[i-1])\n                ans=max(ans,j-i+1);\n    write(ans);\n\treturn 0;\n}\n```\n",
+        "postTime": 1679195529,
+        "uid": 450861,
+        "name": "QcpyWcpyQ",
+        "ccfLevel": 5,
+        "title": "CF1057B DDoS \u9898\u89e3"
+    },
+    {
+        "content": "\u524d\u7f00\u548c\u677f\u5b50\uff0c$n^2$ \u65f6\u95f4\u679a\u4e3e\u8303\u56f4\u7684\u5de6\u7aef\u70b9\u548c\u53f3\u7aef\u70b9\uff0c\u7136\u540e\u7528\u524d\u7f00\u548c\u6570\u7ec4 $O(1)$ \u8ba1\u7b97\u662f\u5426\u7b26\u5408\u8981\u6c42\uff0c\u6700\u540e\u627e\u5230\u957f\u5ea6\u6700\u5927\u503c\u5373\u53ef\uff0c\u603b\u590d\u6742\u5ea6 $O(n^2)$\u3002\n\n\u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\n#define N 5005\nusing namespace std;\nint a[N],sum[N];//sum\u4e3a\u524d\u7f00\u548c\u6570\u7ec4\nint main()\n{\n    int n;\n    cin>>n;\n    for(int i=1;i<=n;++i)\n        cin>>a[i],sum[i]=sum[i-1]+a[i];//\u521d\u59cb\u5316\u524d\u7f00\u548c\u6570\u7ec4\n    int ans=0;//\u8bbe\u4e3aint\u7684\u6700\u5c0f\u503c\n     for(int i=1;i<=n;++i)//\u679a\u4e3e\u8303\u56f4\u7684\u5de6\u7aef\u70b9\u548c\u53f3\u7aef\u70b9\n        for(int j=1;j<=n;++j)\n           if(100*(j-i+1)<sum[j]-sum[i-1])\n                ans=max(ans,j-i+1);\n    cout<<ans<<endl;\n    return 0;\n}\n```",
+        "postTime": 1677154171,
+        "uid": 667250,
+        "name": "\u7199",
+        "ccfLevel": 0,
+        "title": "CF1057B \u9898\u89e3"
+    },
+    {
+        "content": "~~\u8fd9\u4e2a\u9898\u4e3a\u4ec0\u4e48\u9ec4\uff1f~~\n\n\u5927\u610f\uff1a\u627e\u51fa\u6700\u957f\u4e00\u6bb5\u6570\uff0c\u5e73\u5747\u6570\u5927\u4e8e $100$\u3002\n\n## \u601d\u8def\n\u8fd9\u4e2a\u9898\u6570\u636e\u8303\u56f4\u5c0f\uff0c\u53ef\u4ee5\u524d\u7f00\u548c + \u53cc\u5faa\u73af\u679a\u4e3e\u533a\u95f4\u3002\n\n\u9700\u8981\u6ce8\u610f\u7684\u662f\uff0c\u7531\u4e8e\u9898\u76ee\u4e2d\u8981\u6c42\u957f\u5ea6\u6700\u5927\uff0c\u6240\u6709\u5916\u5c42\u5faa\u73af\u679a\u4e3e\u957f\u5ea6\u66f4\u597d\u3002\n\n\u6ce8\u610f\u9898\u76ee\u4e2d\u8bf4\u5982\u679c\u6ca1\u6709\u5c31\u8f93\u51fa $0$\uff0c\u6240\u4ee5\u6700\u597d\u7684\u65b9\u6cd5\u662f\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u957f\u5ea6\u540e\u76f4\u63a5 `return 0`\uff0c\u53ef\u4ee5\u907f\u514d\u591a\u4f59\u7684\u7279\u5224\n\n## \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint a[5005],p[5005];\nint main(){\n\tint n;\n\tcin>>n;\n\tfor(int i=1;i<=n;i++){\n\t\tcin>>a[i];\n\t\tp[i]=p[i-1]+a[i];//\u524d\u7f00\u548c\n\t}\n\tfor(int i=n;i>0;i--)\n\t\tfor(int j=i;j<=n;j++)//j\u4ee3\u8868\u7ed3\u675f\u7684\u4f4d\u7f6e\n\t\t\tif(p[j]-p[j-i]>i*100){//\u6ce8\u610f\u4e0d\u662fj-i-1\u800c\u662fj-i\n\t\t\t\tcout<<i;\n\t\t\t\treturn 0;//\u907f\u514d\u591a\u6b21\u8f93\u51fa\n\t\t\t}\n\tcout<<0;\n\treturn 0;\n}\n\n```",
+        "postTime": 1676379938,
+        "uid": 577628,
+        "name": "Gavin2011",
+        "ccfLevel": 5,
+        "title": "CF1057B \u9898\u89e3"
+    },
+    {
+        "content": "# CF1057B DDoS \u9898\u89e3\n\n## \u9898\u610f\u7b80\u8ff0\n\n\u8f93\u51fa\u53d7 $\\texttt{DDoS}$ \u653b\u51fb\u7684\u6700\u957f\u65f6\u6bb5\u3002\n\n* \u6709\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u5e8f\u5217 $a$\n* \u82e5 $a_i \\sim a_j$ \u7684\u8bf7\u6c42\u603b\u6570\u5927\u4e8e\u4e86 $100 \\times (j - i + 1)$\uff0c\u5219\u5224\u5b9a\u4e3a\u6b63\u5728\u53d7 $\\texttt{DDoS}$ \u653b\u51fb\u4e2d\u3002\n* \u6c42\u4e00\u6bb5\u53d7 $\\texttt{DDoS}$ \u653b\u51fb\u7684\u6700\u957f\u7684\u65f6\u95f4\u6bb5\u7684\u957f\u5ea6\n\n## \u601d\u8def\u5206\u6790\n\n\u66b4\u529b\u679a\u4e3e\uff0c\u9700\u8981 **\u524d\u7f00\u548c** \u4f18\u5316\uff0c\u4e3a\u4e86\u53d9\u8ff0\u65b9\u4fbf\uff0c\u6211\u4eec\u5c06\u5de6\u6307\u9488\u8bbe\u7f6e\u4e3a $l$\uff0c\u53f3\u6307\u9488\u8bbe\u7f6e\u4e3a $r$\u3002\n\n\u7531\u9898\u610f\u5f97\uff0c\u6211\u4eec\u9700\u8981\u627e\u5230\u6700\u957f\u533a\u95f4\uff0c\u8981\u6c42\uff1a\n\n$$\\sum_{l = i}^{r} a_i \\gt 100 \\times (r - l + 1)$$\n\n\u5982\u679c\u6211\u4eec\u4e00\u8fb9\u679a\u4e3e\u957f\u5ea6\uff0c\u4e00\u8fb9\u679a\u4e3e $l$\uff0c\u4e00\u8fb9\u679a\u4e3e $r$ \u7684\u8bdd\uff0c\u65f6\u95f4\u590d\u6742\u5ea6\u662f $\\mathcal{O}(n^3)$\uff0c\u660e\u663e\u4f1a T \u98de\u3002\n\n\u8003\u8651\u4f18\u5316\uff0c\u4f7f\u7528\u524d\u7f00\u548c\u3002\u5728\u8f93\u5165\u5230\u7b2c $i$ \u4e2a\u65f6\uff0c\u7edf\u8ba1\u4ece $a_1 \\sim a_i$ \u7684\u8bbf\u95ee\u603b\u548c\uff0c\u6211\u4eec\u53ea\u9700\u8981\u679a\u4e3e $l$ \u548c $r$\uff0c\u627e\u6ee1\u8db3\u6761\u4ef6\u7684\u533a\u95f4\u5373\u53ef\uff0c\u4ee5 $\\mathcal{O}(n^2)$ \u7684\u65f6\u95f4\u590d\u6742\u5ea6\u901a\u8fc7\u6b64\u9898\u3002\n\n## \u4ee3\u7801\n\n```cpp\n#include <bits/stdc++.h>\n\nusing namespace std;\nconst int N = 5050;\n\nint n, ans = 0;\nint r[N];\n\nint main() {\n    scanf(\"%d\", &n);\n    for (int i = 1, in; i <= n; i++) {\n        scanf(\"%d\", &in);\n        r[i] = r[i - 1] + in;\n    }\n\n    for (int i = 1; i <= n; i++)\n        for (int j = i; j <= n; j++)\n            if (r[j] - r[i - 1] > 100 * (j - i + 1))\n                ans = max(ans, j - i + 1);\n\n    printf(\"%d\\n\", ans);\n    return 0;\n}\n\n```\n\n\u4ee3\u7801\u5c0f\u6ce8\uff1a\n\n1. \u627f\u63a5\u4e0a\u6587\uff0c\u4e4b\u6240\u4ee5\u4f7f\u7528 $j - i + 1$ \u53ef\u4ee5\u7c7b\u6bd4\u4e00\u4e0b $1 \\sim 2$ \u7684\u957f\u5ea6\u4e3a $2$\uff0c\u4f46\u662f\u5982\u679c\u76f4\u63a5\u4f7f\u7528 $2 - 1$ \u7684\u8bdd\u8ba1\u7b97\u51fa\u7684\u957f\u5ea6\u4e3a $1$\uff0c\u6240\u4ee5\u6211\u4eec\u9700\u8981\u52a0\u4e0a $1$ \u6765\u8ba1\u7b97\u51fa\u533a\u95f4\u957f\u5ea6\u3002\uff08\u5982\u4e0a\u8ff0\u9898\u76ee\u5206\u6790\uff09\n2. \u6b64\u5904\u7684 ans \u4e0d\u5efa\u8bae\u521d\u59cb\u5316\u4e3a\u4e00\u4e2a\u5f88\u5c0f\u7684 $\\texttt{INF}$ \u503c\uff08\u5982 $-1e9$\uff09\uff0c\u9898\u76ee\u4e2d\u8981\u6c42\u65e0\u7b54\u6848\u8fd4\u56de $0$\uff0c\u6570\u636e\u8303\u56f4\u4e5f\u4fdd\u8bc1\u4e3a\u6b63\u6570\uff0c\u6240\u4ee5\u521d\u59cb\u5316 $ans$ \u4e3a $0$ \u5373\u53ef\u3002\uff08\u4e0d\u52a0\u4e0a\u7279\u5224\u76f4\u63a5\u4f7f\u7528 $-1e9$ \u4f1a\u5728\u7b2c\u4e8c\u4e2a\u70b9\u6302\u6389\uff09\n",
+        "postTime": 1675242287,
+        "uid": 728846,
+        "name": "ShayXu",
+        "ccfLevel": 0,
+        "title": "CF1057B DDoS \u9898\u89e3"
+    },
+    {
+        "content": "\u8fd9\u9898\u6709\u4e00\u4e2a naive \u7684\u505a\u6cd5\uff0c\u5373\u679a\u4e3e\u957f\u5ea6 $i$\uff0c\u5982\u679c $\\sum_j^{i+j-1}\\gt 100\\times i$\uff0c\u8bf4\u660e\u662f\u4e00\u4e2a ddos \u653b\u51fb\u3002\u4ee3\u7801\u5c31\u4e0d\u653e\u4e86\u3002\u56e0\u4e3a $O(N^3)$ \u6839\u672c\u5c31\u8fc7\u4e0d\u4e86\u3002~~\u56e0\u4e3a\u6211\u538b\u6839\u513f\u5c31\u6ca1\u5199~~\n\n\u600e\u6837\u4f18\u5316\u5462\uff1f\n\n\u770b\u5230 $\\sum$\uff0c\u6211\u4eec\u5c31\u60f3\u5230\u4e86\u524d\u7f00\u548c\u3002\u4ee4 `s[i]` \u4e3a $\\sum_1^i$\u3002\n\n$\\sum_l^r$ = ```s[r]-s[l-1]```\u3002\n\n\u8bfb\u4e0d\u61c2\uff1f\u611f\u6027\u7406\u89e3\u3002\u9996\u5148\u62ff\u5230 $1\\sim r$ \u7684\u603b\u548c\uff0c\u7136\u540e\u628a $1\\sim l-1$\u7684\u548c\u6263\u6389\uff0c\u5c31\u662f $l \\sim r$ \u7684\u603b\u548c\u3002$O(N^2)$\uff0c\u5341\u5206\u4f18\u79c0\u3002\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint n;\nint a[5005]; \nint main() {\n\tscanf(\"%d\",&n);\n\tfor(int i = 1;i <= n;i ++){\n\t\tscanf(\"%d\",&a[i]);\n\t\ta[i] += a[i-1];//\u5077\u61d2\uff0c\u76f4\u63a5\u5728\u539f\u6570\u7ec4\u4e0a\u6539\u4e86\n\t} \n\tint longest = 0;\n\tfor(int i = 1;i <= n;i ++){\n\t\tfor(int j = 1;j+i-1 <= n;j ++){\n\t\t\tif(a[j+i-1]-a[j-1]>i*100){\n\t\t\t\tlongest = i;\n\t\t\t\tbreak;\n\t\t\t}\n\t\t}\n\t}\n\tcout << longest << endl;\n\treturn 0;\n}\n\n\n```",
+        "postTime": 1669641389,
+        "uid": 302394,
+        "name": "dingshengyang",
+        "ccfLevel": 4,
+        "title": "\u7ecf\u5178\u9898"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u5176\u5b9e\u662f\u4e00\u9053\u7b80\u5355\u7684\u524d\u7f00\u548c\u6a21\u677f\u9898\u3002\n\n\u5148\u8ba1\u7b97\u6bcf\u4e00\u4f4d\u7684\u524d\u7f00\u548c\uff0c\u7136\u540e\u518d\u5224\u65ad\u7b2c $j$ \u4f4d\u5230\u7b2c $i$ \u4f4d\u7684\u8bf7\u6c42\u603b\u6570\u662f\u5426\u5927\u4e8e $100 \\times \\left(j - r + 1\\right)$\uff0c\u518d\u4e0e $len$ \u6bd4\u8f83\uff0c\u5982\u679c\u5927\u4e8e $len$\uff0c\u5219\u5c06\u503c\u5b58\u5165 $len$\uff1b\u5426\u5219\uff0c\u7ee7\u7eed\u5bfb\u627e\u4e0b\u4e00\u6bb5\u6ee1\u8db3\u6761\u4ef6\u7684\u957f\u5ea6\u4e0e $len$ \u6bd4\u8f83\uff0c\u76f4\u81f3\u65e0\u6cd5\u5bfb\u627e\u4e3a\u6b62\u3002\n\n\u53c2\u8003\u4ee3\u7801 \uff1a\n\n```cpp\n#include <iostream>\n#include <cstdio>\n\nusing namespace std;\n\nint n, k;\nint len = 0, s[10005];\n\nint main()\n{\n    scanf(\"%d\", &n);\n    s[0] = 0;\n    for(int i = 1; i <= n; i ++)\n    {\n        scanf(\"%d\", &k);\n        s[i] = s[i - 1] + k;//\u524d\u7f00\u548c\n    }\n    for(int i = 1; i <= n; i ++)\n    {\n        for(int j = 1; j <= n; j ++)\n        {\n            int l = j - i + 1;//\u56e0\u4e3a\u662f\u5de6\u5f00\u53f3\u95ed\u533a\u95f4,\u6240\u4ee5\u8fd8\u8981\u52a01\n            if((s[j] - s[i - 1]) > (100 * l)) len = max(len, l);//\u5224\u65ad\u662f\u5426\u6ee1\u8db3\u6761\u4ef6\uff0c\u6ee1\u8db3\u7684\u8bdd\u5c31\u4e0elen\u6bd4\u8f83\n        }\n    }\n    printf(\"%d\\n\", len);\n    return 0;\n}\n```\n",
+        "postTime": 1659770369,
+        "uid": 462047,
+        "name": "jimmyfj",
+        "ccfLevel": 0,
+        "title": "CF1057B DDoS"
+    },
+    {
+        "content": "### \u601d\u8def\uff1a\n\n\u672c\u9898\u4f7f\u7528\u524d\u7f00\u548c\u7b97\u6cd5\u6765\u4f18\u5316\u65f6\u95f4\u590d\u6742\u5ea6\u3002\n\n\u4ec0\u4e48\u662f\u524d\u7f00\u548c\uff1f\u8be6\u89c1[\u6a21\u677f](https://www.luogu.com.cn/problem/P8218)\u3002\n\n\u9884\u5904\u7406\u524d\u7f00\u548c\u540e\uff0c\u53ea\u9700\u8981\u7528\u4e8c\u91cd\u5faa\u73af\u679a\u4e3e\u6ee1\u8db3\u6761\u4ef6\u7684 **\u6700\u5927** \u533a\u95f4\u957f\u5ea6\u5373\u53ef\uff0c\u4e00\u8fb9\u679a\u4e3e\u4e00\u8fb9\u66f4\u65b0\u7b54\u6848\u3002\n\n### \u4ee3\u7801\uff1a\n\n```cpp\nfor(int i=1;i<=n;i++)cin>>x,s[i]=s[i-1]+x;\nfor(int i=1;i<=n;i++)\n\tfor(int j=i/*\u56e0\u4e3a r>=l \u6240\u4ee5 j \u4ece i \u5f00\u59cb*/;j<=n;j++)\n\t\tif(s[j]-s[i-1]>100*(j-i+1))\n\t\t    ans=max(ans,j-i+1);\n```",
+        "postTime": 1653724063,
+        "uid": 716206,
+        "name": "pengzy",
+        "ccfLevel": 0,
+        "title": "CF1057B DDoS \u9898\u89e3"
+    },
+    {
+        "content": "\u5728\u535a\u5ba2\u56ed\u98df\u7528\u4ee5\u83b7\u53d6\u66f4\u597d\u7684\u4f53\u9a8c\uff0c\u8bf7\u70b9 [\u8fd9\u91cc](https://www.cnblogs.com/2020gyk080/p/cf_1057B.html)\u3002\n\n# \u601d\u8def\n\n**\u524d\u7f00\u548c**\uff0c\u9884\u5904\u7406\u51fa $r$ \u7684\u524d\u7f00\u548c $s$ \u540e\uff0c\u53ea\u9700\u7528 $s_y-s_{x-1}$ \u5c31\u80fd\u5f97\u51fa $\\sum^{i=x}_yr_i$ \u7684\u503c\u3002\n\n\u66b4\u529b\u679a\u4e3e $l$ \u548c $r$ \u7684\u4f4d\u7f6e\uff0c\u82e5\u6ee1\u8db3\u6761\u4ef6\uff0c\u5219\u66f4\u65b0\u6700\u5927\u503c\u3002\n\n\u65f6\u95f4\u590d\u6742\u5ea6 $\\Theta(n^2)$.\n\n# \u4ee3\u7801\n\n```cpp\nint main()\n{\n\tn=fastio_read();\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\ta=fastio_read();\n\t\ts[i]=s[i-1]+a;\t\t//\u9884\u5904\u7406\u524d\u7f00\u548c\n\t}\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tfor(int j=i;j<=n;j++)\n\t\t{\n\t\t\tif(s[j]-s[i-1]>100*(j-i+1))\t\t//\u6ee1\u8db3\u6761\u4ef6\uff0c\u66f4\u65b0\n\t\t\t{\n\t\t\t\tans=max(ans,j-i+1);\n\t\t\t}\n\t\t}\n\t}\n\tfastio_write(ans);\n\tputchar('\\n');\n\treturn 0;\n}\n```",
+        "postTime": 1647172076,
+        "uid": 470638,
+        "name": "Steven_lzx",
+        "ccfLevel": 5,
+        "title": "CF1057B DDoS \u9898\u89e3"
+    },
+    {
+        "content": "#### \u9898\u76ee\u5927\u610f\n\u7ed9\u4e00\u4e2a\u5e8f\u5217\uff0c\u9009\u62e9\u4e00\u4e2a\u533a\u95f4\uff0c\u5047\u8bbe\u533a\u95f4\u6240\u6709\u5143\u7d20\u4e4b\u548c\u4e3a $X$\uff0c\u957f\u5ea6\u4e3a $Y$\uff0c\u95ee\u6240\u6709\u7b26\u5408 $X \\ge 100 \\times Y$ \u7684\u5e8f\u5217\u4e2d\u6700\u957f\u7684 $Y$ \u662f\u591a\u5c11\uff1f\n#### \u89e3\u9898\u601d\u8def\n\u9009\u7528\u524d\u7f00\u548c\u6c42\u89e3\u3002\u679a\u4e3e\u6bcf\u4e00\u4e2a\u533a\u95f4\u7684\u5de6\u7aef\u70b9\u548c\u53f3\u7aef\u70b9\uff0c$n^2$ \u6a21\u62df\uff0c\u4e0d\u4f1a\u8d85\u65f6\u3002\u8bbe\u524d\u7f00\u548c\u6570\u7ec4 $Q$\uff0c\u5219\u548c\u4e3a $Q_r - Q_{l-1}$\uff0c\u6309\u7167\u9898\u76ee\u5927\u610f\u8ba1\u7b97\u53d6\u6700\u5927\u503c\uff0c\u5c31\u662f\u7ed3\u679c\u3002\n#### \u4ee3\u7801\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint a[5005];\nint q[5005];\nint main() {\n    int n;\n    scanf(\"%d\",&n);\n    for(int i=1;i<=n;i++){\n        scanf(\"%d\",&a[i]);\n        q[i]=q[i-1]+a[i];\n    }\n    int MAX=0;\n    for(int i=1;i<=n;i++){\n        for(int j=1;j<=n;j++){\n            if(100*(j-i+1)<(q[j]-q[i-1])){\n                MAX=max(MAX,j-i+1);\n            }\n        }\n    }\n    printf(\"%d\",MAX);\n    return 0;\n}\n```\n",
+        "postTime": 1639902130,
+        "uid": 557737,
+        "name": "gyc18",
+        "ccfLevel": 0,
+        "title": "cf1057b"
+    },
+    {
+        "content": "\u8fd9\u9898\u4f7f\u7528\u524d\u7f00\u548c \n\n\u8bbe\u4e00\u4e2a\u6570\u7ec4\u4e3aa,\u90a3\u4e48\u5b83\u7684\u524d\u7f00\u548cs[i],\n\u987e\u540d\u601d\u4e49\u5c31\u662f\u524d\u9762i\u4e2a\u6570\u7684\u603b\u548c\u3002\n\n\u6570\u7ec4a\u5728\u7ecf\u8fc7\u8fd9\u6837\u7684\u64cd\u4f5c\u4e4b\u540e\uff0c\u5bf9\u4e8e\u6bcf\u6b21\u7684\u8be2\u95ee\uff0c\u6211\u4eec\u53ea\u9700\u8981\u8ba1\u7b97s[i]-s[j]\u5c31\u80fd\u5f97\u5230[j,i]\u7684\u533a\u95f4\u548c\uff1b\n\n\u6211\u4eec\u8fd9\u91cc\u76f4\u63a5\u679a\u4e3ei\u4e0ej\u7684\u4f4d\u7f6e\uff0c\u5982\u679c\u5927\u4e8e100*(i-j)\uff0c\u5c31\u66f4\u65b0max\n\n\u65f6\u95f4\u590d\u6742\u5ea6O(n^2)\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,maxnn=0,maxmm=0;\nint a[5050],s[5050];\nint main(){\n    cin>>n;\n    for(int i=1;i<=n;i++){\n        int t;cin>>t;\n        a[i]=t;\n        s[i]=s[i-1]+t;\n    }\n    for(int i=n;i>=1;i--){\n        for(int j=0;j<i;j++){\n            if((s[i]-s[j])>(100*(i-j))&&i-j>maxnn){\n                maxnn=i-j;\n                break;\n            }\n        }\n    }\n    cout<<maxnn<<endl;\n    return 0;\n}\n```",
+        "postTime": 1555904993,
+        "uid": 148016,
+        "name": "sunson",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 CF1057B \u3010DDoS\u3011"
+    },
+    {
+        "content": "## CF1057B \u9898\u89e3\n\nsjh\uff1a\u55b5\u55b5\u5c0f\u8bfe\u5802\u5f00\u8bfe\u5566\uff01\u6211\u662f\u849f\u84bb sjh\uff0c\u4eca\u5929\u6211\u4eec\u6765\u5b66\u4e60 CF1057B \u7684\u89e3\u6cd5\uff01\n\n\u55b5\u55b5\u4eec\uff1a\u597d\u8036\uff01\n\nsjh\uff1a\u597d\u7684\uff0cfzj \u4f60\u8bf4\u4e00\u4e0b\u601d\u8def\u3002\n\nfzj\uff1a\u8fd9\u9898\u5341\u5206\u7684\u7b80\u5355\uff0c\u6211\u8ba4\u4e3a\u9700\u8981\u66b4\u529b\u679a\u4e3e\u3002\n\nsjh\uff1a\u8bf4\u7684\u597d\uff0c\u4f46\u662f\u76f4\u63a5\u679a\u4e3e\u7684\u590d\u6742\u5ea6\u662f $O(n^3)$\uff0c\u6240\u4ee5\u600e\u4e48\u529e\u5462\uff1f\n\nlxx\uff1a\u524d\u7f00\u548c\uff01\n\nsjh\uff1a\u5f88\u6709\u9053\u7406\uff0c\u6b21\u6389\u3002\u6240\u4ee5\u53ea\u9700\u8981\u53cc\u91cd\u5faa\u73af\u679a\u4e3e\u533a\u95f4\u548c\uff0c\u5982\u679c\u6ee1\u8db3\u6761\u4ef6\u5224\u65ad\u5c31\u53ef\u4ee5\u5566\uff01\u6765\uff0czzy \u4f60\u628a\u4ee3\u7801\u5199\u51fa\u6765\u3002\n\nzzy:\uff08\u987a\u624b\u52a0\u4e0a\u4e86\u6ce8\u91ca\uff0c\u6211\u54ed\u6b7b\uff09\n```cpp\n#include<iostream>\nusing namespace std;\nint n,a[5005],f[5005],ans;\nint main(){\n\tcin>>n;\n\tfor(int i=1;i<=n;++i){\n\t\tcin>>a[i];\n\t\tf[i]=f[i-1]+a[i];//\u524d\u7f00\u548c\n\t}\n\tfor(int i=1;i<=n;++i){\n\t\tfor(int j=i;j<=n;++j){//\u679a\u4e3e\u5224\u65ad\uff0c\u6ce8\u610fi\u4e0ej\u76f8\u7b49\u65f6\u4e5f\u7b97\u533a\u95f4\n\t\t\tif(f[j]-f[i-1]>(j-i+1)*100){//\u5982\u679c\u533a\u95f4\u548c\u5927\u4e8e\u957f\u5ea6*100\uff0c\u6ce8\u610f\u9898\u76ee\u4e2d\u7684\u201c\u8d85\u8fc7\u201d\u662f\u5927\u4e8e\u4e0d\u662f\u5927\u4e8e\u7b49\u4e8e\uff01\n\t\t\t\tans=max(ans,j-i+1);//\u53d6ans\u7684max\u503c\n\t\t\t}\n\t\t}\n\t}\n\tcout<<ans;\n\treturn 0;\n}\n```\n\n~~\u597d\u4e86\uff0c\u4e0b\u8bfe\u3002~~\n",
+        "postTime": 1679107412,
+        "uid": 761125,
+        "name": "songjiahao_",
+        "ccfLevel": 0,
+        "title": "CF1057B \u9898\u89e3"
+    }
+]

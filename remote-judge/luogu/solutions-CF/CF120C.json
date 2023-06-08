@@ -1,0 +1,42 @@
+[
+    {
+        "content": "#### \u9898\u76ee\u4e0d\u96be\uff0c\u6309\u7167\u610f\u601d\u6a21\u62df\u5373\u53ef\u3002\n```cpp\nif ((a / k) >= 3)\n    ans += a - (k * 3); // \u82e5\u53ef\u4ee5\u51cf\u4e09\u6b21\uff0c\u5219\u51cf\u4e09\u6b21\nelse\n    ans += a - k * (a / k); // \u5426\u5219\u5c31\u4e00\u76f4\u51cf\uff0c\u77e5\u9053\u4e0d\u80fd\u51cf\u4e3a\u6b62\n```\n## \u5751\u70b9\uff1a\n#### \u9700\u8981\u5199\u6587\u4ef6\u8f93\u5165\u8f93\u51fa\n```cpp\nfreopen(\"input.txt\", \"r\", stdin);\nfreopen(\"output.txt\", \"w\", stdout);\n```\n#### \u672c\u9898\u603b\u4f53\u6765\u8bf4\u5f88\u6c34\uff0c\u4f46\u662f\u8fd9\u4e2a\u5751\u70b9\u8fd8\u662f\u6709\u70b9EX\u7684\u3002\n## Code:\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint n, k, a, ans;\nint main()\n{\n    freopen(\"input.txt\", \"r\", stdin);\n    freopen(\"output.txt\", \"w\", stdout);\n    scanf(\"%d%d\", &n, &k);\n    while (n--)\n    {\n        scanf(\"%d\", &a);\n        if ((a / k) >= 3)\n        {\n            ans += a - (k * 3);\n        }\n        else\n        {\n            ans += a - k * (a / k);\n        }\n    }\n    printf(\"%d\\n\", ans);\n    return 0;\n}\n\n```\n## \u6c42\u8fc7^_^",
+        "postTime": 1607782177,
+        "uid": 186794,
+        "name": "ExcaliburNGod",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF120C \u3010Winnie-the-Pooh and honey\u3011"
+    },
+    {
+        "content": "[Winnie-the-Pooh and honey](https://www.luogu.com.cn/problem/CF120C)\n\n\u4e00\u9053\u7b80\u5355\u7684\u6a21\u62df\u9898\uff0c\u4f46\u9898\u76ee\u7ffb\u8bd1\u6709\u95ee\u9898\uff1a\u201c\u7f50\u53f7 $i$ \u5305\u542b $1$ \u516c\u65a4\u8702\u871c\u201d\u5e94\u6539\u4e3a\u201c\u7f50\u53f7 $i$ \u5305\u542b $a_i$ \u516c\u65a4\u8702\u871c\u201d\u3002\n\n### \u601d\u8def\uff1a\n1. \u82e5\u53ef\u4ee5\u51cf\u4e09\u6b21\uff0c\u5219\u51cf\u4e09\u6b21\u3002\n\n2. \u82e5\u4e0d\u53ef\u4ee5\u5c31\u4e00\u76f4\u51cf\uff0c\u76f4\u5230\u4e0d\u80fd\u51cf\u4e3a\u6b62\u3002\n\n### \u6ce8\u610f\uff1a\n\u672c\u9898\u9700\u8981\u6587\u4ef6\u8f93\u5165\u8f93\u51fa\uff01\n\n### CODE:\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n    freopen(\"input.txt\",\"r\",stdin);\n    freopen(\"output.txt\",\"w\",stdout);\n\tint n,k,a,ans=0;\n    cin>>n>>k;\n    for(int i=1;i<=n;i++)\n    {\n        cin>>a;\n        if(a/k>=3)\n\t\tans+=a-k*3;\n        else\n\t\tans+=a-k*(a/k);\n    }\n    cout<<ans;\n    return 0;\n}\n```",
+        "postTime": 1637811264,
+        "uid": 545692,
+        "name": "mzyc_jx",
+        "ccfLevel": 0,
+        "title": "Winnie-the-Pooh and honey \u9898\u89e3"
+    },
+    {
+        "content": "# CF120C Winnie-the-Pooh and honey\n[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/CF120C)\n\n\u9898\u76ee\u672c\u8eab\u8fd8\u662f\u8f83\u4e3a\u7b80\u5355\u7684\uff0c\u76f4\u63a5\u6309\u7167\u9898\u610f\u6a21\u62df\u5373\u53ef\uff0c\u6ce8\u610f\u8bfb\u6e05\u9898\u76ee\u3002\n\n\u4f46\u9898\u76ee\u7ffb\u8bd1\u6709\u95ee\u9898\uff0c\u201c\u7f50\u53f7$i$ \u5305\u542b$1$\u516c\u65a4\u8702\u871c\u201d\u5e94\u6539\u4e3a\u201c\u7f50\u53f7$i$ \u5305\u542b$a_i$\u516c\u65a4\u8702\u871c\u201d\u3002\n\n\u6700\u540e\u6ce8\u610f\uff0c\u8fd9\u9898\u662f\u9700\u8981\u91cd\u5b9a\u5411\u6587\u4ef6\u8f93\u5165\u8f93\u51fa\u3002\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\ntypedef long long ll;\nconst int mod=1e9+7;\nconst double eps=1e7-8;\nconst int INF=0x3f3f3f3f;\nconst int maxn=1e5+5;\nconst int maxm=1e6+5;\nint n,k,a,ans;\nint main(int argc, char const *argv[]){\n\tstd::ios::sync_with_stdio(false);\n\tfreopen(\"input.txt\",\"r\",stdin);\n\tfreopen(\"output.txt\",\"w\",stdout);\n\tcin>>n>>k;\n\twhile(n--){\n\t\tcin>>a;\n\t\tans+=(a>=3*k)?a-k*3:a-k*(a/k);\n\t}\n\tcout<<ans<<endl;\n\treturn 0;\n}\n```\n\u672c\u7bc7\u9898\u89e3\u5c31\u5230\u6b64\u7ed3\u675f\u4e86\uff0c\u5982\u679c\u559c\u6b22\uff0c\u8fd8\u8bf7\u70b9\u4e2a\u8d5e\u5427\u3002",
+        "postTime": 1606572362,
+        "uid": 235801,
+        "name": "\u89e6\u60c5\u79bb\u6b87",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 CF120C \u3010Winnie-the-Pooh and honey\u3011"
+    },
+    {
+        "content": "# \u601d\u8def\n\u76f4\u63a5\u6a21\u62df\u5c31\u884c\u4e86\uff0c\u4f46\u662f\u8981\u6ce8\u610f\u6587\u4ef6\u8f93\u5165\u8f93\u51fa\u548c\u9898\u76ee\u7684\u95ee\u9898\uff1a\u9898\u76ee\u4e2d\u7684 $1$ \u516c\u65a4\u5e94\u8be5\u6539\u4e3a $a_i$ \u516c\u65a4\u3002\n\n\u5728\u5403\u8702\u871c\u7684\u65f6\u5019\uff0c\u80fd\u5403\u4e09\u6b21\u5c31\u5403\u4e09\u6b21\uff0c\u5426\u5219\u5c31\u80fd\u5403\u51e0\u6b21\u5403\u51e0\u6b21\u3002\n# \u4ee3\u7801\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint n,k,ans;\nint main(){\n\tios::sync_with_stdio(false);\n\tcin.tie(0);\n\tcout.tie(0);\n\tfreopen(\"input.txt\",\"r\",stdin);\n\tfreopen(\"output.txt\",\"w\",stdout);\n\tcin>>n>>k;\n\tfor(int i=1;i<=n;i++){\n\t\tint x;\n\t\tcin>>x;\n\t\tif(x/k>=3){\n\t\t\tans+=x-(k*3);\n\t\t\tcontinue;\n\t\t}\n\t\tint a=x/k;//a\u8868\u793a\u6700\u591a\u80fd\u5403\u51e0\u6b21\n\t\tans+=x-a*k;\n\t}\n\tcout<<ans;\n\treturn 0;\n}\n```",
+        "postTime": 1638510785,
+        "uid": 461375,
+        "name": "_easy_",
+        "ccfLevel": 0,
+        "title": "CF120C"
+    },
+    {
+        "content": "\u6e29\u99a8\u63d0\u793a\uff1a\u672c\u9898\u9700\u8981\u6587\u64cd ~~(\u522b\u95ee\u6211\u600e\u4e48\u77e5\u9053\u7684)~~\n\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint n,k,i,w,a;\nsigned main()\n{\n    ;;;;;\n\tfreopen(\"input.txt\",\"r\",stdin);\n\tfreopen(\"output.txt\",\"w\",stdout);//\u6587\u4ef6\u64cd\u4f5c\n\tcin>>n>>k;\n\tfor(i=1;i<=n;i++)\n\t{\n\t\tcin>>a;\n\t\tif (a/k>=3) w+=a-(k*3);//\u591f\u51cf3\u6b21\u5c31\u51cf3\u6b21\n\t\telse w+=a-k*(a/k);//\u5426\u5219\u51cf\u5230\u4e0d\u80fd\u51cf\u4e3a\u6b62\n\t}\n\tcout<<w<<endl;\n    return 0;\n}\n```",
+        "postTime": 1595766422,
+        "uid": 71491,
+        "name": "shenmadongdong",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF120C \u3010Winnie-the-Pooh and honey\u3011"
+    }
+]

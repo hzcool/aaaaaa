@@ -1,0 +1,90 @@
+[
+    {
+        "content": "\u5176\u5b9e\u8fd9\u9053\u9898\u6709\u4e00\u4e2a\u6570\u5b66\u65b9\u6cd5\uff1a\n\u8bben\u4e2a\u6570\u7684\u603b\u548c\u4e3as\uff0c\u8981\u52a0x\u4e2ak\u3002\n\u5217\u51fa\u4e0d\u7b49\u5f0f\uff1a\ns + kx >= (k - 0.5)(n + x) \n\u6c42\u89e3\u5f97 x >= (2k - 1)n - 2s\n\u8fd8\u6709\u4e00\u4e2a\u6761\u4ef6\uff1ax\u5fc5\u987b\u662f\u4e2a\u975e\u8d1f\u6570\uff0c\u6240\u4ee5\u5f53\u7b97\u51fa\u6765\u662f\u4e00\u4e2a\u8d1f\u6570\uff0c\u7b54\u6848\u5e94\u8be5\u662f0\u3002\n\n\u4ee3\u7801\u5982\u4e0b\uff1a\n```cpp\n#include <stdio.h>\n\n\nint main() \n{\n    int n, k, s = 0, x, i, a;\n        \n    scanf(\"%d%d\", &n, &k);\n    for(i = 0; i < n; i++){\n    \tscanf(\"%d\", &x);\n    \ts += x;\n\t}\n\ta = (2 * k - 1) * n - 2 * s;\n    if(a < 0) a = 0;\n    printf(\"%d\", a);\n    return 0;\n}\n```",
+        "postTime": 1532403121,
+        "uid": 7419,
+        "name": "sheepsun",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF810A \u3010Straight \u00abA\u00bb\u3011"
+    },
+    {
+        "content": "[\u4f7f\u7528\u6211\u7684\u535a\u5ba2\u98df\u7528](https://dgsyrc.github.io/2020/03/25/\u6d1b\u8c37\u9898\u89e3%20CF810A%20\u3010Straight%20\u300aA\u300b\u3011/#more)\n\n\u8fd9\u9898\u7684\u601d\u8def\uff1a\n\n\u7b80\u5355\u5faa\u73af\u679a\u4e3e\u5373\u53ef\uff0c\u56e0\u4e3a\u6570\u636e\u91cf\u5c0f\u3002\n\n\u4e3b\u8981\u7684\u95ee\u9898\u5728\u4e8e\u56db\u820d\u4e94\u5165\u3002\n\n\u679a\u4e3e\u867d\u7136\u770b\u8d77\u6765\u5077\u61d2\uff0c\u4f46\u662f\u5728\u8d5b\u573a\u4e0a\u5728\u6570\u636e\u4ee5\u53ca\u65f6\u95f4\u7a7a\u95f4\u9650\u5236\u5141\u8bb8\u7684\u60c5\u51b5\u4e0b\uff0c\u603b\u6bd4\u4f60\u8dd1\u6570\u8bba\u597d\uff08\u7701\u505a\u9898\u65f6\u95f4\uff09\u3002\n\n\u6211\u4eec\u77e5\u9053`1.5`\u3001`1.6`\u3001`1.7`\u3001`1.8`\u3001`1.9`\u3001`2.0`\u3001`2.1`\u3001`2.2`\u3001`2.3`\u3001`2.4`\u56db\u820d\u4e94\u5165\u90fd\u4e3a2\uff0c\u6211\u4eec\u53ef\u4ee5\u5c06\u5176\u6269\u5927\u5341\u500d\uff0c\u5373`15`\u3001`16`\u3001`17`\u3001`18`\u3001`19`\u3001`20`\u3001`21`\u3001`22`\u3001`23`\u3001`24`\u3002\n\n\u7531\u4e8eC++\u4e2d\u7684`/`\u662f\u6574\u9664\uff0c\u8fd9\u6837\u6211\u4eec\u5c31\u53ef\u4ee5\u5224\u65ad\u5f53\u6269\u5927\u540e\u7684\u6570\u88ab\u6574\u9664\u540e\uff0c\u4e0ek*10\u7684\u8bef\u5dee\u8303\u56f4\u4e3a-5~4\u65f6\u5373\u53ef\u5224\u65ad\u76f8\u7b49\u3002\n\n\u81f3\u4e8e\u5c0f\u6570\u70b9\u540e\u9762\u7b2c\u4e8c\u4f4d\u53ca\u4ee5\u540e\u7684\u6570\u5176\u5b9e\u5bf9\u6b64\u5f71\u54cd\u4e0d\u5927\uff0c\u56e0\u4e3a\u6269\u5927\u5341\u500d\u540e`15.00001`\u5728\u6574\u9664\u4e2d\u8fd8\u662f`15`,`24.999999`\u5728\u6574\u9664\u4e2d\u8fd8\u662f`24`\u3002\n\n\n\n\u4ee3\u7801\u5982\u4e0b\uff1a\n\n\n```cpp\n#include<iostream>\n#include<cstdio>\nusing namespace std;\n\nint n,k,num[110],cot=0,sum=0;\n\nint main()\n{\n\tscanf(\"%d%d\",&n,&k);\n\tk=k*10;//\u6269\u5927\u5341\u500d\n\tfor(int a=1;a<=n;a++)\n\t{\n\t\tscanf(\"%d\",&num[a]);\n\t\tsum=sum+num[a]*10;//\u6269\u5927\u5341\u500d\n\t}\n\twhile(true)//\u65e0\u9650\u5faa\u73af\u5224\u65ad\n\t{\n\t\tif((sum+cot*k)/(n+cot)>=k-5&&(sum+cot*k)/(n+cot)<k+5)\n\t\t{\n\t\t\tprintf(\"%d\\n\",cot);\n\t\t\tbreak;\n\t\t}\n\t\tcot++;//\u7d2f\u52a0k\u7684\u4e2a\u6570\n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1585135576,
+        "uid": 89910,
+        "name": "C_Cong",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF810A \u3010Straight \u00abA\u00bb\u3011"
+    },
+    {
+        "content": "\u672c\u9898\u89e3\u505a\u6cd5\u4e0d\u6d89\u53ca\u5c0f\u6570\n\n\u57fa\u672c\u601d\u8def\uff1a\u628a\u6240\u6709\u6570\u90fd\u6269\u592710\u500d\uff0c\u518d\u8fdb\u884c\u6a21\u62df\u3002\u8bbez\u4e3a\u5f53\u524d\u6240\u6709\u6570\u7684\u548c\uff0c\u6bcf\u6b21\u5faa\u73af\u4f7fz+=k\uff0c\u800cn++\uff0c\u8868\u793a\u5728\u4e24\u4e2a\u53d8\u91cf\u4e2d\u90fd\u52a0\u4e86\u4e00\u6b21k\u3002\u82e5z/n<k-5\uff0c\u8bf4\u660e\u56db\u820d\u4e94\u5165\u540e\u7ed3\u679c\u80fd\u4e3ak\uff0c\u7ed3\u675f\u5faa\u73af\uff0c\u8f93\u51fa\u7ed3\u679c\u3002\n\n```cpp\n#include<iostream>\n#include<cstdio>\n#include<cstring>\n#include<cmath>\n#include<queue>\n#include<algorithm>\nusing namespace std;\nint n,k;\nint main(){\n\tcin>>n>>k;\n\tk*=10;\n\tint d,z=0;\n\tfor (int i=1;i<=n;i++){\n\t\tcin>>d;\n\t\tz+=d;\n\t}\n\tz*=10;\n\tint last=n;\n\twhile (z/n<k-5){\n\t\tz+=k;\n\t\tn++;\n\t}\n\tcout<<n-last;\n}\n```\n\u8be5\u7a0b\u5e8f\u7f3a\u9677:\u5982\u679c\u6709\u50cfk=5,\u800cz/n=4.45\u7684\u6570\u636e\uff08\u9700\u8981\u591a\u6b21\u56db\u820d\u4e94\u5165\u7684\uff09\u4f1a\u88ab\u5361\uff0c\u5219\u9700\u8981\u628a\u6570\u636e\u90fd\u6269\u592710^x\u500d\uff0c\u4fdd\u8bc1\u4e0d\u51fa\u73b0\u591a\u6b21\u56db\u820d\u4e94\u5165\u3002\n",
+        "postTime": 1584494105,
+        "uid": 94018,
+        "name": "\u52a8\u6001WA",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF810A \u3010Straight \u00abA\u00bb\u3011"
+    },
+    {
+        "content": "### \u9898\u89e3 [CF810A \u3010Straight \u00abA\u00bb\u3011](https://www.luogu.com.cn/problem/CF810A)  \n\n# Solution  \n\u8fd9\u9053\u9898\u76ee\u6211\u4eec\u53ef\u4ee5\u7528**\u4e0d\u7b49\u5f0f**\u6765\u89e3\u51b3\uff0c\u4e0b\u9762\u5199\u51fa\u6570\u5b66\u63a8\u5bfc\u3002  \n\n**\u89e3**\uff1a  \n\u8bbe\u8981\u52a0\u4e0a $m$ \u4e2a $k$ \u80fd\u4f7f\u5e73\u5747\u6570\u56db\u820d\u4e94\u5165\u540e\u7b49\u4e8e $k$\u3002  \n\u7531\u9898\u610f\u5f97\uff1a  \n$$(k+0.4)(n+m)\\ge \\sum\\limits_{i=1}^n a_i+mk\\ge (k-0.5)(n+m)$$  \n\u56e0\u4e3a\u6211\u4eec\u8981\u6c42\u6700\u5c0f\u503c\uff0c\u6240\u4ee5\u6211\u4eec\u53ea\u9700\u8981\u89e3\u4e0d\u7b49\u5f0f\uff1a  \n$$\\sum\\limits_{i=1}^n a_i+mk\\ge (k-0.5)(n+m)$$  \n$$\\sum\\limits_{i=1}^n a_i\\ge nk-0.5n-0.5m$$  \n$$\\sum\\limits_{i=1}^n a_i+0.5n+0.5m-nk\\ge 0$$  \n$$2\\times\\sum\\limits_{i=1}^n a_i+n+m-2nk\\ge 0$$  \n$$m\\ge 2nk-n-2\\times\\sum\\limits_{i=1}^n a_i$$  \n\n\n\u6240\u4ee5\u8bf4\uff0c\u5982\u679c\u6211\u4eec\u8981\u53d6 $m$ \u7684\u6700\u5c0f\u503c\uff0c\u90a3\u4e48 $m=2nk-n-2\\times\\sum\\limits_{i=0}^n a_i$\u3002  \n\u4f46\u662f\u6ce8\u610f\uff0c\u6211\u4eec\u6709\u4e00\u4e2a\u9ed8\u8ba4\u6761\u4ef6\uff1a$m\\ge 0$\uff0c\u6240\u4ee5\u5f53\u89e3\u51fa\u7684\u503c\u5c0f\u4e8e0\u65f6\uff0c\u8981\u628a\u5b83\u6362\u62100\u3002  \n\n# Code\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nconst int N = 109;\n\nint n,k,m,s;\nint a[N];\n\nint main() {\n\tscanf(\"%d %d\",&n,&k);\n\tfor(int i = 1;i <= n;i++) {\n\t\tscanf(\"%d\",&a[i]);\n\t\ts += a[i];\n\t}\n\tm = 2 * n * k - n - s * 2;\n\tif(m <= 0) m = 0;\n\tprintf(\"%d\\n\",m);\n\treturn 0;\n}\n```",
+        "postTime": 1590291939,
+        "uid": 86971,
+        "name": "TRZ_2007",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF810A \u3010Straight \u00abA\u00bb\u3011"
+    },
+    {
+        "content": "\u4e00\u9053\u7b80\u5355\u7684\u5c0f\u5b66\u6570\u5b66\u9898\u3002\n\n\u8be6\u89e3\u89c1\u4ee3\u7801\uff1a\n\n```\n#include<bits/stdc++.h>\nusing namespace std;\ndouble tot,pd;\nint a,b,c,num;\nint main()\n{\n\tcin>>a>>b;\n\tpd=b-0.5;//\u5224\u65ad\u6807\u51c6\uff0c\u5373\u56db\u820d\u4e94\u5165\u8981\u6ee1\u8db3\u7684\u6761\u4ef6\uff0c\u5982\u679c\u6240\u5f97\u7684\u5e73\u5747\u6570\u5927\u4e8epd\uff0c\u5462\u4e48\u56db\u820d\u4e94\u5165\u540e\u5c31\u53ef\u4ee5\u4e3ab(k) \n\tfor(int i=1;i<=a;i++)\n\t{\n\t\tcin>>c;\n\t\ttot+=c;//\u5148\u628a\u603b\u6570\u52a0\u8d77\u6765 \n\t}\n\tif(tot/a>=pd)//\u5982\u679c\u4e0d\u9700\u8981\u52a0\u6570\u5c31\u4e3ab(k) \n\t{\n\t\tcout<<\"0\";//\u8f93\u51fa0 \n\t\treturn 0;\n\t}\n\twhile(1)\n\t{\n\t\tnum++;//\u8981\u52a0\u591a\u5c11\u4e2ab(k) \n\t\tif((tot+b*num)/(a+num)>=pd)//\u5982\u679c\u6ee1\u8db3\u56db\u820d\u4e94\u5165\u540e\u4e3ab(k)\uff0c\u90a3\u4e48\u76f4\u63a5\u8f93\u51fanum\u4e2a\u6570 \n\t\t{\n\t\t\tcout<<num;\n\t\t\treturn 0;\n\t\t}\n\t}\n } \n```\n",
+        "postTime": 1584530296,
+        "uid": 183473,
+        "name": "PrincessYR\u2728\uff5e",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 CF810A \u3010Straight \u00abA\u00bb\u3011"
+    },
+    {
+        "content": "# \u8fd9\u9053\u9898\u662f\u771f\u7684\u5f88\u7b80\u5355\uff0c\u8ba4\u771f\u60f3\u4e00\u4e0b\u5c31\u51fa\u6765\u4e86\n## \u9996\u5148\u5148\u5c06\u524dn\u4e2a\u6570\u52a0\u8d77\u6765\u4e3asum\uff0c\u7136\u540e\u505a\u4e00\u4e2a\u65e0\u9650\u7684\u5faa\u73af\uff0c\u4ecei=0\u5f00\u59cb\u505a\u5faa\u73af\uff0c\u7136\u540e\u5f53floor(sum/(n+i)+0.5)==m\uff1b\u53ea\u8981\u6ee1\u8db3\u6761\u4ef6\uff0c\u5219\u8f93\u51fai\u5e76return 0\uff1b\u7ed3\u675f\u7a0b\u5e8f\u5c31\u597d\u4e86\u3002\n## \u9644\u4e0aAC\u4ee3\u7801\n\n\n# -------------------------------------\n```c\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n\tint n,m;\n\tcin>>n>>m;\n\tdouble sum=0;\n\tint x;\n\tfor (int i=1;i<=n;i++){\n\t\tcin>>x;\n\t\tsum+=x;\n\t}\n\tint z=m;\n\tfor (int i=0;;i++){\n\tif(floor(sum/(n+i)+0.5)==m) {//\u5224\u65ad\u6761\u4ef6\n\t\tcout<<i;return 0;}\n\t\tsum+=z;//i\u4ece0\u5f00\u59cb\u5faa\u73af\uff0c\u6240\u4ee5\u8981\u540e\u52a0z\u3002\n\t}\n}\n```",
+        "postTime": 1533823244,
+        "uid": 106667,
+        "name": "IOCTYCNconbill",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF810A \u3010Straight \u00abA\u00bb\u3011"
+    },
+    {
+        "content": "\u5927\u5bb6\u90fd\u7528\u8d77\u6765\u4e86\u6570\u5b66\u65b9\u6cd5\uff0c\u53ea\u6709\u6211\u8fd8\u5728\u7528while\u4e00\u6b21\u6b21\u5faa\u73af\u54ce\u54ce\u54ce\n\n\u4e0d\u8fc7\u8fd9\u4e2a\u9898\u76ee\u601d\u8def\u5f88\u7b80\u5355\uff0c\u4e0d\u7528\u6570\u7ec4\uff0c\u53ea\u9700\u8981\u628an\u4e2a\u6570\u52a0\u8d77\u6765\u7528while\u5faa\u73af\u5c31ok\uff0c\u4e0d\u8fc7\u8bb0\u5f97double\n\n\u5176\u5b9e\u56db\u820d\u4e94\u5165\u4e00\u70b9\u90fd\u4e0d\u96be\uff0c\u4e0d\u7528\u81ea\u5df1\u5199\uff0c\u76f4\u63a5cmath+round\u641e\u5b9a\n\n\u8fd9\u91cc\u8bb2\u4e00\u4e0bround:\n\nround\u662f\u56db\u820d\u4e94\u5165\u51fd\u6570\uff0c\u5934\u6587\u4ef6cmath\uff0cround\u51fd\u6570\u53ea\u6709\u4e00\u4e2a\u53c2\u6570\uff0c\u8981\u7528double\uff0c\u8fd9\u4e2a\u9898\u7528int\u4f60\u8fd8\u8981\u56db\u820d\u4e94\u5165\u5e72\u561b\u2026\u2026\n\n\u7ee7\u7eed\u8bf4\uff0cround\u51fd\u6570\u662f\u56db\u820d\u4e94\u5165\u53d6\u6574\uff0c\u5982\u679c\u9700\u8981\u5c06x\u4fdd\u7559n\u4f4d\u5c0f\u6570\uff0c\u53ea\u9700\u8981\u5148\u4e58\u518d\u9664\n\n\u6bd4\u5982round\u51fd\u6570\u5c069.9839\u4fdd\u75593\u4f4d\u5c0f\u6570\n\n```cpp\nround(9.9839 * 1000) / 1000\n```\n\n\u90a3\u4e48\u5b66\u4f1a\u4e86round\uff0c\u4ee3\u7801\u5c31\u7b80\u5355\u5566\n\nAC code\uff1a\n```cpp\n#include <iostream>\n#include <cmath>\nusing namespace std;\n\nint main()\n{\n    double n, k, sum = 0, x, ans = 0;\n    cin >> n >> k;\n    for(int i = 1; i <= n; i++)\n    {\n        cin >> x;\n        sum += x;\n    }\n    while(round(sum / n) != k)\n    {\n        ans++;\n        n++;\n        sum += k;\n    }\n    cout << ans << endl;\n    return 0;\n}\n```\n",
+        "postTime": 1599891359,
+        "uid": 332914,
+        "name": "happybob",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF810A \u3010Straight \u00abA\u00bb\u3011"
+    },
+    {
+        "content": "\u4ecb\u7ecd\u4e00\u4e0b\u8fd9\u9053\u9898\u7684 $O(1)$ \u5904\u7406\u65b9\u6cd5\uff1a\n\n\u9996\u5148\u6211\u4eec\u8003\u8651\u56db\u820d\u4e94\u5165\uff1a\u5982\u679c $n$ \u56db\u820d\u4e94\u5165\u540e\u7b49\u4e8e $k$\uff0c\u90a3\u4e48\u8981\u6ee1\u8db3 $k-\\dfrac{1}{2}\\leq n<k+\\dfrac{1}{2}$\u3002\n\n\u6839\u636e\u5e73\u5747\u6570\u53ea\u548c\u8fd9\u4e9b\u6570\u7684\u548c\u548c\u8fd9\u4e9b\u6570\u7684\u4e2a\u6570\u6709\u5173\uff0c\u6211\u4eec\u53ef\u4ee5\u53ea\u8003\u8651\u6240\u6709\u5df2\u7ecf\u7ed9\u51fa\u7684\u6570\u7684\u548c\u3002\u8bbe\u4e4b\u524d\u7684\u6570\u7684\u548c\u7b49\u4e8e $sum$\uff0c\u6211\u4eec\u73b0\u5728\u8981\u6c42\u7684\u7b54\u6848\u4e3a $x$\uff0c\u6240\u4ee5\u73b0\u5728\u4e00\u5171\u6709 $(n+x)$ \u4e2a\u6570\uff0c\u90a3\u4e48\u6839\u636e\u521d\u4e00\u8bfe\u5185\u6570\u5b66\uff0c\u6211\u4eec\u53ef\u4ee5\u5217\u51fa\u4e0d\u7b49\u5f0f\uff1a\n\n$$(k-\\dfrac12)(n+x)\\leq sum+xk$$\n\n\u628a\u6240\u6709\u5173\u4e8e $x$ \u7684\u9879\u632a\u5230\u4e00\u8fb9\u5c31\u53ef\u4ee5\u53d1\u73b0 $x\\geq(2k-1)n-2\\times sum$\u3002\u4f46\u662f\u6839\u636e\u9898\u610f\uff0c$x\\geq0$\uff0c\u6240\u4ee5\u6211\u4eec\u53ea\u9700\u8981\u8f93\u51fa $\\max((2k-1)n-2\\times sum,0)$ \u5373\u53ef\u3002",
+        "postTime": 1597549186,
+        "uid": 192631,
+        "name": "\u5b66\u800c\u601d\u674e\u8001\u5e08",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF810A \u3010Straight \u00abA\u00bb\u3011"
+    },
+    {
+        "content": "\u4e00\u9053\u663e\u800c\u6613\u89c1\u7684\u6a21\u62df\u9898\u3002  \n\u6211\u4eec\u8981\u89e3\u51b3\u8fd9\u4e2a\u95ee\u9898\u9700\u8981\u89e3\u51b3\u5982\u4e0b\u51e0\u4e2a\u5b50\u95ee\u9898\uff1a  \n\n- \u5b50\u95ee\u98981\uff1a\u5e73\u5747\u6570\n- \u5b50\u95ee\u98982\uff1a\u56db\u820d\u4e94\u5165\u5c06\u5e73\u5747\u6570\u53d8\u6210\u6574\u6570\n\n\u89e3\u51b3\u65b9\u6848\uff1a  \n\n- \u5b50\u95ee\u98981\uff1a\u5c0f\u5b66\u6570\u5b66\u77e5\u8bc6\uff0c\u603b\u548c\u9664\u4ee5\u603b\u6570\n- \u5b50\u95ee\u98982\uff1aC++\u7684```cmath```\u5e93\u81ea\u5e26\u628a\u5c0f\u6570\u56db\u820d\u4e94\u5165\u7684```round```\u51fd\u6570\u3002   \n\n\u6700\u540e\u6211\u4eec\u518d\u603b\u7ed3\u6d41\u7a0b\uff1a  \n\n1. \u8f93\u5165\u5e76\u5f97\u51fa\u5b83\u4eec\u7684\u603b\u548c\n2. \u65e0\u9650\u679a\u4e3e\u52a0\u4e0a$i$\\*$k$\uff0c\u9664\u4ee5$n+i$\u5e76\u7528```round```\u51fd\u6570\u8fdb\u884c\u56db\u820d\u4e94\u5165\u3002\u6ce8\u610f$i$\u662f\u4ece$0$\u5f00\u59cb\u679a\u4e3e\u7684\uff0c\u6709\u7684\u65f6\u5019\u53ef\u80fd\u662f\u4e0d\u7528\u52a0\u7684\u3002\u5982\u679c\u6700\u540e\u5f97\u5230\u7684\u503c\u7b49\u4e8e$k$\uff0c\u8f93\u51fa$i$\u5e76\u7ed3\u675f\u7a0b\u5e8f\u3002  \n\n\u987a\u4fbf\u603b\u7ed3\u4e2a\u5751\u70b9\uff1a  \n\n- C++\u5982\u679c\u8981\u7528```round```\u51fd\u6570\u6765\u56db\u820d\u4e94\u5165\u9664\u4ee5\u7684\u6570\u5fc5\u987b\u8981\u4e58$1.0$\uff0c\u56e0\u4e3a\u548c\u662f\u6574\u6570\uff0c$n+i$\u4e5f\u662f\u6574\u6570\uff0c\u6574\u6570\u9664\u4ee5\u6574\u6570\u662f\u6574\u6570\u6240\u4ee5\u8981\u53d8\u6210\u5b9e\u6570\u3002 \n\n\n\u5f88\u7b80\u5355\u5427\uff0c\u4e0b\u9762\u6211\u4eec\u6765\u5199\u4ee3\u7801\uff1a\n```cpp\n#include<iostream>\n#include<cmath>//round\u5934\u6587\u4ef6\nusing namespace std;\nint main()\n{\n\tint n,a[100001],k,sum=0;//sum\u662f\u603b\u548c\n\tcin>>n>>k;\n\tfor(int p=1;p<=n;p++)//\u6b65\u9aa41\n\t\tcin>>a[p],sum+=a[p];\n\tfor(int p=0;;p++)//\u6b65\u9aa42\n\t\tif(round((sum+p*k)/(1.0*(n+p)))==k)\n\t\t{\n\t\t\tcout<<p<<endl;\n\t\t\treturn 0;\n\t\t}\n}\n```",
+        "postTime": 1587787779,
+        "uid": 298549,
+        "name": "SIXIANG32",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF810A \u3010Straight \u00abA\u00bb\u3011"
+    },
+    {
+        "content": "```cpp\n#include <cstdio>\n#include <iostream>\n#include <cstring>\n#include <cmath>\n#include <cctype>\n#include <algorithm>\n#include <cstdlib>\n\nusing namespace std;\n\nint n,k;\nint t,cnt;\ndouble sum;\n\nint round_double(double number)\n{\n    return (number > 0.0) ? (number + 0.5) : (number - 0.5); \n}//\u6211\u4eec\u81ea\u5df1\u8bbe\u7f6e\u4e00\u4e2around_double()\u51fd\u6570\uff0c\u5b83\u53ef\u4ee5\u5e2e\u52a9\u6211\u4eec\u56db\u820d\u4e94\u5165\n\nint main()\n{\n\tscanf(\"%d %d\",&n,&k);\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tscanf(\"%d\",&t);\n\t\tsum=sum+t;//\u5148\u628a\u603b\u548c\u7b97\u51fa\u6765\n\t}\n\twhile(round(sum/(cnt+n))!=k)//\u5982\u679c\u56db\u820d\u4e94\u5165\u540e\u8fd8\u4e0d\u5230k\n\t{\n\t\tsum+=k;\n\t\tcnt++;//\u6211\u4eec\u5c31\u7ee7\u7eed\n\t}\n\tprintf(\"%d\",cnt);\n\treturn 0;\n}\n```",
+        "postTime": 1531921640,
+        "uid": 78407,
+        "name": "Clever_Jimmy",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF810A \u3010Straight \u00abA\u00bb\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u4f5c\u4e3a\u4e00\u9053CF\u7ea2\u9898\uff0c\u8fd8\u662f\u6bd4\u8f83\u6c34\u7684\uff0c\u4e0d\u8fc7\u6d4b\u8bd5\u70b9\u6574\u6574\u6709106\u4e2a\u70b9\uff0c\u53ef\u4ee5\u8bf4\u5728CF\u91cc\u4e5f\u7b97\u6d4b\u8bd5\u70b9\u591a\u7684\u4e86~~\u53cd\u6b63CF\u7ea2\u9898\u90fd\u5f88\u6c34~~\n\n\u5148\u8bf4\u4e00\u4e0b\u601d\u8def\uff1a\n\n1. \u6c42\u51fa\u521d\u59cb\u5e73\u5747\u503c\n\n2. \u4e0d\u65ad\u5728\u5e8f\u5217\u4e2d\u52a0\u5165k\uff0c\u5e76\u6c42\u51fa\u5e73\u5747\u503c\n\n**\u6ce8\u610f\uff1a\u8fd8\u6709\u4e0d\u9700\u8981\u52a0\u5165k\u5e73\u5747\u503c\u5373\u4e3ak\u7684\u60c5\u51b5**\n\n\u5177\u4f53\u7684\u89c1\u4ee3\u7801\u6ce8\u91ca\u5373\u53ef\uff1a\n\n```cpp\n#include<cstdio>\n#include<cmath>//\u4f7f\u7528round\u5fc5\u987b\u8981\u8c03\u7528cmath\u5e93\nint n,x,sum,k,av;//x\u4e3a\u4e00\u4e2a\u53d8\u91cf\u4ee3\u66ff\u6570\u7ec4\uff08\u56e0\u4e3a\u672c\u9898\u65e0\u9700\u4f7f\u7528\u6570\u7ec4\uff09\uff0cav\u8868\u793a\u5e73\u5747\u6570\uff0csum\u8868\u793a\u5f53\u524d\u6240\u6709\u6570\u7684\u548c\nint main()\n{\n    scanf(\"%d%d\",&n,&k);\n    for(int i=1;i<=n;++i)\n    {\n        scanf(\"%d\",&x);\n        sum+=x;\n    }//\u8f93\u5165\u5e76\u8ba1\u7b97\u521d\u59cb\u548c\n    int n1=n;//\u8bb0\u5f55\u521d\u59cb\u4e2a\u6570\n    double t=sum*1.0/n;\n    av=round(t);//\u8ba1\u7b97\u51fa\u5728\u4e0d\u63d2\u5165k\u7684\u60c5\u51b5\u4e0b\u7684\u5e73\u5747\u6570\uff0c\u4f5c\u4e3a\u7279\u5224\n    while(av!=k)//\u53ea\u8981\u5e73\u5747\u6570\u4e0d\u4e3ak\n    {\n        sum+=k;\n        ++n;\n        t=sum*1.0/n;\n        av=round(t);//\u5728\u5e8f\u5217\u4e2d\u63d2\u5165k\uff0c\u5e76\u6c42\u51fa\u65b0\u7684\u5e73\u5747\u6570\n    }\n    printf(\"%d\",n-n1);//\u8f93\u51fa\u7b54\u6848\uff0c\u6700\u7ec8\u4e2a\u6570\u51cf\u53bb\u521d\u59cb\u4e2a\u6570\n}\n\n```",
+        "postTime": 1531560650,
+        "uid": 70592,
+        "name": "Victory_Defeat",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF810A \u3010Straight \u00abA\u00bb\u3011"
+    }
+]

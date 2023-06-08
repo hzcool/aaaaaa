@@ -1,0 +1,42 @@
+[
+    {
+        "content": "\u56e0\u4e3a\u6570\u636e\u8303\u56f4\u6781\u5c0f $(3\u2264w,h\u2264100)$ \uff0c\u6240\u4ee5\u6a21\u62df\u5373\u53ef\uff0c\u5c31\u8fde\u516c\u5f0f\u90fd\u7ed9\u4f60\u4e86\n\n$$i_{th}\\ ring:(w-4(i-1))(h-4(i-1))$$\n\n\u90a3\u4e48\u957f\u5c31\u662f\n\n$$i_{th}:w-4(i-1)-1$$\n\n\u5bbd\u5c31\u662f\n\n$$i_{th}:h-4(i-1)-1$$\n\n\u4ee3\u7801\u5982\u4e0b\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint w,h,k,ans; \nint main()\n{\n\tcin>>w>>h>>k;\n\tfor(int i=1;i<=k;i++)\n\t\tans+=2*(w-4*(i-1)-1+h-4*(i-1)-1);\n\t//\u957f\u5bbd\u8bb0\u5f97*2\n\tcout<<ans;\n\treturn 0;\n}\n```\n\n\u90a3\u4e48\u5982\u679c\u6570\u636e\u5f88\u5927\uff0c\u4e5f\u53ef\u4ee5\u76f4\u63a5\u7528\u7b49\u5dee\u6570\u5217\u6c42\u548c\u516c\u5f0f $O(1)$ \u8ba1\u7b97\n\n$$2*\\sum_{i=1}^{k}(w-4(i-1)-1)+(h-4(i-1)-1)$$\n\n$$2*\\sum_{i=1}^{k}w+h-8(i-1)-2$$\n\n$$2*\\sum_{i=1}^{k}w+h-8i+6$$\n\n$$2*((w+h-8+6)+(w+h-8k+6))*k/2$$\n\n$$k(2w+2h-8k+4)$$\n\n$$2k(w+h-4k+2)$$\n\n\u6700\u540e\u9644\u4e0a\u53ea\u6709 $83B$ \u7684~~\u8d85\u77ed\u538b\u884c~~\u4ee3\u7801\n\n```cpp\n#include<iostream>\nint w,h,k;main(){std::cin>>w>>h>>k,std::cout<<2*k*(w+h-4*k+2);}\n```\n\n\u6c42\u8d5eqwq",
+        "postTime": 1564239541,
+        "uid": 123294,
+        "name": "Alex_Wei",
+        "ccfLevel": 10,
+        "title": "\u9898\u89e3 CF1031A \u3010Golden Plate\u3011"
+    },
+    {
+        "content": "\u6b64\u9898\u7684\u516c\u5f0f\u544a\u8bc9\u4f60\u4e86\uff0c\u7b2c $i$ \u4e2d\u5fc3\u5c42\u7684\u5927\u5c0f\u4e3a\uff1a\n$ (w - 4(i - 1))\\times(h - 4(i - 1)) $ \n\n\u6211\u4eec\u53ef\u4ee5\u7528 $k$ \u6b21\u5faa\u73af\u6765\u6c42\u89e3\u3002\uff08\u56e0\u6570\u636e\u8fc7\u5c0f\uff09\n\n\u6b64\u9898\u8fd8\u6709\u4e0d\u7528\u5faa\u73af\u7684\u65b9\u6cd5\uff0c\u5c31\u662f\u4f7f\u7528\u7b49\u5dee\u6570\u5217\u6c42\u548c\u6765\u63a8\u4e00\u4e2a\u66f4\u7b80\u5355\u7684\u516c\u5f0f\uff0c\u5982\u4e0b\uff1a$2k(w+h+2-4k)$\n\n```\n#include<cstdio>\nusing namespace std;\nint main(){\n    int w,h,k;\n    scanf(\"%d%d%d\",&w,&h,&k);\n    printf(\"%d\",(w+h+2-4*k)*2*k);\n    return 0;\n}\n```\n",
+        "postTime": 1603787960,
+        "uid": 371927,
+        "name": "REAL_\u66fc\u5df4",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1031A \u3010Golden Plate\u3011"
+    },
+    {
+        "content": "\n\u8fd9\u9053\u9898\u633a\u6c34\u7684\uff0c\u8fde\u7b97\u5f0f\u90fd\u7ed9\u4e86\uff1a\n\n\n\n$(w-4 \\times (i-1) ) \\times (h - 4 \\times (i - 1))$\n        \n\u6240\u4ee5\u76f4\u63a5\u5957\u7b97\u5f0f\u5373\u53ef\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n\tint w, h, k, ans = 0; //\u4e00\u5806\u53d8\u91cf\n\tcin >> w >> h >> k;//\u8f93\u5165\n\tfor (int i = 1; i <= k; i++) ans += 2 * (w - 4 * (i - 1) - 1 + h - 4 * (i - 1) - 1);//\u6700\u91cd\u8981\u7684\u90e8\u5206\n\tcout << ans;//\u8f93\u51fa\n\treturn 0;\n}\n```\n",
+        "postTime": 1642483633,
+        "uid": 479325,
+        "name": "Xdl_rp",
+        "ccfLevel": 0,
+        "title": "CF1031A"
+    },
+    {
+        "content": "### \u672c\u9898\u76ee\u6bd4\u8f83\u6c34\uff0c\u89c4\u5f8b\u90fd\u7ed9\u4f60\u4e86\n## \u7b2ci\u4e2a\u4e2d\u5fc3\u9762\u79ef\uff1a(w\u22124(i\u22121))\u00d7(h\u22124(i\u22121))\n### \u6a21\u62df\u4e00\u4e0b\u5c31\u53ef\u4ee5\u4e86\n## \u4e0a\u4ee3\u7801\uff01\uff01\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint w, h, k, cnt;\nint main()\n{\n\tcin>>w>>h>>k;\n\tfor(int i=1;i<=k;i++)//\u5faa\u73af\u627e\u89c4\u5f8b \n   \t{\n    \t    cnt+=2*(w-8*i+6+h);//\u6309\u7167\u4e0a\u9762\u7684\u516c\u5f0f\u63a8\u51fa\u6765\u7684\n    \t}\n\tcout<<cnt<<endl;//\u6700\u540e\u8f93\u51fa \n\treturn 0; \n}\n```\n\n\n\n------------\n**~~\u4e3a\u4e86\u9632\u6284\u88ad\uff0c\u6240\u4ee5\u8f93\u5165\u8f93\u51fa\u5fc5\u987b\u7528c\u8bed\u8a00\u7684\u8f93\u5165\uff0c\u8f93\u51fa\uff0c\u5426\u5219......~~**\n",
+        "postTime": 1603028722,
+        "uid": 225388,
+        "name": "Autism_ever",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1031A \u3010Golden Plate\u3011"
+    },
+    {
+        "content": "\u8fd9\u9898\u662f\u6570\u5b66\u9898\u3002\n\n\u63a8\u5bfc\u51fa\u6765\u7684\u516c\u5f0f\u662f\uff1a\n$$2k(w+h+2-4k)$$\n\n\u76f4\u63a5\u4e0a\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint w,h,k;\nint main()\n{\n    scanf(\"%d%d%d\",&w,&h,&k);\n    printf(\"%d\",(w + h + 2 - 4 * k) * 2 * k);//\u9762\u79ef\n    return 0;\n}\n```\n",
+        "postTime": 1603075653,
+        "uid": 236414,
+        "name": "zmza",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1031A \u3010Golden Plate\u3011"
+    }
+]

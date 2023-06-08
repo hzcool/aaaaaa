@@ -1,0 +1,18 @@
+[
+    {
+        "content": "\u9898\u76ee\u4f20\u9001\u95e8\uff1a[CF634A Island Puzzle](https://www.luogu.com.cn/problem/CF634A)\n\n**\u9898\u76ee\u5927\u610f\uff1a** \u6709\u4e00\u4e2a\u73af\uff0c\u76f8\u90bb\u4e24\u4e2a\u548c\u9996\u4f4d\u4e92\u901a\uff0c\u5176\u4e2d\u7684\u6570\u5b57\u662f$1$\u5230$n-1$\uff08$0$\u662f\u7a7a\u4f4d\uff09\uff0c\u7ed9\u51fa\u521d\u59cb\u72b6\u6001\u548c\u76ee\u6807\u72b6\u6001\uff0c\u95ee\u521d\u59cb\u72b6\u6001\u662f\u5426\u53ef\u4ee5\u7ecf\u8fc7\u82e5\u5e72\u6b21\u79fb\u52a8\u53d8\u4e3a\u76ee\u6807\u72b6\u6001\u3002\n\n**\u9898\u89e3\uff1a** \u663e\u7136\u4ea4\u6362\u5e76\u4e0d\u4f1a\u5f71\u54cd\u5b57\u7b26\u4e32\u7684\u76f8\u5bf9\u4f4d\u7f6e\uff0c\u6240\u4ee5\u53ea\u9700\u8981\u8bb0\u5f55\u4e00\u4e0b\u76f8\u5bf9\u4f4d\u7f6e\u5c31\u53ef\u4ee5\u4e86\u3002\n\n$Code:$\n\n```cpp\n#include<cstdio>\nusing namespace std;\n#define ll long long \ninline ll read(){\n   ll s=0;bool w=1;char ch=getchar();\n   while(ch<'0' || ch>'9'){if(ch=='-')w=-1;ch=getchar();}\n   while(ch>='0' && ch<='9')s=s*10+ch-'0',ch=getchar();\n   return s*w;\n}\nconst int N=2e5+5;\nint n,t,a[N],b[N],x;\nint main(){\n\tn=read();\n\tfor(int i=1;i<=n;i++){\n\t\tx=read();\n\t\tif(x)a[t++]=x;\n\t}\n\tt=0;\n\tfor(int i=1;i<=n;i++){\n\t\tx=read();\n\t\tif(x)b[t++]=x;\n\t}\n\tint sum=-1;\n\tfor(int i=0;i<n;i++)\n\t\tif(b[i]==a[0]){\n\t\t\tsum=i;\n\t\t\tbreak;\n\t\t}\n\tfor(int i=0;i<n-1;i++)\n\t\tif(a[i]!=b[(i+sum)%(n-1)]){\n\t\t\tprintf(\"NO\");\n\t\t\treturn 0;\n\t\t}\n\tprintf(\"YES\");\n\treturn 0;\n}\n```\n",
+        "postTime": 1586079230,
+        "uid": 214177,
+        "name": "__\u849f\u84bb__",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF634A \u3010Island Puzzle\u3011"
+    },
+    {
+        "content": "# \u9898\u76ee\u5927\u610f\uff1a\n\n\u6709 $n$ \u4e2a\u4f4d\u7f6e\uff0c\u76f8\u90bb\u4e24\u4e2a\u4f4d\u7f6e\u5747\u4e92\u901a\uff0c $n$ \u548c $1$ \u4e5f\u4e92\u901a\uff0c\u628a $1...n-1$ \u653e\u8fdb\u53bb\uff0c\u4e00\u4e2a\u6570\u5b57\u53ea\u80fd\u79fb\u52a8\u5230\u76f8\u90bb\u7684\u7a7a\u4f4d\u7f6e\u4e0a\u53bb\uff0c\u7ed9\u51fa\u4e00\u4e2a\u521d\u59cb\u72b6\u6001\u548c\u4e00\u4e2a\u76ee\u6807\u72b6\u6001\uff0c\u95ee\u662f\u5426\u521d\u59cb\u72b6\u6001\u662f\u5426\u53ef\u4ee5\u7ecf\u8fc7\u9002\u5f53\u79fb\u52a8\u53d8\u4e3a\u76ee\u6807\u72b6\u6001\u3002\n\n# \u5206\u6790\uff1a\n\n\u628a\u4e24\u4e2a\u5e8f\u5217\u770b\u4f5c\u4e24\u4e2a\u73af\uff0c\u5ffd\u7565 $0$ \u7684\u60c5\u51b5\u4e0b\u8fd9\u4e24\u4e2a\u73af\u65cb\u8f6c\u540c\u6784\u624d\u6709\u89e3\uff0c\u6240\u4ee5\u4ece $1$ \u5f00\u59cb\u4f9d\u6b21\u628a\u6570\u62ff\u51fa\u6765\u5224\u65ad\u662f\u5426\u76f8\u7b49\u5373\u53ef\n\n# \u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n\nint n,a[200005],b[200005];\nbool flag;\n\nsigned main()\n{\n\tios::sync_with_stdio(0);\n\n    cin >> n;\n    int p1,p2;\n\n    for(int i=0; i<n; i++)\n    {\n        cin >> a[i];\n\n        if(a[i]==1)\n            p1=i;\n    }\n\n    for(int i=0; i<n; i++)\n    {\n        cin >> b[i];\n\n        if(b[i]==1)\n            p2=i;\n    }\n\n    for(int i=p1,j=p2,k=0; k<n; i=(i+1)%n,j=(j+1)%n,k++)\n    {\n        if(a[i]==0)\n            i=(i+1)%n;\n\n        if(b[j]==0)\n            j=(j+1)%n;\n\n        if(a[i]!=b[j])\n        {\n            flag=true;\n\n            break;\n        }\n    }\n\n    if (flag)   \n        cout << \"NO\" << endl;\n        \n    else\n        cout << \"YES\" << endl;\n\n    return 0;\n}\n```",
+        "postTime": 1637071219,
+        "uid": 312084,
+        "name": "yangzd",
+        "ccfLevel": 0,
+        "title": "CF 634 A"
+    }
+]

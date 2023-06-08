@@ -1,0 +1,66 @@
+[
+    {
+        "content": "[\u9898\u76ee\u94fe\u63a5\uff1aCF1594A Consecutive Sum Riddle](https://www.luogu.com.cn/problem/CF1594A)\n\n## \u9898\u610f\n\n\u7ed9\u5b9a\u4e00\u4e2a $n$\uff0c\u6c42\u51fa\u4e00\u5bf9 $l,r$\uff0c\u4f7f\u5176\u6ee1\u8db3 $\\sum\\limits_{i=l}^{r}{i} = n$\u3002\n\n\u5176\u4e2d $1 \\le n \\le 10^{18}$\uff0c$-10^{18} \\le l < r \\le 10^{18}$\u3002\n\n## \u89e3\u6cd5\n\n\u663e\u7136\uff0c $\\forall x \\in \\mathbf{N}^*$\uff0c\u6709 $\\sum\\limits_{i=(-x)}^{x}{i} = 0$\uff0c\n\n\u6240\u4ee5\uff0c\u5f53 $l = -(n-1)$\uff0c$r = n$ \u65f6\uff0c\u7b26\u5408\u6761\u4ef6\uff0c\n\n\u4e14 $n$ \u53d6\u6781\u9650\u503c\u65f6\uff0c$l$ \u548c $r$ \u4e5f\u4e0d\u4f1a\u8d85\u8fc7\u9898\u76ee\u7ed9\u5b9a\u7684\u53d6\u503c\u8303\u56f4\u3002\n\n\n\n## \u4ee3\u7801\n\n```cpp\n#include <cstdio>\nint t;\nlong long n;\nint main()\n{\n\tscanf(\"%d\",&t);\n\twhile(t--)\n\t{\n\t\tscanf(\"%lld\",&n);\n\t\tprintf(\"%lld %lld\\n\",-(n-1),n);\n\t}\n\treturn 0;\n}\n```\n\n",
+        "postTime": 1633762907,
+        "uid": 386876,
+        "name": "BurningEnderDragon",
+        "ccfLevel": 6,
+        "title": "CF1594A Consecutive Sum Riddle \u9898\u89e3"
+    },
+    {
+        "content": "## A:Consecutive Sum Riddle\n\n### Description\n\n\u7ed9\u5b9a $n$\uff0c\u6c42 $l,r$ \u6ee1\u8db3 $\\displaystyle\\sum_{i=l}^r i = n$\u3002\n\n\u591a\u6d4b\u3002\n\n**\u9650\u5236\uff1a**$1\\le t\\le 10^4,1\\le n\\le 10^{18}$\n\n### Solution\n\n\u4ee4 $l = 1-n,r=n$ \u5373\u53ef\uff0c\u5bb9\u6613\u53d1\u73b0\u7b54\u6848\u6070\u597d\u4e3a $n$\u3002\n\n### Code\n\n```cpp\ninline void solve() {\n    int_fast64_t n ;\n    in(n),out(' ',-(n - 1),n) ;\n    fastio::putc('\\n') ;\n}  \n```\n\n",
+        "postTime": 1633773546,
+        "uid": 413147,
+        "name": "_Alejandro_",
+        "ccfLevel": 0,
+        "title": "CF1594A \u9898\u89e3"
+    },
+    {
+        "content": "\u8fd9\u662f\u4e00\u9053\u5f88\u7b80\u5355\u7684\u9898\n\n\u8003\u8651\u5f53 $n>0$ \u65f6\uff0c\u7b54\u6848\u4e00\u5b9a\u4f1a\u662f $l=-(n-1)=-n+1$\uff0c$r=n$ \u3002\n\n\u6b64\u65f6\uff0c\u539f\u5f0f $=\\displaystyle\\sum_{i=1}^n-\\displaystyle\\sum_{i=1}^{n-1}$\n\n\u6613\u77e5\u7b54\u6848\u4e3a $n$\u3002\n\n\u5f53 $n=0$ \u65f6\uff0c\u76f4\u63a5\u8f93\u51fa```-1 1```\u5c31\u884c\u4e86\n\n\u5f53 $n<0$ \u65f6\uff0c\u7b54\u6848\u4e3a $l=n$ \uff0c$r=-(n+1)$\n\n\u6b64\u65f6\uff0c\u539f\u5f0f $=\\displaystyle\\sum_{i=1}^{-n-1}-\\displaystyle\\sum_{i=1}^{-n}$\n\n\u6613\u77e5\u7b54\u6848\u4e3a $n$\n\n\u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\n#define int long long\nusing namespace std;\nint t;\nsigned main()\n{\n    cin>>t;\n    for(int i=1;i<=t;i++)\n    {\n        int n;\n        cin>>n;\n        if(n>0)\n            cout<<-(n-1)<<' '<<n<<endl;\n        if(n==0)\n            cout<<-1<<' '<<1<<endl;\n        if(n<0)\n        {\n            cout<<n<<' '<<-(n+1)<<endl;\n        }\n    }\n    return 0;\n}\n```",
+        "postTime": 1633771865,
+        "uid": 151647,
+        "name": "sycqwq",
+        "ccfLevel": 7,
+        "title": "CF1594A\u9898\u89e3"
+    },
+    {
+        "content": "### Solution\n\n\u56e0\u4e3a $l, r\\ (l < r)$ \u53ef\u4ee5\u53d6\u8d1f\u6570\u6240\u4ee5\u975e\u5e38\u6c34\uff08\n\n\u6211\u4eec\u60f3\u53ef\u4ee5\u53d6 $[1, n]$\uff0c\u4f46\u662f\u4ed6\u4f1a\u591a\u51fa\u6765 $[1, n - 1]$\uff0c\u628a\u4ed6\u4eec\u53bb\u6389\u5c31\u884c\u4e86\uff0c\u5bf9\u4e8e $k$\uff0c\u6211\u4eec\u53d6\u4ed6\u7684\u76f8\u53cd\u6570 $-k$ \u76f8\u52a0\u5373\u4e3a $0$\uff0c\u8fd9\u6837\u5c31\u53ef\u4ee5\u5c06 $[1, n - 1]$ \u8fd9\u4e2a\u90e8\u5206\u7ed9\u62b5\u6d88\u6389\u3002\n\n\u4e5f\u5c31\u662f\u8bf4\uff0c\u6211\u4eec\u53d6 $l = -n + 1,\\ r = n$\uff0c\u90a3\u4e48\u8fd9\u4e2a\u533a\u95f4\u7684\u548c\u5c31\u662f\uff1a\n\n\n$$(-n+1) + (-n + 2) + \\cdots + (n - 1) + n = n$$\n\n### Code\n\n```python3\nt = t - 1\nn = int(input())\nprint(-n + 1, end = ' ')\nprint(n)\n```",
+        "postTime": 1633753776,
+        "uid": 219791,
+        "name": "tZERO\u3061\u3083\u3093",
+        "ccfLevel": 0,
+        "title": "CF1594A"
+    },
+    {
+        "content": "## Description\n$T$ \u7ec4\u6570\u636e\uff0c\u7ed9\u5b9a\u6b63\u6574\u6570 $n$\uff08$1\\le n\\le 10^{18}$\uff09\uff0c\u8981\u6c42\u6784\u9020\u51fa\u4e00\u7ec4 $l, r$ \u4f7f\u5f97 $\\sum_{k = l}^rk = n$\uff0c\u4e14 $-10^{18}\\le l < r\\le 10^{18}$\u3002\n\n## Solution\n\u6bd4\u8f83\u6e05\u771f\u7684 D2A\uff0c\u8003\u8651\u5230 $l$ \u53ef\u4ee5\u4e3a\u8d1f\u90a3\u4e48\u6211\u4eec\u5c31\u8ba9 $r = n$ \u4e14 $l = -n + 1$\uff0c\u8fd9\u6837\u5b50 $[1, n - 1]$ \u4ea7\u751f\u7684\u8d21\u732e\u5c31\u53ef\u4ee5\u88ab $[-n + 1, -1]$ \u6d88\u6389\u3002\n\n\u4ee3\u7801\u5c31\u4e0d\u653e\u4e86\u3002",
+        "postTime": 1633752988,
+        "uid": 212488,
+        "name": "\u6e05\u70db",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1594A Consecutive Sum Riddle"
+    },
+    {
+        "content": "### \u89e3\u9898\u601d\u8def\uff1a\n\n\u7b80\u5355\u7684\u6784\u9020\u9898\u3002\n\n\u9996\u5148\u89c2\u5bdf\u6570\u636e\u8303\u56f4\uff0c\u53d1\u73b0\u76f4\u63a5\u89e3\u65b9\u7a0b\u6216\u8005\u7528 $l=r$ \u6765\u6784\u9020\u90fd\u4e0d\u53ef\u884c\u3002\u8003\u8651\u5229\u7528 $l$ \u53ef\u4ee5\u662f\u8d1f\u6570\uff0c\u800c\u4e14\u8303\u56f4\u5f88\u5927\u8fd9\u4e2a\u6027\u8d28\uff0c\u8003\u8651\u5728\u8fd9\u4e2a\u65b9\u9762\u6784\u9020\u3002\n\n\u6b64\u65f6\u663e\u7136\u53ef\u4ee5\u770b\u51fa\u76f4\u63a5\u53d6 $l=1-n$\uff0c$r=n$ \u5c31\u662f\u4e00\u4e2a\u5408\u6cd5\u7684\u8303\u56f4\u3002\n\n\u7531\u4e8e\u5728 $[1,n-1]$ \u8fd9\u4e2a\u8303\u56f4\u4e2d\u6bcf\u4e00\u4e2a\u6570\u90fd\u548c\u4e4b\u524d\u7684\u4e00\u4e2a\u8d1f\u6570\u62b5\u6d88\u4e86\uff0c\u6240\u4ee5\u6700\u540e\u7684\u7ed3\u679c\u76f4\u63a5\u5c31\u662f $n$\u3002\n\n\n\u8bb0\u5f97\u5f00 long long\uff0c\u6211\u4e3a\u6b64\u5403\u4e86\u4e00\u53d1\u7f5a\u65f6\u3002\n\n---\n### \u4ee3\u7801\uff1a\n\n```cpp\n#include<cstdio>\nusing namespace std;\nlong long T,n;\nint main(){\n\tscanf(\"%lld\",&T);\n\twhile(T--){\n\t\tscanf(\"%lld\",&n);\n\t\tprintf(\"%lld %lld\\n\",-(n-1ll),n);\n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1633752849,
+        "uid": 223559,
+        "name": "qxp101",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF1594A Consecutive Sum Riddle"
+    },
+    {
+        "content": "\u8fd9\u4e2a\u9898\u662f\u4e00\u9053\u975e\u5e38\u5de7\u5999\u7684\u6784\u9020\u9898\u3002\n\n\u5927\u81f4\u610f\u601d\u5c31\u662f\u5bf9\u4e8e\u6bcf\u4e00\u4e2a $n$\uff0c\u8ba9\u4f60\u627e\u5230 $l$ \u548c $r$\uff0c\u4f7f\u5f97 $\\sum_{i=l}^ri=n$\u3002\u5176\u4e2d $-10^{18} \\le l,r \\le10^{18}$\u3002\n\n\u89e3\u7b54\uff1a\n\n\u56e0\u4e3a $l,r$ \u65e2\u53ef\u4ee5\u662f\u6b63\u6570\uff0c\u4e5f\u53ef\u4ee5\u662f\u8d1f\u6570\uff0c\u6240\u4ee5\u6211\u4eec\u53ef\u4ee5\u9009 $l=-n+1,r=n$ \uff0c\u90a3\u6837\u53ef\u4ee5\u4fdd\u8bc1 $0$ \u5230 $n-1$ \u91cc\u7684\u6bcf\u4e00\u4e2a\u6570\u548c\u5176\u76f8\u53cd\u6570\u90fd\u5728 $l$ \u5230 $r$ \u91cc\u51fa\u73b0\u5e76\u62b5\u6d88\uff0c\u800c $n$ \u4f1a\u5355\u72ec\u51fa\u73b0\u3002\u6240\u4ee5\u5b83\u4eec\u7684\u548c\u4fdd\u8bc1\u662f $n$\u3002\n\n\u8fd8\u6709\u5c31\u662f\u522b\u5fd8\u4e86\u5f00 `long long` \u5c31\u884c\u4e86\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include<iostream>\nusing namespace std;\n#define int long long\nsigned main(){\n    int t;\n    cin>>t;\n    while(t--){\n        int n;\n        cin>>n;\n        cout<<(-n+1)<<' '<<n<<endl;\n    }\n}\n```\n\n",
+        "postTime": 1633746031,
+        "uid": 287355,
+        "name": "1lgorithm",
+        "ccfLevel": 0,
+        "title": "CF1594A\u9898\u89e3"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u6709\u4e00\u4e2a\u901a\u89e3 $-n+1,n$\u3002\n\n\u7136\u540e\u7684\u8bdd\u8fd9\u4e2a\u4e1c\u897f\u6b63\u786e\u6027\u4e5f\u5f88\u597d\u8bf4\uff1a\u7b49\u5dee\u6570\u5217\u6c42\u548c\uff1a\n\n$$\\sum_{i=(-n+1)}^n i=\\frac{(-n+1+n)\u00d7(n-(-n+1)+1)}{2}=n$$\n\n\u518d\u8d34\u4e2a\u4ee3\u7801\uff1a\n```cpp\n#include<stdio.h>\n\nint t;\nlong long n;\n\nint main(){\n\tscanf(\"%d\",&t);\n\twhile(t--){\n\t\tscanf(\"%lld\",&n);\n\t\tprintf(\"%lld %lld\\n\",-n+1,n);\n\t}\n\treturn 0;\n} \n```",
+        "postTime": 1633745706,
+        "uid": 424052,
+        "name": "reailikezhu",
+        "ccfLevel": 4,
+        "title": "CF1594A\u9898\u89e3"
+    }
+]

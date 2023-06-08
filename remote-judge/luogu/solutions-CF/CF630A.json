@@ -1,0 +1,114 @@
+[
+    {
+        "content": "\u8fd9\u9053\u9898\u5176\u5b9e\u662f\u9053\u6570\u8bba\u9898\u3002\n\n\u9996\u5148\u53d6\u6bcf\u4e2a\u6570\u540e\u4e24\u4f4d\u76f8\u5f53\u4e8e$\\bmod100$\n\n\u7136\u540e\u6613\u77e5$5^2\\equiv25(\\bmod100)$\n\n\u4e8e\u662f$5^3=5^2*5=25*5=125\\equiv25(\\bmod100)$\n\n\u4ece\u800c$5^4=5^3*5\\equiv25*5=125\\equiv25(\\bmod100)$\n\n\u7ee7\u800c$5^5=5^4*5\\equiv25*5=125\\equiv25(\\bmod100)$\n\n......\n\n\u6240\u4ee5\u53ea\u8981$5^n\\equiv25(\\bmod100)$\uff0c\u5219$5^{n+1}=5^n*5\\equiv25*5=125\\equiv25(\\bmod100)$\n\n\u800c$5^2\\equiv25(\\bmod100)$\n\n\u6240\u4ee5\u53ef\u8bc1$5^k\\equiv25(\\bmod100)$($k$\u4e3a\u4efb\u610f\u5927\u4e8e\u7b49\u4e8e$2$\u7684\u6574\u6570\n\n\u5f97\u8bc1\u3002\n\n\u7b80\u6d01\u7684\u56db\u884c\u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nint main(){\n\tprintf(\"25\");\n}\n```\n",
+        "postTime": 1590756059,
+        "uid": 217233,
+        "name": "SqrtSecond",
+        "ccfLevel": 0,
+        "title": "\u849f\u84bb\u7684\u7b2c\u4e09\u7bc7\u9898\u89e3"
+    },
+    {
+        "content": "### \u524d\u8a00\n\n\u627e\u89c4\u5f8b\u9898\u3002\n\n\n### \u601d\u8def\n\n\u4ed4\u7ec6\u770b\u9898\uff0c\u6570\u636e\u8303\u56f4\u662f$2\\sim 2*10^{18}$\n\n\u5199\u4e86\u4e2a\u4ee3\u7801\u8ba1\u7b97$5$ \u7684$1\\sim 27$\u6b21\u65b9\u3002\n\n\u56e0\u4e3a\u6570\u5b57\u8303\u56f4\u8d85$\\sf long long$\u4e86\uff0c\u6240\u4ee5\u540e\u9762\u5c31\u4e0d\u7b97\u4e0b\u53bb\u4e86\u3002\n\n```cpp\n1^5=5\n2^5=25\n3^5=125\n4^5=625\n5^5=3125\n6^5=15625\n7^5=78125\n8^5=390625\n9^5=1953125\n10^5=9765625\n11^5=48828125\n12^5=244140625\n13^5=1220703125\n14^5=6103515625\n15^5=30517578125\n16^5=152587890625\n17^5=762939453125\n18^5=3814697265625\n19^5=19073486328125\n20^5=95367431640625\n21^5=476837158203125\n22^5=2384185791015625\n23^5=11920928955078125\n24^5=59604644775390625\n25^5=298023223876953125\n26^5=1490116119384765625\n27^5=7450580596923828125\n```\n\n### $\\sf Code$\n\n\u5148\u627e\u89c4\u5f8b\u3002\u3002\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nlong long n=5;\nint main() {\n\tcout<<\"1^5=5\"<<endl;\n\tfor(int i=2; i<=100; i++) {\n\t\tn*=5;\n\t\tcout<<i<<\"^5=\"<<n<<endl;\n\t}\n\treturn 0;\n}\n```\n\u7136\u540e\u7684\u4ee3\u7801\u5c31\u7b80\u77ed\u5566\uff01\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main() {\n\tint n;\n\tcin>>n;\n\tcout<<25<<endl;\n\treturn 0;\n}\n```\n",
+        "postTime": 1577611762,
+        "uid": 186034,
+        "name": "Callous_Murder",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF630A \u3010Again Twenty Five!\u3011"
+    },
+    {
+        "content": "\u5173\u4e8e\u8fd9\u9053\u9898\uff0c\u672c\u83dc\u9e21\u7684\u60f3\u6cd5\u662f\u8fd9\u6837\u7684\uff1a\n\n~~\u6807\u9898\u544a\u8bc9\u6211\u4eec\u4e86~~\n\n\u628a5\u7684\u5e42\u90fd\u6c42\u51fa\u6765\u770b\u4e00\u770b\u5c31\u597d\u4e86\u3002\n\n\u4e8e\u662f\uff0c\u6211\u719f\u7ec3\u5730\u590d\u5236\u4e86\u4ee5\u524d\u5feb\u901f\u5e42\u7684\u4ee3\u7801\uff08\u5feb\u901f\u5e42\u601d\u8def\u53ef\u53bb[P1226](https://www.luogu.com.cn/problem/P1226)\u5904\u83b7\u53d6\uff09\uff0c\u4e3a\u4e86\u66f4\u5feb\u770b\u51fa\uff0c\u53ef\u4ee5\u76f4\u63a5 $mod$ 100\u770b\u6700\u540e\u4e24\u4f4d\uff0c\u4fbf\u5199\u51fa\u4e86\u5982\u4e0b\u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nlong long n=5,k,m=100,ans=1;\nlong long  ppow(int x,int k)\n{\n\twhile(k)\n\t{\n\t\tif(k&1)\n\t\t{\n\t\t\tans=((ans%m)*(x%m))%m;\n\t\t}\n\t\tx=((x%m)*(x%m))%m;\n\t\tk>>=1;\n\t}\n\treturn ans;\n}\nint main()\n{\n\tcin>>k;\n\tfor(int i=2;i<=k;i++) \n\t{\n\t\tcout<<ppow(n,i)<<endl;\n\t}\n\treturn 0;\n}\n```\n\u8f93\u4e2a 1000 \u8fdb\u53bb\u4e00\u770b\uff0c\u600e\u4e48\u90fd\u662f 25 \u554a\uff0c\u4e8e\u662f\u4ee3\u7801\u5c31\u6765\u4e86\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n\tcout<<\"25\"<<endl;\n\treturn 0;\n}\n```\n\u5b8c\u7f8eAC\uff01\n\nPS\uff1a\u5176\u5b9e\u8fd9\u662f\u9053\u6570\u5b66\u9898\uff0c\u672c\u849f\u84bb\u5374\u628a\u5b83\u505a\u6210\u4e86\u627e\u89c4\u5f8b\uff0c\u8bc1\u660e\u53ef\u4ee5\u770b\u5176\u4ed6\u51e0\u4f4d\u5927\u4f6c\u7684\u9898\u89e3\u3002\n\n",
+        "postTime": 1591878664,
+        "uid": 232516,
+        "name": "harqwq",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF630A \u3010Again Twenty Five!\u3011"
+    },
+    {
+        "content": "\u770b\u5230\u8fd9\u9053\u9898\u7684\u6570\u636e\u8303\u56f4,\u4f60\u53ef\u80fd\u4f1a\u5927\u5403\u4e00\u60ca\u3002\n\n\u4f46\u662f\u4ed4\u7ec6\u601d\u8003\u601d\u8003\u4f60\u4f1a\u53d1\u73b0\uff0c$5^n$($n\u22652$)\u540e\u4e24\u4f4d\u90fd\u662f$25$\u3002\n\n\u7136\u800c\u4e3a\u4ec0\u4e48\u5462\uff1f\n\n\u82e5$5^n$\u6bcf\u4e2a\u6570\u540e\u4e24\u4f4d\u90fd\u662f$25$,\u5219\u6bcf$5^n$\u90fd\u80fd\u5199\u6210$x*100+25$\u7684\u5f62\u5f0f,$(x*500+125)$\u4e3a$5^{n+1}$,$x*500$\u672b\u4e24\u4f4d\u7edd\u5bf9\u662f\u96f6,\u800c$125$\u672b\u4e24\u4f4d\u662f$25$,\u5c06$x*500$\u548c$125$\u76f8\u52a0\u4e3a$(5*x+1)*100+25$,\u6240\u4ee5$5^n$($n\u22652$)\u540e\u4e24\u4f4d\u90fd\u662f$25$\u3002\n\n\u7136\u540e\u4e0a\u4ee3\u7801($c++$):\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n;\nint main()\n{\n\tcin>>n;\n\tcout<<25;\n\treturn 0;\n}\n```\n\u6700\u540e,\u70b9\u4e2a\u8d5e\u518d\u8d70\u5427(QAQ)\u3002",
+        "postTime": 1590756441,
+        "uid": 263011,
+        "name": "chenkeqi1",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF630A \u3010Again Twenty Five!\u3011"
+    },
+    {
+        "content": "\u672c\u9898\u4e0d\u7b80\u5355\u5417\n\n\u6211\u4eec\u5148\u628a$5^n$\u5168\u5217\u51fa\u6765\uff1a\n\n```\n1^5=5\n2^5=25\n3^5=125\n4^5=625\n5^5=3125\n6^5=15625\n7^5=78125\n8^5=390625\n9^5=1953125\n10^5=9765625\n11^5=48828125\n12^5=244140625\n13^5=1220703125\n14^5=6103515625\n15^5=30517578125\n16^5=152587890625\n17^5=762939453125\n18^5=3814697265625\n19^5=19073486328125\n20^5=95367431640625\n...\n```\n\n\u53d1\u73b0$5^n$\u7684\u540e\u4e24\u4f4d\u90fd\u662f25\uff08\u9664$5^1$\u5916\uff09\n\n\u800c\u4e14\u56e0\u4e3a$n >= 2$\n\n\u6240\u4ee5\u6211\u4eec\u76f4\u63a5\u8fde\u8f93\u5165\u90fd\u4e0d\u7528\uff0c\u76f4\u63a5\u8f93\u51fa25\u5373\u53ef\u3002\n\n```cpp\n#include<iostream>//\u5934\u6587\u4ef6\n#include<cstdio>\n#include<algorithm>\n#include<cstring>\n#include<cmath>\n#include<string>\n#include<cstdlib>\nusing namespace std;\nint main(){\n\tcout<<25;//\u76f4\u63a5\u8f93\u51fa25\n \treturn 0;\n}\n```\n\n\u70b9\u4e2a\u8d5e\u518d\u8d70\u5457~",
+        "postTime": 1584002732,
+        "uid": 307603,
+        "name": "_cmh",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF630A \u3010Again Twenty Five!\u3011"
+    },
+    {
+        "content": "### \u6b64\u9898\u5c31\u662f\u8003\u5bdf\u5fae\u5f31\u7684\u6570\u8bba\u77e5\u8bc6\n\n\u9898\u610f\u6e05\u695a\u7684\u544a\u8bc9\u4e86\u6211\u4eecn>=2\uff0c\u6240\u4ee5\u4e0d\u7528\u8003\u86510\u548c1\u7684\u60c5\u51b5\uff0c\u76f4\u63a5\u8f93\u51fa25\u5c31\u53ef\u4ee5\u4e86\u3002\n\n\u4e0b\u9762\u7ed9\u51fa\u4e25\u683c\u7684\u8bc1\u660e\u8fc7\u7a0b\uff1a\n\n\u7531\u9898\u53ef\u77e5\uff1a$5^{2}$=25\uff0c\u672b\u4e24\u4f4d\u4e3a25\uff0c\u4e14$5^{k}$\u53c8\u7b49\u4e8e$5^{2}$ * $5^{k-2}$\n\n\u6240\u4ee5$5^{k}$\u5fc5\u5b9a\u53ef\u4ee5\u5199\u621025*$5^{k-2}$\u7684\u5f62\u5f0f\n\n\u53c8\u56e0\u4e3a$5^{k-2}$ mod 4\u7b49\u540c\u4e8e$1^{k-2}$ mod 4\uff0c\n\n\n\u53c8\u56e0\u4e3a1\u7684\u4efb\u4f55\u6b21\u65b9\u90fd\u7b49\u4e8e1\n\n\u6240\u4ee5$5^{k-2}$mod 4=1\n\n\u6240\u4ee5$5^{k}$\u672b\u5c3e\u5fc5\u5b9a\u4e3a25*1=25\n\n\u8bc1\u6bd5\n\n\u4e0b\u9762\u7ed9\u51fa\u6807\u7a0b\uff1a\n\n```\n#include<iostream>\nusing namespace std;\nint main()\n{\n\tcout<<\"25\";//\u56e0\u4e3a\u8f93\u5165\u7684n\u5927\u4e8e2\uff0c\u6240\u4ee5\u76f4\u63a5\u8f93\u51fa25\uff0c\u4e0d\u7528\u8f93\u5165\u8282\u7701\u65f6\u95f4\n\treturn 0;//\u4e0d\u52a0\u6613\u8d85\u65f6(\u5f53\u7136\u8fd9\u9898\u80af\u5b9a\u4e0d\u4f1a)\n }\n```\n",
+        "postTime": 1572446534,
+        "uid": 121771,
+        "name": "\u5c0f\u9c8dbob",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF630A \u3010Again Twenty Five!\u3011"
+    },
+    {
+        "content": "~~~\n\u8fd9\u9898\u6bd4\u8f83\u7b80\u5355\uff0c\u6211\u5c31\u7b80\u5355\u8bc1\u660e\u4e00\u4e0b \nn>=2\u65f65^n\u226125(mod 100) \n\n\u9996\u5148\u6211\u4eec\u77e5\u9053n\u00b2=125\n\n\u6240\u4ee5\uff0c\u6211\u4eec\u53ea\u9700\u8981\u8bc1\u660e\u672b\u5c3e\u4e3a25\u7684\u6570\u4e58\u4ee55\u672b\u5c3e\u8fd8\u662f25\n\n\u6211\u4eec\u8bbe\u90a3\u4e2a\u6570\u4e3a n*100+25 (n \u2208 N+)\n\n\u5b83\u4e58\u4ee55\u540e\u5f97\u5230 \n n*500+125\n=(5*n)*100+100+25\n=(5*n+1)*100+25\n\u226125(mod 100)\n~~~\n\n\u6240\u4ee5\u672b\u5c3e\u662f25\u7684\u6570\u4e58\u4ee55\u540e\u672b\u5c3e\u8fd8\u4e3a25\n\n\u6240\u4ee5\u8fd9\u9898\u53ea\u9700\u8f93\u51fa25\u5373\u53ef\n\n\u4ee3\u7801\n\n~~~\n#include<bits/stdc++.h>\nusing namespace std;\n\nint main()\n{\n\tint n;\n\tcin>>n;\n\tcout<<25;\n\treturn 0;\n}\n~~~",
+        "postTime": 1552202332,
+        "uid": 112937,
+        "name": "yuangq",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF630A \u3010Again Twenty Five!\u3011"
+    },
+    {
+        "content": "```\n\u5bf9\u4e8en>=2\u53ef\u5f975^n\u226125(mod 100)\n\u7b80\u5355\u4e86\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n    cout<<\"25\";\n    return 0;\n}\n```",
+        "postTime": 1543726789,
+        "uid": 25051,
+        "name": "\u0430\u0431\u0432\u0433",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF630A \u3010Again Twenty Five!\u3011"
+    },
+    {
+        "content": "### **\u9898\u76ee**\n\u8f93\u51fa$5^n$\u7684**\u540e\u4e24\u4f4d**\u3002\n\n$2$ \u2264 $n$ \u2264 $2\u22c510^{18}$\n### **\u601d\u8def**\n\u9996\u5148\u679a\u4e3e\u4e00\u4e0b\uff1a\n\n$5^2=25$\n\n$5^3=125$\n\n$5^4=625$\n\n$5^5=3125$\n\n$5^6=15625$\n\n$5^7=78125$\n\n$5^8=390625$\n\n\u22c5\n\n\u22c5\n\n\u22c5\n\n## \u53ef\u4ee5\u53d1\u73b0\uff0c\u540e\u4e24\u4f4d\u90fd\u662f25\n\n### **\u4ee3\u7801**\n#### Pascal\n```pascal\nbegin write(25);end.\n```\n#### C++\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n\tint n;\n\tcin>>n;\n\tcout<<25<<endl;\n\treturn 0;\n}\n```",
+        "postTime": 1586690363,
+        "uid": 324103,
+        "name": "Franka",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF630A \u3010Again Twenty Five!\u3011"
+    },
+    {
+        "content": "#### \u5206\u6790\n\n~~\u4ece\u9898\u76ee\u53ef\u5f97\u77e5\"\u53c8\u662f25\"\uff0c\u6240\u4ee5\u8f93\u51fa25\u5c31\u884c\u4e86~~\n\n\u5982\u679c\u8981\u4ece$5^n$\u7684\u5f97\u6570\u6765\u770b\u7684\u8bdd\u6211\u4eec\u53ef\u4ee5\u770b\u5230\u4e00\u4e2a\u73b0\u8c61\uff1a\n```\n                  5\n                 25\n                125\n                625\n               3125\n              15625\n              78125\n             390625\n            1953125\n            9765625\n           48828125\n          244140625\n         1220703125\n         6103515625\n        30517578125\n       152587890625\n       762939453125\n      3814697265625\n     19073486328125\n     95367431640625\n    476837158203125\n   2384185791015625\n  11920928955078125\n  59604644775390625\n 298023223876953125\n1490116119384765625\n7450580596923828125\n```\n\u6211\u4eec\u4e00\u5217\u5217\u5730\u770b\u4f1a\u53d1\u73b0$5^n$\u7684\u5f97\u6570\u6bcf\u4e00\u4f4d\u90fd\u662f\u6709\u89c4\u5f8b\u7684\uff1a\n\n\u4e2a\u4f4d\uff1a5 \u7684\u5faa\u73af\n\n\u5341\u4f4d\uff1a2 \u7684\u5faa\u73af\n\n\u767e\u4f4d\uff1a1->6 \u7684\u5faa\u73af\n\n\u5343\u4f4d\uff1a3->5->8->0 \u7684\u5faa\u73af\n\n\u4e07\u4f4d\uff1a1->7->9->5->6->2->4->0 \u7684\u5faa\u73af\n\n\u5341\u4e07\u4f4d\uff1a3->9->7->8->1->7->5->5->8->4->2->3->6->2->0->0 \u7684\u5faa\u73af\n\n(\u5927\u5bb6\u53ef\u80fd\u90fd\u53d1\u73b0\u4e86\u672b\u5c3e\u90fd\u662f25\uff0c\u4f46\u6ca1\u53d1\u73b0\u6bcf\u4e00\u4f4d\u90fd\u6709\u89c4\u5f8b)\n\n\u800c\u5b83\u4eec\u7684\u5faa\u73af\u957f\u5ea6\u53c8\u90fd\u662f$2^n$\u4e2d\u7684\u6570\u3002\n\n\u4f46\u7531\u4e8e\u672c\u9898\u53ea\u8981\u6c42\u8f93\u51fa\u540e\u4e24\u4f4d\uff0c\u6240\u4ee5\u53ea\u8981\n```cout << 25;```\n\u4fbf\u53ef\u4ee5\u4e86\u3002\n\n\n------------\n\n\u5982\u679c\u6709dalao\u53ef\u4ee5\u89e3\u91ca\u8fd9\u4e00\u73b0\u8c61\u8bf7\u5728\u8bc4\u8bba\u533a\u7559\u8a00",
+        "postTime": 1586079538,
+        "uid": 305875,
+        "name": "\u58a8\u4e91\u98ce\u8ff9",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF630A"
+    },
+    {
+        "content": "\u9996\u5148\u770b\u9898\u76ee,\u6839\u636e\u5e38\u8bc6\u77e5\u9053\u5f53$n\\geq 2$\u7684\u65f6\u5019$5^{n}$\u7684\u6700\u540e\u4e24\u4f4d\u4e00\u5b9a\u662f25.  \n\u518d\u770b\u6570\u636e\u8303\u56f4\u6211\u76f4\u63a5\u9ad8\u5174\u5730\u8df3\u8d77\u6765\u4e86.  \n$2\\leq n\\leq 10^{18}$\n\u6240\u4ee5\u5c31\u5f88\u7b80\u5355\u4e86.\n```c\nmain(){puts(\"25\");}\n```",
+        "postTime": 1532355607,
+        "uid": 49371,
+        "name": "Fuko_Ibuki",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF630A \u3010Again Twenty Five!\u3011"
+    },
+    {
+        "content": "\u9898\u76ee\u601d\u8def\u5f88\u7b80\u5355\u3002\n\n\u89c2\u5bdf\u4e0b\u5217\u6570\u5217\uff1a\n>$5^0=1$\n>\n>$5^1=5$\n>\n>$5^2=25$\n>\n>$5^3=125$\n>\n>$5^4=625$\n\n\u4f60\u4f1a\u53d1\u73b0\uff0c\u9664\u4e86$5^0$\u548c$5^1$\u4e4b\u5916\u5176\u4f59\u7684\u672b\u5c3e\u4e24\u4f4d\u6570\u5747\u4e3a25\uff08\u5e9f\u8bdd\uff09\uff0c\u6240\u4ee5\u53ea\u9700\u8981\u7279\u5224\u4e00\u4e0b0\u548c1\u7684\u60c5\u51b5\u5373\u53ef\u3002\n\n\uff08\u8fd9\u9898\u7684\u6807\u9898\u4e5f\u662f\u771f\u7684\u5999\u554a\uff09\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main() {\n    int n;\n    cin>>n;\n    if(n==0) cout<<1<<endl;\n    else if(n==1) cout<<5;\n    else cout<<25;\n    return 0;\n}\n\n```",
+        "postTime": 1530714751,
+        "uid": 54373,
+        "name": "\u041ci\u0441DZ",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF630A \u3010Again Twenty Five!\u3011"
+    },
+    {
+        "content": "\u8fd9\u4e00\u9898\u2026\u2026\u5176\u5b9e\u633a\u6c34\u7684\u3002\n\n\u9898\u76ee\u8bf4\u4e86\uff1a\u8f93\u51fa$5^n$\u7684\u540e\u4e24\u4f4d\uff0c\u90a3\u6211\u4eec\u5c31\u627e\u89c4\u5f8b\uff1a\n\n$5^0=1$\n\n$5^1=5$\n\n$5^2=25$\n\n$5^3=125$\n\n$5^4=625$\n\n\u2026\u2026\u2026\u2026\n\n\u6700\u540e\u53d1\u73b0\uff0c\u9664\u4e86\u7b2c\u4e00\u3001\u4e8c\u884c\uff0c\u5176\u4ed6\u7684\u672b\u4e24\u4f4d\u90fd\u662f25\uff0c\u90a3\u4e48\u5c31\u7279\u5224\u4e00\u4e0b\u524d\u4e24\u79cd\u60c5\u51b5\uff0c\u5269\u4e0b\u5c31\u8f93\u51fa25\u5c31\u884c\u4e86\u3002\n\n\u53e6\u5916\uff0c\u8fd9\u4e00\u9898\u9700\u8981\u4ee5\u6587\u4ef6\u7ed3\u675f\u7b26\uff08EOF\uff09\u7ed3\u675f\n\n```\n\n#include<iostram>\nint main()\n{\n\tint n;\n\twhile(~scanf(\"%d\",&n))\n\t{\n\t\tint ans=25;\n\t\tif(n==0)\n\t\t{\n\t\t\tans=1;\n\t\t}\n\t\telse if(n==1)\n\t\t{\n\t\t\tans=5;\n\t\t}\n\t\tprintf(\"%d\\n\",ans);\n\t}\n\treturn 0;\n\n\n```\n\n~~\u5176\u5b9e\u8fd9\u4e00\u9898\u7684\u6570\u636e\u633a\u6c34\u7684\uff0c\u4e0d\u9700\u8981\u90a3\u4e48\u591a\u7279\u5224\u4e5f\u80fdAC~~\n\n```\n#include<iostream>\nint main()\n{\n\tll n;\n\twhile(scanf(\"%lld\",&n)!=EOF)\n\t{\n\t\tprintf(\"25\\n\");\n\t}\n\treturn 0;\n}\n\n```\n\nPS:\u7a0b\u5e8f\u4e2d\u6709\u8bed\u6cd5\u9519\u8bef\uff0c\u60f3\u6284\u5c31\u4f1aCE,\u522b\u602a\u6211\u6ca1\u63d0\u9192\u3002",
+        "postTime": 1530712239,
+        "uid": 71371,
+        "name": "UKE\u81ea\u52a8\u7a3d",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF630A \u3010Again Twenty Five!\u3011"
+    },
+    {
+        "content": "#### ~~\u4f20\u8bf4\u4e2d\u7684~~\u4e00\u53e5\u8bdd\u9898\u610f\uff1a\n\n\u6c42 $5^n$ \u7684\u540e\u4e24\u4f4d\u3002\n\n\u5f88\u597d\u7684\u5feb\u901f\u5e42\u7ec3\u624b\u9898\uff08\u6570\u8bba\u505a\u4e5f\u662f\u6ca1\u95ee\u9898\u7684\u8fa3\uff09\u3002\n\n\u9996\u5148\u8f6c\u6362\u4e00\u4e0b\u9898\u610f\uff1a\u6c42 $5^n \\bmod 100$\u3002\n\n\u770b\u5230\u6570\u636e\u8303\u56f4\uff1a$n \\le 2 \\times 10^{18}$\uff0c\u5c31\u77e5\u9053 $\\Theta(n)$ \u7684\u4e00\u8fb9\u4e58\u4e00\u8fb9\u53d6\u6a21\u7684\u66b4\u529b\u65b9\u6cd5\u8fc7\u4e0d\u4e86\uff0c\u4e8e\u662f\u5c31\u8981\u91c7\u7528 $\\Theta(\\log n)$ \u7684\u5feb\u901f\u5e42\u3002\n\n\u4f5c\u4e3a\u4e00\u4e2a\u5feb\u5f97\u5f88\u7684\u6c42\u79ef\u65b9\u6cd5\uff08\u4e0d\u8fc7\u5fc5\u987b\u8981\u6709\u819c\u6570\uff0c\u4e0d\u7136\u5927\u6982\u8981\u641e\u9ad8\u7cbe\uff09\uff0c\u6ce5\u8c37\u6709[\u6a21\u677f\u9898](https://www.luogu.com.cn/problem/P1226)\uff0c\u5177\u4f53\u5199\u6cd5\u770b\u9898\u89e3\u5373\u53ef\uff0c\u53ea\u9700\u8981\u5c06\u8f93\u5165\u7684\u5e95\u6570\u548c\u6a21\u6570\u6362\u6210 $5,100$\u3002\n\n\u4ee3\u7801\uff1a\n```cpp\n#include <cstdio>\n#include <iostream>\n#include <cmath>\n#include <algorithm>\n#include <string>\n#include <cstring>\n#include <queue>\nusing namespace std;\nlong long tmp,n,ans=1;\nint main()\n{\n\tcin>>n;\n\ttmp=5;\n\twhile(n>0)\n\t{\n\t\tif(n%2==1)\n\t\t{\n\t\t\tans*=tmp;\n\t\t\tans%=100;\n\t\t}\n\t\ttmp*=tmp;\n\t\ttmp%=100;\n\t\tn/=2;\n\t}\n\tcout<<ans%100<<endl;\n    return 0;\n}\n```\n",
+        "postTime": 1587301998,
+        "uid": 191868,
+        "name": "monstersqwq",
+        "ccfLevel": 8,
+        "title": "\u9898\u89e3 CF630A \u3010Again Twenty Five!\u3011"
+    }
+]

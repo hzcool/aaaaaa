@@ -1,0 +1,10 @@
+[
+    {
+        "content": "## \u601d\u8def\n\u6ce8\u610f\u5230$q^2=q+1$\uff0c\u53d8\u5f62\u5f97$q^i=q^{i-1}+q^{i-2}$\u3002\n\n\u4e0d\u65ad\u964d\u6b21\u76f4\u81f3\u53ea\u5269\u4e24\u6b21\u4e3a\u6b62\u5373\u53ef\u3002\n\n\u4e24\u6b21\u540e\u76f4\u63a5\u66b4\u529b\u5224\u65ad\u5c31\u53ef\u4ee5\u4e86\u3002\n\n\u53ef\u4ee5\u628a\u4e24\u4e2a\u6570\u7ec4\u63d0\u524d\u4f5c\u5dee\uff0c\u6700\u540e\u4e0e$0$\u6bd4\u8f83\u5927\u5c0f\u3002\n## \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n#define int long long\ndouble aa[100001];\nsigned main(){\n    string a,b;\n    cin>>a>>b;\n    int fa=100000-a.length()+1,fb=100000-b.length()+1;\n    for(int x=0;x<a.length();x++)\n    aa[100000-a.length()+x+1]=a[x]-'0';\n    for(int x=0;x<b.length();x++)\n    aa[100000-b.length()+x+1]-=b[x]-'0';\n    for(int x=min(fa,fb),y;x<=100000-2;x++)\n    aa[x+1]+=aa[x],aa[x+2]+=aa[x],aa[x]=0;\n    double ans=double(aa[99999]*(1+sqrt(5))/2+aa[100000]);\n    //cout<<ans<<endl;\n    if(abs(ans)<=1e-8)cout<<'=';\n    else if(ans<0)cout<<'<';\n    else cout<<'>';\n}\n```",
+        "postTime": 1616159914,
+        "uid": 320087,
+        "name": "N_z_",
+        "ccfLevel": 7,
+        "title": "CF457A-\u3010Golden System\u3011\u9898\u89e3"
+    }
+]

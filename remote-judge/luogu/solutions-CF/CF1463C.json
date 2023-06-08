@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u5c0f\u6a21\u62df\u3002\n\n\u7ef4\u62a4\u5f53\u524d\u7684\u76ee\u7684\u5730\uff0c\u6c42\u51fa\u6bcf\u4e2a\u6307\u4ee4\u662f\u5426\u88ab\u5ffd\u7565\uff0c\u8fdb\u800c\u6c42\u51fa\u6bcf\u4e2a $t_i$ \u7684\u4f4d\u7f6e\u5224\u65ad\u5373\u53ef\u3002\n\n\u5177\u4f53\u8be6\u89c1\u4ee3\u7801\uff0c\u65f6\u95f4\u590d\u6742\u5ea6 $O(n)$\u3002\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nconst int MAXN=1e5+5;\nint T,n,wz[MAXN]/*ti\u662f\u6240\u5904\u4f4d\u7f6e*/,t[MAXN],x[MAXN],g/*\u5f53\u524d\u76ee\u6807*/;\nint main()\n{\n\tcin>>T;\n\twhile(T--)\n\t{\n\t\tcin>>n;\n\t\tg=0;\n\t\tfor(int i=1;i<=n;i++) \n\t\t{\n\t\t\tscanf(\"%d%d\",&t[i],&x[i]);\n\t\t\tint now=wz[i-1];//\u4e0a\u6b21\u7684\u4f4d\u7f6e\n\t\t\tif(now==g||abs(g-now)<=t[i]-t[i-1]) wz[i]=g/*\u5f00\u59cb\u65f6\u505c\u5728\u4e0a\u6b21\u76ee\u6807\u4f4d\u7f6e*/,g=x[i]/*\u76ee\u6807\u66f4\u65b0*/;//\u6b64\u6b21\u6307\u4ee4\u672a\u88ab\u5ffd\u7565\n\t\t\telse//\u6b64\u6b21\u6307\u4ee4\u88ab\u5ffd\u7565\n\t\t\t{\n\t\t\t\tif(g>now) wz[i]=now+t[i]-t[i-1];//\u53f3\u79fb\n\t\t\t\telse wz[i]=now-t[i]+t[i-1];//\u5de6\u79fb\n\t\t\t}\n\t\t}\n\t\twz[n+1]=g;//\u56e0\u4e3at_n+1\u65e0\u9650\u5927\uff0c\u6240\u4ee5\u4e00\u5b9a\u80fd\u5b8c\u6210\u5f53\u524d\u6307\u4ee4\n\t\tint ans=0;\n\t\tfor(int i=1;i<=n;i++)\n\t\t\tans+=(min(wz[i],wz[i+1])<=x[i]&&max(wz[i],wz[i+1])>=x[i]);//\u5224\u65ad\u662f\u5426\u6709\u6548\n\t\tcout<<ans<<endl;\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1654517464,
+        "uid": 448159,
+        "name": "wz20201136",
+        "ccfLevel": 7,
+        "title": "CF1463C"
+    }
+]

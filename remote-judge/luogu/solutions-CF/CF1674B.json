@@ -1,0 +1,74 @@
+[
+    {
+        "content": "## \u9898\u610f\u7b80\u8ff0\n\n| \u5e8f\u53f7 | \u5b57\u6bcd |\n| :----------: | :----------: |\n| $ 1 $ | ab |\n| $ 2 $ | ac |\n| ... | ... |\n| $ 25 $ | az |\n| $ 26 $ | ba |\n| $ 27 $ | bc |\n| ... | ... |\n| $ 649 $ | zx |\n| $ 650 $ | zy |\n\n\u7ed9\u5b9a\u4e24\u4e2a\u5c0f\u5199\u5b57\u6bcd\uff0c\u4f9d\u7167\u4e0a\u9762\u7684\u65b9\u5f0f\u8f6c\u6210 10 \u8fdb\u5236\u7684\u6570\u5b57\u3002\n\n## Sol:\n\n\u8fd9\u9053\u9898\u662f 26 \u8fdb\u5236\u7684 Plus \u7248\u2014\u2014\u8981\u6c42\u4e24\u4e2a\u5b57\u6bcd\u4e0d\u80fd\u76f8\u540c\u3002\n\n\u8bbe \u7b2c\u4e00\u4e2a\u5b57\u6bcd \u4e3a $c_1$\uff0c\u7b2c\u4e8c\u4e2a\u5b57\u6bcd \u4e3a $c_2$\u3002\n\n$c_1$ \u4ee3\u8868\u82e5\u5e72\u4e2a 25 \u4e4b\u548c\uff0c$c_2$ \u5219\u6ee1 25 \u8fdb 1\uff0c\u3002\n\n\u4e0b\u9762\u7528 $ f(c) $ \u8868\u793a\u5b57\u6bcd $ c $ \u7684\u5e8f\u53f7\u3002\n\n\u5bf9\u4e8e $c_1$\uff1a\n\n\u6240\u4ee3\u8868\u7684\u6570\u4e3a $ ( f(c_1) - f(a) ) \\times 25$\u3002\n\n\u5bf9\u4e8e $c_2$\uff1a\n\n\u53ef\u4ee5 \u4ee5 $c_1$ \u4e3a\u754c\uff0c\u628a\u9664 $c_1$ \u4ee5\u5916\u7684 25 \u4e2a\u5b57\u6bcd\u5206\u4e3a\u4e24\u7c7b\u3002\u5bf9\u4e8e\u5e8f\u53f7\u5c0f\u4e8e $c_1$ \u7684 $c_2$\uff0c\u6240\u8868\u793a\u7684\u6570\u4e3a $ f(c_2) - f(a) + 1$\uff1b\u5bf9\u4e8e\u5e8f\u53f7\u5927\u4e8e $c_1$ \u7684 $c_2$\uff0c\u6240\u8868\u793a\u7684\u6570\u4e3a $ f(c_2) - f(a) $\u3002\n\n\u8bbe $ t = ( f(c_1) - f(a) ) \\times 25 + f(c_2) - f(a) $\u3002\n\n\u5f53 $ f(c_1) < f(c_2) $ \u65f6\uff0c\u7b54\u6848 $ ans = t $\uff1b\n\n\u5f53 $ f(c_1) > f(c_2) $ \u65f6\uff0c\u7b54\u6848 $ ans = t + 1 $\u3002\n\n### \u4ee3\u7801\n\n```cpp\n#include<iostream>\n#include<cstdio>\n#include<cstring>\n#include<algorithm>\n#include<cmath> \n#define ll long long\n\nusing namespace std;\n\nint main(){\n\tll T;\n\tcin >> T;\n\twhile(T--){\n\t\tchar a,b;\n\t\tcin >> a >> b;\n\t\tcout << (a - 'a') * 25 + b - 'a' + (a > b ? 1 : 0) << endl; \n\t} \n\treturn 0;\n}\n```\n",
+        "postTime": 1651663545,
+        "uid": 408558,
+        "name": "xzyg",
+        "ccfLevel": 0,
+        "title": "CF1674B Dictionary \u9898\u89e3"
+    },
+    {
+        "content": "### \u4e00\u3001\u601d\u8def\n\n\u9996\u5148\u53ea\u8003\u8651\u7b2c\u4e00\u4e2a\u5b57\u6bcd\u3002\n\n\u663e\u7136\uff0c\u4ee5\u4efb\u610f\u4e00\u4e2a\u5b57\u6bcd\u5f00\u5934\u7684\u8bcd\uff0c\u5171\u6709 $25$ \u4e2a\u3002\n\n\u56e0\u6b64\uff0c\u6211\u4eec\u5148\u770b\u770b\u5728\u5b57\u5178\u5e8f\u4e2d\uff0c\u8fd9\u4e2a\u8bcd\u8bed\u7684\u7b2c\u4e00\u4e2a\u5b57\u6bcd\u4e4b\u524d\u6709\u591a\u5c11\u4e2a\u5b57\u6bcd\uff0c\u8bbe\u4e3a $a$\u3002\n\n\u6bd4\u5982\uff0c\u5982\u679c\u7b2c\u4e00\u4e2a\u5b57\u6bcd\u4e3a `c`\uff0c\u90a3\u4e48\u4e4b\u524d\u6709 $2$ \u4e2a\u5b57\u6bcd\uff0c\u5206\u522b\u662f `a` \u548c `b`\u3002$a=2$\u3002\n\n\u7136\u540e\uff0c\u6211\u4eec\u518d\u770b\u770b\u7b2c\u4e8c\u4e2a\u5b57\u6bcd\u3002\u8fd9\u5c31\u9700\u8981\u5206\u7c7b\u8ba8\u8bba\u4e86\u3002\n\n\u5982\u679c\u7b2c\u4e8c\u4e2a\u5b57\u6bcd\u7684\u7f16\u53f7\u5c0f\u4e8e\u7b2c\u4e00\u4e2a\u5b57\u6bcd\uff0c\u90a3\u4e48\u5c06 $b$ \u8bbe\u4e3a\u8fd9\u4e2a\u5b57\u6bcd\u5728\u6240\u6709\u5c0f\u5199\u5b57\u6bcd\u4e2d\u6392\u7b2c\u51e0\u4f4d\u3002\u5426\u5219\uff0c\u5c06 $b$ \u8bbe\u4e3a\u8fd9\u4e2a\u5b57\u6bcd\u5728\u6240\u6709\u5c0f\u5199\u5b57\u6bcd\u4e2d\u7684\u6392\u4f4d**\u51cf\u4e00**\u3002\n\n### \u4e8c\u3001\u5b8c\u6574\u4ee3\u7801\n\n```cpp\n#include<cstdio>\nusing namespace std;\nint t;\nchar s[5];\nint main()\n{\n\tscanf(\"%d\",&t);\n\twhile(t--)\n\t{\n\t\tscanf(\"%s\",s+1);\n\t\tint ans=0;\n\t\tans+=(s[1]-'a')*25;\n\t\tif(s[2]<s[1])\n\t\t{\n\t\t\tans+=(s[2]-'a'+1);\n\t\t}\n\t\telse\n\t\t{\n\t\t\tans+=(s[2]-'a');\n\t\t}\n\t\tprintf(\"%d\\n\",ans);\n\t}\n\treturn 0;\n}\n\n```",
+        "postTime": 1651752326,
+        "uid": 387836,
+        "name": "dengzijun",
+        "ccfLevel": 5,
+        "title": "CF1674B\u9898\u89e3"
+    },
+    {
+        "content": "\u5f88\u7b80\u5355\u7684\u9898\n\n\u53ef\u4ee5\u5148\u521d\u59cb\u5316\u4e00\u4e0b\uff0c\u628a\u6240\u6709\u5355\u8bcd\u653e\u8fdb\u4e00\u4e2a `map` \u91cc\uff0c\u6700\u540e\u8f93\u5165\u65f6\u7528 `map` \u6620\u5c04\u5373\u53ef\u3002\n\n\u4e00\u4e2a\u5751\u70b9\uff0c\u6ce8\u610f\u6bcf\u4e00\u4e2a\u5355\u8bcd\u7684\u4e24\u4e2a\u5b57\u6bcd\u4e0d\u76f8\u540c\u3002\n\n```cpp\n#include<cstdio>\n#include<map>\n#include<string>\n#include<iostream>\nusing namespace std;\n\nmap<string,int> mp;\n\nvoid init()\n{\n\tint index=0;\n\t\n\tfor(int i=0;i<26;i++)//\u679a\u4e3e\u6bcf\u4e00\u4e2a\u5355\u8bcd\n\t\tfor(int j=0;j<26;j++)\n\t\t\tif(i!=j)\n\t\t\t{\n\t\t\t\tstring word=\"\";\n\t\t\t\tword+=i+'a';\n\t\t\t\tword+=j+'a';\n\t\t\t\tmp[word]=++index;\n\t\t\t}\n}\n\nint t;\nstring d;\n\nint main()\n{\n\tinit();\n\t\n\tscanf(\"%d\",&t);\n\t\n\twhile(t--)\n\t{\n\t\tcin>>d;\n\t\tprintf(\"%d\\n\",mp[d]);\n\t}\n\t\n\treturn 0;\n}\n\n```",
+        "postTime": 1651648714,
+        "uid": 339299,
+        "name": "osfly",
+        "ccfLevel": 5,
+        "title": "CF1674B\u7684\u9898\u89e3"
+    },
+    {
+        "content": "\u76f4\u63a5\u8dd1\u4e00\u904d\u6240\u6709\u7684\u5b57\u6bcd\uff0c\u5982\u679c\u4e24\u4e2a\u5b57\u6bcd\u76f8\u540c\uff0c`continue`\uff0c\u5982\u679c\u5b57\u6bcd\u4e00\u6837\uff0c\u8f93\u51fa $i$\uff0c\u5426\u5219 $i \\gets i+1$\u3002  \nCode\uff1a\n```python3\nfor i in range(int(input())):\n    x = (input().strip())\n    i,j = 1,-1\n    while 1:\n        j += 1\n        if j // 26 == j % 26:\n            continue\n        if chr(97+j//26)+chr(97+j%26) == x:\n            print(i)\n            break\n        i += 1\n```\n\n\u65f6\u95f4\u590d\u6742\u5ea6 $\\mathcal O(T26^{2})$\u3002",
+        "postTime": 1651835265,
+        "uid": 360265,
+        "name": "lhx1048576",
+        "ccfLevel": 6,
+        "title": "rgnweoprg"
+    },
+    {
+        "content": "\u9898\u610f\u57fa\u672c\u662f\uff1a\n\n\u6709\u4e00\u4e2a\u957f\u5ea6\u4e3a\u4e8c\u7684\u5b57\u7b26\u4e32\uff0c\u5168\u90e8\u7531\u5c0f\u5199\u5b57\u6bcd\u7ec4\u6210\uff0c\u5176\u4e2d\u8fd9\u4e2a\u5b57\u7b26\u4e32\u91cc\u7684\u4e24\u4e2a\u5b57\u6bcd\u4e0d\u76f8\u7b49\uff0c\u95ee\u67d0\u4e2a\u5b57\u7b26\u4e32\u5728\u6240\u6709\u7684\u5b57\u7b26\u4e32\u4e2d\u7684\u5b57\u5178\u5e8f\u662f\u7b2c\u51e0\u5c0f\u3002\n\n\n------------\n\n\u601d\u8def\uff1a\n\n \u5148\u8003\u8651\u9996\u4f4d\uff0c\u4ee5\u4efb\u610f\u4e00\u79cd\u5b57\u6bcd\u5f00\u5934\u7684\u5b57\u7b26\u4e32\u90fd\u6709\u4e8c\u5341\u4e94\u79cd\uff0c\u518d\u8003\u8651\u7b2c\u4e8c\u4f4d\uff0c\u8fd9\u65f6\u9700\u8981\u6ce8\u610f\u7b2c\u4e8c\u4f4d\u5b57\u6bcd\u7684\u5b57\u5178\u5e8f\u662f\u5426\u5927\u4e8e\u7b2c\u4e00\u4f4d\u5b57\u6bcd\u7684\u5b57\u5178\u5e8f\uff0c\u5982\u679c\u662f\uff0c\u7b54\u6848\u9700\u51cf\u4e00\u3002\n \n ```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n\tint t;\n\tcin >> t;\n\twhile(t--){\n\t\tstring s;\n\t\tcin >> s;\n\t\tint cnt = 0;\n\t\tcnt+=(s[0]-'a')*25;\n\t\tif(s[1]>s[0])cnt+=s[1]-'a';\n\t\telse cnt+=s[1]-'a'+1;\n\t\tcout << cnt << endl;\n\t} \n}\n```\n",
+        "postTime": 1651656631,
+        "uid": 580036,
+        "name": "Phantom2009",
+        "ccfLevel": 7,
+        "title": "\u5b57\u5178\u5e8f"
+    },
+    {
+        "content": "### \u4e00\u3001\u9898\u610f\n\u7ed9\u5b9a\u4e00\u4e2a\u957f\u5ea6\u4e3a $2$ \u7684\u5b57\u7b26\u4e32\uff0c\u6c42\u8fd9\u4e2a\u5b57\u7b26\u4e32\u662f\u7b2c\u51e0\u4e2a\u5b57\u7b26\u4e32\u3002  \n\u6392\u5217\u89c4\u5219\u5982\u4e0b\uff1a  \n1.\u6309\u7167\u5b57\u5178\u5e8f\u6392\uff08\u4f8b\u5982 $ab,ac,ad,ae,af \\cdots az,ba,bc\\cdots$\uff09\u3002  \n2.\u4e0d\u80fd\u51fa\u73b0\u4e24\u4e2a\u5b57\u6bcd\u76f8\u540c\u7684\u60c5\u51b5\uff08\u4f8b\u5982 $ay,az,ba,bc \\cdots bz,ca,cb,cd\\cdots$\uff09\n\n### \u4e8c\u3001\u5206\u6790\n\u8fd9\u9898\u56e0\u4e3a\u957f\u5ea6\u53ea\u6709 $2$\uff0c\u6240\u4ee5\u66b4\u529b\u6a21\u62df\u5373\u53ef\u3002\u89c2\u5bdf\u5230\u6b64\u9898\u7684\u5b57\u7b26\u4e32\u7c7b\u4f3c\u4e8e $26$ \u8fdb\u5236\uff0c\u7b2c\u4e00\u4f4d\u4e3a $26$ \u4f4d\uff0c\u7b2c\u4e8c\u4f4d\u4e3a\u4e2a\u4f4d\u3002\u4e0d\u8fc7\u4e0d\u80fd\u51fa\u73b0\u5b57\u6bcd\u91cd\u590d\u7684\u60c5\u51b5\uff0c\u6240\u4ee5\u5148\u76f4\u63a5\u8fdb\u5236\u8f6c\u6362\uff0c\u7136\u540e\u518d\u6162\u6162\u5224\u65ad\u52a0\u4e00\u51cf\u4e00\u91cd\u590d\u7684\u60c5\u51b5\u3002\n\n### \u4e09\u3001\u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nlong long T;string a;\nint main(){\n\tcin>>T;\n\twhile(T--)\n\t{\n\t\tlong long ans=0;\n\t\tcin>>a;\n\t\tans=(a[0]-'a'-1)*25+26;    //\u5148\u5c06\u7b2c\u4e00\u4f4d\u8f6c\u5316\u4e3a\u6570 \n\t\tif(a[1]=='a')    //\u5982\u679c\u7b2c\u4e8c\u4f4d\u662f\u7b2c\u4e00\u4f4d\u5f00\u5934\u7684\u7b2c\u4e00\u4e2a\uff0c\u5373a \n\t\t{\n\t\t\tcout<<ans<<endl;//\u76f4\u63a5\u4e0d\u7528\u7b97\u4e2a\u4f4d \n\t\t\tcontinue;\n\t\t}\n\t\tif(a[1]<a[0])    //\u5982\u679c\u7b2c\u4e8c\u4f4d\u5c0f\u4e8e\u7b2c\u4e00\u4f4d\uff0c\u8bf4\u660e\u4e0d\u5b58\u5728\u91cd\u590d\u7684\u60c5\u51b5 \n\t\t{\n\t\t\tans+=a[1]-'a';  //\u76f4\u63a5\u6b63\u5e38\u8f6c \n\t\t\tcout<<ans<<endl;\n\t\t\tcontinue;\n\t\t}\n\t\tif(a[1]>a[0])    //\u5982\u679c\u7b2c\u4e8c\u4f4d\u5927\u4e8e\u7b2c\u4e00\u4f4d\uff0c\u8bf4\u660e\u91cd\u590d\u7684\u60c5\u51b5\u5360\u7528\u4e861\u6b21 \n\t\t{\n\t\t\tans+=a[1]-'a'-1;  //\u6b63\u5e38\u8f6c\u8fc7\u540e\u51cf\u63891 \n\t\t\tcout<<ans<<endl;\n\t\t\tcontinue;\n\t\t}\n\t}\n\treturn 0;\n}\n```\n\n### \u56db\u3001\u4e2a\u4eba\u8bc4\u4ef7\n\u672c\u9898\u4e3b\u8981\u8003\u5bdf\u6a21\u62df\u80fd\u529b\uff0c\u52a0\u4e00\u51cf\u4e00\u7684\u7ec6\u8282\u591a\uff0c\u591a\u505a\u6b64\u7c7b\u578b\u9898\u76ee\u80fd\u591f\u8fbe\u5230\u589e\u5f3a\u4ee3\u7801\u80fd\u529b\u548c\u8c03\u8bd5\u80fd\u529b\u7684\u6548\u679c\uff0c\u540c\u65f6\u80fd\u591f\u57f9\u517b\u505a\u9898\u7684\u8010\u5fc3\u3002\u96be\u5ea6\u7ea6\u4e3a\u5165\u95e8",
+        "postTime": 1651637608,
+        "uid": 342361,
+        "name": "Ender_beater",
+        "ccfLevel": 5,
+        "title": "CF1674B\u9898\u89e3"
+    },
+    {
+        "content": "\u6211\u4eec\u53ef\u4ee5\u76f4\u63a5\u5c06\u6bcf\u4e00\u79cd\u5b57\u7b26\u4e32\u6253\u4e00\u4e2a\u8868\uff0c\u7136\u540e\u5728\u67e5\u8be2\u5c31\u597d\u4e86\n\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n\nstring s[1060];\nvoid init(){\n\tint i=1;\n\tfor(char c1='a';c1<='z';c1++){//\u6253\u8868\u5b58\u4e0b\u6bcf\u4e2a\u4f4d\u7f6e\u7684\u5b57\u7b26\u4e32\n\t\tfor(char c2='a';c2<='z';c2++){\n\t\t\tif(c1==c2) continue;\n\t\t\tstring c=\"\";\n\t\t\tc=c+c1;\n\t\t\tc=c+c2;\n\t\t\ts[i++]=c;\n\t\t}\n\t}\n}\nconst int mod=1e9+7;\nint main(){\n\tinit();//\u628a\u5b57\u5178\u6253\u51fa\u6765\n\tint t; cin>>t;\n\twhile(t--){\n\t\t string ss; cin>>ss;\n\t\t for(int i=1;i<=650;i++){//\u67e5\u8be2\u6bcf\u4e2a\u5b57\u7b26\u5bf9\u5e94\u7684\u4f4d\u7f6e\n\t\t\tif(ss==s[i]){\n\t\t\t\tcout<<i<<endl;\n\t\t\t\tbreak;\n\t\t\t}\n\t\t }\n\t}\n\treturn 0;\n}\n\n```\n\n\n\u5f53\u7136\uff0c\u6211\u4eec\u8fd8\u6709\u66f4\u4f18\u7684\u505a\u6cd5\uff0c\u53ef\u4ee5\u518d $O(1)$ \u7684\u65f6\u95f4\u590d\u6742\u5ea6\u5185\u5b8c\u6210\u8fd9\u9053\u9898\n\n\n\n\n\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n\tint t; cin>>t;\n\twhile(t--){\n\t\tstring s; cin>>s;\n\t\tint ans=((s[0]-'a'))*25;//\u7b2c\u4e00\u4e2a\u5b57\u7b26\u6bcf\u52a0\u4e0a1\u5c31\u4ee3\u8868\u7740\u5728\u5b57\u5178\u4e2d\u52a0\u4e8625\n\t\tif((s[1]-'a')>=(s[0]-'a')) ans+=(s[1]-'a');//\u5982\u679c\u8d8a\u8fc7\u4e86\u4e24\u4e2a\u5b57\u6bcd\u90fd\u4e00\u6837\u7684\u5b57\u7b26\uff0c\u90a3\u5c31\u8981\u51cf1\n\t\telse ans+=(s[1]-'a')+1;\n\t\tcout<<ans<<endl;\n\t}\n}\n```\n",
+        "postTime": 1651637577,
+        "uid": 224960,
+        "name": "yzyjh",
+        "ccfLevel": 0,
+        "title": "CF1674B\tDictionary"
+    },
+    {
+        "content": "\u601d\u8def\uff1a\n\n\u5bf9\u4e8e\u6bcf\u4e2a\u5b57\u6bcd\uff0c\u4ee5\u5b83\u4e3a\u5f00\u5934\u5355\u8bcd\u6709 $25$ \u4e2a\u3002\n\n\u8bbe\u7ed9\u5b9a\u5355\u8bcd\u7b2c\u4e00\u4e2a\u5b57\u6bcd\u4e3a $x$\uff0c\u7b2c\u4e8c\u4e2a\u5b57\u6bcd\u4e3a $y$\u3002\n\n\u6240\u4ee5\u7b54\u6848\u53ef\u4ee5\u7531 $x$ \u524d\u9762\u5b57\u6bcd\u6570\u91cf\u4e58\u4e8c\u5341\u4e94\u52a0 $y$ \u5728 $x$ \u5b57\u6bcd\u5f00\u5934\u7684\u5355\u8bcd\u4e2d\u6392\u5230\u7684\u4f4d\u7f6e\u5f97\u5230\u3002\n\n\u6ce8\u610f\u4e0d\u8981\u628a\u4e24\u4e2a\u5b57\u6bcd\u76f8\u540c\u7684\u60c5\u51b5\u7b97\u8fdb\u53bb\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint T;\nchar x,y;\nsigned main(){\n\tios::sync_with_stdio(0),cin.tie(0),cout.tie(0);\n\tcin>>T;\n\twhile (T--){\n\t\tcin>>x>>y;\n\t\tcout<<(x-97)*25+(y-96)-(x<y)<<'\\n';\n\t}\n\treturn 0;\n}\n\n```\n",
+        "postTime": 1651655511,
+        "uid": 562686,
+        "name": "yeshubo_qwq",
+        "ccfLevel": 5,
+        "title": "CF1674B \u9898\u89e3"
+    },
+    {
+        "content": "# Preface\n\u849f\u84bb\u7684\u7b2c\u4e00\u7bc7 CF \u9898\u89e3\uff01\n# Translation\n\u6709\u4e00\u4e2a\u4e8c\u5143\u5b57\u7b26\u96c6\uff0c\u5b83\u5305\u62ec\u4e86\u6240\u6709\u957f\u5ea6\u4e3a\u4e8c\u4e14\u4e24\u4f4d\u4e0d\u76f8\u7b49\u7684\u7531\u5c0f\u5199\u5b57\u6bcd\u5b57\u7b26\u4e32\u3002\n\n\u7ed9\u5b9a\u4e00\u4e2a\u88ab\u5305\u62ec\u5728\u96c6\u5408\u4e2d\u7684\u5b57\u7b26\u4e32\uff0c\u6c42\u51fa\u5c06\u96c6\u5408\u6309\u5b57\u5178\u5e8f\u6392\u5e8f\u540e\u5b83\u7684\u6392\u540d\u3002\n\n# Analysis\n\u6211\u4eec\u53ef\u4ee5\u4ee5\u5b57\u7b26\u4e32\u7684\u9996\u5143\u7d20\u6765\u7f16\u201c\u7ae0\u8282\u201d\u3002\n\n$\\texttt{a}$ \u5728\u7b2c\u4e00\u7ae0\u3002\n\n$\\texttt{b}$ \u5728\u7b2c\u4e8c\u7ae0\u3002\n\n\u4ee5\u6b64\u7c7b\u63a8\u3002\n\n\u8bbe\u6b64\u5b57\u7b26\u4e32 $S = \\overline{s_1s_2}$\u3002\n\n\u5219 $S$ \u6240\u5728\u7ae0\u8282 ``p = s1 - 'a' + 1 ``\u3002\n\n\u518d\u62ff\u7b2c\u4e8c\u4f4d\u6765\u786e\u5b9a\u5b83\u5728\u672c\u7ae0\u8282\u4e2d\u7684\u4f4d\u7f6e\u3002\n\n\u4f46\u6ce8\u610f\uff0c\u7531\u4e8e\u7b2c\u4e8c\u4f4d\u4e0d\u80fd\u4e0e\u7b2c\u4e00\u4f4d\u76f8\u540c\uff0c\u6545\u5206\u4e8c\u7c7b\u8ba8\u8bba\u3002\n\n\u8bbe\u5176\u6240\u5728\u4f4d\u7f6e\u4e3a $q$\u3002\n\n* $s_2 > s_1$ \n\n    ``q = s2 - 'a' ``\n\n* $s_2 < s_1$\n\n    ``q = s2 - 'a' + 1``\n\n\u4e0d\u96be\u5f97\u5230\u6700\u7ec8\u6392\u540d $rk = 25 \\times (p-1) + q$\u3002\n\n\u4ee3\u7801\u5b9e\u73b0\u96be\u5ea6\u4e3a\u96f6\u3002",
+        "postTime": 1651650642,
+        "uid": 551375,
+        "name": "junxis",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3\uff1aDictionary"
+    }
+]

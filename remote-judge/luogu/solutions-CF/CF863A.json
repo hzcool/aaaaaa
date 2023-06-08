@@ -1,0 +1,98 @@
+[
+    {
+        "content": " ~~\u4e00\u9053\u9700\u8981\u4e00\u70b9\u601d\u60f3\u7684\u9898\u76ee~~QWQ\n\n[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/CF863A)\n\n\u672c\u9898\u601d\u8def\u5982\u4e0b\n\n\u56e0\u4e3an\u52a0\u4e0a\u524d\u5bfc0\u8981\u4f7f\u5176\u53d8\u6210\u56de\u6587\u6570\uff0c\u90a3\u4e48\u672b\u5c3e\u8981\u6709\u5bf9\u5e94\u76840\u3002\n\n\u90a3\u4e48\u505a\u6cd5\u4fbf\u662f n\u53bb\u6389\u540e\u7f000\u540e\uff0c\u662f\u56de\u6587\u6570\u4fbf\u8f93\u51fa\u201cYES\u201d\uff0c\u5426\u5219\u8f93\u51fa\u201cNO\"\u3002\n\n\u522b\u7684\u8bdd\u4fbf\u4e0d\u591a\u8bf4\u4e86\uff0c\u76f4\u63a5\u4e0a\u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n#define\tfo(a,b,c) for(int a=b;a<=c;++a)\n#define fr(a,b,c) for(int a=b;a>=c;--a)\n#define ll long long\nbool check(int n)//\u5224\u65adn\u662f\u5426\u4e3a\u56de\u6587\u6570 \n{\n\tint s=0,x=n;\n\twhile(x)\n\t{\n\t  s=s*10+x%10;\n\t  x/=10;\n\t}\n\tif(s==n)\n          return true;\n\telse\n    \t  return false;\t\n}\nint main()\n{\n\tint n;\n\tscanf(\"%d\",&n);\n\twhile(1)//\u5220\u540e\u7f000 \n\t{\n\t  int x=n%10;\n\t  if(x)break;\n\t  n/=10;\n\t}\n\tif(check(n))\n\t  cout<<\"YES\";\n\telse\n\t  cout<<\"NO\";\t\n    return 0;\n}\n\n```\n",
+        "postTime": 1606530946,
+        "uid": 427452,
+        "name": "dsaykc233",
+        "ccfLevel": 6,
+        "title": "CF863A\u9898\u89e3"
+    },
+    {
+        "content": "~~\u6da8\u4e2a\u5495\u503c\u6211\u5bb9\u6613\u5417~~\n\n\u8fd9\u9053\u9898\u662f\u8ba9\u6211\u4eec\u5728\u524d\u9762\u52a00\u4f7f\u5176\u6784\u6210\u4e00\u4e2a\u56de\u6587\u4e32\uff0c\u7531\u4e8e\u56de\u6587\u4e32\u662f\u5bf9\u79f0\u7684\uff0c\u6240\u4ee5\u5728\u524d\u9762\u52a00\u548c\u5728\u540e\u9762\u51cf0\u5bf9\u4e8e\u56de\u6587\u4e32\u6765\u8bf4\u662f\u4e00\u6837\u7684\uff0c\u6240\u4ee5\u6211\u4eec\u76f4\u63a5\u5c06\u4e32\u540e\u9762\u76840\u5168\u90e8\u53bb\u6389\uff0c\u5728\u5224\u65ad\u5269\u4e0b\u7684\u4e32\u662f\u4e0d\u662f\u56de\u6587\u5c31\u53ef\u4ee5\u4e86\u3002\n\n\u4e3b\u8981\u4ee3\u7801\uff1a\n```cpp\nfor (;i<=j;i++,j--) if (a[i]!=a[j]){printf (\"NO\");return 0;}\nprintf (\"YES\");\n```\n\u6b64\u5904\u7684i\u7b49\u4e8e\u7b2c1\u4e2a\u5b57\u7b26\u7684\u4e0b\u6807\uff08\u56e0\u4e3a\u9898\u76ee\u4e2d\u8bf4\u4e86\u4e0d\u4f1a\u53c8\u524d\u5bfc0\uff0c\u6240\u4ee5\u4e0d\u7528\u5224\u65ad\uff09\uff0cj\u662f\u4ece\u540e\u5f80\u524d\u7684\u7b2c\u4e00\u4e2a\u4e0d\u662f0\u7684\u5b57\u7b26\u7684\u4e0b\u6807\u3002\n\n\u5b8c\u6574\u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nchar a[15];\nint main (){\n\tscanf (\"%s\",a+1);\n\tint l=strlen(a+1),i=1,j;\n\tfor (j=l;j>=1&&a[j]=='0';j--);//\u6c42\u4ece\u540e\u5f80\u524d\u7684\u7b2c\u4e00\u4e2a\u4e0d\u662f0\u7684\u5b57\u7b26\u7684\u4e0b\u6807\n\tfor (;i<=j;i++,j--) if (a[i]!=a[j]){printf (\"NO\");return 0;}\n\tprintf (\"YES\");\n    return 0;\n}\n```\n~~\u4e0d\u6c42\u8d5e\uff0c\u4e0d\u6c42\u5173~~",
+        "postTime": 1603382269,
+        "uid": 253234,
+        "name": "houyinuo",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF863A \u3010Quasi-palindrome\u3011"
+    },
+    {
+        "content": "### \u4e0b\u9762\u7684\u9898\u89e3\u6211\u89c9\u5f97\u6bd4\u8f83\u4e71\uff0c\u6240\u4ee5\u5728\u8fd9\u91cc\u63d0\u4f9b\u4e00\u7bc7\u6e05\u6670\u4e00\u70b9\u7684\u3002\n\n\u5bf9\u4e8e\u51c6\u56de\u6587\u6570\u7684\u5b9a\u4e49\u662f\uff1a\u52a0\u4e0a\u82e5\u5e72\u4e2a\u524d\u5bfc0\uff08\u5305\u62ec0\u4e2a\uff09\u53ef\u4ee5\u4f7f\u5176\u53d8\u6210\u56de\u6587\u6570\u7684\u6570\u3002\n\n\u63a5\u4e0b\u6765\u6211\u4eec\u60f3\uff1a\u4e3a\u4ec0\u4e48\u8981\u52a0\u524d\u5bfc0\u5462\uff1f\u80af\u5b9a\u662f\u56e0\u4e3a\u540e\u9762\u67090\uff0c\u524d\u9762\u76840\u7684\u4f5c\u7528\u5c31\u662f\u4e3a\u4e86\u548c\u540e\u9762\u76840\u5f62\u6210\u5bf9\u79f0\u3002\n\n\n### \u6240\u4ee5\u6211\u4eec\u53ea\u8981\u628a\u540e\u9762\u76840\u5168\u90e8\u5220\u6389\uff0c\u770b\u770b\u5b83\u662f\u4e0d\u662f\u4e2a\u56de\u6587\u6570\u5c31\u53ef\u4ee5\u4e86\u3002\n\n\u5176\u539f\u7406\u5982\u4e0b\u56fe\uff1a\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/26i3gfrj.png)\n\n\u4e0a\u4ee3\u7801\uff1a\n\n```cpp\n#include<iostream>\n#include<string>\nusing namespace std;\nstring ss,s;int s_len;\nint main()\n{\n  cin>>s;s_len=s.size();\n  while(s[s_len-1]=='0'&&s_len>1)s_len--;\n  for(int i=s_len-1;i>=0;i--)ss+=s[i];\n  if(ss==s.substr(0,s_len))cout<<\"YES\";\n  else cout<<\"NO\";\n  return 0;\n}\n\n```\n",
+        "postTime": 1581067766,
+        "uid": 90971,
+        "name": "\u667a\u5b50\u00b7\u8d77\u6e90",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF863A \u3010Quasi-palindrome\u3011"
+    },
+    {
+        "content": "\u5927\u4f6c\u7684\u9898\u89e3\u90fd\u597d\u5927\u4f6c\uff0c\u5404\u79cd\u51fd\u6570\uff0c\u672c\u5b9d\u5b9d\u8868\u793a\u597d6P\n\n\u672c\u9898\u8ba9\u5728\u524d\u9762\u52a0\u4e0a\u82e5\u5e72\u4e2a0\uff0c\u5224\u65ad\u662f\u5426\u53ef\u4ee5\u6210\u4e3a\u56de\u6587\u4e32\uff0c\u90a3\u4e48\u6211\u4eec\u4e0d\u59a8\u53bb\u9664\u540e\u7f000\uff0c\u5728\u5224\u65ad\u662f\u4e0d\u662f\u56de\u6587\u4e32\n\n```cpp\n#include<bits/stdc++.h>//\u4e07\u80fd\u5934\u6587\u4ef6\nusing namespace std;\nstring str;//string\u7c7b\u578b\u7684\u66f4\u65b9\u4fbf\u4e00\u4e9b\nint main()\n{\n\tcin>>str;//string\u7c7b\u578b\u4e3aC++\u7279\u6709\uff0c\u6240\u4ee5\u4e0d\u80fd\u4f7f\u7528scanf\u8f93\u5165\n\tint len=str.length();//\u6c42\u51fastr\u7684\u957f\u5ea6\n\tfor(int i=len-1;i>=0;i--)//\u53bb\u9664\u540e\u7f000\u7684\u64cd\u4f5c\n\t{\n\t\tif(str[i]!='0')\n\t\t{\n\t\t\tlen=++i;//\u56e0\u4e3astring\u7c7b\u578b\u8f93\u5165\u65f6\u4ece\u7b2c0\u4f4d\u5f00\u59cb\u8f93\u5165\uff0c\u6240\u4ee5\u6b64\u5904\u9700\u8981\u8ba9len=i+1\n\t\t\tbreak;\n\t\t}\n\t}\n\tfor(int i=0;i<=len/2-1;i++)//\u5224\u65ad\u662f\u5426\u4e3a\u56de\u6587\u4e32\n\t{\n\t\tif(str[i]!=str[len-1-i])\n\t\t{\n\t\t\tcout<<\"NO\";\n\t\t\treturn 0;\n\t\t}\n\t}\n\tcout<<\"YES\";\n\treturn 0;\n}\n```",
+        "postTime": 1535930328,
+        "uid": 93488,
+        "name": "Porsche",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF863A \u3010Quasi-palindrome\u3011"
+    },
+    {
+        "content": "\u5176\u5b9e\u6211\u4eec\u53ea\u9700\u8981\u6309\u7167\u7a0b\u5e8f\u6a21\u62df\u5373\u53ef\uff0c\u8bfb\u5165\u4e00\u4e2a\u5b57\u7b26\u4e32\uff0c\u5728\u524d\u9762\u52a0\u524d\u5bfc0\uff0c\u540c\u65f6\u505a\u4e00\u4e2a\u5224\u65ad\u56de\u6587\u51fd\u6570\uff1a\n\n```cpp\nbool huiwen(string s)\n{\n    string x = s;\n    reverse(x.begin(), x.end());\n    return x == s;\n}\n\n```\n\u63a5\u4e0b\u6765511ms\u7684\u7b80\u5355\u4ee3\u7801\u6765\u5566\uff1a\n\n```cpp\n#include <iostream>\n#include <cstring>\n#include <algorithm>\nusing namespace std;\n\nstring s;\n\nbool huiwen(string s)//\u5224\u65ad\u662f\u5426\u56de\u6587\n{\n    string x = s;\n    reverse(x.begin(), x.end());\n    return x == s;\n}\n\nint main()\n{\n    cin >> s;\n    if(huiwen(s))\n    {\n        cout << \"YES\\n\";\n        return 0;\n    }\n    for(int i = 1; i <= 10; i++)//10\u904d\u5c31\u591f\u4e86\n    {\n        s = '0' + s;//\u6ce8\u610f\u662f'0'+ s\u4e0d\u662fs + '0'\n        if(huiwen(s))//\u5982\u679c\u662f\u56de\u6587\u5c31\u662fYES\n        {\n            cout << \"YES\\n\";//\u4e0d\u7136\u5c31\u662fNO\n            return 0;\n        }\n    }\n    cout << \"NO\\n\";\n    return 0;\n}\n```\n",
+        "postTime": 1602591653,
+        "uid": 332914,
+        "name": "happybob",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF863A \u3010Quasi-palindrome\u3011"
+    },
+    {
+        "content": "### **\u9898\u76ee**\n\u51c6\u56de\u6587\u6570\u662f\u8fd9\u6837\u4e00\u4e2a\u6570\u5b57\uff0c\u5728\u8fd9\u4e2a\u6570\u5b57\u7684\u524d\u9762\u6dfb\u52a0\u4e00\u4e9b\u524d\u5bfc0\uff08\u53ef\u80fd\u4e0d\u6dfb\u52a0\uff09\uff0c\u4f7f\u5b83\u53d8\u6210\u4e00\u4e2a\u56de\u6587\u4e32\u3002\u73b0\u5728\u7ed9\u4f60\u4e00\u4e2a\u6570\uff0c\u5224\u65ad\u662f\u5426\u4e3a\u51c6\u56de\u6587\u6570\u3002\n### **\u601d\u8def**\n\u65e2\u7136\u8bf4\u8981\u5728**\u524d\u9762\u6dfb\u52a00**\uff0c\u90a3\u6211\u4eec\u4e0d\u59a8\u628a**\u540e\u9762\u76840\u5168\u90e8\u5220\u9664**\uff0c\u518d\u5224\u65ad\u5220\u5b8c\u7684\u6570\u662f\u5426\u662f\u56de\u6587\u6570\u3002\n\n\u8003\u8651\u5230\u5224\u65ad\u56de\u6587\u6570\uff0c\u7528**\u5b57\u7b26\u4e32**\u66f4\u7b80\u4fbf\u3002\n\n\u5c06\u540e\u9762\u76840\u5168\u90e8\u5220\u9664\uff0c\u5c31\u8981\u7528\u5230\u4e00\u4e2a\u51fd\u6570\uff1a$delete$\u3002\n\n$delete$\u7684\u4f5c\u7528\uff1a\u4e3e\u4e2a\u6817\u5b50\uff0c$delete('123',2,1)$\u8868\u793a\u4ece**\u5b57\u7b26\u4e32**123\u4e2d\uff0c\u4ece\u7b2c\u4e8c\u4f4d\u5f00\u59cb\uff0c\u5220\u9664\u4e00\u4e2a\u3002\n\n\u90a3\u4e48\u5c06\u540e\u9762\u76840\u5168\u90e8\u5220\u9664\u8fd9\u4e00\u64cd\u4f5c\u7684\u4ee3\u7801\u4e5f\u5c31\u51fa\u6765\u4e86\uff08\u5982\u4e0b\uff09\n\n$while$ $n[length(n)]='0'$ $do$ $delete(n,length(n),1);$\n\n\u4e0a\u9762\u4e00\u4e2a\u7a0b\u5e8f\u7684\u89e3$(ren)$\u91ca$(hua)$\uff1a\u5f53**\u5b57\u7b26\u4e32**$n$\u7684\u6700\u540e\u4e00\u4f4d\u4e3a$0$\u65f6\uff0c\u5220\u9664\u6700\u540e\u4e00\u4f4d\u3002\n\n### **\u4ee3\u7801**\n```pascal\nvar\n  n:string;//\u5b9a\u4e49n\u5b57\u7b26\u4e32\n function work(n:string):string;//\u5224\u65ad\u56de\u6587\u6570\u7684\u51fd\u6570\n  var\n    i:longint;\n  begin\n    for i:=1 to length(n) div 2 do if n[length(n)-i+1]<>n[i] then exit('NO');//\u82e5\u4e0d\u6210\u56de\u6587\u6570\uff0c\u8f93\u51faNO\n    exit('YES');//\u6210\u56de\u6587\u6570\n  end;\nbegin\n  readln(n);//\u8bfb\u5165n\n  while n[length(n)]='0' do delete(n,length(n),1);//\u5220\u9664\u672b\u5c3e0\n  writeln(work(n));//\u8f93\u51fa\nend.//\u6c42\u8fc7QwQ\n```\n",
+        "postTime": 1589703391,
+        "uid": 324103,
+        "name": "Franka",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF863A \u3010Quasi-palindrome\u3011"
+    },
+    {
+        "content": "\u8fd9\u9898\uff0c\u6211\u4eec\u73c2\u4ee5\u6362\u4e00\u4e2a\u601d\u8def\uff0c\u5c31\u662f\u628a\u90a3\u4e2a\u6570\u7684\u672b\u5c3e\u7684 0 \u5220\u6389\uff0c\u7136\u540e\u5224\u65ad\u5b83\u662f\u5426\u662f\u56de\u6587\u6570\uff0c\u8fd9\u6837\u5c31\u73c2\u4ee5\u8282\u7701\u65f6\u95f4\u548c\u7a7a\u95f4\u3002\n\n\u5224\u65ad\u4e00\u4e2a\u6570\u662f\u5426\u662f\u56de\u6587\u6570\u7684\u4ee3\u7801\u5982\u4e0b\uff1a\n\n```pascal\nfunction pd(s:string):boolean;\nvar i:longint;//\u5b9a\u4e49\nbegin\nfor i:=1 to length(s)div 2{\u8fd9\u91cc\u8981\u7528 div 2 \uff0c\u56e0\u4e3a\u8fd9\u6837\u73c2\u4ee5\u8282\u7701\u65f6\u95f4} do\n  if(s[i]<>s[length(s)-i+1])then exit(false);//\u5982\u679c\u4e0d\u76f8\u7b49\uff0c\u9000\u51fa\uff0c\u8fd4\u56de\u9519\u8bef\nexit(true);\nend;\n```\n\nAC \u4ee3\u7801\uff1a\n\n```pascal\nvar s:string;\nk:longint;\nfunction pd(s:string):boolean;\nvar i:longint;\nbegin\nfor i:=1 to length(s)div 2 do\n  if(s[i]<>s[length(s)-i+1])then exit(false);\nexit(true);\nend;//\u5224\u65ad\nbegin\nreadln(s);//\u8bfb\u5165\nk:=length(s);\nwhile(k>0)and(s[k]='0')do begin delete(s,k,1);dec(k);end;//\u52200\nif(pd(s))then writeln('YES')\nelse writeln('NO');//\u5224\u65ad\u540e\u8f93\u51fa\nend.\n```",
+        "postTime": 1588397582,
+        "uid": 190978,
+        "name": "FR_qwq",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF863A \u3010Quasi-palindrome\u3011"
+    },
+    {
+        "content": "\u8fd9\u662f\u5f88\u4e45\u4ee5\u524d\u5199\u7684\u8fdc\u53e4\u9898\u89e3\n\n---\n\n\u7ed9\u4e00\u79cd\u66f4 _**STL**_ \u7684\u505a\u6cd5\n\n\u601d\u8def\u8fd8\u662f\u90a3\u6837\uff0c\u5220\u9664\u524d\u5bfc0\u4e4b\u540e\u5224\u65ad\u56de\u6587\u3002\n\n\u5220\u9664\u65f6\u53ef\u4ee5\u4f7f\u7528STL\u7684 _**erase**_ \u51fd\u6570\u5220\u9664\uff0cerase(pos,len)\u4ee3\u8868\u4ecepos\u4f4d\u5f00\u59cb\u5220\u9664len\u4f4d\n\n\u5224\u65ad\u56de\u6587\u65f6\u53ef\u4ee5\u91c7\u7528STL\u7684 _**reverse**_ \u51fd\u6570 ,reverse(s.begin(),s.end())\u4ee3\u8868\u5c06\u5b57\u7b26\u4e32s\u53cd\u8f6c\u3002\n\n\u4ee3\u7801\uff1a\n```\n#include<bits/stdc++.h>\n\nusing namespace std;\n\nstring s;\nbool check(string s)\n{\n\tstring s1=s;\n\treverse(s.begin(),s.end());\n\tif(s1==s)return true;\n\treturn false;\n}\n\nint main()\n{\n\tcin>>s;\n\tint l=s.length();\n\tint i=l-1;\n\twhile(s[i]=='0')\n\t{\n\t\ts.erase(i,1);\n\t\ti--;\n\t}\n\tif(check(s))cout<<\"YES\"<<endl;\n\telse cout<<\"NO\"<<endl;\n\n\treturn 0;\n}\n```",
+        "postTime": 1555331486,
+        "uid": 53807,
+        "name": "Erusel",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF863A \u3010Quasi-palindrome\u3011"
+    },
+    {
+        "content": "\u5176\u5b9e\u8fd9\u9898\u5c31\u662f\u57fa\u672c\u56de\u6587\u5b57\u7b26\u4e32\u8003\u5bdf\u3002\n\n\u57fa\u672c\u601d\u8def\uff1a\u5148\u5c06\u5b57\u7b26\u4e32\u672b\u5c3e\u76840\u5220\u53bb\uff08\u56e0\u4e3a\u6709\u51e0\u4e2a0\u90fd\u80fd\u52a0\u5728\u524d\u9762\uff09\uff0c\u7136\u540e\u5224\u65ad\u662f\u5426\u56de\u6587\u3002\n\n\u4ee3\u7801\uff1a\n\n```\n#include<iostream>\n#include<algorithm>\n#include<cstring>\nusing namespace std;\nint check(char a[])      //\u5224\u65ad\n{\n    int k=strlen(a);   //\u5148\u6c42\u51fa\u5b57\u7b26\u4e32\u957f\u5ea6\n    for(int i=k-1;i>=0;i--)     //\u4ece\u6700\u540e\u4e00\u4f4d\u5f80\u524d\u5faa\u73af\n    {\n        if(a[i]=='0') k--;     //\u5982\u679c\u4e3a0\u4f4d\u6570\u5c31\u51cf1\n        else break;      //\u5982\u679c\u4e0d\u662f0\u7acb\u523b\u9000\u51fa\n    }\n    for(int i=0;i<k;i++)    //\u56de\u6587\u5224\u65ad\n    {\n        if(a[i]!=a[k-i-1]) return 0;    //\u5982\u679c\u4e0d\u56de\u6587\u5c31\u8fd4\u56de0\n    }\n    return 1;   //\u56de\u6587\n}\nchar a[15];   //\u5b9a\u4e49\u6570\u7ec4\nint main()\n{\n    cin>>a;  //\u8f93\u5165\n    if(check(a)) cout<<\"YES\"<<endl;   //\u56de\u6587\u8f93\u51faYES\n    else cout<<\"NO\"<<endl;    //\u4e0d\u56de\u6587\u8f93\u51faNO\n    return 0;  //\u9000\u51fa\n}\n```",
+        "postTime": 1535364958,
+        "uid": 111502,
+        "name": "Core",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 CF863A \u3010Quasi-palindrome\u3011"
+    },
+    {
+        "content": "\u6b64\u9898\u672c\u8d28\u4e0a\u662f\uff1a**\u6c42\u4e00\u4e2a\u6570\u53bb\u6389\u540e\u7f00\u96f6\u540e\u662f\u5426\u662f\u56de\u6587\u4e32**\n\n\u56e0\u6b64\uff0c\u4ee3\u7801\u5206\u4e3a\uff1a\n```\n>>> \u8bfb\u5165\n>>> \u5220\u9664\u540e\u7f000\n>>> \u5224\u65ad\u56de\u6587\n\t>>> \u8f6c\u4e3a\u6570\u7ec4\u5b58\u50a8\n    >>> \u4f9d\u6b21\u6bd4\u8f83\u5f00\u5934\u548c\u7ed3\u5c3e\u662f\u5426\u76f8\u540c\uff08\u5934\u6307\u9488\u540e\u79fb\uff0c\u5c3e\u6307\u9488\u524d\u79fb\uff09\n>>> \u8f93\u51fa\u7ed3\u679c\n```\n\n\u6240\u4ee5\uff0c\u6211\u4eec\u6709\u4e86\uff1a\n```cpp\n#include <?????.?>\t\t//\u675c\u7edd\u6284\u88ad\uff01\n\n??? main()\t\t\t\t//\u675c\u7edd\u6284\u88ad\uff01\n{\n\tint n;\n    \n    //\u8bfb\u5165\n\tscanf(\"%d\", &n);\t\n    \n    //\u5220\u9664\u540e\u7f000\n\twhile (n % 10 == 0) n /= 10;\t\t\n    \n    int a[10], len = 0;\t\t//a\u5b58\u50a8\u6570\u7ec4\u5f62\u5f0f\u7684n\n    bool huiwen = true;\t\t//\u5220\u9664\u540e\u7f000\u7684n\u662f\u5426\u662f\u56de\u6587\n    \n    //\u8f6c\u4e3a\u6570\u7ec4\u5b58\u50a8\n\twhile (n != 0) a[m++] = n % 10, n /= 10;\n    \n    \n    //\u4f9d\u6b21\u6bd4\u8f83\u5f00\u5934\u548c\u7ed3\u5c3e\u662f\u5426\u76f8\u540c\uff08\u5934\u6307\u9488\u540e\u79fb\uff0c\u5c3e\u6307\u9488\u524d\u79fb\uff09\n\tfor (int i = 0, j = m - 1; i <= j; i++, j--)\n\t\tif (a[i] != a[j]) huiwen = false;\t\t\n        \n    //\u8f93\u51fa\n\tif (huiwen)\n    \tprintf(\"YES\");\n    else\n        printf(\"NO\");\n    return 0;\n} \navoiding plagiarism!\t\t\t\t\t\t//\u675c\u7edd\u6284\u88ad\uff01\n```",
+        "postTime": 1519722515,
+        "uid": 63720,
+        "name": "brealid",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF863A \u3010Quasi-palindrome\u3011"
+    },
+    {
+        "content": "## ~~\u65e5\u5e38\u6c34\u9898~~\n\u8fd9\u9053\u9898\u5341\u5206\u7684\u7b80\u5355\uff0c\u4e3b\u8981\u7684\u601d\u8def\u662f\u8c03\u8f6c\u5b57\u7b26\u4e32\u540e\u6839\u636e\u524d\u5bfc0\u6dfb\u52a0\u540e\u5bfc0\uff0c\u6700\u540e\u518d\u5224\u65ad\u5b57\u7b26\u4e32\u662f\u5426\u76f8\u7b49\uff0c\u4ee3\u7801\u5982\u4e0b\n```\n#include<iostream>\nusing namespace std;\nvoid turn(string &n)//\u81ea\u5b9a\u4e49\u7ffb\u8f6c\u51fd\u6570\uff0c\u5fc5\u987b&\uff01\u662f\u4f20\u5740\u8c03\u7528\n{\n\tstring a;\n\tfor(int i=n.length()-1;i>=0;i--)\n\t\ta+=n[i];//string\u7684\u597d\u5904\uff0c\u53ef\u4ee5\u76f4\u63a5\u52a0\u5230\u540e\u9762\u7684\uff01\uff01\n\tn=a;\n}\nint main()\n{\n\tstring n;cin>>n;\n\tturn(n);//\u5148\u7ffb\u8f6c\n    int begin=0;\n\twhile(n[begin]=='0') //\u524d\u5bfc0\u51b3\u5b9a\u5faa\u73af\uff0c\u800c\u5faa\u73af\u51b3\u5b9a\u6dfb\u52a0\u7684\u540e\u5bfc0\u4e2a\u6570\n\t\tn+='0',begin++;//string\u597d\u5904\uff0c\u53ef\u4ee5\u76f4\u63a5\u52a0\n\tstring b;\n\tb=n;//\u5148\u4fdd\u5b58n\n\tturn(n);//\u518d\u7ffb\u8f6c\n\tif(n==b) cout<<\"YES\";\n\telse cout<<\"NO\";\n\treturn 0;\n}\n```",
+        "postTime": 1519700038,
+        "uid": 69196,
+        "name": "SocietyNiu",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF863A \u3010Quasi-palindrome\u3011"
+    },
+    {
+        "content": "\u8fd9\u662f\u4e00\u9053\u5b57\u7b26\u4e32\u6a21\u62df\u9898\uff0c\u4e3a\u4e86\u5904\u7406\u524d\u5bfc\u96f6\u7684\u95ee\u9898\uff0c\u6211\u4eec\u53ef\u4ee5\u6309\u7167\u5b57\u7b26\u4e32\u7684\u5f62\u5f0f\u8bfb\u5165\u6570\u5b57\uff0c\u7edf\u8ba1\u5176\u7ed3\u5c3e'0'\u7684\u4e2a\u6570\u5e76\u5728\u5b57\u7b26\u4e32\u5f00\u5934\u8865\u4e0a\u76f8\u5e94\u4e2a\u6570\u7684'0'\u5e76\u5224\u65ad\u662f\u4e0d\u662f\u56de\u6587\u5373\u53ef\u3002\n\n\u4ee3\u7801:\n```\n#include <iostream>\n#include <string>\nusing namespace std; //\u5934\u6587\u4ef6\u548c\u547d\u540d\u7a7a\u95f4\nstring strReverse(string strOrigin){ //\u5b57\u7b26\u4e32\u53cd\u8f6c\u51fd\u6570\n\tif (strOrigin.length() == 0){\n\t\treturn \"\";\n\t}\n\tlong long i;\n\tstring ans;\n\tfor (i = strOrigin.length() - 1; i >= 0; --i) ans += strOrigin[i];\n\treturn ans;\n}\nstring CreateRequiedString(long long nCount, char chrChrarater){ //\u6839\u636e\u7ed9\u5b9a\u7684\u5b57\u7b26chrChrarater\u521b\u5efa\u6307\u5b9a\u957f\u5ea6\u7684\u5b57\u7b26\u4e32\n\tint i;\n\tstring sAns;\n\tfor (i = 1; i <= nCount; ++i)\n\t\tsAns += chrChrarater;\n\treturn sAns;\n}\nint main(){\n\tios::sync_with_stdio(false); //\u8f93\u5165\u8f93\u51fa\u52a0\u901f\n\tstring sNum; //\u5b57\u7b26\u4e32\u5f62\u5f0f\u7684\u6570\u5b57\n\tint i, nZero=0, iLength; //i-\u5faa\u73af\u8ba1\u6570\u5668\uff1bnZero-\u5b57\u7b26\u4e32\u672b\u5c3e'0'\u7684\u4e2a\u6570\uff1biLength-\u5b57\u7b26\u4e32\u957f\u5ea6\n\tcin >> sNum; //\u8bfb\u5165\u6570\u5b57\n\tiLength = sNum.length(); //\u8ba1\u7b97\u957f\u5ea6\n\tfor (i = iLength - 1; i >= 0; --i){ //\u5012\u5e8f\u904d\u5386\u5b57\u7b26\u4e32\uff0c\u7edf\u8ba1\u5176\u7ed3\u5c3e'0'\u7684\u4e2a\u6570\n\t\tif (sNum[i] == '0') //\u662f'0'\n\t\t\t++nZero; //\u4e2a\u6570\u52a01\n\t\telse //\u5426\u5219\n\t\t\tbreak; //\u7ed3\u675f\u5faa\u73af\n\t}\n\tsNum = CreateRequiedString(nZero, '0') + sNum; //\u5728\u5b57\u7b26\u4e32\u5f00\u5934\u8865\u4e0a\u76f8\u5e94\u4e2a\u6570\u7684'0'\n\tif (sNum == strReverse(sNum)) //\u5224\u65ad\u662f\u4e0d\u662f\u56de\u6587\n\t\tcout << \"YES\";\n\telse\n\t\tcout << \"NO\";\n\treturn 0; //\u7ed3\u675f\n}\n```",
+        "postTime": 1519628802,
+        "uid": 74038,
+        "name": "PC_DOS",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF863A \u3010Quasi-palindrome\u3011"
+    }
+]

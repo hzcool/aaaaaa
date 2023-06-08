@@ -1,0 +1,18 @@
+[
+    {
+        "content": "## \u9898\u76ee\u601d\u8def\n\n\u7531\u4e8e\u672c\u9898\u7b54\u6848\u6709\u591a\u79cd\u65f6\u53ef\u4ee5\u4efb\u610f\u6570\u51fa\u4e00\u79cd\uff0c\u90a3\u4e48\u53ef\u4ee5\u8003\u8651\u6781\u7aef\u60c5\u51b5\u3002\n\n\u5047\u8bbe Alex \u4ece\u7b2c a \u5929\u5f00\u59cb\uff0c\u6bcf\u5929\u8bfb\u4e00\u7ae0\uff0c\u82e5\u679c\u8bfb\u5230\u4e86\u7b2c c \u5929\u8bfb\u7684\u7ae0\u8282\uff0c\u5c31\u6bcf\u5929\u91cd\u590d\u8bfb\u6b64\u7ae0\u3002\u8fd9\u6837\u53ef\u4ee5\u786e\u4fdd\u8fd9\u4e2a\u65b9\u6848\u662f\u5408\u6cd5\u7684\u3002\n\n\u4e8e\u662f\u5c31\u53d8\u6210\u5f53 $b-a>Vc-Va$ \u65f6\uff0c\u7b2c b \u5929\u8bfb\u7b2c $Vc$ \u7ae0\uff0c\u5426\u5219\u8bfb\u7b2c $Va+(b-a)$ \u7ae0\u3002\n\n## kotlin\u4ee3\u7801\n\n```\nimport java.util.Scanner\nfun main() {\n    val read = Scanner(System.`in`)\n    var n = read.nextInt()\n    while(n>0){\n        n--\n        var z=read.nextInt()\n        var d1=read.nextInt()\n        var v1=read.nextInt()\n        var d2=read.nextInt()\n        var v2=read.nextInt()\n        var b=read.nextInt()\n        if(b-d1>=v2-v1) println(v2)\n        else println(v1+b-d1)\n    }\n}\n```\n",
+        "postTime": 1640082303,
+        "uid": 361373,
+        "name": "Arefa",
+        "ccfLevel": 6,
+        "title": "CF1571B\u9898\u89e3"
+    },
+    {
+        "content": "> Alex \u4e70\u4e86\u4e00\u672c $n$ \u7ae0\u7684\u5c0f\u8bf4\uff0c\u4e3a\u4e86\u4fdd\u8bc1\u5185\u5bb9\u7684\u8fde\u7eed\u6027\uff0c\u4ed6\u4e0d\u4f1a\u8df3\u7ae0\u770b\uff0c\u4e5f\u4e0d\u4f1a\u56de\u5934\u770b\uff0c\u6bcf\u4e00\u7ae0\u53ef\u80fd\u4f1a\u8bfb\u4e00\u5929\u6216\u591a\u4e8e\u4e00\u5929\uff0c\u4f46\u4e00\u5929\u4e0d\u4f1a\u8bfb\u591a\u9875\u3002\u7b2c\u4e00\u5929\u4ed6\u8bfb\u7b2c $1$ \u7ae0\u3002\n>\n> \u5df2\u77e5 Alex \u5728\u7b2c $a$ \u5929\u8bfb\u7b2c $v_a$ \u7ae0\uff0c\u7b2c $c$ \u5929\u8bfb\u7b2c $v_c$ \u7ae0\uff0c\u8bf7\u5224\u65ad\u5728\u7b2c $b\\ (a < b < c)$ \u5929\u4ed6\u5728\u8bfb\u7b2c\u51e0\u7ae0\uff0c\u8f93\u51fa\u4efb\u610f\u53ef\u80fd\u89e3\u3002\n> \n> \u6570\u636e\u8303\u56f4\uff1a$1\\le t\\le 100$\uff0c$1\\le n\\le 100$\uff0c$1\\le a\\le 98$\uff0c$1\\le v_a \\le a$\uff0c$a+2\\le c\\le 100$\uff0c$v_a\\le v_c\\le c$\u3002\n\n\u8bbe\u7b2c $b$ \u5929\u5728\u770b $v_b$ \u7ae0\uff0c\u6211\u4eec\u6ce8\u610f\u5230\u7b26\u5408\u6761\u4ef6\u7684 $v_b$ \u4e00\u5b9a\u6ee1\u8db3\uff1a\n\n- $v_a \\le v_b \\le v_c$\n  - $v_b$ \u4e00\u5b9a\u662f\u7b2c $v_a$ \u7ae0\u6216\u4e4b\u540e\u7684\u7ae0\u8282\uff0c\u662f\u7b2c $v_c$ \u7ae0\u6216\u4e4b\u524d\u7684\u7ae0\u8282\u3002\n- $v_b - v_a \\le b - a$\n  - \u6ce8\u610f\u5230\u6bcf\u5929\u6700\u591a\u53ea\u80fd\u770b\u4e00\u7ae0\uff0c\u6240\u4ee5\u5728 $a\\sim b$ \u5929\u6700\u591a\u53ea\u4f1a\u770b $b - a + 1$ \u7ae0\uff0c\u6240\u4ee5\u8981\u6ee1\u8db3 $v_b - v_a + 1 \\le b - a + 1$\uff0c\u5373 $v_b - v_a \\le b - a$\u3002\n- $vc - vb \\le c - b$\n  - \u4e0e\u4e0a\u4e00\u4e2a\u540c\u7406\u3002\n\n\u90a3\u4e48\u53ef\u4ee5\u76f4\u63a5\u5728 $v_a$ \u548c $v_c$ \u4e4b\u95f4\u66b4\u529b\u679a\u4e3e $v_b$\uff0c\u5224\u65ad\u662f\u5426\u7b26\u5408\u7b2c $2, 3$ \u4e2a\u6761\u4ef6\u5373\u53ef\u3002\n\n```kotlin\nfun main() {\n  val t = readLine()!!.toInt()\n  repeat(t) {\n    val n = readLine()!!.toInt()\n    val (a, va) = readLine()!!.split(' ').map { it.toInt() }.toIntArray()\n    val (c, vc) = readLine()!!.split(' ').map { it.toInt() }.toIntArray()\n    val b = readLine()!!.toInt()\n    for (vb in va..vc) {\n      if (vb - va <= b - a && vc - vb <= c - b) {\n        println(vb)\n        break\n      }\n    }\n  }\n}\n```",
+        "postTime": 1659517886,
+        "uid": 219791,
+        "name": "tZERO\u3061\u3083\u3093",
+        "ccfLevel": 0,
+        "title": "CF1571B Epic Novel"
+    }
+]

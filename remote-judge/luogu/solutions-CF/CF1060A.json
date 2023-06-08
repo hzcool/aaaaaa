@@ -1,0 +1,50 @@
+[
+    {
+        "content": "\u7b2c\u4e00\u7bc7\u9898\u89e3\u5199\u5f97\u6ca1\u6cd5\u770b\u554aQAQ\n\n\u90a3\u840c\u65b0\u6765\u8bf4\u8bf4\u601d\u8defQAQ\n\n\u6839\u636e\u9898\u76ee\uff0c\u4e00\u4e2a\u7535\u8bdd\u53f7\u7801\u7b2c\u4e00\u4f4d\u4e00\u5b9a\u662f\u4e00\u4e2a$8$\uff0c\u90a3\u4e48\u4ece\u8d2a\u5fc3\u7684\u89d2\u5ea6\u6765\u8bf4\uff0c\u6211\u4eec\u628a\u6240\u6709\u7684$8$\u5f80\u524d\u653e\u3002\n\n\u518d\u8003\u8651\u7ed9\u51fa\u4e86$n$\u4e2a\u5b57\u7b26\uff0c\u6240\u4ee5\u6700\u591a\u6709$n/11$\uff08\u4e0b\u53d6\u6574\uff09\u4e2a\u53f7\u7801\u3002\n\n\u56e0\u6b64\u7b54\u6848\u662f\u4e0a\u8ff0\u4e24\u4e2a\u4e1c\u897f\u7684\u6700\u5c0f\u503c\u3002\n\n\u4ee3\u7801\uff1a\n```cpp\n#include<iostream>\n#include<cstdio>\n#include<string>\nusing namespace std;\nstring s;\nint l,e,ans;\nint mian()\n{\n    cin>>l;\n    cin>>s;\n    for(int i=0;i<l;i++) if(s[i]=='8') e++;\n    ans=min(l/11,e);\n    cout<<ans<<endl;\n    return 0;\n}\n```",
+        "postTime": 1538871061,
+        "uid": 28910,
+        "name": "\u89c8\u904d\u5343\u79cb",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF1060A \u3010Phone Numbers\u3011"
+    },
+    {
+        "content": "## \u601d\u8def:\n\n1.\u7531\u4e8e\u5361\u7247\u4e0d\u80fd\u91cd\u590d\uff0c\u4e14\u6bcf\u4e00\u4e2a\u7535\u8bdd\u53f7\u7801\u90fd\u662f$11$\u4f4d\uff0c\u6240\u4ee5\u6700\u591a\u53ef\u4ee5\u7ec4\u6210$n / 11$\u4e2a\u7535\u8bdd\u53f7\u7801\n\n2.\u9898\u76ee\u4e2d\u8981\u6c42\u6bcf\u4e00\u4e2a\u7535\u8bdd\u53f7\u7801\u7684\u5f00\u5934\u6570\u5b57\u4e3a$8$\uff0c\u6240\u4ee5\u904d\u5386\u7ed9\u51fa\u7684\u5361\u7247\u5f97\u5230$8$\u51fa\u73b0\u7684\u6b21\u6570\n\n3.\u4e24\u4e2a\u6761\u4ef6\u5fc5\u987b\u540c\u65f6\u6ee1\u8db3\u3002\n\n\u5982\u679c\u4e00\u5171\u6709$55$\u4e2a\u5361\u7247\uff0c\u800c\u4e3a$8$\u7684\u5361\u7247\u53ea\u6709\u4e24\u5f20\uff0c\u6700\u591a\u4e5f\u53ea\u80fd\u7ec4\u6210$2$\u7ec4\u7535\u8bdd\u53f7\u7801\n\n\u540c\u7406\uff0c\u5982\u679c$8$\u6709$5$\u5f20\uff0c\u800c\u4e00\u5171\u53ea\u6709$22$\u5f20\u5361\u7247\uff0c\u6700\u591a\u53ea\u80fd\u7ec4\u6210$2$\u7ec4\u7535\u8bdd\u53f7\u7801\n\n\u6240\u4ee5\u53ea\u8981\u8f93\u51fa\u4e24\u8005\u6700\u5c0f\u503c, \u4e5f\u5c31\u662f$min(n / 11, ans)$\u5373\u53ef  (ans\u6307\u5361\u7247\u4e2d$8$\u7684\u6570\u91cf)\n\n## Code:\n\n### python:\n```python\nn = int(input()) \ns = input() #\u8f93\u5165n\u5f20\u5361\u7247\nans = 0 #\u8ba1\u6570\u5668\u521d\u59cb\u5316\nfor i in range(0, n) : #\u904d\u5386\u5361\u7247\n    if s[i] == '8' : #\u5982\u679c\u53d1\u73b0\u662f8\u7684\u5361\u7247\n        ans = ans + 1 #\u8ba1\u6570\u5668+1\nprint(int(min(n / 11, ans))) #\u8f93\u51fa\u4e24\u8005\u6700\u5c0f\u503c\n\n```\n### C++:\n``` cpp\n#include <iostream>\n#include <algorithm>\nusing namespace std;\nstring s;\nint main() {\n    int n, ans = 0; //\u8ba1\u6570\u5668\u521d\u59cb\u5316\n    cin >> n >> s; //\u8f93\u5165\u5361\u7247\n    n /= 11; //\u8ba1\u7b97\u5361\u7247\u6700\u591a\u80fd\u7ec4\u6210\u591a\u5c11\u7ec4\u7535\u8bdd\u53f7\u7801\n    for (int i = 0; i < s.size(); i++) {\n        if (s[i] == '8') {\n            ans++; //\u5982\u679c\u6709\u5361\u7247\u4e3a8\uff0c\u8ba1\u6570\u5668++\n    }\n    cout << min(ans, n) << endl; //\u8f93\u51fa \u5361\u7247\u7ec4\u6210\u7535\u8bdd\u53f7\u7801\u7684\u7ec4\u6570 \u4e0e \u4e3a8\u7684\u5361\u7247 \u7684\u6700\u5c0f\u503c\n    return 0;\n}\n\n```\n",
+        "postTime": 1615598846,
+        "uid": 305769,
+        "name": "cxqghzj",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1060A \u3010Phone Numbers\u3011"
+    },
+    {
+        "content": "# \u9898\u89e3 CF1060A \n\nemmm\u8fd9\u9053\u9898\u60f3\u660e\u767d\u5c31\u597d\u4e86\uff0c\u6709\u53ef\u80fd\u67095\u4e2a8\uff0c\u4f46\u662f\u53ef\u80fd\u5c31\u53ea\u80fd\u7ec4\u6210\u4e24\u4e2a\u7535\u8bdd\u53f7\u7801\u3002\u6240\u4ee5\u5c31\u53ea\u80fd\u662f2\u3002\u4f46\u662f\u5462\uff0c\u5982\u679c\u53ef\u4ee5\u7ec4\u62105\u7ec4\u7535\u8bdd\u53f7\u7801\uff0c\u4e0d\u8fc7\u53ea\u67092\u4e2a8\uff0c\u90a3\u4e5f\u53ea\u80fd\u7ec4\u62102\u4e2a\u3002\u627e\u8fd9\u4e4b\u95f4\u7684\u4e24\u8005\u7684\u6700\u5c0f\u503c\u5c31\u597d\u4e86\n\n# \u4ee3\u7801\n```c\n#include<iostream>\n#include<cstdio>\n#include<cstring>\n#include<cmath>\n#include<algorithm>\nusing namespace std;\n\nint n;\nchar s[101];\n\nint main()\n{\n\twhile (scanf(\"%d\", &n) != EOF) {\n\t\tint count = 0;\n\t\tscanf(\"%s\", s); \n\t\tfor (int i = 0; i < n; i++) {\n\t\t\tif (s[i] == '8') count++;\n\t\t}\n\t\tint ans = n/11;\n\t\tcout << min(count,ans) << endl; \n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1601970386,
+        "uid": 371178,
+        "name": "Fan_Tuan",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 CF1060A \u3010Phone Numbers\u3011"
+    },
+    {
+        "content": "## \u601d\u8def\n\u56e0\u4e3a\u4e00\u4e2a\u7535\u8bdd\u53f7\u7801\u7b2c\u4e00\u4f4d\u4e00\u5b9a\u662f $8$\uff0c\u6240\u4ee5\u8981\u7edf\u8ba1 $8$ \u7684\u4e2a\u6570\u3002\u53c8\u56e0\u4e3a\u5361\u7247\u4e0d\u80fd\u91cd\u590d\u4f7f\u7528\uff0c\u6240\u4ee5\u7535\u8bdd\u53f7\u7801\u7684\u4e2a\u6570\u6700\u591a\u4e5f\u53ea\u6709 $n/11$ \u4e2a\u3002\u6240\u4ee5\u7535\u8bdd\u53f7\u7801\u7684\u4e2a\u6570\u5c31\u662f\u4ed6\u4eec\u4e24\u4e2a\u7684\u6700\u5c0f\u503c\u4e86\u3002\n\n## \u4ee3\u7801\n```cpp\n#include<iostream>\n#include<cstdio>\nusing namespace std;\nint main(){\n\tint n,i,s=0;\n\tchar a;\n\tcin>>n;\n\tfor(i=1;i<=n;i++){\n\t\tcin>>a;\n\t\tif(a=='8')\n\t\t\ts++;//\u7edf\u8ba18\u7684\u4e2a\u6570\n\t}\n\tint ans=min(n/11,s);\n\t\tcout<<ans;\n\treturn 0;\n}\n```\n\u5b8c\u7ed3\u6492\u82b1\uff01\uff01\n\n\n",
+        "postTime": 1622438251,
+        "uid": 477058,
+        "name": "kevin24",
+        "ccfLevel": 5,
+        "title": "CF1060A"
+    },
+    {
+        "content": "###### ~~\u9898\u89e3\u5c31\u53ea\u6709\u4e24\u7bc7\uff1f~~\n#### \u5148\u522b\u6025\u7740\u770b\u4ee3\u7801\uff0c\u7406\u89e3\u601d\u8def\u3002\n### 1.\u65b9\u6cd5\u662f\u4ec0\u4e48\uff1f\n### \u7535\u8bdd\u53f7\u7801\u7b2c\u4e00\u4f4d\u662f8\uff0c\u628a\u6240\u6709\u76848\u5f80\u524d\u653e\u3002\u56e0\u4e3an>=11,\u6240\u4ee5\u81f3\u5c11\u6709n/11\u79cd\u53f7\u7801\u3002\n#### \u5148\u6c42\u51fan/11\u7684\u503c\uff08n>=11),\u518d\u6c42\u51fa8\u7684\u4e2a\u6570\uff08\u5f00\u5934\uff09\uff0c\u6700\u540e\u6c42\u5b83\u4eec\u7684\u6700\u5c0f\u503c\u3002\n### 2.code\n```cpp\n#include<cstdio>\n#define min(a,b)a<b?a:b\nint n,cnt,len;char c[10086];\nint main()\n{\n\tscanf(\"%d\",n);\n\twhile((c[0]=getchar())>32||c[0]<126);\n\twhile((c[len++]=getchar())>=32&&c[len++]<=126);\n\tfor(int i=1;i<=n;i++)if(c[i]=='8')cnt++;\n\tprintf(\"%d\",min(n\\11,cnt));\n}\n```\n\n",
+        "postTime": 1569989511,
+        "uid": 121995,
+        "name": "SmallTualatin",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1060A \u3010Phone Numbers\u3011"
+    },
+    {
+        "content": "## T1\n\u88f8\u9898\uff0c\u7136\u800c\u4ea4\u4e867\u6b21\n\n\u7070\u5e38\u5bb9\u6613\uff01\n\n\u679a\u4e3e$8$\u4e2a\u6570\u8ba1\u7b97\u503c\u5e76\u66f4\u65b0\u6700\u5927\u503c\n\n\u6ce8\u610f\u4e0d\u80fd\u76f4\u63a5\u8f93\u51fa$min(8\\text{\u7684\u4e2a\u6570},((N-(8\\text{\u7684\u4e2a\u6570)})/10))$\n\n\u5982\u4e0b\uff1a\n```cpp\n18\n888888888324353326\n```\n### \u5f02\u5e38\u4e11\u964b\u5e38\u6570\u5927\u7684\u4e00\u6279\u7684Demo:\n```cpp\n#include<cstdio>\n#include<iostream>\n#include<cmath>\nusing namespace std;\nint num[9] ;\nint main(){\n\tint N;\n\tscanf(\"%d\",&N);\n\tint M = N ;\n\tgetchar();\n\twhile(N--){\n\t\tint c = getchar();\n\t\tnum[c-'0']++;\n\t}\n\tint maxv = 0;\n\tfor(int i=0;i<=num[8];++i)\n\t\tmaxv = max(min((M-i)/10,i),maxv) ;\n\tprintf(\"%d\\n\",maxv) ; \n\treturn 0;\n}\n```",
+        "postTime": 1538697119,
+        "uid": 107494,
+        "name": "cecilia_sankta",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1060A \u3010Phone Numbers\u3011"
+    }
+]

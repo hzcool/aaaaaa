@@ -1,0 +1,50 @@
+[
+    {
+        "content": "\u8fd9\u9053\u7edd\u5bf9\u662f\u5165\u95e8\u9898\n\n\n\u770b\u9898\u76ee\u6570\u636e\u8303\u56f4\n\n\n\n\n2 ^30 = 1073741824\n\n$ m < 10 ^ 8$ \n\n\u5f53$ n = 30 $\u65f6, $ m < $  2 ^ 30\n\n\n\u6240\u4ee5\u5f53$ n >= 30 $ \u65f6, \u76f4\u63a5\u8f93\u51fa$ m $ \u5373\u53ef\n\n\n\u4ee3\u7801\uff1a\n\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;    //BY Playnext\n#define REG register\n\nint main () {\n//    freopen (\"Input.txt\", \"r\", stdin);\n//    freopen (\"Output.txt\", \"w\",stdout);\n    REG int n, m;\n    scanf (\" %d %d\", &n, &m);\n    if (n >= 30)    printf (\"%d\\n\", m);\n    else    printf (\"%d\\n\", m % (1<<n));    //1<<n \u76f8\u5f53\u4e8e 2^n\n    return 0;\n}\n```",
+        "postTime": 1517268392,
+        "uid": 51658,
+        "name": "Playnext",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF913A \u3010Modular Exponentiation\u3011"
+    },
+    {
+        "content": "\u65e2\u7136\u6ca1\u6709python\u90a3\u5c31\u8ba9\u849f\u84bb\u6211\u6765\u6c34\u4e00\u53d1\n\n\u5f53n\u592a\u5927\u7684\u65f6\u5019\u8f93\u51fam\uff0c\u5269\u4e0b\u7684\u76f4\u63a5\u6a21\u62df\uff08\u5c31\u662f\u8dd1\u7684\u6bd4\u8f83\u6162\uff0c\u4ee3\u7801\u662f\u77ed\u7684\uff09\n```python\na=int(input())\nb=int(input())\nif a>30:\n    print(b)\nelse:\n    print(b%(2**a))\n\n```",
+        "postTime": 1524191119,
+        "uid": 83859,
+        "name": "wky32768",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF913A \u3010Modular Exponentiation\u3011"
+    },
+    {
+        "content": "\u554a\uff0c\u8fd9\u9898\u6ca1\u60f3\u5230\u90a3\u4e48\u5bb9\u6613\uff08\u5c45\u7136\u4e0d\u4f1a\u8d85\u65f6\u554a\uff09\n\n\u90a3\u4e48\uff0c\u6211\u5c31\u4e0d\u5ba2\u6c14\u4e86\uff01\n\n```cpp\n#include<iostream>\n#include<cmath>//pow\u8981\u7528\u5230\nusing namespace std;\nint main()\n{\n\tint m,n;//\u5b9a\u4e49\n\tcin>>n>>m;//\u8f93\u5165\n\tint x=pow(2,n);//\u56e0\u4e3apow\u4e0d\u80fd\u76f4\u63a5\u53c2\u4e0emod\uff0c\u6240\u4ee5\u628a\u4ed6\u8d4b\u503c\u7ed9x\uff0c\u518d\u8ba9x\u53c2\u4e0emod\u5566\n\tcout<<m%x;//\u76f4\u63a5\u8f93\u51fa\n\treturn 0;//\u5c31\u8fd9\u4e48\u7ed3\u675f\u4e86\u2026\u2026\n}\n```",
+        "postTime": 1541677197,
+        "uid": 51386,
+        "name": "return\u5148\u751f",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF913A \u3010Modular Exponentiation\u3011"
+    },
+    {
+        "content": "\u7b2c\u4e00\u773c\u5f88\u5bb9\u6613\u88ab\u770b\u6210\u5feb\u901f\u5e42\uff0c\u4f46\u662f\u770b\u5230$n,m$\u7684\u6570\u636e\u8303\u56f4\u53ef\u4ee5\u53d1\u73b0\u8fd9\u662f\u4e00\u9053\u6a21\u62df\u9898\u3002\n\n\u5148\u53ef\u4ee5\u53d1\u73b0\u5728$n>30$\u7684\u65f6\u5019\u7684\u7ed3\u679c\u4e00\u5b9a\u662f$m$\uff0c\u5728$n<=30$\u65f6\u53ef\u4ee5\u8ba1\u7b97\u51fa$2^n$\uff0c\u518d\u8fdb\u884c%\u8fd0\u7b97\u3002\n\n\u5f88\u591a70\u5206\u7684dalao\u90fd\u662f\u70b8\u5728$n>30$\u3002\n```pascal\nvar\n  n,m,sum,i:longint;\nbegin\n  readln(n,m);\n  if n>30 then writeln(m)\n  else\n  begin\n    sum:=1;\n    for i:=1 to n do\n      sum:=sum*2;\n    writeln(m mod sum);\n  end;\nend.\n```\n",
+        "postTime": 1517740638,
+        "uid": 13745,
+        "name": "kanloner",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF913A \u3010Modular Exponentiation\u3011"
+    },
+    {
+        "content": "## \u4e00\u9053\u6bd4\u8f83\u7b80\u5355\u7684\u9898\n### \u5f88\u591a\u4eba\u76843\u4e2a\u70b9\u4f1aRE,\u56e0\u4e3a\u5982\u679cn>=30\u53ef\u4ee5\u76f4\u63a5\u8f93\u51fam\n##### \u4ee3\u7801\u5949\u4e0a\uff1a\n      VAR c,n,m:Qword;\n    begin\n      readln(n);//\u8f93\u5165n\n      read(m);//\u8f93\u5165m\n      if n<30 then//\u5982\u679cn>=30\u76f4\u63a5\u8f93\u51fam\n       begin\n       c:=2;//c\u4f5c\u4e3a\u4e58\u6570\u4e0d\u80fd\u662f0\n       n:=n-1;//\u8981\u628an-1\n       while n<>0 do//\u8ba1\u7b97\u8981\u9664\u7684\u6570\n       begin\n       c:=c*2;\n       n:=n-1;\n       end;\n       writeln(m mod c);//\u8f93\u51fa\n       end\n      else//\u5426\u5219\n      writeln(m)\uff1b//\u5982\u679cn>=30\u8f93\u51fam\n    end.//\u7ed3\u675f  ",
+        "postTime": 1517559722,
+        "uid": 70299,
+        "name": "Andysun06",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF913A \u3010Modular Exponentiation\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u6211\u672c\u6765\u6628\u5929\u665a\u4e0a\u5c31\u5199\u597d\u4e86\uff0c\u63d0\u4ea4\u540e\u4e00\u76f4Judging\u3002\u3002\n\n\u4eca\u5929\u6211\u767b\u4e0a\u6765\uff0c\u7ec8\u4e8e\u597d\u4e86\u3002\n\n\u770b\u7b2c\u4e00\u7bc7\u9898\u89e3\uff0c\u611f\u89c9\u770b\u4e0d\u61c2\u3002\u3002\n\n\u6240\u4ee5\uff0c\u6211\u51c6\u5907\u5199\u4e00\u7bc7\u7b80\u5355\u6613\u61c2\u7684\u9898\u89e3\uff08\u96fe\uff09\u3002\u3002\n\n\n\u4e0b\u9762\u6765\u4ecb\u7ecd\u6211\u7684\u601d\u8def\u5427\u3002\n\n\n\u9996\u5148\uff0c\u6211\u5b9a\u4e49\u4e00\u4e2a\u53d8\u91cfx\u4e3a2\u7684n\u6b21\u65b9\u3002\n\n\n\u518d\u5b9a\u4e49\u4e00\u4e2aint\u7c7b\u578b\u7684\u53d8\u91cf$ans$\u4e3a$m/x$\n\n\n\u7136\u540e\uff0c\u518d\u5b9a\u4e49\u4e00\u4e2aint\u7c7b\u578b\u7684\u53d8\u91cf$ans1$\u4e3a$m - ans * x$\n\n\n\u518d\u8f93\u51fa $ans1$\u5373\u53ef\u3002\n\n\n$code$\n\n```cpp\n#include <cmath>\n#include <cstdio>\nusing namespace std;\nint main() {\n    int n, m;\n    scanf(\"%d\", &n);\n    scanf(\"%d\", &m);\n    long long x = pow(2, n);\n    int ans = m / x;\n    int ans1 = m -ans * x;\n    printf(\"%d\", ans1);\n    return 0;\n}\n```",
+        "postTime": 1517295261,
+        "uid": 46747,
+        "name": "Aehnuwx",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF913A \u3010Modular Exponentiation\u3011"
+    }
+]

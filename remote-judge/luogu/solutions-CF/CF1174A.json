@@ -1,0 +1,66 @@
+[
+    {
+        "content": "\u8003\u8651\u5c3d\u91cf\u4f7f\u4e24\u90e8\u5206\u7684\u6570\u4e4b\u548c\u4e0d\u4e00\u6837\uff0c\u90a3\u663e\u7136\uff0c\u6211\u4eec\u60f3\u5230\u628a\u6570\u7ec4\u4ece\u5c0f\u5230\u5927\u6392\u5e8f\u3002\n\n\u8fd9\u6837\u53ef\u4ee5\u4f7f\u4e24\u90e8\u5206\u7684\u5dee\u503c\u6700\u5927\uff0c\u4e5f\u5c31\u662f\u8bf4\u4e24\u90e8\u5206\u7684\u6570\u7684\u4e0d\u4e00\u6837\u7684\u7a0b\u5ea6\u6700\u5927\u3002\n\n\u5982\u679c\u6392\u5e8f\u540e\u7684\u4e24\u90e8\u5206\u548c\u76f8\u540c\uff0c\u5219\u5224\u4e3a\u65e0\u89e3\u3002\n\n\u7ec6\u8282\u8be6\u89c1\u4ee3\u7801\u6ce8\u91ca\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nconst int N=100002;\nint n,m,k,p,q,ans,sum,tot,cnt,a[N],b[N],c[N];\nint main()\n{\n\tcin>>n;\n\tfor(int i=1;i<=2*n;i++)\n\t{\n\t\tcin>>a[i];\n\t}\n\tsort(a+1,a+2*n+1);//\u6392\u5e8f\n\tp=n+1;\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tsum+=a[i];//sum\u4e3a\u524dn\u4e2a\u6570\u7684\u548c\n\t\tans+=a[p];//ans\u4e3a\u540en\u4e2a\u6570\u7684\u548c\n\t\tp++;\n\t}\n\tif(ans==sum)//\u5982\u679c\u76f8\u7b49\uff0c\u5219\u5224\u4e3a\u65e0\u89e3\n\t{\n\t\tcout<<\"-1\";\n\t}\n\telse//\u5426\u5219\u8f93\u51fa\n\t{\n\t\tfor(int i=1;i<=2*n;i++)\n\t\t{\n\t\t\tcout<<a[i]<<\" \";\n\t\t}\n\t}\n\treturn 0;\n}\n```\n\n\n",
+        "postTime": 1619961491,
+        "uid": 503899,
+        "name": "_byta",
+        "ccfLevel": 0,
+        "title": "CF1174A Ehab Fails to Be Thanos"
+    },
+    {
+        "content": "\u4e00\u773c\u8fc7\u53bb\u968f\u673a\u5316\n\n\u5c06a\u6570\u7ec4\u968f\u673a\u6253\u4e7110000\u6b21\uff0c\u82e5\u5b58\u5728\u4e00\u6b21\u6ee1\u8db3\u9898\u8bbe\u5219\u8f93\u51fa\u3002\n\n\u5426\u5219\u5373\u65e0\u89e3\u3002\u8f93\u51fa-1.\n\n```\n#include<bits/stdc++.h>\n#define mst(a,b) memset(a,b,sizeof(a))\n#define For(i, k, j) for(int i = (k); i <= (j); i++)\n#define INF 2147483647\nusing namespace std;\ninline int read()\n{\n    int num = 0; char c=' '; int flag = 1;\n    for(;c>'9'||c<'0';c=getchar()) if(c=='-') flag = -1;\n    for(;c>='0'&&c<='9';num=(num<<1)+(num<<3)+c-48,c=getchar());\n    return num * flag;\n}\n#define MAXN 200005\nint n, a[MAXN];\nsigned main()\n{\n\tsrand(time(0));\n\tn = read();\n\tFor(i, 1, 2 * n)\n\t\tscanf(\"%d\", &a[i]);\n\tFor(i, 1, 10000) {\n\t\trandom_shuffle(a + 1, a + 1 + 2 * n);\n\t\tint sum1 = 0;\n\t\tFor(i, 1, n) sum1 += a[i];\n\t\tFor(i, n+1, 2*n) sum1 -= a[i];\n\t\tif(sum1 != 0) {\n\t\t\tFor(i, 1, 2 * n) cout << a[i] << ' ';\n\t\t\treturn 0;\n\t\t}\n\t}\n\tcout << -1 << endl;\n    return 0;\n}\n```",
+        "postTime": 1564645506,
+        "uid": 55078,
+        "name": "YLWang",
+        "ccfLevel": 9,
+        "title": "\u9898\u89e3 CF1174A \u3010Ehab Fails to Be Thanos\u3011"
+    },
+    {
+        "content": "# \u9898\u89e3\n\n\u524d\u8a00$:$\u6211\u540c\u5b66[Agent008](https://www.luogu.com.cn/user/319042)\u7684\u9898\u89e3\u5f31\u7206\u4e86$,$\u4e8e\u662f\u6211\u6253\u7b97\u5e2e\u4ed6\u52a0\u5f3a\u4e00\u4e0b\n\n\u4ed6\u7684\u90a3\u7bc7\u9898\u89e3\u7684\u601d\u8def\u6ca1\u6709\u4efb\u4f55\u95ee\u9898$,$\u5c31\u662f\u4ee3\u7801\u8fc7\u6c34$:$\u4ed6\u7684[\u9898\u89e3](https://www.luogu.com.cn/blog/agent008/solution-cf1174a)\n\n$Ta$\u5df2\u7ecf\u8bb2\u7684\u5f88\u6e05\u695a\u4e86$,$\u4e8e\u662f\u6211\u76f4\u63a5\u653e\u51fa\u4ee3\u7801\u5e2e\u4ed6\u52a0\u5f3a\u4e00\u4e0b\n\n\u672c\u849f\u84bb\u4ee3\u7801$:$\n\n```\n#include<cstdio>\n#include<algorithm>\n#include<cstring>\nusing namespace std;\nint main(){\n\tint n,a[2000];bool f=true;\n\tscanf(\"%d\",&n);\n\tn<<=1;\n\tscanf(\"%d\",&a[0]);\n\tfor(int i = 1;i < n;i++){\n\t\tscanf(\"%d\",&a[i]);\n\t\tif(a[i]!=a[0]){\n\t\t\tf=false;\n\t\t}\n\t}\n\tif(f){\n\t\tputchar('-');putchar('1');\n\t\treturn 0;\n\t}\n\tsort(a,a+n);\n\tfor(int i = 0;i < n;i++){\n\t\tprintf(\"%d \",a[i]);\n\t}\n\treturn 0;\n}\n```\n\n\u5b8c\u7ed3\u6492\u82b1$!!$",
+        "postTime": 1609338231,
+        "uid": 436389,
+        "name": "Vidoliga",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF1174A"
+    },
+    {
+        "content": "\u6b64\u9898\u56e0\u8be5\u6539\u4e3a\u7ea2\u9898\u3002\n\n\u975e\u5e38\u7b80\u5355\u7684\u5c0f\u5b66\u601d\u7ef4\u9898\u3002\n\n#### \u9898\u76ee\u5927\u610f\uff1a\n\n\u4f60\u88ab\u7ed9\u4e88\u4e86\u4e00\u4e2a\u957f\u5ea6\u4e3a $2n$ \u7684\u5e8f\u5217 $a$\u3002\n\n\u8bd5\u95ee\uff1a\u662f\u5426\u5b58\u5728\u91cd\u6392\u65b9\u6cd5\uff0c\u524d $n$ \u4e2a\u5143\u7d20\u7684\u548c\u4e0d\u7b49\u4e8e\u540e $n$ \u4e2a\u5143\u7d20\u7684\u548c\uff1f\n\n\u5982\u679c\u6709\uff0c\u8f93\u51fa\u6392\u5217\uff0c\u5426\u5219\u8f93\u51fa `-1`\u3002\n\n#### \u89e3\u9898\u601d\u8def\uff1a\n\n\u540c\u6837\u975e\u5e38\u7b80\u6d01\u3002\n\n\u56e0\u4e3a\u7ed9\u51fa\u7684\u5e8f\u5217\u539f\u672c\u524d $n$ \u9879\u548c\u540e $n$ \u9879\u65f6\u7684\u548c\u662f\u76f8\u540c\u7684\u3002\n\n\u8981\u4f7f\u65b0\u7684\u6392\u5e8f\u524d\u540e\u5dee\u8ddd\u6700\u5927\uff0c\u5c31\u53ef\u4ee5\u5c06\u5e8f\u5217\u6392\u5e8f\uff0c\u5982\u679c\u6392\u5e8f\u5b8c\u7684\u6570\u5217\u7b26\u5408\u9898\u76ee\u8981\u6c42\uff0c\u5219\u76f4\u63a5\u8f93\u51fa\u6392\u5b8c\u5e8f\u7684\u5e8f\u5217\uff0c\u5426\u5219\u76f4\u63a5\u8f93\u51fa `-1`\u3002\n\n#### \u4ee3\u7801\uff1a\n\n\u8fd9\u6837\u4ee3\u7801\u5c31\u5f88\u7b80\u5355\u4e86\uff1a\n\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint a[2001],cnt1,cnt2;\nsigned main()\n{\n\tint n;\n\tcin>>n; n*=2;\n\tfor(int i=1;i<=n;i++) cin>>a[i];\n\tsort(a+1,a+1+n);\n\tfor(int i=1;i<=n;i++)\n\t\tif(i<=n/2) cnt1+=a[i];\n\t\telse cnt2+=a[i];\n\tif(cnt1!=cnt2) for(int i=1;i<=n;i++) cout<<a[i]<<\" \";\n\telse cout<<\"-1\";\n\treturn 0;\n}\n```\n\n\n",
+        "postTime": 1630250287,
+        "uid": 326452,
+        "name": "Fearliciz",
+        "ccfLevel": 0,
+        "title": "CF1174A"
+    },
+    {
+        "content": "CF1174A \u3010Ehab Fails to Be Thanos\u3011\n\n\u5f88\u7b80\u5355\uff0c\u53ea\u8981\u6570\u7ec4\u4e2d\u5143\u7d20\u949a\u5168\u90e8\u4e00\u6837\u5373\u53ef\u3002\n\n\u5426\u5219\u6211\u4eec\u4e00\u5b9a\u53ef\u4ee5\u5206\u4e3a\u548c\u4e0d\u540c\u4e24\u7ec4\u3002\n\n\u6a21\u62df\u4e24\u4e2a\u8fc7\u7a0b\n\n\u5148\u5224\u65ad\u6240\u6709\u5143\u7d20\u662f\u5426\u4e00\u6837\uff0c\u662f\u5219\u8f93\u51fa\u65e0\u89e3\u3002\n\n\u5426\u5219\u6392\u5e8f\uff0c\u8f93\u51fa\u5373\u53ef\u3002\n\n\u9898\u89e3\u8981\u6709\u9898\u89e3\u7684\u6837\u5b50\uff0c\u6211\u4eec\u6765\u4ecb\u7ecd\u51e0\u79cd\u6392\u5e8f\u7b97\u6cd5\u3002\n\n\u5feb\u6392\u548c\u5f52\u5e76\uff0c\u590d\u6742\u5ea6$O(nlogn)$\uff0c\u4e0d\u63a8\u8350\u3002\n\n\u5176\u4ed6\u5404\u79cd\u7b97\u6cd5\uff1a\u5192\u6ce1\uff0c\u9009\u6392\uff0c\u63d2\u5165\uff0c\u590d\u6742\u5ea6$O(n^2)$\uff0c\u4e0d\u8003\u8651\u3002\n\n\u56e0\u4e3a$a_i$\u5c0f\u4e8e$1e6$\uff0c\u6240\u4ee5\u6876\u6392\u3002\n\n### \u4ee3\u7801\uff08\u5feb\u6392\uff09\n\n```cpp\n#include<bits/stdc++.h>\n#define F(i,j,r) for(int i=j;i<=r;++i)\n\nusing namespace std;\nconst int N=2000+5;\n\n#define int long long\n\nint n,a[N];\nbool flag=1;\n\nsigned main(){\n\tcin>>n;\n\tF(i,1,2*n){\n\t\tcin>>a[i];\n\t\tif(a[1]!=a[i])flag=0;\n\t}\n\tif(flag)puts(\"-1\");\n\telse{\n\t\tsort(a+1,a+1+2*n);\n\t\tF(i,1,2*n)cout<<a[i]<<\" \";\n\t\tputs(\"\");\n\t}\n\texit(0);\n}\n```\n\n$wtrl$",
+        "postTime": 1610681122,
+        "uid": 368225,
+        "name": "WinterRain208",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF1174A \u3010Ehab Fails to Be Thanos\u3011"
+    },
+    {
+        "content": "> \u9898\u610f\uff1a\n\n> \u4f60\u88ab\u7ed9\u4e88\u4e86\u4e00\u4e2a\u957f\u5ea6\u4e3a2n\u7684\u5e8f\u5217a.\n\n> \u8bd5\u95ee\uff1a\u662f\u5426\u5b58\u5728\u91cd\u6392\u65b9\u6cd5\uff0c\u524dn\u4e2a\u5143\u7d20\u7684\u548c\u4e0d\u7b49\u4e8e\u540en\u4e2a\u5143\u7d20\u7684\u548c\uff1f\n\n\u4e00\u9053\u7b80\u5355\u7684\u8d2a\u5fc3\u3002\u3002\u3002\n\n\u89e3\u6cd5\uff1a\u5c06\u6570\u7ec4\u4ece\u5c0f\u5230\u5927\u6392\u5e8f\uff0c\u5982\u679c\u6b64\u65f6\u524dn\u4e2a\u6570\u7684\u548c\u7b49\u4e8e\u540en\u4e2a\u6570\u7684\u548c\uff0c\u8f93\u51fa-1\uff0c\u5426\u5219\u8f93\u51fa\u6392\u5b8c\u5e8f\u7684\u6570\u7ec4\u3002\n\n\u8be6\u89c1\u4ee3\u7801\uff1a\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\ntypedef long long ll;\n#define rep(i,x,y) for (ll i=x;i<=y;i++)\n\ninline int read()\n{\n    char c=getchar(); int x=0, f=1;\n    while(c<'0' || c>'9') {if(c=='-')f=-1; c=getchar();}\n    while(c>='0' && c<='9') {x=x*10+c-'0'; c=getchar();}\n    return x*f;\n}\n\nint main()\n{\n    int n=read();\n    int a[n*2+1];\n    rep(i,1,n*2)\n    {\n        a[i]=read();\n    }\n    sort(a+1,a+n*2+1);//\u5bf9a\u6570\u7ec4\u6392\u5e8f\n    ll cnt;\n    cnt=0;\n    rep(i,1,n)\n    {\n        cnt+=a[i];\n    }\n    rep(i,n+1,n*2)\n    {\n        cnt-=a[i];\n    }//cnt\u662f\u524dn\u4e2a\u6570\u7684\u548c\u4e0e\u540en\u4e2a\u6570\u7684\u548c\u4e4b\u5dee\n    if (cnt==0)//\u5dee\u4e3a0\uff0c\u5219\u8f93\u51fa-1\n    {\n        cout<<\"-1\"<<endl;\n        return 0;\n    }\n    else//\u5426\u5219\u8f93\u51fa\u8fd9\u4e2a\u6392\u5217\n    {\n        rep(i,1,n)\n        {\n            cout<<a[i]<<\" \";\n        }\n        rep(i,n+1,n*2)\n        {\n            cout<<a[i]<<\" \";\n        }\n    }\n    return 0;\n}\n```",
+        "postTime": 1559896716,
+        "uid": 40198,
+        "name": "FP\u00b7\u8377\u5170\u732a",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF1174A \u3010Ehab Fails to Be Thanos\u3011"
+    },
+    {
+        "content": "\u6839\u636e\u9898\u610f\u53ea\u9700\u8981\u627e\u51fa\u4e00\u4e2a\u6ee1\u8db3\u6761\u4ef6\u7684\u5e8f\u5217\u5373\u53ef\uff0c\u6240\u4ee5\u53ea\u9700\u8981\u627e\u5230$[1,n]$\u4e0e$[n+1,n*2]$\u4e2d\u4efb\u610f\u4e00\u5bf9\u4e0d\u76f8\u7b49\u7684\u6570\u8fdb\u884c\u4ea4\u6362\u5373\u53ef\uff0c\u4f46\u8981\u6ce8\u610f\u6709\u53ef\u80fd\u4f1a\u672c\u8eab\u5df2\u6ee1\u8db3\u6761\u4ef6\uff0c\u6b64\u65f6\u76f4\u63a5\u8f93\u51fa\u539f\u5e8f\u5217\u5373\u53ef\u3002\n\n\u6839\u636e\u51fa\u9898\u4eba\u63d0\u4f9b\u7684\u65b9\u6cd5\u8fd8\u6709\u4e00\u4e2a\u662f\u5bf9\u6570\u7ec4\u76f4\u63a5\u6392\u5e8f\uff0c\u8f93\u51fa\u7684\u4e5f\u4e00\u5b9a\u4f1a\u662f\u7b26\u5408\u6761\u4ef6\u7684\u5e8f\u5217\u3002\n\n\u6cd5\u4e00\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint a[10000],n;\nint main()\n{\n\tcin>>n;\n\tfor(int i=1;i<=2*n;i++)cin>>a[i];\n\tint s1=0,s2=0;\n\t for(int i=1;i<=n;i++)s1+=a[i];\n\t for(int j=n+1;j<=n*2;j++)s2+=a[j];\n\t if(s2!=s1)\n\t {\n\t \tfor(int i=1;i<=2*n;i++)cout<<a[i]<<\" \";\n\t\treturn 0;\n\t }\n\tfor(int i=1;i<=n;i++)\n\tfor(int j=n+1;j<=n*2;j++)\n\tif(a[i]!=a[j])\n\t{\n\t\tswap(a[i],a[j]);\n\t\tfor(int i=1;i<=2*n;i++)cout<<a[i]<<\" \";\n\t\treturn 0;\n\t}\n\tcout<<-1;\n}\n```\n",
+        "postTime": 1559704557,
+        "uid": 116388,
+        "name": "SFWR",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF1174A \u3010Ehab Fails to Be Thanos\u3011"
+    },
+    {
+        "content": "\u6211\u4eec\u7b2c\u4e00\u773c\u770b\u8fc7\u53bb\uff0c\u53ef\u4ee5\u53d1\u73b0\u4e24\u4ef6\u4e8b\uff1a\n\n### 1. \u53ea\u6709\u5f53\u5168\u90e8\u7684\u6570\u90fd\u662f\u76f8\u540c\u7684\u65f6\u5019\uff0c\u624d\u4f1a\u8f93\u51fa-1\n\n### 2.\u53ea\u8981\u6709\u6570\u4e0d\u76f8\u540c\uff0c\u76f4\u63a5\u4e00\u4e2asort\u6392\u5e8f\u5c31\u53ef\u4ee5\u8f93\u51fa\u4e86\n\n\u521a\u5f00\u59cb\u8fd9\u9053\u9898\u76ee\u6709\u70b9\u70e6\u3002\u3002\u6211\u7b2c\u4e00\u6b21\u5904\u7406\u5f97\u5f88SB\n\n$2n$\u4e2a\u6570\uff0c\u7ed3\u679c\u53ea\u8981\u8f93\u5165$n$\uff0c\u6240\u4ee5\u4ee3\u7801\u91cc\u6211\u5c31\u76f4\u63a5\u628a$n=2n$\u4e86\u3002\uff08\u4f30\u8ba1\u732a\u90fd\u4f1a\uff0c\u6211\u7b2c\u4e00\u6b21\u8fd8\u505a\u9519\u4e86\uff0c\u8111\u5b50\u88ab\u5403\u6389\u4e86\u6211\uff09\n\n\u7136\u540e\u7684\u8bdd\u5c31\u5224\u65ad\u6240\u6709\u7684\u6570\u76f8\u4e0d\u76f8\u7b49\uff0c\u5982\u679c\u76f8\u7b49\u7684\u8bdd\uff0c\u5c31\u8f93\u51fa$-1$\uff1b\u4e0d\u7136\u7684\u8bdd\uff0c\u5c31$sort$\u6392\u5e8f\uff0c\u7136\u540e\u8f93\u51fa\u6392\u5b8c\u5e8f\u540e\u7684\u6570\u7ec4\u3002\u5b8c\u7ed3\uff0c\u6492\u82b1\uff01\uff01\u273f\u273f\u30fd(\u00b0\u25bd\u00b0)\u30ce\u273f\n\n#### \u5f53\u7136\u51fa\u9898\u4eba\u8fd9\u6b21\u5f88\u826f\u5fc3\uff0c\u4e0d\u7528\u5f00longlong,\u4e5f\u4e0d\u5361\u65f6\u95f4\u3002\n\n\u6240\u4ee5\u732e\u4e0a\u6211\u90a3\u4e11\u964b\u7684\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nbool cmp(int a,int b){\n\treturn a>b;\n\t\n}\nint main(){\n\tint n,tmp=0;\n\tcin>>n;\n\tn=2*n;\n\tint a[n+1];\n\tbool b[n+1];\n\tfor(int i=1;i<=n;i++){\n\t\tcin>>a[i];\n\t\tb[i]=false;\n\t}\n\tb[1]=true;\n\tfor(int i=2;i<=n;i++){\n\t\tif(a[1]==a[i]){\n\t\t\tb[i]=true;\n\t\t}\n\t}\n\tfor(int i=1;i<=n;i++){\n\t\tif(b[i]==true){\n\t\t\ttmp++;\n\t\t}\n\t}\n\tif(tmp==n){\n\t\tcout<<\"-1\"<<endl;\n\t}\n\telse{\n\t\tsort(a+1,a+n+1,cmp);\n\t\tfor(int i=1;i<=n;i++){\n\t\t\tcout<<a[i]<<\" \";\n\t\t}\n\t}\n}\n```\n",
+        "postTime": 1607933126,
+        "uid": 319042,
+        "name": "Agent008",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1174A \u3010Ehab Fails to Be Thanos\u3011"
+    }
+]

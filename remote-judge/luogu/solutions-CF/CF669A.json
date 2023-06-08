@@ -1,0 +1,74 @@
+[
+    {
+        "content": "```\n\u81ea\u7136\u8981\u60f3\u5230\u4e00\u6b211,\u4e00\u6b212,\u2026\u2026\n\u6709\u5bf9\u4e8e%3==0\u7684n,\u53ef\u4ee5\u5206\u6210n/3\u7ec4(1,2),\u5171n/3*2\u4e2a\n\u82e5n%3\u22600,\u5219\u5728\u524d\u9762\u52a0\u4e2a2\u6216\u5728\u540e\u9762\u52a0\u4e2a1\u5373\u53ef,\u5171n/3*2+1\u4e2a\n\n#include<bits/stdc++.h>\nusing namespace std;\nint n;\nint main(){\n    cin>>n;\n    if(n%3==0) cout<<n/3+2;\n    else cout<<n/3*2+1;\n    return 0;\n}\n```",
+        "postTime": 1543825229,
+        "uid": 25051,
+        "name": "\u0430\u0431\u0432\u0433",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF669A \u3010Little Artem and Presents\u3011"
+    },
+    {
+        "content": "\u627e\u89c4\u5f8b\u53ef\u77e5\uff082*n+1\uff09\u96643\u7684\u6574\u5546\u5373\u4e3a\u6700\u591a\u6b21\u6570\n\n\u4ee3\u7801\uff1a\n```\nvar n:longint;\nbegin\n  read(n);\n  write((2*n+1) div 3);\nend.\n```",
+        "postTime": 1543824879,
+        "uid": 71491,
+        "name": "shenmadongdong",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF669A \u3010Little Artem and Presents\u3011"
+    },
+    {
+        "content": "> \u8bf7\u4e0d\u8981\u968f\u610f\u6284\u88ad\u4ee3\u7801\u3002\u4f5c\u8005\u5141\u8bb8\u63d0\u4ea4\u8fd9\u4e2a\u9898\u89e3\u91cc\u7684\u4ee3\u7801\uff0c\u4f46\u5fc5\u987b\u8054\u7cfb\u4f5c\u8005\uff0c\u5e76\u9644\u4e0a\u81ea\u5df1\u7684\u4ee3\u7801\u8bc1\u660e\n\n\u5176\u5b9e\u5e76\u4e0d\u9700\u8981\u627e\u89c4\u5f8b\u3002\u6211\u4eec\u53d1\u73b0\uff0c\u5728\u9001\u7684\u77f3\u5934\u4e3a$1,2$\u6765\u56de\u5faa\u73af\u65f6\uff0c\u65e2\u6ee1\u8db3\u9898\u76ee\u7684\u6761\u4ef6\uff0c\u4e0d\u4f1a\u76f8\u90bb\u7684\u91cd\u590d\n\n$$1,2,1,2,1,2......$$\n\n\u540c\u65f6\uff0c\u53c8\u56e0\u4e3a\u8fd9\u6837\u7684\u4ee3\u4ef7\u6700\u5c0f\uff08\u9001\u7684\u6570\u91cf\u6700\u591a\u4e3a$2$\uff09\uff0c\u6240\u4ee5\uff0c\u53ea\u9700\u8981\u5199\u4e00\u4e2a`while`\u5faa\u73af\uff0c\u6a21\u62df\u9001\u77f3\u5934\u7684\u8fc7\u7a0b\u5c31\u597d\u4e86\u3002\n\n\u7a0b\u5e8f\u8fc7\u7a0b\uff1a\n\n1. \u8f93\u5165$n$\n2. `while(n<0)`\uff0c\u6a21\u62df$1,2$\u4e24\u79cd\u60c5\u51b5\u3002\u53ea\u8981\u80fd\u9001\uff0c$ans++$\n3. \u8f93\u51fa$ans$\n\n\u4e8e\u662f\uff0c\u6211\u4eec\u6ee1\u5fc3\u6b22\u559c\u7684\u5199\u4e86\u4e00\u6bb5\u4ee3\u7801......\n\n```cpp\n#include <iostream>\n#include <cstdio>\n\nlong long n,ans=0;\n\nint main(void)\n{\n    std::cin>>n;\n    if(n<3) \n    {\n        std::cout<<1<<std::endl;\n        return 0;\n    }\n    int tans=0;\n    while(n>0)\n    {\n        tans++;\n        if(tans>2) tans=1;\n        //\u7ef4\u62a4tans,\u4f7f\u5f97\u9001\u7684\u6570\u76ee\u7ef4\u6301\u57281,2\n        n-=tans;\n        //\u51cf\u53bbtans\uff08\u5373\u9001\u51fa\uff09\u5757\u77f3\u5934\n        ans++;\n    }\n    std::cout<<ans<<std::endl;\n    return 0;\n}\n```\n\n\u7136\u800c\u8fd9\u6837\u6211\u4eec\u53d1\u73b0WA\u4e86\u4e00\u4e2a\u70b9\uff01\u4e0d\u96be\u53d1\u73b0\uff0c\u5728\u67d0\u4e9b\u65f6\u5019\uff0c$n$\u4e3a$0$\u65f6\u4f1a\u518d\u51cf\u4e00\u6b21\uff0c\u6240\u4ee5\u6700\u540e\u8981\u7279\u5224\u3002\n\n```cpp\n#include <iostream>\n#include <cstdio>\n\nlong long n,ans=0;\n\nint main(void)\n{\n    std::cin>>n;\n    if(n<3) \n    {\n        std::cout<<1<<std::endl;\n        return 0;\n    }\n    int tans=0;\n    while(n>0)\n    {\n        tans++;\n        if(tans>2) tans=1;\n        n-=tans;\n        ans++;\n    }\n    if(n<0) ans--;\n    std::cout<<ans<<std::endl;\n    return 0;\n}\n```",
+        "postTime": 1567234785,
+        "uid": 75740,
+        "name": "LiiDP",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF669A \u3010Little Artem and Presents\u3011"
+    },
+    {
+        "content": "\u55ef\uff0c\u6839\u636e\u9898\u76ee\u6837\u4f8b~~\u53ef\u77e5~~\uff0c\u4ee3\u7801\u5e94\u8be5\u662f\u8fd9\u4e2a\u6837\u5b50\u7684\uff1a\n```\n#include <bits/stdc++.h>\nusing namespace std;\nint main()\n{\n\tint n;\n\tcin>>n;\n\tif(n==1) cout<<1;\n\telse cout<<n-1; \n\treturn 0;\n}\n```\n\u55ef\u5462\uff0c\u5bf9\u4e86\u56db\u4e2a\u70b9\uff01\n\n~~\u597d\u5427\uff0c\u4ece\u8fd9\u91cc\u5f00\u59cb\u624d\u662f\u6b63\u9898~~\n\n\u9898\u76ee\u7684\u610f\u601d\u5c31\u662f\uff1a**\u76f8\u90bb\u7684\u4e24\u4e2a\u6570\u4e0d\u80fd\u76f8\u540c\u4e14\u548c\u4e3an\uff0c\u6c42\u6700\u591a\u653e\u7684\u6b21\u6570\u3002**\n\n\u849f\u84bb\uff1awoc\uff0c\u8fd9\u597d\u7b80\u5355\uff01\u4e0d\u5c31\u662f`n*2/3`\u561b~\n\n\u5475\u5475\uff0c\u4f60\u5f88\u5feb\u5c31\u4f1a\u53d1\u73b0\uff0c\u8fd9\u4efd\u4ee3\u7801\u8fde\u6837\u4f8b\u90fd\u8fc7\u4e0d\u4e86~\n\n\u56e0\u4e3a\u9898\u76ee\u4e2d\u8981\u6c42\u7684\u662f**\u6700\u591a\u65b9\u6848\u6570**\uff0c\u6240\u4ee5\u6b63\u89e3\u5e94\u8be5\u662f`(n*2+1)/3`\u3002\n\n$Code:$\n```\n#include <bits/stdc++.h>\nusing namespace std;\nint main()\n{\n\tint n;\n\tcin>>n;\n\tcout<<(n*2+1)/3;\n\treturn 0;\n}\n```",
+        "postTime": 1567777836,
+        "uid": 214172,
+        "name": "wpy233",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF669A \u3010Little Artem and Presents\u3011"
+    },
+    {
+        "content": "### \u8bf4\u53e5\u5b9e\u8bdd\uff0c\u6211\u8ba4\u4e3a\u96be\u5ea6\u4e0d\u5230\u7d2b\u9898\u6c34\u5e73\n### ~~\u4e0d\u53ef\u601d\u8bae~~\n### \u5176\u5b9e\u53ef\u4ee5\u8bf4\u8fd9\u662f\u4e00\u9053\u6570\u5b66\u9898\n### **\u6211\u4eec\u4e00\u8d77\u6765\u627e\u4e00\u4e0b\u89c4\u5f8b**\n### \u5728\u9898\u76ee\u4e2d\uff0c\u6211\u4eec\u53ef\u4ee5\u5f97\u5230\u4ee5\u4e0b\u7684\u4fe1\u606f\n### \u95ee\u6bcf\u6b21\u7ed9\u4e2a\u6570,\u76f8\u90bb\u7684\u6570\u4e0d\u80fd\u4e00\u6837,\u548c\u4e3an,\u600e\u4e48\u624d\u80fd\u4f7f\u6b21\u6570\u6700\u591a,\u6700\u591a\u4e3a\u591a\u5c11\u6b21;\n### \u6b63\u5e38\u4eba\u7684\u7b2c\u4e00\u53cd\u5e94\u662fn*2/3\n### \u4f46\u7531\u4e8e\u9898\u76ee\u4e2d\u8981\u7684\u662f\u6700\u591a\u65b9\u6848\n### ~~\u6ce8\u610f\u7ec6\u8282~~\u6211\u4eec\u9700\u8981\u518d\u52a01\n### \u5373\u4e3a n*2+1/3\n# \u4ee3\u7801\u5982\u4e0b\n```cpp\n//C++\u4ee3\u7801\n#include<iostream>\nusing namespace std;\nint main()\n{\n    double a;//\u6b63\u5e38\u60c5\u51b5\u4e0bint\u4e5f\u884c\uff0cdouble\u4ee5\u9632\u4e07\u4e00\n    cin>>a;   //\u8f93\u5165\n    a*=2;   //\u8fdb\u884c\u8ba1\u7b97\n    a+=1;  //C++\u7684\u4e00\u79cd\u4e13\u95e8\u8ba1\u7b97 eg\uff1aa+=1 == a=a+1\n    a/=3;\n    cout<<a;  //\u8f93\u51fa\n    return 0;//NOIP\u522b\u5fd8\u4e86\n}\n```\n\n\n### ~~\u522b\u6284\uff0c\u5c0f\u5fc3\u53d8\u6210 \u4f5c\u5f0a\u8005~~",
+        "postTime": 1563853091,
+        "uid": 177499,
+        "name": "Adrien_Mertens",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 CF669A \u3010Little Artem and Presents\u3011"
+    },
+    {
+        "content": "\u5199\u5728\u524d\u9762\uff1a\n\u867d\u7136$CF$\u7684\u9898\u76ee\u5b58\u5728\u6076\u610f\u8bc4\u5206\u73b0\u8c61\uff0c\u4f46\u662f\u9898\u76ee\u672c\u8eab\u8fd8\u662f\u5f88\u6709\u610f\u4e49\u7684\uff0c\u5c24\u5176\u662f\u4e00\u9898\u591a\u89e3\uff0c\u80fd\u591f\u5f88\u597d\u5730\u8bad\u7ec3\u6211\u4eec\u7684\u601d\u7ef4\u5566\uff5e\n\n\u89c2\u5bdf\u9898\u76ee\u6761\u4ef6\uff0c\u6bcf\u6b21\u7ed9\u4e2a\u6570\uff0c\u76f8\u90bb\u7684\u6570\u4e0d\u80fd\u4e00\u6837\uff0c\u548c\u4e3a$n$\uff0c\u8981\u4f7f\u6b21\u6570\u6700\u591a\u3002\n\n\u7531\u4e0d\u4e00\u6837\u53ef\u77e5\uff0c\u4f60\u4e0d\u80fd\u4e00\u76f4\u586b$1$\uff0c\u53c8\u8981\u6b21\u6570\u6700\u591a\uff0c\u5219$1$\u548c$2$\u5e94\u5f53\u4ea4\u6362\u7740\u586b\u3002\n\n\u5bf9\u4e8e\u6bcf\u4e00\u4e2a\u6b63\u6574\u6570\uff0c\u90fd\u53ef\u4ee5\u50cf\u5272\u8089\u4e00\u6837\u4e00\u5757\u4e00\u5757\u5730\u5206\u5272\u4e3a$1$\u548c$2$\uff0c\u8fd9\u6837\u624d\u80fd\u4fdd\u8bc1\u6b21\u6570\u6700\u591a\u3002\n\n\u90a3\u4e48\uff0c\u6211\u4eec\u53ef\u4ee5\u5bf9\u6bcf\u4e00\u4e2a\u6570\u91c7\u7528\u641c\u7d22\u7684\u65b9\u6cd5\u6765\u201c\u5272\u8089\u201d\uff0c\u4e0a\u6b21\u5272\u6389$1$\u8fd9\u6b21\u5c31\u5272\u6389$2$\uff0c\u76f4\u81f3\u5269\u4e0b$1$\u6216$2$\u65f6\u518d\u5272\u4e00\u6b21\u5373\u53ef\u3002\n\n\u5bf9\u4e8e\u8f93\u5165\u4e3a$1$\u6216$2$\u7684\u60c5\u51b5\uff0c\u76f4\u63a5\u7279\u52241\u6b21\u5373\u53ef\u3002\uff08\u5176\u5b9e\u4e0d\u7279\u5224\u4e5f\u80fd\u8fc7\uff09\n\n\u4ee3\u7801\u5982\u4e0b\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\ninline int read()\n{\n    int ret=0,f=1;\n    char ch=getchar();\n    while(ch>'9'||ch<'0')\n    {\n        if(ch=='-')\n            f=-1;\n        ch=getchar();\n    }\n    while(ch>='0'&&ch<='9')\n    {\n        ret=(ret<<1)+(ret<<3)+ch-'0';\n        ch=getchar();\n    }\n    return ret*f;\n}\nint n;\nint dfs(int n,int step,int mi)\n{\n    if(n<=2)\n        return step+1;\n    if(n>2)\n    {\n        if(mi==1)\n            dfs(n-1,step+1,2);\n        else\n            dfs(n-2,step+1,1);\n    }\n}\nint main()\n{\n    n=read();\n    if(n<=2)\n    \tprintf(\"1\\n\");\n    else\n    \tprintf(\"%d\\n\",dfs(n,0,1));\n    return 0;\n}\n```\n\n\n\u5982\u6709\u7591\u95ee\uff0c\u8bc4\u8bba\u533a\u89c1\uff0c\u611f\u8c22\u8d44\u74f7\uff01",
+        "postTime": 1559360266,
+        "uid": 108560,
+        "name": "Peter0701",
+        "ccfLevel": 6,
+        "title": "CF669A \u9898\u89e3"
+    },
+    {
+        "content": "\u53c8\u662f\u4e00\u9053\u6076\u610f\u8bc4\u5206\u9898~~\n\n\u9898\u89e3\u91cc\u90fd\u662f\u5927\u4f6c%%%\uff0c\u76f4\u63a5\u7ed9\u51fa\u516c\u5f0f\n\n\u6211\u8fd8\u662f\u60f3\u4e86\u534a\u5206\u949f\u7684qwq\n\n\u9996\u5148\uff0c\u80af\u5b9a\u662f1\u30012\u30011\u30012\u30011\u30012\u2026\u2026\u8fd9\u6837\u6765\n\n\u8ba1\u7b97\u51fan\u4e2d\u4e00\u5171\u6709\u51e0\u7ec41\u30012\n\n\u7136\u540e\u628a\u53ef\u80fd\u591a\u51fa\u6765\u76841\u52a0\u4e0a\n\n\u7b54\u6848\u5c31\u662f$\\frac {2n+1}{3}$\n\nCode:\n```pascal\nvar\n    n : longint;\n    \nbegin\n    readln(n);\n    writeln(((n << 1) + 1) div 3);\nend.\n```\n",
+        "postTime": 1555936221,
+        "uid": 51719,
+        "name": "ModestCoder_",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF669A \u3010Little Artem and Presents\u3011"
+    },
+    {
+        "content": "\u6211\u6765\u6c34\u4e00\u53d1 ** $Python$ \u6700\u77ed\u4ee3\u7801\u89e3 ** \u3002\n\u9898\u76ee\u5f88\u7b80\u5355\uff0c\u901a\u8fc7\u9898\u610f\uff0c\u53ef\u4ee5\u53d1\u73b0\u89c4\u5f8b\n $ (n*2+1)/3 $ \u53d6\u6574\u540e\u4e3a\u9898\u76ee\u6240\u6c42\u3002\n\n```python\nprint((input()*2+1)/3)\n```\n",
+        "postTime": 1547826943,
+        "uid": 91522,
+        "name": "Catreap",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF669A \u3010Little Artem and Presents\u3011"
+    },
+    {
+        "content": "\u4e00\u9053~~\u6c34~~\u9898\uff0c\u7ecf\u8fc7\u624b\u7b97\u6211\u4eec\u4e0d\u96be\u53d1\u73b0\u7ed9\u6700\u591a\u6b21\u77f3\u5934\u7684\u8fc7\u7a0b\uff1a\n\n```\n1:1\n2:2\n3:1 2\n4:1 2 1\n5:2 1 2\n6:1 2 1 2\n7:1 2 1 2 1\n8:2 1 2 1 2\n9:1 2 1 2 1 2\n10:1 2 1 2 1 2 1\n11:2 1 2 1 2 1 2\n12:1 2 1 2 1 2 1 2\n```\n\u7b80\u5316\u6210\u7ed9\u7684\u6b21\u6570\uff1a\n\n```\n1:1\n2:1\n3:2\n4:3\n5:3\n6:4\n7:5\n8:5\n9:6\n10:7\n11:7\n12:8\n```\n\n\n\n\u6211\u4eec\u53ef\u4ee5\u5f88\u5feb\u627e\u5230\u89c4\u5f8b\uff1a\u500d\u6570\u4e3a3\u7684\u6570\u5b57\u7684\u89e3\u4e3an/1.5, \u800c\u5176\u5b83\u6570\u5b57\u7684\u89e3\u4e3a\u7b2c\u4e00\u4e2a\u6bd4\u5b83\u5927\u76843\u500d\u6574\u6570/1.5-1(\u59827,\u7b2c\u4e00\u4e2a\u6bd4\u5b83\u5927\u76843\u500d\u6574\u6570\u5c31\u662f9).\u8fd9\u6837\u5b50\u5c31\u5f88\u7b80\u5355\u5566\uff0c\u7279\u5224\u4e00\u4e0b\u8f93\u5165\u7684\u77f3\u5934\u4e2a\u6570k%3\u7684\u4f59\u6570\uff0c\u53ef\u4ee5\u5f88\u81ea\u7136\u5730\u5199\u51fa\u7a0b\u5e8f\uff1a\n\n```cpp\n#include<iostream>                       // cin, cout\u7684\u5934\u6587\u4ef6\nusing namespace std;\ntypedef long long ll;\ninline int nextint(void)                 // \u8fd4\u56de\u8bfb\u5165\u7684\u4e0b\u4e00\u4e2aint\u7684\u503c(\u6709\u6ca1\u6709\u60f3\u8d77\u5f88\u50cfJava)\n{\n\tint k;\n\tcin>>k;\n\treturn k;\n}\nint main(void)\n{\n\tios::sync_with_stdio(false);        //\u53d6\u6d88cin/cout\u4e0estdio\u7684\u540c\u6b65, \u52a0\u901f\n\tcin.tie(0);                         //\u89e3\u9664cin\u4e0ecout\u7684\u7ed1\u5b9a, \u52a0\u901f\n\tint n = nextint();                  //\u5b9a\u4e49\u5e76\u8bfb\u5165n\n\tif (n % 3 == 1)                     //\u5f53n\u53d6\u4f593\u4e3a1\u65f6\n\t\tcout<<((int)((n+2)/1.5))-1;     //\u8f93\u51fa\u7b2c\u4e00\u4e2a\u6bd4n\u5927\u76843\u500d\u6574\u6570n+2,\u9664\u4ee51.5\u4e4b\u540e\u8bb0\u5f97\u8981\u5f3a\u5236\u8f6c\u6362\u6210int\uff0c\u4e0d\u7136\u4f1a\u8f93\u51fa\u6d6e\u70b9\u6570\n\telse if (n % 3 == 2)                //\u5f53n\u53d6\u4f593\u4e3a2\u65f6\n\t\tcout<<((int)((n+1)/1.5))-1;     //\u8f93\u51fa\u7b2c\u4e00\u4e2a\u6bd4n\u5927\u76843\u500d\u6574\u6570n+1,\u540c\u4e0a\n\telse cout<<(int)(n/1.5);            //\u5f53n\u4e3a3\u7684\u500d\u6570\u65f6\uff0c\u76f4\u63a5\u8f93\u51fa\u89e3n/1.5\n\treturn 0;\n}\n\n```\n",
+        "postTime": 1576401282,
+        "uid": 195066,
+        "name": "Loxilante",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF669A \u3010Little Artem and Presents\u3011"
+    }
+]

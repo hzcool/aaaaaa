@@ -1,0 +1,58 @@
+[
+    {
+        "content": "# 1. \u9898\u610f\n\u5224\u65ad\u524d5\u4e2a\u5b57\u7b26\u662f\u5426\u4e3a$miao.$\uff0c\u662f\u5219\u8f93\u51fa$Rainbow's$\uff0c\u540e5\u4e2a\u5b57\u7b26\u662f\u5426\u4e3a$lala.$\uff0c\u662f\u5219\u8f93\u51fa$Freda's$\u3002\u5426\u5219\u8f93\u51fa$OMG>.< I don't know!$\n\n# 2. \u6ce8\u610f\n\u4e24\u4e2a\u6761\u4ef6**\u540c\u65f6\u6ee1\u8db3\u65f6**\u4e5f\u8f93\u51fa$OMG>.< I don't know!$\uff0c\u540c\u65f6\uff0c$strlen(a,b)$\u662f\u622a\u53d6**a~b\u4e4b\u95f4\u7684\u5b57\u7b26\u4e32**\uff08\u5f53\u7136\u4e5f\u8981\u52a0\u7279\u5224\uff0c**\u672c\u9898\u4e2d**\u5b57\u7b26\u4e32\u957f\u5ea6\u8981\u4e0d\u5c0f\u4e8e\u4e94\uff0c\u5426\u5219\u4f1a~~RE~~\uff09\n# 3. \u4ee3\u7801\n```cpp\n#include<iostream>\n#include<string>\n#include<cstdio>\nusing namespace std;\nint n;\nstring s;\nvoid warning()\n{\n\tprintf(\"copy==dead\");\n}\nint main()\n{\n\tcin>>n;\n\tgetline(cin,s);\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tgetline(cin,s);\n\t\tif(s.size()<5)\n\t\t{\n\t\t\tcout<<\"OMG>.< I don't know!\"<<\"\\n\";\n\t\t\tcontinue;\n\t\t}\n\t\tstring start=s.substr(0,5);\n\t\tstring end=s.substr(s.size()-5,s.size());\n\t\tif(end==\"lala.\"&&start!=\"miao.\")cout<<\"Freda's\"<<\"\\n\";\n\t\telse if(start==\"miao.\"&&end!=\"lala.\")cout<<\"Rainbow's\"<<\"\\n\";\n\t\telse cout<<\"OMG>.< I don't know!\"<<\"\\n\";\n\t}\n\treturn 0;\n}\n```\n## \u201cAc\u8bb0\u5f55\u4e00\u573a\u7a7a\uff0c\u590d\u5236\u7c98\u8d34\u89c1\u7956\u5b97\u201d",
+        "postTime": 1608891849,
+        "uid": 239163,
+        "name": "MarchKid_Joe",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF312A \u3010Whose sentence is it?\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u53ea\u9700\u5224\u65ad\u4e00\u4e0b\u524d5\u4f4d\u548c\u540e5\u4f4d\u5373\u53ef\n\n\u4ee3\u7801\uff1a\n```\nvar n,i,s,t,p:longint;\n    a:ansistring;\nbegin\n  readln(n);\n  for i:=1 to n do\n  begin\n    readln(a);\n    s:=0;\n    t:=0;\n    p:=length(a)-5;\n    if (a[1]='m') and (a[2]='i') and (a[3]='a') and (a[4]='o') and (a[5]='.') then s:=1;\n    if (a[p+1]='l') and (a[p+2]='a') and (a[p+3]='l') and (a[p+4]='a') and (a[p+5]='.') then t:=1;//\u5224\u65ad\n    if (s=1)and(t=0) then writeln('Rainbow''s')\n    else if (s=0)and(t=1) then writeln('Freda''s')\n    else writeln('OMG>.< I don''t know!');//\u6ce8\u610f\u4e0d\u8981\u8f93\u9519\n  end;\nend.\n```",
+        "postTime": 1545296552,
+        "uid": 71491,
+        "name": "shenmadongdong",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF312A \u3010Whose sentence is it?\u3011"
+    },
+    {
+        "content": "\u6ca1\u6709\u4f1a\u7528find\u548crfind\u7684\u5417\n\n\u8fd9\u91cc\u4ecb\u7ecd\u4e00\u4e0brfind\uff08find\u90fd\u4f1a\u5427\uff1f\uff09\n\nrfind\u4ee3\u8868\u5bf9\u4e8e\u8be5\u5b57\u7b26\u4e32\uff0c\u4ece\u53f3\u5f80\u5de6\u671d\u6307\u5b9a\u5b57\u7b26\u4e32\uff0c\u627e\u5230\u8fd4\u56de\u4e0b\u6807\uff0c\u627e\u4e0d\u5230\u8fd4\u56destring::npos \uff08-1\uff09\n\n\u90a3\u4e48\u4ee3\u7801\u5c31\u5f88\u7b80\u5355\u4e86\uff08\u6ce8\u610f\uff0c\u5982\u679clala.\u7ed3\u675f\u5e76\u4e14miao.\u5f00\u59cb\u4e3a\u4e0d\u77e5\u9053\u7684\u7ed3\u679c\uff09\n\n```cpp\n#include <iostream>\n#include <cstdio>\n#include <cstring>\nusing namespace std;\n\nstring s;\n\nint main()\n{\n    int n;\n    cin >> n;\n    getchar();//getline\u4f1a\u5403\u6362\u884c\n    for(register int i = 1; i <= n; i++)\n    {\n        getline(cin, s);\n        int len = s.length();\n        if(s.rfind(\"lala.\") == len - 5 && s.find(\"miao.\") == 0)\n        {\n            cout << \"OMG>.< I don't know!\\n\";\n        }\n        else if(s.rfind(\"lala.\") == len - 5)\n        {\n            cout << \"Freda's\\n\";\n        }\n        else if(s.find(\"miao.\") == 0)\n        {\n            cout << \"Rainbow's\\n\";\n        }\n        else\n        {\n            cout << \"OMG>.< I don't know!\\n\";\n        }\n    }\n    return 0;\n}\n```\n\n\u8fd9\u4e2a\u4ee3\u7801\u4e0d\u8981\u52a0ios::sync_with_stdio(false)\uff0c\u4f1aWA\uff0c\u56e0\u4e3agetline\u548cgetchar",
+        "postTime": 1605943122,
+        "uid": 332914,
+        "name": "happybob",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF312A \u3010Whose sentence is it?\u3011"
+    },
+    {
+        "content": "## Content\n$\\texttt{Freda}$ \u548c $\\texttt{Rainbow}$ \u5728\u7f51\u4e0a\u804a\u4e86 $n$ \u53e5\u8bdd\u3002\u6211\u4eec\u6839\u636e\u4ed6\u4eec\u804a\u5929\u7684\u8bed\u53e5\u7684\u7279\u70b9\u6765\u5224\u65ad\u6bcf\u4e00\u53e5\u662f\u8c01\u8bf4\u7684\u3002$\\texttt{Freda}$ \u8bf4\u7684\u8bdd\u7ed3\u5c3e\u5e26\u6709 $\\texttt{lala.}$\uff0c\u800c $\\texttt{Rainbow}$ \u8bf4\u7684\u8bdd\u5f00\u5934\u5e26\u6709 $\\texttt{miao.}$\u3002\u8bd5\u5224\u65ad\u6bcf\u4e00\u53e5\u8bdd\u662f\u8c01\u8bf4\u7684\uff0c\u6216\u8005\u4e0d\u80fd\u786e\u5b9a\u67d0\u4e9b\u8bdd\u662f\u8c01\u8bf4\u7684\u3002\n\n**\u6570\u636e\u8303\u56f4\uff1a$1\\leqslant n\\leqslant 10$\u3002**\n## Solution\n\u76f4\u63a5\u5224\u65ad\u524d $5$ \u4e2a\u5b57\u7b26\u548c\u540e $5$ \u4e2a\u5b57\u7b26\u5373\u53ef\u3002\u9700\u8981\u6ce8\u610f\u7684\u662f\uff0c\u5982\u679c\u51fa\u73b0\u4e86\u50cf\u6837\u4f8b\u4e2d\u7684 $\\texttt{miao.}$ \u5728\u5f00\u5934\u5e76\u4e14 $\\texttt{lala.}$ \u5728\u7ed3\u5c3e\u7684\u4e00\u53e5\u8bdd\uff0c\u5219\u5b83\u4e5f\u662f\u4e0d\u786e\u5b9a\u7684\u3002\n## Code\n```cpp\n#include <cstdio>\n#include <cstring>\n#include <iostream>\nusing namespace std;\n\nint n;\nstring s;\n\nint check1(string s) {\n\tint len = s.size();\n\tif(s[len - 1] == '.' && s[len - 2] == 'a' && s[len - 3] == 'l' && s[len - 4] == 'a' && s[len - 5] == 'l')\treturn 1;\n\treturn 0;\n}\nint check2(string s) {\n\tint len = s.size();\n\tif(s[0] == 'm' && s[1] == 'i' && s[2] == 'a' && s[3] == 'o' && s[4] == '.')\treturn 1;\n\treturn 0;\n}\n\nint main() {\n\tscanf(\"%d\", &n);\n\tgetchar();\t//\u907f\u514d\u6362\u884c\u88ab\u5403\u6389\n\tfor(int i = 1; i <= n; ++i) {\n\t\tgetline(cin, s);\n\t\tif((check1(s) && check2(s)) || (!check1(s) && !check2(s)))\tcout << \"OMG>.< I don't know!\\n\";\n\t\telse if(check1(s))\tcout << \"Freda's\\n\";\n\t\telse if(check2(s))\tcout << \"Rainbow's\\n\";\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1601641803,
+        "uid": 112917,
+        "name": "Eason_AC",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF312A \u3010Whose sentence is it?\u3011"
+    },
+    {
+        "content": "[CF312A Whose sentence is it?](https://www.luogu.com.cn/problem/CF312A)\n===\n~~\u4f17\u6240\u5468\u77e5\u7ffb\u8bd1\u9519\u4e86Rainbow\u7684\u8bdd\u662f\u4ee5\"miao.\"\u5f00\u5934~~\n\u601d\u8def\uff1a\u5faa\u73af\u8bfb\u5165\u3001\u5224\u65ad\uff083\u79cd\uff09\u3001\u8f93\u51fa\n```\n#include <bits/stdc++.h>\nusing namespace std;\nint n;//n\u6761\u8bb0\u5f55\nstring s; //\u8f93\u5165\u7528\u7684\u5b57\u7b26\u4e32\nint main(){\n\tcin>>n;//\u8f93\u5165\u8bb0\u5f55\u6570\n\tgetchar();//\u628a\u7a7a\u884c\u8bfb\u5165\u4ee5\u9632getline\u51fa\u9519\n\twhile(n--){//\u5faa\u73af\u68c0\u6d4b\n\t\tgetline(cin,s);//\u8bfb\u5165\u6574\u884c\n\t\tif(s[s.size()-5]=='l'&&s[s.size()-4]=='a'&&s[s.size()-3]=='l'&&s[s.size()-2]=='a'&&s[s.size()-1]=='.'){//\u5982\u679c\u4ee5\"lala.\"\u7ed3\u5c3e\n\t\t\tif(s[0]=='m'&&s[1]=='i'&&s[2]=='a'&&s[3]=='o'&&s[4]=='.'){//\u65e2\u7136\u4ee5\"lala.\"\u7ed3\u5c3e\uff0c\u5c31\u8981\u6392\u9664\u51fa\u73b0\u4e86\"miao.\"\u5f00\u5934\u7684\n\t\t\t\tcout<<\"OMG>.< I don't know!\"<<endl;//\u4e00\u8138\u61f5\u903c\n\t\t\t}else{\n\t\t\t\tcout<<\"Freda's\"<<endl;//\u5982\u679c\u6ca1\u6709\"miao.\"\uff0c\u5c31\u662ffreda\u7684\n\t\t\t}\n\t\t}else if(s[0]=='m'&&s[1]=='i'&&s[2]=='a'&&s[3]=='o'&&s[4]=='.'){//\u5982\u679c\u662f\"miao.\"\u5f00\u5934\n\t\t\tcout<<\"Rainbow's\"<<endl;//rainbow\u7684\n\t\t}else{\n\t\t\tcout<<\"OMG>.< I don't know!\"<<endl;//\u6211\u4e0d\u77e5\u9053\n\t\t}\n\t}\n    return 0; \n}\n```\n\u7528\u5230\u7684\u77e5\u8bc6\u70b9\uff1a\u5b57\u7b26\u4e32\u5224\u65ad",
+        "postTime": 1587373217,
+        "uid": 180654,
+        "name": "B_lhx",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF312A \u3010Whose sentence is it?\u3011"
+    },
+    {
+        "content": "\u5176\u5b9e\u8fd9\u9053\u9898\u7528\u4e00\u4e2afind\u5c31\u53ef\u4ee5\u5566\u3002\u7adf\u7136\u6ca1\u6709\u4eba\u7528\uff1f\uff1f\uff1f\n\n```\n#include<iostream>\n#include<cstdio>\n#include<cstring> \nusing namespace std;\nint a,b,n,ans,xx,yy;\nstring h=\"lala.\",k=\"miao.\",s,d;\nchar c[100010];\nint main()\n{\n\tgetline(cin,d);//\u8f93\u5165n \n\tn=d[0]-48;//\u8fd9\u91cc\u8fd9\u6837\u5199\u662f\u4e3a\u4e86\u907f\u514d\u4e24\u4e2a\u8f93\u5165\u51b2\u7a81 \n\tfor(int i=0;i<n;i++)//\u4fbf\u5386\u6c42\u89e3\uff0c\u4e0d\u591a\u8bf4 \n\t{\n\t\tgetline(cin,s);//\u8f93\u5165\u5b57\u7b26\u4e32\u513f \n\t\txx=-1;yy=-1;//\u91cd\u7f6e\u6240\u9700\u503c \n\t\txx=s.find(h,0);//\u67e5\u627elala. \n\t\tyy=s.find(k,0);//\u67e5\u627emiao. \n\t\tif(xx!=-1&&yy==-1){cout<<\"Freda's\"<<endl;continue;}//\u5982\u679c\u53ea\u6709lala\u4e00\u4e2a\uff0c\u8f93\u51fa \uff0c\u8df3\u8fc7 \n\t\tif(xx==-1&&yy!=-1){cout<<\"Rainbow's\"<<endl;continue;}//\u5982\u679c\u53ea\u6709miao\u4e00\u4e2a\uff0c\u8f93\u51fa\uff0c\u8df3\u8fc7 \n\t\tcout<<\"OMG>.< I don't know!\"<<endl;//\u4e0d\u6ee1\u8db3\u8f93\u51fa \n\t}\n\treturn 0;\n}\n```\n\n\n\u5982\u679c\u6709\u4e0d\u61c2\u7684\uff0c\u6b22\u8fce\u79c1\u4fe1",
+        "postTime": 1563609978,
+        "uid": 178034,
+        "name": "thename",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF312A \u3010Whose sentence is it?\u3011"
+    },
+    {
+        "content": "\u989d\uff0c\u8fd9\u9898\u5c45\u7136\u6ca1\u6709C++\u7684\u9898\u89e3\u3002\n\n\u5206\u6790\uff1a\n\n\u5b57\u7b26\u4e32\u57fa\u672c\u64cd\u4f5c\uff0c\u6ca1\u5565\u597d\u8bf4\u7684\uff0c\u76f4\u63a5\u6a21\u62df\u5373\u53ef\u3002\u8bfb\u5165\u6574\u4e2a\u5b57\u7b26\u4e32\uff0c\u5224\u65ad\u540e5\u4f4d\u5373\u53ef\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n    int n;\n    char a[105];\n    scanf(\"%d\",&n); getchar();\n    while(n--){\n        cin.getline(a,105);\n        int len=strlen(a);\n        if(a[len-1]=='.'&&a[len-2]=='a'&&a[len-3]=='l'&&a[len-4]=='a'&&a[len-5]=='l')//\u5206\u7c7b\uff1a\u4ee5lala\u7ed3\u5c3e\n        if(a[0]=='m'&&a[1]=='i'&&a[2]=='a'&&a[3]=='o'&&a[4]=='.')printf(\"OMG>.< I don't know!\\n\");//\u5982\u679c\u53c8\u6709miao\uff0c\u5c31\u4e0d\u77e5\u9053\u662f\u8c01\u8bf4\u7684\u4e86\n        else printf(\"Freda's\\n\");//\u5426\u5219\u8f93\u51faFreda's\n        else if(a[0]=='m'&&a[1]=='i'&&a[2]=='a'&&a[3]=='o'&&a[4]=='.')//\u4ee5miao\u5f00\u5934\n        if(a[len-1]=='.'&&a[len-2]=='a'&&a[len-3]=='l'&&a[len-4]=='a'&&a[len-5]=='l')printf(\"OMG>.< I don't know!\\n\");//\u540c\u7406\uff0c\u5982\u679c\u53c8\u6709lala\uff0c\u5c31\u4e0d\u77e5\u9053\u662f\u8c01\u7684\u4e86\n        else printf(\"Rainbow's\\n\");\n        else printf(\"OMG>.< I don't know!\\n\");\n    }\n}\n```",
+        "postTime": 1557796437,
+        "uid": 39863,
+        "name": "\u5f15\u9886\u5929\u4e0b",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF312A \u3010Whose sentence is it?\u3011"
+    }
+]

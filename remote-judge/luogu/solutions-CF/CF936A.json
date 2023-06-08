@@ -1,0 +1,18 @@
+[
+    {
+        "content": "\u524d\u6392\u829d\u58eb\uff1a\n\nQ\uff1a`setprecision` \u51fd\u6570\u5982\u4f55\u4f7f\u7528\uff1f\n\nA\uff1a`setprecision` \u4e0e `printf` \u8bbe\u7f6e\u7cbe\u5ea6\u76f8\u4f3c\uff0c`setprecision()` \u8868\u793a\u8f93\u51fa\u6709\u6548\u4f4d\uff0c`setprecision(x) << fixed` \u8868\u793a\u8f93\u51fa\u5c0f\u6570\u70b9\u540e $x$ \u4f4d\u3002\n\n\u601d\u8def\u5206\u6790\uff1a\n\n\u8fd9\u4e00\u9053\u9898\u5f88\u660e\u663e\u662f\u5468\u671f\u95ee\u9898\uff0c\u6b65\u9aa4\u5982\u4e0b\uff1a\n\n1. \u8ba1\u7b97 $d$ \u7684\u51e0\u500d\u53ef\u4ee5\u8fbe\u5230 $k$\uff0c\u5e76\u4f5c\u4e3a\u4e00\u4e2a\u5468\u671f\n\n2. \u8ba1\u7b97\u5468\u671f\u98df\u7269\u80fd\u70e4\u719f\u7684\u91cf\n\n3. \u8ba1\u7b97\u5468\u671f\u6b21\u6570\n\n\u53c2\u8003\u4ee3\u7801\uff1a\n\n\u4ee3\u7801\u5b9e\u73b0\u5f88\u7b80\u5355\uff0c\u6309\u7167\u4e0a\u8ff0\u6b65\u9aa4\u6a21\u62df\u5373\u53ef\u901a\u8fc7\u672c\u9898\u3002\n\n```cpp\n#include <iostream>\n#include <iomanip>\nusing namespace std;\n\nint main()\n{\n\tdouble k, d, t;\n\tcin >> k >> d >> t;\n\tdouble small = (long long)((k - 1) / d) + 1;// min \u8fd9\u4e2a\u53d8\u91cf\u540d\u4e0e C++ \u81ea\u5e26\u7684\u51fd\u6570\u91cd\u540d\uff0c\u4f1a CE\n\tdouble small_len = small * d;\n\tdouble num = (long long)(2 * t / (small_len + k));\n\tdouble times = 2 * t - (small_len + k) * num;\n\tdouble ans = 0;\n\tans += num * small_len;\n\tif (times < 2 * k) ans += times /2;\n\telse ans += k, ans += times - 2 * k;\n\tcout << fixed << setprecision(1) << ans;\n\treturn 0;\n}\n```\n",
+        "postTime": 1650197877,
+        "uid": 397137,
+        "name": "JustinXiaoJunyang",
+        "ccfLevel": 4,
+        "title": "solution_cf936a"
+    },
+    {
+        "content": "## \u6a21\u62df\n\n\u5148\u6c42\u51fad\u7684\u51e0\u500d\u53ef\u4ee5\u5b8c\u5168\u8986\u76d6k \n\n\u7136\u540e\u628a\u8fd9\u4e2a\u4f5c\u4e3a\u4e00\u4e2a\u5468\u671f\n\n\u8ba1\u7b97\u5468\u671f\u5185\u5bf9\u98df\u7269\u80fd\u591f\u70e4\u719f\u591a\u5c11 \n\n\u7136\u540e\u770b\u4e00\u4e0b\u6709\u51e0\u4e2a\u8fd9\u6837\u7684\u5faa\u73af\n\n\u6700\u540e\u7ed3\u5c3e\u8ba8\u8bba\u4e00\u4e0b\u5373\u53ef\n\n## CODE\uff1a\n\n```\n#include<bits/stdc++.h>\nusing namespace std;\ndouble k,d,t,ans=0,r,rlen,change,rou;\nint main()\n{\n    cin>>k>>d>>t; \n\tr=(long long)((k-1)/d)+1;\n\trlen=r*d;\n\tchange=(long long)(2*t/(rlen+k));\n\trou=2*t-(rlen+k)*change;\n\tans+=change*rlen;\n\tif(rou<2*k) \n\tans+=rou/2;\n\telse ans+=k,ans+=rou-2*k;\n\tcout<<fixed<<setprecision(1)<<ans;\n\treturn 0;\n}\n```\n\n[\u642c\u8fd0\u5b98\u65b9\u9898\u89e3](http://codeforces.com/blog/entry/58056)",
+        "postTime": 1564887180,
+        "uid": 51231,
+        "name": "Provider",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF936A \u3010Save Energy!\u3011"
+    }
+]

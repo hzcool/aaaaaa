@@ -1,0 +1,50 @@
+[
+    {
+        "content": "# \u601d\u8def\n\u8fd9\u9053\u9898\u6211\u4eec\u53d1\u73b0\u5728 $a$ \u540e\u9762\u7684\u53ea\u53ef\u80fd\u662f $b$ \u6216\u8005 $a$\uff0c\u800c\u4e0d\u53ef\u80fd\u6bd4 $b$ \u66f4\u5927\u3002\u6240\u4ee5\u6211\u4eec\u5c31\u53ef\u4ee5\u7528\u5faa\u73af\u53bb\u5224\u65ad\uff0c\u5e76\u7528\u4e00\u4e2a $cnt$ \u8868\u793a\u73b0\u5728\u51fa\u73b0\u4e86\u51e0\u4e2a\u5b57\u7b26\uff0c\u7136\u540e\u5224\u65ad\u82e5\u73b0\u5728\u51fa\u73b0\u7684\u4e00\u4e2a $s_i$ \u5927\u4e8e\u4e86\u7b2c $cnt+1$ \u4e2a\u5b57\u6bcd\u5c31\u4e0d\u884c\u3002\u5426\u5219\u82e5\u90fd\u5408\u7406\u5c31\u53ef\u4ee5\u4e86\u3002\n# \u4ee3\u7801\n```cpp\n#include <bits/stdc++.h>\nusing namespace std ;\nstring s;\nint cnt=1;\nint main() {\n\tstd::ios::sync_with_stdio(0);\n\tcin.tie(0);\n\tcout.tie(0);\n\tmap<char,int>mp;\n\tcin>>s;\n\tfor(int i=0; s[i]; i++) {\n\t\tif(!mp[s[i]]&&cnt==s[i]-'a'+1) mp[s[i]]=1,cnt++;//\u5224\u65ad\u51fa\u73b0\u8fc7\u5417\n\t\telse if(s[i]-'a'+1>cnt) {\n\t\t\tcout<<\"NO\\n\"; //\u4e0d\u7b26\u5408\n\t\t\treturn false;\n\t\t}\n\t}\n\tcout<<\"YES\\n\";\n\treturn false;\n}\n```\n",
+        "postTime": 1676014742,
+        "uid": 381053,
+        "name": "highkj",
+        "ccfLevel": 4,
+        "title": "CF765B"
+    },
+    {
+        "content": "## Analysis\n\n\u9996\u5148\u770b\u539f\u4e32\u53d8\u6210\u65b0\u4e32\u7684\u8fc7\u7a0b\uff1a\u5047\u8bbe\u5f53\u524d\u5df2\u7ecf\u51fa\u73b0\u4e86 $k$ \u79cd\u5b57\u7b26\uff0c\u73b0\u5728\u51fa\u73b0\u4e86 $k + 1$ \u79cd\uff0c\u90a3\u4e48\u5c06\u8fd9\u4e2a\u5b57\u7b26\u6620\u5c04\u4e3a\u5b57\u7b26 `'a' + k`\u3002\n\n\u90a3\u4e48\u53cd\u8fc7\u6765\u8bf4\u7684\u8bdd\uff0c\u5c31\u662f\u5728\u65b0\u4e32\u4e2d\u6bcf\u4e2a\u5b57\u7b26\u7b2c\u4e00\u6b21\u51fa\u73b0\u65f6\u5df2\u7ecf\u6709\u4e86 $k$ \u79cd\u5b57\u7b26\uff0c\u90a3\u4e48\u8fd9\u4e2a\u5b57\u7b26\u4e00\u5b9a\u662f `'a' + k`\u3002 \u7136\u540e\u8981\u505a\u7684\u5c31\u662f\u6a21\u62df\u8fd9\u4e2a\u8fc7\u7a0b\u3002\n\n## Code\n\n```cpp\n# include <bits/stdc++.h>\nusing namespace std;\n\nint k;\nstring s;\nbool vis[40];\n\nint main () {\n\tcin >> s;\n\tfor (char i : s)\n\t\tif (!vis[i - 'a']) {\n\t\t\tvis[i - 'a'] = true;\n\t\t\tif (i - 'a' != k++) return puts (\"NO\"), 0;\n \t\t\t// \u5982\u679c\u5f53\u524d\u51fa\u73b0\u7684\u4e2a\u6570\u548c 'a' + k \u4e0d\u540c\u5c31\u662f\u9519\u7684\n\t\t}\n\treturn puts (\"YES\"), 0; // \u5426\u5219\u5c31\u662f\u5bf9\u7684\n}\n```",
+        "postTime": 1662558882,
+        "uid": 514109,
+        "name": "\u8f9b\u4e11\u4e5d\u6708",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF765B Code obfuscation"
+    },
+    {
+        "content": "## \u9898\u76ee\u5927\u610f\nKostya\u5728\u6574\u7406\u53d8\u91cf\u540d\uff0c\u4ed6\u8981\u628a\u6240\u6709\u7684\u53d8\u91cf\u540d\u90fd\u6539\u4e3a\u5355\u4e2a\u5b57\u6bcd\uff0c\u4ed6\u60f3\u8981\u6309\u7167\u5b57\u6bcd\u8868\u987a\u5e8f\u6765\u58f0\u660e\u53d8\u91cf\u3002\u7ed9\u5b9a\u4ed6\u8c03\u7528\u53d8\u91cf\uff08\u9996\u6b21\u8c03\u7528\u5c31\u662f\u58f0\u660e\uff09\u7684\u987a\u5e8f\uff0c\u8f93\u51fa\u4ed6\u662f\u4e0d\u662f\u6df7\u6dc6\u4e86\u53d8\u91cf\u540d\u3002\n## \u9898\u76ee\u5206\u6790\n\u6211\u4eec\u5c1d\u8bd5\u8fd0\u7528\u4e00\u4e2a $maxchar$ \u53d8\u91cf\u6765\u8bb0\u5f55\u4e0b\u4e00\u4e2a\u5e94\u8be5\u88ab\u58f0\u660e\u7684\u540d\u4e3a\u5b57\u6bcd\u7684\u53d8\u91cf\u540d\u3002\u5219\u5982\u679c\u904d\u5386\u5230\u4e00\u4e2a\u6bd4\u8fd9\u4e2a\u5b57\u6bcd\u7684\u5b57\u6bcd\u8868\u987a\u5e8f\u66f4\u5927\u7684\u5b57\u6bcd\u7684\u8bdd\u5219\u8f93\u51fa $NO$ \u7136\u540e\u9000\u51fa\u7a0b\u5e8f\uff0c\u5982\u679c\u904d\u5386\u5230\u7684\u5b57\u6bcd\u5c31\u662f\u8fd9\u4e2a\u5b57\u6bcd\u8bf4\u660e\u5728\u8fd9\u4e00\u6b65\u58f0\u660e\u4e86\u8fd9\u4e2a\u5b57\u6bcd\u5219\u6211\u4eec\u81ea\u589e $maxchar$ \u6765\u8bb0\u5f55\u8fd9\u4e2a\u53d8\u91cf\u5df2\u7ecf\u88ab\u58f0\u660e\u4e86\uff0c\u5982\u679c\u904d\u5386\u5230\u4e00\u4e2a\u6bd4\u8fd9\u4e2a\u5b57\u6bcd\u7684\u5b57\u6bcd\u8868\u987a\u5e8f\u66f4\u5c0f\u7684\u5b57\u6bcd\u7684\u8bdd\u5c31\u4e0d\u7528\u7ba1\u4e86\u3002\n## AC Code\n```cpp\n#include <iostream>\n#include <string>\nusing namespace std;\nstring in;\nint maxchar = 'a';\nint main() {\n    cin >> in;\n    for (int i = 0; i < in.size(); ++i)\n        if (in[i] > maxchar) return cout << \"NO\", 0;\n        else if (in[i] == maxchar) ++maxchar;\n    cout << \"YES\";\n    return 0;\n}\n```",
+        "postTime": 1601117828,
+        "uid": 344768,
+        "name": "33aaron",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF765B \u3010Code obfuscation\u3011"
+    },
+    {
+        "content": "# \u601d\u8def\n\n\u6709\u4e00\u4e2a\u663e\u7136\u7684\u89c4\u5f8b\uff1a\u5982\u679c `a` \u7b2c\u4e00\u6b21\u51fa\u73b0\u7684\u4f4d\u7f6e\u4e00\u5b9a\u5c0f\u4e8e `b` \u5230 `z`\uff1b`b` \u7b2c\u4e00\u6b21\u51fa\u73b0\u7684\u4f4d\u7f6e\u4e00\u5b9a\u5c0f\u4e8e `c` \u5230 `z`\uff1b\u4ee5\u6b64\u7c7b\u63a8\u3002\n\n\u90a3\u4e48\uff0c\u6211\u4eec\u8bb0\u5f53\u524d\u904d\u5386\u8fc7\u7684\u6700\u5927\u7684\u5b57\u7b26\u4e3a $c$\uff0c\u90a3\u4e48\u6211\u4eec\u53ea\u9700\u8981\u5224\u65ad $s_i$ \u548c $c$ \u7684\u5927\u5c0f\u5173\u7cfb\u3002\n\n# code\n\n```cpp\n#include <bits/stdc++.h>\n#define re register\n\nusing namespace std;\n\nchar c = 'a';//\u8fd9\u91cc\u7684 c \u8868\u793a\u7684\u662f\u904d\u5386\u8fc7\u7684\u6700\u5927\u7684\u5b57\u7b26\u52a0 1 \u7684\u5b57\u7b26 \nstring s;\n\nint main(){\n\tios::sync_with_stdio(0);\n\tcin.tie(0);\n\tcout.tie(0);\n\tcin >> s;\n\tfor (re int i = 0;s[i];i++){\n\t\tif (s[i] == c) c++;// \u66f4\u65b0 c \n\t\telse if (s[i] > c){//\u4e0d\u6ee1\u8db3\u89c4\u5f8b\uff0c\u65e0\u89e3 \n\t\t\tputs(\"NO\");\n\t\t\treturn 0;\n\t\t}\n\t}\n\tputs(\"YES\");\n\treturn 0;\n}\n```",
+        "postTime": 1676016124,
+        "uid": 383395,
+        "name": "WaterSun",
+        "ccfLevel": 5,
+        "title": "[\u9898\u89e3]CF765B Code obfuscation"
+    },
+    {
+        "content": "## \u5206\u6790\n\n\u636e\u9898\u53ef\u5f97\uff1a\u7b2c\u4e00\u4e2a\u51fa\u73b0\u7684 `a` \u4e00\u5b9a\u4e0d\u4f1a\u5728\u7b2c\u4e00\u4e2a\u51fa\u73b0\u7684 `b` \u7684\u540e\u9762\uff0c\u6211\u4eec\u7528 $cnt$ \u8868\u793a\u5f53\u524d\u53ef\u4ee5\u51fa\u73b0\u7684\u6700\u5927\u7684\u5b57\u7b26\uff0c$s$ \u8868\u793a\u8f93\u5165\u7684\u5b57\u7b26\u4e32\u3002\n\n1. \u5982\u679c $s_i$ \u6bd4\u5f53\u524d\u53ef\u4ee5\u51fa\u73b0\u7684\u6700\u5927\u5b57\u6bcd $cnt$ \u5927\uff0c\u5219\u4e0d\u5408\u6cd5\uff1b\n\n2. \u5982\u679c $s_i$ \u7b49\u4e8e $cnt$\uff0c$cnt \\leftarrow (cnt + 1)$\uff1b\n\n3. \u53cd\u4e4b\uff0c\u5c0f\u4e8e\u7684\u65f6\u5019\u4e00\u5b9a\u662f\u5408\u6cd5\u7684\u3002\n\n## AC code\n\n```cpp\n#include <bits/stdc++.h>\n\n#define int long long\n\nusing namespace std;\n\nstring s;\n\nsigned main() {\n\tios :: sync_with_stdio(false);\n\tcin >> s;\n\tint cnt = 0;\n\tfor (int i = 0; i < s.size(); i ++ ) {\n\t\tif (s[i] > cnt + 'a') { puts(\"NO\"); return 0; }\n\t\telse if (s[i] == cnt + 'a') cnt ++;\n\t}\n\tputs(\"YES\");\n\treturn 0;\n}\n```",
+        "postTime": 1676013117,
+        "uid": 638084,
+        "name": "songszh",
+        "ccfLevel": 3,
+        "title": "CF765B Code obfuscation"
+    },
+    {
+        "content": "# \u9898\u76ee\u5927\u610f\n\n\u7ed9\u4f60\u4e00\u4e2a\u5b57\u7b26\u4e32\uff0c\u7136\u540e\u628a\u5b83\u53d8\u6210\u53e6\u4e00\u4e2a\u5b57\u7b26\u4e32\uff0c\u5982\u679c\u7b2c\u4e00\u4e2a\u51fa\u73b0\u7684\u5b57\u7b26\u5c31\u628a\u4ed6\u53d8\u6210 `a`,\u7b2c\u4e8c\u4e2a\u5c31\u53d8\u6210 `b`\uff0c\u4ee5\u6b64\u7c7b\u63a8\u3002\n\n\u73b0\u544a\u8bc9\u4f60\u8f6c\u6362\u540e\u7684\u5b57\u7b26\u4e32\uff0c\u95ee\u4f60\u662f\u5426\u6709\u53ef\u80fd\u7531\u5176\u4ed6\u5b57\u7b26\u4e32\u8f6c\u6362\u8fc7\u6765\u3002\n\n# \u9898\u76ee\u5206\u6790\n\n\u904d\u5386\u4e00\u904d\u5b57\u7b26\u4e32\uff0c\u5982\u679c\u5f53\u524d\u5b57\u7b26\u6bd4\u76ee\u524d\u6240\u6709\u51fa\u73b0\u8fc7\u7684\u5b57\u7b26\u90fd\u8981\u5927\uff0c\u90a3\u4e48\u663e\u7136\u4f1a\u6df7\u6dc6\uff0c\u76f4\u63a5\u8f93\u51fa `NO`\uff1b\n\n\u5426\u5219\uff0c\u66f4\u65b0\u5230\u76ee\u524d\u4e3a\u6b62\u6700\u5927\u7684\u51fa\u73b0\u8fc7\u7684\u5b57\u7b26\u3002\n\n# \u4ee3\u7801\n\n```cpp\n//2022/1/14\n\nstring str;\n\nint main(void)\n{\n\tcin>>str;\n\t\n\tchar maxchar='a';\n\t\n\tfor(register int i=0;i<str.size();i++)\n\t{\n\t\tif(maxchar<str[i])\n\t\t{\n\t\t\tputs(\"NO\");\n\t\t\t\n\t\t\treturn 0;\n\t\t}\n\t\t\n\t\telse if(maxchar==str[i])\n\t\t{\n\t\t\tmaxchar++;\n\t\t}\n\t}\n\t\n\tputs(\"YES\");\n\t\n\treturn 0;\n}\n```",
+        "postTime": 1642160162,
+        "uid": 430409,
+        "name": "Coros_Trusds",
+        "ccfLevel": 6,
+        "title": "CF765B Code obfuscation"
+    }
+]

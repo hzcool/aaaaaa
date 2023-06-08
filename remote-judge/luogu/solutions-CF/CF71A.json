@@ -1,0 +1,106 @@
+[
+    {
+        "content": "\u8fd9\u9053\u9898\u601d\u8def\u7070\u5e38\u7684\u660e\u786e...\u5c31\u662f~~\u4e00\u4e2a\u5b57~~\u66b4\u529b\n```cpp\n#include<bits/stdc++.h>\\\\\u4f20\u8bf4\u4e2d\u7684\u4e07\u80fd\u5934\u6587\u4ef6\nusing namespace std;\nint main()\n{\n\t\n    int n;//n\u4e2a\u5355\u8bcd\n\tstring a;//...\u5355\u8bcd\n\tint i;\n\tcin>>n;//\u8f93\u5165\n\tfor(i=0;i<n;i++)\n\t{\n\t\tcin>>a;//\u5728\u6bcf\u4e2a\u5faa\u73af\u5185\u8f93\u5165\u5355\u8bcd\n\t \tif(a.length()>10)//\u8ba1\u7b97\u5355\u8bcd\u957f\u5ea6\n\t \t{\n\t \t      cout<<a[0]<<a.length()-2<<a[a.length()-1]<<endl;//\u5982\u679c\u5927\u4e8e\u5341\u5c31\u8981\u8f93\u51fa\u7b2c\u4e00\u4e2a\u5b57\u7b26\u548c\u6700\u540e\u4e00\u4e2a\uff0c\u6ce8\u610f\u4e2d\u95f4\u957f\u5ea6\u8981\u51cf\u4e8c\n\t\t }\n\t\t else\n\t\t {\n\t\t \tcout<<a<<endl;//\u5426\u5219\u76f4\u63a5\u8f93\u51fa\n\t\t }\n\t} \n\treturn 0;\n}//\u534e\u4e3d\u7ed3\u675f\uff0c\u8fd9\u662f\u672c\u849f\u84bb\u7684\u7b2c\u4e00\u7bc7\u9898\u89e3\u5982\u679c\u54ea\u4f4d\u5927\u4f6c\u80fd\u8ba4\u771f\u5730\u770b\u5230\u8fd9\uff0c\u6df1\u8868\u611f\u8c22\u3002\n\n```",
+        "postTime": 1544706837,
+        "uid": 127999,
+        "name": "\u51e0\u5ea6\u4e1c\u98ce\u5439",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF71A \u3010Way Too Long Words\u3011"
+    },
+    {
+        "content": "```pascal\n\u8fd9\u9053\u9898\u771f\u662f\u5f88\u6c34\uff0c\u5c31\u662f\u5148\u5224\u65ad\u8fd9\u4e2a\u5b57\u7b26\u4e32\u662f\u5426\u5c0f\u4e8e\u7b49\u4e8e10\uff0c\u5982\u679c\u662f\uff0c\u4f60\u4eec\u539f\u6837\u8f93\u51fa\uff0c\u4e0d\u662f\u7684\u8bdd\u8f93\u51fa\u5b57\u7b26\u4e32\u7b2c\u4e00\u4e2a\u5b57\u7b26\uff0c\u5b57\u7b26\u4e32\u957f\u5ea6-2\uff08\u56e0\u4e3a\u53bb\u6389\u9996\u548c\u672b\uff09\uff0c\u5b57\u7b26\u4e32\u7684\u6700\u540e\u4e00\u4e2a\u5b57\u7b26\u3002\n\u8bdd\u4e0d\u591a\u8bf4\uff0c\u770b\u770b\u6211\u7684\u7a0b\u5e8f----\nvar\n i,n:longint;\n s:ansistring;\nbegin\n readln(n);//\u6709n\u4e2a\u5b57\u7b26\u4e32\u9700\u8f93\u5165\n for i:=1 to n do\n  begin\n   readln(s);//\n   if length(s)<=10 then writeln(s)//\u5982\u8fc7\u5b57\u7b26\u4e32\u957f\u5ea6\u5c0f\u4e8e\u7b49\u4e8e10\u5c31\u539f\u6837\u8f93\u51fa\n                    else\n                       writeln(s[1],length(s)-2,s[length(s)]);//\u4e0d\u7136\u7684\u8bdd\uff0c\u4f60\u77e5\u9053\u7684...\u3010\u4e0a\u9762\u6709\u2191\n end;\nend.\n```\n\u8bf7\u4e0d\u8981\u6284\u88ad\uff0c\u8c22\u8c22\uff01",
+        "postTime": 1542102215,
+        "uid": 117229,
+        "name": "wuyutong111",
+        "ccfLevel": 0,
+        "title": "CF71A Way Too Long Words"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u5f88\u5bb9\u6613\uff0c\u5224\u65ad\u4e00\u4e0b\u3002\n\u5982\u679c\u5b57\u7b26\u4e32\u7684\u957f\u5ea6\u5927\u4e8e 10\uff0c\u90a3\u5c31\u7528\u7f29\u5199\u3002\u5426\u5219\u5c31\u76f4\u63a5\u8f93\u51fa\u5b57\u7b26\u4e32\u3002\n\n```cpp\n#include <iostream>\n#include <algorithm>\n#include <cstring>\n\nusing namespace std;\n\nint main()\n{\n    int n;\n    cin >> n;\n    for (int i = 0; i < n; i++)\n    {\n        string s;\n        cin >> s;\n        if (s.size() > 10) \n        { //                \u51cf\u53bb\u5934\u548c\u5c3e\uff0c\u5c31\u662f -2\n            cout << s[0] << s.size()-2 << s[s.size()-1] << endl;\n        } else {\n            cout << s << endl;\n        }\n    }\n    return 0;\n}\n```\n",
+        "postTime": 1545542909,
+        "uid": 93259,
+        "name": "Zirnc",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF71A \u3010Way Too Long Words\u3011"
+    },
+    {
+        "content": "\u6ca1\u4ec0\u4e48\u53ef\u4ee5\u8bf4\uff0c\u5176\u5b9e\u5c31\u662f\u66b4\u529b\u6a21\u62df\uff0c\u76f4\u63a5\u4e0a\u4ee3\u7801\u5427\u3002\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n    int n;\n    cin>>n;\n    string s;\n    for(int i=1;i<=n;++i)//\u591a\u7ec4\u6d4b\u8bd5\u6570\u636e\n    {\n        cin>>s;//\u8bfb\u5165\n        if(s.size()>10)//\u5982\u679c\u5927\u4e8e\u5341\n        {\n            cout<<s[0]<<s.size()-2<<s[s.size()-1]<<endl;//\u8f93\u51fa\u9996\u5b57\u6bcd\uff0c\u957f\u5ea6-2\uff0c\u672b\u5b57\u6bcd\n        }//\u5224\u65ad\u957f\u5ea6\u662f\u5426\u5927\u4e8e10\n        else cout<<s<<endl;\n    }\n}\n```",
+        "postTime": 1544179278,
+        "uid": 150190,
+        "name": "Antarctican",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF71A \u3010Way Too Long Words\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u76ee\u8f83\u4e3a\u7b80\u5355\uff0c\u601d\u8def\u662f\u8fd9\u6837\u7684\uff1a\u5148\u8f93\u5165\u7ec4\u6570\uff0c\u518d\u4ece1\u5230n\u505a\u5faa\u73af\uff0c\u518d\u5b9a\u4e49\u5b57\u7b26\u4e32\u5e76\u8f93\u5165\uff0c\u5224\u65ad\u5176\u957f\u5ea6.\n\n\u5982\u679c>10\u5c31\u8f93\u51fa\u9996\u4f4d\uff0c\u5b57\u7b26\u4e32\u957f\u5ea6-2\uff0c\u672b\u4f4d\uff0c\u5176\u4f59\u7684\u60c5\u51b5\u76f4\u63a5\u8f93\u51fa\u539f\u672c\u7684\u5b57\u7b26\u4e32\u5373\u53ef\u3002\n```cpp\n#include<bits/stdc++.h>//\u4e07\u80fd\u5934\nusing namespace std;\nsigned main( )//\u4e3b\u51fd\u6570\n{\n    int n;\n    cin>>n;//\u8f93\u5165\u6570\u636e\u7ec4\u6570\n    for(register int i=1;i<=n;i++)//\u505a\u5faa\u73af\u65b9\u4fbf\u8f93\u5165\n    {\n        string s;//\u5b9a\u4e49\u5b57\u7b26\u4e32\n        cin>>s;//\u8f93\u5165\n        if(s.size()>10) cout<<s[0]<<s.size()-2<<s[s.size()-1]<<endl;//\u5224\u65ad\u957f\u5ea6\u4e4b\u540e\u8f93\u51fa\u9996\u4f4d\uff0c\u5b57\u7b26\u4e32\u957f\u5ea6-2\uff0c\u672b\u4f4d\n        else cout<<s<<endl;//\u65e0\u8111\u8f93\u51fa\n    }\n\texit(0);//\u597d\u4e60\u60ef\u4f34\u6211\u4eec\u4e00\u751f\n}\n```\n\u65e2\u7136\u8fd9\u7bc7\u6587\u7ae0\u63d0\u5230\u4e86string\uff0c\u6211\u4eec\u4e0d\u59a8\u6765\u4ecb\u7ecd\u4e00\u4e0b\u5b83\u7684\u7528\u6cd5\uff1a\n\nstring\u662fC++\u3001java\u3001VB\u7b49\u7f16\u7a0b\u8bed\u8a00\u4e2d\u7684\u5b57\u7b26\u4e32\uff0c\u5b57\u7b26\u4e32\u662f\u4e00\u4e2a\u7279\u6b8a\u7684\u5bf9\u8c61\uff0c\u5c5e\u4e8e\u5f15\u7528\u7c7b\u578b\u3002 C++\u6807\u51c6\u5e93\u4e2dstring\u7c7b\u4ee5\u7c7b\u578b\u7684\u5f62\u5f0f\u5bf9\u5b57\u7b26\u4e32\u8fdb\u884c\u5c01\u88c5\uff0c\u4e14\u5305\u542b\u4e86\u5b57\u7b26\u5e8f\u5217\u7684\u5904\u7406\u64cd\u4f5c\u3002\u5728c++\u4e2d\u5934\u6587\u4ef6\u662f#include<cstring>\uff08string\u6216string.h\u5747\u53efqaq\uff09\n\nint capacity()const; //\u8fd4\u56de\u5f53\u524d\u5bb9\u91cf\uff08\u5373string\u4e2d\u4e0d\u5fc5\u589e\u52a0\u5185\u5b58\u5373\u53ef\u5b58\u653e\u7684\u5143\u7d20\u4e2a\u6570\uff09\n\nint max_size()const; //\u8fd4\u56destring\u5bf9\u8c61\u4e2d\u53ef\u5b58\u653e\u7684\u6700\u5927\u5b57\u7b26\u4e32\u7684\u957f\u5ea6\n\nint size()const; //\u8fd4\u56de\u5f53\u524d\u5b57\u7b26\u4e32\u7684\u5927\u5c0f\n\nint length()const; //\u8fd4\u56de\u5f53\u524d\u5b57\u7b26\u4e32\u7684\u957f\u5ea6\n\nbool empty()const; //\u5f53\u524d\u5b57\u7b26\u4e32\u662f\u5426\u4e3a\u7a7a\n\nvoid resize(int len,char c);//\u628a\u5b57\u7b26\u4e32\u5f53\u524d\u5927\u5c0f\u7f6e\u4e3alen\uff0c\u5e76\u7528\u5b57\u7b26c\u586b\u5145\u4e0d\u8db3\u7684\u90e8\u5206\n\n\u8fd9\u4e9b\u90fd\u662f\u4e00\u4e9b\u5e38\u7528\u6280\u5de7\uff0cstring\u7c7b\u957f\u5ea6\u7528size\u6c42\uff0c\u4e3astring(\u4f60\u81ea\u5df1\u8bbe\u7684\u672a\u77e5\u91cf\uff09.size(),\u8bfb\u5165\u7528cin\u6216scanf\uff08\u8bb0\u4f4f\u662f%s\uff09\uff0c\u8f93\u51fa\u7528cout\u6216printf\uff08\u8bb0\u4f4f\u4e5f\u662f%s\uff09\u76f8\u52a0\u540e\u76f4\u63a5\u628a\u4e24\u4e2a\u62fc\u5728\u4e00\u8d77\u7b49\u3002\n\n\u5e0c\u671b\u5bf9\u5927\u5bb6\u6709\u5e2e\u52a9qwq\u3002\n\n",
+        "postTime": 1578104483,
+        "uid": 189012,
+        "name": "SKTelecomT1_Faker",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF71A \u3010Way Too Long Words\u3011"
+    },
+    {
+        "content": "# $\\color{red}\\text{\u8fd9\u662f\u4e00\u9053\u5927\u6c34\u9898}$\n**$\\color{red}\\text{\u4e0d\u5c31\u662fi18n\u7684\u52a0\u5f3a\u7248\u5417\uff0c\u867d\u7136\u53ea\u52a0\u5f3a\u4e86\u4e00\u70b9\u70b9\uff08\u624b\u52a8\u6ed1\u7a3d\uff09\uff0c\u4f46\u6211\u8fd8\u8981\u505a\u4e00\u505a}$**\n\n**$\\color{red}\\text{\u592a\u6c34\u4e0d\u8bb2\uff0c\u76f4\u63a5\u653e\u4ee3\u7801\u5417}$**\n\n## \u653e\u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>//\u4e07\u80fd\u5934\u6587\u4ef6\nusing namespace std;\nint n;//\u5b9a\u4e49n\nstring a[110];//\u5b9a\u4e49\u5b57\u7b26\u4e32\nint main()\n{\n     cin>>n;//\u8f93\u5165n\n\t for(int i=1;i<=n;i++)//\u5faa\u73afn\u6b21\n\t cin>>a[i];//\u8f93\u5165a[i] \n\t for(int i=1;i<=n;i++)//\u5faa\u73afn\u6b21\n\t {\n\t \tif(a[i].size()>10)cout<<a[i][0]<<a[i].size()-2<<a[i][a[i].size()-1]<<endl;//\u5982\u679ca[i]\u7684\u957f\u5ea6\u5927\u4e8e10\uff0ccout<<a[i][0]<<a[i].size()-2<<a[i][a[i].size()-1]<<endl;\n\t \telse cout<<a[i]<<endl;//\u5426\u5219\uff0ccout<<a[i]<<endl;\n\t }\n    return 0;//\u5b8c\u7f8e\u7ed3\u675f\n}\n```\n\n",
+        "postTime": 1574832377,
+        "uid": 93213,
+        "name": "\u5411\u65e5\u8475\u5c0f\u73ed",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF71A \u3010Way Too Long Words\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u8003\u5bdf\u5b57\u7b26\u4e32\n\n\u770b\u4ee5\u4e0b\u4ee3\u7801\u6211\u4eec\u7ee7\u7eed\u8bb2\u89e3\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nchar a[1001][1001];\nint n=0;\nint main()\n{\n\tcin>>n;\n\tfor(int i=0;i<n;i++)\n\t{\n\t\tcin>>a[i];\n\t\tif(strlen(a[i])<=10)cout<<a[i]<<endl;\n\t\telse cout<<a[i][1]<<strlen(a[i])-2<<a[i][strlen(a[i])-1]<<endl;\n\t}\n\treturn 0;\n}\n```\n\n\u8fd9\u4e2a\u4ee3\u7801\u5f53\u4e2d\uff0c\u9996\u5148\u8f93\u5165n\n\n\u63a5\u7740\u5f00\u542f\u4e00\u4e2a**\u5faa\u73af\u6b21\u6570\u4e3an**\u7684for\u5faa\u73af\n\n\u63a5\u7740\u8f93\u5165\u5b57\u7b26\u4e32\uff0c\u8fd9\u91cc\u7528\u4e86\u4e00\u4e2a\u5224\u65ad\n\n\u7136\u540e\u8fd9\u4e2a\u4ee3\u7801WA\u4e86\n\n\u4e3a\u4ec0\u4e48\uff1f\n\n\u6211\u6539\u4e86\u4e00\u4e0b\u601d\u8def\n\n\u5176\u5b9e\u6ca1\u6709\u5fc5\u8981\u5f00**\u4e8c\u7ef4\u5b57\u7b26\u6570\u7ec4**\n\n\u5e94\u8be5\u76f4\u63a5\u7528\u5b57\u7b26\u4e32\n\n\u53ef\u662f\u6211\u5ffd\u7136\u53d1\u73b0\uff1aWA\u8bc4\u6d4b\u70b9$\\ne$AC\u8bc4\u6d4b\u70b9\u4e2a\u6570\n\n\u5927\u5c31\u6709\u4e86\u8fd9\u4e2a\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h> \nusing namespace std;\nint n;\nstring a; \nint main()\n{\n    scanf(\"%d\",&n);\n    for(int i=0;i<n;++i)\n    {\n        cin>>a;\n        if(a.size()>10)cout<<a[0]<<a.size()-2<<a[a.size()-1]<<endl;\n\t\telse cout<<a<<endl;\n    }\n    return 0;\n}\n\n```\n$\\bigstar$\u7528string~~\u679c\u7136\u6bd4\u7528char\u66f4\u597d~~",
+        "postTime": 1572139184,
+        "uid": 212283,
+        "name": "Aw\u987f\u987f",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF71A \u3010Way Too Long Words\u3011"
+    },
+    {
+        "content": "\u8fd9\u9898\u5f88\u7b80\u5355\uff0c\u5224\u65ad\u4e00\u4e0b\u957f\u5ea6\u662f\u5426\u5927\u4e8e10\uff0c\u8f93\u51fa\u5c31\u884c\u4e86\n\u5e9f\u8bdd\u4e0d\u591a\u8bf4\uff0c\u76f4\u63a5\u4e0a\u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>//\u4e07\u80fd\u5934\u6587\u4ef6 \nusing namespace std;\nlong long n;//\u5b9a\u4e49\u4e00\u4e2an \nstring s[100000+1];//\u518d\u5b9a\u4e49\u4e00\u4e2a\u5b57\u7b26\u4e32 \nint main()\n{\n\tcin>>n;//\u8f93\u5165n \n\tfor(int i=1;i<=n;i++)  cin>>s[i];//\u8f93\u5165\u5b57\u7b26\u4e32 \n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tif(s[i].size()>10)  cout<<s[i][0]<<s[i].size()-2<<s[i][s[i].size()-1]<<endl;//\u5982\u679c\u5b57\u7b26\u4e32\u957f\u5ea6\u8d85\u8fc710\uff0c\u5c31\u8f93\u51fa\u7b2c\u4e00\u4e2a\u5b57\u7b26\u548c\u6700\u540e\u4e00\u4e2a\u5b57\u7b26\uff0c\u4e2d\u95f4 \n\t\telse    cout<<s[i]<<endl;//\u5426\u5219\u8f93\u51fa\u6574\u4e2a\u5b57\u7b26\u4e32 \n\t}\n\n\treturn 0;\n}\n```\n",
+        "postTime": 1569075384,
+        "uid": 106009,
+        "name": "\u53ef\u7231\u7684\u5c0f\u767d",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF71A \u3010Way Too Long Words\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u7684\u5173\u952e\u53ea\u6709\u4e24\u4e2a\u5b57\uff1a\u66b4\u529b\uff01\uff01\uff01\n\n\u5bf9\u6bcf\u4e00\u4e2a\u5355\u8bcd\u8fdb\u884c\u5982\u4e0b\u64cd\u4f5c\uff1a\n\n\u7b2c\u4e00\u6b65\uff1a\u8bfb\u5165\u5b57\u7b26\u4e32\n\n\u7b2c\u4e8c\u6b65\uff1a\u5224\u65ad\u957f\u5ea6\uff0c\u5982\u679c\u957f\u5ea6\u5c0f\u4e8e\u7b49\u4e8e10\uff0c\u76f4\u63a5\u6253\u5370\uff0c\u5982\u679c\u957f\u5ea6\u5927\u4e8e10\uff0c\u6267\u884c\u7b2c\u4e09\u6b65\n\n\u7b2c\u4e09\u6b65\uff1a\u6253\u5370\u7b2c\u4e00\u4e2a\u5b57\u7b26\uff0c\u6253\u5370\u5b57\u7b26\u6570-2\uff0c\u6253\u5370\u6700\u540e\u4e00\u4e2a\u5b57\u7b26\uff0c\u4ee5\u4e0a\u6b65\u9aa4\u6309\u987a\u5e8f\u8fdb\u884c\u3002\n\n\u4ee5\u4e0b\u662f\u4ee3\u7801\uff1a\n\n```\n#include<bits/stdc++.h>\n\nusing namespace std;\n\nint main()\n{\n\tint a;\n\tscanf(\"%d\", &a);\n\tchar b[100]={0};\n\tfor(int i=0; i<a; i++)\n\t{\n\t\tcin>>b;\n\t\tif(strlen(b)>10)\n\t\t{\n\t\t\tprintf(\"%c%d%c\\n\", b[0], strlen(b)-2, b[strlen(b)-1]);\n\t\t}\n\t\telse\n\t\t{\n\t\t\tprintf(\"%s\\n\", b);\n\t\t}\n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1566371248,
+        "uid": 120885,
+        "name": "\u5f00\u5fc3\u7684\u732a",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF71A \u3010Way Too Long Words\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u6709\u5751\u554a\uff08\u5bf9\u4e8e\u849f\u84bb\u6211\u6765\u8bf4\uff09\n\n\u5728\u8f93\u5165\u6837\u4f8b\u90a3\u91cc\u6211\u4e00\u76f4\u4ee5\u4e3a\u662f\u6709\u2464\u4e2a\u5355\u8bcd\uff0c\n\n\u7136\u540e\u5c31\u4e00\u76f4\u6ca1\u6ce8\u610f\uff0c\u6700\u540e\u8fd8\u4ee5\u4e3a\u8981\u8f93\u51fa\u201cword\u201d\u8fd9\u4e2a\u5355\u8bcd\uff0c\n\n\u5bfc\u81f4\u849f\u84bb\u4e00\u76f4\u9519\uff0c\n\n\u6700\u540e\u662f\u770b\u5230\u9898\u89e3\u624d\u5e61\u7136\u9192\u609f\n\n## \u8fdb\u5165\u6b63\u9898\uff1a\n\n\u601d\u8def\uff1a\u5f88\u591a\u4eba\u53ef\u80fd\u4f1a\u60f3\u5230\u600e\u6837\u8f93\u51fa\uff0c\n\n\u5176\u5b9e\u53ea\u8981\u628a3\u4e2a\u5b57\u7b26\u5408\u5e76\u5728\u4e00\u8d77\u5c31\u884c\u4e86\n```\nvar\n  i,j,s,n:longint;\n  a:array[1..123] of string;\nbegin\n readln(n);\n  for i:=1 to n do\n   readln(a[i]);  //\u849f\u84bb\u4e13\u5c5e\u8bfb\u5165\u65b9\u6cd5\n     for i:=1 to n do\n      if length(a[i])>10 then //\u5982\u679c\u5b57\u7b26\u5927\u4e8e10\u5c31\u8f93\u51fa\n       begin\n        write(a[i][1],length(a[i])-2,a[i][length(a[i])]); //\u4e00\u5b9a\u8981\u7528write\uff0cwriteln\u4f1a\u6709\u7a7a\u683c\n        writeln; //\u6362\u884c\n       end\n        else writeln(a[i]); //\u4e0d\u7136\u8f93\u51fa\u8fd9\u4e2a\u5b57\u7b26\nend.\n```\n",
+        "postTime": 1557667663,
+        "uid": 108361,
+        "name": "TCZN",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF71A \u3010Way Too Long Words\u3011"
+    },
+    {
+        "content": "## \u4e3aP\u515a\u5e26\u6765\u4e00\u7bc7\u5165\u95e8\u9898\u89e3\n\n\u601d\u8def\u5f88\u7b80\u5355\uff0c\u6bcf\u6b21\u8bfb\u5165\u4e4b\u540e\u8fdb\u884c\u5224\u8bfb\u5373\u53ef\n\n# Code\n```\nvar n,i,len:longint;//len \u8868\u793a\u957f\u5ea6\n    s:string;\nbegin\n readln(N);\n for i:=1 to n do\n  begin\n   readln(s);\n   len:=length(s);\n   if len>10 then//\u6ce8\u610f\u662f\u4e25\u683c\u5927\u4e8e\uff0c\u6ca1\u6709\u7b49\u53f7\n    begin\n     write(s[1]);\n     write(len-2);\n     writeln(s[len]);\n    end else\n    begin\n     writeln(s);\n    end;\n  end;\nend.\n```",
+        "postTime": 1535436262,
+        "uid": 59364,
+        "name": "\u571f\u95f4\u592a\u5e73",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF71A \u3010Way Too Long Words\u3011"
+    },
+    {
+        "content": "\u76f4\u63a5\u6309\u7167\u9898\u76ee\u8981\u6c42\u6a21\u62df\u5373\u53ef\u3002\n\n\u9996\u5148\u8bfb\u5165\u5b57\u7b26\u4e32sInput\uff0c\u4e4b\u540e\u5224\u65ad\u5176\u957f\u5ea6iLength\uff0c\u5982\u679c\u5927\u4e8e10\uff0c\u5219\u4f9d\u6b21\u8f93\u51fasInput[0]\u3001iLength\u3001sInput[iLength-1]\u3001\u6362\u884c\u7b26\uff1b\u5426\u5219\u76f4\u63a5\u8f93\u51fasInput\u548c\u6362\u884c\u7b26\u5373\u53ef\u3002\n\n\u4ee3\u7801:\n```\n#include <iostream>\n#include <string>\nusing namespace std; //\u5934\u6587\u4ef6\u548c\u547d\u540d\u7a7a\u95f4\nint main(){\n\tios::sync_with_stdio(false); //\u8f93\u5165\u8f93\u51fa\u52a0\u901f\n\tint nCount, iLength; //nCount-\u4e2a\u6570\uff1biLength-\u957f\u5ea6\n\tregister int i; //\u5faa\u73af\u8ba1\u6570\u5668\n\tstring sInput; //\u5b57\u7b26\u4e32\n\tcin >> nCount; //\u8bfb\u5165\u4e2a\u6570\n\tfor (i = 1; i <= nCount; ++i){ //\u9010\u4e2a\u8bfb\u5165\u5b57\u7b26\u4e32\n\t\tcin >> sInput; //\u8bfb\u5165\n\t\tiLength = sInput.length(); //\u8ba1\u7b97\u957f\u5ea6\n\t\tif (iLength > 10) //\u5982\u679c\u957f\u5ea6\u5927\u4e8e10\n\t\t\tcout << sInput[0] << iLength - 2 << sInput[iLength - 1] << endl; //\u4f9d\u6b21\u8f93\u51fasInput[0]\u3001iLength\u3001sInput[iLength-1]\u3001\u6362\u884c\u7b26\n\t\telse //\u5426\u5219\n\t\t\tcout << sInput << endl; //\u76f4\u63a5\u8f93\u51fasInput\u548c\u6362\u884c\u7b26\n\t}\n\treturn 0; //\u7ed3\u675f\n}\n```",
+        "postTime": 1520162842,
+        "uid": 74038,
+        "name": "PC_DOS",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF71A \u3010Way Too Long Words\u3011"
+    },
+    {
+        "content": "\u9898\u76ee\u5927\u610f\uff1a\u8f93\u5165$n$\u4e2a\u5b57\u7b26\u4e32\uff0c\u5982\u679c\u957f\u5ea6\u5927\u4e8e10\uff0c\u5c31\u4f9d\u6b21\u8f93\u51fa\u7b2c\u4e00\u4e2a\u5b57\u7b26\u3001\u957f\u5ea6$-2$\u3001\u6700\u540e\u4e00\u4e2a\u5b57\u7b26\u3002\u5426\u5219\u5c31\u8f93\u51fa\u539f\u4e32\u3002\n\n\u6a21\u62df\u6837\u4f8b\uff1a\n\n$word$ \u957f\u5ea64 \u5c0f\u4e8e10 \u76f4\u63a5\u8f93\u51fa\u539f\u4e32\u3002\n\n$localization$ \u957f\u5ea612 \u5927\u4e8e10 \u8f93\u51fa$l10n$\u3002\n\n\u601d\u8def\uff1a\u6c42\u51fa\u5b57\u7b26\u4e32\u7684\u957f\u5ea6$len$\uff0c\u5224\u65ad\u4e00\u4e0b\u5373\u53ef,\u6ca1\u4ec0\u4e48\u597d\u8bf4\u7684\u5427\u3002\n\n$Code:$\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint n,len;\nchar s[105];\nint main() {\n\tscanf(\"%d%d\",&n);\n\tfor(int i=1;i<=n;i++){\n\t\tscanf(\"%s\",s);len=strlen(s);\n\t\tif(len>10)\n\t\t\tprintf(\"%c%d%c\\n\",s[0],len-2,s[len-1]);\n\t\telse printf(\"%s\\n\",s);\n\t}\n\treturn 0;\n}\n\n```\n",
+        "postTime": 1571642181,
+        "uid": 238925,
+        "name": "\u4eba\u95f4\u51e1\u4eba",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF71A \u3010Way Too Long Words\u3011"
+    }
+]

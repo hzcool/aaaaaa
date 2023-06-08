@@ -1,0 +1,42 @@
+[
+    {
+        "content": "\u8d2a\u5fc3\u7ecf\u5178\u9898\u3002\n\n\u5bf9\u4e8e\u9047\u5230\u7684\u6bcf\u4e00\u4e2a\u5b57\u7b26\uff0c\u7531\u4e8e\u5dee\u8981\u5728 $1$ \u4ee5\u4e0a\uff0c\u6240\u4ee5\u6bcf\u4e2a\u5b57\u7b26\u53ea\u7528\u5b58\u4e00\u6b21\u3002\n\n\u5f53\u8fd9\u4e2a\u5b57\u7b26\u88ab\u53d6\u51fa\u65f6\uff0c\u7531\u4e8e\u5dee\u8981\u5728 $1$ \u4ee5\u4e0a\uff0c\u6240\u4ee5\u76f4\u63a5 $\\verb!j++!$ \u5c31\u53ef\u4ee5\u4e86\u3002\n\n\u603b\u590d\u6742\u5ea6 $O(n\\min(\\frac{27}{2},m))$\uff0c\u53ef\u4ee5\u8fc7\u672c\u9898\u3002\n\n~~\u5b9e\u9645\u4e0a\u65f6\u7a7a\uff08\u5f53\u65f6\uff09\u6392\u7b2c\u4e8c~~\n\n\u4ee3\u7801\u5982\u4e0b\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nbool t[27];\nint main(){\n    int x,y,z=0,ans=0;\n    char a;\n    cin>>x>>y;\n    for(int i=0;i<x;i++){\n    \tcin>>a;\n    \tt[a-'a'+1]=1;\n\t}\n   \tfor(int j=1;j<27&&y;j++){\n    \tif(t[j]){\n    \t\tans+=j;\n    \t\tj++;\n    \t\ty--;\n\t\t}\n\t}\n\tif(y){\n\t\tcout<<-1;\n\t}else{\n\t\tcout<<ans;\n\t}\n    return 0;\n}\n```\n\n\n------------\nPS\uff1a\u7b2c\u4e00\u6b21\u5199\u65f6\u95f4\u590d\u6742\u5ea6\uff0c\u4e0d\u77e5\u9053\u5bf9\u4e0d\u5bf9\u554aQAQ\n\n\u56e0\u4e3a\u53d6\u4e00\u4e2a\u6570\u5c31\u9694\u4e00\u4e2a\uff0c\u6240\u4ee5\u662f $27\\div2$ \uff08\u51c6\u786e\u6765\u8bb2\u8fd8\u8be5 $+1$ \uff09",
+        "postTime": 1683543780,
+        "uid": 706760,
+        "name": "xiaofeng_and_xiaoyu",
+        "ccfLevel": 0,
+        "title": "Stages\u9898\u89e3"
+    },
+    {
+        "content": "## \u8fd9\u662f\u4e00\u9053\u8d2a\u5fc3\u9898\n\n### \u8d2a\u5fc3\u7b56\u7565:\n\n\n#### \u53ea\u8981\u53d6\u5b57\u5178\u5e8f\u6700\u5c0f\u7684\u5b57\u7b26\u3002\u5b83\u7684\u4ef7\u503c\u5c31\u5c0f\u3002\n\n\n------------\n\n\u539f\u56e0\uff1a\u5f53\u6211\u4eec\u53d6\u5230 `a` \u65f6\uff0c\u53ef\u4ee5\u4fdd\u8bc1\u5bf9\u540e\u9762\u7684\u5b57\u6bcd\u53ef\u4ee5\u4f7f\u7528\u3002\u4f8b\u5982\uff1a\u6709 `a`,`b`,`c` \u4e09\u4e2a\u5b57\u6bcd\uff0c\u82e5\u9009 `a`,`c` \u540c\u6837\u53ef\u9009\uff0c\u9009 `b` \u5219\u4e0d\u884c\uff0c\u540e\u9762\u7684 `b`\uff0c`c`\uff0c`d` \u7b49\u7b49\u4e5f\u540c\u7406\u3002\n\u6211\u4eec\u7528\u52a8\u6001\u6570\u7ec4\u8bb0\u5f55\u6240\u6709\u80fd\u9009\u7684\u5b57\u7b26\uff0c\u4ece\u5934\u5f00\u59cb\u8f93\u51fa `k` \u4e2a\u5373\u53ef\u3002\n\n\n------------\n\n## \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,k,l=0,ans,a[51];\nchar x;\nint main(){\n\tvector<int>v;\n\tcin>>n>>k;\n\tfor(int i=1;i<=n;++i){\n\t\tcin>>x;\n\t\ta[i]=x-'a'+1;\n\t}\n\tsort(a+1,a+n+1);\n\tint l=-1;\n\tfor(int i=1;i<=n;++i)\n\t\tif(a[i]>=l+2){\n\t\t\tv.push_back(a[i]);\n\t\t\tl=a[i];\n\t\t}\n\tif(v.size()<k)\n\t\tcout<<'-1'<<endl;\n\telse{\n\t\tfor(int i=0;i<k;++i)\n\t\t\tans+=v[i];\n\t\tcout<<ans;\n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1683469893,
+        "uid": 865853,
+        "name": "Yang_OIer",
+        "ccfLevel": 0,
+        "title": "CF1011A"
+    },
+    {
+        "content": "\u6839\u636e\u57fa\u672c\u8d2a\u5fc3\uff0c\u6211\u4eec\u5982\u679c\u80fd\u53d6\u5f97 `a` \u5c31\u4f1a\u53d6 `a`\uff0c\u80fd\u53d6\u5f53\u524d\u5b57\u7b26\u5c31\u4e0d\u4f1a\u53d6\u5b57\u6bcd\u8868\u540e\u4e00\u4e2a\u5b57\u7b26\u3002\n\n\u611f\u6027\u7406\u89e3\u4e00\u4e0b\u8fd9\u4e2a\u8d2a\u5fc3\u3002\n\n- \u5f53\u6211\u4eec\u53d6\u5230 `a` \u65f6\uff0c\u53ef\u4ee5\u4fdd\u8bc1\u4ef7\u503c\u5f97\u5230\u6700\u4f4e\u5316\uff0c\u56e0\u4e3a `a` \u7684\u4ee3\u4ef7\u6bd4\u4efb\u4f55\u4e00\u4e2a\u5b57\u6bcd\u8868\u540e\u9762\u7684\u5b57\u7b26\u7684\u4ee3\u4ef7\u5c11\uff0c\u6240\u4ee5\u80fd\u9009 `a` \u5c31\u4e0d\u4f1a\u9009 `b`\u3002\u80fd\u9009 `b` \u5c31\u4e0d\u4f1a\u9009 `c`\u3002\n- \u5f53\u6211\u4eec\u53d6\u5230 `a` \u65f6\uff0c\u53ef\u4ee5\u4fdd\u8bc1\u5bf9\u540e\u9762\u7684\u5b57\u6bcd\u5c3d\u53ef\u80fd\u5730\u5229\u7528\uff0c\u56e0\u4e3a\u5982\u679c\u53ef\u4ee5\u9009\u62e9 `a`\u3001`b`\u3001`c`\uff0c\u5f53\u6211\u4eec\u8fd9\u4e00\u6b65\u9009\u62e9 `a` \u65f6\uff0c`c` \u53ef\u4ee5\u9009\u3002\u5f53\u6211\u4eec\u9009\u62e9 `b` \u65f6\uff0c`c` \u5c31\u4e0d\u80fd\u9009\u4e86\u3002\u6240\u4ee5\u80fd\u9009 `a` \u5c31\u4e0d\u4f1a\u9009 `b`\u3002\n\n\u540e\u9762\u7684 `b`\uff0c`c`\uff0c`d` \u7b49\u7b49\u4e5f\u540c\u7406\u3002\u8003\u8651\u4ee3\u7801\u5b9e\u73b0\uff0c\u6211\u4eec\u53ef\u4ee5\u7528 `std::vector` \u8bb0\u5f55\u6240\u6709\u80fd\u9009\u7684\u5b57\u7b26\uff0c\u7136\u540e\u4ece\u5934\u5f00\u59cb\u8f93\u51fa $k$ \u4e2a\u5373\u53ef\u3002\u5f53\u7136\uff0c\u5982\u679c\u5411\u91cf\u7684\u5927\u5c0f\u5c0f\u4e8e $k$\uff0c\u5c31\u65e0\u89e3\u3002\n\n\u65f6\u95f4\u590d\u6742\u5ea6\uff1a$\\text{O}(n\\log n)$\u3002\u4e4b\u6240\u4ee5\u6709 $\\log$ \u662f\u56e0\u4e3a\u6211\u4eec\u9700\u8981\u6392\u5e8f\u3002\n\n```cpp\n#include<iostream>\n#include<algorithm>\n#include<vector>\nusing namespace std;\nint main(){\n\tint n;\n\tint k;\n\tcin>>n>>k;\n\tint a[n+1];\n\tfor(int i=1;i<=n;++i){\n\t\tchar x;\n\t\tcin>>x;\n\t\ta[i]=x-'a'+1;\n\t}\n\tsort(a+1,a+n+1);\n\tvector<int>v;\n\tint last=-1;\n\tfor(int i=1;i<=n;++i)\n\t\tif(a[i]>=last+2){\n\t\t\tv.push_back(a[i]);\n\t\t\tlast=a[i];\n\t\t}\n\tif(v.size()<k){\n\t\tcout<<-1<<endl;\n\t\treturn 0;\n\t}\n\tint sum=0;\n\tfor(int i=0;i<k;++i)\n\t\tsum+=v[i];\n\tcout<<sum<<endl;\n}\n```",
+        "postTime": 1621775187,
+        "uid": 317899,
+        "name": "oimaster",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1011A \u3010Stages\u3011"
+    },
+    {
+        "content": "\u601d\u8def\uff1a\u5148\u5bf9\u5b57\u7b26\u4e32\u6392\u5e8f\uff0c\u7136\u540e\u4ece\u5934\u5230\u5c3e\u679a\u4e3e\uff0c\u5982\u679c\u76f8\u90bb\u5143\u7d20\u5dee\u5927\u4e8e $1$ \u5219\u8bb0\u5f55\uff0c\u5426\u5219\u8df3\u8fc7\uff0c\u5f53\u6ee1\u8db3\u8981\u6c42\u7684\u5143\u7d20\u591f $k$ \u4e2a\u65f6\u8f93\u51fa $k$ \uff0c\u5982\u679c\u4e0d\u591f\u5219\u8f93\u51fa $-1$ \u3002\n\ncode:\n\n```cpp\n#include<bits/stdc++.h>\n#define fol(i,a,b) for(int i=a;i<=(b);i++)\n#define bor(i,a,b) for(int i=a;i>=(b);--i)\nusing namespace std;\nint main(){\n    int n,k;\n    ios::sync_with_stdio(false);\n    cin.tie(0);\n    string str;\n    cin>>n>>k>>str;\n    sort(str.begin(),str.end());\n    int sum=str[0]-'a'+1;\n    char tmp=str[0];\n    int num=1;\n    fol(i,1,n-1){\n        if(num==k){\n            break;\n        }\n        if(str[i]-tmp>1){\n            num++;\n            tmp=str[i];\n            sum+=tmp-'a'+1;\n        }\n    }\n    if(num==k){\n        cout<<sum<<endl;\n    }\n    else{\n        cout<<-1<<endl;\n    }\n    return 0;\n}\n```\n",
+        "postTime": 1598001588,
+        "uid": 251551,
+        "name": "YUYGFGG",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 CF1011A \u3010Stages\u3011"
+    },
+    {
+        "content": "```cpp\n// \u8d2a\u5fc3\u9898\uff0c\u9996\u5148\u5c06\u5b57\u7b26\u4e32\u6309\u4ece\u5c0f\u5230\u5927\u6392\u5e8f\uff0c\u7136\u540e\u4ece\u524d\u5f80\u540e\u53d6\u5b57\u7b26\uff0c\u53ea\u8981\u4e0d\u662f\u8fde\u7eed\u7684\u5b57\u7b26\u5c31\u53ef\u4ee5\u53d6\n#include <iostream>\n#include <string>\n#include <algorithm>\n\nint main()\n{\n    std::ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n    std::cout.tie(nullptr);\n\n    int n, k;\n    std::cin >> n >> k;\n\n    std::string Str;\n    std::cin >> Str;\n\n    std::sort(Str.begin(), Str.end());\n\n    int Ans = Str[0] - 'a' + 1; // \u5934\u5b57\u7b26\u80af\u5b9a\u53ef\u4ee5\u53d6\uff0c\u5148\u53d6\u4e00\u4e2a\u770b\u770b\n    --k;\n\n    if (k == 0)\n    {\n        std::cout << Ans << std::endl;\n    }\n    else\n    {\n        auto Pre = Str[0];  // \u8bb0\u5f55\u4e0a\u4e00\u6b21\u53d6\u5f97\u7684\u5b57\u7b26\n        for (int i = 1; i < n; ++i)\n        {\n            if (Str[i] - Pre > 1)   // \u4e0d\u8fde\u7eed\u5219\u53ef\u4ee5\u53d6\n            {\n                Ans += Str[i] - 'a' + 1;\n                Pre = Str[i];\n\n                if (--k == 0)\n                {\n                    std::cout << Ans << std::endl;\n\n                    return 0;\n                }\n            }\n        }\n\n        std::cout << -1 << std::endl;\n    }\n\n    return 0;\n}\n```",
+        "postTime": 1532698868,
+        "uid": 59062,
+        "name": "\u5c0f\u95f8\u87f9",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1011A \u3010Stages\u3011"
+    }
+]

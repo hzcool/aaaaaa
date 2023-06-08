@@ -1,0 +1,18 @@
+[
+    {
+        "content": "\u7531\u4e8e\u77e5\u6653\u4e86 $00$ \u548c $11$ \u7684\u5bf9\u6570\uff0c\u6240\u4ee5\u6211\u4eec\u53ef\u4ee5\u5f88\u8f7b\u6613\u6839\u636e\u7b49\u5dee\u6570\u5217\u6c42\u548c\u7684\u67ff\u5b50\u7684\u53d8\u5f62 $n_0\\times (n_0-1)=2\\times a_{00}$\uff08$1$ \u7c7b\u4f3c\uff09 \u7684\u5f97\u5230 $0$ \u548c $1$\uff0c\u7136\u540e\u5224\u65ad\u65e0\u89e3\u7684\u60c5\u51b5\u3002\n\n\u5224\u65ad\u65e0\u89e3\u662f\u7528 $\\sqrt{n\\times (n-1)}+1$ \u6c42\u51fa\u7684\u503c\uff08\u5176\u95f4\u9700\u5224\u65ad\u662f\u5426\u65e0 $0$ \u6216\u65e0 $1$ \u53bb\u53bb\u6389\u591a\u52a0\u7684 $1$\uff09\u53bb\u9a8c\u8bc1\u662f\u5426\u7b26\u5408\u6761\u4ef6\uff0c\u5373 $n_0\\times n_1=a_{01}+a_{10}$\u3002\n\n\u7136\u540e\u6211\u4eec\u8003\u8651\u600e\u4e48\u6784\u9020\u3002\u6211\u4eec\u76f4\u63a5\u8003\u8651 $0$ \u6216 $1$ \u7684\u6446\u653e\u4f4d\u7f6e\uff0c\u6bd4\u5982\u8003\u8651 $0$ \u7684\u4f4d\u7f6e\u3002\n\n\u6211\u4eec\u5df2\u7ecf\u77e5\u9053\u4fdd\u8bc1\u6709\u89e3\uff0c\u6240\u4ee5\u53ea\u8981\u5173\u5fc3\u662f\u5426\u7b26\u5408 $a_{01}$ \u5373\u53ef\u3002\u56e0\u4e3a\u6bcf\u4e2a $0$ \u7684\u8d21\u732e\u5c31\u662f\u5176\u540e\u7684 $1$ \u7684\u6570\u91cf\uff0c\u6240\u4ee5\u6211\u4eec\u53ef\u4ee5\u66b4\u529b\u679a\u4e3e\u6bcf\u4e00\u4e2a\u4f4d\u5224\u65ad\u662f\u5426\u80fd\u653e $0$ \u5426\u5219\u653e $1$\uff0c\u7136\u540e\u8f93\u51fa\u65b9\u6848\u5373\u53ef\u3002\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,m,A,B,C,D;\nint main(){\n\tscanf(\"%d%d%d%d\",&A,&B,&C,&D);\n\tn=sqrt(A<<1)+1,m=sqrt(D<<1)+1;\n\t(n<m?n:m)-=(!B&&!C);\n\tif(n*(n-1)!=A+A||m*(m-1)!=D+D||n*m!=B+C)return puts(\"Impossible\"),0;\n\tfor(int i=n+m;i;i--)\n\tif(B>=m)putchar('0'),B-=m;\n\telse putchar('1'),m--;\n\treturn 0;\n}\n```\n",
+        "postTime": 1630414347,
+        "uid": 120010,
+        "name": "CaiXY06",
+        "ccfLevel": 6,
+        "title": "solution-cf708b"
+    },
+    {
+        "content": "## \u6784\u9020+\u6a21\u62df\n\u5df2\u77e500,11\u4e32\u7684\u6570\u76ee\u53ef\u4ee5\u77e5\u90530,1\u7684\u6570\u91cf \n\n\u7136\u540e\u5229\u7528x*(x-1)=a\u5feb\u901f\u6c42\u5f97\u6b63\u6574\u6570\u89e3\u7136\u540e\u76f8\u4e58\u9a8c\u8bc1\u4e00\u4e0b\u662f\u5426\u6709\u89e3\u3002\n\n\u5173\u4e8e01\u4e32\u548c10\u4e32\u7684\u6570\u91cf\uff0c\u5047\u8bbe0\u5168\u5728\u5de6\u8fb9\uff0c1\u5168\u5728\u53f3\u8fb9\uff0c\u5f97\u51fa01\u4e32\u7684\u6570\u76ee\u5c31\u662fcnt1*cnt2(\u8be5\u9898\u6709SPJ)\n\ncode:\n```cpp\n// luogu-judger-enable-o2\n#include<bits/stdc++.h>\n#define reg register\n#define ll long long\nusing namespace std;\nint num[1000010],a,b,c,d,h;\nint main()\n{\n\tcin>>a>>b>>c>>d;\n\treg int cnt1=sqrt(2*a)+1;\n\treg int cnt2=sqrt(2*d)+1;//\u524d\u9762\u7684\u591a\u9879\u5f0f \n\tif(cnt1*(cnt1-1)!=2*a||cnt2*(cnt2-1)!=2*d)return puts(\"Impossible\"),0;//\u76f4\u63a5\u7ed3\u675f \n\tif(a+b+c+d==0)return puts(\"0\"),0;\n\tif(a+b+c==0)\n\t{\n\t\tfor(reg int i=1;i<=cnt2;i++)printf(\"1\");\n\t\treturn 0;\n\t}\n\tif(a&&b+c+d==0)\n\t{\n\t\tfor(reg int i=1;i<=cnt1;i++)printf(\"0\");\n\t\treturn 0;\n\t}//\u6784\u9020 \n\tif(cnt1*cnt2!=b+c)return puts(\"Impossible\"),0;//\u76f4\u63a5\u7ed3\u675f\n\twhile(c)\n\t{\n\t\tif(c>=cnt1)\n\t\t{\n\t\t\tc-=cnt1;\n\t\t\tnum[++h]=1;\n\t\t}\n\t\telse\n\t\t{\n\t\t\tnum[++h+cnt1-c]=1;\n\t\t\tc=0;\n\t\t\tbreak;\n\t\t}\n\t}\n\tfor(reg int i=1;i<=cnt2-h;i++)num[cnt1+cnt2+1-i]=1;\n\tfor(reg int i=1;i<=cnt1+cnt2;i++)printf(\"%d\",num[i]);//\u6784\u9020 \n\treturn 0;//\u5706\u6ee1\u7ed3\u675f \n}\n```",
+        "postTime": 1550493149,
+        "uid": 48993,
+        "name": "liuyifan",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF708B \u3010Recover the String\u3011"
+    }
+]

@@ -1,0 +1,114 @@
+[
+    {
+        "content": "emm\uff0c\u611f\u89c9\u53e6\u5916\u7684\u4e00\u7bc7\u9898\u89e3\u6839\u672c\u6ca1\u8bb2\u6e05\u695a\u554a\u2026\u2026\n\n\u56de\u5230\u6b63\u9898\u3002\u4ece\u90a3\u4e2a\u5f0f\u5b50 $\\sum\\limits_{i=1}^n\\sum\\limits_{j=i}^n\\frac{a_j}{j}$ \u4e2d\uff0c\u6211\u4eec\u4e0d\u96be\u53d1\u73b0\u5206\u6bcd\u662f\u8fd9\u6837\u4e00\u4e2a\u89c4\u5f8b\n$1,2,3,\\cdots,n$\n\n$2,3,\\cdots,n$\n\n$3,\\cdots,n$\n\n\u90a3\u4e48\u53ef\u4ee5\u770b\u51fa\uff0c\u5bf9\u4e8e\u6bcf\u4e00\u4e2a\u6570\u5b57$j$\uff0c\u5b83\u90fd\u6b63\u6b63\u597d\u597d\u5f53\u4e86$j$\u6b21\u5206\u6bcd\uff0c\u90a3\u4e48\u6211\u4eec\u5c31\u53ef\u4ee5\u628a\u5206\u6bcd\u6d88\u6389\u4e86~~\uff08\u6839\u636e\u5c0f\u5b66\u7684\u7ea6\u5206\u77e5\u8bc6\uff09~~\u3002\u4e5f\u5c31\u662f\u8bf4\uff0c\u539f\u6765\u7684\u90a3\u4e2a\u5f0f\u5b50\u53ef\u4ee5\u76f4\u63a5\u53d8\u6210$\\sum\\limits_{i=1}^n a_i$\uff0c\u90a3\u4e48\u76f4\u63a5\u5224\u65ad\u8fd9\u4e2a\u662f\u4e0d\u662f$m$\u5c31\u597d\u4e86\n\n### $ACcode:$\n```cpp\n#include<bits/stdc++.h>\n#define F(i,l,r) for(register int i=l;i<=r;i++)\n#define D(i,r,l) for(register int i=r;i>=l;i--)\n#define ll long long\n#define mem(a,b) memset(a,b,sizeof(a))\n#define p_b push_back\n#define m_p make_pair\n#define il inline\n#define fi first\n#define se second\nconst int INF=0x3f3f3f3f,N=105;\nusing namespace std;\nint T;\nint n;\nll m;\nll a[N],sum;\nint main() {\n\tscanf(\"%d\",&T);\n\twhile(T--) {\n\t\tsum=0;\n\t\tscanf(\"%d%lld\",&n,&m);\n\t\tF(i,1,n) scanf(\"%lld\",&a[i]),sum+=a[i];\n\t\tputs(sum==m?\"YES\":\"NO\");\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1603588428,
+        "uid": 117648,
+        "name": "tuzhewen",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF1436A \u3010Reorder\u3011"
+    },
+    {
+        "content": "\u76ef\u4e00\u4e0b $\\sum_{i=1}^{n} \\sum_{j=i}^{n} \\frac{a_{j}}{j}$ \u8fd9\u4e2a\u5f0f\u5b50\u3002\u4f60\u4f1a\u53d1\u73b0 $\\frac{a_j}{j}$ \u6070\u597d\u88ab\u7b97\u4e86 $j$ \u6b21\u3002\n\n\u4e3a\u4ec0\u4e48\uff1f$\\frac{a_j}{j}$ \u4f1a\u88ab\u7b97\u5230\uff0c\u5f53\u4e14\u4ec5\u5f53 $i \\leq j$\u3002\u56e0\u6b64\u5c31\u4f1a\u88ab $i=1,2,...,j$ \u7684\u65f6\u5019\u5206\u522b\u7b97\u4e00\u6b21\uff0c\u52a0\u8d77\u6765\u5c31\u88ab\u7b97\u4e86 $j$ \u6b21\u3002\n\n\u56e0\u6b64\u539f\u5f0f\u5c31\u76f8\u5f53\u4e8e $\\sum_{i=1}^n a_i$\u3002\n\n\u8fd9\u4e2a\u76f8\u4fe1\u5927\u5bb6\u90fd\u4f1a\u505a\u4e86\u5427\u2026\u2026\n\n---\n\n```cpp\nvoid work() {\n    int n = read(), m = read(), a, sum = 0;\n    for(int i = 1; i <= n; ++i) {\n        a = read();\n        sum += a;\n    }\n    if(sum == m) cout << \"YES\" << endl;\n    else cout << \"NO\" << endl;\n}\n\nint main() {\n    int T = read();\n    while(T--) work();\n}\n```",
+        "postTime": 1603610342,
+        "uid": 39278,
+        "name": "Sqrtyz",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF1436A \u3010Reorder\u3011"
+    },
+    {
+        "content": "### 0.Description\n\u7ed9\u51fa\u4e00\u4e2a $n$ \u4e2a\u6570\u7684\u6570\u7ec4\uff0c\u95ee\u80fd\u5426\u901a\u8fc7\u67d0\u79cd\u65b9\u5f0f\u6392\u5217\u6570\u7ec4\u4f7f\u5f97 $\\sum_{i=1}^n\\sum_{j=i}^n\\frac{a[j]}{j}=m$ \uff1f\n### 1.Solution\n\u53ef\u4ee5\u53d1\u73b0\u5206\u6bcd\u4e3a $j$ \u7684\u65f6\u5019\u6b63\u597d\u7d2f\u52a0\u4e86 $j$ \u6b21\uff0c\u6240\u4ee5\u9898\u76ee\u5176\u5b9e\u5728\u95ee $n$ \u4e2a\u6570\u7684\u548c\u662f\u5426\u7b49\u4e8e $m$ \u3002\n### 2.Code\n[\u5f00\u5934\u4ee3\u7801](https://www.cnblogs.com/juruoajh/p/12632444.html)\n```cpp\nint T,n,m,x;\nint main(){\n\tRead(T);\n\twhile(T--){\n\t\tRead(n),Read(m);\n\t\tfor(rg int i=1;i<=n;i++)Read(x),m-=x;\n\t\tif(!m)cout<<\"YES\"<<endl;\n\t\telse cout<<\"NO\"<<endl;\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1603612149,
+        "uid": 220524,
+        "name": "_ajthreac_",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF1436A \u3010Reorder\u3011"
+    },
+    {
+        "content": "# $\\mathtt{Link}$\n[\u4f20\u9001\u95e8](https://codeforces.com/contest/1a_3a_26/problem/A)\n# $\\mathtt{Summarization}$\n\u7ed9\u5b9a\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u5e8f\u5217 $a$\uff0c\u6c42\u662f\u5426\u6709\u4e00\u79cd\u6392\u5e8f\u65b9\u6848\u4f7f\u5f97 $\\sum_{i=1}^n\\sum_{j=i}^n\\dfrac{a_j}{j} = m$\u3002\n# $\\mathtt{Solution}$\n\n\u663e\u7136 $a$ \u5e8f\u5217\u4e2d\u67d0\u4e9b\u6570\u5b57\u88ab\u5904\u7406\u5e76\u7d2f\u52a0\u8fc7\u82e5\u5e72\u6b21\uff0c\u4e0d\u59a8\u5148\u628a\u6240\u6709\u6570\u5904\u7406\u6389\uff0c\u8003\u8651\u6bcf\u4e2a\u90fd\u52a0\u4e86\u591a\u5c11\u6b21\u3002\n\n\u6bd4\u5982\u8fd9\u6837\u4e00\u4e2a\u5e8f\u5217\uff1a$a_1, a_2, a_3, a_4, a_5$\n\n\u5148\u5904\u7406\u8be5\u5e8f\u5217\uff0c\u53d8\u6210\uff1a$\\dfrac{a_1}{1}, \\dfrac{a_2}{2}, \\dfrac{a_3}{3}, \\dfrac{a_4}{4}, \\dfrac{a_5}{5}$\u3002\n\n\u90a3\u4e48\u95ee\u9898\u5c31\u53ef\u4ee5\u8f6c\u5316\u6210\u8fd9\u6837\u4e00\u4e2a\u88ab\u5904\u7406\u7684\u5e8f\u5217\uff0c\u6c42\u662f\u5426 $\\sum_{i=1}^n\\sum_{j=i}^na_j = m$\u3002\n\n**\u4f60\u4f1a\u53d1\u73b0\uff0c\u5728 $a_j$ \u8fd9\u4e2a\u4f4d\u7f6e\u7684\u6570\u6b63\u597d\u88ab\u7d2f\u8ba1\u4e86 $j$ \u6b21**\u3002\n\n\u56e0\u4e3a $1 \\le i \\le j$ \u7684\u65f6\u5019\uff0c\u6bcf\u6b21\u7d2f\u8ba1\u4e86 $1$ \u6b21 $a_j$\uff0c\u603b\u5171\u5c31\u662f $j$ \u6b21\uff1b\u4f46\u662f\u5f53 $j < i \\le n$ \u7684\u65f6\u5019\uff0c\u5c31\u7d2f\u8ba1\u4e0d\u5230 $a_j$ \u4e86\u3002\n\n\u90a3\u4e48\u95ee\u9898\u5176\u5b9e\u8981\u6c42\u7684\u5c31\u662f $\\dfrac{a_1}{1} \\times 1 + \\dfrac{a_2}{2} \\times 2 + \\dfrac{a_3}{3} \\times 3 + \\dfrac{a_4}{4} \\times 4 + \\dfrac{a_5}{5} \\times 5$\u3002\u4f60\u4f1a\u60ca\u5947\u7684\u53d1\u73b0\uff0c**\u5206\u6bcd\u90fd\u80fd\u548c\u540e\u9762\u7684\u4e58\u6570\uff0c\u76f8\u7ea6\uff0c\u4e5f\u5c31\u662f\u6700\u540e\u53d8\u6210\u4e86 $a_1 + a_2 + a_3+a_4+a_5$**\u3002\n\n\n\u6362\u53e5\u8bdd\u8bb2\uff0c\u5c31\u662f\u8bf4 $\\sum_{i=1}^n\\sum_{j=i}^n\\dfrac{a_j}{j} = \\sum_{i=1}^na_i$\u3002\n\n**\u95ee\u9898\u4e5f\u5c31\u8f6c\u5316\u6210\u662f\u5426\u6709\u4e00\u79cd\u6392\u5e8f\u65b9\u5f0f\u4f7f\u5f97\u8fd9\u4e2a\u5e8f\u5217\u7684\u548c\u4e3a $m$**\u3002\n\n\u6211\u4eec\u77e5\u9053\uff0c\u56e0\u4e3a\u52a0\u6cd5\u4ea4\u6362\u5f8b\uff0c\u56e0\u6b64\u5728\u4e0d\u52a0\u6570\u4e0d\u5220\u6570\u4e0d\u6539\u6570\u7684\u60c5\u51b5\u4e0b\uff0c\u8fd9\u4e2a\u5e8f\u5217\u65e0\u8bba\u600e\u4e48\u6392\u5e8f\uff0c**\u548c\u90fd\u662f\u56fa\u5b9a\u7684**\u3002\n\n\u90a3\u4e48\uff0c\n\n- **\u5982\u679c\u8fd9\u4e2a\u5e8f\u5217\u7684\u548c\u662f $m$\uff0c\u5c31\u4e00\u5b9a\u6709\u89e3**\uff1b\n- **\u5982\u679c\u8fd9\u4e2a\u5e8f\u5217\u7684\u548c\u4e0d\u662f $m$\uff0c\u5c31\u6ca1\u89e3\u4e86**\u3002\n\n\u8be5\u7b97\u6cd5\u65f6\u95f4\u590d\u6742\u5ea6\u4e3a $\\mathcal{O}(n)$\u3002\n# $\\mathtt{Code}$\n\n```cpp\n/*\n * @Author: crab-in-the-northeast \n * @Date: 2020-10-25 08:28:22 \n * @Last Modified by: crab-in-the-northeast\n * @Last Modified time: 2020-10-25 08:37:06\n */\n#include <iostream>\n#include <cstdio>\n\nconst int maxn = 10005;\nint a[maxn];\n\nint main() {\n    int t;\n    std :: scanf(\"%d\", &t);\n    while (t--) {\n        int n, m;\n        std :: scanf(\"%d %d\", &n, &m);\n        for (int i = 1; i <= n; ++i)\n            std :: scanf(\"%d\", &a[i]);\n        \n        int sum = 0;\n        for (int i = 1; i <= n; ++i)\n            sum += a[i];\n        if (sum == m)\n            puts(\"YES\");\n        else\n            puts(\"NO\");    \n    }\n}\n```\n\n# $\\mathtt{More}$\n\n\u6b64\u9898\u901a\u8fc7\u8d21\u732e\u601d\u60f3\u5de7\u5999\u7684\u5c06\u95ee\u9898\u7b80\u5355\u5316\u3002\n",
+        "postTime": 1603587605,
+        "uid": 120868,
+        "name": "dbxxx",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF1436A \u3010Reorder\u3011"
+    },
+    {
+        "content": "### \u601d\u8def\uff1a\n\u4e00\u770b\u9898\u76ee\u8303\u56f4\u8fc7\u5927\uff0c\u60f3\u5230\u7684\u5c31\u662f\u7ed3\u8bba\u3002\u6211\u4eec\u4ece\u6837\u4f8b\u53ef\u4ee5\u770b\u51fa\uff0c\u5982\u679c$a[i]$\u7d2f\u52a0\u540e\u7b49\u4e8e$m$\uff0c\u5c31\u8f93\u51fa$YES$\uff0c\u5426\u5219\u8f93\u51fa$NO$\u3002\n\n\n### Code:\n```\n#include<iostream>\n\nusing namespace std;\n\nconst int MAXN=2222222;\n\nint a[MAXN];\n\nint main()\n{\n\tint T;\n\tcin>>T;\n\twhile(T--)\n\t{\n\t\tint cn;\n\t\tcin>>cn;\n\t\tint c;\n\t\tcin>>c;\n\t\tint cnt=0;\n\t\tfor(int i=1;i<=cn;i++)\n\t\t\tcin>>a[i],cnt+=a[i];\n\t\tif(cnt==c)\n\t\t\tputs(\"YES\");\n\t\telse\n\t\t\tputs(\"NO\");\n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1603584859,
+        "uid": 365726,
+        "name": "\u5e7c\u513f\u56ed\u7b2c\u4e00\u540d",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 CF1436A \u3010Reorder\u3011"
+    },
+    {
+        "content": "# \u9898\u610f\u7b80\u8ff0\n\u7ed9\u5b9a $n$ \u4e2a\u6574\u6570 $a_{1...n}$\uff0c\u6c42\u662f\u5426\u6709\u4e00\u4e2a\u6392\u5217\u4f7f\u5f97  \n$\\sum_{i=1}^{n}{\\sum_{j=i}^{n}{\\frac{a_j}{j}}} $ \u7684\u503c\u4e3a $m$\u3002\n\n# \u9898\u76ee\u5206\u6790\n\u628a\u8fd9\u4e2a\u5f0f\u5b50\u4e58\u5f00\uff1a\n\n$\\sum_{i=1}^{n}{{i \\times \\frac{a_i}{i}}} $\n\n\u4e8e\u662f\u5c31\u53d8\u6210\u4e86\uff1a\n\n$\\sum_{i=1}^{n}{a_i}$\n\n\u6240\u4ee5\u76f4\u63a5\u628a\u6570\u5b57\u7684\u548c\u4e0e $m$ \u6bd4\u8f83\u5373\u53ef\u3002\n\n\u4ee3\u7801\u5f88\u7b80\u5355\uff0c\u7565\u53bb\u3002",
+        "postTime": 1603606876,
+        "uid": 282751,
+        "name": "cryozwq",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF1436A \u3010Reorder\u3011"
+    },
+    {
+        "content": "## \u9898\u610f\n\u95ee\u80fd\u5426\u5c06\u957f\u5ea6\u4e3a$n$\u7684\u5e8f\u5217$a$\u91cd\u6392\u540e\u4f7f$ \\sum_{i=1}^{n}{\\sum_{j=i}^{n}{\\dfrac{a_j}{j}}}=m$\n## \u9898\u89e3\n\u8003\u8651$\\sum_{i=1}^{n}{\\sum_{j=i}^{n}{\\dfrac{a_j}{j}}}$\u8fd9\u4e2a\u67ff\u5b50\u4e2d\uff0c$\\dfrac{a_j}{j}$\u7b97\u4e86$j$\u6b21\uff0c\u76f8\u5f53\u4e8e$a_j$\uff0c\u56e0\u6b64\u65e0\u9700\u6392\u5e8f\uff0c\u4e4b\u95f4\u53d6\u548c\u5373\u53ef\u3002\n## \u4ee3\u7801\n```cpp\nint t,n,m,a,s;\nsigned main(){\n\tin::read(t);\n\twhile(t--){\n\t\tin::read(n,m);\n\t\ts=0;\n\t\tfor(int i=1;i<=n;i++)\n\t\t\tin::read(a),s+=a;\n\t\tif(s==m)printf(\"YES\\n\");\n\t\telse puts(\"NO\");\n\t}\n\tout::flush();\n\treturn 0;\n}\n```",
+        "postTime": 1603598816,
+        "uid": 174304,
+        "name": "jun\u5934\u5409\u5409",
+        "ccfLevel": 10,
+        "title": "\u9898\u89e3 CF1436A \u3010Reorder\u3011"
+    },
+    {
+        "content": "# \u9898\u610f\n\n\u5c31\u662f\u7ed9\u4f60\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u6570\u7ec4\uff0c\u628a\u8fd9\u4e2a\u91cd\u65b0\u6392\u5e8f\u540e\uff0c\n\n\u4f7f\u5f97 $\\sum^{n}_{i=1}\\sum^{n}_{j=i}\\dfrac{a_j}{j}=m$\u3002\n\n# \u5206\u6790\n\n\u5206\u6790\u5b83\u7ed9\u7684\u6837\u4f8b\n\n```\n3 8\n2 5 1\n```\n\u5f53\u6211\u4eec\u4e0d\u6392\u5e8f\u65f6\uff0c\n\n $\\sum^{n}_{i=1}\\sum^{n}_{j=i}\\dfrac{a_j}{j}=\\dfrac{2}{1}+\\dfrac{5}{2}+\\dfrac{1}{3}+\\dfrac{5}{2}+\\dfrac{1}{3}+\\dfrac{1}{3}=8$\n \n \u5f53\u6211\u4eec\u6392\u4e00\u4e0b\u5e8f\uff1a$1,2,5$\u3002\n \n $\\sum^{n}_{i=1}\\sum^{n}_{j=i}\\dfrac{a_j}{j}=\\dfrac{1}{1}+\\dfrac{2}{2}+\\dfrac{5}{3}+\\dfrac{2}{2}+\\dfrac{5}{3}+\\dfrac{5}{3}=8$\n \n \u6240\u6709\u6211\u4eec\u53ef\u4ee5\u5f97\u5230\uff1a$\\sum^{n}_{i=1}\\sum^{n}_{j=i}\\dfrac{a_j}{j}=\\sum^{n}_{i=1}a_i$\u3002\n \n \u6570\u5b66\u63a8\u7406\uff1a\n \n $\\sum^{n}_{i=1}\\sum^{n}_{j=i}\\dfrac{a_j}{j}=\\dfrac{a_1}{1}+\\dfrac{a_2}{2}+\\dfrac{a_2}{2}+.......\\dfrac{a_n}{n}+\\dfrac{a_n}{n}+....$( $n$ \u4e2a $\\dfrac{a_n}{n}$) $=\\sum^{n}_{i=1}a_i$\u3002\n \n # \u4ee3\u7801\n \n \u6838\u5fc3\u90e8\u5206\n \n ```cpp\n\tfor(int i=1;i<=n;i++)\n\t\tcin>>a[i],zs+=a[i];\n\tif(zs==m){\n\t\tcout<<\"YES\"<<endl;\n\t}\n\telse{\n\t\tcout<<\"NO\"<<endl;\n\t}\n```\n\n ",
+        "postTime": 1603597264,
+        "uid": 188885,
+        "name": "Edmundino",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF1436A \u3010Reorder\u3011"
+    },
+    {
+        "content": "$\\bold{Idea}$\n\n\u629b\u5f00\u516c\u5f0f\u91cc\u7684\u9664\u6cd5\uff0c\u6211\u4eec\u53ef\u4ee5\u5f88\u7b80\u5355\u5730\u53d1\u73b0\uff0c\u7ed3\u679c\u5c31\u662f\u6bcf\u4e2a\u4f4d\u7f6e\u4e0a\u7684\u6570\u4e58\u4e0a\u5b83\u7684\u4f4d\u7f6e\u7f16\u53f7\u3002\n\n\u4e5f\u5c31\u662f\uff1a\n\n$Ans=1 \\times a_1+2 \\times a_2 + 3 \\times a_3 + \\cdots + n \\times a_n$.\n\n\u518d\u56de\u8fc7\u5934\uff0c\u770b\u9664\u6cd5\u7684\u610f\u4e49\uff0c\u6211\u4eec\u4f1a\u53d1\u73b0\uff0c\u4f4d\u7f6e\u7f16\u53f7\u90fd\u88ab\u9664\u53bb\u4e86\u3002\n\n\u4e5f\u5c31\u662f\uff1a\n\n$Ans=a_1+a_2+a_3+\\cdots+a_n$.\n\n\u6b64\u65f6\u6570\u7684\u4f4d\u7f6e\u5df2\u7ecf\u4e0d\u5f71\u54cd\u7ed3\u679c\u3002\u600e\u4e48\u8c03\u52a8\u987a\u5e8f\uff0c\u7b54\u6848\u8fd8\u662f\u4e00\u6837\u3002\n\n\u6240\u4ee5\u53ea\u9700\u5224\u65ad\u662f\u5426\u7b49\u4e8e $m$ \u5373\u53ef\u3002\n\n$\\bold{Code}$\n\n```cpp\n#include <iostream>\n#include <cstdio>\nusing namespace std;\nint t, n, m, a[10001], s;\nint main()\n{\n    scanf(\"%d\", &t);\n    for (int i = 1; i <= t; i++)\n    {\n        scanf(\"%d%d\", &n, &m);\n        s = 0;\n        for (int j = 1; j <= n; j++)\n            scanf(\"%d\", &a[j]);\n        for (int j = 1; j <= n; j++)\n            s += a[j];\n        if (s != m)\n            printf(\"NO\\n\");\n        else\n            printf(\"YES\\n\");\n    }\n}\n```\n",
+        "postTime": 1603595698,
+        "uid": 88656,
+        "name": "Ludo",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF1436A \u3010Reorder\u3011"
+    },
+    {
+        "content": "#### \u7b97\u6cd5\u5206\u6790\n\n\u6ce8\u610f\u5230\uff0c$\\sum\\limits_{i = 1}^n {\\sum\\limits_{j = i}^n {\\frac{{{a_j}}}{j}} }  = {a_1} + \\frac{{{a_2}}}{2} +  \\cdots  + \\frac{{{a_n}}}{n} + \\frac{{{a_2}}}{2} + \\frac{{{a_3}}}{3} +  \\cdots  + \\frac{{{a_n}}}{n} +  \\cdots  + \\frac{{{a_n}}}{n} = {a_1} + {a_2} +  \\cdots  + {a_n}$\n\n\u6240\u4ee5\u53ea\u9700\u8981\u7528 $m$ \u51cf\u53bb\u6570\u7ec4 $a$ \u5185\u7684\u6240\u6709\u6570\uff0c\u7136\u540e\u5224\u65ad $m$ \u662f\u5426\u7b49\u4e8e $0$ \u5373\u53ef\u3002\n\n#### C++ \u4ee3\u7801\n\n```cpp\n#include <bits/stdc++.h>\n\nint main() {\n\tint t;\n\tstd::cin >> t;\n\t\n\twhile (t--) {\n\t\tint n, m;\n\t\tstd::cin >> n >> m;\n\t\tfor (int i = 0; i < n; ++i) {\n\t\t\tint x;\n\t\t\tstd::cin >> x; \n\t\t\tm -= x;\n\t\t}\n\t\tstd::cout << (m == 0 ? \"YES\\n\" : \"NO\\n\");\n\t}\n\t\n\treturn 0;\n}\n```\n",
+        "postTime": 1603591483,
+        "uid": 28397,
+        "name": "\u5bd2\u70df\u51b7\u6d45\u66ae\u6b87",
+        "ccfLevel": 0,
+        "title": "CF1436A Reorder"
+    },
+    {
+        "content": "\u6837\u4f8b\u8bf4\u660e\u4e00\u5207\u7cfb\u5217\u3002\n\n\u8bbe\u91cd\u7ec4\u540e\u7684\u6570\u5217\u4e3a $a$ \uff0c\u5219 $\\sum^n_{i=1}\\sum^n_{j=1}\\frac {a_j} {j}$ \u6052\u7b49\u4e8e $\\sum^n_{i=1} a_i$\u3002\n\n\u7531\u4e8e\u91cd\u7ec4\u4e0d\u4f1a\u6539\u53d8\u6240\u6709\u6570\u7684\u603b\u548c\uff0c\u8981\u505a\u7684\u5c31\u662f\u5224\u65ad\u539f\u6570\u7ec4\u7684\u548c\u662f\u5426\u7b49\u4e8e $m$\u3002",
+        "postTime": 1603590674,
+        "uid": 240812,
+        "name": "45dino",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1436A \u3010Reorder\u3011"
+    },
+    {
+        "content": "## \u5927\u81f4\u9898\u610f\n\n\u7ed9\u4e00\u4e2a$n$\u4e2a\u6570\u7684\u5e8f\u5217$a$\u548c\u4e00\u4e2a\u6574\u6570$m$,\u95ee\u5e8f\u5217$a$\u662f\u5426\u5b58\u5728\u4e00\u79cd\u6392\u5217\u65b9\u5f0f,\u4f7f\u5f97$\\sum_{i=1}^n \\sum_{j=i}^n\\dfrac{a_j}{j} = m$,\u82e5\u5b58\u5728,\u8f93\u51fa$YES$,\u5426\u5219\u8f93\u51fa$NO$\n\n## \u5206\u6790\n\n\u663e\u7136$\\sum_{i=1}^n \\sum_{j=i}^n\\dfrac{a_j}{j}=1\u00d7\\dfrac{a_1}{1}+2\u00d7\\dfrac{a_2}{2}+...+n\u00d7\\dfrac{a_n}{n} =\\sum_{i=1}^na_i$\n\n\u5224\u65ad\u603b\u548c\u662f\u5426\u7b49\u4e8e$m$\u5373\u53ef\n\n## $code$\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nconst int MAXN = 110;\ninline int read(){\n\tint X=0; bool flag=1; char ch=getchar();\n\twhile(ch<'0'||ch>'9') {if(ch=='-') flag=0; ch=getchar();}\n\twhile(ch>='0'&&ch<='9') {X=(X<<1)+(X<<3)+ch-'0'; ch=getchar();}\n\tif(flag) return X;\n\treturn ~(X-1);\n}\nint n,t,m;\nint sum = 0;\nint a[MAXN];\nint main(){\n\tt = read();\n\twhile(t--){\n\t\tsum = 0;\n\t\tn =read(),m = read();\n\t\tfor(int i=1;i<=n;i++) a[i] = read(),sum+=a[i];\n\t\tif(sum==m) puts(\"YES\");\n\t\telse puts(\"NO\");\n }\n} \n```\n\n\n\n\n",
+        "postTime": 1603589914,
+        "uid": 244466,
+        "name": "xcxc82",
+        "ccfLevel": 0,
+        "title": "CF1436A Reorder \u9898\u89e3"
+    },
+    {
+        "content": "~~\u4e00\u665a\u4e0a\u53ea\u80fd\u505a\u51faA\u7684\u6015\u662f\u53ea\u6709\u6211\u5427 \u5feb\u4e50\u4e0b\u7070~~\n\n\u9898\u610f\uff1a\u7ed9\u5b9a\u957f\u5ea6\u4e3a $n$ \u7684\u5e8f\u5217 $a$ \u53ca\u4e00\u4e2a\u6574\u6570 $m$\uff0c\u6c42\u80fd\u5426\u5728\u91cd\u65b0\u6392\u5217\u987a\u5e8f\u540e\u4f7f\u5f97 $\\sum^n_{i=1}\\sum^n_{j=i}\\frac{a_j}{j}$ \u7b49\u4e8e $m$ \u3002\n\n### \u601d\u8def\n\u8003\u8651\u5c06\u67ff\u5b50\u5c55\u5f00\u3002\n\n\u8bbe $s_i=\\frac{a_i}{i}$\n\n\u539f\u5f0f=$\\sum^n_{i=1}s_i+s_{i+1}+\\cdots+=s_{n}=$\n\n$\\begin{aligned}s_1+s_2+s_3+s_4+\\cdots+s_n+\\\\s_2+s_3+s_4+\\cdots+s_n+\\\\s_3+s_4+\\cdots+s_n+\\\\s_4+\\cdots+s_n+\\\\\\cdots+\\\\s_n\\ \\ \\ \\end{aligned}$\n\n\u53d1\u73b0 $s_1$ \u67091\u4e2a\uff0c$s_2$ \u67092\u4e2a\uff0c\u4ee5\u6b64\u7c7b\u63a8\uff0c$s_i$ \u6709i\u4e2a\u3002\n\n\u5219\u539f\u5f0f\n\n$\\begin{aligned}=&s_1+2s_2+3s_3+4s_4+5s_5+\\cdots+ns_n\\\\=&\\frac{a_1}{1}+2\\cdot\\frac{a_2}{2}+3\\cdot\\frac{a_3}{3}+\\cdots+n\\cdot\\frac{a_n}{n}\\\\=&a_1+a_2+a_3+\\cdots+a_n\\end{aligned}$\n\n\u5219\u53ea\u8981\u6ee1\u8db3\u5e8f\u5217\u5404\u9879\u4e4b\u548c\u4e3am\u5373\u53ef\u3002\n\n```cpp\n#include<iostream>\n#include<cstdio>\nusing namespace std;\nint main(){\n\tint t,n,m,sum,a;\n\tscanf(\"%d\",&t);\n\twhile(t--){\n\t\tsum=0;\n\t\tscanf(\"%d%d\",&n,&m);\n\t\tfor(int i=1;i<=n;i++){\n\t\t\tscanf(\"%d\",&a);\n\t\t\tsum+=a;\n\t\t}\n\t\tif(sum==m) puts(\"YES\");\n\t\telse puts(\"NO\");\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1603589481,
+        "uid": 258085,
+        "name": "\u6c5f\u6237\u5ddd\u00b7\u841d\u535c",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF1436A \u3010Reorder\u3011"
+    },
+    {
+        "content": "\u6570\u8bba\u7ed3\u8bba\u9898\n\n\u6839\u636e\u9898\u610f\uff0c\u6211\u4eec\u53ef\u4ee5\u53d1\u73b0\u9898\u76ee\u8ba9\u6211\u4eec\u6c42\u7684\u5c31\u662f\u8fd9\u4e2a\u4e1c\u897f\n$$\\sum\\limits_{i = 1}^n {\\sum\\limits_{j = i}^n {\\frac{{{a_j}}}{j}} } $$\n\n\u5316\u7b80\u5f97\u5230\n$$= \\frac{a_{[1]}}{1} + \\frac{{{a_{[2]}}}}{2} + \\cdots + \\frac{{{a_{[n]}}}}{n} + \\frac{{{a_{[2]}}}}{2} + \\frac{{{a_{[3]}}}}{3} + \\cdots + \\frac{{{a_{[n]}}}}{n} + \\frac{a_{[3]}}{3}+ \\frac{a_{[4]}}{4}+ \\cdots + \\frac{{{a_{[n]}}}}{n}$$\n$$ = {a_{[1]}} + {a_{[2]}} + \\cdots + {a_{[n]}}$$\n\n\u4e8e\u662f\u9898\u76ee\u5c31\u53d8\u5f97\u975e\u5e38\u7b80\u5355\uff0c\u6211\u4eec\u53ea\u8981\u5c06 $a$ \u6570\u7ec4\u52a0\u8d77\u6765\u7edf\u8ba1\u548c\uff0c\u5728\u5224\u65ad\u662f\u5426\u7b49\u4e8e $m$ \uff0c\u8f93\u51fa $\\texttt{yes}$ \u6216 $\\texttt{no}$ \u5373\u53ef\n\n\u56e0\u4e3a\u662f\u7ed3\u8bba\u9898\uff0c\u6240\u4ee5\u4ee3\u7801\u5c31\u4e0d\u8d34\u4e86\uff0c\u8fd9\u4e2a\u76f8\u4fe1~~\u53ea\u8981\u6709\u624b\u5c31\u4f1a\u5199\u5427\uff0c\uff0c\uff0c~~",
+        "postTime": 1603592323,
+        "uid": 263414,
+        "name": "Sktic",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF1436A \u3010Reorder\u3011"
+    }
+]

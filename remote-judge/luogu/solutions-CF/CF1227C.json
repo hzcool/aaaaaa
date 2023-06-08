@@ -1,0 +1,18 @@
+[
+    {
+        "content": "## $\\text{Description}$\n\u7ed9\u51fa\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u62ec\u53f7\u5e8f\u5217\uff0c\u4f60\u6bcf\u6b21\u53ef\u4ee5\u7ffb\u8f6c\u4e00\u4e2a\u533a\u95f4\uff0c\u8bf7\u5728 $n$ \u6b21\u64cd\u4f5c\u5185\u4f7f\u5e8f\u5217\u53d8\u4e3a\u5408\u6cd5\u5e8f\u5217\u4e14\u6070\u597d\u6709 $k$ \u4e2a\u524d\u7f00\u662f\u5408\u6cd5\u524d\u7f00\uff08\u5305\u62ec\u672c\u8eab\uff09.  \n\u4fdd\u8bc1\u5b58\u5728\u5408\u6cd5\u89e3.  \n$n\\le2000$\n## $\\text{Solution}$\n\u4ee4\u524d $k-1$ \u4e2a\u90fd\u662f $()$ \u7684\u5f62\u72b6\uff0c\u7136\u540e\u586b\u6210 $(((((...)))))$ \u5373\u53ef.  \n$n^2$ \u66b4\u529b\u5c31\u53ef\u8fc7.  \n\uff08\u9884\u5904\u7406\u4e00\u4e9b\u4e1c\u897f\u5e94\u8be5\u53ef\u4ee5\u7ebf\u6027\uff0c\u4f46\u662f\u61d2\u5f97\u6253\u4e86\uff09.\n## $\\text{Code}$\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n#define ll long long\n#define ull unsigned long long\n#define debug(...) fprintf(stderr,__VA_ARGS__)\nconst int N=2e5+100;\ninline ll read(){\n  ll x(0),f(1);char c=getchar();\n  while(!isdigit(c)){if(c=='-')f=-1;c=getchar();}\n  while(isdigit(c)) {x=(x<<1)+(x<<3)+c-'0';c=getchar();}\n  return x*f;\n}\nint n,m,k;\nchar s[N];\nint l,r;\nsigned main(){\n#ifndef ONLINE_JUDGE\n  freopen(\"a.in\",\"r\",stdin);\n  freopen(\"a.out\",\"w\",stdout);\n#endif\n  int T=read();\n  while(T--){\n    n=read();k=read();\n    scanf(\" %s\",s+1);\n    --k;int x=n/2,y=n/2;\n    printf(\"%d\\n\",n);\n    for(int i=1;i<=n;i++){\n      if((k>0&&i%2==0)||(!x)){\n\tl=r=i;\n\twhile(s[r]=='(') ++r;\n\tprintf(\"%d %d\\n\",l,r);\n\tswap(s[l],s[r]);\n\t--k;--y;\n      }\n      else{\n\tl=r=i;\n\twhile(s[r]==')') ++r;\n\tprintf(\"%d %d\\n\",l,r);\n\tswap(s[l],s[r]);\n\t--x;\n      }\n    }\n  }\n  return 0;\n}\n/*\n\n*/\n\n```\n",
+        "postTime": 1640066657,
+        "uid": 449265,
+        "name": "wind_whisper",
+        "ccfLevel": 10,
+        "title": "CF1227C Messy"
+    },
+    {
+        "content": "\u6784\u9020\u4f53.\n\n\u770b\u5230\u9898\u76ee\u8bf4\u6700\u591a\u64cd\u4f5c $ n $ \u6b21, \u4e5f\u5c31\u662f\u8bf4, \u4f60\u968f\u4fbf\u6784\u9020\u51fa\u4e00\u4e2a\u7b26\u5408\u8981\u6c42\u7684\u62ec\u53f7\u5e8f\u5217, \u90fd\u53ef\u4ee5\u7531\u7ed9\u5b9a\u5e8f\u5217\u53d8\u8fc7\u53bb.\n\n\u6211\u4eec\u5c31\u4e00\u4e2a\u5b57\u7b26\u4e00\u4e2a\u5b57\u7b26\u7684\u5339\u914d, \u5982\u679c\u7ed9\u5b9a\u5e8f\u5217\u5f53\u524d\u4f4d\u7f6e $ l $ \u548c\u5408\u6cd5\u5e8f\u5217\u4e0d\u4e00\u6837, \u90a3\u4e48\u6211\u4eec\u5c31\u4ece\u540e\u9762\u4f4d\u7f6e $ r $ \u627e\u4e00\u4e2a\u548c\u5408\u6cd5\u5e8f\u5217\u5f53\u524d\u4f4d\u7f6e\u4e00\u6837\u7684, \u628a\u533a\u95f4 $ [l,r] $ \u5012\u7f6e\u5c31\u597d\u4e86.\n\n\u8fd9\u6837\u64cd\u4f5c\u6b21\u6570\u4e00\u5b9a\u4e0d\u4f1a\u8d85\u8fc7 $ n $\u6b21\u7684.(\u6700\u591a\u5c31\u6709 $ n $ \u4e2a\u4f4d\u7f6e\u8981\u4ea4\u6362\u561b)\n\n\u590d\u6742\u5ea6 $ O(n^2) $.",
+        "postTime": 1615991005,
+        "uid": 93652,
+        "name": "C\u9525",
+        "ccfLevel": 0,
+        "title": "CF1227C Messy"
+    }
+]

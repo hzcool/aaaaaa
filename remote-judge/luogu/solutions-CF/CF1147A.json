@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u5bf9\u4e8e\u4e00\u4e2a\u4ee3\u5e01 \u4ed6\u6709\u4e09\u79cd\u9009\u62e9:\u5f80\u5de6\u79fb,\u4e0d\u52a8,\u5f80\u53f3\u79fb\n\u90a3\u6211\u4eec\u679a\u4e3e\u6bcf\u4e00\u4e2a\u5355\u5143\u683c,\u8bbe\u4ee3\u5e01\u653e\u91cc\u9762,\u7136\u540e\u770b\u770b\u4e09\u79cd\u64cd\u4f5c\u54ea\u51e0\u79cd\u80fd\u591f\u4f7f\u4ee3\u5e01\u4e0d\u88ab\u53d1\u73b0,\u5c31\u8ba9\u7b54\u6848 +1\n\n\u600e\u4e48\u5224\u65ad\u4f1a\u4e0d\u4f1a\u88ab\u53d1\u73b0\u5462,\u53ea\u8981\u79fb\u52a8\u8fc7\u53bb\u7684\u90a3\u4e00\u683c\u5728\u8be2\u95ee\u4e2d\u6700\u540e\u4e00\u6b21\u51fa\u73b0\u65e9\u4e8e\u539f\u672c\u90a3\u4e00\u683c\u7b2c\u4e00\u6b21\u51fa\u73b0\u5c31\u53ef\u4ee5\u4e86,\u6240\u4ee5\u6211\u4eec\u53ea\u8981\u5728\u679a\u4e3e\u524d\u9884\u5904\u7406 minn \u6570\u7ec4\u5b58\u7b2c\u4e00\u6b21\u51fa\u73b0\u7684\u65f6\u95f4,maxn \u6570\u7ec4\u5b58\u6700\u540e\u4e00\u6b21\u51fa\u73b0\u7684\u65f6\u95f4,\u7136\u540e\u5c31\u80fd\u5728\u63a5\u4e0b\u6765\u7684\u679a\u4e3e\u4e2d O(1) \u5730\u5224\u65ad\u4f1a\u4e0d\u4f1a\u88ab\u53d1\u73b0\u5566\n\n\u4e0b\u9762\u662f AC \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\n#define ll long long\n#define inf 0x7f7f7f7f\nusing namespace std;\nll maxn[1000010],minn[1000010];\nll a[1000010];\nint main()\n{\n\tios::sync_with_stdio(false);\n\tll n,k;\n\tcin >> n >> k;\n\tmemset(maxn,-1,sizeof(maxn));\n\tmemset(minn,inf,sizeof(minn));\n\tfor(ll i=1;i<=k;i++)\n\t{\n\t\tcin >> a[i];\n\t\tmaxn[a[i]] = max(maxn[a[i]],i);\n\t\tminn[a[i]] = min(minn[a[i]],i);//\u8bb0\u5f55a[i]\u53f7\u6700\u65e9\u88ab\u95ee\u548c\u6700\u665a\u88ab\u95ee\u7684\u65f6\u95f4 \n\t}\t\n\tll ans = 0;\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tif(i<1||i>n)\n\t\t\tcontinue;\n\t\tif(minn[i] > maxn[i-1]&&i>1)\n\t\t\tans++;\n\t\tif(minn[i] > maxn[i+1]&&i<n)\n\t\t\tans++;\n\t\tif(minn[i] > maxn[i])\n\t\t\tans++;\n\t}\n\tcout << ans;\n} \n```\n",
+        "postTime": 1581332401,
+        "uid": 287610,
+        "name": "\u6d41\u7eea",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1147A \u3010Hide and Seek\u3011"
+    }
+]

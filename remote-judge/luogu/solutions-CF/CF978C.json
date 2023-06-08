@@ -1,0 +1,66 @@
+[
+    {
+        "content": "\u9898\u610f\u5c31\u4e0d\u8bf4\u4e86\uff0c\u81ea\u884c\u89e3\u51b3\u3002\n\n\u8fd9\u9053\u9898\u76ee\u6d89\u53ca\u7684\u7b97\u6cd5\u5f88\u5bb9\u6613\u60f3\u5230\uff1a\u4e8c\u5206\u548c\u524d\u7f00\u548c\u3002\\\n\u9996\u5148\u8981\u4e8c\u5206\u7684\u8bdd\uff0c\u6211\u4eec\u8981\u5b9e\u73b0\u4e00\u4e2a\u5355\u8c03\u6027\u7684\u6570\u7ec4 $sum$ \uff0c $sum_i$ \u7528\u4e8e\u8868\u793a   $a_1$ \u5230 $a_i$ \u7684\u548c\u3002 \n\u6c42\u89e3 $sum_i $ \u4e5f\u5f88\u7b80\u5355\uff0c\u5f00\u4e2a\u5faa\u73af\uff0c $sum_i $ = $sum_{i-1} $ + $a_i$ \u3002\n\u7136\u540e\u5bf9\u4e8e\u6bcf\u4e00\u4e2a $b_j$ \u6211\u4eec\u5c31\u53ef\u4ee5\u901a\u8fc7\u4e8c\u5206 $sum$ \u6c42\u5f97 $b_j$ \u5728\u54ea\u4e00\u53f7\u5bdd\u5ba4\u697c\u3002\n\u7136\u540e\u5bf9\u4e8e $b_j$ \u6765\u8bf4\uff0c\u6211\u4eec\u627e\u5230\u4e86\u5b83\u7684\u5bdd\u5ba4\u53f7 $f$ \uff0c\u90a3\u4e48\u4ed6\u7684\u623f\u95f4\u53f7\u5c31\u662f     $b_j$ \u2212 $a_{f-1}$ \u3002\n\n\u5b9e\u73b0\u4ee3\u7801\u5982\u4e0b\uff1a\n\n```cpp\n#include<bits/stdc++.h>//\u4e07\u80fd\u5934\u6587\u4ef6\nusing namespace std;\nlong long a[200020],b,sum[200020];//long long\u9884\u8b66\nint main()\n{\n    int n,m;\n    cin>>n>>m;\n    for(int i=1;i<=n;i ++)\n    {\n        cin>>a[i];\n        sum[i]=sum[i-1]+a[i];//\u4e4b\u524d\u7684\u4eba\u6570\n    }\n    while(m--)\n    {\n        cin>>b;\n        int f=lower_bound(sum+1,sum+1+n, b)-sum;//\u5bbf\u820d\u53f7\n        long long k=b-sum[f-1];//\u623f\u95f4\u53f7\n        cout<<f<<\" \"<<k<<endl;\n    }\n    return 0;\n}\n\n```\n# \u5b8c\u7ed3\u6492\u82b1^_^",
+        "postTime": 1634538247,
+        "uid": 487956,
+        "name": "luogu_shabi_IAKIOI",
+        "ccfLevel": 0,
+        "title": "CF978C Letters"
+    },
+    {
+        "content": "[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/CF978C)\n\n---\n\n$Analyse$\n\n\u8fd9\u662f\u4e00\u9053\u601d\u8def\u76f4\u63a5\u7684\u9898\u76ee\u3002\n\n\u7ffb\u8bd1\u4e2d\u4e22\u6389\u4e86\u4e00\u4e2a\u5173\u952e\u7684\u4fe1\u606f\uff1a\n> All $b_j$ are given in increasing order.\n\n\u610f\u601d\u5c31\u662f\u8bf4\u8be2\u95ee\u5e8f\u5217\u7684\u623f\u95f4\u7f16\u53f7\u9012\u589e\u3002\n\n\u90a3\u4e48\u7b54\u6848\u7684\u697c\u5c42\u6570\u5fc5\u7136\u4e0d\u9012\u51cf\u3002\u6240\u4ee5\u5148\u8ba9\u521d\u59cb\u697c\u5c42\u4e3a $1$\uff0c\u7136\u540e\u76f4\u63a5\u6a21\u62df\uff0c\u4e00\u5c42\u4e00\u5c42\u5f80\u4e0a\u8d70\uff0c\u76f4\u5230\u8d70\u5230\u5bf9\u5e94\u697c\u5c42\u4e3a\u6b62\u3002\n\n---\n\n$Solution$\n\n\u7b2c $j$ \u5c42\u7684\u7b2c $k$ \u4e2a\u623f\u95f4\u5c31\u662f $\\sum\\limits_{i=1}^{j-1}{a_i}+k$\u3002\n\n\u6545\u53ef\u4ee5\u5148\u9884\u5904\u7406\u51fa\u6bcf\u4e2a\u697c\u5c42\u7684\u6700\u540e\u4e00\u4e2a\u623f\u95f4\u7684\u7f16\u53f7\u3002\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\ntypedef long long ll;\nconst int M=2e5+5;\nint n,m,fl=1;\nll a[M],b[M],p[M];\nint main()\n{\n\tscanf(\"%d%d\",&n,&m);\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tscanf(\"%lld\",&a[i]);\n\t\tp[i]=p[i-1]+a[i];// \u524d\u7f00\u548c\u3002p[i]\u5373\u7b2ci\u5c42\u7684\u6700\u540e\u4e00\u4e2a\u623f\u95f4\u7684\u7f16\u53f7\n\t}\n\tfor(int i=1;i<=m;i++)\n\t{\n\t\tll x;scanf(\"%lld\",&x);\n\t\tll ch=x-p[fl-1];// \u8fd8\u5dee\u8fd9\u4e48\u591a\u7f16\u53f7\n\t\twhile(ch>a[fl])ch-=a[fl],fl++;// \u6a21\u62df\n\t\tprintf(\"%d %lld\\n\",fl,ch);\n\t}\n\treturn 0;\n}\n```\n\n---\n\n$The$ $end$\n\n\u5ba2\u5b98\u770b\u5b8c\u522b\u5fd8\u4e86\u70b9\u4e2a\u8d5e\u54e6~",
+        "postTime": 1614932903,
+        "uid": 338630,
+        "name": "Silence_water",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF978C"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u5176\u5b9e\u975e\u5e38\u7b80\u5355\uff0c\u6309\u7167\u9898\u610f\u8ba1\u7b97\u5373\u53ef\u3002\n```cpp\n#include <iostream>\nusing namespace std;\nlong long n,m,a[200005],b[200005],c[200005];\nint main()\n{\n ios::sync_with_stdio(false);\n cin>>n>>m;\n for(int i=1;i<=n;i++)\n {\n  cin>>a[i];\n  c[i]=c[i-1]+a[i];\n }\n int f=1;\n for(int i=1;i<=m;i++)\n {\n  cin>>b[i];\n  long long k=b[i]-c[f-1];\n  while(k>a[f])//\u8fd9\u91cc\u8ba1\u7b97\u5bbf\u820d\u53f7\u548c\u623f\u95f4\u53f7\n   k-=a[f++];\n  cout<<f<<' '<<k<<endl;\n }\n return 0;\n}\n```",
+        "postTime": 1528853270,
+        "uid": 22030,
+        "name": "StudyingFather",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF978C \u3010Letters\u3011"
+    },
+    {
+        "content": "### \u5206\u6790\n\n\u6b64\u9898\u82e5\u66b4\u529b\u80af\u5b9a\u8d85\u65f6\uff0c\u90a3\u4e48\u5c31\u8981\u7528\u5230\u5176\u4ed6\u7b97\u6cd5\u4e86\uff1a\u4e8c\u5206\u548c\u524d\u7f00\u548c\u3002\n\n\u5148\u5728\u8f93\u5165\u65f6\u6c42\u51fa\u524d\u7f00\u548c\uff0c\u56e0\u4e3a\u623f\u95f4\u662f\u6709\u5e8f\u7684\uff0c\u6240\u4ee5\u7528\u4e8c\u5206\u627e\u5230\u623f\u95f4\u53f7\uff0c\u8f93\u51fa\u5c31\u53ef\u4ee5\u4e86\u3002\n\n\u8fd8\u6709\uff1a\u4e0d\u5f00 long long \u89c1\u7956\u5b97\uff01\n\n[\u8840\u7684\u6559\u8bad](https://www.luogu.com.cn/record/111531918)\n### \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\n#define int long long\nusing namespace std;\nconst int N=2e5+25;\nint n,m,a,q[N];\nsigned main()\n{\n\tcin>>n>>m;\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tcin>>a;\n\t\tq[i]=q[i-1]+a;\n\t}\n\tfor(int i=1;i<=m;i++)\n\t{\n\t\tcin>>a;//\u56de\u6536\u518d\u5229\u7528 \n\t\tint p=lower_bound(q+1,q+n+1,a)-q;//STL\u4e07\u5c81\uff01\uff01\uff01 \n\t\tcout<<p<<\" \"<<a-q[p-1]<<\"\\n\";\n\t}\n\treturn 0;\n}\n\n```",
+        "postTime": 1685275318,
+        "uid": 734379,
+        "name": "tcy01_QAQ_",
+        "ccfLevel": 0,
+        "title": "CF978C Letters \u9898\u89e3"
+    },
+    {
+        "content": "#### \u524d\u7f6e\u829d\u58eb\uff1a[\u4e8c\u5206](https://oi-wiki.org/basic/binary/),[\u524d\u7f00\u548c](https://oi-wiki.org/basic/prefix-sum/)\n\n#### [\u9898\u76ee\u94fe\u63a5](https://www.luogu.com.cn/problem/CF978C)\n\n### \u601d\u8def\n $n$ \u7684\u8303\u56f4\u662f $1\\le n\\le 2 \\times 10^5$\uff0c\u56e0\u6b64\u76f4\u63a5\u66b4\u529b\u6c42\u89e3\u80af\u5b9a\u4f1a```TLE```\u3002\n\n\u56e0\u4e3a\u6bcf\u5c42\u697c\u7684\u623f\u95f4\u7f16\u53f7\u662f\u8fde\u7eed\u7684\uff0c\u6211\u4eec\u5c31\u53ef\u4ee5\u7ef4\u62a4\u6bcf\u4e00\u4e2a\u697c\u5c42\u7684\u623f\u95f4\u7f16\u53f7\u7684\u533a\u95f4\u3002\n $sum_i$ \u8868\u793a $a_1$ \u5230 $a_i$ \u7684\u548c\uff0c\u90a3\u4e48\u7b2c $i$ \u5c42\u697c\u7684\u623f\u95f4\u7f16\u53f7\u533a\u95f4\u5c31\u662f $sum_{i-1}\\!+\\!1 \\sim sum_i$\u3002\u6211\u4eec\u53ea\u7528\u4e8c\u5206\u67e5\u627e\u51fa\u8be2\u95ee\u7684\u623f\u95f4\u5728\u54ea\u4e00\u5c42\u697c\uff0c\u7136\u540e\u7b97\u51fa\u662f\u7b2c\u51e0\u4e2a\u623f\u95f4\u5c31\u53ef\u4ee5\u4e86\u3002\n\n## Code:\n```\n#include<bits/stdc++.h>\n#define int long long\nusing namespace std;\nconst int N = 2e5+25;\nint n,m,a[N];\nsigned main(){\n\tscanf(\"%lld%lld\",&n,&m);\n\tfor(int i=1;i<=n;i++)\n\t\tscanf(\"%lld\",a+i),a[i]+=a[i-1];\n\twhile(m--){\n\t\tint b;\n\t\tscanf(\"%lld\",&b);\n\t\tint p=lower_bound(a+1,a+n+1,b)-a;\n\t\tprintf(\"%lld %lld\\n\",p,b-a[p-1]);\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1666360838,
+        "uid": 548999,
+        "name": "As_Snow",
+        "ccfLevel": 0,
+        "title": "CF978C"
+    },
+    {
+        "content": "## \u9898\u610f\u5927\u610f\n\u6709 $n$ \u4e2a\u5bbf\u820d\uff0c\u7b2c $i$ \u4e2a\u5bbf\u820d\u6709 $a[i]$ \u4e2a\u623f\u95f4\u623f\u95f4\u7f16\u53f7\u4ece\u7b2c\u4e00\u4e2a\u5bbf\u820d\u7b2c\u4e00\u4e2a\u623f\u95f4\u5f00\u59cb\uff0c\u4e00\u4e2a\u5bbf\u820d\u4e2d\u7684\u623f\u95f4\u6709\u4e00\u6bb5\u8fde\u7eed\u623f\u95f4\u7f16\u53f7\u5bf9\u4e8e\u6bcf\u4e2a\u623f\u95f4\u7f16\u53f7 $b[i]$\uff0c\u6c42\u51fa\u5b83\u662f\u7b2c\u51e0\u4e2a\u5bbf\u820d\u7684\u7b2c\u51e0\u4e2a\u623f\u95f4\u3002\n\n\u63d0\u793a\uff1a\u4e0d\u5f00 long long \u89c1\u7956\u5b97\u3002\n## \u8f93\u5165\n\n1. \u4e00\u884c $n$ , $m$ , $m$ \u8868\u793a\u8bbf\u95ee\u5e8f\u5217\u7684\u957f\u5ea6\u3002\n2. \u4e00\u884c \u6bcf\u5404\u5bbf\u820d\u5305\u542b\u7684\u623f\u95f4\u6570 $a[i]$\u3002\n3. \u4e00\u884c \u8bbf\u95ee\u5e8f\u5217 $b[i]$\u3002\n\n\n## \u601d\u8def\n\n\u7528\u524d\u7f00\u548c\u6c42\u623f\u95f4\u7f16\u53f7\uff0c\u7136\u540e\u5c31\u6a21\u62df\u5c31\u884c\u4e86\uff0c\u6ce8\u610f\u8d85\u65f6\u3002\n\n## \u4e0a\u4ee3\u7801\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nconst long long M = 2e5 + 5;\nlong long n, m, a[M], b[M], s[M];\n\nint main()\n{\n    cin >> n >> m;\n    for(long long i = 1; i <= n; i++)\n    {\n        cin >> a[i];\n        s[i] = s[i - 1] + a[i];\n    }\n    s[n + 1] = 1e11 + 10; //\u53ef\u4ee5\u4e0d\u52a0\n    for(long long i = 1; i <= m; i++)\n        cin >> b[i];\n    long long l = 1;\n    for(long long i = 1; i <= m; i++)\n    {\n        while(b[i] - s[l] > 0)\n            l++;\n        if(b[i] - s[l] == 0)\n            cout << l << \" \" << a[l] << endl;\n        else\n            cout << l << \" \" << b[i] - s[l - 1] << endl;\n    }\n    return 0;\n}\n```\n\n\n## \u5b8c\u7f8e\u7ed3\u675f\n\n**\u5e0c\u671b\u80fd\u8fc7\u554a\uff01**",
+        "postTime": 1651232787,
+        "uid": 339750,
+        "name": "gshgsh",
+        "ccfLevel": 4,
+        "title": "CF978C Letters"
+    },
+    {
+        "content": "\u6b63\u5982\u5176\u4ed6\u4e24\u7bc7\u9898\u89e3\u6240\u8a00\uff0c\u8fd9\u4e00\u9898\u5176\u5b9e\u975e\u5e38\u7b80\u5355\u3002\n\n\u9898\u76ee\u7ffb\u8bd1\u4e2d\u6f0f\u6389\u4e86\u5341\u5206\u91cd\u8981\u7684\u4e00\u53e5\u8bdd\uff1a\n\n\u4ed4\u7ec6\u53bb\u770b\u82f1\u6587\u7684\u6700\u540e\u4e00\u53e5\uff0c\u4f1a\u53d1\u73b0\u95ee\u8be2\u4ee5\u5347\u5e8f\u7ed9\u51fa\u3002\n\n\u8fd9\u6837\u5b50\u5c31\u5f88\u7b80\u5355\uff0c\u4e00\u8def\u5411\u4e0a\u6a21\u62df\uff0c\u6a21\u62df\u5230\u6700\u540e\u4e00\u4e2a\u95ee\u8be2\u4e3a\u6b62\u3002\n\n\u8fd9\u91cc\u63d0\u4f9b\u4e00\u4e2a\u5c0f\u5c0f\u7684\u6280\u5de7\uff1a\u524d\u7f00\u548c\uff0c\uff0c\u8fd9\u6837\u4e0d\u7528\u518d\u5f00\u53d8\u91cf\u8bb0\u5f55\u3002\n\n\u5177\u4f53\u8868\u73b0\u4e3a\uff1a\n\n```\nlong long s[200005]={};//psq\nlong long a[200005]={};\n\u2026\u2026\nfor(int i=1;i<=n;i++)\n\t{\n\t\tcin>>a[i];\n\t\ts[i]=s[i-1]+a[i];\n\t}\n```\n\u8fd9\u6837\u5c31\u5f88\u597d\u64cd\u4f5c\u5566\uff01\n\ncode\uff1a\n\n```\n#include<bits/stdc++.h>\nusing namespace std;\nlong long n,m;\nlong long s[200005]={};//psq\nlong long a[200005]={};\nint main()\n{\n\tcin>>n>>m;\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tcin>>a[i];\n\t\ts[i]=s[i-1]+a[i];\n\t}\n\tlong long building=1;\n\tlong long ask=0;\n\tfor(int i=1;i<=m;i++)\n\t{\n\t\tcin>>ask;\n\t\twhile(ask>s[building])\n\t\t{\n\t\t\tbuilding++;\n\t\t}\n\t\tcout<<building<<\" \"<<ask-s[building-1]<<endl;\n\t}\n\treturn 0;\n}\n```\n\n\u795d\u5927\u5bb6AC\u5feb\u4e50~",
+        "postTime": 1636270767,
+        "uid": 243961,
+        "name": "Colead",
+        "ccfLevel": 7,
+        "title": "CF978C"
+    },
+    {
+        "content": "\u8bdd\u8bf4\u8fd9\u9898\u600e\u4e48\u4e00\u4f1a TLE \u4e00\u4f1a AC \u5462\uff1f\n### \u601d\u8def\uff1a\n\u6211\u770b\u5230\u6837\u4f8b\uff0c\u6211\u5c31\u731c\u60f3\uff0c\u8be2\u95ee\u7684\u623f\u95f4\u53f7\u662f\u9012\u589e\u7684\u5417\uff1f\n\n\u7ed3\u679c\uff0c\u8fd8\u771f\u662f\u3002\n\n\u90a3\u5c31\u597d\u529e\u4e86\uff0c\u6211\u4eec\u7528\u5faa\u73af\u628a $n$ \u4e2a\u697c\u5c42\u626b\u4e00\u904d\uff0c$pp$ \u8bb0\u5f55\u5f53\u524d\u662f\u7b2c\u51e0\u4e2a\u8be2\u95ee\uff0c$sum$ \u8bb0\u5f55\u5f53\u524d\u626b\u8fc7\u7684\u697c\u5c42\u7684\u603b\u623f\u95f4\u6570\u3002\n\n\u5982\u679c\u5f53\u524d\u8be2\u95ee\u7684\u623f\u95f4\u53f7\u5c0f\u4e8e\u7b49\u4e8e $sum$\uff0c\u5c31\u8f93\u51fa\u6b64\u65f6\u7684\u697c\u5c42\u548c \n```b[pp]-sum+a[i]```\n\uff0c\u540e\u8005\u4e3a\u8be5\u623f\u95f4\u5728\u5f53\u524d\u697c\u5c42\u7684\u7b2c\u51e0\u4e2a\u623f\u95f4\u3002\n\n\u53cd\u4e4b\uff0c\u697c\u5c42\u52a0\u4e00\uff0c$sum$ \u52a0\u4e0a\u76ee\u524d\u697c\u5c42\u7684\u623f\u95f4\u6570\u3002\n### \u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nlong long n,m,a[200010],b[200010],pp=1,sum;\nint main(){\n\tcin>>n>>m;\n\tfor(int i=1;i<=n;i++) cin>>a[i];\n\tfor(int i=1;i<=m;i++) cin>>b[i];\n\tfor(int i=1;i<=n;i++){\n\t\tsum+=a[i];\n\t\twhile(b[pp]<=sum&&pp<=m){\n\t\t\tcout<<i<<\" \"<<b[pp]-sum+a[i]<<endl;\n\t\t\tpp++;\n\t\t}\n\t}\n\treturn 0;\n}\n```\n\u6700\u4f18\u89e3\u7684 76ms \u662f\u600e\u4e48\u505a\u5230\u7684\uff1f",
+        "postTime": 1635315607,
+        "uid": 477118,
+        "name": "Noby_Gld",
+        "ccfLevel": 0,
+        "title": "CF978C Letters"
+    }
+]

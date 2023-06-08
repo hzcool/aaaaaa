@@ -1,0 +1,106 @@
+[
+    {
+        "content": "\u4fee\u6539\u4e86\u4e00\u4e9b\u9519\u8bef\u3002\n\n[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/CF1711A)\n\n**\u9898\u610f**\n\n\u6709\u591a\u7ec4\u6570\u636e\uff0c\u6bcf\u7ec4\u6570\u636e\u7ed9\u5b9a\u4e00\u4e2a\u6b63\u6574\u6570 $n$\uff0c\u6c42 $n$ \u7684\u6392\u5217 $p$ \u4e2d\uff0c$\\sum [p_i\\mid i]$ \u7684\u6700\u5c0f\u503c\uff0c\u8f93\u51fa\u8fd9\u4e2a\u6392\u5217\u3002\n\n**\u601d\u8def**\n\n\u53ef\u4ee5\u8003\u8651\u4e00\u79cd\u6784\u9020\u65b9\u5f0f\uff0c\u4f7f\u5f97 $p_i=i+1$\uff0c\u663e\u7136 $p_i \\nmid i$\u3002\n\n\u6b64\u65f6 $p_n=1$\uff0c\u6240\u4ee5\u7b54\u6848\u5c31\u662f $1$\u3002\n\n\u56e0\u4e3a $1$ \u6574\u9664\u4efb\u610f\u6b63\u6574\u6570\uff0c\u6240\u4ee5\u7b54\u6848\u7684\u6700\u5c0f\u503c\u5c31\u662f $1$\u3002\n\n**\u53e6\u4e00\u79cd\u601d\u8def**\n\n\u8003\u8651\u5230\u5f53 $i \\ge 2$ \u65f6\uff0c$2i-1 \\nmid 2i$\uff0c\u4e14\u5bf9\u4e8e\u4efb\u610f\u7684 $i$\uff0c\u90fd\u6709 $2i \\nmid 2i-1$\u3002\n\n\u4e8e\u662f\uff0c\u5c31\u884d\u751f\u51fa\u4e86\u53e6\u4e00\u79cd\u505a\u6cd5\uff0c\u5373\u5f53 $n$ \u4e3a\u5076\u6570\u65f6\uff0c\u5c31\u4ea4\u6362\u76f8\u90bb\u7684\u4e24\u6570\u3002\n\n\u5f53 $n$ \u4e3a\u5947\u6570\u65f6\uff0c\u663e\u7136\u6709 $n \\nmid 2$\uff0c\u56e0\u6b64\u53ef\u4ee5\u4ee4 $p_n=2$\uff0c$p_1=n$\uff0c$p_2=1$\uff0c\u6b64\u65f6\u7b54\u6848\u4ecd\u7136\u662f $1$\u3002\n\n\u6b64\u65f6\u6ce8\u610f\u7279\u5224 $n=1$ \u7684\u60c5\u51b5\u3002\n\n**CODE**\n\n\u592a\u77ed\u4e86\u5c31\u4e0d\u653e\u4e86\u5427\u3002",
+        "postTime": 1659103609,
+        "uid": 324666,
+        "name": "diqiuyi",
+        "ccfLevel": 0,
+        "title": "CF1711A Perfect Permutation"
+    },
+    {
+        "content": "## \u9898\u610f\u7b80\u6790\n\n\u7ed9\u5b9a\u4e00\u4e2a\u6392\u5217 $a\\ (|a|=n,n>0)$ \u7684\u957f\u5ea6 $n$\uff0c\u5b9a\u4e49\u4e00\u4e2a\u6392\u5217\u7684\u6743\u503c\u4e3a\u6392\u5217\u4e2d\u80fd\u88ab\u5e8f\u53f7\u6574\u9664\u7684\u5143\u7d20\u6570\u91cf\uff0c\u6784\u9020\u4e00\u4e2a\u6709\u6700\u5c0f\u6743\u503c\u7684\u6392\u5217\u3002\n\n\u663e\u7136\uff0c\u5bf9\u4e8e\u5e8f\u53f7\u4e3a $1$ \u7684\u5143\u7d20\uff0c\u65e0\u8bba\u5143\u7d20\u503c\u4e3a\u591a\u5c11\u90fd\u80fd\u88ab\u5e8f\u53f7\u6574\u9664\u3002\u6240\u4ee5\u53ea\u8981\u4fdd\u8bc1\u5269\u4f59\u5143\u7d20\u90fd\u4e0d\u80fd\u88ab\u5b83\u4eec\u5bf9\u5e94\u7684\u5e8f\u53f7\u6574\u9664\uff0c\u4ee5\u987a\u5e8f\u6392\u5217\u4e3a\u521d\u59cb\u6392\u5217\uff0c\u7136\u540e\u6309\u7167\u987a\u5e8f\u8fdb\u884c\u64cd\u4f5c\u5373\u53ef\u3002\u4ee5\u4e0b\u7ed9\u51fa\u4e24\u79cd\u65b9\u6cd5\uff0c\u90fd\u7528\u5230\u4e86\u4efb\u610f\u4e24\u76f8\u90bb\u6574\u6570\u4e92\u8d28\u7684\u6027\u8d28\u4f7f\u5f97\u6240\u6709\u5e8f\u53f7\u5927\u4e8e $1$ \u7684\u5143\u7d20\u90fd\u65e0\u6cd5\u88ab\u4ed6\u4eec\u7684\u5e8f\u53f7\u6574\u9664\u3002\n\n## \u4ee3\u7801/\u89e3\u91ca\n### \u65b9\u6cd5\u4e00\uff1a\u8c03\u6362\u6cd5\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n    int t,n,i;\n    cin>>t;\n    while(t--)\n    {\n        cin>>n;\n        if(n%2)\n        {\n            printf(\"1 \");//\u5360\u4f4d\n            for(i=1;i<n;i+=2)\n            printf(\"%d %d \",i+2,i+1);//\u5c06\u63a5\u4e0b\u6765\u7684\u4e24\u4e2a\u5143\u7d20\u4e92\u6362\u4f4d\u7f6e\n        }\n        else for(i=0;i<n;i+=2)\n        printf(\"%d %d \",i+2,i+1);//\u540c\u4e0a\n        cout<<endl;\n    }\n    return 0;\n}\n```\n### \u65b9\u6cd5\u4e8c\uff1a\u9519\u4f4d\u6cd5\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n    int t,n,i;\n    cin>>t;\n    while(t--)\n    {\n        cin>>n;\n        printf(\"%d\",n);//\u5360\u4f4d\n        for(i=1;i<n;i++)\n        printf(\" %d\",i);//\u5269\u4f59\u5143\u7d20\u4ece\u539f\u6765\u7684\u4f4d\u7f6e\u540e\u79fb\u4e00\u683c\n        cout<<endl;\n    }\n    return 0;\n}",
+        "postTime": 1658903563,
+        "uid": 668002,
+        "name": "sw2022_",
+        "ccfLevel": 4,
+        "title": "CF1711A Perfect Permutation \u9898\u89e3"
+    },
+    {
+        "content": "## \u89e3\u9898\u601d\u8def\uff1a\n\n\u9898\u610f\u660e\u786e\uff0c\u5bf9\u4e8e\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u6392\u5217\uff0c\u6784\u9020\u51fa\u4f7f\u5176\u6743\u91cd\u6700\u5c0f\u7684\u6392\u5217\u3002\n\n\u5173\u4e8e\u6743\u91cd\u7684\u5b9a\u4e49\u5982\u4e0b\uff1a\n\n$$\n\\sum^{n}_{i=1} {p_i | i}\n$$\n\n\u5176\u4e2d $p_i | i$ \u8868\u793a $p_i | i$ \u65f6 $p_i \\div i$ \u7684\u503c\u3002\n\n\u663e\u7136\u6613\u5f97\uff1a\n\n\u5f53 $i$ \u7684\u503c\u4e3a $1$ \u65f6\uff0c\u65e0\u8bba $p_i$ \u4e3a\u591a\u5c11\u90fd\u80fd\u88ab $i$ \u6574\u9664\u3002\n\n\u6839\u636e\u4efb\u610f\u4e24\u76f8\u90bb\u6574\u6570\u4e92\u8d28\u53ef\u5f97\uff1a\n\n\u5c06\u5143\u7d20\u9519\u4f4d\u6392\u5217\u4ee5\u540e\uff0c\u6240\u5f97\u7684\u6743\u91cd\u6700\u5c0f\uff0c\u4ee5\u4e0b\u4ee3\u7801\u7ed9\u51fa\u4e86\u4e00\u79cd\u89e3\u51b3\u65b9\u6848\u3002\n\n## \u4ee3\u7801\uff1a\n\n``` cpp\n#include<bits/stdc++.h>\nusing namespace std;\n\nint T,n;\n\nint main()\n{\n    scanf(\"%d\",&T);\n    while(T--)\n    {\n        scanf(\"%d\",&n);\n        printf(\"%d \",n);\n        for(int i=1;i<n;i++)\n        {\n            printf(\"%d \",i);\n        }\n        printf(\"\\n\");\n    }\n    return 0;\n}\n```",
+        "postTime": 1659186792,
+        "uid": 221987,
+        "name": "arkerny",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 - CF1711A Perfect Permutation"
+    },
+    {
+        "content": "\u9898\u610f\uff1a\u4e00\u4e2a\u6392\u5217\u7684\u5b9a\u4e49\u5982\u4e0b\uff1a\n\n- \u8be5\u6392\u5217\u7684\u6570\u5b57\u5fc5\u987b\u5c0f\u4e8e\u7b49\u4e8e\u6392\u5217\u7684\u957f\u5ea6 $n$\n\n- \u8be5\u6392\u5217\u7684\u6570\u5b57\u5fc5\u987b\u4ece\u5305\u542b\u5c0f\u4e8e\u7b49\u4e8e $n$ \u7684\u6240\u6709\u5143\u7d20\n\n\u4e00\u4e2a\u6392\u5217\u7684\u6743\u503c\u5b9a\u4e49\uff1a$\\sum_{i=1}^{n}[p_i \\mid i]$\n\n\u7ed9\u5b9a $n$\uff0c\u6c42\u6743\u503c\u6700\u5c0f\u7684\u6392\u5217\u3002\n\n\u601d\u8def\uff1a\u663e\u7136\uff0c\u6bcf\u4e2a\u6392\u5217\u7684\u6700\u5c0f\u6743\u503c\u90fd\u81f3\u5c11\u662f $1$\uff0c\u56e0\u4e3a $1$ \u53ef\u4ee5\u88ab\u4efb\u4f55\u6574\u6570\u6574\u9664\u3002\u8003\u8651\u6784\u9020\u4e00\u4e2a\u6743\u503c\u4e3a $1$ \u7684\u6392\u5217\uff1a\u56e0\u4e3a\u4e92\u8d28\u7684\u6570\u4e2d\u7684\u4e00\u65b9\u65e0\u6cd5\u88ab\u53e6\u5916\u4e00\u65b9\u6574\u9664\uff0c\u6240\u6709\u53ef\u4ee5\u5c06\u5947\u6570\u4e0b\u6807\u4f4d\u7f6e\u4e0a\u7684\u6570\u5b57\u8d4b\u503c\u4e3a\u76f8\u90bb\u7684\u5076\u6570\u4e0b\u6807\uff0c\u5076\u6570\u4e0b\u6807\u540c\u7406\u3002\u5f53 $n$ \u4e3a\u5947\u6570\u65f6\uff0c\u8fd9\u79cd\u65b9\u6848\u53ef\u6784\u9020\u51fa\u6700\u5c0f\u6743\u503c\u6392\u5217\u3002\u5f53 $n$ \u4e3a\u5947\u6570\u65f6\uff0c\u6211\u4eec\u53ef\u4ee5\u5c06 $p_n$ \u8d4b\u503c\u4e3a $1$\uff0c\u5c06 $p_2$ \u8d4b\u503c\u4e3a $n$\uff0c\u5176\u4ed6\u6309\u7167\u539f\u65b9\u6848\u6267\u884c\uff0c\u8fd9\u6837\u4fdd\u8bc1\u4e86\u6743\u503c\u4e3a $1$\u3002\n\n\u4ee3\u7801\u5f88\u597d\u5199\u5c31\u4e0d\u653e\u4e86\u3002",
+        "postTime": 1658906548,
+        "uid": 574886,
+        "name": "Leonador",
+        "ccfLevel": 0,
+        "title": "CF1711A Perfect Permutation \u9898\u89e3"
+    },
+    {
+        "content": "## \u9898\u610f\n\n\u6784\u9020\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u5e8f\u5217 $a$\uff08$1\\le a_i\\le n$\uff09\uff0c$a$ \u4e2d\u5143\u7d20\u4e92\u4e0d\u76f8\u540c\u3002\u4f7f\u5f97 $a_i$ \u80fd\u88ab $i$ \u6574\u9664\u7684\u6570\u91cf\u6700\u5c11\u3002\n\n# \u5206\u6790\n\n\u5e8f\u53f7\u4e3a $1$ \u65f6\uff0c$a_1$ \u603b\u4f1a\u88ab\u6574\u9664\uff0c\u6211\u4eec\u53ea\u9700\u8981\u53bb\u8003\u8651\u4ee5\u540e\u7684\u3002\u6839\u636e\u4e00\u79cd\u6027\u8d28\uff1a\u76f8\u90bb\u7684\u4e24\u4e2a\u6570\u4e92\u8d28\uff0c\u6211\u4eec\u53ef\u4ee5\u60f3\u5230\u5982\u4e0b\u6784\u9020\u65b9\u6cd5\uff1a\n\n\u5c06 $a_i$ \u8d4b\u503c\u4e3a $i+1$\uff0c\u800c $a_n$ \u4e3a $1$\uff0c\u6765\u4fdd\u8bc1\u9664 $a_1$ \u5916 $a$ \u5e8f\u5217\u4e2d\u5176\u4ed6\u6570\u90fd\u4e0d\u80fd\u88ab $i$ \u6574\u9664\u3002\n\n#### \u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint t, n;\nsigned main() {\n    cin >> t;\n    while(t--) {\n        cin >> n;\n        for (register int i = 2; i <= n; i++)//a[i] \u4e3a i+1\n        \tcout << i << ' ';\n        puts(\"1\");//a[n] \u4e3a 1\n    }\n    return 0;\n}\n```\n\n#### \u4e60\u9898\n\n\u4e0b\u9762\u8fd9\u9053\u9898\u540c\u6837\u5229\u7528\u4e86\u8fd9\u79cd\u6027\u8d28\uff1a\n\n[P5436 \u3010XR-2\u3011\u7f18\u5206](https://www.luogu.com.cn/problem/P5436)",
+        "postTime": 1659435916,
+        "uid": 663517,
+        "name": "Jeremiahy",
+        "ccfLevel": 0,
+        "title": "CF1711A Perfect Permutation \u9898\u89e3"
+    },
+    {
+        "content": "\u4e00\u9053\u5f88\u597d\u7684~~\u8111\u7b4b\u6025\u8f6c\u5f2f~~\u6784\u9020+\u6570\u8bba\u9898\u3002\n\n\u9996\u5148\u6211\u4eec\u77e5\u9053\u4efb\u4f55\u6570\u90fd\u53ef\u4ee5\u88ab $1$ \u6574\u9664\uff0c\u6240\u4ee5 $p_1$ \u4e0d\u8bba\u662f\u54ea\u4e2a\u6570\u90fd\u4f1a\u4ea7\u751f\u8d21\u732e\u3002\u90a3\u4e48\u6211\u4eec\u9700\u8981\u5c3d\u53ef\u80fd\u4f7f\u5f97\u5269\u4e0b\u7684\u6570\u7684\u8d21\u732e\u6700\u5c0f\u5316\u3002\u7531\u4e8e\u76f8\u90bb\u7684\u4e24\u4e2a\u6570\u4e92\u8d28\uff0c\u6240\u4ee5\u6211\u4eec\u53ef\u4ee5\u5c3d\u53ef\u80fd\u8ba9\u5269\u4e0b\u6765\u7684 $p_2$ \u5230 $p_n$ \u7b49\u4e8e\u76f8\u90bb\u7684\u6570\u3002\n\n\u7531\u6b64\u5c31\u53ef\u4ee5\u4ea7\u751f\u4e00\u79cd\u6784\u9020\u65b9\u6848\uff1a$p_1 = n$ \uff0c\u5bf9\u4e8e\u5269\u4e0b\u6765\u7684 $2 \\le i \\le n$\uff0c$p_i = i-1$\uff0c\u8fd9\u6837\u603b\u8d21\u732e\u53ea\u6709 $p_1$ \u8d21\u732e\u7684 $1$\u3002\n\n\u590d\u6742\u5ea6 $O(n)$\u3002\n\ncode:\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint t,n;\nint main()\n{\n\tcin>>t;\n\twhile(t--)\n\t{\n\t\tcin>>n;\n\t\tcout<<n<<\" \";\n\t\tfor(int i=1;i<n;i++)cout<<i<<\" \";\n\t\tcout<<endl;\n\t}\n\treturn 0;\n} \n```",
+        "postTime": 1659359019,
+        "uid": 317622,
+        "name": "Lehe",
+        "ccfLevel": 0,
+        "title": "CF1711A Perfect Permutation \u9898\u89e3"
+    },
+    {
+        "content": "### \u9898\u76ee\u63cf\u8ff0\n\u7ed9\u4f60\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u5e8f\u5217\uff0c$p_i$ \u7684\u503c\u4e3a $i$\u3002\u5bf9\u8fd9\u4e2a\u5e8f\u5217\u91cd\u65b0\u6784\u9020\u4f7f\u6ee1\u8db3 $p_i\\bmod i=0$ \u7684\u6570\u91cf\u6700\u5c11\u3002\n### \u601d\u8def\n\u56e0\u4e3a\u4efb\u4f55\u6570\u6b63\u6574\u6570\u6a21 $1$ \u7684\u503c\u90fd\u662f $0$\uff0c\u6240\u4ee5\u5173\u952e\u5728\u4e8e\u540e\u9762\u7684 $n-1$ \u4e2a\u6570\u3002\u6211\u4eec\u53ef\u4ee5\u60f3\u5230\u7528\u5076\u6570\u6765\u6a21\u5947\u6570\uff0c\u8fd9\u6837\u6a21\u6570\u4e0d\u53ef\u80fd\u4e3a $0$\uff0c\u53cd\u4e4b\u4ea6\u7136\u3002\n### Code\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint t,n;\nint main(){\n\tscanf(\"%d\",&t);\n\twhile(t--){\n\t\tscanf(\"%d\",&n);\n\t\tfor(int i=1;i<=n-1;i++){\n\t\t\tprintf(\"%d \",i+1);//\u8f93\u51fa\u5b83+1\u7684\u6570\uff0c\u4f7f\u5f97\u4ed6\u4eec\u4e0d\u6ee1\u8db3\u6761\u4ef6\n\t\t}\n\t\tprintf(\"1 \");//\u6700\u540e\u5904\u7406\n\t\tprintf(\"\\n\");\n\t}\n\treturn 0;\n} \n```",
+        "postTime": 1659255805,
+        "uid": 395142,
+        "name": "shenyiran",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3CF1711A Perfect Permutation"
+    },
+    {
+        "content": "**Solution\uff1a**\n\n\u5bf9\u4e8e\u4efb\u610f\u7684\u4e00\u4e2a\u6392\u5217\uff0c\u663e\u7136\u5176\u6743\u503c\u6700\u5c0f\u4e3a\u4e00\u3002\n\n\u5bf9\u4e8e\u4e00\u4e2a\u6570\uff0c\u53ea\u9700\u8981\u8f93\u51fa\u5176\u52a0\u4e00\u5373\u4e0d\u4f1a\u589e\u52a0\u6743\u503c\u3002\n\n\u4e8e\u662f\u4fbf\u6784\u9020\u51fa\u5982\u4e0b\u6392\u5217\u3002\n\n**Code\uff1a**\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint T;\nint main()\n{\n\tcin >> T;\n\twhile(T--)\n\t{\n\t\tint n;\n\t\tcin >> n;\n\t\tcout << n << endl;\n\t\tfor(int i=1;i<n;i++)\n\t\t\tcout << i << \" \";\n\t\tcout<<endl;\n\t}\n\treturn 0;\n}\n\n```\n\n",
+        "postTime": 1659104936,
+        "uid": 333800,
+        "name": "qip101",
+        "ccfLevel": 5,
+        "title": "CF1711A Perfect Permutation \u9898\u89e3"
+    },
+    {
+        "content": "## Problem\n\n\u7ed9\u5b9a\u4e00\u4e2a\u6574\u6570 $n$\uff0c\u6784\u9020\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u6392\u5217\uff08\u5373\u957f\u5ea6\u4e3a $n$ \u4e14\u6b63\u597d\u7531 $1 \\sim n$ \u7ec4\u6210\uff0c\u4e0d\u91cd\u590d\u7684\u5e8f\u5217\uff09\uff0c\u4f7f\u5176\u6743\u91cd\u6700\u5c0f\u3002\n\n## Solution\n\n\u6570\u5217\u7684\u6743\u91cd\u81f3\u5c11\u4e3a $1$\uff0c\u56e0\u4e3a $1$ \u80fd\u88ab\u4efb\u4f55\u6574\u6570\u6574\u9664\u3002\n\n\u5bf9\u4e8e\u6ee1\u8db3 $q \\ge 2$ \u7684\u6574\u6570\uff0c$q+1$ \u4e00\u5b9a\u65e0\u6cd5\u88ab $q$ \u6574\u9664\u3002\n\n\u56e0\u6b64\uff0c$[n,1,2,...n-1]$ \u662f\u4e00\u4e2a\u5408\u6cd5\u7684\u6784\u9020\uff0c\u4e14\u6743\u91cd\u4e3a $1$\uff0c\u8fbe\u5230\u6700\u5c0f\u3002\n\n## AC Code\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\ninline int read(){\n\tint now=0,nev=1;char c=getchar();\n\twhile(c<'0'||c>'9')if(c=='-'){nev=-1;c=getchar();}\n\twhile(c>='0'&&c<='9'){now=(now<<3)+(now<<1)+(c&15);c=getchar();}\n\treturn now*nev;\n}\nint main()\n{\n\tint t=read();\n\twhile(t--){\n\t\tint n=read();\n\t\tprintf(\"%d \",n);\n\t\tfor(int i=1;i<n;i++)\n\t\t\tprintf(\"%d \",i); \n\t\tcout<<endl;\n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1658920268,
+        "uid": 486677,
+        "name": "haimo_qwq",
+        "ccfLevel": 5,
+        "title": "CF1711A"
+    },
+    {
+        "content": "### \u601d\u8def\n\n\u9996\u5148\uff0c\u5bf9\u4e8e $p_1$\uff0c$1$ \u4e00\u5b9a\u80fd\u6574\u9664\u4efb\u4f55\u6570\uff0c\u56e0\u6b64\u8fd9\u4e2a\u6570\u5217\u7684\u201c\u91cd\u91cf\u201d\u81f3\u5c11\u4e3a $1$\u3002 \u7136\u540e\u6211\u4eec\u5c31\u8981\u6700\u5c0f\u5316\u540e\u9762\u7684\u589e\u91cf\u3002\u800c\u6700\u7b80\u5355\u7684\u4e00\u79cd\u65b9\u6cd5\u5c31\u662f\u5728 $p_i$ \u7684\u5730\u65b9\u653e $i-1$\u3002\u8fd9\u6837\u6211\u4eec\u5c31\u80fd\u4fdd\u8bc1 $p_i$ \u4e00\u5b9a\u6bd4\u4e0b\u6807 $i$ \u5c0f $(2 \\leq i \\leq n)$\uff0c\u6240\u4ee5 $i$ \u4e00\u5b9a\u4e0d\u80fd\u6574\u9664 $p_i$\u3002\u6700\u540e\u8fd8\u5269\u4e00\u4e2a $n$\uff0c\u6211\u4eec\u5c31\u5728\u7b2c\u4e00\u4e2a\u8f93\u51fa\u5b83\u3002\n\n### Code\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n\tint n,a;\n\tscanf(\"%d\",&a);\n\twhile(a--){\n\t\tscanf(\"%d\",&n);\n\t\tprintf(\"%d \",n);   //\u5148\u8f93\u51fa\n\t\tfor(int i=1;i<=n-1;i++){\n\t\t\tprintf(\"%d \",i);  //\u4f9d\u6b21\u8f93\u51fa\u6bd4\u4e0b\u6807\u5c11\u4e00\u7684\u6570\u3002\n\t\t}\n\t\tprintf(\"\\n\");\n\t}\n}\n```",
+        "postTime": 1658910642,
+        "uid": 393934,
+        "name": "zhicheng",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF1711A Perfect Permutation"
+    },
+    {
+        "content": "### \u9898\u610f\n\n\u7ed9\u5b9a\u4e00\u4e2a\u6b63\u6574\u6570 $n$\uff0c\u6784\u9020\u4e00\u4e2a\u6392\u5217\uff08\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u5e8f\u5217\uff0c\u5176\u4e2d\u7531 $1 \\sim n$ \u6784\u6210\uff0c\u4e0d\u91cd\u590d\uff09\u4f7f\u5176\u6743\u91cd\u6700\u5c0f\u3002\n\n### \u601d\u8def\n\n\u65e2\u7136\u8981\u4f7f\u6743\u91cd\u6700\u5c0f\uff0c\u90a3\u4e48\u5c31\u8ba9\u6bcf\u4e00\u4e2a\u4f4d\u7f6e $i$ \u4e0a\u7684\u5143\u7d20\u4e3a $i+1$ \u6216 $i-1$\uff0c\u4e14\u4fdd\u8bc1\u4e0d\u91cd\u590d\uff08\u5f00\u4e2a\u6570\u7ec4\u8bb0\u91cd\uff09\uff0c\u53ef\u4ee5\u8bc1\u660e\u5f53 $i$ \u5927\u4e8e\u7b49\u4e8e $2$ \u65f6\uff0c$i-1 \\perp i$ \u4e14 $i+1 \\perp i$\u3002\n\n\u90a3\u4e48\u5c31\u7279\u5224\u4e00\u4e0b\u5f53 $n=1$ \u7684\u60c5\u51b5\uff0c\u5269\u4e0b\u60c5\u51b5\u5982\u4e0a\u6784\u9020\u3002\n\n```cpp\n#include <cstdio>\n#include <iostream>\n#include <cstring>\n\nusing namespace std;\n\nint t;\nint n;\nint vis[100005];//\u5224\u91cd\n\nint main()\n{\n\tscanf(\"%d\",&t);\n\t\n\twhile(t--)\n\t{\n\t\tmemset(vis,0,sizeof(vis));//\u8bb0\u5f97\u521d\u59cb\u5316\uff01\uff01\n\t\t\n\t\tscanf(\"%d\",&n);\n\t\t\n\t\tif(n==1)//\u7279\u52241\n\t\t{\n\t\t\tputs(\"1\");\n\t\t\tcontinue;\n\t\t}\n\t\t\n\t\tfor(register int i=1;i<=n;i++)\n\t\t{\n\t\t\tif(!vis[i+1]&&i+1<=n)//\u672a\u4f7f\u7528\u4e14\u4e0d\u8d8a\u754c\n\t\t\t{\n\t\t\t\tprintf(\"%d \",i+1);\n\t\t\t\tvis[i+1]=1;\n\t\t\t\tcontinue;\n\t\t\t}\n\t\t\tif(!vis[i-1]&&i-1>=1)//\u672a\u4f7f\u7528\u4e14\u4e0d\u8d8a\u754c\n\t\t\t{\n\t\t\t\tprintf(\"%d \",i-1);\n\t\t\t\tvis[i-1]=1;\n\t\t\t\tcontinue;\n\t\t\t}\n\t\t\tif(!vis[1])//\u6700\u540e\u80af\u5b9a\u4f1a\u5269\u4e00\u4e2a\u4e3a1\n\t\t\t{\n\t\t\t\tprintf(\"1 \");\n\t\t\t\tvis[1]=1;\n\t\t\t}\n\t\t}\n\t\t\n\t\tprintf(\"\\n\");\n\t}\n\t\n\treturn 0;\n} \n```\n",
+        "postTime": 1658906624,
+        "uid": 448593,
+        "name": "ldh081122",
+        "ccfLevel": 4,
+        "title": "CF1711A Perfect Permutation \u9898\u89e3"
+    },
+    {
+        "content": "### \u9898\u610f\u7b80\u8ff0\uff1a\n\n\u7ed9\u4f60\u4e00\u4e2a\u6b63\u6574\u6570 $n$\uff0c \u4f60\u9700\u8981\u6784\u9020\u51fa\u4e00\u4e2a $1 \\dots n$ \u7684\u6392\u5217 $p_1, p_2, \\dots,p_n$\u3002\u4f7f\u5f97\u5bf9\u4e8e\u6240\u6709\u7684 $1 \\leq i \\leq n$\uff0c$p_i$ \u80fd\u88ab $i$ \u6574\u9664\u7684\u6570\u91cf\u6700\u5c11\u3002\n\n### \u601d\u8def\u7b80\u8ff0\uff1a\n\n\u9996\u5148\u6211\u4eec\u9700\u8981\u660e\u786e\uff0c\u76f8\u90bb\u7684\u4e24\u4e2a\u5927\u4e8e $1$ \u7684\u6b63\u6574\u6570\u662f\u4e92\u8d28\u7684\uff0c\u5e76\u4e14\u6240\u6709\u6b63\u6574\u6570\u90fd\u80fd\u88ab $1$ \u6574\u9664\u3002\u6240\u4ee5\u6700\u5c11\u7684\u6570\u91cf\u6c38\u8fdc\u662f $1$\u3002\n\n\u7136\u540e\u8fdb\u884c\u5206\u7c7b\u8ba8\u8bba\uff1a\n\n- \u5982\u679c $n$ \u662f\u5076\u6570\uff0c\u90a3\u4e48\u53ea\u9700\u8981\u4ea4\u6362\u4e24\u4e2a\u76f8\u90bb\u7684\u6b63\u6574\u6570\u8f93\u51fa\u5373\u53ef\u3002\n\n\u8fd9\u79cd\u60c5\u51b5\u7684\u4ee3\u7801\u5982\u4e0b\uff1a\n\n```cpp\nfor (int i = 1; i <= n; i++) {\n\tif (i % 2 == 1) {\n\t\tcout << i + 1 << \" \";\n\t} else {\n\t\tcout << i - 1 << \" \";\n\t}\n}\n```\n- \u5982\u679c $n$ \u662f\u5947\u6570\uff0c\u90a3\u4e48\u5f53 $i=1$ \u65f6\u8f93\u51fa $1$\uff0c\u5269\u4e0b\u7684\u5c31\u53ef\u4ee5\u5f53\u505a $n$ \u4e3a\u5076\u6570\u7684\u60c5\u51b5\uff0c\u5373\u4ea4\u6362\u76f8\u90bb\u4e24\u4e2a\u6b63\u6574\u6570\u3002\n\n\u8fd9\u79cd\u60c5\u51b5\u7684\u4ee3\u7801\uff1a\n\n```cpp\ncout << 1 << \" \";\nfor (int i = 2; i <= n; i++) {\n\tif (i % 2 == 0) {\n\t\tcout << i + 1 << \" \";\n\t} else {\n\t\tcout << i - 1 << \" \";\n\t}\n}\n```",
+        "postTime": 1658897949,
+        "uid": 386913,
+        "name": "__KrNalty__",
+        "ccfLevel": 4,
+        "title": "CF1711A Perfect Permutation \u9898\u89e3"
+    },
+    {
+        "content": "# 1.0 [\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/CF1711A)\n# 2.0 \u601d\u8def\n\u8fd9\u662f\u4e00\u9053~~\u6bd2\u7624~~\u7ecf\u5178\u7684\u6784\u9020\u9898\u3002\n## 2.1 \u6784\u9020\n\u9996\u5148\u6211\u4eec\u53ef\u4ee5\u80af\u5b9a\u7684\u662f\uff0c\u4efb\u610f\u6b63\u6574\u6570\u90fd\u53ef\u4ee5\u88ab $1$ \u6574\u9664\uff0c\u6240\u4ee5\u7b2c\u4e00\u4e2a\u4f4d\u7f6e\u586b\u4efb\u610f\u5c0f\u4e8e\u7b49\u4e8e $n$ \u7684\u6b63\u6574\u6570\u90fd\u884c\u3002\n\n\u6240\u4ee5\u6211\u4eec\u5c06\u7b2c\u4e00\u4e2a\u6570\u8bbe\u4e3a $n$\uff0c\u7136\u540e\u63a5\u4e0b\u6765 $n-1$ \u4e2a\u6570\u8bbe\u4e3a $1,2,3 \\cdots n-1$\uff0c\u8fd9\u6837\u53ef\u4ee5\u5f97\u5230 $1 \\mid n,2 \\nmid 1,3 \\nmid 2 \\cdots n \\nmid n-1$\uff0c\u6240\u4ee5\u91cd\u91cf\u4e3a $1$\uff0c\u4e14\u6ee1\u8db3\u662f $n$ \u7684\u6392\u5217\u8fd9\u4e00\u6761\u4ef6\uff0c\u663e\u7136\u8fd9\u662f\u6700\u4f18\u89e3\u3002\u6784\u9020\u5b8c\u6bd5\u3002\n\n## 2.2 \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint t,n;\nint main(){\n\tcin>>t;//\u591a\u7ec4\u6d4b\u8bd5\u6570\u636e \n\twhile(t--){\n\t\tcin>>n;\n\t\tcout<<n<<\" \";//n\u653e\u5728\u7b2c\u4e00\u4f4d \n\t\tfor(int i=1;i<=n-1;i++){\n\t\t\tcout<<i<<\" \";//\u6784\u9020\u5168\u6392\u5217 \uff0c\u8fd9\u6837\u4fdd\u8bc1weight=1 \uff0c\u662f\u6700\u4f18\u89e3 \n\t\t}\n\t\tcout<<endl;//\u6ce8\u610f\u6362\u884c\uff08\u672c\u849f\u84bb\u5728\u8fd9\u91cc\u6302\u4e86\uff0c\u7f5a\u65f6\u5403\u9971\uff09 \n\t}\n\treturn 0;\n} \n```\n\n\n# 3.0 \u603b\u7ed3\n\u5bf9\u4e8e\u8fd9\u4e00\u7c7b\u7684\u6784\u9020\u9898\uff0c\u6211\u4eec\u53ef\u4ee5\u4ece\u6700\u5c0f\u7684\u60c5\u51b5\u5165\u624b\uff0c\u7136\u540e\u6162\u6162\u63a8\uff0c\u76f4\u5230\u63a8\u51fa\u4e00\u4e2a\u6700\u4f18\u7ed3\u679c\uff0c\u7c7b\u4f3c\u4e8e\u8d2a\u5fc3\u7684\u7b56\u7565\u3002\u8fd9\u6837\u6784\u9020\u9898\u5c31\u80fd\u88ab\u8f7b\u6613\u89e3\u51b3\u3002\n\n# 4.0 \u6700\u540e\uff0c\u5927\u4f6c\u4eec\u65e2\u7136\u770b\u90fd\u770b\u4e86\uff0c\u7ed9\u4e2a\u8d5e\u518d\u8d70\u5457~",
+        "postTime": 1658898996,
+        "uid": 673601,
+        "name": "FWT__FFT",
+        "ccfLevel": 0,
+        "title": "CF1711A\u9898\u89e3"
+    }
+]

@@ -1,0 +1,34 @@
+[
+    {
+        "content": "\u5047\u8bbe $x_i$ ^ $y_j$ = $x_k$\n\u90a3\u4e48 $x_k$ ^ $y_j$ = $x_i$\n\n\u540c\u7406\u5f53$x_i$ ^ $y_j$ = $y_k$\n\u65f6\uff0c$y_k$ ^ $x_i$ = $y_j$\n\n\u56e0\u6b64\u5bf9\u6570\u6c38\u8fdc\u662f\u5076\u6570\u3002\n\n\u9898\u89e3\u5c31\u662f\u663e\u7136\u7684\uff1a\n```\n#include <cstdio>\n\nint main()\n{\n    printf(\"Karen\\n\");\n}\n```\n",
+        "postTime": 1517994913,
+        "uid": 25308,
+        "name": "Wen_kr",
+        "ccfLevel": 9,
+        "title": "\u9898\u89e3 CF869A \u3010The Artful Expedient\u3011"
+    },
+    {
+        "content": "\u4e00\u9053\u6a21\u62df\u9898\uff0c\u53ea\u9700\u8981\u4e00\u4e2a\u4e2a\u679a\u4e3e\u4e24\u4e2a\u6570\u7ec4\u4e4b\u4e2d\u7684\u6570\uff0c\u8ba1\u7b97\u5b83\u4eec\u7684\u5f02\u6216\u503c\uff0c\u7136\u540e\u5224\u5b9a\u4e00\u4e0b\u5728\u4e0d\u5728\u4e24\u4e2a\u6570\u7ec4\u4e4b\u4e2d\u5373\u53ef\u3002\u4e0d\u8fc7\u4e0d\u80fd\u679a\u4e3e\u4e00\u6b21\u641c\u7d22\u4e00\u6b21(\u4f1aTLE)\uff0c\u8fd9\u91cc\u5f00\u4e86\u4e00\u4e2a\u957f\u5ea6\u4e3a2000001\uff0c\u9ed8\u8ba4\u5747\u4e3afalse\u7684\u5e03\u5c14\u578b\u6570\u7ec4\uff0c\u8f93\u5165\u6570\u636e\u65f6\uff0c\u6bcf\u8f93\u5165\u4e00\u4e2a\u6570\u5c31\u628a\u8fd9\u4e2a\u6570\u5bf9\u5e94\u7684\u4f4d\u7f6e\u6807\u4e3atrue\uff0c\u679a\u4e3e\u7684\u65f6\u5019\u53ea\u9700\u8981\u786e\u5b9a\u5bf9\u5e94\u7684\u4f4d\u7f6e\u662f\u4e0d\u662ftrue\u5373\u53ef\u3002\n\n\u6240\u4ee5\u5c31\u6709\u4ee3\u7801\u4e86:\n```\n#include <iostream>\n#include <iomanip>\n#include <cmath>\n#include <string>\n#include <cstring>\n#include <algorithm>\n#include <vector>\nusing namespace std; //\u5934\u6587\u4ef6\u548c\u547d\u540d\u7a7a\u95f4\nbool arrChecker[20000001] = { 0 }; //\u5e03\u5c14\u578b\u6570\u7ec4\uff0c\u9ed8\u8ba4\u503c\u5747\u4e3afalse\uff0c\u8f93\u5165\u6570\u636e\u65f6\uff0c\u6bcf\u8f93\u5165\u4e00\u4e2a\u6570\u5c31\u628a\u8fd9\u4e2a\u6570\u5bf9\u5e94\u7684\u4f4d\u7f6e\u6807\u4e3atrue\nint main(){\n\tios::sync_with_stdio(false); //\u4e00\u5b9a\u610f\u4e49\u4e0a\u7684\u8f93\u5165\u8f93\u51fa\u52a0\u901f\n\tvector<int> arrNumsKoyomi, arrNumsKaren; //\u5b58\u653e\u4e24\u4eba\u6240\u7ed9\u6570\u5b57\u7684\u6570\u7ec4\n\tint iTemp, nCount, i, j,nAns=0; //iTemp-\u6682\u5b58\u6570\u636e\uff0cnCount-\u6570\u7684\u4e2a\u6570\uff0ci\u3001j-\u5faa\u73af\u8ba1\u6570\u5668\uff0cnAns-\u6709\u591a\u5c11\u4e2a\u7b26\u5408\u9898\u610f\u7684\u6570\u5bf9\n\tcin >> nCount; //\u8f93\u5165\u6570\u7684\u4e2a\u6570\n\tfor (i = 1; i <= nCount; ++i){ //\u8f93\u5165Koyomi\u6240\u7ed9\u6570\u5b57\n\t\tcin >> iTemp; //\u8bfb\u5165\n\t\tarrNumsKoyomi.push_back(iTemp); //\u538b\u5165\u6570\u7ec4\n\t\tarrChecker[iTemp] = true; //\u628a\u8fd9\u4e2a\u6570\u5bf9\u5e94\u7684\u4f4d\u7f6e\u6807\u4e3atrue\n\t}\n\tfor (i = 1; i <= nCount; ++i){ //\u8f93\u5165Karen\u6240\u7ed9\u6570\u5b57\n\t\tcin >> iTemp; //\u8bfb\u5165\n\t\tarrNumsKaren.push_back(iTemp); //\u538b\u5165\u6570\u7ec4\n\t\tarrChecker[iTemp] = true; //\u628a\u8fd9\u4e2a\u6570\u5bf9\u5e94\u7684\u4f4d\u7f6e\u6807\u4e3atrue\n\t}\n\tfor (i = 0; i <= nCount - 1; ++i){ //\u679a\u4e3eKoyomi\u7684\u6570\n\t\tfor (j = 0; j <= nCount - 1; ++j){ //\u679a\u4e3eKaren\u7684\u6570\n\t\t\tiTemp = arrNumsKoyomi[i] ^ arrNumsKaren[j]; //\u8bb0\u5f55\u4e24\u6570\u5f02\u6216\n\t\t\tif (arrChecker[iTemp]) //\u5982\u679c\u5bf9\u5e94\u4f4d\u7f6e\u4e3atrue\uff0c\u5373\u8fd9\u4e24\u4e2a\u6570\u7684\u5f02\u6216\u5728\u4e24\u4eba\u6240\u7ed9\u6570\u4e2d\n\t\t\t\t++nAns; //\u8ba1\u6570\u5668\u52a0\u4e00\n\t\t}\n\t}\n\tif (nAns % 2 == 0) //\u5982\u679c\u6709\u5076\u6570\u5bf9\n\t\tcout << \"Karen\"; //Karen\u80dc\u5229\n\telse //\u5426\u5219\n\t\tcout << \"Koyomi\"; //Koyomi\u80dc\u5229\n\treturn 0; //\u7ed3\u675f\n}\n```",
+        "postTime": 1517971894,
+        "uid": 74038,
+        "name": "PC_DOS",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF869A \u3010The Artful Expedient\u3011"
+    },
+    {
+        "content": "\u5728\u8bf4\u505a\u6cd5\u4e4b\u524d\uff0c\u8bf4\u53e5\u5e9f\u8bdd\uff1a\n#### \u6700\u77ed\u4ee3\u7801\uff0c\u9664\u4e86$PY($~~\u5c41\u773c~~$)$\uff0c\u5176\u5b9e\u53d1py\u7684\u90a3\u4e2a\u662f\u6211\u5e08\u7236(C++\u515a\u53d1py\u9898\u89e3\n## \u505a\u6cd5\uff1a\u5728\u8fd9\u9053\u9898\u4e2d\uff0c\u5bf9\u6570=\u5076\u6570\u3002\u6240\u4ee5\u8f93\u51faKaren\u5373\u53ef\u3002\n```cpp\n#include<iostream>\nint mian(){std:cout<<\"Karen\";}\n```\n###### \u6b22\u8fce\u6284\u9898\u89e3\u3002\u3002",
+        "postTime": 1534428770,
+        "uid": 58546,
+        "name": "CZQ_King",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF869A \u3010The Artful Expedient\u3011"
+    },
+    {
+        "content": "\u849f\u84bb\u89c1\u5927\u4f6c\u90fd\u6ca1\u53d1Python2\u9898\u89e3\n\u5c31\u6c34\u4e00\u53d1\n\u5bf9\u6570\u6c38\u8fdc\u662f\u5076\u6570\n## \u800c\u5076\u6570\u5c31\u8f93\u51fa\n# Karen\n~~\u6240\u4ee5\u9898\u89e3\u5c31N\u957f~~\n```\nprint \"Karen\"\n```",
+        "postTime": 1523600008,
+        "uid": 58543,
+        "name": "RioBlu",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF869A \u3010The Artful Expedient\u3011"
+    }
+]

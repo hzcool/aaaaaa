@@ -1,0 +1,10 @@
+[
+    {
+        "content": "$m$ \u4e2a\u4eba\u6253 $2-1-0$ \u5355\u5faa\u73af\u8d5b\uff0c\u7ed9\u5b9a\u524d $n$ \u5927\u5206\u6570\uff0c\u6784\u9020\u5c40\u9762\u3002\n\n$n\\le m\\le 3000$\u3002\n\n---\n\n\u8bbe\u8fd9\u4e2a\u5e8f\u5217\u4e3a $\\{a_1,a_2,\\cdots,a_m\\}$\uff0c\u663e\u7136 $a_1+\\cdots+a_k\\le(2m-2)+(2m-4)+\\cdots+(2m-2k)$\uff0c\u4e8b\u5b9e\u4e0a\u8fd9\u662f\u5145\u8981\u6761\u4ef6\u3002\n\n\u5bf9 $m$ \u5f52\u7eb3\uff0c$a_1$ \u8981\u8f93\u7ed9\u5269\u4f59\u5206\u6570\u5927\u7684\u4eba\uff0c\u6b64\u65f6\u6761\u4ef6\u4ecd\u7136\u6ee1\u8db3\uff08\u4e0d\u91cd\u65b0\u6392\u5e8f\u90fd\u6ee1\u8db3\uff0c\u6392\u5e8f\u4e4b\u540e\u66f4\u5bf9\u4e86\uff09\uff0c\u8fd9\u6837\u5c31\u6784\u9020\u51fa\u6765\u4e86\u3002\n\n\u6240\u4ee5\u4e0d\u786e\u5b9a\u7684 $a_{n+1},\\cdots,a_m$ \u5e73\u5206\u5269\u4f59\u5206\u6570\u5373\u53ef\u3002\u65f6\u95f4\u590d\u6742\u5ea6 $O(m^2\\log m)$\u3002\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nconst int N = 3003;\nint n, m, sum, a[N], id[N];\nchar res[N][N];\nint main(){\n\tios::sync_with_stdio(false);\n\tcin >> n >> m; sum = n*(n-1);\n\tfor(int i = 0;i < m;++ i){cin >> a[i]; sum -= a[i];}\n\tif(sum < 0){puts(\"no\"); return 0;}\n\tfor(int i = m;i < n;++ i) a[i] = sum / (n-m) + (i-m < sum % (n-m));\n\tif(a[m-1] < a[m]){puts(\"no\"); return 0;}\n\tfor(int i = 0;i < n;++ i){id[i] = i; res[i][i] = 'X';}\n\tfor(int i = 0;i < n;++ i){\n\t\tsort(id + i, id + n, [&](int x, int y){return a[x] > a[y];});\n\t\tif(a[id[i]] < 0){puts(\"no\"); return 0;}\n\t\tfor(int j = n-1;j > i;-- j)\n\t\t\tif(a[id[i]] > 1){a[id[i]] -= 2; res[id[i]][id[j]] = 'W'; res[id[j]][id[i]] = 'L';}\n\t\t\telse if(a[id[i]] == 1){a[id[i]] = 0; -- a[id[j]]; res[id[i]][id[j]] = res[id[j]][id[i]] = 'D';}\n\t\t\telse {a[id[j]] -= 2; res[id[i]][id[j]] = 'L'; res[id[j]][id[i]] = 'W';}\n\t}\n\tputs(\"yes\");\n\tfor(int i = 0;i < n;++ i) puts(res[i]);\n}\n```",
+        "postTime": 1638966124,
+        "uid": 68148,
+        "name": "watermoon",
+        "ccfLevel": 10,
+        "title": "\u6807\u9898"
+    }
+]

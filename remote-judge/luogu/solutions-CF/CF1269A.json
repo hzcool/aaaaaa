@@ -1,0 +1,82 @@
+[
+    {
+        "content": "# \u9898\u89e3 CF1269A \u3010Equation\u3011\n\n**\u8be5\u573a\u6bd4\u8d5b\u9898\u89e3\uff1a[\u6211\u7684\u535a\u5ba2\u6c42\u56f4\u89c2](https://www.cnblogs.com/nblyz2003/p/12177652.html)**\n\n\u4e3a\u4ec0\u4e48\u9898\u89e3\u90a3\u4e48\u957f\uff1f\uff1f\uff1f\n\n\u9898\u76ee\u5927\u610f\uff1a\u6709\u4e00\u4e2a\u6570\u5b57n\uff0c\u8ba9\u4f60\u7ed9\u51fa\u4efb\u610f\u4e24\u4e2a\u5408\u6570a\uff0cb\u6ee1\u8db3a - b = n\u3002\n\n\u6211\u4eec\u77e5\u9053\u5927\u4e8e2\u7684\u5076\u6570\u90fd\u662f\u5408\u6570\uff0c\u90a3\u4e48\u5982\u679cn\u4e3a\u5947\u6570\uff0c\u53ea\u8981n\u52a0\u4e0a\u4e00\u4e2a\u5947\u6570\u5408\u6570\u4e00\u5b9a\u4e5f\u4e3a\u5408\u6570\uff0c\u5982\u679cn\u4e3a\u5076\u6570\uff0c\u90a3\u4e48n\u52a0\u4e0a\u4e00\u4e2a\u5076\u6570\u5408\u6570\u4e5f\u4e00\u5b9a\u4e3a\u5408\u6570\u3002\n\n\u56e0\u4e3a\u53ea\u6c42\u4efb\u610f\u4e00\u7ec4\uff0c\u5c31\u76f4\u63a5\u9009\u62e94,9\uff0c\u82e5\u4e3a\u5947\u6570\u8f93\u51fa 9+n \u548c9\uff0c\u5076\u6570\u8f93\u51fa 4+n \u548c4\u3002\n\n\u4ee3\u7801\u7b80\u6d01\u660e\u4e86\u3002\n\n```cpp\n#include <iostream>\n#include <cstdio>\n#include <algorithm>\n#include <cstring>\n#include <vector>\n#define rep(x, l, r) for(int x = l; x <= r; x++)\n#define repd(x, r, l) for(int x = r; x >= l; x--)\n#define clr(x, y) memset(x, y, sizeof(x))\n#define all(x) x.begin(), x.end()\n#define pb push_back\n#define mp make_pair\n#define MAXN\n#define fi first\n#define se second\n#define SZ(x) ((int)x.size())\nusing namespace std;\ntypedef long long ll;\ntypedef vector<int> vi;\ntypedef pair<int, int> pii;\nconst int INF = 1 << 30;\nconst int p = 1000000009;\nint lowbit(int x){ return x & (-x);}\nint fast_power(int a, int b){ int x; for(x = 1; b; b >>= 1){ if(b & 1) x = 1ll * x * a % p; a = 1ll * a * a % p;} return x % p;}\n\nint main(){\n\tint n;\n\tscanf(\"%d\", &n);\n\tif(n % 2) printf(\"%d %d\\n\", n + 9, 9);\n\telse printf(\"%d %d\\n\", n + 4, 4);\n    return 0;\n}\n```",
+        "postTime": 1578698159,
+        "uid": 149312,
+        "name": "wze\u63cd\u6241\u4e86nm",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1269A \u3010Equation\u3011"
+    },
+    {
+        "content": "## \u8fd9\u9053\u9898\u53ea\u9700\u8981\u8f93\u51fa2\u4e2a\u5408\u6570\uff0c\u4f7f\u4e24\u4e2a\u5408\u6570\u76f8\u51cf\u7684\u7edd\u5bf9\u503c=n\uff0c\u8f93\u51fa\u4e24\u4e2a\u6570\u5373\u53ef\uff0c\u522b\u5fd8\u4e86\u628a\u8f83\u5927\u7684\u6570\u653e\u5728\u524d\u9762\n\n\nAC\u4ee3\u7801\uff1a\n```\n#include<cmath>\n#include<cstdio>\nusing namespace std;\nbool su(int a){\n    if(a==1) return 0;\n    if(a==2||a==3) return 1;\n    if(a%6!=1&&a%6!=5) return 0;\n    for(int i=5;i<=sqrt(a);i+=6) if(a%i==0||a%(i+2)==0) return 0;\n    return 1;\n}\nint n;\nint main(){\n\tscanf(\"%d\",&n);\n\tfor(int i=4;;i++) if(!su(i)&&!su(i+n)) {\n\t\t\tprintf(\"%d %d\",i+n,i);\n\t\t\treturn 0;\n\t\t}\n}\n```\n",
+        "postTime": 1577497780,
+        "uid": 226786,
+        "name": "\u5b8b\u777f\u5929",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1269A Equation"
+    },
+    {
+        "content": "## \u9898\u610f\n\n\u8981\u627e\u4e24\u4e2a\u5408\u6570\uff0c\u4f7f\u4ed6\u4eec\u4e24\u4e2a\u7684\u5dee\u4e3a$n$\uff0c$n$\u4e3a\u9898\u76ee\u7ed9\u51fa\u7684\u6570\n\n## \u601d\u8def\n\n\u6211\u4eec\u53ef\u4ee5\u679a\u4e3e\u51cf\u6570$now$\uff0c\u5224\u65ad\u4e00\u4e0b\u662f\u4e0d\u662f\u8d28\u6570\uff0c\u5982\u679c\u662f\u8d28\u6570\u5c31\u8ba9$now++$\uff0c\u7136\u540e\u7528\u4e00\u4e2a\u6570$tot$\u8bb0\u5f55\u88ab\u51cf\u6570\uff0c\u4e5f\u5c31\u662f$now$\u52a0$n$\uff0c\u5224\u65ad$tot$\u662f\u4e0d\u662f\u8d28\u6570\uff0c\u5982\u679c\u662f\u8d28\u6570\u518d\u8ba9$now++$\uff0c\u5982\u679c\u4e0d\u662f\u8d28\u6570\u6211\u4eec\u5c31\u627e\u5230\u4e86\u7b54\u6848,\u56e0\u4e3a\u6211\u4eec\u5df2\u7ecf\u4fdd\u8bc1\u4e86$now$\u4e3a\u5408\u6570\uff0c\u6240\u4ee5\u5c31\u53ef\u4ee5\u76f4\u63a5\u8df3\u51fa\u5faa\u73af\u8f93\u51fa\u7b54\u6848\u5566~\n\n\u56e0\u4e3a\u6570\u636e\u8303\u56f4\u5e76\u4e0d\u5927\uff0c\u6240\u4ee5\u6211\u4eec\u53ef\u4ee5\u76f4\u63a5\u5224\u65ad\u4e00\u4e2a\u6570\u662f\u4e0d\u662f\u8d28\u6570\uff0c\u5982\u4e0b\n\n```cpp\n//\u5224\u65ad\u662f\u5426\u4e3a\u8d28\u6570\uff0c\u662f\u8d28\u6570\u8fd4\u56de1\uff0c\u5426\u5219\u8fd4\u56de0 \nbool check(int wh) {\n\tif(wh <= 1) return 0; \n    if(wh == 2) return 1;\n\tfor(int i = 2; i * i <= wh; i++) if(wh % i == 0) return 0;\n\treturn 1;\n}\n```\n\n## \u4ee3\u7801\n\n```cpp\n#include <cstdio>\n#include <cstring>\n#include <iostream>\n#include <algorithm>\nusing namespace std;\n\nconst int A = 5e5 + 11;\nconst int B = 1e6 + 11;\nconst int mod = 1e9 + 7;\nconst int inf = 0x3f3f3f3f;\n\ninline int read() {\n\tchar c = getchar(); int x = 0, f = 1;\n\tfor( ; !isdigit(c); c = getchar()) if(c == '-') f = -1;\n\tfor( ; isdigit(c); c = getchar()) x = x * 10 + (c ^ 48);\n\treturn x * f;\n}\n\n//\u5224\u65ad\u662f\u5426\u4e3a\u8d28\u6570\uff0c\u662f\u8d28\u6570\u8fd4\u56de1\uff0c\u5426\u5219\u8fd4\u56de0 \nbool check(int wh) {\n\tif(wh <= 1) return 0; if(wh == 2) return 1;\n\tfor(int i = 2; i * i <= wh; i++) if(wh % i == 0) return 0;\n\treturn 1;\n}\n\nint main() {\n\tint n = read(), now = 2, tot;\n\twhile(1) {\n\t\tif(check(now)) now++; \n        //\u5224\u65adnow\u662f\u5426\u4e3a\u8d28\u6570\uff0c\u5982\u679c\u662f\u8d28\u6570\u5c31++\uff0c\u5426\u5219\u7ee7\u7eed\u5224\u65adtot\u7684\u503c\n\t\telse {\n\t\t\ttot = now + n;\n\t\t\tif(check(tot)) now++;\n            //\u5224\u65adtot\u662f\u5426\u4e3a\u8d28\u6570\uff0c\u5982\u679c\u4e0d\u662f\u8d28\u6570\u5c31\u53ef\u4ee5\u8df3\u51fa\u8f93\u51fa\u7b54\u6848\u4e86\n\t\t\telse break;\n\t\t}\n\t}\n\treturn cout << tot << \" \" << now << '\\n', 0;\n}\n```",
+        "postTime": 1577005889,
+        "uid": 198323,
+        "name": "loceaner",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 CF1269A \u3010Equation\u3011"
+    },
+    {
+        "content": "\u9996\u5148\uff0c\u6211\u4eec\u53ef\u4ee5\u65b0\u5efa\u4e00\u4e2a\u5408\u6570\u51fd\u6570\u3002\u8be5\u51fd\u6570\u6548\u7387\u4e3a$O(\\sqrt n)$\uff0c\u5982\u4e0b\uff1a\n\n```cpp\nbool p(int n)\n{\n\tif(n<2)return 0;//\u5c0f\u4e8e0\u5c31\u8fd4\u56de0\n\tfor(int i=2;i*i<=n;i++)if(n%i==0)return 1;//\u80fd\u6574\u9664\u5c31\u8fd4\u56de1\n\treturn 0;//\u5426\u5219\u8fd4\u56de0\n}\n```\n\n\u7136\u540e\u518d\u4e3b\u51fd\u6570\u8fdb\u884c$i\u2208[4,\u221e)$\u5faa\u73af\uff0c\u6bcf\u6b21\u5224\u65ad$i+n$\u548c$i$\u8fd9\u4e24\u4e2a\u6570\u662f\u5426\u4e3a\u5408\u6570\u3002\u4e00\u65e6\u662f\uff0c\u5219\u7acb\u5373\u8f93\u51fa$i+n$\u548c$i$\u5e76\u7ed3\u675f\u7a0b\u5e8f\u3002\n\n\u4f60\u4eec\u6700\u559c\u6b22\u7684\u65e0\u6ce8\u91ca\u65e0\u635f\u6e05\u6670$AC$\u4ee3\u7801\uff1a\n\n```cpp\n#include<cstdio>\nint n,i;\nbool c(int x)\n{\n    if(x<2)return 0;\n    for(int i=2;i*i<=x;i++)if(x%i==0)return 1;\n    return 0;\n}\nint main()\n{\n    scanf(\"%d\",&n);\n    for(i=4;;i++)\n    {\n        if(c(i)&&c(n+i))\n        {\n            printf(\"%d %d\",n+i,i);\n            return 0;\n        }\n    }\n}\n```\n",
+        "postTime": 1583062373,
+        "uid": 137367,
+        "name": "hensier",
+        "ccfLevel": 6,
+        "title": "CF1269A Equation \u9898\u89e3"
+    },
+    {
+        "content": "### \u9898\u89e3 [Equation](https://www.luogu.com.cn/problem/CF1269A)  \n# Solution  \n\u8003\u8651\u4ee5\u4e0b\u5f0f\u5b50\uff1a  \n$$a-b=n$$  \n\u5176\u4e2d$a$\uff0c$b$\u90fd\u662f\u5408\u6570\u3002\u6211\u4eec\u53ef\u4ee5\u628a\u5f0f\u5b50\u53d8\u4e00\u4e0b\uff0c\u53d8\u6210\uff1a  \n$$a=b+n$$  \n\u8fd9\u6837\u5b50\uff0c\u6211\u4eec\u53ea\u9700\u8981\u679a\u4e3e\u5408\u6570$b$\uff0c\u7b97\u51fa$a$\uff0c\u5224\u65ad\u662f\u5426\u4e3a\u5408\u6570\u5373\u53ef\u3002  \n\u679a\u4e3e$b$\u7684\u65f6\u95f4\u590d\u6742\u5ea6\u4e3a$\\Theta(n)$\uff0c\u6c42$a$\u7684\u590d\u6742\u5ea6\u4e00\u6837\uff0c\u7a33\u8fc7\u3002  \n# Code\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\ntemplate<class T>\ninline void read(T& x) {\n\tx = 0;\n\tchar ch = getchar();\n\tint p = 1;\n\twhile(ch < '0' || ch > '9') {\n\t\tif(ch == '-') p = -1;\n\t\tch = getchar();\n\t}\n\twhile(ch >= '0' && ch <= '9') {\n\t\tx = x * 10 + ch - '0';\n\t\tch = getchar();\n\t}\n\tx *= p;\n}\n\nint n;\n\nbool isprime(int x) {\n\tif(x < 2) return 0;\n\tif(x == 2) return 1;\n\tfor(int i = 2;i * i <= x;i++) {\n\t\tif(x % i == 0) {\n\t\t\treturn 0;\n\t\t}\n\t}\n\treturn 1;\n}\n\nint main() {\n\tread(n);\n\tfor(int i = 4; ;i++) {  //\u679a\u4e3eb\n\t\tint x = n + i;  //\u6c42\u51faa\n\t\tif(!isprime(i) && !isprime(x)) {  //\u5224\u65ad\u5408\u6570\n\t\t\tprintf(\"%d %d\\n\",x,i);  //\u5927\u7684\u5728\u524d\uff0c\u5c0f\u7684\u5728\u540e\u8f93\u51fa\n\t\t\tbreak;\n\t\t}\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1582812183,
+        "uid": 86971,
+        "name": "TRZ_2007",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF1269A \u3010Equation\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898 ~~\u7b7e\u5230~~\n\n\u601d\u8def\u5176\u5b9e\u6709\u5f88\u591a\u5f88\u591a \u6211\u8fd9\u91cc\u5c31\u6765\u4ecb\u7ecd\u4e00\u4e2a\u5165\u95e8\u7ea7\u522b\u7684\u601d\u8def\u628a\n\n```\n\u7ed9\u5b9a\u4e00\u4e2a\u6b63\u6574\u6570 n\uff0c\u627e\u5230\u4e24\u4e2a\u5408\u6570 a, b \u6ee1\u8db3 a - b = n\u3002\n```\n\u975e\u5e38\u5bb9\u6613\u61c2\n \uff1a\u7b80\u5355\u6765\u8bf4\u5c31\u662f \u7ed9\u4f60\u4e00\u4e2a\u6570 \u627e\u51fa\u4e24\u4e2a\u975e\u8d28\u6570\u7b49\u4e8e\u8fd9\u4e2a\u6570\uff08\u53ef\u4ee5\u6709\u591a\u79cd\u89e3\u6ee1\u8db3\u4e00\u79cd\u5373\u53ef\uff09\n \n#####  \u60f3\u5230\u8fd9\u4e9b\u4e0d\u96be\u76f4\u63a5\u60f3\u5230 \u5224\u65ad\u7d20\u6570\n\n\u4f17\u6240\u5468\u77e5 \n\uff1a\n\n```\n1 + n - 1 = n\n```\n\n\u6240\u4ee5\u6211\u4eec\u7528\u8fd9\u4e2a\u601d\u8def\u6765\u89e3\u8fd9\u9053\u9898 :\n\n```\n1. \u5224\u65ad\u4e00\u6b21\u7d20\u6570 \u5206\u522b\u5224\u65ad n \u4ee5\u53ca n + 1  \u662f\u4e0d\u662f\u7d20\u6570\u3002\n2. \u5982\u679c\u4e0d\u662f\u7d20\u6570\u540c\u65f6 ++\u4e24\u4e2a\u6570\u76f4\u5230\u6ee1\u8db3\u7b54\u6848\u4e3a\u6b62\u3002\n```\n\n ```\n#include <bits/stdc++.h>\n\nusing namespace std;\n\nbool P(long long n)//\u5224\u65ad\u7d20\u6570\n{\n    long long j;\n    for (j = 2; j <= n / 2; j++)\n    {\n        if (n % j == 0)\n            break;\n    }\n    if (j > n / 2)\n        return true;\n    else\n        return false;\n}\n\nint main()\n{\n    long long n;\n    cin >> n;\n    long long x = 2, y = n + 2;//\u56e0\u4e3a1\u4e5f\u662f\u7d20\u6570 \u6240\u4ee5\u6211\u4eec\u76f4\u63a5\u4ece2\u5f00\u59cb\u6765\u679a\u4e3e\u7b54\u6848\n    for (long long i = 2; i < 1e9; i++)// \u8fd9\u91cc\u662f\u9898\u76ee\u6570\u636e\u8303\u56f4\n    {\n        if (P(x) != true && P(y) != true)//\u5982\u679c\u6ee1\u8db3\u6761\u4ef6\u5219\u8f93\u51fa\u7b54\u6848\n        {\n            cout << y << \" \" << x;\n            return 0;\n        }\n        else\n            x++, y++;//\u540c\u65f6 ++ \u8fd9\u4e24\u4e2a\u6570\n    }\n}\n```\n\n##### \u8fd9\u6837\u505a\u7684\u597d\u5904\u5c31\u662f\u7701\u53bb\u4e86 \u76f8\u51cf\u8fd9\u4e00\u6b65",
+        "postTime": 1577378367,
+        "uid": 111016,
+        "name": "S1gMa",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1269A \u3010Equation\u3011"
+    },
+    {
+        "content": "### \u9898\u76ee\n\n[CF1269A Equation](https://www.luogu.com.cn/problem/CF1269A)\n\n### \u601d\u8def\n\n* \u7ed9\u7684 $n$ \u662f\u5408\u6570\uff0c\u8f93\u51fa $2n,n$\u3002\n* \u7ed9\u7684 $n$ \u4e0d\u662f\u5408\u6570\uff0c\u8f93\u51fa $3n,2n$\u3002\n* $1$ \u9700\u8981\u7279\u5224\u56e0\u4e3a $n,2n,3n$ \u90fd\u4e0d\u662f\u5408\u6570\u3002\n\n### $Code$\n\n```cpp\n#include<iostream>\n#include<cstring>\n#include<string>\n#include<cstdio>\n#include<algorithm>\n#define MAXN 10000001\n\ninline void read(int &T) {\n\tint x=0;bool f=0;char c=getchar();\n\twhile(c<'0'||c>'9'){if(c=='-')f=!f;c=getchar();}\n\twhile(c>='0'&&c<='9'){x=x*10+c-'0';c=getchar();}\n\tT=f?-x:x;\n}\n\nint n;\nbool prm[MAXN];\n\nvoid isprime() {\n\tfor(int i=2;i<MAXN;++i) {\n\t\tif(!prm[i]) {\n\t\t\tfor(int j=2;j*i<MAXN;++j) {\n\t\t\t\tprm[j*i]=1;\n\t\t\t}\n\t\t}\n\t}\n}\n\nint main() {\n\tread(n);\n\tif(n==1) {puts(\"9 8\");return 0;}\n\tif(prm[n]) std::cout<<2*n<<\" \"<<n<<'\\n';\n\telse std::cout<<3*n<<\" \"<<2*n<<'\\n';\n\treturn 0;\n}\n```",
+        "postTime": 1576997960,
+        "uid": 142110,
+        "name": "yu__xuan",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1269A \u3010Equation\u3011"
+    },
+    {
+        "content": "\u8981\u5c06\u4e00\u4e2a\u6570\u53d8\u6210\u4e24\u4e2a\u548c\u6570\u7684\u5dee  \n\u8003\u8651\u6784\u9020:  \n$kn - (k-1)n = n$  \n\u8fd9\u6837\u53ea\u8981\u4efb\u53d6\u4e24\u4e2a\u76f8\u90bb\u7684\u5408\u6570\u5373\u53ef\u3002\u56e0\u4e3a\u82e5 $k$ \u548c $k-1$ \u90fd\u662f\u5408\u6570,\u90a3\u4e48 $kn$ \u548c $k\n(n-1)$ \u4e5f\u4e00\u5b9a\u90fd\u662f\u5408\u6570  \n```cpp\n#include <cstdio>\n\nusing namespace std;\n\nint main() {\n    int n;\n    scanf(\"%d\", &n);\n    printf(\"%d %d\\n\", n * 15, n * 14);\n    return 0;\n}\n```",
+        "postTime": 1576984916,
+        "uid": 88735,
+        "name": "\u5bd2\u9e3d\u513f",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1269A \u3010Equation\u3011"
+    },
+    {
+        "content": "~~\u7b7e\u5230\u9898~~  \n\u663e\u7136\u5bf9\u4e8e\u76f8\u90bb\u5408\u6570a+1,a,  \n\u6ee1\u8db3$(a+1)*n-a*n=n$\n  \n a=9\u65f6a+1=10\u4e3a\u5408\u6570\n### \u653e\u4ee3\u7801\uff1a\n```cpp\n#include<stdio.h>\nint main(){\n\tint n;\n\tscanf(\"%d\",&n);\n\tprintf(\"%d %d\",n*9,n*8);\n\treturn 0;\n}\n```\n",
+        "postTime": 1576981383,
+        "uid": 212187,
+        "name": "VTloBong",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 CF1269A \u3010Equation\u3011"
+    },
+    {
+        "content": "### CF1269A \u9898\u89e3\n\n***\n\n**\u9898\u610f**\n\n\u7ed9\u5b9a\u4e00\u4e2a$n(n<=1e7)$\uff0c\u8ba9\u4f60\u6784\u9020\u51fa$a$\u548c$b$\uff0c\u4f7f\u5f97$a$\u548c$b$\u90fd\u662f\u548c\u6570\uff0c\u4e14$a-b$\u7b49\u4e8e$n$\n***\n**\u89e3\u6cd5**\n\n\n- \u5982\u679c$n$\u662f\u5076\u6570\u7684\u8bdd\uff1a\u90a3\u4e48\u4efb\u610f\u4e24\u4e2a\u5076\u6570\u90fd\u662f\u548c\u6570\uff08\u9664$2$\u4ee5\u5916\uff09\uff0c\u6240\u4ee5\u8ba9$b$\u968f\u4fbf\u7b49\u4e8e\u4e00\u4e2a\u5076\u6570\u5373\u53ef\u3002\n\n- \u5982\u679c$n$\u662f\u5947\u6570\u7684\u8bdd\uff1a\u90a3\u4e48\u8ba9$a$\u548c$b$\u4e2d\u6709\u4e00\u4e2a\u5076\u6570\u6709\u4e00\u4e2a\u5947\u6570\uff0c\u8981\u4fdd\u8bc1\u90a3\u4e2a\u5947\u6570\u662f\u548c\u6570\uff0c\u6240\u4ee5\u8ba9\u5947\u6570\u662f$5$\u7684\u500d\u6570\u5373\u53ef\u3002\n\n***\n\n**\u4ee3\u7801**\n```cpp\n\uff08\u4ee3\u7801\u91cca\u548cb\u53cd\u4e86\uff09\n#include<bits/stdc++.h>\nusing namespace std;\n#define ll long long \nll n,a,b;\nint main()\n{\n\tscanf(\"%lld\",&n);\n\tif(n%2==0)\n\t{\n\t\ta=6;\n\t\tb=n+6;\n\t}else\n\t{\n\t\ta=15;\n\t\tb=15+n;\n\t}\n\tprintf(\"%lld %lld\\n\",b,a);\n\treturn 0;\n}\n```",
+        "postTime": 1577031313,
+        "uid": 52706,
+        "name": "Dolphin_",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF1269A \u3010Equation\u3011"
+    }
+]

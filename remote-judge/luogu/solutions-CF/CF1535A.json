@@ -1,0 +1,90 @@
+[
+    {
+        "content": "#### \u7b97\u6cd5\u5206\u6790\n\n\u5148\u6c42\u51fa $s_1, s_2$ \u7684\u6700\u5927\u503c\u548c $s_3, s_4$ \u7684\u6700\u5927\u503c\uff0c\u7136\u540e\u68c0\u9a8c\u4e00\u4e0b\u8fd9\u4e24\u4e2a\u6570\u4e0e $s_1,s_2,s_3,s_4$ \u4e2d\u6700\u5927\u7684\u4e24\u4e2a\u6570\u662f\u5426\u4e00\u6837\u3002\n\n#### C++ \u4ee3\u7801\n\n```cpp\n#include <bits/stdc++.h>\n#define rep(i, n) for (int i = 0; i < (n); ++i)\n\nusing std::cin;\nusing std::cout;\nusing std::max;\nusing std::minmax;\nusing std::vector;\n\nint main() {\n\tint t;\n\tcin >> t;\n\t\n\twhile (t--) {\n\t\tvector<int> s(4);\n\t\trep(i, 4) cin >> s[i];\n\t\tint a1 = max(s[0], s[1]);\n\t\tint a2 = max(s[2], s[3]);\n\t\tsort(s.begin(), s.end());\n\t\tif (minmax(a1, a2) == minmax(s[2], s[3])) puts(\"YES\");\n\t\telse puts(\"NO\");\n\t}\n\t\n\treturn 0;\n}\n```\n",
+        "postTime": 1622980210,
+        "uid": 28397,
+        "name": "\u5bd2\u70df\u51b7\u6d45\u66ae\u6b87",
+        "ccfLevel": 0,
+        "title": "CF1535A  Fair Playoff"
+    },
+    {
+        "content": "- **\u9898\u610f**\uff1a\n\n$t$ \u7ec4\u8be2\u95ee\uff0c\u6bcf\u6b21\u7ed9\u5b9a $s_1,s_2,s_3,s_4$ \uff0c\u5b9a\u4e49 $win_1=\\max(s_1,s_2),win_2=\\max(s_3,s_4)$ \uff0c\u8be2\u95ee $win_1,win_2$ \u662f\u5426\u5176\u4e2d\u4e00\u4e2a\u4e3a\u6700\u5927\u503c\uff0c\u53e6\u4e00\u4e2a\u4e3a\u6b21\u5927\u503c\u3002\n\n- **\u9898\u89e3**\uff1a\n\n\u6211\u4eec\u76f4\u63a5\u627e\u51fa\u6700\u5927\u503c\u548c\u6b21\u5927\u503c\uff0c\u7136\u540e\u6309\u7167\u9898\u610f\u5224\u65ad\u5373\u53ef\uff0c\u65f6\u95f4\u590d\u6742\u5ea6\u4e3a $O(t)$\u3002\n\n- [\u4ee3\u7801](https://www.luogu.com.cn/paste/c3wmtmof)",
+        "postTime": 1622851942,
+        "uid": 225755,
+        "name": "LinkZelda",
+        "ccfLevel": 8,
+        "title": "CF1535A"
+    },
+    {
+        "content": "# \u9898\u9762\u5206\u6790\n\u4e0d\u96be\u53d1\u73b0\uff0c\u53ea\u8981\u4e24\u7ec4\u4e2d\u4efb\u610f\u4e00\u7ec4\u7684\u8f83\u5927\u6570\u5c0f\u4e8e\u53e6\u4e00\u7ec4\u7684\u8f83\u5c0f\u6570\n\n\u8fd9\u573a\u6bd4\u8d5b\u5c31\u662f\u4e0d\u516c\u5e73\u7684\n# \u4ee3\u7801\u5b9e\u73b0\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n\nint main(){\n\tint t;\n\tcin>>t;\n\twhile(t--){\n\t\tint a1,a2,a3,a4;\n\t\tcin>>a1>>a2>>a3>>a4;\n\t\tif(max(a1,a2)<min(a3,a4)||max(a3,a4)<min(a1,a2))\n\t\t\tputs(\"NO\");\n\t\telse puts(\"YES\");\n\t}\n\treturn 0;\n} \n```",
+        "postTime": 1622953020,
+        "uid": 130547,
+        "name": "\u5965\u7279\u6218\u58eb",
+        "ccfLevel": 0,
+        "title": "CF1535A"
+    },
+    {
+        "content": "\u5148\u6765\u8bf4\u4e00\u4e0b\u9898\u76ee\u3002\n\n\u8fd9\u662f\u4e00\u4e2a\u591a\u7ec4\u6570\u636e\u3002\n\n\u6bcf\u7ec4\u6570\u636e\u6709 4 \u4e2a\u6570\u3002\n\n\u6bcf\u4e2a\u6570\u4e92\u4e0d\u76f8\u540c\uff0c\u524d\u4e8c\u4e2a\u6570\u4e3a\u4e00\u7ec4\uff0c\u540e\u4e8c\u4e2a\u6570\u4e5f\u4e3a\u4e00\u7ec4\u3002\n\n\u5982\u679c\u8fd9\u4e8c\u7ec4\u6700\u5927\u7684\u6570\uff0c\u4e3a 4 \u4e2a\u6570\u6700\u5927\u503c\u548c\u6b21\u5927\u503c\uff0c\u90a3\u4e48\u8f93\u51fa\"YES\"\uff0c\u5426\u5219\u8f93\u51fa\u201cNO\u201d\u3002\n\n![2seh4J.png](https://z3.ax1x.com/2021/06/08/2seh4J.png)\n\u601d\u8def\u5982\u56fe\u6240\u793a\u3002\n\n\u4e0a\u9762\u7684\u4e00\u7ec4\u6570\u8f93\u51fa\u201cNO\u201d\u3002\n\n\u597d\uff0c\u63a5\u4e0b\u6765\u5c31\u662f\u4ee3\u7801\u4e86\u3002\n\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n\tint t;\n\tcin>>t;\n\twhile(t--){\n\t\tint a,b,c,d;\n\t\tcin>>a>>b>>c>>d;\n\t\tif(a<b)//\u5bf9\u6bd4\u7b2c\u4e00\u7ec4\uff0c\u8fdb\u884c\u4ea4\u6362\u3002\n\t\t\tswap(a,b);\n\t\tif(c<d)//\u5bf9\u6bd4\u7b2c\u4e8c\u7ec4\uff0c\u8fdb\u884c\u4ea4\u6362\u3002\n\t\t\tswap(c,d);\n\t\tif(a>d&&c>b)//\u5982\u679c\u4ed6\u4eec\u90fd\u7b26\u5408\u8981\u6c42\uff0c\u8f93\u51fa\u201cYes\u201d\u3002\n\t\t\tputs(\"YES\");\n\t\telse//\u5426\u5219\u8f93\u51fa\u201cNO\u201d\u3002\n\t\t\tputs(\"NO\"); \n\t} \n} \n```\n",
+        "postTime": 1623075369,
+        "uid": 162084,
+        "name": "thomas_zjl",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3CF1535A"
+    },
+    {
+        "content": "\u53e6\u4e24\u7bc7\u9898\u89e3\u8981\u4e48\u592a\u8fc7\u4e8e\u5197\u957f\uff0c\u8981\u4e48\u6ca1\u6709\u89e3\u91ca\uff0c\u6211\u7684\u8fd9\u7bc7\u9898\u89e3\u6216\u8bb8\u597d\u4e00\u70b9\u3002\n\n\u5206\u6790\uff1a\n\n\u6700\u5f3a\u7684\u9009\u624b\u80af\u5b9a\u4e0d\u4f1a\u88ab\u6dd8\u6c70\uff0c\u53ea\u7528\u5224\u65ad\u7b2c\u4e8c\u5f3a\u7684\u9009\u624b\u662f\u5426\u88ab\u6dd8\u6c70\u5373\u53ef\u3002\u7531\u4e8e\u7b2c\u4e8c\u5f3a\u7684\u9009\u624b\u53ea\u80fd\u88ab\u6700\u5f3a\u7684\u9009\u624b\u6dd8\u6c70\uff0c**\u6240\u4ee5\u53ea\u7528\u5224\u65ad\u6700\u5f3a\u7684\u4e24\u540d\u9009\u624b\u662f\u5426\u88ab\u5206\u5230\u540c\u4e00\u7ec4**\u3002\n\n\u5b9e\u73b0\u65b9\u6cd5\uff1a\n\n\u770b $s1,s2$ \u662f\u5426\u90fd\u6bd4 $s3,s4$ \u5f3a\uff08\u6b64\u65f6 $1,2$ \u6700\u5f3a\u4e14\u88ab\u5206\u5230\u4e00\u7ec4\uff09\u6216\u5f31\uff08\u6b64\u65f6 $3,4$ \u6700\u5f3a\u4e14\u88ab\u5206\u5230\u4e00\u7ec4\uff09\u3002\n\n\u4e3b\u8981\u4ee3\u7801\uff1a\n```cpp\nif(s[1]>s[3]&&s[1]>s[4]&&s[2]>s[3]&&s[2]>s[4]||s[1]<s[3]&&s[1]<s[4]&&s[2]<s[3]&&s[2]<s[4])puts(\"NO\");\n//\u903b\u8f91\u4e0e\u7684\u4f18\u5148\u7ea7\u6bd4\u903b\u8f91\u6216\u9ad8\nelse puts(\"YES\");\n```",
+        "postTime": 1622862431,
+        "uid": 384596,
+        "name": "6f21",
+        "ccfLevel": 0,
+        "title": "CF1535A\u9898\u89e3"
+    },
+    {
+        "content": "# \u5206\u6790\n\n\u4e0d\u96be\u53d1\u73b0\uff0c\u5f53\u7b2c\u4e00\u573a\u6bd4\u8d5b\u7684\u83b7\u80dc\u8005\u7684\u80fd\u529b\u503c\u5c0f\u4e8e\u7b2c\u4e8c\u573a\u6bd4\u8d5b\u7684\u5931\u8d25\u8005\u65f6\uff0c\u6bd4\u8d5b\u662f\u4e0d\u516c\u5e73\u7684\uff0c\u540c\u7406\uff0c\u5f53\u7b2c\u4e8c\u573a\u6bd4\u8d5b\u7684\u83b7\u80dc\u8005\u7684\u80fd\u529b\u503c\u5c0f\u4e8e\u7b2c\u4e00\u573a\u6bd4\u8d5b\u7684\u5931\u8d25\u8005\u65f6\uff0c\u6bd4\u8d5b\u4e5f\u662f\u4e0d\u516c\u5e73\u7684\n\n# $code$\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n\tint t;cin>>t;\n\twhile(t--){\n\t\tint s1,s2,s3,s4;\n\t\tscanf(\"%d %d %d %d\",&s1,&s2,&s3,&s4);\n\t\tif(max(s1,s2)<min(s3,s4) || max(s3,s4)<min(s1,s2)) printf(\"NO\\n\");\n\t\telse printf(\"YES\\n\");\n\t} \n\treturn 0;\n}\n```\n",
+        "postTime": 1623065649,
+        "uid": 364122,
+        "name": "BigJoker",
+        "ccfLevel": 6,
+        "title": "CF1535A Fair Playoff\u9898\u89e3"
+    },
+    {
+        "content": "\u5f53\u62e5\u6709\u6700\u5927\u6280\u80fd\u7684\u7403\u5458\u4e0d\u4f1a\u5728\u51b3\u8d5b\u4e2d\u76f8\u9047\u65f6\uff0c\u6bd4\u8f83\u5bb9\u6613\u786e\u5b9a\u8fd9\u79cd\u60c5\u51b5\u3002\u8fd9\u610f\u5473\u7740\u4ed6\u4eec\u5728\u534a\u51b3\u8d5b\u4e2d\u76f8\u9047\uff0c\u800c\u5728\u5176\u4ed6\u534a\u51b3\u8d5b\u4e2d\uff0c\u4e24\u4f4d\u9009\u624b\u7684\u5b9e\u529b\u90fd\u6bd4\u8f83\u5f31\u3002\n\n\u7528\u4ee5\u4e0b\u516c\u5f0f\u5f88\u5bb9\u6613\u68c0\u67e5\u8fd9\u79cd\u60c5\u51b5: $\\min(s_1, s_2) > \\max(s_3, s_4)$ \u6216\u8005 $\\max(s_1, s_2) < \\min(s_3, s_4)$\n\n```python\nfor _ in range(int(input())):\n    a,b,c,d = [int(x) for x in input().split()]\n    if min(a,b)>max(c,d) or max(a,b)<min(c,d):\n        print(\"NO\")\n    else:\n        print(\"YES\")\n```",
+        "postTime": 1622947010,
+        "uid": 348831,
+        "name": "qinyihao",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1535A \u3010Fair Playoff\u3011"
+    },
+    {
+        "content": "# \u5206\u6790\n\u6211\u4eec\u5148\u628a\u8f93\u5165\u7684\u56db\u4e2a\u6570\u4e2d\u4e24\u4e24\u4e00\u7ec4\u8fdb\u884c\u4ea4\u6362\uff0c\u4fdd\u8bc1\u6bcf\u4e24\u4e2a\u6570\u90fd\u662f\u7b2c\u4e00\u4e2a\u5927\u4e8e\u7b2c\u4e8c\u4e2a\u7684\u3002\u968f\u540e\uff0c\u7a0d\u5fae\u601d\u8003\u4e00\u4e0b\u5c31\u4e0d\u96be\u53d1\u73b0\uff0c\u5982\u679c\u4e00\u7ec4\u4e2d\u7684\u8f83\u5927\u6570\u5c0f\u4e8e\u53e6\u4e00\u7ec4\u4e2d\u7684\u8f83\u5c0f\u6570\uff0c\u90a3\u4e48\u8fd9\u573a\u6bd4\u8d5b\u5c31\u662f\u4e0d\u516c\u5e73\u7684\u3002\n# \u4ee3\u7801\n```cpp\n#include<iostream>\n#include<cstdio>\nusing namespace std;\nint t;\nint a,b,c,d;\nint main(){\n    cin >> t;\n    while(t--){\n        cin >> a >> b >> c >> d;\n        if(a<b) swap(a,b);//\u4e24\u4e24\u4e00\u7ec4\u8fdb\u884c\u4ea4\u6362\n        if(c<d) swap(c,d);//\u540c\u4e0a\n        if(c<b||a<d) puts(\"NO\");//\u4e00\u7ec4\u4e2d\u7684\u8f83\u5927\u6570\u5c0f\u4e8e\u53e6\u4e00\u7ec4\u4e2d\u7684\u8f83\u5c0f\u6570\n        else puts(\"YES\");\n    }\n    return 0;\n}\n```\n",
+        "postTime": 1622903574,
+        "uid": 384529,
+        "name": "JoseTony",
+        "ccfLevel": 4,
+        "title": "CF1535A"
+    },
+    {
+        "content": "\u5bf9\u4e8e\u6bcf\u7ec4\u7684\u6570\u636e\uff0c\u5982\u679c\u662f\u516c\u5e73\u7684\uff0c\u90a3\u4e48\u4e24\u4e2a\u80fd\u529b\u503c\u6700\u9ad8\u7684\u4eba\u4e00\u5b9a\u88ab\u5206\u5728\u4e86**\u4e24\u7ec4**\u4e2d\u3002\u8fd9\u4e2a\u7ed3\u8bba\u662f\u663e\u7136\u7684\uff0c\u56e0\u4e3a\u5982\u679c\u88ab\u5206\u5728\u4e00\u7ec4\uff0c\u90a3\u4e48\u4e00\u5b9a\u4f1a\u6709\u4e00\u4e2a\u4eba\u8f93\uff0c\u4e5f\u5c31\u662f\u4e0d\u516c\u5e73\u7684\u3002\n\n\u6709\u4e86\u8fd9\u4e2a\u7ed3\u8bba\uff0c\u6211\u4eec\u53ea\u9700\u8981\u5224\u65ad\u80fd\u529b\u6700\u9ad8\u7684\u4e24\u4eba\u662f\u5426\u88ab\u5206\u5728\u540c\u4e00\u7ec4\u5373\u53ef\u3002\u5bf9\u4e8e\u4e00\u4e2a\u6570\u636e\u7c7b\u578b `pair<int,int>`\uff0c\u7b2c\u4e00\u5173\u952e\u5b57\u4e3a\u80fd\u529b\u503c\uff0c\u7b2c\u4e8c\u5173\u952e\u5b57\u4e3a\u7f16\u53f7\u3002\u9996\u5148\u901a\u8fc7 `sort` \u51fd\u6570\u7528\u7b2c\u4e00\u5173\u952e\u5b57\u8fdb\u884c\u6392\u5e8f\uff0c\u7136\u540e\u627e\u5230\u6700\u540e\u4e24\u9879\uff0c\u82e5\u4e3a\u7b2c $1,2$ \u4e2a\u4eba\u6216\u7b2c $3,4$ \u4e2a\u4eba\uff0c\u4e5f\u5c31\u662f\u7f16\u53f7\u4e4b\u548c\u4e3a $3$ \u6216 $7$\uff0c\u5219\u8f93\u51fa `NO`\uff1b\u5426\u5219\u5c31\u662f `YES`\u3002\n\n\u8fd9\u9053\u9898\u5f88\u7b80\u5355\uff0c\u4ee3\u7801\u5982\u4e0b\uff1a\n\n```cpp\n#include <iostream>\n#include <cstdio>\n#include <algorithm>\n#include <cmath>\n#include <cstring>\n#define init(x) memset (x,0,sizeof (x))\n#define ll long long\n#define ull unsigned long long\n#define INF 0x3f3f3f3f\nusing namespace std;\nconst int MAX = 1e5 + 5;\nconst int MOD = 1e9 + 7;\ninline int read ();\nint n;pair <int,int> a[5];\nbool cmp (pair <int,int> x,pair <int,int> y);\nint main ()\n{\n\t//freopen (\".in\",\"r\",stdin);\n\t//freopen (\".out\",\"w\",stdout);\n\tn = read ();\n\tfor (int i = 1;i <= n;++i)\n\t{\n\t\tfor (int j = 1;j <= 4;++j) a[j].first = read (),a[j].second = j;\n\t\tsort (a + 1,a + 1 + 4,cmp);\n\t\tif (a[3].second + a[4].second == 7 || a[3].second + a[4].second == 3) printf (\"NO\\n\");\n\t\telse printf (\"YES\\n\");\n\t}\n\treturn 0;\n}\ninline int read ()\n{\n    int s = 0;int f = 1;\n    char ch = getchar ();\n    while ((ch < '0' || ch > '9') && ch != EOF)\n\t{\n        if (ch == '-') f = -1;\n        ch = getchar ();\n    }\n    while (ch >= '0' && ch <= '9')\n\t{\n        s = s * 10 + ch - '0';\n        ch = getchar ();\n    }\n    return s * f;\n}\nbool cmp (pair <int,int> x,pair <int,int> y)\n{\n\treturn x.first < y.first;\n}\n```",
+        "postTime": 1622900594,
+        "uid": 183603,
+        "name": "SUNCHAOYI",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3\u3010CF1535A Fair Playoff\u3011"
+    },
+    {
+        "content": "### \u9898\u610f\n\n\u7ed9\u5b9a $4$ \u4e2a\u4eba\u7684\u80fd\u529b\u503c\uff0c\u7b2c\u4e00\u4e2a\u4eba\u4e0e\u7b2c\u4e8c\u4e2a\u4eba\u6bd4\u8d5b\uff0c\u7b2c\u4e09\u4e2a\u4eba\u4e0e\u7b2c\u56db\u4e2a\u4eba\u6bd4\u8d5b\uff0c\u4e24\u573a\u6bd4\u8d5b\u4e2d\u80fd\u529b\u503c\u9ad8\u7684\u4e24\u4eba\u5c06\u83b7\u80dc\u3002\u82e5\u83b7\u80dc\u7684\u4e24\u4e2a\u4eba\u662f $4$ \u4eba\u4e2d\u80fd\u529b\u503c\u6700\u9ad8\u7684\uff0c\u5219\u8be5\u6bd4\u8d5b\u516c\u5e73\uff0c\u8f93\u51fa `YES`\uff0c\u5426\u5219\u8f93\u51fa `NO`\u3002  \n\n### \u601d\u8def \n\n\u6bd4\u8f83\u57fa\u7840\u7684\u6a21\u62df\u3002\u6bd4\u8d5b\u4e00\u6b21 AC\u3002  \n\n\u8f93\u5165\u6570\u7ec4 $a$ \u540e\uff0c\u7528\u6570\u7ec4 $b$ \u5b58\u50a8\u6392\u5e8f\u540e\u7684 $a$\u3002\n\n\u73b0\u79f0\uff1a\n\n- $l = \\max(a_1, a_2)$\uff0c$r = \\max(a_3, a_4)$\uff0c\u5373\u5de6\u53f3\u4e24\u8fb9\u7684\u6700\u5927\u503c\uff1b\n- $l2 = b_3$\uff0c$r2 = b_4$\u3002\n- \u6700\u540e\u8ba9 $l \\leqslant r$ \u4ee5\u4fbf\u4e8e\u540e\u9762\u5224\u65ad\u3002\n\n\u5982\u679c $l = l2 \\land r = r2$\uff0c\u8be5\u6bd4\u8d5b\u516c\u5e73\uff0c\u8f93\u51fa `YES`\uff0c\u5426\u5219\u8f93\u51fa `NO`\u3002  \n\n$l$\u3001$r$ \u786e\u5b9a\u540e\uff0c\u60f3\u8ba9 $l \\leqslant r$\uff0c\u6211\u4e00\u822c\u7528\u4e24\u79cd\u65b9\u6cd5\uff1a  \n\n1. ``if (l > r) swap(l, r);``\n1. ``int sum = l + r; l = min(l, r), r = sum - l;``\n\n[AC code\u8bb0\u5f55](https://www.luogu.com.cn/record/51488443)\n\n ```cpp\n #include <bits/stdc++.h>\nusing namespace std;\nint t, a[5], b[5];\n\nint main()\n{\n\tscanf(\"%d\", &t);\n\twhile (t--)\n\t{\n\t\tfor (int i = 1; i <= 4; ++i) scanf(\"%d\", a + i), b[i] = a[i];\n\t\tsort(b + 1, b + 5);\n\t\tint l = max(a[1], a[2]), r = max(a[3], a[4]), c = l + r;\n\t\tl = min(l, r), r = c - l; // \u8fd9\u4e2a\u5904\u7406\u662f\u8ba9 l < r\n\t\tint l2 = b[3], r2 = b[4];\n\t\tif (l != l2 || r != r2) puts(\"NO\");\n\t\telse puts(\"yes\");\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1622865044,
+        "uid": 409236,
+        "name": "StayAlone",
+        "ccfLevel": 6,
+        "title": "CF1535A Fair Playoff C++\u3010\u601d\u7ef4\u9898\u3011\u9898\u89e3"
+    },
+    {
+        "content": "\u9996\u5148\uff0c\u5982\u679c\u4e24\u4e2a\u5f3a\u624b\u4e00\u4e2a\u5728 $s_1,s_2$ \u4e2d\uff0c\u4e00\u4e2a\u5728 $s_3,s_4$ \u4e2d\uff0c\u90a3\u4e48\u4ed6\u4eec\u5fc5\u5b9a\u6dd8\u6c70\u4e24\u4e2a\u83dc\u7684\uff0c\u6240\u4ee5\u6ee1\u8db3\u9898\u76ee\u6761\u4ef6\u3002\n\n\u5426\u5219\uff0c\u4ed6\u4eec\u5728\u7b2c\u4e00\u8f6e\u7684\u65f6\u5019\u5c31\u4f1a\u76f8\u9047\uff0c\u7136\u540e\u4e92\u76f8\u6253\u51fb\uff0c\u4e00\u4e2a\u5f3a\u624b\u88ab\u6dd8\u6c70\uff0c\u7b2c\u4e8c\u8f6e\u5c31\u4e0d\u53ef\u80fd\u76f8\u9047\u3002\n\n\u90a3\u4e48\uff0c\u672c\u9898\u7684\u91cd\u70b9\u5c31\u662f\u5982\u4f55\u6c42\u51fa\u4e24\u4e2a\u9009\u624b\u7684\u4e0b\u6807\u3002\n\n\u6211\u4eec\u5047\u8bbe $maxa$ \u662f\u6700\u5f3a\u7684\u9009\u624b\u7684\u4e0b\u6807\uff0c\u90a3\u4e48\u53ef\u4ee5\u5199\u51fa\u5982\u4e0b\u7684\u5faa\u73af\uff1a\n\n```cpp\nfor(int i=1;i<=4;++i)\n\tif(a[i]>a[maxa])\n\t\tmaxa=i;\n```\n \n\u521a\u5f00\u59cb\uff0c\u6211\u4eec\u7684 $maxa$ \u5e94\u8be5\u662f $0$\uff0c\u4e3a\u4e86\u65b9\u4fbf\u6bd4\u5927\u5c0f\uff0c\u6211\u4eec\u53ef\u4ee5\u628a $a_0$ \u8bbe\u4e3a $0$\u3002\n\n$maxb$ \u4e5f\u662f\u540c\u7406\u3002\u4e0d\u8fc7\u6211\u4eec\u5728\u6bd4\u5927\u5c0f\u7684\u65f6\u5019\u9700\u8981\u5224\u65ad\u662f\u4e0d\u662f\u4e0e $maxa$ \u76f8\u540c\u3002\n\n\u63a5\u4e0b\u6765\uff0c\u6211\u4eec\u53ea\u9700\u8981\u5224\u65ad\u662f\u4e0d\u662f\u8fd9\u4e9b\u4e0b\u6807\u5206\u522b\u51fa\u73b0\u5728 $s_1,s_2$ \u548c $s_3,s_4$ \u4e2d\u3002\n\n```cpp\n#include<iostream>\n#include<algorithm>\n#include<vector>\nusing namespace std;\n#define int long long\nvoid solve(){\n\tint a[5];\n\tfor(int i=1;i<=4;++i)\n\t\tcin>>a[i];\n\ta[0]=0;\n\tint maxa=0;\n\tfor(int i=1;i<=4;++i)\n\t\tif(a[i]>a[maxa])\n\t\t\tmaxa=i;\n\tint maxb=0;\n\tfor(int i=1;i<=4;++i)\n\t\tif(i!=maxa&&a[i]>a[maxb])\n\t\t\tmaxb=i;\n\tif(maxa>maxb)\n\t\tswap(maxa,maxb);\n\tif(1<=maxa&&maxa<=2&&3<=maxb&&maxb<=4){\n\t   cout<<\"YES\";\n\t}\n\telse\n\t\tcout<<\"NO\";\n\tcout<<endl;\n}\nsigned main(){\n\tint t;\n\tcin>>t;\n\twhile(t--)\n\t\tsolve();\n}\n```",
+        "postTime": 1622854093,
+        "uid": 317899,
+        "name": "oimaster",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1535A \u3010Fair Playoff\u3011"
+    }
+]

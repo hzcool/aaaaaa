@@ -1,0 +1,82 @@
+[
+    {
+        "content": "## \u5206\u6790\n\u7531\u9898\u76ee\u5f97\uff08[\u9898\u76ee\u94fe\u63a5](https://www.luogu.com.cn/problem/CF262A)\uff09\uff0c\u6211\u4eec\u53d1\u73b0\u5f53```lucky digits```$\\le k$\u65f6\uff0c\u6211\u4eec\u7684\u7b54\u6848\u5c31\u4f1a\u589e\u52a0\uff0c\u6240\u4ee5\u6211\u4eec\u53ef\u4ee5\u5b9a\u4e49\u4e00\u4e2a\u51fd\u6570\u6765\u8bb0\u5f55```lucky digits```\u7684\u4e2a\u6570\uff0c\u518d\u5224\u65ad\u3002\n\n\u6bd4\u5982\u8bf4\uff1a447\uff0c\u6211\u4eec\u4ece\u6700\u540e\u4e00\u4f4d\u5f00\u59cb\u7b97\uff0c\u53d6\u4f59\u4e4b\u540e\u5f97\u5230 7\uff0c7 \u662f```lucky digits```,\u6240\u4ee5\u7b54\u6848\u53d8\u4e3a\u589e\u52a0\uff0c\u518d\u53bb\u6389\u672b\u5c3e 7\uff0c\u5269\u4e0b 44\uff0c\u7ee7\u7eed\u53d6\u4f59\u5e76\u5224\u65ad\uff0c\u6700\u7ec8\u53ef\u4ee5\u77e5\u9053 4 4 7 \u662f```lucky digits```\uff0c\u4e5f\u5c31\u662f\u7b54\u6848\u4e3a ```lucky digits```\u7684\u4e2a\u6570\uff0c\u8fd4\u56de\u7b54\u6848\uff0c\u5224\u65ad\u662f\u5426 ```lucky digits```$\\le k$\u3002\n## Code\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nlong long n,m,a[100005],b[100005],ans=0;\nint lucky_number(long long x){\n\tint s=0;\n\twhile(x!=0){\n\t\tif(x%10==4||x%10==7) s++;\n\t\tx/=10;\n\t}\n\treturn s;\n}//\u6c42 lucky digits\u7684\u4e2a\u6570\nint main(){\n\tstd::ios::sync_with_stdio(false);\n\tcin.sync_with_stdio(0); \n\tcin>>n>>m;\n\tint s=0,h;\n\tfor(long long i=1;i<=n;i++){\n\t\tcin>>a[i];\n\t\tif(lucky_number(a[i])<=m) ans++;//\u5224\u65ad\u662f\u5426\u7b26\u5408\u6761\u4ef6\n\t}\n\tcout<<ans;\n\treturn 0;\n} \n```\n\u7531\u4e8e$1 \\le n,k \\le 100$\n$1 \\le a_i \\le 10^9$\n\n\u4e5f\u5c31\u662f\u5728\u641c$a_i$\u65f6\u6700\u591a\u641c 9 \u6b21\uff0c\u800c\u6700\u591a\u6709 100 \u4e2a$a_i$\uff0c\u6240\u4ee5\u8fd9\u9053\u9898\u7684\u53ef\u4ee5\u7528 $O(n)$\u800c\u4e14\u4e0d\u4f1a\u8d85\u65f6\u3002\n\n\u8fd9\u9053\u9898\u96be\u5ea6\u5927\u6982\u662f $ \\color{Goldenrod}\\small\\texttt{\u6a58\u9898\uff08\u666e\u53ca-\uff09}$\uff1f",
+        "postTime": 1652453719,
+        "uid": 716965,
+        "name": "_zaa_",
+        "ccfLevel": 4,
+        "title": "CF262A \u9898\u89e3"
+    },
+    {
+        "content": "\u849f\u84bb\u53c8\u6765\u5199\u9898\u89e3\u4e86awa ~~\uff08\u6b64\u9898\u8c8c\u4f3c\u8fd8\u6ca1\u6709\u9898\u89e3\uff09~~\n\n\n### \u601d\u8def\uff1a\u6a21\u62df\n\n\n\u4e0a\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std ; \nint main()\n{\n\tint n,k,i,ans = 0 ; \n\tcin >> n >> k ;\n\twhile ( n > 0 ) \n\t{\t\n\t\tint dem=0 ; //\u8ba1\u6570\u5668\n\t\tcin >> i ; \n\t\twhile ( i > 0 )\n\t\t{\n\t\t\tif ( i%10 == 4 || i%10 == 7) dem++ ; //\u65704\u62167\u7684\u4e2a\u6570\n\t\t\ti /= 10 ; //\u6362\u4e0b\u4e00\u4f4d\n\t\t}\n\t\tif ( dem <= k ) {ans++ ;} //\u52a0\u7b54\u6848\n\t\tn-- ;\n\t}\n\tcout << ans ; \n}\n```\n",
+        "postTime": 1598969484,
+        "uid": 224960,
+        "name": "yzyjh",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF262A \u3010Roma and Lucky Numbers\u3011"
+    },
+    {
+        "content": "~~\u7ec8\u4e8e\u627e\u5230\u4e2a\u9898\u80fd\u5199\u9898\u89e3\u5566\u3002~~\n\n## \u4e3b\u8981\u601d\u8def\n\n**\u6a21\u62df**\uff0c\u4e00\u8fb9\u8f93\u5165\u4e00\u8fb9\u5224\u65ad\uff0c\u770b\u4e00\u770b\u8fd9\u4e2a\u6570\u662f\u5426\u6709\u4e0d\u591a\u4e8e $k$ \u4e2a\u7684 $4$ \u6216 $7$\uff08\u5982\u9898\uff09\uff0c\u5982\u662f\uff0c\u5219 $ans$\uff08\u6700\u540e\u7684\u7ed3\u679c\uff09\u52a0 $1$\u3002\u6240\u4ee5\uff0c\u8fd8\u662f\u5f88\u7b80\u5355\u7684\u3002\n\n\u5e9f\u8bdd\u4e0d\u591a\u8bf4\uff0c\u4e0a\u4ee3\u7801\u3002\n### AC Code\n```cpp\n#include<bits/stdc++.h>  \n// \u5c3d\u91cf\u4e0d\u8981\u7528\u4e07\u80fd\u5934\uff0c\u4f46\u672c\u4eba\u89c9\u5f97\u6bd4\u8f83\u65b9\u4fbf\uff08\u4e60\u60ef\u95ee\u9898\uff09\nusing namespace std;\ninline int read() {  // \u5feb\u8bfb\u8d34\u4e0a\uff0c\u4e60\u60ef\u95ee\u9898  \n    int s = 0, f = 1;  \n    char ch = getchar();  \n    while(!isdigit(ch)) {  \n        if(ch == '-') f = -1; \n        ch = getchar(); \n    }  \n    while(isdigit(ch)) {  \n        s = (s << 1) + (s << 3) + (ch ^ 48);\n        ch = getchar();  \n    }  \n    return s * f;  \n}  \nint main() {\n\tint n, k, ans = 0;\n\tn = read();\n\tk = read();\n\tint a, sum;\n\tfor (int i = 1; i <= n; i++) {\n\t\ta = read();\n\t\tsum = 0;\n\t\twhile (a) {\n\t\t\tif (a % 10 == 7 || a % 10 == 4) {    // \u5224\u65ad\uff0c\u5982\u9898 \n\t\t\t\tsum++;\n\t\t\t}\n\t\t\tif (sum > k) {   // \u8282\u7701\u4e00\u4e0b\u65f6\u95f4\uff0c\u63d0\u524d\u8df3\u51fa \n\t\t\t\tbreak;\n\t\t\t}\n\t\t\ta /= 10;    // \u6ce8\u610f\u5566\uff01\u8fd9\u91cc\u4e0d\u80fd\u5c11\uff01\uff01\uff01 \n\t\t}\n\t\tif (sum <= k) {   //\u7b26\u5408\u6761\u4ef6\uff0cans \u52a0 1 \n\t\t\tans++;\n\t\t}\n\t}\n\tprintf(\"%d\", ans); \n\treturn 0;\n}\n```\n",
+        "postTime": 1650718352,
+        "uid": 330901,
+        "name": "WilliamFranklin",
+        "ccfLevel": 4,
+        "title": "CF262A \u9898\u89e3"
+    },
+    {
+        "content": "# \u9898\u89e3\n\n- \u76f4\u63a5\u6309\u63d0\u8bae\u6a21\u62df\u5373\u53ef\u3002\n\n- \u8fd9\u91cc\u8bf4\u4e00\u4e0b\u5177\u4f53\u505a\u6cd5\uff1a\u5bf9\u4e8e\u6bcf\u4e00\u4e2a $a_i$\uff0c\u5c06\u5176\u6bcf\u4e00\u4f4d\u62c6\u5206\uff0c\u5224\u65ad\u662f\u5426\u662f\u5e78\u8fd0\u6570\u4f4d\u3002\n\n# \u4ee3\u7801\n\n```cpp\n#include <bits/stdc++.h>\n\nusing namespace std;\n\nint n, k, ans;\n\nbool check(int num)\n{\n\tint sum = 0;\n\twhile (num > 0)\n\t{\n\t\tif (num % 10 == 4 || num % 10 == 7)\n\t\t{\n\t\t\tsum ++;\n\t\t}\n\t\tnum /= 10;\n\t}\n\tif (num > k)\n\t{\n\t\treturn false;\n\t}\n\telse\n\t{\n\t\treturn true;\n\t}\n}\n\nint main()\n{\n\tcin >> n >> k;\n\tfor (int i = 1 ; i <= n ; i ++)\n\t{\n\t\tint a;\n\t\tcin >> a;\n\t\tif (check(a))\n\t\t{\n\t\t\tans ++;\n\t\t}\n\t}\n\tcout << ans;\n}\n```\n",
+        "postTime": 1649422370,
+        "uid": 342868,
+        "name": "Ted_hjl",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF262A\u3010Roma and Lucky Numbers\u3011"
+    },
+    {
+        "content": "\u53ea\u9700\u8981**\u4e00\u4f4d\u4e00\u4f4d**\u5224\u65ad $\\text{lucky digits}$ \u7684\u6570\u91cf\u5c31\u53ef\u4ee5\u4e86\u3002    \n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n\ninline int read(){\n\tchar ch=getchar();\n\twhile(ch>'9'||ch<'0')ch=getchar();\n\tint sum=ch-'0';\n\twhile((ch=getchar())>='0'&&ch<='9')sum=(sum<<3)+(sum<<1)+ch-'0';\n\treturn sum;\n}//\u6b63\u6574\u6570\u5feb\u8bfb\u6a21\u677f\n\ninline void write(int x){\n\tif(x<0)putchar('-'),x =-x;\n\tif(x>9)write(x/10);\n\tputchar(x%10+'0');\n}//\u6574\u6570\u5feb\u5199\u6a21\u677f\n\nsigned main(){\n\tint n,k,ans=0; n=read(); k=read();\n\tfor(int i=1;i<=n;++i){\n\t\tint pjsk,count=0; pjsk=read();\n\t\twhile(pjsk){\n\t\t\tif(pjsk%10==4||pjsk%10==7)++count;//\u5224\u65ad\u662f\u5426\u4e3a4\u62167\n\t\t\tpjsk/=10;\n\t\t}//\u5bf9\u4f4d\u6570\u8fdb\u884c\u62c6\u5206\n\t\tif(count<=k)++ans;//\u6ce8\u610f\uff0c\u4e00\u5b9a\u8981\u5c0f\u4e8e\u7b49\u4e8e\n\t}\n\twrite(ans);\nreturn 0;\n}\n```\n",
+        "postTime": 1649226839,
+        "uid": 643561,
+        "name": "Mizuki_official",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3cf262a"
+    },
+    {
+        "content": "[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/CF262A)\n\n~~\u53ef\u80fd\u662f\u6211\u81ea\u5df1\u7684\u95ee\u9898\u5427\uff0c\u6211\u5c45\u7136\u7406\u89e3\u9519\u9898\u610f\u4e86\u3002~~\n\n\u5f3a\u8c03\u4e00\u4e0b\uff0c\u5728\u8ba1\u7b97 $a_i$ \u91cc\u7684 Lucky Number \u65f6\uff0c\u53ea\u9700\u8981\u8003\u8651**\u4e00\u4f4d\u6570**\u3002\n\n**\u601d\u8def**\n\n\u5bf9\u4e8e\u6bcf\u4e2a $a_i$\uff0c\u5b9a\u4e49\u4e00\u4e2a\u8ba1\u6570\u5668\u3002\u7136\u540e\u5c06\u5176\u66b4\u529b\u62c6\u5206\uff0c\u7136\u540e\u5982\u679c\u8fd9\u4e00\u4f4d\u662f $4$ \u6216 $7$\uff0c\u5c31\u628a\u8ba1\u6570\u5668\u52a0 $1$\u3002\u6700\u540e\u6bd4\u8f83\u8ba1\u6570\u5668\u4e0e $k$ \u5373\u53ef\u3002\u8003\u8651\u5230\u9700\u8981\u62c6\u5206\u6bcf\u4e00\u4e2a $a_i$\uff0c\u4e0d\u5982\u628a $a$ \u6570\u7ec4\u5b9a\u4e49\u4e3a\u5b57\u7b26\u4e32\u7c7b\u578b\uff0c\u4ee5\u4fbf\u62c6\u5206\u3002\u65f6\u95f4\u590d\u6742\u5ea6 $O(n\\lg{a_i})$\u3002\n\n**\u4e0a\u4ee3\u7801**\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\ninline int read(int x=0,bool f=1){\n\tchar c=getchar();\n\twhile(c>'9'||c<'0'){if(c=='-')f=0;c=getchar();}\n\twhile(c>='0'&&c<='9'){x=(x<<3)+(x<<1)+c-'0';c=getchar();}\n\treturn f?x:-x;\n}//\u5feb\u8bfb\uff0c\u4e0d\u662f\u91cd\u70b9\nint n,k,now,ans;//now \u662f\u8ba1\u6570\u5668\nstring s;//s \u5c31\u662f\u5f85\u62c6\u5206\u7684\u6570\nint main(){\n\tn=read(),k=read();\n\tfor(;n--;ans+=(now<=k),now=0){\n\t\tcin>>s;\n\t\tfor(int i=0;i<s.length();i++)\n\t\t\tnow+=(s[i]=='4'||s[i]=='7');\n\t}\n\tprintf(\"%d\\n\",ans);\n\treturn 0;\n}\n```\n~~\u5176\u5b9e\u672c\u9898\u76f4\u63a5\u7528\u6574\u578b\u64cd\u4f5c\u4e5f\u633a\u65b9\u4fbf\u7684\uff0c\u611f\u5174\u8da3\u7684\u53ef\u4ee5\u770b\u770b\u522b\u7684\u9898\u89e3\u3002~~\n\n\u5b8c\u7ed3\u6492\u82b1\u273f\u273f\u30fd(\u00b0\u25bd\u00b0)\u30ce\u273f\u3002",
+        "postTime": 1645702436,
+        "uid": 324666,
+        "name": "diqiuyi",
+        "ccfLevel": 0,
+        "title": "\u6a21\u62df\u7b97\u6cd5"
+    },
+    {
+        "content": "\u8fd9\u4e00\u9053\u7ed9\u65b0\u4eba\u5165\u624b\u7684\u9898\uff0c\u8fd9\u4e00\u9898\u6b63\u5e38\u601d\u8def\u662f\u7528\u6570\u5b57\u62c6\u5206\uff0c\u4f46\u662f~~\u6211\u4e0d\u6b63\u5e38~~\u5927\u4f6c\u4eec\u8bb2\u8fc7\u4e86\uff0c\u6211\u5c31\u7528\u4e86\u5b57\u7b26\u4e32\u6765\u505a\uff0c\u66f4\u597d\u61c2\u3002  \n### \u601d\u8def\n\u8f93\u5165\u5b57\u7b26\u4e32\uff0c\u6bcf\u4e00\u4f4d\u90fd\u5224\u65ad\uff0c\u770b\u770b\u662f\u4e0d\u662f _4_ \u6216 _7_ \uff0c\u662f\u5c31\u7528\u7d2f\u52a0\u5668\u7d2f\u52a0\uff0c\u63a5\u7740\u5224\u65ad\u662f\u5426\u8d85\u8fc7 _k_ \uff0c\u6ca1\u8d85\u8fc7\u5c31\u7528\u53e6\u5916\u4e00\u4e2a\u7d2f\u52a0\u5668\u7d2f\u52a0\uff0c\u6700\u540e\u8f93\u51fa\u5c31\u884c\u4e86\u3002\n### \u4ee3\u7801\n```c++\n#include <bits/stdc++.h>\nusing namespace std;\nint n,k,sum,s;    //sum\u662f\u5305\u542b\u7684 lucky digits \u4e0d\u8d85\u8fc7k\u4e2a\u7684\u6570\u7684\u6570\u91cf\u3002s\u662f\u6bcf\u4e2a\u6570\u6240\u5305\u542b\u7684 lucky digits \u7684\u6570\u91cf\u3002\nstring a;    //\u5b9a\u4e49\u5b57\u7b26\u4e32\u3002\nint main(){\n\tcin>>n>>k;    //\u8f93\u5165\u3002\n\tfor(int i=0;i<n;i++)\n\t{\n\t\tcin>>a;    //\u8f93\u5165\u3002\n\t\ts=0;    //\u6e05\u96f6\u7d2f\u52a0\u5668\u3002\n\t\tfor(int j=0;j<a.size();j++)    //\u524d\u9762\u5b9a\u4e49\u8fc7\u4e86i\uff0c\u8fd9\u91cc\u5c31\u53ea\u80fd\u5b9a\u4e49j\uff0cj=0\u662f\u56e0\u4e3a\u5b57\u7b26\u4e32\u7684\u4e0b\u6807\u4ece\u96f6\u5f00\u59cb\u3002a.size()\u662f\u5b57\u7b26\u4e32\u7684\u957f\u5ea6\u3002\n\t\t\tif(a[j]=='4'||a[j]=='7')s++;    //\u5982\u679c a[j] \u662f '4' \u6216 '7'\uff0c\u5c31\u7528\u7d2f\u52a0\u5668\u7d2f\u52a0\u3002\n\t\tif(s<=k)sum++;    //\u6839\u636e\u9898\u610f\uff0c\u5982\u679c lucky digits \u4e0d\u8d85\u8fc7k\u4e2a\uff0c\u8ba1\u6570\u5668\u52a0\u4e00\u3002\n\t}\n\tcout<<sum;    //\u8f93\u51fa\u3002\n    return 0;    //\u5b8c\u7ed3\u6492\u82b1\u3002\n}\n```",
+        "postTime": 1645449005,
+        "uid": 410283,
+        "name": "\u5343\u5e74\u9648\u76ae\u7cbe",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF262A \u3010Roma and Lucky Numbers\u3011"
+    },
+    {
+        "content": "\u8fd9\u662f\u4e00\u9053\u6a21\u62df\u9898\u3002\n\n## **\u9898\u76ee\u601d\u8def\uff1a**\n\u6211\u4eec\u6bcf\u8bfb\u5230\u4e00\u4e2a\u6570\uff0c\u4fbf\u5224\u65ad\u5176\u4e2d\u542b\u6709\u7684 lucky digits \u662f\u5426\u6ee1\u8db3\u8981\u6c42\u3002\u5982\u679c\u8fd9\u4e2a\u6570\u4e2d\u542b\u6709\u7684 lucky digits \u6570\u91cf\u6ee1\u8db3\u8981\u6c42\uff0c\u90a3\u4e48\u5c06\u5f53\u524d\u6c42\u7b54\u6848\u7684\u8ba1\u6570\u5668\u66f4\u65b0\u3002\u5426\u5219\u4e0d\u53d8\u3002\n\n\u5224\u65ad\u4e00\u4e2a\u6570\u4e2d\u7684 lucky digits\uff0c\u6211\u4eec\u53ef\u4ee5\u5b9a\u4e49\u4e00\u4e2a\u51fd\u6570\u3002\u4e0d\u65ad\u5730\u53d6\u8fd9\u4e2a\u6570\u4e2d\u7684\u6700\u672b\u4f4d\uff0c\u5e76\u5224\u5b9a\u5176\u662f\u5426\u4e3a lucky digits\uff0c\u5e76\u8bbe\u7acb\u4e00\u4e2a\u8ba1\u6570\u5668\uff0c\u5c06\u5176\u4e0d\u65ad\u66f4\u65b0\u3002\u5982\u679c\u6b64\u65f6 lucky  digits \u7684\u6570\u91cf\u5df2\u7ecf\u4e0d\u7b26\u5408\u8981\u6c42\u4e86\uff0c\u90a3\u4e48\u76f4\u63a5\u8fd4\u56de\u4e0d\u80fd\u3002\u76f4\u5230\u6570\u4f4d\u5df2\u7ecf\u53d6\u5c3d\uff0c\u5219\u8fd4\u56de\u80fd\u3002\n\n## **Code:**\n\n```cpp\n#include<cstdio>\nint n,k,a,ans;\ninline bool judge(int x){//\u5224\u65ad\u7684\u51fd\u6570\n\tint sum=0;\n\twhile(x>0){\n\t    if(x%10==4||x%10==7)sum++;\n\t    if(sum>k)return false;//\u6570\u91cf\u8d85\u8fc7\u9650\u5236\uff0c\u8fd4\u56de\u4e0d\u80fd\n\t    x/=10;\n\t}return true;//\u6ee1\u8db3\u8981\u6c42\uff0c\u8fd4\u56de\u80fd\n}\nint main(){\n\tscanf(\"%d%d\",&n,&k);\n\tfor(int i=1;i<=n;i++){\n\t\tscanf(\"%d\",&a);\n\t\tif(judge(a))ans++;//\u8ba1\u6570\u5668 +1\n\t}printf(\"%d\",ans);\n\treturn 0;\n}\n```\n",
+        "postTime": 1645427461,
+        "uid": 525898,
+        "name": "Firstly",
+        "ccfLevel": 5,
+        "title": "CF262A Roma and Lucky Numbers"
+    },
+    {
+        "content": "\u672c\u9898\u662f\u4e00\u4e2a\u7b80\u5355\u7684\u6570\u5b57\u5206\u79bb\u3002\n\n\u5206\u79bb\u601d\u60f3\uff1a\n\n\u4e00\u4e2a\u6570%10\uff0c\u5c31\u662f\u8fd9\u4e2a\u6570\u7684\u6700\u540e\u4e00\u4f4d\uff08\u5982\uff1a744%10=4\uff0c744\u7684\u6700\u540e\u4e00\u4f4d\u5c31\u5206\u79bb\u51fa\u6765\u4e86\uff09\n\n\u90a3\u5982\u4f55\u5206\u79bb\u4e0b\u4e00\u4f4d\u5462\uff1f\u5f88\u7b80\u5355\uff0cC++\u4e2dint\u7c7b\u578b\u53d8\u91cf\u9664\u4e0d\u5c3d\u81ea\u52a8\u5411\u4e0b\u53d6\u6574\uff0c\u6240\u4ee5\u5c06\u4e00\u4e2a\u6570\u9664\u4ee510\uff0c\u8fd9\u4e2a\u6570\u7684\u6700\u540e\u4e00\u4f4d\u5c31\u6ca1\u4e86\uff08\u5982\uff1a744/10=74\uff09\n\n\u4f55\u65f6\u7ed3\u675f\u5462\uff1f\u4e5f\u5f88\u7b80\u5355\uff0c\u5c31\u662f\u5f53\u8be5\u6570\u4e3a0\u65f6\uff0c\u5c31\u7ed3\u675f\u5206\u79bb\u3002\n\n\u6240\u4ee5\u6b64\u9898\u4e5f\u5c31\u5341\u5206\u7b80\u5355\u4e86\u3002\n\ncode:\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint n,k,cnt=0,e,num,ans=0;\nint main() {\n\tscanf(\"%d%d\",&n,&k);\n\tfor(int i=1;i<=n;i++){\n\t\tscanf(\"%d\",&num);\n\t\tcnt=0;\n\t\twhile(num){  \n\t\t\te=num%10;\n\t\t\tif(e==4||e==7) cnt++;\n\t\t\tnum/=10;\n\t\t}\n\t\tif(cnt<=k) ans++;\n\t}\n\tprintf(\"%d\",ans);\n\treturn 0;\n}\n```",
+        "postTime": 1611584582,
+        "uid": 250123,
+        "name": "Lycoris_Walnut",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF262A \u3010Roma and Lucky Numbers\u3011"
+    },
+    {
+        "content": "#### \u849f\u84bb\u53c8\u6765\u5199\u9898\u89e3\u4e86QAQ\n#### \u7531\u4e8e\u4e0a\u6b21\u7684\u9898\u89e3\u6ca1\u8fc7\uff0c\u672c\u849f\u84bb\u6709\u70b9\u4e0d\u7518\u5fc3\uff0c\u6240\u4ee5\uff0c\u518d\u5199\u4e00\u6b21\uff01\n###### \u8fd9\u9053\u9898\u8fd8\u662f\u5f88\u6c34\u7684\n#### \u6ce8\u91ca\u5728\u4ee3\u7801\u91cc\uff0c\u8ba4\u771f\u770b\uff01\uff01\n#### \u4e0d\u8bf4\u591a\u4e86\uff0ccode\uff1a\n```cpp\n#include <iostream>\n#include <cstdio>\n#include <cstring>\nusing namespace std;\nint main() {\n\tint n,k,cnt=0,e,num,ans=0;\n\tcin>>n>>k;\n\tfor(int i=1;i<=n;i++){\n\t\tcin>>num;\n\t\tcnt=0; //cnt\u6bcf\u6b21\u5faa\u73af\u6e05\u96f6\uff0c\u8981\u4e0d\u7136\u4f1a\u628a\u4e0a\u4e00\u6b21\u7684lucky digits\u52a0\u4e0a\uff01\uff01\uff01\n\t\twhile(num!=0){\n\t\t\te=num%10;//\u53d6\u6700\u540e\u4e00\u4f4d\n\t\t\tif(e==4||e==7){\n\t\t\t\tcnt++;\n\t\t\t}\n\t\t\tnum/=10;//\u5224\u65ad\u540e\u6d88\u6389\u6700\u540e\u4e00\u4f4d\n\t\t}\n\t\tif(cnt<=k){//\u770b\u770blucky digits\u662f\u5426<=k\n\t\t\t\tans++;\n\t\t\t}\n\t}\n\tcout<<ans;\n\treturn 0;\n}\n```\n#### \u5b8c\u7ed3\u6492\u82b1~~~~\n#### \u7ba1\u7406\u5458\u5927\u5927\u6c42\u8fc7\u554aQAQ\n",
+        "postTime": 1599130844,
+        "uid": 247129,
+        "name": "Dream_\u6211\u7231\u6d1b\u8c37",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF262A \u3010Roma and Lucky Numbers\u3011"
+    }
+]

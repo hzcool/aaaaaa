@@ -1,0 +1,26 @@
+[
+    {
+        "content": "- \u601d\u8def\uff1a\u6392\u5e8f\uff0c\u66b4\u529b\u679a\u4e3e $max,min$ \uff0c\u5229\u7528\u4e0b\u6807\u7b97\u51fa\u8981\u5220\u6389\u591a\u5c11\u518d\u66f4\u65b0\u7b54\u6848\n- \u771f\u7684\u6ca1\u4ec0\u4e48\u8bf4\u7684\uff0c\u53ea\u8981\u6ce8\u610f\u5c0f\u4e8e\u5927\u4e8e\u5e26\u4e0d\u5e26\u7b49\u53f7\u5c31\u53ef\u4ee5\n- \u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>//\u4e07\u80fd\u5e93\nusing namespace std;\nint n,a[101],d,ans=0x7fffffff;//\u5206\u522b\u4e3a\u9898\u76ee\u4e2d\u7684\u4e09\u4e2a\u91cf\u4ee5\u53ca\u7b54\u6848\nint main()\n{\n    scanf(\"%d%d\",&n,&d);//\u559c\u95fb\u4e50\u89c1\u7684\u8bfb\u5165\n    for(int i=1;i<=n;i++)\n\t\tscanf(\"%d\",&a[i]);\n\tsort(a+1,a+1+n);//\u6392\u4e2a\u5e8f\n\tfor(int i=1;i<=n;i++)//\u679a\u4e3e\u6700\u5c0f\u503c\uff0c\u8981\u679a\u4e3e\u5230n\uff0c\u4e0d\u80fd\u679a\u4e3e\u5230n-1\n\t{\n\t\tfor(int j=i;j<=n;j++)//\u679a\u4e3e\u6700\u5927\u503c\uff0c\u7531\u4e8e\u6700\u5927\u503c\u6700\u5c0f\u503c\u80fd\u76f8\u7b49\u7684\u7f18\u6545\uff0c\u6240\u4ee5\u5927\u4e8e\u7b49\u4e8ei\n\t\t\tif(a[j]-a[i]<=d)//\u82e5\u6ee1\u8db3\u6761\u4ef6\u5c31\u66f4\u65b0ans\n\t\t\t\tans=min(ans,n-j+i-1);\n\t}\n\tprintf(\"%d\",ans);//\u8f93\u51fa\n\treturn 0;//AC\n}\n```\n",
+        "postTime": 1591877869,
+        "uid": 239075,
+        "name": "Eon_Floating",
+        "ccfLevel": 5,
+        "title": "CF940A \u3010Points on the line\u3011\u3010\u9898\u89e3\u3011"
+    },
+    {
+        "content": "\u8fd9\u5176\u5b9e\u662f\u4e00\u9053\u66b4\u529b\u5c0f\u9898\u9898~\n\n\u6839\u636e\u9898\u76ee\u8981\u6c42\uff0c1~100\u7686\u53ef\u80fd\u662f\u6700\u5c0f\u503c\uff0c\u66b4\u529b\u679a\u4e3e\u4e00\u4e0b\uff0c\u6bd4i\u5c0f\u548c\u6bd4i+d\u5927\u7684\u90fd\u5220\u6389\uff0c\u518d\u770b\u54ea\u4e2a\u6700\u5c0f\u503c\u5220\u7684\u6570\u6700\u5c11\u3002\n\n\u4ee5\u4e0b\u662f\u4ee3\u7801\uff1a\n\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n\tint n,d,a[101];\n\tcin>>n>>d;\n\tint ans=1000;\n\tfor(int i=1;i<=n;i++)cin>>a[i];\n\tfor(int i=0;i<=100;i++)//\u679a\u4e3e\n\t{\n\t\tint s=0;\n\t\tfor(int j=1;j<=n;j++)\n\t\t{\n\t\t\tif(a[j]<i||a[j]>i+d)s++;//\u5220\u6570\u54af~\n\t\t}\n\t\tans=min(s,ans);//\u6c42\u6700\u5c0f\n\t}\n\tcout<<ans;//\u5927\u529f\u544a\u6210!\n\treturn 0;\n}\n```\n~~\u6709\u65f6\u5019\u66b4\u529b\u771f\u7684\u80fd\u51fa\u5947\u8ff9\u5462~~",
+        "postTime": 1581471285,
+        "uid": 95170,
+        "name": "Little_Hamster",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF940A \u3010Points on the line\u3011"
+    },
+    {
+        "content": "### ~~\u8fd9\u9898\u6570\u636e\u771f\u7684\u5f88\u6c34~~\n\n## \u601d\u8def\n\u601d\u8def\uff1a\u679a\u4e3e\u6700\u5c0f\u503c\uff0c\u7136\u540e\u679a\u4e3e\u6bcf\u4e00\u4e2a\u6570\u68c0\u67e5\u662f\u5426\u5728\u5141\u8bb8\u7684\u8303\u56f4\u5185\uff0c\u5982\u679c\u4e0d\u5728\u5c31del++\u3002\u6700\u540e\u627e\u51fa\u6240\u6709\u6700\u5c0f\u503c\u4e2d\u6700\u5c0f\u7684del\u8f93\u51fa\u5373\u53ef\u3002\n\n## \u4ee3\u7801\n```cpp\n#include <cstdio>\n#include <algorithm>\nusing namespace std;\n\nconst int MAXN=100+1, MINX=1, MAXX=100;\nint a[MAXN];\ninline int min( int a, int b ) { return a<b?a:b; }\n\nint main( )\n{\n\tint n, d;\n\twhile ( scanf( \"%d %d\", &n, &d )!=-1 )\n\t{\n\t\tfor ( int i=1; i<=n; i++ )\n\t\t\tscanf( \"%d\", &a[i] );\n\t\tsort( a+1, a+n+1 );\n\t\tint ans=n;\n\t\tfor ( int i=0; i<=100; i++ ) //\u679a\u4e3e\u6700\u5c0f\u503c \n\t\t{\n\t\t\tint del=0;\n\t\t\tfor ( int j=1; j<=n; j++ )\n\t\t\t\tif ( a[j]<i || a[j]>i+d )\n\t\t\t\t\tdel++;\n\t\t\tans=min( ans, del );\n\t\t}\n\t\tprintf( \"%d\\n\", ans );\n\t}\n\treturn 0;\n}\n```\n[\u63d0\u4ea4\u8bb0\u5f55 \u7528\u65f6: 346ms / \u5185\u5b58: 3252KB](https://www.luogu.org/record/show?rid=6632309)",
+        "postTime": 1522911478,
+        "uid": 54160,
+        "name": "Prurite",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF940A \u3010Points on the line\u3011"
+    }
+]

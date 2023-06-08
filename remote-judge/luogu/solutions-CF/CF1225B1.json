@@ -1,0 +1,34 @@
+[
+    {
+        "content": "# \u9898\u89e3\uff1a\n\n\u56e0\u4e3a $1\\leqslant n, t\\leqslant 100$\u3002\n\n\u6240\u4ee5\u76f4\u63a5\u66b4\u529b\u679a\u4e3e\u3002\n\n# \u5177\u4f53\u5b9e\u73b0\uff1a\n\n\u53ef\u4ee5\u5f00\u4e2a\u6876\u8bb0\u5f55 $a_i$ \u662f\u5426\u51fa\u73b0\u3002\u5148\u5904\u7406\u51fa $1$ \u5230 $d$ \u7684\u4e2a\u6570\uff0c\u7136\u540e\u4ece $d + 1$ \u5faa\u73af\u5230 $n$\uff0c\u6bcf\u6b21\u7ef4\u62a4\u6876\u4e2d\u7684 $a_i$ \u548c $a_{i - d}$ \u662f\u5426\u51fa\u73b0\uff0c\u518d\u66f4\u65b0 $ans$ \u7684\u6700\u5c0f\u503c\u3002\n\n# \u4ee3\u7801\uff1a\n\n```cpp\n#include <bits/stdc++.h>\n#define F(i, a, b) for(int i = a; i <= b; i++)\nusing namespace std;\nconst int N = 2e5 + 5, M = 1e6 + 5;\nint T, n, q, b, a[N], ans, res, sum[M];\nsigned main()\n{\n//\tfreopen(\"A.in\", \"r\", stdin);\n//\tfreopen(\"A.out\", \"w\", stdout);\n\tscanf(\"%d\", &T);\n\tF(l, 1, T)\n\t{\n\t\tres = 0; memset(sum, 0, sizeof sum);\n\t\tscanf(\"%d %d %d\", &n, &b, &q);\n\t\tF(i, 1, n)scanf(\"%d\", &a[i]);\n\t\tF(i, 1, q)if(!sum[a[i]]++)res++;\n\t\tans = res;\n\t\tF(i, q + 1, n)\n\t\t{\n\t\t\tif(!--sum[a[i - q]])res--;\n\t\t\tif(!sum[a[i]]++)res++;\n\t\t\tans = min(ans, res);\n\t\t}\n\t\tprintf(\"%d\\n\", ans);\n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1658908208,
+        "uid": 576817,
+        "name": "anr_uli",
+        "ccfLevel": 3,
+        "title": "CF1225B1 TV Subscriptions (Easy Version)\u9898\u89e3"
+    },
+    {
+        "content": "\u6c34\u9898\u3002\n\n\u770b\u5230\u6570\u636e\u8303\u56f4 $1\\le n \\le 100$\uff0c\u76f4\u63a5\u8003\u8651\u66b4\u529b\u679a\u4e3e\u3002\n\n\u679a\u4e3e\u7684\u601d\u8def\u4e5f\u5f88\u7b80\u5355\uff0c\u4ee5\u6bcf\u4e2a $i$ \u4e3a\u5de6\u7aef\u70b9\uff0c\u627e\u957f\u5ea6\u4e3a $d$ \u7684\u533a\u95f4\uff0c\u5f00\u4e00\u4e2a\u6876\u8bb0\u5f55\u4e0d\u540c\u5143\u7d20\u6570\u91cf\u3002\u6700\u540e\u53d6\u6700\u5c0f\u503c\u5373\u53ef\u3002\n\n\u65f6\u95f4\u590d\u6742\u5ea6 $O(n^2)$\u3002\u53ef\u4ee5\u6c34\u8fc7\u3002\n\n\u9700\u8981\u6ce8\u610f\u7684\u662f\u53f3\u7aef\u70b9\u662f $d+i-1$ \u800c\u975e $d+i$\uff0c\u8fd8\u6709\u8bb0\u5f97\u6bcf\u6b21\u5faa\u73af\u6e05\u7a7a\u6876\u3002\n\n\u4e3b\u8981\u4ee3\u7801\uff1a\n\n```cpp\nint solve() {\n    int n, k, d, ans = inf;\n    cin >> n >> k >> d;\n    for (int i = 1; i <=n; i++) {\n        cin >> a[i];\n    }\n    for (int i = 1; i <= n; i++) {\n        memset(f, 0, sizeof f);\n        int cnt = 0, tmp = d + i - 1;\n        if(tmp == n + 1) break;\n        for (int j = i; j <= tmp; j++) {\n            if (f[a[j]] == false) cnt++;\n            f[a[j]] = true;\n        }\n        ans = min(ans, cnt);\n    }\n    return ans;\n}\n```\n",
+        "postTime": 1655009964,
+        "uid": 305379,
+        "name": "SolitaryJailbird",
+        "ccfLevel": 6,
+        "title": "CF1225B1 TV Subscriptions (Easy Version) \u9898\u89e3"
+    },
+    {
+        "content": "\n## \u9898\u89e3\uff1a\n\n#### \u9898\u76ee\u7ffb\u8bd1\uff1a\n\n\u6709\u4e00\u4e2a\u957f\u5ea6\u4e3a$n$\u7684\u6570\u5217\uff0c\u91cc\u9762\u6709$k$\u79cd\u4e0d\u540c\u7684\u989c\u8272\uff08\u51c6\u786e\u5730\u8bf4\uff0c\u662f$1-k$\u7684\u4efb\u610f\u51e0\u79cd\u989c\u8272\uff09\uff0c\u8bf7\u95ee\u4e00\u4e2a\u5927\u5c0f\u4e3a$d$\u7684\u6ed1\u52a8\u7a97\u53e3\u6700\u5c11\u80fd\u5305\u542b\u591a\u5c11\u79cd\u4e0d\u540c\u7684\u989c\u8272\u3002\n\n\n\n#### \u9898\u89e3\uff1a\n\n\u4e00\u9053\u6ed1\u52a8\u7a97\u53e3\u7684\u9898\u3002\u56e0\u4e3a\u662f\u7b80\u5355\u7248\u6570\u636e\u90fd\u5728100\u4ee5\u5185\uff0c\u6240\u4ee5\u6211\u4eec\u8003\u8651\u7528\u66b4\u529b\u6c34\u8fc7\uff08\u6b63\u89e3\u8bf7\u770b\u6211\u56f0\u96be\u7248\u7684\u9898\u89e3\uff09\u3002\n\n\u66b4\u529b\u601d\u8def\u6bd4\u8f83\u597d\u60f3\u3002\u5c31\u662ffor\u5faa\u73af\u679a\u4e3e\u533a\u95f4\uff0c\u7136\u540e\u5bf9\u989c\u8272\u8fdb\u884c\u6807\u8bb0\u7edf\u8ba1\u5373\u53ef\u3002\n\n\u6ce8\u610f\u4e00\u4e9b\u7ec6\u8282\uff1a\n\n\u56e0\u4e3a\u662f\u591a\u7ec4\u6570\u636e\uff0c\u6240\u4ee5\u6bcf\u7ec4\u6570\u636e\u5f00\u59cb\u8dd1\u4e4b\u524d\u4e00\u5b9a\u8981\u6e05\u96f6\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include<cstdio>\n#include<cstring>\n#include<algorithm>\nusing namespace std;\nconst int maxn=110;\nint n,k,d,ans,tmp;\nint a[maxn];\nbool v[maxn];\nint main()\n{\n    int t;\n    scanf(\"%d\",&t);\n    while(t--)\n    {\n        ans=1<<30;\n        scanf(\"%d%d%d\",&n,&k,&d);\n        for(int i=1;i<=n;i++)\n            scanf(\"%d\",&a[i]);\n        for(int i=1;i<=n;i++)\n        {\n            memset(v,0,sizeof(v));\n            tmp=0;\n            if(i+d-1==n+1)\n                break;\n            for(int j=i;j<=i+d-1;j++)\n            {\n                if(!v[a[j]])\n                    tmp++;\n                v[a[j]]=1;\n            }\n            ans=min(ans,tmp);\n        }\n        printf(\"%d\\n\",ans);\n    }\n    return 0;\n}\n```\n\n",
+        "postTime": 1572228191,
+        "uid": 175131,
+        "name": "\u5085\u601d\u7ef4666",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1225B1 \u3010TV Subscriptions (Easy Version)\u3011"
+    },
+    {
+        "content": "\u533a\u95f4\u7684\u957f\u5ea6\u662f\u56fa\u5b9a\u7684\uff0c\u90a3\u4e48\u53ea\u9700\u8981\u5f00\u4e00\u4e2a\u6876\uff0c\u7ef4\u62a4\u4e00\u4e0b\u5728\u67d0\u6bb5\u533a\u95f4\u5185\u6709\u90a3\u4e9b\u5143\u7d20\u3002\n\n\u8003\u8651\u4ece\u4e00\u4e2a\u533a\u95f4\u6ed1\u52a8\u5230\u53e6\u4e00\u4e2a\u533a\u95f4\uff0c\u90a3\u4e48\u8fd9\u65f6\u5019\u533a\u95f4\u5185\u5143\u7d20\u4e2a\u6570\u662f\u53ef\u4ee5 O(1) \u7ef4\u62a4\u7684\uff0c\u7136\u540e\u5c31\u6ca1\u4ec0\u4e48\u4e86\u3002\n\n\u4ee3\u7801\uff1a\n```cpp\n#include<iostream>\n#include<cstdio>\n#include<cstring>\n#include<string>\nusing namespace std;\n\nconst int CN = 1e6+6;\nconst int INF = 0x3f3f3f3f;\n\nint read(){\n    int s=0,ne=1; char c=getchar();\n    for(;c<'0'||c>'9';c=getchar()) if(c=='-') ne=-1;\n    for(;c>='0'&&c<='9';c=getchar()) s=(s<<1)+(s<<3)+c-'0';\n    return s*ne;\n}\n\nint t,n,k,d,a[CN];\nint tot[CN];\n\nint main()\n{\n    t = read();\n    while(t--){\n        memset(tot,0,sizeof(tot));\n        \n        n = read(); k = read(); d = read();\n        for(int i=1;i<=n;i++) a[i] = read();\n        \n        int ans = INF,cnt = 0;\n        for(int i=1;i<d;i++) {if(!tot[ a[i] ]) cnt++; tot[ a[i] ]++;}\n        for(int i=d;i<=n;i++){\n            if(!tot[ a[i] ]) cnt++; tot[ a[i] ]++;\n            tot[ a[i-d] ]--; if(!tot[ a[i-d] ]) cnt--;\n            ans = min(ans, cnt); \n        }\n        \n        printf(\"%d\\n\",ans);\n    }\n    \n    return 0;\n}\n```",
+        "postTime": 1572140461,
+        "uid": 70177,
+        "name": "big_news",
+        "ccfLevel": 9,
+        "title": "\u9898\u89e3 CF1225B1 \u3010TV Subscriptions (Easy Version)\u3011"
+    }
+]

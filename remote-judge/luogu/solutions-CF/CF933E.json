@@ -1,0 +1,10 @@
+[
+    {
+        "content": "## DP\n~~\u5206\u6790\u8f6c\u8f7d\u81eaCSDN\u4e0a\u7684\u5b98\u65b9\u9898\u89e3~~\n![](https://s2.ax1x.com/2019/08/19/ml0fDx.png)\n\u849f\u84bbcode:\n```cpp\n// luogu-judger-enable-o2\n#include<bits/stdc++.h>\n#define reg register\n#define ll long long\n#define inf 0x3f3f3f3f\n#define iinf 0x3f3f3f3f3f3f3f3fll\n#define y1 liuyifan_y1\n#define next liuyifan_next\nusing namespace std;\nll f[5000005],pre[5000005],n,a[5000005];\nvector<ll>ans;\ninline void move(reg ll x)\n{\n\tif(x==n)return;\n\tif(a[x]==0||a[x+1]==0)return;\n\tans.push_back(x);//\u52a0\u5165\u7b54\u6848\n\tll t=min(a[x],a[x+1]);\n\ta[x]-=t;\n\ta[x+1]-=t;//DP\n}\nint main()\n{\n\tcin>>n;\n\tfor(reg ll i=1;i<=n;++i)cin>>a[i];\n\tf[2]=a[1];//\u9884\u5904\u7406\n\tfor(reg ll i=3;i<=n+1;++i)\n\tif(f[i-3]+max(a[i-1],a[i-2])<f[i-2]+a[i-1])\n\tf[i]=f[pre[i]=i-3]+max(a[i-1],a[i-2]);\n\telse f[i]=f[pre[i]=i-2]+a[i-1];//\u6587\u4e2d\u7531C\u5230B\u7684\u8f6c\u5316\n\tfor(reg ll i=f[n]<f[n+1]?n:n+1;i>1;i=pre[i])\n\tif(pre[i]==i-3)\n\t{\n\t\tmove(i-2);\n\t\tmove(i-1);\n\t\tif(i>3)move(i-3);\n\t}//DP\uff08C\u4e2d\u7684\u60c5\u51b5)\n\telse\n\t{\n\t\tmove(i-1);\n\t\tif(i>2)move(i-2);\n\t}(B)\n\tcout<<ans.size()<<endl;\n\tfor(reg ll i=0;i<ans.size();++i)cout<<ans[i]<<endl;//vector\u5b58\u7b54\u6848,\u6ce8\u610f\u4ece0\u5f00\u59cb\n\treturn 0;\n}\n```\n",
+        "postTime": 1566176730,
+        "uid": 48993,
+        "name": "liuyifan",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF933E \u3010A Preponderant Reunion\u3011"
+    }
+]

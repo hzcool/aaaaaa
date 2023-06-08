@@ -1,0 +1,98 @@
+[
+    {
+        "content": "> \u53c8\u627e\u5230\u4e86\u4e00\u9053\u80fd\u5199\u9898\u89e3\u7684 $cf$\u3002\n\n\u8fd9\u9053\u9898\u6709 $2$ \u79cd\u505a\u6cd5\uff1a\n\n- \u66b4\u529b\u679a\u4e3e\uff08$Time$ $Limit$ $Exceeded$\uff09\n\n$t$ \u4ece $1$ \u679a\u4e3e\u5230 $\\frac{n}{x}$\uff0c\u9009\u53d6\u6700\u5927\u7684 $t$\u3002\n\n\u4f46\u662f\u4e00\u770b\u6570\u636e\u8303\u56f4\uff1a$2\\leq x\\leq 10^9,0\\leq y<x,y\\leq n\\leq 10^9$\u3002\n\n~~\u6211\u4eec\u4e0d\u5f97\u4e0d\u653e\u5f03\u66b4\u529b\u3002~~\n\n- \u6570\u5b66\u63a8\u5bfc\uff08$Accepted$\uff09\n\n> \u6570\u5b66\u63a8\u5f0f\u5b50\uff0c\u57fa\u4e8e\u66b4\u529b\u7684\u601d\u8def\u3002\n\n\u56e0\u4e3a $x>y$\uff0c\u6240\u4ee5 $t(x+1)>tx+y$\uff0c\u6240\u4ee5 $t$ \u6700\u5927\u80fd\u4e3a\uff1a\n\u5f53 $x\\nmid n$\u65f6\uff0c$t=\\lfloor \\frac{n}{x} \\rfloor$\uff1b\u5f53 $x\\mid n$\u65f6\uff0c$t=\\lfloor \\frac{n}{x} \\rfloor-1$\u3002\u5408\u8d77\u6765\u5c31\u662f $t=\\lfloor \\frac{n-1}{x} \\rfloor$\u3002\n\n\u6240\u4ee5\uff0c$k=\\lfloor \\frac{n-1}{x} \\rfloor*x+y$\u3002\n\n\u5229\u7528 $c$ \u8bed\u8a00\u4e2d\u7684\u81ea\u52a8\u4e0b\u53d6\u6574\uff0c\u53ef\u4ee5\u76f4\u63a5\u5199\u6210```(n - 1) / x * x + y```\u3002\n\n## CODE\n```cpp\n#include <stdio.h>\nint main(void) {\n    int t;\n    for (scanf(\"%d\", &t); t--; ) { //\u591a\u7ec4\n        int x, y, n;\n        scanf(\"%d %d %d\", &x, &y, &n);\n        printf(\"%d\\n\", (n - y) / x * x + y);\n    }\n    return 0;\n}\n```\n\n## The end. Thanks.\n\n~~\uff08\u7559\u4e2a\u8d5e\u518d\u8d70\u5457~~",
+        "postTime": 1595653772,
+        "uid": 214696,
+        "name": "Dry_ice",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF1374A \u3010Required Remainder\u3011"
+    },
+    {
+        "content": "**\u9898\u76ee\u5927\u610f**\uff1a\n\n\u8f93\u5165$x$\uff0c$y$\uff0c$n$\uff0c\u4f60\u9700\u8981\u5728 $0-n$ \u4e2d\u627e\u5230\u4e00\u4e2a\u6700\u5927\u7684 $k$ \u4f7f\u5f97 ${k\\ \\bmod\\ x = y}$\uff0c\u6709\u591a\u7ec4\u8f93\u5165\u3002\n\n**\u9898\u89e3**\uff1a\n\n~~\u8fd9\u662f\u4e00\u9053\u5f88\u6c34\u7684\u9898~~\u3002\n\n\u6211\u4eec\u5bf9\u5f0f\u5b50\u8fdb\u884c\u7b80\u5355\u7684\u53d8\u5f62\uff1a\n\u8bbe $a=\\left\\lfloor\\dfrac{k}{x}\\right\\rfloor$\n\n$${k\\ \\bmod\\ x = y}$$\n$$k=a\u00d7x+y$$\n$$\u22350<=k<=n$$\n$$\u2234a\u00d7x+y<=n$$\n$$\u2234a<=\\frac{n-y}{x}$$\n$$a=\\left\\lfloor\\dfrac{n-y}{x}\\right\\rfloor$$\n\u539f\u5f0f\uff1a$k=\\left\\lfloor\\dfrac{n-y}{x}\\right\\rfloor\u00d7x+y$\n\n\u5230\u6b64\u4e3a\u6b62\uff0c\u6211\u4eec\u5c31\u53ef\u4ee5\u6109\u5feb\u7684\u8f93\u51fa\u7b54\u6848\u5566\u3002\n\n**\u9644\u4ee3\u7801**\uff1a\n\n```cpp\n#include<iostream>\n#include<cstdio>\n#include<cmath>\n\nusing namespace std;\n\nint main(){\n\tint x,y,n,t;\n\tscanf(\"%d\",&t);\n\twhile(t--){\n\t\tscanf(\"%d%d%d\",&x,&y,&n);\n\t\tint res=(n-y)/x;\n\t\tprintf(\"%d\\n\",res*x+y);\n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1593530344,
+        "uid": 158846,
+        "name": "xixike",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1374A \u3010Required Remainder\u3011"
+    },
+    {
+        "content": "\u63a8\u67ff\u5b50\u3002\n\n\u9996\u5148\uff0c$k \\bmod x = y$ \u5219\u4e0d\u59a8\u8bbe $k = fx + y$ \u5373\u53ef\u3002\n\n\u7531\u6b64\uff0c\u6211\u4eec\u8981\u6c42\u51fa $k \\le n$ \u5e76\u4e14 $k_{\\max}$\u3002\n\n\u6211\u4eec\u73b0\u5728\u6709\u4e24\u4e2a\u65b9\u7a0b\u7ec4\u3002\n\n $\\begin{cases}k \\le n\\\\k = fx + y\\end{cases}$ $\\Rrightarrow$ $fx+y \\le n$ $\\Rrightarrow$ $f \\le \\dfrac{n-y}{x}$ \u3002\n \n \u6c42\u51fa\u5373\u53ef\u3002\n \n```cpp\n#include<iostream>\nusing namespace std;\nint main(){\n    int t,x,y,n;\n    cin>>t;\n    while(t--){\n        cin>>x>>y>>n;\n        cout<<x*((n-y)/x)+y<<endl;\n    }\n    return 0;\n}\n```\n\n> Ps\uff1a\n\n> Q\uff1a\u4e3a\u5565\u4f60\u4e0d\u7528\u4e07\u80fd\u5934 `#include<bits/stdc++.h>`\n\n> A\uff1a\u8054\u8d5b\u4e0d\u51c6\u7528\uff0c\u662f\u65f6\u5019\u6362\u5566~",
+        "postTime": 1595422574,
+        "uid": 326382,
+        "name": "Thomas_Cat",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 CF1374A \u3010Required Remainder\u3011"
+    },
+    {
+        "content": "\u6bd4\u8f83\u88f8\uff0c~~\u6c34\u4f30\u503c~~\n\n\u5bf9\u4e8e\u67ff\u5b50\uff1a\n\n$k$ $mod$ $x$ = $y$\n\n\u53ef\u4ee5\u8f6c\u5316\u4e3a:\n\n$k$ = $x * now + y$\n\n\u518d\u770b\u53d6\u503c\u8303\u56f4:\n\n$0 <= k <= n$\n\n\u90a3\u4e48\u5c31\u662f:\n\n$x * now + y <= n$\n\n$x * now <= n - y$\n\n$now <= \\frac{(n - y)}{x}$\uff08\u4e0b\u53d6\u6574\uff09\n\n\u90a3\u4e48\u5c31\u5f88\u5bb9\u6613\u5b9e\u73b0\u4e86\n\n```\n#include <iostream>\n#include <cstdio>\n#include <algorithm>\n#include <cstring>\n#include <vector>\n#include <cmath>\n#define maxn 50010\n#define maxm 1000010\n#define ls x << 1\n#define rs x << 1 | 1\n#define inf 10000000000\n#define inc(i) (++ (i))\n#define dec(i) (-- (i))\n// #define mid ((l + r) >> 1)\n#define int long long\n#define XRZ 212370440130137957\n#define debug() puts(\"XRZ TXDY\");\n#define mem(i, x) memset(i, x, sizeof(i));\n#define Next(i, u) for(register int i = head[u]; i ; i = e[i].nxt)\n#define file(x) freopen(#x\".in\", \"r\", stdin), freopen(#x\".out\", \"w\", stdout);\n#define Rep(i, a, b) for(register int i = (a) , i##Limit = (b) ; i <= i##Limit ; inc(i))\n#define Dep(i, a, b) for(register int i = (a) , i##Limit = (b) ; i >= i##Limit ; dec(i))\nint dx[10] = {1, -1, 0, 0};\nint dy[10] = {0, 0, 1, -1};\nusing namespace std;\ninline int read() {\n    register int x = 0, f = 1; register char c = getchar();\n    while(c < '0' || c > '9') {if(c == '-') f = -1; c = getchar();}\n    while(c >= '0' && c <= '9') x = x * 10 + c - 48, c = getchar();\n    return x * f;\n}\nint x, y, n; \nsigned main() { int t = read();\n\twhile(t --) x = read(), y = read(), n = read() - y, printf(\"%lld\\n\", n / x * x + y);\n\treturn 0;\n}\n```",
+        "postTime": 1593619965,
+        "uid": 155767,
+        "name": "Tarsal",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1374A \u3010Required Remainder\u3011"
+    },
+    {
+        "content": "\u9898\u9762\uff1a\u7ed9\u51fa $x$\uff0c$y$ \u548c $n$\uff0c \u627e\u5230\u6700\u5927\u7684 $k$ \u6ee1\u8db3 $0\\le k\\le n$ \u4e14 $k \\mod{x}=y$ \u3002\n\n\u6211\u4eec\u8003\u8651\u4ece\u53d6\u6a21\u7684\u6027\u8d28\u4e0b\u624b\u3002\n\n\u9996\u5148\u6765\u5206\u6790  $x=7,y=5,n=12345$  \u8fd9\u7ec4\u6570\u636e\uff0c$12345\\mod7$ \u6bd4 $5$  \u5c0f\uff0c\u6240\u4ee5\u8003\u8651\u51cf\u53bb $(n \\mod{x})+x-y$ \uff0c\u5373\u9700\u8981\u51cf\u53bb\u7684\u6700\u5c0f\u503c\uff0c\u56e0\u4e3a $n \\mod{x}$ \u8981\u4f59 $y$ \u7684\u8bdd\u80af\u5b9a\u53ea\u80fd\u51cf\u4e0d\u80fd\u589e\uff0c\u8981\u51cf\u53bb\u7684\u5c31\u662f\u53d6\u6a21\u540e\u7684\u7ed3\u679c\u52a0\u6a21\u6570\u51cf\u53bb\u4f59\u6570\u3002\n\n\u63a5\u7740\u5206\u6790 $x=5,y=0,n=4$ \uff0c\u56e0\u4e3a $x>n$ \uff0c\u6240\u4ee5\u8f93\u51fa $y$ \u5373\u53ef\u3002\n\n\u7136\u540e\u5982\u679c $n\\mod{x}>y$  \u65f6\uff0c\u4fbf\u53ea\u7528\u51cf\u53bb $y$ \u5373\u53ef\u3002\n\n\u4ee3\u7801\u5c31\u5148\u653e\u7740\uff0c\u53cd\u6b63\u770b\u61c2\u9898\u89e3\u7684\u4e5f\u4e0d\u9700\u8981\u4ee3\u7801\u3002\n\n```cpp\n#include <bits/stdc++.h> \nusing namespace std;\nint main(){\n\tint T;\n\tcin>>T;\n\twhile(T--){\n\t\tint x,y,n,k=0;\n\t\tcin>>x>>y>>n;\n\t\tif(x>n) cout<<y<<endl;\n\t\telse if(n%x<y)cout<<n-(n%x+x-y)<<endl;\n\t\telse cout<<n-(n%x-y)<<endl;\n\t}\n}\n```\n",
+        "postTime": 1593509024,
+        "uid": 294745,
+        "name": "Sora1336",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1374A \u3010Required Remainder\u3011"
+    },
+    {
+        "content": "\u8fd9\u662f\u7b7e\u5230\u9898\u7684\u7b2c\u4e00\u9898\u3002\n\n\u6700\u63a5\u8fd1\u4e14\u5c0f\u4e8e $n$ \u7684\uff0c\u80fd\u88ab $x$ \u6574\u9664\u7684\u6570\u662f $\\frac n x\\times x$ \u3002\n\n\u53ea\u9700\u5224\u65ad $\\frac n x\\times x+y$ \u662f\u5426\u5c0f\u4e8e $n$ \u5373\u53ef\uff0c\u5982\u679c\u5927\u4e8e $n$ \uff0c\u8f93\u51fa $(\\frac n x-1)\\times x+y$ \u3002\n\n\u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint t;\nint main()\n{\n\tscanf(\"%d\",&t);\n\twhile(t--)\n\t{\n\t\tint x,y,n;\n\t\tscanf(\"%d%d%d\",&x,&y,&n);\n\t\tint ans=(n/x)*x+y;\n\t\tif(ans>n)\n\t\t\tans-=x;\n\t\tcout<<ans<<endl;\n\t}\t\n\treturn 0;\n} \n```\n",
+        "postTime": 1595054803,
+        "uid": 240812,
+        "name": "45dino",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1374A \u3010Required Remainder\u3011"
+    },
+    {
+        "content": "## \u9898\u610f\u7b80\u4ecb\n\n\u7ed9\u5b9a $x,y,n$\n\n\u6c42\u6ee1\u8db3 $k\\bmod x=y$ \u7684 $k$ \u7684\u6700\u5927\u503c\n\n\u6570\u636e\u8303\u56f4\uff1a\n\n- $2\\le x\\le10^9$\uff0c$0\\le y<x$\uff1b\n- $y\\le n\\le10^9$\uff0c$0\\le k\\le n$\u3002\n\n\u7b80\u5355\u6765\u8bf4\uff0c\u5c31\u662f\u5728 $0\\sim n$ \u7684\u8303\u56f4\u5185\u627e\u5230\u7b26\u5408\u6761\u4ef6\u6700\u5927\u7684 $k$\u3002\n\n\u90a3\u6211\u4eec\u5e94\u8be5\u600e\u4e48\u529e\u5462\uff1f\n\n## \u89e3\u6cd5\u5206\u6790\n\n\u6211\u4eec\u6362\u4e2a\u89d2\u5ea6\u770b\u67ff\u5b50\uff0c\u56e0\u4e3a\u9898\u76ee\u8981\u6c42\u7684\u6574\u6570\u662f $k$\uff0c\u6240\u4ee5\u6211\u4eec\u53ef\u4ee5\u5c1d\u8bd5\u4ee5\u8868\u8fbe $k$ \u7684\u89d2\u5ea6\u6765\u601d\u8003\u89e3\u6cd5\u3002\n\n\u5047\u8bbe\u8fd9\u4e2a $k$ \u88ab\u62b5\u6d88\u6389\u7684\u90e8\u5206\u662f $s$\uff0c\u4e5f\u5c31\u662f\u8bf4\uff0c$xs+y=k$\u3002\n\n\u6211\u4eec\u5c1d\u8bd5\u89e3\u91ca\u4e00\u4e0b\u8fd9\u4e2a\u5f0f\u5b50\u7684\u610f\u601d\uff1a\n\n- $k\\div x=s\\cdots y$\u3002\n- $xs\\le k$\u3002\n- $xs+y=k$\u3002\n\n\u8fd9\u65f6\u5019\uff0c\u6211\u4eec\u5229\u7528\u201c\u5546 $\\times$ \u9664\u6570 $+$ \u4f59\u6570 $=$ \u88ab\u9664\u6570\u201d\u7684\u65b9\u5f0f\u8868\u8fbe\u51fa\u4e86 $k$ \u7684\u503c\uff0c\u63a5\u4e0b\u6765\u6211\u4eec\u8981\u8fdb\u884c\u8fdb\u4e00\u6b65\u5904\u7406\u3002\n\n\u4e3a\u4e86\u6c42\u51fa\u6700\u5927\u7684 $k$\uff0c\u6211\u4eec\u8981\u8ba9 $s$ \u5c3d\u53ef\u80fd\u5927\uff0c\u8fd9\u65f6\u5019\u6211\u4eec\u53ef\u4ee5\u5229\u7528\u4e03\u5e74\u7ea7\u5b66\u4e60\u7684\u4e0d\u7b49\u5f0f\u77e5\u8bc6\uff1a\n\n$$0\\le k\\le n$$\n$$0\\le xs+y\\le n$$\n\n\u6211\u4eec\u53ea\u5173\u6ce8\u67ff\u5b50\u7684\u53f3\u534a\u90e8\u5206\uff1a\n\n$$xs+y\\le n$$\n$$\\because x\\ge2$$\n$$\\therefore s\\le\\dfrac{(n-y)}{x}$$\n\n\u8fd9\u65f6\u5019\u6211\u4eec\u5c31\u53ef\u4ee5\u77e5\u9053\u4e86\uff0c\u6b64\u65f6\u6700\u5927\u7684 $s=\\left[\\dfrac{n-y}{x}\\right]$\u3002\n\n\u90a3\u4e48\u6211\u4eec\u5e26\u5165\u67ff\u5b50\uff1a\n\n$$\\left[\\dfrac{n-y}{x}\\right]\\times x+y$$\n\n\n\u8fd9\u65f6\u5019\u76f4\u63a5\u5b9e\u73b0\u5c31\u884c\u4e86\u3002\n\n\n## \u53c2\u8003\u4ee3\u7801\n```cpp\n#include<bits/stdc++.h> \nusing namespace std;\nint n,x,y,c;\nint main(){\n\tcin>>n;\n\tfor(int i=0;i<n;++i){\n\t\tcin>>x>>y>>c;\n\t\tcout<<(c-y)/x*x+y<<endl;\n\t}return 0;\n}\n```\n\n[>>\u70b9\u51fb\u6b64\u5904\u67e5\u770b $\\color{lime}\\rm AC$ \u8bb0\u5f55<<](https://www.luogu.com.cn/record/35021070)",
+        "postTime": 1594384952,
+        "uid": 212283,
+        "name": "Aw\u987f\u987f",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF1374A \u3010Required Remainder\u3011"
+    },
+    {
+        "content": "[CF1374A Required Remainder](https://www.luogu.com.cn/problem/CF1374A)\n==\n\u524d\u7f6e\u829d\u58eb\uff1a\u5c0f\u5b66\u6570\u5b66\n--\n\u601d\u8def\uff1a\u548c\u522b\u7684\u65b9\u6cd5\u4e0d\u592a\u4e00\u6837\uff0c\u8981\u6700\u5927\uff0c\u80af\u5b9a\u5148\u4ecen\u5411\u4e0b\u51cf\uff0c\u5177\u4f53\u8bf7\u770b\u4ee3\u7801\n--\n\u63d0\u793a\uff1a\u6a21\u62df\u8fc7\u4e0d\u53bb\n--\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n\tint t;//t\u7ec4\u6570\u636e\n\tcin>>t;\n\twhile(t--){//t\u6b21\u5faa\u73af\n\t\tint x,y,n,k;//\u56db\u4e2a\u53d8\u91cf\n\t\tcin>>x>>y>>n;//\u8f93\u5165\n\t\tk=n;//\u5148\u8d4b\u503ck=n\uff0c\u7136\u540e\u5411\u4e0b\u51cf\n\t\tk+=y-(k%x);//k%x\u4f59\u6570\u53ef\u80fd\u4e0d\u662fy\uff0c\u5148\u52a0\u4e0ay-(k%x)\u8865\u9f50\u4f59\u6570\n\t\tif(k>n){//\u5982\u679c\u8d85\u51fa\u9650\u5236\uff08\u6ce8\u610f\u662f\uff1e\u4e0d\u662f\u2265\uff09\n\t\t\tk-=x;//\u51cf\u53bb\u4e00\u4e2a\n\t\t}\n\t\tcout<<k<<endl;//\u8f93\u51fa\n\t}\n    return 0;\n}\n```\n",
+        "postTime": 1594105738,
+        "uid": 180654,
+        "name": "B_lhx",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF1374A \u3010Required Remainder\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u770b\u4e0a\u53bb\u5f88\u7b80\u5355\uff0c\u4f46\u662f\u9700\u8981\u63a8\u4e00\u4e0b\u5f0f\u5b50\u3002\n\n\u9996\u5148\uff0c\u6211\u4eec\u77e5\u9053 $k \\bmod a = b$\u3002\n\n\u7136\u540e\uff0c\u6211\u4eec\u53ef\u4ee5\u628a\u8fd9\u4e2a\u5f0f\u5b50\u8f6c\u6362\u4e00\u4e0b\uff1a$k = a \\times now + b$\u3002\n\n\u6240\u4ee5\uff0c\u6839\u636e\u6570\u636e\u8303\u56f4 $0 \\leq k \\leq n$\uff0c\u90a3\u4e48\u5c31\u4ee3\u8868\uff1a\n\n$a \\times now + b \\leq n$\uff0c\u8f6c\u5316\u4e00\u4e0b\u5f97\u5230\uff1a$a \\times now - b \\leq n - b$\uff0c\u4e5f\u5c31\u662f $a \\times now \\leq n - b$\u3002\n\n\u5e76\u4e14 $now \\leq \\lfloor\\frac{(n - y)}{x}\\rfloor$\u3002\n\n\u6240\u4ee5\uff0c_AC Code_\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nlong long a, b, n; //\u4e00\u5b9a\u8981\u5f00long long\u3002\nint main()\n{\n    int T; //\u6570\u636e\u7ec4\u6570\u3002\n    cin >> T;\n\twhile(T--)\n\t{\n\t    cin >> a >> b >> n; //\u8f93\u5165\u3002\n\t    n -= b; //\u6839\u636e\u516c\u5f0f\uff0c\u540e\u9762\u8981 -b\u3002\n        cout << n / a * a + b << endl; //\u8f93\u51fa\u516c\u5f0f\uff0c\u8bb0\u5f97\u6362\u884c\u3002\n\t}\n\treturn 0;\n}\n```\n\n\u5f15\u7528\uff1a\n\n\u611f\u8c22[Flash_plus](https://www.luogu.com.cn/blog/155767/solution-cf1374a)\u7684\u9898\u89e3\u5728\u6211\u7684\u5f0f\u5b50\u4e0d\u5c0f\u5fc3\u63a8\u9519\u65f6\u7ed9\u4e86\u6211\u6307\u5f15\uff01\uff08\u4e3a\u4ec0\u4e48\u60a8\u7684\u4ee3\u7801\u90a3\u4e48\u957f\uff1f\uff09",
+        "postTime": 1593831772,
+        "uid": 334586,
+        "name": "159\u53f7\u7a0b\u5e8f\u5458",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1374A \u3010Required Remainder\u3011"
+    },
+    {
+        "content": "\u8fd9\u662f\u51fa\u8a00\u4e0d\u900a\u738b\u5b50\u7684\u7b2c\u4e00\u7bc7\u9898\u89e3QwQ~\n\n\u6211\u4eec\u5047\u8bbe$k=wx+y$\uff0c\u8fd9\u6837\u7684\u8bdd\u5c31\u6ee1\u8db3$k\\bmod x=y$\n\n\u90a3\u597d\uff0c\u4e0d\u96be\u770b\u51fa$k$\u662f\u5173\u4e8e$w$\u7684\u4e00\u6b21\u51fd\u6570\u3002\n\n\u7136\u540e\u56e0\u4e3a$k\\le n$\uff0c\u6240\u4ee5$w$\u7684\u6700\u5927\u503c\u662f$\\frac{n-y}{x}$**\u5411\u4e0b\u53d6\u6574**\uff0c\u56e0\u4e3a\u5982\u679c\u6b63\u597d$x|n-y$\uff0c\u90a3\u4e48\u8fd9\u4e2a$w$\u4ee3\u5165$k$\u6b63\u597d\u662f$n$\uff1b\u5426\u5219$w$\u80af\u5b9a\u5c0f\u4e8e\u771f\u5b9e\u7684\u7b54\u6848\u3002\n\n\u7136\u540e\u6211\u4eec\u5c31\u53ef\u4ee5\u53d1\u73b0\u7b54\u6848\u5c31\u662f$wx+y$\uff0c\u65f6\u95f4\u590d\u6742\u5ea6$O(t)$\u3002\n\n```cpp\n#include<bits/stdc++.h>\n#define ns \"-1\"\n#define fs(i,x,y,z) for(ll i=x;i<=y;i+=z)\n#define ft(i,x,y,z) for(ll i=x;i>=y;i+=z)\n#define ll long long\n#define ull unsigned long long\n#define db double\n#define ms(a,b) memset(a,b,sizeof(a))\n#define sz(a) sizeof(a)\nusing namespace std;\nconst int rw[]={-1,0,1,0,-1,1,-1,1},cl[]={0,1,0,-1,-1,1,1,-1};\nconst int N=100001,inf=0x3f3f3f3f;\nconst int daynum[]={114514,31,28,31,30,31,30,31,31,30,31,30,31};\nconst db E=2.718281828459,pi=acos(-1.0),eps=0.0000000001;\ninline ll read(){\n\tll date=0,w=1;char c=0;\n\twhile(c<'0'||c>'9'){if(c=='-')w=-1;c=getchar();}\n\twhile(c>='0'&&c<='9'){date=date*10+c-'0';c=getchar();}\n\treturn date*w;\n}\nll n,x,y,t,w;\nint main(){\n\tt=read();\n\twhile(t--){\n\t\tx=read(),y=read(),n=read();\n\t\tll now=(n-y)/x,gamma=x*now+y;\n\t\tif(gamma==n){\n\t\t\tprintf(\"%lld\\n\",gamma);\n\t\t\tcontinue;\n\t\t}\n\t\twhile(gamma<n){//\u6700\u597d\u52a0\n\t\t\tnow++,gamma+=x;\n\t\t}\n\t\tif(gamma==n){\n\t\t\tprintf(\"%lld\\n\",gamma);\n\t\t}else{\n\t\t\tprintf(\"%lld\\n\",gamma-x);//\u8bf4\u660e\u5df2\u7ecf\u5927\u4e8en\u4e86\n\t\t}\n\t}\n\treturn 0;\n}\n\n```",
+        "postTime": 1593752121,
+        "uid": 336603,
+        "name": "\u51fa\u8a00\u4e0d\u900a\u738b\u5b50",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1374A \u3010Required Remainder\u3011"
+    },
+    {
+        "content": "\u6c42 $\\max k \\in [0,n],k \\equiv y \\pmod{x}$\uff0c\u591a\u7ec4\u6570\u636e\u3002   \n\n\u5373\uff1a$k = i \\times x + y$\uff0c\u8981\u6c42 $i$ \u6700\u5927\u3002\u4e0d\u8003\u8651 $y$ \u65f6\uff0c$\\max i = \\left \\lfloor \\dfrac{n}{x} \\right \\rfloor$\uff0c\u4ee3\u56de\u8ba1\u7b97\uff0c\u53ef\u4ee5\u51cf $x$ \uff0c\u6ee1\u8db3 $k \\leq n$ \u65f6\u5373\u4e3a\u7b54\u6848\u3002  \n\n\u5176\u4e2d $y < x$\uff0c\u56e0\u6b64\u5f53 $\\left \\lfloor \\dfrac{n}{x}\\right \\rfloor \\times x + y > n$ \u65f6\uff0c$(\\left \\lfloor \\dfrac{n}{x} \\right \\rfloor - 1) \\times x + y< n$ \u4e00\u5b9a\u6210\u7acb\u3002  \n\n```cpp\n#include <cstdio>\ntemplate<typename T>\nvoid read(T &r)\n{\n    static char c;r=0;\n    for(c=getchar();c>'9'||c<'0';c=getchar());\n    for(;c>='0'&&c<='9';r=(r<<1)+(r<<3)+(c^48),c=getchar());\n}\nint T;\nlong long x,y,n;\nint main()\n{\n    read(T);\n    while(T--)\n    {\n        read(x),read(y),read(n);\n        long long p = (n / x) * x + y;\n        if(p > n) p -= x;\n        printf(\"%lld\\n\",p);\n    }\n    return 0;\n}\n```",
+        "postTime": 1593524637,
+        "uid": 220159,
+        "name": "Clouder",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF1374A \u3010Required Remainder\u3011"
+    },
+    {
+        "content": "[CF1374A Required Remainder](http://codeforces.com/contest/1374/problem/A)  \n\n\u96be\u5ea6\u5927\u6982$\\color{orange}\\text{\u666e\u53ca-}$?\n\n### \u9898\u76ee\u5927\u610f\n\n\u8f93\u5165$x,y,n(2\\le x\\le10^9,0\\le y<x,y\\le n\\le10^9)$  \n\n\u6c42\u6ee1\u8db3$k\\bmod x=y(0\\le k\\le n)$\u7684$k$\u7684\u6700\u5927\u503c  \n\n\u591a\u7ec4\u6570\u636e, \u6570\u636e\u7ec4\u6570$1\\le t\\le5\\cdot10^4$  \n\n### Sol.\n\n\u8bbe$n=qx+r$  \n\n\u5982\u679c$r\\geq y$  \n\n\u90a3\u4e48$k_{max}=qx+y$  \n\n\u5426\u5219$k_{max}=(q-1)\\cdot x+y$\n\n(\u5927\u6982\u53ef\u4ee5\u81ea\u5df1\u968f\u673a\u51e0\u4e2a$n$\u611f\u6027\u7406\u89e3\u4e0b\n\n\u56e0\u4e3a$k\\ge0$\u6240\u4ee5$k<0$\u7684\u65f6\u5019\u8981\u628a$k$\u8d4b\u503c\u6210$0$\n\n### Code\n\n```cpp\n#include<cstdio>\nint T, x, y, n;\nint main(void) {\n\tscanf(\"%d\", & T);\n\twhile (T--) {\n\t\tscanf(\"%d%d%d\", & x, & y, & n);\n\t\tint r = n % x, q = n / x;\n\t\tif (r >= y)\n\t\t\tprintf(\"%d\\n\", x * q + y >= 0 ? x * q + y : 0);\n\t\telse\n\t\t\tprintf(\"%d\\n\", x * (q - 1) + y >= 0 ? x * (q - 1) + y : 0);\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1593523859,
+        "uid": 344633,
+        "name": "oneton429",
+        "ccfLevel": 6,
+        "title": "CF1374A Required Remainder"
+    }
+]

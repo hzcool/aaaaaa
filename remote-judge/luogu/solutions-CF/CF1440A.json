@@ -1,0 +1,42 @@
+[
+    {
+        "content": "## \u9898\u610f\u7b80\u8ff0\n- \u7ed9\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684 $01$ \u5b57\u7b26\u4e32\uff0c\u4e70\u4e00\u4e2a $0$ \u8981\u82b1 $c_0$ \uff0c\u4e70\u4e00\u4e2a $1$ \u8981\u82b1 $c_1$ \u3002\n\n- $0$ \u3001 $1$ \u4e92\u76f8\u8f6c\u6362\u7684\u82b1\u8d39\u4e3a $h$ \u3002\n\n- \u6c42\u6700\u5c0f\u82b1\u8d39\u3002\n\n## \u601d\u8def\n\u76f4\u63a5\u6bd4\u8f83 $c_1$ \u4e0e $c_0$ $+$ $h$ \uff0c$c_0$ \u4e0e $c_1$ $+$ $h$\uff0c\u4ece\u800c\u51b3\u5b9a\u8981\u4e0d\u8981\u628a $1$ \u53d8\u4e3a $0$ \uff0c\u6216\u628a $0$ \u53d8\u4e3a $1$ \u3002\n\n## \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint T,c0,c1,h,n;\nchar c;\nint main(){\n\tscanf(\"%d\",&T);\n\twhile(T--){\n\t\tint ans=0;\n\t\tscanf(\"%d %d %d %d\",&n,&c0,&c1,&h);\n\t\tc=getchar();//\u628a\u6362\u884c\u7b26\u8bfb\u6389 \n\t\tfor(int i=1;i<=n;i++){\n\t\t\tc=getchar();\n\t\t\tif(c=='0')ans+=min(c0,h+c1);//\u6bd4\u8f83 \n\t\t\telse ans+=min(c1,h+c0);\n\t\t}\n\t\tprintf(\"%d\\n\",ans);\n\t}\n\treturn 0;\n} \n```\n\n",
+        "postTime": 1605749434,
+        "uid": 349333,
+        "name": "zhenliu",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1440A \u3010Buy the String\u3011"
+    },
+    {
+        "content": "\u4f5c\u4e3a Div2 \u7684 A\uff0c\u8fd8\u662f\u6bd4\u8f83 easy \u7684\u3002\n\n\u6211\u4eec\u53ef\u4ee5\u601d\u8003\u8fd9\u6837\u4e00\u4e2a\u95ee\u9898\uff1a\u4e3a\u4ec0\u4e48\u6211\u4eec\u8981\u81ea\u5df1\u505a\u996d\u5403\uff1f\u56e0\u4e3a\u6211\u4eec\u4e70\u83dc + \u505a\u83dc\u6240\u8017\u8d39\u7684\u94b1\u603b\u662f\u8fdc\u5c0f\u4e8e\u51fa\u53bb\u5403\u9910\u9986\u6240\u82b1\u7684\u94b1\u3002\n\n\u540c\u7406\uff0c\u5982\u679c\u6211\u4eec\u628a1\u53d8\u62100\u518d\u4e70\u6240\u9700\u8981\u7684\u94b1\u4ecd\u7136\u5c0f\u4e8e\u4e701\u7684\u94b1\uff0c\u90a3\u4e48\u6211\u4eec\u76f4\u63a5\u628a\u6240\u67091\u53d8\u62100\u5373\u4e3a\u6700\u5c11\u82b1\u8d39\u30020->1\u540c\u7406\u3002\n\n\n\u800c\u5982\u679c\u65e0\u8bba\u600e\u4e48\u6362\u90fd\u4f1a\u4f7f\u603b\u82b1\u8d39\u589e\u52a0\uff0c\u90a3\u5c31\u76f4\u63a5\u4e70\u5c31\u53ef\u4ee5\u4e86\u3002\n\n\u6240\u4ee5\u8fd9\u9053\u9898\u5c31\u662f\u4e00\u4e2a\u5206\u7c7b\u8ba8\u8bba\uff0c\u52a0\u4e00\u70b9\u8d2a\u5fc3\u601d\u60f3\u3002\n\n```cpp\n#include <cstdio>\nint read() {\n    register int n = 0;\n    register char ch = getchar();\n    bool f = 1;\n    while (ch < '0' || ch > '9') {\n        if (ch == '-')\n            f = 0;\n        ch = getchar();\n    }\n    while (ch >= '0' && ch <= '9') {\n        n = (n << 3) + (n << 1) + (ch ^ '0');\n        ch = getchar();\n    }\n    return f ? n : -n;\n}\nchar str[1005];\nvoid work() {\n    int n = read(), c0 = read(), c1 = read(), k = read();\n    scanf(\"%s\", str + 1);\n    int tot = 0;\n    if (c0 + k < c1) {\n        for (int i = 1; i <= n; i++)\n            if (str[i] == '1')\n                tot++;\n        printf(\"%d\\n\", c0 * n + tot * k);\n    } else if (c1 + k < c0) {\n        for (int i = 1; i <= n; i++)\n            if (str[i] == '0')\n                tot++;\n        printf(\"%d\\n\", c1 * n + tot * k);\n    } else {\n        int ans = 0;\n        for (int i=1; i<=n; i++) {\n            if (str[i] == '0') ans += c0;\n            else ans += c1;\n        }\n        printf(\"%d\\n\", ans);\n    }\n}\nint main(void) {\n    int T = read();\n    while (T--)\n        work();\n    return 0;\n}\n```",
+        "postTime": 1605709362,
+        "uid": 255095,
+        "name": "PragmaGCC",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF1440A \u3010Buy the String\u3011"
+    },
+    {
+        "content": "## Content\n\u6709 $t$ \u7ec4\u8be2\u95ee\uff0c\u6bcf\u7ec4\u8be2\u95ee\u7ed9\u51fa\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684 $0/1$ \u4e32\uff0c\u4f60\u53ef\u4ee5\u82b1 $h$ \u7684\u4ee3\u4ef7\u628a $0$ \u4fee\u6539\u6210 $1$ \u6216\u8005\u628a $1$ \u4fee\u6539\u6210 $0$\uff0c\u4e5f\u53ef\u4ee5\u82b1 $c_x$ \u7684\u4ee3\u4ef7\u5220\u9664\u4e00\u4e2a $x\\in[0,1]$\u3002\u6c42\u4f7f\u5f97 $0/1$ \u4e32\u4e3a\u7a7a\u7684\u6700\u5c0f\u4ee3\u4ef7\u3002\n\n**\u6570\u636e\u8303\u56f4\uff1a$1\\leqslant t\\leqslant 10,1\\leqslant n,c_0,c_1,h\\leqslant 1000$\u3002**\n## Solution\n\u8bbe $x$ \u5728\u5b57\u7b26\u4e32\u4e2d\u51fa\u73b0\u7684\u6b21\u6570\u4e3a $cnt_x$\uff0c\u90a3\u4e48\u6211\u4eec\u5f88\u660e\u663e\u5730\u53d1\u73b0\uff0c\u628a\u6240\u6709\u7684 $0$ \u5220\u6389\u7684\u6700\u5c0f\u4ee3\u4ef7\u662f $c_0\\times\\min(cnt_0,cnt_1+h)$\uff0c\u628a\u6240\u6709\u7684 $1$ \u5220\u6389\u7684\u6700\u5c0f\u4ee3\u4ef7\u662f $c_1\\times\\min(cnt_1,cnt_0+h)$\u3002\u4e3a\u4ec0\u4e48\u5462\uff1f\u56e0\u4e3a\u4f60\u8981\u628a\u6240\u6709\u7684 $0$ \u6539\u6210 $1$ \u6216\u8005\u628a\u6240\u6709\u7684 $1$ \u6539\u6210 $0$\uff0c\u90fd\u9700\u8981\u989d\u5916\u7684\u4ee3\u4ef7\uff0c\u6240\u4ee5\u6211\u4eec\u53d6\u6700\u5c0f\u503c\u5c31\u53ef\u4ee5\u4f7f\u5f97\u4ee3\u4ef7\u6700\u5c0f\u3002\n## Code\n```cpp\nint t, n, c0, c1, h, a[1007];\n\nint main() {\n\tt = Rint;\n\twhile(t--) {\n\t\tn = Rint, c0 = Rint, c1 = Rint, h = Rint;\n\t\tint cnt0 = 0, cnt1 = 0, ans = 0;\n\t\tF(i, 1, n) {scanf(\"%1d\", &a[i]); cnt0 += (a[i] == 0), cnt1 += a[i];}\n\t\tans = cnt0 * min(c0, c1 + h) + cnt1 * min(c1, c0 + h);\n\t\tprintf(\"%d\\n\", ans);\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1605671181,
+        "uid": 112917,
+        "name": "Eason_AC",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF1440A \u3010Buy the String\u3011"
+    },
+    {
+        "content": "## \u524d\u8a00\n\u770b\u89c1\u5927\u591a\u6570\u4eba\u7684\u4ee3\u7801\u90fd\u6bd4\u8f83\u957f\uff08\uff1f\uff09\uff0c\u4e8e\u662f\u6765\u8d21\u732e\u4e00\u7bc7\u77ed\u4e9b\u7684\u4ee3\u7801\u3002\n\n\u5b8c\u5168\u4e0d\u538b\u884c\u3002\u611f\u89c9\u662f\u6bd4\u8f83\u4f18\u96c5\u7684\u5199\u6cd5\u3002\n\n## \u9898\u76ee\u5206\u6790\n\u4e00\u4ef6\u663e\u7136\u7684\u4e8b\u60c5\u662f\u6bcf\u4e00\u4f4d\u8d21\u732e\u4e92\u76f8\u72ec\u7acb\u3002\u8fd9\u7ed9\u8d2a\u5fc3\u5e26\u6765\u4e86\u5f88\u5927\u7684\u4fbf\u5229\u3002\n\n\u90a3\u4e48\u53ea\u9700\u8981\u8003\u8651\u6bcf\u4e00\u4f4d\u6539\u53d8\u4e0e\u4e0d\u6539\u53d8\u54ea\u4e00\u79cd\u60c5\u51b5\u4ee3\u4ef7\u66f4\u5c0f\uff0c\u6c42\u548c\u5373\u53ef\u3002\n\n## \u4ee3\u7801\n```cpp\n#include<algorithm>\n#include<cstdio>\nusing namespace std;\nconst int maxn=1e3;\nint T,n,c[2],h,ans;\nchar s[maxn+1];\nint main()\n{\n\tscanf(\"%d\",&T);\n\twhile(T--)\n\t{\n\t\tans=0;\n\t\tscanf(\"%d%d%d%d%s\",&n,&c[0],&c[1],&h,s+1);\n\t\tfor(int i=1;i<=n;++i)\n\t\t\tans+=min(c[s[i]-'0'],c[(s[i]-'0')^1]+h);\n\t\tprintf(\"%d\\n\",ans);\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1605752706,
+        "uid": 67952,
+        "name": "\u767d\u9c9f",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF1440A \u3010Buy the String\u3011"
+    },
+    {
+        "content": "# \u9898\u76ee\u5927\u610f\n\u7ed9\u4f60\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684 $01$ \u4e32\uff0c\u4e70\u4e0b\u4e00\u4e2a $0$ \u82b1\u8d39 $c0$\uff0c\u4e70\u4e0b\u4e00\u4e2a $1$ \u82b1\u8d39 $c1$\uff0c\u5c06\u4e00\u4e2a $0$ \u6539\u4e3a $1$ \u6216 $1$ \u6539\u4e3a $0$ \u82b1\u8d39 $h$\uff0c\u95ee\u4e70\u4e0b\u8fd9\u4e2a $01$ \u4e32\u7684\u6700\u5c0f\u82b1\u8d39\u3002\n# \u5206\u6790\n\u6c34\u9898\u3002\u663e\u7136\u5f53\u6362\u6210\u53e6\u4e00\u4e2a\u6570\u4e70\u6bd4\u76f4\u63a5\u4e70\u8fd8\u4fbf\u5b9c\u65f6\uff0c\u6240\u6709\u7684\u8fd9\u4e2a\u6570\u90fd\u5e94\u8be5\u6539\u4e86\u518d\u4e70\uff0c\u5426\u5219\u76f4\u63a5\u539f\u4ef7\u8d2d\u4e70\u5168\u90e8\u7684\u3002\n# \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\n#define ll long long\nusing namespace std;\ninline int read()\n{\n    char ch=getchar();\n\twhile(ch<'0'||ch>'9')\n\t\tch=getchar();\n\tint res=0;\n    while(ch>='0'&&ch<='9')\n    {\n    \tres=res*10+ch-'0';\n\t\tch=getchar();\n    }\n    return res;\n}\nint T,n,c0,c1,h,x,cnt[2];\nint main()\n{\n\tT=read();\n\twhile(T--)\n\t{\n\t\tn=read();\n\t\tc0=read();\n\t\tc1=read();\n\t\th=read();\n\t\tcnt[0]=cnt[1]=0;\n\t\tfor(int i=1;i<=n;++i)\n\t\t{\n\t\t\tscanf(\"%1d\",&x);\n\t\t\t++cnt[x];\n\t\t}\n\t\tif(c0>c1)\n\t\t{\n\t\t\tswap(c0,c1);\n\t\t\tswap(cnt[0],cnt[1]);\n\t\t}\n\t\tif(c0+h>c1)\n\t\t\tprintf(\"%d\\n\",c0*cnt[0]+c1*cnt[1]);\n\t\telse\n\t\t\tprintf(\"%d\\n\",c0*n+cnt[1]*h);\n\t}\n\treturn 0;\n}\n\n```\n",
+        "postTime": 1605690444,
+        "uid": 68011,
+        "name": "\u53e4\u660e\u5730_ypc",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF1440A \u3010Buy the String\u3011"
+    }
+]

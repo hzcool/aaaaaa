@@ -1,0 +1,34 @@
+[
+    {
+        "content": "### [CF1832E](https://www.luogu.com.cn/problem/CF1832E)\n\u8fd9\u4e48\u6c34\u7684 $E$ \u6ca1\u6709\u573a\u5207\uff0c\u83dc\u6b7b\u4e86\u3002\n\n$\\begin{aligned}b_{i,k}&=\\sum_{j=1}^iC_{i-j+1}^ka_j\\\\&=\\sum_{j=1}^i(C_{i-j}^{k-1}+C_{i-j}^k)a_j\\\\&=\\sum_{j=1}^iC_{i-j}^{k-1}a_j+\\sum_{j=1}^iC_{i-j}^ka_j\\\\&=C_{0}^{k-1}a_i+b_{i-1,k-1}+C_{0}^ka_i+b_{i-1,k}\\end{aligned}$\n\n\u66b4\u529b\u7b97\uff0c\u65f6\u95f4\u590d\u6742\u5ea6 $O(nk)$\u3002\n\n[\u4ee3\u7801](https://codeforces.com/contest/1832/submission/205789618)\u3002",
+        "postTime": 1684044633,
+        "uid": 571634,
+        "name": "hgzxwzf",
+        "ccfLevel": 7,
+        "title": "CF1832E"
+    },
+    {
+        "content": "#### \u9898\u610f\uff1a\n\n\u7ed9\u5b9a $n,k$\uff0c\u4ee4 $f_x=(\\sum_{i=1}^{x} C_{x-i+1}^{k} \\times a_i) \\bmod 998244353$\uff0c\u6c42 $\\oplus_{i=1}^{n} i\\times f_i$\u3002\n\n$n \\leq 10^7,1 \\leq k \\leq 5$\u3002\n\n#### \u601d\u8def\uff1a\n\n\u8d5b\u65f6\u6b7b\u78d5 D \u7136\u540e\u9519\u8fc7\u4e86\u5927\u6c34 E\u3002\n\n\u7531 $C_n^k=C_{n-1}^k+C_{n-1}^{k-1}$ \u5f97\n\n$f_{n,k}=\\sum_{i=1}^{n} C_{n-i+1}^{k} \\times a_i\n=\\sum_{i=1}^n (C_{n-i}^k+C_{n-i}^{k-1}) \\times a_i\n=f_{n-1,k-1}+f_{n-1,k}$\u3002\n\n\u66b4\u529b $O(nk)$ \u6c42\u89e3\u5373\u53ef\u3002\n\n#### \u4ee3\u7801\uff1a\n```cpp\n#include<cstdio>\nusing namespace std;\ntypedef long long ll;\nconst int N=1e7+5;\nconst int mod=998244353;\nll n,k,m,x,y,a[N],f[N][7];\nll read()\n{\n\tll res,f=1;\n\tchar ch;\n\twhile((ch=getchar())<'0'||ch>'9')\n\tif(ch=='-')\n\tf=-1;\n\tres=ch^48;\n\twhile((ch=getchar())>='0'&&ch<='9')\n\tres=(res<<1)+(res<<3)+(ch^48);\n\treturn res*f;\n}\nint main()\n{\n\tll i,j,ans=0;\n\tn=read();a[1]=read();x=read();y=read();m=read();k=read();\n\tfor(i=2;i<=n;i++)\n\ta[i]=(x*a[i-1]%m+y)%m;\n\tfor(i=1;i<=n;i++)\n\tf[i][0]=f[i-1][0]+a[i];\n\tfor(j=1;j<=k;j++)\n\t\tfor(i=1;i<=n;i++)\n\t\tf[i][j]=(f[i-1][j-1]+f[i-1][j]+(j==1)*a[i])%mod;\n\tfor(i=1;i<=n;i++)\n\tans^=f[i][k]*i;\n\tprintf(\"%lld\",ans);\n\treturn 0;\n}\n```",
+        "postTime": 1685353348,
+        "uid": 372907,
+        "name": "SpasmodicZsf",
+        "ccfLevel": 4,
+        "title": "CF1832E Combinatorics Problem \u9898\u89e3"
+    },
+    {
+        "content": "## [CF1832E Combinatorics Problem](https://codeforces.com/contest/1832/problem/E)\n\n\u6bd4 D \u6c34\u597d\u591a\u3002\n\n**\u58f0\u660e\uff1a\u4e0b\u6587\u7edf\u4e00\u4f7f\u7528 $C_n^m$ \u8868\u793a\u7ec4\u5408\u6570\u3002**\n\n### \u9898\u610f\n\n- \u7ed9\u51fa\u957f\u5ea6\u4e3a $n$ \u7684\u6570\u5217 $a_1,a_2,\\ldots,a_n$\uff0c\u6c42\u5e8f\u5217\n\n$$b_i=\\sum\\limits_{j=1}^iC_{i-j+1}^k\\cdot a_j\\ (1\\le i\\le n)$$\n\n- $1\\le n\\le10^7,1\\le k\\le5$\uff0c\u8f93\u5165\u8f93\u51fa\u7ecf\u8fc7\u5904\u7406\uff0c\u6a21\u6570 $998244353$\u3002\n\n### \u9898\u89e3\n\n\u7b2c\u4e00\u773c\u770b\u4e0a\u53bb\uff0c\u8fd9\u4e0d\u662f FFT \u677f\u5b50\u5417\uff1f\uff01\n\n\u7136\u540e\u770b\u89c1 $n\\le10^7$\u3002\u5982\u679c\u5e38\u6570\u5c0f\u4e5f\u8bb8\u80fd\u8fc7\u3002\n\n\u4f46\u662f\u4ed6\u663e\u7136\u4e0d\u662f\u8ba9\u4f60\u53bb\u5199 FFT \u7684\u3002\n\n\u6211\u4eec\u4ee4 $b_{K,i}$ \u4e3a $k=K$ \u65f6\u7684 $b_i$\u3002 \n\n\u6ce8\u610f\u5230 $C_n^m=C_{n-1}^m+C_{n-1}^{m-1}$\uff0c\u8bbe $k>1$\uff0c\u53ef\u5f97\n\n$$\\begin{aligned}b_{k,i}&=\\sum\\limits_{j=1}^iC_{i-j+1}^k\\cdot a_j\\\\&=\\sum\\limits_{j=1}^iC_{i-j}^k\\cdot a_j+\\sum\\limits_{j=1}^iC_{i-j}^{k-1}\\cdot a_j\\\\&=\\sum\\limits_{j=1}^{i-1}C_{(i-1)-j+1}^k\\cdot a_j+C_0^k\\cdot a_i+\\sum\\limits_{j=1}^{i-1}C_{(i-1)-j+1}^{k-1}\\cdot a_j+C_0^{k-1}\\cdot a_i\\\\&=b_{k-1,i-1}+b_{k,i-1}\\end{aligned}$$\n\n\u7136\u540e\u5c31\u53ef\u4ee5\u5728 $\\Theta(n)$ \u7684\u65f6\u95f4\u5185\u7531 $b_{K-1}$ \u5f97\u5230 $b_K$\u3002\n\n\u6240\u4ee5\u6211\u4eec\u5c31\u53ef\u4ee5\u5728 $\\Theta(nk)$ \u5185\u89e3\u51b3\u672c\u9898\u3002\n\n\u8fd8\u9700\u8981\u6ce8\u610f\u4e00\u4e9b\u7ec6\u8282\uff0c\u6bd4\u5982 $C_n^m=C_{n-1}^m+C_{n-1}^{m-1}$ \u7684\u8fb9\u754c\u60c5\u51b5\u3002\n\n### Code\n\n\u4e0b\u9762\u662f\u8d5b\u65f6\u7684\uff08\u90e8\u5206\uff09\u4ee3\u7801\u3002\n\n```cpp\nconst int N=10000005;\nint n,a1,X,Y,M,k;\nll a[N];\nvoid gen()\n{\n\ta[1]=a1;\n\tfor(int i=2;i<=n;i++)\n\t\ta[i]=(1ll*a[i-1]*X+Y)%M;\n}\nll ans;\nvoid Solve()\n{\n\tcin>>n>>a1>>X>>Y>>M>>k;\n\tgen();\n\tfor(int i=0;i<=k;i++)\n\t{\n\t\tfor(int j=2;j<=n;j++)\n\t\t\t(a[j]+=a[j-1])%=MOD;\n\t\tif(i>1)for(int j=n;j;j--)a[j]=a[j-1];\n\t}\n\tfor(int i=1;i<=n;i++)\n\t\tans^=(a[i]*i);\n\tcout<<ans;\n}\n```",
+        "postTime": 1684217433,
+        "uid": 549499,
+        "name": "Donotplaygame",
+        "ccfLevel": 5,
+        "title": "[CF1832E] Combinatorics Problem"
+    },
+    {
+        "content": "![](https://cdn.luogu.com.cn/upload/image_hosting/378n0t88.png)\n\n\u8fd9\u4e48\u7b80\u5355\u7684\u9898\u90fd\u8981\u5403\u7f5a\u65f6\u3002![/kk](https://cdn.luogu.com.cn/upload/pic/62227.png)![/kk](https://cdn.luogu.com.cn/upload/pic/62227.png)![/kk](https://cdn.luogu.com.cn/upload/pic/62227.png)\n\n\u4f7f\u7528\u4f20\u7edf\u827a\u80fd\uff1a\u627e\u89c4\u5f8b\uff01\n\n\u53d1\u73b0 $1\\le k\\le 5$\uff0c\u6240\u4ee5\u53ef\u4ee5\u76f4\u63a5\u628a $k\\in [1,5]$ \u7684\u60c5\u51b5\u679a\u4e3e\u51fa\u6765\uff0c\u7531\u4e8e $a_2$ \u76f8\u5bf9\u4e8e $a_1$ \u7684\u7cfb\u6570\u53ea\u662f\u5411\u4e0b\u79fb\u52a8\u4e86 $1$\uff0c\u6240\u4ee5\u8bf4\u53ea\u9700\u8981\u8003\u8651 $a_1$ \u7684\u53d8\u5316\u3002\n\n$k=1:\\{1,2,3,\\cdots\\}$\n\n\u5bf9\u6b64\u8fdb\u884c\u5dee\u91cf\u5206\u6790\uff0c\u53d1\u73b0\u5b83\u7684\u5dee\u5c31\u662f $1$\uff0c\u6240\u4ee5\u6211\u4eec\u6253\u4e2a\u524d\u7f00\u548c\u5373\u53ef\u3002\n\n$k=2:\\{0,1,3,6,\\cdots\\}$\n\n\u540c\u6837\u7684\uff0c\u5bf9\u6b64\u8fdb\u884c\u5dee\u91cf\u5206\u6790\uff0c\u5f97\u5230\u5dee\u7684\u5e8f\u5217\u4e3a $\\{1,2,3,\\cdots\\}$\uff0c\u53ef\u4ee5\u53d1\u73b0\u5176\u5b9e\u5c31\u662f $k=1$ \u7684\u5e8f\u5217\u3002\n\n$k=3:{0,0,1,4,10,\\cdots}$\n\n\u540c\u6837\u5730\uff0c\u6b64\u65f6\u5f97\u5230\u7684\u5e8f\u5217\u662f $\\{0,1,3,6,\\cdots\\}$\uff0c\u53ef\u4ee5\u53d1\u73b0\u6b64\u65f6\u6b63\u597d\u662f $k=2$ \u7684\u5e8f\u5217\u3002\n\n~~\u6b64\u65f6\u53ef\u4ee5\u5927\u80c6\u5730\u731c\u7ed3\u8bba~~\u4ee5\u6b64\u7c7b\u63a8\uff0c$dp_{i,j}$ \u8868\u793a $k=i$ \u65f6\u7b2c $j$ \u4e3a\u7684\u7b54\u6848\uff0c\u90a3\u4e48 $dp_{i,j}=dp_{i-1,j-1},+dp_{i,j-1}(dp_{0,i}=\\sum\\limits_{j=1}^n a_j)$\u3002\n\n\u65f6\u95f4\u590d\u6742\u5ea6 $O(nk)$\u3002\n\n[code](https://codeforces.com/contest/1832/submission/205607655)",
+        "postTime": 1684166664,
+        "uid": 556362,
+        "name": "UnnamedOrNamed",
+        "ccfLevel": 5,
+        "title": "CF1832E Combinatorics Problem \u9898\u89e3"
+    }
+]

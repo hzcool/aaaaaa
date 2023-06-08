@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u4e0d\u96be\u8bc1\u660e $n$ \u4e2a\u6570\u4e2d $1$ \u5230 $m$ \u51fa\u73b0\u6b21\u6570\u6700\u5c0f\u503c\u7684\u6700\u5927\u503c\u4e3a $\\lfloor \\frac{n}{m} \\rfloor$\u3002\n\n\u6709\u4e00\u4e2a\u6bd4\u8f83\u663e\u7136\u7684\u8d2a\u5fc3\u601d\u60f3\u5c31\u662f\u4fdd\u6301\u5c3d\u53ef\u80fd\u591a\u7684\u6570\u4e0d\u53d8\u3002\n\n\u90a3\u4e48\u6211\u4eec\u5c31\u5f00\u4e2a\u6876\u7edf\u8ba1\u4e00\u4e0b\u6bcf\u4e2a\u6570\u51fa\u73b0\u7684\u6b21\u6570\uff0c\u5982\u679c\u6b21\u6570\u8fd8\u6ca1\u5230\u6700\u5927\u503c\u8bf4\u660e\u8fd9\u4e2a\u6570\u4e0d\u7528\u88ab\u66f4\u6539\u3002\n\n\u7136\u540e\u56e0\u4e3a $n$ \u548c $m$ \u7684\u8303\u56f4\u6bd4\u8f83\u5c0f\uff0c\u6240\u4ee5\u6211\u4eec\u5b8c\u5168\u53ef\u4ee5\u679a\u4e3e $1$ \u5230 $m$ \u4e2d\u7684\u6bcf\u4e2a\u6570\u5224\u65ad\u5b83\u51fa\u73b0\u6b21\u6570\u662f\u5426\u5230\u8fbe\u6700\u5927\u503c\uff0c\u5982\u679c\u6ca1\u6709\uff0c\u90a3\u4e48\u5c31\u4ece\u5f53\u524d\u53ef\u66f4\u6539\u7684\u6570\u4e2d\u968f\u4fbf\u9009\u4e00\u4e2a\u6539\u6210\u5b83\u5c31\u884c\u4e86\u3002\n\n\u6838\u5fc3\u4ee3\u7801\uff1a\n\n```cpp\n\nconst int N=2e3+10;\nint n,m,a[N],cnt[N],ans,vis[N];\n//ans\u8bb0\u5f55\u66f4\u6539\u6b21\u6570,cnt\u8bb0\u5f55\u67d0\u4e2a\u6570\u7684\u51fa\u73b0\u6b21\u6570\nsigned main()\n{\n\tn=read();m=read();ri int p=n/m;//p\u4e3a\u6700\u5927\u503c\n\tfor(ri int i=1;i<=n;++i)\n\t{\n\t\ta[i]=read();\n\t\tif(a[i]<=m&&cnt[a[i]]<p)\n\t\t\t++cnt[a[i]],vis[i]=1;//vis\u8bb0\u5f55\u8fd9\u4e2a\u6570\u662f\u5426\u9700\u8981\u66f4\u6539\n\t}\n\tfor(ri int i=1;i<=m;++i)\n\t\twhile(cnt[i]<p) for(ri int j=1;j<=n;++j)\n\t\t\tif(!vis[j]) {vis[j]=1,a[j]=i,++cnt[i],++ans;break;}\n\tcout<<p<<\" \"<<ans<<endl;\n\tfor(ri int i=1;i<=n;++i)\n\t\tcout<<a[i]<<\" \";\n\treturn 0;\n}\n\n```",
+        "postTime": 1626864822,
+        "uid": 329672,
+        "name": "Ninelife_Cat",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF723C \u3010Polycarp at the Radio\u3011"
+    }
+]

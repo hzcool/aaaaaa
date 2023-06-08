@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u9898\u610f\uff1a  \n\u6709 $n$ \u4e2a\u623f\u95f4\uff0c$m$ \u79cd\u5899\u7eb8\uff0c\u7b2c $i$ \u4e2a\u623f\u95f4\u7684\u957f\u5bbd\u9ad8\u5206\u522b\u662f $L_i$ $W_i$ $H_i$\uff0c\u7b2c $i$ \u79cd\u5899\u7eb8\u7684\u957f\u5bbd\u4ef7\u683c\u5206\u522b\u662f $l_i$ $w_i$ $p_i$\uff0c\u6bcf\u4e2a\u623f\u95f4\u7684\u56db\u5468\u8981\u8d34\u4e0a\u540c\u79cd\u5899\u7eb8\uff0c\u591a\u4e86\u4e5f\u4e0d\u80fd\u7528\u5230\u522b\u7684\u623f\u95f4\uff0c\u5899\u7eb8\u53ef\u4ee5\u88c1\u526a\u4f46\u4e0d\u80fd\u65cb\u8f6c\uff0c\u4e14\u9996\u5c3e\u4e0d\u80fd\u62fc\u63a5\uff08\u7ad6\u76f4\u65b9\u5411\u5fc5\u987b\u662f\u540c\u4e00\u5f20\u5899\u7eb8\uff0c\u4e0d\u80fd\u5e95\u4e0b\u7528\u7b2c\u4e00\u5f20\u4e0a\u9762\u7528\u7b2c\u4e8c\u5f20\uff09\uff0c\u95ee\u81f3\u5c11\u9700\u8981\u591a\u5c11\u94b1\u3002\n___\n\u5bf9\u4e8e\u6bcf\u4e2a\u623f\u95f4\u5206\u522b\u8ba1\u7b97\u82b1\u8d39\u7684\u6700\u5c0f\u503c\uff0c\u7136\u540e\u76f8\u52a0\u8f93\u51fa\u3002\uff08\u8ba1\u7b97\u65b9\u6cd5\u5728\u4ee3\u7801\u91cc\u6709\uff09\u6ce8\u610f\u7279\u5224\u5899\u7eb8\u957f\u5ea6\u5c0f\u4e8e $H_i$ \u7684\u60c5\u51b5\u3002\n\n\u4ee3\u7801\uff1a\uff08$O(nm)$\uff09\n~~~cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,m,l,w,d[501],h[501],ans[501],anss,p;\nint main()\n{\n\tmemset(ans,0x3f,sizeof(ans));\n\tscanf(\"%d\",&n);\n\tfor(int i=1;i<=n;i++)scanf(\"%d%d%d\",&l,&w,&h[i]),d[i]+=l+w<<1;\n\tscanf(\"%d\",&m);\n\twhile(m--)\n\t{\n\t\tscanf(\"%d%d%d\",&l,&w,&p);\n\t\tfor(int i=1;i<=n;i++)if(l>=h[i])ans[i]=min(ans[i],(((d[i]-1)/w)/(l/h[i])+1)*p);\n\t}\n\tfor(int i=1;i<=n;i++)anss+=ans[i];\n\tprintf(\"%d\",anss);\n\treturn 0;\n}\n~~~",
+        "postTime": 1581346798,
+        "uid": 44840,
+        "name": "123456zmy",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF139B \u3010Wallpaper\u3011"
+    }
+]

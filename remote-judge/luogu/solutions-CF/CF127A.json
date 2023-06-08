@@ -1,0 +1,42 @@
+[
+    {
+        "content": "\u521a\u5f00\u59cb\u770b\u5230\u8fd9\u4e2a\u9898\u7684\u65f6\u5019\u6709\u4e00\u70b9\u61f5\uff0c\u6ca1\u641e\u61c2\u8fd9\u4e2a $k$ \u662f\u4ec0\u4e48\u610f\u601d\uff0c\u7136\u540e\u5728\u8349\u7eb8\u4e0a\u4e00\u901a\u9a8c\u7b97\uff0c\u53d1\u73b0\u8fd9\u4e2a $k$ \u53ea\u53c2\u4e0e\u5230\u4e86\u6700\u540e\u7684\u4e58\u6cd5\u8fd0\u7b97\u91cc......\n\n\u8a00\u5f52\u6b63\u4f20\uff0c\u56de\u5230\u9898\u76ee\u4e0a\u3002\n\n\u7531[\u52fe\u80a1\u5b9a\u7406](https://baike.baidu.com/item/%E5%8B%BE%E8%82%A1%E5%AE%9A%E7%90%86/91499?fr=aladdin)\u53ef\u5f97\uff0c$ab$ \u4e24\u70b9\u4e4b\u95f4\u7684\u8ddd\u79bb\u516c\u5f0f\u4e3a\n\n$$ab= \\sqrt{{(a_x-b_x)}^2+{(a_y-b_y)}^2} $$\n\n\u6ce8\uff1a$a_x$\uff0c$b_x$ \u8868\u793a $a,b$ \u7684\u6a2a\u5750\u6807\u3002$a_y$\uff0c$b_y$ \u8868\u793a $a,b$ \u7684\u7eb5\u5750\u6807\u3002\n\n\u90a3\u6211\u4eec\u7684\u601d\u8def\u5c31\u975e\u5e38\u6e05\u6670\u4e86\uff0c\u5c31\u662f\u7528\u4e24\u4e2a\u6570\u7ec4\u5c06\u8f93\u5165\u7684\u5750\u6807\u5b58\u8d77\u6765\uff0c\u7136\u540e\u518d\u6309\u987a\u5e8f\u7b97\u5c06\u8fd9\u4e9b\u70b9\u8fde\u8d77\u6765\u7684\u603b\u957f\u5ea6\uff0c\u518d\u7528\u8fd9\u4e2a\u603b\u957f\u5ea6\u4e0e $k$ \u76f8\u4e58\u518d\u9664\u4ee5\u65f6\u95f4\u5c31\u884c\u4e86\u3002\n\n# Code\n```cpp\n#include<iostream>\n#include<cstdio>\n#include<algorihtm>\n#include<cmath>\nusing namespace std;\nint n,k,y[10001],x[10001];\ndouble ans;\nint main()\n{\n\tcin>>n>>k;\n\tfor(int i=1;i<=n;i++)\n\t  cin>>x[i]>>y[i];//\u849f\u84bb\u4e0d\u4f1a\u8f93\u4e00\u4e2a\u7b97\u4e00\u4e2a\n\tfor(int i=2;i<=n;i++)\n\t\tans=ans+sqrt(pow(x[i-1]-x[i],2)+pow(y[i-1]-y[i],2));\n\tans=ans*k/50;\n\tprintf(\"%.9lf\",ans);\n\treturn 0;\n}\n```\n\n\u5c0f\u5fc3 CE\u3002",
+        "postTime": 1626184094,
+        "uid": 363061,
+        "name": "sqh_let_it_be",
+        "ccfLevel": 5,
+        "title": "Wasted Time \u9898\u89e3"
+    },
+    {
+        "content": "### \u524d\u8a00\n\u9898\u76ee\u4e3aWasted time\uff0c\u610f\u5473\u8282\u7ea6\u65f6\u95f4\uff0c\u6240\u4ee5\u6211\u4eec\u9700\u8981\u7b80\u6d01\u7684\u4ee3\u7801\u3002  \n### \u8be6\u89e3\n>1\uff0ca,b\u4e24\u70b9\u8ddd\u79bb\u4e4b\u95f4\u7684\u516c\u5f0f\u4e3a\n$S(a,b)=sqrt((ax-bx)^2+(ay-by)^2)$  \n\u5176\u4e2dax\uff0cbx\u8868\u793ax\u8f74\u5750\u6807\uff0cay\uff0cby\u540c\u7406\u3002\u5373\u8fd0\u7528\u521d\u4e2d\u4e8c\u5e74\u7ea7\u5b66\u8fc7\u7684\u52fe\u80a1\u5b9a\u7406\uff0c\u5728\u4e00\u4e2a\u76f4\u89d2\u4e09\u89d2\u5f62\u5185\uff0c\u659c\u8fb9\u5e73\u65b9\u7b49\u4e8e\u5176\u4e24\u8fb9\u7684\u5e73\u65b9\u4e4b\u548c\u3002\n\n>2\uff0c\u65e2\u7136\u8282\u7ea6\u65f6\u95f4\uff0c\u5c31\u8981\u7528\u6700\u7b80\u5355\u6613\u61c2\u7684\u65b9\u6cd5\u3002\u77e5\u9053\u6bcf\u4e24\u4e2a\u70b9\u4e4b\u95f4\u7684\u8ddd\u79bb\u540e\uff0c\u628a\u5b83\u4eec\u5f00\u59cb\u70b9\u4e0e\u7ed3\u675f\u70b9\u8fde\u63a5\uff0c\u518d\u7528\u7ed3\u675f\u70b9\u8fde\u63a5\u4e0b\u4e00\u4e2a\u70b9\u3002\u7528\u4e00\u4e2a\u5faa\u73af\u53d8\u91cf\u6307\u5411\u5f00\u59cb\u70b9\u3002\n\n>3,\u6700\u540e\uff0c\u7528\u8def\u7a0b\u603b\u548c\u9664\u4ee5\u901f\u5ea6\n\n### \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,m,x,y,X,Y;\ndouble ans;\nint main()\n{\n\tscanf(\"%d %d\",&n,&m);\n\tscanf(\"%d %d\",&x,&y);\n\tfor(int i=1;i<n;i++)\n\t{\n\t\tscanf(\"%d %d\",&X,&Y);\n\t\tans+=sqrt((x-X)*(x-X)+(y-Y)*(y-Y));\n\t\tx=X;y=Y;\n\t}\n\tprintf(\"%.9lf\",ans*m/50.0);\n\treturn 0;\n}\n```\n### \u540e\u8bb0\n\u7b80\u5355\u9898\u7b80\u5355\u505a",
+        "postTime": 1608300413,
+        "uid": 253936,
+        "name": "gaosichensb",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF127A"
+    },
+    {
+        "content": "## \u9898\u610f\n\u6709 $n$ \u4e2a\u70b9\uff0c\u7b2c $i$ \u4e2a\u70b9\u8981\u8fde\u63a5\u7b2c $i+1$ \u4e2a\u70b9\uff0c\u8fde\u63a5\u7684\u901f\u5ea6\u662f $50$ \u6bcf\u79d2\uff0c\u6bcf\u4e24\u4e2a\u70b9\u8981\u8fde\u63a5 $k$ \u6b21\u3002\u95ee\u8981\u591a\u5c11\u79d2\u624d\u80fd\u8fde\u5b8c\u6240\u6709\u7684\u7ebf\u3002\n## \u601d\u8def\n\u7528\u52fe\u80a1\u7b97\u51fa\u4e24\u4e2a\u70b9\u7684\u8ddd\u79bb\uff0c\u52a0\u8d77\u6765\uff0c\u6700\u540e\u518d\u9664\u4ee5 $50$\uff0c\u4e58 $k$\u3002\n## \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\n#define int long long\nusing namespace std;\nsigned main()\n{\n\tint n,k;\n\tint a1,a2,b1,b2;//a1\u548cb1\u8868\u793a\u524d\u4e00\u4e2a\u70b9\u7684\u5750\u6807\uff0ca2\u548cb2\u8868\u793a\u5f53\u524d\u70b9\u7684\u5750\u6807\n\tdouble ans;\n\tcin>>n>>k;\n\tcin>>a1>>b1;\n\tfor(int i=2;i<=n;i++)\n\t{\n\t\tcin>>a2>>b2;\n\t\tans+=1.0*sqrt((a1-a2)*(a1-a2)+(b1-b2)*(b1-b2));//\u52fe\u80a1\u7b97\u8ddd\u79bb\n\t\ta1=a2,b1=b2;//\u66f4\u65b0\n\t}\n\tprintf(\"%.9f\",ans*k/50.0);\n    return 0;\n}\n```\n",
+        "postTime": 1623466232,
+        "uid": 406947,
+        "name": "Allanljx",
+        "ccfLevel": 5,
+        "title": "CF127A\u9898\u89e3"
+    },
+    {
+        "content": "## Content\n\u5e73\u9762\u4e0a\u6709 $A_1(x_1,y_1),A_2(x_2,y_2),...,A_n(x_n,y_n)$ \u5171\u8ba1 $n$ \u4e2a\u70b9\u3002\u4f60\u9700\u8981\u4f9d\u6b21\u5c06 $A_1$ \u8fde\u63a5\u81f3 $A_2$\uff0c$A_2$ \u8fde\u63a5\u81f3 $A_3$\uff0c\u4ee5\u6b64\u7c7b\u63a8\uff0c\u76f4\u5230\u5c06 $A_{n-1}$ \u8fde\u63a5\u81f3 $A_n$ \u4e3a\u6b62\u3002\u6bcf\u6b21\u8fde\u63a5\u7684\u957f\u5ea6\u5373\u4e3a\u8fde\u63a5\u7684\u4e24\u4e2a\u70b9\u4e4b\u95f4\u7684\u8ddd\u79bb\u3002\u4f60\u9700\u8981\u5728 $k$ \u4e2a\u76f8\u540c\u7684\u5e73\u9762\u4e0a\u5b8c\u6210\u8fd9\u6837\u7684\u64cd\u4f5c\uff0c\u5df2\u77e5\u4f60\u8fde\u63a5\u7684\u901f\u5ea6\u4e3a $50$ \u4e2a\u5355\u4f4d\u6bcf\u79d2\uff0c\u6c42\u5b8c\u6210\u6240\u6709\u7684\u8fde\u63a5\u64cd\u4f5c\u9700\u8981\u7684\u65f6\u95f4\u3002\n\n**\u6570\u636e\u8303\u56f4\uff1a$2\\leqslant n\\leqslant 100,1\\leqslant k\\leqslant 1000$\u3002**\n## Solution\n\u6bcf\u6b21\u5c06\u7ebf\u6bb5\u7684\u957f\u5ea6\u9664\u4ee5 $50$ \u7d2f\u52a0\u8fdb\u53bb\uff0c\u8fd9\u6837\u5c31\u4e0d\u9700\u8981\u518d\u5728\u6700\u540e\u8fd8\u8981\u9664\u4ee5\u4e00\u4e2a $50$\u3002\u6700\u540e\u8bb0\u5f97\u7b54\u6848\u518d\u4e58\u4e0a $k$\u3002\u603b\u4e4b\u4e0d\u662f\u5f88\u96be\u3002\n\n\u8d34\u4e2a\u4e24\u70b9\u4e4b\u95f4\u7684\u8ddd\u79bb\u516c\u5f0f\u5427\uff1a$dis(A,B)=\\sqrt{(x_A-x_B)^2+(y_A-y_B)^2}$\n## Code\n```cpp\n#include <cstdio>\n#include <cmath>\nusing namespace std;\n\nint n;\ndouble ans, x[107], y[107], k;\n\ndouble dist(int i, int j) {\n\treturn sqrt((x[i] - x[j]) * (x[i] - x[j]) + (y[i] - y[j]) * (y[i] - y[j])) / 50.0;\n}\n\nint main() {\n\tscanf(\"%d%lf\", &n, &k);\n\tfor(int i = 1; i <= n; ++i)\tscanf(\"%lf%lf\", &x[i], &y[i]);\n\tfor(int i = 1; i < n; ++i)\tans += dist(i, i % n + 1);\n\tprintf(\"%.9lf\", ans * k);\n}\n```",
+        "postTime": 1601736980,
+        "uid": 112917,
+        "name": "Eason_AC",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF127A \u3010Wasted Time\u3011"
+    },
+    {
+        "content": "\u7b2c\u4e00\u773c\u770b\u5230\u8fd9\u9053\u9898\u8fd8\u4ee5\u4e3a\u5f88\u96be\uff0c\u5176\u5b9e\u5c31\u662f\u4e00\u4e2a\u7b80\u5355\u9898\n\nk\u5176\u5b9e\u5c31\u662f\u76f4\u63a5\u7528\u6765\u4e58\u7684\uff0c\u6ca1\u6709\u4efb\u4f55\u5176\u4ed6\u4f5c\u7528\n\n\u53ea\u8981\u6ce8\u610f\u4e00\u4e0b\u8981\u7528double\u5c31\u53ef\u4ee5\u4e86\n\n\u6ca1\u6709\u4ec0\u4e48\u53ef\u89e3\u91ca\u7684\uff0c\u76f4\u63a5\u4e0a\u4ee3\u7801\u5427\uff0c\u4ee3\u7801\u91cc\u4f1a\u6709\u89e3\u91ca\n```c\n#include<iostream>\n#include<cmath>\n#include<cstdio>\nusing namespace std;\ndouble dis(double x1,double y1,double x2,double y2)//\u4e24\u70b9\u4e4b\u95f4\u8ddd\u79bb\uff0c\u6ce8\u610f\u8fd9\u91cc\u6240\u6709\u90fd\u8981\u7528double\n{\n    return sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));//\u76f4\u63a5\u7528\u4e24\u70b9\u4e4b\u95f4\u8ddd\u79bb\u516c\u5f0f\n}\nint main()\n{\n    int n,i;\n    double k,x[101],y[101],s=0;//\u8fd9\u4e9b\u90fd\u8981\u7528double\n    cin>>n>>k;\n    for(i=1;i<=n;i++)\n        cin>>x[i]>>y[i];\n    for(i=2;i<=n;i++)\n        s+=dis(x[i],y[i],x[i-1],y[i-1])/50*k;//\u6bcf\u4e00\u4e2a\u548c\u524d\u4e00\u4e2a\u7b97\u4e00\u4e0b\u8ddd\u79bb\uff0c\u6ce8\u610f\u8981\u966450\u5e76\u4e14\u4e58k\n    printf(\"%.9f\",s);//\u8f93\u51fa\uff0c\u4fdd\u75599\u4f4d\u5c0f\u6570\n    return 0;//\u5b8c\u7f8e\u7ed3\u675f\n}\n```\n# \u62d2\u7edd\u6284\u88ad\uff0c\u5171\u521b\u548c\u8c10\u6d1b\u8c37",
+        "postTime": 1549699996,
+        "uid": 54922,
+        "name": "codemap",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF127A \u3010Wasted Time\u3011"
+    }
+]

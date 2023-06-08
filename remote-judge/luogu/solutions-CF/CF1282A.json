@@ -1,0 +1,18 @@
+[
+    {
+        "content": "[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/CF1282A)\n\n\u5148\u628a $a$ \u548c $b$ \u4ece\u5c0f\u5230\u5927\u6392\u5e8f\u4e00\u4e0b\u3002\n\n- \u5982\u679c $c+r<a$\u3002\n\n\u8f93\u51fa $b-a$\u3002\n\n- \u5982\u679c $c-r>b$\u3002\n\n\u540c\u4e0a\uff0c\u8f93\u51fa $b-a$\u3002\n\n- \u5982\u679c\u90fd\u4e0d\u662f\u7684\u8bdd\uff0c\u90a3\u5c31\u8f93\u51fa $b-a-(\\min(c+r,b)-\\max(c-r,a))$\u3002\n\n[AC \u8bb0\u5f55](https://www.luogu.com.cn/record/105030229)\n\n# \u4ee3\u7801\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main()\n{\n\tint t;\n\tcin>>t;\n\tfor(int i=1;i<=t;i++)\n\t{\n\t\tint a,b,c,r;\n\t\tcin>>a>>b>>c>>r;\n\t\tif(a>b)\n\t\tswap(a,b);\n\t\tif(c+r<a||c-r>b)\n\t\tcout<<b-a<<endl;\n\t\telse\n\t\tcout<<b-a-min(b,c+r)+max(a,c-r)<<endl;\n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1679119570,
+        "uid": 812259,
+        "name": "chenyuchenghsefz",
+        "ccfLevel": 0,
+        "title": "CF1282A \u9898\u89e3"
+    },
+    {
+        "content": "# \u9898\u89e3 CF1282A \u3010Temporarily unavailable\u3011\n\n**\u8be5\u573a\u6bd4\u8d5b\u7684\u9898\u89e3\uff1a[\u6211\u7684\u535a\u5ba2\u6c42\u56f4\u89c2](https://www.cnblogs.com/nblyz2003/p/12173579.html)**\n\n\u9898\u76ee\u5927\u610f\uff1a\u6709\u4e00\u6761\u6570\u8f74\uff0c\u8981\u4ecea\u70b9\u8dd1\u5230b\u70b9\uff0c\u5728c\u70b9\u7684\u5730\u65b9\u6709\u7f51\u7edc\uff0c\u8986\u76d6\u8303\u56f4\u4e3a\u534a\u5f84\u4e3ar\u7684\u5706\u3002\u95ee\u5728\u591a\u5c11\u65f6\u95f4\u6709\u7f51\u8def\u8986\u76d6\u3002\n\n\u56e0\u4e3a\u662f\u5728\u6570\u8f74\u4e0a\u7684\uff0c\u6240\u4ee5\u6709\u7f51\u8def\u8986\u76d6\u7684\u5730\u65b9\u5c31\u662f(c - r\uff0cc + r)\uff0c\u90a3\u4e48\u53ea\u8981\u51cf\u4e00\u4e0b\u5c31\u597d\uff0c\u6ce8\u610f\u53ef\u80fd\u6709\u4e9b\u533a\u57df\u5728\u8dd1\u7684\u5730\u65b9\u7684\u5916\u9762\u3002\n\n\u4ee3\u7801\u5982\u4e0b\uff1a\n\n```cpp\n#include <iostream>\n#include <cstdio>\n#include <algorithm>\n#include <cstring>\n#include <vector>\n#define rep(x, l, r) for(int x = l; x <= r; x++)\n#define repd(x, r, l) for(int x = r; x >= l; x--)\n#define clr(x, y) memset(x, y, sizeof(x))\n#define all(x) x.begin(), x.end()\n#define pb push_back\n#define mp make_pair\n#define MAXN\n#define fi first\n#define se second\n#define SZ(x) ((int)x.size())\nusing namespace std;\ntypedef long long ll;\ntypedef vector<int> vi;\ntypedef pair<int, int> pii;\nconst int INF = 1 << 30;\nconst int p = 1000000009;\nint lowbit(int x){ return x & (-x);}\nint fast_power(int a, int b){ int x; for(x = 1; b; b >>= 1){ if(b & 1) x = 1ll * x * a % p; a = 1ll * a * a % p;} return x % p;}\n\nint main(){\n\tint t;\n\tscanf(\"%d\", &t);\n\twhile(t--){\n\t\tint a, b, c, r;\n\t\tscanf(\"%d%d%d%d\", &a, &b, &c, &r);\n\t\tprintf(\"%d\\n\", max(a, b) - min(a, b) - max(0, min(max(a, b), c + r) - max(min(a, b), c - r)));\n\t}\n    return 0;\n}\n```",
+        "postTime": 1578616364,
+        "uid": 149312,
+        "name": "wze\u63cd\u6241\u4e86nm",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1282A \u3010Temporarily unavailable\u3011"
+    }
+]

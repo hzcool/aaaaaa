@@ -1,0 +1,42 @@
+[
+    {
+        "content": "    \u6b64\u9898\u5e94\u7528\u51fd\u6570\u548c\u5224\u65ad\u8bed\u53e5\uff0c\u5e76\u4e0d\u96be\u3002\n    \u4ee3\u7801\u5982\u4e0b\uff1a\n    #include<iostream>\n    #include<cstdio>\n     using namespace std;\n     int max(int a, int b)\n\n    {\n    \n    if (a>b){ return a;}\n    return b;   \n    }\n\n    int main()\n   \n   \n    {int a,b,c,d;\n    scanf(\"%d%d%d%d\",&a,&b,&c,&d);\n    int aa=a*3/10;\n    int bb=a-a/250*c;\n    int cc=b*3/10;\n    int dd=b-b/250*d;\n    if(max(aa,bb)>max(cc,dd))\n    {\n        printf(\"Misha\");\n    }else if(max(aa,bb)<max(cc,dd))\n    {\n        printf(\"Vasya\");\n    }else\n    {\n        printf(\"Tie\");\n    }\n\treturn 0;\n    }",
+        "postTime": 1534750953,
+        "uid": 104963,
+        "name": "Gary88",
+        "ccfLevel": 9,
+        "title": "\u6c99\u53d1"
+    },
+    {
+        "content": "# \u9898\u610f\n\n\u7ed9\u51faa,b,c,d,\u8868\u793aMisha\u8fc7\u4e86c\u5206\u949f\u83b7\u5f97a\u70b9points,Vasya\u8fc7\u4e86d\u5206\u949f\u83b7\u5f97b\u70b9points.\n\n**\u5982\u679c\u4f60\u8fc7\u4e86t\u5206\u949f\u83b7\u5f97p\u70b9points\u5219\u80fd\u5f97\u5230max(3*p/10,p*t/250)\u5206.**\n\n\u8be2\u95eeMisha\u7684\u5206\u6570\u9ad8\u8fd8\u662fVasya\u7684\u5206\u6570\u9ad8\uff0c\u8f93\u51fa\u5206\u6570\u9ad8\u7684\u4eba\u7684\u540d\u5b57\uff0c\u5206\u6570\u76f8\u540c\u8f93\u51fa\"Tie\".\n\n\u6839\u636e\u9898\u610f\u6a21\u62df\u5373\u53ef\n\n# CODE\n```\n#include<bits/stdc++.h>\nusing namespace std;\nstruct node\n{\n\tint m,v;\n}point1,point2,realpoint;//\u5206\u6570\u7684\u7ed3\u6784\u4f53\nint a,b,c,d;\nint main()\n{\n\tcin>>a>>b>>c>>d;\n\tpoint1.m=3*a/10;\n\tpoint2.m=a-a*c/250;//Misha\u7684\u4e24\u4e2a\u5206\u6570\n\tpoint1.v=3*b/10;\n\tpoint2.v=b-b*d/250;//Vasya\u7684\u4e24\u4e2a\u5206\u6570\n\trealpoint.m=max(point1.m,point2.m);\n\trealpoint.v=max(point1.v,point2.v);//\u6839\u636e\u9898\u610f\u6c42\u6700\u7ec8\u5206\u6570\n\tif(realpoint.m>realpoint.v)\n\tcout<<\"Misha\";\n\telse\n\tif(realpoint.m<realpoint.v)\n\tcout<<\"Vasya\";\n\telse\n\tcout<<\"Tie\";//\u76f8\u540c\u8f93\u51faTie\n\treturn 0;\n}\n```",
+        "postTime": 1564901832,
+        "uid": 51231,
+        "name": "Provider",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF501A \u3010Contest\u3011"
+    },
+    {
+        "content": "### \u9898\u610f\uff1a\n\n\u7ed9\u51fa $a,b,c,d$\uff0c\u5df2\u77e5 $f(t,p)=\\max(\\frac{3p}{10},p-\\frac{p}{250}\\times t)$\uff0c\u5224\u65ad $f(c,a)$ \u4e0e $f(d,b)$ \u7684\u5927\u5c0f\u5173\u7cfb\u3002\n\n### \u89e3\u6cd5\uff1a\n\n\u6839\u636e\u9898\u610f\u8ba1\u7b97\u3002\u4e0d\u8fc7\uff0c\u7531\u4e8e\u6d89\u53ca\u5206\u6570\uff0c\u8fd8\u662f\u4f7f\u7528 `double` \u4e3a\u597d\u3002\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n\tdouble a,b,c,d;\n\tcin>>a>>b>>c>>d;\n\tdouble x=max(a*3/10,a-a/250*c);//\u6c42\u51faf(c,a)\u7684\u503c\n\tdouble y=max(b*3/10,b-b/250*d);//\u6c42\u51faf(d,b)\u7684\u503c\n\tif(x>y) cout<<\"Misha\";//\u8f93\u51fa\u7ed3\u679c\n\telse if(x<y) cout<<\"Vasya\";\n\telse cout<<\"Tie\";\n\treturn 0;\n}\n```\n",
+        "postTime": 1636545914,
+        "uid": 392304,
+        "name": "caibyte",
+        "ccfLevel": 0,
+        "title": "CF501A Contest\u9898\u89e3"
+    },
+    {
+        "content": "# \u6982\u8ff0\n|\u9898\u53f7|\u96be\u5ea6|$AC$\u65f6\u95f4\u53ca\u8bb0\u5f55|\n| :----: | :----: | :----: |\n|$\\texttt{CF501A}$|$\\texttt{\u6d1b\u8c37\u96be\u5ea6:\u666e\u53ca/\u63d0\u9ad8-}$|[$\\texttt{On 2021/04/02}$](https://www.luogu.com.cn/record/48852644)|\n# \u89e3\u6790\n\u8fd9\u662f\u4e00\u9053\u7b80\u5355\u9898\u3002\n\n\u9898\u610f\u4e0d\u96be\u7406\u89e3\u3002\n\n\u6211\u4eec\u77e5\u9053\u4e00\u4e2a\u516c\u5f0f\uff0c\u662f\u9898\u76ee\u7ed9\u6211\u4eec\u7684\uff1a\n\n$$\ns=max\\{\\frac{3p}{10},p-\\frac{p}{250}*t\\}\n$$\n\n\u4e5f\u5c31\u662f\u8bf4\uff0c\u6211\u4eec\u8fd9\u8981\u628a $a$\uff0c$b$\uff0c$c$\uff0c$d$ \u56db\u4e2a\u6570\u636e\u5206\u522b\u4ee3\u5165\u516c\u5f0f\u5373\u53ef\u3002\n\n\u6ce8\u610f\u6d6e\u70b9\u6570\u6bd4\u8f83\u5927\u5c0f\u65f6\u8981\u5199\u4e00\u4e2a $EPS$\u3002\n\n\u5c31\u662f\u8bf4\uff0c\u6700\u597d\u4e0d\u8981\u76f4\u63a5\u6bd4\u8f83\u5927\u5c0f\u3002\n\n\u6ce8\u610f\uff0c$a$ \u548c $c$ \u662f\u4e00\u7ec4\u7684\uff0c$b$ \u548c $d$ \u662f\u4e00\u7ec4\u7684\u3002\n# \u4ee3\u7801\n```cpp\n/*\nAuthor:Xsmyy\nProblem:CF501A\nDate:2021/04/02\n*/\n#include<bits/stdc++.h>\n#define BetterIO ios::sync_with_stdio(false)\nusing namespace std;\nint main(void)\n{\n\tBetterIO;\n\t#ifndef ONLINE_JUDGE\n\tfreopen(\"SampleIN.in\",\"r\",stdin);\n\t#else\n\t#endif\n\tregister double A,B,C,D;\n\tcin>>A>>B>>C>>D;\n\tregister double X,Y;\n\tX=max(0.3*A,A-A/250*C);\n\tY=max(0.3*B,B-B/250*D);\n\tif(X-Y>1e-6)cout<<\"Misha\"<<endl;//\u6d6e\u70b9\u6570\u6bd4\u8f83\n\telse if(Y-X>1e-6)cout<<\"Vasya\"<<endl;//\u6d6e\u70b9\u6570\u6bd4\u8f83\n\telse cout<<\"Tie\"<<endl;//\u6d6e\u70b9\u6570\u6bd4\u8f83\n\treturn 0;\n}\n```",
+        "postTime": 1617363141,
+        "uid": 132168,
+        "name": "_Clown_",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF501A\u3010Contest\u3011"
+    },
+    {
+        "content": "- ### [Blog](https://666DHG.github.io/)\n\n\u6b64\u9898\u7eaf\u6a21\u62df,\u6309\u9898\u610f\u5957\u516c\u5f0f\u5373\u53ef\n\n\u4e3a\u4e86\u4fdd\u9669\u8d77\u89c1\uff0c\u6211\u4eec\u5728\u5b58\u4e24\u4e2a\u6700\u7ec8\u5f97\u5206\u65f6\u6700\u597d\u7528\n```double```\n\u4fdd\u7559\u7cbe\u5ea6\uff08\u867d\u7136\u7528\n```int```\n\u4e5f\u80fd\u8fc7\uff09\n\n\u4ee3\u7801\u5982\u4e0b:\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\ndouble a,b,c,d,ans1,ans2;\n\nint main()\n  {\n  \tcin>>a>>b>>c>>d;\n  \tans1=max(3*a/10.00,a-a*c/250.00);\n  \tans2=max(3*b/10.00,b-b*d/250.00);\n  \tif (ans1<ans2) printf(\"Vasya\");\n  \telse if (ans1==ans2) printf(\"Tie\");\n  \telse if (ans1>ans2) printf(\"Misha\");\n  \treturn 0;\n  }\n```",
+        "postTime": 1573537884,
+        "uid": 203806,
+        "name": "666DHG",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF501A \u3010Contest\u3011"
+    }
+]

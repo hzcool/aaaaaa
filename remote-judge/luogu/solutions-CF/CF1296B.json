@@ -1,0 +1,34 @@
+[
+    {
+        "content": "$\\textbf{\u89e3\u9898\u601d\u8def\uff1a}$\u9996\u5148\u6211\u4eec\u770b\u5230\u6bcf\u5f53\u4f60\u82b1 $x$ \u5757\u94b1\u4f60\u5c31\u80fd\u6536\u5230\u4e00\u4e2a $\\dfrac{x}{10}$ \uff08\u5411\u4e0b\u53d6\u6574\uff09\u5757\u94b1\u7684\u4f18\u60e0\u5238\u3002\u600e\u4e48\u7528\u901a\u4fd7\u7684\u8bed\u8a00\u89e3\u91ca\u8fd9\u53e5\u8bdd\u5462\uff1f\u5c31\u662f\u4f60\u82b1 $9$ \u4efd\u94b1\u80fd\u4e70 $10$ \u4efd\u7684\u4e1c\u897f\uff0c\u8fd9\u6837\u5c31\u5f97\u51fa\u4e86\u4e00\u4e2a\u516c\u5f0f $ans = (s / 0.9)$\uff0c\u8fd8\u6709\u4e00\u5904\u8981\u6ce8\u610f\u5c31\u662f\u8981\u5411\u4e0b\u53d6\u6574\uff0c\u4fee\u6539\u5b8c\u516c\u5f0f\u540e\u53d8\u6210 $ans = (int)(s / 0.9)$\n\n**AC code:**\n```cpp\n#include<cstdio>//\u4e3a\u4e86\u8282\u7701\uff0c\u6240\u4ee5\u4e0d\u5f00\u4e07\u80fd\u5934\u6587\u4ef6\nusing namespace std;//\u6807\u51c6\u6570\u636e\u5e93\nint T,s,ans;\nint main()\n{\n    scanf(\"%d\",&T);//\u8f93\u5165T\u7ec4\u6570\u636e\n    while(T--)\n    {\n        scanf(\"%d\",&s);//\u8f93\u5165\u4f60\u6709\u7684\u94b1\u6570\n        ans=(int)(s/0.9);//\u8fd0\u7528\u516c\u5f0f\u6c42\u5f97\u7b54\u6848\n        printf(\"%d\\n\",ans);//\u8f93\u51fa\u7b54\u6848\n    }\n    return 0;\n}\n```",
+        "postTime": 1583123297,
+        "uid": 123808,
+        "name": "\u5e7b\u4e4b\u9668\u68a6",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1296B \u3010Food Buying\u3011"
+    },
+    {
+        "content": "\u5b98\u65b9\u9898\u89e3\u7ed9\u51fa\u7684\u662f $O(t\\log s)$ \u7684\u89e3\u6cd5,\u4f46\u5b9e\u9645\u4e0a\u6211\u4eec\u53ef\u4ee5\u505a\u5230\u5355\u6b21\u67e5\u8be2 $O(1)$ \u7684 $O(t)$ \u505a\u6cd5.\n\n\u540c\u6837\u662f\u8d2a\u5fc3,\u53ef\u4ee5\u770b\u51fa,\u6211\u4eec\u6bcf\u6b21\u82b1\u8d39 $10$ \u663e\u7136\u53ef\u4ee5\u505a\u5230\u82b1\u8d39\u94b1\u6570\u6700\u5927\u5316.\n\n\u6545 $\\mathbf{ans}= \\begin{cases} \\lfloor \\dfrac{s}{9} \\rfloor \\times 10 +s\\bmod 9-1,9|s \\\\ \\lfloor \\dfrac{s}{9} \\rfloor \\times 10 +s\\bmod 9, \\rm Otherwise \\end{cases}$\n\n\u4e3a\u4ec0\u4e48\u5728 $9|s$ \u7684\u65f6\u5019\u9700\u8981\u6700\u540e\u51cf\u53bb\u4e00\u4e2a $1$ \u5462?\u56e0\u4e3a\u6b64\u65f6\u5728\u6700\u540e\u4e00\u6b21\u64cd\u4f5c\u65f6 $s$ \u4ec5\u4f1a\u5269\u4e0b $9$,\u5982\u679c\u4ecd\u7136\u7528 $\\lfloor \\dfrac{s}{9} \\rfloor \\times 10 +s\\bmod 9$ \u7684\u8bdd\u7b54\u6848\u5c31\u4f1a\u591a\u51fa $1$,\u6240\u4ee5\u8981\u5c06\u8fd9\u4e2a $1$ \u51cf\u6389.\n\n\uff08\u7136\u800c\u53ef\u4ee5\u7528 $s+\\lfloor \\dfrac{s-1}{9} \\rfloor$ \u6216 $\\lfloor \\dfrac{10s}{9} \\rfloor$,\u6bd4\u6211\u5199\u7684\u5f3a 100 \u500d...)\n\n\u5e94\u8be5\u6ca1\u6709\u4ec0\u4e48\u7ed9\u4ee3\u7801\u7684\u5fc5\u8981\u4e86\u5427...",
+        "postTime": 1580892733,
+        "uid": 46747,
+        "name": "Aehnuwx",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF1296B \u3010Food Buying\u3011"
+    },
+    {
+        "content": "\n\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint a,n,k;\nint main(){\n\tcin>>n;\n\tint s=0;\n\tfor(int i=1;i<=n;i++){\n\t    cin>>a;\n\t    k=0;\n            //\u6709\u591a\u7ec4\u6570\u636e\uff0c\u6240\u4ee5\u8981\u6e05\u7a7a\n\t    while(a>=10){\n\t\ts=a-(a%10);\n\t\tk+=s;\n\t\ta-=s;\n\t\ta+=s/10;\n        \t//\u770b\u770b\u80fd\u62ff\u5230\u591a\u5c11\u94b1\n\t    }\n\t    cout<<k+a<<endl;\n            //k\u662f\u8d5a\u5230\u7684\u94b1\uff0c\u52a0\u4e0aa\u5c31\u662f\u5f97\u6570\n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1583119650,
+        "uid": 191666,
+        "name": "Cult_style",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1296B \u3010Food Buying\u3011"
+    },
+    {
+        "content": "\u6bcf\u6b21\u8fd4\u8fd8 $10\\%$\uff0c\u5c06 $s$ \u9664 $0.9$ \u7136\u540e\u8f93\u51fa\u5373\u53ef\u3002\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint t,s;\nint main()\n{\n\tscanf(\"%d\",&t);\n\twhile(t--)\n\t{\n\t\tscanf(\"%d\",&s);\n\t\tprintf(\"%d\\n\",(int)(s/0.9));\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1580874880,
+        "uid": 44840,
+        "name": "123456zmy",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1296B \u3010Food Buying\u3011"
+    }
+]

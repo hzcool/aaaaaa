@@ -1,0 +1,82 @@
+[
+    {
+        "content": "## \u9898\u610f\u7b80\u8ff0\n\u7ed9\u51fa\u4e00\u4e2a\u5927\u5c0f\u4e3a $2n$ \u7684\u591a\u91cd\u96c6\uff0c\u95ee\u662f\u5426\u80fd\u5c06\u5176\u5206\u6210 $n$ \u5bf9\u6570\uff0c\u4f7f\u5f97\u6bcf\u5bf9\u6570\u52a0\u8d77\u6765\u90fd\u662f\u5947\u6570\u3002\n## \u89e3\u6cd5\n\u52a0\u8d77\u6765\u662f\u5947\u6570\u4e5f\u5c31\u662f\u8981\u6c42\u4e24\u4e2a\u6570\u4e00\u5947\u4e00\u5076\uff0c\u6211\u4eec\u53ea\u9700\u8981\u7edf\u8ba1\u4e00\u79cd\u6570\u7684\u6570\u91cf\uff08\u4f8b\u5982\u5947\u6570\uff09\uff0c\u7136\u540e\u770b\u5176\u662f\u4e0d\u662f\u7b49\u4e8e $n$ \u5373\u53ef\u3002\n## \u6838\u5fc3\u4ee3\u7801\n```cpp\nint T,n,odd;\nint main(){\n  Read(T);\n  while(T--){\n    Read(n),odd=0;\n    for(rg int i=1,x;i<=n+n;i++){\n      Read(x),odd+=(x&1);\n    }\n    if(odd!=n)puts(\"No\");\n    else puts(\"Yes\");\n  }\n  KafuuChino HotoKokoa\n}\n```",
+        "postTime": 1625367784,
+        "uid": 220524,
+        "name": "_ajthreac_",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF1542A"
+    },
+    {
+        "content": "\u9898\u610f\uff1a\u7ed9\u4f60\u4e00\u4e2a\u96c6\u5408\uff0c\u95ee\u4f60\u662f\u5426\u80fd\u5c06\u8fd9\u4e2a\u96c6\u5408\u5206\u6210\u4e24\u4e24\u4e00\u5bf9\uff0c\u4f7f\u6bcf\u5bf9\u4e24\u4e2a\u6570\u5b57\u4e4b\u548c\u4e3a\u5947\u6570\u3002\u80fd\u5c31\u8f93\u51fa```Yes```\uff0c\u4e0d\u80fd\u5c31\u8f93\u51fa```No```\u3002  \n~~\u8fd9\u662f\u6211\u6628\u5929\u5728\u8003\u573a\u4e0a\u552f\u4e00\u505a\u51fa\u6765\u7684\u9898\u3002~~  \n\u5b66\u8fc7~~\u5c0f\u5b66~~\u6570\u5b66\u7684\u4eba\u90fd\u77e5\u9053\uff0c\u5982\u679c\u4e24\u4e2a\u6570\u76f8\u52a0\uff0c\u53ea\u6709\u4e24\u6570\u4e00\u5947\u4e00\u5076\uff0c\u548c\u624d\u4f1a\u662f\u5947\u6570\uff0c\u800c\u4e14\u81ea\u7136\u6570\u4e2d\u9664\u4e86\u5947\u6570\u5916\u5c31\u662f\u5076\u6570\u3002     \n\u65e2\u7136\u8981\u6c42\u5206\u6210\u4e24\u4e24\u4e00\u5bf9\uff0c\u4f7f\u6bcf\u5bf9\u4e4b\u548c\u4e3a\u5947\u6570\uff0c\u90a3\u4e48\u53ea\u9700\u8981\u5224\u65ad\u5947\u6570\u548c\u5076\u6570\u6570\u91cf\u662f\u5426\u76f8\u7b49\u5373\u53ef\u3002\u53ea\u6709\u8fd9\u6837\uff0c\u624d\u53ef\u4ee5\u4fdd\u8bc1\u6bcf\u4e00\u5bf9\u90fd\u662f\u4e00\u5947\u4e00\u5076\u3002  \n\u6839\u636e\u81ea\u7136\u6570\u4e2d\u9664\u4e86\u5947\u6570\u5916\u5c31\u662f\u5076\u6570\uff0c\u56e0\u6b64\u5076\u6570\u53ef\u4ee5\u901a\u8fc7\u603b\u6570\u51cf\u53bb\u5947\u6570\u7684\u6570\u91cf\u6765\u6c42\u3002\u6240\u4ee5\uff0c\u5982\u679c\u5947\u6570\u548c\u5076\u6570\u4e00\u6837\u7684\u8bdd\uff0c\u90a3\u4e48\u5947\u6570\u7684\u6570\u91cf\u5e94\u8be5\u5360\u603b\u6570\u7684\u4e00\u534a\u3002           \ncode\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint T,n,i,s,a[10001];\nint main(){\n\tscanf(\"%d\",&T);//\u8bfb\u5165\n\twhile (T--){//T\u7ec4\u6570\u636e\n\t\tscanf(\"%d\",&n);\n\t\ts=0;\n\t\tfor (i=1;i<=2*n;i++)//\u957f\u5ea6\u4e3a2n\n        \tscanf(\"%d\",&a[i]),s+=a[i]%2;//\u7edf\u8ba1\u5947\u6570\u7684\u4e2a\u6570\u3002\u5e94\u4e3a\u5947\u6570%2=1\u3002\n\t\tif (s==n)//\u5982\u679c\u5947\u6570\u548c\u5076\u6570\u4e00\u6837\u7684\u8bdd\uff0c\u90a3\u4e48\u5947\u6570\u7684\u6570\u91cf\u5e94\u8be5\u5360\u603b\u6570\u7684\u4e00\u534a\n        printf(\"Yes\\n\");//\u53ef\u4ee5\u5206\n\t\telse\n        printf(\"No\\n\");//\u4e0d\u53ef\u4ee5\u5206\n\t}\n\treturn 0;\n}\n\n```\n",
+        "postTime": 1625400418,
+        "uid": 315398,
+        "name": "\u5c0f\u6768\u5c0f\u5c0f\u6768",
+        "ccfLevel": 5,
+        "title": "CF1542A Odd Set \u9898\u89e3"
+    },
+    {
+        "content": "\u9898\u76ee\u5927\u610f\uff1a\n\n\u73b0\u6709\u4e00\u4e2a\u957f\u5ea6\u4e3a $ 2\\times n $ \u7684\u6570\u7ec4 $ a $\uff0c\u95ee\u80fd\u5426\u5c06\u5176\u4e2d\u7684\u6570\u5b57\u4e24\u4e24\u914d\u5bf9\uff0c\u4f7f\u5f97\u6bcf\u7ec4\u6570\u5b57\u7684\u548c\u4e3a\u5947\u6570\u3002\n\n\u9996\u5148\u6211\u4eec\u8981\u77e5\u9053\u5982\u679c\u4e24\u4e2a\u6570\u7684\u548c\u662f\u5947\u6570\uff0c\u90a3\u4e48\u8fd9\u4e24\u4e2a\u6570\u5b57\u5fc5\u5b9a\u662f\u4e00\u5947\u4e00\u5076\uff0c\u4e5f\u5c31\u662f\u8bf4\u6bcf\u7ec4\u4e2d\u7684\u4e24\u4e2a\u6570\u5b57\u4e00\u4e2a\u662f\u5947\u6570\uff0c\u4e00\u4e2a\u662f\u5076\u6570\u3002\n\n\u6240\u4ee5\u5f53\u4e14\u4ec5\u5f53\u6570\u7ec4\u4e2d\u5947\u6570\u4e2a\u6570\u7b49\u4e8e\u5076\u6570\u4e2a\u6570\u65f6\uff0c\u914d\u5bf9\u6210\u529f\u3002\n\n\u7ec6\u8282\uff1a\n1.  \u6570\u5b57\u4e2a\u6570\u4e3a $ 2\\times n $\uff0c\u5f00\u6570\u7ec4\u7684\u65f6\u5019\u4e0d\u8981\u5f00\u5c0f\u4e86\uff1b\n2.  \u672c\u9898\u591a\u7ec4\u6570\u636e\uff0c\u7edf\u8ba1\u5947\u6570\u4e2a\u6570\u4e0e\u5076\u6570\u4e2a\u6570\u65f6\u8bb0\u5f97\u6e05\u7a7a\u3002\n\nAC \u4ee3\u7801\uff1a\n\n```\n#include<cstdio>\nusing namespace std;\nint num[2];\nint n;\nint main() {\n\tint t;\n\tscanf(\"%d\",&t);\n\twhile(t--) {\n\t\tnum[0]=num[1]=0;\n\t\tscanf(\"%d\",&n);\n\t\tfor(int i=1; i<=2*n; i++) {\n\t\t\tint in;\n\t\t\tscanf(\"%d\",&in);\n\t\t\tnum[in%2]++;\n\t\t}\n\t\tif(num[1]!=num[0])\n\t\t\tprintf(\"No\\n\");\n\t\telse\n\t\t\tprintf(\"Yes\\n\");\n\t}\n}\n```\n\n\u611f\u8c22\u89c2\u770b\uff01",
+        "postTime": 1625368366,
+        "uid": 400201,
+        "name": "Wuyanru",
+        "ccfLevel": 7,
+        "title": "CF1542A Odd Set"
+    },
+    {
+        "content": "### \u4e00\u3001\u9898\u76ee\u7ffb\u8bd1\n\n[\u5728\u8fd9\u91cc\uff01](https://www.luogu.com.cn/paste/uri49gck)\n\n### \u4e8c\u3001\u601d\u8def\n\n\u7ed9\u51fa\u4e00\u5f20\u52a0\u6cd5\u7684\u5947\u5076\u6027\u7684\u8868\u683c\uff1a\n\n|\u7b2c $1$ \u4e2a\u52a0\u6570|\u7b2c $2$ \u4e2a\u52a0\u6570|\u6700\u7ec8\u7ed3\u679c|\n| :----------: | :----------: | :----------: |\n|\u5076\u6570|\u5076\u6570|\u5076\u6570|\n|\u5076\u6570|\u5947\u6570|\u5947\u6570|\n|\u5947\u6570|\u5076\u6570|\u5947\u6570|\n|\u5947\u6570|\u5947\u6570|\u5076\u6570|\n\n\u53ef\u4ee5\u770b\u51fa\uff0c\u4e24\u4e2a\u6570\u5f53\u4e14\u4ec5\u5f53\u4e00\u4e2a\u4e3a\u5076\u6570\u800c\u53e6\u4e00\u4e2a\u4e3a\u5947\u6570\u65f6\uff0c\u548c\u624d\u6709\u53ef\u80fd\u4e3a\u5947\u6570\u3002\n\n\u56e0\u6b64\uff0c\u5982\u679c\u8f93\u5165\u7684\u6570\u4e2d\u7684\u5076\u6570\u6570\u91cf\u4e0e\u5947\u6570\u6570\u91cf\u76f8\u7b49\uff0c\u5219\u53ef\u4ee5\u8f93\u51fa `Yes`\uff0c\u5426\u5219\u8f93\u51fa `No`\u3002\n\n\u7ef4\u62a4\u4e24\u4e2a\u8ba1\u6570\u5668\u5373\u53ef\u3002\n\n### \u4e09\u3001\u5b8c\u6574\u4ee3\u7801\n\n```cpp\n#include<cstdio>\nusing namespace std;\nint case_num;\nint main()\n{\n\tscanf(\"%d\",&case_num);\n\tfor(int case_id=1;case_id<=case_num;case_id++)\n\t{\n\t\tint n;\n\t\tint cnt1=0,cnt2=0;//\u4e24\u4e2a\u8ba1\u6570\u5668\u3002\n\t\tscanf(\"%d\",&n);\n\t\tfor(int i=1;i<=n*2;i++)\n\t\t{\n\t\t\tint x;\n\t\t\tscanf(\"%d\",&x);\n\t\t\tif(x%2==0)\n\t\t\t{\n\t\t\t\tcnt1++;\n\t\t\t}\n\t\t\telse\n\t\t\t{\n\t\t\t\tcnt2++;\n\t\t\t}\n\t\t}\n\t\tif(cnt1==cnt2)//\u5224\u65ad\u3002\n\t\t{\n\t\t\tprintf(\"Yes\\n\");\n\t\t}\n\t\telse\n\t\t{\n\t\t\tprintf(\"No\\n\");\n\t\t}\n\t}\n\treturn 0;//\u5b8c\u7ed3\u6492\u82b1\uff01\n}\n\n```\n\nBy [dengzijun](https://www.luogu.com.cn/user/387836)",
+        "postTime": 1625381536,
+        "uid": 387836,
+        "name": "dengzijun",
+        "ccfLevel": 5,
+        "title": "CF1542A\u9898\u89e3"
+    },
+    {
+        "content": "## $\\text{Description}$\n\n\u7ed9\u5b9a $2n$ \u4e2a\u6574\u6570\uff0c\u82e5\u80fd\u5c06\u5176\u5206\u6210 $n$ \u7ec4\uff0c\u4f7f\u5f97\u6bcf\u7ec4\u5185\u7684\u4e24\u4e2a\u6570\u52a0\u548c\u4e3a\u5947\u6570\uff0c\u5219\u8f93\u51fa `Yes`\uff0c\u53cd\u4e4b\u8f93\u51fa `No`\u3002\u591a\u6d4b\u3002\n\n$1\\le n\\le100$\n\n## $\\text{Solution}$\n\n\u8003\u8651\u5206\u6210\u5947\u6570\u7684\u60c5\u51b5\uff1a\u6bcf\u7ec4\u5185\u5fc5\u7136\u662f\u4e00\u4e2a\u5947\u6570\u548c\u4e00\u4e2a\u5076\u6570\uff0c\u6240\u4ee5\u53ea\u9700\u8981\u8bb0\u5f55\u5947\u6570\u4e2a\u6570\u548c\u5076\u6570\u4e2a\u6570\uff0c\u518d\u5224\u65ad\u76f8\u7b49\u5373\u53ef\u3002\n\n## $\\text{Code}$\n\n```cpp\nvoid solve() {\n  cin >> n ;\n  int num1 = 0,num2 = 0;\n  for (int i = 1,x; i <= n << 1; ++i) cin >> x,num1 += x % 2,num2 += !(x % 2) ;\n  if (num1 == num2) cout << \"Yes\" << endl ;\n  else cout << \"No\" << endl ;\n}\n\n```",
+        "postTime": 1625377724,
+        "uid": 413147,
+        "name": "_Alejandro_",
+        "ccfLevel": 0,
+        "title": "CF1542A\u9898\u89e3"
+    },
+    {
+        "content": "(\u597d\u50cf\u8fd9\u662f\u6211\u505a\u8fc7\u6700\u7b80\u5355\u7684 CF \u9898)\n\n### \u9898\u610f\u63cf\u8ff0\n\n\u6709 $2n$ \u4e2a\u5143\u7d20\uff0c\u73b0\u7528\u8fd9 $2n$ \u4e2a\u5143\u7d20\u6784\u9020 $n$ \u4e2a\u6570\u5bf9\uff0c\u4f7f\u5f97\u6bcf\u4e2a\u6570\u5bf9\u7684\u4e24\u4e2a\u6570\u5b57\u4e4b\u548c\u662f\u5947\u6570\u3002\u6c42\u662f\u5426\u5b58\u5728\u8fd9\u6837\u7684\u6784\u9020\u65b9\u6848\u3002\n\n### \u89e3\u6cd5\n\n\u5bf9\u4e8e\u6bcf\u4e2a\u6570\u5bf9\uff0c\u5982\u679c\u7b26\u5408\u8981\u6c42\uff0c\u5219\u6570\u5bf9\u5fc5\u987b\u7531\u4e00\u4e2a\u5947\u6570\u4e00\u4e2a\u5076\u6570\u7ec4\u6210\u3002\n\n\u6240\u4ee5\u6211\u4eec\u5bf9\u8fd9 $2n$ \u4e2a\u5143\u7d20\u8ba1\u6570\uff0c\u8bb0\u5f55\u4e0b\u5947\u6570\u548c\u5076\u6570\u7684\u6570\u91cf\uff0c\u5f53\u4e8c\u8005\u76f8\u7b49 $= n$\uff0c\u5219\u7b26\u5408\u6761\u4ef6\u3002\n\n### Code\n\n\u8fd9\u4e2a\u9898\u662f\u6211\u62ff\u706b\u8f66\u5934\u7ec3\u624b\u7684\uff0c\u5728\u8fd9\u91cc\u653e\u4e00\u4e2a\u7b80\u6d01\u7684\u4ee3\u7801\uff1a\n\n```cpp\nint main()\n{\n    int t = readInt();\n    while (t--)\n    {\n        int cnt1 = 0, cnt2 = 0;\n        int n = readInt();\n        rep(i, 1, n << 1)\n        {\n            int tmp = readInt();\n            if (tmp & 1)\n                ++cnt1;\n            else\n                ++cnt2;\n        }\n        if (cnt1 == cnt2)\n            printf(\"Yes\\n\");\n        else\n            printf(\"No\\n\");\n    }\n    return 0;\n}\n```\n\n\u5b8c\u6574\u7248\u53c2\u89c1 [https://www.luogu.com.cn/paste/pi5ptj83](https://www.luogu.com.cn/paste/pi5ptj83)",
+        "postTime": 1625364737,
+        "uid": 274993,
+        "name": "Maxmilite",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF1542A Odd Set"
+    },
+    {
+        "content": "### 1 \u9898\u610f\n\n\u8f93\u5165 $t$ \u4ee3\u8868 $t$ \u7ec4\u6570\u636e\u3002\n\n\u5bf9\u4e8e\u6bcf\u4e00\u7ec4\u6570\u636e\uff0c\u8f93\u5165 $n$\uff0c\u518d\u8f93\u5165 $n\\times2$ \u4e2a\u6570\u5b57\u3002\n\n\u95ee\uff0c\u80fd\u5426\u5c06\u5b83\u4eec\u5206\u6210 $n$ \u5bf9\uff0c\u4f7f\u5f97\u6bcf\u4e00\u5bf9\u7684 $2$ \u4e2a\u6570\u5b57\u52a0\u8d77\u6765\u662f\u5947\u6570\u3002\n\n### 2 \u601d\u8def\n\n\u5f88\u7b80\u5355\uff0c\u5982\u679c\u8fd9 $2$ \u4e2a\u6570\u5b57\u4e4b\u548c\u662f\u5947\u6570\uff0c\u8bf4\u660e\u5b83\u4eec\u4e00\u5947\u4e00\u5076\u3002\n\n\u90a3\u4e48\uff0c\u7edf\u8ba1\u5947\u6570\uff08\u8bbe\u4e3a $cnt_1$\uff09\u548c\u5076\u6570\uff08\u8bbe\u4e3a $cnt_0$\uff09\u7684\u4e2a\u6570\u3002\u5982\u679c $cnt_0=cnt_1$\uff0c\u5c31\u8f93\u51fa `Yes`\uff1b\u5426\u5219\u8f93\u51fa `No`\u3002\n\n### 3 \u4ee3\u7801\u4e0e\u8bb0\u5f55\n\n```cpp\n#include<cstdio>\nusing namespace std;\nconst int max_n=100;\nint t;\nint n;\nint a;\nint cnt[2];\nint main(){\n\t#ifndef ONLINE_JUDGE\n\tfreopen(\"CF1542A_1.in\",\"r\",stdin);\n\tfreopen(\"CF1542A_1.out\",\"w\",stdout);\n\t#endif\n\tscanf(\"%d\",&t);\n\tfor(int ca=1;ca<=t;++ca){\n\t\tscanf(\"%d\",&n);\n\t\tcnt[0]=cnt[1]=0;\n\t\tfor(int i=1;i<=2*n;++i){\n\t\t\tscanf(\"%d\",&a);\n\t\t\tif(a%2==0)++cnt[0];\n\t\t\telse ++cnt[1];\n\t\t}\n\t\tif(cnt[0]==cnt[1]){\n\t\t\tprintf(\"Yes\\n\");\n\t\t}\n\t\telse{\n\t\t\tprintf(\"No\\n\");\n\t\t}\n\t}\n\treturn 0;\n}\n```\n\n[\u8bb0\u5f55\u4f20\u9001\u95e8](https://www.luogu.com.cn/record/52361094)\n\nBy **dengziyue**",
+        "postTime": 1625358244,
+        "uid": 387840,
+        "name": "happy_dengziyue",
+        "ccfLevel": 6,
+        "title": "CF1542A\u9898\u89e3"
+    },
+    {
+        "content": "### Description\n\n\u7ed9\u5b9a\u4e00\u4e2a\u6570\u5217 $\\{a_{2n}\\}$\uff0c\u5224\u65ad\u8fd9\u4e2a\u6570\u5217\u662f\u5426\u80fd\u88ab\u5206\u6210 $n$ \u4e2a\u6570\u5bf9 $(x,y)$\uff0c\u4f7f $x+y$ \u4e3a\u5947\u6570\u3002\n\n### Solution\n\n\u8981\u4f7f $x+y$ \u4e3a\u5947\u6570\uff0c\u5219\u5fc5\u5b9a\u662f\u4e00\u5947\u4e00\u5076\u3002\n\n\u6709 $n$ \u5bf9\u4e00\u5947\u4e00\u5076\uff0c\u8bf4\u660e $\\{a_{2n}\\}$ \u4e2d\u5947\u6570\u4e0e\u5076\u6570\u7684\u6570\u91cf\u76f8\u540c\uff0c\u5747\u4e3a $n$\u3002\n\n### Code\n\n```cpp\n#include <bits/stdc++.h>\n\n#define N 210\nusing namespace std;\nint t;\nint n, a[N];\nint o = 0;\ninline int rd();\nvoid Sol(){\n\tn = rd();\n\to = 0; \n\tfor(int i = 0 ; i < 2 * n ; i++){\n\t\ta[i] = rd();\n\t\tif(a[i] % 2 == 0) o++;\n\t}\n\tif(o == n) puts(\"Yes\");\n\telse puts(\"No\");\n\treturn;\n}\nint main(){\n\tt = rd();\n\twhile(t--) Sol();\n\treturn 0;\n}\ninline int rd(){\n\tchar c;\n\tbool flag = 0;\n\twhile((c=getchar()) < '0' || c > '9')\n\t    if(c == '-') flag = 1;\n\tint res = c - '0';\n\twhile((c = getchar()) >= '0' && c <= '9')\n\t    res = (res << 3) + (res << 1) + c - '0';\n\treturn flag ? -res : res;\n}\n```",
+        "postTime": 1625357146,
+        "uid": 224931,
+        "name": "CSP_Sept",
+        "ccfLevel": 6,
+        "title": "The Solution of CF1542A"
+    },
+    {
+        "content": "# Odd Set\n\n\u63d0\u4ea4\u5730\u5740\uff1a[\u6d1b\u8c37 CF1542A](https://www.luogu.com.cn/problem/CF1542A)\uff0c[CodeForces CF1542A](http://codeforces.com/problemset/problem/1542/A)\n\n## \u9898\u76ee\u5927\u610f\n\n\u7ed9\u4f60\u4e00\u4e2a\u6709 $2n$ \u4e2a\u5143\u7d20\u7684\u5143\u7d20\u53ef\u91cd\u590d\u96c6\u5408\uff08\u7c7b\u4f3c\u4e8e C++ \u4e2d\u7684 `std::multiset`\uff09\uff0c\u8ba9\u4f60\u5c06\u5176\u5206\u6210\u4e00\u4e2a $n$ \u4e2a\u6bcf\u4e2a\u6709\u4e24\u4e2a\u5143\u7d20\u7684\u5bf9\u5b50\uff0c\u8981\u6c42\u6bcf\u4e2a\u5bf9\u5b50\u4e2d\u7684\u4e24\u4e2a\u5143\u7d20\u548c\u4e3a\u5947\u6570\n\n## \u5206\u6790\n\n\u5982\u679c\u4e24\u4e2a\u6570\u7684\u548c\u4e3a\u5947\u6570\u7684\u8bdd\uff0c\u90a3\u4e48\u53ea\u80fd\u662f\u4e00\u5947\u4e00\u5076\u3002\n\n\u90a3\u4e48\u53ea\u8981\u4e00\u534a\u5947\u6570\u4e00\u534a\u5076\u6570\u5373\u53ef\u3002\n\n\u90a3\u4e48\u7edf\u8ba1\u5947\u6570\u548c\u5076\u6570\u4e2a\u6570\u5373\u53ef\uff0c\u5f53\u4e2a\u6570\u76f8\u540c\u65f6\u8f93\u51fa `Yes`\uff0c\u53cd\u4e4b\u8f93\u51fa `No`\u3002\n\n## $\\rm\\color{green}code$\n\n```cpp\n#include <cctype>\n#include <cstdio>\nusing namespace std;\ntemplate <typename T = int>\ninline T qread() {\n    T n = 0;\n    bool flag = false;\n    char c = getchar();\n    while (!isdigit(c) && c != '-') c = getchar();\n    if (c == '-') flag = true, c = getchar();\n    while (isdigit(c)) n = (n << 3) + (n << 1) + (c ^ 48), c = getchar();\n    return flag ? -n : n;\n}\nint t, n, k, cnt1, cnt2;\nint main() {\n    t = qread();\n    while (t--) {\n        n = qread() << 1;\n        cnt1 = cnt2 = 0; // \u591a\u6d4b\u6e05\u7a7a\n        while (n--) {\n            k = qread();\n            if (k & 1)\n                cnt1++;\n            else\n                cnt2++;\n        }\n        puts(cnt1 == cnt2 ? \"Yes\" : \"No\");\n    }\n    return 0;\n}\n```",
+        "postTime": 1625356011,
+        "uid": 129562,
+        "name": "XYY1411",
+        "ccfLevel": 6,
+        "title": "\u3010\u9898\u89e3\u3011Odd Set"
+    },
+    {
+        "content": "\u9700\u8981\u7528\u5230\u7684\u6027\u8d28\uff1a**\u4e00\u5947\u4e00\u5076\u548c\u4e3a\u5947**\u3002\u56e0\u6b64\u6211\u4eec\u5c31\u4f1a\u660e\u767d\uff0c\u6bcf\u7ec4\u6570\u4e2d\u90fd\u8981\u6709\u4e00\u4e2a\u5947\u6570\uff0c\u4e00\u4e2a\u5076\u6570\uff0c\u6240\u4ee5\u5f53\u4e14\u4ec5\u5f53\u6709 $n$ \u4e2a\u5947\u6570\uff0c $n$ \u4e2a\u5076\u6570\u7684\u65f6\u5019\uff0c\u624d\u80fd\u6ee1\u8db3\u8981\u6c42\u3002\n# Code\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint T,n,i,a,ji,ou;\nint main(){\n\tcin>>T;\n\twhile(T--){//T\u7ec4\n\t\tcin>>n;\n\t\tn*=2;\n\t\twhile(n--){\n\t\t\tcin>>a;\n\t\t\tif(a%2==1)\n\t\t\t    ji++;//\u5947\u6570\n\t\t\telse\n\t\t\t    ou++;//\u5076\u6570\n\t\t}\n\t\tif(ji==ou){\n\t\t\tcout<<\"Yes\"<<endl;\n\t\t}else{\n\t\t\tcout<<\"No\"<<endl;\n\t\t}\n\t\tji=0;ou=0;//\u6e05\u96f6\n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1625357342,
+        "uid": 275445,
+        "name": "\u6240\u6709\u4eba\u889b\u65f3",
+        "ccfLevel": 4,
+        "title": "CF1542A \u3010Odd Set\u3011"
+    }
+]

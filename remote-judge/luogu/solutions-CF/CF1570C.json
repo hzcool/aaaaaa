@@ -1,0 +1,10 @@
+[
+    {
+        "content": "## [\u539f\u9898\u4f20\u9001\u95e8](https://codeforces.com/problemset/problem/1570/C)\n\n# \u601d\u8def\n\u540c\u4e00\u4e2a\u7f50\u5b50\uff0c\u8d8a\u665a\u6253\u5b83\u5c31\u9700\u8981\u6253\u66f4\u591a\u6b21\uff0c\u800c\u4e14\u8010\u4e45\u5ea6\u9ad8\u7684\u7f50\u5b50\u9700\u6253\u51fb\u7684\u6b21\u6570\u968f\u5df2\u7ecf\u6253\u51fb\u7684\u7f50\u5b50\u6570\u589e\u52a0\u7684\u66f4\u5feb\uff0c\u56e0\u6b64\u6211\u4eec\u53ef\u4ee5\u8d2a\u5fc3\u4e00\u4e0b\uff0c\u6309\u8010\u4e45\u5ea6\u4ece\u9ad8\u5230\u4f4e\u7684\u987a\u5e8f\u6253\u51fb\u7f50\u5b50\uff0c\u8fd9\u6837\u6253\u51fb\u6b21\u6570\u6700\u5c11\u3002\n# Kotlin \u4ee3\u7801\n```\nimport java.util.Scanner\nfun main() {\n    val read = Scanner(System.`in`)\n    var n = read.nextInt()\n    var ans : Int =0\n    var cnt=0\n    var ass = IntArray(1002) //\u6876\u6392\u5e8f\n    var anss = IntArray(1001) //\u6700\u7ec8\u7ed3\u679c\n    for(i in 1..n){\n        ass[i]=read.nextInt()\n    }\n    for(qk in 1..1000){\n        var i=1001-qk\n        for(q in 1..n){\n            if(ass[q]==i){\n                anss[cnt]=q\n                ans+=(ass[q]*cnt+1)\n                cnt++\n            }\n        }\n    }\n    println(ans) //\u81ea\u5e26\u6362\u884c\n    for(i in 0..cnt-1){\n        print(anss[i])\n        print(\" \") //\u6ce8\u610f\u683c\u5f0f\n    }\n}\n```\n",
+        "postTime": 1644989644,
+        "uid": 361373,
+        "name": "Arefa",
+        "ccfLevel": 6,
+        "title": "CF1570C\u9898\u89e3"
+    }
+]

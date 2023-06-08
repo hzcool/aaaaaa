@@ -1,0 +1,50 @@
+[
+    {
+        "content": "\u9898\u76ee\u5927\u610f\uff1a\n\n\u9898\u76ee\u7ffb\u8bd1\u4e2d\u6709\u4e00\u4e9b\u95ee\u9898\uff0c\u7ffb\u8bd1\u4e2d\u7684 $s$ \u4e0e $tot$ \u542b\u4e49\u76f8\u540c\uff0c\u6a21\u6570\u5e94\u8be5\u662f $n+1$ \u800c\u4e0d\u662f $n$\u3002\n\n\u5206\u6790\uff1a\n\n\u56e0\u4e3a\u9898\u76ee\u6570\u636e\u8303\u56f4\u5f88\u5c0f\uff0c\u6240\u4ee5\u8fd9\u662f\u4e00\u9053\u6a21\u62df\u9898\uff0c\u7b97\u51fa\u6570\u5217\u7684\u603b\u548c\uff0c\u518d\u5c06 $i$ \u7b49\u4e8e $1$ \u5230 $5$ \u5206\u522b\u4ee3\u5165\u5f0f\u5b50\u4e2d\uff0c\u5982\u679c\u6ee1\u8db3\u8981\u6c42\uff0c\u7b54\u6848\u52a0\u4e00\u3002\n\n\u4ee3\u7801\u5982\u4e0b\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint ans,cnt,n,x;\nint main()\n{\n\tscanf(\"%d\",&n);\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tscanf(\"%d\",&x);\n\t\tcnt+=x;//cnt\u76f8\u5f53\u4e8e\u9898\u76ee\u4e2d\u7684tot\n\t}\n\tfor(int i=1;i<=5;i++)\n\tif((cnt+i)%(n+1)!=1)//\u9898\u76ee\u4e2d\u7ed9\u51fa\u7684\u5f0f\u5b50\n\tans++;\n\tprintf(\"%d\",ans);\n}\n```\n",
+        "postTime": 1624884653,
+        "uid": 311266,
+        "name": "miraculously",
+        "ccfLevel": 0,
+        "title": "CF272A Dima and Friends"
+    },
+    {
+        "content": "## \u9898\u610f\uff1a\n\n~~\u9898\u76ee\u7684\u7ffb\u8bd1\u786e\u5b9e\u6709\u70b9\u79bb\u8c31\uff08~~\n\n\u5176\u5b9e\u9898\u76ee\u7ffb\u8bd1\u4e2d $\\text{tot}$ \u548c $\\text{s}$ \u662f\u540c\u4e00\u4e2a\u4e1c\u897f\uff0c\u90fd\u662f\u548c\u3002\n\n\u800c\u5f0f\u5b50\u5e94\u5f53\u662f $(tot+i) \\not\\equiv 1 \\pmod {(n+1)}$ \u3002\n\n~~\u7b2c\u4e00\u6b21\u770b\u5230\u8fd8\u4ee5\u4e3a\u662f\u9636\u4e58\uff0c\u5413\u6b7b\u6211\u4e86\uff08~~\n\n## Solution:\n\n\u7531\u4e8e\u9898\u76ee\u6570\u636e\u8303\u56f4\u5f88\u5c0f\uff0c\u6240\u4ee5\u7b97\u51fa\u603b\u548c\u4e4b\u540e\u53ef\u4ee5\u76f4\u63a5\u66b4\u529b\u679a\u4e3e $1$ \u5230 $5$ \u3002\n\n\u4e5f\u6ca1\u4ec0\u4e48\u597d\u8bf4\u7684\uff08\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,s,ans;\nint main(){\n\tios::sync_with_stdio(0);\n\tcin.tie(0);\n\tcout.tie(0);\n\tcin>>n;\n\tfor(int i=1,a;i<=n;i++){\n\t\tcin>>a;\n\t\ts+=a;//\u8ba1\u7b97\u603b\u548c \n\t}\n\tfor(int i=1;i<=5;i++)\n\t\tif((s+i)%(n+1)!=1)//\u5982\u679c\u6ee1\u8db3\u6761\u4ef6 \n\t\t\tans++;//\u7b54\u6848+1\n\tcout<<ans;\n\treturn 0; \n}\n```\n\n## \u603b\u7ed3\uff1a\n\n~~\u7ffb\u8bd1\u51fa\u4e86\u4e2a\u597d\u5927\u7684\u9505\uff0c\u8d76\u5feb\u6539\u4e00\u4e0b\uff08~~\n\n\u8fd9\u9053\u9898\u8fd8\u662f\u6bd4\u8f83\u7b80\u5355\u7684\uff0c\u6a21\u62df\u4e00\u4e0b\u5c31\u80fd\u8fc7\uff08",
+        "postTime": 1638193178,
+        "uid": 475112,
+        "name": "_MarSser020_",
+        "ccfLevel": 7,
+        "title": "CF272A Dima and Friends \u9898\u89e3"
+    },
+    {
+        "content": "### \u9898\u610f\uff1a\n\u7ed9\u4f60\u4e00\u5806\u6570\uff0c\u7b97\u51fa\u4ed6\u4eec\u7684\u548c $s$\u3002\u4e4b\u540e\u5728 $1$ \u5230 $5$ \u4e4b\u95f4\u5224\u65ad\uff0c\u5982\u679c\u6709\u4e00\u4e2a $i$ \u6ee1\u8db3\uff0c\u7b54\u6848\u5c31\u52a0\u4e00\u4e2a\u3002\n### \u601d\u8def\n\u5148\u7528\u4e00\u4e2a\u53d8\u91cf $s$ \u8ba1\u7b97\u6570\u7684\u603b\u548c\uff0c\u56e0\u4e3a $5$ \u5b9e\u5728\u592a\u5c0f\u4e86\uff0c\u53ef\u4ee5\u76f4\u63a5\u6a21\u62df\u51fa\u8fd9 $5$ \u79cd\u60c5\u51b5\uff0c\u5982\u679c\u6ee1\u8db3\u9898\u4e2d\u6240\u7ed9\u516c\u5f0f\uff0c$ans++$\u3002  \n## Code:\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint s,ans,n,x;\nint main()\n{\n\tcin>>n;\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tcin>>x;\n\t\ts+=x;                   //\u6c42\u51fa\u6240\u6709\u6570\u7684\u603b\u548c\n\t}\n\tfor(int i=1;i<=5;i++)\n\t{\n\t\tif((s+i)%(n+1)!=1)      //\u6309\u9898\u4e2d\u7684\u516c\u5f0f\u5224\u65ad\n\t\t{\n\t\t\tans++;          //\u5982\u679c\u7b26\u5408\u5c31ans++\n\t\t} \n\t}\n\tcout<<ans;                  \n}\n\n```\n\n",
+        "postTime": 1633487327,
+        "uid": 552710,
+        "name": "lichenfan",
+        "ccfLevel": 0,
+        "title": "CF272A"
+    },
+    {
+        "content": "### \u601d\u8def\uff1a\n\u7b97\u51fa\u6570\u5217\u7684\u603b\u548c\uff0c\u518d\u5c06 $i=1\\sim5$ \u5206\u522b\u4ee3\u5165\u5f0f\u5b50\u4e2d\uff0c\u5982\u679c\u6ee1\u8db3\u6761\u4ef6\uff0c\u8ba1\u6570\u5668\u52a0\u4e00\u3002\n### code:\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint ans,s,n,x;\nint main(){\n\tcin>>n;\n\tfor(int i=1;i<=n;i++){\n\t\tscanf(\"%d\",&x);\n\t\ts+=x;\n\t}\n\tfor(int i=1;i<=5;i++)\n\t\tif((s+i)%(n+1)!=1)\n\t\t\tans++;\n\tcout<<ans<<endl;\n\treturn 0;\n}\n\n```",
+        "postTime": 1658135179,
+        "uid": 310466,
+        "name": "Glad",
+        "ccfLevel": 4,
+        "title": "CF272A"
+    },
+    {
+        "content": "[\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/CF272A)\n\n\u9898\u76ee\u5927\u610f\n\n\u9898\u76ee\u7ffb\u8bd1\u4e2d\u6709\u4e00\u4e9b\u95ee\u9898\uff0c\u53ef\u4ee5\u53bb\u770b[CF](https://codeforces.com/problemset/problem/272/A)\u91cc\u7684\u3002\n\n\u89e3\u9898\u601d\u8def\n\n\u56e0\u4e3a\u9898\u76ee\u6570\u636e\u8303\u56f4\u5f88\u5c0f\uff0c\u6240\u4ee5\u5148\u7b97\u51fa\u6570\u5217\u7684\u603b\u548c\uff0c\u518d\u4ece $1$ \n\u5230 $5$ \u628a $i$ \u5e26\u5165\u5f0f\u5b50\u4e2d\uff0c\u5982\u679c\u6ee1\u8db3\u8981\u6c42, \u7b54\u6848\u52a0\u4e00\u3002\n\n\u4ee3\u7801\u5982\u4e0b\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nlong long read(){\n\tlong long x=0,sgn=1;char ch=getchar();\n\twhile(ch<'0'||ch>'9'){if(ch=='-')sgn=-1;ch=getchar();}\n\twhile(ch>='0'&&ch<='9'){x=(x<<3)+(x<<1)+(ch&15);ch=getchar();}\n\treturn x*sgn;\n}//\u5feb\u8bfb \nlong long n,m,ans,num;\nint main(){\n\tn=read();\n\tfor(int i=1;i<=n;i++){m=read();num+=m;}//\u8f93\u5165+\u6c42\u548c \n\tfor(int i=1;i<=5;i++)if((num+i)%(n+1)!=1)ans++;//\u5957\u516c\u5f0f+\u7edf\u8ba1 \n\tcout<<ans;//\u8f93\u51fa \n\treturn 0;#include<bits/stdc++.h>\nusing namespace std;\nlong long read(){\n\tlong long x=0,sgn=1;char ch=getchar();\n\twhile(ch<'0'||ch>'9'){if(ch=='-')sgn=-1;ch=getchar();}\n\twhile(ch>='0'&&ch<='9'){x=(x<<3)+(x<<1)+(ch&15);ch=getchar();}\n\treturn x*sgn;\n}//\u5feb\u8bfb \nlong long n,m,ans,num;\nint main(){\n\tn=read();\n\tfor(int i=1;i<=n;i++){m=read();num+=m;}//\u8f93\u5165+\u6c42\u548c \n\tfor(int i=1;i<=5;i++)if((num+i)%(n+1)!=1)ans++;//\u5957\u516c\u5f0f+\u7edf\u8ba1 \n\tcout<<ans;//\u8f93\u51fa \n\treturn 0;\n}\n}\n```\n\n",
+        "postTime": 1656142819,
+        "uid": 567444,
+        "name": "WZX110404",
+        "ccfLevel": 0,
+        "title": "CF272A Dima and Friends \u9898\u89e3"
+    },
+    {
+        "content": "\u9898\u610f\n--\n\u56e0\u4e3a $i$ \u53ea\u4ece $1$ \u53d6\u5230 $5$ ,\u53ef\u4ee5\u901a\u8fc7\u6a21\u62df $i$ \u5f97\u51fa\u7ed3\u679c\u3002\u81f3\u4e8e\u603b\u548c\uff0c\u518d\u8f93\u5165\u65f6\u7d2f\u52a0\u5c31\u53ef\u4ee5\u3002\n\n\u4ee3\u7801\n--\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n    int n,k,sum=0,p;\n    cin>>n;\n    for(int i=0;i<n;i++)\n    {\n        cin>>k;                      //k\u662f\u8f93\u5165\u5143\u7d20\n        p+=k;                        //p\u8bb0\u5f55\u603b\u548c\n    }\n    for(int i=1;i<=5;i++)\n    {\n        if((p+i)%(i+1)==1)sum++;     //sum\u8bb0\u5f55\u53ef\u4ee5\u8fbe\u6210\u7684\u65b9\u6848\u6570\n    }\n    cout<<sum<<endl;                 //\u8f93\u5165\n    return 0;\n}\n\n```\n",
+        "postTime": 1655103777,
+        "uid": 487956,
+        "name": "luogu_shabi_IAKIOI",
+        "ccfLevel": 0,
+        "title": "CF272A Dima and Friends"
+    }
+]

@@ -1,0 +1,50 @@
+[
+    {
+        "content": "## \u9898\u89e3 CF888A Local Extrema\n\n\u8fd9\u9053\u9898\u76ee\u8c8c\u4f3c\u6bd4\u8f83\u7b80\u5355\u3002\u53ea\u8981\u5f53\u524d\u8fd9\u4e2a\u6570\u5927\u4e8e\u524d\u9762\u7684\u6570\u5e76\u4e14\u5927\u4e8e\u540e\u9762\u7684\u6570\u6216\u8005\u5f53\u524d\u8fd9\u4e2a\u6570\u5c0f\u4e8e\u524d\u9762\u7684\u6570\u5e76\u4e14\u5c0f\u4e8e\u540e\u9762\u7684\u6570\uff0c\u90a3\u4e48\uff0c\u5c31\u591a\u4e86\u4e00\u4e2a\u5c40\u90e8\u6781\u503c\u3002\n\ncode:\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,ans,a[1005]; \ninline int read(){\n\tint ret=0,f=1;char ch=getchar();\n\twhile(!isdigit(ch)){if(ch=='-')f=-f;ch=getchar();}\n\twhile(isdigit(ch))ret=ret*10+ch-'0',ch=getchar();\n\treturn ret*f;\n}\t\nint main(){\n\tn=read();\n\tfor(int i=1;i<=n;i++)a[i]=read();\n\tfor(int i=2;i<n;i++)if((a[i]>a[i-1]&&a[i]>a[i+1])||(a[i]<a[i-1]&&a[i]<a[i+1]))ans++;\n\tprintf(\"%d\\n\",ans);\n\treturn 0;\n}\n```\n",
+        "postTime": 1597572582,
+        "uid": 370354,
+        "name": "yxy666",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF888A \u3010Local Extrema\u3011"
+    },
+    {
+        "content": "### \u9898\u610f\uff1a\n \n\u8f93\u5165 $n$ \u4e2a\u6570\uff0c\u6c42\u5176\u4e2d\u6709\u591a\u5c11\u4e2a\u6570 $a_i$ \u6ee1\u8db3\uff1a\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/5k1truha.png?x-oss-process=image/resize,m_lfit,h_170,w_225)\n\n\u5373\uff1a\n\n```cpp\na[i]>a[i-1]&&a[i]>a[i+1] || a[i]<a[i-1]&&a[i]<a[i+1]\n```\n\n**\u4ee5\u4e0a\u5c31\u662f\u6838\u5fc3\u5224\u65ad\u4ee3\u7801\uff0c\u5982\u679c\u6ee1\u8db3\u8ba1\u6570\u5668\u5c31\u52a0\u4e00\uff0c\u6700\u540e\u8f93\u51fa\u7b54\u6848\u3002**\n\n\n------\n\n### Code:\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint n;\nint a[1005];\nint ans = 0;\nint main() {\n\tcin>>n;  \n\tfor(int i=1; i<=n; i++) cin>>a[i]; //\u8f93\u5165 \n\tfor(int i=2; i<=n-1; i++) {\n\t\tif((a[i]>a[i-1]&&a[i]>a[i+1])||(a[i]<a[i-1]&&a[i]<a[i+1])) { //\u6309\u7167\u9898\u76ee\u4e2d\u7684\u6761\u4ef6\u8fdb\u884c\u5224\u65ad \n\t\t\tans++; //\u5982\u679c\u6709\u7b26\u5408\u7684\uff0c\u8ba1\u6570\u5668\u5c31\u52a0\u4e00 \n\t\t}\n\t}\n\tcout<<ans; //\u8f93\u51fa\u7b54\u6848 \n\treturn 0;\n}\n```\n\n\n\n\n",
+        "postTime": 1597293487,
+        "uid": 351320,
+        "name": "RBI_GL",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF888A \u3010Local Extrema\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u770b\u4e86LOCAL Extreme \u7684\u5b9a\u4e49\u548c\u6570\u636e\u8303\u56f4\u540e\u53d1\u73b0\u53ef\u4ee5\u76f4\u63a5\u6a21\u62df\u3002\n\n\u4e0b\u9762\u662f\u4ee3\u7801\uff1a\n\n```c\n#include<bits/stdc++.h>\n\nusing namespace std;\n\nint main()\n{\n\tint n;\n\tscanf(\"%d\", &n);\n\tint a[n];\n\tfor(int i=0; i<n; i++)\n\t{\n\t\tscanf(\"%d\", &a[i]);\n\t}\n\tint ans=0;\n\tfor(int i=1; i<n-1; i++)\n\t{\n\t\tif(a[i]>a[i-1]&&a[i]>a[i+1])\n\t\t{\n\t\t\tans++;\n\t\t}\n\t\tif(a[i]<a[i-1]&&a[i]<a[i+1])\n\t\t{\n\t\t\tans++;\n\t\t}\n\t}\n\tprintf(\"%d\", ans);\n\treturn 0;\n}\n```\n",
+        "postTime": 1562764900,
+        "uid": 120885,
+        "name": "\u5f00\u5fc3\u7684\u732a",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF888A \u3010Local Extrema\u3011"
+    },
+    {
+        "content": "\u8fd9\u9898\u5f88\u7b80\u5355\uff0c\u76f4\u63a5\u8ddf\u7740\u9898\u610f\u6a21\u62df\u53bb\u505a\u5c31\u597d\u4e86\n\n\u4e0b\u9762\u732e\u4e0a\u4ee3\u7801\uff1a\n~~~\n#include <iostream>\nusing namespace std;\nint main()\n{\n    int n,a[1010],ans=0;\n    cin>>n;\n    for(int i=1;i<=n;i++) cin>>a[i]; //\u8f93\u5165\n    for(int i=2;i<=n-1;i++) //\u6ce8\u610f\u8981\u4ece\u7b2c\u4e8c\u4e2a\u6570\u5230\u7b2cn-1\u4e2a\u6570\uff0c\u5426\u5219\u4f1a\u6570\u7ec4\u8d8a\u754c\n        if((a[i]>a[i-1]&&a[i]>a[i+1])||(a[i]<a[i-1]&&a[i]<a[i+1]))\n            ans++;  //\u5f53\u6ee1\u8db3\u6761\u4ef6\u65f6\uff0c\u5c31\u5c06\u4e2a\u6570\u52a0\u4e00\n    cout<<ans<<endl; //\u8f93\u51fa\n    return 0; //\u7ed3\u675f\u7a0b\u5e8f\n}\n~~~",
+        "postTime": 1522930863,
+        "uid": 39848,
+        "name": "\u9648\u6d0b\u741b",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF888A \u3010Local Extrema\u3011"
+    },
+    {
+        "content": "# \u76f4\u63a5\u4e00\u4e2a\u7b80\u5355\u7684\u6a21\u62df\u5c31\u597d\u4e86\uff0c\u770b\u4ee3\u7801\uff1a\n## \u4e00\u4e2afor\u5faa\u73af\u5c31\u597d\u4e86\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint tot,n;\nint a[1005];\nint main(){\n\tscanf(\"%d\",&n);\n\tfor(int i=1;i<=n;i++)\n\tscanf(\"%d\",&a[i]);//\u8f93\u5165\n\tfor(int i=2;i<n;i++)\n\tif((a[i]<a[i-1]&&a[i]<a[i+1])||(a[i]>a[i-1]&&a[i]>a[i+1]))\n\ttot++;//\u6bcf\u5f53\u6ee1\u8db3\u6761\u4ef6\u5c31\u8ba9\u65b9\u6848\u6570\u52a0\u4e00\n\tprintf(\"%d\",tot);//\u8f93\u51fa\n    return 0;//\u5b8c\u7f8e\u6536\u5c3e\n} \n```",
+        "postTime": 1522569805,
+        "uid": 60871,
+        "name": "\u6811\u4e0b",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF888A \u3010Local Extrema\u3011"
+    },
+    {
+        "content": "[\u66f4\u597d\u7684\u9605\u8bfb\u4f53\u9a8c](https://xiaohuang888.github.io/2019/08/18/%E3%80%8E%E9%A2%98%E8%A7%A3%E3%80%8FCodeforces888A%20Local%20Extrema)\n\n### Solution\n\n\u9898\u76ee\u600e\u4e48\u8bf4\u6211\u4eec\u600e\u4e48\u505a\u5c31\u53ef\u4ee5\u4e86\uff0c\u5faa\u73af\u76f4\u63a5\u4ece$2 \\to n - 1$\u8fdb\u884c\u679a\u4e3e\u3002\n\n### Code\n\n```cpp\n#include<iostream>\n#include<algorithm>\n#include<cstdio>\n#include<cstring>\n#include<cmath>\n\nusing namespace std;\n\nconst int MAXN = 1005;\nint n, a[MAXN];\nint main() {\n    scanf(\"%d\", &n);\n    for (int i = 1; i <= n; i++)\n        scanf(\"%d\", &a[i]);\n    int ans = 0;\n    for (int i = 2; i < n; i++)\n        if (a[i] > a[i - 1] && a[i] > a[i + 1] || a[i] < a[i - 1] && a[i] < a[i + 1]) ans++;//\u6309\u9898\u76ee\u6a21\u62df\n    printf(\"%d\\n\", ans);\n    return 0;\n}\n```",
+        "postTime": 1566138684,
+        "uid": 19729,
+        "name": "xiaohuang",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF888A \u3010Local Extrema\u3011"
+    }
+]

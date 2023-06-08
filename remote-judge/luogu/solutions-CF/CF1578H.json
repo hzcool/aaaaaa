@@ -1,0 +1,10 @@
+[
+    {
+        "content": "## \u9898\u610f\n\n[\u94fe\u63a5](https://codeforces.ml/problemset/problem/1578/H)\n\n\u5b9a\u4e49\u5b57\u7b26\u4e32 `S` \u6743\u503c\u4e3a `ord(S)` \u3002\n\n\u8ba1\u7b97\u65b9\u5f0f\u4e3a:\n\n1. $ord(\"()\")=0$\n\n2. $ord(\"(\"+S+\")\")=ord(S)$\n\n3. $ord(S+\"->\"+T)=\\max(ord(S)+1,ord(T))$\n\n\u8f93\u5165\u4e00\u4e2a\u5b57\u7b26\u4e32\uff0c\u6c42\u5b83\u7684\u6743\u503c\u3002\n\n## \u89e3\u6cd5\n\n```c++\n1\tint ord(int l,int r){\n2\t\tif(l+1==r)re 0;\n3\t\tint cur=0;\n4\t\tfor(int i=l;i<=r;i++){\n5\t\t\tif(s[i]=='(')cur++;\n6\t\t\tif(s[i]==')')cur--;\n7\t\t\tif(cur==0&&s[i]=='-'){\n8\t\t\t\treturn max(ord(l,i-1)+1,ord(i+2,r));\n9\t\t\t}\n10\t\t}\n11\t\treturn ord(l+1,r-1);\n12\t}\n```\n\n\u9012\u5f52\u5373\u53ef\uff0c `ord(l,r)` \u8868\u793a\u8f93\u5165\u5b57\u7b26\u4e32\u4ece `l` \u5230 `r` \u7684\u5b50\u4e32\u3002\n\n\u7b2c 2 \u884c\u5904\u7406\u7b2c 1 \u79cd\uff1b\n\n\u7b2c 3-10 \u884c\u5904\u7406\u7b2c 2 \u79cd\uff0c\n`cur` \u786e\u4fdd `->` \u5de6\u53f3\u5b57\u7b26\u4e32\u90fd\u6709\u5b9a\u4e49\uff0c\u5373 `(` \u548c `)` \u51fa\u73b0\u6b21\u6570\u4e00\u6837\uff1b\n\n\u7b2c 11 \u884c\u5904\u7406\u7b2c 3 \u79cd\u3002",
+        "postTime": 1636030830,
+        "uid": 483879,
+        "name": "hyman00",
+        "ccfLevel": 0,
+        "title": "CF1578H\u9898\u89e3"
+    }
+]

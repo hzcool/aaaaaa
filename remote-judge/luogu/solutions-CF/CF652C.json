@@ -1,0 +1,26 @@
+[
+    {
+        "content": "\u8d2a\u5fc3\u3002\u5bf9\u4e8e\u6bcf\u4e00\u5bf9\u6570:\n\u5148\u8ba9a[i]<b[i]\n\n\u518d\u8ba9r[b[i]]=max(r[b[i]],a[i]+1) //\u5728\u5b83\u524d\u9762\u7684\u9760\u5b83\u6700\u8fd1\u7684\u4e0d\u80fd\u8d8a\u8fc7\u7684\u4e0b\u6807\u3002\n\n\u6700\u540e\u7d2f\u52a0r[i]-a[i]+1\u5373\u53ef\u3002\n\n```cpp\nusing namespace std;\nint p[300005],r[300005];\nint main(){\n\tint i,j,n,m,x,y;\n\tll rt=0;\n\tscanf(\"%d%d\",&n,&m);\n\tfor(i=1;i<=n;++i) scanf(\"%d\",&x),p[x]=i;\n\tfor(i=1;i<=m;++i){\n\t\tscanf(\"%d%d\",&x,&y);\n\t\tx=p[x],y=p[y];\n\t\tif(x>y) swap(x,y);\n\t\tr[y]=max(r[y],x+1);\n\t}\n\tx=1;\n\tfor(i=1;i<=n;++i){\n\t\tx=max(x,r[i]);\n\t\trt+=i-x+1;\n\t}\n\tprintf(\"%I64d\\n\",rt);\n\treturn 0;\n}\n```",
+        "postTime": 1558274858,
+        "uid": 125964,
+        "name": "\u4e16\u672bOIer",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF652C \u3010Foe Pairs\u3011"
+    },
+    {
+        "content": "\u611f\u89c9\u6211\u505a\u7684\u6bd4\u8f83\u9ebb\u70e6\u3002\n\n\u601d\u8def\u662f\u5bb9\u65a5\uff0c\u56e0\u4e3a\u7edf\u8ba1\u4e0d\u5408\u6cd5\u7684\u533a\u95f4\u662f\u5bb9\u6613\u7684\uff0c\u56e0\u4e3a\u53ea\u8981\u7edf\u8ba1\u533a\u95f4\u5de6\u53f3\u7aef\u70b9\u5305\u542b\u4e24\u6b21\u51fa\u73b0\u4f4d\u7f6e\u7684\u60c5\u51b5\u3002\n\n\u6211\u4eec\u7edf\u8ba1\u51fa\u6bcf\u4e2a\u6570\u5bf9\u7b2c\u4e00\u6b21\u51fa\u73b0\u548c\u7b2c\u4e8c\u6b21\u51fa\u73b0\u7684\u4f4d\u7f6e\uff0c\u8bb0\u4e3a\u5de6\u7aef\u70b9\u548c\u53f3\u7aef\u70b9\u3002\n\n\u7136\u540e\u8003\u8651\u6bcf\u4e00\u4e2a\u70b9\u4f5c\u4e3a\u533a\u95f4\u5de6\u7aef\u70b9\uff0c\u6709\u591a\u5c11\u4e2a\u533a\u95f4\u53f3\u7aef\u70b9\u662f\u4e0d\u5408\u6cd5\u7684\u3002\u8fd9\u91cc\u7684\u7aef\u70b9\u4e0d\u662f\u4e0a\u8ff0\u7684\u7aef\u70b9\u8981\u6ce8\u610f\u3002\n\n\u9996\u5148\u6211\u4eec\u53ef\u4ee5\u901a\u8fc7\u5de6\u7aef\u70b9\u6392\u5e8f+\u53cc\u6307\u9488\u53ef\u4ee5\u5f97\u5230**\u53ef\u80fd\u88ab\u5305\u542b**\u7684\u4e00\u6bb5\u540e\u7f00\uff0c\u663e\u7136\u6211\u4eec\u53ea\u8981\u627e\u5230\u8fd9\u4e2a\u540e\u7f00\u6700\u5c0f\u7684\u53f3\u7aef\u70b9\u540e\uff0c\u53f3\u7aef\u70b9\u53f3\u8fb9\u7684\u70b9\u90fd\u662f\u4e0d\u5408\u6cd5\u7684\u53f3\u7aef\u70b9\u3002\n\n\u6700\u540e\u7528\u603b\u533a\u95f4\u6570\u91cf $\\dfrac{n(n+1)}{2}$ \u51cf\u53bb\u4e0d\u5408\u6cd5\u7684\u6570\u91cf\u5373\u53ef\u3002\n\n\u590d\u6742\u5ea6 $O(n\\log n)$\uff0c\u74f6\u9888\u5728\u6392\u5e8f\u3002\n\n```cpp\nconst int MAXN(3e5+10);\n\nint n,m;\nint pos[MAXN];\n\nstruct node\n{\n\tint l,r;\n};\nnode a[MAXN];\n\ninline bool cmp(node x,node y)\n{\n\treturn x.l<y.l;\n}\n\nint minn[MAXN];\nll ans;\n\nint main()\n{\n    n=read(),m=read();\n    rep(i,1,n) pos[read()]=i;\n    rep(i,1,m)\n    {\n    \tint x=read(),y=read();\n    \ta[i].l=pos[x],a[i].r=pos[y];\n    \tif(a[i].l>a[i].r) Swap(a[i].l,a[i].r);\n    }\n    sort(a+1,a+1+m,cmp);\n    minn[m+1]=INF;\n    rev(i,m,1) minn[i]=Min(minn[i+1],a[i].r);\n    int tot(1);\n    rep(i,1,n)\n    {\n    \twhile(a[tot].l<i&&tot<=m) ++tot;\n    \tif(tot==m+1) break;\n    \tans=ans+n-minn[tot]+1;\n    }\n    printf(\"%lld\\n\",1ll*n*(n+1)/2-ans);\n    return 0;\n}\n```",
+        "postTime": 1672716872,
+        "uid": 360511,
+        "name": "UperFicial",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3\u3010Foe Pairs\u3011"
+    },
+    {
+        "content": "### \u89e3\u9898\u601d\u8def\uff1a\n\n\u9996\u5148\u5b8c\u6210\u4e00\u4e2a\u5168\u6392\u5217\u7684\u6620\u5c04\uff0c\u5c06\u5168\u6392\u5217\u8f6c\u5316\u4e3a\u4e00\u4e2a\u4ece $1$ \u5f00\u59cb\u7684\u516c\u5dee\u4e3a $1$ \u7684\u7b49\u5dee\u6570\u5217\u3002\n\n\u7136\u540e\u7528\u5c3a\u53d6\u6cd5\u505a\uff0c\u7ea6\u675f\u6761\u4ef6\u653e\u5230\u5927\u7684\u90a3\u4e00\u4e2a\u90a3\u8fb9\u5b58\u4e0b\u6765\uff0c\u6bcf\u4e00\u6b21\u5c06\u5de6\u6307\u9488\u79fb\u52a8\u5230\u6700\u5de6\u8fb9\u6ee1\u8db3\u6761\u4ef6\u7684\u5730\u65b9\uff0c\u4f46\u6b64\u65f6\u4e00\u4e2a\u70b9\u53ef\u80fd\u6709\u591a\u4e2a\u7ea6\u675f\u6761\u4ef6\uff0c\u4e0d\u597d\u5904\u7406\u3002\n\n\u8fd9\u65f6\u53d1\u73b0\u6709\u5728\u6620\u5c04\u540e\uff0c\u4e00\u4e9b\u7ea6\u675f\u6761\u4ef6\u662f\u4e25\u683c\u6ca1\u7528\u7684\uff0c\u4e5f\u5c31\u662f\u5f53\u7ea6\u675f\u6761\u4ef6\u7684\u524d\u4e00\u4e2a\u5c0f\u4e8e\u53e6\u4e00\u4e2a\u7684\u524d\u4e00\u4e2a\u3002\u90a3\u4e48\u540e\u4e00\u4e2a\u9650\u5236\u6ee1\u8db3\u65f6\u524d\u4e00\u4e2a\u9650\u5236\u4e00\u5b9a\u6ee1\u8db3\uff0c\u4f46\u524d\u4e00\u4e2a\u9650\u5236\u6ee1\u8db3\u65f6\u540e\u4e00\u4e2a\u9650\u5236\u5e76\u4e0d\u4e00\u5b9a\u6ee1\u8db3\uff0c\u8fd9\u4e5f\u5c31\u662f\u6620\u5c04\u7684\u610f\u4e49\u6240\u5728\u3002\n\n---\n### \u4ee3\u7801\uff1a\n\n```cpp\n#include<cstdio>\n#include<algorithm>\nusing namespace std;\nint n,m,p[300005],po[300005],x,y,l,r;\nlong long ans;\nint main(){\n\tscanf(\"%d%d\",&n,&m);\n\tfor(int i=1;i<=n;i++){\n\t\tscanf(\"%d\",&x);\n\t\tpo[x]=i;\n\t}\n\tfor(int i=1;i<=m;i++){\n\t\tscanf(\"%d%d\",&x,&y);\n\t\tp[max(po[x],po[y])]=max(p[max(po[x],po[y])],min(po[x],po[y]));\n\t}\n\tl=1;\n\twhile(r<n){\n\t\tr++;\n\t\tl=max(l,p[r]+1);\n\t\tans+=(long long)(r-l+1);\n\t}\n\tprintf(\"%I64d\",ans);\n\treturn 0;\n}\n```\n",
+        "postTime": 1636337250,
+        "uid": 223559,
+        "name": "qxp101",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF652C Foe Pairs"
+    }
+]

@@ -1,0 +1,50 @@
+[
+    {
+        "content": "\u6628\u5929\u665a\u4e0a\u7684\u7b2c\u4e00\u9053\u9898\uff0c\u5f88\u6c34\u3002\n\n\u4e0d\u7528dfs\u4e4b\u7c7b\u7684\u7b97\u6cd5\u3002\u5bf9\u4e8e\u6bcf\u7ec4\u6570\u636e\uff0c\u90fd\u80fd$O(1)$\u89e3\u5f00\u3002\n\n### \u601d\u8def\uff1a\n\n\u8981\u60f3\u8ba9\u7528\u7684\u706f\u5c3d\u91cf\u7684\u5c11\uff0c\u5c31\u9700\u8981\u8ba9\u6bcf\u4e2a\u683c\u5b50\u88ab\u91cd\u590d\u7167\u5c04\u7684\u6b21\u6570\u5c11\uff0c\u6700\u597d\u4e3a1\u3002\n\n**\u4e24\u79cd\u7167\u5c04\u65b9\u6cd5\uff1a**\n\n$a$\uff1a\u6bcf\u4e00\u884c\u4e2d\uff0c\u6bcf\u9694\u4e24\u4e2a\u683c\u7684\u8fb9\u754c\u4e0a\u653e\u4e00\u4e2a\u706f\u7b3c\uff0c\u8fd9\u6837\u5c31\u80fd\u4fdd\u8bc1\u76ee\u524d\u6ca1\u6709\u88ab\u91cd\u590d\u7167\u5c04\u7684\u683c\u5b50\uff0c\u5171\u9700$(m/2)*n$\u4e2a\u706f\u7b3c\u3002\u5982\u679c\u6700\u53f3\u8fb9\u8fd8\u5269\u4e0b\u4e00\u5217\uff0c\u90a3\u5c31\u8fd8\u9700\u8981$ceil(m*1.0/2)$\u4e2a\u706f\u7b3c\uff08\u4e24\u4e2a\u683c\u5b50\u9700\u8981\u4e00\u4e2a\u706f\u7b3c\uff09\n\n$b$ \u540c\u7406\uff08\u53ef\u4ee5\u4e0d\u770b\uff09\uff1a\n\n\u6bcf\u4e00\u5217\u4e2d\uff0c\u6bcf\u9694\u4e24\u4e2a\u683c\u7684\u8fb9\u754c\u4e0a\u653e\u4e00\u4e2a\u706f\u7b3c\uff0c\u8fd9\u6837\u5c31\u80fd\u4fdd\u8bc1\u76ee\u524d\u6ca1\u6709\u88ab\u91cd\u590d\u7167\u5c04\u7684\u683c\u5b50\uff0c\u5171\u9700$(m/2)*n$\u4e2a\u706f\u7b3c\u3002\u5982\u679c\u6700\u4e0b\u8fb9\u8fd8\u5269\u4e0b\u4e00\u884c\uff0c\u90a3\u5c31\u8fd8\u9700\u8981$ceil(n*1.0/2)$\u4e2a\u706f\u7b3c\uff08\u4e24\u4e2a\u683c\u5b50\u9700\u8981\u4e00\u4e2a\u706f\u7b3c\uff09\n\n**\u6700\u4f18\u89e3\uff1a**  $min(a,b)$\n\n\u4ee3\u7801\u5982\u4e0b\uff1a\n\n```cpp\n#include<cstdio>\n#include<algorithm>\nusing namespace std;\nint t;\nint main(){\n\tscanf(\"%d\",&t);//t\u7ec4\u6570\u636e\n\tfor(int i=1;i<=t;i++)\n\t{\n\t\tint n,m;\n\t\tscanf(\"%d%d\",&n,&m);//\u8f93\u5165\u884c\u3001\u5217\u6570\n\t\tint ans1=0,ans2=0;//\u4e24\u79cd\u65b9\u6cd5\u9700\u8981\u7684\u706f\u7b3c\n\t\tans2+=((n/2)*m);\n\t\tif(n%2==1)//\u8fd8\u5269\u4e00\u884c\n\t\t{\n\t\t\tans2+=m/2;\n\t\t\tif(m%2==1) ans2++;\n\t\t}\n\t\tans1+=((m/2)*n);\n\t\tif(m%2==1)//\u8fd8\u5269\u4e00\u5217\n\t\t{\n\t\t\tans1+=n/2;\n\t\t\tif(n%2==1) ans1++;\n\t\t}\n\t\tprintf(\"%d\\n\",min(ans1,ans2));//\u8f93\u51fa\u6700\u4f18\u89e3\n\t}\n\treturn 0;//\u7ed3\u675f\u7a0b\u5e8f\n} \n```\n\n\u81ea\u5df1AC\u5427~",
+        "postTime": 1590549396,
+        "uid": 192778,
+        "name": "k3v1n070828",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1358A \u3010Park Lighting\u3011"
+    },
+    {
+        "content": "\u4e00\u9053\u7ed3\u8bba\u7b80\u5355\u8fc7\u7a0b\u4e5f\u7b80\u5355\u7684\u6570\u5b66\u9898\u3002\n\n\u5982\u679c $ n \\times m$ \u662f\u5076\u6570\uff0c\n\n\u56e0\u4e3a\u4e00\u76cf\u706f\u53ef\u4ee5\u7167\u4eae\u4e24\u4e2a\u683c\u5b50\uff0c\u6240\u4ee5\u9700\u8981\u7684\u706f\u6570\u5c31\u662f $ n \\times m \\div 2$ \u3002\n\n\u5982\u679c\u662f\u5947\u6570\u5462\uff1f\u90a3 $ n \\times m -1$ \u80af\u5b9a\u662f\u5076\u6570\u3002\n\n\u6240\u4ee5 $(n \\times m -1) $ \u4e2a\u683c\u5b50\uff0c\u9700\u8981 $(n \\times m -1)\\div 2 $ \u76cf\u706f\uff0c\n\n\u6700\u540e\u4e00\u4e2a\u683c\u5b50\u7528\u4e00\u76cf\u706f\u5c31\u53ef\u4ee5\u4e86\u3002\n \n\u6240\u4ee5 $ n \\times m$ \u662f\u5947\u6570\u7684\u516c\u5f0f\u5c31\u662f $(n \\times m -1)\\div 2 $\u3002\n\n\u53ef\u4ee5\u5199\u51fa O\uff081\uff09\u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n\tint t,n,m;\n\tcin>>t;\n\tfor(int i=1;i<=t;i++)\n\t{\n\t\tcin>>n>>m;\n\t\tif(n*m%2==0) cout<<n*m/2<<endl;\n\t\telse cout<<n*m/2+1<<endl;;\n\t} \n\treturn 0;\n}\n\n```\n\n",
+        "postTime": 1590894076,
+        "uid": 232516,
+        "name": "harqwq",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF1358A \u3010Park Lighting\u3011"
+    },
+    {
+        "content": "\u76f4\u63a5\u7ed9\u4e00\u70b9\u7ed3\u8bba\u7684\u8bc1\u660e\u5427\n\n\u6211\u4eec\u5e0c\u671b\u706f\u6ce1\u7684\u6570\u91cf\u5c3d\u91cf\u5c11\uff0c\u5219\u5c31\u9700\u8981\u8ba9\u706f\u6ce1\u7684\u4f4d\u7f6e\u4e0d\u91cd\u590d\uff0c\u56e0\u4e3a\u706f\u6ce1\u7684\u8303\u56f4\u4e3a\u4e24\u683c\uff0c\u6240\u4ee5\u5982\u679c\u957f\u5bbd\u4e2d\u6709\u4e00\u4e2a\u5076\u6570\u7684\u8bdd\uff0c\u6211\u4eec\u5c31\u53ef\u4ee5\u76f4\u63a5\u6309\u957f\u5bbd\u4e2d\u957f\u5ea6\u4e3a\u5076\u6570\u7684\u8fb9\u4ee4\u4e00\u8fb9\u7684\u65b9\u5411\u6446\u706f\u6ce1\uff0c\u5177\u4f53\u5982\u56fe\uff1a  \n![](http://m.qpic.cn/psc?/V12WWmqX1GuqHd/m*TTJoI3x9iCCJx4ECa9pL8TmfQEsjJxeB4HJmoVXdcQGO7B2O0bFa61u0ZHg19zPWZPr8YCcXru29WhPAnEug!!/mnull&bo=zwGOAgAAAAADB2A!&rf=photolist&t=5)  \n\u5176\u4e2d\u7684\u591a\u8fb9\u5f62\u4e3a\u706f\u6ce1\uff0c\u66f4\u5927\u7684\u56fe\u5f62\u4e5f\u662f\u7531\u8fd9\u4e2a\u57fa\u672c\u578b\u7ec4\u6210\u7684\n\n\u7136\u540e\u5982\u679c\u957f\u5bbd\u90fd\u4e3a\u5947\u6570\u600e\u4e48\u529e\u5462\uff1f\u6211\u4eec\u5c31\u53ef\u4ee5\u628a\u957f\uff08\u6216\u5bbd\uff09\u5206\u6210$2n+1$\u4efd\uff0c\u524d\u9762$2n$\u6309\u5076\u6570\u65b9\u6cd5\u6446\uff0c\u5269\u4e0b\u7684\u4e00\u884c\uff08\u6216\u4e00\u5217\uff09\uff0c\u4e5f\u6309\u8fd9\u79cd\u65b9\u6cd5\u5206\u6210$2m+1$,\u524d$2m$\u4e2a\u76f4\u63a5\u4e24\u8fb9\u76f4\u63a5\u653e\u706f\u6ce1\uff0c\u6700\u540e\u4e00\u4e2a\u968f\u4fbf\u653e\u5728\u4e00\u4e2a\u8fb9\u4e0a\u5c31\u597d\u4e86\uff0c\u8fd8\u662f\u653e\u4e0a\u56fe\u7247\u4e00\u5f20\u3002\n\n![](http://m.qpic.cn/psc?/V12WWmqX1GuqHd/m*TTJoI3x9iCCJx4ECa9pJXg6QkCgDvpYvPK*rY5AjDSIFrFKeBIcTz9C6BRy1FQEyOhfQwO*YPQs2dsOutvGg!!/mnull&bo=zwUaBAAAAAADB*Y!&rf=photolist&t=5)  \n(\u53ef\u80fd\u6709\u70b9\u4e0d\u6e05\u6670\uff0c\u5c06\u5c31\u7740\u770b\u5427)\n\n\u6240\u4ee5\u603b\u7ed3\u4e00\u4e0b\uff0c\u56e0\u4e3a\u4e00\u4e2a\u706f\u6ce1\u7684\u7ba1\u8f96\u9762\u79ef\u4e3a2\uff0c\u6240\u4ee5\u5176\u5b9e\u7b2c\u4e00\u79cd\u60c5\u51b5\u5c31\u662f$\\dfrac{n\\times m}{2}$,\u7b2c\u4e8c\u79cd\u60c5\u51b5\u6709\u4e00\u4e2a\u662f\u591a\u51fa\u6765\u7684\uff0c\u6240\u4ee5\u7b54\u6848\u4e3a$\\lfloor\\dfrac{n\\times m}{2}\\rfloor+1$\u3002  \n(\u5176\u5b9e\u6700\u540e\u603b\u7ed3\u8d77\u6765\u5c31\u662f$\\lceil\\dfrac{n\\times m}{2}\\rceil$)\n\n$\\color{red}Talk\\;is\\;cheap,show\\; your\\; code$\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n    int T;\n    scanf(\"%d\",&T);\n    for(int i=1;i<=T;i++)//\u591a\u6d4b\n    {\n        int n,m;\n        scanf(\"%d %d\",&n,&m);\n        if(n*m&1)printf(\"%lld\\n\",((1ll*n*m)>>1)+1);//\u4e0d\u80fd\u6574\u9664\u90e8\u5206\uff0c\u5c0f\u5fc3\u4e0d\u5f00ll\u5bb3\u6b7b\u4eba\n        else printf(\"%lld\\n\",(1ll*n*m)>>1);//\u80fd\u6574\u9664\u90e8\u5206\n    }\n}\n```",
+        "postTime": 1590657497,
+        "uid": 294736,
+        "name": "bovine__kebi",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 CF1358A \u3010Park Lighting\u3011"
+    },
+    {
+        "content": "# CF1358A Park Lighting\n\n## \u89e3\u6cd5\uff1a\n\u5148\u4e0a\u7ed3\u8bba\u5427\uff0c\u7b54\u6848\u662f $\\large{\\lceil \\frac{n \\cdot m}{2} \\rceil}$\u3002\n\n\u8bc1\u660e\u4e5f\u5f88\u7b80\u5355\uff0c\u5148\u628a\u6bcf\u4e00\u5217\u90fd\u5c3d\u91cf\u586b\u6ee1\uff0c\u7136\u540e\u5982\u679c\u6709\u5269\u4e0b\u7684\u4e00\u5217\u5c31\u586b\u6ee1\u3002\n\n\u4e0b\u9762\u662fCode:\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\ntypedef long long ll;\ntypedef unsigned long long ull;\nconst ll maxn = 1e5 + 5;\nconst ll maxm = 1e3 + 5;\ninline void qread(){}\ntemplate<class T1, class ...T2>\ninline void qread(T1 &IEE, T2&... ls){\n\tregister T1 __ = 0, ___ = 1;\n\tregister char ch;\n\twhile(!isdigit(ch = getchar())) ___ = (ch == '-') ? -___ : ___;\n\tdo{\n\t\t__ = (__ << 1) + (__ << 3) + (ch ^ 48);\n\t}while(isdigit(ch = getchar()));\n\t__ *= ___;\n\tIEE = __;\n\tqread(ls...);\n\treturn ;\n}\nll n, m;\nint main(){\n\tll t;\n\tqread(t);\n\twhile(t--){\n\t\tqread(n, m);\n\t\tcout << (n * m + 1) / 2 << endl;\n\t}\n\treturn 0;\n}\n```\n\u4e0a\u8ff0\u7b97\u6cd5\u5355\u6b21\u590d\u6742\u5ea6\u4e3a $O(1)$\uff0c\u7b97\u4e0a\u591a\u6d4b\u4e3a $O(t)$\uff0c\u53ef\u4ee5\u901a\u8fc7\u6b64\u9898\u3002",
+        "postTime": 1590554378,
+        "uid": 177999,
+        "name": "juicyyou",
+        "ccfLevel": 9,
+        "title": "CF1358A Park Lighting"
+    },
+    {
+        "content": "### \u7b97\u6cd5\u5206\u6790\n\u672c\u9898\u53ea\u9700\u8981\u6ce8\u610f\u5230\u4e00\u4e2a\u89c4\u5f8b\uff1a\u5982\u679c$n * m$\u4e3a\u5947\u6570\uff0c\u90a3\u4e48\u7b54\u6848\u662f$\\frac{n * m + 1}{2}$\uff1b\u5426\u5219\u7b54\u6848\u4f1a\u662f$\\frac{n * m}{2}$\u3002\n\n### C++\u4ee3\u7801\n```cpp\n#include <iostream>\n\nusing namespace std;\n\nint main() {\n\tint t;\n\tcin >> t;\n\t\n\twhile (t--) {\n\t\tint n, m;\n\t\tcin >> n >> m;\n\t\tif (n * m & 1) cout << (n * m + 1) / 2 << '\\n';\n\t\telse cout << (n * m) / 2 << '\\n';\n\t}\n\t\n\treturn 0;\n}\n```\n",
+        "postTime": 1590549831,
+        "uid": 28397,
+        "name": "\u5bd2\u70df\u51b7\u6d45\u66ae\u6b87",
+        "ccfLevel": 0,
+        "title": "CF1358A Park Lighting"
+    },
+    {
+        "content": "\u5bf9\u4e8e\u516c\u56ed\u7684\u9762\u79ef\uff0c\u5982\u679c\u53ef\u4ee5\u88ab $2$ \u6574\u9664\uff0c\u8f93\u51fa $\\frac{xy}{2}$ \u5373\u53ef\uff0c\u5982\u679c\u4e0d\u53ef\u4ee5\u88ab $2$ \u6574\u9664\uff0c\u8f93\u51fa $\\frac{xy}{2}+1$ \u5373\u53ef\uff08\u5373\u9700\u8981\u7528\u989d\u5916\u7684\u4e00\u76cf\u7167\u4eae\u6700\u540e\u4e00\u4e2a\u7a7a\u4f59\u7684\u7f51\u683c\uff09\u3002\n\n```\n#include <iostream>\nusing namespace std;\nint main(){\n\tint t;\n\tcin>>t;\n\twhile(t--){\n\t\tint n,m;\n\t\tcin>>n>>m;\n\t\tif(n*m%2){\n\t\t\tcout<<n*m/2+1<<endl;\n\t\t}else{\n\t\t\tcout<<n*m/2<<endl;\n\t\t}\n\t}\n}\n\n```\n",
+        "postTime": 1590545660,
+        "uid": 294745,
+        "name": "Sora1336",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1358A \u3010Park Lighting\u3011"
+    }
+]

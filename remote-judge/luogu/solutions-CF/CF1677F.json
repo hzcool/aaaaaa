@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u53c8\u662f\u6211\u6bdb\u4e0d\u4f1a\u7684\u6570\u6570\u9898\u3002\n\n---\n\n\u5355\u72ec\u8003\u8651\u6bcf\u4e2a\u4f4d\u7f6e\u7684\u8d21\u732e\uff0c\u5bb9\u6613\u8f6c\u5316\u4e3a\u7b54\u6848\u5c31\u662f \n\n$$\\sum\\limits_{i=1}^ncoef_i\\sum\\limits_{j=0}^{a_{i}}p^j j^k$$\n\n$$coef_i=\\sum\\limits_{l=1}^i\\sum\\limits_{r=i}^n\\sum\\limits_{j=l}^r\\prod_{t\\in[l,r],t\\neq i}(a_t+[t\\neq j])$$\n\n\u6c42 $coef_i$ \u53ef\u4ee5\u53d1\u73b0 $i$ \u5de6\u4fa7\u548c\u53f3\u4fa7\u72ec\u7acb\uff0c\u6240\u4ee5\u53ef\u4ee5 dp\uff0c\u6700\u540e\u4e24\u8fb9\u5408\u5e76\u4e00\u4e0b\u5373\u53ef\u3002\n\n\u8bbe $m=a_i$\uff0c\u4ee4 $f(k)=\\sum_{i=0}^mp^i i^k$\u3002\n\n\u5219 $\\sum_{i=0}^mp^{i+1} (i+1)^k=f(k)+p^{m+1}(m+1)^k-0^k$\n\n\u5de6\u8fb9\u5c55\u5f00\u7136\u540e\u79fb\u9879\u53ef\u5f97\uff1a\n\n$$\\left(p\\sum_{j=0}^kf(j)\\binom{k}{j}\\right)-f(k)=p^{m+1}(m+1)^k-0^k$$\n\n\u8bbe $F(x)=\\sum_{i} f(i)\\frac{x^i}{i!}$\uff0c$G(x)=\\sum_{i} p\\frac{x^i}{i!}-1=p\\mathrm{e}^x-1$\n\n\u90a3\u4e48\u5c31\u53d8\u6210\u4e86\uff1a\n\n$$F(x)=\\frac{1}{G(x)}\\left(\\left(\\sum\\limits_{t}p^{m+1}(m+1)^t\\frac{x^t}{t!}\\right)-1\\right)$$\n\n$$\\begin{aligned}f(k)=k![x^k]F(x)&=k!\\left(-[x^k]\\frac{1}{G(x)}+\\sum\\limits_{j=0}^k[x^{k-j}]\\frac{1}{G(x)}\\times \\left(\\frac{p^{m+1}(m+1)^j}{j!}\\right)\\right) \\\\\n&=k!\\left(-[x^k]\\frac{1}{G(x)}+p^{m+1}\\sum\\limits_{j=0}^k[x^{k-j}]\\frac{(m+1)^j}{G(x)j!}\\right) \\end{aligned}$$\n\n\u53f3\u8fb9\u53ef\u4ee5\u770b\u6210\u5173\u4e8e $(m+1)$ \u7684 $k$ \u6b21\u591a\u9879\u5f0f\uff0c\u6240\u4ee5\u591a\u9879\u5f0f\u591a\u70b9\u6c42\u503c\u5373\u53ef\u3002\n\n\u65f6\u95f4\u590d\u6742\u5ea6\u662f $\\mathcal{O}(k\\log k+n\\log^2n)$\u3002\n\n[**code**](https://codeforces.com/contest/1677/submission/156568533)",
+        "postTime": 1652344729,
+        "uid": 100285,
+        "name": "Froggy",
+        "ccfLevel": 10,
+        "title": "\u9898\u89e3 CF1677F\u3010Tokitsukaze and Gems\u3011"
+    }
+]

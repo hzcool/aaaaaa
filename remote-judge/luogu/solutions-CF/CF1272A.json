@@ -1,0 +1,34 @@
+[
+    {
+        "content": "[CF1272A Three Friends](https://www.luogu.com.cn/problem/CF1272A)\n\n---\n\n\u7ed9\u4e00\u4e2a\u7b80\u5355\u7684$O(1)$\u601d\u8def\u3002\n\n\u5148\u5bf9$3$\u4e2a\u6570\u6392\u5e8f\u3002\u5047\u8bbe$a\\leq b\\leq c$\uff1a\n\n1. \u82e5$c-a\\leq 2$\uff0c\u90a3$3$\u4e2a\u4eba\u6700\u540e\u80af\u5b9a\u80fd\u8d70\u5230\u540c\u4e00\u4f4d\u7f6e\uff0c\u7b54\u6848\u4e3a$0$\uff1b\n2. \u5426\u5219$c$\u5411\u5de6\u8d70\uff0c$a$\u5411\u53f3\u8d70\u3002\u56e0\u4e3a$b$\u5728$a,c$\u4e2d\u95f4\uff0c\u7b54\u6848\u4e3a$((c+1)-(a-1))+((c+1)-b)+(b-(a-1))=((c-1)-(a+1))\\times 2$\n\n\u4ee3\u7801\u90e8\u5206\uff1a\n```cpp\ninline int read()\n{\n    char c=getchar();int x=0;bool f=0;\n    for(;!isdigit(c);c=getchar())f^=!(c^45);\n    for(;isdigit(c);c=getchar())x=(x<<1)+(x<<3)+(c^48);\n    if(f)x=-x;return x;\n}\nvoid work()\n{\n\tint a=read(),b=read(),c=read();\n\tif(a>b)swap(a,b);if(a>c)swap(a,c);if(b>c)swap(b,c);//\u6392\u5e8f\n\tif(c-a<=2)puts(\"0\");\n\telse printf(\"%d\\n\",((c-1)-(a+1))*2);\n}\n```",
+        "postTime": 1576410876,
+        "uid": 151935,
+        "name": "Rainbow_qwq",
+        "ccfLevel": 0,
+        "title": "CF1272A \u3010Three Friends\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u7ed9\u51fa\u4e86\u4e09\u4e2a\u6570 $a, b, c$\uff0c\u6bcf\u4e2a\u6570\u53ef\u4ee5\u52a0\u4e0a $1$ \u6216\u51cf\u53bb $1$\uff0c\u95ee $|a - b| + |a - c| + |b - c|$ \u7684\u6700\u5c0f\u503c\u3002\n\n\u8fd9\u91cc\u7ed9\u51fa\u4e00\u79cd\u8f83\u4e3a\u66b4\u529b\u7684\u65b9\u6cd5\u3002\u5bf9\u4e8e\u6bcf\u4e2a\u4eba\u5206\u522b\u679a\u4e3e\u52a0 $1$\uff0c\u51cf $1$\uff0c\u548c\u4e0d\u52a0\u4e5f\u4e0d\u51cf\u7684\u60c5\u51b5\uff0c\u7136\u540e\u66f4\u65b0\u7b54\u6848\u3002\n\n\u7531\u4e8e\u603b\u5171\u53ea\u6709 $27$ \u79cd\u60c5\u51b5\uff0c\u6240\u6709\u5e76\u4e0d\u4f1a\u8d85\u65f6\u3002\n\n\u8981\u8bb0\u5f97\u5728\u66f4\u65b0\u7b54\u6848\u540e\u8981\u628a\u6bcf\u4e2a\u6570\u8fd8\u539f\uff0c\u4ee5\u514d\u51fa\u73b0\u9519\u8bef\u3002\n\n\u5728\u4ee3\u7801\u4e2d\u7684\u6392\u5e8f\u662f\u4e0d\u5fc5\u8981\u7684\uff0c\u56e0\u4e3a\u505a\u8fd9\u9053\u9898\u7684\u65f6\u5019\u6ca1\u6709\u7761\u9192\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include <iostream>\n#include <cstdio>\n#include <algorithm>\n#include <cmath>\n\nconst int dx[] = {1, -1, 0};\n\nint a[5];\nint q;\n\nlong long dis(int a, int b, int c)\n{\n    return abs(b - a) + abs(c - a) + abs(c - b);\n}\n\nint main()\n{\n    std::cin >> q;\n    while (q--)\n    {\n        long long ans = 0x7f7f7f7f;\n        std::cin >> a[1] >> a[2] >> a[3];\n        std::sort(a + 1, a + 4);\n        for (int i = 0; i < 3; ++i)\n        {\n            a[1] += dx[i];\n            for (int j = 0; j < 3; ++j)\n            {\n                a[2] += dx[j];\n                for (int k = 0; k < 3; ++k)\n                {\n                    a[3] += dx[k];\n                    ans = std::min(ans, dis(a[1], a[2], a[3]));\n                    a[3] -= dx[k];\n                }\n                a[2] -= dx[j];\n            }\n            a[1] -= dx[i];\n        }\n        std::cout << ans << std::endl;\n    }   \n    return 0;\n}\n```",
+        "postTime": 1576193543,
+        "uid": 124152,
+        "name": "AmamiyaYuuko",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1272A \u3010Three Friends\u3011"
+    },
+    {
+        "content": "\u611f\u89c9\u7ffb\u8bd1\u6ca1\u6709\u8bf4\u660e\u767d\u554a \u660e\u660e\u53ef\u4ee5\u4e0d\u8d70\u7684\u3002\n\n\u663e\u7136\u53ef\u4ee5\u901a\u4fd7\u6613\u61c2\u66b4\u529b\u505a\uff0c\u56e0\u4e3a\u6bcf\u4e2a\u4eba\u90fd\u6709\u4e09\u79cd\u53ef\u80fd\u7684\u60c5\u51b5\uff0c\u6240\u4ee5\u603b\u590d\u6742\u5ea6\u4e3a $O(q \\times 3^3)$ \u4e0d\u4f1a\u8d85\u65f6\u3002\n\n### \u4ee3\u7801\n\n```cpp\n\n#include<bits/stdc++.h>\nusing namespace std;\n#define ll long long\nll ans,a,b,c,q;//ans\u5b58\u50a8\u5f53\u524d\u8ddd\u79bb\u7684\u6700\u5c0f\u503c\uff0ca\u3001b\u3001c\u5982\u9898\u610f\uff0c\u5f00long long\u9632\u7206 \nint main(){\n\tscanf(\"%d\",&q);//\u8bfb\u5165\u6570\u636e\u7ec4\u6570\n   \twhile(q--){\n    \tans=3000000000;//\u5148\u8d4b\u4e00\u4e2a\u5927\u7684\u521d\u503c\n   \t\tscanf(\"%d%d%d\",&a,&b,&c);\n        \tfor(ll i=a-1;i<=a+1;i++)\n            \tfor(ll j=b-1;j<=b+1;j++)\n                    for(ll k=c-1;k<=c+1;k++)\n                        ans=min(ans,abs(i-j)+abs(i-k)+abs(j-k));//\u76f4\u63a5\u66b4\u529b\u679a\u4e3e\u6c42\u6700\u5c0f\u503c \n        printf(\"%d\\n\",ans);\n    }\n}\n\n```\n",
+        "postTime": 1576392890,
+        "uid": 136601,
+        "name": "\u3000\u3000\u3000\u543e\u7687",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF1272A \u3010Three Friends\u3011"
+    },
+    {
+        "content": "~~\u4e00\u9053\u6c34\u9898~~\n\n\u8fd9\u9053\u9898\u6211\u7528\u4e86\u4e00\u4e2a\u6570\u7ec4\u6765\u5b58,\u4e3b\u8981\u662f\u56e0\u4e3a\u6392\u5e8f\u65b9\u4fbf\n\n\u4e00\u5171\u5206\u56db\u7c7b:\n\n1. $a[1]=a[2]=a[3]$\n\n\u76f4\u63a5\u8f93\u51fa0\u5373\u53ef\n\n2. $a[1]=a[2]<a[3]$\n\n\u6b64\u65f6$a[1]$\u548c$a[2]$\u5411\u53f3\u8d70,$a[3]$\u5411\u5de6\u8d70\n\n\u7b54\u6848\u662f$a[3]-a[2]-2+a[3]-a[1]-2$\n\n3. $a[1]<a[2]=a[3]$\n\n\u6b64\u65f6$a[2]$\u548c$a[3]$\u5411\u5de6\u8d70,$a[1]$\u5411\u53f3\u8d70\n\n\u7b54\u6848\u662f$a[2]-a[1]-2+a[3]-a[1]-2$\n\n4. $a[1]<a[2]<a[3]$\n\n\u6b64\u65f6$a[1]$\u5411\u53f3\u8d70,$a[3]$\u5411\u5de6\u8d70\n\n\u7b54\u6848\u662f$a[3]-a[2]-1+a[2]-a[1]-1+a[3]-a[1]-2$\n\n\u6ce8\u610f$2,3,4$\u8fd9\u4e09\u79cd\u60c5\u51b5\u6709\u53ef\u80fd\u7b54\u6848$<0$,\u8981\u4e0e$0$\u53d6$max$\n\n\u4e0a\u4ee3\u7801\n\n```\n#include<iostream>\n#include<algorithm>\nusing namespace std;\nint main()\n{\n\tint q,a[4];\n\tcin>>q;\n\twhile(q--)\n\t{\n\t\tcin>>a[1]>>a[2]>>a[3];\n\t\tsort(a+1,a+4);//\u6392\u5e8f\n\t\tif(a[1]==a[2])\n\t\t{\n\t\t\tif(a[2]==a[3])//\u7b2c\u4e00\u79cd\n\t\t\t\tcout<<0<<endl;//\u8f93\u51fa0\n\t\t\telse//\u7b2c\u4e8c\u79cd\n\t\t\t\tcout<<max(a[3]-a[2]-2+a[3]-a[1]-2,0)<<endl;//\u53d6max\n\t\t}\n\t\telse if(a[2]==a[3])//\u7b2c\u4e09\u79cd\n\t\t\tcout<<max(a[2]-a[1]-2+a[3]-a[1]-2,0)<<endl;//\u53d6max\n\t\telse//\u7b2c\u56db\u79cd\n\t\t\tcout<<max(a[3]-a[2]-1+a[2]-a[1]-1+a[3]-a[1]-2,0)<<endl;//\u53d6max\n\t}\n\treturn 0;//\u7ed3\u675f\n}\n```\n# \u8bf7\u52ff\u6284\u88ad",
+        "postTime": 1576339604,
+        "uid": 54922,
+        "name": "codemap",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1272A \u3010Three Friends\u3011"
+    }
+]

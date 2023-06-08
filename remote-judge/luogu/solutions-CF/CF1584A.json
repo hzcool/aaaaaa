@@ -1,0 +1,66 @@
+[
+    {
+        "content": "[\u9898\u76ee\u94fe\u63a5](https://www.luogu.com.cn/problem/CF1584A)\u3002\n\n\u9898\u610f\u5c31\u4e0d\u518d\u8d58\u8ff0\u4e86\uff0c\u8fd9\u91cc\u76f4\u63a5\u4e0a\u601d\u8def\u3002\n\n### \u601d\u8def\n\n\u5148\u770b\u4e0b\u6570\u636e\u8303\u56f4\uff0c\u8fd9\u9898\u80af\u5b9a\u4e0d\u80fd\u679a\u4e3e\uff0c\u8fd9\u4e48\u5927\u7684\u6570\u636e\u8303\u56f4\u4e00\u822c\u5c31\u548c\u6570\u5b66\u6709\u5173\u7cfb\u3002\u6240\u4ee5\u6211\u4eec\u8981\u5bf9\u8fd9\u4e2a\u5f0f\u5b50\u8fdb\u884c\u5316\u7b80\u3002\n\n\u56e0\u4e3a\u592a\u7b80\u5355\u4e86\uff0c\u5c31\u4e0d\u653e\u8fc7\u7a0b\u4e86\uff0c\u6700\u540e\u53ef\u4ee5\u5316\u7b80\u51fa\u6765\u8fd9\u4e2a\u73a9\u610f\n\n$$- \\frac{x}{y}=\\frac{u^2}{v^2}$$   \n\n\n\u6240\u4ee5\u5f88\u5bb9\u6613\u77e5\u9053\uff0c\u5176\u4e2d\u4e00\u7ec4\u5408\u6cd5\u7684\u89e3\u4e3a $x=u^2 ,y=v^2$ \u6700\u540e\u53ea\u9700\u8ba9 $x,y$ \u4e2d\u7684\u4e00\u4e2a\u4e3a\u8d1f\u503c\u5c31\u597d\u3002\n\n\u6ce8\u610f\u5f00 `long long`\u3002\n\n### code\n\n```cpp\n#include<bits/stdc++.h>\n#define I using\n#define her std\n#define very_much ;\n#define ll long long\n#define Love namespace\n#define INF 0x7fffffff\nI Love her very_much\nnamespace love\n{\n//-----------------------------------\n\tvoid swp(int &x,int &y)\n\t{\n\t    if(x==y) return;\n\t    x^=y^=x^=y;\n\t}\n//-----------------------------------\n\tll kmod(ll a,ll b)\n\t{\n\t\tll sum=1;\n\t\twhile(b>0)\n\t\t{\n\t\t\tif(b&1) sum=sum*a;\n\t\t\ta=a*a;\n\t\t\tb=b>>1;\n\t\t}\n\t\tll ans=sum;\n\t\treturn ans;\n\t}\n//-----------------------------------\n\tll read()\n\t{\n\t \tll x=0,f=1;\n\t\tchar ch=getchar();\n\t\twhile(ch<'0'||ch>'9') {if(ch=='-') f=-1;ch=getchar();}\n\t\twhile(ch>='0'&&ch<='9') {x=(x<<1)+(x<<3)+(ch^48);ch=getchar();}\n\t\treturn x*f;\n\t}\n\tvoid print(int x)\n\t{\n\t \tif(x>=10) print(x/10);\n\t\tputchar(x%10+'0');\n\t}\n}using namespace love;\n//--------------------------------\nll t,u,v,x,y; \nint main()\n{\n\tt=read();\n\twhile(t--)\n\t{\n\t\tu=read(),v=read();\n\t\tx=kmod(u,2),y=kmod(v,2);\n\t\tprintf(\"-%lld %lld\\n\",x,y);\n\t}\n\treturn 0;\n}\n\n\n\n\n```",
+        "postTime": 1644228073,
+        "uid": 539747,
+        "name": "\u67f3\u4e0b\u60e0",
+        "ccfLevel": 0,
+        "title": "CF1584A Mathematical Addition"
+    },
+    {
+        "content": "\u8fd9\u9898\u9700\u8981\u5bf9\u9898\u76ee\u63d0\u4f9b\u7684\u5f0f\u5b50\u8fdb\u884c\u5316\u7b80\u3002\n\n\u9996\u5148\u5c06\u5de6\u8fb9\u8fdb\u884c\u901a\u5206\uff0c\u5f97\u5230\uff1a\n\n$$\\frac{xv+yu}{uv}=\\frac{x+y}{u+v}$$\n\n\u7136\u540e\u5c06\u4e24\u8fb9\u5171\u4e58 $uv(u+v)$\uff0c\u5f97\uff1a\n\n$$(xv+yu)(u+v)=uv(x+y)$$\n\n\u518d\u5c06\u5176\u5c55\u5f00\uff0c\u5f97\u5230\uff1a\n\n$$xvu+yu^2+xv^2+yuv=uvx+uvy$$\n\n\u901a\u8fc7\u79fb\u9879\u5f97\uff1a\n\n$$xv^2+yu^2=0$$\n\n\u8fd9\u662f\u4e00\u4e2a\u4e8c\u5143\u4e00\u6b21\u4e0d\u5b9a\u65b9\u7a0b\uff0c\u8ba9 $x$ \u4e0e $y$ \u4e92\u76f8\u7b49\u4e8e\u5bf9\u65b9\u7cfb\u6570\u5c31\u884c\u4e86\uff0c\u6ce8\u610f\u5176\u4e2d\u4e00\u4e2a\u8981\u662f\u8d1f\u6570\u3002\n\n\u539f\u4ee3\u7801:\n\n```\n#include<iostream>\n#include<cmath>\nusing namespace std;\n\nint main()\n{\n\tint t = 0;\n\tint u = 0, v = 0;\n\tscanf(\"%d\", &t);\n\t\n\tfor(int i = 0; i < t; i++)\n\t{\n\t\tscanf(\"%d%d\", &u, &v);\n\t\tprintf(\"%d %d\\n\", (int)(pow(u, 2)), (int)(-pow(v, 2)));\n\t}\n\t\n\treturn 0;\n}\n```\n\n~~\u9677\u9631\u653e\u5728\u54ea\u91cc\u4e86\u5462\uff1f~~",
+        "postTime": 1644497467,
+        "uid": 343311,
+        "name": "PeterBei",
+        "ccfLevel": 5,
+        "title": "CF1584A Mathematical Addition \u9898\u89e3"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u76ee\uff0c\u4ec5\u9700\u8981\u4e00\u70b9\u70b9\u7684\u6570\u5b66\u5c31\u53ef\u4ee5\u505a\u5427\u3002\u672c\u7bc7\u9898\u89e3\u5199\u7ed9\u521d\u4e8c\u4ee5\u4e0b\u7684\u540c\u5fd7\u4eec\u3002\n\n\u9898\u610f\uff1a\u5df2\u77e5 $u$\u3001$v$\uff0c\u6784\u9020 $x$\u3001$y$ \u4f7f\u5f97\n\n$$\\frac{x}{u}+\\frac{y}{v}=\\frac{x+y}{u+v}$$\n\n\u90a3\u5c31\u5f00\u59cb\u63a8\u5427\u3002\u5de6\u8fb9\u901a\u5206\u5e76\u52a0\u8d77\u6765\uff0c\n\n$$\\frac{vx+uy}{uv}=\\frac{x+y}{u+v}$$\n\n\u8fd9\u4e2a\u65f6\u5019\uff0c\u7531\u4e8e\u9898\u76ee\u4fdd\u8bc1\u4e86 $u$\uff0c$v$ \u4e3a\u6b63\u6574\u6570\uff0c\u4e8e\u662f\u53ef\u4ee5\u653e\u5fc3\u5730\u5de6\u53f3\u4e58\u4e0a $uv(u+v)$\uff0c\n\n$$(vx+uy)(u+v)=uv(x+y)$$\n\n\u5316\u5f00\uff0c\n\n$$uvx+v^2x+u^2y+uvy=uvx+uvy$$\n\n\u5de6\u53f3\u540c\u65f6\u51cf\u53bb $(uvx+uvy)$\uff0c\n\n$$v^2x+u^2y=0$$\n\n\u8fd9\u662f\u4e00\u4e2a\u4e8c\u5143\u4e00\u6b21\u4e0d\u5b9a\u65b9\u7a0b\uff0c\u628a\u5b83\u5199\u6210\u6bd4\u4f8b\u7684\u5f62\u5f0f\uff0c\n\n$$\\frac{x}{y}=-\\frac{u^2}{v^2}$$\n\n\u4e00\u79cd\u5f88\u660e\u663e\u7684\u60c5\u51b5\u5c31\u662f\u8fd9\u4e2a\u6bd4\u4e3a $1$\uff0c\u4e5f\u5c31\u662f\u8bf4\u8be5\u65b9\u7a0b\u7684\u5176\u4e2d\u4e00\u4e2a\u89e3\u4e3a\n\n$$\\begin{cases}x=-u^2\\\\y=v^2\\end{cases}$$\n\n\u518d\u4e00\u770b\uff0c\u6570\u636e\u8303\u56f4\u6b63\u597d\u662f\u5141\u8bb8\u7684\u3002\u90a3\u5c31\u5b8c\u4e8b\u4e86\u3002\u4ee3\u7801\u5982\u4e0b\u3002\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n\tint t;\n\tscanf(\"%d\",&t);\n\twhile(t--)\n\t{\n\t\tlong long u,v;\n\t\tscanf(\"%lld%lld\",&u,&v);\n\t\tprintf(\"%lld %lld\\n\",-u*u,v*v);\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1640000988,
+        "uid": 182234,
+        "name": "ryanright",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF1584A Mathematical Addition"
+    },
+    {
+        "content": "# \u9898\u610f\n\u7ed9\u5b9a $u,v$\uff0c\u6c42 $\\dfrac xu+\\dfrac yv=\\dfrac{x+y}{u+v}$ \u7684\u4efb\u610f\u4e00\u7ec4\u6574\u6570\u89e3\u3002\n# \u601d\u8def\n\u5148\u5316\u7b80\u65b9\u7a0b\u3002\u4e24\u8fb9\u540c\u4e58 $uv(u+v)$\uff1a\n$$\nxv(u+v)+yu(u+v)=uv(x+y)\n$$\n\u62c6\u62ec\u53f7\uff1a\n$$\nxvu+xv^2+yu^2+yuv=uvx+uvy\n$$\n\u6d88\u53bb $xvu,yuv$\uff1a\n$$\nxv^2+yu^2=0\n$$\n\u4e5f\u5c31\u662f\u8bf4\u76f4\u7ebf $xv^2+yu^2=0$ \u4e0a\u7684\u70b9\u90fd\u53ef\u4ee5\u3002\n\n\u63d0\u516c\u56e0\u5f0f\uff1a\n$$\nu^2v^2(\\dfrac{x}{u^2}+\\dfrac{y}{v^2})=0\n$$\n\u90a3\u4e48\u5c31\u5f88\u663e\u7136\u4e86\uff0c\u4ee4 $x=u^2p,y=v^2q\\ (p+q=0)$ \u5373\u53ef\u3002\n\n\u4e3a\u4e86\u4fdd\u9669\uff0c$p,q$ \u6700\u597d\u5206\u522b\u53d6 $\u00b11$\u3002\n# \u4ee3\u7801\n\u65b9\u6848 1 $(p=1)$\uff1a\n```cpp\n#include <iostream>\n#define int long long\nusing namespace std;\nsigned main()\n{\n\tint t;cin >> t;\n\tfor(int i = 0, u, v;i < t;++i)\n\t\tcin >> u >> v, cout << u * u << \" \" << -v * v << endl;\n\treturn 0;\n}\n```\n\u65b9\u6848 2 $(p=-1)$\uff1a\n```cpp\n#include <iostream>\n#define int long long\nusing namespace std;\nsigned main()\n{\n\tint t;cin >> t;\n\tfor(int i = 0, u, v;i < t;++i)\n\t\tcin >> u >> v, cout << -u * u << \" \" << v * v << endl;\n\treturn 0;\n}\n```",
+        "postTime": 1639724974,
+        "uid": 388651,
+        "name": "5k_sync_closer",
+        "ccfLevel": 7,
+        "title": "CF1584A Mathematical Addition \u9898\u89e3"
+    },
+    {
+        "content": "### \u4e00\u3001\u9898\u610f\n\u7ed9\u5b9a\u4e24\u4e2a\u6b63\u6574\u6570 $u$ \u548c $v$\uff0c\u627e\u5230\u4f7f\u5f97 $\\frac{x}{u}+\\frac{y}{v}=\\frac{x+y}{u+v}$ \u6210\u7acb\u7684\u4e00\u7ec4 $(x,y)$\u3002\n\n### \u4e8c\u3001\u601d\u8def\n\u8fd9\u9053\u9898\u6700\u76f4\u89c2\u7684\u601d\u8def\u662f\u679a\u4e3e\u6240\u6709 $(x,y)$\uff0c\u5224\u65ad\u662f\u5426\u53ef\u4ee5\u6ee1\u8db3\u6761\u4ef6\u3002\u4f46\u662f\u56e0\u4e3a $-10^{18} \\le x,y \\le 10^{18}$\uff0c\u76f4\u63a5\u679a\u4e3e\u663e\u7136\u662f\u4e0d\u73b0\u5b9e\u7684\u3002\u6211\u4eec\u53ea\u9700\u8981\u5bf9\u539f\u5f0f\u8fdb\u884c\u4e00\u4e2a\u7b80\u5355\u7684\u6570\u5b66\u53d8\u6362\uff0c\u5373\u53ef\u6c42\u51fa\u7b54\u6848\u3002\n\n\u9996\u5148\u5b66\u8fc7\u521d\u4e2d\u6570\u5b66\u7684\u6211\u4eec\u77e5\u9053\u5982\u679c\u51fa\u73b0\u5206\u5f0f\uff0c\u53c8\u8981\u8003\u8651\u8f6c\u6362\u6210\u4e24\u6570\u7684\u5173\u7cfb\u7684\u8bdd\uff0c\u5e94\u5148\u901a\u5206\u3002\u5f88\u663e\u7136\u539f\u5f0f\u7684\u5206\u6bcd $u, v, (u+v)$ \u7684\u516c\u56e0\u5f0f\u5c31\u662f $uv\\cdot(u+v)$\u3002\u6240\u4ee5\u6211\u4eec\u8fdb\u884c\u901a\u5206\uff0c\u5f97\u5230\u5f0f\u5b50\uff1a  \n$xv\\cdot(u+v)+yu\\cdot(u+v)=uv(x+y)$\u3002  \n\u62c6\u62ec\u53f7\u5f97\u5230\uff1a  \n$xuv+xv^2+yu^2+yuv=xuv+yuv$  \n\u901a\u8fc7\u79fb\u9879\u5f97\u5230\uff1a  \n$xv^2=-yu^2$\n\n\u56e0\u4e3a $u^2$ \u548c $v^2$ \u662f\u5df2\u77e5\u91cf\uff0c\u6240\u4ee5\u95ee\u9898\u5c31\u7b80\u5316\u6210\u4e86\u6c42\u4e00\u4e2a\u4e8c\u5143\u4e00\u6b21\u4e0d\u5b9a\u65b9\u7a0b\u7684\u4e00\u4e2a\u6574\u6570\u89e3\u3002\n\n\u90a3\u4e48\u663e\u7136\u5bf9\u4e8e\u8fd9\u4e2a\u65b9\u7a0b\uff0c\u4e00\u5b9a\u5b58\u5728\u4e00\u7ec4\u89e3\uff1a\n\n$x=u^2,y=-v^2$\u3002\n\n### \u4e09\u3001\u4ee3\u7801\n```cpp\n# include <bits/stdc++.h>\n# define int long long\nusing namespace std;\nsigned main()\n{\n\tint T;\n\tcin >> T;\n\twhile (T--)\n\t{\n\t\tint u, v;\n\t\tcin >> u >> v;\n\t\tcout << u * u << \" \" << -(v * v) << endl;   //\u4e00\u5b9a\u5b58\u5728\u8fd9\u7ec4\u89e3\n\t}\n\treturn 0;\n}\n```\n\u8c22\u8c22\u89c2\u8d4f",
+        "postTime": 1638865705,
+        "uid": 342361,
+        "name": "Ender_beater",
+        "ccfLevel": 5,
+        "title": "CF1584A\u9898\u89e3"
+    },
+    {
+        "content": "**[Technocup 2022 - Elimination Round 2](http://codeforces.com/contest/1584)** A / [B](https://www.luogu.com.cn/blog/supervise/solution-cf1584b) / [C](https://www.luogu.com.cn/blog/supervise/solution-cf1584c) / [D](https://www.luogu.com.cn/blog/supervise/solution-cf1584d) / [E](https://www.luogu.com.cn/blog/supervise/solution-cf1584e) / [F](https://www.luogu.com.cn/blog/supervise/solution-cf1584f) / [G](https://www.luogu.com.cn/blog/supervise/solution-cf1584g)\n\n\u5982\u679c\u4ee5\u4e0a\u94fe\u63a5\u6240\u6307\u94fe\u63a5\u4e0d\u5b58\u5728\uff0c\u5c31\u662f\u4f5c\u8005\u5495\u4e86 /dk\n\n### Description\n\n\u7ed9\u5b9a $u,v$\uff0c\u6784\u9020\u51fa\u4e00\u5bf9\u975e\u96f6\u6574\u6570 $x,y$\uff0c\u6ee1\u8db3\n\n$$\n\\dfrac xu+\\dfrac yv=\\dfrac{x+y}{u+v}\n$$\n\n### Soluition\n\n\u901a\u5206\uff0c\u5f97\u5230\n\n$$\nv(u+v)x+u(u+v)y=(x+y)uv\n$$\n\n\u62c6\u5f00\u62ec\u53f7\uff0c\u5316\u7b80\uff0c\u5f97\u5230\n\n$$\nv^2x+u^2y=0\n$$\n\n\u663e\u7136\u6211\u4eec\u53ef\u4ee5\u6784\u9020 $x=u^2,y=-v^2$\uff0c\u5bb9\u6613\u53d1\u73b0\u8fd9\u6837\u4e0a\u5f0f\u6210\u7acb\u3002\n\n\u6ce8\u610f\u5f00 long long \u5373\u53ef\u3002\n\n### Code\n\n[$\\textit{135348567}$](http://codeforces.com/contest/1589/submission/135348567)",
+        "postTime": 1637929310,
+        "uid": 224931,
+        "name": "CSP_Sept",
+        "ccfLevel": 6,
+        "title": "The Solution of CF1584A"
+    },
+    {
+        "content": "# CF1584A\u9898\u89e3\n\n### \u9898\u610f\n\n\u6c42\u4e00\u7ec4\u503c\u57df\u5728 $[-10^{18},10^{18}]$ \u4e0d\u4e3a\u96f6\u7684\u6574\u6570\u5bf9 $(x,y)$ \u6ee1\u8db3\uff1a\n\n$$\n\\frac{x}{u}+\\frac{y}{v}=\\frac{x+y}{u+v}\n$$\n\n## \u601d\u8def\n\n\u5de6\u8fb9\u901a\u5206\uff1a\n\n$$\n\\frac{vx+uy}{uv}=\\frac{x+y}{u+v}\n$$\n\n\u4ea4\u53c9\u76f8\u4e58\uff1a\n\n$$\n(vx+uy)(u+v)=uv(x+y)\n$$\n\n\u5c55\u5f00\uff1a\n\n$$\nuvx+uvy+u^2y+v^2x=uvx+uvy\n$$\n\n\u5316\u7b80\uff1a\n\n$$\nv^2x+u^2y=0\n$$\n\n\u53d1\u73b0\uff1a\n\n$$\nx=-u^2,y=v^2\n$$\n\n\u6ee1\u8db3\u6761\u4ef6\uff0c\u4e14\u56e0\u4e3a $-10^9\\le x,y\\le10^9$ \u503c\u57df\u4e5f\u7b26\u5408\u3002\n\n## \u4ee3\u7801\n\n```c++\nvoid run(){\n\tlong long u,v;\n\tcin>>u>>v;\n\tcout<<u*u<<\" -\"<<v*v<<\"\\n\";\n}\n```\n\n## \u6ce8\u610f\u4e8b\u9879\n\n\u7528 `long long` \uff01",
+        "postTime": 1637063264,
+        "uid": 483879,
+        "name": "hyman00",
+        "ccfLevel": 0,
+        "title": "CF1584A\u9898\u89e3"
+    },
+    {
+        "content": "### \u9898\u610f\n\u6709t\u7ec4\u6570\u636e\uff0c\u6bcf\u7ec4\u6570\u636e\u7ed9\u51fa $u$ \u548c $v$\uff0c\u6c42\u51fa\u4efb\u610f\u4e00\u7ec4\u6574\u6570 $x$ \u548c $y$ \u4f7f\u5f97 $\\frac{x}{u}+\\frac{y}{v}=\\frac{x+y}{u+v}$ \u6210\u7acb\n### \u505a\u6cd5\n\u7531\u539f\u5f0f\u901a\u5206\u53ef\u4ee5\u5f97\n$$\n\\frac{x*v+y*u}{u*v}=\\frac{x+y}{u+v}\n$$\n\n\u7136\u540e\u53bb\u5206\u6bcd\u53ef\u5f97\n$$\n-x*v^2=y*u^2\n$$\n\n\u6700\u540e\u5c31\u53ef\u4ee5\u5f97\u51fa\n$$\n\\frac{x}{y}=-\\frac{u^2}{v^2}\n$$\n\n\u6240\u4ee5\u76f4\u63a5\u8f93\u51fa $-u^2$ \u548c $v^2$ \u5373\u53ef\u6ee1\u8db3\u6761\u4ef6\n\n### \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n\n#define ll long long\n\nconst int M = 1e6+1;\nconst int mod = 1e9 + 7;\n\nll read() {\n    ll x(0); bool f(0); char c(getchar());\n    while(c < '0'||c > '9') {f^=c == '-'; c=getchar();}\n    while(c >= '0'&&c <= '9') {x = (x<<3) + (x<<1) + (c^48); c=getchar();}\n    return f ? (~x) + 1 : x;\n}\nll gcd(ll a, ll b){\n\tll r;\n\twhile(a) {\n\t\tr = b % a;\n\t\tb = a; a = r;\n\t}\n\treturn b;\n}\nll lcm(ll a,ll b){\n\treturn a * b / gcd(a, b);\n} \nint main() {\n    ll n = read();\n    for(int i = 1; i <= n; ++i) {\n        ll u = read(), v = read();\n        u *= u; v *= v;\n        printf(\"-%lld %lld\\n\",u,v);   \n    }\n    return 0;\n}\n```",
+        "postTime": 1644232338,
+        "uid": 464542,
+        "name": "S_feng",
+        "ccfLevel": 4,
+        "title": "CF1584A\u9898\u89e3"
+    }
+]

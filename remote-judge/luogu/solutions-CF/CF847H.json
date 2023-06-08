@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u9898\u610f\uff1a\n\n\u7ed9\u4e00\u4e2a\u6570\u7ec4\uff0c\u95ee\u591a\u5c11\u6b21\u5bf9\u5355\u4e2a\u4f4d\u7f6e $+1$ \u64cd\u4f5c\u540e\uff0c\u80fd\u5c06\u5e8f\u5217\u53d8\u6210\u4e00\u6bb5\u4e25\u683c\u9012\u589e\u7684\u4e4b\u540e\u4e25\u683c\u9012\u51cf\u3002\n\n$n\\leq 10^6$ \u3002\n\n----\n\n\u679a\u4e3e\u6bcf\u4e00\u4e2a\u70b9\uff0c\u8ba1\u7b97\u4ee5\u8fd9\u4e2a\u70b9\u4e3a\u8f6c\u6298\u70b9\u7684\u4fee\u6539\u82b1\u8d39\u3002\n\n\u53ef\u4ee5\u9884\u5904\u7406\u51fa\u4e00\u6bb5\u524d\u7f00\u6210\u4e3a\u5355\u8c03\u9012\u589e\u7684\u6700\u5c0f\u82b1\u8d39\u3002\n\n\u540c\u7406\u53ef\u4ee5\u9884\u5904\u7406\u51fa\u4e00\u6bb5\u540e\u7f00\u6210\u4e3a\u5355\u8c03\u9012\u51cf\u7684\u6700\u5c0f\u82b1\u8d39\u3002\n\n---\n\n\u6838\u5fc3\u4ee3\u7801\uff1a\n\n```cpp\n\n#define int long long\nint n,a[101111],mf[101111],mg[101111],f[101111],g[101111],ans;\nsigned main(){\n    scanf(\"%lld\",&n);\n    for (int i=1;i<=n;i++)scanf(\"%lld\",&a[i]);\n    mf[0]=f[0]=0;\n    for (int i=1;i<=n;i++){\n        mf[i]=max(mf[i-1]+1,a[i]);\n        f[i]=f[i-1]+mf[i]-a[i];\n    }\n    mg[n+1]=g[n+1]=0;\n    for (int i=n;i>0;i--){\n        mg[i]=max(mg[i+1]+1,a[i]);\n        g[i]=g[i+1]+mg[i]-a[i];\n    }\n    ans=min(f[n],g[1]);\n    for (int i=1;i<n;i++)ans=min(ans,f[i]+g[i+1]+(mf[i]==mg[i+1]?1:0));\n    printf(\"%lld\\n\",ans);\n}\n\n```",
+        "postTime": 1613566817,
+        "uid": 288460,
+        "name": "xzggzh1",
+        "ccfLevel": 0,
+        "title": "\u83dc\u903c\u53ea\u914d\u7ed9\u6c34\u9898\u5199\u9898\u89e3 \u4e4b CF847H"
+    }
+]

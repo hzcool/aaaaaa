@@ -1,0 +1,42 @@
+[
+    {
+        "content": "# CF681B Economy Game\n[\u539f\u9898\u94fe\u63a5](https://www.luogu.com.cn/problem/CF681B)\n## \u9898\u9762\n\u7ed9\u5b9a\u4e00\u4e2a\u6b63\u6574\u6570 $n$ $(1<n<10^9)$ \uff0c\u5224\u65ad\u662f\u5426\u5b58\u5728\u81ea\u7136\u6570 $a,b,c$ \u6ee1\u8db3 $a\u00d71234567+b\u00d7123456+c\u00d71234=n$\u3002\n## \u601d\u8def\n\u5341\u5206\u660e\u663e\uff0c\u8fd9\u9053\u9898\u5c31\u662f\u9053\u66b4\u529b\u679a\u4e3e\u7684\u9898\u76ee\u3002~~\u6ca1\u60f3\u5230\u8fd9\u9053\u9898\u662f\u600e\u4e48\u4e0a\u9ec4\u7684\u3002~~ \u5f53\u7136\uff0c\u76f4\u63a5\u4e09\u91cd\u5faa\u73af\u679a\u4e3e $a,b,c$ \u662f\u5426\u6ee1\u8db3\u6761\u4ef6\u4f1a\u8d85\u65f6\uff0c\u4e0d\u8fc7\u5faa\u73af$2$\u6b21\u4ee5 $a,b$ \u6c42 $c$\u53ef\u5426\u6ee1\u8db3\u662f\u53ef\u4ee5\u8fc7\u7684\u3002\u4e0d\u8bf4\u4e86\uff0c\u76f4\u63a5\u4e0a\u4ee3\u7801\u3002\n****\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n#define LL long long//\u6ca1\u5fc5\u8981\u5f00long long\uff0c\u6570\u636e\u57281e9\u8303\u56f4\u5185\nint main(){\n\tLL n;\n\tcin>>n;\n\tfor(LL a=0;a<=n/1234567;a++){\n\t\tfor(LL b=0;b<=(n-a*1234567)/123456;b++){\n\t\t\tif((n-a*1234567-b*123456)%1234==0){//\u5224\u65adc\u662f\u5426\u53ef\u53d6\u6574\n\t\t\t\tcout<<\"YES\";\n\t\t\t\treturn 0;\n\t\t\t}\n\t\t}\n\t}\n\tcout<<\"NO\";//\u6ca1\u627e\u5230\u6ee1\u8db3\u6761\u4ef6\u7684c\n    return 0;\n}\n```\n\u8f7b\u677eAC\uff0c\u6570\u636e\u70b9\u6700\u591a\u4e5f\u53ea\u7528\u4e86$15ms$\uff0c\u6574\u9053\u9898\u603b\u7528\u65f6\u4e5f\u53ea\u6709$662ms$\uff0c\u8fd8\u662f\u6bd4\u8f83\u5c11\u65f6\u95f4\u7684\uff0c\u6392\u5728\u6700\u4f18\u89e3\u7b2c\u4e8c\u540d\uff0c\u4e5f\u7b97\u4e0d\u9519\u4e86\u3002\u4e00\u9053\u9ec4\u9898\u5c31~~\u6c34~~\u505a\u5b8c\u4e86\uff0c\u518d\u89c1qwq\u3002",
+        "postTime": 1598443292,
+        "uid": 365127,
+        "name": "cyffff",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF681B \u3010Economy Game\u3011"
+    },
+    {
+        "content": "\u8fd9\u662f\u4e00\u4e2apython\u9898\u89e3\u3002\n##  \u5176\u5b9e\u8fd9\u9898\u5f88\u6c34\n#### \u9898\u9762\uff1a  \n\u7ed9\u5b9a\u4e00\u4e2a\u6b63\u6574\u6570 $n$ $(1<n<1e9)$\uff0c \u5224\u65ad\u662f\u5426\u5b58\u5728\u81ea\u7136\u6570 $a,b,c$ \u6ee1\u8db3 $a\u00d71234567+b\u00d7123456+c\u00d71234=n$ .  \n### \u89e3\u51b3\u65b9\u6cd5\uff1a  \n\u76f4\u63a5\u66b4\u529b\u679a\u4e3e\u5373\u53ef\uff0c\u6ce8\u610f $n^3$ \u4f1a\u8d85\u65f6\u3002\u4e0d\u8fc7\u7528 $n^2$ \u7684\u66b4\u529b\u52a0\u5224\u65ad\u5373\u53ef\uff0c\u53ea\u8981\u62ff\u5230\u4e00\u79cd\u89e3\u51b3\u65b9\u6848\u5c31\u53ef\u4ee5\u8f93\u51fa\u4e86\u3002 ~~\u4e0d\u77e5\u9053\u600e\u4e48\u662f\u9053\u9ec4\u9898\uff0c\u5efa\u8bae\u6539\u6a59~~ \n\n\n### \u4ee3\u7801\uff1a \n\n```python\nimport sys  #exit \u7684\u5934\u6587\u4ef6\nimport math\na=int(input())\nfor i in range(0, a // 1234567 +1):   \n    for j in range (0, (a-i*1234567) // 123456 +1):  #\u6ce8\u610f\u5faa\u73af\u7684\u6761\u4ef6\n        if (a-i*1234567-j*123456) % 1234==0:\n            print(\"YES\")\n            sys.exit(0) #\u76f4\u63a5\u7ed3\u675f\u8fd0\u884c\nprint(\"NO\")  #\u5982\u679c\u6709\u53ef\u884c\u60c5\u51b5,\u5df2\u7ecf\u8f93\u51fa\u5e76\u7ed3\u675f\u4e86\n\n``` \n#### AC\u7eaa\u5f55\uff1a[here](https://www.luogu.com.cn/record/39194895)\n\n\n",
+        "postTime": 1601720430,
+        "uid": 370849,
+        "name": "orange166",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF681B \u3010Economy Game\u3011"
+    },
+    {
+        "content": "### \u6c34\u9898\uff0c\u6ce8\u610f\u9632\u8d85\u65f6\uff0c\u7528O(n^3)\u4f1a\u8d85\u65f6\n**\u9898\u76ee\u5f88\u7b80\u5355\uff0c\u5c31\u662f\u6c42\u662f\u5426\u5b58\u5728a,b,c\u4f7f\u5f97$a*1234567+b*123456+c*1234=n$\u6210\u7acb\u3002\u4f46\u5982\u679c\u76f4\u63a5\u679a\u4e3e$a,b,c$\u770b\u5f0f\u5b50\u662f\u5426\u6ee1\u8db3\u5c31\u4f1a\u8d85\u65f6\u3002\u6240\u4ee5\uff0c\u505a\u8fd9\u4e2a\u9898\u7684\u65f6\u5019\u53ea\u80fd\u679a\u4e3e$a$\u548c$b$\uff0c\u518d\u5224\u65ad$(n-(a*1234567+b*123456))$ $%$ $1234=0$ \u662f\u5426\u6210\u7acb\u5373\u53ef\u3002**\n```cpp\n#include <cstdio>\n#include <cctype>\nvoid r(int &x)\n{\n    x = 0;\n    char c = getchar();\n    while (!isdigit(c)) c = getchar();\n    while (isdigit(c)) x = (x << 3) + (x << 1) + (c ^ 48), c = getchar();\n}\nconst int house = 1234567, car = 123456, model = 1234;\nint n;\nint main()\n{\n    r(n);\n    for (int i = 0;i * house <= n; i++)\n        for (int j = 0;j * car + i * house <= n; j++)\n            if ((n - i * house - car * j) % model == 0)\n                return !printf (\"YES\");\n    printf(\"NO\");\n    return 0;\n}\n\n```\n",
+        "postTime": 1561615237,
+        "uid": 212040,
+        "name": "smoothset",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF681B \u3010Economy Game\u3011"
+    },
+    {
+        "content": "# Problems\n\u7ed9\u5b9a\u4e00\u4e2a\u6b63\u6574\u6570$n(1<n<{10^9})$,\u5224\u65ad\u662f\u5426\u5b58\u5728\u81ea\u7136\u6570$a,b,c$\u6ee1\u8db3$a\u00d71234567+b\u00d7123456+c\u00d71234=n$\u3002\n# Answer\n\u56e0\u6570\u636e\u4e0d\u5927\uff0c\u53ef\u4ee5\u66b4\u529b\u679a\u4e3e$a$\u548c$b$\uff08$c$\u5c31\u4e0d\u7528\u4e86\uff0c$a$\u548c$b$\u77e5\u9053\u4e86\uff0c$c$\u662f\u53ef\u4ee5\u7b97\u51fa\u6765\u7684\uff09\u3002\n\n\u786e\u5b9a$a$\u7684\u679a\u4e3e\u8303\u56f4\uff1a$10^9\u00f71234567\u2248100$\uff1b\n\n$b$\u7684\u679a\u4e3e\u8303\u56f4\uff1a$10^9\u00f7123456\u22481000$\u3002\n\n\u7136\u540e\u5c31\u53ef\u4ee5\u679a\u4e3e\u5566~\n\n\u4f46\u662f\u8fd9\u91cc\u8981\u6ce8\u610f\u4e00\u70b9\uff1aa\u548cb\u7684\u679a\u4e3e\u521d\u503c\u5e94\u8be5\u662f$0$\u3002\n# Code\n```pascal\nvar\n  n:int64;\n  a,b:longint;\nbegin\n  readln(n);\n  for a:=0 to 100 do for b:=0 to 1000 do//\u4ece0\u5f00\u59cb\n    if n>=a*1234567+b*123456 then//\u5224\u65ad\u662f\u5426\u6bd4n\u8981\u5c0f\n      if (n-a*1234567-b*123456) mod 1234=0 then//\u5982\u679c\u53ef\u4ee5\u6574\u9664\n        begin\n          writeln('YES');exit;//\u8bf4\u660e\u6709\u65b9\u6848\uff0c\u9000\u51fa\n        end;\n  writeln('NO');//\u65e0\u65b9\u6848\nend.\n```",
+        "postTime": 1595151025,
+        "uid": 202802,
+        "name": "BotDand",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF681B \u3010Economy Game\u3011"
+    },
+    {
+        "content": "**\u9898\u610f\uff1a**\n\u627e\u4e09\u4e2a\u6570 $a,b,c$ \u4f7f $a\u00d71234567+b\u00d7123456+c\u00d71234=n$\n\n**\u601d\u8def\uff1a**\n\u66b4\u529b\u6a21\u62df\uff01\u4f46\u5982\u679c\u5199\u4e09\u91cd\u5faa\u73af\u6765\u679a\u4e3e\u662f\u80af\u5b9a\u4f1a\u9519\u7684\uff0c\u6240\u4ee5\u6211\u4eec\u8981\u6709\u667a\u6167\u7684\u66b4\u529b\u3002\n\u7528\u4e24\u5c42\u5faa\u73af\u6765\u6a21\u62df $a$ \u548c $b$ \u7684\u60c5\u51b5\uff0c\u4f46\u60f3\u4e00\u60f3\uff0c\u5982\u679c\u8981\u4f7f $C\u00d7$ \u4e00\u4e2a\u6570\u7b49\u4e8e\u53e6\u4e00\u4e2a\u6570\uff0c\u90a3\u4e48\u53ea\u9700\u8981\u770b\u53e6\u4e00\u4e2a\u6570\u6a21 $C$ \u7684\u4f59\u6570\u662f\u5426\u4e3a $0$\u3002\n\n**\u4ee3\u7801\uff1a**\n```cpp\n#include<bits/stdc++.h>\n#define rll register long long\n#define ll long long\nusing namespace std;\n\nint main(){\n\trll n,i,j;\n\tscanf(\"%lld\",&n);\n\tfor(i=0;i<=n;i+=1234567){\n\t\tfor(j=0;j<=n-i;j+=123456){//\u524d\u4e24\u4e2a\u6570\u7684\u679a\u4e3e\uff0c\u800c\u4e14j\u5fc5\u987b<=n-i\uff0c\u8fd9\u4e2a\u9519\u5bb3\u6211\u8c03\u4e86\u597d\u4e45qwq\n\t\t\tif((n-i-j)%1234==0)return printf(\"YES\"),0;//\u4f59\u6570\u4e3a0\u76f4\u63a5\u8f93\u51faYES\u5e76return 0\n\t\t}\n\t}\n\treturn printf(\"NO\"),0;//\u5426\u5219\u4e3aNO\n}\n\n```\n",
+        "postTime": 1606306770,
+        "uid": 157506,
+        "name": "yf\u6700qhhh",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF681B \u3010Economy Game\u3011"
+    }
+]

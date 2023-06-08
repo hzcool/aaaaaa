@@ -1,0 +1,26 @@
+[
+    {
+        "content": "\u6bcf\u627e\u5230\u4e00\u4e2a`bear`\uff0c`ans`\u5c31\u52a0\u4e0a`bear`\u524d\u9762\u5b57\u7b26\u7684\u6570\u91cf\u4e58\u4e0a\u540e\u9762\u5b57\u7b26\u7684\u6570\u91cf\u3002\n\n\u56e0\u4e3a\u4f1a\u91cd\u590d\u8ba1\u7b97\uff0c\u6240\u4ee5\u8fd8\u8981\u51cf\u53bb\u4e0a\u4e00\u4e2a`bear`\u7684\u4e2a\u6570\u3002\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main()\n{\n    string s;\n    cin >> s;\n    int len = s.size(), ans = 0, pos = 0;\n    for (int i = 0; i < len - 3; ++i)\n    {\n        if (s[i] == 'b' && s[i + 1] == 'e' && s[i + 2] == 'a' && s[i + 3] == 'r')\n        {\n            ans += (i + 1) * (len - i - 3) - pos * (len - i - 3);\n            pos = i + 1;\n        }\n    }\n    cout << ans << endl;\n    return 0;\n}\n```",
+        "postTime": 1570035249,
+        "uid": 173016,
+        "name": "__main__",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF385B \u3010Bear and Strings\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u9700\u8981\u6c42\u5b57\u7b26\u4e32\u7684\u5b50\u4e32\u4e2d\u5305\u542b `bear` \u7684\u4e2a\u6570\u3002\n\n\u6700\u7b80\u5355\u7684\u7b97\u6cd5\u662f\u679a\u4e3e\u5b50\u4e32\u7684\u8d77\u59cb\u4f4d\u7f6e\u4e0e\u7ed3\u675f\u4f4d\u7f6e\uff0c\u5982\u679c\u5305\u542b `bear`\uff0c\u5c31\u5c06\u7b54\u6848\u7684\u6570\u91cf $+1$\u3002\u4f46\u662f\u5206\u6790\u590d\u6742\u5ea6\u53ef\u77e5\uff0c\u4e24\u5c42\u5faa\u73af\u52a0\u4e0a\u5b57\u7b26\u4e32\u7684\u622a\u53d6\u4e0e\u67e5\u627e\uff0c\u662f\u65e0\u6cd5\u901a\u8fc7\u603b\u957f\u5ea6 $s = 5000$ \u7684\uff0c\u56e0\u6b64\u6211\u4eec\u5c31\u8981\u8003\u8651\u6bcf\u4e00\u4e2a `bear` \u5b57\u4e32\u5bf9\u7b54\u6848\u7684\u8d21\u732e\u3002\n\n```cpp\nfor (int i = 0;i < str.size ();++i)\n{\n\tfor (int j = i + 1;j < str.size ();++j)\n\t\t{\n\t\tstring _n = str.substr (i,j - i + 1);\n\t\tif (_n.find(\"bear\") != -1) ans++;\n\t}\n}\n```\n\n\u904d\u5386\u6574\u4e2a\u5e8f\u5217\uff0c\u5982\u679c\u67e5\u627e\u5230 `bear`\uff0c\u5c31\u4f1a\u5bf9\u540e\u9762\u7684\u5b50\u4e32\u4ea7\u751f\u5f71\u54cd\u3002\u4ece\u7b2c $i$ \u4f4d\u67e5\u627e\u5230\u6700\u540e\uff0c\u5982\u679c\u5305\u542b `bear`\uff0c\u90a3\u4e48\u53ea\u8981\u53e6\u5916\u5b50\u4e32\u5305\u542b\u8fd9\u4e2a `bear`\uff0c\u90a3\u4e48\u5c31\u4f1a\u662f\u7b54\u6848\u589e\u52a0\u3002\u4f46\u540c\u65f6\u8981\u8bb0\u5f97\u53bb\u9664\u91cd\u590d\u8ba1\u7b97\u7684\u90e8\u5206\uff0c\u56e0\u6b64\u5c31\u6709\uff1a\u679a\u4e3e\u5230\u7b2c $i$ \u4f4d\uff0c\u82e5\u5305\u542b `bear`(\u4ece\u7b2c $i$ \u4f4d\u5230\u6700\u540e)\uff0c\u5219\u7b54\u6848\u4f1a\u589e\u52a0\u6574\u4e2a\u5b57\u7b26\u4e32\u7684\u957f\u5ea6 $- \\ i \\ - \\ 3 \\ - \\ $ `bear` \u7b2c\u4e00\u6b21\u51fa\u73b0\u7684\u4f4d\u7f6e\u3002\u8fd9\u6837\u5c31\u51cf\u5c11\u4e86\u4e00\u5c42\u5faa\u73af\uff0c\u53ef\u4ee5\u901a\u8fc7\u6b64\u9898\u3002\n\n```cpp\n#include <iostream>\n#include <string>\n#include <cstdio>\nusing namespace std;\nint main ()\n{\n\tstring str;int ans = 0;\n\tcin>>str;\n\tfor (register int i = 0;i < str.size ();++i)\n\t{\n\t\tstring d1 = str.substr (i,str.size () - i);\n\t\tif (d1.find(\"bear\") != -1) ans += str.size() - i - 3 - d1.find(\"bear\");\n\t}\n\tprintf (\"%d\\n\",ans);\n\treturn 0;\n}\n```",
+        "postTime": 1597585354,
+        "uid": 183603,
+        "name": "SUNCHAOYI",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF385B \u3010Bear and Strings\u3011"
+    },
+    {
+        "content": "\u601d\u8def\uff1a\u6bcf\u627e\u5230\u4e00\u4e2a\u201cbear\u201d\u5c31\u52a0\u4e0a\u5b83\u524d\u9762\u7684\u5b57\u7b26\u6570\u00d7\u540e\u9762\u7684\u5b57\u7b26\u6570\n\u7531\u4e8e\u6b64\u505a\u6cd5\u4e0d\u80fd\u907f\u514d\u91cd\u590d\u8ba1\u7b97\uff0c\u6240\u4ee5\u8981\u51cf\u53bb\u4e0a\u4e00\u4e2a\u201cbear\u201d\u7684\u4e2a\u6570\u3002\n```\n#include<bits/stdc++.h>\nusing namespace std;\nchar s[10101];\nint sum=0,i,c,l;\nint main()\n{\n\tgets(s);\n\tl=strlen(s);//\u6c42\u5b57\u7b26\u6570\u7ec4\u957f\u5ea6\n\tfor(i=0;i<l;i++)\n\t{\n\t\tif(s[i]=='b'&&s[i+1]=='e'&&s[i+2]=='a'&&s[i+3]=='r')\n\t\t{\n\t\t\tsum+=(i+1)*(l-i-3)-c*(l-i-3);//\u52a0\u4e0a\u8fd9\u6b21\u8ba1\u7b97\u7684\u7ed3\u679c\uff0c\u5e76\u51cf\u53bb\u4e0e\u4e0a\u4e00\u6b21\u8ba1\u7b97\u7684\u91cd\u590d\u90e8\u5206\n\t\t\tc=i+1;//\u66f4\u65b0c\u7684\u503c\uff0c\u5373\u8bb0\u5f55\u4e0a\u4e00\u6b21\n\t\t}\n\t}\n\tcout<<sum<<endl;\n\treturn 0;\n}\n```",
+        "postTime": 1636466807,
+        "uid": 387031,
+        "name": "ckk11288",
+        "ccfLevel": 0,
+        "title": "CF385B\u9898\u89e3"
+    }
+]

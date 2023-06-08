@@ -1,0 +1,42 @@
+[
+    {
+        "content": "## \u601d\u8def\n\u8f93\u5165$a_{i}$\u540e\uff0c\u5012\u7740\u8f93\u51fa$a_{i}$\u5c31\u597d\u4e86\u3002\n## \u4ee3\u7801\n```cpp\n#include <cstdio>\n#include <cmath>\n#include <iostream>\nusing namespace std;\nint main(){\n\tint t,a[10005],n;\n\tcin>>t;\n\twhile(t--){\n\t\tcin>>n;\n\t\tfor(int i=1;i<=n;++i)\n\t\t\tcin>>a[i];\n\t\tfor(int i=n;i>=1;--i)\n\t\t\tcout<<a[i]<<' ';\n\t\tcout<<endl;\n\t}\n\treturn 0;\n}\n```\n~~\u7b2c\u4e00\u7bc7\u9898\u89e3~~",
+        "postTime": 1616505387,
+        "uid": 304524,
+        "name": "\u5d14\u5316\u535a",
+        "ccfLevel": 5,
+        "title": "CF1405A\u9898\u89e3"
+    },
+    {
+        "content": "### \u9898\u610f\u7b80\u8ff0\n\n- \u7ed9\u5b9a\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u6392\u5217 $p$\uff0c\u5b9a\u4e49 $F(p)= \\operatorname{sort} _{i=1}^{i-1} p_i+p_{i+1}$\uff1b\n\n- \u6c42\u51fa\u4e0d\u540c\u7684\u6392\u5217 $p'$ \u6ee1\u8db3 $F(p')=F(p)$\u3002\n\n- \u5b9a\u4e49\u5982\u679c $\\exists i\\in \\left[1,n\\right]:p_i\u2260p_{i+1}$\uff0c\u5219 $p$ \u4e0e $p'$ \u662f\u4e0d\u540c\u7684\u3002\n\n### \u9898\u76ee\u5206\u6790\n\n\u7531\u4e8e\u9898\u76ee\u53ef\u80fd\u6709\u591a\u89e3\uff0c\u6211\u4eec\u53ea\u9700\u8981\u8f93\u51fa\u4e00\u4e2a\u53ef\u80fd\u7684\u89e3\u5c31\u53ef\u4ee5\u4e86\u3002\n\n\u8981\u505a\u5230\u9898\u76ee\u7ed9\u5b9a\u7684\u6761\u4ef6\uff0c\u6211\u4eec\u8981\u4f7f\u5f97**\u672c\u6765\u76f8\u90bb\u7684\u6570\u73b0\u5728\u4e5f\u76f8\u90bb** \u5c31\u53ef\u4ee5\u786e\u4fdd\u5728\u4efb\u4e00\u6761\u4ef6\u4e0b\u6210\u7acb\u3002\n\n\u4e5f\u5c31\u662f $p'=\\operatorname{reverse}p$\u3002\n\n\u53ef\u4ee5\u9a8c\u8bc1\u53cd\u8f6c\u540e $p'$ \u548c $p$ \u4e0d\u540c\u3002\n\n\u5206\u6790\u65f6\u95f4\u590d\u6742\u5ea6\uff1a$\\mathcal O(t\\cdot n)$\u3002\n\n### \u4ee3\u7801\n\n```cpp\n#include <bits/stdc++.h>\n\nusing namespace std;\n\n#ifndef ONLINE_JUDGE\n#    define debug\n#endif\nnamespace luosw {\nnamespace IO {\n    template < typename T >\n    inline T read() {\n        T    ret = 0, f = 1;\n        char ch = getchar();\n        while (ch < '0' || ch > '9') {\n            if (ch == '-')\n                f = -f;\n            ch = getchar();\n        }\n        while (ch >= '0' && ch <= '9')\n            ret = ret * 10 + ch - '0', ch = getchar();\n        return ret * f;\n    }\n    template < typename T >\n    void write(T x) {\n        if (x < 0) {\n            putchar('-');\n            x = -x;\n        }\n        T y = 10, len = 1;\n        while (y <= x) {\n            y *= 10;\n            len++;\n        }\n        while (len--) {\n            y /= 10;\n            putchar(x / y + 48);\n            x %= y;\n        }\n    }\n    template < typename T >\n    void write(T x, bool flag) {\n        if (x < 0) {\n            putchar('-');\n            x = -x;\n        }\n        T y = 10, len = 1;\n        while (y <= x) {\n            y *= 10;\n            len++;\n        }\n        while (len--) {\n            y /= 10;\n            putchar(x / y + 48);\n            x %= y;\n        }\n        if (flag)\n            putchar('\\n');\n    }\n}  // namespace IO\nnamespace tools {\n    template < typename T >\n    T cmax(T a, T b) {\n        return max(a, b);\n    }\n    template < typename T >\n    T cmin(T a, T b) {\n        return min(a, b);\n    }\n    template < typename T >\n    T cgcd(T a, T b) {\n        return __gcd(a, b);\n    }\n    template < typename T >\n    T clcm(T a, T b) {\n        return a * b / cgcd(a, b);\n    }\n}  // namespace tools\n}  // namespace luosw\n#define read(t) t = luosw::IO::read< int >()\nint    t, n, a[10000];\nsigned main() {\n    read(t);\n    while (t--) {\n        read(n);\n        memset(a, 0, sizeof(a));\n        for (int i = 0; i < n; i++) {\n            read(a[i]);\n        }\n        for (int i = n - 1; i >= 0; i--) {\n            luosw::IO::write(a[i]);\n            putchar(' ');\n        }\n        putchar('\\n');\n    }\n#ifdef debug\n    system(\"pause\");\n#endif\n    return 0;\n}\n```",
+        "postTime": 1599660844,
+        "uid": 327385,
+        "name": "luosw",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF1405A \u3010Permutation Forgery\u3011"
+    },
+    {
+        "content": "\u7b97\u662f\u4e00\u9053\u6784\u9020\u7684\u5165\u95e8\u9898\u3002\n\n## \u3010\u9898\u610f\u3011\n\n\u9898\u610f\u633a\u7b80\u5355\u7684\uff0c\u7ed9\u4f60\u4e00\u4e2a $1-n$ \u7684\u6392\u5217 $a$\uff0c\u5b9a\u4e49\u8fd9\u4e2a\u6570\u7ec4\u7684 $sort$ \u51fd\u6570\u7ed3\u679c\u4e3a\u4e00\u4e2a\u5927\u5c0f\u4e3a $n-1$ \u7684\u6570\u7ec4\uff0c\u5176\u5185\u5bb9\u4e3a $a_1+a_2,a_2+a_3 \\dots a_{n-1}+a_n$ **\u6392\u5e8f\u540e** \u7684\u7ed3\u679c\u3002\n\n\u8ba9\u6211\u4eec\u6784\u9020\u4e00\u4e2a\u4e0e $a$ \u4e0d\u540c\u7684\u6392\u5217 $a'$ \uff0c\u4f7f\u5f97 $sort(a')=sort(a)$\n\n## \u3010\u601d\u8def\u3011\n\u5f88\u7b80\u5355\u3002\n\n\u7531\u4e8e\u8981\u6c42\u76f8\u90bb\u4e24\u4e2a\u6570\u4e4b\u548c\u6392\u5e8f\u540e\u76f8\u540c\uff0c\u4e5f\u5c31\u662f\u8bf4\u4e0d\u8003\u8651\u987a\u5e8f\u3002\n\n\u90a3\u4e48\u6211\u4eec\u53ea\u8981\u4f7f\u5f97\u76f8\u90bb\u4e24\u4e2a\u6570\u4ecd\u7136\u76f8\u90bb\u5c31\u884c\u4e86\u3002\n\n\u4e5f\u5c31\u662f\u8bf4\u628a $a$ \u53cd\u8f6c\u4e00\u4e0b\u5c31\u884c\u4e86\u3002\n\n\u7531\u4e8e $a$ \u662f\u4e00\u4e2a\u6392\u5217\uff0c\u6bcf\u4e00\u4e2a\u6570\u90fd\u4e0d\u540c\uff0c\u6240\u4ee5\u53cd\u8f6c\u540e $a'\\neq a$ \u3002\n\n\u7136\u540e\u5c31\u7b26\u5408\u9898\u610f\u4e86\u3002\n\n## \u3010\u4ee3\u7801\u3011\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint n;\nint a[105]; \nint main(){\n\tint t;scanf(\"%d\", &t);\n\twhile(t --){\n\t\tscanf(\"%d\", &n);\n\t\tfor (register int i = 1;i <= n;i ++) scanf(\"%d\", &a[i]);\n\t\treverse(a + 1, a + n + 1);\n\t\tfor (register int i = 1;i <= n;i ++) printf(\"%d \", a[i]);\n\t\tputchar(10);\n\t}\n}\n```",
+        "postTime": 1599634227,
+        "uid": 66511,
+        "name": "DPair",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1405A \u3010Permutation Forgery\u3011"
+    },
+    {
+        "content": "## Subject \n[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/CF1405A)\n\n## Analysis\n\u627e\u5230\u4e00\u4e2a\u6392\u5217\uff0c\u4f7f\u5f97\u5176\u76f8\u90bb\u6570\u7684\u548c\u6784\u6210\u7684\u5e8f\u5217\u4e0e\u7ed9\u5b9a\u6392\u5217\u4e2d\u76f8\u90bb\u6570\u7684\u548c\u6784\u6210\u7684\u5e8f\u5217\u4e00\u6837\uff08\u5f88\u62d7\u53e3\uff09\n\n\u8003\u8651\u4e0d\u6539\u53d8\u76f8\u90bb\u7684\u6570\uff0c\u53d1\u73b0\u5f53\u539f\u6392\u5217\u9006\u5e8f\u8f93\u51fa\u65f6\u7b26\u5408\u6761\u4ef6\n\n## Code\n```cpp\n#include<cstdio>\n#include<iostream>\n#include<algorithm>\nusing namespace std;\n#define M 1010\n#define int long long\nint T,n,num[M];\nsigned main(void){\n    cin>>T;\n    while(T--){\n        cin>>n;\n        for(int i=1;i<=n;i++)\n            scanf(\"%lld\",&num[i]);\n        for(int i=n;i>=1;i--)\n            printf(\"%lld\\n\",num[i]);\n        putchar('\\n');\n    }\n    return 0;\n}\n```",
+        "postTime": 1616316185,
+        "uid": 246005,
+        "name": "StupidSeven",
+        "ccfLevel": 4,
+        "title": "CF1405A"
+    },
+    {
+        "content": "\u8981\u6c42\u76f8\u90bb\u4e24\u4e2a\u6570\u4e4b\u548c\u6392\u5e8f\u540e\u76f8\u540c\uff0c\u5373\u4e0d\u8003\u8651\u987a\u5e8f\u3002\n\n\u90a3\u4e48\u6211\u4eec\u53ea\u8981\u4f7f\u5f97\u76f8\u90bb\u4e24\u4e2a\u6570\u4ecd\u7136\u76f8\u90bb\u5c31\u884c\u3002\n\n\u4e5f\u5c31\u662f\u8bf4\u628a $aa$ \u53cd\u8f6c\u4e00\u4e0b\u5c31$OK$\u3002\n\n\u7531\u4e8e $aa$ \u662f\u4e00\u4e2a\u6392\u5217\uff0c\u6bcf\u4e00\u4e2a\u6570\u90fd\u4e0d\u540c\uff0c\u6240\u4ee5\u53cd\u8f6c\u540e $a' \\neq a $\n\n\n**\u4e0a\u4ee3\u7801**\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint n,a[105]; \nint main(){\n\tint t;\n\tcin >> t; \n\twhile(t --){\n\t\tcin >> n;\n\t\tfor (int i = 1;i <= n;i ++) cin >> a[i];\n\t\treverse(a + 1, a + n + 1);\n\t\tfor (int i = 1;i <= n;i ++) cout << a[i] << ' ';\n\t\tputchar(10);\n\t}\n    return 0\n}\n \n```",
+        "postTime": 1612260329,
+        "uid": 359951,
+        "name": "Anonymous_NULL",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1405A \u3010Permutation Forgery\u3011"
+    }
+]

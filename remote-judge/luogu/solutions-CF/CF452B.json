@@ -1,0 +1,10 @@
+[
+    {
+        "content": "## \u601d\u8def\n\u5bf9\u4e8e\u7ed9\u51fa\u7684$n$\u548c$m$\uff0c\u8bbe$n$\u8f83\u77ed\uff0c\u5982\u679c\uff1a\n* \u5176\u4e2d\u6709$0$\uff0c\u90a3\u4e48\u6211\u4eec\u53d6$(0,1)\\ (0,m)\\ (0,0)\\ (0,m-1)$\n* \u4e0d\u7136\uff0c\u6211\u4eec\u6709\u4e24\u79cd\u53d6\u6cd5\uff1a\n\t* $(1,0)\\ (n,m)\\ (0,0)\\ (n-1,m)$\n   * $(0,0)\\ (n,m)\\ (n,0)\\ (0,m)$\n   * \u5224\u65ad\u5927\u5c0f\u5373\u53ef\u3002\n   \n\u5982\u679c$m$\u8f83\u77ed\uff0c\u5219\u4e0a\u8ff0\u6240\u6709\u5750\u6807\u6a2a\u7eb5\u4ea4\u6362\u5e76\u7528$m$\u4ee3\u66ff$n$\uff0c\u7528$n$\u4ee3\u66ff$m$\u5373\u53ef\u3002\n## \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n    int n,m;\n    cin>>n>>m;\n    if(min(n,m)==0)\n    if(m>n)cout<<\"0 1\\n0 \"<<m<<\"\\n0 0\\n0 \"<<m-1<<endl;\n    else cout<<\"1 0\\n\"<<n<<\" 0\\n0 0\\n\"<<n-1<<\" 0\"<<endl;\n    else if(2*sqrt((min(n,m)-1)*(min(n,m)-1)+max(n,m)*max(n,m))>max(n,m)+sqrt(min(n,m)*min(n,m)+max(n,m)*max(n,m)))\n    if(m>n)cout<<\"1 0\\n\"<<n<<\" \"<<m<<\"\\n0 0\\n\"<<n-1<<\" \"<<m<<endl;\n    else cout<<\"0 1\\n\"<<n<<\" \"<<m<<\"\\n0 0\\n\"<<n<<\" \"<<m-1<<endl;\n    else if(m>n) cout<<\"0 0\\n\"<<n<<\" \"<<m<<endl<<n<<\" 0\\n0 \"<<m<<endl;\n    else cout<<\"0 0\\n\"<<n<<\" \"<<m<<\"\\n0 \"<<m<<endl<<n<<\" 0\"<<endl;\n}\n```",
+        "postTime": 1616154566,
+        "uid": 320087,
+        "name": "N_z_",
+        "ccfLevel": 7,
+        "title": "CF452B-\u30104-point polyline\u3011\u9898\u89e3"
+    }
+]

@@ -1,0 +1,10 @@
+[
+    {
+        "content": "# \u9898\u76ee\u5927\u610f\uff1a\n\n\u4e00\u4e2a\u53ea\u7531\u5c0f\u5199\u5b57\u6bcd\u7ec4\u6210\u7684\u5b57\u7b26\u4e32\uff0c\u4e14\u6bcf\u4e2a\u5c0f\u5199\u5b57\u6bcd\u6700\u591a\u51fa\u73b0\u4e00\u6b21\uff0c\u73b0\u5728\u7ed9\u51fa\u8fd9\u4e2a\u5b57\u7b26\u4e32\u7684 $n$ \u4e2a\u5b50\u4e32\uff0c\u6c42\u51fa\u7b26\u5408\u6761\u4ef6\u7684\u6700\u77ed\u7684\u5408\u6cd5\u4e32\u3002\n\n# \u5206\u6790\uff1a\n\n\u6839\u636e\u8f93\u5165\u7684\u5b50\u4e32\u5f97\u5230\u6bcf\u4e2a\u5b57\u7b26\u4e32\u7684\u524d\u9a71\u548c\u540e\u7ee7\uff0c\u4e4b\u540e\u4ece\u5230\u5927\u627e\u51fa\u73b0\u8fc7\u7684\u5b57\u7b26\u4e2d\u6ca1\u6709\u524d\u9a71\u7684\u5f00\u59cb\u8f93\u51fa\u5373\u53ef\u3002\n\n# \u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n\nlong long t,pre[105],nex[105],flag[105];\nchar s[105];\n\nsigned main()\n{\n\tios::sync_with_stdio(0);\n\t\n\tmemset(pre,-1,sizeof(pre));\n    memset(nex,-1,sizeof(nex));\n    memset(flag,0,sizeof(flag));\n\t\n\tcin >> t;\n\t\n    while(t--)\n    {\n        cin >> s;\n        \n        flag[s[0]-'a']=1;\n        \n        for(long long i=1; i<strlen(s); i++)\n        {   \n            flag[s[i]-'a']=1;\n            pre[s[i]-'a']=s[i-1]-'a';\n            nex[s[i-1]-'a']=s[i]-'a';\n        }\n    }\n    \n    for(long long i=0; i<26; i++)\n        if(pre[i]==-1 && flag[i])\n        {\n            long long j=i;\n            \n            while(true)\n            {\n                flag[j]=0;\n                \n                cout << j+'a';\n                \n                j=nex[j];\n                \n                if(j==-1)\n\t\t\t\t\tbreak;\n            }\n        }\n        \n    return 0;\n}\n```",
+        "postTime": 1637756214,
+        "uid": 312084,
+        "name": "yangzd",
+        "ccfLevel": 0,
+        "title": "CF 638 B"
+    }
+]

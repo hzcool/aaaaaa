@@ -1,0 +1,18 @@
+[
+    {
+        "content": "\u6839\u636e\u9898\u610f\u53ef\u77e5\uff0c\u672c\u9898\u5c31\u662f\u6a21\u62df\uff0c\u6c42 $p[p[\\cdots[p[s]]\\cdots]]=t$ \u4e2d\u5d4c\u5957\u7684\u4e2a\u6570\u3002\u5176\u4e2d\u5728\u4ee5 $s$ \u4e3a\u7d22\u5f15\u67e5\u627e $t$ \u7684\u65f6\u5019\uff0c\u53ef\u80fd\u4f1a\u51fa\u73b0\u627e\u5230\u4e4b\u524d\u627e\u8fc7\u7684\u6570\uff0c\u4f46\u8fd9\u65f6\u8fd8\u6ca1\u627e\u5230 $t$,\u90a3\u4e48\u5c31\u627e\u4e0d\u5230 $t$ \u4e86\uff0c\u5219\u8f93\u51fa $-1$\u3002\n```c\n#include<bits/stdc++.h>\nusing namespace std;\nconst int MAXN=100005;\nint n,s,t;\nint p[MAXN];\nint main(){\n\tcin>>n>>s>>t;\n\tfor(int i=1;i<=n;i++)\n\t\tcin>>p[i];\n\tif(s==t){//\u7279\u5224\uff0c\u5f53s=t\u65f6\uff0c\u4e0d\u7528\u627e\n\t\tcout<<0;\n\t\treturn 0;\n\t}\n\tint pos=p[s],ans=1;\n\twhile(1){\n\t\tif(pos==t){\n\t\t\tcout<<ans;\n\t\t\tbreak;\n\t\t}else if(pos==s){//\u5f62\u6210\u4e86\u4e00\u4e2a\u73af\uff0c\u627e\u4e0d\u5230\u4e86t\u4e86\u3002\n\t\t\tcout<<-1;\n\t\t\tbreak;\n\t\t}else{\n\t\t\tpos=p[pos];\n\t\t\tans++;\n\t\t}\t\t\n\t}\n}\n```\n",
+        "postTime": 1682897495,
+        "uid": 507642,
+        "name": "zsfzhjf",
+        "ccfLevel": 0,
+        "title": "CF285B"
+    },
+    {
+        "content": "\u6a21\u62df $x = p_x$ \u8fd9\u4e2a\u8fc7\u7a0b\u76f4\u5230\u8d70\u5230 $t$\u3002\u5982\u679c\u5728\u8fd9\u4e2a\u8fc7\u7a0b\u4e2d\u8d70\u56de\u5230\u4e86\u8d77\u70b9 $s$\uff0c\u8bf4\u660e\u65e0\u89e3\u3002\n\n```rust\ninput! {\n    n: usize,\n    s: usize,\n    t: usize,\n    p: [usize; n]\n}\n\nlet mut x = s;\nlet mut ans = 0;\nprintln!(\n    \"{}\",\n    loop {\n        if x == t {\n            break ans;\n        }\n        x = p[x - 1];\n        ans += 1;\n        if x == s {\n            break -1;\n        }\n    }\n);\n```",
+        "postTime": 1685101498,
+        "uid": 84282,
+        "name": "andyli",
+        "ccfLevel": 7,
+        "title": "CF285B Find Marble \u9898\u89e3"
+    }
+]

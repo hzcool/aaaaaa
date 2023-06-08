@@ -1,0 +1,50 @@
+[
+    {
+        "content": "\u8fd9\u4e2a\u9053\u9898\u76f8\u5bf9\u6765\u8bf4\u6bd4\uff08te\uff09\u8f83\uff08bie\uff09\u7b80\u5355\u3002\n\n\u6211\u4eec\u76f4\u63a5\u8bfb\u5165\u6570\u7ec4\uff0c\u5728\u4e00\u4e2a\u4e00\u4e2a\u7528max\u51fd\u6570\u8fdb\u884c\u6bd4\u8f83\u6c42\u51fa\u6700\u5927\u503c\uff0c\u6700\u540e\u518d\u7528\u6700\u5927\u503c\u51cf\u53bbC\uff0c\u5c31\u662f\u6700\u7ec8\u7b54\u6848\u3002\n\n\u4e0a\u4ee3\u7801\uff08\u542b\u8bb2\u89e3\uff09\uff1a\n\n```\n#include<bits/stdc++.h>\nusing namespace std;\ninline int read()//\u5feb\u8bfb\n{\n\tint x=0,f=1;\n\tchar ch=getchar();\n\twhile(ch<'0'||ch>'9')\n\t{\n\t\tif(ch=='-')\n\t\tf=-1;\n\t\tch=getchar();\n\t}\n\twhile(ch>='0'&&ch<='9')\n\t{\n\t\tx=(x<<1)+(x<<3)+(ch^48);\n\t\tch=getchar();\n\t}\n\treturn x*f;\n}\nint n,b,a[105],c;\nint main()\n{\n\tn=read();b=read();\n\tfor(int i=1;i<=n;i++)\n\t\ta[i]=read();//\u5148\u8bfb\u5165\u6570\u7ec4\n\tfor(int i=1;i<n;i++)\n\tc=max(c,a[i]-a[i+1]);//\u5728\u4f9d\u6b21\u627e\u6700\u5927\u503c\n\tif(c-b<=0) cout<<\"0\";//\u5982\u679c\u6700\u7ec8\u503c\u5c0f\u4e8e0\u6216\u8005\u7b49\u4e8e0\u76f4\u63a5\u8f93\u51fa0\n\telse\n\tcout<<c-b;//\u5426\u5219\u8f93\u51faC-B\u3002\n\treturn 0;\n}\n```\n",
+        "postTime": 1583919290,
+        "uid": 183473,
+        "name": "PrincessYR\u2728\uff5e",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 CF385A \u3010Bear and Raspberry\u3011"
+    },
+    {
+        "content": "### \u601d\u8def\uff1a\n\n\u8fd9\u9898\u53ef\u76f4\u63a5\u7528\u4e24\u4e2a\u53d8\u91cf\u8868\u793a\u524d\u4e00\u4e2a\u6570\u548c\u540e\u4e00\u4e2a\u6570\uff0c\u7136\u540e\u6bcf\u6b21\u8f93\u5165\u540e\u505a\u5dee\u5e76\u548c\u6700\u5927\u503c\u6bd4\u8f83\u3002\n\n\u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,a,b,c,maxn=-100;\nint main() {\n    cin>>n>>c;//\u8f93\u5165\n    cin>>a;//\u5148\u8f93\u5165\u7b2c\u4e00\u4e2a\u6570\n    for(int i=2;i<=n;i++) {//\u5faa\u73afn-1\u6b21\n        cin>>b;//\u8f93\u5165\u5f53\u524d\u8fd9\u4e2a\u6570\n        maxn=max(a-b,maxn);//\u505a\u5dee\u5e76\u6bd4\u8f83\n        a=b;//\u8fd9\u4e2a\u6570\u53d8\u6210\u524d\u4e00\u4e2a\u6570\n    }\n    cout<<max(maxn-c,0)<<endl;//\u5982\u679c\u8fd9\u4e2a\u6570\u5c0f\u4e8e0\uff0c\u5c31\u8f93\u51fa0\n    return 0;\n}\n```\n",
+        "postTime": 1565504893,
+        "uid": 57779,
+        "name": "LRL65",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF385A \u3010Bear and Raspberry\u3011"
+    },
+    {
+        "content": "## \u66b4\u529b \u4e4b \u4e00\u4e2a\u5faa\u73af\u5c31\u5b8c\u4e8b\n\n\u6211\u4eec\u5148\u627e\u51fa\u8fd9\u4e2a\u5e8f\u5217\u4e2d\u7684\u6700\u5927\u5dee\u503c\uff0c\u6700\u540e\u8f93\u51fa\u5176\u4e0e0\u7684\u5dee\u5373\u53ef\u3002\n\n\u4f46\u662f\uff0c\u8bf7\u6ce8\u610f\uff0c\u82e5\u7ed3\u679c\u4e3a\u8d1f\u6570\uff0c\u5219\u8f93\u51fa0.\n\n\u4ee3\u7801\u6ca1\u6709\u6ce8\u91ca\uff0c\u4f46\u4e5f\u662f\u7b80\u5355\u6613\u61c2\u7684\u54e6\u3002\n\n\n\n\n```\n#include<bits/stdc++.h>\nusing namespace std;\n#define N 105\nint n,c,a[N];\nint main () \n{\n    int ans=0;\n    scanf(\"%d%d\",&n,&c);\n    for (int i=0;i<n;i++) \n\t\tscanf(\"%d\",&a[i]);\n    for (int i=1;i<n;i++) \n\t\tans=max(ans,a[i-1]-a[i]);\n    printf(\"%d\\n\",max(ans-c,0));\n    return 0;\n}\n```\n",
+        "postTime": 1566656326,
+        "uid": 151720,
+        "name": "AkiwaZawa",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF385A \u3010Bear and Raspberry\u3011"
+    },
+    {
+        "content": "### \u9898\u610f\n\n\n------------\n\n\n\u7ed9\u5b9a\u4e00\u4e2a\u5e8f\u5217\uff0c\u8bf7\u6c42\u51fa\u76f8\u90bb\u4e24\u4e2a\u6570\u4e4b\u5dee\u7684\u6700\u5927\u503c\u4e0ec\u7684\u5dee\u3002\n#### \u5982\u679c\u7ed3\u679c\u5c0f\u4e8e0\u7684\u8bdd\u5c31\u8f93\u51fa0\u3002\n\n\n------------\n\n### \u601d\u8def\n\n\n------------\n\u2460\u666e\u901a\u4eba\u7684\u60f3\u6cd5\u3002\u5c06\u8fd9n\u4e2a\u6570\u5b58\u50a8\u5230\u6570\u7ec4\u4e2d\uff0c\u7136\u540eO\uff08n\uff09\u626b\u4e00\u904d\uff0c\u6c42\u51fa\u6700\u5927\u5dee\u503c\u3002\u4ee3\u7801\u5982\u4e0b\n\n------------\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,c,ans=INT_MIN/9,a[110];\nint main ()\n{\n\tscanf(\"%d%d\",&n,&c);\n\tfor(register int i=1;i<=n;++i)\n\t\tscanf(\"%d\",&a[i]);\n\tfor(register int i=1;i<n;++i)\n\t\tans=max(ans,a[i]-a[i+1]);\n\tprintf(\"%d\\n\",max(0,ans-c));\n\treturn 0;\n}\n```\n\n------------\n\u8fd9\u6837\u5df2\u7ecf\u53ef\u4ee5\u62ff\u6ee1\u5206\u4e86\uff01\n\n\u4f46\u662f\u2026\u2026\n\n------------\n\u2461\u849f\u84bb ~~\uff08\u5c31\u662f\u6211\uff09~~ \u7684\u60f3\u6cd5\u3002\u7528\u4e24\u4e2a\u53d8\u91cf\u4ee3\u66ff\u6570\u7ec4\uff0c\u8fb9\u8f93\u5165\u8fb9\u64cd\u4f5c\u3002\u4ee3\u7801\u5982\u4e0b\n\n\n------------\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,c,ans=INT_MIN/9;\nint main ()\n{\n\tscanf(\"%d%d\",&n,&c);\n\tint x,y;\n\tscanf(\"%d\",&x);\n\tfor(register int i=2;i<=n;++i)\n\t{\n\t\tif(i&1)\n\t\t\tscanf(\"%d\",&x),ans=max(ans,y-x);\n\t\telse \n\t\t\tscanf(\"%d\",&y),ans=max(ans,x-y);\n\t}\n\tprintf(\"%d\\n\",max(0,ans-c));\n\treturn 0;\n}\n```\n\u4e00\u6837\u53ef\u4ee5AC\u5566\uff01",
+        "postTime": 1564902490,
+        "uid": 117980,
+        "name": "18lxxrz",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF385A \u3010Bear and Raspberry\u3011"
+    },
+    {
+        "content": "```\n\u6ca1\u6709pas\u9898\u89e3???\nvar n,c,i,maxn:longint;\na:array[1..101] of longint;\nfunction max(p,q:longint):longint;\nbegin\nif p>q then exit(p)\nelse exit(q);\nend;\n//\u6c42\u6700\u5927\u503c\nbegin\nmaxn:=-201;//\u521d\u59cb\u5316\nread(n,c);\nfor i:=1 to n do begin\nread(a[i]);\nif i>=2 then maxn:=max(maxn,a[i-1]-a[i]);\nend;//\u6c42\u5dee\nif maxn>=c then write(maxn-c)\nelse write('0');//\u6ce8\u610f\u770b\u9898,\u9898\u610f\u63d0\u9192\u4f60\u4e86maxn<c\u65f6\u8981\u8f93\u51fa0\uff01\nend.\n```",
+        "postTime": 1543720468,
+        "uid": 25051,
+        "name": "\u0430\u0431\u0432\u0433",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF385A \u3010Bear and Raspberry\u3011"
+    },
+    {
+        "content": "# \u9898\u610f\n\n### \u9898\u76ee\u63cf\u8ff0\n\n\u7ed9\u5b9a\u4e00\u4e2a\u5e8f\u5217\uff0c\u8bf7\u6c42\u51fa\u76f8\u90bb\u4e24\u4e2a\u6570\u4e4b\u95f4\uff08\u524d\u6570$-$\u540e\u6570\uff09\u5dee\u7684\u6700\u5927\u503c\u4e0e$c$\u7684\u5dee\u3002\n\n\u5982\u679c\u7ed3\u679c\u5c0f\u4e8e$0$\u7684\u8bdd\u5c31\u8f93\u51fa$0$\u3002\n\n### \u8f93\u5165\u683c\u5f0f\n\n\u7b2c\u4e00\u884c\u8f93\u5165$n$\u548c$c$\u3002\n\n\u63a5\u4e0b\u6765\u4e00\u884c$n$\u4e2a\u6570\u5b57\uff0c\u63cf\u8ff0\u6574\u4e2a\u5e8f\u5217\u3002\n\n### \u8f93\u51fa\u683c\u5f0f\n\n\u8f93\u51fa\u4e00\u884c\u8868\u793a\u7ed3\u679c\u3002\n\n---\n\n# \u9898\u89e3\n\n### \u76f4\u63a5\u819c\u4f60\n\n\u76f4\u63a5\u6309\u9898\u610f\u819c\u4f60\u5373\u53ef\u3002\n\n\u53ef\u4ee5\u4e0d\u7528\u6570\u7ec4\u5b58\u50a8\uff0c\u53ea\u8981\u7528\u4e24\u4e2a\u53d8\u91cf```last```\u8868\u793a\u4e0a\u4e00\u4e2a\u6570\uff0c```a```\u5219\u8868\u793a\u5f53\u524d\u8f93\u5165\u7684\u6570\u3002\n\n\u53ef\u4ee5\u4e00\u5f00\u59cb\u5148\u8bfb\u5165```last```\uff0c\u7136\u540e\u8bfb\u5165$n-1$\u6b21```a```\uff0c\u9010\u6b21\u6253\u64c2\u6bd4\u8f83\u51fa\u6700\u5927\u7684```last-a```\uff0c\u8ba1\u5165\u7ed3\u679c```res```\u3002\n\n\u6700\u540e\u8f93\u51fa```res-c```\u5373\u53ef\u3002\n\n### \u6ce8\u610f\u9898\u610f\u63d0\u9192\u4f60\u4e86```res-c```$\\lt{0}$\u65f6\u8981\u8f93\u51fa$0$\uff01\n\n---\n\n# \u4ee3\u7801\n\n```cpp\n#include<stdio.h>\n#include<iostream>\nint n,c,a,last,res;\nint main()\n{\n\tscanf(\"%d%d%d\",&n,&c,&last); //\u8bb0\u5f97\u5148\u8bfb\u5165\u7b2c\u4e00\u4e2a\u6570last\n\twhile(--n) //while(--n)\u53ef\u4ee5\u76f4\u63a5\u8868\u793a\u8bfb\u5165n-1\u6b21\u6570\u636e\n\t{\n\t\tscanf(\"%d\",&a);\n\t\tif(last-a>res) res=last-a; //\u6bd4\u8f83\u51fa\u6700\u5927\u7684last-a\u8ba1\u5165res\n\t\tlast=a; //\u6eda\u52a8\u53d8\u91cf\u8bb0\u5f55\u5e8f\u5217\n\t}\n\tprintf(\"%d\\n\",std::max(res-c,0)); //\u8f93\u51fares-c\uff0c\u6ce8\u610fres-c\u5c0f\u4e8e0\u65f6\u8981\u8f93\u51fa0\uff0c\u6b64\u5904\u53ef\u4ee5\u7528\u53d6\u6700\u5927\u503c\u51fd\u6570\u6765\u7279\u5224\n\treturn 0;\n}\n```",
+        "postTime": 1543493922,
+        "uid": 55112,
+        "name": "damage",
+        "ccfLevel": 0,
+        "title": "CF385A\u9898\u89e3"
+    }
+]

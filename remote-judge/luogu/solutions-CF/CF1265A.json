@@ -1,0 +1,26 @@
+[
+    {
+        "content": "## \u9898\u610f\n\u7ed9\u5b9a\u5b57\u7b26\u4e32 $ s $\uff0c\u7531```a```\uff0c```b```\uff0c```c```\uff0c```?```\u56db\u79cd\u5b57\u7b26\u6784\u6210\u3002\n\n\u60a8\u9700\u8981\u5c06 $ s $ \u4e2d\u7684\u6240\u6709```?```\u4fee\u6539\u4e3a```a```\uff0c```b```\uff0c```c```\u4e2d\u7684\u4e00\u79cd\uff0c\u4f7f\u5f97 $ s $ \u76f8\u90bb\u4e24\u4e2a\u5b57\u7b26\u5747\u4e0d\u76f8\u540c\u3002\n## \u5206\u6790\n\u5982\u679c\u8be5\u4f4d\u7f6e\u4e0d\u662f\u95ee\u53f7\uff0c\u6539\u4e0d\u4e86\u3002\n\u5426\u5219\u5728```a```\uff0c```b```\uff0c```c```\u4e09\u79cd\u91cc\u9762\u9009\u4e00\u79cd\u586b\u3002\u5982\u679c $ i+1 $ \u548c $ i-1 $ \u4f4d\u90fd\u4ee5\u7ed9\u5b9a\uff0c\u76f4\u63a5\u53d6\u53e6\u5916\u90a3\u4e2a\uff0c\u5982\u679c $ i+1 $ \u4f4d\u4e3a```?```\uff0c\u76f4\u63a5\u53d6\u8ddf\u7b2c $ i-1 $ \u4e3a\u4e0d\u540c\u7684\u4e14\u6700\u5c0f\u7684\u90a3\u4e2a\u5c31\u53ef\u4ee5\u4e86\uff0c\u8fd9\u4e2a\u8fc7\u7a0b\u53ef\u4ee5\u7528\u6570\u7ec4\u8ba1\u6570\u5b9e\u73b0\uff0c\u7528\u662f```s[i]-'a'+1```\u4f5c\u4e3a\u4e0b\u6807\uff0c\u6700\u540e\u8fd8\u8981\u5224\u65ad\u4e24\u4e2a\u76f8\u90bb\u7684\u5b57\u6bcd\u662f\u5426\u4e0d\u540c\u3002\n## AC \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint t,l,p,bl[10];\nstring s;\nint main()\n{\n\tcin>>t;\n\tfor(int z=1;z<=t;z++)\n\t{\n\t\tcin>>s,p=1,l=s.size();\n\t\tfor(int i=0;i<l;i++)\n\t\t{\n\t\t\tif(s[i]!='?')continue;\n\t\t\telse\n\t\t\t{\n\t\t\t\tbl[1]=0,bl[2]=0,bl[3]=0;\n\t\t\t\tif(i>0)bl[s[i-1]-'a'+1]++;\n\t\t\t    if(i<l-1&&s[i+1]!='?')bl[s[i+1]-'a'+1]++;\t\n\t\t\t    for(int j=1;j<=3;j++)\n\t\t\t\t{\n\t\t\t\t    if(bl[j]==0){s[i]='a'+j-1;break;}\n\t\t\t    }\n\t\t\t}\n\t\t}\n\t\tfor(int i=0;i<l;i++)\n\t\t{\n\t\t\tif(s[i]==s[i+1]){cout<<\"-1\"<<endl,p=0;break;}\n\t\t}\n\t\tif(p==1)cout<<s<<endl;\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1683709681,
+        "uid": 531480,
+        "name": "lmndiscyhyzdxss",
+        "ccfLevel": 0,
+        "title": "CF1265A Beautiful String \u9898\u89e3"
+    },
+    {
+        "content": "### \u601d\u8def\n\u8bbe\u5b57\u7b26\u4e32\u4e3a $s$\u3002  \n\u9996\u5148**\u53ea\u8981**\u5224\u65ad\u662f `?` \u7684\u5b57\u7b26\uff0c\u63a5\u4e0b\u6765\u5728 `a`,`b`,`c` \u91cc\u9009\u4e00\u79cd\uff0c\u7531\u4e8e\u7b2c  $s_{i-1}$ \u4f4d\u548c\u7b2c $s_{i+1}$ \u4f4d\u6700\u591a\u53ea\u4f1a\u51fa\u73b0\u4e24\u79cd\u4e0d\u540c\u7684\u5b57\u7b26\u6240\u4ee5\u4e00\u5b9a\u6709\u89e3\u3002  \n**\u6ce8\u610f**\uff1a\u5982\u679c $s_{i+1}$ \u4e3a `?`\uff0c\u90a3\u4e48 $s_{i+1} \\neq s_{i-1}$\u3002   \n\u6700\u540e\u5224\u65ad\u4e00\u4e0b\u5408\u4e0d\u5408\u6cd5\u5c31\u53ef\u4ee5\u4e86\u3002\n### Code\n```cpp\n#include<bits/stdc++.h>\n#define add_(i) (++i) \n#define dec_(j) (--j)\nusing namespace std;\nint main(){\n\tios::sync_with_stdio(0);\n\tcin.tie(0),cout.tie(0);\n\tint t,lens;string s;\n\tcin>>t;\n\tdo{\n\t\tbool *n=(bool*)malloc(4*sizeof(bool));\n\t\tcin>>s;\n\t\tlens=s.size();\n\t\tfor(int i=0;i<lens;add_(i)){\n\t\t\tif(s[i]=='?'){\n\t\t\t\tmemset(n,0,sizeof(n));\n\t\t\t\tif(i>0) n[s[i-1]-96]=1;\n\t\t\t\tif(i<lens-1&&s[i+1]!='?') n[s[i+1]-96]=1;\n\t\t\t\tfor(int j=1;j<=3;add_(j))\n\t\t\t\t\tif(n[j]==0){\n\t\t\t\t\t\ts[i]=j+96;\n\t\t\t\t\t\tbreak;\n\t\t\t\t\t}\n\t\t\t}\n\t\t} \n\t\tfor(int i=0;i<lens;add_(i))\n\t\t\tif(s[i]==s[i+1]){\n\t\t\t\tcout<<\"-1\\n\";\n\t\t\t\tgoto end;\n\t\t\t}\n\t\tcout<<s<<'\\n';\n\t\tend:free(n);\n\t}while(dec_(t),t>0);\n\treturn 0;\n} \n```",
+        "postTime": 1683522726,
+        "uid": 707513,
+        "name": "LBYYSM_123",
+        "ccfLevel": 0,
+        "title": "CF1265A"
+    },
+    {
+        "content": "\u5982\u679c\u539f\u5b57\u7b26\u4e32\u7684\u7b2c $i$ \u4f4d\u4e0d\u662f `?`\uff0c\u90a3\u4e48\u4e0d\u80fd\u66f4\u6539\uff0c\u8df3\u8fc7\u3002\n\n\u5426\u5219\u5728 `a`\uff0c`b`\uff0c`c` \u4e09\u79cd\u91cc\u9762\u9009\u4e00\u79cd\u586b\u3002\u7531\u4e8e\u7b2c $i-1$ \u4f4d\u548c\u7b2c $i+1$ \u4f4d\u81f3\u591a\u4f1a\u51fa\u73b0\u4e24\u79cd\u4e0d\u540c\u7684\u5b57\u7b26\u6240\u4ee5\u4e00\u5b9a\u6709\u89e3\u3002\u7279\u6b8a\u7684\uff0c\u5982\u679c\u7b2c $i+1$ \u4f4d\u4e5f\u662f `?`\uff0c\u90a3\u4e48\u5c31\u53ea\u9700\u8981\u6ee1\u8db3\u548c $i-1$ \u4f4d\u4e0d\u540c\u3002\n\n\u6700\u540e\u626b\u63cf\u5b57\u7b26\u4e32\uff0c\u5982\u679c\u53d1\u73b0\u975e\u6cd5\u5c31\u8f93\u51fa `NO`\uff0c\u5426\u5219\u5c31\u662f\u5408\u6cd5\u7684\u3002\n\n```cpp\n# include <bits/stdc++.h>\n# define rr register\nconst int N=100010;\nchar s[N];\nint T;\nint n;\nbool use[10];\nint main(void){\n\tscanf(\"%d\",&T);\n\twhile(T--){\n\t\tscanf(\"%s\",s+1);\n\t\tn=strlen(s+1);\n\t\tfor(rr int i=1;i<=n;++i){\n\t\t\tif(s[i]!='?')\n\t\t\t\tcontinue;\n\t\t\tmemset(use,false,sizeof(use));\n\t\t\tif(i>1)\n\t\t\t\tuse[s[i-1]-'a'+1]=true;\n\t\t\tif(i<n&&s[i+1]!='?')\n\t\t\t\tuse[s[i+1]-'a'+1]=true;\t\n\t\t\tfor(rr int j=1;j<=3;++j){\n\t\t\t\tif(!use[j]){\n\t\t\t\t\ts[i]='a'+j-1;\n\t\t\t\t\tbreak;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\tfor(rr int i=1;i<n;++i){\n\t\t\tif(s[i]==s[i+1]){\n\t\t\t\tputs(\"-1\");\n\t\t\t\tgoto End;\n\t\t\t}\n\t\t}\n\t\tputs(s+1);\n\t\tEnd:;\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1575596958,
+        "uid": 108949,
+        "name": "Meatherm",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF1265A \u3010Beautiful String\u3011"
+    }
+]

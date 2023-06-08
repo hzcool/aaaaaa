@@ -1,0 +1,66 @@
+[
+    {
+        "content": "> 1 $\\le n,m \\le 10^{12}$ ,  1 $\\le a,b \\le 100$  \n\n\u7531\u6b64\u53ef\u5f97\uff0c $a , b$ \u7686\u4e3a\u6b63\u6574\u6570\u3002  \n\u56e0\u6b64\uff0c\u52a0\u51cf\u8fd0\u7b97\u540c\u65f6\u5b58\u5728\u7684\u65b9\u6848\u6240\u9700\u7684\u4ee3\u4ef7\u4e00\u5b9a\u4e0d\u662f\u6700\u5c0f\u7684\u3002\n### \u601d\u8def\n+  $n$ \u6bcf\u6b21\u52a0\u4e00\u8fbe\u5230\u6bd4 $n$ \u5927\u7684\u4e14\u80fd\u88ab $m$ \u6574\u9664\u7684\u6700\u5c0f\u6574\u6570\n+ \u6216\u8005 $n$ \u6bcf\u6b21\u51cf\u4e00\u8fbe\u5230\u6bd4 $n$ \u5c0f\u7684\u4e14\u80fd\u88ab $m$ \u6574\u9664\u7684\u6700\u5927\u6574\u6570   \n\n\u82b1\u8d39\u5206\u522b\u4e3a\n$(m-n$ % $m)$ * $a$ \u6216 $(n$ % $m)$ * $b$\n\n~~Python \u81ea\u5e26\u9ad8\u7cbe\u5ea6\uff0c\u4e0d\u9700\u8981\u8003\u8651\u6570\u636e\u8303\u56f4\u3002~~\n\n## Code\n```python\nimport math\ns = input().split()\nfor i in range(4):\n    s[i] = int(s[i])\nprint(min((s[1]-s[0]%s[1])*s[2],(s[0]%s[1])*s[3]))\n```\n",
+        "postTime": 1603777860,
+        "uid": 320282,
+        "name": "\u6211\u548c\u9c7c\u8fc7\u4e0d\u53bb",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF990A \u3010Commentary Boxes\u3011"
+    },
+    {
+        "content": "### \u8fd9\u80af\u5b9a\u662f\u6700\u77ed\u4ee3\u7801\u4e86\n\u6211\u4eec\u5148\u6765\u5206\u6790    \n\n\n------------\n\u5bf9\u4e8e\u4e00\u4e2a\u6570n\uff0c\u6bcf\u6b21\u52a0\u4e00\u7684\u4ee3\u4ef7\u662fa\uff0c\u6bcf\u6b21\u51cf\u4e00\u7684\u4ee3\u4ef7\u662fb\uff0c\u6c42\u88abm\u6574\u9664\u65f6\u7684\u6700\u5c0f\u4ee3\u4ef7\u3002   \n\u5982\u679c\u662f\u8fd9\u6837\uff0c**\u5faa\u73af\u80af\u5b9a\u4f1a\u8d85\u65f6**\uff0c\u90a3\u6211\u4eec\u5c31\u7528\u6570\u8bba\u5427\u3002  \n\n\n------------\n\n\u65e2\u7136\u662f\u6570\u8bba\uff0c\u5148\u627e\u89c4\u5f8b\n\u8fd9\u4e2an\u8981\u53d8\u4e3am\u7684\u500d\u6570\uff0c\u5c31\u62ff\u6837\u4f8b\u6765\u770b\uff0c9\u5fc5\u987b\u53d8\u4e3a7\u621614\u3002    \n\u63a8\u51fa\u51cf\u5c11\u5c31\u662f\n```cpp\n(n%m)*b\n```\n\n\u4f46\u589e\u52a0\u4e0d\u4e00\u5b9a\u6bcf\u6b21\u90fd\u662f2\u500d\uff0c\u6211\u4eec\u5c31\u8981\u6c42\u51fa\u8fd9\u4e2an\u548cm\u7684\u500d\u6570\u5dee\u591a\u5c11\uff0c\u518d\u7528m\u51cf\u53bb\u5b83\uff0c\u6240\u4ee5\uff0c\u589e\u52a0\u7684\u4e5f\u5c31\u662f     \n```cpp\n(m-n%m)*a\n```\n\u8fd9\u6837\u5c31\u53ef\u4ee5\u63a8\u51fa\u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,m,a,b,i,j;\nint main()\n{\n\tcin>>n>>m>>a>>b;\n\tcout<<min((n%m)*b,(m-n%m)*a);\n\treturn 0;\n}\n\n```\n\n\n------------\n### \u8c03\u8bd5\n\u6211\u4eec\u53d1\u73b0\uff0c\u8fd9\u6837\u7684\u4ee3\u7801\u63d0\u4ea4\u4e0a\u53bb\uff0c\u5c45\u7136\u4f1a**RE**    \n\u600e\u4e48\u56de\u4e8b\u5462\uff1f    \n\u6211\u4eec\u9700\u8981\u91cd\u65b0\u5ba1\u9898\u3002   \n\u5728\u8f93\u5165\u683c\u5f0f\u54ea\u91cc\uff0c\u6211\u4eec\u53d1\u73b0\u6570\u636e\u8303\u56f4\u8fbe\u5230\u4e8610\u768412\u6b21\u65b9\uff0c\u5c31\u4ee3\u8868\u4e0d\u80fd\u7528int\uff0c\u8981\u7528long long\u4e86\u3002\n\n\n------------\n## code\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nlong long n,m,a,b,i,j;\nint main()\n{\n\tcin>>n>>m>>a>>b;\n\tcout<<min((n%m)*b,(m-n%m)*a);\n\treturn 0;\n}\n\n```\n",
+        "postTime": 1601773589,
+        "uid": 308729,
+        "name": "sheeplittlecloud",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF990A \u3010Commentary Boxes\u3011"
+    },
+    {
+        "content": "\u5982\u679c\u7528\u5faa\u73af\u5e94\u8be5\u4f1a\u8d85\u65f6\uff0c\u6240\u4ee5\u8fd9\u91cc\u7528\u6570\u8bba\u6bd4\u8f83\u597d\n\n\u5148\u5206\u6790\u9898\u610f\u5f97\u77e5\uff0c\u53ef\u4ee5\u52a0\u4e0a\u53bb\uff0c\u4e5f\u53ef\u4ee5\u51cf\u4e0b\u6765\n\n\u51cf\u4e0b\u6765\u662f n mod m (n % m)\n\n\u5f80\u4e0a\u52a0\u662f m - n mod m (m - n % m)\n\n\u4e3a\u4ec0\u4e48\u5462\uff1f\n\nn % m\u7684\u7ed3\u679c\u5c31\u662f\u591a\u51fa\u7684\uff0c\u51cf\u6389\u6574\u9664\n\nm - n % m\u7684\u7ed3\u679c\u5c31\u662f\u5c11\u7684\uff0c\u52a0\u8d77\u6765\u4e5f\u53ef\u4ee5\u6574\u9664\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include <iostream>\nusing namespace std;\n\n#define min(a, b) (a < b ? a : b)//\u5b8f\u5b9a\u4e49\n\ninline long long read()//\u5feb\u8bfb\n{\n    long long x = 0;\n    char ch = getchar();\n    while(ch >= '0' && ch <= '9')\n    {\n        x = (x << 1) + (x << 3) + (ch ^ 48);\n        ch = getchar();\n    }\n    return x;\n}\n\nint main()\n{\n    long long n, m, a, b;\n    n = read();\n    m = read();\n    a = read();\n    b = read();\n    a *= (m - n % m);\n    b *= n % m;\n    cout << min(a, b) << endl;\n    return 0;\n}\n```\n",
+        "postTime": 1601457498,
+        "uid": 332914,
+        "name": "happybob",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF990A \u3010Commentary Boxes\u3011"
+    },
+    {
+        "content": "juruo\u5f88\u84bb\uff0c\u53ea\u80fd\u6c34\u6c34\u9898\u89e3\u9a97\u5495\u503c\u3002\n\nUpdate\uff1a\u4fee\u4e86\u4e00\u4e0b\u6392\u7248\n\n\u9996\u5148\uff0c\u89c2\u5bdf\u6570\u636e\u8303\u56f4\uff0c$a$\uff0c$b$ \u90fd\u662f\u6b63\u6574\u6570\uff0c\u56e0\u6b64**\u4e00\u4e0a\u4e00\u4e0b\u6ca1\u597d\u5904**\uff0c\u8981\u4e48\u5168\u90e8\u4e0a\uff0c\u8981\u4e48\u5168\u90e8\u4e0b\u3002\n \n\u90a3\u5c31\u5206\u4e24\u79cd\u53d6 $\\min$ \u5c31\u597d\u4e86\u3002\n \n\u5f80\u4e0b\u7684\u8bdd\uff0c\u8981\u4e0b $(n\\bmod m)$ \u6b21\uff1b\u5f80\u4e0a\u7684\u8bdd\uff0c\u8981\u4e0a $[m-(n\\bmod m)]$ \u6b21\uff08\u9664\u975e\u662f\u6574\u9664\uff09\u3002\n\n\u6ce8\u610f\u6570\u636e\u8303\u56f4\uff0c\u4e0d\u5f00 $\\text{Long}$ \u89c1\u7956\u5b97\u3002\n\n\u6700\u540e\u4e0a\u4ee3\u7801\uff1a\n\n```kotlin\nfun min(a:Long,b:Long):Long=if(a<b)a else b\nfun main(args:Array<String>){\n    val(n,m,a,b)=readLine()!!.split(' ').map(String::toLong)\n    println(min(n%m*b,(m-n%m)*a))\n}\n```\n\nOver.\n\n\u89c9\u5f97\u8fd8\u7b97\u6e05\u6670\uff0c\u4e0d\u61c2\u79c1\u4fe1\u3002\n\n\u795d\u5927\u5bb6AC\uff01",
+        "postTime": 1587706717,
+        "uid": 338178,
+        "name": "__\u767d\u8863\u6e21\u6c5f__",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF990A \u3010Commentary Boxes\u3011"
+    },
+    {
+        "content": "\u672c\u849f\u84bb\u56e0\u4e3a\u592a\u5f31\u4e86,\u53ea\u597d\u6765\u5199cf\u7ea2\u9898\u7684\u9898\u89e3\u6765\u9a97\u9a97\u4f30\u503c(\u9003\n\n\n------------\n\u8fd9\u9898\u6bd4\u8f83\u7b80\u5355,**\u601d\u8def**:\n\n\u9996\u5148\u6211\u4eec\u77e5\u9053\u52a0\u4e00\u82b1\u8d39a,\u51cf\u4e00\u8bdd\u8d39b,\u6240\u4ee5**\u5148\u52a0\u4e00\u518d\u51cf\u4e00\u6216\u8005\u5148\u51cf\u4e00\u518d\u52a0\u4e00\u662f\u6ca1\u5fc5\u8981\u7684**,\u6240\u4ee5\u6211\u4eec\u53ea\u8981**\u4e00\u76f4\u52a0\u4e00\u6216\u8005\u4e00\u76f4\u51cf\u4e00**.\n\n\u90a3\u4e48\u73b0\u5728\u9898\u76ee\u5c31\u53d8\u6210\u4e86\u8fd9\u4e2a\u6837\u5b50:\n\n\u73b0\u5728\u6709\u4e00\u4e2a\u6570n,**\u6c42\u662f\u52a0\u5230m\u7684\u500d\u6570\u65f6\u82b1\u8d39\u7684\u4ee3\u4ef7\u5c11\u8fd8\u662f\u51cf\u5230m\u7684\u500d\u6570\u65f6\u82b1\u8d39\u7684\u4ee3\u4ef7\u5c11**\n\n\u90a3\u4e48\u4ee3\u7801\u5c31\u663e\u800c\u6613\u89c1\u4e86,\u5f53\u7136\u5341\u5206\u5f97\u77ed,\u5982\u4e0b:\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nlong long n,m,a,b;//\u8bb0\u4f4f\u4e00\u5b9a\u8981\u5f00longlong\nint main() {\n\tcin>>n>>m>>a>>b;\n\tcout<<min((n%m)*b,(m-n%m)*a)<<endl;//\u6bd4\u54ea\u4e2a\u82b1\u8d39\u7684\u4ee3\u4ef7\u5c11\n}\n```\n",
+        "postTime": 1585667708,
+        "uid": 57779,
+        "name": "LRL65",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF990A \u3010Commentary Boxes\u3011"
+    },
+    {
+        "content": "\u5f88\u660e\u663e\uff0c\u65e2\u5f80\u4e0a\u52a0\u53c8\u5f80\u4e0b\u51cf\u662f\u6d6a\u8d39\u7684\uff0c\u6240\u4ee5\u8981\u4f7f$n$\u88ab$m$\u6574\u9664\uff0c\u53ea\u6709\u4e24\u79cd\u60c5\u51b5\uff1a\u8981\u4e48$n$\u4e00\u76f4\u5f80\u4e0a\u52a0\uff0c\u8981\u4e48$n$\u4e00\u76f4\u5f80\u4e0b\u51cf\u3002\n\n\u7ed9\u4e86\u6211\u4eec$a,b$\uff0c\u90a3\u4e48\u6211\u4eec\u53ea\u8981\u7b97\u51fa\u4e24\u79cd\u60c5\u51b5\u7684\u82b1\u8d39\uff0c\u518d\u53d6\u5c0f\u5c31\u53ef\u4ee5\u4e86\u3002\n\n\u5f88\u660e\u663e\uff0c\u6211\u4eec\u4e0d\u8bba\u662f\u5f80\u4e0a\u52a0\u8fd8\u662f\u5f80\u4e0b\u51cf\uff0c\u627e\u6700\u8fd1\u7684\u6570\u4e00\u5b9a\u662f\u6700\u4f18\u7684\uff0c\u90a3\u4e48\u5f80\u4e0b\u51cf\u7684\u4e0b\u9650\u5c31\u662f$n/m*m$\uff08\u6ce8\u610f\uff1a\u6b64\u5904$n/m$\u4e3a\u6574\u9664\uff0c\u5373\u5411\u4e0b\u53d6\u6574\uff0c\u4e0b\u540c\uff09\uff0c\u4e0a\u9650\u5c31\u662f$(n/m+1)*m$\u3002\n\n\u518d\u7528$n$\u4e0e\u8fd9\u4e24\u4e2a\u5f0f\u5b50\u505a\u5dee\u53d6\u5c0f\u5373\u53ef\u3002\n\n\u5373$ans=min(((n-n/m*m)*b,((n/m+1)*m-n)*a))$\n\n~~\u4ee3\u7801\u5c31\u4e0d\u9700\u8981\u4e86\u5427~~\n\n```cpp\n#include<bits/stdc++.h>\n#pragma GCC optimize(\"02\")\n#define ll long long\n#define int ll//\u4e0d\u5f00longlong\u89c1\u7956\u5b97\nusing namespace std;\nsigned main(){//\u7531\u4e8eint\u5df2\u7ecf\u88ab\u5b9a\u4e49\u4e3a\u4e86longlong\uff0c\u90a3\u4e48main\u5c31\u8981\u7528signed\uff08\u5176\u5b9e\u5c31\u662fint\uff09\u6765\u5b9a\u4e49\n\tios_base::sync_with_stdio(0);\n\tcin.tie(0);\n\tcout.tie(0);\n\tint n,m,a,b;\n\tcin>>n>>m>>a>>b;\n\tprintf(\"%lld\\n\",min((n-n/m*m)*b,((n/m+1)*m-n)*a));//\u975e\u5e38\u597d\u7406\u89e3\n\treturn 0;\n}\n```\n",
+        "postTime": 1581561866,
+        "uid": 235357,
+        "name": "Luisvacson",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF990A \u3010Commentary Boxes\u3011"
+    },
+    {
+        "content": "# \u601d\u8def:\n\n\u9996\u5148\u5224\u65adn\u662f\u5426\u73b0\u5728\u5c31%m\u7b49\u4e8e0 \n\n\u5982\u679c\u662f\u76f4\u63a5\u8f93\u51fa0\n\n\u5426\u5219\u5148\u7528temp\u50a8\u5b58n div(\u6574\u9664) m \u7684\u503c\n\n\u7531\u4e8e\u662f\u6574\u9664\uff0c\u6240\u4ee5$temp*m$\u7edd\u5bf9\u5c0f\u4e8en \u4f46\u662f$(temp+1)*m$\u7edd\u5bf9\u5927\u4e8en\n\n##### \u6240\u4ee5\u5982\u679c\u7528\u52a0\u7684\u6211\u4eec\u5c31\u6c42\u51fa\u6765\u662f$ : (m*(temp+1)-n)*a$\n\n### \u6700\u5c0f\u7684\u5927\u4e8en\u80fd\u6574\u9664m\u7684\u6570\uff0c\u518d-n\u5c31\u7b49\u4e8e\u4ed6\u4eec\u76f8\u5dee\u7684\u503c\uff0c\u518d\u4e58a\u5373\u53ef\n\n#### \u6309\u540c\u6837\u7684\u65b9\u6cd5\u4e5f\u53ef\u4ee5\u6c42\u51fa$(n-m*(temp))*b$\n\n\u4e5f\u5c31\u662f\u6700\u5927\u7684\u5c0f\u4e8en\u80fd\u6574\u9664m\u7684\u6570\uff0c\u88abn\u51cf\u53bb\uff0c\u6700\u540e\u4e58b\n\n## \u7136\u540e\u5c31\u662f\u6bd4\u8f83\u4e24\u4e2a\u6570\u54ea\u4e2a\u5c0f\u5373\u53ef\n```\n#include<bits/stdc++.h>\nusing namespace std;\nlong long n,m,a,b,temp,a_ans,b_ans;\nint main()\n{\n    cin>>n>>m>>a>>b;\n    if(n%m==0)//\u7279\u5224\n    {\n        cout<<0<<endl;\n        return 0;\n    }\n    temp=n/m;//\u8ba1\u7b97temp\n    a_ans=(m*(temp+1)-n)*a;\n    b_ans=(n-m*(temp))*b;\n    cout<<min(a_ans,b_ans);//\u8f93\u51fa\u6700\u5c0f\u503c\n    return 0;\n}\n```",
+        "postTime": 1529079614,
+        "uid": 58543,
+        "name": "RioBlu",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF990A \u3010Commentary Boxes\u3011"
+    },
+    {
+        "content": "\u9996\u5148\u662f\u5206\u6790\u9898\u76ee\n\n\u8981\u4f7f$n\\mod m==0$\uff0c\u90a3\u4e48\u6709\u4e24\u79cd\u9009\u62e9\uff0c\u7b2c\u4e00\u4e2a\u662f\u589e\u52a0\uff0c\u7b2c\u4e8c\u4e2a\u662f\u51cf\u5c11\u3002\n\n\u82e5\u8981\u589e\u52a0\uff0c\u5219\u9700\u8981\u589e\u52a0$m - n\\mod m$\u6b21\uff0c\u82b1\u8d39\u5c31\u518d\u4e58\u4e0a$b$\n\n\u82e5\u8981\u51cf\u5c11\uff0c\u5219\u9700\u8981\u51cf\u5c11$n\\mod m$\u6b21\uff0c\u82b1\u8d39\u518d\u4e58$a$\n\n\u4e8e\u662f\u5f97\u51fa\u7a0b\u5e8f\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nlong long n, m, a, b, x1, x2;\nint main() {\n  cin >> n >> m >> a >> b;\n  if (n % m == 0) {//\u7279\u5224\u4e0d\u5fc5\u8981\n  \tcout << 0 << endl;\n  \treturn 0;\n\t}\n\tx1 = n % m;//\u51cf\u5c11\u7684\u6b21\u6570\n\tx2 = m - n % m;//\u589e\u52a0\u7684\u6b21\u6570\n  cout << min(x1 * b, x2 * a) << endl;//\u8f93\u51fa\u8f83\u5c11\u7684\u82b1\u8d39\n  return 0;\n}\n```",
+        "postTime": 1529068168,
+        "uid": 37539,
+        "name": "_Qer",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF990A \u3010Commentary Boxes\u3011"
+    }
+]

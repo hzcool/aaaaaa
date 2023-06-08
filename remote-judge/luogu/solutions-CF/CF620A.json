@@ -1,0 +1,82 @@
+[
+    {
+        "content": "[\u9898\u76ee\u4f20\u9001\u95e8](/problem/CF620A)\n\n## Part.1 \u9898\u76ee\n\n\u6709\u4e24\u4e2a\u70b9\uff0c\u5750\u6807\u5206\u522b\u4e3a $(x_1,y_1)$ \u548c $(x_2,y_2)$\uff0c\u4f60\u6bcf\u6b21\u53ef\u4ee5\u628a $x_1$ \u6216 $y_1$ \u6539\u53d8 $1$\uff0c\u6216\u8005\uff0c\u4e24\u4e2a\u5750\u6807\u90fd\u6539\u53d8 $1$\u3002\u7136\u540e\u4f60\u8981\u6c42\u51fa\u81f3\u5c11\u8981\u6539\u53d8\u591a\u5c11\u6b21\u624d\u80fd\u4f7f\u4e24\u4e2a\u70b9\u91cd\u5408\u3002\n\n## Part.2 \u601d\u8def\n\n\u56e0\u4e3a $x_1$ \u6bcf\u6b21\u53ea\u80fd\u6539\u53d8 $1$\uff0c \u6240\u4ee5\u81f3\u5c11\u8981\u6539\u53d8 $|x_1-x_2|$ \u6b21\uff1b\u540c\u7406\uff0c\u81f3\u5c11\u8981\u6539\u53d8 $|y_1-y_2|$ \u6b21\u3002\u6240\u4ee5\uff0c\u4e00\u5171\u81f3\u5c11\u8981\u6539\u53d8 $\\max (|x_1-x_2|, |y_1-y_2|)$ \u6b21\u3002\n\n## Part.3 \u4ee3\u7801\n\n```\n#include<iostream>\nusing namespace std;\nint main(){\n\tint a,b,c,d;cin>>a>>b>>c>>d;\n\tcout<<max(max(a-c,c-a),max(b-d,d-b));\n}\n```\n\n\uff08\u6211[\u8fd9\u6b21\u63d0\u4ea4](/record/77768062)\u7684\u4ee3\u7801\uff09",
+        "postTime": 1655973245,
+        "uid": 497534,
+        "name": "yzy041616",
+        "ccfLevel": 0,
+        "title": "CF620A Professor GukiZ's Robot \u9898\u89e3"
+    },
+    {
+        "content": "\u56e0 $x1,x2,y1,y2$ \u4f1a\u4e0e\u5e93\u4e2d\u53d8\u91cf\u540d\u6240\u51b2\u7a81\uff0c\u6545\u4f7f\u7528 $a,b,c,d$ \u4ee3\u66ff\u3002\n\n\u6211\u4eec\u601d\u8003\u4ece $x_1$ \u5230 $x_2$ \u81f3\u5c11\u8981\u6539\u53d8 $|x_1-x_2|$ \u6b21\uff0c\u540c\u7406\uff0c\u4ece $y_1$ \u5230 $y_2$ \u81f3\u5c11\u8981\u6539\u53d8 $|y_1-y_2|$ \u6b21\u3002\u56e0\u4e3a\u6bcf\u6b21\u79fb\u52a8\u90fd\u53ef\u4ee5\u4f7f $x$ \u548c $y$ \u6539\u53d8\uff0c\u6240\u4ee5\uff0c\u6211\u4eec\u53ea\u8981\u6c42 $max(abs(x_1-x_2),abs(y_1-y_2)$ \u5c31\u884c\u4e86\u3002\n\n```\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n\tint a,b,c,d;\n\tcin>>a>>b>>c>>d;\n\tcout<<max(abs(a-c),abs(b-d));\n\treturn 0;\n}\n```\n",
+        "postTime": 1661603088,
+        "uid": 678070,
+        "name": "ykzzldz",
+        "ccfLevel": 0,
+        "title": "CF620A"
+    },
+    {
+        "content": "\u601d\u8def\u5206\u6790\n\n\u5148\u4ecb\u7ecd\u4e00\u4e0b\u6bd4\u96ea\u592b\u8ddd\u79bb\uff1a\n\n\u8fd9\u7c7b\u95ee\u9898\u53ea\u80fd\u5411\u81ea\u7684\u4e0a\u3001\u4e0b\u3001\u5de6\u3001\u53f3\u3001\u5de6\u4e0a\u3001\u5de6\u4e0b\u3001\u53f3\u4e0a\u3001\u53f3\u4e0b\u65b9\u5411\u8d70\u3002\u7531\u4e8e\u68cb\u76d8\u7684\u6027\u8d28\uff0c\u8d70\u4e00\u6b21\u659c\u7ebf\u76f8\u5f53\u4e8e\u8d70\u4e00\u6b21\u76f4\u7ebf\u7684\u8ddd\u79bb\uff0c\u6240\u4ee5\u53ea\u8981\u6c42\u51fa\u4e24\u8fb9\u8ddd\u79bb\u7684\u6700\u5927\u503c\u5c31\u53ef\u4ee5\u4e86\u3002\u5728 STL \u91cc\u5c31\u6709 `abs` \u7edd\u5bf9\u503c\u51fd\u6570\u3002\n\n\u53c2\u8003\u4ee3\u7801\uff1a\n\n```cpp\n#include <iostream>\n#include <cmath>\nusing namespace std;\n\nint main()\n{\n\tint x1, y1, x2, y2;\n\tcin >> x1 >> y1 >> x2 >> y2;\n\tcout << max(abs(x1 - x2),abs(y1 - y2));\n\treturn 0;\n}\n```",
+        "postTime": 1661601692,
+        "uid": 397137,
+        "name": "JustinXiaoJunyang",
+        "ccfLevel": 4,
+        "title": "CF620A \u9898\u89e3"
+    },
+    {
+        "content": "## $\\texttt{Solution}$\n\n\u8003\u8651\u5750\u6807\u6cbf\u6a2a\u7eb5\u65b9\u5411\u8fdb\u884c\u79fb\u52a8\u3002\n\n\u82e5\u8981\u4ece $x_1$ \u79fb\u52a8\u5230 $x_2$\uff0c\u5219\u6700\u5c11\u9700\u8981\u79fb\u52a8 $|x_2-x_1|$ \u6b21\u3002\n\n\u540c\u7406\uff0c\u82e5\u8981\u4ece $y_1$ \u79fb\u52a8\u5230 $y_2$\uff0c\u5219\u6700\u5c11\u9700\u8981\u79fb\u52a8 $|y_2-y_1|$ \u6b21\u3002\n\n\u6240\u4ee5\uff0c\u4e00\u5171\u8981\u79fb\u52a8 $\\max(|x_2-x_1|,|y_2-y_1|)$ \u6b21\u3002\n\n## $\\texttt{Code}$\n\n```cpp\n#include<bits/stdc++.h>\n#define ll long long\nusing namespace std;\nint u1,u2,v1,v2;//\u5206\u522b\u4ee3\u8868\u9898\u76ee\u4e2d\u7684 x1,x2,y1,y2\nint main(){\n\tcin>>u1>>v1;\n\tcin>>u2>>v2;\n\tcout<<max(abs(u2-u1),abs(v2-v1));\n\treturn 0;\n}\n```\n\u6ce8\u610f\uff1a\u6b64\u5904\u53d8\u91cf\u540d\u4e0d\u80fd\u4f7f\u7528 $x_1,x_2,y_1,y_2$\uff0c\u4f1a\u4e0e c++ \u539f\u672c\u5e93\u4e2d\u7684\u53d8\u91cf\u540d\u6240\u51b2\u7a81\u3002",
+        "postTime": 1659401397,
+        "uid": 128221,
+        "name": "BYWYR",
+        "ccfLevel": 5,
+        "title": "CF620A Professor GukiZ's Robot \u9898\u89e3"
+    },
+    {
+        "content": "\u672c\u9898\u5927\u610f\u662f\u8ba1\u7b97 $ (x_1,y_1) $ \u5230 $ (x_2,y_2) $ \u7684\u6700\u5c11\u6b65\u6570\u3002\u6211\u4eec\u53ef\u4ee5\u7528\u5927\u540d\u9f0e\u9f0e\u7684\u5207\u6bd4\u96ea\u592b\u8ddd\u79bb\u516c\u5f0f\u8ba1\u7b97\uff0c\u5373\u4e24\u70b9\u6a2a\u5750\u6807\u4e4b\u5dee\u7684\u7edd\u5bf9\u503c\u4e0e\u7eb5\u5750\u6807\u4e4b\u5dee\u7684\u7edd\u5bf9\u503c\u7684\u6700\u5927\u503c\u3002\n#### \u516c\u5f0f\uff1a\n```\nmax(abs(x2-x1),abs(y2-y1))\n\n```\n### \u4ee3\u7801\uff1a\n```cpp\n#include<iostream>\nusing namespace std;\nint main(){\n  \tint x1,y1,x2,y2;\n\tcin>>x1>>y1>>x2>>y2;\n\tcout<<max(abs(x1-x2),abs(y1-y2));\n  \treturn 0;\n}\n```\n",
+        "postTime": 1659149680,
+        "uid": 517086,
+        "name": "Anclogy",
+        "ccfLevel": 3,
+        "title": "CF620A"
+    },
+    {
+        "content": "update\uff1a\u6709\u4e00\u4e2a\u56fe\u6302\u4e86\uff0c\u6211\u91cd\u65b0\u8865\u4e0a\uff0c\u7ba1\u7406\u6c42\u8fc7\n\n\u8fd9\u9053\u9898\u4e0d\u96be\uff0c\u4e3b\u8981\u8003\u5bdf\u7684\u662f\u6570\u5b66\u77e5\u8bc6\u3002\n\n# \u524d\u94fa\uff1a\u6b27\u51e0\u91cc\u5f97\u8ddd\u79bb\n\n\u9996\u5148\u6211\u4eec\u90fd\u77e5\u9053\uff0c**\u4e24\u70b9\u4e4b\u95f4\u7ebf\u6bb5\u6700\u77ed**\uff0c\u5982\u4e0b\u56fe\u6240\u793a\uff1a\n\n![](https://s1.ax1x.com/2022/07/20/jHD36g.png)\n\n\u8fd9\u4e2a\u8ddd\u79bb\u5f88\u597d\u6c42\uff0c\u6211\u4eec\u628a $A$ \u70b9\u548c $B$ \u6240\u5728\u7684\u8f74\u753b\u51fa\u6765\uff0c\u5982\u4e0b\u56fe\u6240\u793a\uff1a\n\n![](https://s1.ax1x.com/2022/07/20/jHDDcF.jpg)\n\n\u5f88\u5bb9\u6613\u770b\u51fa\u6765\u8fd9\u4e09\u6761\u7ebf\u6784\u6210\u4e86\u4e00\u4e2a\u76f4\u89d2\u4e09\u89d2\u5f62\u3002\u6839\u636e\u52fe\u80a1\u5b9a\u7406\uff0c\u6211\u4eec\u5c31\u6c42\u51fa\u4e86\u8ddd\u79bb\u516c\u5f0f\uff0c\u5982\u4e0b\uff1a\n\n$$\\large{dis(i,j)=\\sqrt{{(x_i-x_j)}^2 + {(y_i-y_j)}^2}}$$\n\n\u8fd9\u4e2a\u8ddd\u79bb\u516c\u5f0f\u4e5f\u662f\u73b0\u5728\u6700\u5e38\u7528\u7684\u8ddd\u79bb\u516c\u5f0f\u3002\n\n# \u5207\u6bd4\u96ea\u592b\u8ddd\u79bb\n\n\u5207\u6bd4\u96ea\u592b\u8ddd\u79bb\u7528\u4e8e\u89e3\u51b3\u683c\u70b9\u4e0a\u7684\u8ddd\u79bb\u95ee\u9898\u3002\u8fd9\u7c7b\u95ee\u9898\u53ea\u80fd\u5411\u81ea\u5df1\u70b9\u7684\u4e0a\u3001\u4e0b\u3001\u5de6\u3001\u53f3\u3001\u5de6\u4e0a\u3001\u5de6\u4e0b\u3001\u53f3\u4e0a\u3001\u53f3\u4e0b\u65b9\u5411\u8d70\u3002\n\n\u5728\u8fd9\u4e2a\u95ee\u9898\u4e2d\uff0c\u6bcf\u8d70\u4e00\u4e2a\u659c\u7ebf\u548c\u8d70\u4e00\u4e2a\u76f4\u7ebf\u7684\u8ddd\u79bb\u76f8\u540c\u3002\u90a3\u6211\u4eec\u60f3\u8981\u8ddd\u79bb\u6700\u77ed\uff0c\u90a3\u5c31\u6309\u7167\u6b27\u51e0\u91cc\u5f97\u8ddd\u79bb\u7684\u601d\u60f3\uff0c\u5c3d\u91cf\u5148\u8d70\u659c\u7ebf\u5230\u5bf9\u65b9\u7684\u6a2a\u5750\u6807\u4e0a\uff0c\u5728\u8d70\u76f4\u7ebf\u5230\u8fbe\u5bf9\u65b9\u7684\u70b9\uff0c\u5982\u4e0b\u56fe\u6240\u793a\uff1a\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/jbpbgmpl.png)\n\n\u8fd9\u5c31\u662f\u5f53\u524d\u95ee\u9898\u4e0b\u7684\u6700\u77ed\u8ddd\u79bb\u3002\n\n\u90a3\u4e48\u600e\u4e48\u7b97\u51fa\u8ddd\u79bb\u5462\uff1f\n\n\u56e0\u4e3a\u68cb\u76d8\u7684\u6027\u8d28\uff0c\u8d70\u4e00\u4e2a\u659c\u7ebf\u7b49\u4e8e\u8d70\u4e00\u4e2a\u76f4\u7ebf\u7684\u8ddd\u79bb\uff0c\u6240\u4ee5\u53ea\u9700\u8981\u6c42\u51fa\u4e24\u8fb9\u8ddd\u79bb\u7684\u6700\u5927\u503c\u5c31\u53ef\u4ee5\u4e86\u3002\u516c\u5f0f\u5982\u4e0b\uff1a\n\n$$\\large{dis(i,j)=\\max(|x_i-x_j|,|y_i-y_j|)}$$\n\n\u6309\u7167\u672c\u9898\u7684\u9898\u610f\uff0c\u6b64\u9898\u4e3a\u5207\u6bd4\u96ea\u592b\u8ddd\u79bb\u3002",
+        "postTime": 1658309837,
+        "uid": 385165,
+        "name": "0x0F",
+        "ccfLevel": 4,
+        "title": "CF620A\u9898\u89e3"
+    },
+    {
+        "content": "## \u5927\u610f\n\n\u7ed9\u5b9a\u5e73\u9762\u76f4\u89d2\u5750\u6807\u7cfb\u4e0a\u7684\u4e24\u4e2a\u70b9\uff0c\u4ece\u4e00\u4e2a\u70b9\u51fa\u53d1\uff0c\u6bcf\u4e00\u6b65\u53ef\u4ee5\u8d70\u5230\u5468\u56f4 $ 8 $ \u683c\uff0c\u6c42\u8d70\u5230\u53e6\u4e00\u4e2a\u70b9\u7684\u6700\u5c11\u6b65\u6570\u3002\n\n## \u601d\u8def\n\n\u9996\u5148\u7b54\u6848\u53ea\u548c $ \\lvert x_1 - x_2 \\rvert $ \u548c $ \\lvert y_1 - y_2 \\rvert $ \u6709\u5173\u3002\n\n\u5411\u7ec8\u70b9\u65b9\u5411\u8d70 $ \\min(\\lvert x_1 - x_2 \\rvert,\\lvert y_1 - y_2 \\rvert) $ \u683c\u659c\u7ebf\uff0c\u8fd8\u5269\n\n$$ \\max(\\lvert x_1 - x_2 \\rvert - \\min(\\lvert x_1 - x_2 \\rvert,\\lvert y_1 - y_2 \\rvert),\\lvert y_1 - y_2 \\rvert - \\min(\\lvert x_1 - x_2 \\rvert,\\lvert y_1 - y_2 \\rvert)) = \\max(\\lvert x_1 - x_2 \\rvert,\\lvert y_1 - y_2 \\rvert) - \\min(\\lvert x_1 - x_2 \\rvert,\\lvert y_1 - y_2 \\rvert) $$\n\n\u683c\u3002\n\n\u6240\u4ee5\u7b54\u6848\u4e3a $ \\max(\\lvert x_1 - x_2 \\rvert,\\lvert y_1 - y_2 \\rvert) $ \u3002\n\n## \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint a,b,c,d;\nint main(){\n\tcin>>a>>b>>c>>d;\n\tcout<<max(abs(d-b),abs(c-a));\n\treturn 0;\n}\n```",
+        "postTime": 1643099422,
+        "uid": 429147,
+        "name": "hxhhxh",
+        "ccfLevel": 0,
+        "title": "CF620A"
+    },
+    {
+        "content": "\u53d1\u4e00\u4e2aPython 3\u9898\u89e3\n\n------------\n\n**\u5206\u6790\uff1a**\n\n\u5148\u659c\u7740\u8d70\uff0c\u518d\u76f4\u8d70\u3002\u6700\u7ec8\u6240\u6c42\u8ddd\u79bb\u4e3a\u6a2a\u5750\u6807\u4e4b\u5dee\u4e0e\u7eb5\u5750\u6807\u4e4b\u5dee\u7684\u6700\u5927\u503c\u3002\n\n\u6837\u4f8b\u4e00\u5982\u56fe\uff1a\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/mv7ufbiu.png)\n\n```cpp\nlist1=[] #\u8bfb\u5165\nstr1=input()\nlist2=str1.split(\" \")\nlist2_length=len(list2)\ni=0\nwhile i<=list2_length-1:\n    list1.append(int(list2.pop()))\n    i+=1\nlist1.reverse()\nlist3=[]\nstr3=input()\nlist4=str3.split(\" \")\nlist4_length=len(list4)\nj=0\nwhile j<=list4_length-1:\n    list3.append(int(list4.pop()))\n    j+=1\nlist3.reverse()\nprint(max(abs(list1[0]-list3[0]),abs(list1[1]-list3[1]))) #\u8ba1\u7b97\u5e76\u8f93\u51fa\n```",
+        "postTime": 1609045294,
+        "uid": 304504,
+        "name": "\u84dd__",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF620A \u3010Professor GukiZ's Robot\u3011"
+    },
+    {
+        "content": "\u672c\u9898\u8003\u5bdf\u4e86\u4e00\u4e2a\u77e5\u8bc6\u70b9\uff0c\u53ea\u8981\u77e5\u9053\u5c31\u662f\u4e0b\u4f4d\u7ea2\u9898\uff0c\u8981\u662f\u4e0d\u77e5\u9053......\n\n\u8fd9\u4e2a\u77e5\u8bc6\u70b9\u5c31\u662f\u5927\u540d\u9f0e\u9f0e\u7684[\u5207\u6bd4\u96ea\u592b\u8ddd\u79bb](https://baike.baidu.com/item/%E5%88%87%E6%AF%94%E9%9B%AA%E5%A4%AB%E8%B7%9D%E7%A6%BB/8955729)\uff0c\u6c42\u4e24\u70b9\u5750\u6807\u8ddd\u79bb\u7684\u516c\u5f0f\u3002\n\n\u624b\u52a8\u89e3\u91ca\u5207\u6bd4\u96ea\u592b\u8ddd\u79bb\uff1a\u8fd9\u7c7b\u95ee\u9898\u53ea\u80fd\u5411\u81ea\u5df1\u70b9\u7684\u4e0a\u3001\u4e0b\u3001\u5de6\u3001\u53f3\u3001\u5de6\u4e0a\u3001\u5de6\u4e0b\u3001\u53f3\u4e0a\u3001\u53f3\u4e0b\u65b9\u5411\u8d70\u3002\u56e0\u4e3a\u68cb\u76d8\u7684\u6027\u8d28\uff0c\u8d70\u4e00\u4e2a\u659c\u7ebf\u7b49\u4e8e\u8d70\u4e00\u4e2a\u76f4\u7ebf\u7684\u8ddd\u79bb\uff0c\u6240\u4ee5\u53ea\u9700\u8981\u6c42\u51fa\u4e24\u8fb9\u8ddd\u79bb\u7684\u6700\u5927\u503c\u5c31\u53ef\u4ee5\u4e86\u3002\n\n\u597d\uff0c\u90a3\u4e48\u4e86\u89e3\u4e4b\u540e\uff0c\u4ee3\u7801\u5c31\u597d\u5199\u4e86\u3002\n\n\u9996\u5148\uff0c\u8f93\u5165\u8d77\u70b9\u5750\u6807 $(x1,y1)$\uff0c\u548c\u7ec8\u70b9\u5750\u6807 $(x2,y2)$\uff0c\u7136\u540e\u4ee3\u5165\u516c\u5f0f\u6c42\u89e3\u5373\u53ef\u3002\n\n\u7b54\u6848\u5462\u662f $\\max(|x1-x2|,|y1-y2|)$\u3002\n\n\u8bc1\u660e\uff1a\u56e0\u4e3a $x_1$ \u6bcf\u6b21\u53ea\u80fd\u6539\u53d8 $1$\uff0c \u6240\u4ee5\u81f3\u5c11\u8981\u6539\u53d8 $|x1-x2|$ \u6b21\u3002\u540c\u7406\uff0c\u81f3\u5c11\u8981\u6539\u53d8 $|y1-y2|$ \u6b21\u3002\u6240\u4ee5\uff0c\u4e00\u5171\u81f3\u5c11\u8981\u6539\u53d8 $\\max(|x1-x2|,|y1-y2|)$\u3002\n\n$O(1)$ \u641e\u5b9a\u3002\n\n\u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n\tint x1,y1,x2,y2;\n\tcin>>x1>>y1;\n\tcin>>x2>>y2;\n\tcout<<max(abs(x1-x2),abs(y1-y2));\n\treturn 0;\n}\n```\n",
+        "postTime": 1658275626,
+        "uid": 716099,
+        "name": "huangyuzhuo",
+        "ccfLevel": 0,
+        "title": "CF620A\u9898\u89e3"
+    },
+    {
+        "content": "\u989d\u2026\u2026\r\n\r\n~~\u505a\u8fc73A\u7684\u8d5a\u5927\u4e86\uff08\u8fde\u8def\u5f84\u90fd\u4e0d\u8981\u8f93\u51fa\uff09~~\r\n\r\n## \u4e0d\u5c31\u662f\u5207\u6bd4\u96ea\u592b\u8ddd\u79bb\u5417\uff1f\r\n\u76f4\u63a5\u5957\u516c\u5f0f\uff0c\u8d70\u8d77\uff1a\r\n```latex\r\nmax(abs(x2-x1),abs(y2-y1))\r\n```\r\n\r\n\u2026\u2026\r\n\r\n**\u7136\u540e\uff0c\u8fc7\u4e86\uff1f ~~\u771f\u6c34\uff01~~ 3A\u7b97\u662f\u52a0\u5f3a\u7248\u5427**\r\n\r\n\u8bb0\u5f97\u5f00\r\n```cpp\r\nlong long\r\n```\r\n\r\n\r\n\r\n\u7136\u540e\u770b\u770b\u4ee3\u7801\uff1a\r\n\r\n```cpp\r\n#include<bits/stdc++.h>\r\nusing namespace std;\r\nint main() {\r\n\tlong long x1,y1,x2,y2;\r\n\tcin>>x1>>y1>>x2>>y2;//\u8f93\u5165\r\n\tcout<<max(abs(x2-x1),abs(y2-y1))<<endl;//\u5207\u6bd4\u96ea\u592b\u8ddd\u79bb\r\n\treturn 0;\r\n}\r\n```",
+        "postTime": 1603530542,
+        "uid": 348511,
+        "name": "\u539f\u5b50\u3052\u3093\u3057",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF620A \u3010Professor GukiZ's Robot\u3011"
+    }
+]

@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u56fa\u5b9a\u5176\u4e2d\u4e00\u4e2a\u70b9\uff0c\u679a\u4e3e\u5176\u4f59 $7$ \u4e2a\u70b9\u7684 $6$ \u79cd\u6392\u5217\uff0c\u8ba1\u7b97\u91cf $6^7=279936$\u3002\n\n\u5bf9\u4e8e\u4e00\u4e2a\u7acb\u65b9\u4f53\uff0c\u5176\u9876\u70b9\u8ddd\u79bb\u6070\u597d\u6709\u4e09\u79cd\uff08$l,l\\sqrt2,l\\sqrt3$\uff09\uff0c\u4e14\u6bcf\u79cd\u4e2a\u6570\u4e0d\u4f1a\u8d85\u8fc7 $12$\uff0c\u53ef\u4ee5\u5229\u7528\u8be5\u6027\u8d28\u8fdb\u884c\u5224\u65ad\u548c\u526a\u679d\u3002\n\nAC \u4ee3\u7801\uff1a\uff08Golang\uff09\n\n```go\npackage main\n\nimport . \"fmt\"\n\nfunc dis(p, q [3]int64) int64 {\n\treturn (p[0]-q[0])*(p[0]-q[0]) + (p[1]-q[1])*(p[1]-q[1]) + (p[2]-q[2])*(p[2]-q[2])\n}\n\nfunc main() {\n\tpoints := make([][3]int64, 8)\n\tfor i := range points {\n\t\tScan(&points[i][0], &points[i][1], &points[i][2])\n\t}\n\tvar f func(int, map[int64]int8) bool\n\tf = func(i int, cntD map[int64]int8) bool {\n\t\tif i == 8 {\n\t\t\treturn len(cntD) == 3\n\t\t}\n\t\tp := points[i]\n\touter:\n\t\tfor _, perm := range [][3]int{{0, 1, 2}, {0, 2, 1}, {1, 0, 2}, {1, 2, 0}, {2, 0, 1}, {2, 1, 0}} {\n\t\t\tcd := map[int64]int8{}\n\t\t\tfor d, c := range cntD {\n\t\t\t\tcd[d] = c\n\t\t\t}\n\t\t\tpoints[i] = [3]int64{p[perm[0]], p[perm[1]], p[perm[2]]}\n\t\t\tfor j := 0; j < i; j++ {\n\t\t\t\td := dis(points[i], points[j])\n\t\t\t\t// \u526a\u679d\uff1a\u70b9\u7684\u8ddd\u79bb\u4e0d\u4f1a\u8d85\u8fc7\u4e09\u79cd\u4e14\u6bcf\u79cd\u4e2a\u6570\u4e0d\u4f1a\u8d85\u8fc7 12\n\t\t\t\tif cd[d]++; len(cd) > 3 || cd[d] > 12 {\n\t\t\t\t\tcontinue outer\n\t\t\t\t}\n\t\t\t}\n\t\t\tif f(i+1, cd) {\n\t\t\t\treturn true\n\t\t\t}\n\t\t}\n\t\treturn false\n\t}\n\tif f(1, map[int64]int8{}) {\n\t\tPrintln(\"YES\")\n\t\tfor _, p := range points {\n\t\t\tPrintln(p[0], p[1], p[2])\n\t\t}\n\t} else {\n\t\tPrint(\"NO\")\n\t}\n}\n```",
+        "postTime": 1620364868,
+        "uid": 266651,
+        "name": "\u7075\u8336\u5c71\u827e\u5e9c",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF464B\u3010Restore Cube\u3011"
+    }
+]

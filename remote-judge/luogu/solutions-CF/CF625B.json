@@ -1,0 +1,50 @@
+[
+    {
+        "content": "[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/CF625B#submit)\n\n# \u601d\u8def\n\n\u6b64\u9898\u662f\u4e00\u9053\u5b57\u7b26\u4e32\u5339\u914d\u9898\uff0c\u627e\u5230\u957f\u4e32\u4e2d\u5b58\u5728\u7684\u5b50\u4e32\u6570\u76ee\uff0c\u8fdb\u884c\u7edf\u8ba1\u3002\n\n# \u4ee3\u7801\n\n```cpp\n  #include<bits/stdc++.h>\n  using namespace std;\n  char a[100005],b[35];\n  int len1,len2,i,j,ans;\n  int main(){\n      cin>>a>>b;\n      len1=strlen(a);len2=strlen(b);\n      while(i<len1){\n          if(a[i]==b[0]){\n              while(j<len2){\n                  if(a[i+j]==b[j]){\n                      j++;\n                  }\n                  else{\n                      break;\n                  }\n              }\n              if(j==len2){//\u662f\u5426\u76f8\u7b49\n                  i+=j-1;\n                  ans++;\n              }\n              j=0;\n          }\n          i++;\n      }\n      if(j==len2){\n          ans++;\n      }\n      cout<<ans;\n      return 0;\n  }\n```\n",
+        "postTime": 1630139590,
+        "uid": 493271,
+        "name": "Shimmer_of_Cloud_gap",
+        "ccfLevel": 0,
+        "title": "CF625B War of the Corporations \u9898\u89e3"
+    },
+    {
+        "content": "## \u9898\u610f\uff1a\n\n\u9898\u76ee\u7684\u7ffb\u8bd1\u6709\u95ee\u9898\uff1a\n\n\u7ed9\u4f60\u4e24\u4e2a\u5b57\u7b26\u4e32 $a,b$\uff0c\u5f53\u4f60\u4ece $a$ \u627e\u5230\u4e00\u4e2a\u5b57\u4e32\u7b49\u4e8e $b$ \u7684\u65f6\u5019\uff0c\u8fd9\u4e2a\u65f6\u5019\u8df3\u5230\u8fd9\u4e2a\u5b57\u4e32\u7684\u672b\u5c3e, \u95ee\u4f60\u4ece $a$ \u4e2d\u80fd\u627e\u5230\u51e0\u4e2a\u5b57\u4e32\u4e0e $b$ \u76f8\u7b49\u3002\n\n## \u601d\u8def\uff1a\n\n\u6211\u4ece $a$ \u4e32\u7684\u6bcf\u4e00\u4f4d\u51fa\u53d1\uff0c\u622a\u53d6\u4e00\u4e2a\u957f\u5ea6\u4e3a $b$ \u4e32\u7684\u5b50\u4e32\uff0c\u5224\u65ad\u8fd9\u4e2a\u4e32\u662f\u5426\u4e0e $b$ \u4e32\u76f8\u7b49\uff0c\u5982\u679c\u76f8\u7b49\u7b54\u6848\u5c31\u52a0 $1$\uff0c\u540c\u65f6\u4e0b\u6b21\u8981\u4ece\u8fd9\u4e2a\u5b50\u4e32\u7684\u672b\u5c3e\u5f00\u59cb\u626b\uff0c\u6240\u4ee5\u6b64\u65f6\u7684\u4ece\u54ea\u91cc\u5f00\u59cb\u626b\u7684\u6307\u9488\u5c31\u52a0\u4e0a\u4e00\u4e2a $b$ \u4e32\u957f\u5ea6\u3002 \n\n\u622a\u53d6\u7684\u65f6\u5019\u7528 `substr` \u51fd\u6570\uff0c\u7528\u6cd5\u662f\uff1a\n\n```cpp\nsubstr(\u5b57\u7b26\u4e32\u7684\u67d0\u4e2a\u4f4d\u7f6e\uff0c\u4ece\u8fd9\u4e2a\u4f4d\u7f6e\u8981\u622a\u53d6\u7684\u957f\u5ea6)\n\n```\n\n## AC code\uff1a\n\n```cpp\n\nsigned main() {\n\tint tests = 1; // cin >>tests;\n\twhile(tests--) {\n\t\tcin >> a >> b;\n\t\tint lena = a.length(), lenb = b.length();\n\t\tfor(int i = 0; i < a.length(); i++) {\n\t\t\tstring s = a.substr(i, lenb);\n\t\t\tif(b == s) i += lenb - 1, ans++;\n\t\t}\n\t\tcout << ans;\n\t}\n}\n\n",
+        "postTime": 1644459191,
+        "uid": 396974,
+        "name": "Buried_Dream",
+        "ccfLevel": 4,
+        "title": "CF625B War of the Corporations \u9898\u89e3"
+    },
+    {
+        "content": "### \u9898\u76ee + \u65b9\u6cd5\u5206\u6790\n\u8fd9\u9053\u9898\u5c31\u662f\u4e00\u4e2a\u5b50\u4e32\u641c\u7d22\u95ee\u9898\u3002\u8fd9\u662f\u84dd\u9898\uff1f\uff01\u4e0d\u5e94\u8be5\u554a\uff0c\u5bf9\u4e8e Python \u7684\u670b\u53cb\u4eec\u6765\u8bf4\uff0c\u8fd9\u4e5f\u592a\u7b80\u5355\u4e86\u5427\uff01\n\n\u8fd9\u9053\u9898\u7528 Python \u7684\u5b57\u7b26\u4e32\u81ea\u8eab\u65b9\u6cd5\uff0c\u4e00\u884c\u4ee3\u7801\u5c31\u80fd\u641e\u5b9a\u3002\u4ee3\u7801\u4e3a \n`\nstr.count(obj)\n`\n\u65b9\u6cd5\u5c31\u80fd\u5b9e\u73b0\u3002\u8fd9\u4e2a\u65b9\u6cd5\u5c31\u662f\u7edf\u8ba1\u5b57\u7b26\u4e32 $str$ \u4e2d\u6709\u591a\u5c11\u4e2a $obj$ \u5b57\u7b26\u5b50\u4e32\u3002    \n### \u77e5\u8bc6\u62d3\u5c55\n`\nstr.count(obj)\n`\n\u65b9\u6cd5\u77e5\u9053\u5417\uff1f\u4f3c\u4e4e\u53ea\u8981\u5b66\u8fc7 Python \u7b97\u6cd5\u7684\u90fd\u77e5\u9053\u5427\u3002\u5982\u679c\u60a8\u6ca1\u6709\u63a5\u89e6\u8fc7 Python \u7b97\u6cd5\uff0c\u5e76\u4e14\u8ba4\u4e3a\u6211\u5199\u7684\u4e0d\u591f\u8be6\u7ec6\uff0c\u770b\u4e00\u4e0b[\u8fd9\u91cc](https://m.php.cn/article/442099.html)\n### \u4ee3\u7801\u90e8\u5206\n\u4ee3\u7801\u5982\u4e0b\uff0c\u975e\u5e38\u7b80\u5355\uff0c\u4e0d\u518d\u505a\u89e3\u91ca\u4e86\u3002\n```python\nprint(input().count(input()))\n```\n**\u73cd\u7231\u751f\u547d\uff0c\u8fdc\u79bb\u6284\u88ad\uff01**\n### \u66f4\u65b0\u65e5\u5fd7\n- 2022/1/26  \u7ecf\u8fc7\u7ba1\u7406\u5458\u63d0\u9192\uff0c\u5c06\u7b2c\u4e00\u90e8\u5206\u548c\u7b2c\u4e8c\u90e8\u5206\u7684 LaTeX \u516c\u5f0f\u4e0e\u4ee3\u7801\u5757\u505a\u4e86\u8c03\u6574\uff0c\u611f\u8c22\u7ba1\u7406\uff0c\u5e0c\u671b\u80fd\u518d\u6b21\u5ba1\u6838\u3002",
+        "postTime": 1642765730,
+        "uid": 668599,
+        "name": "BearBig",
+        "ccfLevel": 0,
+        "title": "CF625B AC \u4ee3\u7801"
+    },
+    {
+        "content": "## \u601d\u8def\u8bb2\u89e3\uff1a\n\n\u672c\u9898\u672c\u8d28\u4e0a\u91c7\u7528\u7684\u662f\u66b4\u529b\u601d\u8def\u3002\n\n\u4e0d\u59a8\u8bbe\u8f93\u5165\u7684\u4e24\u4e2a\u4e32\u4e3a $a,b$\uff0c\u4e14\u4ed6\u4eec\u7684\u957f\u5ea6\u4e3a $lena,lenb$\u3002\u5bf9\u4e8e\u4e32 $a$ \u7684\u6bcf\u4e00\u4e2a\u4f4d\u7f6e\u90fd\u6709\u4e00\u4e2a\u5e03\u5c14\u578b\u7684 $flag$ \u503c\uff0c\u8868\u793a\u8fd9\u4e00\u4e2a\u4f4d\u7f6e\u662f\u5426\u5df2\u7ecf\u88ab `#` \u66ff\u6362\u3002\u90a3\u4e48\u5c31\u53ef\u4ee5\u66b4\u529b\u7684\u679a\u4e3e $a$ \u4e2d\u4efb\u610f\u76f8\u90bb $lenb$ \u4f4d\uff0c\u68c0\u6d4b\u662f\u5426\u4e0e $b$ \u4e32\u5b8c\u5168\u76f8\u540c\uff0c\u5982\u679c\u5b8c\u5168\u76f8\u540c\uff0c\u90a3\u4e48\u5c31\u628a\u8fd9 $lenb$ \u4f4d\u7684 $flag$ \u503c\u8d4b\u4e3a $1$\uff0c\u4ee5\u540e\u5728\u904d\u5386\u65f6\uff0c\u5982\u679c\u5230\u8fd9\u91cc\u5c31\u4e0d\u7528\u7b97\u4e86\uff0c\u53ea\u9700\u518d\u53bb\u627e $flag$ \u4e0d\u662f $1$ \u7684\u5b57\u4e32\u5373\u53ef\u3002\n\n\u90a3\u4e48\u5982\u679c\u6ca1\u6709\u8fd9\u4e2a $flag$ \u7684\u8bdd\u4ec0\u4e48\u6837\u7684\u6837\u4f8b\u4f1a\u9519\u5462\uff1f\n\n\u7b54\uff1a\u7b2c\u4e00\u4e2a\u4e32\u4e3a `ttttt`\uff0c\u7b2c\u4e8c\u4e2a\u4e32\u4e3a `ttt`\u3002\u6b64\u65f6\u5982\u679c\u4f60\u53ea\u662f\u6b63\u5e38\u7684\u53bb\u6c42\u5b50\u4e32\u6570\u90a3\u4f1a\u5f97\u5230 $3$\uff1b\u7136\u800c\u5176\u5b9e\u8fd9\u4e2a\u6837\u4f8b\u6839\u672c\u4e0d\u7528\u66ff\u6362 $3$ \u4e2a `#`\uff0c\u5176\u5b9e\u53ea\u8981\u628a\u4e2d\u95f4\u90a3\u4e2a\u6362\u6210 `#` \u5c31\u6ca1\u6709 `ttt` \u8fd9\u6837\u7684\u5b50\u4e32\u4e86\u3002\n\n## AC CODE:\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n\tstring a,b;\n\tcin>>a>>b;\n\tint lena=a.length();\n\tint lenb=b.length();\n\tint ans=0;\n\tint pre=0;\n\tbool flag[1000005];\n\tmemset(flag,0,sizeof(flag));\n\tfor(int i=0;i<=lena-lenb;i++)\n\t{\n\t\tpre=0;\n\t\tfor(int j=0;j<lenb;j++)\n\t\t{\n\t\t\tif(a[i+j]!=b[j])//\u4e0d\u76f8\u540c\uff0c\u76f4\u63a5\u8df3\u51fa\n\t\t\t{\n\t\t\t\tbreak;\n\t\t\t}\n\t\t\tif(a[i+j]==b[j]&&flag[i+j]==0)\n\t\t\t{\n\t\t\t\tpre++;//\u8bb0\u5f55\u6709\u591a\u5c11\u4f4d\u76f8\u540c\n\t\t\t}\n\t\t\telse \n\t\t\t{\t\n\t\t\t\tcontinue;\n\t\t\t}\n\t\t}\n\t\tif(pre==lenb)//\u5b8c\u5168\u76f8\u540c\u7684\u5b50\u4e32\n\t\t{\n\t\t\tfor(int k=i;k<=i+lenb-1;k++) flag[k]=1;//\u76f8\u5e94\u4f4d\u8d4b\u62101\n\t\t\t\n\t\t\tans++;\n\t\t}\n\t}\n\tcout<<ans;\n\treturn 0;\n}\n\n```\n\n\u8c22\u8c22\u5927\u5bb6\u89c2\u770b~\n",
+        "postTime": 1642743680,
+        "uid": 575320,
+        "name": "yinhy09",
+        "ccfLevel": 5,
+        "title": "CF625B \u9898\u89e3"
+    },
+    {
+        "content": "\u95ee\u4f60\u5b57\u7b26\u4e32 $a$ \u91cc\u6709\u51e0\u4e2a\u5b50\u4e32 $b$\u3002\n\nPython AC Code:\n```python\na=input()\nb=input()\na=str(a)\nb=str(b) //\u8f93\u5165\nprint(a.count(b)) //\u8f93\u51fa\n```\n\nC++ AC Code:\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nint main()\n{\n    string a,b;\n    cin >> a >> b;\n    int cnt = 0;\n    int la = a.size();\n    int lb = b.size();\n    for(int i=0; i<la; i++)\n    {\n    \tfor(int j=0; j<lb; j++)\n    \t{\n    \t    if(b[j] != a[i+j]) break; //\u8df3\u51fa\u5faa\u73af\n    \t    if(j == lb - 1)\n    \t    {\n    \t        cnt++;\n    \t        a[i+j] = ' '; //\u8ba1\u6570\u5e76\u907f\u514d\u91cd\u590d\u8ba1\u7b97\n    \t    }\n    \t} \n    }\n    cout << cnt << endl;\n}\n```",
+        "postTime": 1642665792,
+        "uid": 514470,
+        "name": "hyc1026",
+        "ccfLevel": 0,
+        "title": "CF625B \u9898\u89e3"
+    },
+    {
+        "content": "\u9898\u610f\u7ed9\u51fas1,s2,\u6bcf\u6b21\u53ef\u4ee5\u628as1\u4e2d\u4e00\u4e2a\u5b57\u7b26\u53d8\u4e3a#,\u6c42s1\u4e2d\u4e0d\u542b\u6709s2\u7684\u6700\u5c0f\u6b21\u6570\n\n\u4e00\u9053\u7eaf\u7eaf\u7684\u6a21\u62df\u52a0\u8d2a\u5fc3\uff0c\u5b57\u7b26\u4e32\u5206\u522b\u4e3as1,s2,\u957f\u5ea6\u4e3aa1,a2.\u6bcf\u6b21\u627e\u5230a1\u4e2d\u542b\u6709a2\uff0c\u5c31\u628a\u5bf9\u5e94a2\u7684\u6700\u540e\u4e00\u4f4d\u7684a1\u6240\u5728\u4f4d\u7f6e\u6539\u4e3a#\n\n\n```\n#include<bits/stdc++.h>\nusing namespace std;\nchar s1[100000],s2[100000];\nint main() {\n\tgets(s1);\n\tgets(s2);int i,j,k=0;\n\tint a1=strlen(s1),a2=strlen(s2);\n    for(i=0;i<a1;i++){\n    \t\tfor( j=0;j<a2;j++){if(s1[i+j]!=s2[j])break;if(j==a2-1)k++,s1[i+j]='#';} \n    }\n    printf(\"%d\",k);\n}\n```",
+        "postTime": 1533306362,
+        "uid": 47269,
+        "name": "yzx72424",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF625B \u3010War of the Corporations\u3011"
+    }
+]

@@ -1,0 +1,10 @@
+[
+    {
+        "content": "# \u9898\u76ee\u5206\u6790    \n\u9898\u76ee\u9700\u8981\u6c42\uff1a $\\sum_{i=1}^{n}\\sum_{j=1}^{n}\\sum_{k=i}^{n}\\sum_{l=j}^{n}[\\sum_{p=i}^{k}\\sum_{q=j}^{l}s_p\\cdot s_q=a]$ \u3002   \n\u539f\u5f0f\u53ef\u4ee5\u5316\u4e3a: $\\sum_{i=1}^{n}\\sum_{j=1}^{n}\\sum_{k=i}^{n}\\sum_{l=j}^{n}[\\sum_{p=i}^{k}s_p \\cdot \\sum_{q=j}^{l} s_q=a]$ \u3002   \n\u5176\u4e2d $\\sum_{p=i}^{k}s_p $ \u4e0e $ \\sum_{q=j}^{l}s_q$ \u53ef\u4ee5\u901a\u8fc7\u524d\u7f00\u548c $S$ \u9884\u5904\u7406\u3002    \n\u53ef\u4ee5\u9884\u5904\u7406\u6240\u6709\u7684 $\\sum_{i=1}^{n}\\sum_{j=i}^{n} S_j-S_{i-1}$ \uff0c\u5e76\u5b58\u5728\u4e00\u4e2a unordered_map $M$ \u4e2d\u3002   \n\u8fd9\u6837\u6700\u540e\u7684\u7b54\u6848\u4e3a\uff1a   \n$$\\sum_{i=1}^{n}\\sum_{j=i}^{n}[S_j-S_{i-1} \\ne 0][S_j-S_{i-1}\\equiv 0~(mod~a)]M({\\frac{a}{{S_j-S_{i-1}}}})$$   \n\u65f6\u95f4\u590d\u6742\u5ea6: $O(n^2)$\u3002    \n\u6ce8\u610f\uff1a$a=0$ \u65f6\u8981\u7279\u5224\uff0c \u7b54\u6848\u4f1a\u8d85\u51fa long long \uff0c\u8981\u7528 __int128\u3002\n# \u4ee3\u7801   \n```cpp\n#include <bits/stdc++.h>\n#define ll long long\n#define lll __int128\nusing namespace std;\nconst ll N=4e3+5;\nll a,n;\nstring str;\nll s[N];\nunordered_map <ll,ll> um;\nlll ans;\nint main(){\n    cin >> a;\n    cin >> str;\n    n=str.size();\n    for(ll i=1;i<=n;i++){\n        s[i]=s[i-1]+str[i-1]-'0';\n    }\n    for(ll i=1;i<=n;i++){\n        for(ll j=i;j<=n;j++){\n            um[s[j]-s[i-1]]++;\n        }\n    }\n    if(a==0){\n        ans=um[0]*n*(n+1)-um[0]*um[0];\n        cout << ans;\n        return 0;\n    }\n    for(ll i=1;i<=n;i++){\n        for(ll j=i;j<=n;j++){\n            ll r=s[j]-s[i-1];\n            if(r&&a%r==0){\n                ans+=um[a/r];\n            }\n        }\n    }\n    cout << ans;\n    return 0;\n}\n```",
+        "postTime": 1658980570,
+        "uid": 511639,
+        "name": "KevinLikesCoding",
+        "ccfLevel": 5,
+        "title": "CF364A Matrix \u9898\u89e3"
+    }
+]

@@ -1,0 +1,34 @@
+[
+    {
+        "content": "[\u9898\u76ee\u4f20\u9001\u95e8](/problem/CF143A)\r\n\r\n## Part.1 \u9898\u76ee\r\n\r\n\u6709 $2\\times 2$ \u7684 $4$ \u4e2a\u683c\u5b50\uff0c\u7ed9\u51fa\u4e24\u4e24\u7684\u548c\uff0c\u6c42\u8fd9 $4$ \u4e2a\u683c\u5b50\u91cc\u7684\u6570\u3002\u5982\u679c\u6ca1\u6709\u6574\u6570\u89e3\uff0c\u6216\u8005\u6709\u76f8\u540c\u7684\u6570\uff0c\u6216\u8005\u89e3\u91cc\u6709\u6570\u4e0d\u5728 $1$ \u5230 $9$ \u4e4b\u5185\u7684\u8bdd\uff0c\u90fd\u8f93\u51fa`-1`\u3002\r\n\r\n## Part.2 \u601d\u8def\r\n\r\n\u8fd9\u9898\u6211\u4e4b\u524d\u505a\u8fc7\u3002\u6211\u60f3\u5206\u4eab\u4e00\u4e0b\u6211\u81ea\u5df1\u7684 $O(1)$ \u7684\u7b97\u6cd5\u3002\r\n\r\n\u5148\u5047\u8bbe\u8fd9 $4$ \u4e2a\u6570\u5206\u522b\u662f $a,b,c,d$ \uff0c\u7136\u540e\u5148\u628a\u516d\u4e2a\u65b9\u7a0b\u5199\u51fa\u6765\uff1a\r\n\r\n$a+b=r_1\\space(1)$  \r\n$c+d=r_2\\space(2)$  \r\n$a+c=c_1\\space(3)$  \r\n$b+d=c_2\\space(4)$  \r\n$a+d=d_1\\space(5)$  \r\n$b+c=d_2\\space(6)$\r\n\r\n\u6211\u4eec\u628a $(1)$ \u548c $(2)$ \u52a0\u8d77\u6765\uff0c$(3)$ \u548c $(4)$ \u52a0\u8d77\u6765\uff0c$(5)$ \u548c $(6)$ \u52a0\u8d77\u6765\uff0c\u53d1\u73b0\u5de6\u8fb9\u90fd\u7b49\u4e8e $a+b+c+d$\uff0c\u53f3\u8fb9\u5206\u522b\u662f $r_1+r_2$\uff0c$c_1+c_2$\uff0c$d_1+d_2$\uff0c\u6240\u4ee5\u8fd9\u4e09\u4e2a\u6570\u5f97\u76f8\u7b49\uff0c\u5982\u679c\u4e0d\u7b49\u7684\u8bdd\uff0c\u5c31\u65e0\u89e3\u4e86\u3002\r\n\r\n\u7136\u540e\u6211\u4eec\u62ff $(1)$ \u51cf\u53bb $(3)$\uff0c\u5f97\u5230 $b-c=r_1-c_1$\u3002\u7136\u540e\u53c8\u6709 $b+c=d_2$\uff0c\u6240\u4ee5 $b$ \u548c $c$ \u53ef\u4ee5\u76f4\u63a5\u89e3\u51fa\u6765\u4e86\u3002\u8fd9\u91cc\u6ce8\u610f\u5224\u65ad $r_1-c_1$ \u548c $d_2$ \u7684\u5947\u5076\u6027\u5f97\u8981\u76f8\u7b49\uff0c\u5982\u679c\u4e0d\u7b49\u7684\u8bdd\u5c31\u65e0\u6574\u6570\u89e3\u3002\r\n\r\n\u6709\u4e86 $b$ \u548c $c$\uff0c\u5269\u4e0b\u7684 $a$ \u548c $d$ \u5c31\u4e0d\u96be\u6c42\u51fa\u6765\u4e86\u3002\r\n\r\n\u8fd9\u65f6\uff0c\u6211\u4eec\u9700\u8981\u68c0\u9a8c\u4e00\u4e0b $(4)$ \u548c $(5)$ \u662f\u5426\u4e5f\u90fd\u6210\u7acb\u3002\r\n\r\n\u8fd9\u662f\u6210\u7acb\u7684\u3002\u8fd9\u5c31\u662f\u7b2c\u4e00\u6b65\u7684\u4f5c\u7528\u3002\u7b2c\u4e00\u6b65\u6211\u4eec\u68c0\u9a8c\u4e86 $r_1+r_2=c_1+c_2=d_1+d_2$\uff0c\u6240\u4ee5\u5f53 $a+b=r_1$\uff0c$c+d=r_2$\uff0c$a+c=c_1$\uff0c$b+c=d_2$ \u90fd\u6210\u7acb\u7684\u65f6\u5019\uff0c$b+d=a+b+c+d-(a+c)=r_1+r_2-c_1=c_1+c_2-c_1=c_2$ \u3002\u540c\u6837\uff0c$a+d=a+b+c+d-(b+c)=r_1+r_2-d_2=d_1+d_2-d_2=d_1$\u3002\r\n\r\n\u6700\u540e\u6ce8\u610f\u5224\u65ad\u89e3\u662f\u5426\u7b26\u5408\u6761\u4ef6\uff0c\u5373\uff1a\r\n* \u4e24\u4e24\u4e0d\u7b49\r\n* \u5728 $1$ \u5230 $9$ \u4e4b\u95f4\r\n\r\n\u6ce8\u610f\u8f93\u51fa\u683c\u5f0f\u3002\r\n\r\n## Part.3 \u4ee3\u7801\r\n\r\n```cpp\r\n#include<iostream>\r\nusing namespace std;\r\n/*\r\nd1 c1 c2 d2\r\nr1  a  b\r\nr2  c  d\r\n*/\r\nint main(){\r\n\tint r1,r2,c1,c2,d1,d2,a,b,c,d;\r\n\tcin>>r1>>r2>>c1>>c2>>d1>>d2;\r\n\tbool possible=1;\r\n\tif(r1+r2!=c1+c2||r1+r2!=d1+d2||c1+c2!=d1+d2)possible=0;//\u90fd\u662fa+b+c+d \r\n\tint b_minus_c=r1-c1;//b-c=(a+b)-(a+c)=r1-c1\r\n\tif((b_minus_c+d2)&1)possible=0;//\u5224\u65ad\u5947\u5076\u6027\r\n\tb=(d2+b_minus_c)>>1;\r\n\tc=d2-b;//\u6c42\u89e3b\u3001c\r\n\ta=r1-b;\r\n\td=r2-c;\r\n\tif(a==b||a==c||a==d||b==c||b==d||c==d)possible=0;\r\n\tif(a<=0||b<=0||c<=0||d<=0)possible=0;\r\n\tif(a>9||b>9||c>9||d>9)possible=0;//\u6700\u540e\u7684\u4e00\u5806\u5224\u65ad\r\n\tif(possible)cout<<a<<\" \"<<b<<endl<<c<<\" \"<<d;//\u8fd9\u4e00\u6b65\u9519\u4e86\u4f60\u5c31\u524d\u529f\u5c3d\u5f03\u4e86\r\n\telse cout<<-1;\r\n}\r\n```",
+        "postTime": 1658450920,
+        "uid": 497534,
+        "name": "yzy041616",
+        "ccfLevel": 0,
+        "title": "CF143A Help Vasilisa the Wise 2 \u9898\u89e3"
+    },
+    {
+        "content": "\u8fd9\u9898\u6570\u636e\u4e0d\u5927\u3002\n\n\u7528\u6df1\u641c\u5373\u53ef\u3002\n\n\u8d85\u8fc7\u6bcf\u884c\u6bcf\u5217\u53ca\u6bcf\u6761\u5bf9\u89d2\u7ebf\u4e0a\u4e24\u4e2a\u68cb\u5b50\u7684\u6570\u4e4b\u548c\u5c31\u56de\u6eaf\u3002\n\n\u7136\u540eAC\u4e86",
+        "postTime": 1604197560,
+        "uid": 283711,
+        "name": "\u6d3a\u8c37",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF143A \u3010Help Vasilisa the Wise 2\u3011"
+    },
+    {
+        "content": "\u4e00\u9053**\u66b4\u529b\u9898**\n\n\u5148\u679a\u4e3e\u6bcf\u4e2a\u70b9\uff0c\u540e\u5224\u65ad\n\n\u65f6\u95f4\u590d\u6742\u5ea6\uff1ao(9\u2074)\n\n### AC\u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main() {\n\tint r1,r2,c1,c2,d1,d2;\n\tcin>>r1>>r2>>c1>>c2>>d1>>d2;\n\tfor(int i1=1;i1<=9;i1++) {\n\t\tfor(int i2=1;i2<=9;i2++) {\n\t\t\tfor(int i3=1;i3<=9;i3++) {\n\t\t\t\tfor(int i4=1;i4<=9;i4++) {\n\t\t\t\t\tif((i1+i2==r1)&&(i3+i4==r2)&&(i1+i3==c1)&&(i2+i4==c2)&&(i1+i4==d1)&&(i2+i3==d2)&&(i1!=i2)&&(i1!=i3)&&(i1!=i4)&&(i2!=i3)&&(i2!=i4)&&(i3!=i4)) {\n\t\t\t\t\t\tcout<<i1<<\" \"<<i2<<endl<<i3<<\" \"<<i4;\n\t\t\t\t\t\treturn 0;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\tcout<<\"-1\"<<endl;\n\treturn 0;\n}\n\n```\n\u5982\u6709\u5e2e\u52a9\uff0c\u8bf7\u8bb0\u5f97~~\u70b9\u8d5e~~\u3002\n\n\u6700\u540e\u819c\u62dc\u4e0bdalao\uff1aorz\u3002",
+        "postTime": 1564231925,
+        "uid": 57779,
+        "name": "LRL65",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF143A \u3010Help Vasilisa the Wise 2\u3011"
+    },
+    {
+        "content": "\u663e\u7136\u53ea\u67094\u4e2a\u7a7a\n\n\u90a3\u4e48\u76f4\u63a510^4\u6b21\u679a\u4e3e\u6bcf\u4e2a\u70b9\u7684\u503c\n\n\u7136\u540e\u5224\u65ad\u53ef\u884c\u6027\u5373\u53ef",
+        "postTime": 1562752046,
+        "uid": 79926,
+        "name": "chenlingxi",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF143A \u3010Help Vasilisa the Wise 2\u3011"
+    }
+]

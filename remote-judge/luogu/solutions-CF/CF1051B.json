@@ -1,0 +1,42 @@
+[
+    {
+        "content": "\u56e0\u4e3al-r+1\u5fc5\u5b9a\u4e3a\u5076\u6570\uff0c\u6240\u4ee5\u5b83\u4e00\u5b9a\u80fd\u88ab\u5206\u4e3a(l-r+1)/2\u7ec4\uff0c\u4f17\u6240\u5468\u77e5\uff0c\u4e00\u4e2a\u81ea\u7136\u6570\u4e0e\u5b83\u52a0\u4e00\u4e00\u5b9a\u4e92\u8d28\uff0c\u6240\u4ee5\u53ea\u9700\u8981\u4e00\u4e2a\u4e2a\u5206\u522b\u8f93\u51fa\u5373\u53ef\u3002\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n#define ll long long\nll l,r;//\u8bb0\u5f97\u5f00long long \nint main()\n{\n\tcin>>l>>r;\n\tcout<<\"YES\\n\";//\u63d0\u524d\u5e86\u795d\u80dc\u5229 \n\tfor(ll i=l;i<=r;i+=2)\n\t{\n\t\tprintf(\"%lld %lld\\n\",i,i+1);//\u7531\u4e8el-r+1\u53ef\u80fd\u4f1a\u6bd4\u8f83\u5927\uff0c\u6240\u4ee5\u8fd9\u91cc\u5efa\u8bae\u4f7f\u7528printf \n\t}\n    return 0;\n}\n```\n",
+        "postTime": 1600083575,
+        "uid": 143530,
+        "name": "LiteratureCollege",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1051B \u3010Relatively Prime Pairs\u3011"
+    },
+    {
+        "content": "## \u4e0d\u9700\u8981gcd\n\n\u8fd9\u9053\u9898\u7684\u5927\u6982\u610f\u601d\u5c31\u662f\u4ecel\u5230r\u8fd9\u4e9b\u8fde\u7eed\u7684\u6570\u4e2d\uff0c\u6bcf\u4e24\u4e2a\u5206\u6210\u4e00\u7ec4\uff0c\u6bcf\u7ec4\u7684\u4e24\u4e2a\u6570\u8981\u4e92\u8d28\n\n\u6709\u4e00\u4e2a\u5f88\u663e\u7136\u7684\u7ed3\u8bba\uff1ax\u548cx+1\u662f\u4e92\u8d28\u7684\uff08x\u662f\u6b63\u6574\u6570\uff09\n\n\u9898\u76ee\u4e2d\u53c8\u8bf4\u4e86\uff0c\u4fdd\u8bc1r-l\u662f\u5947\u6570\uff0c\u4e5f\u5c31\u662f\u8bf4\u4e2a\u6570r-l+1\u662f\u5076\u6570\uff0c\u6240\u4ee5\u4e00\u5b9a\u53ef\u4ee5\u4e24\u4e2a\u6570\u4e00\u7ec4\u5206\u5b8c\n\n\u4e8e\u662f\u50cf\u8fd9\u6837\u5c31\u53ef\u4ee5\u4e86\uff1a\n\n(l,l+1)\n\n(l+2,l+3)\n\n......\n\n(r-1,r)\n\n\u8fd9\u6837\u6211\u4eec\u5c31\u5206\u5b8c\u4e86\n\n\u7531\u4e8e\u4e2a\u6570\u4e00\u5b9a\u662f\u5076\u6570\uff0c\u6240\u4ee5\u6c38\u8fdc\u662f\u201cyes\u201d\n\n\u6ce8\u610f\u6570\u636e\u8303\u56f4\u5230\u4e86\u5341\u7684\u5341\u516b\u6b21\u65b9\uff0c\u6240\u4ee5\u9700\u8981long long\n\nc++\u4ee3\u7801\uff1a\n\n```cpp\n#include <iostream>//\u57fa\u672c\u8f93\u5165\u8f93\u51fa\u6d41\n#define int long long//\u8fd9\u91cc\u6211\u4e3a\u4e86\u7701\u4e8b\u76f4\u63a5\u628aint\u53d8\u6210long long\u4e86\uff0c\u4e0d\u63a8\u8350\u8fd9\u4e48\u505a\nusing namespace std;\nint a,b;//\u9898\u76ee\u4e2d\u7684l\u548cr\nsigned main()//\u7531\u4e8eint\u53d8\u6210long long\u4e86\uff0c\u7528signed\u8fd4\u56demain\uff0c\u6d1b\u8c37\u91cc\u9762\u53ef\u4ee5\u8fd9\u4e48\u5f04\u4f46\u662f\u7ade\u8d5b\u5343\u4e07\u4e0d\u8981\n{\n\tcin>>a>>b;//\u8f93\u5165\n\tcout<<\"YES\"<<endl;//\u4e00\u5b9a\u53ef\u4ee5\u5206\u5f00\uff0c\u697c\u4e0a\u7684\u540c\u5b66\u5176\u5b9e\u6ca1\u6709\u5fc5\u8981\u8003\u8651\u76f8\u7b49\n\tfor(int i=a;i<=b;i+=2)//\u6bcf\u6b21\u4e24\u4e2a\u6570\u90fd\u662f\u76f8\u90bb\u7684\n\t{\n\t\tcout<<i<<\" \"<<i+1<<endl;//\u8f93\u51fa\u76f8\u90bb\u7684\u4e24\u4e2a\u6570\n\t}\n\treturn 0;//\u7ade\u8d5b\u4e2d\u6ca1\u6709\u7684\u8bdd\u76f4\u63a5\u7206\u96f6\n}\n```\n\u8c22\u8c22\u5927\u5bb6\n",
+        "postTime": 1589100462,
+        "uid": 166528,
+        "name": "\u722c\u884c\u8005\u5c0f\u90d1",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF1051B \u3010Relatively Prime Pairs\u3011"
+    },
+    {
+        "content": "### 0x00 \u9898\u610f\n\u7ed9\u4f60\u8303\u56f4 $l$,$r$\uff0c\u8ba9\u4f60\u628a$[l,r]$\u4e4b\u95f4\u7684\u6570\u4e24\u4e24\u5206\u7ec4\uff0c\u4f7f\u5f97\u6bcf\u7ec4\u5185\u7684\u4e24\u4e2a\u6570\u4e92\u8d28\uff0c\u6bcf\u4e2a\u6570\u53ea\u80fd\u51fa\u73b0\u4e00\u6b21\u3002\n\n------------\n### 0x01 \u601d\u8def\n\u7531\u4e8e$l-r+1$ \u5fc5\u662f\u5076\u6570\uff0c\u6240\u4ee5\u6211\u4eec\u53ea\u8981\u4e24\u4e2a\u4e24\u4e2a\u5730\u8f93\u51fa\u8fd9\u4e9b\u6570\u5c31\u884c\u4e86\u3002\n- \u4e3a\u4ec0\u4e48\uff1f  \n- \u56e0\u4e3a\u76f8\u90bb\u4e24\u4e2a\u6b63\u6574\u6570\u4e92\u8d28\u3002\n- \u4e3a\u4ec0\u4e48\u76f8\u90bb\u4e24\u4e2a\u6b63\u6574\u6570\u4e92\u8d28\uff1f  \n- \u4ee4\u5c0f\u7684\u6b63\u6574\u6570\u4e3a $n$ \uff0c\u5219\u5927\u7684\u5373\u4e3a$n+1$.  \n\u4ee4\u5b83\u4eec\u7684\u6700\u5927\u516c\u7ea6\u6570\u4e3a$d$  \n$\\because d|n\\ ,\\ d|(n+1)$  \n$\\therefore d|(n+1-n)\\ ,\\ d|1$  \n$\\therefore d = 1$  \n\u8bc1\u6bd5\n\n------------\n### 0x02 \u4ee3\u7801\n```cpp\n#include <cstdio>\n#define fo(i_,j_,k_) for(int i_=j_;i_<=k_;++i_)\n#define fr(i_,j_,k_) for(int i_=j_;i_>=k_;--i_)\n#define It(type_) type_::iterator\n#define rg register\n#define rtn return\n#define il inline\n\ntypedef long long ll;\n\nint main()\n{\n\tll a,b;\n\tscanf(\"%lld%lld\",&a,&b);\n\tputs(\"YES\");\n\tfor(ll i=a;i<=b;i+=2)\n\t\tprintf(\"%lld %lld\\n\",i,i+1); \n    rtn 0;\n}\n```",
+        "postTime": 1608697209,
+        "uid": 366338,
+        "name": "fjy666",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1051B \u3010Relatively Prime Pairs\u3011"
+    },
+    {
+        "content": "## \u56e0\u4e3aRemoteJudge\u6ca1\u6709\u6807\u7b7eSPJ\uff0c\u6240\u4ee5\u672c\u849f\u84bb\u60f3\u4e86\u534a\u5929\u4e5f\u4e0d\u77e5\u9053\u600e\u4e48\u505a\uff0c\u7136\u540e\u53d1\u73b0\u5176\u5b9e\u5c31\u662f**SPJ**\uff01\n### \u975e\u5e38\u7b80\u5355\uff0c\u56e0\u4e3a**```x```\u548c```x+1```\u4e00\u5b9a\u4e92\u8d28**\uff08\u8fd9\u662f\u5e38\u8bc6\u5427\uff09\uff0c\u6240\u4ee5\u76f4\u63a5\u6309\u987a\u5e8f\u8f93\u51fa\u5c31\u884c\u4e86\uff08\u6ca1\u6709\u6b63\u89e3\u601d\u8def\u7684\u5927\u4f6c\u4eec\u662f\u4e0d\u662f\u65e0\u8bed\u4e86\uff09\n\n\u5bb3\u6211\u82b1\u4e86\u597d\u957f\u65f6\u95f4\uff0c\u8fd9\u4e5f\u5c31\u8bc1\u660e\u4e86\u6211\u662f\u4e00\u4e2a[$\\normalsize{\\color{green}{\\text{\u8d85\u7ea7\u5927\u849f\u84bb}}}$](/blog/damage/I-Am-JuRuo)\u7684\u4e8b\u5b9e\n\n### \u6ce8\u610f\uff1a\u56e0\u4e3a$l$\u548c$r$\u90fd$\\leq{10^{18}}$\uff0c\u6240\u4ee5\u8981\u7528$long{\\text{ }}long$\u6765\u5b58\u50a8\n\n---\n\n\u4ee3\u7801\uff1a\n```cpp\n#include<stdio.h>\nlong long l,r; //\u8981\u7528long long\nint main()\n{\n\tscanf(\"%lld%lld\",&l,&r); //\u8bb0\u5f97long long\u8981\u7528%lld\n\tif(l==r) //\u5982\u679cl=r\u5c31\u65e0\u6cd5\u5206\u7ec4\n\t{\n\t\tprintf(\"NO\\n\");\n\t\treturn 0;\n\t}\n\tprintf(\"YES\\n\"); //\u522b\u5fd8\u4e86\u8f93\u51faYES\n\tfor(register long long i=l;i<=r;i+=2) printf(\"%lld %lld\\n\",i,i+1); //\u5426\u5219\u76f4\u63a5\u8f93\u51fax\u548cx+1\uff0c\u6ce8\u610f\u5faa\u73af\u53d8\u91cfi\u4e00\u6b21\u52a02\n\treturn 0;\n}\n```\n\n## \u603b\u7ed3\uff08\u5e9f\u8bdd\uff09\uff1a\u6b63\u6574\u6570$x$\u548c$x+1$\u4e00\u5b9a\u4e92\u8d28",
+        "postTime": 1538991664,
+        "uid": 55112,
+        "name": "damage",
+        "ccfLevel": 0,
+        "title": "CF1051B\u9898\u89e3"
+    },
+    {
+        "content": "## \u601d\u8def\n\n\u9898\u76ee\u544a\u8bc9\u4e86 $r-l$ \u4e3a\u5947\u6570\uff0c\u6240\u4ee5 $r-l+1$ \u4e00\u5b9a\u662f\u5076\u6570\u3002\n\n\u800c\u76f8\u90bb\u7684\u4e24\u4e2a\u6b63\u6574\u6570\u662f\u4e92\u8d28\u7684\uff08\u8bc1\u660e\u5982\u4e0b\uff09\uff0c\u6240\u4ee5\u76f4\u63a5\u8f93\u51fa\u5373\u53ef\u3002\n\n## \u8bc1\u660e\n\n\u8bbe\u4e24\u4e2a\u6b63\u6574\u6570\u4e3a $a,a+1$ \uff0c\u5982\u679c\u5b83\u4eec\u4e0d\u4e92\u8d28\uff0c\u5219\u5fc5\u6709\u96641\u5916\u7684\u516c\u7ea6\u6570 $m$ \u3002\n\n\u8bbe $x \\times m=a,y \\times m=a+1$ \uff0c\u6240\u4ee5 $x \\times m +1=y \\times m$\uff0c\n\n\u5373 $m \\times (y-x)=1$ \uff0c\u56e0\u4e3a $m \\ne 1$ \uff0c\u6240\u4ee5 $y-x=1$ \u3002\n\n\u5f53 $y-x=1$ \u65f6\uff0c $a+1-a=m$ \u3002\u56e0\u4e3a $m \\ne 1$ \uff0c\u6240\u4ee5 $m$ \u4e0d\u5b58\u5728\u3002\n\n\u6240\u4ee5\u76f8\u90bb\u7684\u4e24\u4e2a\u6b63\u6574\u6570\u4e92\u8d28\u3002\n\n## Code\n\n```cpp\n#include<bits/stdc++.h>\n#define int long long\n#define N 100010\nusing namespace std;\nint l,r;\nsigned main()\n{\n    cin>>l>>r;\n    cout<<\"YES\"<<endl;\n    for(int i=l;i<=r;i+=2)\n    {\n    \tcout<<i<<\" \"<<i+1<<endl;\n\t}\n    return 0;\n}\n```",
+        "postTime": 1616245513,
+        "uid": 381566,
+        "name": "_lzh_",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1051B \u3010Relatively Prime Pairs\u3011"
+    }
+]
