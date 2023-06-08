@@ -255,7 +255,9 @@ app.post('/user/:id/edit', async (req, res) => {
       user.sex = req.body.sex;
       user.prefer_formatted_code = (req.body.prefer_formatted_code === 'on');
 
-
+      user.luogu_account = req.body.luogu_account;
+      user.codeforces_account = req.body.codeforces_account;
+      user.atcoder_account = req.body.atcoder_account;
 
       await user.save();
 
@@ -287,6 +289,36 @@ app.post('/user/:id/edit', async (req, res) => {
   }
 });
 
+function get_account_info(user) {
+  return {
+    id: user.id,
+    username: user.username,
+    nickname: user.nickname,
+    luogu_account: user.luogu_account,
+    codeforces_account: user.codeforces_account,
+    atcoder_account: user.atcoder_account
+  }
+}
+
+app.get('/user/account/:id', async (req, res) => {
+  try {
+    if (!res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
+    let id = parseInt(req.params.id);
+    if (id) {
+      let user = await User.findById(id);
+      if (!user) throw new ErrorMessage('无此用户。');
+      user = get_account_info(user);
+      res.send(user);
+    } else {
+      let users = await User.find();
+      users = users.map(get_account_info);
+      res.send(users);
+    }
+  } catch (e) {
+    syzoj.log(e);
+    res.send({err: e});
+  }
+});
 
 // Ranklist
 app.get('/vj/log', async (req, res) => {

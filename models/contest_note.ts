@@ -5,7 +5,7 @@ import Model from "./common";
 
 @TypeORM.Entity()
 export default class ContestNote extends Model {
-    static cache = false;
+    static cache = true;
 
     @TypeORM.PrimaryColumn({ type: "integer" })
     contest_id: number;
