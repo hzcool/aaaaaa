@@ -1,0 +1,21 @@
+{
+    "description": "Consider a road consisting of several rows. Each row is divided into several rectangular tiles, and all tiles in the same row are equal. The first row contains exactly one rectangular tile. Look at the picture below which shows how the tiles are arranged.\n\nThe road is constructed as follows:\n\n- the first row consists of $ 1 $ tile;\n- then $ a_1 $ rows follow; each of these rows contains $ 1 $ tile greater than the previous row;\n- then $ b_1 $ rows follow; each of these rows contains $ 1 $ tile less than the previous row;\n- then $ a_2 $ rows follow; each of these rows contains $ 1 $ tile greater than the previous row;\n- then $ b_2 $ rows follow; each of these rows contains $ 1 $ tile less than the previous row;\n- ...\n- then $ a_n $ rows follow; each of these rows contains $ 1 $ tile greater than the previous row;\n- then $ b_n $ rows follow; each of these rows contains $ 1 $ tile less than the previous row.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1473G/b5597eee9aa767dc58eac0e261c35ab1e7b5b701.png) An example of the road with $ n = 2 $ , $ a_1 = 4 $ , $ b_1 = 2 $ , $ a_2 = 2 $ , $ b_2 = 3 $ . Rows are arranged from left to right. You start from the only tile in the first row and want to reach the last row (any tile of it). From your current tile, you can move to any tile in the next row which touches your current tile.\n\nCalculate the number of different paths from the first row to the last row. Since it can be large, print it modulo $ 998244353 $ .",
+    "inputFormat": "The first line contains one integer $ n $ ( $ 1 \\le n \\le 1000 $ ).\n\nThen $ n $ lines follow. The $ i $ -th of them contains two integers $ a_i $ and $ b_i $ ( $ 1 \\le a_i, b_i \\le 10^5 $ ; $ |a_i - b_i| \\le 5 $ ).\n\nAdditional constraint on the input: the sequence of $ a_i $ and $ b_i $ never results in a row with non-positive number of tiles.",
+    "outputFormat": "Print one integer \u2014 the number of paths from the first row to the last row, taken modulo $ 998244353 $ .",
+    "samples": [
+        [
+            "2\n4 2\n2 3",
+            "850"
+        ],
+        [
+            "3\n4 1\n2 3\n3 1",
+            "10150"
+        ],
+        [
+            "8\n328 323\n867 868\n715 718\n721 722\n439 435\n868 870\n834 834\n797 796",
+            "759099319"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u73b0\u5728\u6709\u4e00\u6761\u7531\u8bb8\u591a\u74f7\u7816\u62fc\u6210\u7684\u8def\uff0c\u7c7b\u4f3c\u4e0b\u56fe\u6240\u793a\uff1a\n\n![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1473G/b5597eee9aa767dc58eac0e261c35ab1e7b5b701.png)\n\n\u5b83\u7684\u6784\u6210\u65b9\u5f0f\u5982\u4e0b\uff1a\n\n* \u6bcf\u4e00\u5217\u7684\u6240\u6709\u74f7\u7816\u90fd**\u5168\u7b49**\uff0c\u7b2c\u4e00\u5217\u4ec5\u6709 $1$ \u5757\u74f7\u7816\u3002\n\n* \u63a5\u4e0b\u6765 $a_1$ \u5217\uff0c\u6bcf\u5217\u7684\u74f7\u7816\u6570\u91cf\u90fd\u6bd4\u4e0a\u4e00\u5217\u591a $1$\u3002\n\n* \u63a5\u4e0b\u6765 $b_1$ \u5217\uff0c\u6bcf\u5217\u7684\u74f7\u7816\u6570\u91cf\u90fd\u6bd4\u4e0a\u4e00\u5217\u5c11 $1$\u3002\n\n* \u63a5\u4e0b\u6765 $a_2$ \u5217\uff0c\u6bcf\u5217\u7684\u74f7\u7816\u6570\u91cf\u90fd\u6bd4\u4e0a\u4e00\u5217\u591a $1$\u3002\n\n* \u63a5\u4e0b\u6765 $b_2$ \u5217\uff0c\u6bcf\u5217\u7684\u74f7\u7816\u6570\u91cf\u90fd\u6bd4\u4e0a\u4e00\u5217\u5c11 $1$\u3002\n\n* ...\n\n* \u63a5\u4e0b\u6765 $a_n$ \u5217\uff0c\u6bcf\u5217\u7684\u74f7\u7816\u6570\u91cf\u90fd\u6bd4\u4e0a\u4e00\u5217\u591a $1$\u3002\n\n* \u63a5\u4e0b\u6765 $b_n$ \u5217\uff0c\u6bcf\u5217\u7684\u74f7\u7816\u6570\u91cf\u90fd\u6bd4\u4e0a\u4e00\u5217\u5c11 $1$\u3002\n\n\u73b0\u5728\u4f60\u5728\u7b2c\u4e00\u5757\u74f7\u7816\u4e0a\uff0c\u4f60\u60f3\u8981\u8d70\u5230\u6700\u540e\u4e00\u5217\uff08\u4efb\u610f\u4e00\u5757\u74f7\u7816\uff09\u4e0a\uff0c\n\n\u4e14\u6bcf\u6b21\u53ea\u80fd\u8d70\u5230\u4e0b\u4e00\u5217\u4e0e\u5f53\u524d\u74f7\u7816\u63a5\u89e6\u7684\u4efb\u610f\u4e00\u5757\u74f7\u7816\u3002\n\n\u8bf7\u4f60\u6c42\u51fa\u65b9\u6848\u6570\uff0c\u5bf9 $998244353$ \u53d6\u6a21\u3002\n\n$n\\le1000,1\\le a_i,b_i\\le10^5,|a_i-b_i|\\le 5$\u3002"
+}

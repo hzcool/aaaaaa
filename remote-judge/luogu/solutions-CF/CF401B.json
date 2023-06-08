@@ -1,0 +1,10 @@
+[
+    {
+        "content": "## \u601d\u8def\n\u6700\u591a\u7684\u573a\u6570\u5c31\u662f$1$\u5230$n-1$\u7684\u7f16\u53f7\u4e2d\u6ca1\u6709\u8bb0\u5f55\u7684\u573a\u6b21\u6570\u3002\n\n\u6700\u5c11\u7684\u573a\u6570\u5c31\u662f\u6bcf\u8fde\u7eed\u4e24\u573a\u672a\u8bb0\u5f55\u7684\u573a\u6b21\u8bb0\u6210\u4e00\u4e2a$div1$\u548c\u4e00\u4e2a$div2$\u3002\n\n\u6a21\u62df\u5373\u53ef\u3002\n## \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nbool b[40000];\nint main()\n{\n    int n,k;\n    cin>>n>>k;\n    for(int x=1;x<=k;x++)\n    {\n        int y;\n        cin>>y;\n        int o,p;\n        if(y==2)cin>>o,b[o]=true;\n        else cin>>o>>p,b[o]=b[p]=true;\n    }\n    int ans1=0;\n    for(int x=1;x<n;x++)\n    if(b[x]==false)ans1++;\n    int ans2=ans1;\n    for(int x=1;x<n;x++)\n    if(b[x]==false&&b[x+1]==false&&x+1<n)ans2--,x++;\n    cout<<ans2<<' '<<ans1<<endl;\n}\n```",
+        "postTime": 1616049416,
+        "uid": 320087,
+        "name": "N_z_",
+        "ccfLevel": 7,
+        "title": "CF401B-\u3010Sereja and Contests\u3011\u9898\u89e3"
+    }
+]

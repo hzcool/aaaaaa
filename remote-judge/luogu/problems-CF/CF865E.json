@@ -1,0 +1,21 @@
+{
+    "description": "Copying large hexadecimal (base 16) strings by hand can be error prone, but that doesn't stop people from doing it. You've discovered a bug in the code that was likely caused by someone making a mistake when copying such a string. You suspect that whoever copied the string did not change any of the digits in the string, nor the length of the string, but may have permuted the digits arbitrarily. For example, if the original string was $ 0abc $ they may have changed it to $ a0cb $ or $ 0bca $ , but not $ abc $ or $ 0abb $ .\n\nUnfortunately you don't have access to the original string nor the copied string, but you do know the length of the strings and their numerical absolute difference. You will be given this difference as a hexadecimal string $ S $ , which has been zero-extended to be equal in length to the original and copied strings. Determine the smallest possible numerical value of the original string.",
+    "inputFormat": "Input will contain a hexadecimal string $ S $ consisting only of digits $ 0 $ to $ 9 $ and lowercase English letters from $ a $ to $ f $ , with length at most $ 14 $ . At least one of the characters is non-zero.",
+    "outputFormat": "If it is not possible, print \"NO\" (without quotes).\n\nOtherwise, print the lowercase hexadecimal string corresponding to the smallest possible numerical value, including any necessary leading zeros for the length to be correct.",
+    "samples": [
+        [
+            "f1e\n",
+            "NO\n"
+        ],
+        [
+            "0f1e\n",
+            "00f1\n"
+        ],
+        [
+            "12d2c\n",
+            "00314\n"
+        ]
+    ],
+    "hint": "The numerical value of a hexadecimal string is computed by multiplying each digit by successive powers of $ 16 $ , starting with the rightmost digit, which is multiplied by $ 16^{0} $ . Hexadecimal digits representing values greater than $ 9 $ are represented by letters: $ a=10,b=11,c=12,d=13,e=14,f=15 $ .\n\nFor example, the numerical value of $ 0f1e $ is $ 0\u00b716^{3}+15\u00b716^{2}+1\u00b716^{1}+14\u00b716^{0}=3870 $ , the numerical value of $ 00f1 $ is $ 0\u00b716^{3}+0\u00b716^{2}+15\u00b716^{1}+1\u00b716^{0}=241 $ , and the numerical value of $ 100f $ is $ 1\u00b716^{3}+0\u00b716^{2}+0\u00b716^{1}+15\u00b716^{0}=4111 $ . Since $ 3870+241=4111 $ and $ 00f1 $ is a permutation of $ 100f $ , $ 00f1 $ is a valid answer to the second test case.",
+    "translation": "\u7ed9\u5b9a\u4e00\u4e2a\u5341\u516d\u8fdb\u5236\u6570\uff0c\u5df2\u77e5\u4ed6\u662f\u4e24\u4e2a\u6570 $a, b$ \u7684\u5dee\uff0c\u4e14 $a$ \u5728\u5341\u516d\u8fdb\u5236\u4e0b\u7684\u6570\u4f4d\u7ecf\u8fc7\u91cd\u65b0\u6392\u5217\u53ef\u4ee5\u5f97\u5230 $b$ \u7684\u5341\u516d\u8fdb\u5236\u8868\u793a\u3002\r\n\r\n\u6c42\u6700\u5c0f\u7684 $b$\u3002\r\n\r\n\u8f93\u5165\u957f\u5ea6 $\\leq 14$\u3002"
+}

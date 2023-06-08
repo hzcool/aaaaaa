@@ -1,0 +1,17 @@
+{
+    "description": "Vanya wants to minimize a tree. He can perform the following operation multiple times: choose a vertex $ v $ , and two disjoint (except for $ v $ ) paths of equal length $ a_{0}=v $ , $ a_{1} $ , ..., $ a_{k} $ , and $ b_{0}=v $ , $ b_{1} $ , ..., $ b_{k} $ . Additionally, vertices $ a_{1} $ , ..., $ a_{k} $ , $ b_{1} $ , ..., $ b_{k} $ must not have any neighbours in the tree other than adjacent vertices of corresponding paths. After that, one of the paths may be merged into the other, that is, the vertices $ b_{1} $ , ..., $ b_{k} $ can be effectively erased:\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF765E/8a327dc5b22e7a12ad1fd6e8837e08cb4a661c45.png)Help Vanya determine if it possible to make the tree into a path via a sequence of described operations, and if the answer is positive, also determine the shortest length of such path.",
+    "inputFormat": "The first line of input contains the number of vertices $ n $ ( $ 2<=n<=2\u00b710^{5} $ ).\n\nNext $ n-1 $ lines describe edges of the tree. Each of these lines contains two space-separated integers $ u $ and $ v $ ( $ 1<=u,v<=n $ , $ u\u2260v $ ) \u2014 indices of endpoints of the corresponding edge. It is guaranteed that the given graph is a tree.",
+    "outputFormat": "If it is impossible to obtain a path, print -1. Otherwise, print the minimum number of edges in a possible path.",
+    "samples": [
+        [
+            "6\n1 2\n2 3\n2 4\n4 5\n1 6\n",
+            "3\n"
+        ],
+        [
+            "7\n1 2\n1 3\n3 4\n1 5\n5 6\n6 7\n",
+            "-1\n"
+        ]
+    ],
+    "hint": "In the first sample case, a path of three edges is obtained after merging paths $ 2-1-6 $ and $ 2-4-5 $ .\n\nIt is impossible to perform any operation in the second sample case. For example, it is impossible to merge paths $ 1-3-4 $ and $ 1-5-6 $ , since vertex 6 additionally has a neighbour 7 that is not present in the corresponding path.",
+    "translation": "\u7ed9\u4f60\u4e00\u68f5\u6811\uff0c\u53ef\u4ee5\u628a\u6811\u4e0a\u7236\u4eb2\u76f8\u540c\u7684\u4e24\u6761\u957f\u5ea6\u76f8\u540c\u7684\u94fe\u5408\u5e76\u3002\uff08\u5982\u56fe\uff09\u95ee\u4f60\u6700\u540e\u80fd\u4e0d\u80fd\u53d8\u6210\u4e00\u6761\u94fe\uff0c\u80fd\u7684\u8bdd\u6c42\u94fe\u7684\u6700\u77ed\u957f\u5ea6\u3002\r\n\uff08n<2*10^5\uff09\r\n"
+}

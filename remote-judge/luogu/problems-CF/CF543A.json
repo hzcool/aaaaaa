@@ -1,0 +1,21 @@
+{
+    "description": "Programmers working on a large project have just received a task to write exactly $ m $ lines of code. There are $ n $ programmers working on a project, the $ i $ -th of them makes exactly $ a_{i} $ bugs in every line of code that he writes.\n\nLet's call a sequence of non-negative integers $ v_{1},v_{2},...,v_{n} $ a plan, if $ v_{1}+v_{2}+...+v_{n}=m $ . The programmers follow the plan like that: in the beginning the first programmer writes the first $ v_{1} $ lines of the given task, then the second programmer writes $ v_{2} $ more lines of the given task, and so on. In the end, the last programmer writes the remaining lines of the code. Let's call a plan good, if all the written lines of the task contain at most $ b $ bugs in total.\n\nYour task is to determine how many distinct good plans are there. As the number of plans can be large, print the remainder of this number modulo given positive integer $ mod $ .",
+    "inputFormat": "The first line contains four integers $ n $ , $ m $ , $ b $ , $ mod $ ( $ 1<=n,m<=500 $ , $ 0<=b<=500 $ ; $ 1<=mod<=10^{9}+7 $ ) \u2014 the number of programmers, the number of lines of code in the task, the maximum total number of bugs respectively and the modulo you should use when printing the answer.\n\nThe next line contains $ n $ space-separated integers $ a_{1},a_{2},...,a_{n} $ ( $ 0<=a_{i}<=500 $ ) \u2014 the number of bugs per line for each programmer.",
+    "outputFormat": "Print a single integer \u2014 the answer to the problem modulo $ mod $ .",
+    "samples": [
+        [
+            "3 3 3 100\n1 1 1\n",
+            "10\n"
+        ],
+        [
+            "3 6 5 1000000007\n1 2 3\n",
+            "0\n"
+        ],
+        [
+            "3 5 6 11\n1 2 1\n",
+            "0\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "## \u9898\u76ee\u63cf\u8ff0\uff1a\n\n\u6709 $n$ \u4e2a\u7a0b\u5e8f\u5458\uff0c\u6bcf\u4e2a\u7a0b\u5e8f\u5458\u90fd\u53ef\u4ee5\u5199\u4efb\u610f\u884c\u4ee3\u7801\uff0c\u603b\u5171\u8981\u7f16\u5199 $m$ \u884c\u4ee3\u7801\uff0c\u8fd9 $m$ \u884c\u4ee3\u7801\u53ef\u4ee5\u7531\u591a\u4e2a\u7a0b\u5e8f\u5458\u6765\u7f16\u5199\u3002\u4f46\u662f\u7b2c $i$ \u4e2a\u7a0b\u5e8f\u5458\u5728\u4e00\u884c\u4ee3\u7801\u4e2d\u4f1a\u51fa\u73b0 $a_i$ \u4e2a bug\u3002\u73b0\u5728\u5e0c\u671b\u77e5\u9053\u6709\u591a\u5c11\u79cd\u65b9\u6848\u80fd\u4f7f\u5f97\u8fd9 $m$ \u884c\u4ee3\u7801\u4e2d\u7684 bug \u7684\u6570\u91cf\u4e0d\u8d85\u8fc7 $b$ \u4e2a\u3002  \n\u4e24\u4e2a\u65b9\u6848\u4e0d\u540c\u5f53\u4e14\u4ec5\u5f53\u67d0\u4e2a\u7a0b\u5e8f\u5458\u7f16\u5199\u7684\u4ee3\u7801\u91cf\uff08\u884c\u6570\uff09\u4e0d\u540c\u3002  \n\n## \u8f93\u5165\u683c\u5f0f\uff1a\n\n\u8f93\u5165\u7b2c\u4e00\u884c\u5305\u542b\u56db\u4e2a\u6574\u6570 $n,m,b,mod$\u3002  \n\u63a5\u4e0b\u6765\u4e00\u884c $n$ \u4e2a\u6574\u6570 $a_i$\u3002 \n\n## \u8f93\u51fa\u683c\u5f0f\uff1a\n\n\u8f93\u51fa\u4e00\u884c\u4e00\u4e2a\u6574\u6570\uff0c\u8868\u793a $m$ \u884c\u4ee3\u7801 bug \u6570\u91cf\u4e0d\u8d85\u8fc7 $b$ \u7684\u65b9\u6848\u6570\u5bf9 $mod$ \u53d6\u6a21\u540e\u7684\u7b54\u6848\u3002\n\n## \u63d0\u793a\u8bf4\u660e\uff1a\n\n$1 \\le n,m \\le 500,0 \\le b \\le 500;1 \\le mod \\le 10^9+7;0 \\le a_i \\le 500$\n\nTranslated by @Mine_King "
+}

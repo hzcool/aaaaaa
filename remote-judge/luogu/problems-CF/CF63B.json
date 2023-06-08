@@ -1,0 +1,17 @@
+{
+    "description": "In a strategic computer game \"Settlers II\" one has to build defense structures to expand and protect the territory. Let's take one of these buildings. At the moment the defense structure accommodates exactly $ n $ soldiers. Within this task we can assume that the number of soldiers in the defense structure won't either increase or decrease.\n\nEvery soldier has a rank \u2014 some natural number from $ 1 $ to $ k $ . $ 1 $ stands for a private and $ k $ stands for a general. The higher the rank of the soldier is, the better he fights. Therefore, the player profits from having the soldiers of the highest possible rank.\n\nTo increase the ranks of soldiers they need to train. But the soldiers won't train for free, and each training session requires one golden coin. On each training session all the $ n $ soldiers are present.\n\nAt the end of each training session the soldiers' ranks increase as follows. First all the soldiers are divided into groups with the same rank, so that the least possible number of groups is formed. Then, within each of the groups where the soldiers below the rank $ k $ are present, exactly one soldier increases his rank by one.\n\nYou know the ranks of all $ n $ soldiers at the moment. Determine the number of golden coins that are needed to increase the ranks of all the soldiers to the rank $ k $ .",
+    "inputFormat": "The first line contains two integers $ n $ and $ k $ ( $ 1<=n,k<=100 $ ). They represent the number of soldiers and the number of different ranks correspondingly. The second line contains $ n $ numbers in the non-decreasing order. The $ i $ -th of them, $ a_{i} $ , represents the rank of the $ i $ -th soldier in the defense building ( $ 1<=i<=n $ , $ 1<=a_{i}<=k $ ).",
+    "outputFormat": "Print a single integer \u2014 the number of golden coins needed to raise all the soldiers to the maximal rank.",
+    "samples": [
+        [
+            "4 4\n1 2 2 3\n",
+            "4"
+        ],
+        [
+            "4 3\n1 1 1 1\n",
+            "5"
+        ]
+    ],
+    "hint": "In the first example the ranks will be raised in the following manner:\n\n1 2 2 3 $ \u2192 $ 2 2 3 4 $ \u2192 $ 2 3 4 4 $ \u2192 $ 3 4 4 4 $ \u2192 $ 4 4 4 4\n\nThus totals to 4 training sessions that require 4 golden coins.",
+    "translation": "\u4e00\u4e2a\u5171\u6709n\u4e2a\u6570\u9012\u589e\u5e8f\u5217\uff0c\u6bcf\u6b21\u64cd\u4f5c\u4f7f\u5f97\u5168\u6570\u5217\u4efb\u610f\u4e24\u4e2a\u76f8\u90bb\u4e14\u4e0d\u540c\u7684\u6570\u4e2d\u524d\u9762\u4e00\u4e2a\u6570\u52a0\u4e00\uff0c\u95ee\u9700\u8981\u51e0\u6b21\u64cd\u4f5c\u624d\u80fd\u628a\u6240\u6709\u7684\u6570\u90fd\u53d8\u6210k,1<=n,k<=100"
+}

@@ -1,0 +1,34 @@
+[
+    {
+        "content": "**[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/AT3717)\u3002**\n\n_______\n\n**\u5206\u6790**\n\n\u6211\u4eec\u53ef\u4ee5\u628a\u5b57\u7b26\u4e32\u4e2d\u6240\u6709\u6570\u52a0\u8d77\u6765\u8f93\u51fa\uff0c\u90a3\u4e48\u5230\u5e95\u600e\u4e48\u628a\u4e00\u4e2a\u5b57\u7b26\u53d8\u6210\u4e00\u4e2a\u6570\u5b57\u5462\u3002\u6211\u4eec\u53ea\u9700\u8981\u51cf\u53bb\u5b57\u7b26$0$\u5c31\u53ef\u4ee5\u4e86\u3002\n\n********\n\n**\u8be6\u7ec6\u6b65\u9aa4**\n\n1. \u5b9a\u4e49\u5b57\u7b26\u4e32$s$\u5e76\u5c06\u5176\u8f93\u5165\u3002\n```cpp\n    string s;\n    cin>>s;\n```\n\n2. \u6211\u4eec\u53ef\u4ee5\u5c06\u6bcf\u4e00\u4e2a\u5b57\u7b26\u51cf\u53bb\u5b57\u7b26$0$\uff0c\u7136\u540e\u5c06\u5b83\u4eec\u4e00\u6b21\u76f8\u52a0\u5e76\u8f93\u51fa\u3002\n```cpp\n    cout<<s[0]-'0'+s[1]-'0'+s[2]-'0';\n```\n\n--------------\n\n**CODE**\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n    string s;\n    cin>>s;\n    cout<<s[0]-'0'+s[1]-'0'+s[2]-'0';\n    return 0;\n}\n```",
+        "postTime": 1581651760,
+        "uid": 219791,
+        "name": "tZERO\u3061\u3083\u3093",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT3717 \u3010[ABC081A] Placing Marbles\u3011"
+    },
+    {
+        "content": "\u672c\u9898\u5c31\u662f\u8f93\u5165\u4e00\u4e2a\u957f\u5ea6\u4e3a$3$\u5b57\u7b26\u4e32\n\n\u8f93\u51fa\u6709\u51e0\u4e2a$1$\n\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n\tint ans=0;\n\tstring a;\n\tcin>>a;\n\tif(a[0]=='1')ans++;\n\tif(a[1]=='1')ans++;\n\tif(a[2]=='1')ans++;\n\tcout<<ans<<endl;\n}\n```",
+        "postTime": 1524735280,
+        "uid": 58543,
+        "name": "RioBlu",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 AT3717 \u3010Placing Marbles\u3011"
+    },
+    {
+        "content": "### \u601d\u8def:\n\u8f93\u5165\u4e00\u4e2a\u957f\u5ea6\u4e3a3\u5b57\u7b26\u4e32\u5e76\u6c42\u51fa\u6240\u6709\u6570\u7684\u52a0\u548c\uff0c\u53ef\u4ee5\u7528 $ \\operatorname{string}$ \u6765\u5199\u3002\n\n------------\n### \u89e3\u6cd5\uff1a\n\u4ece $0$ \u5faa\u73af\u5230 $2$ \uff0c\u6bcf\u4e00\u4e2a\u5b57\u7b26\u51cf\u53bbASCII\u7801\u4e3a48\u5b57\u7b26'0'\u540e\u52a0\u5230\u7edf\u8ba1\u7684 $ans$ \u4e2d\uff0c\u6700\u540e\u8f93\u51fa\u5373\u53ef\u3002\n\n------------\n### \u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n\tstring s;\n\tint ans=0;\n\tcin>>s;\n\tfor(int i=0;i<3;i++)\n\t\tans+=s[i]-'0';//\u7edf\u8ba1\n\tcout<<ans<<'\\n';//\u8f93\u51fa\n\treturn 0;\n}\n\n```\n------------\n\n\u4f46\u7531\u4e8e\u8fd9\u9898\u4e2d\u7684\u5b57\u7b26\u4e32\u53ea\u5305\u542b $1$ \u6216 $0$ \uff0c\u6240\u4ee5\u8fd8\u53ef\u4ee5\u5224\u65ad\u6bcf\u4e00\u4f4d\u662f\u4e0d\u662f'1'\uff0c\u5982\u679c\u662f\uff0c $ans$ \u52a0 $1$\u3002\n\n------------\n\n### \u4ee3\u78012\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n\tstring s;\n\tint ans=0;\n\tcin>>s;\n\tfor(int i=0;i<3;i++)\n\t\tans+=(s[i]=='1');//\u7edf\u8ba1\n\tcout<<ans<<'\\n';//\u8f93\u51fa\n\treturn 0;\n}\n\n```\n",
+        "postTime": 1581656817,
+        "uid": 242984,
+        "name": "\u6b7b\u795e\u5ba1\u5224",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT3717 \u3010[ABC081A] Placing Marbles\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u53eb\u6211\u4eec\u6c42\u5b57\u7b26\u4e32\u4e2d1\u7684\u4e2a\u6570\uff0c\u53ef\u4ee5\u5b9a\u4e49\u4e00\u4e2a\u5b57\u7b26\u4e32\uff0c\u5224\u65ad\u4e00\u4e0b\u5373\u53ef\u3002\n\n\u4e0a\u4ee3\u7801\n```cpp\n#include <bits/stdc++.h>\n#include <cstdlib>\nusing namespace std;\nstring a;\nint s,i,n;\nint main()\n{\n    cin>>a;\n    n=a.length();\n    for(i=0;i<n;i++)\n    {\n        if(a[i]=='1')//\u5224\u65ad\u662f\u5426\u4e3a1\n        s++;\n    }\n    cout<<s<<endl;\n    return 0;\n}\n```",
+        "postTime": 1525149927,
+        "uid": 42627,
+        "name": "youyou2007",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 AT3717 \u3010Placing Marbles\u3011"
+    }
+]

@@ -1,0 +1,21 @@
+{
+    "description": "Cucumber boy is fan of Kyubeat, a famous music game.\n\nKyubeat has $ 16 $ panels for playing arranged in $ 4\u00d74 $ table. When a panel lights up, he has to press that panel.\n\nEach panel has a timing to press (the preffered time when a player should press it), and Cucumber boy is able to press at most $ k $ panels in a time with his one hand. Cucumber boy is trying to press all panels in perfect timing, that is he wants to press each panel exactly in its preffered time. If he cannot press the panels with his two hands in perfect timing, his challenge to press all the panels in perfect timing will fail.\n\nYou are given one scene of Kyubeat's panel from the music Cucumber boy is trying. Tell him is he able to press all the panels in perfect timing.",
+    "inputFormat": "The first line contains a single integer $ k $ ( $ 1<=k<=5 $ ) \u2014 the number of panels Cucumber boy can press with his one hand.\n\nNext 4 lines contain 4 characters each (digits from 1 to 9, or period) \u2014 table of panels. If a digit $ i $ was written on the panel, it means the boy has to press that panel in time $ i $ . If period was written on the panel, he doesn't have to press that panel.",
+    "outputFormat": "Output \"YES\" (without quotes), if he is able to press all the panels in perfect timing. If not, output \"NO\" (without quotes).",
+    "samples": [
+        [
+            "1\n.135\n1247\n3468\n5789\n",
+            "YES\n"
+        ],
+        [
+            "5\n..1.\n1111\n..1.\n..1.\n",
+            "YES\n"
+        ],
+        [
+            "1\n....\n12.1\n.2..\n.2..\n",
+            "NO\n"
+        ]
+    ],
+    "hint": "In the third sample boy cannot press all panels in perfect timing. He can press all the panels in timing in time 1, but he cannot press the panels in time 2 in timing with his two hands.",
+    "translation": "\u4e00\u5171\u6709 $4\\times4=16$ \u4e2a\u683c\u5b50\uff0c\u6bcf\u4e2a\u683c\u5b50 $(i,j)$ \u9700\u8981\u5728 $t_{i,j}$ \u65f6\u523b\u70b9\u51fb\uff08\u82e5\u4e3a\u661f\u53f7\u5219\u4e0d\u9700\u8981\u70b9\u51fb\uff09\uff0c\u4f60\u6bcf\u53ea\u624b\u540c\u4e00\u65f6\u523b\u53ea\u80fd\u70b9\u51fb $k$ \u4e2a\u683c\u5b50\uff08**\u6ce8\u610f\u4f60\u6709\u4e24\u53ea\u624b\uff01**\uff09\uff0c\u6c42\u4f60\u662f\u5426\u80fd\u5b8c\u6210\u4efb\u52a1\u3002  \n$t_{i,j}$ \u662f\u4e00\u4e2a $1-9$ \u7684\u6570\u5b57\u3002"
+}

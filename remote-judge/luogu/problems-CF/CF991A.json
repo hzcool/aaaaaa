@@ -1,0 +1,21 @@
+{
+    "description": "Each student eagerly awaits the day he would pass the exams successfully. Thus, Vasya was ready to celebrate, but, alas, he didn't pass it. However, many of Vasya's fellow students from the same group were more successful and celebrated after the exam.\n\nSome of them celebrated in the BugDonalds restaurant, some of them \u2014 in the BeaverKing restaurant, the most successful ones were fast enough to celebrate in both of restaurants. Students which didn't pass the exam didn't celebrate in any of those restaurants and elected to stay home to prepare for their reexamination. However, this quickly bored Vasya and he started checking celebration photos on the Kilogramm. He found out that, in total, BugDonalds was visited by $ A $ students, BeaverKing \u2014 by $ B $ students and $ C $ students visited both restaurants. Vasya also knows that there are $ N $ students in his group.\n\nBased on this info, Vasya wants to determine either if his data contradicts itself or, if it doesn't, how many students in his group didn't pass the exam. Can you help him so he won't waste his valuable preparation time?",
+    "inputFormat": "The first line contains four integers \u2014 $ A $ , $ B $ , $ C $ and $ N $ ( $ 0 \\leq A, B, C, N \\leq 100 $ ).",
+    "outputFormat": "If a distribution of $ N $ students exists in which $ A $ students visited BugDonalds, $ B $ \u2014 BeaverKing, $ C $ \u2014 both of the restaurants and at least one student is left home (it is known that Vasya didn't pass the exam and stayed at home), output one integer \u2014 amount of students (including Vasya) who did not pass the exam.\n\nIf such a distribution does not exist and Vasya made a mistake while determining the numbers $ A $ , $ B $ , $ C $ or $ N $ (as in samples 2 and 3), output $ -1 $ .",
+    "samples": [
+        [
+            "10 10 5 20\n",
+            "5"
+        ],
+        [
+            "2 2 0 4\n",
+            "-1"
+        ],
+        [
+            "2 2 2 1\n",
+            "-1"
+        ]
+    ],
+    "hint": "The first sample describes following situation: $ 5 $ only visited BugDonalds, $ 5 $ students only visited BeaverKing, $ 5 $ visited both of them and $ 5 $ students (including Vasya) didn't pass the exam.\n\nIn the second sample $ 2 $ students only visited BugDonalds and $ 2 $ only visited BeaverKing, but that means all $ 4 $ students in group passed the exam which contradicts the fact that Vasya didn't pass meaning that this situation is impossible.\n\nThe third sample describes a situation where $ 2 $ students visited BugDonalds but the group has only $ 1 $ which makes it clearly impossible.",
+    "translation": "\u6709$N$\u4e2a\u4eba\u53c2\u52a0\u4e86\u8003\u8bd5\u3002\u8003\u8bd5\u5b8c\u6210\u540e\uff0c\u5728\u901a\u8fc7\u7684\u4eba\u4e2d\uff0c\u6709$A$\u4e2a\u4eba\u53bb\u4e86\u7b2c\u4e00\u4e2a\u9152\u5e97\u805a\u4f1a\uff0c\u6709$B$\u4e2a\u4eba\u53bb\u4e86\u7b2c\u4e8c\u4e2a\u9152\u5e97\u805a\u4f1a\uff0c\u6709$C$\u4e2a\u4eba\u540c\u65f6\u53bb\u4e86\u4e24\u4e2a\u9152\u5e97\u805a\u4f1a\u3002\n\n\u95ee\u6709\u591a\u5c11\u4e2a\u4eba\u6ca1\u6709\u901a\u8fc7\u8003\u8bd5\uff08\u81f3\u5c11\u6709\u4e00\u4e2a\uff0c\u56e0\u4e3a\u4e3b\u89d2\u6ca1\u6709\u901a\u8fc7\u8003\u8bd5\uff09\n\n\u611f\u8c22@attack \u63d0\u4f9b\u7ffb\u8bd1"
+}

@@ -1,0 +1,17 @@
+{
+    "description": "You are given $ n $ arrays that can have different sizes. You also have a table with $ w $ columns and $ n $ rows. The $ i $ -th array is placed horizontally in the $ i $ -th row. You can slide each array within its row as long as it occupies several consecutive cells and lies completely inside the table.\n\nYou need to find the maximum sum of the integers in the $ j $ -th column for each $ j $ from $ 1 $ to $ w $ independently.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1208E/66577db70aaef36d98c0a37e28a9702a11eb45eb.png)Optimal placements for columns $ 1 $ , $ 2 $ and $ 3 $ are shown on the pictures from left to right.Note that you can exclude any array out of a column provided it remains in the window. In this case its value is considered to be zero.",
+    "inputFormat": "The first line contains two integers $ n $ ( $ 1 \\le n \\le 10^{6} $ ) and $ w $ ( $ 1 \\le w \\le 10^{6} $ ) \u2014 the number of arrays and the width of the table.\n\nEach of the next $ n $ lines consists of an integer $ l_{i} $ ( $ 1 \\le l_{i} \\le w $ ), the length of the $ i $ -th array, followed by $ l_{i} $ integers $ a_{i1}, a_{i2}, \\ldots, a_{il_i} $ ( $ -10^{9} \\le a_{ij} \\le 10^{9} $ ) \u2014 the elements of the array.\n\nThe total length of the arrays does no exceed $ 10^{6} $ .",
+    "outputFormat": "Print $ w $ integers, the $ i $ -th of them should be the maximum sum for column $ i $ .",
+    "samples": [
+        [
+            "3 3\n3 2 4 8\n2 2 5\n2 6 3\n",
+            "10 15 16 \n"
+        ],
+        [
+            "2 2\n2 7 8\n1 -8\n",
+            "7 8 \n"
+        ]
+    ],
+    "hint": "Illustration for the first example is in the statement.",
+    "translation": "\u7ed9\u5b9a $n$ \u4e2a\u5927\u5c0f\u4e0d\u540c\u7684\u6570\u7ec4\u4e0e\u4e00\u4e2a $n$ \u884c $w$ \u5217\u7684\u8868\u683c\u3002\u7b2c $i$ \u4e2a\u6570\u7ec4\u653e\u7f6e\u5728\u7b2c $i$ \u884c\u4e2d\u3002\u4f60\u53ef\u4ee5\u4efb\u610f\u6b21\u6a2a\u5411\u6ed1\u52a8\u4efb\u610f\u884c\u4e2d\u7684\u6570\u7ec4\uff0c\u4f46\u8981\u4fdd\u8bc1\u5bf9\u4e8e\u6bcf\u884c\u4e2d\u6570\u7ec4\u7684\u7b2c\u4e00\u4e2a\u5143\u7d20\u5728\u8868\u683c\u4e2d\u7684\u4e0b\u6807 $(i,pos_i)$ \u90fd\u6709 $1 \\leq pos_i \\leq w-length_i+1$\u3002\n\n\u5bf9\u4e8e\u6bcf\u4e00\u5217\uff0c\u8bf7\u6c42\u51fa\u6ed1\u52a8\u540e\u8fd9\u4e00\u5217\u7684\u5143\u7d20\u53ef\u4ee5\u53d6\u5f97\u7684\u6700\u5927\u548c\u3002\u82e5\u67d0\u4e00\u4f4d\u7f6e\u4e0a\u65e0\u5143\u7d20\uff0c\u89c6\u5176\u503c\u4e3a $0$\u3002\n\n\u56fe\u4e2d\u4ece\u5de6\u5230\u53f3\u663e\u793a\u4e86\u5bf9\u4e8e\u7b2c $1$ \u5217\u3001\u7b2c $2$ \u5217\u3001\u7b2c $3$ \u5217\uff0c\u53d6\u5f97\u8be5\u5217\u6700\u5927\u548c\u7684\u60c5\u51b5\u3002"
+}

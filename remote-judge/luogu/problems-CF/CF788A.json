@@ -1,0 +1,17 @@
+{
+    "description": "Something happened in Uzhlyandia again... There are riots on the streets... Famous Uzhlyandian superheroes Shean the Sheep and Stas the Giraffe were called in order to save the situation. Upon the arriving, they found that citizens are worried about maximum values of the Main Uzhlyandian Function $ f $ , which is defined as follows:\n\n![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF788A/3dafed09a51e28ade00bc9bec53248a85d7ce6d3.png)In the above formula, $ 1<=l&lt;r<=n $ must hold, where $ n $ is the size of the Main Uzhlyandian Array $ a $ , and $ |x| $ means absolute value of $ x $ . But the heroes skipped their math lessons in school, so they asked you for help. Help them calculate the maximum value of $ f $ among all possible values of $ l $ and $ r $ for the given array $ a $ .",
+    "inputFormat": "The first line contains single integer $ n $ ( $ 2<=n<=10^{5} $ ) \u2014 the size of the array $ a $ .\n\nThe second line contains $ n $ integers $ a_{1},a_{2},...,a_{n} $ (- $ 10^{9}<=a_{i}<=10^{9} $ ) \u2014 the array elements.",
+    "outputFormat": "Print the only integer \u2014 the maximum value of $ f $ .",
+    "samples": [
+        [
+            "5\n1 4 2 3 1\n",
+            "3"
+        ],
+        [
+            "4\n1 5 4 7\n",
+            "6"
+        ]
+    ],
+    "hint": "In the first sample case, the optimal value of $ f $ is reached on intervals $ [1,2] $ and $ [2,5] $ .\n\nIn the second case maximal value of $ f $ is reachable only on the whole array.",
+    "translation": "\u5b9a\u4e49\u4e00\u4e2a\u51fd\u6570\uff0c\u51fd\u6570\u5982\u4e0b\uff1a  \r\n$f[l,r]=\\sum^{r-1}_{i=l}|a_i-a_{i+1}|\\times (-1)^{i-l}$  \r\n1<=l,r<=n  \r\n|x|\u8868\u793ax\u7684\u7edd\u5bf9\u503c\u3002  \r\n\u73b0\u5728\u7ed9\u4f60\u4e00\u4e2a\u51fd\u6570\uff0c\u8bf7\u53d6\u6070\u5f53\u7684l,r\u4f7ff\u503c\u6700\u5927\uff0c\u8bf7\u8f93\u51fa\u6700\u5927\u7684f\u503c"
+}

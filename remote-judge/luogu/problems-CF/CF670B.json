@@ -1,0 +1,17 @@
+{
+    "description": "In late autumn evening $ n $ robots gathered in the cheerful company of friends. Each robot has a unique identifier \u2014 an integer from $ 1 $ to $ 10^{9} $ .\n\nAt some moment, robots decided to play the game \"Snowball\". Below there are the rules of this game. First, all robots stand in a row. Then the first robot says his identifier. After that the second robot says the identifier of the first robot and then says his own identifier. Then the third robot says the identifier of the first robot, then says the identifier of the second robot and after that says his own. This process continues from left to right until the $ n $ -th robot says his identifier.\n\nYour task is to determine the $ k $ -th identifier to be pronounced.",
+    "inputFormat": "The first line contains two positive integers $ n $ and $ k $ ( $ 1<=n<=100000 $ , $ 1<=k<=min(2\u00b710^{9},n\u00b7(n+1)/2 $ ).\n\nThe second line contains the sequence $ id_{1},id_{2},...,id_{n} $ ( $ 1<=id_{i}<=10^{9} $ ) \u2014 identifiers of roborts. It is guaranteed that all identifiers are different.",
+    "outputFormat": "Print the $ k $ -th pronounced identifier (assume that the numeration starts from $ 1 $ ).",
+    "samples": [
+        [
+            "2 2\n1 2\n",
+            "1\n"
+        ],
+        [
+            "4 5\n10 4 18 3\n",
+            "4\n"
+        ]
+    ],
+    "hint": "In the first sample identifiers of robots will be pronounced in the following order: $ 1 $ , $ 1 $ , $ 2 $ . As $ k=2 $ , the answer equals to $ 1 $ .\n\nIn the second test case identifiers of robots will be pronounced in the following order: $ 10 $ , $ 10 $ , $ 4 $ , $ 10 $ , $ 4 $ , $ 18 $ , $ 10 $ , $ 4 $ , $ 18 $ , $ 3 $ . As $ k=5 $ , the answer equals to $ 4 $ .",
+    "translation": "## \u9898\u76ee\u63cf\u8ff0\n\u6709$n(n\\leq100000)$\u4e2a\u673a\u5668\u4eba\uff0c\u6bcf\u4e2a\u673a\u5668\u4eba\u90fd\u6709\u4e00\u4e2a\u552f\u4e00\u7684\u6574\u6570\u5e8f\u53f7\uff0c\u8be5\u5e8f\u53f7\u5728$1$\u5230$10^9$\u4e4b\u95f4\u3002\u4ed6\u4eec\u5728\u505a\u4e00\u4e2a\u53eb\u201c\u6eda\u96ea\u7403\u201d\u7684\u6e38\u620f\uff0c\u5373\u7b2c\u4e00\u4e2a\u673a\u5668\u4eba\u8bf4\u51fa\u7b2c\u4e00\u4e2a\u673a\u5668\u4eba\u7684\u5e8f\u53f7\uff0c\u7b2c\u4e8c\u4e2a\u673a\u5668\u4eba\u8bf4\u51fa\u7b2c\u4e00\u5230\u7b2c\u4e8c\u4e2a\u673a\u5668\u4eba\u7684\u5e8f\u53f7\uff0c\u7b2c\u4e09\u4e2a\u673a\u5668\u4eba\u8bf4\u51fa\u7b2c\u4e00\u5230\u7b2c\u4e09\u4e2a\u673a\u5668\u4eba\u7684\u5e8f\u53f7\u2026\u2026\u4ee5\u6b64\u7c7b\u63a8\u3002\u6c42\u7b2c$k(k\\leq min(2\\cdot10^9,n\\cdot(n+1)/2)$\u4e2a\u88ab\u8bf4\u51fa\u7684\u5e8f\u53f7\u3002\n## \u8f93\u5165\u683c\u5f0f\n\u7b2c\u4e00\u884c\u5305\u542b\u4e24\u4e2a\u6574\u6570$n$\u548c$k$\uff08\u8303\u56f4\u5982\u4e0a\u6240\u8ff0\uff09\u3002\n\n\u7b2c\u4e8c\u884c\u5305\u542b$n$\u4e2a\u6574\u6570\uff0c\u7b2c$i$\u4e2a\u6574\u6570\u4ee3\u8868\u7b2c$i$\u4e2a\u673a\u5668\u4eba\u7684\u5e8f\u53f7\u3002\n## \u8f93\u51fa\u683c\u5f0f\n\u4e00\u884c\uff0c\u5305\u542b\u7b2c$k$\u4e2a\u88ab\u8bf4\u51fa\u7684\u5e8f\u53f7\n"
+}

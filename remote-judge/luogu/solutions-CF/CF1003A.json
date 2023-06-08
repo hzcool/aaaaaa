@@ -1,0 +1,98 @@
+[
+    {
+        "content": "[\u53cb\u597d\u7684\u539f\u9898\u94fe\u63a5](https://www.luogu.org/problemnew/show/CF1003A)\n\n\u5404\u4f4d\u5927\u4f6c\u90fd\u662f\u7528\u6876\u6392\u5199\u7684\u5417\uff1f\n\n\u6876\u6392\u867d\u7136\u5feb\uff08\u65f6\u95f4\u590d\u6742\u5ea6O(n)\uff09\u4f46\u662f\u6570\u636e\u8303\u56f4\u5982\u679c\u5927\uff08\u6bd4\u5982a[i]<=10^18)\u5c31\u4e0d\u884c\u4e86\uff0c\u6876\u6392\u4e00\u5b9a\u7206\u5185\u5b58\u3002\n\n\u8fd9\u65f6\uff0c\u6211\u4eec\u4e5f\u53ef\u4ee5\u7528\u666e\u901a\u6392\u5e8f\u65b9\u6cd5\u3002\n\n**\u601d\u8def\uff1a**\n```cpp\n\u5982\u6837\u4f8b\u4e00\uff0c\u539f\u6570\u7ec4\uff1a\n1 2 4 3 3 2\n\u6392\u5e8f\u6570\u7ec4\uff1a\n1 2 2 3 3 4\n\u6b64\u65f6\u518d\u4ece\u5934\u5230\u5c3e\u8fc7\u4e00\u904d\uff0c\u5c31\u53ef\u4ee5\u8bb0\u5f55\u6bcf\u4e2a\u6570\u51fa\u73b0\u7684\u4e2a\u6570\u3002\n\n\u65f6\u95f4\u590d\u6742\u5ea6\uff1aO(n log n)\uff0c\u6bd4\u6876\u6392\u5dee\u3002\n\u7a7a\u95f4\u590d\u6742\u5ea6\uff1aO(n) \uff0c\u5728\u6570\u636e\u5927\u65f6\u6bd4\u6876\u6392\u66f4\u597d\u3002\n```\nAC\u4ee3\u7801\uff1a\n```cpp\n#include<iostream>\n#include<algorithm>\n//sort() c++STL\u6392\u5e8f\u7528\u5230algorithm\nusing namespace std;\nint n,a[105]={-1},cnt=1,ans=1;\n//a[0]\u521d\u59cb\u5316\u4e3a-1\uff0c\u4f7f\u5728\u540e\u9762\u6bd4\u8f83\u65f6a[1]!=a[0]\nint main()\n{\n\tios::sync_with_stdio(0);//cin\u4f18\u5316\n\tcin>>n;\n\tfor(int i=1;i<=n;i++)cin>>a[i];\n\tsort(a+1,a+n+1);\t\t//\u6392\u5e8f\u3002\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tif(a[i-1]==a[i])cnt++;//\u524d\u540e\u4e24\u6570\u76f8\u7b49\uff0c\u90a3\u8fd9\u4e2a\u6570\u7684\u6570\u91cf+1\n\t\telse cnt=1;\t\t\t  //\u82e5\u4e0d\u76f8\u7b49\uff0c\u5c31\u662f\u4e00\u4e2a\u65b0\u6570\uff0c\u4e2a\u6570\u8ba1\u4e3a1\n\t\tans=max(ans,cnt);\t  //\u8bb0\u5f55\u6700\u5927\u503c\n\t}\n\tcout<<ans;\n\treturn 0;\n}\n```\n\u867d\u7136\u8fd9\u9053\u9898\u7528\u6876\u6392\u66f4\u597d\uff0c\u4f46\u76f4\u63a5\u6392\u5e8f\u4e5f\u662f\u4e00\u79cd\u65b9\u6cd5\u3002\n\n\u5927\u5bb6\u53ef\u4ee5\u505a\u4e00\u4e0b[\u8fd9\u9053\u9898](https://www.luogu.org/problemnew/show/P1097)",
+        "postTime": 1546250853,
+        "uid": 151935,
+        "name": "Rainbow_qwq",
+        "ccfLevel": 0,
+        "title": "CF1003A \u3010Polycarp's Pockets\u3011"
+    },
+    {
+        "content": "\u5df2\u6709\u9898\u89e3\u90fd\u662f\u8bfb\u5165\u540e\u627e\u51fa\u73b0\u6b21\u6570\u7684\u6700\u5927\u503c\u5417...\n\n\u8fd9\u91cc\u63d0\u4f9b\u4e00\u79cd\u8fb9\u8bfb\u5165\u8fb9\u627e\u6700\u5927\u503c\u7684\u65b9\u6cd5\u3002\n\n\u4e0a\u4ee3\u7801:\n```cpp\n#include<cstdio>\nint a,m[101],n,s;\nmain(){\n\tscanf(\"%d\",&n);\t//\u8f93\u5165n\n\twhile(n--){\n\t\tscanf(\"%d\",&a);\t//\u8f93\u5165n\u4e2a\u6570\n\t\ts=(++m[a]>s?m[a]:s);\t//\u627e\u51fa\u73b0\u6b21\u6570\u7684\u6700\u5927\u503c\n\t}\n\tprintf(\"%d\",s);\t//\u8f93\u51fa\n}\n```\n",
+        "postTime": 1553264680,
+        "uid": 67942,
+        "name": "meyi",
+        "ccfLevel": 8,
+        "title": "\u9898\u89e3 CF1003A \u3010Polycarp's Pockets\u3011"
+    },
+    {
+        "content": "### **\u9898\u76ee**\n\u7ed9\u5b9a\u4e00\u4e2a\u6570n\uff0c\u6c42\u8fd9**n\u4e2a\u6570**\u4e2d**\u540c\u4e00\u4e2a\u6570**\u51fa\u73b0\u7684**\u6b21\u6570**\u7684**\u6700\u5927\u503c**\u3002\n### **\u601d\u8def**\n#### \u65b9\u6cd51\uff1a\u6876\n\u56e0\u4e3a\u9898\u76ee\u4e2d\u5df2\u7ecf\u7ed9\u51fa\u4e86$a_i\u2264100$\uff0c\u6240\u4ee5\u7528\u6876\u4e0d\u4f1a\u70b8\u3002\n\n\u5148\u5c06\u6bcf\u4e2a\u6570\u653e\u8fdb\u5b83\u5bf9\u5e94\u7684\u6876\u4e2d\uff0c\u7136\u540e\u4ece$1$\u5230$100$\u67e5\u627e\u6700\u5927\u503c\u5c31\u884c\u4e86\u3002\n#### \u65b9\u6cd52\uff1a\u6392\u5e8f\n\u5c06\u8fd9$n$\u4e2a\u6570\u6392\u597d\u5e8f\u4e4b\u540e\uff0c\u7528\u6700\u5927\u5e73\u53f0\u957f\u5ea6\u6765\u89e3\u51b3\u8fd9\u4e2a\u95ee\u9898\u3002\n### **\u4ee3\u7801**\n#### \u65b9\u6cd5\u4e00\n```pascal\nvar\n n,i,x,max:longint;//\u5b9a\u4e49\u522b\u7684\u4e1c\u897f\n a:array[1..100] of longint;//\u5b9a\u4e49a\u6570\u7ec4\nbegin\n readln(n);//\u8bfb\u5165n\n for i:=1 to n do//\u5faa\u73af\n  begin\n   read(x);//\u8bfb\u5165x\uff08\u4e5f\u5c31\u662fa[i]\uff09\n   inc(a[x]);//\u7d2f\u52a0x\u5bf9\u5e94\u7684\u6876\n  end;\n for i:=1 to 100 do if a[i]>max then max:=a[i];//\u627e\u6700\u5927\u503c\n writeln(max);//\u8f93\u51fa\nend.\n```\n#### \u65b9\u6cd52\n```pascal\nvar\n a:array[0..100] of longint;//\u5b9a\u4e49a\u6570\u7ec4\n n,i,j,s,max:longint;//\u5b9a\u4e49\u522b\u7684\u4e1c\u897f\nprocedure jh(var x,y:longint);begin x:=x+y;y:=x-y;x:=x-y;end;//\u5229\u7528\u52a0\u51cf\u6cd5\u4ea4\u6362\nbegin\n readln(n);//\u8bfb\u5165n\n for i:=1 to n do read(a[i]);//\u8bfb\u5165a\u6570\u7ec4\n for i:=1 to n-1 do for j:=i+1 to n do if a[i]>a[j] then jh(a[i],a[j]);//\u6392\u5e8f\n s:=1;//s\u521d\u59cb\u503c\n for i:=2 to n do//\u6700\u5927\u5e73\u53f0\u957f\u5ea6\n  if a[i]=a[i-1] then inc(s)//\u5982\u679c\u76f8\u90bb\u7684\u4e24\u4e2a\u6570\u76f8\u7b49\uff0cs\u52a01\n   else//\u5982\u679c\u4e0d\u76f8\u7b49\n    begin\n     if s>max then max:=s;//\u770b\u770b\u6709\u6ca1\u6709\u8d85\u8fc7\u6700\u5927\u503c\n     s:=1;//\u627e\u5230\u4e86\u65b0\u7684\u5e73\u53f0\uff0cs\u91cd\u65b0\u53d8\u4e3a1\n    end;\n if s>max then max:=s;//\u56e0\u4e3a\u6700\u540e\u4e00\u4e2a\u8fde\u7eed\u7684\u6ca1\u6709\u88ab\u627e\u8fc7\uff0c\u6240\u4ee5\u52a0\u4e00\u4e2a\u5355\u5224\n writeln(max);//\u8f93\u51fa\u6700\u5927\u503c\nend.\n```\n",
+        "postTime": 1586135180,
+        "uid": 324103,
+        "name": "Franka",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1003A \u3010Polycarp's Pockets\u3011"
+    },
+    {
+        "content": "\u9898\u76ee\u94fe\u63a5 [CF1003A](https://www.luogu.com.cn/problem/CF1003A)\u3002  \n\u505a\u6cd5\u662f\u6392\u5e8f\u540e\u7edf\u8ba1\u51fa\u73b0\u6b21\u6570\uff0c\u4f46\u7528\u7684\u662f\u624b\u5199**\u5f52\u5e76\u6392\u5e8f**\u3002  \n\u5f52\u5e76\u6392\u5e8f\u677f\u5b50 [CF784F](https://www.luogu.com.cn/problem/CF784F)\u3002\u540c\u65f6\uff0c\u5f52\u5e76\u6392\u5e8f\u53ef\u4ee5\u7528\u4e8e[\u6c42\u9006\u5e8f\u5bf9](https://www.luogu.com.cn/problem/P1908)\u7684\u5b9e\u73b0\u3002\n## AC CODE\n```cpp\n#include <iostream>\n#include <cstdio>\nusing namespace std;\n\nint n, cnt, ans;\nint a[110] = { -1 }, m[110];\n\nvoid msort(int l, int r) {\n\tif (l == r) return;\n\tint mid = l + r >> 1;\n\tmsort(l, mid); msort(mid + 1, r);\n\tint i = l, j = mid + 1, k = l;\n\twhile (i <= mid && j <= r) {\n\t\tif (a[i] <= a[j]) m[k++] = a[i++];\n\t\telse m[k++] = a[j++];\n\t}\n\twhile (i <= mid) m[k++] = a[i++];\n\twhile (j <= r) m[k++] = a[j++];\n\tfor (int p = l; p <= r; ++p) a[p] = m[p];\n}\n\nint main() {\n\tscanf(\"%d\", &n);\n\tfor (int i = 1; i <= n; ++i) scanf(\"%d\", &a[i]);\n\tmsort(1, n);\n\tfor (int i = 1; i <= n; ++i) {\n\t\tif (a[i] == a[i - 1]) ++cnt; else cnt = 1;\n\t\tans = max(ans, cnt);\n\t}\n\tprintf(\"%d\", ans);\n\treturn 0;\n}\n```\n## \u611f\u8c22\u89c2\u8d4f\uff01",
+        "postTime": 1586694909,
+        "uid": 215368,
+        "name": "Easy_revenge",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1003A \u3010Polycarp's Pockets\u3011"
+    },
+    {
+        "content": "**\u5927\u5bb6\u90fd\u7528\u6876\u7684\u5417\uff1f\u6211\u7528\u6570\u7ec4\u8ba1\u6570\uff08~~\u6570\u636e\u6c34~~\uff09**\n\n## \u592a\u6c34\u4e0d\u8bb2\uff0c\u653e\u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>//\u4e07\u80fd\u5934\u6587\u4ef6\nint n,a,s[105],d=-100;//\u5b9a\u4e49n\uff0cn\u4e2a\u6574\u6570a\uff0c\u6570\u7ec4\u8ba1\u6570\u6570\u7ec4s\uff0c\u6bd4\u8f83\u7684d\nusing namespace std;\nint main()\n{\n     cin>>n;//\u8f93\u5165n\n\t for(int i=1;i<=n;i++)\n\t {\n\t \tcin>>a;//\u8f93\u5165a\n\t \ts[a]++;//s\u7684\u7b2ca\u4e2a\u4f4d\u7f6e++\n\t }\t\n\t for(int i=1;i<=100;i++)//\u4ece1-100\u5faa\u73af\n\t {\n\t \tif(s[i]>d)d=s[i];//\u5982\u679cs\u7684\u7b2ci\u4e2a\u4f4d\u7f6e\u5927\u4e8e\u5f53\u524d\u6700\u5927\u6570\uff0cd=s[i]\n\t }\n\t cout<<d;//\u8f93\u51fad\n    return 0;//\u5b8c\u7f8e\u7ed3\u675f\uff01\uff01\uff01\n}\n```\n",
+        "postTime": 1574141538,
+        "uid": 93213,
+        "name": "\u5411\u65e5\u8475\u5c0f\u73ed",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF1003A \u3010Polycarp's Pockets\u3011"
+    },
+    {
+        "content": "\u8bdd\u4e0d\u591a\u8bf4\u5f00\u59cb\n\n## \u4e3b\u8981\u601d\u8def\uff1a\u6876\n\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint n,x,a[1001],maxr;\nint main()\n{\n    cin>>n;//n\u4e2a\u6570\u636e\n    for(int i=1;i<=n;i++)\n    {\n        cin>>x;a[x]++;\n        //\u8f93\u5165\u6bcf\u4e00\u4e2a\u6570\u636e\uff0c\u76f8\u5e94\u7684\u8ba1\u6570\u5668+1\n    }\n    //\u73b0\u5728\uff0c\u6bcf\u4e00\u4e2a\u8ba1\u6570\u5668\u91cc\u7684\u6570\u5b57\u662f\u591a\u5c11\uff0c\u90a3\u4e2a\u6570\u636e\u5c31\u91cd\u590d\u4e86\u51e0\u6b21\n    //\u4ed6\u8ba9\u4f60\u627e\u6700\u5927\u91cd\u590d\u6b21\u6570\uff0c\u6253\u64c2\u53f0\u627e\u6700\u5927\uff0c\u5b8c\u4e8b\n    for(int i=1;i<=100;i++)\n    if(a[x]>maxr)maxr=a[x];\n    cout<<maxr<<endl;\n    return 0;\n    //\u4ee5\u4e0a\u4ee3\u7801\uff0cmaxr,a[1001]\u90fd\u8981\u6e05\u96f6\uff0c\u5229\u7528\u5168\u5c40\u53d8\u91cf\u4f18\u52bf\u8f7b\u677e\u89e3\u51b3\n}\n```\n\nOK\uff0c\u518d\u770b\u770b[\u8fd9\u4e2a](https://www.luogu.org/problem/P1097)\uff0c\u5c31\u4e0d\u80fd\u7528\u6876\u4e86",
+        "postTime": 1564225188,
+        "uid": 177916,
+        "name": "OIerSuperTer",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF1003A \u3010Polycarp's Pockets\u3011"
+    },
+    {
+        "content": "\u9898\u8fd8\u662f\u6bd4\u8f83\u6c34\u7684\uff0c\u849f\u84bb\u601d\u8def\u4e5f\u7b97\u6bd4\u8f83\u597d\u61c2\u7684\uff0c\u5c31\u6765\u6c34\u4e00\u53d1\n\n##  \u5927\u6982\u601d\u8def\n\n ### _**\u7528\u4e24\u4e2a\u6570\u7ec4\uff0c\u4e00\u8fb9\u8f93\u5165\uff0c\u4e00\u904d\u8bb0\u5f55\u8f93\u5165\u7684\u6570\u7684\u6b21\u6570\uff0c\u7136\u540e\u518d\u4ece\u7528\u4e8e\u8bb0\u5f55\u7684\u53d8\u91cf\u91cc\u627e\u51fa\u8f93\u5165\u6b21\u6570\u6700\u591a\u7684**_ \n \n## \u4ee3\u7801\n\n```\n#include<bits/stdc++.h>\n//\u4e07\u80fd\u5934\u6587\u4ef6\uff0c\u4e0d\u89e3\u91ca\nusing namespace std;\nint n,a[103],t[103],maxx;\n//\u6570\u7ec4a\u7528\u4e8e\u8f93\u5165\uff0ct\u7528\u4e8e\u8bb0\u5f55\uff0cmaxx\u7528\u4e8e\u5bfb\u627e\u6700\u591a\u7684\u6b21\u6570\nint main()\n{  \n    cin>>n;\n\tfor(int i=0;i<n;i++)\n\t{\n\t\tcin>>a[i];\n\t\tt[a[i]]++;\n  \t\t//\u4e00\u8fb9\u8bfb\u4e00\u904d\u628a\u5bf9\u5e94\u7684\u6570\u7684\u8f93\u5165\u6b21\u6570\u5b58\u8fdbt\u6570\u7ec4\u91cc\uff0c\u540e\u9762\u67e5\u627e\u65f6\u8981\u7528\n\t}\n\tfor(int i=0;i<=100;i++)\n\t\tif(t[i]>maxx)maxx=t[i];\n  \t//\u7528for\u5faa\u73af\u66b4\u529b\u641c\u7d22\u4e00\u904d\uff08\u6570\u636e\u6c34\uff09\uff0c\u9047\u5230\u6b21\u6570\u591a\u7684\u5c31\u5b58\u8fdb\u53d8\u91cfmaxx\u91cc\n\tcout<<maxx;\n  \t//\u8f93\u51fa\u6700\u591a\u6b21\u6570\n    return 0;\n  \t//\u7ed3\u675f\u5e72\u5565\u554a\uff0c\u6123\u7740\u5440\uff01\n}\n\n```\n\n\u5c31\u662f\u8fd9\u4e48\u7b80\u5355\n\n### \u6e29\u99a8\u63d0\u793a \uff1a \u8bf7\u52ff\u6284\u88ad",
+        "postTime": 1560778483,
+        "uid": 129235,
+        "name": "Higashikata_Jousuke",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1003A \u3010Polycarp's Pockets\u3011"
+    },
+    {
+        "content": "\u9898\u610f\uff1a\u8f93\u5165n\u4e2a\u6570\uff0c\u8f93\u51fa\u5176\u4e2d\u6700\u591a\u6709\u591a\u5c11\u4e2a\u6570\u662f\u76f8\u540c\u7684\u3002\n\n\u8fd9\u9898n\u548ca[i]\u90fd\u53ea\u6709100\uff0c\u5b8c\u5168\u53ef\u4ee5\u5f00\u6570\u7ec4\u6253\u6807\u8bb0\uff0c\u6bcf\u8bfb\u5165\u4e00\u4e2a\u6570\u5c31\u628a\u76f8\u5e94\u7684\u6570\u7ec4\u5143\u7d20++\uff0c\u6700\u540e\u627e\u4e2aman\u3002\u65f6\u95f4\u590d\u6742\u5ea6O(n)\uff1a\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nint my_max(int a,int b)//STL\u53ef\u80fd\u8dd1\u5f97\u6bd4\u8f83\u6162\uff0c\u8fd9\u91cc\u624b\u5199\u4e86\u4e00\u4e2amax\n{\n\tif (a>b)\n\t{\n\t\treturn a;\n\t}\n\telse\n\t{\n\t\treturn b;\n\t}\n}\n\nint main()\n{\n\tios::sync_with_stdio(false);\n\tint n;\n    cin>>n;\n\tint x,i,a[101]={0},maxv;\n\tmaxv=0;\n    for (i=1;i<=n;i++)\n    {\n        \n        cin>>x;\n        a[x]++;\n    }\n    for (i=0;i<=100;i++)\n    {\n        maxv=my_max(maxv,a[i]);//\u6bcf\u6b21\u6bd4\u8f83\u8f83\u5927\u7684\u90a3\u4e2a\uff0c\u8fd9\u6837\u6700\u540e\u7559\u4e0b\u7684\u4f1a\u662f\u6700\u5927\u7684\n    }\n    cout<<maxv<<endl;\n    return 0;\n}\n```",
+        "postTime": 1548929136,
+        "uid": 40198,
+        "name": "FP\u00b7\u8377\u5170\u732a",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF1003A \u3010Polycarp's Pockets\u3011"
+    },
+    {
+        "content": "\u601d\u8def\uff1a\u5faa\u73afn\u6b21\uff0c\u7528\u6876\u6392\u7684\u65b9\u6cd5\u8bb0\u5f55\uff0c\u6700\u540e\u627e\u5230\u88ab\u8bb0\u5f55\u6b21\u6570\u6700\u591a\u7684\u5373\u53ef\n\n~~\u5199\u7684\u4eba\u5c11\u6211\u5c31\u6765\u6c34\u4e00\u53d1\u5427~~\n\nc++\u4ee3\u7801\uff1a\n\n```\n#include<bits/stdc++.h>\nusing namespace std;\n\nint maxn,n;\nint a[105];//\u7528\u4e8e\u8bb0\u5f55\n\nint main()\n{\n\tcin>>n;\n\tfor (int i=1;i<=n;i++)\n\t{\n\t\tint p;\n\t\tcin>>p;\n\t\ta[p]++;//\u6b21\u6570++\n\t}\n\tfor (int i=0;i<=100;i++)//\u5bfb\u627e\u6700\u5927\u503c \n\t\tmaxn=max(maxn,a[i]);\n\tcout<<maxn;\n\treturn 0;\n}\n```",
+        "postTime": 1545714978,
+        "uid": 141179,
+        "name": "pigstd",
+        "ccfLevel": 9,
+        "title": "\u9898\u89e3 CF1003A \u3010Polycarp's Pockets\u3011"
+    },
+    {
+        "content": "```pascal\n\u8fd9\u9898\u5462\u2026\u2026\u5509\uff0c\u8be5\u600e\u4e48\u8bf4\u5462\uff0c\u7b80\u5355\u6765\u8bf4\u5c31\u662f\u6253\u64c2\u53f0\uff0c\u5940\u2026\u2026\u7b97\u4e86\uff0c\u4e00\u8fb9\u770b\u6211\u7684\u7a0b\u5e8f\u4e00\u904d\u7406\u89e3\u5427\uff08\u672c\u4eba\u8868\u8fbe\u80fd\u529b\u5e76\u4e0d\u597d.\nvar\n max,min,x,i,m,n:longint;\n a:array[0..10001] of longint;\nbegin\n max:=-maxlongint;//\u5c3d\u53ef\u80fd\u5b9a\u5c0f\u70b9\n min:=maxlongint;//\u5c3d\u53ef\u80fd\u5b9a\u5927\u70b9\n readln(n);\n for i:=1 to n do\n  begin\n   read(x);\n   inc(a[x]);//\u6876\u7684\u601d\u60f3\n   if x>max then max:=x;//\u6c42\u8f93\u5165\u8fdb\u6765\u7684\u6700\u5927\u503c\uff0c\u4ee5\u65b9\u4fbf\u4e0b\u9762\u5faa\u73af\u4f7f\u7528\n   if x<min then min:=x;//\u6c42\u8f93\u5165\u8fdb\u6765\u7684\u6700\u5c0f\u503c\uff0c\u4ee5\u65b9\u4fbf\u4e0b\u9762\u5faa\u73af\u4f7f\u7528\n  end;\n m:=a[min];\n for i:=min+1 to max do\n  if a[i]>m then m:=a[i];//\u6253\u64c2\u53f0\u5f00\u59cb\n writeln(m);\u8f93\u51fa\u6700\u5927\u7684\u51fa\u73b0\u6b21\u6570\nend.\n```\n",
+        "postTime": 1542102485,
+        "uid": 117229,
+        "name": "wuyutong111",
+        "ccfLevel": 0,
+        "title": "CF1003A Polycarp's Pockets"
+    },
+    {
+        "content": "//\u4e00\u5f00\u59cb\u8fd8\u60f3\u7740\u4ec0\u4e48\u53bb\u91cd\u6216\u8bb0\u5f55\u72b6\u6001\uff0c\u770b\u5230\u6570\u636e\u7b2c\u4e00\u6b21\u4e5f\u662f\u7528\u66b4\u529b\u8fc7\u7684\uff0c\u51c6\u5907\u53d1\u9898\u89e3\u4e4b\u524d\u624d\u53d1\u73b0\u8fd9\u53ea\u662f\u4e2a\u6876\u6392233...\n```\n#include<stdio.h>\nint max(int x,int y)\n{\n    if(x>y)\n    return x;\n    return y;\n}\nint n,x,i,srx[101],sry;\nint main()\n{\n    scanf(\"%d\",&n);\n    for(i=1;i<=n;i++)\n    {scanf(\"%d\",&x);\n    srx[x]++;}//\u6876\u8bb0\u5f55\n    for(i=1;i<=100;i++)//\u4ec0\u4e48\u6c34\u6570\u636e\uff0cn<=100\uff0ccf\u548cat\u679c\u7136\u662f\u6700\u6c34\u7684\u9898\u5e93\n    sry=max(sry,srx[i]);//\u6c42\u4f17\u6570\n    printf(\"%d\\n\",sry);//\u56de\u8f66\uff0c\u6253at\u65f6\u4e60\u60ef\u4e86~\n    return 0;\n } \n```",
+        "postTime": 1541164587,
+        "uid": 47482,
+        "name": "\u4e0d\u5230\u524d10\u4e0d\u6539\u540d",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1003A \u3010Polycarp's Pockets\u3011"
+    },
+    {
+        "content": "\u76f8\u540c\u7684\u786c\u5e01\u4e0d\u80fd\u5728\u4e00\u4e2a\u53e3\u888b\u91cc\uff0c\u4e00\u60f3\u633a\u590d\u6742\uff0c\u6bcf\u6b21\u626b\u4e00\u904d\u5df2\u7ecf\u5206\u7684\u53e3\u888b\uff0c\u5982\u679c\u6ca1\u6709\u5c31\u653e\u8fdb\u53bb\uff0c\u90fd\u6709\u7684\u8bdd\u518d\u65b0\u5efa\u4e00\u4e2a\u53e3\u888b\u2026\u2026\u597d\u4e86\uff0c\u4e0d\u8bf4\u4e86\uff0c\u4e0a\u6b63\u89e3\uff0c\u76f8\u540c\u7684\u786c\u5e01\u4e0d\u80fd\u5728\u4e00\u4e2a\u53e3\u888b\u91cc\uff0c\u6240\u4ee5\u6211\u4eec\u627e\u51fa\u73b0\u6b21\u6570\u6700\u591a\u7684\u6570\uff0c\u5206\u6210\u8fd9\u4e9b\u7ec4\uff0c\u6bd4\u8fd9\u4e2a\u6b21\u6570\u5c0f\u7684\u6570\u80af\u5b9a\u4f1a\u627e\u5230\u53e3\u888b\u3002\u518d\u4e00\u770b\u6570\u636e\u8303\u56f4\uff0c1\u5230100\uff0c\u54c7\uff0c\u6876\u6392\uff0c\u4e8e\u662f\u4ee3\u7801\u51fa\u6765\u4e86\u2026\u2026\n```\n#include<iostream>\n#include<cstdio>\nusing namespace std;\nint n,x;\nint t[101];\nint main()\n{\n\tscanf(\"%d\",&n);\n\tfor (int i=1;i<=n;i++)\n\t{\n\t\tscanf(\"%d\",&x);\n\t\tt[x]++;\n\t}\n\tint maxx=0;\n\tfor (int i=1;i<=100;i++)\n\tmaxx=max(maxx,t[i]);\n\tprintf(\"%d\",maxx);\n\treturn 0;\n } \n```",
+        "postTime": 1530668639,
+        "uid": 54502,
+        "name": "\u51c6\u70b9\u7684\u661f\u8fb0",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF1003A \u3010Polycarp's Pockets\u3011"
+    }
+]

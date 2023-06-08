@@ -1,0 +1,21 @@
+{
+    "description": "There are $ n $ communication towers, numbered from $ 1 $ to $ n $ , and $ m $ bidirectional wires between them. Each tower has a certain set of frequencies that it accepts, the $ i $ -th of them accepts frequencies from $ l_i $ to $ r_i $ .\n\nLet's say that a tower $ b $ is accessible from a tower $ a $ , if there exists a frequency $ x $ and a sequence of towers $ a=v_1, v_2, \\dots, v_k=b $ , where consecutive towers in the sequence are directly connected by a wire, and each of them accepts frequency $ x $ . Note that accessibility is not transitive, i. e if $ b $ is accessible from $ a $ and $ c $ is accessible from $ b $ , then $ c $ may not be accessible from $ a $ .\n\nYour task is to determine the towers that are accessible from the $ 1 $ -st tower.",
+    "inputFormat": "The first line contains two integers $ n $ and $ m $ ( $ 1 \\le n \\le 2 \\cdot 10^5 $ ; $ 0 \\le m \\le 4 \\cdot 10^5 $ ) \u2014 the number of communication towers and the number of wires, respectively.\n\nThen $ n $ lines follows, the $ i $ -th of them contains two integers $ l_i $ and $ r_i $ ( $ 1 \\le l_i \\le r_i \\le 2 \\cdot 10^5 $ ) \u2014 the boundaries of the acceptable frequencies for the $ i $ -th tower.\n\nThen $ m $ lines follows, the $ i $ -th of them contains two integers $ v_i $ and $ u_i $ ( $ 1 \\le v_i, u_i \\le n $ ; $ v_i \\ne u_i $ ) \u2014 the $ i $ -th wire that connects towers $ v_i $ and $ u_i $ . There are no two wires connecting the same pair of towers.",
+    "outputFormat": "In a single line, print distinct integers from $ 1 $ to $ n $ in ascending order \u2014 the indices of the communication towers that are accessible from the $ 1 $ -st tower.",
+    "samples": [
+        [
+            "6 5\n3 5\n1 2\n2 4\n2 3\n3 3\n4 6\n1 3\n6 1\n3 5\n3 6\n2 3",
+            "1 3 5 6"
+        ],
+        [
+            "3 1\n2 3\n1 4\n1 1\n1 3",
+            "1"
+        ],
+        [
+            "5 5\n1 3\n2 3\n2 2\n3 5\n2 4\n1 2\n2 3\n3 4\n4 1\n4 5",
+            "1 2 3 4 5"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u6709\u4e00\u5f20 $n$ \u4e2a\u70b9 $m$ \u6761\u8fb9\u7684\u65e0\u5411\u56fe\uff0c\u7b2c $i$ \u4e2a\u70b9\u53ea\u5728\u7b2c $L_i$ \u5230 $R_i$ \u8fd9\u6bb5\u65f6\u95f4\u51fa\u73b0\u3002\u4f60\u9700\u8981\u5bf9\u4e8e\u6bcf\u4e2a\u70b9 $i$\uff0c\u5224\u65ad\u662f\u5426\u5b58\u5728\u4e00\u4e2a\u65f6\u523b $x$ \uff0c\u4f7f\u5f97 $i$ \u548c $1$ \u8054\u901a\u3002\n\n$n\\leq 2\\times 10^5,m\\leq 4\\times 10^5$\n\n$1\\leq L_i\\leq R_i\\leq 2\\times 10^5$"
+}

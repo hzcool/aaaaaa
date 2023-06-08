@@ -1,0 +1,17 @@
+{
+    "description": "To your surprise, Jamie is the final boss! Ehehehe.\n\nJamie has given you a tree with $ n $ vertices, numbered from $ 1 $ to $ n $ . Initially, the root of the tree is the vertex with number $ 1 $ . Also, each vertex has a value on it.\n\nJamie also gives you three types of queries on the tree:\n\n $ 1\\ v $ \u2014 Change the tree's root to vertex with number $ v $ .\n\n $ 2\\ u\\ v\\ x $ \u2014 For each vertex in the subtree of smallest size that contains $ u $ and $ v $ , add $ x $ to its value.\n\n $ 3\\ v $ \u2014 Find sum of values of vertices in the subtree of vertex with number $ v $ .\n\nA subtree of vertex $ v $ is a set of vertices such that $ v $ lies on shortest path from this vertex to root of the tree. Pay attention that subtree of a vertex can change after changing the tree's root.\n\nShow your strength in programming to Jamie by performing the queries accurately!",
+    "inputFormat": "The first line of input contains two space-separated integers $ n $ and $ q $ ( $ 1<=n<=10^{5},1<=q<=10^{5} $ ) \u2014 the number of vertices in the tree and the number of queries to process respectively.\n\nThe second line contains $ n $ space-separated integers $ a_{1},a_{2},...,a_{n} $ ( $ -10^{8}<=a_{i}<=10^{8} $ ) \u2014 initial values of the vertices.\n\nNext $ n-1 $ lines contains two space-separated integers $ u_{i},v_{i} $ ( $ 1<=u_{i},v_{i}<=n $ ) describing edge between vertices $ u_{i} $ and $ v_{i} $ in the tree.\n\nThe following $ q $ lines describe the queries.\n\nEach query has one of following formats depending on its type:\n\n $ 1\\ v $ ( $ 1<=v<=n $ ) for queries of the first type.\n\n $ 2\\ u\\ v\\ x $ ( $ 1<=u,v<=n,-10^{8}<=x<=10^{8} $ ) for queries of the second type.\n\n $ 3\\ v $ ( $ 1<=v<=n $ ) for queries of the third type.\n\nAll numbers in queries' descriptions are integers.\n\nThe queries must be carried out in the given order. It is guaranteed that the tree is valid.",
+    "outputFormat": "For each query of the third type, output the required answer. It is guaranteed that at least one query of the third type is given by Jamie.",
+    "samples": [
+        [
+            "6 7\n1 4 2 8 5 7\n1 2\n3 1\n4 3\n4 5\n3 6\n3 1\n2 4 6 3\n3 4\n1 6\n2 2 4 -5\n1 4\n3 3\n",
+            "27\n19\n5\n"
+        ],
+        [
+            "4 6\n4 3 5 6\n1 2\n2 3\n3 4\n3 1\n1 3\n2 2 4 3\n1 1\n2 2 4 -3\n3 1\n",
+            "18\n21\n"
+        ]
+    ],
+    "hint": "The following picture shows how the tree varies after the queries in the first sample.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF916E/9b296178af98e90dbbac00c785fb2ed88745e7bd.png)",
+    "translation": "\u6709\u4e00\u68f5 $n$ \u4e2a\u8282\u70b9\u7684\u6709\u6839\u6811\uff0c\u6807\u53f7\u4e3a $1\\sim n$\uff0c\u4f60\u9700\u8981\u7ef4\u62a4\u4ee5\u4e0b\u4e09\u79cd\u64cd\u4f5c\n\n1. `1 v`\uff1a\u7ed9\u5b9a\u4e00\u4e2a\u70b9 $v$\uff0c\u5c06\u6574\u9897\u6811\u7684\u6839\u53d8\u4e3a $v$\u3002\n\n2. `2 u v`\uff1a\u7ed9\u5b9a\u4e24\u4e2a\u70b9 $u,v$\uff0c\u5c06 $\\operatorname{lca}(u, v)$ \u4e3a\u6839\u7684\u5b50\u6811\u7684\u6240\u6709\u70b9\u7684\u70b9\u6743\u90fd\u52a0\u4e0a $x$\u3002\n\n3. `3 v`\uff1a\u7ed9\u5b9a\u4e00\u4e2a\u70b9 $v$\uff0c\u4f60\u9700\u8981\u56de\u7b54\u4ee5 $v$ \u6240\u5728\u7684\u5b50\u6811\u7684\u6240\u6709\u70b9\u7684\u6743\u503c\u548c\u3002\n\nTranslated by mangoyang "
+}

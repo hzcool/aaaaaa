@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u7531\u4e8e\u672c\u9898\u7684\u6570\u636e\u8303\u56f4\u5f88\u5c0f\uff0c\u6240\u4ee5\u6211\u4eec\u53ef\u4ee5\u4f7f\u7528**\u679a\u4e3e\u6cd5**\uff0c\u6211\u4eec\u8bbe\u5f53\u524d\u4f20\u8f93\u7684\u662f\u7b2c $i$ \u4e2a\u6587\u4ef6\u7684\u7b2c $j$ \u4e2a\u5b57\u8282\uff0c$now=\\sum_{k=1}^{i-1} a_k$\uff0c$sum=\\sum_{k=1}^{n} a_k$\uff0c\u5219 $a=\\left\\lfloor\\dfrac{100\\times j}{a_i}\\right\\rfloor$\uff0c$b=\\left\\lfloor\\dfrac{100\\times \\left(now+j\\right)}{sum}\\right\\rfloor$\uff0c\u6ce8\u610f\uff0c\u6211\u4eec\u8fd8\u9700\u8981\u8fdb\u884c**\u67e5\u91cd**\uff0c\u5373\u5982\u679c $a=b$ \u5e76\u4e14 $a$ \u5728\u4e4b\u524d\u6ca1\u88ab\u8f93\u51fa\u8fc7\uff0c\u6211\u4eec\u624d\u9700\u8981\u8f93\u51fa $a$ \u7684\u503c\uff0c\u5426\u5219\u4e0d\u7528\u8f93\u51fa\uff0c\u4e0a\u4ee3\u7801\uff01\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint a[105];\nint b[105];\nint main(){\n\tint n,sum=0,now=0;\n\tscanf(\"%d\",&n);\n\tfor(int i=1;i<=n;i++){\n\t\tscanf(\"%d\",&a[i]);\n\t\tsum+=a[i];\n\t}\n\tprintf(\"%d\\n\",0);b[0]=1;\n\tfor(int i=1;i<=n;i++){\n\t\tfor(int j=1;j<=a[i];j++){\n\t\t\tint x=100*j/a[i];\n\t\t\tint y=100*(now+j)/sum;\n\t\t\tif(x==y && b[x]==0){\n\t\t\t\tprintf(\"%d\\n\",x);\n\t\t\t\tb[x]=1;\n\t\t\t}\n\t\t}\n\t\tnow+=a[i];\n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1675840245,
+        "uid": 909294,
+        "name": "zhuweiqi",
+        "ccfLevel": 0,
+        "title": "CF1769B1 \u9898\u89e3"
+    }
+]

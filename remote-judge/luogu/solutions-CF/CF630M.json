@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u5bb9\u6613\u53d1\u73b0\u8fd9\u9053\u9898\u5728\u53ef\u4ee5\u901a\u8fc7\u52a0\u51cf\u82e5\u5e72\u4e2a $360\u00b0$ \u4f7f $x \\in [0,2 \\pi )$\uff08\u5355\u4f4d\uff1a\u5ea6\uff09\uff0c\u8be5\u8fc7\u7a0b\u4e0d\u8ba1\u5165\u6b65\u6570\uff08\u89d2\u5ea6\u5176\u5b9e\u6ca1\u6709\u6539\u53d8\uff09\n\n\u4e4b\u540e\u66b4\u529b\u679a\u4e3e $m$\uff0c\u4ece $0$ \u5230 $3$\uff0c\u66b4\u529b\u5224\u65ad\u5373\u53ef\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n# include <stdio.h>\n# include <algorithm>\n# include <math.h>\nint main()\n{\n\tint i,j;\n\tlong long n,m;\n\tscanf(\"%lld\",&n);\n\tif(n==0)\n\t{\n\t\tprintf(\"0\");\n\t\treturn 0;\n\t}\n\tn=(abs(n)%360)*(n/abs(n));\n\tif(n<0)\n\t\tn=n+360;\n\tm=abs(n)/90;\n\tn-=m*90;\n\tif(n<45)\n\t\tprintf(\"%lld\",m%4);\n\tif(n>45)\n\t\tprintf(\"%lld\",(m+1)%4);\n\tif(n==45)\n\t\tprintf(\"%lld\",std::min((m+1)%4,m%4));\n\treturn 0;\n}\n```",
+        "postTime": 1635344735,
+        "uid": 559616,
+        "name": "\u20ac\u20ac\u00a3",
+        "ccfLevel": 0,
+        "title": "CF630M Turn \u9898\u89e3"
+    }
+]

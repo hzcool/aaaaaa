@@ -1,0 +1,13 @@
+{
+    "description": "Luis has a sequence of $ n+1 $ integers $ a_1, a_2, \\ldots, a_{n+1} $ . For each $ i = 1, 2, \\ldots, n+1 $ it is guaranteed that $ 0\\leq a_i < n $ , or $ a_i=n^2 $ . He has calculated the sum of all the elements of the sequence, and called this value $ s $ .\n\nLuis has lost his sequence, but he remembers the values of $ n $ and $ s $ . Can you find the number of elements in the sequence that are equal to $ n^2 $ ?\n\nWe can show that the answer is unique under the given constraints.",
+    "inputFormat": "Each test contains multiple test cases. The first line contains the number of test cases $ t $ ( $ 1 \\le t \\le 2\\cdot 10^4 $ ). Description of the test cases follows.\n\nThe only line of each test case contains two integers $ n $ and $ s $ ( $ 1\\le n< 10^6 $ , $ 0\\le s \\le 10^{18} $ ). It is guaranteed that the value of $ s $ is a valid sum for some sequence satisfying the above constraints.",
+    "outputFormat": "For each test case, print one integer \u2014 the number of elements in the sequence which are equal to $ n^2 $ .",
+    "samples": [
+        [
+            "4\n7 0\n1 1\n2 12\n3 12",
+            "0\n1\n3\n1"
+        ]
+    ],
+    "hint": "In the first test case, we have $ s=0 $ so all numbers are equal to $ 0 $ and there isn't any number equal to $ 49 $ .\n\nIn the second test case, we have $ s=1 $ . There are two possible sequences: $ [0, 1] $ or $ [1, 0] $ . In both cases, the number $ 1 $ appears just once.\n\nIn the third test case, we have $ s=12 $ , which is the maximum possible value of $ s $ for this case. Thus, the number $ 4 $ appears $ 3 $ times in the sequence.",
+    "translation": "\u6709\u4e00\u4e2a\u957f\u5ea6\u4e3a $n+1$ \u7684\u6570\u5217 $a_1,a_2,\\cdots,a_{n+1}$\uff0c\u5bf9\u4e8e\u6240\u6709\u7684 $i=1,2,\\cdots,n+1$\uff0c$a_i$ \u8981\u4e48\u662f\u4e00\u4e2a\u5728\u533a\u95f4 $[0,n)$ \u5185\u7684\u6574\u6570\uff0c\u8981\u4e48\u662f $n^2$\u3002\u73b0\u5728\u7ed9\u5b9a $n$ \u548c $S=\\sum\\limits_{i=1}^{n+1} a_i$\uff0c\u8bf7\u6c42\u51fa\u6570\u5217\u4e2d\u6240\u6709\u7b49\u4e8e $n^2$ \u7684\u5143\u7d20\u4e2a\u6570\u3002\n\n\u6570\u636e\u4fdd\u8bc1\u5b58\u5728\u4e00\u4e2a\u5408\u6cd5\u7684\u6570\u5217\uff0c\u4f7f\u5f97\u6570\u5217\u4e2d\u6240\u6709\u5143\u7d20\u7684\u548c\u7b49\u4e8e $S$\u3002\u5e76\u4e14\u53ef\u4ee5\u53d1\u73b0\uff0c\u7b54\u6848\u5728\u9650\u5236\u6761\u4ef6\u4e0b\u552f\u4e00\u3002\n\n\u6570\u636e\u8303\u56f4\uff1a\n\n- $t$ \u7ec4\u6570\u636e\uff0c$1\\leqslant t\\leqslant 2\\times 10^4$\u3002\n- $1\\leqslant n\\leqslant 10^6$\uff0c$0\\leqslant S\\leqslant 10^{18}$\u3002\n\nTranslated by Eason_AC"
+}

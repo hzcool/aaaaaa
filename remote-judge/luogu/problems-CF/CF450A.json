@@ -1,0 +1,17 @@
+{
+    "description": "There are $ n $ children in Jzzhu's school. Jzzhu is going to give some candies to them. Let's number all the children from $ 1 $ to $ n $ . The $ i $ -th child wants to get at least $ a_{i} $ candies.\n\nJzzhu asks children to line up. Initially, the $ i $ -th child stands at the $ i $ -th place of the line. Then Jzzhu start distribution of the candies. He follows the algorithm:\n\n1. Give $ m $ candies to the first child of the line.\n2. If this child still haven't got enough candies, then the child goes to the end of the line, else the child go home.\n3. Repeat the first two steps while the line is not empty.\n\nConsider all the children in the order they go home. Jzzhu wants to know, which child will be the last in this order?",
+    "inputFormat": "The first line contains two integers $ n,m $ $ (1<=n<=100;\u00a01<=m<=100) $ . The second line contains $ n $ integers $ a_{1},a_{2},...,a_{n} $ $ (1<=a_{i}<=100) $ .",
+    "outputFormat": "Output a single integer, representing the number of the last child.",
+    "samples": [
+        [
+            "5 2\n1 3 1 4 2\n",
+            "4\n"
+        ],
+        [
+            "6 4\n1 1 2 2 3 3\n",
+            "6\n"
+        ]
+    ],
+    "hint": "Let's consider the first sample.\n\nFirstly child 1 gets 2 candies and go home. Then child 2 gets 2 candies and go to the end of the line. Currently the line looks like \\[3, 4, 5, 2\\] (indices of the children in order of the line). Then child 3 gets 2 candies and go home, and then child 4 gets 2 candies and goes to the end of the line. Currently the line looks like \\[5, 2, 4\\]. Then child 5 gets 2 candies and goes home. Then child 2 gets two candies and goes home, and finally child 4 gets 2 candies and goes home.\n\nChild 4 is the last one who goes home.",
+    "translation": "\u9898\u76ee\u63cf\u8ff0  \n`Jzzhu`\u7ed9\u5b66\u6821\u91cc\u7684$n$\u4e2a\u5b69\u5b50\u53d1\u7cd6\u679c\uff0c\u7f16\u53f7\u4ece$1$\u5230$n$\u6392\u6210\u4e00\u961f\uff0c\u7b2c$i$\u4e2a\u5b69\u5b50\u60f3\u5f97\u5230\u81f3\u5c11$a_i$\u4e2a\u7cd6\u679c\u3002  \n`Jzzhu`\u7684\u64cd\u4f5c\u5982\u4e0b\uff1a\n- \u7ed9\u961f\u9996\u7684\u5b69\u5b50$m$\u4e2a\u7cd6\u679c\n- \u5982\u679c\u8fd9\u4e2a\u5b69\u5b50\u5df2\u7ecf\u5f97\u5230\u6ee1\u8db3\uff0c\u4ed6\u5c31\u4f1a\u56de\u5bb6\uff0c\u5426\u5219\u4ed6\u4f1a\u5230\u961f\u5c3e\u3002\n- \u5728\u961f\u5217\u975e\u7a7a\u65f6\u91cd\u590d\u4e0a\u8ff0\u4e24\u4e2a\u64cd\u4f5c  \n\n\u5728\u6ee1\u8db3\u4e0a\u8ff0\u6761\u4ef6\u7684\u60c5\u51b5\u4e0b\uff0c\u6c42\u51fa\u6700\u540e\u56de\u5bb6\u7684\u5b69\u5b50\u7684\u7f16\u53f7  \n\n\u8f93\u5165\u683c\u5f0f  \n\u7b2c\u4e00\u884c\u4e24\u4e2a\u6574\u6570$n,m(1\\leq n,m\\leq100)$\uff0c\u7b2c\u4e8c\u884c$n$\u4e2a\u6574\u6570$a_1,a_2,\\cdots,a_n(\\forall a_i\\in[1,100])$  \n\n\u8f93\u51fa\u683c\u5f0f  \n\u8f93\u51fa\u4e00\u4e2a\u6574\u6570\u8868\u793a\u6700\u540e\u56de\u5bb6\u7684\u5b69\u5b50\u7684\u7f16\u53f7"
+}

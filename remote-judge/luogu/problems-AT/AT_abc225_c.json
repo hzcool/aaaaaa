@@ -1,0 +1,21 @@
+{
+    "description": "[problemUrl]: https://atcoder.jp/contests/abc225/tasks/abc225_c\n\n$ 10^{100} $ \u884c $ 7 $ \u5217\u306e\u884c\u5217 $ A $ \u304c\u3042\u308a\u3001\u4efb\u610f\u306e\u6574\u6570\u5bfe $ (i,j)\\ (1\\ \\leq\\ i\u00a0\\leq\\ 10^{100},\\ 1\\ \\leq\\ j\\ \\leq\\ 7) $ \u306b\u3064\u3044\u3066\u305d\u306e $ (i,j) $ \u6210\u5206\u306f $ (i-1)\\ \\times\\ 7\\ +\\ j $ \u3067\u3059\u3002\n\n$ N $ \u884c $ M $ \u5217\u306e\u884c\u5217 $ B $ \u304c\u4e0e\u3048\u3089\u308c\u308b\u306e\u3067\u3001$ B $ \u304c $ A $ \u304b\u3089\u4e00\u90e8\u306e\u77e9\u5f62\u9818\u57df\u3092\uff08\u5411\u304d\u3092\u5909\u3048\u305a\u306b\uff09\u5207\u308a\u51fa\u3057\u305f\u3082\u306e\u3067\u3042\u308b\u304b\u3092\u5224\u5b9a\u3057\u3066\u304f\u3060\u3055\u3044\u3002",
+    "inputFormat": "\u5165\u529b\u306f\u4ee5\u4e0b\u306e\u5f62\u5f0f\u3067\u6a19\u6e96\u5165\u529b\u304b\u3089\u4e0e\u3048\u3089\u308c\u308b\u3002\n\n> $ N $ $ M $ $ B_{1,1} $ $ B_{1,2} $ $ \\ldots $ $ B_{1,M} $ $ B_{2,1} $ $ B_{2,2} $ $ \\ldots $ $ B_{2,M} $ $ \\hspace{1.6cm}\\vdots $ $ B_{N,1} $ $ B_{N,2} $ $ \\ldots $ $ B_{N,M} $",
+    "outputFormat": "$ B $ \u304c $ A $ \u304b\u3089\u4e00\u90e8\u306e\u77e9\u5f62\u9818\u57df\u3092\u5207\u308a\u51fa\u3057\u305f\u3082\u306e\u3067\u3042\u308c\u3070 `Yes` \u3068\u3001\u305d\u3046\u3067\u306a\u3044\u306a\u3089 `No` \u3068\u51fa\u529b\u305b\u3088\u3002",
+    "samples": [
+        [
+            "2 3\r\n1 2 3\r\n8 9 10",
+            "Yes"
+        ],
+        [
+            "2 1\r\n1\r\n2",
+            "No"
+        ],
+        [
+            "10 4\r\n1346 1347 1348 1349\r\n1353 1354 1355 1356\r\n1360 1361 1362 1363\r\n1367 1368 1369 1370\r\n1374 1375 1376 1377\r\n1381 1382 1383 1384\r\n1388 1389 1390 1391\r\n1395 1396 1397 1398\r\n1402 1403 1404 1405\r\n1409 1410 1411 1412",
+            "Yes"
+        ]
+    ],
+    "hint": "### \u5236\u7d04\n\n- $ 1\\ \\leq\\ N\\ \\leq\\ 10^4 $\n- $ 1\\ \\leq\\ M\\ \\leq\\ 7 $\n- $ 1\\ \\leq\\ B_{i,j}\\ \\leq\\ 10^9 $\n- \u5165\u529b\u306f\u3059\u3079\u3066\u6574\u6570\n\n### Sample Explanation 1\n\n\u4e0e\u3048\u3089\u308c\u308b $ B $ \u306f\u3001$ A $ \u306e\u5de6\u4e0a $ 2 $ \u884c $ 3 $ \u5217\u3092\u5207\u308a\u51fa\u3057\u305f\u3082\u306e\u3068\u306a\u3063\u3066\u3044\u307e\u3059\u3002\n\n### Sample Explanation 2\n\n\u4e0e\u3048\u3089\u308c\u308b $ B $ \u3092 $ 90 $ \u5ea6\u56de\u8ee2\u3055\u305b\u308b\u3068 $ A $ \u306e\u5de6\u4e0a $ 1 $ \u884c $ 2 $ \u5217\u3068\u4e00\u81f4\u3057\u307e\u3059\u304c\u3001\u554f\u984c\u6587\u4e2d\u306b\u300c\u5411\u304d\u3092\u5909\u3048\u305a\u306b\u300d\u3068\u3042\u308b\u901a\u308a\u56de\u8ee2\u306b\u3088\u308b\u4e00\u81f4\u306f\u8a8d\u3081\u3089\u308c\u3066\u3044\u306a\u3044\u305f\u3081\u3001\u7b54\u3048\u306f `No` \u3068\u306a\u308a\u307e\u3059\u3002",
+    "translation": "\u6709\u4e00\u4e2a $10^{100}$ \u884c $7$ \u5217\u7684\u5927\u65b9\u9635\uff0c\u4f4d\u4e8e $(i,j)$ \uff08\u4e0a\u8d77\u7b2c $i$ \u884c\uff0c\u5de6\u8d77\u7b2c $j$ \u5217\uff09\u7684\u6570\u4e3a $7\u00d7(i-1)+j$ \u3002\u73b0\u5728\u7ed9\u51fa\u4e00\u4e2a $n$ \u884c $m$ \u5217\u7684\u5c0f\u65b9\u9635\uff0c\u95ee\u8be5\u65b9\u9635\u662f\u5426\u4e3a\u524d\u9762\u6240\u8ff0\u7684\u5927\u65b9\u9635\u7684\u4e00\u90e8\u5206\u3002\uff08 $1\u2264n\u226410^4$ \uff0c $1\u2264m\u22647$ \uff0c\u65b9\u9635\u4e2d\u7684\u6bcf\u4e2a\u6570\u90fd\u662f\u6b63\u6574\u6570\uff0c\u5b83\u4eec\u7684\u503c\u90fd\u4e0d\u4f1a\u5927\u4e8e $10^9$ \uff09**\uff08\u65b9\u5411\u4e0d\u53d8\uff09**"
+}

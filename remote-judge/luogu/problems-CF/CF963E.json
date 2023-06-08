@@ -1,0 +1,21 @@
+{
+    "description": "A chip was placed on a field with coordinate system onto point $ (0,0) $ .\n\nEvery second the chip moves randomly. If the chip is currently at a point $ (x,y) $ , after a second it moves to the point $ (x-1,y) $ with probability $ p_{1} $ , to the point $ (x,y-1) $ with probability $ p_{2} $ , to the point $ (x+1,y) $ with probability $ p_{3} $ and to the point $ (x,y+1) $ with probability $ p_{4} $ . It's guaranteed that $ p_{1}+p_{2}+p_{3}+p_{4}=1 $ . The moves are independent.\n\nFind out the expected time after which chip will move away from origin at a distance greater than $ R $ (i.e. ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF963E/246aa7b086b7ae016d999e705d5862993be04853.png) will be satisfied).",
+    "inputFormat": "First line contains five integers $ R,a_{1},a_{2},a_{3} $ and $ a_{4} $ ( $ 0<=R<=50,1<=a_{1},a_{2},a_{3},a_{4}<=1000 $ ).\n\nProbabilities $ p_{i} $ can be calculated using formula ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF963E/f4c10e1f02852c4316fc9bec25d03186d7840bcb.png).",
+    "outputFormat": "It can be shown that answer for this problem is always a rational number of form ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF963E/ed2c29110477df816fcacba17d99273426c4dd91.png), where ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF963E/2a1de71f5127e0ac869e59f9af51dec4e82446fc.png).\n\nPrint $ P\u00b7Q^{-1} $ modulo $ 10^{9}+7 $ .",
+    "samples": [
+        [
+            "0 1 1 1 1\n",
+            "1"
+        ],
+        [
+            "1 1 1 1 1\n",
+            "666666674"
+        ],
+        [
+            "1 1 2 1 2\n",
+            "538461545"
+        ]
+    ],
+    "hint": "In the first example initially the chip is located at a distance $ 0 $ from origin. In one second chip will move to distance $ 1 $ is some direction, so distance to origin will become $ 1 $ .\n\nAnswers to the second and the third tests: ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF963E/1afdb873d5404107498744fbaddde38ee83fd279.png) and ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF963E/4c1b0d15ba2866c8474bd814731c993c182c0d7d.png).",
+    "translation": "\u5728\u5e73\u9762\u76f4\u89d2\u5750\u6807\u7cfb\u4e0a\uff0c\u6709\u4e00\u4e2a\u795e\u5947\u7684\u70b9\uff0c\u4e00\u5f00\u59cb\u5728  $(0, 0)$ \u3002\u6bcf\u79d2\u949f\u8fd9\u4e2a\u70b9\u90fd\u4f1a\u968f\u673a\u79fb\u52a8\uff1a\u5982\u679c\u5b83\u5728  $(x, y)$ \uff0c\u4e0b\u4e00\u79d2\u5b83\u5728  $(x - 1, y)$  \u7684\u6982\u7387\u662f  $p_1$ \uff0c\u5728  $(x, y - 1)$  \u7684\u6982\u7387\u662f  $p_2$ \uff0c\u5728  $(x + 1, y)$  \u7684\u6982\u7387\u662f  $p_3$ \uff0c\u5728  $(x, y + 1)$  \u7684\u6982\u7387\u662f  $p_4$ \u3002\u4fdd\u8bc1  $p_1 + p_2 + p_3 + p_4 = 1$ \uff0c\u5404\u6b21\u79fb\u52a8\u4e92\u4e0d\u5173\u8054\u3002\n\n\u6c42\u51fa\u8fd9\u4e2a\u70b9\u79fb\u52a8\u81f3\u8ddd\u79bb\u539f\u70b9\u8ddd\u79bb\u4e3a\u5927\u4e8e  $R$  \u7684\u70b9\u7684\u671f\u671b\u6b65\u6570\u3002\u8ddd\u79bb\u4e3a\u6b27\u51e0\u91cc\u5f97\u8ddd\u79bb\u3002\n\n\u611f\u8c22@OrangeLee \u63d0\u4f9b\u7684\u7ffb\u8bd1"
+}

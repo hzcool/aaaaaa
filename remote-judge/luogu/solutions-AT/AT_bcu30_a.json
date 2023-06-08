@@ -1,0 +1,42 @@
+[
+    {
+        "content": "$upd:2022/5/17$ \u4ee3\u7801\u9505\u4e86\uff0c\u91cd\u65b0\u4fee\u4e86\u4e0b\u3002\r\n\r\n\u672c\u9898\u5efa\u8bae\u8bc4\u7ea2\u3002\r\n### \u9898\u76ee\u5927\u610f\r\n\u6709\u4e00\u4e2a $0$ \u5230 $n$ \u7684 $n+1$ \u683c\u7684\u68cb\u76d8\uff0c\u8d77\u59cb\u4f4d\u7f6e $0$\uff0c\u76ee\u6807 $n$\uff0c\u5bf9\u4e8e\u6bcf\u6b21\u7684\u6b65\u6570 $a_i$\uff0c\u89c4\u5b9a\u5982\u4e0b\uff1a\r\n1. \u5982\u679c\u524d\u8fdb $a_i$ \u672a\u5230\u7ec8\u70b9 \u5219\u524d\u8fdb $a_i$\u3002\r\n2. \u5982\u679c\u524d\u8fdb $a_i$ \u6070\u5230\u7ec8\u70b9 \u5219\u524d\u8fdb $a_i$ \u5e76\u7ed3\u675f\u3002\r\n3. \u5982\u679c\u524d\u8fdb $a_i$ \u8d85\u8fc7\u7ec8\u70b9 \u5047\u8bbe\u8d85\u8fc7\u4e86 $x$ \u683c \u5219\u524d\u8fdb\u5230\u7ec8\u70b9\u540e\u540e\u9000 $a_i-x$ \u683c\u3002\r\n\r\n\u8f93\u51fa\u6700\u7ec8\u4f4d\u7f6e\u3002\r\n### \u601d\u8def\r\n\u672c\u9898\u5206\u4e24\u79cd\u60c5\u51b5\u5224\u65ad\u3002\r\n1. \u5f53\u8f93\u5165\u7684 $a_i$ \u7684\u548c\u52a0\u8d77\u6765\u7b49\u4e8e\u7ec8\u70b9 $n$ \u7684\u8bdd\uff0c\u90a3\u4e48\u5c31\u76f4\u63a5\u8df3\u51fa\u5faa\u73af\uff0c\u8f93\u51fa $n$\u3002\r\n2. \u5f53\u8f93\u5165\u7684 $a_i$ \u7684\u548c\u52a0\u8d77\u6765\u4e0d\u7b49\u4e8e\u7b49\u4e8e\u7ec8\u70b9 $n$ \u7684\u8bdd\uff1a\r\n- \u5982\u679c $sum<n$ \u7684\u8bdd\uff0c\u5219\u524d\u8fdb $a_i$\u3002\r\n- \u5982\u679c $sum>n$ \u7684\u8bdd\uff0c\u5219 $sum=n-(sum+a_i-n)$\uff0c\u5316\u7b80\u4e00\u4e0b\u5c31\u662f $2n-(sum+a_i)$\u3002\r\n\r\n### \u4ee3\u7801\r\n```cpp\r\n#include<iostream>\r\nusing namespace std;\r\nint n,k,x;\r\nint sum=0;\r\nint main()\r\n{\r\n\tcin>>n>>k;\r\n\tfor(int i=0;i<k;i++)\r\n\t{\r\n\t\tcin>>x;\r\n\t\tsum+=x;\r\n\t\tif(sum==n)\r\n\t\t    break;\r\n\t\tif(sum>n)\r\n\t\t\tsum=2*n-sum;\r\n\t}\r\n\tcout<<sum;\r\n}\r\n```",
+        "postTime": 1651288181,
+        "uid": 675646,
+        "name": "Dyousks",
+        "ccfLevel": 0,
+        "title": "AT2321 \u9898\u89e3"
+    },
+    {
+        "content": "\n\u9898\u76ee\u7684\u610f\u601d\u8fd8\u662f\u8981\u8bb2\u7684\n(\u6839\u636e\u8c37\u6b4c\u7684\u673a\u5668\u7ffb\u8bd1\u548c\u4eba\u5de5\u6837\u4f8b\u63a8\u7406\u63a8\u51fa)\n\n\u8f93\u5165\u4e00\u4e2a\u76ee\u6807\u503c\u548c\u4e00\u4e2a\u64cd\u4f5c\u6570m\n\u6bcf\u4e2a\u64cd\u4f5c\u8f93\u5165\u4e00\u4e2ax,\u5982\u679cx\u7684\u548c\u52a0\u8d77\u6765\u7b49\u4e8e\u76ee\u6807\u503c\u7684\u8bdd,\u90a3\u4e48\u5c31\u76f4\u63a5break,\u4e0d\u662f\u7684\u8bdd\u603b\u548c\u52a0\u4e0an\u7684\u5e73\u65b9\u503c\u51cf\u53bb\u73b0\u6709\u7684\u503c\n\n\u770b\u4e86\u8fd9\u4e9b:\u5982\u679c\u4f60\u5df2\u7ecf\u660e\u767d\u4e86\u4e3b\u8981\u601d\u8def,\u90a3\u4e48\u4e0b\u9762\u8fd9\u4e2a\u4ee3\u7801\u4e5f\u5c31\u4e0d\u7528\u770b\u4e86\n\n\u4ee3\u7801\u7684\u8bdd,\u6bd4\u8f83\u7b80\u6d01,\u601d\u8def\u5728\u524d\u9762\u4e5f\u8bb2\u4e86\n\u96be\u5ea6\u5165\u95e8\u5427,\u662f\u4e00\u9053\u6a21\u62df\u9898\n```\n#include <iostream>\n#include <cstdio>\nusing namespace std;\nint n,m,x,now;\nint main() {\n\tscanf(\"%d%d\",&n,&m);//\u8f93\u5165\n\tfor(int i=1;i<=m;i++) {\n\t\tscanf(\"%d\",&x);\n\t\tnow+=x;\n\t\tif(now==n) break;\n\t\tif(now>n) {\n\t\t\tnow=2*n-now;\n\t\t}\n\t} \n\tcout<<now<<endl;\n}\n```\nps:\u5728\u4f60\u8c37\u91cc\u4e00\u76f4waiting,\u6240\u4ee5\u5c31\u76f4\u63a5\u5728AT\u4e0a\u4ea4\u4e86\n\n![](https://s1.ax1x.com/2020/05/16/YcxODf.png)",
+        "postTime": 1589675873,
+        "uid": 234497,
+        "name": "Y_J_Y",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT2321 \u3010\u3059\u3054\u308d\u304f\u3011"
+    },
+    {
+        "content": "# [\u9898\u89e3]AT2321 \u3059\u3054\u308d\u304f\n[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/AT2321)\n\n\u5206\u60c5\u51b5\u8ba8\u8bba\n1.\u5982\u679c\u524d\u8fdb $x$ \u672a\u5230\u7ec8\u70b9\uff1a\u5219\u524d\u8fdb $x$\u3002\n \n \n 2.\u5982\u679c\u524d\u8fdb $x$ \u6070\u5230\u7ec8\u70b9 \u5219\u524d\u8fdb $x$ \u5e76\u7ed3\u675f\u3002\n \n \n 3.\u5982\u679c\u524d\u8fdb $x$ \u8d85\u8fc7\u7ec8\u70b9 \u5047\u8bbe\u8d85\u8fc7\u4e86 $x$ \u683c \u5219\u524d\u8fdb\u5230\u7ec8\u70b9\u540e\u540e\u9000\u5230 $2*n-Ans$  \u683c,\u4e5f\u5c31\u662f\u8bf4\u5982\u679c\u8d85\u8fc7\u4e86\u7ec8\u70b9\u5c31\u8981\u56de\u9000\uff0c\u56de\u9000 $2 * n - Ans$ \uff0c\u7136\u540e\u5faa\u73af\u7ed3\u675f\u4e4b\u540e\u8f93\u51fa\u5373\u53ef\n\n\n### code\n```\n\n#include<bits/stdc++.h>\nusing namespace std;\nint n,k,x;\nint Ans;\nint main() {\n\tcin>>n>>k;\n\tfor(int i=0; i<k; i++) {\n\t\tcin>>x;\n\t\tAns+=x;\n\t\tif(Ans==n)\n\t\t\tbreak;\n\t\tif(Ans>n)\n\t\t\tAns=2*n-Ans;\n\t}\n\tcout<<Ans;\n}\n\u00b7\u00b7\u00b7",
+        "postTime": 1652873979,
+        "uid": 697186,
+        "name": "Low_key_smile",
+        "ccfLevel": 0,
+        "title": "[\u9898\u89e3]AT2321 \u3059\u3054\u308d\u304f"
+    },
+    {
+        "content": "\u6a21\u62df\uff0c\u6839\u636e\u9898\u610f\u5206\u7c7b\u8ba8\u8bba\uff1a\n\n1. \u6ca1\u8d70\u8d85\uff0c\u76f4\u63a5\u52a0\u4e0a\u5f53\u524d\u6b65\u6570\n\n2. \u8d70\u8d85\u4e86\uff0c\u524d\u8fdb\u5230\u7ec8\u70b9\u540e\u9000\u8d85\u51fa\u7684\u683c\u6570 \n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nint n,m,x,ans;\nint main() \n{\n\tstd::cin>>n>>m;\n\tfor(int i=1;i<=m;i++)\n\t{\n\t\tstd::cin>>x;\n\t\tans+=x;//\u52a0\u4e0a\u5f53\u524d\u6b65\u6570 \n\t\tif(ans==n) break;//\u6b63\u597d\u5230\u4e86\u7ec8\u70b9 \n\t\tif(ans>n)ans=2*n-ans;//\u8d70\u8d85\u4e86 \n\t} \n\tstd::cout<<ans<<std::endl;//\u8f93\u51fa \n\treturn 0;\n}\n```\n",
+        "postTime": 1652867656,
+        "uid": 526519,
+        "name": "Aisaka_Taiga",
+        "ccfLevel": 0,
+        "title": "AT2321"
+    },
+    {
+        "content": "\u8fd9\u9898\u96be\u5ea6\u662f\u5165\u95e8\u5427\u3002\n\n\u5c31\u6839\u636e\u9898\u76ee\u8fdb\u884c\u6a21\u62df\u5c31\u597d\u4e86\u3002\n-  \u5f53\u5230\u8fbe $n$ \u7684\u65f6\u5019\u5c31\u7ed3\u675f\u7136\u540e\u8f93\u51fa\u3002\n- \u4e0d\u5230 $n$ \u7684\u65f6\u5019\u5c31\u52a0\u4e0a\u524d\u8fdb\u7684\u6b65\u6570\u3002\n- \u8d85\u8fc7 $n$ \u7684\u65f6\u5019\u5c31\u51cf\u53bb\u4e24\u4e2a\u8d85\u8fc7\u7684\u957f\u5ea6\u3002\n\n```\n#include<bits/stdc++.h>\n#define int long long\nusing namespace std;\nint n,m,x,dx;\n/*\nn \u957f\u5ea6\nm \u64cd\u4f5c\u6570\nx \u524d\u8fdb\u7684\u6b65\u6570 \ndx \u73b0\u5728\u5728\u7684\u4f4d\u7f6e \n*/\nsigned main(){\n   cin>>n>>m;\n   for(int i=1;i<=m;i++)\n   {\n\t   if(dx==n) break ;//\u5230\u8fbe\u7684\u8bdd\u5c31\u7ed3\u675f \n\t   cin>>x;\n\t   dx+=x;//\u524d\u8fdb \n\t   if(dx>n)//\u8d85\u8fc7\u4e86\u7ec8\u70b9 \n\t   {\n\t\t\tdx-=2*(dx-n);//\u5c31\u51cf\u53bb\u8d85\u8fc7\u7684\u90e8\u5206\u7684\u4e24\u500d \n\t   }\n   }\n   cout<<dx;\n}\n\n\n```\n",
+        "postTime": 1652866875,
+        "uid": 231946,
+        "name": "CuSO4_and_5H2O",
+        "ccfLevel": 6,
+        "title": "AT2321 \u3059\u3054\u308d\u304f\u9898\u89e3"
+    }
+]

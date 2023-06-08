@@ -1,0 +1,34 @@
+[
+    {
+        "content": "\u5176\u5b9e\u5c31\u662f\u5218\u7ef4\u5c14\u51fd\u6570\u7684\u524d\u7f00\u548c\u95ee\u9898\uff0c\u6700\u8fd1\u624d\u548c joke3579 \u8ba8\u8bba\u8fc7\u3002\u4ee5\u4e0b\u662f\u4e00\u4e9b\u53e3\u80e1\u3002\n\n\u4ee4 $\\Omega(n)$ \u8868\u793a $n$ \u7684\u7d20\u56e0\u5b50\u6570\u91cf\uff08\u91cd\u590d\u6309\u591a\u6b21\u8ba1\u7b97\uff09\uff0c\u4e5f\u5c31\u662f\u9898\u76ee\u4e2d\u7684 $f$\uff0c\u90a3\u4e48\u5218\u7ef4\u5c14\u51fd\u6570 $\\lambda(n)=(-1)^{\\Omega(n)}$ \u662f\u5b8c\u5168\u79ef\u6027\u51fd\u6570\u3002\n\n\u9996\u5148\u6709\u6734\u7d20\u7684\u675c\u6559\u7b5b\u6784\u9020\uff1a$\\lambda*\\mu=1(\\sqrt n)$\uff0c\u4e5f\u5373\n$$\\sum_{d\\mid n}\\lambda(d)\\mu\\left(\\dfrac nd\\right)=[n\\text{ is square-free}]$$\n\u8bc1\u660e\u5e76\u4e0d\u56f0\u96be\uff0c\u9996\u5148\u5bf9\u4e8e\u4efb\u610f\u5b8c\u5168\u79ef\u6027\u51fd\u6570 $f$ \u90fd\u6709 $f*\\mu=f\\cdot\\mu$\uff0c\u53ef\u4ee5\u901a\u8fc7\u8ba1\u7b97 $f*(f\\cdot\\mu)=\\varepsilon$ \u8bc1\u660e\uff0c\u6b64\u5904\u4e0d\u8868\u3002\u4e8e\u662f\u53ef\u4ee5\u5f97\u5230\u5de6\u5f0f\u7b49\u4e8e $\\lambda(n)\\mu(n)=[n\\text{ is square-free}](-1)^{2\\Omega(n)}=[n\\text{ is square-free}]$\uff0c\u5f97\u8bc1\u3002\n\n\u5230\u8fd9\u91cc\u7684\u65f6\u95f4\u590d\u6742\u5ea6\u5927\u6982\u662f $\\Theta(n^{2/3})$\u3002\n\n\u867d\u7136\u770b\u8d77\u6765\u4f3c\u4e4e\u6709\u5e0c\u671b\u4f18\u5316\uff0c\u4e0d\u8fc7\u597d\u50cf\u6ca1\u6709\u4ec0\u4e48\u7b80\u5355\u7684\u6bd4\u8fd9\u4e2a\u5feb\u7684\u505a\u6cd5 QAQ\u3002",
+        "postTime": 1682481553,
+        "uid": 227514,
+        "name": "jijidawang",
+        "ccfLevel": 0,
+        "title": "\u524d\u7f00\u548c"
+    },
+    {
+        "content": "\u6d1b\u8c37\u9996\u4e2a Accepted \u6765\u6c34\u7bc7\u9898\u89e3\u3002\n\n\u6ca1\u60f3\u5230\u80fd\u770b\u5230\u6d1b\u8c37\u4ee5\u5916\u80fd\u6709 Min_25 \u7b5b\u7684\u9898\u3002\u4e0a\u4e00\u6b21\u8fd8\u662f\u5728 CF1017F\u3002\n\n* **\u3010\u9898\u76ee\u94fe\u63a5\u3011**\n\n[Link:AtCoder Xmas Contest 2019 D](https://www.luogu.com.cn/problem/AT_xmascon19_d)\n\n* **\u3010\u89e3\u9898\u601d\u8def\u3011**\n\n\u6211\u4eec\u53ef\u4ee5\u770b\u5230\uff0c$f(n)$ \u663e\u7136\u662f\u548c\u6027\u7684\uff0c\u90a3\u4e48 $(-1)^{f(n)}$ \u5c31\u662f\u79ef\u6027\u7684\uff08SPOJ \u4e5f\u6709\u4e00\u9053\u7c7b\u4f3c\u7684\u4f46\u662f\u76ee\u524d\u8fd8\u6ca1\u722c\u8fc7\u6765\uff09\u3002\n\n\u7136\u540e $(-1)^{f\\left(p^k\\right)}=(-1)^k$\u3002\n\n\u7136\u540e\u5c31\u662f Min_25 \u677f\u5b50\u3002\n\n\u5bf9\u4e86\uff0c$(-1)^{f(n)}$ \u8fd8\u662f\u4e2a\u5b8c\u5168\u79ef\u6027\u51fd\u6570\uff0c\u4f46\u662f\u4f60\u8fd8\u662f\u53ea\u80fd\u7b5b\u3002\n\n* **\u3010\u4ee3\u7801\u5b9e\u73b0\u3011**\n\n```cpp\n#include <iostream>\n#include <bitset>\n#include <array>\n#include <cmath>\n\nusing namespace std;\n\nint\t\t\t\t\t\t\t\tdivline,bsize,cntp;\nlong long\t\t\t\t\t\tn;\nconstexpr int\t\t\t\t\tmaxsqrt=1e6;\narray<long long,2*maxsqrt+1>\tDP_arr,blkpos;\narray<double,maxsqrt+1>\t\t\tinvp;\narray<int,maxsqrt+1>\t\t\tprimes;\nbitset<maxsqrt+1>\t\t\t\tis_prime;\n\ninline int loc_idx(long long idx)\n{\n\treturn idx>bsize?n/idx:bsize-idx+divline;\n}\n\nlong long Min_25(long long target,int curp)\n{\n\tif(primes[curp]>=target)\n\t\treturn 0;\n\tlong long ans=-DP_arr[loc_idx(target)]+curp,ppow;\n\tdouble invppow;\n\tfor(int i=curp+1;i<=cntp&&1ll*primes[i]*primes[i]<=target;i++)\n\t\tfor(int j=(ppow=primes[i],invppow=invp[i],1);ppow<=target;ppow*=primes[i],invppow*=invp[i],j++)\n\t\t\tans+=(j&1?-1:1)*(Min_25(target*invppow+1e-6,i)+(j!=1));\n\treturn ans;\n}\n\nint main(int argc,char* argv[],char* envp[])\n{\n\tios::sync_with_stdio(false);\n\tcin.tie(nullptr);\n\tint cntb=0;\n\tcin>>n;\n\tbsize=sqrt(n);\n\tfor(int i=2;i<=bsize;i++)\n\t{\n\t\tif(!is_prime[i])\n\t\t\tprimes[++cntp]=i,invp[cntp]=1.0/i;\n\t\tfor(int j=1;j<=cntp&&i*primes[j]<=bsize;j++)\n\t\t{\n\t\t\tis_prime.set(i*primes[j]);\n\t\t\tif(!(i%primes[j]))\n\t\t\t\tbreak;\n\t\t}\n\t}\n\tfor(long long i=1,j;i<=n;i=n/j+1)\n\t{\n\t\t++cntb,DP_arr[cntb]=(j=blkpos[cntb]=n/i)-1;\n\t\tif(!divline&&j<=bsize)\n\t\t\tdivline=cntb;\n\t}\n\tfor(int i=1;i<=cntp;i++)\n\t\tfor(int j=1;1ll*primes[i]*primes[i]<=blkpos[j];j++)\n\t\t\tDP_arr[j]-=DP_arr[loc_idx(blkpos[j]*invp[i]+1e-6)]-i+1;\n\tcout<<Min_25(n,0)+1;\n\treturn 0;\n}\n\n```",
+        "postTime": 1666335763,
+        "uid": 372983,
+        "name": "Antarctic_Cube",
+        "ccfLevel": 6,
+        "title": "Solution:AtCoder Xmas Contest 2019 D(Sum of (-1)^f(n))"
+    },
+    {
+        "content": "\u672c\u9898\u8981\u6c42\u7684\u662f $(-1)^{f(a)}$ \u5728 $1$ \u5230 $n$ \u4e2d\u7684\u548c\uff0c\u4e00\u822c\u5f0f\u4e3a\uff1a\n$$\n\\sum_{i=1}^n(-1)^{f(i)}=\\sum_{i=1}^n\\sum_{j=0}^{\\infty}\\text{i \u7684 $j$ \u6b21\u65b9\u662f $i$ \u7684\u56e0\u5b50}^j\n$$\n\u5bf9\u4e8e\u4e00\u4e2a\u6570 $i$\uff0c\u5982\u679c\u5b83\u7684\u67d0\u4e2a\u56e0\u5b50 $p$ \u7684\u6b21\u6570\u4e3a $k$\uff0c\u90a3\u4e48 $p^k$ \u5c31\u662f $i$ \u7684\u4e00\u4e2a\u56e0\u5b50\uff0c\u540c\u65f6 $k=1,2,3,\\cdots,\\lfloor\\log_2 n\\rfloor$\u3002\u56e0\u6b64\uff0c\u5bf9\u4e8e\u6bcf\u4e2a\u8d28\u6570 $p$\uff0c\u6211\u4eec\u53ea\u9700\u8981\u8ba1\u7b97 $[1,n]$ \u4e2d $p^k$ \u7684\u4e2a\u6570\u5373\u53ef\u3002\u8bbe $c(p,k)$ \u8868\u793a $[1,n]$ \u4e2d $p^k$ \u7684\u4e2a\u6570\uff0c\u5219\uff1a\n$$\nc(p,k)=\\left\\lfloor\\frac{n}{p^k}\\right\\rfloor\n$$\n\u56e0\u4e3a $p^k$ \u7684\u500d\u6570\u6700\u5927\u53ea\u80fd\u5230 $n$\uff0c\u6240\u4ee5 $[1,n]$ \u4e2d $p^k$ \u7684\u4e2a\u6570\u5c31\u662f $\\lfloor n/p^k\\rfloor$\u3002\u6700\u7ec8\u7b54\u6848\u5373\u4e3a\uff1a\n$$\n\\sum_{i=1}^n(-1)^{f(i)}=\\sum_{p}\\sum_{k=1}^{\\lfloor\\log_p n\\rfloor}(-1)^kc(p,k)\n$$\n\u5176\u4e2d $p$ \u4e3a $1$ \u5230 $n$ \u4e2d\u7684\u8d28\u6570\uff0c\u53ef\u4ee5\u7528\u7ebf\u6027\u7b5b\u9884\u5904\u7406\u3002\n\u65f6\u95f4\u590d\u6742\u5ea6 $O(n\\log\\log n)$\u3002",
+        "postTime": 1679982955,
+        "uid": 719648,
+        "name": "Lord_Sky2048",
+        "ccfLevel": 4,
+        "title": "Nice"
+    },
+    {
+        "content": "\u672c\u9898\u4e00\u773c\u770b\u8d77\u6765\u4f3c\u4e4e\u76f4\u63a5 min25 \u4e86\u4e8b\uff0c\u5b9e\u5219\u5b58\u5728\u66f4\u4f18\u7684\u89e3\u6cd5\u3002\uff08\u56e0\u6b64\u5efa\u8bae\u964d\u7d2b\uff09\n\n\u5b9a\u4e49 $h(x)=(-1)^{f(x)}$\uff0c\u90a3\u4e48 $h(x)$ \u662f\u5b8c\u5168\u79ef\u6027\u51fd\u6570\uff0c\u8fdb\u4e00\u6b65\u8003\u8651 $h*1$\uff0c\u4ed6\u662f\u79ef\u6027\u51fd\u6570\uff0c\u800c\u4e14 $(h*1)(p^k)=[2|k]$\uff0c\u90a3\u4e48 $(h*1)(n)=[n\\text{ is square}]$\uff0c\u4e24\u8005\u90fd\u65b9\u4fbf\u6c42\u548c\uff0c\u90a3\u4e48\u76f4\u63a5\u675c\u6559\u7b5b\u5373\u53ef\u3002\u590d\u6742\u5ea6 $O(n^{2/3})$\u3002",
+        "postTime": 1675346428,
+        "uid": 121027,
+        "name": "Spasmodic",
+        "ccfLevel": 7,
+        "title": "\u9000\u5f79\u4eba\u968f\u673a\u53e3\u80e1"
+    }
+]

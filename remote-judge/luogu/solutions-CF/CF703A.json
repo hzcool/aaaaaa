@@ -1,0 +1,66 @@
+[
+    {
+        "content": "\u5230\u73b0\u5728\u89c1\u5230\u7684\u4e3a\u6570\u4e0d\u591a\u7684\u6c34\u9898\u4e4b\u4e00  \n\u5f53\u7136CF\u8fd8\u6709\u5f88\u591a\u6709\u8da3\u7684\u9898  \n\u4e0b\u89c1\u4ee3\u7801\uff1a\n```cpp\n#include<iostream>\nusing namespace std;\nint main(){\n\tint n,a,b,cnt=0;  //cnt\u62ff\u6765\u8ba1\u6570\n\tcin>>n;\n\tfor (int i=1;i<=n;i++) {\n\t\tcin>>a>>b;\n\t\tif (a>b) cnt++;  //\u82e5Mishka\u80dc\u5219++\n\t\telse if (a<b) cnt--;  //\u4e0d\u8981\u76f4\u63a5\u5199else\uff0c\u4f1aWA\uff0c\u8fd9\u91cc\u8981\u5728\u5224\u65ad\u5e76--\n\t\telse cnt=cnt;  //\u6253\u5e73\u5219\u4e0d\u52a8\n\t}  //\u4e0b\u9762\u6839\u636e\u9898\u610f\u7b80\u5355\u5224\u65ad\n\tif (cnt>0) cout<<\"Mishka\";  \n\telse if (cnt<0) cout<<\"Chris\";\n\telse cout<<\"Friendship is magic!^^\";\n}\n```",
+        "postTime": 1530292324,
+        "uid": 90298,
+        "name": "Taurus_Lzc",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF703A \u3010Mishka and Game\u3011"
+    },
+    {
+        "content": "# \u6a21\u62df\n\n\u76f4\u63a5\u6309\u9898\u610f\u6a21\u62df\u5c31\u884c\u3002\n\n\u8fd9\u4e48\u6c34\u7684\u9898\u7adf\u7136\u6ca1\u6709\u4eba\u505a\uff0c\u96be\u9053dalao\u4eec\u90fd\u53bb\u505a\u96be\u9898\u4e86\u5417\uff1f\uff1f\n\u5177\u4f53\u8be6\u89c1\u4ee3\u7801\u3002\n```\n#include<bits/stdc++.h>\nint ans1,ans2,a,b,i,j,k;//\u5b9a\u4e49\u53d8\u91cf\uff0cans1\u8868\u793a\u7edf\u8ba1Mishka\u8d62\u7684\u6b21\u6570\uff0cans2\u8868\u793a\u7edf\u8ba1Chris\u8d62\u7684\u6b21\u6570\nusing namespace std;\nint main()\n{\n\t//freopen(\".in\",\"r\",stdin);\n\t//freopen(\".out\",\"w\",stdout);noip\u65f6\u7528\u7684\u6587\u4ef6\n\tint n,m;\n\tcin>>n;//\u8f93\u5165\u603b\u6b21\u6570\n\tfor(i=1;i<=n;i++) {//\u8fb9\u8f93\u5165\u8fb9\u505a\n\tcin>>a>>b;\n\tif(a>b)ans1++;\t//\u5f00\u59cb\u7edf\u8ba1\n\telse if(a<b)ans2++;\n\t}\n\tif(ans1==ans2)cout<<\"Friendship is magic!^^\";\n\tif(ans1>ans2)cout<<\"Mishka\";\n\tif(ans1<ans2)cout<<\"Chris\";//\u8f93\u51fa\n\treturn 0;//\u5b8c\u7f8e\u7ed3\u675f\n}\n\n```\n\u8c22\u8c22dalao\u4eec\u89c2\u770b\uff0c\u4f5c\u4e3a\u849f\u84bb\u5c31\u53ea\u80fd\u5199\u5199\u8fd9\u4e9b\u6c34\u9898\u7684\u9898\u89e3\u4e86\uff01\n",
+        "postTime": 1529241849,
+        "uid": 41302,
+        "name": "Obito",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF703A \u3010Mishka and Game\u3011"
+    },
+    {
+        "content": "\u8fd9\u662f\u4e00\u9053\u6a21\u62df\u9898\uff0c\u53ea\u9700\u8981\u5faa\u73af\u8bfb\u5165\u6bcf\u4e00\u56de\u5408\u7684\u6e38\u620f\u7ed3\u679c\uff0c\u5224\u65ad\u6bcf\u4e00\u8f6e\u7684\u80dc\u8d1f\u5e76\u5728\u6700\u540e\u5224\u65ad\u53cc\u65b9\u7684\u80dc\u5e73\u8d1f\u5373\u53ef\u3002\n\n\u901a\u8fc7\u4e00\u4e2a\u4ec5\u6709\u4e24\u4e2a\u5143\u7d20\u7684\u6570\u7ec4\u6765\u5b58\u653e\u53cc\u65b9\u80dc\u5229\u7684\u6b21\u6570\uff0c\u975e\u5e73\u5c40\u7684\u56de\u5408\u91cc\u5c06\u80dc\u8005\u7684\u8ba1\u6570\u52a0\u4e00\u3002\n\n\u5f53\u7136\uff0c\u5bf9\u4e8e\u8fd9\u9053\u9898\u76ee\u6765\u8bf4\uff0c\u901a\u8fc7\u4e00\u4e2a\u6b63\u5e38\u7684\u6574\u578b\u6570\u7ec4\u5b58\u653e\u5c31\u591f\u4e86\uff0c\u5728\u5b9e\u9645\u7684\u8fd0\u7528\u4e2d\uff0c\u66f4\u63a8\u8350\u4f7f\u7528STL\u63d0\u4f9b\u7684map<KeyType, ValueType>\u6570\u636e\u7ed3\u6784\u6765\u5efa\u7acb\u4e00\u4e2a\u4ecestring\u6620\u5c04\u5230int\u7684map\u6765\u5b58\u653e\u53cc\u65b9\u7684\u80dc\u5229\u6b21\u6570(\u4e5f\u5c31\u662f\u5b9a\u4e49\u4e00\u4e2amap<string, int>)\uff0c\u8fd9\u6837\u53ef\u4ee5\u63d0\u9ad8\u4ee3\u7801\u7684\u53ef\u8bfb\u6027\uff0c\u4fbf\u4e8e\u672a\u6765\u7684\u7ef4\u62a4\u3002\n\n\u4ee3\u7801:\n```\n#include <iostream>\nusing namespace std;\nint main(){\n    ios::sync_with_stdio(false); //\u8f93\u5165\u8f93\u51fa\u52a0\u901f\n    int nWin[2] = { 0 }, iMishka, iChris, nCount;\n    /*\n    \tnWin - \u53cc\u65b9\u7684\u80dc\u5229\u6b21\u6570\uff0c\u7b2c\u4e00\u4e2a\u4e3aMishka\uff0c\u7b2c\u4e8c\u4e2a\u4e3aChris\n        iMishka - Mishka\u7684\u70b9\u6570\n        iChris - Chris\u7684\u70b9\u6570\n        nCount - \u56de\u5408\u6570\n    */\n    cin >> nCount; //\u8bfb\u5165\u56de\u5408\u6570\n    while (nCount--){ //\u5faa\u73af\u8bfb\u5165\u6bcf\u4e2a\u56de\u5408\u7684\u8d44\u6599\n        cin >> iMishka >> iChris; //\u8bfb\u5165\u70b9\u6570\n        if (iMishka > iChris) //\u5982\u679cMishka\u80dc\n            ++nWin[0]; //\u80dc\u5229\u6b21\u6570\u52a0\u4e00\n        else if (iMishka < iChris) //\u5982\u679cChris\u80dc\n            ++nWin[1]; //\u80dc\u5229\u6b21\u6570\u52a0\u4e00\n        //\u5e73\u5c40\u4e0d\u5904\u7406\n    }\n    if (nWin[0]>nWin[1]) //\u5982\u679cMishka\u80dc\u5229\n        cout << \"Mishka\"; //\u63d0\u793a\n    else if (nWin[0] < nWin[1]) //\u5982\u679cChris\u80dc\u5229\n        cout << \"Chris\"; //\u63d0\u793a\n    else //\u5e73\u5c40\n        cout << \"Friendship is magic!^^\"; //\u63d0(\u9a6c)\u793a(\u6559)\u5e73(\u91d1)\u5c40(\u53e5)\n    return 0; //\u7ed3\u675f\n}\n```\n\n~~\u8bdd\u8bf4\u8fd9\u9898\u5e73\u5c40\u7684\u63d0\u793a\u662f\u54ea\u4e2a\u9a6c\u8ff7\u60f3\u51fa\u6765\u7684?~~",
+        "postTime": 1529220150,
+        "uid": 74038,
+        "name": "PC_DOS",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF703A \u3010Mishka and Game\u3011"
+    },
+    {
+        "content": "~~\u8fd9\u9053\u9898\u6211\u89c9\u5f97\u662f\u4e00\u9053\u6bd4\u8d85\u7ea7\u739b\u4e3d\u6e38\u620f\u8fd8\u7b80\u5355\u7684\u5927\u6c34\u9898~~   \n\u8fd9\u9053\u9898\u5173\u952e\u5728\u4e8e\u8981\u8bb0\u5f55Mishka\u548cChris\u8d62\u5f97\u6b21\u6570\uff0c\u5982\u679c\u76f8\u7b49\uff0c\u5c31\u662f\u6253\u5e73\uff0c\u5426\u5219\u8c01\u8d62\u5f97\u591a\u8c01\u8d62\u3002   \n\u8d34\u4e0a\u4ee3\u7801\uff1a         \n```cpp\n#include<bits/stdc++.h>    //\u4e07\u80fd\u5934\n#include<stdio.h>\nusing namespace std;\nint n,a,b,m,c,f;\nint main(){\n\tios::sync_with_stdio(false);   //cin,cout\u5feb\u8bfb\u5feb\u8f93\uff0c\u7528scanf\u548cprintf\u7684\u540c\u5b66\u5c31\u4e0d\u8981\u7528\u4e86\uff0c\u4f1aRE\n\tcin>>n;\n\tfor(int i=1;i<=n;i++){    //\u5faa\u73af\u8bfb\u5165\n\t\tcin>>a>>b;   \n\t\tif(a>b) m++;      //\u68c0\u6d4b\u5728\u8fd9\u4e00\u56de\u91cc\u8c01\u8d62\n\t\tif(a<b) c++;\n\t}\n\tif(m>c) cout<<\"Mishka\";    //\u5224\u65ad\u8f93\u51fa\n\telse if(m<c) cout<<\"Chris\";\n\t\telse if(m==c) cout<<\"Friendship is magic!^^\";\n\treturn 0;    //\u4ee5\u4e00\u4e2a\u534e\u4e3d\u7684return 0;\u7ed3\u675f\n}\n\n```",
+        "postTime": 1582503383,
+        "uid": 266798,
+        "name": "\u5317\u96ea2009",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF703A \u3010Mishka and Game\u3011"
+    },
+    {
+        "content": "\u4e00\u773c\u671b\u4e0b\u53bb\uff0c\u54a6\uff1f\u600e\u4e48\u6ca1\u6709\u7528scanf\u7684\u5462\uff1f\n\nscanf\u548cprintf\u6bd4cin\u548ccout\u8981\u5feb\u4e00\u70b9\u3002\n\n\u597d\u4e86\u6211\u4eec\u5148\u6765\u770b\u4e00\u4e0b\u9898\u76ee\n\n\u9898\u76ee\u5927\u6982\u610f\u601d\n\n\u5c31\u662f\u6709n\u5bf9\u6570\uff0c\u7136\u540e\u8ba9\u4f60\u53bb\u5c06\u5b83\u4eec\u6bd4\u5927\u5c0f\u8bb0\u5f55\uff0c\u8c01\u8d62\u7684\u591a\u8c01\u83b7\u80dc\n\n\u8fd9\u9053\u9898\u6211\u4eec\u5148\u7528cin\u548ccout\u505a\uff1a\n\n```cpp\n#include <iostream>\nusing namespace std;\n\n```\n> \u5934\u6587\u4ef6\n\n```\n\n        int n,Mishka=0,Chris=0;\n        cin>>n;\n\n```\n> \u7136\u540e\u8bbe\u53d8\u91cfn(\u6709n\u5bf9\u6570)\uff0cMishka(Mishka\u8d62\u7684\u6b21\u6570)\uff0cChris(\u8d62\u7684\u6b21\u6570)\u3002\n\n```cpp\n        cin>>n;\n        for (int i=1; i<=n; i++)//\u5faa\u73afn\u5bf9\u6570\n        {\n                int s1,s2;\n                cin>>s1>>s2;//\u8bfb\u5165\u6bcf\u6b21\u7684\u6570\u5b57\n                if (s1>s2) Mishka++;//\u5982\u679c\u8fd9\u4e00\u8f6eMishka\u8d62\u90a3\u4e48\u4ed6\u52a0\u4e00\n                if (s2>s1) Chris++;//\u5982\u679c\u8fd9\u4e00\u8f6eChris\u8d62\u90a3\u4e48\u4ed6\u52a0\u4e00\n        }\n```\n\n> \u8bfb\u5165n\uff0c\u7136\u540e\u5f00\u59cb\u8bb0\u5f55\n\n```cpp\n        if (Mishka>Chris) cout<<\"Mishka\"<<endl;//\u5982\u679cMishka\u8d62\u90a3\u4e48\u8f93\u51fa\"Mishka\"\n        if (Chris>Mishka) cout<<\"Chris\"<<endl;//\u540c\u4e0a\n        if (Mishka==Chris) cout<<\"Friendship is magic!^^\"<<endl;//\u5982\u679c\u5e73\u5c40\u90a3\u4e48\u8f93\u51fa\"Friendship is magic!^^\"\n```\n> \u8f93\u51fa\u7ed3\u679c\n\n\u7136\u540e\u6211\u4eec\u6765\u601d\u8003\u600e\u4e48\u7528scanf\u548cprintf\u52a0\u901f\n\n\u628acin\u548ccout\u6539\u6210scanf\u548cprintf\u5c31\u53ef\u4ee5\u4e86\n\n\u4e0b\u9762\u9644\u4e0a\u5b8c\u6574\u4ee3\u7801\uff1a\n\n```cpp\n#include <cstdio>//\u53ef\u4e0d\u7528iostream\n//\u53ef\u4e0d\u7528std\u547d\u540d\u7a7a\u95f4\nint main()\n{\n        int n,Mishka=0,Chris=0;\n        scanf(\"%d\",&n);\n        for (int i=1; i<=n; i++)\n        {\n                int s1,s2;\n                scanf(\"%d %d\",&s1,&s2);\n                if (s1>s2) Mishka++;\n                if (s2>s1) Chris++;\n        }\n        if (Mishka>Chris) printf(\"Mishka\\n\");\n        if (Chris>Mishka) printf(\"Chris\\n\");\n        if (Mishka==Chris) printf(\"Friendship is magic!^^\\n\");\n        return 0;\n}\n```\n\n\u603b\u7ed3\n\n\u8fd9\u9053\u9898\u7684\u6807\u7b7e\u662f\uff1a\u7edf\u8ba1\u548c\u6a21\u62df\n\n---\n\n\u4e5f\u5728\u8fd9\u91cc\u795d\u5404\u4f4d\u5927\u4f6c\uff0c\u540c\u5b66CSP-j\u6216CSP-S RP++\uff01\uff01",
+        "postTime": 1572775085,
+        "uid": 208653,
+        "name": "_edge_",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF703A \u3010Mishka and Game\u3011"
+    },
+    {
+        "content": "cf\u7684\u9898\u5c31\u662f\u7b80\u5355\uff0c\u4e0b\u9762\u6765\u770b\u4ee3\u7801\n~~~~\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n\tlong long n,m,k,l=0,i,s=0;\n\tcin>>n;\n\tfor(i=1;i<=n;i++)\n\t{\n\t\tcin>>m>>k;\n\t\tif(m>k) s++; //Mishka\u8d62\u4e00\u5c40\uff0c\u8ba1\u6570\u5668+1\uff1b\n\t\tif(k>m) l++;//Chris\u8d62\u4e00\u5c40\uff0c\u8ba1\u6570\u5668+1\uff1b\n\t\tif(m=k) s=s+0;//\u4e00\u6837\u7684\u8bdd\u4e0d\u52a0\uff1b\n\t}\n\tif(s>l) cout<<\"Mishka\";\n\telse if(l>s) cout<<\"Chris\";\n\telse cout<<\"Friendship is magic!^^\";//\u5224\u65adn\u5c40\u8c01\u8d62\u5f97\u591a\uff0c\u76f8\u7b49\u7684\u8bdd\u8f93\u51faFriendship is magic^^!\n\treturn 0;\n } \n ~~~~\n \u5e0c\u671b\u672c\u849f\u84bb\u7684\u4ee3\u7801\u80fd\u5e2e\u52a9\u5230\u5404\u4f4d\uff0c\u540c\u65f6\u4e5f\u795d\u8c37\u6c11\u4eec\u5efa\u515a\u8282\u5feb\u4e50",
+        "postTime": 1561954371,
+        "uid": 118872,
+        "name": "\u4e01\u4e01\u306e\u4e01\u4e01",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF703A \u3010Mishka and Game\u3011"
+    },
+    {
+        "content": "\t\u5206\u5f00\u7edf\u8ba1\uff0c\u6700\u540e\u6bd4\u8f83\u3002\n   ```\n#include<iostream>\nusing namespace std;\nint main()\n{\n    long long n,as=0,bs=0;\n\tcin>>n;\n\tlong long a[n],b[n];\n\tfor(int i=0;i<n;i++)\n\t{\n\t\tcin>>a[i]>>b[i];\n\t\tif(a[i]>b[i])\n\t\t{\n\t\t\tas++;\n\t\t}\n\t\tif(b[i]>a[i])\n\t\t{\n\t\t\tbs++;\n\t\t}\n\t}\n\tif(as>bs)\n\t{\n\t\tcout<<\"Mishka\";\n\t}\n\telse if(as<bs)\n\t{\n\t\tcout<<\"Chris\";\n\t}\n\telse\n\t{\n\t\tcout<<\"Friendship is magic!^^\";\n\t}\n\treturn 0;\t\n}\n```",
+        "postTime": 1544617725,
+        "uid": 123563,
+        "name": "\u571f\u5ddd\u5d07\u8d3a",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF703A \u3010Mishka and Game\u3011"
+    },
+    {
+        "content": "\u4e00\u9053\u6a21\u62df\u9898\uff0c\u6bd4\u8f83\u7b80\u5355~~\u6c34~~\uff0c\u53ea\u8981\u7edf\u8ba1\u4e00\u4e0b\u53cc\u65b9\u6bcf\u5c40\u7684\u5bf9\u6218\u60c5\u51b5\uff0c\u6700\u540e\u5224\u65ad\u5c31\u884c\u4e86\u3002\n\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n\tint Mishka=0,Chris=0;//\u8fd9\u4e24\u4e2a\u53d8\u91cf\u8bb0\u5f55\u4e86\u53cc\u65b9\u7684\u80dc\u8d1f\u60c5\u51b5 \n\tint n;\n\tcin>>n;//\u8bfb\u5165\u6709\u591a\u5c11\u56de\u5408\n\tfor(int i=0;i<n;i++)\n\t{\n\t\tint t1,t2;//\u4e24\u4e2a\u4e34\u65f6\u53d8\u91cf\uff0c\u7528\u6765\u5b58\u653e\u70b9\u6570\n\t\tcin>>t1>>t2;\n\t\tif(t1>t2)//\u5224\u65ad\u80dc\u8d1f \n\t\t{\n\t\t\tMishka++;\t\n\t\t}\t\n\t\tif(t2>t1)\n\t\t{\n\t\t\tChris++;\n\t\t}\n\t}\n\tif(Mishka>Chris)\n\t{\n\t\tcout<<\"Mishka\";\t\n\t} \n\telse if(Mishka<Chris)\n\t{\n\t\tcout<<\"Chris\"; \n\t} \n\telse\n\t{\n\t\tcout<<\"Friendship is magic!^^\";\n\t}\n\treturn 0;\t\n} \n```",
+        "postTime": 1529837781,
+        "uid": 75436,
+        "name": "\u7f57\u8d24\u6cfd",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF703A \u3010Mishka and Game\u3011"
+    }
+]

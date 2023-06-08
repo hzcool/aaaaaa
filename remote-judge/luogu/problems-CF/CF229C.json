@@ -1,0 +1,17 @@
+{
+    "description": "Alice and Bob don't play games anymore. Now they study properties of all sorts of graphs together. Alice invented the following task: she takes a complete undirected graph with $ n $ vertices, chooses some $ m $ edges and keeps them. Bob gets the ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF229C/4408e88d41b3075c330afb5b8cbb30c34ea57359.png) remaining edges.\n\nAlice and Bob are fond of \"triangles\" in graphs, that is, cycles of length 3. That's why they wonder: what total number of triangles is there in the two graphs formed by Alice and Bob's edges, correspondingly?",
+    "inputFormat": "The first line contains two space-separated integers $ n $ and $ m $ ( $ 1<=n<=10^{6},0<=m<=10^{6} $ ) \u2014 the number of vertices in the initial complete graph and the number of edges in Alice's graph, correspondingly. Then $ m $ lines follow: the $ i $ -th line contains two space-separated integers $ a_{i} $ , $ b_{i} $ ( $ 1<=a_{i},b_{i}<=n $ , $ a_{i}\u2260b_{i} $ ), \u2014 the numbers of the two vertices connected by the $ i $ -th edge in Alice's graph. It is guaranteed that Alice's graph contains no multiple edges and self-loops. It is guaranteed that the initial complete graph also contains no multiple edges and self-loops.\n\nConsider the graph vertices to be indexed in some way from 1 to $ n $ .",
+    "outputFormat": "Print a single number \u2014 the total number of cycles of length 3 in Alice and Bob's graphs together.\n\nPlease, do not use the %lld specifier to read or write 64-bit integers in \u0421++. It is advised to use the cin, cout streams or the %I64d specifier.",
+    "samples": [
+        [
+            "5 5\n1 2\n1 3\n2 3\n2 4\n3 4\n",
+            "3\n"
+        ],
+        [
+            "5 3\n1 2\n2 3\n1 3\n",
+            "4\n"
+        ]
+    ],
+    "hint": "In the first sample Alice has 2 triangles: (1, 2, 3) and (2, 3, 4). Bob's graph has only 1 triangle : (1, 4, 5). That's why the two graphs in total contain 3 triangles.\n\nIn the second sample Alice's graph has only one triangle: (1, 2, 3). Bob's graph has three triangles: (1, 4, 5), (2, 4, 5) and (3, 4, 5). In this case the answer to the problem is 4.",
+    "translation": "\u7ed9\u5b9an\uff081<=n<=10^6\uff09\u4e2a\u70b9\u7ec4\u6210\u7684\u5b8c\u5168\u56fe\uff0c\u73b0\u5728\u4ece\u539f\u56fe\u4e2d\u62ff\u8d70m\uff080<=m<=10^6\uff09\u6761\u8fb9\u5230\u53e6\u4e00\u4e2a\u5e73\u9762\u4e0a\uff0c\u95ee\u4e00\u5171\u8fd8\u80fd\u7ec4\u6210\u591a\u5c11\u4e2a\u4e09\u89d2\u5f62\u3002"
+}

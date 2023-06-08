@@ -1,0 +1,21 @@
+{
+    "description": "Vasya became interested in bioinformatics. He's going to write an article about similar cyclic DNA sequences, so he invented a new method for determining the similarity of cyclic sequences.\n\nLet's assume that strings $ s $ and $ t $ have the same length $ n $ , then the function $ h(s,t) $ is defined as the number of positions in which the respective symbols of $ s $ and $ t $ are the same. Function $ h(s,t) $ can be used to define the function of Vasya distance $ \u03c1(s,t) $ :\n\n![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF520C/0b4348c88074431fd692746719c4a6f852a88ac1.png) where ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF520C/e04d6b40ed912903e989b816c65cd323f288312f.png) is obtained from string $ s $ , by applying left circular shift $ i $ times. For example,  $ \u03c1(&quot;AGC&quot;,&quot;CGT&quot;)= $   $ h(&quot;AGC&quot;,&quot;CGT&quot;)+h(&quot;AGC&quot;,&quot;GTC&quot;)+h(&quot;AGC&quot;,&quot;TCG&quot;)+ $   $ h(&quot;GCA&quot;,&quot;CGT&quot;)+h(&quot;GCA&quot;,&quot;GTC&quot;)+h(&quot;GCA&quot;,&quot;TCG&quot;)+ $   $ h(&quot;CAG&quot;,&quot;CGT&quot;)+h(&quot;CAG&quot;,&quot;GTC&quot;)+h(&quot;CAG&quot;,&quot;TCG&quot;)= $   $ 1+1+0+0+1+1+1+0+1=6 $ Vasya found a string $ s $ of length $ n $ on the Internet. Now he wants to count how many strings $ t $ there are such that the Vasya distance from the string $ s $ attains maximum possible value. Formally speaking, $ t $ must satisfy the equation: ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF520C/106c86f5cd7beb20b5aaf5b6e98985a65f7d4450.png).\n\nVasya could not try all possible strings to find an answer, so he needs your help. As the answer may be very large, count the number of such strings modulo $ 10^{9}+7 $ .",
+    "inputFormat": "The first line of the input contains a single integer $ n $ ( $ 1<=n<=10^{5} $ ).\n\nThe second line of the input contains a single string of length $ n $ , consisting of characters \"ACGT\".",
+    "outputFormat": "Print a single number \u2014 the answer modulo $ 10^{9}+7 $ .",
+    "samples": [
+        [
+            "1\nC\n",
+            "1\n"
+        ],
+        [
+            "2\nAG\n",
+            "4\n"
+        ],
+        [
+            "3\nTTT\n",
+            "1\n"
+        ]
+    ],
+    "hint": "Please note that if for two distinct strings $ t_{1} $ and $ t_{2} $ values $ \u03c1(s,t_{1}) $ \u0438 $ \u03c1(s,t_{2}) $ are maximum among all possible $ t $ , then both strings must be taken into account in the answer even if one of them can be obtained by a circular shift of another one.\n\nIn the first sample, there is $ \u03c1(&quot;C&quot;,&quot;C&quot;)=1 $ , for the remaining strings $ t $ of length 1 the value of $ \u03c1(s,t) $ is 0.\n\nIn the second sample, $ \u03c1(&quot;AG&quot;,&quot;AG&quot;)=\u03c1(&quot;AG&quot;,&quot;GA&quot;)=\u03c1(&quot;AG&quot;,&quot;AA&quot;)=\u03c1(&quot;AG&quot;,&quot;GG&quot;)=4 $ .\n\nIn the third sample, $ \u03c1(&quot;TTT&quot;,&quot;TTT&quot;)=27 $",
+    "translation": "\u7ed9\u5b9a\u4e00\u4e2an\u957f\u5ea6\u7684\u7531$A$\u3001$C$\u3001$G$\u3001$T$\u56db\u79cd\u5e8f\u5217\u6784\u6210\u7684$DNA$\u5e8f\u5217\u3002\u95ee\u6709\u591a\u5c11\u79cd\u65b9\u6848\uff0c\u6784\u9020\u53e6\u4e00\u79cd\u5e8f\u5217\uff0c\u4f7f\u5f97\u4e24\u79cd\u5e8f\u5217\u5728$shift$\u8fc7\u7a0b\u4e2d\uff0c\u4e24\u8005\u76f8\u540c\u7684\u4f4d\u6570\u603b\u548c\u6700\u5927\u3002$shift$\u64cd\u4f5c\u5373\u79fb\u4f4d\u64cd\u4f5c\uff0c\u4e24\u8005\u5206\u522b\u79fb\u52a8\uff0c\u7136\u540e\u6c42\u76f8\u540c\u4f4d\u7684\u4e2a\u6570\u3002"
+}

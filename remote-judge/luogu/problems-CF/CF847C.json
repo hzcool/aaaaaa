@@ -1,0 +1,21 @@
+{
+    "description": "Recall that the bracket sequence is considered regular if it is possible to insert symbols '+' and '1' into it so that the result is a correct arithmetic expression. For example, a sequence \"(()())\" is regular, because we can get correct arithmetic expression insering symbols '+' and '1': \"((1+1)+(1+1))\". Also the following sequences are regular: \"()()()\", \"(())\" and \"()\". The following sequences are not regular bracket sequences: \")(\", \"(()\" and \"())(()\".\n\nIn this problem you are given two integers $ n $ and $ k $ . Your task is to construct a regular bracket sequence consisting of round brackets with length $ 2\u00b7n $ with total sum of nesting of all opening brackets equals to exactly $ k $ . The nesting of a single opening bracket equals to the number of pairs of brackets in which current opening bracket is embedded.\n\nFor example, in the sequence \"()(())\" the nesting of first opening bracket equals to $ 0 $ , the nesting of the second opening bracket equals to $ 0 $ and the nesting of the third opening bracket equal to $ 1 $ . So the total sum of nestings equals to $ 1 $ .",
+    "inputFormat": "The first line contains two integers $ n $ and $ k $ ( $ 1<=n<=3\u00b710^{5} $ , $ 0<=k<=10^{18} $ ) \u2014 the number of opening brackets and needed total nesting.",
+    "outputFormat": "Print the required regular bracket sequence consisting of round brackets.\n\nIf there is no solution print \"Impossible\" (without quotes).",
+    "samples": [
+        [
+            "3 1\n",
+            "()(())"
+        ],
+        [
+            "4 6\n",
+            "(((())))"
+        ],
+        [
+            "2 5\n",
+            "Impossible\n"
+        ]
+    ],
+    "hint": "The first example is examined in the statement.\n\nIn the second example the answer is \"(((())))\". The nesting of the first opening bracket is $ 0 $ , the nesting of the second is $ 1 $ , the nesting of the third is $ 2 $ , the nesting of fourth is $ 3 $ . So the total sum of nestings equals to $ 0+1+2+3=6 $ .\n\nIn the third it is impossible to construct a regular bracket sequence, because the maximum possible total sum of nestings for two opening brackets equals to $ 1 $ . This total sum of nestings is obtained for the sequence \"(())\".",
+    "translation": "\u6211\u4eec\u5b9a\u4e49\u4e00\u4e2a\u62ec\u53f7\u5e8f\u5217\u662f\u89c4\u5219\u7684\u5f53\u4e14\u4ec5\u5f53\u5b58\u5728\u67d0\u79cd\u65b9\u5f0f\u53ef\u4ee5\u5c06\u5b57\u7b26`+`\u548c`1`\u63d2\u5165\u5176\u4e2d\u4f7f\u5f97\u5176\u6210\u4e3a\u4e00\u4e2a\u5408\u6cd5\u7684\u8868\u8fbe\u5f0f\u3002\u6bd4\u5982`(()())`\u662f\u89c4\u5219\u7684\u56e0\u4e3a\u6211\u4eec\u53ef\u4ee5\u5c06\u5b83\u53d8\u6210`((1+1)+(1+1))`\u7684\u5f62\u5f0f\uff0c\u800c\u8fd9\u4e2a\u5f62\u5f0f\u662f\u4e00\u4e2a\u5408\u6cd5\u7684\u8868\u8fbe\u5f0f\u3002\u6b64\u5916\uff0c`()()()`\u3001`(())`\u3001`()`\u4e5f\u662f\u89c4\u5219\u7684\u62ec\u53f7\u5e8f\u5217\u3002\u76f8\u53cd\uff0c`)(`\u3001`(()`\u3001`())(()`\u4e0d\u662f\u89c4\u5219\u7684\u62ec\u53f7\u5e8f\u5217\u3002\r\n\r\n\u5728\u8fd9\u4e2a\u95ee\u9898\u4e2d\uff0c\u4f60\u88ab\u7ed9\u4e88\u4e86\u4e24\u4e2a\u6570$n$\u548c$k$\uff0c\u4f60\u7684\u4efb\u52a1\u662f\u6784\u5efa\u4e00\u4e2a\u89c4\u5219\u7684\u62ec\u53f7\u5e8f\u5217\uff0c\u4f7f\u5f97\u5b83\u6070\u597d\u542b\u6709$n$\u5bf9\u62ec\u53f7\u5e76\u4e14\u6070\u597d\u542b\u6709$k$\u5bf9\u5d4c\u5957\u3002\r\n\r\n\u6bd4\u5982\uff0c`()(())`\u542b\u6709$3$\u5bf9\u62ec\u53f7\u4e14\u5b83\u7684\u5d4c\u5957\u5bf9\u6570\u4e3a$1$\uff0c\u800c`(((())))`\u542b\u6709$4$\u5bf9\u62ec\u53f7\u4e14\u5b83\u7684\u5d4c\u5957\u5bf9\u6570\u4e3a$6=3+2+1$\u3002\r\n\r\n\u8f93\u5165\u683c\u5f0f\uff1a\u4e00\u884c\u4e24\u4e2a\u6574\u6570$n$\u548c$k$\u3002\r\n\r\n\u8f93\u51fa\u683c\u5f0f\uff1a\u4e00\u4e2a\u5b57\u7b26\u4e32\uff0c\u8868\u793a\u4f60\u6784\u9020\u51fa\u7684\u62ec\u53f7\u5e8f\u5217\u3002"
+}

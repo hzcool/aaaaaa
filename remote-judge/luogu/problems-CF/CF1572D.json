@@ -1,0 +1,21 @@
+{
+    "description": "There are currently $ n $ hot topics numbered from $ 0 $ to $ n-1 $ at your local bridge club and $ 2^n $ players numbered from $ 0 $ to $ 2^n-1 $ . Each player holds a different set of views on those $ n $ topics, more specifically, the $ i $ -th player holds a positive view on the $ j $ -th topic if $ i\\ \\&\\ 2^j > 0 $ , and a negative view otherwise. Here $ \\& $ denotes the [bitwise AND operation](https://en.wikipedia.org/wiki/Bitwise_operation#AND).\n\nYou are going to organize a bridge tournament capable of accommodating at most $ k $ pairs of players (bridge is played in teams of two people). You can select teams arbitrarily while each player is in at most one team, but there is one catch: two players cannot be in the same pair if they disagree on $ 2 $ or more of those $ n $ topics, as they would argue too much during the play.\n\nYou know that the $ i $ -th player will pay you $ a_i $ dollars if they play in this tournament. Compute the maximum amount of money that you can earn if you pair the players in your club optimally.",
+    "inputFormat": "The first line contains two integers $ n $ , $ k $ ( $ 1 \\le n \\le 20 $ , $ 1 \\le k \\le 200 $ ) \u2014 the number of hot topics and the number of pairs of players that your tournament can accommodate.\n\nThe second line contains $ 2^n $ integers $ a_0, a_1, \\dots, a_{2^n-1} $ ( $ 0 \\le a_i \\le 10^6 $ ) \u2014 the amounts of money that the players will pay to play in the tournament.",
+    "outputFormat": "Print one integer: the maximum amount of money that you can earn if you pair the players in your club optimally under the above conditions.",
+    "samples": [
+        [
+            "3 1\n8 3 5 7 1 10 3 2",
+            "13"
+        ],
+        [
+            "2 3\n7 4 5 7",
+            "23"
+        ],
+        [
+            "3 2\n1 9 1 5 7 8 1 1",
+            "29"
+        ]
+    ],
+    "hint": "In the first example, the best we can do is to pair together the $ 0 $ -th player and the $ 2 $ -nd player resulting in earnings of $ 8 + 5 = 13 $ dollars. Although pairing the $ 0 $ -th player with the $ 5 $ -th player would give us $ 8 + 10 = 18 $ dollars, we cannot do this because those two players disagree on $ 2 $ of the $ 3 $ hot topics.\n\nIn the second example, we can pair the $ 0 $ -th player with the $ 1 $ -st player and pair the $ 2 $ -nd player with the $ 3 $ -rd player resulting in earnings of $ 7 + 4 + 5 + 7 = 23 $ dollars.",
+    "translation": "\u6709 $2^n$ \u4e2a\u70b9\u4ece $0$ \u5230 $2^n-1$ \u7f16\u53f7\uff0c\u6bcf\u4e2a\u70b9\u6709\u70b9\u6743\uff0c\u4e24\u4e2a\u7f16\u53f7\u4e3a $u,v$ \u7684\u70b9\u4e4b\u95f4\u6709\u8fb9\u5f53\u4e14\u4ec5\u5f53 $u$ \u548c $v$ \u6709\u4e14\u4ec5\u6709\u4e00\u4e2a\u4e8c\u8fdb\u5236\u4f4d\u4e0d\u76f8\u540c\u3002\u8981\u6c42\u4ece\u8fd9\u4e2a\u56fe\u4e2d\u9009\u4e00\u4e2a\u6700\u591a $k$ \u6761\u8fb9\u7684[\u5339\u914d](https://blog.csdn.net/u012116229/article/details/44205295)\uff0c\u4f7f\u5f97\u88ab\u5339\u914d\u6240\u5305\u542b\u7684 $2k$ \u4e2a\u70b9\u70b9\u6743\u548c\u6700\u5927\uff0c\u8f93\u51fa\u8fd9\u4e2a\u6700\u5927\u70b9\u6743\u548c\u3002\n\n$1\\leqslant n\\leqslant 20,1\\leqslant k\\leqslant 200$\n\nTranslate by I_am_Accepted\u3001Yanusi_huh"
+}

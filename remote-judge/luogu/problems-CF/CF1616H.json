@@ -1,0 +1,21 @@
+{
+    "description": "You are given an array $ a_1, a_2, \\ldots, a_n $ and an integer $ x $ .\n\nFind the number of non-empty subsets of indices of this array $ 1 \\leq b_1 < b_2 < \\ldots < b_k \\leq n $ , such that for all pairs $ (i, j) $ where $ 1 \\leq i < j \\leq k $ , the inequality $ a_{b_i} \\oplus a_{b_j} \\leq x $ is held. Here, $ \\oplus $ denotes the [bitwise XOR operation](https://en.wikipedia.org/wiki/Bitwise_operation#XOR). As the answer may be very large, output it modulo $ 998\\,244\\,353 $ .",
+    "inputFormat": "The first line of the input contains two integers $ n $ and $ x $ ( $ 1 \\leq n \\leq 150\\,000 $ , $ 0 \\leq x < 2^{30} $ ). Here, $ n $ is the size of the array.\n\nThe next line contains $ n $ integers $ a_1, a_2, \\ldots, a_n $ ( $ 0 \\leq a_i < 2^{30} $ ): the array itself.",
+    "outputFormat": "Print one integer: the number of non-empty subsets such that the bitwise XOR of every pair of elements is at most $ x $ , modulo $ 998\\,244\\,353 $ .",
+    "samples": [
+        [
+            "4 2\n0 1 2 3",
+            "8"
+        ],
+        [
+            "3 6\n4 2 2",
+            "7"
+        ],
+        [
+            "4 0\n1 1 2 2",
+            "6"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9\u4f60 $n$ \u4e2a\u6574\u6570 $a_1,a_2,\\cdots,a_n$ \u548c\u4e00\u4e2a\u6574\u6570 $x$\u3002\n\n\u4f60\u9700\u8981\u6c42\u51fa $\\{1,2,\\cdots,n\\}$ \u7684\u4e00\u4e2a\u5b50\u96c6 $S$\uff0c\u6ee1\u8db3 $S$ \u4e2d\u4efb\u610f\u4e24\u4e2a\u4e0d\u540c\u7684\u5143\u7d20 $i,j$\uff0c\u6ee1\u8db3 $a_i~{\\rm xor}~a_j\\le x$\u3002\n\n\u6c42\u9009\u53d6 $S$ \u7684\u65b9\u6848\u6570\uff0c\u5bf9 $998244353$ \u53d6\u6a21\u7684\u7ed3\u679c\u3002\n\n$1\\le n\\le 150000,0\\le a_i,x< 2^{30}$"
+}

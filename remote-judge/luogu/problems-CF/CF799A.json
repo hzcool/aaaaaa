@@ -1,0 +1,25 @@
+{
+    "description": "In some game by Playrix it takes $ t $ minutes for an oven to bake $ k $ carrot cakes, all cakes are ready at the same moment $ t $ minutes after they started baking. Arkady needs at least $ n $ cakes to complete a task, but he currently don't have any. However, he has infinitely many ingredients and one oven. Moreover, Arkady can build one more similar oven to make the process faster, it would take $ d $ minutes to build the oven. While the new oven is being built, only old one can bake cakes, after the new oven is built, both ovens bake simultaneously. Arkady can't build more than one oven.\n\nDetermine if it is reasonable to build the second oven, i.e. will it decrease the minimum time needed to get $ n $ cakes or not. If the time needed with the second oven is the same as with one oven, then it is unreasonable.",
+    "inputFormat": "The only line contains four integers $ n $ , $ t $ , $ k $ , $ d $ ( $ 1<=n,t,k,d<=1000 $ ) \u2014 the number of cakes needed, the time needed for one oven to bake $ k $ cakes, the number of cakes baked at the same time, the time needed to build the second oven.",
+    "outputFormat": "If it is reasonable to build the second oven, print \"YES\". Otherwise print \"NO\".",
+    "samples": [
+        [
+            "8 6 4 5\n",
+            "YES\n"
+        ],
+        [
+            "8 6 4 6\n",
+            "NO\n"
+        ],
+        [
+            "10 3 11 4\n",
+            "NO\n"
+        ],
+        [
+            "4 2 1 4\n",
+            "YES\n"
+        ]
+    ],
+    "hint": "In the first example it is possible to get $ 8 $ cakes in $ 12 $ minutes using one oven. The second oven can be built in $ 5 $ minutes, so after $ 6 $ minutes the first oven bakes $ 4 $ cakes, the second oven bakes $ 4 $ more ovens after $ 11 $ minutes. Thus, it is reasonable to build the second oven.\n\nIn the second example it doesn't matter whether we build the second oven or not, thus it takes $ 12 $ minutes to bake $ 8 $ cakes in both cases. Thus, it is unreasonable to build the second oven.\n\nIn the third example the first oven bakes $ 11 $ cakes in $ 3 $ minutes, that is more than needed $ 10 $ . It is unreasonable to build the second oven, because its building takes more time that baking the needed number of cakes using the only oven.",
+    "translation": "## \u9898\u76ee\u63cf\u8ff0\uff1a\n\u4e00\u5171\u9700\u8981\u70e4 $n$ \u4e2a\u86cb\u7cd5\uff0c\u7528\u4e00\u4e2a\u70e4\u7bb1\u70e4 $k$ \u4e2a\u86cb\u7cd5\u9700\u8981 $t$ \u5206\u949f\u3002\u73b0\u6709\u4e00\u4e2a\u70e4\u7bb1\uff0c\u53ef\u4ee5\u518d\u7528 $d$ \u5206\u949f\u5efa\u4e00\u4e2a\u3002\u5efa\u70e4\u7bb1\u65f6\u6b63\u5728\u5efa\u7684\u70e4\u7bb1\u4e0d\u80fd\u5de5\u4f5c\uff0c\u4f46\u53e6\u4e00\u4e2a\u70e4\u7bb1\u53ef\u4ee5\u3002\u95ee\uff1a\u65b0\u5efa\u70e4\u7bb1\u70e4\u5b8c $n$ \u4e2a\u86cb\u7cd5\u7684\u65f6\u95f4\u662f\u5426\u6bd4\u4e0d\u65b0\u5efa\u8981\u4e25\u683c\u5feb\uff08\u5373\u4e0d\u80fd\u7b49\u4e8e\uff09\uff1f\n## \u8f93\u5165\u683c\u5f0f\uff1a\n\u4e00\u884c\uff0c\u56db\u4e2a\u6570\uff0c\u5206\u522b\u662f $n$ , $t$ , $k$ , $d$\u3002\n## \u8f93\u51fa\u683c\u5f0f\uff1a\n\u82e5\u6bd4\u5b83\u8981\u5feb\uff0c\u8f93\u51fa```YES```\uff1b\u5426\u5219\u8f93\u51fa```NO```\u3002"
+}

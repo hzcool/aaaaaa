@@ -1,0 +1,17 @@
+{
+    "description": "[problemUrl]: https://atcoder.jp/contests/abc242/tasks/abc242_d\n\n`A`, `B`, `C` \u306e\u307f\u304b\u3089\u306a\u308b\u6587\u5b57\u5217 $ S $ \u304c\u4e0e\u3048\u3089\u308c\u307e\u3059\u3002\n\n$ S^{(0)}:=S $ \u3068\u3057\u3001$ i=1,2,3,\\ldots $ \u306b\u3064\u3044\u3066 $ S^{(i)} $ \u3092 $ S^{(i-1)} $ \u306e\u5404\u6587\u5b57\u3092 `A` \u2192 `BC`, `B` \u2192 `CA`, `C` \u2192 `AB` \u3068\u540c\u6642\u306b\u7f6e\u304d\u63db\u3048\u305f\u3082\u306e\u3068\u5b9a\u7fa9\u3057\u307e\u3059\u3002\n\n\u4ee5\u4e0b\u306e $ Q $ \u500b\u306e\u30af\u30a8\u30ea\u306b\u7b54\u3048\u3066\u304f\u3060\u3055\u3044\u3002$ i $ \u500b\u76ee\u306e\u30af\u30a8\u30ea\u306e\u5185\u5bb9\u306f\u4ee5\u4e0b\u306e\u901a\u308a\u3067\u3059\u3002\n\n- $ S^{(t_i)} $ \u306e\u5148\u982d\u304b\u3089 $ k_i $ \u6587\u5b57\u76ee\u3092\u51fa\u529b\u305b\u3088\u3002",
+    "inputFormat": "\u5165\u529b\u306f\u4ee5\u4e0b\u306e\u5f62\u5f0f\u3067\u6a19\u6e96\u5165\u529b\u304b\u3089\u4e0e\u3048\u3089\u308c\u308b\u3002\n\n> $ S $ $ Q $ $ t_1 $ $ k_1 $ $ t_2 $ $ k_2 $ $ \\hspace{0.4cm}\\vdots $ $ t_Q $ $ k_Q $",
+    "outputFormat": "$ Q $ \u500b\u306e\u30af\u30a8\u30ea\u3092\u6dfb\u5b57\u306e\u6607\u9806\u306b\u3001\u3059\u306a\u308f\u3061\u4e0e\u3048\u3089\u308c\u308b\u9806\u306b\u51e6\u7406\u3057\u3001\u51fa\u529b\u3054\u3068\u306b\u6539\u884c\u305b\u3088\u3002",
+    "samples": [
+        [
+            "ABC\r\n4\r\n0 1\r\n1 1\r\n1 3\r\n1 6",
+            "A\r\nB\r\nC\r\nB"
+        ],
+        [
+            "CBBAACCCCC\r\n5\r\n57530144230160008 659279164847814847\r\n29622990657296329 861239705300265164\r\n509705228051901259 994708708957785197\r\n176678501072691541 655134104344481648\r\n827291290937314275 407121144297426665",
+            "A\r\nA\r\nC\r\nA\r\nA"
+        ]
+    ],
+    "hint": "### \u5236\u7d04\n\n- $ S $ \u306f `A`, `B`, `C` \u306e\u307f\u304b\u3089\u306a\u308b\u9577\u3055 $ 1 $ \u4ee5\u4e0a $ 10^5 $ \u4ee5\u4e0b\u306e\u6587\u5b57\u5217\n- $ 1\\ \\leq\\ Q\\ \\leq\\ 10^5 $\n- $ 0\\ \\leq\\ t_i\\ \\leq\\ 10^{18} $\n- $ 1\\ \\leq\\ k_i\\ \\leq\\ \\min(10^{18},\\ S^{(t_i)} $ \u306e\u9577\u3055$ ) $\n- $ Q,\\ t_i,\\ k_i $ \u306f\u6574\u6570\n\n### Sample Explanation 1\n\n$ S^{(0)}= $`ABC`, $ S^{(1)}= $`BCCAAB` \u3067\u3059\u3002 \u3088\u3063\u3066\u5404\u30af\u30a8\u30ea\u3078\u306e\u7b54\u3048\u306f\u9806\u306b `A`, `B`, `C`, `B` \u3068\u306a\u308a\u307e\u3059\u3002",
+    "translation": "\u7ed9\u5b9a\u4e00\u4e2a\u957f\u5ea6\u5728 $[1,10^5]$ \u8303\u56f4\u5185\u7684\uff0c\u4ec5\u7531`A`\u3001`B`\u3001`C`\u7ec4\u6210\u7684\u5b57\u7b26\u4e32 $s$\u3002\u4ee4 $s_0=s$\u3002\u4ece $1$ \u5f00\u59cb\uff0c$s_i$ \u4ee5\u5982\u4e0b\u89c4\u5219\u7531 $s_{i-1}$ \u53d8\u5316\u800c\u6765\uff1a\u7528`BC`\u4ee3\u66ff`A`\uff0c\u7528`CA`\u4ee3\u66ff`B`\uff0c\u7528`AB`\u4ee3\u66ff`C`\u3002\u73b0\u5728\u7ed9\u51fa $q$ \u6b21\u8be2\u95ee\uff0c\u7b2c $i$ \u6b21\u8be2\u95ee\u4f1a\u7ed9\u51fa\u4e24\u4e2a\u6574\u6570 $t_i$ \u548c $k_i$\uff0c\u8bf7\u8f93\u51fa $s_{t_i}$ \u7684\u524d\u6570\u7b2c $k_i$ \u4e2a\u5b57\u7b26\u3002\n\n\u6570\u636e\u4fdd\u8bc1 $1 \\le q \\le 10^5$\uff0c$0 \\le t_i \\le 10^{18}$\uff0c$1 \\le k_i \\le \\min (10^{18},|s_{t_i}|)$\uff0c\u4e14\u8fd9\u4e9b\u6570\u90fd\u662f\u6574\u6570\u3002"
+}

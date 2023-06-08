@@ -1,0 +1,25 @@
+{
+    "description": "Luba needs your help again! Luba has $ n $ TV sets. She knows that $ i $ -th TV set will be working from moment of time $ l_{i} $ till moment $ r_{i} $ , inclusive.\n\nLuba wants to switch off one of TV sets in order to free the socket. Let's call some TV set redundant if after switching it off the number of integer moments of time when at least one of TV sets is working won't decrease. Luba will be very upset if she has to switch off a non-redundant TV set.\n\nHelp Luba by telling her the index of some redundant TV set. If there is no any, print -1.",
+    "inputFormat": "The first line contains one integer number $ n\u00a0(1<=n<=2\u00b710^{5}) $ \u2014 the number of TV sets.\n\nThen $ n $ lines follow, each of them containing two integer numbers $ l_{i},r_{i}\u00a0(0<=l_{i}<=r_{i}<=10^{9}) $ denoting the working time of $ i $ -th TV set.",
+    "outputFormat": "If there is no any redundant TV set, print -1. Otherwise print the index of any redundant TV set (TV sets are indexed from 1 to $ n $ ).\n\nIf there are multiple answers, print any of them.",
+    "samples": [
+        [
+            "3\n1 3\n4 6\n1 7\n",
+            "1\n"
+        ],
+        [
+            "2\n0 10\n0 10\n",
+            "1\n"
+        ],
+        [
+            "3\n1 2\n3 4\n6 8\n",
+            "-1\n"
+        ],
+        [
+            "3\n1 2\n2 3\n3 4\n",
+            "2\n"
+        ]
+    ],
+    "hint": "Consider the first sample. Initially all integer moments of time such that at least one TV set is working are from the segment $ [1;7] $ . It's easy to see that this segment won't change if we switch off the first TV set (or the second one).\n\nNote that in the fourth sample you can switch off the second TV set, since even without it all integer moments such that any of the TV sets is working denote the segment $ [1;4] $ .",
+    "translation": "Luba \u6709 $n$ \u53f0\u7535\u89c6\uff0c\u5e76\u4e14\u5979\u77e5\u9053\u6bcf\u53f0\u7535\u89c6\u7684\u5de5\u4f5c\u65f6\u95f4\u662f\u4ece $l$ \u5230 $r$\u3002\u73b0\u5728 Luba \u60f3\u8981\u5173\u6389\u4e00\u4e9b\u7535\u89c6\uff0c\u4f7f\u5f97\u64ad\u653e\u7535\u89c6\u8282\u76ee\u7684\u65f6\u95f4\u70b9\u4e0d\u5c11\u4e8e\u5173\u6389\u8fd9\u4e9b\u7535\u89c6\u4e4b\u524d\u3002\u8bf7\u4f60\u5e2e\u52a9 Luba\uff0c\u544a\u8bc9\u5979\u53ef\u4ee5\u5173\u95ed\u54ea\u4e9b\u7535\u89c6\uff0c\u82e5\u4efb\u4f55\u4e00\u53f0\u90fd\u4e0d\u80fd\u5173\u95ed\uff0c\u8f93\u51fa `-1`\u3002\n\n### \u8f93\u5165\u683c\u5f0f\uff1a\n\u7b2c\u4e00\u884c\u4e00\u4e2a\u6574\u6570 $n$\uff08$1\\le n\\le 200000$\uff09\uff0c\u8868\u793a\u7535\u89c6\u53f0\u7684\u6570\u91cf\u3002\n\n\u63a5\u4e0b\u6765 $n$ \u884c\u6bcf\u884c\u4e24\u4e2a\u6574\u6570 $l_i,r_i$\uff08$0\\leq l_i \\leq  r_i\\leq 10 ^ 9$\uff09\uff0c\u8868\u793a\u7b2c $i$ \u53f0\u7535\u89c6\u5de5\u4f5c\u7684\u65f6\u95f4\u3002\n\n### \u8f93\u51fa\u683c\u5f0f:\n\u82e5\u4e0d\u80fd\u5173\u95ed\u4efb\u4f55\u4e00\u53f0\u7535\u89c6\uff0c\u8f93\u51fa `-1`\uff0c\u5426\u5219\uff0c\u8f93\u51fa\u4efb\u4f55\u4e00\u53f0\u53ef\u4ee5\u5173\u95ed\u7684\u7535\u89c6\u7684\u7f16\u53f7\uff08\u7f16\u53f7\u5728 $1\\sim n$ \u4e4b\u95f4\uff09\u3002\n\n\u611f\u8c22 @[\u51cc\u5e7d](/user/36080) \u63d0\u4f9b\u7684\u7ffb\u8bd1\u3002\n\nfixed by \u6708\u3002"
+}

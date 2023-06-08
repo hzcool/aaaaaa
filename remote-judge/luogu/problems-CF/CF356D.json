@@ -1,0 +1,25 @@
+{
+    "description": "When you were a child you must have been told a puzzle of bags and coins. Anyway, here's one of its versions:\n\nA horse has three bags. The first bag has one coin, the second bag has one coin and the third bag has three coins. In total, the horse has three coins in the bags. How is that possible?\n\nThe answer is quite simple. The third bag contains a coin and two other bags.\n\nThis problem is a generalization of the childhood puzzle. You have $ n $ bags. You know that the first bag contains $ a_{1} $ coins, the second bag contains $ a_{2} $ coins, ..., the $ n $ -th bag contains $ a_{n} $ coins. In total, there are $ s $ coins. Find the way to arrange the bags and coins so that they match the described scenario or else state that it is impossible to do.",
+    "inputFormat": "The first line contains two integers $ n $ and $ s $ $ (1<=n,s<=70000) $ \u2014 the number of bags and the total number of coins. The next line contains $ n $ integers $ a_{1},a_{2},...,a_{n} $ $ (1<=a_{i}<=70000) $ , where $ a_{i} $ shows the number of coins in the $ i $ -th bag.",
+    "outputFormat": "If the answer doesn't exist, print -1.\n\nOtherwise, print $ n $ lines, on the $ i $ -th line print the contents of the $ i $ -th bag. The first number in the line, $ c_{i} $ $ (0<=c_{i}<=a_{i}) $ , must represent the number of coins lying directly in the $ i $ -th bag (the coins in the bags that are in the $ i $ -th bag are not taken into consideration). The second number in the line, $ k_{i} $ $ (0<=k_{i}&lt;n) $ must represent the number of bags that lie directly in the $ i $ -th bag (the bags that are inside the bags lying in the $ i $ -th bag are not taken into consideration). Next, the line must contain $ k_{i} $ integers \u2014 the numbers of the bags that are lying directly in the $ i $ -th bag.\n\nThe total number of coins in the solution must equal $ s $ . If we count the total number of coins the $ i $ -th bag in the solution has, we should get $ a_{i} $ .\n\nNo bag can directly lie in more than one bag. The bags can be nested in more than one level (see the second test case). If there are multiple correct answers, you can print any of them.",
+    "samples": [
+        [
+            "3 3\n1 3 1\n",
+            "1 0\n1 2 3 1\n1 0\n"
+        ],
+        [
+            "3 3\n1 3 1\n",
+            "1 0\n2 1 3\n0 1 1\n"
+        ],
+        [
+            "1 2\n1\n",
+            "-1\n"
+        ],
+        [
+            "8 10\n2 7 3 4 1 3 1 2\n",
+            "2 0\n1 2 1 4\n0 2 7 8\n0 2 5 6\n1 0\n3 0\n1 0\n2 0\n"
+        ]
+    ],
+    "hint": "The pictures below show two possible ways to solve one test case from the statement. The left picture corresponds to the first test case, the right picture corresponds to the second one.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF356D/1307eb982020a5ba55b375c0d5ee7ef3aa5a111f.png)",
+    "translation": "\u7ed9\u5b9a\u957f$n$\u7684\u6570\u7ec4$a$\u548c\u4e00\u4e2a\u6570$s$\uff0c\u6784\u9020\u4e00\u4e2a\u68ee\u6797\uff0c\u6bcf\u4e2a\u70b9$i$\u6709\u975e\u8d1f\u70b9\u6743$c_i$\uff0c\u8981\u6c42\u70b9$i$\u7684\u5b50\u6811\u4e2d\u70b9\u6743\u4e4b\u548c\u6070\u597d\u4e3a$a_i$\uff0c\u5e76\u4e14\u6240\u6709\u70b9\u6743\u7684\u548c\u4e3a$s$\u3002\n\n\u8f93\u51fa\u7b54\u6848\u65f6\uff0c\u5bf9\u4e8e\u6bcf\u4e2a$i$\uff0c\u5148\u8f93\u51fa$c_i$\uff0c\u518d\u8f93\u51fa$k_i$\u8868\u793a$i$\u7684\u513f\u5b50\u6570\u91cf\uff0c\u7136\u540e\u4f9d\u6b21\u8f93\u51fa$i$\u7684\u513f\u5b50\u4eec\u3002\u65e0\u89e3\u8f93\u51fa-1\u3002"
+}

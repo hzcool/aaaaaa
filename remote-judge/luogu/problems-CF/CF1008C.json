@@ -1,0 +1,17 @@
+{
+    "description": "You are given an array of integers. Vasya can permute (change order) its integers. He wants to do it so that as many as possible integers will become on a place where a smaller integer used to stand. Help Vasya find the maximal number of such integers.\n\nFor instance, if we are given an array $ [10, 20, 30, 40] $ , we can permute it so that it becomes $ [20, 40, 10, 30] $ . Then on the first and the second positions the integers became larger ( $ 20>10 $ , $ 40>20 $ ) and did not on the third and the fourth, so for this permutation, the number that Vasya wants to maximize equals $ 2 $ . Read the note for the first example, there is one more demonstrative test case.\n\nHelp Vasya to permute integers in such way that the number of positions in a new array, where integers are greater than in the original one, is maximal.",
+    "inputFormat": "The first line contains a single integer $ n $ ( $ 1 \\leq n \\leq 10^5 $ ) \u2014 the length of the array.\n\nThe second line contains $ n $ integers $ a_1, a_2, \\ldots, a_n $ ( $ 1 \\leq a_i \\leq 10^9 $ ) \u2014 the elements of the array.",
+    "outputFormat": "Print a single integer \u2014 the maximal number of the array's elements which after a permutation will stand on the position where a smaller element stood in the initial array.",
+    "samples": [
+        [
+            "7\n10 1 1 1 5 5 3\n",
+            "4\n"
+        ],
+        [
+            "5\n1 1 1 1 1\n",
+            "0\n"
+        ]
+    ],
+    "hint": "In the first sample, one of the best permutations is $ [1, 5, 5, 3, 10, 1, 1] $ . On the positions from second to fifth the elements became larger, so the answer for this permutation is 4.\n\nIn the second sample, there is no way to increase any element with a permutation, so the answer is 0.",
+    "translation": "**\u9898\u76ee\u5927\u610f\uff1a**\n\n\u7ed9\u5b9a\u4e00\u4e2a\u5e8f\u5217\uff0c\u5e8f\u5217\u91cc\u7684\u5143\u7d20\u53ef\u4ee5\u4ee5\u4efb\u610f\u987a\u5e8f\u91cd\u65b0\u6392\u597d\n\n\u5e8f\u5217\u91cc\u67d0\u4f4d\u7f6e\u6392\u5e8f\u540e\u7684\u6570\u53ef\u80fd\u4f1a\u5927\u4e8e\u539f\u6570\uff0c\u95ee\u8fd9\u6837\u7684\u4f4d\u7f6e\u6700\u591a\u80fd\u6709\u591a\u5c11\u4e2a\n\n**\u8f93\u5165\u683c\u5f0f\uff1a**\n\n\u7b2c\u4e00\u884c\u4e00\u4e2a\u6574\u6570$n$\uff0c\u8868\u793a\u5e8f\u5217\u957f\u5ea6\n\n\u7b2c\u4e8c\u884c$n$\u4e2a\u6574\u6570\uff0c\u8868\u793a\u521d\u59cb\u5e8f\u5217\n\n**\u8f93\u51fa\u683c\u5f0f\uff1a**\n\n\u4e00\u4e2a\u6574\u6570\uff0c\u8868\u793a\u6ee1\u8db3\u6761\u4ef6\u7684\u4f4d\u7f6e\u6700\u591a\u80fd\u6709\u591a\u5c11\u4e2a"
+}

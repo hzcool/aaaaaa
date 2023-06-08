@@ -1,0 +1,17 @@
+{
+    "description": "Mr. Chanek gives you a sequence $ a $ indexed from $ 1 $ to $ n $ . Define $ f(a) $ as the number of indices where $ a_i = i $ .\n\nYou can pick an element from the current sequence and remove it, then concatenate the remaining elements together. For example, if you remove the $ 3 $ -rd element from the sequence $ [4, 2, 3, 1] $ , the resulting sequence will be $ [4, 2, 1] $ .\n\nYou want to remove some elements from $ a $ in order to maximize $ f(a) $ , using zero or more operations. Find the largest possible $ f(a) $ .",
+    "inputFormat": "The first line contains one integer $ n $ ( $ 1 \\leq n \\leq 2 \\cdot 10^5 $ ) \u2014 the initial length of the sequence.\n\nThe second line contains $ n $ integers $ a_1, a_2, \\ldots, a_n $ ( $ 1 \\leq a_i \\leq 2 \\cdot 10^5 $ ) \u2014 the initial sequence $ a $ .",
+    "outputFormat": "Output an integer denoting the largest $ f(a) $ that can be obtained by doing zero or more operations.",
+    "samples": [
+        [
+            "7\n2 1 4 2 5 3 7",
+            "3"
+        ],
+        [
+            "4\n4 2 3 1",
+            "2"
+        ]
+    ],
+    "hint": "In the first example, $ f(A) = 3 $ by doing the following operations.\n\n $ [2,1,\\textbf{4},2,5,3,7] \\rightarrow [\\textbf{2},1,2,5,3,7] \\rightarrow [1,2,5,3,\\textbf{7}] \\rightarrow [1,2,\\textbf{5},3] \\rightarrow [1,2,3] $\n\nIn the second example, $ f(A) = 2 $ and no additional operation is needed.",
+    "translation": "\u8bbe $a$ \u662f\u4e00\u4e2a\u5e8f\u5217\uff0c\u5b9a\u4e49 $f_a$ \u8868\u793a\u6ee1\u8db3 $a_i=i$ \u7684\u4f4d\u7f6e $i$ \u7684\u6570\u76ee\u3002\n\n\u7ed9\u4f60\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u5e8f\u5217 $a$\uff0c\u53ef\u4ee5\u5220\u9664\u82e5\u5e72\u4e2a\u6570\u5b57\uff0c\u6700\u5927\u5316 $f_a$ \u3002\n\n$1\\le n,a_i\\le 2\\times 10^5$\u3002\n"
+}

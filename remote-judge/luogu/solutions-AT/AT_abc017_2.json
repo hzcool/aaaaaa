@@ -1,0 +1,90 @@
+[
+    {
+        "content": "\u8fd9\u9053\u9898\u53ef\u4ee5\u7528\u6a21\u62df\u7684\u65b9\u6cd5\u6765\u89e3\u51b3\u3002\n\nchoku\u8bed\u6709\u4e94\u79cd\u5224\u65ad\u60c5\u51b5\uff1a\n\n1. \u7a7a\u4e32\n1. choku\u8bed+ch\n1. choku\u8bed+o\n1. choku\u8bed+k\n1. choku\u8bed+u\n\n\uff08\u9898\u610f\u6211\u7406\u89e3\u4e86\u597d\u4e45\uff0c\u6240\u4ee5\u6211\u7528\u4eba\u8bdd\u518d\u8bf4\u4e86\u4e00\u904d= =\uff09\n\n\u4e8e\u662f\u4ee3\u7801\u5224\u65ad\u5c31\u5e94\u8be5\u8fd9\u6837\u5199\uff1a\n\n```\ns[i]=='c'&&st[i+1]=='h'\ns[i]=='o'\ns[i]=='k'\ns[i]=='u'\n```\n\n\u4ee3\u7801\u5c31\u51fa\u6765\u4e86:\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main()\n{\n    string s;\n    cin>>s;\n    if(s=='')//\u7279\u5224\n    { \n        cout<<\"YES\"<<endl;\n        return 0;\n    }\n    for(int i=0;i<s.size();i++)//s.size()\uff0cs\uff08\u5b57\u7b26\u4e32\uff09\u7684\u957f\u5ea6\n    {\n        if(s[i]=='c'&&s[i+1]=='h') i++;//\u8fd9\u91cc\u8981\u6ce8\u610f++ \n        else if(s[i]=='o') continue;//\u9010\u4e2a\u5224\u65ad\uff0c\u5bf9\u4e86\u5c31\u7ee7\u7eed\n        else if(s[i]=='k') continue;\n        else if(s[i]=='u') continue;\n        else\n        {\n            cout<<\"NO\"<<endl;//endl \n            return 0;//\u5982\u679c\u90fd\u6ca1\u6709\uff0c\u76f4\u63a5\u8f93\u51faNO\n        }\n    }\n    cout<<\"YES\"<<endl;//endl \n    return 0;\n}\n\n```\n\n\u7ba1\u7406\u5458\u6c42\u8fc7awa\n\n",
+        "postTime": 1588655602,
+        "uid": 205199,
+        "name": "fx_05",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 AT1171 \u3010choku\u8a9e\u3011"
+    },
+    {
+        "content": "## \u8fd9\u9053\u9898\u53ea\u8981\u7ec6\u5fc3\uff0c\u6162\u6162\u6a21\u62df\uff0c\u5176\u5b9e\u662f\u5f88\u7b80\u5355\u7684\n\n\uff08~~\u600e\u4e48\u4f1a\u662f\u4e00\u9053\u84dd\u9898~~\uff09\n\n#### \u8bdd\u4e0d\u591a\u8bf4\u4e0a\u4ee3\u7801\uff08\u9644\u6ce8\u91ca\uff09\n\n```cpp\n#include <iostream>\n#include <string>\nusing namespace std;\nint main(){\n\tstring s;\n\tcin>>s;\n\tint l=s.length();\n\tif(l==0){//\u7279\u5224\uff0c\u5982\u679c\u662f\u7a7a\u4e32 \n\t\tcout<<\"YES\"<<endl;\n\t\treturn 0;\n\t}\n\tfor(int i=0;i<l;i++){\n\t\tif(s[i]=='c'&&s[i+1]=='h') i++;//\u8fd9\u91cc\u8981\u6ce8\u610f++ \n\t\telse if(s[i]=='o') continue;//\u8981\u52a0else \n\t\telse if(s[i]=='k') continue;\n\t\telse if(s[i]=='u') continue;\n\t\telse{\n\t\t\tcout<<\"NO\"<<endl;\n\t\t\treturn 0;\n\t\t}\n\t}\n\tcout<<\"YES\"<<endl;//\u5c9b\u56fd\u7684\u9898\u8981\u52a0endl \n\treturn 0;\n}\n```\n",
+        "postTime": 1553402351,
+        "uid": 130423,
+        "name": "\u7edd\u827a",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT1171 \u3010choku\u8a9e\u3011"
+    },
+    {
+        "content": "\u8fd9\u4e00\u9053\u9898\u7684\u6838\u5fc3\u662f\u9664\u4e86$ch,o,k,u$\u4e4b\u5916\u6709\u6ca1\u6709\u5176\u4ed6\u5b57\u6bcd\n\n\u4f46\u662f\u6211\u770b\u5230\u7528string\u7684\u9898\u89e3\u6709\u4e00\u4e9b\u95ee\u9898\uff0c\u5c31\u662f\u5982\u679c\u6700\u540e\u4e00\u4e2a\u662fc\uff0c\u8fd9\u6837string\u5c31\u4f1a\u7206\u6389\uff0c\u6240\u4ee5\u6211\u4eec\u8981\u52a0\u4e00\u4e2a\u7279\u5224\n\n\u8fd9\u9053\u9898\u8fd8\u662f\u5f88\u7b80\u5355\u7684\uff0c\u8d34\u4e0a\u4ee3\u7801\n\n```\n#include<iostream>\n#include<cstdio>\n#include<cmath>\n#include<algorithm>\n#include<string>\nusing namespace std;\nstring a; \nint main()\n{\n\tcin>>a;\n\tfor(int i=0;i<a.length();i++){\n\t\tif(a[i]=='c'){\n\t\t\tif(i==a.length()-1||a[i+1]!='h'){//\u7279\u5224\n\t\t\t\tcout<<\"NO\"<<endl;//\u8981\u6362\u884c\n\t\t\t\treturn 0;\n\t\t\t}\n\t\t\ti++;\n\t\t\tcontinue;\n\t\t}\n\t\tif(a[i]=='o')//\u51e0\u4e2aif\u5c31\u53ef\u4ee5\u89e3\u51b3\n\t\t\tcontinue;\n\t\tif(a[i]=='k')\n\t\t\tcontinue;\n\t\tif(a[i]=='u')\n\t\t\tcontinue;\n\t\tcout<<\"NO\"<<endl;//\u4e0d\u6210\u7acb\u8f93\u51fa\n\t\treturn 0;\n\t}\n\tcout<<\"YES\"<<endl;//\u6362\u884c\n\treturn 0;\n}\n\n\n```\n\u8c22\u8c22\u5927\u5bb6",
+        "postTime": 1586439154,
+        "uid": 253738,
+        "name": "\u542c\u53d6MLE\u58f0\u4e00\u7247",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 AT1171 \u3010choku\u8a9e\u3011"
+    },
+    {
+        "content": "\u901b\u4e86\u4e00\u5708\u53d1\u73b0 \u2026\u2026\u5c45\u7136\u6ca1\u4eba\u7528\u9012\u5f52\uff01\uff01\uff01\n\n\u55ef\u55ef\u2026\u2026\u53ea\u8981\u5224\u65ad\u5b57\u7b26\u4e32\u672b\u5c3e\u662f\u4e0d\u662f\"ch\"\u3001\"o\"\u3001\"k\"\u3001\"u\"\u5c31\u884c\u4e86\uff0c\u5982\u679c\u662f\u5c31\u5c06\u5176\u53bb\u6389\u7ee7\u7eed\u9012\u5f52\uff1b\u5426\u5219\uff0c\u76f4\u63a5\u8f93\u51fa\u201cNO\u201d\u3002\n\n\u53e6\u5916\uff0c\u518d\u4ecb\u7ecd\u4e00\u4e2aputs\u51fd\u6570\u3002\u4ed6\u53ef\u4ee5\u8f93\u51fa\u4e00\u4e2a\u5b57\u7b26\u4e32\uff0c\u5e76\u4e14\u81ea\uff01\u52a8\uff01\u6362\uff01\u884c\uff01\u975e\u5e38\u9002\u5408\u505aAT\u9898\u7684\uff01\n\n\u597d\u5566\uff0c\u76f4\u63a5\u4e0a\u4ee3\u7801\u5427~\n```\n#include<bits/stdc++.h>\nusing namespace std;\nstring s;\nbool check(string s){\n\tint len=s.size();\n\tif(s==\"\")return 1;//\u662f\u7a7a\u4e32\u5c31\u6309\u7167\u9898\u610f\u8fd4\u56de\u771f\n\tif(s[len-1]=='o'||s[len-1]=='k'||s[len-1]=='u')\n\t    return check(s.substr(0,len-1));//\u5982\u679c\u672b\u5c3e\u662f\u9898\u76ee\u7684\u8981\u6c42\u5c31\u7ee7\u7eed\u9012\u5f52\n    if(len==1)return 0;\n    //\u6ce8\u610f\u8fd9\u91cc\u5fc5\u987b\u52a0\u4e00\u4e2a\u7279\u5224\uff0c\u5426\u5219\u4e0b\u4e00\u884clen-2\u5728len=1\u65f6\u5c31\u4f1a\u53d8\u6210-1\uff0c\u800c\u8d1f\u6570\u4e0d\u80fd\u505a\u4e0b\u6807\uff01\n\tif(s[len-2]=='c'&&s[len-1]=='h')\n\t    return check(s.substr(0,len-2));//\u5982\u679c\u672b\u5c3e\u662f\u9898\u76ee\u7684\u8981\u6c42\u5c31\u7ee7\u7eed\u9012\u5f52\n\treturn 0;//\u5426\u5219\u8fd4\u56de\u5047\n}\nint main(){\n\tcin>>s;\n\tif(check(s))\n\t    puts(\"YES\");//\u8f93\u51faYES\u5e76\u81ea\u52a8\u6362\u884c\n\telse\n\t    puts(\"NO\");//\u540c\u4e0a\n\treturn 0;//Happy ending~\n}\n```\n",
+        "postTime": 1581227510,
+        "uid": 305027,
+        "name": "Tarantula",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 AT1171 \u3010choku\u8a9e\u3011"
+    },
+    {
+        "content": "### ~~\u8fd9\u9898\u975e\u5e38\u7684\u6c34~~\n\ntui~\uff0c\u6211\u4eec\u53ea\u9700\u8981\u5224\u65ad\u56db\u79cd\u60c5\u51b5\n\n```cpp\nst[i]=='c'&&st[i+1]=='h'\nst[i]=='o'\nst[i]=='k'\nst[i]=='u'\n//\u76f4\u63a5\u590d\u5236\u7a0b\u5e8f\u7684\uff0c\u61d2\u5f97\u5199\n```\n\u7136\u540e\u5982\u679c\u662f\u8fd9\u79cd\u60c5\u51b5\uff0c\u5c31\u4e0b\u4e00\u4e2a\u5faa\u73af\n\n\u5982\u679c\u90fd\u4e0d\u662f\uff0c\u90a3\u5c31\u8f93\u51fa'NO'\n\n\u5982\u679c\u5230\u4e86\u6700\u540e\uff0c\u90a3\u5c31\u8f93\u51fa'YES'\n\n\u5e9f\u8bdd\u4e0d\u591a\u8bf4\uff0c\u4e0a\u4ee3\u7801\uff1a\n\n```cpp\n#include<iostream>\n#include<string>\nusing namespace std;\nstring st;\nint main()\n{\n  cin>>st;  //\u8f93\u5165\n  for(int i=0;i<=st.size()-1;i++)  //\u5faa\u73af\u5230\u957f\u5ea6\n  {\n    if(st[i]=='c'&&st[i+1]=='h')  //\u7b2c\u4e00\u79cd\u60c5\u51b5\n\t  i++;  //i\u5c31++\n    else \n\t  if(st[i]=='o')  //\u7b2c\u4e8c\u79cd\u60c5\u51b5\n\t    continue;  //\u4e0b\u4e00\u6b21\n      else \n\t    if(st[i]=='k')  //\u7b2c\u4e09\u79cd\u60c5\u51b5\n\t\t  continue;  //\u4e0b\u4e00\u6b21\n        else \n\t\t  if(st[i]=='u')  //\u7b2c\u56db\u79cd\u60c5\u51b5\n\t\t    continue;  //\u4e0b\u4e00\u6b21\n          else\n\t\t  {\n            cout<<\"NO\"<<\"\\n\";  //\u8f93\u51fa'NO'\n            return 0;\n          }\n  }\n  cout<<\"YES\"<<\"\\n\";  //\u5230\u6700\u540e\u5c31\u8f93\u51fa'YES'\n  return 0;\n}\n```\n",
+        "postTime": 1571287236,
+        "uid": 90316,
+        "name": "\u6797\u5bb6\u4e09\u5c11",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT1171 \u3010choku\u8a9e\u3011"
+    },
+    {
+        "content": "\u53c8\u662f\u611a\u4eba\u8282\u9898\u76ee\n## \u601d\u8def\uff1a\n\u6309\u7167\u9898\u76ee\u6a21\u62df\u5373\u53ef\n\n## \u9898\u76ee\n\u5224\u65ad\u662f\u5426\u4e3achoku\u8bed\n\u5224\u65ad\u6807\u51c6\uff1a\n\nS\u4e3a\u7a7a\u5b57\u7b26\u4e32\u3002\n\nS\u662f\u5c5e\u4e8echoku\u8bed\u7684\u5b57\u7b26\u4e32T\u7684\u672b\u5c3e\u52a0\u4e0a'ch'\u6784\u6210\u7684\u5b57\u7b26\u4e32\u3002\n\nS\u662f\u5c5e\u4e8echoku\u8bed\u7684\u5b57\u7b26\u4e32T\u7684\u672b\u5c3e\u52a0\u4e0a'o'\u6784\u6210\u7684\u5b57\u7b26\u4e32\u3002\n\nS\u662f\u5c5e\u4e8echoku\u8bed\u7684\u5b57\u7b26\u4e32T\u7684\u672b\u5c3e\u52a0\u4e0a'k'\u6784\u6210\u7684\u5b57\u7b26\u4e32\u3002\n\nS\u662f\u5c5e\u4e8echoku\u8bed\u7684\u5b57\u7b26\u4e32T\u7684\u672b\u5c3e\u52a0\u4e0a'u'\u6784\u6210\u7684\u5b57\u7b26\u4e32\u3002\n\n## \u7a0b\u5e8f\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nstring s;\nint main()\n{\n\tcin>>s; //\u8f93\u5165\n\tif(s==\"\") //\u5224\u65ad\u662f\u5426\u4e3a\u7a7a\u4e32\n\t{\n\t\tcout<<\"YES\"<<endl; //\u8f93\u51fa\n\t\treturn 0;\n\t}\n\tfor(int i=0;i<s.size();i++)\n\tif(s[i]=='c' && s[i+1]=='h' || s[i]=='h' && s[i-1]=='c' || s[i]=='o' || s[i]=='k' || s[i]=='u') continue; //\u5224\u65ad\u662f\u5426\u7531\u4e0a\u8ff0\u6761\u4ef6\n\telse \n\t{\n\t\tcout<<\"NO\"<<endl; //\u8f93\u51fa\u540e\u76f4\u63a5\u7ed3\u675f\n\t\treturn 0;\n\t}\n\tcout<<\"YES\"<<endl; //\u8f93\u51fa\n\treturn 0;\n}\n```\n# \u6240\u6709\u8f93\u51fa\u8bb0\u5f97\u6362\u884c\uff08AT\u6807\u51c6\uff09\n",
+        "postTime": 1558326611,
+        "uid": 150354,
+        "name": "\u767e\u91cc\u4ea6\u5b88\u7ea6",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT1171 \u3010choku\u8a9e\u3011"
+    },
+    {
+        "content": "# \u53cd\u8bc1\u601d\u60f3\uff01\uff01\uff01\n\u8fd9\u9053\u9898\u6211\u7528\u4e86\u4e00\u4e2a\u53cd\u8bc1\u7684\u601d\u60f3\uff1a**\u5982\u679c\u4e00\u4e2a\u5b57\u7b26\u90fd\u4e0d\u6ee1\u8db3\u4ee5\u4e0a\u6761\u4ef6\uff0c\u76f4\u63a5\u8f93\u51faNO\uff0c\u53cd\u4e4b\u5219\u4fdd\u5b58\u8bb0\u5f55**\uff08\u5176\u5b9e\u5c31\u662f\u56e0\u4e3a\u6709ch\u7684\u5b58\u5728\u624d\u9700\u8981\u8bb0\u5f55\uff09\n\n\u90a3\u4e48\u5949\u4e0a\u4ee3\u7801\uff1a\n```cpp\n#include <iostream>\n#include <string>\nusing namespace std;\nint a[100001]; //\u7528\u6570\u7ec4\u4fdd\u5b58\nint main(){\n\tint i,j,k,n;\n\tstring st;\n\tcin>>st;\n\tfor(i=0;i<st.length();i++){\n\t\tif(a[i]==0&&(st[i]!='c'||st[i+1]!='h')&&st[i]!='o'&&st[i]!='k'&&st[i]!='u'){\n\t\t\tcout<<\"NO\"<<endl;//\u4ee5\u4e0a\u662f\u53cd\u8bc1\u5224\u65ad\n\t\t\treturn 0;\n\t\t}\n\t\ta[i]++;//\u5982\u679c\u6267\u884c\u5230\u8fd9\u4e00\u6b65\uff0c\u5219\u9ed8\u8ba4\u662f\u7b26\u5408\u8981\u6c42\u7684\n\t\tif(st[i]=='c')a[i+1]++;//ch\u8981\u7279\u5224\n\t}\n\tcout<<\"YES\"<<endl;\n\treturn 0;\n}\n```\n\n",
+        "postTime": 1553686992,
+        "uid": 133986,
+        "name": "judgejudge",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 AT1171 \u3010choku\u8a9e\u3011"
+    },
+    {
+        "content": "\u8fd9\u9898\u8bf4\u4e86\u52a0\u5b57\u7b26\u662f\u4ece\u5b57\u7b26\u4e32\u7684\u672b\u5c3e\uff0c\u6240\u4ee5\u6211\u4eec\u4eces\u7684\u672b\u5c3e\u5f00\u59cb\u5224\u65ad\u5c31\u597d\u4e86\n\n\u5224\u65ad\u8bed\u53e5\uff1a\n```\ns[len-1]=='o'\ns[len-1]=='u'\ns[len-1]=='k'\ns[len-1]=='h'&&s[len-2]=='c\n```\n\u63d0\u9192\u4e00\u4e0b\uff1a\n\n\uff08X\u7531\u534a\u89d2\u5c0f\u5199\u82f1\u6587\u5b57\u6bcd\u6784\u6210\uff09\n\n\u4e0d\u8981\u53bb\u7ea0\u7ed3\u8fd9\u4e00\u53e5\u8bdd\n\n\u534a\u89d2\u5c0f\u5199\u5c31\u662f\u666e\u901a\u7684\u5c0f\u5199\n\n\u849f\u84bb\u9898\u89e3\u5199\u7684\u5c11\uff0c\u8bf7\u591a\u591a\u6307\u6559\n\n[AC\u8bb0\u5f55](https://www.luogu.org/record/27117932)\n\ncode:\n```\n#include<\u6b64\u9898\u592a\u6c34,\u4e0d\u63a5\u53d7\u53cd\u9a73>\n#include<bits/stdc++.h>\nusing namespace std;\nstring s;\nlong long len,f;\nint main()\n{\n    cin>>s; \n    //\u4e0a\u9762\u4e0d\u8bf4\u4e86\n    len=s.size();//\u53d6\u5b57\u7b26\u4e32\u957f\u5ea6\n    if(s==\"\") {cout<<\"YES\\n\";return 0;}\n    //\u5224\u65ad\u7a7a\u4e32(\u6587\u5b57\u5217 S \u304c\u7a7a\u6587\u5b57\u5217\u3067\u3042\u308b\u3068\u304d)\n    while(len!=0){\n\t\t f=0;//\u6bcf\u6b21\u7f6e\u96f6\u4e00\u6b21\n    \tif(s[len-1]=='o'||s[len-1]=='u'||s[len-1]=='k'||s[len-1]=='h'&&s[len-2]=='c') len--,f=1;//\u628a\u5176\u4ed6\u6240\u6709\u7684\u6761\u4ef6\u90fd\u5224\u65ad\u4e00\u904d\uff0clen-1\n    \tif(s[len-1]=='c'&&s[len]=='h') len--;//\u5982\u679c\u662f\u4e24\u4e2a\u5b57\u7b26\u7684\u6761\u4ef6len\u518d-1\n    \tif(f==0) {cout<<\"NO\\n\";return 0;}//\u4e0d\u662fchoku\u8bed\u7684\u8bdd\u5c31\u8f93\u51faNO\n    }\n    cout<<\"YES\\n\";\u5426\u5219\u8f93\u51faYES\n    return 0;\n}\n```\nAT\u4e0d\u6362\u884c\uff0cWA\u4e24\u884c\u6cea\n\n[\u545c\u545c](https://www.luogu.org/record/27117828)",
+        "postTime": 1573708210,
+        "uid": 142326,
+        "name": "cyy\u7b49\u4e8e288___why",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT1171 \u3010choku\u8a9e\u3011"
+    },
+    {
+        "content": "**\u524d\u8a00\uff1a\u4eca\u5929\u53c8\u627e\u5230\u4e00\u9053AT\u7684\u9898\uff0c\u4f46\u8fd9\u9053\u9898\u5f88\u96be\uff0c\u6211\u53ea\u53d1\u4e86\u4e2a\u90e8\u5206\u5206\u7684\u9898\u89e3**\n\n**\u601d\u8def\uff1a\u7528\u5b57\u7b26\u4e32\u622a\u53d6\u51fd\u6570\u622a\u53d6\"choku\"\uff0c\u82e5\u622a\u53d6\u5230\u4e86\"choku\"\uff0c\u5f00\u5173\u53d8\u91cf\u53d8\u4e3a1**\n\n```\n#include<iostream>\n#include<cstdio>\n#include<algorithm>\n#include<string>\n#include<cstring>//\u4e07\u80fd\u6587\u4ef6\u5934\u592a\u96be\u4e86::>_<::\uff08\u6211\u592a\u96be\u4e86\uff09\nusing namespace std;\nstring st;//\u5b9a\u4e49\u5b57\u7b26\u4e32\nint l,zt;//l\u8bb0\u5f55\u5b57\u7b26\u4e32\u957f\u5ea6\uff0czt\u662f\u5f00\u5173\u53d8\u91cf\nint main()\n{\n\tcin>>st;//\u8f93\u5165\u5b57\u7b26\u4e32\n\tl=st.size();//\u53d6\u5b57\u7b26\u4e32\u957f\u5ea6\n\tfor(int i=0;i<l-5+1;i++)//\u5faa\u73af\uff08\u5b57\u7b26\u4e32\u5faa\u73af\u4ece0\u5f00\u59cb\uff0c\u5faa\u73af\u5230\u5b57\u7b26\u4e32\u957f\u5ea6-\"choku\"\u957f\u5ea6\uff09\n\t{\n\t\tif(st.substr(i,i+5-1)==\"choku\") zt=1;//\u5f00\u59cb\u622a\u53d6\uff0c\u8be6\u60c5\u89c1\u4e0a\n\t}\n\tif(zt==1) cout<<\"YES\"<<endl;//\u5982\u679c\u5f00\u5173\u53d8\u91cf\u503c\u4e3a1\uff0c\u8f93\u51faYES\uff08\u8bb0\u5f97\u6362\u884c\uff09\n\telse cout<<\"NO\"<<endl;//\u5426\u5219\u8f93\u51faNO\uff08\u8bb0\u5f97\u6362\u884c\uff09\n\t\n\treturn 0;//\u7ed3\u675f\u7a0b\u5e8f\n}\n```",
+        "postTime": 1571288948,
+        "uid": 122473,
+        "name": "\u52d8\u63a2\u5458\u00b7\u5f15\u9b42\u4eba",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT1171 \u3010choku\u8a9e\u3011"
+    },
+    {
+        "content": "# **\u9012\u63a8\uff01\uff01\uff01**\n\u8fd9\u9898\u5176\u5b9e\u8bf4\u767d\u4e86\u5c31\u662f\u4ece\u5b57\u7b26\u4e32\u672b\u5c3e\u6162\u6162\u9012\u63a8\uff0c\u53d1\u73b0\u4e0d\u884c\u5c31\u8fd4\u56de\u4e3afalse.\u6ce8\u89e3\u5199\u5728\u7a0b\u5e8f\u91cc\u4e86\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nstring s;\nbool dfs(string s) {//\u9012\u63a8\u67e5\u627e \n\tif(!s.size())//\u7a7a\u4e32\uff0c\u8fd4\u56de\u771f \n\t\treturn true;\n\tint k = s.size() - 1;\n\tif(k > 0 && s[k - 1] == 'c' && s[k] == 'h')\n\t\treturn dfs(s.substr(0,k - 1));//substr\u8fd9\u4e2a\u51fd\u6570\u610f\u601d\u662f\u628a\u5b57\u7b26\u4e32s\u4e2d\u7684\u7b2c[pos1,pos2)\uff08\u5de6\u95ed\u53f3\u5f00\uff09\u4f4d\u622a\u53d6\u4e0b\u6765\uff0c\u8fd9\u91cc\u76f8\u5f53\u4e8e\u53bb\u6389\u6700\u540e\u4e24\u4f4d \n\tif(s[k] == 'o' || s[k] == 'k' || s[k] == 'u')\n\t\treturn dfs(s.substr(0,k));\n\treturn false;//\u90fd\u4e0d\u7b26\u5408\u6761\u4ef6\uff0c\u8fd4\u56de\u5047 \n}\nint main() {\n\tios::sync_with_stdio(false);\n\tcin >> s;\n\tif(dfs(s))//\u5982\u679c\u662fchoku\u8bed\uff0c\u8f93\u51faYES\uff0c\u4e0d\u662f\uff0c\u8f93\u51faNO\uff0c\u522b\u5fd8\u4e86\u8981\u6362\u884c \n\t\tcout << \"YES\\n\";\n\telse\n\t\tcout << \"NO\\n\";\n\treturn 0;\n}\n```\n",
+        "postTime": 1569732701,
+        "uid": 117841,
+        "name": "WDySrDbMoAuMc",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 AT1171 \u3010choku\u8a9e\u3011"
+    },
+    {
+        "content": "\u66b4\u529b\u5224\u65ad\u5373\u53ef\n```\n#include<bits/stdc++.h>\nusing namespace std;\nstring n;\nint main()\n{\n\tcin>>n;\n\tfor(int s=0;s<n.size();s++)\n\t{\n\t\tif(n[s]!='o')//\u4e0d\u662fo\n\t\t{\n\t\t\tif(n[s]!='k')//\u53c8\u4e0d\u662fk\n\t\t\t{\n\t\t\t\tif(n[s]!='u')//\u8fd8\u4e0d\u662fu\n\t\t\t\t{\n\t\t\t\t\tif(n[s]=='c'&&n[s+1]=='h')s++;//\u6700\u540e\u8fd8\u4e0d\u662fch\n\t\t\t\t\telse\n\t\t\t\t\t{\n\t\t\t\t\t\tcout<<\"NO\"<<endl;//\u90a3\u4e48\u8fd9\u5c31\u4e0d\u662fchoku\u8a9e\n\t\t\t\t\t\treturn 0;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\tcout<<\"YES\"<<endl;//\u6392\u9664\u5b8c\u7562\uff08\u5b8c\u6bd5\uff09\n}\n```",
+        "postTime": 1535896372,
+        "uid": 58543,
+        "name": "RioBlu",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 AT1171 \u3010choku\u8a9e\u3011"
+    }
+]

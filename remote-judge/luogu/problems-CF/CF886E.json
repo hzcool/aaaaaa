@@ -1,0 +1,21 @@
+{
+    "description": "One day Petya was solving a very interesting problem. But although he used many optimization techniques, his solution still got Time limit exceeded verdict. Petya conducted a thorough analysis of his program and found out that his function for finding maximum element in an array of $ n $ positive integers was too slow. Desperate, Petya decided to use a somewhat unexpected optimization using parameter $ k $ , so now his function contains the following code:\n\n`<br></br>int fast_max(int n, int a[]) { <br></br>    int ans = 0;<br></br>    int offset = 0;<br></br>    for (int i = 0; i < n; ++i)<br></br>        if (ans < a[i]) {<br></br>            ans = a[i];<br></br>            offset = 0;<br></br>        } else {<br></br>            offset = offset + 1;<br></br>            if (offset == k)<br></br>                return ans;<br></br>        }<br></br>    return ans;<br></br>}<br></br>`That way the function iteratively checks array elements, storing the intermediate maximum, and if after $ k $ consecutive iterations that maximum has not changed, it is returned as the answer.\n\nNow Petya is interested in fault rate of his function. He asked you to find the number of permutations of integers from $ 1 $ to $ n $ such that the return value of his function on those permutations is not equal to $ n $ . Since this number could be very big, output the answer modulo $ 10^{9}+7 $ .",
+    "inputFormat": "The only line contains two integers $ n $ and $ k $ ( $ 1<=n,k<=10^{6} $ ), separated by a space \u2014 the length of the permutations and the parameter $ k $ .",
+    "outputFormat": "Output the answer to the problem modulo $ 10^{9}+7 $ .",
+    "samples": [
+        [
+            "5 2\n",
+            "22\n"
+        ],
+        [
+            "5 3\n",
+            "6\n"
+        ],
+        [
+            "6 3\n",
+            "84\n"
+        ]
+    ],
+    "hint": "Permutations from second example:\n\n $ [4,1,2,3,5] $ , $ [4,1,3,2,5] $ , $ [4,2,1,3,5] $ , $ [4,2,3,1,5] $ , $ [4,3,1,2,5] $ , $ [4,3,2,1,5] $ .",
+    "translation": "## \u9898\u76ee\u63cf\u8ff0\n\n\u4ece\u524d\u6709\u4e00\u4e2a\u53eb$Petya$\u7684\u795e\u4ed9\uff0c\u5acc\u81ea\u5df1\u7684\u5e8f\u5217\u6c42max\u592a\u6162\u4e86\uff0c\u4e8e\u662f\u5c06\u5e8f\u5217\u6c42max\u7684\u4ee3\u7801\u6539\u6210\u4e86\u4e0b\u9762\u8fd9\u4e2a\u6837\u5b50\uff1a\n\n```cpp\nint fast_max(int n,int a[])\n{\n\tint ans=0;\n\tint offset=0;\n\tfor(int i=0;i<n;++i)\n\t{\n\t\tif(ans<a[i])\n\t\t{\n\t\t\tans=a[i];\n\t\t\toffset=0;\n\t\t}\n\t\telse\n\t\t{\n\t\t\toffset++;\n\t\t\tif(offset==k)return ans;\n\t\t}\n\t}\n\treturn ans;\n}\n//\u5927\u62ec\u53f7\u6362\u884c\uff0c\u65e0\u591a\u4f59\u7a7a\u683c\uff0cby wucstdio\n```\n\n\u8fd9\u4e2a\u51fd\u6570\u7684\u539f\u7406\u662f\uff0c\u5982\u679c\u78b0\u5230\u4e00\u4e2a\u6570\u540e\u9762\u8fde\u7eed\u7684$k$\u4e2a\u6570\u90fd\u6bd4\u5b83\u5c0f\uff0c\u90a3\u4e48\u5c31\u628a\u8fd9\u4e2a\u6570\u5f53\u505a\u5e8f\u5217\u7684\u6700\u5927\u503c\u3002\n\n\u7136\u800c\u5f88\u663e\u7136\uff0c\u8fd9\u4efd\u4ee3\u7801\u662f\u9519\u7684\u3002\u8fd9\u4f4d$Petya$\u795e\u4ed9\u5bf9\u5b83\u51fa\u9519\u7684\u60c5\u51b5\u5f88\u611f\u5174\u8da3\u3002\u4e8e\u662f\u4ed6\u627e\u5230\u4e86\u540c\u4e3a\u795e\u4ed9\u7684\u4f60\uff0c\u8ba9\u4f60\u6c42\u6709\u591a\u5c11\u957f\u5ea6\u4e3a$n$\u7684\u6392\u5217\uff0c\u8fd9\u4e2a\u51fd\u6570\u4f1a\u8fd4\u56de\u9519\u8bef\u7684\u7ed3\u679c\uff0c\u5373\u8fd4\u56de\u503c\u4e0d\u662f$n$\u3002\u7531\u4e8e\u7b54\u6848\u8fc7\u5927\uff0c\u4f60\u53ea\u9700\u8981\u8f93\u51fa\u8fd9\u4e2a\u6570\u5bf9$10^9+7$\u53d6\u6a21\u7684\u7ed3\u679c\u3002\n\n## \u8f93\u5165\u8f93\u51fa\u683c\u5f0f\n\n### \u8f93\u5165\u683c\u5f0f\n\n\u4e00\u884c\u4e24\u4e2a\u6b63\u6574\u6570$n$\u548c$k$\uff0c\u8868\u793a\u6392\u5217\u7684\u957f\u5ea6\u548c\u4e0a\u9762\u90a3\u4efd\u4ee3\u7801\u91cc\u7684$k$\u3002\n\n### \u8f93\u51fa\u683c\u5f0f\n\n\u4e00\u884c\u4e00\u4e2a\u6574\u6570\uff0c\u8868\u793a\u7b54\u6848\u5bf9$10^9+7$\u53d6\u6a21\u540e\u7684\u503c\u3002"
+}

@@ -1,0 +1,13 @@
+{
+    "description": "There are $ n $ pieces of tangerine peel, the $ i $ -th of them has size $ a_i $ . In one step it is possible to divide one piece of size $ x $ into two pieces of positive integer sizes $ y $ and $ z $ so that $ y + z = x $ .\n\nYou want that for each pair of pieces, their sizes differ strictly less than twice. In other words, there should not be two pieces of size $ x $ and $ y $ , such that $ 2x \\le y $ . What is the minimum possible number of steps needed to satisfy the condition?",
+    "inputFormat": "The first line of the input contains a single integer $ t $ ( $ 1 \\le t \\le 100 $ ) \u2014 the number of test cases. The description of test cases follows.\n\nThe first line of each test case contains the integer $ n $ ( $ 1 \\le n \\le 100 $ ).\n\nThen one line follows, containing $ n $ integers $ a_1 \\le a_2 \\le \\ldots \\le a_n $ ( $ 1 \\le a_i \\le 10^7 $ ).",
+    "outputFormat": "For each test case, output a single line containing the minimum number of steps.",
+    "samples": [
+        [
+            "3\n5\n1 2 3 4 5\n1\n1033\n5\n600 900 1300 2000 2550",
+            "10\n0\n4"
+        ]
+    ],
+    "hint": "In the first test case, we initially have a piece of size $ 1 $ , so all final pieces must have size $ 1 $ . The total number of steps is: $ 0 + 1 + 2 + 3 + 4 = 10 $ .\n\nIn the second test case, we have just one piece, so we don't need to do anything, and the answer is $ 0 $ steps.\n\nIn the third test case, one of the possible cut options is: $ 600,\\ 900,\\ (600 | 700),\\ (1000 | 1000),\\ (1000 | 1000 | 550) $ . You can see this option in the picture below. The maximum piece has size $ 1000 $ , and it is less than $ 2 $ times bigger than the minimum piece of size $ 550 $ . $ 4 $ steps are done. We can show that it is the minimum possible number of steps.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1735B/28837ca57e9f20f873e71a5d21feab7da5248146.png)",
+    "translation": "\u6709 $n$ \u5757\u6a58\u5b50\u76ae\uff0c\u6bcf\u5757\u5927\u5c0f\u662f $a[i]$\u3002\u4f60\u53ef\u4ee5\u505a\u4e00\u6b21\u64cd\u4f5c\u5c06\u4e00\u5757\u6a58\u5b50\u76ae\u5206\u6210\u4efb\u610f\u5927\u5c0f\u7684\u4e24\u5757\uff0c\u6574\u4e2a\u8fc7\u7a0b\u6a58\u5b50\u76ae\u603b\u91cf\u662f\u4e0d\u53d8\u7684\u3002\u95ee\u8981\u4f7f\u4efb\u610f\u4e24\u5757\u6a58\u5b50\u76ae $x,y\\ (x\\le y)$ \u90fd\u6ee1\u8db3 $2x>y$ \u7684\u6700\u5c0f\u64cd\u4f5c\u6570\u3002"
+}

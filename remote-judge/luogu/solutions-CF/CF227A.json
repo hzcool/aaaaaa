@@ -1,0 +1,18 @@
+[
+    {
+        "content": "\u9898\u610f\uff1a  \n\u7ed9\u4f60 A,B,C \u7684\u5750\u6807\uff0c\u4f60\u8981\u4ece A \u5230 C \uff0c\u4f60\u73b0\u5728\u8d70\u5230\u4e86 B\uff0c\u95ee\u4f60\u5e94\u8be5\u5de6\u8f6c\u8fd8\u662f\u53f3\u8f6c\u6216\u8005\u4e0d\u8f6c\uff08\u4fdd\u8bc1 C \u5728\u4f60\u73b0\u5728\u7684\u8fd9\u4e09\u4e2a\u65b9\u5411\u4e4b\u4e00\u4e0a\uff09\u3002\n___\n\u56e0\u4e3a\u9898\u76ee\u4fdd\u8bc1\u7684\u6761\u4ef6\uff0c\u6240\u4ee5\u53ea\u7528\u5224\u6bcf\u6b21\u79fb\u52a8\u7684\u65b9\u5411\u7684\u7b26\u53f7\u5c31\u53ef\u4ee5\u4e86\uff0c\u4f46\u662f\u8981\u8bb0\u5f97\u5224\u5e73\u884c\u4e8e\u5750\u6807\u8f74\u7684\u60c5\u51b5\uff0c\u5177\u4f53\u662f\u4ec0\u4e48\u6837\uff0c\u753b\u4e00\u4e0b\u56fe\u5c31\u77e5\u9053\u4e86\u3002\uff08~~\u672c\u6765\u60f3\u6c42\u659c\u7387\u7136\u540e\u6bd4\u8f83\u7684\uff0c\u4f46\u662f\u540e\u6765\u53d1\u73b0\u4e0d\u7528\u6c42~~\uff09\n\n\u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\n#define int long long\nusing namespace std;\nint xa,xb,xc,ya,yb,yc;\nsigned main()\n{\n\tscanf(\"%lld%lld%lld%lld%lld%lld\",&xa,&ya,&xb,&yb,&xc,&yc);\n\tif(xa==xb)\n\t{\n\t\tif(xb==xc)puts(\"TOWARDS\");\n\t\telse if((yb-ya)*(xc-xb)<0)puts(\"LEFT\");\n\t\telse puts(\"RIGHT\");\n\t}\n\telse if(ya==yb)\n\t{\n\t\tif(yb==yc)puts(\"TOWARDS\");\n\t\telse if((xb-xa)*(yc-yb)>0)puts(\"LEFT\");\n\t\telse puts(\"RIGHT\");\n\t}\n\telse if((xc-xb)*(yb-ya)==(xb-xa)*(yc-yb))puts(\"TOWARDS\");\n\telse if(yb-ya>0)if(xc>xb)puts(\"RIGHT\");\n\telse puts(\"LEFT\");\n\telse if(xc>xb)puts(\"LEFT\");\n\telse puts(\"RIGHT\");\n\treturn 0;\n}\n```",
+        "postTime": 1582466469,
+        "uid": 44840,
+        "name": "123456zmy",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF227A \u3010Where do I Turn?\u3011"
+    },
+    {
+        "content": "### \u9898\u76ee\u5927\u610f\n\n\u7ed9\u5b9a $A,B,C$ \u4e09\u70b9\u7684\u5750\u6807\uff0c\u8be2\u95ee\u4ece $A$ \u8d70\u5230 $B$ \u540e\u8981\u53f3\u8f6c\u3001\u5de6\u8f6c\u8fd8\u662f\u76f4\u884c\u8d70\u5230 $C$\uff1f\uff08\u4fdd\u8bc1 $C$ \u5728\u8fd9\u4e09\u4e2a\u65b9\u5411\uff09\n\n\u5de6\u8f6c\u8f93\u51fa LEFT\uff0c\u53f3\u8f6c\u8f93\u51fa RIGHT\uff0c\u76f4\u884c\u8f93\u51fa TOWARDS\u3002\n\n### \u9898\u76ee\u5206\u6790\n\n\u4e0d\u60f3\u5206\u7c7b\u8ba8\u8bba\u554a\uff0c\u6240\u4ee5\u76f4\u63a5\u8ba1\u7b97\u51e0\u4f55\u5f80\u4e0a\u83bd\u4e86\u3002\n\n\u8ba1\u7b97\u51fa\u5411\u91cf $\\vec{AB}$ \u548c $\\vec{BC}$ \u548c\u5b83\u4eec\u7684\u53c9\u79ef\u3002\u7136\u540e\u6839\u636e\u53c9\u79ef\u7684\u5b9a\u4e49\uff08\u53f3\u624b\u6cd5\u5219\uff09\uff0c\u5982\u679c\u5927\u4e8e $0$\uff0c\u5c31\u662f\u9006\u65f6\u9488\uff0c\u4e5f\u5c31\u662f\u5de6\u8f6c\uff0c\u5c0f\u4e8e $0$ \u5c31\u662f\u53f3\u8f6c\uff0c\u7b49\u4e8e $0$ \u5c31\u662f\u76f4\u884c\u3002\n\n### \u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nstruct point{\n\tdouble x,y;\n}p[3];//\u7ed3\u6784\u4f53\u5b58\u50a8\u70b9\uff0c\u7531\u4e8e\u5077\u61d2\u6240\u4ee5\u4e5f\u4f5c\u4e3a\u4e86\u5411\u91cf\u5b58\u50a8 \npoint operator-(const point &xx,const point &yy){//\u8ba1\u7b97\u4e24\u70b9\u5411\u91cf\uff08\u5dee\uff09 \n\tpoint res;\n\tres.x=xx.x-yy.x;\n\tres.y=xx.y-yy.y;\n\treturn res;\n}\ndouble cross(point xx,point yy){//\u8ba1\u7b97\u53c9\u79ef \n\treturn xx.x*yy.y-xx.y*yy.x;\n}\nint main(){\n\tfor(int i=1;i<=3;i++) cin>>p[i].x>>p[i].y;\n\tif(cross(p[2]-p[1],p[3]-p[2])>0) printf(\"LEFT\");//\u5927\u4e8e0\u5c31\u662f\u5de6\u8f6c \n\telse if(cross(p[2]-p[1],p[3]-p[2])<0) printf(\"RIGHT\");//\u5c0f\u4e8e0\u53f3\u8f6c \n\telse printf(\"TOWARDS\");//\u5426\u5219\u76f4\u884c \n}\n```",
+        "postTime": 1641393863,
+        "uid": 224336,
+        "name": "AFewSuns",
+        "ccfLevel": 8,
+        "title": "\u3010\u9898\u89e3\u3011CF227A Where do I Turn?"
+    }
+]

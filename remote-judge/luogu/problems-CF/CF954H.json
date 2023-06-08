@@ -1,0 +1,17 @@
+{
+    "description": "You are given a rooted tree. Let's denote $ d(x) $ as depth of node $ x $ : depth of the root is $ 1 $ , depth of any other node $ x $ is $ d(y)+1 $ , where $ y $ is a parent of $ x $ .\n\nThe tree has the following property: every node $ x $ with $ d(x)=i $ has exactly $ a_{i} $ children. Maximum possible depth of a node is $ n $ , and $ a_{n}=0 $ .\n\nWe define $ f_{k} $ as the number of unordered pairs of vertices in the tree such that the number of edges on the simple path between them is equal to $ k $ .\n\nCalculate $ f_{k} $ modulo $ 10^{9}+7 $ for every $ 1<=k<=2n-2 $ .",
+    "inputFormat": "The first line of input contains an integer $ n $ ( $ 2<=n<=5000 $ ) \u2014 the maximum depth of a node.\n\nThe second line of input contains $ n-1 $ integers $ a_{1},a_{2},...,a_{n-1} $ ( $ 2<=a_{i}<=10^{9} $ ), where $ a_{i} $ is the number of children of every node $ x $ such that $ d(x)=i $ . Since $ a_{n}=0 $ , it is not given in the input.",
+    "outputFormat": "Print $ 2n-2 $ numbers. The $ k $ -th of these numbers must be equal to $ f_{k} $ modulo $ 10^{9}+7 $ .",
+    "samples": [
+        [
+            "4\n2 2 2\n",
+            "14 19 20 20 16 16 "
+        ],
+        [
+            "3\n2 3\n",
+            "8 13 6 9 "
+        ]
+    ],
+    "hint": "This the tree from the first sample:\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF954H/8a09c9c56935b94e970d5753d7484c0e7a756d44.png)",
+    "translation": "- \u6709\u4e00\u68f5\u6839\u4e3a  $1$\uff0c\u6700\u5927\u6df1\u5ea6\u4e3a  $n$ \u7684\u6811\uff0c\u6839\u7684\u6df1\u5ea6\u4e3a  $1$\u3002\n - \u6ee1\u8db3\u6811\u4e0a\u6bcf\u4e2a\u6df1\u5ea6\u4e3a  $i$ \u7684\u7ed3\u70b9\u6709  $a_i$ \u4e2a\u513f\u5b50\u3002\n - \u8bd5\u5bf9\u4e8e\u6bcf\u4e2a\u6b63\u6574\u6570  $k\\in[1,2n-2]$ \u6c42\u51fa\u6811\u4e0a\u6709\u591a\u5c11\u6761\u957f\u5ea6\u4e3a  $k$ \u7684\u8def\u5f84\u3002\n -  $2\\leq n\\leq 5000$\uff0c $2\\leq a_i\\leq 10^9$\u3002"
+}

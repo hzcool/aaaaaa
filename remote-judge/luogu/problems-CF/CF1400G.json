@@ -1,0 +1,17 @@
+{
+    "description": "Polycarp plays a (yet another!) strategic computer game. In this game, he leads an army of mercenaries.\n\nPolycarp wants to gather his army for a quest. There are $ n $ mercenaries for hire, and the army should consist of some subset of them.\n\nThe $ i $ -th mercenary can be chosen if the resulting number of chosen mercenaries is not less than $ l_i $ (otherwise he deems the quest to be doomed) and not greater than $ r_i $ (he doesn't want to share the trophies with too many other mercenaries). Furthermore, $ m $ pairs of mercenaries hate each other and cannot be chosen for the same quest.\n\nHow many non-empty subsets does Polycarp need to consider? In other words, calculate the number of non-empty subsets of mercenaries such that the size of this subset belongs to $ [l_i, r_i] $ for each chosen mercenary, and there are no two mercenaries in the subset that hate each other.\n\nThe answer may be large, so calculate it modulo $ 998244353 $ .",
+    "inputFormat": "The first line contains two integers $ n $ and $ m $ ( $ 1       \\le n \\le 3 \\cdot 10^5 $ , $ 0 \\le m \\le \\min(20,       \\dfrac{n(n-1)}{2}) $ ) \u2014 the number of mercenaries and the number of pairs of mercenaries that hate each other.\n\nThen $ n $ lines follow, the $ i $ -th of them contains two integers $ l_i $ and $ r_i $ ( $ 1 \\le l_i \\le r_i \\le n $ ).\n\nThen $ m $ lines follow, the $ i $ -th of them contains two integers $ a_i $ and $ b_i $ ( $ 1 \\le a_i < b_i \\le n $ ) denoting that the mercenaries $ a_i $ and $ b_i $ hate each other. There are no two equal pairs in this list.",
+    "outputFormat": "Print one integer \u2014 the number of non-empty subsets meeting the constraints, taken modulo $ 998244353 $ .",
+    "samples": [
+        [
+            "3 0\n1 1\n2 3\n1 3",
+            "3"
+        ],
+        [
+            "3 1\n1 1\n2 3\n1 3\n2 3",
+            "2"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u6709$n$\u4e2a\u4eba\u548c$m$\u5bf9\u654c\u5bf9\u5173\u7cfb\uff0c\u6bcf\u4e00\u4e2a\u4eba\u6709\u4e00\u4e2a\u6761\u4ef6\u533a\u95f4$[l_i,r_i]$\u3002\n\n\u73b0\u5728\u8981\u5728\u8fd9$n$\u4e2a\u4eba\u4e2d\u9009**\u82e5\u5e72\u4e2a\u4eba**\u3002\u5b9a\u4e49\u4e00\u4e2a\u5408\u6cd5\u7684\u9009\u62e9$\\{S\\}$\uff0c\u5f53\u4e14\u4ec5\u5f53\u5bf9\u4e8e$\\{S\\}$\u4e2d\u7684\u6240\u6709\u4eba$i$\uff0c$l_i\\le |S| \\le r_i$\uff0c\u4e14$\\{S\\}$\u4e2d\u6240\u6709\u4eba\u4e92\u4e0d\u654c\u5bf9\u3002\n\n\u6c42\u6709\u591a\u5c11\u79cd\u5408\u6cd5\u7684\u9009\u62e9\uff0c\u7b54\u6848\u5bf9$998244353$\u53d6\u6a21\u3002\n\n$1\\le n\\le 3\\times 10^5$\uff0c$0\\le m\\le \\min\\{20,\\frac{n(n-1)}{2}\\}$\uff0c$1\\le l_i\\le r_i\\le n$\u3002"
+}

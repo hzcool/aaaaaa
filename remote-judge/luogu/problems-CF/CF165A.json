@@ -1,0 +1,17 @@
+{
+    "description": "One day Vasya painted a Cartesian coordinate system on a piece of paper and marked some set of points $ (x_{1},y_{1}),(x_{2},y_{2}),...,(x_{n},y_{n}) $ . Let's define neighbors for some fixed point from the given set $ (x,y) $ :\n\n- point $ (x',y') $ is $ (x,y) $ 's right neighbor, if $ x'&gt;x $ and $ y'=y $\n- point $ (x',y') $ is $ (x,y) $ 's left neighbor, if $ x'&lt;x $ and $ y'=y $\n- point $ (x',y') $ is $ (x,y) $ 's lower neighbor, if $ x'=x $ and $ y'&lt;y $\n- point $ (x',y') $ is $ (x,y) $ 's upper neighbor, if $ x'=x $ and $ y'&gt;y $\n\nWe'll consider point $ (x,y) $ from the given set supercentral, if it has at least one upper, at least one lower, at least one left and at least one right neighbor among this set's points.\n\nVasya marked quite many points on the paper. Analyzing the picture manually is rather a challenge, so Vasya asked you to help him. Your task is to find the number of supercentral points in the given set.",
+    "inputFormat": "The first input line contains the only integer $ n $ ( $ 1<=n<=200 $ ) \u2014 the number of points in the given set. Next $ n $ lines contain the coordinates of the points written as \" $ x $ $ y $ \" (without the quotes) ( $ |x|,|y|<=1000 $ ), all coordinates are integers. The numbers in the line are separated by exactly one space. It is guaranteed that all points are different.",
+    "outputFormat": "Print the only number \u2014 the number of supercentral points of the given set.",
+    "samples": [
+        [
+            "8\n1 1\n4 2\n3 1\n1 2\n0 2\n0 1\n1 0\n1 3\n",
+            "2\n"
+        ],
+        [
+            "5\n0 0\n0 1\n1 0\n0 -1\n-1 0\n",
+            "1\n"
+        ]
+    ],
+    "hint": "In the first sample the supercentral points are only points $ (1,1) $ and $ (1,2) $ .\n\nIn the second sample there is one supercental point \u2014 point $ (0,0) $ .",
+    "translation": "\u5728\u4e00\u4e2a\u5e73\u9762\u76f4\u89d2\u5750\u6807\u7cfb\u4e2d\uff0c\u7ed9\u5b9a$n$\u4e2a\u70b9\u3002\u6c42\u6709\u591a\u5c11\u4e2a\u70b9\u6ee1\u8db3\u5728\u5b83\u7684**\u6b63**\u4e0a\u65b9\uff0c**\u6b63**\u4e0b\u65b9\uff0c**\u6b63**\u5de6\u65b9\uff0c**\u6b63**\u53f3\u65b9\u90fd\u6709\u70b9\u3002"
+}

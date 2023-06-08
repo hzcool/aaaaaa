@@ -1,0 +1,26 @@
+[
+    {
+        "content": "## \u9898\u610f\u5206\u6790\n\u7ed9\u5b9a\u4e24\u4e2a\u5e8f\u5217 $A$,$B$ ,\u53ef\u4ee5\u5220\u9664\u3001\u4fee\u6539\u3001\u63d2\u5165\u3002\n## \u601d\u8def\n\u975e\u5e38\u660e\u663e\u7684\u4e00\u9053\u52a8\u89c4\u9898\u76ee\u3002\n\n\u904d\u5386 $A$ , $B$\u3002\n\n\u5982\u679c $A_i$ \u7b49\u4e8e $B_j$ \u3002\n\n\u90a3\u4e48\u6700\u5927\u503c\u5c31\u662f\u524d\u9762\u7684\u503c,$f_{ij}=f_{i-1,j-1}$\u3002\n\n\u5426\u5219\u5220\u9664\u3001\u4fee\u6539\u3001\u63d2\u5165\u4e09\u4e2a\u884c\u4e3a\u53bb\u6700\u5c0f\u503c\u52a0\u4e00\u3002 \n$f_{ij}=\\min(f_{ij-1},\\min(f_{i-1j-1},f_{i-1j}))+1$\u3002\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,m,f[2001][2001],a[2001],b[2001];\nint main(){\n\tscanf(\"%d%d\",&n,&m); \n\tfor(int i=0;i<n;i++) scanf(\"%d\",&a[i]);\n\tfor(int i=0;i<m;i++) scanf(\"%d\",&b[i]);\n\tfor(int i=1;i<=n;i++) f[i][0]=i;//\u9884\u5904\u7406\u7a7a\u4e32\n\tfor(int i=1;i<=m;i++) f[0][i]=i;//\u540c\u4e0a\n\tfor(int i=1;i<=n;i++){\n\t\tfor(int j=1;j<=m;j++){\n\t\t\tif(a[i-1]==b[j-1]){\n\t\t\t\tf[i][j]=f[i-1][j-1];\n\t\t\t}\n\t\t\telse{\n\t\t\t\tf[i][j]=min(f[i][j-1],min(f[i-1][j-1],f[i-1][j]))+1;\n\t\t\t}\n\t\t}\n\t}\n\tprintf(\"%d\",f[n][m]);\n} \n```\n",
+        "postTime": 1682914996,
+        "uid": 733154,
+        "name": "MiNi_World",
+        "ccfLevel": 0,
+        "title": "[ABC185E] Sequence Matching"
+    },
+    {
+        "content": "\u4e00\u6a21\u4e00\u6837 [P2758 \u7f16\u8f91\u8ddd\u79bb](https://www.luogu.com.cn/problem/P2758)\n\n# \u9898\u76ee\u5927\u610f\n\n* \u5220\u9664\u4e00\u4e2a\u5b57\u7b26\uff1b\n\n* \u63d2\u5165\u4e00\u4e2a\u5b57\u7b26\uff1b\n\n* \u5c06\u4e00\u4e2a\u5b57\u7b26\u6539\u4e3a\u53e6\u4e00\u4e2a\u5b57\u7b26\u3002\n\n# \u601d\u8def\n\n\u6709\u70b9\u50cf **\u6700\u957f\u4e0a\u5347\u5b50\u5e8f\u5217** \uff0c\u4f46\u4e0d\u662f ~~\u6240\u4ee5\u4e00\u773c~~ $DP$\n\n$ DP_{i,j} $ \u8868\u793a \u4e0a\u5b57\u7b26\u4e32 1 \u5230 $i$ \u548c \u4e0b\u5b57\u7b26\u4e32 1 \u5230 $j$ \u7684\u6700\u77ed\u6d88\u8017\n\n~~\u663e\u7136\uff0c~~ \u6211\u4eec\u53ef\u4ee5\u5c06\u9898\u53ea\u67094\u79cd\u64cd\u4f5c\u8f6c\u5316\u4e3a\u8f6c\u79fb\u65b9\u7a0b\n\n* **\u5220** \uff1a$ DP_{i,j} = DP_{i-1,j}+1 $ \u3002 \n\n* **\u63d2** \uff1a$ DP_{i,j} = DP_{i,j-1}+1 $ \u3002\n\n* **\u53d8** \uff1a$ DP_{i,j} = DP_{i-1,j-1}+1 $ \u3002\n\n* **\u4e0d\u53d8** \uff1a$ DP_{i,j} = DP_{i-1,j-1} $\n\n\n```cpp\n#include<iostream>\n#include<cstdio>\nusing namespace std;\n\nint n,m;\nint a[2000],b[2000];\nint f[2000][2000];\nsigned main(){\n\tcin>>n>>m;\n\tfor(int i=0;i<n;i++){\n\t    cin>>a[i];\n\t    f[i+1][0]=i+1;\n\t}\n\tfor(int i=0;i<m;i++){\n\t    cin>>b[i];\n\t    f[0][i+1]=i+1;\n\t}\n\t\n\tfor(int i=1;i<=n;i++)\n\t\tfor(int j=1;j<=m;j++)\n\t\t\tif(a[i-1]==b[j-1])\n            \tf[i][j]=f[i-1][j-1];\n\t\t\telse\n\t\t\t\tf[i][j]=min(min(f[i-1][j]+1,f[i][j-1]+1),f[i-1][j-1]+1);\n\t\n\tcout<<f[n][m]<<\"\\n\";\n\treturn 0;\n}\n\n```\n",
+        "postTime": 1679908814,
+        "uid": 730883,
+        "name": "zhanghao233",
+        "ccfLevel": 0,
+        "title": "[ABC185E] Sequence Matching"
+    },
+    {
+        "content": "\u8fd9\u9898\u662f [P2758](https://www.luogu.com.cn/problem/P2758) \u7684\u539f\u9898\uff0c\u5982\u679c\u4e0d\u61c2\u7684\u53ef\u4ee5\u53bb\u627e\u90a3\u9898\u7684\u9898\u89e3\u3002\n\n\u81f3\u4e8e\u8fd9\u4e24\u9898\u4e3a\u4ec0\u4e48\u7b49\u4ef7\uff0c\u89c2\u5bdf\u5230\u5220\u9664\u548c\u63d2\u5165\u64cd\u4f5c\u662f\u7b49\u4ef7\u7684\uff0c\u800c\u4fee\u6539\u64cd\u4f5c\u5bf9\u5e94\u8fd9\u9898\u7684\u4e0d\u540c\u4f4d\u7f6e\u4e2a\u6570\uff0c\u6240\u4ee5\u662f\u4e00\u6837\u7684\u3002\n\n\u8003\u8651\u7c7b\u4f3c LCS \u7684 dp \u65b9\u6cd5\uff0c\u663e\u7136\u6709\uff1a\n\n$ dp_{i,0}=i,dp_{0,j}=j $\uff0c\u662f\u5e73\u51e1\u7684\uff0c\u4ee3\u8868\u4fee\u6539\u4e3a\u7a7a\u4e32\u7684\u4ee3\u4ef7\u3002\n\n$ dp_{i,j}=\\min\\{ dp_{i-1,j}+1,dp_{i,j-1}+1,dp_{i-1,j-1}+![a_i = b_j] \\} $\uff0c\u8868\u793a $ dp_{i,j} $ \u4ece\u540e\u9762\u7684\u4e09\u79cd\u60c5\u51b5\u8f6c\u79fb\u800c\u6765\u3002\n\n\u4e8e\u662f\u53ef\u4ee5\u5728 $ \\mathcal{O}(n^2) $ \u7684\u65f6\u95f4\u590d\u6742\u5ea6\u5185\u89e3\u51b3\u672c\u9898\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint a[2020],b[2020];\nint f[2020][2020];\nint main()\n{\n\tint n,m;\n\tcin>>n>>m;\n\tfor(int i=0;i<n;i++)\n\t\tcin>>a[i];\n\tfor(int i=0;i<m;i++)\n\t\tcin>>b[i];\n\tfor(int i=1;i<=n;i++)\n\t\tf[i][0]=i;\n\tfor(int j=1;j<=m;j++)\n\t\tf[0][j]=j;\n\tfor(int i=1;i<=n;i++)\n\t\tfor(int j=1;j<=m;j++)\n\t\t\tf[i][j]=min(min(f[i-1][j]+1,f[i][j-1]+1),f[i-1][j-1]+(a[i-1]!=b[j-1]));\n\tcout<<f[n][m];\n}\n```\n",
+        "postTime": 1671461069,
+        "uid": 714821,
+        "name": "loser_seele",
+        "ccfLevel": 4,
+        "title": "ABC185E\u9898\u89e3"
+    }
+]

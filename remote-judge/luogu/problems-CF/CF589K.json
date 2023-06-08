@@ -1,0 +1,24 @@
+{
+    "description": "Vasya wants to create a computing system to process arbitrary tasks. As a part of the system he needs an algorithm which will choose an order of task execution.\n\nHe came up with the following algorithm:\n\n- There is a single execution queue. For task to be completed, it needs to be added to the queue.\n- For each task two values are known: $ l_{i} $ and $ t_{i} $ \u2014 the number of seconds that it takes to complete the task and the moment of time when this task is added to the execution queue.\n- If at some moment of time $ T $ the algorithm has to select a task for execution, it picks the one with the minimum value of $ l_{i}-(T-t_{i})^{2} $ . In case of a tie, algorithm picks a task with the lowest index. Then for the following $ l_{i} $ seconds the algorithm will wait for the task to be completed.\n\nIn order to test the algorithm Vasya wants you to simulate it.\n\nYou are given $ n $ tasks. For each task, you know the number of seconds $ l_{i} $ that it takes to complete the task and the moment of time $ t_{i} $ when this task is added to the execution queue.\n\nFor each task find out the moment of time when it will be completed.",
+    "inputFormat": "The first line contains an integer number $ n $ $ (1<=n<=10^{5}) $ \u2014 the number of task to process. The next $ n $ lines contain two integers each: $ l_{i},t_{i} $ $ (1<=l_{i}<=10^{5},0<=t_{i}<=10^{5}) $ .",
+    "outputFormat": "Print $ n $ space-separated integers. The $ i $ -th integer is the moment of time when the $ i $ -th task was completed.",
+    "samples": [
+        [
+            "1\n10 5\n",
+            "15 \n"
+        ],
+        [
+            "3\n3 0\n4 3\n5 2\n",
+            "3 7 12 \n"
+        ],
+        [
+            "3\n3 0\n4 2\n5 1\n",
+            "3 12 8 \n"
+        ],
+        [
+            "6\n3 0\n5 1\n4 2\n5 18\n4 19\n5 14\n",
+            "3 8 12 24 28 19 \n"
+        ]
+    ],
+    "hint": ""
+}

@@ -1,0 +1,25 @@
+{
+    "description": "During their training for the ICPC competitions, team \"Jee You See\" stumbled upon a very basic counting problem. After many \"Wrong answer\" verdicts, they finally decided to give up and destroy turn-off the PC. Now they want your help in up-solving the problem.\n\nYou are given 4 integers $ n $ , $ l $ , $ r $ , and $ z $ . Count the number of arrays $ a $ of length $ n $ containing non-negative integers such that:\n\n- $ l\\le a_1+a_2+\\ldots+a_n\\le r $ , and\n- $ a_1\\oplus a_2 \\oplus \\ldots\\oplus a_n=z $ , where $ \\oplus $ denotes the [bitwise XOR](https://en.wikipedia.org/wiki/Bitwise_operation#XOR) operation.\n\nSince the answer can be large, print it modulo $ 10^9+7 $ .",
+    "inputFormat": "The only line contains four integers $ n $ , $ l $ , $ r $ , $ z $ ( $ 1 \\le n \\le 1000 $ , $ 1\\le l\\le r\\le 10^{18} $ , $ 1\\le z\\le 10^{18} $ ).",
+    "outputFormat": "Print the number of arrays $ a $ satisfying all requirements modulo $ 10^9+7 $ .",
+    "samples": [
+        [
+            "3 1 5 1",
+            "13"
+        ],
+        [
+            "4 1 3 2",
+            "4"
+        ],
+        [
+            "2 1 100000 15629",
+            "49152"
+        ],
+        [
+            "100 56 89 66",
+            "981727503"
+        ]
+    ],
+    "hint": "The following arrays satisfy the conditions for the first sample:\n\n- $ [1, 0, 0] $ ;\n- $ [0, 1, 0] $ ;\n- $ [3, 2, 0] $ ;\n- $ [2, 3, 0] $ ;\n- $ [0, 0, 1] $ ;\n- $ [1, 1, 1] $ ;\n- $ [2, 2, 1] $ ;\n- $ [3, 0, 2] $ ;\n- $ [2, 1, 2] $ ;\n- $ [1, 2, 2] $ ;\n- $ [0, 3, 2] $ ;\n- $ [2, 0, 3] $ ;\n- $ [0, 2, 3] $ .\n\nThe following arrays satisfy the conditions for the second sample:\n\n- $ [2, 0, 0, 0] $ ;\n- $ [0, 2, 0, 0] $ ;\n- $ [0, 0, 2, 0] $ ;\n- $ [0, 0, 0, 2] $ .",
+    "translation": "\u7ed9\u5b9a 4 \u4e2a\u6574\u6570 $n,l,r,z$ ($1 \\le n \\le 1000,1 \\le l \\le r \\le 10^{18},1 \\le z \\le 10^{18}$\n\n\u6c42\u6ee1\u8db3\u4e00\u4e0b\u6761\u4ef6\u7684\u5e8f\u5217 $a$ \u7684\u4e2a\u6570\uff1a\n\n1. $a_i$ \u4e3a\u975e\u8d1f\u6574\u6570\n2. $l \\le a_1 + a_2 + \\dots a_n \\le r $\n3. $a_1 \\oplus a_2 \\oplus \\dots \\oplus a_n = z$\n\n\u5176\u4e2d $\\oplus$ \u8868\u793a\u4e8c\u8fdb\u5236\u6309\u4f4d\u5f02\u6216\u8fd0\u7b97\n\n\u7b54\u6848\u5bf9 $10^9 + 7$ \u53d6\u6a21"
+}

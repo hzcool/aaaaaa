@@ -1,0 +1,25 @@
+{
+    "description": "[problemUrl]: https://atcoder.jp/contests/abc184/tasks/abc184_c\n\n\u7121\u9650\u306b\u5e83\u304c\u308b $ 2 $ \u6b21\u5143\u30b0\u30ea\u30c3\u30c9\u304c\u3042\u308a\u3001\u30de\u30b9 $ (r_1,\\ c_1) $ \u306b\u99d2\u300c\u8d85\u7adc\u99ac\u300d\u304c\u7f6e\u304b\u308c\u3066\u3044\u307e\u3059\u3002  \n \u3053\u306e\u99d2\u306f\u3001 $ 1 $ \u624b\u3067\u6b21\u306e\u3088\u3046\u306a\u52d5\u304d\u304c\u3067\u304d\u307e\u3059\u3002\n\n![](https://cdn.luogu.com.cn/upload/vjudge_pic/AT_abc184_c/5bfa39c442ba1e792051275842c037db26123fff.png)\n\n\u3088\u308a\u6b63\u78ba\u306b\u306f\u3001\u8d85\u7adc\u99ac\u304c\u30de\u30b9 $ (a,\\ b) $ \u306b\u3042\u308b\u3068\u304d\u3001\u4ee5\u4e0b\u306e\u3044\u305a\u308c\u304b\u306e\u6761\u4ef6\u3092\u6e80\u305f\u3059\u30de\u30b9 $ (c,\\ d) $ \u306b\u52d5\u304b\u3059\u3053\u3068\u304c\u3067\u304d\u307e\u3059\u3002\n\n- $ a\\ +\\ b\\ =\\ c\\ +\\ d $\n- $ a\\ -\\ b\\ =\\ c\\ -\\ d $\n- $ |a\\ -\\ c|\\ +\\ |b\\ -\\ d|\\ \\le\\ 3 $\n\n\u8d85\u7adc\u99ac\u3092 $ (r_1,\\ c_1) $ \u304b\u3089 $ (r_2,\\ c_2) $ \u306b\u52d5\u304b\u3059\u306e\u306b\u5fc5\u8981\u306a\u6700\u5c0f\u624b\u6570\u3092\u6c42\u3081\u3066\u304f\u3060\u3055\u3044\u3002",
+    "inputFormat": "\u5165\u529b\u306f\u4ee5\u4e0b\u306e\u5f62\u5f0f\u3067\u6a19\u6e96\u5165\u529b\u304b\u3089\u4e0e\u3048\u3089\u308c\u308b\u3002\n\n> $ r_1 $ $ c_1 $ $ r_2 $ $ c_2 $",
+    "outputFormat": "\u8d85\u7adc\u99ac\u3092 $ (r_1,\\ c_1) $ \u304b\u3089 $ (r_2,\\ c_2) $ \u306b\u52d5\u304b\u3059\u306e\u306b\u5fc5\u8981\u306a\u6700\u5c0f\u624b\u6570\u3092\u51fa\u529b\u305b\u3088\u3002",
+    "samples": [
+        [
+            "1 1\r\n5 6",
+            "2"
+        ],
+        [
+            "1 1\r\n1 200001",
+            "2"
+        ],
+        [
+            "2 3\r\n998244353 998244853",
+            "3"
+        ],
+        [
+            "1 1\r\n1 1",
+            "0"
+        ]
+    ],
+    "hint": "### \u5236\u7d04\n\n- \u5165\u529b\u306f\u5168\u3066\u6574\u6570\n- $ 1\\ \\le\\ r_1,\\ c_1,\\ r_2,\\ c_2\\ \\le\\ 10^9 $\n\n### Sample Explanation 1\n\n\u4f8b\u3048\u3070\u3001 $ (1,\\ 1)\\ \\rightarrow\\ (5,\\ 5)\\ \\rightarrow\\ (5,\\ 6) $ \u3068\u52d5\u304b\u3059\u3068 $ 2 $ \u624b\u306b\u306a\u308a\u307e\u3059\u3002\n\n### Sample Explanation 2\n\n\u4f8b\u3048\u3070\u3001 $ (1,\\ 1)\\ \\rightarrow\\ (100001,\\ 100001)\\ \\rightarrow\\ (1,\\ 200001) $ \u3068\u52d5\u304b\u3059\u3068 $ 2 $ \u624b\u306b\u306a\u308a\u307e\u3059\u3002\n\n### Sample Explanation 3\n\n\u4f8b\u3048\u3070\u3001 $ (2,\\ 3)\\ \\rightarrow\\ (3,\\ 3)\\ \\rightarrow\\ (-247,\\ 253)\\ \\rightarrow\\ (998244353,\\ 998244853) $ \u3068\u52d5\u304b\u3059\u3068 $ 3 $ \u624b\u306b\u306a\u308a\u307e\u3059\u3002",
+    "translation": "\u6709\u4e00\u4e2a\u65e0\u9650\u5927\u7684\u68cb\u76d8\uff0c\u68cb\u76d8\u4e0a\u7684\u70b9 $(a,b)$ \u80fd\u4e00\u6b65\u8d70\u5230 $(b,c)$\uff0c\u5f53\u4e14\u4ec5\u5f53\u4e0b\u9762\u7684\u4e09\u6761\u6761\u4ef6\u81f3\u5c11\u4e00\u6761\u6210\u7acb\uff1a\n\n+ $a+b=c+d$\n+ $a-b=c-d$\n+ $|a-c|+|b-d|\\le 3$\n\n\u6c42 $(r_1,c_1)$ \u8d70\u5230 $(r_2,c_2)$ \u7684\u6700\u5c11\u6b65\u6570\u3002"
+}

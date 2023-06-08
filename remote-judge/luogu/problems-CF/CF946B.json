@@ -1,0 +1,17 @@
+{
+    "description": "You have two variables $ a $ and $ b $ . Consider the following sequence of actions performed with these variables:\n\n1. If $ a=0 $ or $ b=0 $ , end the process. Otherwise, go to step $ 2 $ ;\n2. If $ a>=2\u00b7b $ , then set the value of $ a $ to $ a-2\u00b7b $ , and repeat step $ 1 $ . Otherwise, go to step $ 3 $ ;\n3. If $ b>=2\u00b7a $ , then set the value of $ b $ to $ b-2\u00b7a $ , and repeat step $ 1 $ . Otherwise, end the process.\n\nInitially the values of $ a $ and $ b $ are positive integers, and so the process will be finite.\n\nYou have to determine the values of $ a $ and $ b $ after the process ends.",
+    "inputFormat": "The only line of the input contains two integers $ n $ and $ m $ ( $ 1<=n,m<=10^{18} $ ). $ n $ is the initial value of variable $ a $ , and $ m $ is the initial value of variable $ b $ .",
+    "outputFormat": "Print two integers \u2014 the values of $ a $ and $ b $ after the end of the process.",
+    "samples": [
+        [
+            "12 5\n",
+            "0 1\n"
+        ],
+        [
+            "31 12\n",
+            "7 12\n"
+        ]
+    ],
+    "hint": "Explanations to the samples:\n\n1. $ a=12 $ , $ b=5 $ ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF946B/5a518872d8942914aef6c33d251688a64a8d6d74.png) $ a=2 $ , $ b=5 $ ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF946B/5a518872d8942914aef6c33d251688a64a8d6d74.png) $ a=2 $ , $ b=1 $ ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF946B/5a518872d8942914aef6c33d251688a64a8d6d74.png) $ a=0 $ , $ b=1 $ ;\n2. $ a=31 $ , $ b=12 $ ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF946B/5a518872d8942914aef6c33d251688a64a8d6d74.png) $ a=7 $ , $ b=12 $ .",
+    "translation": "**\u3010\u9898\u76ee\u63cf\u8ff0\u3011**\n\n\u4e24\u4e2a\u6570 $a$ \u548c $b$ \u8981\u5bf9\u5b83\u4eec\u505a\u4ee5\u4e0b\u64cd\u4f5c:\n\n1. \u5982\u679c $a=0$ \u6216 $b=0$ \uff0c\u7ed3\u675f\u7a0b\u5e8f\u3002\u5426\u5219\u6267\u884c\u7b2c $2$ \u6b65\u3002\n\n2. \u5982\u679c $a\\geq2b$ \uff0c\u628a $a$ \u53d8\u4e3a $a-2b$ \uff0c\u5e76\u8fd4\u56de\u7b2c $1$ \u6b65\u3002\u5426\u5219\u6267\u884c\u7b2c $3$ \u6b65\u3002\n\n3. \u5982\u679c $b\\geq 2 a$ \uff0c\u628a $b$ \u53d8\u4e3a $b-2a$\uff0c\u5e76\u8fd4\u56de\u7b2c $1$ \u6b65\u3002\u5426\u5219\u7ed3\u675f\u7a0b\u5e8f\u3002\n\n\u4f60\u9700\u8981\u5c06 $a,b$ \u6301\u7eed\u8fdb\u884c\u64cd\u4f5c\u76f4\u5230\u7ed3\u675f\u7a0b\u5e8f\uff0c\u8f93\u51fa\u7ed3\u675f\u7a0b\u5e8f\u65f6\u7684 $a,b$\u3002\n\n**\u3010\u8f93\u5165\u683c\u5f0f\u3011**\n\n\u4e00\u884c\u5305\u542b\u4e24\u4e2a\u6574\u6570 $a$ \u548c $b$\uff08$1 \\leq a,b \\leq 10^{18}$\uff09\u3002\n\n\u3010\u8f93\u51fa\u683c\u5f0f\u3011\n\n\u5bf9 $a,b$ \u6301\u7eed\u8fdb\u884c\u64cd\u4f5c\u76f4\u5230\u7ed3\u675f\u7a0b\u5e8f\uff0c\u8f93\u51fa\u7ed3\u675f\u7a0b\u5e8f\u65f6\u7684 $a,b$ \u503c\uff0c\u7528\u7a7a\u683c\u9694\u5f00\u3002"
+}

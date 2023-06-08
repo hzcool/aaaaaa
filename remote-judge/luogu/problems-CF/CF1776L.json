@@ -1,0 +1,21 @@
+{
+    "description": "You are at your grandparents' house and you are playing an old video game on a strange console. Your controller has only two buttons and each button has a number written on it.\n\nInitially, your score is $ 0 $ . The game is composed of $ n $ rounds. For each $ 1\\le i\\le n $ , the $ i $ -th round works as follows.\n\nOn the screen, a symbol $ s_i $ appears, which is either $ \\texttt{+} $ (plus) or $ \\texttt{-} $ (minus). Then you must press one of the two buttons on the controller once. Suppose you press a button with the number $ x $ written on it: your score will increase by $ x $ if the symbol was $ \\texttt{+} $ and will decrease by $ x $ if the symbol was $ \\texttt{-} $ . After you press the button, the round ends.\n\nAfter you have played all $ n $ rounds, you win if your score is $ 0 $ .\n\nOver the years, your grandparents bought many different controllers, so you have $ q $ of them. The two buttons on the $ j $ -th controller have the numbers $ a_j $ and $ b_j $ written on them. For each controller, you must compute whether you can win the game playing with that controller.",
+    "inputFormat": "The first line contains a single integer $ n $ ( $ 1 \\le n \\le 2\\cdot 10^5 $ ) \u2014 the number of rounds.\n\nThe second line contains a string $ s $ of length $ n $ \u2014 where $ s_i $ is the symbol that will appear on the screen in the $ i $ -th round. It is guaranteed that $ s $ contains only the characters $ \\texttt{+} $ and $ \\texttt{-} $ .\n\nThe third line contains an integer $ q $ ( $ 1 \\le q \\le 10^5 $ ) \u2014 the number of controllers.\n\nThe following $ q $ lines contain two integers $ a_j $ and $ b_j $ each ( $ 1 \\le a_j, b_j \\le 10^9 $ ) \u2014 the numbers on the buttons of controller $ j $ .",
+    "outputFormat": "Output $ q $ lines. On line $ j $ print $ \\texttt{YES} $ if the game is winnable using controller $ j $ , otherwise print $ \\texttt{NO} $ .",
+    "samples": [
+        [
+            "8\n+-+---+-\n5\n2 1\n10 3\n7 9\n10 10\n5 3",
+            "YES\nNO\nNO\nNO\nYES"
+        ],
+        [
+            "6\n+-++--\n2\n9 7\n1 1",
+            "YES\nYES"
+        ],
+        [
+            "20\n+-----+--+--------+-\n2\n1000000000 99999997\n250000000 1000000000",
+            "NO\nYES"
+        ]
+    ],
+    "hint": "In the first sample, one possible way to get score $ 0 $ using the first controller is by pressing the button with numnber $ 1 $ in rounds $ 1 $ , $ 2 $ , $ 4 $ , $ 5 $ , $ 6 $ and $ 8 $ , and pressing the button with number $ 2 $ in rounds $ 3 $ and $ 7 $ . It is possible to show that there is no way to get a score of $ 0 $ using the second controller.",
+    "translation": "\u7ed9\u5b9a $n$ \u4e2a\u52a0\u51cf\u53f7\u548c $a$\uff0c$b$ \u4e24\u4e2a\u6570\u5b57\uff0c\u521d\u59cb\u5206\u662f $0$\uff0c\u6c42\u80fd\u5426\u5c06\u4e24\u4e2a\u6570\u5b57\u4f9d\u6b21\u586b\u5165\u52a0\u51cf\u53f7\u5e76\u8ba1\u7b97\u5f97\u51fa\u7ed3\u679c\u540e\uff0c\u7ed3\u679c\u8fd8\u662f $0$\uff08$a$\uff0c$b$\u53ef\u4ee5\u4efb\u610f\u586b\uff09\u3002\n\n\u80fd\u8f93\u51fa $\"YES\"$\uff0c\u4e0d\u80fd\u8f93\u51fa $\"NO\"$\u3002\n\n$T$ \u7ec4\u8be2\u95ee\u3002"
+}

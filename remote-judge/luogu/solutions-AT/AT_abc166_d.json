@@ -1,0 +1,98 @@
+[
+    {
+        "content": "## \u9898\u610f\u5982\u4e0b\n\n\u627e\u4e00\u7ec4 $A,B$ ,\u6ee1\u8db3 ${A^5}-{B^5}= X$ , $X\u2264{10^9}$ \n\n## \u601d\u8def\n\n\u5982\u679c\u76f4\u63a5\u66b4\u529b\u679a\u4e3e\uff0c\u76f8\u4fe1\u6211\u4e00\u5b9a\u4f1a\u8d85\u65f6\uff08\u4e0d\u4fe1\u81ea\u5df1\u8bd5\uff0c~~\u8bd5\u8bd5\u5c31\u901d\u4e16~~\uff09\n\n\u901a\u8fc7\u590d\u6742\u7684\u624b\u7b97\uff0c\u6211\u4eec\u53ef\u4ee5\u53d1\u73b0\uff1a\n\n1.  $A$ \u4e0e $B$ \u7684\u5dee\u8d8a\u5c0f\uff0c ${A^5}-{B^5}$ \u4e5f\u8d8a\u5c0f\n\n2. \u7531\u4e8e  ${150^5}-{149^5}$  \u5c31\u5df2\u7ecf\u5927\u4e8e  $10^9$ \uff08\u8fd0\u7528\u7b2c1\u6761\uff09,\u6240\u4ee5 $A$ \u4e0e $B$ \u7684\u8303\u56f4\u5c31\u662f $[-150,150]$ \n\n## \u732e\u4e0a\u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\n#define ll long long\nusing namespace std;\nll y;\nll f(ll x){return x*x*x*x*x;};//5\u6b21\u65b9\u51fd\u6570\nint main(){\n\tcin>>y;\n  \t//\u679a\u4e3e\n\tfor(int i=-150;i<=150;i++){\n\t\tfor(int j=-150;j<=150;j++){\n\t\t\tif(f(i)-f(j)==y){//\u5982\u679ci^5-j^5==Y\n\t\t\t\tprintf(\"%d %d\",i,j);\n\t\t\t\treturn 0;\n\t\t\t}\n\t\t}\n\t}\n\treturn 0;\n} \n```\n\n## Tips\n\nlong long\u522b\u5fd8\u8bb0\n\n## \u6700\u540e\n\n**\u7ba1\u7406\u5458\u5927\u5927\u7ed9\u4e2a\u8fc7\u5427\uff01**",
+        "postTime": 1645338807,
+        "uid": 431658,
+        "name": "LaDeX",
+        "ccfLevel": 0,
+        "title": "AT5404 [ABC166D] I hate Factorization \u9898\u89e3"
+    },
+    {
+        "content": "[\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/AT5404)\n\n\u7b80\u8ff0\u4e00\u4e0b\u9898\u610f\uff1a~~(\u5176\u5b9e\u4e5f\u6ca1\u4ec0\u4e48\u597d\u7b80\u8ff0\u7684\u4e86)~~\n\u7ed9\u4f60\u4e00\u4e2a\u6570 $x$ , \u8bd5\u6c42\u65b9\u7a0b $a^{5} - b^{5}=x$ \u7684\u4e00\u7ec4\u89e3 $a,b$\u3002\n## \u8bb2\u4e00\u4e0b\u6211\u7684\u601d\u8def\uff1a\n\u66b4\u529b\u679a\u4e3e\u5373\u53ef\u3002\u6b64\u9898\u96be\u5728\u5224\u65ad\u679a\u4e3e\u8303\u56f4\u4e0a\u3002\u5176\u5b9e\u6211\u4eec\u53ef\u4ee5\u4ece $x$ \u4e0b\u624b\u3002\u7531\u4e8e $x$ \u4e3a\u4e24\u4e2a\u6570\u76f8\u51cf\u7684\u5dee\uff0c\u6211\u4eec\u53ef\u4ee5\u6781\u7aef\u4e00\u70b9\uff0c\u5047\u8bbe\u4e24\u9879\u7684\u5e95\u6570\u4e00\u5b9a\u662f\u76f8\u90bb\u7684\uff0c\u90a3\u4e48\u6211\u4eec\u53ef\u4ee5\u4e00\u4e2a\u4e2a\u679a\u4e3e\u4e00\u7ec4\u7ec4\u76f8\u90bb\u5e95\u6570\u7684 $5$ \u6b21\u65b9\u7684\u5dee:\n\n$\\{1,2\\} = 1^{5} - 2^{5} = - 31,\n\\{2,3\\} = 2^{5} - 3^{5} = - 211,\n\\{3,4\\} = 3^{5} - 4^{5} = - 781,\\{4,5\\} = 4^{5} - 5^{5} = - 2,101\u2026\u2026$\n\n\u5176\u5b9e\u6211\u4eec\u4ece\u4ee5\u4e0a\u8fc7\u7a0b\u4e2d\u53ef\u4ee5\u53d1\u73b0\uff0c\u5dee\u7684\u7edd\u5bf9\u503c\u5728\u51e0\u4e4e\u662f\u5728\u76f4\u7ebf\u589e\u957f\u3002\u7ec8\u4e8e\u5230\u4e86\u7b2c $119$ \u7ec4\u7684\u65f6\u5019\u6211\u4eec\u53d1\u73b0\uff1a\n\n$\\{119,120\\} = 119^{5} -120^{5} = - 1,019,663,401$\n\n\u5dee\u5df2\u7ecf\u5927\u4e8e\u4e86$10^{9}$\u4e86\u3002\u4f46\u662f\u8fd8\u6ca1\u5b8c\uff0c\u6211\u4eec\u7edf\u8ba1\u7684\u662f $a,b$ \u4e3a\u6b63\u6570\u4e14\u9012\u589e\u7684\u60c5\u51b5\uff0c\u6b63\u6570\u7684\u7b54\u6848\u867d\u7136\u6709\u53ef\u80fd\u662f $a,b$ \u4e3a\u6b63\u6570\u4e14\u9012\u51cf\u7684\u60c5\u51b5\u4e0b\uff0c\u7136\u800c\u66f4\u591a\u53ef\u80fd\u662f\u5b58\u5728\u4e8e $-120$ \u81f3 $0$ \u7684\u8303\u56f4\u4e2d\u3002\u4e8e\u662f\u6211\u4eec\u7684\u679a\u4e3e\u8303\u56f4\u5c31\u53d8\u6210\u4e86\u4ece $-120$ \u5230 $120$ \u8fd9\u4e00\u4e2a\u533a\u95f4\u5185\u3002\n\n\u53c2\u8003\u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\n#define int long long\nusing namespace std;\nint read(){\n\tint sum=0,f=1;\n\tchar ch=getchar();\n\tfor(;!isdigit(ch);ch=getchar()) if(ch=='-') f=-1;\n\tfor(;isdigit(ch);ch=getchar()) sum=(sum<<3)+(sum<<1)+(ch^48);\n\treturn sum*f;\n}\nvoid write(int x){\n\tif(x<0) putchar('-'),x=-x;\n\tif(x>9) write(x/10);\n\tputchar('0'+x%10);\n\treturn;\n}\nconst int inf=1e10;\nconst int N=1e6+10;\nint qpow (int a, int b){//\u5feb\u901f\u5e42\uff0c\u76f8\u5f53\u4e8ea^b,\u7406\u89e3\u5373\u53ef\n\tif (b == 0) return 1;\n\tif (b == 1) return a;\n\tint t = qpow (a, b / 2);\n\tif (b % 2 == 1) return t * t * a;\n\treturn t * t;\n}\nsigned main(){\n\tint x = read ();\n\tfor (int i = -150; i <= 150; ++ i){\n\t\tfor (int j = -150; j <= 150; ++ j){\n\t\t\tint a = qpow (i, 5);\n\t\t\tint b = qpow (j, 5);\n\t\t\tif (a - b == x){\n\t\t\t\twrite (i);\n\t\t\t\tputchar (' ');\n\t\t\t\twrite (j);\n\t\t\t\treturn 0;\n\t\t\t}\n\t\t}\n\t}\n\treturn 0;\n}\n\n```",
+        "postTime": 1660547131,
+        "uid": 655383,
+        "name": "wangkangyou",
+        "ccfLevel": 5,
+        "title": "AT5404 \u9898\u89e3"
+    },
+    {
+        "content": "[\u4f60\u8c37\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/AT5404)\n\n[AT \u9898\u76ee\u4f20\u9001\u95e8](https://atcoder.jp/contests/abc166/tasks/abc166_d)\n\n## 1.\u9898\u76ee\u5927\u610f\n\n\u7ed9\u51fa\u4e00\u4e2a $x$\uff0c\u6c42\u51fa\u4e0d\u5b9a\u65b9\u7a0b $a^5-b^5=x$ \u7684\u4e00\u7ec4 $a,b$ \u503c\u3002\n\n## 2.\u601d\u8def\u8bb2\u89e3\n\n\u8fd9\u9053\u9898\u53ea\u80fd\u66b4\u529b\u679a\u4e3e\u6765\u89e3\u51b3\uff0c\u4f46\u662f\u5230\u4e86\u679a\u4e3e\u5c31\u80af\u5b9a\u8981\u627e\u4e00\u4e2a\u679a\u4e3e\u8303\u56f4\u3002\u4e0d\u96be\u7b97\u51fa $120^5-119^5>10^9$\uff0c\u6240\u4ee5\u8303\u56f4\u5c31\u662f $-120$ \u5230 $120$\uff0c\u80af\u5b9a\u4e0d\u4f1a\u8d85\u65f6\u3002\n\n## 3.AC \u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\n#define int long long\nusing namespace std;\nint x;\nint k(int a,int b){//\u8ba1\u7b97\u65b9\u7a0b\u51fd\u6570\n\treturn a*a*a*a*a-b*b*b*b*b;\n}\nsigned main(){\n\tcin>>x;\n\tfor(int i=-120;i<=120;i++){\n\t\tfor(int j=-120;j<=120;j++){\n\t\t\tif(k(i,j)==x){//\u53d1\u73b0\u4e86\u89e3\n\t\t\t\tcout<<i<<\" \"<<j;//\u8f93\u51fa\n\t\t\t\treturn 0;//\u7ed3\u675f\u7a0b\u5e8f\n\t\t\t}\n\t\t}\n\t}\n\treturn 0;\n}\n```\n_THE END_\n\n\u8c22\u8c22\u89c2\u770b\n\nBy wangyi",
+        "postTime": 1660446912,
+        "uid": 560044,
+        "name": "wangyi_c",
+        "ccfLevel": 0,
+        "title": "AT5404 [ABC166D] I hate Factorization \u9898\u89e3"
+    },
+    {
+        "content": "### \u9898\u610f\u7b80\u8ff0\n------------\n\n\u9898\u76ee\u7ed9\u5b9a\u4e00\u4e2a\u6574\u6570 $X$\uff0c\u8ba9\u4f60\u6c42\u51fa\u4e24\u4e2a\u6574\u6570 $A$\uff0c$B$\uff0c\u4f7f $A$ \u548c $B$ \u6ee1\u8db3 $A^5 - B^5 = X$\u3002\n\n### \u89e3\u9898\u601d\u8def\n------------\n\n**\u679a\u4e3e**\u53ef\u4ee5\u89e3\u51b3\u8fd9\u9053\u9898\u3002\n\n\u9898\u76ee\u8981\u6c42 $A^2 - B^2 = X$\uff0c\u6570\u636e\u8303\u56f4\u6709\u8fd9\u6837\u5199\uff1a$1 \\leqslant X \\leqslant 10^9$\u3002\n\n\u901a\u8fc7\u8ba1\u7b97\u53ef\u5f97\uff0c\u56e0\u4e3a $120^5-119^5>10^9$\uff0c\u6240\u4ee5$A$ \u7684\u53d6\u503c\u8303\u56f4\u662f $-120 \\leqslant A \\leqslant 120$\uff0c$B$ \u7684\u53d6\u503c\u8303\u56f4\u4e3a $-120 < B < 120$\u3002\n\n\u4e24\u91cd\u5faa\u73af\u679a\u4e3e $A$\uff0c$B$ \u7684\u503c\u5373\u53ef\u3002\n\n\u6ce8\u610f\uff1a**\u4e00\u5b9a\u8981\u5f00** `long long`\uff01\n\n### \u4ee3\u7801\u5b9e\u73b0\n------------\n\n``` cpp\n#include<bits/stdc++.h>\nusing namespace std;\nlong long x;\nlong long doit(long long n) { return n*n*n*n*n;}\nint main() {\n\tscanf(\"%lld\",&x);\n\tfor(int i=-120;i<=120;i++) {\n\t\tfor(int j=-120;j<=120;j++) {\n\t\t\tif(doit(i)-doit(j)==x) {\n\t\t\t\tprintf(\"%d %d\\n\",i,j);\n\t\t\t\treturn 0;\n\t\t\t}\n\t\t}\n\t}\n\treturn 0;\n}\n//code by TheCedar\n```",
+        "postTime": 1656678476,
+        "uid": 564864,
+        "name": "TheCedar",
+        "ccfLevel": 0,
+        "title": "AT5404 [ABC166D] I hate Factorization \u9898\u89e3"
+    },
+    {
+        "content": "\u53ef\u4ee5\u53d1\u73b0 500 \u7684 5 \u6b21\u65b9\u5df2\u7ecf\u5927\u4e8e\u4e86 10 \u7684 9 \u6b21\uff0c\u6240\u4ee5\u6211\u4eec\u53ef\u4ee5\u679a\u4e3e A \u548c B\uff0c\u4e3a\u4e86\u4f7f\u89e3\u7684\u8303\u56f4\u66f4\u5927\uff0c\u6211\u4eec\u5728\u679a\u4e3e B \u65f6\u53ef\u4ee5\u4ece\u8d1f\u6570\u5f00\u59cb\u679a\u4e3e\uff0c\u81f3\u4e8e\u4ece\u54ea\u4e2a\u8d1f\u6570\uff0c\u53ef\u4ee5\u81ea\u5df1\u5b9a\uff0c\u53ea\u8981\u5c0f\u4e8e\u8d1f 100 \u5373\u53ef\u3002\u6211\u4eec\u627e\u5230\u7b54\u6848\u5c31\u53ef\u4ee5\u9000\u51fa\u4e86\u3002\n\n```cpp\n#include <bits/stdc++.h>\n#define int long long\nusing namespace std;\nconst int N = 100002;\nint n,m,k,p,q,ans,sum,tot,cnt,a[N],b[N],c[N],d[N];\nsigned main()\n{\n\tcin>>n;\n    for(int i=1;i<=700;i++)\n    {\n    \tfor(int j=-600;j<=600;j++)\n    \t{\n    \t\tp=i*i;\n    \t\tp=p*i;\n    \t\tp=p*i;\n    \t\tp=p*i;\n    \t    q=j*j;\n    \t\tq=q*j;\n    \t\tq=q*j;\n    \t\tq=q*j;\n    \t\tif(p-q==n)\n    \t\t{\n    \t\t\tcout<<i<<\" \"<<j;\n    \t\t\treturn 0;\n\t\t\t}\n\t\t}\n\t}\n\treturn 0;\n}\n\n```\n\n\n\n",
+        "postTime": 1619758964,
+        "uid": 503899,
+        "name": "_byta",
+        "ccfLevel": 0,
+        "title": "AT5404 [ABC166D] I hate Factorization"
+    },
+    {
+        "content": "## \u9898\u610f\n\n\u5df2\u77e5 $a^5-b^5=x$\uff0c$a,b\u2208Z$\uff0c$x\u2208Z^+$\n\uff0c$x\u226410^9$\u3002\n\n\u7ed9\u5b9a $x$\uff0c\u6c42\u51fa\u4e00\u7ec4 $a,b$ \u7684\u503c\u3002\n\n## \u601d\u8def\n\n\u76f4\u63a5\u679a\u4e3e\u80af\u5b9a\u8d85\u65f6\uff0c\u6240\u4ee5\u53ef\u4ee5\u8003\u8651\u7f29\u5c0f\u679a\u4e3e\u8303\u56f4\u3002\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n\tint a = 1;\n    while(1) {\n    \ta++;\n    \tif (a * a * a * a * a - (a - 1) * (a - 1) * (a - 1) * (a - 1) * (a - 1) > 1e9) {\n    \t\tcout << a << endl;\n    \t\treturn 0;\n\t\t}\n\t}\n\treturn 0;\n}\n```\n\u901a\u8fc7\u4ee5\u4e0a\u7a0b\u5e8f\u53ef\u4ee5\u5f97\u51fa $a,b$ \u7684\u679a\u4e3e\u4e0a\u4e0b\u754c\u4e3a $\u00b1120$\u3002\n\n\u7136\u540e\u679a\u4e3e\u5373\u53ef\u3002\u5f97\u5230\u4e00\u7ec4\u89e3\u5c31\u7ed3\u675f\u3002\n\n## \u4ee3\u7801\n\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n#define int long long //\u6ce8\u610f\u4e94\u6b21\u65b9\u6709\u53ef\u80fd\u8d85\u8fc7 int\nint x;\nint qp(int b, int p) { //\u5feb\u901f\u5e42\n    int ans = 1, base = b;\n    while(p > 0) {\n        if (p % 2 == 1) ans *= base;\n        base *= base;\n        p >>= 1;\n    }\n    return ans;\n}\nsigned main() {\n\tcin >> x;\n\tfor(int i = -120; i <= 120; ++i) {\n\t\tfor(int j = -120; j <= 120; ++j) {\n\t\t\tif (qp(i, 5) - qp(j, 5) == x) {\n\t\t\t\tcout << i << \" \" << j << endl;\n\t\t\t\treturn 0;\n\t\t\t}\n\t\t}\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1617357189,
+        "uid": 351320,
+        "name": "RBI_GL",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT5404 [ABC166D] \u3010I hate Factorization\u3011"
+    },
+    {
+        "content": "### \u9898\u610f\n\u7ed9\u5b9a\u4e00\u4e2a\u6570 $x$\uff0c\u627e\u51fa\u6ee1\u8db3 $a^5-b^5=x$ \u7684\u4e00\u7ec4 $a,b$ \u7684\u503c\u3002\n\n### \u601d\u8def\n\u5982\u679c\u76f4\u63a5\u66b4\u529b\u679a\u4e3e\uff0c\u4e00\u5b9a\u4f1a\u8d85\u65f6\uff0c\u6240\u4ee5\u6211\u4eec\u8981\u7f29\u5c0f\u679a\u4e3e\u8303\u56f4\u3002\u6309\u4e00\u4e0b\u8ba1\u7b97\u5668\uff0c\u53ef\u4ee5\u5f97\u5230 $150^5+149^5\\gt 10^9$ \uff0c\u6240\u4ee5\u6211\u4eec\u53ea\u8981\u628a $a,b$ \u4ece $-150$ \u679a\u4e3e\u5230 $150$ \u5c31\u53ef\u4ee5\u4e86\u3002\n### \u4ee3\u7801\u5b9e\u73b0\n```cpp\n#include<stdio.h>\nlong long x;\nint main(){\n\tscanf(\"%lld\",&x);\n\tfor(long long a=-150;a<=150;a++)\n\t\tfor(long long b=-150;b<=150;b++)\n\t\t\tif(a*a*a*a*a-b*b*b*b*b==x)\n\t\t\t\treturn 0&printf(\"%lld %lld\",a,b);\n}\n```",
+        "postTime": 1661127705,
+        "uid": 260985,
+        "name": "woshishabi250",
+        "ccfLevel": 5,
+        "title": "AT5404 \u9898\u89e3\u62a5\u544a"
+    },
+    {
+        "content": "\u975e\u5e38\u7684\u7591\u60d1\uff0c\u4e3a\u4ec0\u4e48\u8fdc\u53e4\u65f6\u4ee3 ABC \u96be\u5ea6\u53ea\u6709\u8fd9\u4e48\u70b9\u554a\uff1f\u6df1\u611f\u65f6\u4ee3\u53d8\u4e86...\n\n## \u601d\u8def\n\u6211\u4eec\u53ef\u4ee5\u53d1\u73b0 $X\\leq10^9$\uff0c\u7136\u800c $200^5-199^5>10^9$\u3002\n\n\u53ef\u4ee5\u77e5\u9053\uff0c$x^5-(x-1)^5< x^5-(x-k)^5$ \uff08$k>1$\uff09\uff0c\u6545\u5176\u4ed6\u7684\u6570\u5b57\u66f4\u4e0d\u53ef\u80fd\u8fbe\u6210\u6761\u4ef6\u4e86\u3002\n\n\u5373\u6ee1\u8db3\u6761\u4ef6\u7684 $X,Y$ \u6700\u5927\u4e3a $200$\uff0c\u679a\u4e3e\u5373\u53ef\uff01\n\n## \u4ee3\u7801\n```c++\n#include <bits/stdc++.h>\nusing namespace std;\n\n#define int long long\nint x;\n\nsigned main() {\n\tcin >> x;\n\tfor (int i = -200; i <= 200; i++) {\n\t\tfor (int j = -200; j <= 200; j++) {\n\t\t\tif (i * i * i * i * i - j * j * j * j * j == x) {\n\t\t\t\tcout << i << ' ' << j << endl;\n\t\t\t\treturn 0;\n\t\t\t}\n\t\t}\n\t}\n}\n```",
+        "postTime": 1660811229,
+        "uid": 411727,
+        "name": "stOtue",
+        "ccfLevel": 0,
+        "title": "AT5404"
+    },
+    {
+        "content": "[\u9898\u76ee](https://www.luogu.com.cn/problem/AT5404)\n\n[\u535a\u5ba2](https://www.luogu.com.cn/blog/achjuncool/solution-at5404)\n\n# \u9898\u76ee\u5927\u610f\n\n\u7ed9\u4e00\u4e2a\u6b63\u6574\u6570 $X$\uff0c\u627e\u51fa\u4efb\u610f\u4e24\u4e2a\u6574\u6570 $A,B$\uff0c\u6ee1\u8db3 $A^5-B^5=X$\u3002\n\n# \u89e3\u6cd5\n\n\u66b4\u529b\u679a\u4e3e\u5373\u53ef\u3002\n\n$1\\le X\\le10^9$\u3002\n\n\u5982\u679c $A,B$ \u90fd\u4ece $-10^9$ \u679a\u4e3e\u5230 $10^9$ \u80af\u5b9a\u4f1a\u8d85\u65f6\uff0c\u90a3\u4e48\u6211\u4eec\u9700\u8981\u7f29\u5c0f\u8303\u56f4\u3002\n\n\u9009\u4e00\u4e2a\u8f83\u5927\u7684\u6570\uff0c\u6bd4\u5982 $500$\uff0c\u901a\u8fc7\u8ba1\u7b97~~\u5668~~\u53ef\u5f97\uff0c$500^5-499^5=311252497501$\uff0c\u80af\u5b9a\u5927\u4e8e $10^9$\uff0c\u6240\u4ee5 $A,B$ \u90fd\u4ece $-500$ \u679a\u4e3e\u5230 $500$ \u5373\u53ef\u3002\n\n\u6700\u574f\u60c5\u51b5\u4e0b\u4e00\u5171\u679a\u4e3e $10^6$ \u6b21\uff0c\u80af\u5b9a\u4e0d\u4f1a\u8d85\u65f6\u3002\n\n\u6700\u540e\uff0c**\u8981\u5f00 ```long long``` \uff01\uff01\uff01**\n\n# Code\n\n[AC](https://www.luogu.com.cn/record/80764440)\n\n```cpp\n#include <iostream>\nusing namespace std;\ntypedef long long ll;\nll x;\nint main(){\n\tcin >> x;\n\tfor(ll a = -500; a <= 500; a++){\n\t\tfor(ll b = -500; b <= 500; b++){\n\t\t\tif((a * a * a * a * a - b * b * b * b * b) == x){\n\t\t\t\tcout << a << \" \" << b << endl;\n\t\t\t\treturn 0;\n\t\t\t}\n\t\t}\n\t}\n    return 0;\n}\n```",
+        "postTime": 1658496536,
+        "uid": 604622,
+        "name": "achjuncool",
+        "ccfLevel": 5,
+        "title": "AT5404 [ABC166D] I hate Factorization \u9898\u89e3"
+    },
+    {
+        "content": "\u5176\u5b9eD\u9898\u771f\u7684\u6ca1\u6709\u90a3\u4e48\u96be\uff0c\u5c31\u662f\u9700\u8981\u4e8b\u5148\u8ba1\u7b97 $A,B$ \u7684\u8303\u56f4\u3002\n\n\u9996\u5148\u8ba1\u7b97 $1000^5-999^5=4,990,009,995,001>10^9$ ,\u7136\u540e\u4e0d\u65ad\u8bd5\u7b97\u4e0b\u53bb\u2026\u2026\u6700\u540e\u53ef\u4ee5\u53d1\u73b0\uff1a\n\n$\\because 120^5-119^5>10^9$ \u4e14 $119^5-118^5<10^9$\n\n$\\therefore -120 \\le A,B \\le 120$ \uff08$A,B$ \u53ef\u4e3a\u8d1f\u6570\uff09\n\n**\u6ce8\uff1a\u5982\u679c\u5b98\u65b9\u9898\u89e3\u4e2d $-118 \\le A \\le 119,-119 \\le B \\le 118$ \u8fd9\u4e2a\u8303\u56f4\u4e0d\u77e5\u9053\u600e\u4e48\u5f97\u51fa\u7684\u8bdd\uff0c\u7528\u4e0a\u9762 $A,B$ \u7684\u8303\u56f4\u5c31\u53ef\u4ee5\u4e86\u3002**\n\n\u7136\u540e\u6ce8\u610f\u8981\u5f00long long\u5c31\u6ca1\u4e86\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include <stdio.h>\nlong long x;//\u4e0d\u7528\u89e3\u91ca\u8fd9\u4e2a\u4e86\u5427\nmain(){\n    scanf(\"%lld\",&x);\n    for(long long a=-120;a<=120;++a)\n        for(long long b=-120;b<=120;++b)\n        //\u679a\u4e3e\uff0c\u4e00\u5b9a\u8981\u5f00long long\n            if(a*a*a*a*a-b*b*b*b*b==x)//\u5224\u65ad\n                return printf(\"%lld %lld\\n\",a,b),0;\n                //\u538b\u884c\u5199\u6cd5\uff0c\u597d\u5b69\u5b50\u8bf7\u52ff\u6a21\u4eff\n}\n```\n",
+        "postTime": 1594481930,
+        "uid": 207812,
+        "name": "Chouquet",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 AT5404 \u3010[ABC166D] I hate Factorization\u3011"
+    },
+    {
+        "content": "\u9898\u76ee\u540d\u79f0\u53c8\u662f\u6765\u8bef\u5bfc\u4eba\u7684\u2026\u2026\n\n\u4e00\u770b\u9898\u76ee\u540d\u79f0\u56e0\u5f0f\u5206\u89e3\uff0c\u4f46\u662f\u521d\u4e2d\u90a3\u4e9b\u6076\u5fc3\u7684\u56e0\u5f0f\u5206\u89e3\u9898\u544a\u8bc9\u6211\uff0c\u5206\u89e3\u540e\u7684\u67ff\u5b50\u957f\u6210\u8fd9\u4e2a\u9b3c\u6837\u5b50\uff1a\n\n$$\na^5-b^5=(a-b)(a^4+a^3b+a^2b^2+ab^3+b^4)\n$$\n\n\u540e\u9762\u8fd9\u4e00\u4e32\u663e\u7136\u975e\u5e38\u4e0d\u53ef\u505a\u3002\n\n\u7136\u540e\u770b\u4e00\u773c\u6570\u636e\u8303\u56f4\uff0c\u53d1\u73b0$0\\leq x\\leq 10^9$\uff0c\u4e8e\u662f\u5fc3\u8840\u6765\u6f6e\uff1a\n\n![YPqoef.jpg](https://s1.ax1x.com/2020/05/05/YPqoef.jpg)\n\n\u8fd9\u5c31\u610f\u5473\u7740\u5f53a\u7684\u7edd\u5bf9\u503c\u6bd4\u8f83\u5927\u7684\u65f6\u5019\uff0c$a^5-(a-1)^5$\u5c31\u4f1a\u8fdc\u8fdc\u8d85\u8fc7$10^9$\u3002\n\n\u4ece\u56fe\u7247\u53ef\u4ee5\u770b\u51fa\uff0ca,b\u7684\u7edd\u5bf9\u503c\u90fd\u57282000\u4ee5\u5185\uff0c\u6240\u4ee5\u6211\u4eec\u53ea\u8981\u66b4\u529b\u679a\u4e3e\u4e24\u4e2a\u6570\u5224\u65ad\u5c31\u597d\u4e86\u3002\n\n```cpp\n#include <bits/stdc++.h>\n#define ll long long\nusing namespace std;\n\nint main()\n{\n    ll X;\n    cin >> X;\n    for(int i = -2000; i <= 2000; i++){\n        for(int j = -2000; j <= i; j++){\n            ll x = (ll)i*i*i*i*i, y = (ll)j*j*j*j*j;\n            if(x - y == X){\n                cout << i << \" \" << j << endl;\n                return 0;\n            }\n        }\n    }\n\n    return 0;\n}\n```",
+        "postTime": 1588642205,
+        "uid": 22991,
+        "name": "fighter",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 AT5404 \u3010[ABC166D] I hate Factorization\u3011"
+    },
+    {
+        "content": "\u672c\u9898\u770b\u8d77\u6765\u5f88\u96be\uff0c\u5b9e\u9645\u4e0a\u5c31\u662f\u679a\u4e3e\u3002\n\n\u968f\u4fbf\u6253\u4e2a\u8868\uff0c\u53d1\u73b0 $1000^5-999^5>10^9$\uff0c\u4e5f\u5c31\u662f\u8bf4\u6700\u540e\u7b54\u6848\u7684\u7edd\u5bf9\u503c\u4e0d\u4f1a\u5927\u4e8e $1000$,\u76f4\u63a5\u679a\u4e3e\u5373\u53ef\uff0c\u8bb0\u5f97\u8981\u5224\u8d1f\u6570\u3002\n\n\u540c\u65f6\u8fd8\u8981\u5f00 long long\u3002\n\n```cpp\n#include<bits/stdc++.h>\n#define in inline\n#define int long long\n#define re register\nusing namespace std;\nin int read() {\n\tre int t=0;\n\tre char v=getchar();\n\twhile(v<'0'||v>'9')v=getchar();\n\twhile(v>='0'&&v<='9') {\n\t\tt=(t<<3)+(t<<1)+(v^48);\n\t\tv=getchar();\n\t}\n\treturn t;\n}\nint n,m,ans;\nsigned main(){\n\tn=read();\n\tfor(re int i=-1000;i<=1000;++i){\n\t\tfor(re int j=-1000;j<=1000;++j){\n\t\t\tif(i*i*i*i*i-j*j*j*j*j==n){\n\t\t\t\tprintf(\"%lld %lld\\n\",i,j);\n\t\t\t\treturn 0;\n\t\t\t}\n\t\t}\n\t}\n}\n\n```\n",
+        "postTime": 1588514043,
+        "uid": 335422,
+        "name": "\u9493\u9c7c\u738b\u5b50",
+        "ccfLevel": 0,
+        "title": "D"
+    }
+]

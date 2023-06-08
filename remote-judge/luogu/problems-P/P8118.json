@@ -1,0 +1,24 @@
+{
+    "description": "\u7ed9\u51fa\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u5355\u8c03\u4e0d\u964d\u6574\u6570\u6570\u5217 $\\{a_i\\}$ \u548c\u4e00\u4e2a\u6574\u6570 $k$\u3002\n\n\u6211\u4eec\u5b9a\u4e49\u4e24\u4e2a\u957f\u5ea6\u5747\u4e3a $p$ \u7684\u5e8f\u5217 $\\{x_i\\},\\{y_i\\}$ \u7684\u300c\u5dee\u5f02\u5ea6\u300d$F(x,y,p)=\\sum_{i=1}^p |x_i-y_i|$\u3002\n\n\u73b0\u5728\u5bf9\u4e8e\u6bcf\u4e2a\u6574\u6570 $l \\in [1,n]$\uff0c\u4f60\u90fd\u9700\u8981\u6784\u9020\u4e00\u4e2a\u957f\u5ea6\u4e3a $l$ \u7684\u5e8f\u5217 $\\{b_{l,i}\\}$\u3002\u6ee1\u8db3\u5bf9\u4e8e\u4efb\u610f $1\\le i <l$\uff0c$b_{l,i+1}\\ge b_{l,i}+k$\uff1b\u4e14 $F(a_{[1\\cdots l]},b_l,l)$ \u6700\u5c0f\u3002\u5176\u4e2d $a_{[1\\cdots l]}$ \u8868\u793a $\\{a_i\\}$ \u7684\u957f\u5ea6\u4e3a $l$ \u7684\u524d\u7f00\uff0c\u5373 $\\{a_1,a_2,\\cdots,a_l\\}$\u3002\u6ce8\u610f\uff0c$b_{l,i}$ \u6ca1\u5fc5\u8981\u662f\u6574\u6570\u3002\n",
+    "inputFormat": "\u7b2c\u4e00\u884c\u8f93\u5165\u4e24\u4e2a\u6574\u6570 $n,k$\u3002  \n\u7b2c\u4e8c\u884c\u8f93\u5165 $n$ \u4e2a\u6574\u6570\uff0c\u4ee3\u8868 $\\{a_i\\}$\u3002  \n\u7b2c\u4e09\u884c\u8f93\u5165\u4e00\u4e2a\u6574\u6570 $T$\uff0c\u4ee3\u8868\u7b54\u6848\u8f93\u51fa\u65b9\u5f0f\u3002\u5177\u4f53\u89e3\u91ca\u8bf7\u53c2\u8003\u300c\u8f93\u51fa\u683c\u5f0f\u300d\u3002",
+    "outputFormat": "- \u82e5 $T=0$\uff0c\u5219\u8f93\u51fa $n$ \u4e2a\u6574\u6570\uff0c\u6bcf\u4e2a\u6574\u6570\u5355\u72ec\u5360\u4e00\u884c\u3002\u7b2c $l$ \u884c\u7684\u6574\u6570\u4ee3\u8868 $F(a_{[1\\cdots l]},b_l,l)$\u3002\n- \u82e5 $T=1$\uff0c\u5219\u4f60\u4ec5\u9700\u8f93\u51fa\u4e00\u884c\u4e00\u4e2a\u6574\u6570\uff0c\u8868\u793a $F(a,b_n,n)$\u3002",
+    "samples": [
+        [
+            "5 2\n2 3 4 5 6\n0",
+            "0\n1\n2\n4\n6"
+        ],
+        [
+            "6 2\n1 1 4 5 6 8\n0",
+            "0\n2\n2\n3\n4\n5\n"
+        ],
+        [
+            "6 2\n1 1 4 5 6 8\n1",
+            "5"
+        ],
+        [
+            "20 4\n4 6 7 9 19 21 30 32 33 35 49 50 58 67 75 77 78 89 91 91\n0",
+            "0\n2\n5\n10\n10\n12\n12\n14\n17\n22\n22\n25\n25\n25\n25\n27\n30\n30\n32\n36"
+        ]
+    ],
+    "hint": "### \u6837\u4f8b\u89e3\u91ca\n\n#### \u6837\u4f8b \\#1\n\n\u5982\u4e0b\u662f\u4e00\u79cd\u53ef\u80fd\u7684\u6784\u9020\u65b9\u6848\uff1a\n\n$$\n\\begin{aligned}\nb_1&=\\{2\\}\\\\\nb_2&=\\{2,4\\}\\\\\nb_3&=\\{1,3,5\\}\\\\\nb_4&=\\{1,3,5,7\\}\\\\\nb_5&=\\{0,2,4,6,8\\}\\\\\n\\end{aligned}\n$$\n\n#### \u6837\u4f8b \\#2\n\n\u5982\u4e0b\u662f\u4e00\u79cd\u53ef\u80fd\u7684\u6784\u9020\u65b9\u6848\uff1a\n\n$$\n\\begin{aligned}\nb_1&=\\{1\\}\\\\\nb_2&=\\{0,2\\}\\\\\nb_3&=\\{0,2,4\\}\\\\\nb_4&=\\{0,2,4,6\\}\\\\\nb_5&=\\{-1,1,3,5,7\\}\\\\\nb_6&=\\{-1,1,3,5,7,9\\}\\\\\n\\end{aligned}\n$$\n\n#### \u6837\u4f8b \\#3\n\n\u540c\u6837\u4f8b \\#2\uff0c\u53ea\u4e0d\u8fc7 $T=1$\uff0c\u4f60\u53ea\u9700\u8981\u8f93\u51fa $F(a,b_6,6)=5$ \u5373\u53ef\u3002\n\n### \u6570\u636e\u8303\u56f4\u53ca\u7ea6\u5b9a\n\n$$\n\\def\\arraystretch{1.5}\n\\begin{array}{|c|c|c|c|c|c|} \\hline\n\\textbf{subtask} & \\textbf{\u5206\u503c} & \\bm{{n\\le}} & \\bm{{T=}} & \\bm{{k,a_i\\le}} & \\textbf{subtask \u4f9d\u8d56}\\cr\\hline\n1 & 30 & 100 & 0 & 100 & -\\cr\\hline\n2 & 30 & 10^5 & 0 & 10^6 & 1\\cr\\hline\n3 & 40 & 10^6 & 1 & 10^6 & -\\cr\\hline\n\\end{array}\n$$\n\n\u5bf9\u4e8e $100\\%$ \u7684\u6570\u636e\uff0c$1\\le n \\le 10^6$\uff0c$1\\le k,a_i\\le 10^6$\uff0c$T\\in\\{0,1\\}$\u3002"
+}

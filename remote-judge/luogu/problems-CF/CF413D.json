@@ -1,0 +1,25 @@
+{
+    "description": "The programmers from the R2 company love playing 2048. One day, they decided to invent their own simplified version of this game \u2014 $ 2^{k} $ on a stripe.\n\nImagine an infinite in one direction stripe, consisting of unit squares (the side of each square is equal to the height of the stripe). Each square can either be empty or contain some number.\n\nInitially, all squares are empty. Then at infinity one of the unit squares number 2 or 4 appears. Then the player presses a button once, and the appeared number begins to move towards the beginning of the stripe. Let's assume that some number $ x $ moves to the beginning of the stripe, then it will stop if:\n\n1. it either gets in the first square of the stripe;\n2. or it is in the square that is preceded by a square with number $ y $ $ (y\u2260x) $ . But if number $ x $ at some point of time gets to the square with the same number then both numbers add to each other and result in $ 2x $ . The new number $ 2x $ continues moving to the beginning of the stripe by the same rules.\n\nAfter the final stop of the number moving process, the infinity gets a new number 2 or 4 and the process repeats. Read the notes to the test samples to better understand the moving strategy.\n\nI guess you've understood that the game progress fully depends on the order in which numbers 2 and 4 appear. Let's look at some sequence of numbers 2 and 4 in the game. We assume that the sequence is winning if it results in at least one square getting the number greater or equal than $ 2^{k} $ .\n\nThe goal of the game is to make up a winning sequence of $ n $ numbers. But not everything is so simple, some numbers in the sequence are identified beforehand. You are given a sequence consisting of numbers 0, 2, 4. Count how many ways there are to replace each 0 of the sequence with 2 or 4 to get a winning sequence.",
+    "inputFormat": "The first line contains two integers $ n $ and $ k $ $ (1<=n<=2000;\u00a03<=k<=11) $ . The next line contains sequence of $ n $ integers, each of them is either 0, or 2, or 4.",
+    "outputFormat": "Print a single integer \u2014 the number of ways to replace zeroes by numbers 2 or 4 to get a winning sequence. As this number can be rather large, print it modulo $ 1000000007 $ $ (10^{9}+7) $ .",
+    "samples": [
+        [
+            "7 4\n2 2 4 2 2 2 2\n",
+            "1\n"
+        ],
+        [
+            "1 3\n0\n",
+            "0\n"
+        ],
+        [
+            "2 3\n0 4\n",
+            "1\n"
+        ],
+        [
+            "5 4\n2 0 0 4 4\n",
+            "2\n"
+        ]
+    ],
+    "hint": "Consider the first example. The beginning of the strip will look as follows:\n\n2 $ \u2192 $ 4 $ \u2192 $ 8 $ \u2192 $ 8 2 $ \u2192 $ 8 4 $ \u2192 $ 8 4 2 $ \u2192 $ 16.\n\nTo better understand the game, you can see the original game on http://gabrielecirulli.github.io/2048/. Please note that the game that is described on the strip is slightly different from the original game (when the two numbers add up in the original game, they do not keep moving). Be careful, the game is addictive, there isn't much time for the contest!",
+    "translation": "\u6709\u4e00\u4e2a\u957f\u4e3a $n$ \u7684\u6570\u5217\uff0c\u6bcf\u4e00\u4e2a\u5143\u7d20\u90fd\u662f $2$\uff0c$4$ \u6216\u662f $0$\u3002\u4f60\u60f3\u8981\u628a\u6240\u6709 $0$ \u66ff\u6362\u4e3a $2$ \u6216 $4$\uff0c\u4f60\u60f3\u77e5\u9053\u6709\u591a\u5c11\u79cd\u66ff\u6362\u65b9\u6cd5\uff0c\u4f7f\u5f97\u6309\u7167 $\\tt2048$ \u7684\u89c4\u5219\u5408\u5e76\u540e\uff0c\u6700\u5927\u7684\u6570\u8d85\u8fc7\u4e86 $2^k$\u3002\u7b54\u6848\u5bf9 $10^9+7$ \u53d6\u6a21\u3002 \n\n$\\tt2048$ \u5408\u5e76\u89c4\u5219\u662f\uff0c\u4f9d\u6b21\u5411\u4e00\u4e2a\u6808\u4e2d\u538b\u5165\u6570\u5217\u4e2d\u7684\u6240\u6709\u5143\u7d20\u3002\u82e5\u67d0\u6b21\u538b\u5165\u7684\u65f6\u5019\uff0c\u6808\u9876\u7684\u5143\u7d20\u548c\u5373\u5c06\u538b\u5165\u7684\u5143\u7d20\u76f8\u540c\uff0c\u5219\u53d6\u51fa\u6808\u9876\u5143\u7d20\uff0c\u4e0e\u5373\u5c06\u538b\u5165\u7684\u5143\u7d20\u5408\u5e76\u4e3a\u4ed6\u4eec\u4e8c\u500d\u7684\u6570\uff0c\u7136\u540e\u518d\u5c06\u8fd9\u4e2a\u6570\u538b\u5165\u6808\u3002\u82e5\u6b64\u65f6\u8fd8\u4e00\u6837\uff0c\u5219\u91cd\u590d\u6b64\u8fc7\u7a0b\u3002"
+}

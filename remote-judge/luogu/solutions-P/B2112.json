@@ -1,0 +1,42 @@
+[
+    {
+        "content": "### \u6cd51\uff1a\u66b4\u529b\u5224\u65ad\n\n\u4f9d\u9898\u610f\u5f97\uff0c\u8bfb\u5165\u4e24\u4e2a\u5b57\u7b26\u4e32\u8fdb\u884c\u5224\u65ad\uff08\u53ea\u5224\u65ad\u9996\u4f4d\u5373\u53ef\uff09\u3002\n\n\u4ee3\u7801\u5982\u4e0b\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main() {\n\tint n;\n\tcin>>n;\n\tfor(int i=0; i<n; i++) {\n\t\tstring a,b;\n\t\tcin>>a>>b;//\u8bfb\u5165\u4e24\u4e2a\u5b57\u7b26\u4e32\n\t\tif(a[0]==b[0])cout<<\"Tie\\n\";//\u9996\u4f4d\u76f8\u540c\uff0c\u5e73\u5c40\n\t\telse if(a[0]=='R') {\n\t\t\tif(b[0]=='P')cout<<\"Player2\\n\";\n\t\t\telse cout<<\"Player1\\n\";\n\t\t}\n\t\telse if(a[0]=='P') {\n\t\t\tif(b[0]=='S')cout<<\"Player2\\n\";\n\t\t\telse cout<<\"Player1\\n\";\n\t\t}\n\t\telse if(a[0]=='S') {\n\t\t\tif(b[0]=='R')cout<<\"Player2\\n\";\n\t\t\telse cout<<\"Player1\\n\";\n\t\t}//\u4ee5\u4e0a\u662f\u9010\u4e2a\u5224\u65ad\uff0c\u6309\u7167 Player1 \u7684\u60c5\u51b5\u5206\u7c7b\u8ba8\u8bba\n\t\t//\u56e0\u4e3a\u8ba8\u8bba\u8fc7\u5e73\u5c40\u4e86\uff0c\u53ef\u4ee5\u53ea\u5206\u4e24\u79cd\u60c5\u51b5\u8003\u8651\n\t\t//\u8bb0\u5f97\u4f7f\u7528 else-if\n\t}\n\treturn 0;\n}\n```\n\n### \u6cd52 ~~\uff08\u6211\u4e5f\u4e0d\u77e5\u9053\u53eb\u5565\uff09~~\n\n\u57fa\u4e8e\u6cd51\u53ea\u5224\u65ad\u9996\u4f4d\u7684\u505a\u6cd5\uff0c\u6211\u4eec\u5c06\u5b57\u7b26\u4e32\u9996\u7684 ASCII \u7801\u5217\u51fa\uff1a\n\n| \u77f3\u5934 | \u526a\u5200 | \u5e03 |\n| :-----------: | :-----------: | :-----------: |\n| 82 | 83 | 80 |\n\n\u90a3\u56e0\u4e3a\u77f3\u5934\u6253\u526a\u5200\uff0c\u5e03\u5305\u77f3\u5934\uff0c\u800c\u77f3\u5934\u7684\u6570\u503c\u5c0f\u4e8e\u526a\u5200\uff0c\u5e03\u53c8\u5c0f\u4e8e\u77f3\u5934\uff0c\u6211\u4eec\u53ef\u4ee5\u5f97\u51fa\uff1a\n\n\u9664\u975e\u662f\u526a\u5200\u526a\u5e03\uff08\u6570\u503c\u4e3a83\u300180\uff09\u7684\u60c5\u51b5\u5916\uff0c\u6570\u503c\u5c0f\u7684\u83b7\u80dc\uff01\n\n\u4fbf\u53ef\u5f97\u51fa\u5982\u4e0b\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main() {\n\tint n;\n\tcin>>n;\n\tfor(int i=0; i<n; i++) {\n\t\tstring a,b;\n\t\tcin>>a>>b;//\u8bfb\u5165\u4e24\u4e2a\u5b57\u7b26\u4e32\n\t\tif(a[0]==b[0])cout<<\"Tie\\n\";//\u9996\u4f4d\u76f8\u540c\uff0c\u5e73\u5c40\n\t\telse if(a[0]==83&&b[0]==80)cout<<\"Player1\\n\";\n\t\telse if(a[0]==80&&b[0]==83)cout<<\"Player2\\n\";//\u4ee5\u4e0a\u4e24\u884c\u7279\u5224\u526a\u5200\u548c\u5e03\u7684\u60c5\u51b5 \n\t\telse if(a[0]<b[0])cout<<\"Player1\\n\";\n\t\telse cout<<\"Player2\\n\";\n\t}\n\treturn 0;\n}\n```\n\n\u4ee5\u4e0a\u4e24\u79cd\u65b9\u6cd5\u5b9e\u6d4b\u53ef\u8fc7\u3002",
+        "postTime": 1625315204,
+        "uid": 359162,
+        "name": "ofbwyx",
+        "ccfLevel": 4,
+        "title": "B2112\u9898\u89e3"
+    },
+    {
+        "content": "\n\u76f4\u63a5\u6a21\u62df\u5373\u53ef\u3002\n\n\u9996\u5148\uff0c\u6211\u4eec\u8bfb\u5165\u4e24\u4e2a\u5b57\u7b26\u4e32 $s1, s2$\uff0c\u7136\u540e\u5224\u65ad $s1$ \u4e3a `Rock`\uff0c`Scissors`\uff0c`Paper` \u7684 $3$ \u79cd\u60c5\u51b5\u3002\n\n\u5224\u65ad\u65f6\u53ef\u4ee5\u4f7f\u7528 `if` \u8bed\u53e5\u5224\u65ad\uff0c\u8bed\u6cd5\u5982\u4e0b\uff1a\n\n```cpp\nif(boolean_expression)\n{\n   // \u5982\u679c\u5e03\u5c14\u8868\u8fbe\u5f0f\u4e3a true \u5c06\u6267\u884c\u7684\u8bed\u53e5\n}\nelse\n{\n   // \u5982\u679c\u5e03\u5c14\u8868\u8fbe\u5f0f\u4e3a false \u5c06\u6267\u884c\u7684\u8bed\u53e5\n}\n```\n\n\u5728\u6bcf\u4e2a `if` \u8bed\u53e5\u4e2d\uff0c\u6211\u4eec\u518d\u5224\u65ad $s2$ \u7684 $3$ \u79cd\u60c5\u51b5\uff0c\u4f5c\u51fa\u8f93\u51fa\u5373\u53ef\u3002\n\n\u53ef\u5f97\u4ee3\u7801\uff1a\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nvoid work()\n{\n\tstring s1,s2;\n\tcin>>s1>>s2;\n\n\tif (s1==\"Rock\") \n\t{\n\t\tif (s2==\"Scissors\")\n\t\t{\n\t\t\tcout<<\"Player1\"<<endl;\n\t\t}\n\t\tif (s2==\"Rock\")\n\t\t{\n\t\t\tcout<<\"Tie\"<<endl;\n\t\t}\n\t\tif (s2==\"Paper\")\n\t\t{\n\t\t\tcout<<\"Player2\"<<endl;\n\t\t}\n\t}\n\tif (s1==\"Scissors\")\n\t{\n\t\tif (s2==\"Scissors\")\n\t\t{\n\t\t\tcout<<\"Tie\"<<endl;\n\t\t}\n\t\tif (s2==\"Rock\")\n\t\t{\n\t\t\tcout<<\"Player2\"<<endl;\n\t\t}\n\t\tif (s2==\"Paper\")\n\t\t{\n\t\t\tcout<<\"Player1\"<<endl;\n\t\t}\n\t}\n\tif (s1==\"Paper\")\n\t{\n\t\tif (s2==\"Scissors\")\n\t\t{\n\t\t\tcout<<\"Player2\"<<endl;\n\t\t}\n\t\tif (s2==\"Paper\")\n\t\t{\n\t\t\tcout<<\"Tie\"<<endl;\n\t\t}\n\t\tif (s2==\"Rock\")\n\t\t{\n\t\t\tcout<<\"Player1\"<<endl;\n\t\t}\n\t}// \u5224\u65ad\u4e09\u79cd\u60c5\u51b5\n}\n\nint main()\n{\n\tint t;\n\tcin>>t;\n\twhile(t--) \n\t{\n\t\twork();\n\t} \n\treturn 0;\n}\n\n```",
+        "postTime": 1625371547,
+        "uid": 480910,
+        "name": "kkk\u5409\u7965\u7269",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 B2112 \u77f3\u5934\u526a\u5b50\u5e03\uff08Rock, scissors and paper\uff09"
+    },
+    {
+        "content": "\u4f9d\u636e\u9898\u610f\uff0c\u8bfb\u5165\u5b57\u7b26\u4e32\u8bc6\u522b\u540e\u76f4\u63a5\u8fdb\u884c\u5224\u65ad\u5373\u53ef\u3002\n```\n#include<bits/stdc++.h>\nusing namespace std;\n\nint pd(string a) {\n    cin >> a;\n    if(a == \"Rock\") return -1;\n    if(a == \"Scissors\") return 0;\n    if(a == \"Paper\") return 1;\n}\n\nint main() {\n    int n, p1, p2;\n    string k;\n    cin >> n;\n    \n    for(int i = 1; i <= n; i++) {\n        p1 = pd(k); p2 = pd(k);\n        if(p1 == p2) cout << \"Tie\" << endl;\n        if(p1 == -1 && p2 == 1) cout << \"Player2\" << endl;\n        if(p1 == -1 && p2 == 0) cout << \"Player1\" << endl;\n        if(p1 == 0 && p2 == 1) cout << \"Player1\" << endl;\n        if(p1 == 0 && p2 == -1) cout << \"Player2\" << endl;\n        if(p1 == 1 && p2 == -1) cout << \"Player1\" << endl;\n        if(p1 == 1 && p2 == 0) cout << \"Player2\" << endl;\n    }\n    \n    return 0;\n}\n```",
+        "postTime": 1625303506,
+        "uid": 414953,
+        "name": "ZhaiOverflow",
+        "ccfLevel": 3,
+        "title": "B2112 \u9898\u89e3"
+    },
+    {
+        "content": "\u5bf9\u4e8e\u6bcf\u4e2a\u8f93\u5165\u7684\u5b57\u7b26\u4e32\u5904\u7406\u5373\u53ef\u3002\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nconst string S=\"Scissors\";\nconst string P=\"Paper\";\nconst string R=\"Rock\";\nint turn;\nstring P1, P2;\nint main(){\n\tcin>>turn;\n\twhile(turn--){\n\t\tcin>>P1>>P2;\n\t\tif(P1==S&&P2==P||P1==P&&P2==R||P1==R&&P2==S){//\u73a9\u5bb6\u4e00\u8d62\u4e86\n\t\t    puts(\"Player1\");continue;\n\t\t}\n\t\telse if(P1==P2){//\u76f8\u540c\u5219\u5e73\u624b\n\t\t    puts(\"Tie\");continue;\n\t\t}\n\t\telse{//\u73a9\u5bb6\u4e8c\u8d62\u4e86\n\t\t    puts(\"Player2\");continue;\n\t\t}\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1625373577,
+        "uid": 490670,
+        "name": "Elysiaqwq",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 B2112 \u77f3\u5934\u526a\u5b50\u5e03"
+    },
+    {
+        "content": "\u6b64\u9898\u66b4\u529b\u679a\u4e3e\u5373\u53ef\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nstring a,b;int i,n;\nint main()\n{\n\t\n\tcin>>n;\n\tfor(i=1;i<=n;i++)\n\t{\n\t    cin>>a>>b;\n\t    if(a[0]=='R'&&b[0]=='R')\n\t        cout<<\"Tie\"<<endl;//\u77f3\u5934\u5bf9\u77f3\u5934\n\t    else if(a[0]=='R'&&b[0]=='S')\n\t        cout<<\"Player1\"<<endl;//\u77f3\u5934\u5bf9\u526a\u5200\n\t    else if(a[0]=='R'&&b[0]=='P')\n\t        cout<<\"Player2\"<<endl;//\u77f3\u5934\u5bf9\u5e03\n\t    else if(a[0]=='S'&&b[0]=='R')\n\t        cout<<\"Player2\"<<endl;//\u526a\u5200\u5bf9\u77f3\u5934\n\t    else if(a[0]=='S'&&b[0]=='S')\n\t        cout<<\"Tie\"<<endl;//\u526a\u5200\u5bf9\u526a\u5200\n\t    else if(a[0]=='S'&&b[0]=='P')\n\t        cout<<\"Player1\"<<endl;//\u526a\u5200\u5bf9\u5e03\n\t    else if(a[0]=='P'&&b[0]=='R')\n\t        cout<<\"Player1\"<<endl;//\u5e03\u5bf9\u77f3\u5934\n\t    else if(a[0]=='P'&&b[0]=='S')\n\t        cout<<\"Player2\"<<endl;//\u5e03\u5bf9\u526a\u5200\n\t    else if(a[0]=='P'&&b[0]=='P')\n\t        cout<<\"Tie\"<<endl;//\u5e03\u5bf9\u5e03\n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1625320757,
+        "uid": 118814,
+        "name": "Ryan_Yu",
+        "ccfLevel": 0,
+        "title": "B2112 \u9898\u89e3"
+    }
+]

@@ -1,0 +1,25 @@
+{
+    "description": "Consider a deck of cards. Each card has one of $ 4 $ suits, and there are exactly $ n $ cards for each suit \u2014 so, the total number of cards in the deck is $ 4n $ . The deck is shuffled randomly so that each of $ (4n)! $ possible orders of cards in the deck has the same probability of being the result of shuffling. Let $ c_i $ be the $ i $ -th card of the deck (from top to bottom).\n\nMonocarp starts drawing the cards from the deck one by one. Before drawing a card, he tries to guess its suit. Monocarp remembers the suits of the $ k $ last cards, and his guess is the suit that appeared the least often among the last $ k $ cards he has drawn. So, while drawing the $ i $ -th card, Monocarp guesses that its suit is the suit that appears the minimum number of times among the cards $ c_{i-k}, c_{i-k+1}, \\dots, c_{i-1} $ (if $ i \\le k $ , Monocarp considers all previously drawn cards, that is, the cards $ c_1, c_2, \\dots, c_{i-1} $ ). If there are multiple suits that appeared the minimum number of times among the previous cards Monocarp remembers, he chooses a random suit out of those for his guess (all suits that appeared the minimum number of times have the same probability of being chosen).\n\nAfter making a guess, Monocarp draws a card and compares its suit to his guess. If they match, then his guess was correct; otherwise it was incorrect.\n\nYour task is to calculate the expected number of correct guesses Monocarp makes after drawing all $ 4n $ cards from the deck.",
+    "inputFormat": "The first (and only) line contains two integers $ n $ ( $ 1 \\le n \\le 500 $ ) and $ k $ ( $ 1 \\le k \\le 4 \\cdot n $ ).",
+    "outputFormat": "Let the expected value you have to calculate be an irreducible fraction $ \\dfrac{x}{y} $ . Print one integer \u2014 the value of $ x \\cdot y^{-1} \\bmod 998244353 $ , where $ y^{-1} $ is the inverse to $ y $ (i. e. an integer such that $ y \\cdot y^{-1} \\bmod 998244353 = 1 $ ).",
+    "samples": [
+        [
+            "1 1",
+            "748683266"
+        ],
+        [
+            "3 2",
+            "567184295"
+        ],
+        [
+            "2 7",
+            "373153250"
+        ],
+        [
+            "2 8",
+            "373153250"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u6709 $4$ \u79cd\u82b1\u2f8a\u7684\u724c\uff0c\u6bcf\u79cd\u724c\u5747\u4e3a $n$ \u5f20\uff0c\u5219\u724c\u7684\u6392\u5217\u2f00\u5171\u6709 $(4\\cdot n)!$ \u79cd\u3002\n\n\u73b0\u5728\u4f60\u4ece\u724c\u5806\u4e2d\u9010\u5f20\u5730\u53d6\u51fa\u724c\uff0c\u53d6\u724c\u4e4b\u524d\u4f60\u90fd\u4f1a\u731c\u2f00\u4e0b\u8fd9\u5f20\u724c\u662f\u4ec0\u4e48\u82b1\u2f8a\u3002\u4f60\u4f1a\u6839\u636e\u4e4b\u524d\u7684 $k$ \u5f20\u724c\u4e2d\u51fa\u73b0\u6700\u5c11\u7684\u82b1\u2f8a\u6765\u731c\u8fd9\u5f20\u724c\u3002\n\n\u5982\u679c\u6709\u591a\u79cd\u82b1\u2f8a\u90fd\u662f\u6700\u5c11\u7684\uff0c\u4f60\u968f\u673a\u5730\u731c\u2f00\u79cd\u3002\u5982\u679c\u4e4b\u524d\u62bd\u51fa\u7684\u724c\u4e0d\u2f9c $k$ \u5f20\uff0c\u5c31\u6309\u4e4b\u524d\u7684\u6240\u6709\u724c\u4e2d\u7684\u6700\u5c11\u82b1\u2f8a\u6765\u731c\u3002\n\n\u95ee\u4f60\u731c\u5bf9\u7684\u671f\u671b\u6b21\u6570\u662f\u591a\u5c11\uff1f"
+}

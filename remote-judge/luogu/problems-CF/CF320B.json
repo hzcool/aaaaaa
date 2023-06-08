@@ -1,0 +1,13 @@
+{
+    "description": "In this problem at each moment you have a set of intervals. You can move from interval $ (a,b) $ from our set to interval $ (c,d) $ from our set if and only if $ c&lt;a&lt;d $ or $ c&lt;b&lt;d $ . Also there is a path from interval $ I_{1} $ from our set to interval $ I_{2} $ from our set if there is a sequence of successive moves starting from $ I_{1} $ so that we can reach $ I_{2} $ .\n\nYour program should handle the queries of the following two types:\n\n1. \"1 x y\" $ (x&lt;y) $ \u2014 add the new interval $ (x,y) $ to the set of intervals. The length of the new interval is guaranteed to be strictly greater than all the previous intervals.\n2. \"2 a b\" $ (a\u2260b) $ \u2014 answer the question: is there a path from $ a $ -th (one-based) added interval to $ b $ -th (one-based) added interval?\n\nAnswer all the queries. Note, that initially you have an empty set of intervals.",
+    "inputFormat": "The first line of the input contains integer $ n $ denoting the number of queries, $ (1<=n<=100) $ . Each of the following lines contains a query as described above. All numbers in the input are integers and don't exceed $ 10^{9} $ by their absolute value.\n\nIt's guaranteed that all queries are correct.",
+    "outputFormat": "For each query of the second type print \"YES\" or \"NO\" on a separate line depending on the answer.",
+    "samples": [
+        [
+            "5\n1 1 5\n1 5 11\n2 1 2\n1 2 9\n2 1 2\n",
+            "NO\nYES\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u4f60\u6709\u4e00\u4e9b\u533a\u95f4\uff0c\u4f60\u53ef\u4ee5\u5c06\u533a\u95f4 $(a, b)$ \u79fb\u52a8\u5230\u533a\u95f4 $(c, d)$ \u5f53\u4e14\u4ec5\u5f53 c < a < d  \u6216 c < b < d \uff0c\u5982\u679c\u4ece\u533a\u95f4\r\n$I_1$ \u5f00\u59cb\u5b58\u5728\u4e00\u4e2a\u8fde\u7eed\u7684\u201c\u79fb\u52a8\u5e8f\u5217\u201d\u53ef\u4ee5\u5230\u8fbe $I_2$\uff0c\u90a3\u4e48\u5c31\u6709\u4e00\u6761\u4ece $I_1$ \u5230 $I_2$ \u7684\u8def\u5f84\u3002\r\n\u4f60\u9700\u8981\u5904\u7406\u4e0b\u5217\u4e24\u79cd\u64cd\u4f5c\uff1a\r\n\r\n1. \u201c1 x y\u201d (x < y)\uff0c\u6dfb\u52a0\u4e00\u4e2a\u65b0\u533a\u95f4 $(x, y)$\uff0c\u4fdd\u8bc1\u65b0\u533a\u95f4\u7684\u957f\u5ea6\u4e25\u683c\u5927\u4e8e\u4e4b\u524d\u6240\u6709\u533a\u95f4\u3002\r\n2. \u201c2 a b\u201d\uff0c\u56de\u7b54\u8be2\u95ee\uff1a\u662f\u5426\u5b58\u5728\u4ece\u7b2c a \u4e2a\uff08\u6dfb\u52a0\u7684\uff09\u533a\u95f4\u5230\u7b2c b \u4e2a\u533a\u95f4\u7684\u8def\u5f84\u3002\u4ece 1 \u5f00\u59cb\u8ba1\u6570\u3002\r\n\r\n\r\n\u6ce8\u610f\uff0c\u6700\u5f00\u59cb\u6ca1\u6709\u533a\u95f4\u3002"
+}

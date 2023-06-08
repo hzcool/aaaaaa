@@ -1,0 +1,10 @@
+[
+    {
+        "content": "## \u5206\u6790\n\u56e0\u4e3a\u53ea\u80fd\u653e\u4e00\u4e2a\u969c\u788d\uff0c\u6240\u4ee5\u6211\u4eec\u4e00\u5b9a\u8981\u628a\u969c\u788d\u653e\u5728\u673a\u5668\u4eba\u7684\u5fc5\u7ecf\u4e4b\u8def\u4e0a\n\n\u6211\u4eec\u53ea\u9700\u8981\u679a\u4e3e\u673a\u5668\u4eba\u4f1a\u7ecf\u8fc7\u54ea\u4e9b\u70b9\n\n\u7136\u540e\u5206\u522b\u5728\u8fd9\u4e9b\u70b9\u653e\u4e0a\u969c\u788d\u5224\u65ad\u662f\u5426\u5408\u6cd5\u5373\u53ef\n\n\u65f6\u95f4\u590d\u6742\u5ea6 $O(n^2)$\n## \u4ee3\u7801\n``` cpp\n#include<cstdio>\n#include<algorithm>\n#include<cstring>\n#include<queue>\n#define rg register\ninline int read(){\n\trg int x=0,fh=1;\n\trg char ch=getchar();\n\twhile(ch<'0' || ch>'9'){\n\t\tif(ch=='-') fh=-1;\n\t\tch=getchar();\n\t}\n\twhile(ch>='0' && ch<='9'){\n\t\tx=(x<<1)+(x<<3)+(ch^48);\n\t\tch=getchar();\n\t}\n\treturn x*fh;\n}\nconst int maxn=5e3+5;\nint t,len,tp,x[maxn],y[maxn];\nchar s[maxn];\nbool jud=0;\nvoid dfs(rg int nx,rg int ny,rg int dep){\n\tx[++tp]=nx;\n\ty[tp]=ny;\n\tif(dep>len) return;\n\tif(s[dep]=='L') dfs(nx-1,ny,dep+1);\n\telse if(s[dep]=='R') dfs(nx+1,ny,dep+1);\n\telse if(s[dep]=='D') dfs(nx,ny-1,dep+1);\n\telse dfs(nx,ny+1,dep+1);\n}\nint main(){\n\tt=read();\n\twhile(t--){\n\t\tscanf(\"%s\",s+1);\n\t\tlen=strlen(s+1);\n\t\tjud=0;\n\t\ttp=0;\n\t\tdfs(0,0,1);\n\t\trg int qdx,qdy,zdx,zdy;\n\t\tfor(rg int i=1;i<=tp;i++){\n\t\t\tqdx=qdy=0;\n\t\t\tfor(rg int j=1;j<=len;j++){\n\t\t\t\tif(s[j]=='L') zdx=qdx-1,zdy=qdy;\n\t\t\t\telse if(s[j]=='R') zdx=qdx+1,zdy=qdy;\n\t\t\t\telse if(s[j]=='D') zdx=qdx,zdy=qdy-1;\n\t\t\t\telse zdx=qdx,zdy=qdy+1;\n\t\t\t\tif(zdx==x[i] && zdy==y[i]) continue;\n\t\t\t\telse qdx=zdx,qdy=zdy;\n\t\t\t}\n\t\t\tif(qdx==0 && qdy==0){\n\t\t\t\tjud=1;\n\t\t\t\tprintf(\"%d %d\\n\",x[i],y[i]);\n\t\t\t\tbreak;\n\t\t\t}\n\t\t}\n\t\tif(!jud) printf(\"0 0\\n\");\n\t}\n\treturn 0;\t\n}\n```",
+        "postTime": 1609076416,
+        "uid": 316322,
+        "name": "hzoi_liuchang",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF1468K \u3010The Robot\u3011"
+    }
+]

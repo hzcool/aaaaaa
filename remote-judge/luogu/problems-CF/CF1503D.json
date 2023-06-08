@@ -1,0 +1,21 @@
+{
+    "description": "There is a deck of $ n $ cards. The $ i $ -th card has a number $ a_i $ on the front and a number $ b_i $ on the back. Every integer between $ 1 $ and $ 2n $ appears exactly once on the cards.\n\nA deck is called sorted if the front values are in increasing order and the back values are in decreasing order. That is, if $ a_i< a_{i+1} $ and $ b_i> b_{i+1} $ for all $ 1\\le i<n $ .\n\nTo flip a card $ i $ means swapping the values of $ a_i $ and $ b_i $ . You must flip some subset of cards (possibly, none), then put all the cards in any order you like. What is the minimum number of cards you must flip in order to sort the deck?",
+    "inputFormat": "The first line contains a single integer $ n $ ( $ 1\\le n\\le 2\\cdot 10^5 $ ) \u2014 the number of cards.\n\nThe next $ n $ lines describe the cards. The $ i $ -th of these lines contains two integers $ a_i, b_i $ ( $ 1\\le a_i, b_i\\le 2n $ ). Every integer between $ 1 $ and $ 2n $ appears exactly once.",
+    "outputFormat": "If it is impossible to sort the deck, output \"-1\". Otherwise, output the minimum number of flips required to sort the deck.",
+    "samples": [
+        [
+            "5\n3 10\n6 4\n1 9\n5 8\n2 7",
+            "2"
+        ],
+        [
+            "2\n1 2\n3 4",
+            "-1"
+        ],
+        [
+            "3\n1 2\n3 6\n4 5",
+            "-1"
+        ]
+    ],
+    "hint": "In the first test case, we flip the cards $ (1, 9) $ and $ (2, 7) $ . The deck is then ordered $ (3,10), (5,8), (6,4), (7,2), (9,1) $ . It is sorted because $ 3<5<6<7<9 $ and $ 10>8>4>2>1 $ .\n\nIn the second test case, it is impossible to sort the deck.",
+    "translation": "\u4f60\u6709 $n$ \u5f20\u724c\uff08\u7f16\u53f7\u4e3a $1$ \u5230 $n$\uff09\uff0c\u7b2c $i$ \u5f20\u724c\u7684\u6b63\u9762\u6709\u6574\u6570 $a_i$\uff0c\u80cc\u9762\u6709\u6574\u6570 $b_i$\u3002\u6240\u6709 $1$ \u5230 $2\\times n$ \u7684\u6574\u6570\u90fd\u5728\u8fd9 $n$ \u5f20\u724c\u91cc\u51fa\u73b0\u8fc7\u6b63\u597d\u4e00\u6b21\u3002\n\n\u6211\u4eec\u8ba4\u4e3a\u8fd9 $n$ \u5f20\u724c\u662f\u201c\u6392\u597d\u5e8f\u201d\u7684\u4ec5\u5f53\u5bf9\u4e8e\u4efb\u610f\u6574\u6570 $i\\in[1,n)$ \u6709 $a_i<a_{i+1},b_i>b_{i+1}$\u3002\n\n\u4f60\u53ef\u4ee5\u8fdb\u884c\u8fdb\u884c\u4e0b\u9762\u7684\u64cd\u4f5c\u4efb\u610f\u6b21\uff1a\n\n- \u9009\u62e9\u4e00\u5f20\u724c $i$ \u5e76\u628a\u5b83\u7ffb\u8fc7\u6765\uff0c\u5373\u4ea4\u6362 $a_i,b_i$\u3002\n- \u91cd\u65b0\u6392\u5e8f\u8fd9 $n$ \u5f20\u724c\uff0c\u987a\u5e8f\u968f\u610f\u3002\n\n\u6c42\u5982\u679c\u8981\u4f7f\u8fd9 $n$ \u5f20\u724c\u53d8\u6210\u201c\u6392\u597d\u5e8f\u201d\u7684\uff0c\u4f60\u6700\u5c11\u9700\u8981\u7ffb\u51e0\u6b21\u724c\uff0c\u6216\u544a\u77e5\u65e0\u89e3\u3002\n\n$1\\leq n\\leq2\\times10^5;1\\leq a_i,b_i\\leq2\\times10^5;$"
+}

@@ -1,0 +1,17 @@
+{
+    "description": "You are given $ n $ segments on a Cartesian plane. Each segment's endpoints have integer coordinates. Segments can intersect with each other. No two segments lie on the same line.\n\nCount the number of distinct points with integer coordinates, which are covered by at least one segment.",
+    "inputFormat": "The first line contains a single integer $ n $ ( $ 1 \\le n \\le 1000 $ ) \u2014 the number of segments.\n\nEach of the next $ n $ lines contains four integers $ Ax_i, Ay_i, Bx_i, By_i $ ( $ -10^6 \\le Ax_i, Ay_i, Bx_i, By_i \\le 10^6 $ ) \u2014 the coordinates of the endpoints $ A $ , $ B $ ( $ A \\ne B $ ) of the $ i $ -th segment.\n\nIt is guaranteed that no two segments lie on the same line.",
+    "outputFormat": "Print a single integer \u2014 the number of distinct points with integer coordinates, which are covered by at least one segment.",
+    "samples": [
+        [
+            "9\n0 0 4 4\n-1 5 4 0\n4 0 4 4\n5 2 11 2\n6 1 6 7\n5 6 11 6\n10 1 10 7\n7 0 9 8\n10 -1 11 -1\n",
+            "42\n"
+        ],
+        [
+            "4\n-1 2 1 2\n-1 0 1 0\n-1 0 0 3\n0 3 1 0\n",
+            "7\n"
+        ]
+    ],
+    "hint": "The image for the first example:\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1036E/328bc786470ca0c6c881c66bf4ab063a98d10f53.png)Several key points are marked blue, the answer contains some non-marked points as well.\n\nThe image for the second example:\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1036E/eec87126bd479256c1ebc7932fb835380371e1c1.png)",
+    "translation": "\u6709$n$\u6761\u7ebf\u6bb5\uff0c\u95ee\u5b83\u4eec\u8986\u76d6\u4e86\u591a\u5c11\u4e2a\u6574\u70b9\n\n$1 \\le n \\le 1000$\n\n\u70b9\u7684\u5750\u6807\u8303\u56f4\u662f$[-10^6,10^6]$\u7684\u6574\u6570\n\n\u4fdd\u8bc1\u6bcf\u6761\u7ebf\u6bb5\u4e0d\u4f1a\u9000\u5316\u6210\u70b9\n\n\u4e00\u4e9b\u89e3\u91ca:\n\n1. \u5b9a\u4f4d\u70b9$p(x,y)$\u4e3a\u6574\u70b9\uff0c\u5f53\u4e14\u4ec5\u5f53$x,y$\u4e3a\u6574\u6570  \n2. \u5982\u679c\u4e00\u4e2a\u6574\u70b9\u5728\u67d0\u6761\u7ed9\u5b9a\u7684\u7ebf\u6bb5\u4e0a\uff0c\u90a3\u5b83\u5c31\u88ab\u8986\u76d6\u4e86  \n3. \u6ca1\u6709\u4e24\u6761\u7ebf\u6bb5\u5728\u540c\u4e00\u76f4\u7ebf\u4e0a  "
+}

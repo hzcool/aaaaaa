@@ -1,0 +1,17 @@
+{
+    "description": "Petya is a beginner programmer. He has already mastered the basics of the C++ language and moved on to learning algorithms. The first algorithm he encountered was insertion sort. Petya has already written the code that implements this algorithm and sorts the given integer zero-indexed array $ a $ of size $ n $ in the non-decreasing order.\n\n`for (int i = 1; i < n; i = i + 1)<br></br>{<br></br>   int j = i; <br></br>   while (j > 0 && a[j] < a[j - 1])<br></br>   {<br></br>      swap(a[j], a[j - 1]); // swap elements a[j] and a[j - 1]<br></br>      j = j - 1;<br></br>   }<br></br>}<br></br>`Petya uses this algorithm only for sorting of arrays that are permutations of numbers from $ 0 $ to $ n-1 $ . He has already chosen the permutation he wants to sort but he first decided to swap some two of its elements. Petya wants to choose these elements in such a way that the number of times the sorting executes function swap, was minimum. Help Petya find out the number of ways in which he can make the swap and fulfill this requirement.\n\nIt is guaranteed that it's always possible to swap two elements of the input permutation in such a way that the number of swap function calls decreases.",
+    "inputFormat": "The first line contains a single integer $ n $ ( $ 2<=n<=5000 $ ) \u2014 the length of the permutation. The second line contains $ n $ different integers from $ 0 $ to $ n-1 $ , inclusive \u2014 the actual permutation.",
+    "outputFormat": "Print two integers: the minimum number of times the swap function is executed and the number of such pairs $ (i,j) $ that swapping the elements of the input permutation with indexes $ i $ and $ j $ leads to the minimum number of the executions.",
+    "samples": [
+        [
+            "5\n4 0 3 1 2\n",
+            "3 2\n"
+        ],
+        [
+            "5\n1 2 3 4 0\n",
+            "3 4\n"
+        ]
+    ],
+    "hint": "In the first sample the appropriate pairs are $ (0,3) $ and $ (0,4) $ .\n\nIn the second sample the appropriate pairs are $ (0,4) $ , $ (1,4) $ , $ (2,4) $ and $ (3,4) $ .",
+    "translation": "\u7ed9\u51fa\u4e00\u4e2a\u957f\u5ea6\u4e3a$N$\u7684\u65e0\u5e8f\u5e8f\u5217\uff0c\u5e8f\u5217\u4e3a$0$\u5230$N-1$\u7684\u6392\u5217\uff0c\u73b0\u5728\u9700\u8981\u4f60\u7528\u5192\u6ce1\u6392\u5e8f\u6765\u5c06\u5e8f\u5217\u6392\u6210\u4ece\u5c0f\u5230\u5927\u6709\u5e8f\u7684\u5e8f\u5217\n\n\u4f60\u53ef\u4ee5\u6267\u884c\u4e00\u6b21\u4ea4\u6362\u4e24\u4e2a\u5143\u7d20$i,j(i\\neq j,1\\le i\\leq n)$\uff0c\u4f7f\u5f97\u6267\u884c\u5192\u6ce1\u6392\u5e8f\u65f6\uff0c\u4ea4\u6362\u76f8\u90bb\u5143\u7d20\u7684\u6b21\u6570\u6700\u5c11\n\n\u8981\u4f60\u6c42\u51fa\u4ea4\u6362\u76f8\u90bb\u5143\u7d20\u7684\u6700\u5c11\u6b21\u6570\u548c\u6ee1\u8db3\u4ea4\u6362\u76f8\u90bb\u5143\u7d20\u7684\u6b21\u6570\u6700\u5c11\u7684\u65b9\u6848\u6570"
+}

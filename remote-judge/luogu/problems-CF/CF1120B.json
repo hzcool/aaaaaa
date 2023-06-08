@@ -1,0 +1,21 @@
+{
+    "description": "One player came to a casino and found a slot machine where everything depends only on how he plays. The rules follow.\n\nA positive integer $ a $ is initially on the screen. The player can put a coin into the machine and then add $ 1 $ to or subtract $ 1 $ from any two adjacent digits. All digits must remain from $ 0 $ to $ 9 $ after this operation, and the leading digit must not equal zero. In other words, it is forbidden to add $ 1 $ to $ 9 $ , to subtract $ 1 $ from $ 0 $ and to subtract $ 1 $ from the leading $ 1 $ . Once the number on the screen becomes equal to $ b $ , the player wins the jackpot. $ a $ and $ b $ have the same number of digits.\n\nHelp the player to determine the minimal number of coins he needs to spend in order to win the jackpot and tell how to play.",
+    "inputFormat": "The first line contains a single integer $ n $ ( $ 2 \\le n \\le 10^5 $ ) standing for the length of numbers $ a $ and $ b $ .\n\nThe next two lines contain numbers $ a $ and $ b $ , each one on a separate line ( $ 10^{n-1} \\le a, b < 10^n $ ).",
+    "outputFormat": "If it is impossible to win the jackpot, print a single integer $ -1 $ .\n\nOtherwise, the first line must contain the minimal possible number $ c $ of coins the player has to spend.\n\n $ \\min(c, 10^5) $ lines should follow, $ i $ -th of them containing two integers $ d_i $ and $ s_i $ ( $ 1\\le d_i\\le n - 1 $ , $ s_i = \\pm 1 $ ) denoting that on the $ i $ -th step the player should add $ s_i $ to the $ d_i $ -th and $ (d_i + 1) $ -st digits from the left (e. g. $ d_i = 1 $ means that two leading digits change while $ d_i = n - 1 $ means that there are two trailing digits which change).\n\nPlease notice that the answer may be very big and in case $ c > 10^5 $ you should print only the first $ 10^5 $ moves. Your answer is considered correct if it is possible to finish your printed moves to win the jackpot in the minimal possible number of coins. In particular, if there are multiple ways to do this, you can output any of them.",
+    "samples": [
+        [
+            "3\n223\n322\n",
+            "2\n1 1\n2 -1\n"
+        ],
+        [
+            "2\n20\n42\n",
+            "2\n1 1\n1 1\n"
+        ],
+        [
+            "2\n35\n44\n",
+            "-1\n"
+        ]
+    ],
+    "hint": "In the first example, we can make a +1 operation on the two first digits, transforming number $ \\textbf{22}3 $ into $ \\textbf{33}3 $ , and then make a -1 operation on the last two digits, transforming $ 3\\textbf{33} $ into $ 3\\textbf{22} $ .\n\nIt's also possible to do these operations in reverse order, which makes another correct answer.\n\nIn the last example, one can show that it's impossible to transform $ 35 $ into $ 44 $ .",
+    "translation": "## \u9898\u76ee\u5927\u610f\r\n\u7ed9\u5b9a\u4e24\u4e2a\u957f\u5ea6\u90fd\u4e3an$(1\\leq n\\leq 10^5)$\u7684\u6570\u5b57\u4e32A\u548cB\uff0c\u4f60\u53ef\u4ee5\u6267\u884c\u82e5\u5e72\u6b21\u64cd\u4f5c\uff0c\u6bcf\u6b21\u64cd\u4f5c\u662f\u5c06\u76f8\u90bb\u7684\u4e24\u4e2a\u4f4d\u7f6e+1\u6216-1\uff0c\u8981\u6c42\u4e0d\u80fd\u5bf9\u6570\u5b57\u4e32\u4ee5\u5916\u7684\u4f4d\u7f6e\u8fdb\u884c\u64cd\u4f5c\uff0c\u4e14\u64cd\u4f5c\u4e2d\u6bcf\u4e2a\u6570\u5b57\u90fd\u5fc5\u987b\u5728$[0,9]$\u4e2d\u3002\u6c42\u628aA\u53d8\u6210B\u6240\u6267\u884c\u7684\u6700\u5c0f\u64cd\u4f5c\u6570c\uff0c\u5e76\u8f93\u51fa\u524d$\\min(c,10^5)$\u4e2a\u64cd\u4f5c\uff0c\u65e0\u89e3\u8f93\u51fa-1\u3002\r\n## \u8f93\u5165\u683c\u5f0f\r\n\u7b2c\u4e00\u884c\u4e00\u4e2a\u6b63\u6574\u6570n\u8868\u793aA\u548cB\u7684\u957f\u5ea6\u3002\r\n\r\n\u63a5\u4e0b\u6765\u6709\u4e24\u884c\uff0c\u6bcf\u884c\u4e00\u4e2a\u957f\u5ea6\u4e3an\u7684\u6570\u5b57\u4e32\u8868\u793aA\u548cB\u3002\r\n## \u8f93\u51fa\u683c\u5f0f\r\n\u5982\u679c\u4e0d\u53ef\u80fd\u628aA\u53d8\u6210B\uff0c\u8f93\u51fa-1\u3002\r\n\r\n\u5426\u5219\u7b2c\u4e00\u884c\u8f93\u51fa\u6700\u5c0f\u64cd\u4f5c\u6570c\u3002\r\n\r\n\u63a5\u4e0b\u6765\u8f93\u51fa$num=\\min(c,10^5)$\u884c\uff0c\u8868\u793a\u524dnum\u4e2a\u64cd\u4f5c\uff0c\u7b2c i \u884c\u8f93\u51fa\u4e24\u4e2a\u6574\u6570$d_i,s_i(1\\leq l\\leq n-1,s=\\pm 1)$\uff0c\u8868\u793a\u7b2c i \u4e2a\u64cd\u4f5c\u5c06$a_{d_i}$\u548c$a_{d_i+1}$\u52a0\u4e0a$s_i$\u3002"
+}

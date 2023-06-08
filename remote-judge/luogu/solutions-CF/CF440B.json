@@ -1,0 +1,42 @@
+[
+    {
+        "content": "## \u5206\u6790\n\u8fd9\u9053\u9898\u662f\u8ba9\u6211\u4eec\u5c06\u6240\u6709\u706b\u67f4\u76d2\u91cc\u653e\u5165 $\\frac{kn}{k}$ \u4e2a\u706b\u67f4\uff0c\u800c\u4e14\u53ea\u80fd\u5de6\u53f3\u79fb\u52a8\u706b\u67f4\u3002\n\n\u53ef\u4ee5\u4ece\u5934\u5f00\u59cb\u60f3\uff1a\u7b2c\u4e00\u4e2a\u706b\u67f4\u76d2\u5de6\u8fb9\u6ca1\u6709\u706b\u67f4\u76d2\uff0c\u5c31\u53ea\u80fd\u548c\u7b2c\u4e8c\u4e2a\u706b\u67f4\u76d2\u8fdb\u884c\u79fb\u52a8\uff0c\u5f53\u7b2c\u4e00\u4e2a\u706b\u67f4\u76d2\u6709 $\\frac{kn}{k}$\uff0c\u8fd9\u65f6\uff0c\u7b2c\u4e8c\u4e2a\u706b\u67f4\u76d2\u53ea\u80fd\u548c\u7b2c\u4e09\u4e2a\u8fdb\u884c\u79fb\u52a8\uff08\u8ddf\u7b2c\u4e00\u4e2a\u706b\u67f4\u76d2\u79fb\u52a8\u4e5f\u6ca1\u6709\u4ec0\u4e48\u7528\uff09\u2026\u2026\u4ee5\u6b64\u7c7b\u63a8\uff0c\u5c31\u80fd\u5b8c\u6210\u3002\u6bcf\u6b21\u79fb\u52a8\u53ea\u7528\u5c06\u591a\u7684\u7ed9\u5c11\u7684\u5c31\u884c\u4e86\u3002\n\n## \u7b54\u6848\n```\n#include <bits/stdc++.h>\nusing namespace std;\nlong long k,n,a[20000002],ans; \nint main(){\n\tcin>>n;\n\tfor(long long i=1;i<=n;i++){\n\t\tcin>>a[i];\n\t\tk+=a[i];\n\t}\n\tk/=n;\n\tfor(long long i=1;i<=n;i++){\n\t\ta[i+1]+=(a[i]-k);\n\t\tans+=abs(a[i]-k);\n\t}\n\tcout<<ans;\n\treturn 0;\n}\n```\n\u8bb0\u5f97\u5f00 ```long  long```\u3002",
+        "postTime": 1658914355,
+        "uid": 716965,
+        "name": "_zaa_",
+        "ccfLevel": 4,
+        "title": "CF440B \u9898\u89e3"
+    },
+    {
+        "content": "# \u601d\u8def\n\u8fd9\u9053\u9898\u5176\u5b9e\u5f88\u6c34\uff0c\u9996\u5148\u8f93\u5165\u540e\u4f60\u5c31\u53ef\u4ee5\u628a $k$ \u7ed9\u6c42\u51fa\u6765\u3002\u7136\u540e\u6211\u4eec\u5c31\u53ef\u4ee5\u53bb\u904d\u5386\uff0c\u7528\u4e00\u4e2a\u53d8\u91cf\u6765\u8bb0\u5f55\u7b54\u6848\u7136\u540e\u5c06\u7b2c $i$ \u4f4d\u5c11\u7684\u6216\u662f\u591a\u7684\u90fd\u4ea4\u7ed9 $i+1$ \u4f4d\uff0c\u8fd9\u6837\u5c31\u80fd\u4fdd\u8bc1\u7b2c $i$ \u4f4d\u53ca\u5176\u4e4b\u524d\u7684\u90fd\u7b49\u4e8e $\\frac{k}{n}$(\u56e0\u4e3a\u591a\u7684\u7ed9\u4e86\u4e0b\u4e00\u4f4d\u5c11\u7684\u8ba9\u4e0b\u4e00\u4f4d\u7ed9\u4e86\u4f60\uff0c\u6700\u540e\u4fdd\u8bc1\u4e86\u603b\u6570\u4e00\u5b9a\u4e3a $k\\times n$ \u6240\u4ee5\u4e00\u5b9a\u80fd\u5206\u5b8c\uff09\uff0c\u6700\u540e\u8f93\u51fa\u5373\u53ef\u3002\n# AC\u4ee3\u7801\n```\n#include <bits/stdc++.h>\n#define int long long\nusing namespace std ;\nconst int N=5e4+10;\nint n,k,a[N],res;\nsigned main(){\n  cin>>n;\n  for(int i=1;i<=n;i++) {\n    cin>>a[i];\n  \tk+=a[i];\n  }\n  k/=n; // \u6c42\u5e73\u5747\u503c\n  for(int i=1;i<=n;i++){\n    if(a[i]<k) {\n        a[i+1]-=(k-a[i]);// \u5c06a[i]\u5c11\u7684\u5728a[i+1]\u51cf\u6389\n        res+=abs(a[i]-k);//\u8bb0\u5f55\u7b54\u6848\n    }else if(a[i]>k){\n        a[i+1]+=(a[i]-k);// \u5c06a[i]\u591a\u7684\u7ed9a[i+1]\n        res+=abs(a[i]-k);//\u8bb0\u5f55\u7b54\u6848\n    }\n  }\n  cout<<res;\n  return false; \n}\n```\n",
+        "postTime": 1667636782,
+        "uid": 381053,
+        "name": "highkj",
+        "ccfLevel": 4,
+        "title": "CF440B Balancer"
+    },
+    {
+        "content": "## \u601d\u8def\n\u6211\u4eec\u4ece\u5934\u5f00\u59cb\uff1a\u7b2c\u4e00\u4e2a\u706b\u67f4\u76d2\u5de6\u8fb9\u662f\u6ca1\u6709\u706b\u67f4\u76d2\u7684\uff0c\u6240\u4ee5\u5c31\u53ea\u80fd\u548c\u7b2c\u4e8c\u4e2a\u706b\u67f4\u76d2\u8fdb\u884c\u79fb\u52a8\uff0c\u5f53\u7b2c\u4e00\u4e2a\u706b\u67f4\u76d2\u6709 $\\frac{kn}{k}$ \u65f6\uff0c\u7b2c\u4e8c\u4e2a\u706b\u67f4\u76d2\u53ea\u80fd\u548c\u7b2c\u4e09\u4e2a\u8fdb\u884c\u79fb\u52a8\uff0c\u5f53\u7b2c\u4e8c\u4e2a\u706b\u67f4\u76d2\u6709 $\\frac{kn}{k}$ \u65f6\uff0c\u7b2c\u4e09\u4e2a\u706b\u67f4\u76d2\u53ea\u80fd\u548c\u7b2c\u56db\u4e2a\u8fdb\u884c\u79fb\u52a8\u3002\n\n\u4ee5\u6b64\u7c7b\u63a8\uff0c\u5e76\u5728\u6bcf\u6b21\u79fb\u52a8\u65f6\u5c06\u591a\u7684\u7ed9\u5c11\u7684\u5373\u53ef\u3002\n\n## CODE \n```cpp\n#include<bits/stdc++.h>\n#define int long long\n\nusing namespace std;\n\nint k,n;\nint ans;\n\nint a[100000000]; \n\nsigned main()\n{\n\tcin>>n;\n\t\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tcin>>a[i];\n\t\t\n\t\tk+=a[i];\n\t}\n\t\n\tk/=n;\n\t\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\ta[i+1]=a[i+1]+(a[i]-k);\n\t\t\n\t\tif(a[i]<k)\n\t\t{\n\t\t\tans+=k-a[i];\n\t\t}\n\t\telse\n\t\t{\n\t\t\tans+=a[i]-k;\n\t\t}\n\t}\n\t\n\tcout<<ans;\n\t\n\treturn 0;\n}\n```\n",
+        "postTime": 1666874570,
+        "uid": 734533,
+        "name": "cq_zry",
+        "ccfLevel": 0,
+        "title": "CF440B Balancer \u9898\u89e3"
+    },
+    {
+        "content": "## \u601d\u8def\n\u5982\u679c $a_1$ \u8981\u53d8\u6210 $\\frac{k}{n}$ \uff0c\u90a3\u4e48\u53ea\u80fd\u9760\u628a\u591a\u7684\u7ed9 $a_2$ \u6216\u4ece $a_2$ \u90a3\u91cc\u5f97\u5230\u3002\n\n\u540c\u7406\uff0c $a_2$ \u8981\u53d8\u6210 $\\frac{k}{n}$ \uff0c\u90a3\u4e48\u53ea\u80fd\u9760\u628a\u591a\u7684\u7ed9 $a_3$ \u6216\u4ece $a_3$ \u90a3\u91cc\u5f97\u5230\u3002\n\n $a_i$ \u8981\u53d8\u6210 $\\frac{k}{n} $\uff0c\u90a3\u4e48\u53ea\u80fd\u9760\u628a\u591a\u7684\u7ed9 $a_{i+1}$ \u6216\u4ece $a_{i+1}$ \u90a3\u91cc\u5f97\u5230\u3002\n\n\u9898\u76ee\u4fdd\u8bc1\u4e86\u6240\u6709\u6570\u548c\u662f $n$ \u7684\u6574\u500d\u6570\u3002\n\n\u5373\u53ea\u6709\u4e00\u4e2a\u89e3\u3002\n\n\u76f4\u63a5\u6a21\u62df\u5373\u53ef\u3002\n## \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n#define int long long\nint a[50002];\nsigned main(){\n    int n;\n    cin>>n;\n    int sum=0;\n    for(int x=1;x<=n;x++)\n    cin>>a[x],sum+=a[x];\n    sum/=n;\n    int ans=0;\n    for(int x=1;x<=n;x++)\n    ans+=abs(sum-a[x]),a[x+1]+=a[x]-sum;\n    cout<<ans<<endl;\n}\n\n```",
+        "postTime": 1616149872,
+        "uid": 320087,
+        "name": "N_z_",
+        "ccfLevel": 7,
+        "title": "CF440B-\u3010Balancer\u3011\u9898\u89e3"
+    },
+    {
+        "content": "## \u601d\u8def\uff1a\n\u9996\u5148\u628a $n$ \u4e2a\u6570\u8f93\u5165\uff0c\u7136\u540e\u7d2f\u52a0\u5230 $ans$ \u4e2d\uff0c\u4ece $a[1]$ \u5230 $a[n]$ \u4e2d\u5224\u65ad\u6bcf\u4e00\u4e2a\u548c $ans$ \u76f8\u4e0d\u76f8\u540c\uff0c\u5982\u679c\u76f8\u540c\uff0c $anss$ \u51cf\u53bb $a[i]$ \u5230 $ans$ \u7684\u8ddd\u79bb\uff0c $a[i+1]$ \u52a0\u4e0a $ans$ \u5230 $a[i]$ \u7684\u8ddd\u79bb\uff0c\u91cd\u590d $n$ \u6b21\uff0c\u6700\u540e\u8f93\u51fa\uff0c\n## code\uff1a\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint a[50001],n,ans;\nint main(){\n\tcin>>n;\n\tfor(int i=1;i<=n;i++){\n\t\tcin>>a[i];\n\t\tans+=a[i];//\u7d2f\u52a0\n\t}\n\tans/=n;//\u5e73\u5747\n\tint anss=0;\n\tfor(int i=1;i<=n;i++){\n\t\tint nn;//\u4e0eans\u5dee\u51e0\n\t\tif(a[i]!=ans){//\u82e5\u4e0d\u76f8\u540c\n\t\t\tanss+=abs(ans-a[i]);//\u51cfa[i]\u5230ans\u7684\u8ddd\u79bb\u5c31\u662f\u6b21\u6570\n\t\t   a[i+1]+=a[i]-ans;//\u52a0ans\u5230a[i]\u7684\u8ddd\u79bb\u5c31\u662f\u6b21\u6570\n\t\t}\n\t}\n\tcout<<anss<<'\\n';//\u8f93\u51fa\n\treturn 0;\n}\n```\n",
+        "postTime": 1637310686,
+        "uid": 508593,
+        "name": "DLDZD",
+        "ccfLevel": 0,
+        "title": "CF440B Balancer"
+    }
+]

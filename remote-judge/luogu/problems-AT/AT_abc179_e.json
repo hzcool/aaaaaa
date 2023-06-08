@@ -1,0 +1,21 @@
+{
+    "description": "[problemUrl]: https://atcoder.jp/contests/abc179/tasks/abc179_e\n\n$ x $ \u3092 $ m $ \u3067\u5272\u3063\u305f\u4f59\u308a\u3092 $ f(x,m) $ \u3068\u8868\u3057\u307e\u3059\u3002\n\n\u521d\u671f\u5024 $ A_1=X $ \u304a\u3088\u3073\u6f38\u5316\u5f0f $ A_{n+1}=\\ f(A_n^2,\\ M) $ \u3067\u5b9a\u307e\u308b\u6570\u5217\u3092 $ A $ \u3068\u3057\u307e\u3059\u3002$ \\displaystyle{\\sum_{i=1}^N\\ A_i} $ \u3092\u6c42\u3081\u3066\u304f\u3060\u3055\u3044\u3002",
+    "inputFormat": "\u5165\u529b\u306f\u4ee5\u4e0b\u306e\u5f62\u5f0f\u3067\u6a19\u6e96\u5165\u529b\u304b\u3089\u4e0e\u3048\u3089\u308c\u308b\u3002\n\n> $ N $ $ X $ $ M $",
+    "outputFormat": "$ \\displaystyle{\\sum_{i=1}^N\\ A_i} $ \u3092\u51fa\u529b\u305b\u3088\u3002",
+    "samples": [
+        [
+            "6 2 1001",
+            "1369"
+        ],
+        [
+            "1000 2 16",
+            "6"
+        ],
+        [
+            "10000000000 10 99959",
+            "492443256176507"
+        ]
+    ],
+    "hint": "### \u5236\u7d04\n\n- $ 1\\ \\leq\\ N\\ \\leq\\ 10^{10} $\n- $ 0\\ \\leq\\ X\\ <\\ M\\ \\leq\\ 10^5 $\n- \u5165\u529b\u306f\u5168\u3066\u6574\u6570\n\n### Sample Explanation 1\n\n\u6570\u5217 $ A $ \u306f $ 2,4,16,256,471,620,\\ldots $ \u3068\u306a\u308b\u306e\u3067\u3001\u7b54\u3048\u306f $ 2+4+16+256+471+620=1369 $ \u3068\u306a\u308a\u307e\u3059\u3002\n\n### Sample Explanation 2\n\n\u6570\u5217 $ A $ \u306f $ 2,4,0,0,\\ldots $ \u3068\u306a\u308b\u306e\u3067\u3001\u7b54\u3048\u306f $ 6 $ \u3068\u306a\u308a\u307e\u3059\u3002",
+    "translation": "\u5b9a\u4e49 $f(x,m)= x \\bmod m$\u3002\n\n\u6709\u4e00\u4e2a\u5e8f\u5217 $a$\uff0c\u6ee1\u8db3 $a_1=x$\uff0c$a_i=f(a_{i-1}^2,m)$ \u3002\n\n\u6c42 \n\n$$\\sum_{i=1}^na_i$$"
+}

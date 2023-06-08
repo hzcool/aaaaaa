@@ -1,0 +1,98 @@
+[
+    {
+        "content": "### AT4266 [ABC113B] Palace\u9898\u89e3\nPascal\u9898\u89e3\u3002\n\n--------------------\n#### \u9898\u610f\u7406\u89e3\n\u672c\u9898\u610f\u601d\u6a21\u7cca\u3002\u518d\u590d\u8ff0\u4e00\u904d\u3002\n\n\u7ed9\u4f60 $n$ \u4e2a\u6570\uff0c\u5206\u522b\u4e3a\n $h[1]$ \u3001 $h[2]$ \u3001 $h[...]$ \u3001 $h[n-1]$ \u3001 $h[n]$ \u3002\n \n\u8ba9\u4f60\u7b97\u51fa\u901a\u8fc7\u8ba1\u7b97\u540e\u79bb $A$ \u6700\u8fd1\u7684\u6570\u662f\u7b2c\u51e0\u4e2a\u3002\n\n\u5177\u4f53\u8ba1\u7b97\u65b9\u6cd5\uff1a$T-h[]*0.006$ \n\n\u8f93\u5165\u6570\u636e\uff1a\n\n\u7b2c\u4e00\u884c\uff0c\u4e00\u4e2a\u6574\u6570 $n$ \u3002\n\n\u7b2c\u4e8c\u884c\uff0c\u4e24\u4e2a\u6574\u6570 $T$ \u3001 $A$ \u3002\n\n\u7b2c\u4e09\u884c\uff0c $n$ \u4e2a\u6574\u6570  $h[1]$ \u3001 $h[2]$ \u3001 $h[...]$ \u3001 $h[n-1]$ \u3001 $h[n]$ \u3002\n\n\n------------\n#### \u89e3\u9898\u601d\u8def\n\u6839\u636e\u9898\u610f\u6a21\u62df\u5373\u53ef\u3002\n\n\u5148\u5b9a\u597d\u521d\u503c\u3002\n\n``minn:=100000.0;``\n\n\u518d\u4e00\u904d\u5faa\u73af\u8fc7\u53bb\uff0c\u6bcf\u4e00\u4e2a\u9ad8\u5ea6\u90fd\u7b97\u4e00\u904d\u3002\n\n\u5224\u65ad\u662f\u5426\u5c0f\u4e8e\u5f53\u524d\u6700\u5c0f\u503c\uff0c\u5982\u679c\u5c0f\u4e8e\uff0c\u90a3\u5c31\u66f4\u65b0\u4e24\u4e2a\u53d8\u91cf\uff0c\u5206\u522b\u4e3a\u5f53\u524d\u6700\u5c0f\u503c\u548c\u5f53\u524d\u6700\u5c0f\u503c\u7684\u4f4d\u7f6e\u3002\n\n\u6700\u540e\uff0c\u8f93\u51fa\u5f53\u524d\u6700\u5c0f\u503c\u7684\u4f4d\u7f6e\u5373\u53ef\u3002\n\n\n------------\n#### \u6ce8\u610f\u4e8b\u9879\n- AT\u8f93\u51fa\u8981\u6362\u884c\u3002\n\n\n------------\n#### \u4ee3\u7801\n```Pascal\nvar\nn,t,a,i,h,min:longint;\nminn:double;//\u5b9a\u4e49\u90e8\u5206\n begin\n  minn:=1000000.0;//\u5b9a\u521d\u503c\n  readln(n);\n  readln(t,a);//\u8f93\u5165\n  for i:=1 to n do//\u6bcf\u4e2a\u9ad8\u5ea6\u90fd\u679a\u4e3e\u4e00\u904d\n   begin\n    read(h);//\u8fb9\u8bfb\u8fb9\u5904\u7406\n    if abs(a-(t-h*0.006))<minn then//\u5982\u679c\u5f53\u524d\u7684\u9ad8\u5ea6\u6bd4\u4e4b\u524d\u7684\u4f18\uff0c\u90a3\u5c31\u5904\u7406\u3002\n     begin\n      min:=i;\n      minn:=abs(a-(t-h*0.006));\n     end;//\u5177\u4f53\u7684\u5904\u7406\u8fc7\u7a0b\u3002\n   end;\n  writeln(min);//\u8f93\u51fa\u5e76\u6362\u884c\u3002\n end.\n```\n\n\n------------\n\u7ed3\u675f\u4e86\u3002\n\n",
+        "postTime": 1617801422,
+        "uid": 303025,
+        "name": "zjyqwq",
+        "ccfLevel": 5,
+        "title": "AT4266 [ABC113B] Palace\u9898\u89e3"
+    },
+    {
+        "content": "### \u601d\u8def\n\u5148\u5c06 $N$ \u4e2a\u5907\u9009\u70b9\u7684\u6444\u6c0f\u5ea6\u4e0e $A$ \u6444\u6c0f\u5ea6\u76f8\u5dee\u5ea6\u6570\u7684\u7edd\u5bf9\u503c\u6c42\u51fa\u6765\uff0c\u518d\u4ece\u8fd9\u4e9b\u7edd\u5bf9\u503c\u4e2d\u627e\u51fa\u6700\u5c0f\u503c\u5373\u53ef\u3002\n\n\u8fd9\u4e00\u9053\u9898\u597d\u50cf\u6ca1\u5fc5\u8981\u8f93\u51fa\u6362\u884c\u5427\n\n### \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint k[1005];\ndouble j[1005];\nint main()\n{\n\tint n,a;\n\tdouble t,s;\n\tcin>>n>>t>>a;\n\tfor(int i=1;i<=n;i++)\n\t\tcin>>k[i];\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\ts=(t*1.000)-(k[i]*0.006);\n\t\tj[i]=abs(a-s);\n\t}\t\t\n\tdouble min=j[1];\n\tint p=1;\n\tfor(int i=2;i<=n;i++)\n\t\tif(j[i]<min)\n\t\t{\n\t\t\tmin=j[i];\n\t\t\tp=i;\n\t\t}\n\tcout<<p;\n\treturn 0;\t\n}",
+        "postTime": 1621055876,
+        "uid": 480073,
+        "name": "lujunyu",
+        "ccfLevel": 0,
+        "title": "AT4266"
+    },
+    {
+        "content": "# AT4266\u9898\u89e3\n### \u601d\u8def\uff1a\n\u6211\u4eec\u53ef\u4ee5\u5148\u7528\u4e00\u4e2a\u6570\u7ec4\u6765\u4fdd\u5b58\u6bcf\u4e2a\u70b9\u4e0e\u76ee\u6807\u6e29\u5ea6\u7684\u5dee\u503c\uff0c\u518d\u641c\u7d22\u4e00\u904d\uff0c\u627e\u5230\u6700\u5c0f\u503c\uff0c\u6700\u540e\u8f93\u51fa\u4e0b\u6807\u5c31\u884c\u4e86\u3002\n\n\n### \u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n\tdouble w[1010],w1[1010];//\u4e24\u4e2a\u6570\u7ec4\uff0c\u4e00\u4e2a\u7528\u6765\u5b58\u50a8\u4e00\u4e2a\u641c\u7d22\uff1b \n\tint n,a,t,h;\n\tcin>>n>>t>>a;\n\tfor(int i=1;i<=n;i++){\n\t\tcin>>h;\n\t\tw[i]=abs(a-(t-h*0.006));//\u8ba1\u7b97\u5dee\u503c\uff1b \n\t\tw1[i]=w[i];//\u590d\u5236\uff1b \n\t}\n\tsort(w+1,w+n+1);//\u6392\u5e8f\uff1b \n\tfor(int i=1;i<=n;i++)\n\t\tif(w1[i]==w[1]){//\u5224\u65ad\uff1b \n\t\t\tcout<<i<<endl;\n\t\t\treturn 0;//\u534e\u4e3d\u7ed3\u675f\uff1b \n\t\t}\n}\n```\n",
+        "postTime": 1621055336,
+        "uid": 478118,
+        "name": "huangkerui",
+        "ccfLevel": 0,
+        "title": "AT4266"
+    },
+    {
+        "content": "### \u601d\u8def\n\n\u5bf9\u4e8e\u6bcf\u4e2a $H_i$ \u8ba1\u7b97\u5f53\u524d\u6e29\u5ea6 $T^{'}=T-0.006\\times H_i$\uff0c\u4e0e\u73b0\u6709\u7b54\u6848 $Ans$ \u6bd4\u8f83\u8c01\u66f4\u63a5\u8fd1 $A$\uff0c\u66f4\u65b0 $Ans$ \u7684\u503c\u3002\n\n### Code\n\n[\u6d1b\u8c37](https://www.luogu.com.cn/record/50487626)\n\n[AtCoder](https://atcoder.jp/contests/abc113/submissions/22462644)\n\n```cpp\n/*\nLanguage: C++ O2 \nTime: 35ms\nMemory: 3.54MB\nCode: 289B\nAuthor: \u8f9b\u4e11\u4e03\u6708\nDate; 2021/5/9\nAnti-cheat: on\n*/\n#include<xin_chou_qi_yue>\nusing namespace lyc;\nint n, t, a, ind;\ndouble value=1e9;\nint main() {\n\tcin>>n>>t>>a;\n\tfor(int i=1,h;i<=n;i++){\n        cin>>h;\n\t\tdouble ans=t-h*0.006;\n\t\tif(value>abs(ans-a)){\n\t\t\tvalue=abs(ans-a);\n\t        ind=i;\n\t\t}\n\t}\n\tcout<<ind<<'\\n';\n\treturn QwQ;\n}\n```",
+        "postTime": 1620554321,
+        "uid": 490670,
+        "name": "Elysiaqwq",
+        "ccfLevel": 0,
+        "title": "AT4266 [ABC113B] Palace"
+    },
+    {
+        "content": "### \u9898\u610f:\n\u8fd9\u9053\u9898\u610f\u601d\u662f\u6709 $N$ \u4e2a\u5730\u5740\uff0c\u6d77\u62d4\u4e3a $Hi$ \uff0c\u6e29\u5ea6\u4e3a $A$ \uff0c\u95ee\u54ea\u4e2a\u5730\u5740\u7684\u6d77\u62d4\u6700\u63a5\u8fd1$A$\u3002\n### \u601d\u8def\n\u6211\u4eec\u9996\u5148\u53ef\u4ee5\u6c42\u51fa$T$\u2212$x \\times 0.006$\u4e0e$A$\u7684\u5dee\uff0c\u518d\u548c$minn$\u6bd4\u8f83\uff08$minn$\u9996\u5148\u88ab\u8d4b\u4e3a\u4e00\u4e2a\u6700\u5927\u503c\uff09\u3002\u5982\u679c\u5dee\u6bd4$minn$\u5c0f\uff0c\u5c31\u628a\u5dee\u8d4b\u7ed9$minn$\uff0c\u518d\u628a\u5f53\u524d\u6700\u5c0f\u503c\u7684\u7f16\u53f7\u8d4b\u7ed9\u4e00\u4e2a\u53d8\u91cf\uff08\u5728\u4ee3\u7801\u4e2d\u8d4b\u503c\u7f16\u53f7\u7684\u4e3a$bj$\uff09\u3002 \n#### \u6ce8\u610f:\u5b9a\u4e49\u7684\u65f6\u5019\uff0c\u8981\u7528\u6d6e\u70b9\u578b\u5b9a\u4e49\u3002\n\n\nAC\u4ee3\u7801\uff0c\u62d2\u7edd\u6284\u88ad\uff1a\n```CPP\n#include <iostream>\n#include <cmath>\nusing namespace std;\nint main()\n{\n    int n;\n    cin>>n;\n    double x,y;\n    int bj;\n    cin>>x>>y;\n    double a;\n    double minn=0x7ffffff;\n    for(int i=1;i<=n;i++)\n    {\n    \tcin>>a;\n        if(fabs(x-a*0.006-y)<minn)\n        {\n            minn=fabs(x-a*0.006-y);\n            bj=i;\n        } \n    }\n    cout<<bj<<endl;\n    return 0;\n}",
+        "postTime": 1620292799,
+        "uid": 58040,
+        "name": "ILC_Wei_orz",
+        "ccfLevel": 0,
+        "title": "AT4266 [ABC113B] Palace\u9898\u89e3"
+    },
+    {
+        "content": "> [AT4266 [ABC113B] Palace](https://www.luogu.com.cn/problem/AT4266)\n\n~~\u6c34\u9898\u89e3*n~~\n\n### translation\n\n\u6709 $n$ \u4e2a\u5730\u65b9\uff0c\u7b2c $i$ \u4e2a\u5730\u65b9\u7684\u6d77\u62d4\u4e3a $H_i$\uff0c\u8be5\u5730\u65b9\u7684\u6e29\u5ea6\u4e3a $T-H_i \\times 0.006$\u3002  \n\u6c42\u54ea\u4e2a\u5730\u65b9\u7684\u6e29\u5ea6\u79bb $A$ \u6700\u8fd1\u3002\n\n### solution\n\n\u6211\u4eec\u53ef\u4ee5\u6bcf\u6b21\u8f93\u5165 $H_i$ \u540e\u8ba1\u7b97\u6e29\u5ea6\uff0c\u5e76\u5c06\u6e29\u5ea6\u503c\u51cf $A$ \u5e76\u53d6\u7edd\u5bf9\u503c\uff0c\u4e0e $ans$ \u6bd4\u8f83\uff0c\u82e5\u5c0f\u4e8e\u4e4b\u524d\u7684 $ans$ \u5219\u8bb0\u5f55 $i$ \u7684\u503c\u3002\n\n### code\n\n```cpp\n#include <iostream>\n#include <cstdio>\n#include <algorithm>\n#include <cstring>\n#include <cmath>\n#include <string>\n#include <iomanip>\n#define line cout << endl\nusing namespace std;\n\nint n, t, a, num;\ndouble ans = 1e9;\n\nint main() {\n\tcin >> n;\n\tcin >> t >> a;\n\tfor (int i = 1; i <= n; i++) {\n\t\tint h;\n\t\tcin >> h;\n\t\tdouble _t = t - h * 0.006;\n\t\tif (ans > abs(_t - a)) {\n\t\t\tans = abs(_t - a);\n\t\t\tnum = i;\n\t\t}\n\t}\n\tcout << num << endl;\n\treturn 0;\n}\n```\n\n### submissions\n\n[\u6d1b\u8c37](https://www.luogu.com.cn/record/40861347) | [AtCoder](https://atcoder.jp/contests/abc113/submissions/17737544)",
+        "postTime": 1604070394,
+        "uid": 128369,
+        "name": "AgrumeStly",
+        "ccfLevel": 0,
+        "title": "[AT4266][ABC113B] Palace"
+    },
+    {
+        "content": "# Palace\n##### \u7b2c\u4e00\u6b21\u5199\u9898\u89e3\uff0c\u53ef\u80fd\u6709\u4e9b\u4e0d\u597d\uff0c\u8bf7\u89c1\u8c05\u3002\n\n\u9898\u76ee\u5927\u610f\uff1a\u67d0\u56fd\u6709\u4e2a\u516c\u4e3b\u60f3\u5efa\u57ce\u5821\uff0c\u5171\u6709 $N$ \u4e2a\u5730\u5740\uff0c\u6d77\u62d4\u5206\u522b\u4e3a $H_i$ \uff0c\u4e14\u5df2\u77e5\u8be5\u5730\u6e29\u5ea6\u4e3a $T-H_i*0.006$ \uff0c\u8fd9\u4e2a\u516c\u4e3b\u60f3\u628a\u57ce\u5821\u5efa\u5728\u79bb\u6e29\u5ea6 $A$ \u5dee\u8ddd\u6700\u5c0f\u7684\u5730\u65b9\uff0c\u95ee\u5979\u5e94\u9009\u54ea\u4e2a\u5730\u5740\u3002\n\n\u5176\u5b9e\u5427\uff0c\u8fd9\u9898\u53ea\u8981\u5728\u6bcf\u6b21\u8f93\u5165 $H_i$ \u65f6\u5224\u65ad\u4e00\u4e0b\u4e0e $A$ \u7684\u5dee\u662f\u5426\u5c0f\u4e8e\u4e4b\u524d\u7684\u5dee\u7684\u6700\u5c0f\u503c\uff0c\u5982\u679c\u662f\uff0c\u5219\u66f4\u65b0\u7b54\u6848\u548c\u6700\u5c0f\u7684\u5dee\uff0c\u6700\u540e\u8f93\u51fa\u7b54\u6848\u3002\n\n~~\u592a\u6c34\u4e86~~\u6211\u4eec\u76f4\u63a5\u770b\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n\ninline long long read(){        //\u5feb\u8bfb\uff0c\u4e0d\u89e3\u91ca\u4e86\n\tlong long s = 0, w = 1;\n\tchar ch = getchar();\n\twhile (ch < '0' || ch > '9'){\n\t\tif (ch == '-') w = -1;\n\t\tch = getchar();\n\t}\n\twhile (ch >= '0' && ch <= '9'){\n\t\ts = s * 10 + ch - '0';\n\t\tch = getchar();\n\t}\n\treturn s * w;\n}\n\nlong long n, t, a, ans;                     //\u4e0d\u5f00long long\u89c1\u7956\u5b97\uff0c\u4e0d\u8fc7\u597d\u50cf\u8fd9\u4e5f\u6ca1\u5fc5\u8981\u2026\u2026\ndouble ch = 0x3f3f3f3f;                     //\u7528\u6765\u5b58\u6700\u5c0f\u7684\u5dee\u503c\n\nint main(){\n\tn = read();\n\tt = read(), a = read(); //\u8bfb\u5165n, t, a\n\tfor (int i = 1; i <= n; i++){\n\t\tint h = read(); //\u8bfb\u5165H[i]\n\t\tdouble tem = t - h * 0.006;                //\u8ba1\u7b97\u5f53\u524d\u6e29\u5ea6\n\t\tif (abs(tem - a) < ch){                    //\u5982\u679c\u65b0\u7684\u5dee\u503c\u5c0f\u4e8e\u5df2\u5b58\u7684\u6700\u5c0f\u5dee\u503c\n\t\t\tans = i;\n\t\t\tch = abs(tem-a);\n            //\u66f4\u65b0\u7b54\u6848\u548c\u6700\u5c0f\u5dee\u503c\n\t\t}\n\t} \n\tcout << ans;       //\u8f93\u51fa\n\treturn 0;\n}\n```\n",
+        "postTime": 1583320505,
+        "uid": 274260,
+        "name": "litluo",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT4266 \u3010[ABC113B] Palace\u3011"
+    },
+    {
+        "content": "~~\u6ca1\u9519\uff0c\u6211\u53c8\u6765\u5199\u6c34\u9898\u89e3\u4e86\u3002~~\n\n# \u601d\u8def\n\n\u6bcf\u8bfb\u5165\u4e00\u4e2a$h$\u90fd\u8ba1\u7b97\u4e00\u4e0b\u6e29\u5ea6\uff0c\u518d\u7528\u4e00\u4e2a\u53d8\u91cf$w$\u6765\u5b58\u50a8\u6e29\u5ea6\u4e0e$a$\u7684\u5dee\uff0c\u6700\u540e\u6253\u64c2\u53f0\u6c42\u6700\u5c0f\u7684\u5dee\uff0c\u5e76\u8bb0\u5f55\u5e8f\u53f7$i$\u5373\u53ef\u3002\n\n**\u6ce8\u610f\uff1a**\n\n**1. \u6e29\u5ea6\u9700\u8981\u7528double\u6765\u5b58\u50a8\u3002**\n\n**2. \u6e29\u5ea6\u4e0e$a$\u7684\u5dee\u9700\u8981\u7528$\\operatorname{abs}$\u51fd\u6570,\u56e0\u4e3a\u4e0d\u77e5\u9053\u54ea\u4e2a\u5927\u3002**\n\n**3. \u6700\u540e\u8f93\u51fa\u7684\u4e0d\u662f\u6d77\u62d4\u800c\u662f\u5e8f\u53f7\u3002**\n\n# \u4ee3\u7801\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main()\n{\n    int n,t,a,ansi;\n    double ans=1e9+7;\n    cin>>n>>t>>a;\n    for(int i=1;i<=n;i++)\n    {\n        int h;\n        cin>>h;\n        double tem=t-h*0.006;\n        double w=abs(a-tem);\n        if(w<ans)\n        {\n            ans=w;\n            ansi=i;\n        }\n    }\n    cout<<ansi<<endl;\n    return 0;\n}\n```\n\n[\u4eb2\u6d4bAC](https://www.luogu.com.cn/record/45401548)\n",
+        "postTime": 1611460011,
+        "uid": 335799,
+        "name": "ljm1621",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT4266 \u3010[ABC113B] Palace\u3011"
+    },
+    {
+        "content": "\u9898\u76ee\u7684\u5927\u610f\u4fbf\u662f\u627e\u5230 $|T - h_i \\times 6 \\times 10^{-3} - A|$ \u4e3a\u6700\u5c0f\u503c\u7684\u4e0b\u6807\u5e76\u8f93\u51fa $i$\u3002\n\n\u56e0\u6b64\u6211\u4eec\u5148\u5c06\u8fd9\u4e2a\u503c\u8bbe\u4e3a `0x3f3f3f3f`\uff0c\u5373\u6b63\u65e0\u7a77\uff0c\u7136\u540e\u6bcf\u6b21\u8f93\u5165\u8fdb\u884c\u4e00\u6b21\u6bd4\u8f83\uff0c\u82e5\u6bd4\u539f\u7b54\u6848\u66f4\u4f18\uff0c\u5219\u5c06\u5176\u8fdb\u884c\u66f4\u65b0\uff0c\u5e76\u8bb0\u5f55\u4e0b\u6807\u3002\u6700\u540e\u8f93\u51fa\u4e0b\u6807\u5373\u53ef\uff0c\u65f6\u95f4\u590d\u6742\u5ea6\u4e3a $O(n)$\u3002\n\n\u4ee3\u7801\u5982\u4e0b\uff1a\n\n```cpp\n#include <iostream>\n#include <cstdio>\n#include <algorithm>\n#include <cmath>\n#include <cstring>\n#define init(x) memset (x,0,sizeof (x))\n#define ll long long\n#define ull unsigned long long\n#define INF 0x3f3f3f3f\nusing namespace std;\nconst int MAX = 1e5 + 5;\nconst int MOD = 1e9 + 7;\nll read ();\nint n,t,A,ans;\ndouble sum = INF; \nint main ()\n{\n\t//freopen (\".in\",\"r\",stdin);\n\t//freopen (\".out\",\"w\",stdout);\n\tn = read ();t = read ();A = read ();\n\tfor (int i = 1;i <= n;++i)\n\t{\n\t\tint x;x = read ();\n\t\tif (sum > abs (t - x * 0.006 - A)) ans = i,sum = abs (t - x * 0.006 - A);//compare\n\t}\n\tprintf (\"%d\\n\",ans);\n\treturn 0;\n}\nll read ()\n{\n    ll s = 0;int f = 1;\n    char ch = getchar ();\n    while ((ch < '0' || ch > '9') && ch != EOF)\n\t{\n        if (ch == '-') f = -1;\n        ch = getchar ();\n    }\n    while (ch >= '0' && ch <= '9')\n\t{\n        s = s * 10 + ch - '0';\n        ch = getchar ();\n    }\n    return s * f;\n}\n\n```",
+        "postTime": 1610196739,
+        "uid": 183603,
+        "name": "SUNCHAOYI",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 AT4266 \u3010[ABC113B] Palace\u3011"
+    },
+    {
+        "content": "### \u601d\u8def\n\u9898\u76ee\u4e2d\u8bf4\u4e86\uff0c\u6d77\u62d4 $x$ \u7c73\u7684\u5730\u65b9\uff0c\u6e29\u5ea6\u4e3a $T-x*0.006$ \u6444\u6c0f\u5ea6\uff0c\u90a3\u4e48\u8f93\u5165\u4e00\u4e2a $x$ \u4e4b\u540e\uff0c\u5c31\u53ef\u4ee5\u7528\u4e00\u4e2a\u53d8\u91cf\u8bb0\u5f55\u6444\u6c0f\u5ea6\uff0c\u5047\u8bbe\u4e3a $y$ \u3002\u90a3\u4e48 $y-a$ \u5c31\u662f\u76f8\u5dee\u7684\u6444\u6c0f\u5ea6\uff0c\u628a\u76f8\u5dee\u7684\u6444\u6c0f\u5ea6\u6c42\u4e2a\u6700\u5c0f\u503c\u5c31\u884c\u4e86\u3002\n### \u9644\u4e0a\u4ee3\u7801\n```c++\n#include<bits/stdc++.h>\nusing namespace std;\ndouble n,t,a;//\u542b\u4e49\u9898\u76ee\u4e2d\u8bf4\u4e86\ndouble x,y;//x\u8868\u793a\u8f93\u5165\u7684\u6d77\u62d4\uff0cy\u8868\u793a\u6444\u6c0f\u5ea6\ndouble maxn=INT_MAX;//\u7528\u6765\u8bb0\u5f55\u6700\u5c0f\u503c\nint tt;//\u7528\u6765\u8bb0\u5f55\u54ea\u4e2a\u4f4d\u7f6e\nint main(){\n\tcin>>n>>t>>a;\n\tfor(int i=1;i<=n;i++){\n\t\tcin>>x;\n\t\ty=t-x*0.006;//\u7b97\u51fa\u6444\u6c0f\u5ea6\n\t\tif(abs(y-a)<maxn){\n\t\t\tmaxn=abs(y-a);//\u66f4\u65b0\u6700\u5c0f\u503c\n\t\t\ttt=i;//\u66f4\u65b0\u4f4d\u7f6e\n\t\t} \n\t}\n\tcout<<tt<<endl;//\u8f93\u51fa\u4f4d\u7f6e\n} \n```",
+        "postTime": 1620962971,
+        "uid": 411727,
+        "name": "stOtue",
+        "ccfLevel": 0,
+        "title": "AT4266 [ABC113B] Palace"
+    },
+    {
+        "content": "\u6c34\u9898\u3002\n\n\u4f46\u6211\u8fd8\u662f\u6765\u8bf4\u8bf4\u89e3\u9898\u601d\u8def\u5427\u3002\n\n\u9996\u5148\u770b\u770b\u9898\u76ee\u3002\n\n\u5c31\u662f\u4e00\u4e2a\u4eba\u8981\u5728\u51e0\u4e2a\u4e0d\u540c\u7684\u6d77\u62d4\u4e0a\u9020\u623f\u5b50\uff0c\u54ea\u4e2a\u6e29\u5ea6\u6700\u63a5\u8fd1\u4ed6\u60f3\u8981\u7684\u6e29\u5ea6\u3002\n\n\u9996\u5148\u9898\u76ee\u7ed9\u6211\u4eec\u4e00\u4e2a\u516c\u5f0f\u3002\n\n\u662f\u8ba1\u7b97\u67d0\u4e2a\u6d77\u62d4\u6d77\u62d4\u7684\u6e29\u5ea6\u4e3a $T-x*0.006$ \u6444\u6c0f\u5ea6\u3002\n\n\u6211\u4eec\u5c31\u53ef\u4ee5\u63a8\u90a3\u4e2a\u6d77\u62d4\u4e0e\u90a3\u4e2a\u4eba\u76f8\u5dee\u7684\u6e29\u5ea6\u4e3a$ |A-(T-x*0.006) $ \u6444\u6c0f\u5ea6\u3002\n\n\u6ce8\u610f\uff1a\u90a3\u4e2a\u5f0f\u5b50\u8981\u7528\u5c0f\u6570\uff0c\u6240\u4ee5\u8981\u4f7f\u7528 $double$ \u6216\u8005 $long \\ double$ \u3002\n\n\u63a5\u4e0b\u6765\u5c31\u662f\u4ee3\u7801\u4e86\u3002\n\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n\tint n;\n\tscanf(\"%d\",&n);\n\tint T,A;\n\tscanf(\"%d%d\",&T,&A);\n\tint ans=1;//\u8bb0\u4e3a\u90a3\u4e2a\u4eba\u60f3\u8981\u7684\u7b54\u6848\u3002\n\tint i=1;//\u76f8\u5f53\u4e8e\u4e00\u4e2a\u8ba1\u6570\u5668\uff0c\u6765\u8bb0\u5f55\u7b2ci\u4e2a\u5730\u65b9\u3002\n\tlong double minn=INT_MAX;//\u6765\u8bb0\u5f55\u6e29\u5ea6\u6700\u63a5\u8fd1A\u7684\u6e29\u5ea6\u3002\n\twhile(n--){\n\t\tint x;\n\t\tscanf(\"%d\",&x);\n\t\tif(minn>abs((long double)A-(long double)(T-x*0.006))){//\u521a\u624d\u6211\u5417\u63a8\u51fa\u6765\u7684\u516c\u5f0f\u3002\n\t\t\tans=i;//\u5982\u679c\u8fd9\u4e2a\u6d77\u62d4\u7684\u6e29\u5ea6\u66f4\u597d\uff0c\u8bb0\u5f55\u7b54\u6848\u4e3ai\u3002\n\t\t\tminn=abs((long double)A-(long double)(T-x*0.006));//\u66f4\u65b0\u6e29\u5ea6\u6700\u63a5\u8fd1A\u7684\u6e29\u5ea6\u3002\n\t\t} \n\t\ti++;//\u522b\u5fd8\u4e86\u6539\u53d8\u8ba1\u6570\u5668\u3002\n\t}\n\tprintf(\"%d\",ans);\n\treturn 0;\n} \n```\n",
+        "postTime": 1610112120,
+        "uid": 162084,
+        "name": "thomas_zjl",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 AT4266 \u3010[ABC113B] Palace\u3011"
+    },
+    {
+        "content": "[\u9898\u76ee\u7531\u6b64\u53bb](https://www.luogu.com.cn/problem/AT4266)\n\n\u6c34\u9898\uff01\u6709\u624b\u5c31\u884c\uff01\n\n------------\n\n### \u601d\u8def\uff1a\n\n\u5148\u7528\u6570\u7ec4\u8bfb\u5165\u5404\u4e2a\u65b0\u5bab\u6bbf\u5730\u5740\n\n\u7136\u540e\u8ba1\u7b97\u51fa $Hi$ \u7c73\u5730\u65b9\u7684\u6d77\u62d4\n\n\u6700\u540e\u4e0e$A$\u8fdb\u884c\u6bd4\u8f83\uff0c\u6c42\u51fa\u6700\u63a5\u8fd1$A$\u7684\u6e29\u5ea6\n\n**\uff08\u6ce8\u610f\uff1a\u8981\u7528$abs()$\uff09**\n\n------------\n\n### code:\n```\n#include <cstdio>\n#include <cmath>//abs\u51fd\u6570\u5934\u6587\u4ef6 \nusing namespace std;\n\nint N , T , A , Ans , h[10005];//\u6700\u5927\u503c\uff0c\u4e0b\u9762\u8fdb\u884c\u6bd4\u8f83\u5927\u5c0f\ndouble sum = 1e9; \n\nint main() {\n\tscanf(\"%d\",&N);\n\tscanf(\"%d %d\",&T,&A);\n\tfor (int i=1; i<=N; i++ ) {\n\t\tscanf(\"%d\",&h[i]);\n\t}//\u8bfb\u5165 \n\tfor (int i=1; i<=N; i++ ) {\n\t\tdouble temp = T - h[i] * 0.006;//\u6e29\u5ea6\uff1atemperature\n\t\t//\u2235h[i] * 0.006\n\t\t//\u6240\u4ee5temp\u8981\u7528double \n\t\tif (sum > abs(temp - A)) {\n\t\t\tsum = abs(temp - A);\n\t\t\tAns = i;\n\t\t}//\u6bd4\u8f83 \n\t}\n\tprintf(\"%d\",Ans);//\u8f93\u51fa \n}\n```\n\u5e0c\u671b\u7ba1\u7406\u7ed9\u8fc7qwq",
+        "postTime": 1609950904,
+        "uid": 323989,
+        "name": "Vector_Mingfan",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 AT4266 \u3010[ABC113B] Palace\u3011"
+    }
+]

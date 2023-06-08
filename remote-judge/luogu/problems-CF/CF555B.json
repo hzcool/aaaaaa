@@ -1,0 +1,21 @@
+{
+    "description": "Andrewid the Android is a galaxy-famous detective. He is now chasing a criminal hiding on the planet Oxa-5, the planet almost fully covered with water.\n\nThe only dry land there is an archipelago of $ n $ narrow islands located in a row. For more comfort let's represent them as non-intersecting segments on a straight line: island $ i $ has coordinates $ [l_{i},r_{i}] $ , besides, $ r_{i}&lt;l_{i+1} $ for $ 1<=i<=n-1 $ .\n\nTo reach the goal, Andrewid needs to place a bridge between each pair of adjacent islands. A bridge of length $ a $ can be placed between the $ i $ -th and the $ (i+1) $ -th islads, if there are such coordinates of $ x $ and $ y $ , that $ l_{i}<=x<=r_{i} $ , $ l_{i+1}<=y<=r_{i+1} $ and $ y-x=a $ .\n\nThe detective was supplied with $ m $ bridges, each bridge can be used at most once. Help him determine whether the bridges he got are enough to connect each pair of adjacent islands.",
+    "inputFormat": "The first line contains integers $ n $ ( $ 2<=n<=2\u00b710^{5} $ ) and $ m $ ( $ 1<=m<=2\u00b710^{5} $ ) \u2014 the number of islands and bridges.\n\nNext $ n $ lines each contain two integers $ l_{i} $ and $ r_{i} $ ( $ 1<=l_{i}<=r_{i}<=10^{18} $ ) \u2014 the coordinates of the island endpoints.\n\nThe last line contains $ m $ integer numbers $ a_{1},a_{2},...,a_{m} $ ( $ 1<=a_{i}<=10^{18} $ ) \u2014 the lengths of the bridges that Andrewid got.",
+    "outputFormat": "If it is impossible to place a bridge between each pair of adjacent islands in the required manner, print on a single line \"No\" (without the quotes), otherwise print in the first line \"Yes\" (without the quotes), and in the second line print $ n-1 $ numbers $ b_{1},b_{2},...,b_{n-1} $ , which mean that between islands $ i $ and $ i+1 $ there must be used a bridge number $ b_{i} $ .\n\nIf there are multiple correct answers, print any of them. Note that in this problem it is necessary to print \"Yes\" and \"No\" in correct case.",
+    "samples": [
+        [
+            "4 4\n1 4\n7 8\n9 10\n12 14\n4 5 3 8\n",
+            "Yes\n2 3 1 \n"
+        ],
+        [
+            "2 2\n11 14\n17 18\n2 9\n",
+            "No\n"
+        ],
+        [
+            "2 1\n1 1\n1000000000000000000 1000000000000000000\n999999999999999999\n",
+            "Yes\n1 \n"
+        ]
+    ],
+    "hint": "In the first sample test you can, for example, place the second bridge between points 3 and 8, place the third bridge between points 7 and 10 and place the first bridge between points 10 and 14.\n\nIn the second sample test the first bridge is too short and the second bridge is too long, so the solution doesn't exist.",
+    "translation": "\u6709$n$\u4e2a\u533a\u95f4\uff0c\u5206\u522b\u4e3a$[l_i,r_i]$\uff0c$r_i<l_{i+1}$\r\n\r\n\u6709$m$\u6761\u7ebf\u6bb5\uff0c\u957f\u5ea6\u5206\u522b\u4e3a$a_i$\uff0c\u5f53\u7ebf\u6bb5\u7684\u4e24\u4e2a\u7aef\u70b9\u5206\u522b\u5728\u4e24\u4e2a\u76f8\u90bb\u7684\u533a\u95f4\u5185\u662f\uff0c\u7ebf\u6bb5\u53ef\u4ee5\u8fde\u63a5\u8fd9\u4e24\u4e2a\u533a\u95f4\u3002\r\n\r\n\u8be2\u95ee\u80fd\u5426\u5c06\u6240\u6709\u533a\u95f4\u8054\u901a\u3002\r\n\r\n## \u8f93\u5165\u683c\u5f0f\uff1a\r\n\u7b2c\u4e00\u884c\u4e24\u4e2a\u6b63\u6574\u6570$n,m$\uff0c\u8868\u793a\u533a\u95f4\u6570\u548c\u7ebf\u6bb5\u6570\u3002\r\n\r\n\u63a5\u4e0b\u6765$n$\u884c\uff0c\u6bcf\u884c\u4e24\u4e2a\u6b63\u6574\u6570$l_i,r_i$\uff0c\u8868\u793a\u533a\u95f4\u7684\u5de6\u53f3\u7aef\u70b9\u3002\r\n\r\n\u63a5\u4e0b\u6765$1$\u884c\u6709$m$\u4e2a\u6b63\u6574\u6570$a_i$\uff0c\u8868\u793a\u7ebf\u6bb5\u7684\u957f\u5ea6\u3002\r\n\r\n## \u8f93\u51fa\u683c\u5f0f\uff1a\r\n\u5982\u679c\u4e0d\u80fd\u5c06\u6240\u6709\u533a\u95f4\u8054\u901a\uff0c\u8f93\u51fa\u4e00\u884c\"No\"\u3002\r\n\r\n\u5426\u5219\u5728\u7b2c\u4e00\u884c\u8f93\u51fa\"Yes\"\uff0c\u7b2c\u4e8c\u884c\u8f93\u51fa$n-1$\u4e2a\u6b63\u6574\u6570$b_i$\uff0c\u8868\u793a\u7b2c$i$\u548c\u7b2c$i+1$\u4e2a\u533a\u95f4\u4e2d\u7528\u7b2c$b_i$\u6761\u7ebf\u6bb5\u8fde\u63a5\u3002\r\n\r\n## \u6570\u636e\u8303\u56f4\uff1a\r\n$2\\le n\\le2\\times10^5,1\\le m\\le2\\times10^5$\r\n\r\n$1\\le l_i\\le r_i\\le10^{18},1\\le a_i\\le10^{18}$"
+}

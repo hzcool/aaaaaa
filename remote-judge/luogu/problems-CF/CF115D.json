@@ -1,0 +1,29 @@
+{
+    "description": "Let's define an unambiguous arithmetic expression (UAE) as follows.\n\n- All non-negative integers are UAE's. Integers may have leading zeroes (for example, $ 0000 $ and $ 0010 $ are considered valid integers).\n- If $ X $ and $ Y $ are two UAE's, then \" $ (X)+(Y) $ \", \" $ (X)-(Y) $ \", \" $ (X)*(Y) $ \", and \" $ (X)/(Y) $ \" (all without the double quotes) are UAE's.\n- If $ X $ is an UAE, then \" $ -(X) $ \" and \" $ +(X) $ \" (both without the double quotes) are UAE's.You are given a string consisting only of digits (\"0\" - \"9\") and characters \"-\", \"+\", \"\\*\", and \"/\". Your task is to compute the number of different possible unambiguous arithmetic expressions such that if all brackets (characters \"(\" and \")\") of that unambiguous arithmetic expression are removed, it becomes the input string. Since the answer may be very large, print it modulo $ 1000003 $ ( $ 10^{6}+3 $ ).",
+    "inputFormat": "The first line is a non-empty string consisting of digits ('0'-'9') and characters '-', '+', '\\*', and/or '/'. Its length will not exceed $ 2000 $ . The line doesn't contain any spaces.",
+    "outputFormat": "Print a single integer representing the number of different unambiguous arithmetic expressions modulo $ 1000003 $ ( $ 10^{6}+3 $ ) such that if all its brackets are removed, it becomes equal to the input string (character-by-character).",
+    "samples": [
+        [
+            "1+2*3\n",
+            "2\n"
+        ],
+        [
+            "03+-30+40\n",
+            "3\n"
+        ],
+        [
+            "5//4\n",
+            "0\n"
+        ],
+        [
+            "5/0\n",
+            "1\n"
+        ],
+        [
+            "1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1\n",
+            "100728\n"
+        ]
+    ],
+    "hint": "For the first example, the two possible unambiguous arithmetic expressions are:\n\n` $ ((1)+(2))*(3) $ <br></br> $ (1)+((2)*(3)) $ `For the second example, the three possible unambiguous arithmetic expressions are:\n\n` $ (03)+((-(30))+(40)) $ <br></br> $ (03)+(-((30)+(40))) $ <br></br> $ ((03)+(-(30)))+(40) $ `",
+    "translation": "## \u9898\u76ee\u63cf\u8ff0 \r\n\u5bf9$UAE$\u4f5c\u51fa\u5982\u4e0b\u5b9a\u4e49\uff1a  \r\n\r\n\u6240\u6709\u7684\u975e\u8d1f\u6574\u6570\u90fd\u662f$UAE$\u3002\u8fd9\u4e9b\u6574\u6570\u53ef\u80fd\u542b\u6709\u524d\u5bfc\u96f6\uff08\u5982$0000\\ 0000$\u548c$0010\\ 0010$\u88ab\u8ba4\u4e3a\u662f\u6709\u6548\u7684\u6574\u6570\uff09\u3002\u5982\u679c$X$\u548c$Y$\u662f$UAE$\uff0c\u90a3\u4e48\"$(X)+(Y)$\"\uff0c\"(X)-(Y)\"\uff0c\"$(X)* (Y)$\"\uff0c\"$(X)/(Y)$\"\u90fd\u662f$UAE$\u3002\uff08\u4e0d\u542b\u5f15\u53f7\uff09  \r\n\r\n\u5982\u679c$X$\u662f$UAE$\uff0c\u90a3\u4e48\"$-(X)$\"\u548c\"$+(X)$\"\u4e5f\u662f$UAE$\u3002  \r\n\r\n\u7ed9\u51fa\u4e00\u4e2a\u53ea\u7531$0-9$\u7684\u6570\u5b57\u3001\"-\"\u3001\"+\"\u3001\" * \"\u3001\"/\"\u7ec4\u6210\u7684\u5b57\u7b26\u4e32\u3002\u4f60\u7684\u4efb\u52a1\u662f\u8ba1\u7b97\u542b\u6709\u4e0d\u540c$UAE$\u8868\u8fbe\u5f0f\u7684\u6570\u91cf\uff0c\u4f7f\u5f97\u5982\u679c\u53bb\u6389\u6240\u6709\u7684\u62ec\u53f7\uff0c\u8fd9\u4e9b$UAE$\u8868\u8fbe\u5f0f\u80fd\u6210\u4e3a\u7ed9\u51fa\u7684\u8f93\u5165\u6587\u4ef6\u4e2d\u7684\u5b57\u7b26\u4e32\u3002\u56e0\u4e3a\u7b54\u6848\u53ef\u80fd\u975e\u5e38\u5927\uff0c\u8bf7\u4f60\u8f93\u51fa\u5bf9$10^6+3$\u53d6\u6a21\u7684\u7ed3\u679c\u3002  \r\n\r\n\r\n## \u8f93\u5165\u683c\u5f0f  \r\n\r\n\u8f93\u5165\u6587\u4ef6\u7684\u7b2c\u4e00\u884c\u662f\u4e00\u4e2a\u975e\u7a7a\u7684\u5b57\u7b26\u4e32\uff0c\u53ea\u7531$0-9$\u7684\u6570\u5b57\u3001\"-\"\u3001\"+\"\u3001\" * \"\u3001\"/\"\u7ec4\u6210\u3002\u5b57\u7b26\u4e32\u7684\u957f\u5ea6\u4e0d\u8d85\u8fc7$2000$\u3002\u5b57\u7b26\u4e32\u4e2d\u4e0d\u5305\u542b\u4efb\u4f55\u7a7a\u683c\u3002  \r\n\r\n## \u8f93\u51fa\u683c\u5f0f\r\n\r\n\u8f93\u51fa\u4e00\u884c\u4e00\u4e2a\u6574\u6570\uff0c\u53bb\u9664\u6240\u6709\u62ec\u53f7\u540e\u80fd\u591f\u4e0e\u8f93\u5165\u6587\u4ef6\u4e2d\u7684\u5b57\u4e32\u76f8\u540c\u7684$UAE$\u8868\u8fbe\u5f0f\u7684\u4e2a\u6570\u5bf9$10^6+3$\u53d6\u6a21\u7684\u7ed3\u679c\u3002  \r\n\r\n\u7ffb\u8bd1By @\u82e5\u5982\u521d\u89c1"
+}

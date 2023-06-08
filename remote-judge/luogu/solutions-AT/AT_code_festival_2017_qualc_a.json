@@ -1,0 +1,34 @@
+[
+    {
+        "content": "### \u6b64\u9898\u662f\u4e00\u9053kmp\u7684\u6a21\u677f\u9898\n### kmp\u7b97\u6cd5\u4e3b\u8981\u662f\u901a\u8fc7fail\u6307\u9488\u6765\u5339\u914d\u5b57\u7b26\u4e32\n#### fail\u6307\u9488\u7684\u542b\u4e49\uff1a\u901a\u8fc7\u6307\u5411\u4e00\u4e2a\u4f4d\u7f6e\u662f\u4e24\u8fb9\u5b57\u7b26\u4e32\u53ef\u4ee5\u5339\u914d,\u5217\u5982\uff1a\n#### 0 1 2 3 4     //\u4e0b\u6807\n#### A B A B A\t\t// \u6a21\u5f0f\u4e32 \n#### \u5219fail[4] = 2 \u56e0\u4e3a\u4ece0~2\u4e3a\u201cABA\u201d,\u548c\u76f8\u540c\u957f\u5ea6\u76842~4\u4e3a\u201cABA\u201d \u76f8\u7b49\n## \u4ee3\u7801\u5982\u4e0b:\n\n\n------------\n```cpp\n#include<bits/stdc++.h>  // \u4e07\u80fd\u5934\u6587\u4ef6\u5927\u6cd5\u597d~\nusing namespace std;\nint n,len1,len2,fail[1000],bj,v,x,y;\n```\n#### \u4e0b\u9762\u7684find\u51fd\u6570\u5f88\u5bb9\u6613\u7406\u89e3\uff0c\u901a\u8fc7\u4e4b\u524d\u6c42\u51fa\u7684fail\u6307\u9488\u6765\u6c42\u5f53\u524d\u7684fail\u6307\u9488\uff0c\u6253\u4e2a\u6bd4\u65b9\uff0c\u5982\u679cS1 = S2,\u90a3\u4e48S1 + 'a' = S2 + 'a'\n```cpp\nchar S[10000],U[1000];  //S\u4e3a\u6587\u672c\u4e32\uff0cU\u4e3a\u6a21\u5f0f\u4e32\nint find(int i){ \n\twhile(U[i+1] != U[v]){\n\t\tif(i == -1) return -1;\n\t\telse i = fail[i];\n\t}\n\treturn i+1;\n}\n```\n#### \u5982\u679c\u4e0b\u4e00\u4f4d\u4e0d\u5339\u914d\u5219\u6c42\u51fa\u53ef\u4ee5\u5339\u914d\u7684\u6700\u957f\u4f4d\u7f6e\n```cpp\nintf(int i){\n\twhile(U[i+1] != S[y]){\n\t\tif(i == -1) return -1;\n\t\telse i = fail[i];\n\t}\n\treturn i+1;\n}\n```\n#### \u4e3b\u51fd\u6570\uff1a\n```cpp\nint main(){\n\tscanf(\"%s\",S);\n\tlen1 = 2;\n\tlen2 = strlen(S);\n\tU[0] = 'A';U[1] = 'C'; \n\tfail[0] = -1;  // -1\u6307\u5411\u7a7a\u7684\u4f4d\u7f6e\uff0c\u800c\u7b2c\u4e00\u4f4d\u4e00\u5b9a\u662f-1\n\tfor(int i = 1; i < len1; ++i){ // \u6c42\u51fa\u6bcf\u4e00\u4f4d\u7684fail\u6307\u9488\n\t\tv = i;\n\t\tfail[v] = find(fail[v-1]);\n\t}\n\tx = -1;  //\u6a21\u5f0f\u4e32\u7684\u4e0b\u6807\n\ty = -1;  // \u6587\u672c\u4e32\u7684\u4e0b\u6807(\u5176\u5b9e\u53ef\u4ee5\u7528i\u4ee3\u66ff\uff0c\u4f46\u8fd9\u6837\u6613\u61c2\u70b9)\n\tfor(int i = 0; i < len2; ++i){\n\t\ty++;\n\t\tif(U[x+1] == S[y]) x++;//\u5982\u679c\u6a21\u5f0f\u4e32\u4e0b\u4e00\u4f4d\u5339\u914d\u6210\u529f\u90a3\u4e48\u4e0b\u6807\u79fb\u52a8\u5230\u4e0b\u4e00\u4f4d\n\t\telse x = f(x); //\u5426\u5219\u8fd4\u56de\u5230\u80fd\u5339\u914d\u5230\u7684\u6700\u957f\u4f4d\u7f6e\n\t\tif(x == len1 - 1){//\u5224\u65ad\u662f\u5426\u5168\u90fd\u5339\u914d\u5b8c\u6210\n\t\t\tprintf(\"Yes\");\n\t\t\tbj = 1; //\u6807\u8bb0\u5339\u914d\u6210\u529f\n\t\t\tbreak;\n\t\t}\n\t}\n\tif(!bj) printf(\"No\");\n\treturn 0;\n}\n```\n",
+        "postTime": 1522901927,
+        "uid": 52421,
+        "name": "LQHqwq",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT3588 \u3010Can you get AC?\u3011"
+    },
+    {
+        "content": "\u770b\u5230\u697c\u4e0adaolao\u53d1\u7684kmp\uff0c\u849f\u84bb\u745f\u745f\u53d1\u6296\uff5e\uff5e\uff5e   \n\n~~\u4f17\u6240\u5468\u77e5~~\uff0cC/C++\u81ea\u5e26\u5e93\u51fd\u6570strstr()\uff0c\u7528\u4e8e\u5224\u65ad\u5b57\u7b26\u4e32b\u662f\u5426\u5305\u542b\u4e8e\u5b57\u7b26\u4e32a\uff0c\u7528\u6cd5\u4e3astrstr(a,b)\uff0c\u6240\u4ee5\u8fd9\u9053\u9898\u7684\u4ee3\u7801\u5c31\u662f\u975e\u5e38~~\u7b80\u6d01\u660e\u4e86~~\u7684\n\n\u4e0b\u9762\u8d34\u4ee3\u7801\uff1a\n```cpp\n#include <stdio.h>\n#include <string.h>\n//string.h \u5305\u542bstrstr()\u51fd\u6570\nint main()\n{\n\tchar a[6];\n\tscanf(\"%s\",a);\n\tif(strstr(a,\"AC\")) printf(\"Yes\\n\");//\u5224\u65ad\u662f\u5426\u5305\u542b\n\telse printf(\"No\\n\");\n    return 0;//\u7a0b\u5e8f\u62dc\u62dc\n}\n```",
+        "postTime": 1522992525,
+        "uid": 78393,
+        "name": "Error_502",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT3588 \u3010Can you get AC?\u3011"
+    },
+    {
+        "content": "\u9898\u76ee\u5927\u610f\uff1a\n\n\u8f93\u5165\u4e00\u4e2a\u5b57\u7b26\u4e32s\uff0c\u5982\u679c\u4f60\u80fd\u5728\u8fd9\u4e2a\u5b57\u7b26\u4e32\u4e2d\u5f97\u5230AC\u8fd9\u4e2a\u5b57\u7b26\u4e32\uff0c\u5c31\u8f93\u51faYes\u5426\u5219\u8f93\u51faNo\u3002\n\n\u6ce8\u610f\uff1a\u5b57\u7b26\u4e32\u957f\u5ea6\u6700\u5927\u4e3a5\u3002\n\n\u5e76\u4e14\u6240\u6709\u7684\u5b57\u6bcd\u90fd\u662f\u5927\u5199\u7684\u3002\n\n\u76f4\u63a5\u66b4\u529b\u5224\u65ad\u5c31\u53ef\u4ee5\u4e86\u3002\n\n\u5982\u679c\u7b2c\u4e00\u4e2a\u662f\u2018A\u2019\u90a3\u4e48\u76f4\u63a5\u5224\u65ad\u4e0b\u4e00\u4e2a\u662f\u4e0d\u662f\u2018C\u2019\uff0c\u5373\u53ef\u3002\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){   \n    string s;\n    cin>>s;\n    for(int i=0;s[i]!='\\0';i++){\n        if(s[i]=='A'&&s[i+1]=='C'){\n            cout<<\"Yes\"<<endl;\n            return 0;\n        }\n    }\n    cout<<\"No\"<<endl;\n\treturn 0;\n}\n```",
+        "postTime": 1522570949,
+        "uid": 84025,
+        "name": "Kiel",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT3588 \u3010Can you get AC?\u3011"
+    },
+    {
+        "content": "kmp\u88f8\u9898\uff0c\u8bdd\u4e0d\u591a\u8bf4\uff0c\u4ee3\u7801\u5982\u4e0b\n\n[\u5b66\u4e60kmp](https://www.luogu.org/problemnew/show/P3375)\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nint kmp[1000010];\nchar s1[1000010], s2[1000010];\n\nint main() {\n    scanf(\"%s\", s1 + 1);\n    s2[1] = 'A';\n    s2[2] = 'C';\n    int len1 = strlen(s1 + 1);\n    int len2 = strlen(s2 + 1);\n    for(int i = 2; i <= len2; i++) {//\u5339\u914dkmp\u6570\u7ec4\n        int j = kmp[i - 1];\n        while (j && s2[j + 1] != s2[i]) j = kmp[j];\n        kmp[i] = j + (s2[j + 1] == s2[i]);\n    }\n    for(int i = 1, j = 0; i <= len1 + 1; i++) {\n    //kmp\u5339\u914d\u4e3b\u8fc7\u7a0b\n        if (j == len2){ printf(\"Yes\\n\"); return 0; }\n        while (j && s2[j + 1] != s1[i]) j = kmp[j];\n        j += (s2[j + 1] == s1[i]);\n    }\n    printf(\"No\\n\");\n    return 0;\n}\n```",
+        "postTime": 1522682596,
+        "uid": 60886,
+        "name": "\u51d1_\u53cb\u5e0c\u90a3",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 AT3588 \u3010Can you get AC?\u3011"
+    }
+]

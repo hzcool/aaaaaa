@@ -1,0 +1,21 @@
+{
+    "description": "In Berland, there is the national holiday coming \u2014 the Flag Day. In the honor of this event the president of the country decided to make a big dance party and asked your agency to organize it. He has several conditions:\n\n- overall, there must be $ m $ dances;\n- exactly three people must take part in each dance;\n- each dance must have one dancer in white clothes, one dancer in red clothes and one dancer in blue clothes (these are the colors of the national flag of Berland).\n\nThe agency has $ n $ dancers, and their number can be less than $ 3m $ . That is, some dancers will probably have to dance in more than one dance. All of your dancers must dance on the party. However, if some dance has two or more dancers from a previous dance, then the current dance stops being spectacular. Your agency cannot allow that to happen, so each dance has at most one dancer who has danced in some previous dance.\n\nYou considered all the criteria and made the plan for the $ m $ dances: each dance had three dancers participating in it. Your task is to determine the clothes color for each of the $ n $ dancers so that the President's third condition fulfilled: each dance must have a dancer in white, a dancer in red and a dancer in blue. The dancers cannot change clothes between the dances.",
+    "inputFormat": "The first line contains two space-separated integers $ n $ ( $ 3<=n<=10^{5} $ ) and $ m $ ( $ 1<=m<=10^{5} $ ) \u2014 the number of dancers and the number of dances, correspondingly. Then $ m $ lines follow, describing the dances in the order of dancing them. The $ i $ -th line contains three distinct integers \u2014 the numbers of the dancers that take part in the $ i $ -th dance. The dancers are numbered from $ 1 $ to $ n $ . Each dancer takes part in at least one dance.",
+    "outputFormat": "Print $ n $ space-separated integers: the $ i $ -th number must represent the color of the $ i $ -th dancer's clothes ( $ 1 $ for white, $ 2 $ for red, $ 3 $ for blue). If there are multiple valid solutions, print any of them. It is guaranteed that at least one solution exists.",
+    "samples": [
+        [
+            "7 3\n1 2 3\n1 4 5\n4 6 7\n",
+            "1 2 3 3 2 2 1 \n"
+        ],
+        [
+            "9 3\n3 6 9\n2 5 8\n1 4 7\n",
+            "1 1 1 2 2 2 3 3 3 \n"
+        ],
+        [
+            "5 2\n4 1 5\n3 1 2\n",
+            "2 3 1 1 3 \n"
+        ]
+    ],
+    "hint": "",
+    "translation": "### \u9898\u610f\u7ffb\u8bd1\n\u6709 $n$ \u4e2a\u4eba\uff0c\u5206\u6210 $m$ \u7ec4\uff0c\u6bcf\u7ec4\u6709\u4e09\u4e2a\u4eba\uff0c\u4e00\u4e2a\u4eba\u53ef\u4ee5\u51fa\u73b0\u5728\u591a\u4e2a\u7ec4\u4e2d\uff0c\u7ec4\u5185\u4eba\u4e0d\u4f1a\u91cd\u590d\u3002\u6bcf\u4e2a\u4eba\u4ee3\u8868$1$\uff0c$2$\uff0c$3$\u4e2d\u7684\u4e00\u4e2a\uff0c\u6bcf\u4e2a\u7ec4\u91cc\u4e09\u4e2a\u6570\u5b57\u5fc5\u987b\u5404\u51fa\u73b0\u4e00\u6b21\u3002\u95ee\u7ed9\u6bcf\u4e2a\u4eba\u5206\u914d\u7684\u6570\u5b57\u662f\u4ec0\u4e48\u3002\n\n### \u8f93\u5165\n\u7b2c\u4e00\u884c\u6709\u4e24\u4e2a\u6570 $n$ \u548c $m$\uff0c\u5206\u522b\u4ee3\u8868\u4eba\u6570\u548c\u7ec4\u6570\u3002\u63a5\u4e0b\u6765 $m$ \u884c\u6bcf\u884c\u6709$3$\u4e2a\u6570\u4ee3\u8868\u7b2c $i$ \u4e2a\u7ec4\u91cc\u7684$3$\u4e2a\u4eba\u3002\n\n### \u8f93\u51fa\n\u4e00\u5171 $n$ \u4e2a\u6570\uff0c\u4ee3\u8868\u7b2c $i$ \u4e2a\u4eba\u5206\u914d\u7684\u6570\u5b57\u3002\n\n### \u6570\u636e\u8303\u56f4\n$3 \\leqslant n \\leqslant 10^5$\uff0c$1 \\leqslant m \\leqslant 10^5$"
+}

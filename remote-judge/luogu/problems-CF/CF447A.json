@@ -1,0 +1,17 @@
+{
+    "description": "DZY has a hash table with $ p $ buckets, numbered from $ 0 $ to $ p-1 $ . He wants to insert $ n $ numbers, in the order they are given, into the hash table. For the $ i $ -th number $ x_{i} $ , DZY will put it into the bucket numbered $ h(x_{i}) $ , where $ h(x) $ is the hash function. In this problem we will assume, that $ h(x)=x\u00a0mod\u00a0p $ . Operation $ a\u00a0mod\u00a0b $ denotes taking a remainder after division $ a $ by $ b $ .\n\nHowever, each bucket can contain no more than one element. If DZY wants to insert an number into a bucket which is already filled, we say a \"conflict\" happens. Suppose the first conflict happens right after the $ i $ -th insertion, you should output $ i $ . If no conflict happens, just output -1.",
+    "inputFormat": "The first line contains two integers, $ p $ and $ n $ $ (2<=p,n<=300) $ . Then $ n $ lines follow. The $ i $ -th of them contains an integer $ x_{i} $ $ (0<=x_{i}<=10^{9}) $ .",
+    "outputFormat": "Output a single integer \u2014 the answer to the problem.",
+    "samples": [
+        [
+            "10 5\n0\n21\n53\n41\n53\n",
+            "4\n"
+        ],
+        [
+            "5 5\n0\n1\n2\n3\n4\n",
+            "-1\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u9898\u76ee\u63cf\u8ff0\nzyk\u6b63\u5728\u5b66\u54c8\u5e0c\uff0c\u5c06\u67d0\u4e2a\u6570\u5b57\u901a\u8fc7\u53d6\u6a21\u8fd0\u7b97\uff0c\u5b58\u50a8\u5230\u76f8\u5e94\u4f4d\u7f6e\u3002\u5177\u4f53\u505a\u6cd5\uff0c\u8bbe\u7f6e\u4e00\u4e2a\u5b58\u50a8\u4f4d\u7f6e\u957f\u5ea6p\uff0c\u5bf9\u4e8e\u4e00\u4e2a\u6570\u5b57xi\uff0cxi\u5c06\u5b58\u653e\u5728xi mod p \u4f4d\u7f6e\uff0c\u5982\uff1ap=3\uff0c xi=14\uff0c\u90a3\u4e48xi\u5c06\u5b58\u653e\u5728 14 mod 3 = 2\u7684\u4f4d\u7f6e\u3002\n\u7136\u800c\uff0c\u8fd9\u6837\u7684\u54c8\u5e0c\u80af\u5b9a\u4f1a\u5b58\u5728\u51b2\u7a81\uff0c\u6bd4\u5982p=3\uff0c x1=14\u7ecf\u8fc7\u54c8\u5e0c\u540e\u8981\u653e\u57282\u4f4d\u7f6e\uff0c x2=5\u7ecf\u8fc7\u54c8\u5e0c\u540e\u4e5f\u8981\u653e\u57282\u4f4d\u7f6e\uff0c\u90a3\u4e48\u5c31\u5b58\u5728\u51b2\u7a81\u4e86\u3002\n\u73b0\u5728\u7ed9\u4f60\u6574\u6570p\u4ee5\u53can\uff0c\u7136\u540e\u8f93\u5165n\u4e2a\u6574\u6570xi\uff0c\u5982\u679c\u7b2c\u4e00\u4e2a\u51b2\u7a81\u7684\u6570\u5b57\u662fxi\uff0c\u90a3\u4e48\u5c31\u8f93\u51fai\uff0c\u7136\u540e\u7ed3\u675f\u3002\u5982\u679c\u6ca1\u6709\u51b2\u7a81\uff0c\u5c31\u8f93\u51fa-1\u3002\n\u8f93\u5165\n\u8f93\u5165p, n\n\u7136\u540en\u884c\u6bcf\u884c\u8f93\u5165xi\n\u8f93\u51fa\n\u8f93\u51fa\u76f8\u5e94\u7b54\u6848\n\u6837\u4f8b\u8f93\u5165\n10 5\n0\n21\n53\n41\n53\n\u6837\u4f8b\u8f93\u51fa\n4\n\u63d0\u793a\n\u3010\u6837\u4f8b\u8bf4\u660e\u3011\n41 mod 10 = 21 mod 10\n\u3010\u6570\u636e\u89c4\u6a21\u548c\u7ea6\u5b9a\u3011\n2<= p, n <=300\n0<= xi <= 10^9"
+}

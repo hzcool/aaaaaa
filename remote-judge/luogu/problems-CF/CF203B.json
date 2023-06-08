@@ -1,0 +1,17 @@
+{
+    "description": "One not particularly beautiful evening Valera got very bored. To amuse himself a little bit, he found the following game.\n\nHe took a checkered white square piece of paper, consisting of $ n\u00d7n $ cells. After that, he started to paint the white cells black one after the other. In total he painted $ m $ different cells on the piece of paper. Since Valera was keen on everything square, he wondered, how many moves (i.e. times the boy paints a square black) he should make till a black square with side $ 3 $ can be found on the piece of paper. But Valera does not know the answer to this question, so he asks you to help him.\n\nYour task is to find the minimum number of moves, till the checkered piece of paper has at least one black square with side of $ 3 $ . Otherwise determine that such move does not exist.",
+    "inputFormat": "The first line contains two integers $ n $ and $ m $ $ (1<=n<=1000 $ , $ 1<=m<=min(n\u00b7n,10^{5})) $ \u2014 the size of the squared piece of paper and the number of moves, correspondingly.\n\nThen, $ m $ lines contain the description of the moves. The $ i $ -th line contains two integers $ x_{i} $ , $ y_{i} $ ( $ 1<=x_{i},y_{i}<=n $ ) \u2014 the number of row and column of the square that gets painted on the $ i $ -th move.\n\nAll numbers on the lines are separated by single spaces. It is guaranteed that all moves are different. The moves are numbered starting from $ 1 $ in the order, in which they are given in the input. The columns of the squared piece of paper are numbered starting from $ 1 $ , from the left to the right. The rows of the squared piece of paper are numbered starting from $ 1 $ , from top to bottom.",
+    "outputFormat": "On a single line print the answer to the problem \u2014 the minimum number of the move after which the piece of paper has a black square with side $ 3 $ . If no such move exists, print -1.",
+    "samples": [
+        [
+            "4 11\n1 1\n1 2\n1 3\n2 2\n2 3\n1 4\n2 4\n3 4\n3 2\n3 3\n4 1\n",
+            "10\n"
+        ],
+        [
+            "4 12\n1 1\n1 2\n1 3\n2 2\n2 3\n1 4\n2 4\n3 4\n3 2\n4 2\n4 1\n3 1\n",
+            "-1\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u6709\u4e00\u4e2a $n \\times n$ \u7684\u77e9\u9635\uff0c\u521d\u59cb\u65f6\u77e9\u9635\u7684\u6240\u6709\u683c\u5b50\u90fd\u662f\u767d\u8272\u7684\u3002\n\n\u73b0\u5728\u4f60\u8fdb\u884c\u4e86 $m$ \u6b21\u64cd\u4f5c\uff0c\u6bcf\u6b21\u64cd\u4f5c\u4f1a\u9009\u5b9a\u4e00\u4e2a\u683c\u5b50 $(x_i,y_i)$ \uff0c\u5e76\u5c06\u8fd9\u4e2a\u683c\u5b50\u6d82\u6210\u9ed1\u8272\u3002\n\n\u8bf7\u6c42\u51fa\u4f60\u6700\u5c11\u9700\u8981\u51e0\u6b21\u64cd\u4f5c\u624d\u80fd\u6d82\u51fa\u4e00\u4e2a $3 \\times 3$ \u7684\u9ed1\u8272\u77e9\u9635\uff0c\u5982\u679c\u65e0\u89e3\uff0c\u8f93\u51fa $-1$ \u3002\n\n\u63d0\u4f9b\u8005\uff1a@xuorange"
+}

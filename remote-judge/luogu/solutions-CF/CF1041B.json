@@ -1,0 +1,74 @@
+[
+    {
+        "content": "## Content\n\u7ed9\u5b9a\u56db\u4e2a\u6570 $a,b,c,d$\uff0c\u6c42\u6ee1\u8db3\u4ee5\u4e0b\u6761\u4ef6\u7684\u6570\u5bf9 $(x,y)$ \u7684\u4e2a\u6570\uff1a\n\n- $x\\leqslant a,y\\leqslant b$\u3002\n- $\\dfrac{x}{y}=\\dfrac{c}{d}$\u3002\n\n**\u6570\u636e\u8303\u56f4\uff1a$1\\leqslant a,b,c,d\\leqslant 10^{18}$\u3002**\n## Solution\n\u4f17\u6240\u5468\u77e5\uff0c\u6570\u636e\u8303\u56f4\u5f88\u5927\u7684\u8bdd\u4e00\u822c\u5c31\u5f97\u8981\u63a8\u7ed3\u8bba\u4e86\u3002\n\n\u6211\u4eec\u5148\u628a\u8fd9\u4e2a $\\dfrac{c}{d}$ \u5316\u7b80\u4e00\u4e0b\uff0c\u5047\u8bbe\u662f $\\dfrac{c'}{d'}$\u3002\u7531\u4e8e\u5f88\u660e\u663e\uff0c$x,y$ \u663e\u7136\u8981\u5206\u522b\u662f $c',d'$ \u7684\u500d\u6570\uff0c\u6240\u4ee5\u8bbe $x=k_1c',y=k_2d'$\uff0c\u90a3\u4e48\u6211\u4eec\u7531\u4e0a\u9762\u7684\u6761\u4ef6\uff1a\n\n$x\\leqslant a,y\\leqslant b$\n\n$\\Rightarrow k_1c'\\leqslant a,k_2d'\\leqslant b$\n\n$\\Rightarrow k_1\\leqslant \\dfrac{c'}{a},k_2\\leqslant \\dfrac{d'}{b}$\n\n\u53c8\u56e0\u4e3a $\\dfrac{x}{y}=\\dfrac{c'}{d'}$\n\n\u6240\u4ee5 $\\dfrac{c'}{x}=\\dfrac{d'}{y}$\n\n\u90a3\u4e48\u5c31\u53ea\u80fd\u591f\u4ece $k_1,k_2$ \u4e2d\u53d6\u8f83\u5c0f\u503c\u4e86\u3002\u56e0\u6b64\u7b54\u6848\u5c31\u662f $\\min\\{\\dfrac{c'}{a},\\dfrac{d'}{b}\\}$\u3002\n## Code\n```cpp\nlong long a, b, c, d;\n\nint main() {\n\tscanf(\"%lld%lld%lld%lld\", &a, &b, &c, &d);\n\tlong long gcdcd = __gcd(c, d);\n\tc /= gcdcd, d /= gcdcd;\n\tprintf(\"%lld\", min(a / c, b / d));\n}\n```",
+        "postTime": 1603770460,
+        "uid": 112917,
+        "name": "Eason_AC",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF1041B \u3010Buying a TV Set\u3011"
+    },
+    {
+        "content": "\u53c8\u662f\u4e00\u9053\u6c34\u9898\uff08\u7136\u800c\u672c\u4eba\u9664\u4e86\u6c34\u9898\u505a\u4e0d\u51fa\uff09\u3002\n\n\u9898\u76ee\u5927\u610f\uff1a\u7ed9\u4f60$a,b,x,y$\uff0c\u6c42\u51fa\u6240\u6709\u6ee1\u8db3\u6761\u4ef6$(w\\le a),(h\\le b),(\\frac{w}{h}=\\frac{x}{y})$\u7684\u81ea\u7136\u6570$w,h$\u3002\n\n\u9996\u5148\u7b80\u5316$\\frac{x}{y}$\uff0c\u5c06$x,y$\u540c\u65f6\u9664\u4ee5$gcd(x,y)$\u5373\u53ef\u3002\n\n\u7136\u540e\uff0c\u5206\u522b\u6c42\u51fa\u53ef\u80fd\u7684$w,h$\u7684\u6570\u91cf\uff0c\u7136\u540e\u6c42\u4e2a\u6700\u5c0f\u503c\u5c31\u884c\u4e86\u3002\n\n\u5949\u4e0a\u5783\u573e\u7684Pascal\u4ee3\u7801\uff1a\n\n```pascal\n{CF1041B}\nvar\n  a,b,x,y,t:int64;\nfunction min(x,y:int64):int64;\nbegin\n  if x<y then\n    exit(x)\n  else\n    exit(y);\nend;\nfunction gcd(x,y:int64):int64;\nbegin\n  if y=0 then\n    exit(x)\n  else\n    exit(gcd(y,x mod y));\nend;\nbegin\n  read(a,b,x,y);\n  t:=gcd(x,y);\n  writeln(min(a div (x div t),b div (y div t)));\nend.\n```",
+        "postTime": 1537151840,
+        "uid": 40241,
+        "name": "dblark",
+        "ccfLevel": 9,
+        "title": "\u9898\u89e3 CF1041B \u3010Buying a TV Set\u3011"
+    },
+    {
+        "content": "### \u9898\u610f\uff1a\n\n\u6709\u4e00\u4e2a\u5546\u5e97\u51fa\u552e\u7535\u89c6\u673a\uff0c\u8fd9\u4e2a\u5546\u5e97\u62e5\u6709\u6bcf\u4e00\u79cd\u5bbd\u4e0d\u8d85\u8fc7$a$\u5e76\u4e14\u9ad8\u4e0d\u8d85\u8fc7$b$\u7684\u7535\u89c6\u673a\u3002\n\n\u73b0\u5728Monocarp\u60f3\u4e70\u4e00\u53f0\u7535\u89c6\u673a\uff0c\u4f46\u662f\u4ed6\u8981\u6c42\u8fd9\u53f0\u7535\u89c6\u7ea7\u7684\u5bbd\u9ad8\u6bd4\u7b49\u4e8e\u4e00\u4e2a\u7ed9\u5b9a\u7684\u5206\u6570$\\frac{x}{y}$\uff0c\u6c42\u6709\u591a\u5c11\u79cd\u65b9\u6848\u3002\n\n\u4e00\u53e5\u8bdd\u9898\u610f\uff1a\u7ed9\u4f60$a,b,x,y$\uff0c\u6c42\u6ee1\u8db3$\\frac{w}{h}=\\frac{x}{y}$\u7684$(w,h)$\u5bf9\u6570\uff0c\u5176\u4e2d$1\\leq w\\leq a$\uff0c$1\\leq h\\leq b$\u3002\n\n### \u9898\u89e3\uff1a\n\n#### \u7b97\u6cd51\uff1a\n\n\u679a\u4e3e$w,h$\uff0c\u9010\u4e00\u68c0\u9a8c\u5373\u53ef\u3002\n\n\u65f6\u95f4\u590d\u6742\u5ea6\uff1a$O(ab)$\n\n\u7a7a\u95f4\u590d\u6742\u5ea6\uff1a$O(1)$\n\n#### \u7b97\u6cd52\uff1a\n\n\u679a\u4e3e$w$\uff0c\u5224\u65ad\u662f\u5426\u80fd\u627e\u5230$h$\u5373\u53ef\u3002\n\n\u65f6\u95f4\u590d\u6742\u5ea6\uff1a$O(min(a,b))$\n\n\u7a7a\u95f4\u590d\u6742\u5ea6\uff1a$O(1)$\n\n#### \u7b97\u6cd53\uff1a\n\n\u663e\u7136\u9762\u5bf9$10^{18}$\u8303\u56f4\u5185\u7684$a,b$\uff0c\u4e0d\u80fd\u679a\u4e3e\u3002\n\n\u6211\u4eec\u8003\u8651\uff0c\u5c06$\\frac{x}{y}$\u5316\u7b80\u4e3a\u6700\u7b80\u5206\u6570$\\frac{q}{p}$\uff0c\u5219\u6709$\\frac{w}{h}=\\frac{q}{p}$\uff0c\u90a3\u4e48$w=kq,h=kp$\uff0c$k$\u4e3a\u6b63\u6574\u6570\uff0c$1\\leq w\\leq a$\uff0c$1\\leq h\\leq a$\u3002\n\n\u8003\u8651\u5230$w$\u6709$\\left \\lfloor \\frac{a}{q} \\right \\rfloor$\u79cd\u53d6\u503c\uff0c$h$\u6709$\\left \\lfloor \\frac{b}{p} \\right \\rfloor$\u79cd\u53d6\u503c\uff0c\u90a3\u4e48\u7b54\u6848\u4e3a$min(\\left \\lfloor \\frac{a}{q} \\right \\rfloor,\\left \\lfloor \\frac{b}{p} \\right \\rfloor)$\u3002\n\n\u65f6\u95f4\u590d\u6742\u5ea6\uff1a$O(log(min(x,y)))$\uff08\u6c42gcd\u6240\u7528\u65f6\u95f4\uff09\n\n\u7a7a\u95f4\u590d\u6742\u5ea6\uff1a$O(1)$\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nlong long a,b,x,y,l,r,t;\n\nint main()\n{\n\tscanf(\"%I64d%I64d%I64d%I64d\",&a,&b,&x,&y);\n\tt=__gcd(x,y);\n\tx/=t;\n\ty/=t;\n\tl=a/x;\n\tr=b/y;\n\tprintf(\"%I64d\\n\",min(l,r));\n}\n```",
+        "postTime": 1537144949,
+        "uid": 34886,
+        "name": "ezoixx130",
+        "ccfLevel": 8,
+        "title": "\u9898\u89e3 CF1041B \u3010Buying a TV Set\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u867d\u7136\u53ea\u662f\u4e00\u9053\u6a59\uff0c\u4f46\u8fd8\u662f\u5f88\u6709\u5fc5\u8981\u4ed4\u7ec6\u7814\u7a76\u4e00\u4e0b\u3002\n\n**\u9898\u610f**\n\n\u7ffb\u8bd1\u7ed9\u5f97\u5f88\u6e05\u695a\u4e86\uff0c~~\u4f46\u6211\u8fd8\u662f\u60f3\u6c34\u4e00\u4e0b\u9898\u89e3\u957f\u5ea6~~\u3002\u9898\u76ee\u7684\u610f\u601d\u662f\uff1a\u7ed9\u4f60\u56db\u4e2a\u6570   $a$\u3001$b$\u3001$c$\u3001$d$\uff0c\u7136\u540e\u6784\u9020\u4e24\u6570 $x$\u3001$y$\uff0c\u4f7f $\\frac{x}{y}$=$\\frac{c}{d}$\uff0c\u5e76\u4e14\u6ee1\u8db3 $x \\le a$ \u4e14 $y \\le b$ \u65f6\u6c42 $x$\u3001$y$ \u7684\u7ec4\u6570\u3002\n\n**\u601d\u8def**\n\n\u6211\u4eec\u53ef\u4ee5\u5148\u628a $\\frac{c}{d}$ \u8fdb\u884c\u7ea6\u5206\uff0c\u8bbe\u7ea6\u5206\u540e\u7684\u6700\u7b80\u5206\u6570\u4e3a $\\frac{c'}{d'}$\uff0c\u518d\u8bbe $k=c \\div c'=d \\div d'$\uff0c\u90a3\u4e48 $\\frac{c'}{d'}$\u3002\u6211\u4eec\u90fd\u77e5\u9053\uff0c\u5982\u679c $\\frac{c'}{d'}$ \u662f\u4e00\u7ec4\u89e3\uff0c\u90a3\u4e48\u5728 $(m \\times c')\\le x$ \u4e14 $(m \\times d')\\le y$\uff08$m$ \u4e3a $\\ge 2 $\u7684\u6b63\u6574\u6570\uff09\u7684\u524d\u63d0\u4e0b\uff0c$\\frac{c' \\times m}{d' \\times m}$ \u4e5f\u662f\u4e00\u7ec4\u89e3\uff0c\u90a3\u6211\u4eec\u7684\u76ee\u6807\u5c31\u662f\u6c42\u51fa\u6709\u591a\u5c11\u4e2a $m$ \u7b26\u5408\u8981\u6c42\u3002\u90a3\u7b54\u6848\u5c31\u662f $\\min(a \\div c, b \\div d)$\u3002\n\n**\u4ee3\u7801**\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nlong long a,b,c,d,x,y,gcd;\nint main(){\n\tcin>>a>>b>>c>>d;\n\tgcd=__gcd(c,d);\n\tc/=gcd;\n\td/=gcd;\n\tcout<<min(a/c,b/d);\n}\n```\n",
+        "postTime": 1676599980,
+        "uid": 740250,
+        "name": "Luoruixi",
+        "ccfLevel": 0,
+        "title": "CF1041B Buying a TV Set \u9898\u89e3"
+    },
+    {
+        "content": "# Solution\n\u7ed9\u5b9a $x,y,a,b(x \\le a,y \\le b)$ \u56db\u4e2a\u6570\uff0c\u6c42 $a/b = x/y$ \u7684\u4e2a\u6570\u3002\n\n\u8c03\u7528 $\\gcd$ \u51fd\u6570\u7b97\u51fa $a,b$ \u7684\u6700\u5927\u516c\u7ea6\u6570\uff0c\u6b64\u65f6\u82e5 $x/y = (a/\\gcd(a,b))/(b/\\gcd(a,b))$ \u7684\u8bdd\uff0c\u4e00\u5b9a\u6ee1\u8db3 $x$ \u548c $y$ \u7686\u4e3a\u4e00\u4e2a\u6574\u6570 $k$ \u7684\u500d\u6570\u3002\u6240\u4ee5 $x$ \u81f3\u591a\u51fa\u73b0 $\\left \\lfloor a/(x/k) \\right \\rfloor$ \u79cd\u60c5\u51b5\uff0c\u540c\u7406\uff0c$y$ \u51fa\u73b0 $\\left \\lfloor b/(y/k) \\right \\rfloor$ \u79cd\u60c5\u51b5\uff0c\u53d6\u4e24\u79cd\u60c5\u51b5\u8f83\u5c0f\u503c\u5373\u53ef\u3002\n# AC Code\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nmain()\n{\n\tlong long x, y, a, b;\n\tcin >> x >> y >> a >> b;\n\tlong long gcd = __gcd(a, b);//\u8c03\u7528\u7cfb\u7edf\u51fd\u6570\uff0cgcd\u524d\u662f\u4e24\u6761\u4e0b\u5212\u7ebf\uff01 \n\ta /= gcd, b /= gcd;//\u7ea6\u5206\n\tcout << min(x / a, y / b);//\u81ea\u52a8\u53d6\u4e0b\u6574\n} \n```\n\u5e0c\u671b\u672c\u9898\u89e3\u80fd\u7ed9\u5927\u5bb6\u5e26\u6765\u5e2e\u52a9\uff01",
+        "postTime": 1675992573,
+        "uid": 768121,
+        "name": "Morax2022",
+        "ccfLevel": 0,
+        "title": "CF1041B \u9898\u89e3"
+    },
+    {
+        "content": "### \u601d\u8def\n\u5148\u6765\u4e2a\u8bc1\u660e\uff08\u8fd9\u91cc\u9ed8\u8ba4 $a\\le c$ \u4e14 $b\\le d$\uff09\uff1a\n\n\u82e5\n$$\\frac{a}{b}=\\frac{c}{d}$$\n\u5219\n$$c\\bmod a=0,d\\bmod b=0$$\n\u6240\u4ee5\u9898\u76ee\u5c31\u662f\u8981\u6c42\u6c42\u6709\u591a\u5c11\u7ec4 $(x,y)$\uff0c\u6ee1\u8db3\n$$\\max(x,c)\\bmod\\min(x,c)=0\\text{ }\\max(y,d)\\bmod\\min(y,d)=0$$\n\u4e14\n$$x\\le a,y\\le b$$\n\u4e3a\u4e86\u65b9\u4fbf\u6c42 $x,y$\uff0c\u6211\u4eec\u9700\u5148\u5c06 $c,d$ \u9664\u4ee5\u4ed6\u4eec\u7684\u6700\u5927\u516c\u7ea6\u6570\u5f97\u5230 $c_2,d_2$\uff0c\u63a5\u7740\u5728\u679a\u4e3e\u4e00\u4e2a\u53d8\u91cf $k$\uff0c\u5224\u65ad $c_2\\times k$ \u548c $d_2\\times k$ \u662f\u5426\u7b26\u5408\u4e0a\u8ff0\u6761\u4ef6\u5373\u53ef\uff0c\u5982\u679c\u7b26\u5408\uff0c$ans+1$\u3002\n\n### \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nlong long a,b,c,d,g;\n//\u8f97\u8f6c\u76f8\u9664\u6c42\u6700\u5927\u516c\u7ea6\u6570\nlong long gcd(cll x,cll y){\n\tif(x%y==0){\n\t\treturn y;\n\t}\n\treturn gcd(y,x%y);\n}\nint main(){\n\tcin>>a>>b>>c>>d;\n\tg=gcd(c,d);\n\tc/=g,d/=g;\n\tcout<<min(a/c,b/d);\n\treturn 0;\n}\n```\n",
+        "postTime": 1660122717,
+        "uid": 528325,
+        "name": "fengxiaoyi",
+        "ccfLevel": 0,
+        "title": "CF1041B\u9898\u89e3"
+    },
+    {
+        "content": "\u53ef\u4ee5\u53d1\u73b0\uff1a$\\frac{x}{y}=\\frac{k\\frac{c}{\\gcd(c,d)}}{k\\frac{d}{\\gcd(c,d)}}$\uff0c\u6ee1\u8db3\uff1a$k\\frac{c}{\\gcd(c,d)}\\leq a,k\\frac{d}{\\gcd(c,d)}\\leq b$\uff0c\u6c42\u6700\u5927\u7684 $k$\u3002\n\n\u7b54\u6848\u5373\u4e3a\uff1a$\\min(\\frac{a}{\\frac{c}{\\gcd(c,d)}},\\frac{b}{\\frac{b}{\\gcd(c,d)}})=\\min(\\frac{a\\gcd(c,d)}{c},\\frac{b\\gcd(c,d)}{b})$\u3002\n\n- \u5f00 `long long`\u3002\n\n\u4ee3\u7801\u5982\u4e0b\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n#define int long long\nint a,b,c,d;\nint gcd(int x,int y){\n\tif(!y)return x;\n\treturn gcd(y,x%y);\n}\nsigned main(){\n\tcin>>a>>b>>c>>d;\n\tint tmp=gcd(c,d);\n\tc/=tmp,d/=tmp;\n\tif(a<c||b<d){printf(\"0\");return 0;}\n\tcout<<min(a/c,b/d);\n\treturn 0;\n}\n```",
+        "postTime": 1629538311,
+        "uid": 271736,
+        "name": "Daidly",
+        "ccfLevel": 6,
+        "title": "CF1041B Buying a TV Set \u9898\u89e3"
+    },
+    {
+        "content": "```cpp\n// \u6ce8\u610fx / y\u8981\u5148\u7ea6\u5206\uff0c\u7136\u540e\u9664\u4e00\u4e0b\u53d6\u6700\u5c0f\u503c\u5c31\u597d\u4e86\n#include <iostream>\n#include <algorithm>\n\nusing ll = long long;\n\nll gcd(ll a, ll b)\n{\n    return b == 0 ? a : gcd(b, a % b);\n}\n\nint main()\n{\n    ll a, b, x, y;\n    std::cin >> a >> b >> x >> y;\n\n    auto r = gcd(x, y);\n    x /= r;\n    y /= r;\n\n    std::cout << std::min(a / x, b / y) << std::endl;\n\n    return 0;\n}\n```",
+        "postTime": 1537430892,
+        "uid": 59062,
+        "name": "\u5c0f\u95f8\u87f9",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1041B \u3010Buying a TV Set\u3011"
+    },
+    {
+        "content": "### \u601d\u8def\uff1a\n\u5148\u5316\u7b80x/y,\u540c\u65f6\u9664\u4ee5\u5b83\u4eec\u7684\u6700\u5927\u516c\u7ea6\u6570\u3002\u7136\u540e\u770ba\u4e2d\u6709\u51e0\u4e2ax\uff0cb\u4e2d\u6709\u51e0\u4e2ay\uff0c\u5c0f\u7684\u90a3\u4e2a\u5c31\u662f\u7b54\u6848\u3002\n\n\u4e0a\u4ee3\u7801\n```cpp\n#include<iostream>\n#include<algorithm>\nusing namespace std;\nlong long a,b,x,y,gcd;\nint main() {\n\tcin>>a>>b>>x>>y;//\u8f93\u5165\n    gcd=__gcd(x,y);//\u6700\u5927\u516c\u7ea6\u6570\n\tx/=gcd;//\u5316\u7b80\n\ty/=gcd;//\u5316\u7b80\n\tcout<<min(a/x,b/y)<<endl;//\u53d6\u5c0f\u7684\u90a3\u4e2a\n}\n```\n",
+        "postTime": 1566801826,
+        "uid": 57779,
+        "name": "LRL65",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF1041B \u3010Buying a TV Set\u3011"
+    }
+]

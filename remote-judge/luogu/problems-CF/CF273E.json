@@ -1,0 +1,21 @@
+{
+    "description": "Dima and Anya love playing different games. Now Dima has imagined a new game that he wants to play with Anya.\n\nDima writes $ n $ pairs of integers on a piece of paper $ (l_{i},r_{i}) $ $ (1<=l_{i}&lt;r_{i}<=p) $ . Then players take turns. On his turn the player can do the following actions:\n\n1. choose the number of the pair $ i $ $ (1<=i<=n) $ , such that $ r_{i}-l_{i}&gt;2 $ ;\n2. replace pair number $ i $ by pair ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF273E/9e084f4371b7b137e0f6781dcd5a7dd3aa3d3533.png) or by pair ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF273E/203e78a07f9b5539eaf775cc2321c9238b008110.png). Notation $ \u230ax\u230b $ means rounding down to the closest integer.\n\nThe player who can't make a move loses.\n\nOf course, Dima wants Anya, who will move first, to win. That's why Dima should write out such $ n $ pairs of integers $ (l_{i},r_{i}) $ $ (1<=l_{i}&lt;r_{i}<=p) $ , that if both players play optimally well, the first one wins. Count the number of ways in which Dima can do it. Print the remainder after dividing the answer by number $ 1000000007\u00a0(10^{9}+7) $ .\n\nTwo ways are considered distinct, if the ordered sequences of the written pairs are distinct.",
+    "inputFormat": "The first line contains two integers $ n $ , $ p $ $ (1<=n<=1000,1<=p<=10^{9}) $ . The numbers are separated by a single space.",
+    "outputFormat": "In a single line print the remainder after dividing the answer to the problem by number $ 1000000007\u00a0(10^{9}+7) $ .",
+    "samples": [
+        [
+            "2 2\n",
+            "0\n"
+        ],
+        [
+            "4 4\n",
+            "520\n"
+        ],
+        [
+            "100 1000\n",
+            "269568947\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "### \u6e38\u620f\u89c4\u5219\r\n\r\n\u6bcf\u6b21\u64cd\u4f5c\u65f6\u53d6 $n$ \u5bf9\u6574\u6570\u4e2d\u7684\u4e00\u5bf9 $(l,r)$ \uff08\u9700\u8981\u6ee1\u8db3 $r-l>2$ \uff09\uff0c\u5c06\u5176\u53d8\u6210 $(l+\\frac{r-l}{3},l+\\frac{r-l}{3}\u00d72)$ \u6216\u662f $(l,r-\\frac{r-l}{3})$ \uff0c\u6240\u6709\u9664\u6cd5\u90fd\u662f\u5411\u4e0b\u53d6\u6574\u3002\r\n\r\n\u5f53\u4e00\u4e2a\u73a9\u5bb6\u6ca1\u6cd5\u64cd\u4f5c\u65f6\u5c31\u8f93\u4e86\u3002\r\n\r\n### \u76ee\u6807\r\n\r\n\u6784\u9020 $n$ \u5bf9\u6574\u6570\u4f7f\u5f97\u5148\u624b\u5fc5\u80dc\uff0c\u7ed9\u5b9a\u4e00\u4e2a $p$ \u4f7f\u5f97 $l,r$ \u5747\u5c0f\u4e8e $p$ \uff0c\u6c42\u65b9\u6848\u6570\u9664\u4ee5 $10^9+7$ \u7684\u4f59\u6570\u3002"
+}

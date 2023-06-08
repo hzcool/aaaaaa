@@ -1,0 +1,17 @@
+{
+    "description": "There are $ n $ pictures delivered for the new exhibition. The $ i $ -th painting has beauty $ a_{i} $ . We know that a visitor becomes happy every time he passes from a painting to a more beautiful one.\n\nWe are allowed to arranged pictures in any order. What is the maximum possible number of times the visitor may become happy while passing all pictures from first to last? In other words, we are allowed to rearrange elements of $ a $ in any order. What is the maximum possible number of indices $ i $ ( $ 1<=i<=n-1 $ ), such that $ a_{i+1}&gt;a_{i} $ .",
+    "inputFormat": "The first line of the input contains integer $ n $ ( $ 1<=n<=1000 $ ) \u2014 the number of painting.\n\nThe second line contains the sequence $ a_{1},a_{2},...,a_{n} $ ( $ 1<=a_{i}<=1000 $ ), where $ a_{i} $ means the beauty of the $ i $ -th painting.",
+    "outputFormat": "Print one integer \u2014 the maximum possible number of neighbouring pairs, such that $ a_{i+1}&gt;a_{i} $ , after the optimal rearrangement.",
+    "samples": [
+        [
+            "5\n20 30 10 50 40\n",
+            "4\n"
+        ],
+        [
+            "4\n200 100 100 200\n",
+            "2\n"
+        ]
+    ],
+    "hint": "In the first sample, the optimal order is: $ 10,20,30,40,50 $ .\n\nIn the second sample, the optimal order is: $ 100,200,100,200 $ .",
+    "translation": "## \u9898\u76ee\u63cf\u8ff0\n\u6709n\u5e45\u753b\uff0c\u7b2ci\u5e45\u753b\u7684\u597d\u770b\u503c\u4e3aa[i]\u3002\u6e38\u5ba2\u5728\u4ece\u4e00\u5e45\u753b\u8d70\u5230\u66f4\u6f02\u4eae\u7684\u4e00\u5e45\u753b\u65f6\u4f1a\u5f88\u9ad8\u5174\u3002\u753b\u53ef\u4ee5\u4ee5\u4efb\u610f\u987a\u5e8f\u7801\u653e\uff0c\u6e38\u5ba2\u4ece\u5934\u81f3\u5c3e\u8d70\u4e00\u904d\uff0c\u9ad8\u5174\u6b21\u6570\u7684\u6700\u5927\u503c\u4e3ac\u3002\u6c42c\u7684\u6700\u5927\u503c\u3002\n## \u8f93\u5165\u8f93\u51fa\u683c\u5f0f\n### \u8f93\u5165\u683c\u5f0f\uff1a\n\u8f93\u5165\u7684\u7b2c\u4e00\u884c\u5305\u542b\u4e00\u4e2a\u6b63\u6574\u6570n\uff081<=n<=1000)\u3002\n\u8f93\u5165\u7684\u7b2c\u4e8c\u884c\u5305\u542b\u4e00\u4e2a\u6570\u7ec4a[1]\u3001a[2]\u3001a[3]\u3001...\u3001a[n]\uff081<=a[i]<=1000\uff09\n### \u8f93\u51fa\u683c\u5f0f\uff1a\n\u8f93\u51fa\u5171\u4e00\u884c\uff0c\u5305\u542b\u4e00\u4e2a\u6b63\u6574\u6570c\u3002\n## \u8bf4\u660e\n\u5728\u7b2c\u4e00\u4e2a\u4f8b\u5b50\u4e2d\uff0c\u6700\u4f73\u987a\u5e8f\u4e3a\uff1a10\u300120\u300130\u300140\u300150\u3002\n\u5728\u7b2c\u4e8c\u4e2a\u4f8b\u5b50\u4e2d\uff0c\u6700\u4f73\u987a\u5e8f\u4e3a\uff1a100\u3001200\u3001100\u3001200\u3002"
+}

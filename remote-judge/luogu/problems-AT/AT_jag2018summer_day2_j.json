@@ -1,0 +1,16 @@
+{
+    "description": "[problemUrl]: https://atcoder.jp/contests/jag2018summer-day2/tasks/jag2018summer_day2_j\n\nYou have a string $ s=s_0s_1...s_{N-1} $ of length $ N $ consisting of `A` and `B`. You have to process $ Q $ queries. Consider the $ i $-th query ( $ 1\\ \\leq\\ i\\ \\leq\\ Q $ ). In this query you are given integers $ l_i $ and $ r_i $. Then, for each $ x $ ( $ l_i\\ \\leq\\ x\\ \\leq\\ r_i $ ), $ s_x $ is changed to the other letter, that is, `A` becomes `B` and `B` becomes `A`.\n\nAfter each query, you have to calculate $ f( $`B` $ + $ $ s $ $ + $ `A`$ ) $. Here, $ f(t) $ is a function which, given a string $ t $, returns a non-negative integer. The value of $ f(t) $ is defined as follows:\n\n- Consider the following **step**.\n  - Step: For all substrings of $ t $ which coincide with `BA`, replace them with `AB`. All replacements are done at the same time.\n- $ f(t) $ is the number of steps you need to perform until no substring of $ t $ coincides with `BA`.\n\nFor example, $ f( $`ABAB`$ ) $ $ = $ $ 1 $, $ f( $`BBAA`$ ) $ $ = $ $ 3 $, and $ f( $`AAA`$ ) $ $ = $ $ 0 $.",
+    "inputFormat": "Input is given from Standard Input in the following format:\n\n> $ N $ $ s $ $ Q $ $ l_1 $ $ r_1 $ $ l_2 $ $ r_2 $ : $ l_Q $ $ r_Q $",
+    "outputFormat": "After each query, print the value of $ f( $`B` $ + $ $ s $ $ + $ `A`$ ) $, one per line.",
+    "samples": [
+        [
+            "5\r\nBAABA\r\n2\r\n1 3\r\n0 2",
+            "6\r\n6"
+        ],
+        [
+            "1\r\nA\r\n2\r\n0 0\r\n0 0",
+            "2\r\n2"
+        ]
+    ],
+    "hint": "### Constraints\n\n- $ 1\\ \\leq\\ N\\ \\leq\\ 200000 $\n- $ |s|\\ =\\ N $\n- $ s $ consists of `A` and `B`.\n- $ 1\\ \\leq\\ Q\\ \\leq\\ 200000 $\n- $ 0\\ \\leq\\ l_i\\ \\leq\\ r_i\\ \\leq\\ N-1 $\n- $ N,Q,l_i,r_i $ are integers.\n\n### Sample Explanation 1\n\nAfter the first query, the string $ s $ is `BBBAA`, so print the value of $ f( $`BBBBAAA`$ ) $ in the first line. After the second query, the string $ s $ is `AAAAA`, so print the value of $ f( $`BAAAAAA`$ ) $ in the second line."
+}

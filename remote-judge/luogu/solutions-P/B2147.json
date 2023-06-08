@@ -1,0 +1,50 @@
+[
+    {
+        "content": "## Content\n\u6c42\u7ed9\u5b9a $x,n$\uff0c\u6c42 $f(x,n)=\\sqrt{n+\\sqrt{(n-1)+\\sqrt{(n-2)+\\sqrt{\\dots+2+\\sqrt{1+x}}}}}$ \u7684\u503c\u3002\n## Solution\n\u4e4d\u4e00\u770b\u8fd9\u9898\u76ee\u5f88\u70e6\u4eba\uff0c\u5176\u5b9e\uff0c\u5982\u679c\u6211\u4eec\u53ef\u4ee5\u8f6c\u6362\u4e00\u4e0b\uff0c\u8fd9\u9053\u9898\u76ee\u5c31\u5f88\u7b80\u5355\u3002\n\n\u6211\u4eec\u4e0d\u59a8\u7b97\u4e0b\uff1a\n\n$$\\begin{aligned}f(x,1)&=\\sqrt{1+x}\\\\f(x,2)&=\\sqrt{2+\\sqrt{1+x}}=\\sqrt{2+f(x,1)}\\\\f(x,3)&=\\sqrt{3+\\sqrt{2+\\sqrt{1+x}}}=\\sqrt{3+f(x,2)}=\\sqrt{3+\\sqrt{2+f(x,1)}}\\\\&\\vdots\\end{aligned}$$\n\n\u7136\u540e\u6211\u4eec\u53ef\u4ee5\u53d1\u73b0\uff0c$f(x,n)$ \u662f\u4e00\u4e2a\u5c42\u5c42\u5305\u542b\u7684\u9012\u5f52\u5173\u7cfb\uff1a\u5982\u679c $n=1$\uff0c\u90a3\u4e48 $f(x,n)=\\sqrt{1+x}$\uff0c\u5426\u5219\uff0c$f(x,n)=\\sqrt{n+f(x,n-1)}$\uff0c\u4e8e\u662f\u5c31\u8fd9\u4e48\u6837\u9012\u5f52\u4e0b\u53bb\u7136\u540e\u5411\u4e0a\u7d2f\u52a0\u7b54\u6848\uff0c\u8db3\u591f\u901a\u8fc7\u672c\u9898\u3002\n\n\u7136\u800c\uff0c\u5982\u679c $n$ \u7684\u8303\u56f4\u5f88\u5927\uff0c\u9012\u5f52\u7684\u5c42\u6570\u5f88\u591a\uff0c\u6211\u4eec\u5982\u679c\u8fd8\u7528\u9012\u5f52\u7684\u8bdd\u5c31\u4f1a\u5185\u5b58\u7206\u70b8\uff0c\u90a3\u4e48\u600e\u4e48\u529e\u5462\uff1f\u6211\u4eec\u8003\u8651\u628a\u5b83\u8f6c\u4e3a\u4e00\u4e2a\u9012\u63a8\u516c\u5f0f\uff1a\n\n$$f_{x,n}=\\begin{cases}\\sqrt{1+x}&n=1\\\\\\sqrt{n+f_{x,n-1}}&n>1\\end{cases}$$\n\n\u7136\u540e\u4f60\u5c31\u53ef\u4ee5\u660e\u767d\u4e86\uff0c\u8fd9\u4e0d\u5c31\u53ef\u4ee5\u7528\u6570\u7ec4\u76f4\u63a5\u5faa\u73af\u9012\u63a8\u51fa\u6765\u5c31\u53ef\u4ee5\u4e86\u5417\uff1f\u4f60\u53ef\u80fd\u53d1\u73b0\u4e86\u7b2c\u4e00\u7ef4\u7684 $x$\uff0c\u7136\u540e\u4f60\u6ce8\u610f\u5230\u9898\u76ee\u4e2d $x$ \u662f\u4e2a\u5b9e\u6570\uff0c\u90a3\u4e48\u5c31\u4e0d\u80fd\u591f\u4ee5\u5b83\u4f5c\u4e3a\u6570\u7ec4\u7684\u7b2c\u4e00\u7ef4\uff0c\u90a3\u4e48\u600e\u4e48\u529e\uff1f\u6211\u4eec\u53c8\u53d1\u73b0\uff0c**$n>1$ \u65f6\uff0c$f_{x,n}$ \u53ea\u548c $n$ \u548c $f_{x,n-1}$ \u6709\u5173\uff0c\u5e76\u4e0d\u548c $x$ \u6709\u5173**\u3002\u6240\u4ee5\u6211\u4eec\u8003\u8651\u76f4\u63a5\u5c06\u7b2c\u4e00\u7ef4\u7701\u53bb\uff0c\u5f97\u5230\uff1a\n\n$$f_n=\\begin{cases}\\sqrt{1+x}&n=1\\\\\\sqrt{n+f_{n-1}} &n>1\\end{cases}$$\n\n\u7136\u540e\u4f60\u5c31\u53ef\u4ee5\u7528\u9012\u63a8\u901a\u8fc7\u672c\u9898\u4e86\u3002\n## Code\n### 1 \u9012\u5f52\n```cpp\n#include <cstdio>\n#include <cmath>\nusing namespace std;\n\ninline double f(double x, int n) {\n\tif(n > 1) return sqrt(n + f(x, n - 1));\n\telse return sqrt(1 + x);\n}\n\nint main() {\n\tdouble x; scanf(\"%lf\", &x);\n    int n; scanf(\"%d\", &n);\n\treturn printf(\"%.2lf\", f(x, n)), 0;\n}\n```\n### 2 \u9012\u63a8\n```cpp\n#include <cstdio>\n#include <cmath>\nusing namespace std;\n\nint main() {\n\tdouble x; scanf(\"%lf\", &x);\n    int n; scanf(\"%d\", &n);\n\tdouble f[10007] = {0.0}; f[1] = sqrt(1 + x);\n\tF(int, i, 2, n) f[i] = sqrt(i + f[i - 1]);\n\treturn printf(\"%.2lf\", f[n]), 0;\n}\n```",
+        "postTime": 1625396940,
+        "uid": 112917,
+        "name": "Eason_AC",
+        "ccfLevel": 6,
+        "title": "B2147 \u6c42 f(x,n)"
+    },
+    {
+        "content": "## \u9898\u89e3\n\n### \u505a\u6cd5 1\n\n\u89c2\u5bdf\u8fd9\u4e2a\u5f0f\u5b50\uff0c\u6211\u4eec\u53ef\u4ee5\u53d1\u73b0\uff0c\u5047\u5982\u6211\u4eec\u5df2\u7ecf\u8ba1\u7b97\u51fa\u4e86 $n=k$ \u7684\u60c5\u51b5\uff1a\n\n$$R_k=f(x,k)=\\sqrt{k+\\sqrt{(k-1)+\\sqrt{...+2+\\sqrt{1+x}}}}$$\n\n\u90a3\u4e48\u5f88\u5bb9\u6613\u5f97\u5230\uff0c $R_{k+1}=\\sqrt{(k+1)+R_k}$ \u3002\u53c8\u80fd\u591f\u53d1\u73b0\uff0c $R_1=\\sqrt{1+x}$ \uff0c\u56e0\u6b64\u4f7f\u7528 $\\verb!for!$ \u5faa\u73af\uff0c\u9012\u63a8\u51fa $R_n$ \u5373\u53ef\u3002\n\n### \u505a\u6cd5 2\n\n\u65e2\u7136\u5df2\u7ecf\u5f97\u5230\u4e86 $R_k$ \u7684\u9012\u63a8\u5f0f\uff0c\u4e3a\u4ec0\u4e48\u4e0d\u76f4\u63a5\u5c06 $f(x,n)$ \u5199\u6210\u9012\u5f52\u7684\u5f62\u5f0f\u5462\uff1f\n\n$$f(x,n)=\\begin{cases}\nf(x,n-1) & n\\ge 1 \\cr\n\\sqrt{1+x} & n=1\n\\end{cases}$$\n\n\u6211\u4eec\u65b0\u5efa\u4e00\u4e2a\u51fd\u6570 $f(x,n)$ \uff0c\u7136\u540e\u6839\u636e\u8fd9\u4e2a\u9012\u5f52\u5f0f\u8ba1\u7b97\u5c31\u884c\u4e86\u3002\u9012\u5f52\u7684\u7ec8\u6b62\u6761\u4ef6\u5c31\u662f $n=1$ \u3002\n\n---\n\n\u5c0f\u6280\u5de7\uff1a\u6211\u4eec\u80fd\u591f\u53d1\u73b0\uff0c\u5f53**\u5d4c\u5957\u7684\u6b21\u6570\u76f8\u5f53\u591a**\u65f6\uff0c\u5728\u6700\u91cc\u9762\u90a3\u4e00\u9879\u7684\u8d21\u732e\u5df2\u7ecf\u65e0\u5173\u7d27\u8981\u4e86\u3002\u4e8e\u662f\u4ece $\\max\\{1,n-30\\}$ \u5f00\u59cb\u679a\u4e3e\u4e5f\u80fd\u8fc7\u9898\uff0c\u5e76\u4e14\u5728 $n$ \u6bd4\u8f83\u5927\u7684\u65f6\u5019\u8fd9\u79cd\u505a\u6cd5\u66f4\u7701\u65f6\u95f4\u3002\n\n## \u53c2\u8003\u4ee3\u7801\n\n### \u4ee3\u7801 1\n\n```cpp\n#include<bits/stdc++.h>\n#define up(l,r,i) for(int i=l,END##i=r;i<=END##i;++i)\n#define dn(r,l,i) for(int i=r,END##i=l;i>=END##i;--i)\nusing namespace std;\ntypedef long long i64;\nconst int INF =2147483647;\ndouble x,r; int n;\nint main(){\n    scanf(\"%lf%d\",&x,&n),r=x;\n    up(1,n,i) r=sqrt(r+i); printf(\"%.2lf\\n\",r);\n    return 0;\n}\n```\n\n### \u4ee3\u7801 2\n\n```cpp\n#include<bits/stdc++.h>\n#define up(l,r,i) for(int i=l,END##i=r;i<=END##i;++i)\n#define dn(r,l,i) for(int i=r,END##i=l;i>=END##i;--i)\nusing namespace std;\ntypedef long long i64;\nconst int INF =2147483647;\ndouble x,r; int n;\ndouble f(int x0,int n0){\n    if(n0==1) return sqrt(x0+1); return sqrt(f(x0,n0-1)+n0);\n}\nint main(){\n    scanf(\"%lf%d\",&x,&n); printf(\"%.2lf\\n\",f(x,n));\n    return 0;\n}\n```",
+        "postTime": 1625322676,
+        "uid": 330759,
+        "name": "\u56e7\u4ed9",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 B2147 \u3010\u6c42 f(x,n)\u3011"
+    },
+    {
+        "content": "## \u601d\u8def\n\u5728\u4e3b\u7a0b\u5e8f\u5185\u4f7f\u7528\u4e00\u4e2a\u5faa\u73af\u6c42\u89e3\u3002\n\n$f(x,n)=\\sqrt{n+\\sqrt{(n-1)+\\sqrt{(n-2)+\\sqrt{...+2+\\sqrt{1+x}}}}}$\n\u90a3\u4e48\u6211\u4eec\u8d4b\u4e00\u4e2a\u53d8\u91cf $ans$ \u7b49\u4e8e $x$ \u3002\n\n\u7136\u540e\u4e0d\u65ad\u5faa\u73af\uff0c\u5c06 $ans$ \u4e0d\u65ad\u4fee\u6539\u4e3a $\\sqrt{i+ans}$ \uff0c\u5373\u4ece\u5185\u5230\u5916\u5c06 $f(x,n)$ \u8ba1\u7b97\u51fa\u6765\u3002\n## \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n    double x,n;\n    cin>>x>>n;\n    double ans=x;\n    for(int y=1;y<=n;y++)\n    ans=sqrt(y+ans);\n    printf(\"%.2f\",ans);\n}\n```",
+        "postTime": 1625296780,
+        "uid": 320087,
+        "name": "N_z_",
+        "ccfLevel": 7,
+        "title": "B2147-\u3010\u6c42 f(x,n)\u3011\u9898\u89e3"
+    },
+    {
+        "content": "## \u9898\u76ee\u5206\u6790\n\u6211\u4eec\u53ef\u4ee5\u5236\u4f5c\u4e00\u4e2a\u51fd\u6570\uff0c\u51fd\u6570\u4e2d\u5305\u542b\u8ba1\u7b97\u5230\u73b0\u5728\u4e3a\u6b62\u7684\u51fd\u6570\u503c\u548c\u76ee\u524d\u5faa\u73af\u6b21\u6570\uff0c\u5728\u51fd\u6570\u5185\u7167\u9898\u610f\u8ba1\u7b97\u51fd\u6570\u503c\u5373\u53ef\uff0c\u6ce8\u610f\u51fd\u6570\u7c7b\u578b\uff0c\u6700\u540e\u8f93\u51fa\u8bf7\u4fdd\u7559\u4e24\u4f4d\u5c0f\u6570\u3002\n## \u4ee3\u7801\u5b9e\u73b0\n```cpp\n#include<bits/stdc++.h> \nusing namespace std;\nint n;\ndouble x;\ndouble akm(double x,int n){\n\tif(n==1)\n\t  return sqrt(1.0+x);\n\treturn sqrt(n+akm(x,n-1));\n}\nint main(){\n\tcin>>x>>n;\n\tcout<<fixed<<setprecision(2)<<akm(x,n);\n\treturn 0;\n}\n```\n",
+        "postTime": 1625282225,
+        "uid": 359581,
+        "name": "\u00b7\u7cef\u00b7",
+        "ccfLevel": 5,
+        "title": "B2147"
+    },
+    {
+        "content": "\u770b\u5230\u6709\u76f8\u540c\u7684\u7ed3\u6784\uff0c\u6211\u4eec\u53ef\u4ee5\u60f3\u5230\u8fd0\u7528\u9012\u5f52\u6c42\u89e3\u3002\n\n\u6ce8\u610f\u9012\u5f52\u51fd\u6570\u7684\u754c\u9650\uff0c\u5f53 $i=1$ \u65f6\uff0c\u8fd4\u56de $\\sqrt{1+x}$\u3002\n\n- \u8981\u6c42\u4fdd\u7559\u4e24\u4f4d\u5c0f\u6570\uff0c\u53ef\u4ee5\u7528\u5230 `cout<<fixed<<setprecision(x)<<a<<endl;`\uff0c\u610f\u601d\u662f\u8f93\u51fa $a$\uff0c\u4fdd\u7559 $x$ \u4f4d\u5c0f\u6570\u3002\n\n- \u5c06 $x,n$ \u7528 `double` \u7c7b\u578b\u50a8\u5b58\uff0c\u65b9\u4fbf\u8ba1\u7b97\u5c0f\u6570\u3002\n\n\u4ee3\u7801\u5982\u4e0b\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\ndouble x,n;\ndouble ans(int i){\n\tif(i==1)return sqrt(i+x);\n\treturn sqrt(i+ans(i-1));\n}\nint main(){\n\tcin>>x>>n;\n\tcout<<fixed<<setprecision(2)<<ans(n);\n    return 0;\n}\n```",
+        "postTime": 1625397909,
+        "uid": 271736,
+        "name": "Daidly",
+        "ccfLevel": 6,
+        "title": "B2147 \u6c42 f(x,n) \u9898\u89e3"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u8fd8\u662f\u7528\u9012\u5f52\u6bd4\u8f83\u597d\uff01\n\n```cpp\n#include <iostream>\n#include <cstdio>\n#include <cmath>\nusing namespace std;\ndouble m, n;\nint f(int m, int n) {\n    if(m==0) return n+1;\t//\u9012\u5f52\u8fb9\u754c1\n    if(n==0 && m>0) return f(m-1, 1);\t//\u9012\u5f52\u8fb9\u754c2\n    return f(m-1, f(m, n-1)); \t//\u65e0\u8fb9\u754c\u7684\u6b63\u5e38\u8fd0\u7b97\n}\nint main() {\n    scanf(\"%d%d\", &m, &n);\t//\u8f93\u5165\n    printf(\"%.2f\", f(m, n));\t//\u4e24\u4f4d\u5c0f\u6570\u8f93\u51fa\n    return 0;\n}\n```\n",
+        "postTime": 1625369037,
+        "uid": 521585,
+        "name": "Llc521585Y",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3"
+    }
+]

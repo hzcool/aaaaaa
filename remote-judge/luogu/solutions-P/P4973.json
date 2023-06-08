@@ -1,0 +1,18 @@
+[
+    {
+        "content": "\u521d\u5b66\u5bf9\u6570\u7684\u597d\u9898\u3002\n\n------------\n\u524d\u7f6e\u77e5\u8bc6\uff1a\u5bf9\u6570\n\n\n\u9996\u5148\u6211\u4eec\u8981\u77e5\u9053\u5bf9\u6570\u662f\u4ec0\u4e48\u3002\n\n\u82e5 $a^x=b$ \u5219\u79f0$x = \\log_ab$\u3002\n\n\u4e0b\u9762\u4ecb\u7ecd\u51e0\u4e2a\u5e38\u7528\u7684\u516c\u5f0f:\n\n1. \t$\\log_ab = \\dfrac{\\log_cb}{\\log_ca}$\n    \n2.  $\\log_ab*c = \\log_ab+\\log_ac$\n\n3.  $\\log_{a^n}b^m = \\dfrac{m}{n}* \\log_ab$\n\n\u6709\u90e8\u5206\u8d44\u6599\u4e0a\u8fd8\u6709\u5176\u4ed6\u7684\u4e00\u4e9b\uff0c\u4f46\u672c\u8d28\u4e0a\u90fd\u662f\u7531\u8fd9\u4e9b\u63a8\u5bfc\u51fa\u6765\u7684\u3002\n\u516c\u5f0f\u7684\u8bc1\u660e\u5c31\u662f\u8f6c\u6362\u6210\u6307\u6570\u8fd0\u7b97\uff0c\u7136\u540e\u5728\u6307\u6570\u4e2d\u64cd\u4f5c\u3002\n\n------------\n\u89e3\u9898\u601d\u8def\uff1a\n\n\u9898\u76ee\u4e2d\u7ed9\u51fa\u7684\u5f0f\u5b50\u5176\u5b9e\u53ef\u4ee5\u62c6\u6210\u4e24\u90e8\u5206\uff0c\u5206\u522b\u662f\uff1a \n\n $\\prod_{i=1}^n{s_i-48} $ \u548c $\\prod_{i=1}^n a^i$\uff0c\u540e\u8005\u5373 $a^{\\frac {n\\times(n-1)}{2}}$ \uff0c\u7136\u540e\u6211\u4eec\u5bf9\u8fd9\u4e24\u90e8\u5206\u5206\u522b\u5f00 $\\log_{10}$\uff0c\u518d\u52a0\u4e0a\u4e00\u5c31\u53ef\u4ee5\u5f97\u5230\u7ed3\u679c\u7684\u4f4d\u6570\uff0c\u8fd9\u4e00\u6761\u662f\u7531\u516c\u5f0f2\u548c3\u63a8\u5bfc\u51fa\u6765\u7684\u3002\n \n \u5177\u4f53\u505a\u6cd5\u4e2d\uff0c\u4f7f\u7528\u516c\u5f0f2\u5c06\u6240\u6709\u7684\u503c\u5206\u89e3\u4e0b\u6765\u8ba1\u7b97\uff0c\u6700\u540e\u76f8\u52a0\uff0c\u5f97\u5230\u7ed3\u679c\u3002\n \n------------\n\u603b\u7ed3\uff1a\n\n\u5bf9\u6570\u662f\u5e38\u7528\u7684\u77e5\u8bc6\u70b9\uff0c**\u5176\u4f5c\u7528\u4e3b\u8981\u4f53\u73b0\u5728\u628a\u4e00\u4e2a\u76f8\u4e58\u7684\u95ee\u9898\u8f6c\u5316\u4e3a\u76f8\u52a0\u7684\u95ee\u9898**\uff0c\u8fd9\u4e00\u70b9\u5728\u7f51\u7edc\u6d41\u7b49\u7b97\u6cd5\u7684\u5efa\u6a21\u4e2d\u4e5f\u6709\u8f83\u4e3a\u5e7f\u6cdb\u7684\u5e94\u7528\u3002\n\n\n------------\n\u63d0\u793a\uff1a\n\u5bf9\u6570\u51fd\u6570\u5728 <cmath> \u5e93\u91cc\n  \n------------\n\u4ee3\u7801\uff1a\n\n```cpp\n#include<cstring>\n#include<cstdio>\n#include<cmath>\nusing namespace std;\nlong long T,n,len;\nchar s[1000050];\ndouble ans;\nint main(){\n\tscanf(\"%lld\",&T);\n\twhile(T--){\n\t\tscanf(\"%lld\",&n);\n\t\tscanf(\"%s\",s);\n\t\tlen=strlen(s);\n\t\tans=0;\n\t\tfor(int i=0;i<len;i++)ans+=log10(abs(s[i]-48));\n\t\tans+=0.5*len*(len-1)*log10(n);\n\t\tprintf(\"%lld\\n\",(long long)ans+1ll);\n\t}\n\treturn 0;\n}\n```\n\n",
+        "postTime": 1618025346,
+        "uid": 223559,
+        "name": "qxp101",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 P4973 \u6bd2\u7624\u4e4b\u795e\u5947\u8fdb\u5236 \u9898\u89e3"
+    },
+    {
+        "content": "$$Ans=\\prod_{i=1}^{len}(s[i]-48)a^{len-i}=a^{\\frac{len\\times(len-1)}{2}}\\prod_{i=1}^{len}(s[i]-48)$$\n\n$$Len=lg(Ans)=\\frac{len\\times(len+1)}{2}lg(a)+\\sum_{i=1}^{len}lg(s[i]-48)$$\n\n\u5176\u5b9e\u6211\u8ba4\u4e3a$\\ s[i]-48\\ $\u5e94\u8be5\u53d6\u7edd\u5bf9\u503c\u7684\uff0c\u4f46\u662f\u4e0d\u53d6\u4e5f\u5bf9\u3002\n\n```\n#include<cstdio>\n#include<cmath>\n#include<iostream>\n#include<cstring>\nusing namespace std;\ntypedef double D;\ntypedef long long LL;\nconst int N=1e6+50;\nint t,a,len;\nD Ans;\nchar s[N];\nint main(){\n\tfor(scanf(\"%d\",&t);t;t--){\n\t\tscanf(\"%d%s\",&a,s);\n\t\tAns=0;len=strlen(s);\n\t\tfor(int i=0;i<len;i++)\n\t\tAns+=log10(abs(s[i]-48));\n\t\tAns+=0.5*len*(len-1)*log10(a);\n\t\tprintf(\"%lld\\n\",((LL)Ans)+1);\n\t}\n}\n```",
+        "postTime": 1550892340,
+        "uid": 50092,
+        "name": "da32s1da",
+        "ccfLevel": 8,
+        "title": "\u9898\u89e3 P4973 \u3010\u6bd2\u7624\u4e4b\u795e\u5947\u8fdb\u5236\u3011"
+    }
+]

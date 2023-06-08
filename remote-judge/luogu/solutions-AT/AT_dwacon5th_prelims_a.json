@@ -1,0 +1,10 @@
+[
+    {
+        "content": "[ChungZH's blog](https://chungzh.cn) \u00b7 [ChungZH's portfolio](https://chungzh.cc)\n\n> Niwango-kun \u662f Dwango Co.\uff0cLtd. \u7684\u5458\u5de5\u3002\n\u6709\u4e00\u5929\uff0c\u4ed6\u88ab\u8981\u6c42\u4ece\u7528\u6237\u63d0\u4ea4\u7684\u89c6\u9891\u4e2d\u751f\u6210\u7f29\u7565\u56fe\u3002\n\u8981\u751f\u6210\u7f29\u7565\u56fe\uff0c\u4ed6\u9700\u8981\u6839\u636e\u4ee5\u4e0b\u8fc7\u7a0b\u9009\u62e9\u89c6\u9891\u5e27\uff1a\n> - \u83b7\u53d6\u6574\u6570 $N$ \u548c $N$ \u4e2a\u6574\u6570 $a_0,a_1,...,a_{N-1}$ \u4f5c\u4e3a\u8f93\u5165\u3002$N$ \u8868\u793a\u89c6\u9891\u7684\u5e27\u6570\uff0c\u6bcf\u4e2a $a_i$ \u8868\u793a\u89c6\u9891\u7684\u7b2c $i$ \u5e27\u7684\u8868\u793a\n> - \u9009\u62e9\u7b2c $t$ \u4e2a\u5e27\uff0c\u5176\u8868\u793a $a_t$ \u6700\u63a5\u8fd1\u6240\u6709\u5e27\u8868\u793a\u7684\u5e73\u5747\u503c\u3002\n>\n> \u5982\u679c\u6709\u591a\u4e2a\u8fd9\u6837\u7684\u5e27\uff0c\u8bf7\u9009\u62e9\u7d22\u5f15\u6700\u5c0f\u7684\u5e27\u3002\n>\n> \u627e\u5230\u4ed6\u5e94\u9009\u62e9\u751f\u6210\u7f29\u7565\u56fe\u7684\u5e27\u7684\u7d22\u5f15 $t$\u3002\n\n\u7b80\u5355\u5730\u8bf4\u5c31\u662f\u6c42\u6700\u63a5\u8fd1 $a$ \u6570\u7ec4\u5e73\u5747\u503c\u7684 $a_t$ \u7684 $t$\u3002\n\n\u6211\u4eec\u5148\u6c42\u51fa\u5b83\u4eec\u7684\u5e73\u5747\u6570\uff0c\u7136\u540e\u904d\u5386 $a$ \u6570\u7ec4\uff0c\u627e\u51fa\u6700\u63a5\u8fd1\u5e73\u5747\u503c\u7684\u90a3\u4e2a\u6570\u7684\u4e0b\u6807\u5373\u53ef\u3002\u65f6\u95f4\u590d\u6742\u5ea6\u5e94\u8be5\u662f $O(N)$\u3002\n\n```cpp\n#include <algorithm>\n#include <cstdio>\n#include <cstring>\n#include <iostream>\nusing namespace std;\ndouble ave;\nint main() {\n  int n;\n  int a[103];\n\n  scanf(\"%d\", &n);\n  for (int i = 0; i < n; i++) {\n    scanf(\"%d\", &a[i]);\n    ave += a[i];\n  }\n\n  ave /= n;\n  int mini = 0;\n  for (int i = 1; i < n; i++) {\n    if (abs(a[i] - ave) < abs(a[mini] - ave)) mini = i;\n  }\n\n  cout << mini << endl;\n  return 0;\n}\n```",
+        "postTime": 1582425424,
+        "uid": 93259,
+        "name": "Zirnc",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 AT4494 \u3010Thumbnail\u3011"
+    }
+]

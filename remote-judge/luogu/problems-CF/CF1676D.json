@@ -1,0 +1,13 @@
+{
+    "description": "Timur's grandfather gifted him a chessboard to practice his chess skills. This chessboard is a grid $ a $ with $ n $ rows and $ m $ columns with each cell having a non-negative integer written on it.\n\nTimur's challenge is to place a bishop on the board such that the sum of all cells attacked by the bishop is maximal. The bishop attacks in all directions diagonally, and there is no limit to the distance which the bishop can attack. Note that the cell on which the bishop is placed is also considered attacked. Help him find the maximal sum he can get.",
+    "inputFormat": "The first line of the input contains a single integer $ t $ ( $ 1 \\le t \\le 1000 $ ) \u2014 the number of test cases. The description of test cases follows.\n\nThe first line of each test case contains the integers $ n $ and $ m $ ( $ 1 \\le n \\le 200 $ , $ 1 \\leq m \\leq 200 $ ).\n\nThe following $ n $ lines contain $ m $ integers each, the $ j $ -th element of the $ i $ -th line $ a_{ij} $ is the number written in the $ j $ -th cell of the $ i $ -th row $ (0\\leq a_{ij} \\leq 10^6) $\n\nIt is guaranteed that the sum of $ n\\cdot m $ over all test cases does not exceed $ 4\\cdot10^4 $ .",
+    "outputFormat": "For each test case output a single integer, the maximum sum over all possible placements of the bishop.",
+    "samples": [
+        [
+            "4\n4 4\n1 2 2 1\n2 4 2 4\n2 2 3 1\n2 4 2 4\n2 1\n1\n0\n3 3\n1 1 1\n1 1 1\n1 1 1\n3 3\n0 1 1\n1 0 1\n1 1 0",
+            "20\n1\n5\n3"
+        ]
+    ],
+    "hint": "For the first test case here the best sum is achieved by the bishop being in this position:\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1676D/ef38eda1ec7208a8243b8f6ac83d0d9df8a29fbb.png)",
+    "translation": "\u6709\u4e00\u4e2a $n\u00d7m$ \u7684\u56fd\u9645\u8c61\u68cb\u76d8 $a$\uff0c$(i,j)$ \u4e0a\u6709\u4e00\u4e2a\u975e\u8d1f\u6574\u6570 $a_{ij}$\u3002\n\n\u4f60\u8981\u5728\u4e0a\u9762\u653e\u4e00\u4e2a\u8c61\uff0c\u95ee\u5b83\u80fd\u653b\u51fb\u5230\u7684\u70b9\u4e0a\u7684\u975e\u8d1f\u6574\u6570\u548c\u6700\u5927\u662f\u591a\u5c11\u3002\n\n\uff08\u8c61\u8d70\u659c\u7ebf\uff0c\u65e0\u8ddd\u79bb\u9650\u5236\uff0c\u53ef\u4ee5\u53c2\u8003\u6837\u4f8b\u89e3\u91ca\uff09\n\n\u6ce8\u610f\uff1a\u8c61\u6240\u5728\u7684\u70b9\u4e5f\u662f\u5b83\u80fd\u653b\u51fb\u5230\u7684\u70b9\u3002"
+}

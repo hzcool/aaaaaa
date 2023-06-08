@@ -1,0 +1,13 @@
+{
+    "description": "You are given the array $ a $ consisting of $ n $ positive (greater than zero) integers.\n\nIn one move, you can choose two indices $ i $ and $ j $ ( $ i       \\ne j $ ) such that the absolute difference between $ a_i $ and $ a_j $ is no more than one ( $ |a_i - a_j| \\le 1 $ ) and remove the smallest of these two elements. If two elements are equal, you can remove any of them (but exactly one).\n\nYour task is to find if it is possible to obtain the array consisting of only one element using several (possibly, zero) such moves or not.\n\nYou have to answer $ t $ independent test cases.",
+    "inputFormat": "The first line of the input contains one integer $ t $ ( $ 1       \\le t \\le 1000 $ ) \u2014 the number of test cases. Then $ t $ test cases follow.\n\nThe first line of the test case contains one integer $ n $ ( $ 1 \\le n \\le 50 $ ) \u2014 the length of $ a $ . The second line of the test case contains $ n $ integers $ a_1, a_2, \\dots, a_n $ ( $ 1 \\le a_i \\le 100 $ ), where $ a_i $ is the $ i $ -th element of $ a $ .",
+    "outputFormat": "For each test case, print the answer: \"YES\" if it is possible to obtain the array consisting of only one element using several (possibly, zero) moves described in the problem statement, or \"NO\" otherwise.",
+    "samples": [
+        [
+            "5\n3\n1 2 2\n4\n5 5 5 5\n3\n1 2 4\n4\n1 3 4 4\n1\n100",
+            "YES\nYES\nNO\nNO\nYES"
+        ]
+    ],
+    "hint": "In the first test case of the example, we can perform the following sequence of moves:\n\n- choose $ i=1 $ and $ j=3 $ and remove $ a_i $ (so $ a $ becomes $ [2; 2] $ );\n- choose $ i=1 $ and $ j=2 $ and remove $ a_j $ (so $ a $ becomes $ [2] $ ).\n\nIn the second test case of the example, we can choose any possible $ i $ and $ j $ any move and it doesn't matter which element we remove.\n\nIn the third test case of the example, there is no way to get rid of $ 2 $ and $ 4 $ .",
+    "translation": "\u7ed9\u4f60\u4e00\u4e2a $n$ \u4e2a\u6574\u6570\u7684\u6570\u5217\uff0c\u4f60\u53ef\u4ee5\u6bcf\u6b21\u9009\u62e9\u6ee1\u8db3\u4e00\u4e0b\u6761\u4ef6\u7684\u4e24\u4e2a\u4f4d\u7f6e $i,j$ \uff1a\n\n- $i\u2260j$\n- $|a_i-a_j| \\le 1$\n\n\u7136\u540e\u5220\u9664 $a_i,a_j$ \u4e2d\u8f83\u5c0f\u7684\u90a3\u4e00\u4e2a\u3002\n\n\u95ee\u80fd\u5426\u901a\u8fc7\u82e5\u5e72\u6b21\u64cd\u4f5c\u5c06\u6570\u5217\u5220\u9664\u5230\u53ea\u5269\u4e00\u4e2a\u6570\u3002"
+}

@@ -1,0 +1,21 @@
+{
+    "description": "Friends Alex and Bob live in Bertown. In this town there are $ n $ crossroads, some of them are connected by bidirectional roads of equal length. Bob lives in a house at the crossroads number $ 1 $ , Alex \u2014 in a house at the crossroads number $ n $ .\n\nOne day Alex and Bob had a big quarrel, and they refused to see each other. It occurred that today Bob needs to get from his house to the crossroads $ n $ and Alex needs to get from his house to the crossroads $ 1 $ . And they don't want to meet at any of the crossroads, but they can meet in the middle of the street, when passing it in opposite directions. Alex and Bob asked you, as their mutual friend, to help them with this difficult task.\n\nFind for Alex and Bob such routes with equal number of streets that the guys can follow these routes and never appear at the same crossroads at the same time. They are allowed to meet in the middle of the street when moving toward each other (see Sample 1). Among all possible routes, select such that the number of streets in it is the least possible. Until both guys reach their destinations, none of them can stay without moving.\n\nThe guys are moving simultaneously with equal speeds, i.e. it is possible that when one of them reaches some of the crossroads, the other one leaves it. For example, Alex can move from crossroad $ 1 $ to crossroad $ 2 $ , while Bob moves from crossroad $ 2 $ to crossroad $ 3 $ .\n\nIf the required routes don't exist, your program should output -1.",
+    "inputFormat": "The first line contains two integers $ n $ and $ m $ ( $ 2<=n<=500,1<=m<=10000 $ ) \u2014 the amount of crossroads and the amount of roads. Each of the following $ m $ lines contains two integers \u2014 the numbers of crossroads connected by the road. It is guaranteed that no road connects a crossroads with itself and no two crossroads are connected by more than one road.",
+    "outputFormat": "If the required routes don't exist, output -1. Otherwise, the first line should contain integer $ k $ \u2014 the length of shortest routes (the length of the route is the amount of roads in it). The next line should contain $ k+1 $ integers \u2014 Bob's route, i.e. the numbers of $ k+1 $ crossroads passed by Bob. The last line should contain Alex's route in the same format. If there are several optimal solutions, output any of them.",
+    "samples": [
+        [
+            "2 1\n1 2\n",
+            "1\n1 2 \n2 1 \n"
+        ],
+        [
+            "7 5\n1 2\n2 7\n7 6\n2 3\n3 4\n",
+            "-1\n"
+        ],
+        [
+            "7 6\n1 2\n2 7\n7 6\n2 3\n3 4\n1 5\n",
+            "6\n1 2 3 4 3 2 7 \n7 6 7 2 1 5 1 \n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u9898\u76ee\u63cf\u8ff0:\u6709\u4e00\u4e2a\u542b\u6709n\u4e2a\u5341\u5b57\u8def\u53e3\uff0cm\u6761\u9053\u8def\u7684\u8857\u533a\uff0c\u5c0fB\u4f4f\u57281\u53f7\u5341\u5b57\u8def\u53e3\u5904\uff0c\u5c0fA\u4f4f\u5728n\u53f7\u5341\u5b57\u8def\u53e3\u5904\u3002\n\u4e00\u5929\u5c0fA\u4e0e\u5c0fB\u5435\u4e86\u67b6\uff0c\u56e0\u6b64\u4ed6\u4eec\u4e0d\u60f3\u5728\u5341\u5b57\u8def\u53e3\u9047\u89c1\u5bf9\u65b9\uff08\u4f46\u662f\u53ef\u4ee5\u5728\u8857\u9053\u7684\u4e2d\u592e\u76f8\u5411\u7a7f\u8fc7\uff0c\u89c1\u6837\u4f8b1\uff09\u3002\n\u5de7\u7684\u662f\uff0c\u5c0fA\u8981\u524d\u5f801\u53f7\u5341\u5b57\u8def\u53e3\uff0c\u5c0fB\u8981\u524d\u5f80n\u53f7\u5341\u5b57\u8def\u53e3\uff0c\u800c\u4e14\u4ed6\u4eec\u5728\u4e24\u4eba\u90fd\u5230\u8fbe\u7ec8\u70b9\u524d\u5fc5\u987b\u4fdd\u6301\u79fb\u52a8\uff0c\u8bf7\u4f60\u5e2e\u4ed6\u4eec\u89c4\u5212\u51fa\u4e00\u6761\u5c3d\u53ef\u80fd\u77ed\u7684\u8def\u7ebf\u3002\n\n\u8f93\u5165:\u7b2c\u4e00\u884c\u4e24\u4e2a\u6b63\u6574\u6570n,m\uff0c\u4e4b\u540em\u884c\u6bcf\u884c\u4e24\u4e2a\u6574\u6570a,b\u8868\u793aa,b\u8def\u53e3\u95f4\u6709\u4e00\u6761\u8def\n\n\u8f93\u51fa:\u82e5\u6ca1\u6709\u5408\u6cd5\u65b9\u6848\u5219\u8f93\u51fa\"-1\",\u5426\u5219\u5148\u8f93\u51fa\u6bcf\u4eba\u6700\u5c0f\u7684\u79fb\u52a8\u6b65\u6570k\uff0c\u7b2c\u4e8c\u884c\u8f93\u51fa\u5c0fB\u7684\u8def\u7ebf\uff0c\u7b2c\u4e09\u884c\u8f93\u51fa\u5c0fA\u7684\u8def\u7ebf\n\n2<=n<=500,1<=m<=10000"
+}

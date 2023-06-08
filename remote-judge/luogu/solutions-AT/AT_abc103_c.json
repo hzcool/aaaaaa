@@ -1,0 +1,66 @@
+[
+    {
+        "content": "\u9898\u610f\uff1a\u6c42\n$$f(m)=\\sum_{i=1}^{n}m\\bmod a_i$$\n\u7684\u6700\u5927\u503c\uff0c$m$\u662f\u4efb\u610f\u6574\u6570\u3002\n\n\u663e\u7136\uff0c$x\\bmod y\\leq y-1$\uff0c\u6240\u4ee5\n$$f(m)\\leq\\sum_{i=1}^{n}a_i-1$$\n\n\u6c42\u51fa\u4e86\u7406\u8bba\u6700\u503c\u540e\uff0c\u6211\u4eec\u9700\u8981\u6784\u9020\u4e00\u7ec4\u503c\u6765\u8bf4\u660e\u8fd9\u4e2a\u503c\u53d6\u5f97\u5230\uff0c\u5982\u4f55\u6784\u9020\u5462\uff1f\n\n\u6211\u4eec\u8003\u8651\u5bf9\u4efb\u610f$a_i$\uff0c$m\\bmod a_i$\u4ec0\u4e48\u65f6\u5019\u53d6\u5230$a_i-1$\uff0c\u7531\u4f59\u6570\u5b9a\u4e49\uff0c\u53d6$m=ka_i-1(k\\in\\mathbf{N}^* )$\u5373\u53ef\u3002\n\n\u6240\u4ee5\u5bf9\u4e8e\u6240\u6709$a_i$\uff0c\u53d6\n$$m=\\prod_{i=1}^{n}a_i-1$$\n\u5373\u53ef\u3002\n\n\u6240\u4ee5\u80fd\u53d6\u5230\u7684\u6700\u5927\u503c\u5c31\u662f\n\n$$\\sum_{i=1}^{n}a_i-1$$\n\n\u90a3\u4ee3\u7801\u5c31\u5f88\u597d\u5199\u4e86\uff1a\n\n```cpp\n#include<cstdio>\nint main()\n{\n\tint n;\n\tscanf(\"%d\",&n);//\u8f93\u5165n\n\tint ans=0,x;\n\tfor (int i=1;i<=n;++i)//\u8f93\u5165\u6bcf\u4e2a\u6570\uff0c\u8fd9\u6837\u53ef\u4ee5\u7701\u6570\u7ec4\n\t{\n\t\tscanf(\"%d\",&x);\n\t\tans+=x-1;\n\t}\n\tprintf(\"%d\\n\",ans);//\u8f93\u51fa\u7b54\u6848\uff0c\u8bb0\u5f97\u6362\u884c\n\treturn 0;\n}\n```\n\n\u56e0\u4e3a$3000\\times10^5<2147483647$\uff0c\u6240\u4ee5\u4f7f\u7528`int`\u5373\u53ef",
+        "postTime": 1587864453,
+        "uid": 297433,
+        "name": "Brian_WBY",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 AT4172 \u3010[ABC103C] Modulo Summation\u3011"
+    },
+    {
+        "content": "\u8fd9\u662f\u7ffb\u8bd1\n```\n\u8f93\u5165N\u548ca1,a2,...,aN\n\nf(m)=(m mod a1)+(m mod a2)+...+(m mod aN)\n\n\u95eef(m)\u6700\u5927\u662f\u591a\u5c11\uff08m\u53ef\u4e3a\u4efb\u610f\u6574\u6570\uff09\n\n\u5176\u4e2d2\u2264N\u22643000,2\u2264ai\u226410^5\n```\n\u5176\u5b9e\u5341\u5206\u597d\u7406\u89e3\u6211\u4eec\u4ee4w\u6ee1\u8db3\uff1a\n```\nm mod a1 =a1-1  \u5f97 m-a1+1 \u662f a1 \u7684\u500d\u6570,\u5373 m+1 \u662f a1 \u7684\u500d\u6570\nm mod a2 =a2-1  \u5f97 m-a2+1 \u662f a2 \u7684\u500d\u6570,\u5373 m+1 \u662f a2 \u7684\u500d\u6570\n...\nm mod aN =aN-1  \u5f97 m-aN+1 \u662f aN \u7684\u500d\u6570,\u5373 m+1 \u662f aN \u7684\u500d\u6570\n```\n\n\u6b64\u65f6$f(m)$\u6700\u5927\n\n\u90a3\u4e48\u6211\u4eec\u4ee4$m=(a_1*a_2*...*a_N)-1$\n\n\u90a3\u8fd9\u4e2a\u95ee\u9898\u5c31\u8fce\u5203\u800c\u89e3\u4e86\n\n\u6b64\u65f6$w+1=(a_1*a_2*...*a_N)$\uff0c\u662f$a_1,a_2,...,a_N$\u7684\u500d\u6570\n\n\u6b64\u65f6$f(m)=(a_1+a_2+...+a_N)-N$\uff0c\u6ca1\u6709\u6bd4\u8fd9\u4e2a\u66f4\u5927\u7684\u4e86",
+        "postTime": 1585898565,
+        "uid": 58543,
+        "name": "RioBlu",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 AT4172 \u3010[ABC103C] Modulo Summation\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u5176\u5b9e\u5c31\u662f\u8ba9\u6211\u4eec\u6c42\u5f0f\u5b50 $\\sum\\limits_{i=1}^{n}m\\,\\bmod\\,a_i$ \u5728 $m$ \u4e3a\u6574\u6570\u65f6\u7684\u6700\u5927\u503c\u3002\n\n\u8be5\u600e\u4e48\u505a\u5462\uff1f\n\n\u9996\u5148\uff0c\u6211\u4eec\u53ef\u4ee5\u53d1\u73b0\u8fd9\u4e2a\u5f0f\u5b50\u7684\u6700\u5927\u503c\u5fc5\u5b9a\u4e0d\u4f1a\u8d85\u8fc7 $\\sum\\limits_{i=1}^{n}(a_i-1)$ \uff08~~\u5f88\u663e\u7136~~\uff09\u3002\n\n\u800c $m$ \u53c8\u53ef\u4ee5\u4e3a\u4efb\u610f\u6574\u6570\uff0c\u56e0\u6b64\u6211\u4eec\u5c31\u731c\u60f3\uff1a\u5bf9\u4e8e\u4efb\u610f\u4e00\u4e2a\u6570\u7ec4 $a$ ,\u4e00\u5b9a\u5b58\u5728\u4e00\u4e2a\u6570 $m$ ,\u4f7f\u5f97 $\\sum\\limits_{i=1}^{n}m\\,\\bmod\\,a_i$ $=$ $\\sum\\limits_{i=1}^{n}(a_i-1)$  \u3002\n\n\u4f46\u5149\u60f3\u4e0d\u7ba1\u7528\uff0c\u6211\u4eec\u8fd8\u9700\u8981\u8bc1\u660e\uff0c\u8bc1\u660e\u8fc7\u7a0b\u5982\u4e0b\uff1a\n\n$1.$ \u8bbe $k$ \u4e3a  $\\displaystyle\\prod_{i = 1}^{n}a_i$ \uff0c\u6b64\u65f6\u7684 $k$ \u4e00\u5b9a\u4e3a\u6574\u6570\uff08\u56e0\u4e3a\u5bf9\u4e8e\u4efb\u610f $i$ , $a_i$ \u5747\u4e3a\u6574\u6570\uff09\u3002\n\n$2.$ \u8bbe $m$ \u4e3a $k-1$ , \u6b64\u65f6\u5bf9\u4e8e\u4efb\u610f\u7684 $i$ ,\u5747\u6ee1\u8db3 ${m\\,\\bmod\\,a_i}=a_i-1$\uff0c\u6240\u4ee5\u8fd9\u65f6\u5f0f\u5b50 $\\sum\\limits_{i=1}^{n}m\\,\\bmod\\,a_i$ \u7684\u503c\u4e3a     $\\sum\\limits_{i=1}^{n}(a_i-1)$ ,\u4e14 $m$ \u4e3a\u6574\u6570\uff0c\u800c\u8fd9\u4e2a\u7ed3\u679c\u6070\u4e3a\u6b64\u5f0f\u80fd\u53d6\u5230\u7684\u6700\u5927\u503c\u3002\n\n$3.$\u6240\u4ee5\uff0c\u5bf9\u4e8e\u4efb\u610f\u7684 $a$ \u6570\u7ec4\uff0c $\\sum\\limits_{i=1}^{n}m\\,\\bmod\\,a_i$ \u7684\u6700\u5927\u503c\u4e3a $\\sum\\limits_{i=1}^{n}(a_i-1)$ \u3002\n\n\n\u4ee3\u7801\u5982\u4e0b\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nlong long n,sum,x;\nint main()\n{\n  cin>>n;\n  for(int i=1;i<=n;i++)\n  {\n  cin>>x;\n  sum+=x;\n  }\n  cout<<sum-n<<endl;\n}\n```\n\n\n\n\n\n\n",
+        "postTime": 1643034757,
+        "uid": 158400,
+        "name": "\u6674\u7a7a\u4e00\u9e64",
+        "ccfLevel": 6,
+        "title": "AT4172\u9898\u89e3"
+    },
+    {
+        "content": "## Content\n\u7ed9\u5b9a $n$ \u4e2a\u6570 $a_1,a_2,\\dots,a_n$\uff0c\u5b9a\u4e49 $f(m)=\\sum\\limits_{i=1}^n(m\\bmod a_i)$\uff0c\u6c42 $f(m)$ \u7684\u6700\u5927\u503c\u3002\n\n**\u6570\u636e\u8303\u56f4\uff1a$2\\leqslant n\\leqslant 3000$\uff0c$2\\leqslant a_i\\leqslant 10^5$\u3002**\n## Solution\n\u7531\u4e8e $m$ \u53ef\u4ee5\u662f\u4efb\u610f\u6574\u6570\uff0c\u56e0\u6b64\u6211\u4eec\u76f4\u63a5\u6784\u9020\u51fa $M=\\operatorname{lcm}\\{a_i\\}-1$\uff0c\u6b64\u65f6\uff0c\u6211\u4eec\u4e0d\u96be\u53d1\u73b0 $\\forall i\\in[1,n]$\uff0c$M\\bmod a_i=a_i-1$\u3002\u56e0\u6b64\u7b54\u6848\u5c31\u662f $\\sum\\limits_{i=1}^n (a_i-1)$\u3002\n\n\u4ee3\u7801\u5c31\u4e0d\u653e\u4e86\u3002",
+        "postTime": 1642422726,
+        "uid": 112917,
+        "name": "Eason_AC",
+        "ccfLevel": 6,
+        "title": "AT4172 [ABC103C] Modulo Summation"
+    },
+    {
+        "content": "\u9898\u76ee\u8bf4\u8981\u6211\u4eec\u8f93\u5165\u4e00\u4e2a\u6570\u5217\uff08\u8fd9\u91cc\u5047\u8bbe\u662fa[n]\uff09\uff0c\u7136\u540e\u627e\u5230\u4e00\u4e2a\u6570\uff08\u8fd9\u91cc\u5047\u8bbe\u662fM\uff09\uff0c\u4f7f\u5f97\u8fd9\u4e2a\u6570\u9664\u4ee5\u6570\u5217\n\u91cc\u7684\u6bcf\u4e00\u4e2a\u6570\u7684\u4f59\u6570\u76f8\u52a0\u8d77\u6765\u6700\u5927\uff0c\u6700\u540e\u8f93\u51fa\u8fd9\u4e2a\u548c\n\n\u5176\u5b9e\u8fd9\u4e2a\u6d89\u53ca\u5230\u4f59\u6570\u7684\u6570\u5b66\u77e5\u8bc6\uff0c\u65e2\u7136\u4f59\u6570\u8981\u5927\uff0c\u90a3\u4e48\u8fd9\u4e2aM\u5c31\u8981\u6bd4\u6570\u5217\u91cc\u7684\u6570\u5c0f\u5e76\u4e14\u5c3d\u53ef\u80fd\u63a5\u8fd1\u3002\n\n## **\u63a8\u7406\u8fc7\u7a0b\u5982\u4e0b\uff1a**\n\n\u6211\u4eec\u77e5\u9053\uff1aA\u00f7B=C\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7D\uff0cD\u5c3d\u53ef\u80fd\u5927\uff0c\u4f46\u662f\u4e0d\u53ef\u80fd\u8d85\u8fc7\u9664\u6570B\uff0c\u6700\u5927\u4e5f\u53ea\u80fd\u662fB-1\u3002\u653e\u5230\u8fd9\u9053\u9898\u91cc\u53bb\u770b\uff0c\u4f59\u6570\u8981\u5c3d\u91cf\u5927\uff0c\u6240\u4ee5\u5f97\u51fa\uff1a\n\nM mod a[n]=a[n]-1\n \n\u79fb\u9879\u4e0d\u96be\u53d1\u73b0\uff1aM+1\u662fa[n]\u7684\u82e5\u5e72\u500d\uff0c\u6240\u4ee5M=a[n]*k-1\uff08k\u4e3a\u6b63\u6574\u6570\uff09\n \n\u63a5\u4e0b\u6765\u8981\u7528\u5230\u4f59\u6570\u7684\u6570\u5b66\u77e5\u8bc6\u4e86\uff1a\u7531\u4e8ea[n]\u5404\u4e0d\u76f8\u540c\uff0c\u6240\u4ee5\u53ea\u80fd\u53d6\u6240\u6709a[n]\u7684\u4e58\u79ef\uff0c\u5373M=a[1]*a[2]*a[3] *\u2026\u2026 *a[n]-1\u5c31\u597d\u4e86\n\n\u5e26\u5165\u8fdb\u53bb\uff0c\u6700\u7ec8\u8f93\u51fa\u7684\u6570ans\u5c31\u662f(a[1]\u200b+a[2]\u200b+...+a[n]\u200b)\u2212N \uff0c\u6ca1\u6709\u6bd4\u8fd9\u4e2a\u66f4\u5927\u7684\u4e86\n\n------------\n## \u4ee3\u7801\u5982\u4e0b\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n\tint n,ans=0;//ans\u7528\u6765\u50a8\u5b58\u6700\u540e\u7684\u6570\u7ec4\u6240\u6709\u6570\u4e4b\u548c\n\tcin>>n;\n\tint a[n];\n\tfor(int i=1;i<=n;i++)//\u8f93\u5165\u6570\u7ec4\n                               \n\t{\n        cin>>a[i];\n\t}\n\tfor(int j=1;j<=n;j++)//\u8ba1\u7b97\u548c\n    {\n        ans=ans+a[j];\n    }\n    cout<<ans-n;//\u8f93\u51fa\n\treturn 0;\n}\n```",
+        "postTime": 1589179222,
+        "uid": 332907,
+        "name": "BeetyX",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT4172 \u3010[ABC103C] Modulo Summation\u3011"
+    },
+    {
+        "content": "### \u7b80\u8981\u9898\u610f:\n\u7ed9\u51fa\u4e00\u4e2a\u6570\u5217\uff0c\u8981\u6c42\u4efb\u610f\u4e00\u4e2a\u6570\u4f7f\u5f97\u9664\u4ee5\u8fd9\u4e2a\u6570\u5217\u7684\u6bcf\u4e00\u4e2a\u6570\u7684\u548c\u6700\u5927\uff0c\u6c42\u51fa\u8fd9\u4e2a\u6570\u3002\n\n### \u601d\u8def\uff1a\n\n\u8fd0\u7528\u4f59\u6570\u7684\u77e5\u8bc6\uff0c\u53ef\u4ee5\u77e5\u9053\uff0c\u4e00\u4e2a\u6570\u6a21\u4efb\u610f\u4e00\u4e2a\u6570\uff0c\u4f59\u6570\u6700\u5927\u7684\u60c5\u51b5\u5c31\u662f\u8fd9\u4e2a\u6570 $-1$\u3002\n\n\u6211\u4eec\u53ea\u7528\u628a\u6570\u5217\u91cc\u7684\u6570\u6bcf\u4e2a $-1$ \u7136\u540e\u52a0\u8d77\u6765\u5c31\u53ef\u4ee5\u4e86\u3002\n\n### \u4ee3\u7801:\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,a[100005],s;\nint main(){\ncin>>n;\nfor(int i=1;i<=n;i++) cin>>a[i];\nfor(int i=1;i<=n;i++) s+=a[i]-1;\ncout<<s;\n}\n```\n",
+        "postTime": 1645442324,
+        "uid": 558597,
+        "name": "Gravel",
+        "ccfLevel": 0,
+        "title": "AT4172"
+    },
+    {
+        "content": "### \u9898\u76ee\u5927\u610f\n\n\u7ed9\u5b9a $n$ ,\u6570\u7ec4 $a[1\u2026n]$ \uff0c\u6c42\u51fa $\\sum{m}\\mod{a_i}$ \u3002\n\n### \u601d\u8def\u5206\u6790\n\n\u53ef\u4ee5\u770b\u51fa\uff0c\u5bf9\u4e8e\u4efb\u4f55\u7684 $x$ \uff0c\u5f53 $m=x\\times k-1$ \u65f6\uff0c $m \\mod x=x-1$ \u3002\n\n\u6240\u4ee5\u53d6 $m=[a_1,a_2...a_n]-1$ \u5c31\u53ef\u4ee5\u4f7f\u5f97\u548c\u6700\u5927\uff0c\u8fbe\u5230 $\\sum a[i]-1$ \u3002\n\n### \u4ee3\u7801\u5206\u6790\n\n\u5728\u8f93\u5165\u65f6\uff0c\u6bcf\u6b21\u5c06\u548c\u52a0\u4e0a\u5f53\u524d\u6570\u5b57\u4e4b\u540e\u51cf\u4e00\uff0c\u6700\u540e\u8f93\u51fa\u3002\n\n### AC\u4ee3\u7801\n\n```cpp\n#include<iostream>\nusing namespace std;\nint main()\n{\n\tint n;\n\tcin>>n;\n\tint x,sum=0;\n\twhile(n--)\n\t\tcin>>x,sum+=x-1;//\u52a0\u548c\n\tcout<<sum;//\u8f93\u51fa\n\treturn 0;\n}\n```",
+        "postTime": 1640432716,
+        "uid": 327444,
+        "name": "Tothetime_tolife",
+        "ccfLevel": 0,
+        "title": "AT4172\u9898\u89e3"
+    },
+    {
+        "content": "**$LateX$\u53ef\u80fd\u65e0\u6cd5\u6b63\u5e38\u663e\u793a\uff0c\u8bf7\u5728\u6211\u7684\u535a\u5ba2\u67e5\u770b\uff1a[myblog](https://hero-brine.blog.luogu.org/solution-at4172)**\n\n\u9898\u610f\uff1a\u7ed9\u51fa$N$\u548c$a_1,a_2,a_3,...,a_n$,\u6c42\u51fa\n$$\nf(m)=(\\displaystyle\\sum\\limits_{i=1}^n(m\\ mod\\ a_i))_{max}\n$$\n\u4e0d\u96be\u9a8c\u8bc1\u5f53$m=\\displaystyle\\prod_{i=1}^n(a_i-1)$\u65f6\n$$\nf(m)=\\displaystyle\\sum\\limits_{i=1}^n(a_i-1)\n$$\n~~\u4e00\u884cperl\u4ee3\u7801\u6216\u6210\u6700\u77ed\u9898\u89e3\uff1f~~\n```perl\n<>;$\\+=$_-1for glob<>;print\n```",
+        "postTime": 1587909224,
+        "uid": 312489,
+        "name": "hero_brine",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT4172 \u3010[ABC103C] Modulo Summation\u3011"
+    }
+]

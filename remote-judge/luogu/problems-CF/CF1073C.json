@@ -1,0 +1,21 @@
+{
+    "description": "Vasya has got a robot which is situated on an infinite Cartesian plane, initially in the cell $ (0, 0) $ . Robot can perform the following four kinds of operations:\n\n- U \u2014 move from $ (x, y) $ to $ (x, y + 1) $ ;\n- D \u2014 move from $ (x, y) $ to $ (x, y - 1) $ ;\n- L \u2014 move from $ (x, y) $ to $ (x - 1, y) $ ;\n- R \u2014 move from $ (x, y) $ to $ (x + 1, y) $ .\n\nVasya also has got a sequence of $ n $ operations. Vasya wants to modify this sequence so after performing it the robot will end up in $ (x, y) $ .\n\nVasya wants to change the sequence so the length of changed subsegment is minimum possible. This length can be calculated as follows: $ maxID - minID + 1 $ , where $ maxID $ is the maximum index of a changed operation, and $ minID $ is the minimum index of a changed operation. For example, if Vasya changes RRRRRRR to RLRRLRL, then the operations with indices $ 2 $ , $ 5 $ and $ 7 $ are changed, so the length of changed subsegment is $ 7 - 2 + 1 = 6 $ . Another example: if Vasya changes DDDD to DDRD, then the length of changed subsegment is $ 1 $ .\n\nIf there are no changes, then the length of changed subsegment is $ 0 $ . Changing an operation means replacing it with some operation (possibly the same); Vasya can't insert new operations into the sequence or remove them.\n\nHelp Vasya! Tell him the minimum length of subsegment that he needs to change so that the robot will go from $ (0, 0) $ to $ (x, y) $ , or tell him that it's impossible.",
+    "inputFormat": "The first line contains one integer number $ n~(1 \\le n \\le 2 \\cdot 10^5) $ \u2014 the number of operations.\n\nThe second line contains the sequence of operations \u2014 a string of $ n $ characters. Each character is either U, D, L or R.\n\nThe third line contains two integers $ x, y~(-10^9 \\le x, y \\le 10^9) $ \u2014 the coordinates of the cell where the robot should end its path.",
+    "outputFormat": "Print one integer \u2014 the minimum possible length of subsegment that can be changed so the resulting sequence of operations moves the robot from $ (0, 0) $ to $ (x, y) $ . If this change is impossible, print $ -1 $ .",
+    "samples": [
+        [
+            "5\nRURUU\n-2 3\n",
+            "3\n"
+        ],
+        [
+            "4\nRULR\n1 1\n",
+            "0\n"
+        ],
+        [
+            "3\nUUU\n100 100\n",
+            "-1\n"
+        ]
+    ],
+    "hint": "In the first example the sequence can be changed to LULUU. So the length of the changed subsegment is $ 3 - 1 + 1 = 3 $ .\n\nIn the second example the given sequence already leads the robot to $ (x, y) $ , so the length of the changed subsegment is $ 0 $ .\n\nIn the third example the robot can't end his path in the cell $ (x, y) $ .",
+    "translation": "**\u9898\u76ee\u63cf\u8ff0**\n\n\u5728\u5e73\u9762\u76f4\u89d2\u5750\u6807\u7cfb\u4e2d\uff0c\u4e00\u4e2a\u673a\u5668\u4eba\u5904\u4e8e$(0,0)$\u70b9\u3002\u5b83\u80fd\u8fdb\u884c\u4ee5\u4e0b\u7684\u79fb\u52a8\u64cd\u4f5c\u3002\n\n- $U~~$ \u4ece$(x,y)$\u79fb\u52a8\u5230$(x,y+1)$;\n\n- $D~~$ \u4ece$(x,y)$\u79fb\u52a8\u5230$(x,y-1)$;\n\n- $L~~$ \u4ece$(x,y)$\u79fb\u52a8\u5230$(x-1,y)$;\n\n- $R~~$ \u4ece$(x,y)$\u79fb\u52a8\u5230$(x+1,y)$.\n\n\u73b0\u5728\u6709\u4e00\u4e2a\u957f\u5ea6\u4e3a$n$\u7684\u64cd\u4f5c\u5e8f\u5217\u3002Vasya\u60f3\u4fee\u6539\u8fd9\u4e2a\u5e8f\u5217\u4f7f\u673a\u5668\u4eba\u6700\u7ec8\u79fb\u52a8\u5230$(x,y)$\u3002\u5176\u4fee\u6539\u7684\u82b1\u8d39\u4e3a$maxID-minID+1$\u3002$maxID$\u662f\u4fee\u6539\u7684\u64cd\u4f5c\u7684\u4e0b\u6807\u7684\u6700\u5927\u503c\uff0c$minID$\u662f\u4fee\u6539\u7684\u64cd\u4f5c\u7684\u4e0b\u6807\u7684\u6700\u5c0f\u503c\u3002\u5982\u679c\u6ca1\u6709\u4fee\u6539\uff0c\u5219\u82b1\u8d39\u4e3a$0$\u3002\n\n**\u8f93\u5165\u6570\u636e**\n\n\u7b2c\u4e00\u884c\u4e00\u4e2a\u6574\u6570\uff0c\u4e3a$n$, $(1\u2264n\u22642\u00d710^5)$ \u3002\n\n\u7b2c\u4e8c\u884c\u4e00\u4e2a\u957f\u5ea6\u4e3a$n$\u7684\u5b57\u7b26\u4e32\uff0c\u8868\u793a\u539f\u6765\u7684\u64cd\u4f5c\u5e8f\u5217\u3002\n\n\u7b2c\u4e09\u884c\u4e24\u4e2a\u6574\u6570\uff0c\u4e3a$x,y$\u3002\n\n**\u8f93\u51fa\u6570\u636e**\n\n\u5171\u4e00\u884c\uff0c\u5982\u679c\u6700\u540e\u80fd\u591f\u79fb\u52a8\u5230$(x,y)$\uff0c\u8f93\u51fa\u6700\u5c0f\u5316\u7684\u82b1\u8d39\uff0c\u5426\u5219\uff0c\u8f93\u51fa$-1$\u3002"
+}

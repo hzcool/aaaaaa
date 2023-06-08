@@ -1,0 +1,33 @@
+{
+    "description": "In this problem we assume the Earth to be a completely round ball and its surface a perfect sphere. The length of the equator and any meridian is considered to be exactly $ 40000 $ kilometers. Thus, travelling from North Pole to South Pole or vice versa takes exactly $ 20000 $ kilometers.\n\nLimak, a polar bear, lives on the North Pole. Close to the New Year, he helps somebody with delivering packages all around the world. Instead of coordinates of places to visit, Limak got a description how he should move, assuming that he starts from the North Pole. The description consists of $ n $ parts. In the $ i $ -th part of his journey, Limak should move $ t_{i} $ kilometers in the direction represented by a string $ dir_{i} $ that is one of: \"North\", \"South\", \"West\", \"East\".\n\nLimak isn\u2019t sure whether the description is valid. You must help him to check the following conditions:\n\n- If at any moment of time (before any of the instructions or while performing one of them) Limak is on the North Pole, he can move only to the South.\n- If at any moment of time (before any of the instructions or while performing one of them) Limak is on the South Pole, he can move only to the North.\n- The journey must end on the North Pole.\n\nCheck if the above conditions are satisfied and print \"YES\" or \"NO\" on a single line.",
+    "inputFormat": "The first line of the input contains a single integer $ n $ ( $ 1<=n<=50 $ ).\n\nThe $ i $ -th of next $ n $ lines contains an integer $ t_{i} $ and a string $ dir_{i} $ ( $ 1<=t_{i}<=10^{6} $ , ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF750B/bad8e6778e4440b96077dcc3eab91b8cb46271e1.png)) \u2014 the length and the direction of the $ i $ -th part of the journey, according to the description Limak got.",
+    "outputFormat": "Print \"YES\" if the description satisfies the three conditions, otherwise print \"NO\", both without the quotes.",
+    "samples": [
+        [
+            "5\n7500 South\n10000 East\n3500 North\n4444 West\n4000 North\n",
+            "YES\n"
+        ],
+        [
+            "2\n15000 South\n4000 East\n",
+            "NO\n"
+        ],
+        [
+            "5\n20000 South\n1000 North\n1000000 West\n9000 North\n10000 North\n",
+            "YES\n"
+        ],
+        [
+            "3\n20000 South\n10 East\n20000 North\n",
+            "NO\n"
+        ],
+        [
+            "2\n1000 North\n1000 South\n",
+            "NO\n"
+        ],
+        [
+            "4\n50 South\n50 North\n15000 South\n15000 North\n",
+            "YES\n"
+        ]
+    ],
+    "hint": "Drawings below show how Limak's journey would look like in first two samples. In the second sample the answer is \"NO\" because he doesn't end on the North Pole.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF750B/9bb594fe352848bbba36035935a49c02ad65109a.png)",
+    "translation": "\u5728\u8fd9\u4e2a\u95ee\u9898\u4e2d\uff0c\u6211\u4eec\u5047\u8bbe\u5730\u7403\u662f\u4e00\u4e2a\u5b8c\u5168\u5706\u7684\u7403\uff0c\u5b83\u7684\u8868\u9762\u662f\u4e00\u4e2a\u5b8c\u7f8e\u7684\u7403\u4f53\u3002\u8d64\u9053\u548c\u4efb\u4f55\u5b50\u5348\u7ebf\u7684\u957f\u5ea6\u6b63\u597d\u4e3a 40000\n\u516c\u91cc\u3002\u56e0\u6b64\uff0c\u4ece\u5317\u6781\u5230\u5357\u6781\u6216\u4ece\u5357\u6781\u5230\u5317\u6781\u7684\u65c5\u884c\u9700\u8981\n20000\n\u516c\u91cc\u3002\n\nLimak\uff0c\u4f4f\u5728\u5317\u6781\u3002\u4e34\u8fd1\u65b0\u5e74\uff0c\u4ed6\u5e2e\u52a9\u4e00\u4e9b\u4eba\u5728\u4e16\u754c\u5404\u5730\u8fd0\u9001\u5305\u88f9\u3002Limak \u5f97\u5230\u4e86\u4e00\u4e2a\u63cf\u8ff0\uff0c\u5047\u8bbe\u4ed6\u662f\u4ece\u5317\u6781\u5f00\u59cb\u7684\uff0c\u4ed6\u5e94\u8be5\u5982\u4f55\u79fb\u52a8\u3002\u63cf\u8ff0\u7531 n \u90e8\u5206\u7ec4\u6210\u3002\u5728\u4ed6\u7684\u65c5\u7a0b\u7684\u7b2c i \u90e8\u5206\uff0c\u5229\u9a6c\u514b\u5e94\u8be5\u671d\u7740\u4e00\u4e2a\u65b9\u5411\u79fb\u52a8 ti \u516c\u91cc\uff0c\u8fd9\u4e2a\u5b57\u7b26\u4e32\u662f\u201cNorth\u201d\uff0c\u201cSouth\u201d\uff0c\u201cWest\u201d\uff0c\u201cEast\u201d\u4e4b\u4e00\u3002\n\nLimak\u4e0d\u786e\u5b9a\u63cf\u8ff0\u662f\u5426\u6709\u6548\u3002\u4f60\u5fc5\u987b\u5e2e\u52a9\u4ed6\u68c0\u67e5\u4ee5\u4e0b\u60c5\u51b5\uff1a\n\n\u2022 \u5982\u679c\u5728\u4efb\u4f55\u65f6\u5019\uff08\u5728\u4efb\u4f55\u6307\u793a\u4e4b\u524d\u6216\u5728\u6267\u884c\u5176\u4e2d\u4e00\u9879\u6307\u793a\u65f6\uff09Limak \u5728\u5317\u6781\uff0c\u4ed6\u53ea\u80fd\u5411\u5357\u79fb\u52a8\u3002\n\n\u2022 \u5982\u679c\u5728\u4efb\u4f55\u65f6\u5019\uff08\u5728\u4efb\u4f55\u6307\u793a\u4e4b\u524d\u6216\u5728\u6267\u884c\u5176\u4e2d\u4e00\u9879\u6307\u793a\u65f6\uff09Limak \u5728\u5357\u6781\uff0c\u4ed6\u53ea\u80fd\u5411\u5317\u65b9\u79fb\u52a8\u3002\n\n\u2022 \u65c5\u7a0b\u5fc5\u987b\u5728\u5317\u6781\u7ed3\u675f\u3002\n\n\u68c0\u67e5\u662f\u5426\u6ee1\u8db3\u4e0a\u8ff0\u6761\u4ef6\uff0c\u5e76\u8f93\u51fa\u201cYES\u201d\u6216\u201cNO\u201d\u3002"
+}

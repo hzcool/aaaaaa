@@ -1,0 +1,21 @@
+{
+    "description": "Let's consider a simplified version of order book of some stock. The order book is a list of orders (offers) from people that want to buy or sell one unit of the stock, each order is described by direction (BUY or SELL) and price.\n\nAt every moment of time, every SELL offer has higher price than every BUY offer.\n\nIn this problem no two ever existed orders will have the same price.\n\nThe lowest-price SELL order and the highest-price BUY order are called the best offers, marked with black frames on the picture below.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1028D/413fddcebb561deb1348fbeb910f4e1fa1dc550e.png)The presented order book says that someone wants to sell the product at price $ 12 $ and it's the best SELL offer because the other two have higher prices. The best BUY offer has price $ 10 $ .There are two possible actions in this orderbook:\n\n1. Somebody adds a new order of some direction with some price.\n2. Somebody accepts the best possible SELL or BUY offer (makes a deal). It's impossible to accept not the best SELL or BUY offer (to make a deal at worse price). After someone accepts the offer, it is removed from the orderbook forever.\n\nIt is allowed to add new BUY order only with prices less than the best SELL offer (if you want to buy stock for higher price, then instead of adding an order you should accept the best SELL offer). Similarly, one couldn't add a new SELL order with price less or equal to the best BUY offer. For example, you can't add a new offer \"SELL $ 20 $ \" if there is already an offer \"BUY $ 20 $ \" or \"BUY $ 25 $ \" \u2014 in this case you just accept the best BUY offer.\n\nYou have a damaged order book log (in the beginning the are no orders in book). Every action has one of the two types:\n\n1. \"ADD $ p $ \" denotes adding a new order with price $ p $ and unknown direction. The order must not contradict with orders still not removed from the order book.\n2. \"ACCEPT $ p $ \" denotes accepting an existing best offer with price $ p $ and unknown direction.\n\nThe directions of all actions are lost. Information from the log isn't always enough to determine these directions. Count the number of ways to correctly restore all ADD action directions so that all the described conditions are satisfied at any moment. Since the answer could be large, output it modulo $ 10^9 + 7 $ . If it is impossible to correctly restore directions, then output $ 0 $ .",
+    "inputFormat": "The first line contains an integer $ n $ ( $ 1 \\le n \\le 363\\,304 $ ) \u2014 the number of actions in the log.\n\nEach of the next $ n $ lines contains a string \"ACCEPT\" or \"ADD\" and an integer $ p $ ( $ 1 \\le p \\le 308\\,983\\,066 $ ), describing an action type and price.\n\nAll ADD actions have different prices. For ACCEPT action it is guaranteed that the order with the same price has already been added but has not been accepted yet.",
+    "outputFormat": "Output the number of ways to restore directions of ADD actions modulo $ 10^9 + 7 $ .",
+    "samples": [
+        [
+            "6\nADD 1\nACCEPT 1\nADD 2\nACCEPT 2\nADD 3\nACCEPT 3\n",
+            "8\n"
+        ],
+        [
+            "4\nADD 1\nADD 2\nADD 3\nACCEPT 2\n",
+            "2\n"
+        ],
+        [
+            "7\nADD 1\nADD 2\nADD 3\nADD 4\nADD 5\nACCEPT 3\nACCEPT 5\n",
+            "0\n"
+        ]
+    ],
+    "hint": "In the first example each of orders may be BUY or SELL.\n\nIn the second example the order with price $ 1 $ has to be BUY order, the order with the price $ 3 $ has to be SELL order.",
+    "translation": "\u7ed9\u5b9a\u4e24\u4e2a\u96c6\u5408$A,B$\uff0c\u8981\u6c42$A$\u4e2d\u6240\u6709\u5143\u7d20\u5c0f\u4e8e$B$\u4e2d\u7684\u5143\u7d20\n\n\u7ed9\u5b9a$n$\u4e2a\u64cd\u4f5c\uff1a\n\n\u64cd\u4f5c$ADD$:\u628a$x$\u63d2\u5165\u4efb\u610f\u4e00\u4e2a\u96c6\u5408\u4e2d\n\n\u64cd\u4f5c$ACCEPT$\uff1a\u628a$x$\u4ece\u5b83\u6240\u5728\u7684\u96c6\u5408\u4e2d\u5220\u9664\uff0c\u8981\u6c42\u5220\u9664\u662f\u5fc5\u987b\u7684$A$\u4e2d\u7684\u6700\u5927\u503c\u6216\u8005$B$\u4e2d\u7684\u6700\u5c0f\u503c\n\n\u6c42\u63d2\u5165\u7684\u65b9\u6848\u6570"
+}

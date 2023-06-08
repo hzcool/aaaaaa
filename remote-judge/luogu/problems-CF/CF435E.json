@@ -1,0 +1,21 @@
+{
+    "description": "In this problem you will need to deal with an $ n\u00d7m $ grid graph. The graph's vertices are the nodes of the $ n\u00d7m $ grid. The graph's edges are all the sides and diagonals of the grid's unit squares.\n\nThe figure below shows a $ 3\u00d75 $ graph. The black lines are the graph's edges, the colored circles are the graph's vertices. The vertices of the graph are painted on the picture for a reason: the coloring is a correct vertex coloring of the $ 3\u00d75 $ graph into four colors. A graph coloring is correct if and only if each vertex is painted and no two vertices connected by an edge are painted the same color.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF435E/3bf484c3ac261bc390a50b90927cfdf12af83fc1.png)You are given the size of the grid graph $ n\u00d7m $ and the colors of some of its vertices. Find any way how to paint the unpainted vertices of the graph in 4 colors to make the final coloring a correct vertex graph coloring. If there is no such correct vertex coloring, say that the answer doesn't exist.",
+    "inputFormat": "The first line contains two integers $ n $ and $ m $ $ (2<=n,m<=1000) $ . Each of the next $ n $ lines consists of $ m $ characters \u2014 the given graph. Each character is either \u00ab0\u00bb, \u00ab1\u00bb, \u00ab2\u00bb, \u00ab3\u00bb, \u00ab4\u00bb. Character \u00ab0\u00bb means that the corresponding vertex is unpainted, otherwise the character means the color of the vertex.\n\nAssume that all the available colors are numbered from $ 1 $ to $ 4 $ .",
+    "outputFormat": "If there is no way to get correct vertex coloring of the graph, print 0 in a single line. Otherwise print the colored $ n\u00d7m $ graph. Print the graph in the same format as in the input.\n\nIf multiple answers exist, print any of them.",
+    "samples": [
+        [
+            "3 5\n10101\n00020\n01000\n",
+            "13131\n42424\n31313\n"
+        ],
+        [
+            "2 2\n00\n00\n",
+            "12\n34\n"
+        ],
+        [
+            "2 2\n11\n00\n",
+            "0\n"
+        ]
+    ],
+    "hint": "The answer to the first sample is shown on the picture (1 \u2014 green color, 2 \u2014 blue, 3 \u2014 dark blue, 4 \u2014 pink).\n\nIn the second sample there exists 4! answers, each of them is considered correct.\n\nIn the third sample two vertices with equal colors are connected. So the correct vertex coloring couldn't be obtained.",
+    "translation": "\u7ed9\u5b9a\u5927\u5c0f\u4e3a $n \\times m$ \u7684\u7f51\u683c\u56fe\u548c\u5176\u4e2d\u4e00\u4e9b\u9876\u70b9\u7684\u989c\u8272\u3002\u627e\u5230\u4e00\u79cd\u65b9\u6cd5\uff0c\u7528 $4$ \u79cd\u989c\u8272\u6765\u7ed8\u5236\u56fe\u5f62\u4e2d\u672a\u7ed8\u5236\u7684\u9876\u70b9\uff0c\u4ee5\u4f7f\u7531\u4e00\u6761\u8fb9\u8fde\u63a5\u7684\u4e24\u4e2a\u9876\u70b9\u6ca1\u6709\u6d82\u4e0a\u76f8\u540c\u7684\u989c\u8272\u3002\u5982\u679c\u6ca1\u6709\u6b63\u786e\u7684\u7740\u8272\u65b9\u6cd5\uff0c\u5c31\u8bf4\u7b54\u6848\u4e0d\u5b58\u5728\uff0c\u8f93\u51fa `0`\u3002\n\nby [saixingzhe](https://www.luogu.com.cn/user/652816)\u3002"
+}

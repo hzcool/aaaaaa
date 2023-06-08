@@ -1,0 +1,17 @@
+{
+    "description": "The Resistance is trying to take control over as many planets of a particular solar system as possible. Princess Heidi is in charge of the fleet, and she must send ships to some planets in order to maximize the number of controlled planets.\n\nThe Galaxy contains $ N $ planets, connected by bidirectional hyperspace tunnels in such a way that there is a unique path between every pair of the planets.\n\nA planet is controlled by the Resistance if there is a Resistance ship in its orbit, or if the planet lies on the shortest path between some two planets that have Resistance ships in their orbits.\n\nHeidi has not yet made up her mind as to how many ships to use. Therefore, she is asking you to compute, for every $ K=1,2,3,...,N $ , the maximum number of planets that can be controlled with a fleet consisting of $ K $ ships.",
+    "inputFormat": "The first line of the input contains an integer $ N $ ( $ 1<=N<=10^{5} $ ) \u2013 the number of planets in the galaxy.\n\nThe next $ N-1 $ lines describe the hyperspace tunnels between the planets. Each of the $ N-1 $ lines contains two space-separated integers $ u $ and $ v $ ( $ 1<=u,v<=N $ ) indicating that there is a bidirectional hyperspace tunnel between the planets $ u $ and $ v $ . It is guaranteed that every two planets are connected by a path of tunnels, and that each tunnel connects a different pair of planets.",
+    "outputFormat": "On a single line, print $ N $ space-separated integers. The $ K $ -th number should correspond to the maximum number of planets that can be controlled by the Resistance using a fleet of $ K $ ships.",
+    "samples": [
+        [
+            "3\n1 2\n2 3\n",
+            "1 3 3 "
+        ],
+        [
+            "4\n1 2\n3 2\n4 2\n",
+            "1 3 4 4 "
+        ]
+    ],
+    "hint": "Consider the first example. If $ K=1 $ , then Heidi can only send one ship to some planet and control it. However, for $ K>=2 $ , sending ships to planets 1 and 3 will allow the Resistance to control all planets.",
+    "translation": "\u7ed9\u4f60\u4e00\u9897\u7531 $n$ \u4e2a\u70b9\u7ec4\u6210\u7684**\u6811**\u3002\u5bf9\u4e8e\u4e00\u4e2a\u70b9\u96c6 $S$,\u5b83\u6240**\u5360\u9886**\u7684\u70b9\u4e3a\uff1a\n\n+ \u70b9\u96c6 $S$ \u4e2d\u7684\u6240\u6709\u70b9\n+ \u5bf9\u4e8e\u4efb\u610f $u,v\\in S$,$u$ \u5230 $v$\u8def\u5f84\u4e0a\u7684\u70b9\u3002\n\n\u73b0\u5728\u95ee\u4f60\u5f53\u70b9\u96c6\u7684\u5927\u5c0f\u5206\u522b\u4e3a $1$ \u5230 $n$ \u65f6\uff0c\n**\u5360\u9886**\u7684\u70b9\u7684\u6570\u91cf\u6700\u5927\u662f\u591a\u5c11\uff1f\n\n$1\\leq n\\leq 10^5$"
+}

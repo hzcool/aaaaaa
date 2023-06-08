@@ -1,0 +1,21 @@
+{
+    "description": "You are given a string $ q $ . A sequence of $ k $ strings $ s_{1},s_{2},...,s_{k} $ is called beautiful, if the concatenation of these strings is string $ q $ (formally, $ s_{1}+s_{2}+...+s_{k}=q $ ) and the first characters of these strings are distinct.\n\nFind any beautiful sequence of strings or determine that the beautiful sequence doesn't exist.",
+    "inputFormat": "The first line contains a positive integer $ k $ ( $ 1<=k<=26 $ ) \u2014 the number of strings that should be in a beautiful sequence.\n\nThe second line contains string $ q $ , consisting of lowercase Latin letters. The length of the string is within range from $ 1 $ to $ 100 $ , inclusive.",
+    "outputFormat": "If such sequence doesn't exist, then print in a single line \"NO\" (without the quotes). Otherwise, print in the first line \"YES\" (without the quotes) and in the next $ k $ lines print the beautiful sequence of strings $ s_{1},s_{2},...,s_{k} $ .\n\nIf there are multiple possible answers, print any of them.",
+    "samples": [
+        [
+            "1\nabca\n",
+            "YES\nabca\n"
+        ],
+        [
+            "2\naaacas\n",
+            "YES\naaa\ncas\n"
+        ],
+        [
+            "4\nabc\n",
+            "NO\n"
+        ]
+    ],
+    "hint": "In the second sample there are two possible answers: $ {&quot;aaaca&quot;,&quot;s&quot;} $ and $ {&quot;aaa&quot;,&quot;cas&quot;} $ .",
+    "translation": "\u3010\u9898\u9762\u3011\u7ed9\u4f60\u4e00\u4e2a\u6574\u6570k,\u4e00\u4e2a\u5b57\u7b26\u4e32q,\u95ee\u662f\u5426\u80fd\u628a\u5b57\u7b26\u4e32q\u5206\u6210k\u4e2a\u5b50\u4e32\uff08\u53ef\u4e0d\u540c\u957f\u5ea6\uff09,\u5e76\u4e14\u6bcf\u4e2a\u5b50\u4e32\u9996\u5b57\u6bcd\u4e0d\u540c\u3002\n\n\u3010\u8f93\u5165\u3011\u7b2c\u4e00\u884c\u4e00\u4e2a\u6574\u6570k,\u7b2c\u4e8c\u884c\u4e00\u4e2a\u5b57\u7b26\u4e32q\u3002\n\n\u3010\u8f93\u51fa\u3011\u5982\u679c\u53ef\u4ee5\uff0c\u8f93\u51faYES,\u5e76\u5728\u4e0b\u9762\u7684k\u884c\u8f93\u51fa\u4efb\u610f\u4e00\u79cd\u53ef\u80fd\u65b9\u6848\u3002\u5982\u679c\u4e0d\u53ef\u4ee5\uff0c\u8f93\u51faNO\u3002"
+}

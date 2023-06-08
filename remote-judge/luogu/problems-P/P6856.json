@@ -1,0 +1,20 @@
+{
+    "description": "\u7ed9\u5b9a\u4e00\u4e2a\u6709 $n$ \u4e2a\u5143\u7d20\u7684\u5e8f\u5217 $a$\u3002\n\n\u5b9a\u4e49\u4e00\u4e2a\u6709 $x$ \u4e2a\u5143\u7d20\u7684\u5e8f\u5217 $s$ \u7684\u503c\u4e3a\uff1a\n$$\\sum \\limits _{i=1} ^ x s_i \\times \\prod \\limits _{i=1} ^ x s_i $$\n\n\u5c06\u5e8f\u5217 $a$ \u7684\u4e00\u4e2a\u6709 $x$ \u4e2a\u5143\u7d20\u7684\u5b50\u5e8f\u5217\u8868\u793a\u4e3a $s = \\{a_{p_1},a_{p_2},...,a_{p_x}\\}$\uff0c\u5176\u4e2d $p$ \u4e3a\u4e25\u683c\u5355\u8c03\u9012\u589e\u7684\u5e8f\u5217\uff0c$1 \\le p_1 \\le p_x \\le n$ \u3002\n\n\u7ed9\u5b9a\u6574\u6570 $k$\uff0c\u5b9a\u4e49\u5e8f\u5217 $a$ \u7684\u4e00\u4e2a\u6709 $x$ \u4e2a\u5143\u7d20\u7684\u5408\u6cd5\u7684\u5b50\u5e8f\u5217 $s$ \u9700\u6ee1\u8db3 $p_x - p_1 \\le k$\u3002\n\n\u6c42\u5e8f\u5217 $a$ \u7684\u6240\u6709\u5408\u6cd5\u5b50\u5e8f\u5217\u7684\u503c\u4e4b\u548c\u5bf9 $mod$ \u53d6\u6a21\u7684\u503c\u3002 ",
+    "inputFormat": "\u7b2c\u4e00\u884c\u4e09\u4e2a\u6574\u6570\uff0c$n,k,mod$ \u3002 \n\n\u7b2c\u4e8c\u884c $n$ \u4e2a\u6574\u6570\uff0c$a_i$\u3002 ",
+    "outputFormat": "\u4e00\u884c\u4e00\u4e2a\u6574\u6570\u8868\u793a\u7b54\u6848\u5bf9 $mod$ \u53d6\u6a21\u7684\u503c\u3002 ",
+    "samples": [
+        [
+            "4 1 1000000007\n1 2 3 4",
+            "150"
+        ],
+        [
+            "3 2 114\n2 3 4",
+            "65"
+        ],
+        [
+            "12 8 10042020\n1 1 4 5 1 4 1 9 1 9 8 10",
+            "2797740"
+        ]
+    ],
+    "hint": "[\u5927\u6837\u4f8b](https://www.luogu.com.cn/paste/5sg4ahwn)\n\n### \u3010\u6837\u4f8b\u89e3\u91ca\u3011\uff1a\n\n\u6837\u4f8b1\uff1a\n\n- \u6240\u6709\u5408\u6cd5\u7684\u5b50\u5e8f\u5217\u4e3a $\\{1\\}\uff0c\\{2\\}\uff0c\\{3\\}\uff0c\\{4\\}\uff0c\\{1,2\\}\uff0c\\{2,3\\}\uff0c\\{3,4\\}$ \n\n- \u7b54\u6848\u4e3a $1 \\times 1 + 2 \\times 2 + 3 \\times 3 + 4 \\times 4 + (1+2) \\times 1 \\times 2 + (2+3) \\times 2 \\times 3 + (3+4) \\times 3 \\times 4 = 150$\n\n\n\u6837\u4f8b2\uff1a\n\n- \u6240\u6709\u5408\u6cd5\u7684\u5b50\u5e8f\u5217\u4e3a $\\{2\\},\\{3\\},\\{4\\},\\{2,3\\},\\{3,4\\},\\{2,4\\},\\{2,3,4\\}$\uff0c \u7b54\u6848\u4e3a $ 407 \\mod 114 = 65 $\u3002  \n\n\n\n### \u3010\u6570\u636e\u8303\u56f4\u3011\uff1a\n\n| \u6570\u636e\u70b9\u7f16\u53f7 | $ n\\le$ | \u7279\u6b8a\u6027\u8d28 |\n| :----------: | :----------: | :----------: |\n|$1\\sim 4$ |$20$  |\u65e0 |\n|$5\\sim 11$ |$10^3$  |\u65e0|\n|$12$ |$10^6$  |$k=0$  |\n|$13\\sim 14$ |$10^5$  |$a_i=1$|\n|$15\\sim 17$ |$10^5$  |$mod=10^9+7$|\n|$18\\sim 22$ |$10^5$  |\u65e0|\n|$23\\sim 25$ |$10^6$  |\u65e0 |\n\n- \u5bf9\u4e8e $100\\%$ \u7684\u6570\u636e\uff0c$0 \\le k < n \\le 10^6 , 1 \\le a_i \\le 10^9 , 1 \\le mod \\le 10^9+7$ "
+}

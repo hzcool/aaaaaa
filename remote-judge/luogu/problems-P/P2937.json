@@ -1,0 +1,13 @@
+{
+    "description": "The cows have a new laser-based system so they can have casual conversations while out in the pasture which is modeled as a W x H grid of points (1 <= W <= 100; 1 <= H <= 100).\n\nThe system requires a sort of line-of-sight connectivity in order to sustain communication. The pasture, of course, has rocks and trees that disrupt the communication but the cows have purchased diagonal mirrors ('/' and '\\' below) that deflect the laser beam through a 90 degree turn. Below is a map that illustrates the\n\nproblem.\n\nH is 8 and W is 7 for this map.  The two communicating cows are notated as 'C's; rocks and other blocking elements are notated as '\\*'s:\n\n```cpp\n7 . . . . . . .         7 . . . . . . . \n6 . . . . . . C         6 . . . . . /-C \n5 . . . . . . *         5 . . . . . | * \n4 * * * * * . *         4 * * * * * | * \n3 . . . . * . .         3 . . . . * | . \n2 . . . . * . .         2 . . . . * | . \n1 . C . . * . .         1 . C . . * | . \n0 . . . . . . .         0 . \\-------/ . \n0 1 2 3 4 5 6           0 1 2 3 4 5 6 \n```\nDetermine the minimum number of mirrors M that must be installed to maintain laser communication between the two cows, a feat which is always possible in the given test data.\n\n\u5976\u725b\u4eec\u90fd\u6539\u7528\u6fc0\u5149\u8fdb\u884c\u901a\u8baf\u4e86.\n\n\u5728W\\*H\u7684\u7267\u573a\u4e0a\uff0c\u4e00\u4e9b\u5730\u65b9\u6709\u6811\u6728\u548c\u77f3\u5934\u906e\u6321\u6fc0\u5149\uff0c\u6240\u4ee5\uff0c\u5976 \u725b\u6253\u7b97\u4f7f\u7528\u5bf9\u89d2\u955c\u6765\u8fdb\u884c\u6fc0\u5149\u901a\u8baf.\u4e24\u53ea\u5976\u725b\u7684\u4f4d\u7f6e\u662f\u56fa\u5b9a\u7684\uff0c\u5bf9\u89d2\u955c\u80fd\u628a\u5149\u7ebf\u65cb\u8f6c90\u5ea6.\n",
+    "inputFormat": "\\* Line 1: Two space separated integers: W and H\n\n\\* Lines 2..H+1: The entire pasture.\n",
+    "outputFormat": "\\* Line 1: A single integer: M\n",
+    "samples": [
+        [
+            "7 8 \n....... \n......C \n......* \n*****.* \n....*.. \n....*.. \n.C..*.. \n....... \n",
+            "3 \n"
+        ]
+    ],
+    "hint": "",
+    "translation": "![](https://cdn.luogu.org/upload/pic/9084.png)"
+}

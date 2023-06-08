@@ -1,0 +1,25 @@
+{
+    "description": "Recently you've discovered a new shooter. They say it has realistic game mechanics.\n\nYour character has a gun with magazine size equal to $ k $ and should exterminate $ n $ waves of monsters. The $ i $ -th wave consists of $ a_i $ monsters and happens from the $ l_i $ -th moment of time up to the $ r_i $ -th moments of time. All $ a_i $ monsters spawn at moment $ l_i $ and you have to exterminate all of them before the moment $ r_i $ ends (you can kill monsters right at moment $ r_i $ ). For every two consecutive waves, the second wave starts not earlier than the first wave ends (though the second wave can start at the same moment when the first wave ends) \u2014 formally, the condition $ r_i \\le l_{i + 1} $ holds. Take a look at the notes for the examples to understand the process better.\n\nYou are confident in yours and your character's skills so you can assume that aiming and shooting are instant and you need exactly one bullet to kill one monster. But reloading takes exactly $ 1 $ unit of time.\n\nOne of the realistic mechanics is a mechanic of reloading: when you reload you throw away the old magazine with all remaining bullets in it. That's why constant reloads may cost you excessive amounts of spent bullets.\n\nYou've taken a liking to this mechanic so now you are wondering: what is the minimum possible number of bullets you need to spend (both used and thrown) to exterminate all waves.\n\nNote that you don't throw the remaining bullets away after eradicating all monsters, and you start with a full magazine.",
+    "inputFormat": "The first line contains two integers $ n $ and $ k $ ( $ 1 \\le n \\le 2000 $ ; $ 1 \\le k \\le 10^9 $ ) \u2014 the number of waves and magazine size.\n\nThe next $ n $ lines contain descriptions of waves. The $ i $ -th line contains three integers $ l_i $ , $ r_i $ and $ a_i $ ( $ 1 \\le l_i \\le r_i \\le 10^9 $ ; $ 1 \\le a_i \\le 10^9 $ ) \u2014 the period of time when the $ i $ -th wave happens and the number of monsters in it.\n\nIt's guaranteed that waves don't overlap (but may touch) and are given in the order they occur, i. e. $ r_i \\le l_{i + 1} $ .",
+    "outputFormat": "If there is no way to clear all waves, print $ -1 $ . Otherwise, print the minimum possible number of bullets you need to spend (both used and thrown) to clear all waves.",
+    "samples": [
+        [
+            "2 3\n2 3 6\n3 4 3",
+            "9"
+        ],
+        [
+            "2 5\n3 7 11\n10 12 15",
+            "30"
+        ],
+        [
+            "5 42\n42 42 42\n42 43 42\n43 44 42\n44 45 42\n45 45 1",
+            "-1"
+        ],
+        [
+            "1 10\n100 111 1",
+            "1"
+        ]
+    ],
+    "hint": "In the first example:\n\n- At the moment $ 2 $ , the first wave occurs and $ 6 $ monsters spawn. You kill $ 3 $ monsters and start reloading.\n- At the moment $ 3 $ , the second wave occurs and $ 3 $ more monsters spawn. You kill remaining $ 3 $ monsters from the first wave and start reloading.\n- At the moment $ 4 $ , you kill remaining $ 3 $ monsters from the second wave.\n\n In total, you'll spend $ 9 $ bullets.In the second example:\n\n- At moment $ 3 $ , the first wave occurs and $ 11 $ monsters spawn. You kill $ 5 $ monsters and start reloading.\n- At moment $ 4 $ , you kill $ 5 $ more monsters and start reloading.\n- At moment $ 5 $ , you kill the last monster and start reloading throwing away old magazine with $ 4 $ bullets.\n- At moment $ 10 $ , the second wave occurs and $ 15 $ monsters spawn. You kill $ 5 $ monsters and start reloading.\n- At moment $ 11 $ , you kill $ 5 $ more monsters and start reloading.\n- At moment $ 12 $ , you kill last $ 5 $ monsters.\n\n In total, you'll spend $ 30 $ bullets.",
+    "translation": "\u6709$n$\u6ce2\u602a\u7269\uff0c\u4f60\u6709\u4e00\u628a\u67aa\uff0c\u67aa\u7684\u5f39\u5939\u91cf\u4e3a$k$\uff0c\u7b2c$i$\u6ce2\u602a\u7269\u6570\u91cf\u4e3a$a_i$\uff0c\u5728\u7b2c$l_i$\u5230$r_i$\u65f6\u95f4\u51fa\u73b0\uff08$r_i<=l_{i+1}$\uff09\uff0c\u4f60\u53ef\u4ee5\u5728\u4efb\u610f\u65f6\u523b\u6253\u51fa\u4e00\u53d1\u5b50\u5f39\u51fb\u6740\u4e00\u53ea\u602a\u7269\u4e14\u4e0d\u8017\u8d39\u65f6\u95f4\uff0c\u4f60\u5fc5\u987b\u5728$[l_i, r_i]$\u65f6\u95f4\u5185\u6d88\u706d$a_i$\u53ea\u602a\u7269\uff0c\u4f60\u6bcf\u6b21\u6362\u5f39\u90fd\u9700\u8981\u5c06\u5f39\u5939\uff08\u5305\u62ec\u91cc\u9762\u7684\u5b50\u5f39\uff09\u6254\u6389\uff0c\u5e76\u82b1\u8d39 1 \u5355\u4f4d\u7684\u65f6\u95f4\uff0c\u5728\u5c3d\u91cf\u4fdd\u8bc1\u901a\u5173\u7684\u60c5\u51b5\u4e0b\uff0c\u9700\u8981\u7684\u6700\u5c11\u7684\u5b50\u5f39\u6570\u4e3a\u591a\u5c11"
+}

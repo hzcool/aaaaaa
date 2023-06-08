@@ -1,0 +1,50 @@
+[
+    {
+        "content": "\u9898\u76ee\u8981\u6c42\u6240\u6709\u5b57\u7b26\u4e32\u4e2d\u4e0d\u76f8\u540c\u7684\u6709\u51e0\u4e2a\u3002\n\n\u53ef\u4ee5\u76f4\u63a5\u4f7f\u7528set\uff0c\u56e0\u4e3aset\u6709\u53bb\u91cd\u7684\u529f\u80fd\u3002\u628a\u6240\u6709\u8f93\u5165\u7684\u5b57\u7b26\u4e32\u653e\u5165set\u4e2d\uff0c\u7136\u540e\u76f4\u63a5\u8f93\u51faset\u7684\u957f\u5ea6\u5373\u53ef\u3002\n\n```python\nn=int(input())\ns=set()\nfor i in range(n):\n\ts.add(input())\nprint(len(s))\n```",
+        "postTime": 1588238766,
+        "uid": 203102,
+        "name": "Diamiko",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 AT5366 \u3010[ABC164C] gacha\u3011"
+    },
+    {
+        "content": "\u9898\u610f\uff1a\u68c0\u67e5\u6709\u591a\u5c11\u79cd\u4e0d\u91cd\u590d\u7684\u5b57\u7b26\u4e32\u3002\u6211\u8fd9\u91cc\u6709\u4e24\u79cd\u65b9\u6cd5\uff1a\n1. \u6392\u5e8f+\u53bb\u91cd \u5148\u4f7f\u7528 `sort` \u51fd\u6570\u6392\u5e8f\u5b57\u7b26\u4e32\u6570\u7ec4\uff0c\u5728\u4f7f\u7528`unique`\u51fd\u6570\u8ba1\u7b97\u51fa\u65e0\u91cd\u590d\u7684\u4e2a\u6570\u3002\n1. \u4f7f\u7528 map ,\u4ee5 string \u7c7b\u578b\u4f5c\u4e3a\u4e0b\u6807\uff0c\u6bcf\u6b21\u8bfb\u5165\u5e76\u8d4b\u503c\u6570\u7ec4\u4e2d\u4ee5\u8be5 string \u4e3a\u4e0b\u6807\u7684 bool \u53d8\u91cf\u3002\u6700\u540e\u8c03\u7528\u51fd\u6570 size()\uff0c\u8f93\u51fa\u5373\u53ef\u3002\n\n\u6392\u5e8f+\u53bb\u91cd\u7684\u65b9\u6cd5\uff1a\n```cpp\n#include<iostream>\n#include<algorithm>\nusing namespace std;\nint n,t;string str[1000000];//\u6ce8\u610f\u5f00\u5927\u4e00\u70b9\uff0c\u6211\u5c31RE\u4e86\uff0c\u591a\u4e8f qym2008 \u5de8\u4f6c\u3002\nint main()\n{\n    ios::sync_with_stdio(0); //\u53d6\u6d88\u540c\u6b65\u3002\n    cin>>n;\t//\u8bfb\u5165\u53d8\u91cf n \u3002\n    for(;t<n;t++)\n    {\n        cin>>str[t];\t//\u8bfb\u5165\u5b57\u7b26\u4e32str[t]\u3002\n    }\n    if(!is_sorted(str,str+n))/*\u8fd9\u662fC++11\u7684\u51fd\u6570\uff0c\u53ef\u4ee5\u5224\u65ad\u662f\u5426\u6709\u5e8f\u3002*/   sort(str,str+n); //\u5982\u679c\u6709\u5e8f\uff0c\u5c31\u4e0d\u7528\u6392\u4e86\uff0c\u7701\u65f6\u95f4\u3002\n    cout<<unique(str,str+n)-str<<'\\n';//\u91cd\u70b9\uff1aunique(str,str+n)-str \u53bb\u91cd\u5e76\u8ba1\u7b97\u4e2a\u6570\u3002\n    return 0;//Don't forget this.\n}\n```\nmap\u7684\u65b9\u6cd5:\n```cpp\n#include<iostream>\n#include<map>\nusing namespace std;\nmap<string,bool>strs; //\u5b9a\u4e49\u4ee5 string \u4e3a\u4e0b\u6807\u7684 bool \u6570\u7ec4\u3002\nstring str;\nint main()\n{\n\tcin>>str; //\u4e0d\u7528\u7ba1\u7b2c\u4e00\u4e2a\u3002\n\twhile(cin>>str)\t//\u6bcf\u6b21\u5faa\u73af\uff0c\u8bfb\u5165\u5b57\u7b26\u4e32 str \uff0c\u5982\u679c\u8bfb\u5230\u8f93\u5165\u7684\u672b\u5c3e\u4f1a\u505c\u6b62\u5faa\u73af\u3002\n\t{\n\t\tstrs[str]=1; //\u8d4b\u503c\u3002\n\t}\n\tcout<<strs.size()<<endl; //\u8f93\u51fastrs\u7684\u5927\u5c0f\u3002\n\treturn 0;\n}\n```\n\u849f\u84bb\u6a59\u540e\u7b2c 5 \u7bc7\u9898\u89e3\u3002",
+        "postTime": 1588239203,
+        "uid": 256340,
+        "name": "Miller2019",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT5366 \u3010[ABC164C] gacha\u3011"
+    },
+    {
+        "content": "### ~~STL\u5927\u6cd5\u597d~~\n\u6211\u4eec\u53ef\u4ee5\u4f7f\u7528$STL$\u7684$unique$\u51fd\u6570\u3002   \n\u7528\u6cd5\uff1a  \n\u5bf9\u4e8e\u4e00\u4e2a$vector:a$\uff0c$unique(a.begin(),a.end())$\u4f1a\u628a\u91cd\u590d\u7684**\u76f8\u90bb**\u5143\u7d20\u653e\u5230\u672b\u5c3e\uff0c\u5e76\u4e14\u8fd4\u56de\u6700\u540e\u4e00\u4e2a**\u4e0d\u91cd\u590d\u5143\u7d20\u7684\u6307\u9488**\uff0c\u90a3\u4e48\u60f3\u8981\u83b7\u53d6\u53bb\u91cd\u540e\u7684$size$\uff0c\u8981\u5148\u6392\u5e8f\uff0c\u7136\u540e\u628a\u5b83\u51cf\u53bb$a.begin()$\u5373\u53ef  \n#### \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n\nvector<string>a;\nint n,cnt=1;\nstring x;\n\nint main()\n{\n\tios::sync_with_stdio(0);cin.tie(0);cout.tie(0);//\u52a0\u901fcincout\n\tcin>>n;\n\twhile(n--)cin>>x,a.push_back(x);//\u628a\u5b57\u7b26\u4e32\u90fd\u585e\u8fdba\n\tsort(a.begin(),a.end());//\u6392\u5e8f\n\tcout<<unique(a.begin(),a.end())-a.begin();//\u53bb\u91cd\n\treturn 0;\n}\n```\n",
+        "postTime": 1588239078,
+        "uid": 312393,
+        "name": "ADay",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 AT5366 \u3010[ABC164C] gacha\u3011"
+    },
+    {
+        "content": "\u8fd9\u9898\u5176\u5b9e\u662f\u548c$P3370$\u91cd\u9898\u7684\uff0c\u8fd9\u91cc\u63d0\u4f9b\u4e00\u79cd\u4e0e$P3370$\u7684$HASH$\u4e0d\u540c\u7684\u89e3\u6cd5\uff1a$set$\u3002\n\n\u6211\u4eec\u77e5\u9053$set$\u6709\u81ea\u52a8\u53bb\u91cd\u7684\u529f\u80fd\uff0c\u56e0\u6b64\u89e3\u51b3\u8fd9\u9898\u518d\u5408\u9002\u4e0d\u8fc7\u4e86\u3002\n\n\u601d\u8def\uff1a\u5bf9\u4e8e\u6bcf\u4e2a\u8f93\u5165\u7684\u5b57\u7b26\u4e32\uff0c\u5c06\u5176\u63d2\u5165\u8fdb$set$\u4e2d\uff0c\u5168\u90e8\u8f93\u5165\u5b8c\u540e\u7edf\u8ba1$set$\u4e2d\u5143\u7d20\u4e2a\u6570\u5373\u53ef\u3002\n\n\n### \u6ce8\u610f\uff1a\n\n1.$set$\u6700\u597d\u5b9a\u4e49\u6307\u9488\u3002\n\n2.$set$\u7684\u7c7b\u578b\u5fc5\u987b\u662f`string`\u3002\n\n### CODE:\n\n\n```cpp\n\n#include<bits/stdc++.h>\nusing namespace std;\nint n;\nint main(){\n\tstring s;\n\tset<string> ss;\n\tset<string>::iterator it;\n\tstd::ios::sync_with_stdio(false);\n\tcin>>n;\n\tgetline(cin,s);\n\tfor(int i=1;i<=n;++i){\n\t\tgetline(cin,s);\n\t\tss.insert(s);\n\t}\n\tcout<<ss.size();\n\treturn 0;\n}\n```",
+        "postTime": 1588238085,
+        "uid": 258325,
+        "name": "Scrutiny",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 AT5366 \u3010[ABC164C] gacha\u3011"
+    },
+    {
+        "content": "~~\u6211\u4e00\u4e2a\u53ea\u4f1a\u6a21\u62df\u7684\u849f\u84bb\u53ea\u4f1a\u7528\u6bd4\u8f83\u4f4e\u7ea7\u7684\u65b9\u6cd5~~\n\n[AC\u8bb0\u5f55](https://www.luogu.com.cn/record/33334992)\n\n\u5c31\u62ff\u6837\u4f8b1\u4e3e\u4f8b\u5427\n\n\u6211\u4eec\u53ef\u4ee5\u628a\u8fd9\u4e9b\u5b57\u7b26\u4e32\u5b58\u5728\u6570\u7ec4\u91cc\uff1a\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/5kpuvri0.png)\n\n\u7136\u540e\u518d\u6392\u4e00\u4e2a\u5e8f\uff1a\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/c0tm4tz0.png)\n\n\u7531\u4e8e\u5df2\u7ecf\u6392\u5e8f\uff0c\u6240\u4ee5\u5b57\u7b26\u4e32\u76f8\u540c\u7684\u4e00\u5b9a\u4f1a\u8fde\u63a5\u5728\u4e00\u8d77\uff1b\n\n\u90a3\u4e48\u6211\u4eec\u53ef\u4ee5\u76f4\u63a5\u7528\u5f53\u524d\u7684\u4e0b\u6807+1\u6765\u5224\u65ad\u5b83\u7684\u4e0b\u4e00\u4e2a\u5b57\u7b26\u4e32\u662f\u5426\u4e0e\u5b83\u76f8\u540c\uff0c\u56e0\u4e3a\u6392\u4e86\u5e8f\uff0c\u6240\u4ee5\u4e0d\u518d\u62c5\u5fc3\u91cd\u590d\u8ba1\u7b97\u7684\u95ee\u9898\u3002\u82e5\u76f8\u540c\uff0c\u90a3\u5c31\u7528\u7d2f\u52a0\u5668\u52a01\u3002\n\n```cpp\n#include<iostream>\n#include<cstdio>\n#include<cstring>\n#include<algorithm>\n#include<cmath>\nusing namespace std;\nlong long n,l,ans;\nint main()\n{\n\tstring a[200010];\n\tcin>>n;\n\tfor(int i=1;i<=n;i++) cin>>a[i];\n\tsort(a+1,a+1+n);//\u6392\u5e8f\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tif(a[i]!=a[i+1])//\u82e5\u6b64\u5b57\u7b26\u4e32\u4e0d\u4e0e\u4e0b\u4e00\u4e2a\u76f8\u540c\uff0c\u8ba1\u6570\u5668+1\n\t\t{\n\t\t\tans++;\n\t\t}\n\t}\n\tcout<<ans<<endl;//\u8f93\u51fa\n}\n```",
+        "postTime": 1588662260,
+        "uid": 174129,
+        "name": "\u7b2c\u4e8c\u5c0f\u9898",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT5366 \u3010[ABC164C] gacha\u3011"
+    },
+    {
+        "content": "\u9898\u76ee\u4f20\u9001\u95e8\uff1a[AT5366 [ABC164C] gacha](https://www.luogu.com.cn/problem/AT5366)\n\n**\u9898\u76ee\u5927\u610f\uff1a** \u7ed9\u4f60$N$\u4e2a\u5b57\u7b26\u4e32\uff0c\u6c42\u6709\u591a\u5c11\u4e2a\u4e0d\u540c\u7684\u5b57\u7b26\u4e32\u3002\n\n**\u9898\u89e3\uff1a** $set$\u6709\u53bb\u91cd\u529f\u80fd\uff0c\u6240\u4ee5\u653e\u5230$set$\u91cc\u8ba1\u6570\u5373\u53ef\u3002\n\n$Code:$\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n#define ll long long\n#define in inline\n#define re register\nin ll read(){\n   ll s=0;bool w=1;char ch=getchar();while(ch<'0' || ch>'9'){if(ch=='-')w=-1;ch=getchar();}\n   while(ch>='0' && ch<='9')s=s*10+ch-'0',ch=getchar();return s*w;\n}\nvoid write(ll x){\n    if(x<0)putchar('-'),x=-x;\n    if(x>9)write(x/10);putchar(x%10+'0');\n}\nunordered_set<string> S;\nint main() {\n    int n=read();\n    for(re int i=0;i<n;i++){\n        string s;\n        cin>>s;\n        S.insert(s);\n    }\n    write(S.size());\n    return 0;\n}\n```\n",
+        "postTime": 1588237912,
+        "uid": 214177,
+        "name": "__\u849f\u84bb__",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT5366 \u3010[ABC164C] gacha\u3011"
+    }
+]

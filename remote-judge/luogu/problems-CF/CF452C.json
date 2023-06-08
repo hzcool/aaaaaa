@@ -1,0 +1,21 @@
+{
+    "description": "Alex enjoys performing magic tricks. He has a trick that requires a deck of $ n $ cards. He has $ m $ identical decks of $ n $ different cards each, which have been mixed together. When Alex wishes to perform the trick, he grabs $ n $ cards at random and performs the trick with those. The resulting deck looks like a normal deck, but may have duplicates of some cards.\n\nThe trick itself is performed as follows: first Alex allows you to choose a random card from the deck. You memorize the card and put it back in the deck. Then Alex shuffles the deck, and pulls out a card. If the card matches the one you memorized, the trick is successful.\n\nYou don't think Alex is a very good magician, and that he just pulls a card randomly from the deck. Determine the probability of the trick being successful if this is the case.",
+    "inputFormat": "First line of the input consists of two integers $ n $ and $ m $ ( $ 1<=n,m<=1000 $ ), separated by space \u2014 number of cards in each deck, and number of decks.",
+    "outputFormat": "On the only line of the output print one floating point number \u2013 probability of Alex successfully performing the trick. Relative or absolute error of your answer should not be higher than $ 10^{-6} $ .",
+    "samples": [
+        [
+            "2 2\n",
+            "0.6666666666666666\n"
+        ],
+        [
+            "4 4\n",
+            "0.4000000000000000\n"
+        ],
+        [
+            "1 2\n",
+            "1.0000000000000000\n"
+        ]
+    ],
+    "hint": "In the first sample, with probability ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF452C/11122857c8fbc4142ef5e22b839ee7f4cb432c56.png) Alex will perform the trick with two cards with the same value from two different decks. In this case the trick is guaranteed to succeed.\n\nWith the remaining ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF452C/c171d3ec3c02b9089b571e24a262c7ab1c15c85e.png) probability he took two different cards, and the probability of pulling off the trick is ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF452C/fda96725ccc697b767e5edbf0d5cfb5ba17d9aa2.png).\n\nThe resulting probability is ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF452C/a205e249fe823af48892b89b115b150661d33162.png)",
+    "translation": "\u6709 $m$ \u5957\u76f8\u540c\u7684\u724c\uff0c\u6bcf\u5957\u724c\u6709 $n$ \u5f20\u4e92\u4e0d\u76f8\u540c\u7684\u724c\u3002\u5c06\u8fd9 $m$ \u5957\u724c\u6df7\u5408\u5728\u4e00\u8d77\u540e\u7b49\u6982\u7387\u968f\u673a\u5730\u4ece\u4e2d\u62bd\u53d6 $n$ \u5f20\uff0c\u5e76\u4ece\u62bd\u51fa\u7684 $n$ \u5f20\u724c\u4e2d\u7b49\u6982\u7387\u968f\u673a\u653e\u56de\u5730\u62bd\u53d6\u4e24\u5f20\u724c\uff0c\u6c42\u8fd9\u4e24\u5f20\u724c\u76f8\u540c\u7684\u6982\u7387\u3002\r\n\r\n\u8f93\u51fa\u4e0e\u7b54\u6848\u8bef\u5dee\u4e0d\u8d85\u8fc7 $10^{-6}$ \u5373\u5224\u4e3a\u6b63\u786e\u3002"
+}

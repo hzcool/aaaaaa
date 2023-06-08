@@ -1,0 +1,21 @@
+{
+    "description": "For each positive integer $ n $ consider the integer $ \u03c8(n) $ which is obtained from $ n $ by replacing every digit $ a $ in the decimal notation of $ n $ with the digit $ (9-a) $ . We say that $ \u03c8(n) $ is the reflection of $ n $ . For example, reflection of $ 192 $ equals $ 807 $ . Note that leading zeros (if any) should be omitted. So reflection of $ 9 $ equals $ 0 $ , reflection of $ 91 $ equals $ 8 $ .\n\nLet us call the weight of the number the product of the number and its reflection. Thus, the weight of the number $ 10 $ is equal to $ 10\u00b789=890 $ .\n\nYour task is to find the maximum weight of the numbers in the given range $ [l,r] $ (boundaries are included).",
+    "inputFormat": "Input contains two space-separated integers $ l $ and $ r $ ( $ 1<=l<=r<=10^{9} $ ) \u2014 bounds of the range.",
+    "outputFormat": "Output should contain single integer number: maximum value of the product $ n\u00b7\u03c8(n) $ , where $ l<=n<=r $ .\n\nPlease, do not use %lld specificator to read or write 64-bit integers in C++. It is preferred to use cout (also you may use %I64d).",
+    "samples": [
+        [
+            "3 7\n",
+            "20"
+        ],
+        [
+            "1 1\n",
+            "8"
+        ],
+        [
+            "8 10\n",
+            "890"
+        ]
+    ],
+    "hint": "In the third sample weight of $ 8 $ equals $ 8\u00b71=8 $ , weight of $ 9 $ equals $ 9\u00b70=0 $ , weight of $ 10 $ equals $ 890 $ .\n\nThus, maximum value of the product is equal to $ 890 $ .",
+    "translation": "\u5b9a\u4e49\u4e00\u4e2a\u6570\u7684\u201cReflecion number\u201d\uff0c\u662f\u75289\u51cf\u53bb\u5b83\u7684\u6bcf\u4e00\u4e2a\u6570\u4f4d\u540e,\u518d\u53bb\u6389\u524d\u5bfc0\u800c\u5f62\u6210\u7684\u6570\uff0c\u5982192\u7684\u201cReflecion number\u201d\u662f807\uff089-1=8\uff0c9-9=0\uff0c9-2=7\uff09\u3002\n\n\u518d\u5b9a\u4e49\u4e00\u4e2a\u6570\u7684\u201cWeight\u201d\uff0c\u5b83\u7b49\u4e8e\u8fd9\u4e2a\u6570\u81ea\u8eab\u4e58\u4ee5\u8fd9\u4e2a\u6570\u7684\u201cReflecion number\u201d\u3002\n\n\u8f93\u5165l\u548cr\uff081<=l<=r<=10^9}\uff0c\u8f93\u51fal\u5230r\u7684\u6570\u4e2d\"Weight\"\u7684\u6700\u5927\u503c\u3002"
+}

@@ -1,0 +1,34 @@
+[
+    {
+        "content": "**\u524d\u8a00**  \n\u5f88\u591a\u9898\u89e3\u90fd\u6ca1\u6709\u8bb2\u4e3a\u4ec0\u4e48\u8fd9\u6837\u505a\uff0c\u6240\u4ee5\u7a9d\u6765\u53d1\u4e00\u7bc7\u9898\u89e3  \n\n**\u9898\u610f\u7b80\u8ff0**  \n\u4e00\u4e2a\u6570n\uff0cMahmoud\u73c2\u4ee5\u53d6(\u5373\u5982\u679c\u53d6$k$\uff0c\u4f7f$n = n - k$)\u4e00\u4e2a\u6b63\u5076\u6570\uff0cEhab\u73c2\u4ee5\u53d6\u4e00\u4e2a\u6b63\u5947\u6570\uff0c\u4e00\u4e2a\u4eba\u5982\u679c\u4e0d\u80fd\u53d6\u4e86(\u5bf9\u4e8eMahmoud\u548cEhab $n = 0$\uff0c\u5bf9\u4e8eMahmoud $n = 1$)\uff0c\u5bf9\u65b9\u5c31\u8d62\u4e86\u3002  \nMahmoud\u5148\u624b\uff0c\u95ee\u8c01\u4f1a\u8d62\u3002  \n\n**\u89e3\u6cd5**  \n\u5f88\u7b80\u5355\uff0c\u5982\u679cn\u662f\u5947\u6570\u90a3\u4e48Mahmoud\u4e00\u6b21\u94c1\u5b9a\u53d6\u4e0d\u73a9\uff0c\u56e0\u4e3a\u5947\u6570\u51cf\u5076\u6570\u4e3a\u4ecd\u4e3a\u5947\u6570\uff0c\u6240\u4ee5\u5269\u4e0b\u7684\u80af\u5b9a\u662f\u5947\u6570\uff0c\u90a3\u4e48Ehab\u8bb2\u628a\u5b83\u53d6\u52300\u5fc5\u80dc\uff1b\u5982\u679cn\u4e3a\u5076\u6570Mahmoud\u4e00\u6b21\u53bb\u73a9\uff0cEhab\u5fc5\u8d25\u3002  \n\u7b80\u5355\u6765\u8bf4\uff0c\u5c31\u662f$n$\u4e3a\u5947\u6570Ehab\u80dc\uff0c\u5426\u5219Mahmoud\u80dc  \n\n**\u4ee3\u7801**  \n```cpp\n#include <cstdio> \n#define ll long long\n\ninline ll read(){\n    ll x = 0; int zf = 1; char ch = ' ';\n    while (ch != '-' && (ch < '0' || ch > '9')) ch = getchar();\n    if (ch == '-') zf = -1, ch = getchar();\n    while (ch >= '0' && ch <= '9') x = x * 10 + ch - '0', ch = getchar(); return x * zf;\n}\n\nint main(){\n    ll n = read();\n    if (n == 0)\n        printf(\"Ehab\");\n    else if(n & 1)\n        printf(\"Ehab\");\n    else\n        printf(\"Mahmoud\");\n    return 0;\n}\n```",
+        "postTime": 1558333091,
+        "uid": 20462,
+        "name": "lukelin",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF959A \u3010Mahmoud and Ehab and the even-odd game\u3011"
+    },
+    {
+        "content": "```cpp\n// \u8fd9\u4e00\u9898\u771f\u7684\u662f\u5165\u95e8\u96be\u5ea6\u65e0\u7591\u4e86\n// \u53ea\u8981\u5224\u65ad\u8f93\u5165\u7684\u6570\u7684\u5947\u5076\u6027\u5c31\u597d\u4e86\n// \u82e5\u662f\u5947\u6570\uff0c\u5219\u540e\u624b\u8d62\uff1b\u82e5\u662f\u5076\u6570\uff0c\u5219\u5148\u624b\u8d62\n#include <iostream>\n\nint main()\n{\n    int n;\n    std::cin >> n;\n\n    if (n % 2 == 1)\n    {\n        std::puts(\"Ehab\");\n    }\n    else\n    {\n        std::puts(\"Mahmoud\");\n    }\n\n    return 0;\n}\n```",
+        "postTime": 1523456433,
+        "uid": 59062,
+        "name": "\u5c0f\u95f8\u87f9",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF959A \u3010Mahmoud and Ehab and the even-odd game\u3011"
+    },
+    {
+        "content": "\u8fd9\u4e00\u9898\u53ef\u4ee5\u8bf4\u662f\u5224\u65ad\u5947\u5076\u6570\n\n## Python2\n```\na=input()\nb=a%2\nif b==0:\n    print \"Mahmoud\"\nif b==1:\n    print \"Ehab\"\n```\n## C++\n```\n#include <bits/stdc++.h>\nusing namespace std;\nlong long a;\nint main()\n{\n\tcin>>a;\n\tif(a%2==1)//a mod 2 \u662f\u4e0d\u662f1\n\tcout<<\"Ehab\"<<endl;\n\telse//\u5426\u5219\n\tcout<<\"Mahmoud\"<<endl;\n\treturn 0;\n}\n```\n## Pascal\n```\nvar\nn:integer;\nbegin\n   readln(n);\n   if n mod 2 = 0 then\n   write('Mahmoud')\n   else\n   write('Ehab');\n   readln;\nend.\n```",
+        "postTime": 1523676768,
+        "uid": 58543,
+        "name": "RioBlu",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF959A \u3010Mahmoud and Ehab and the even-odd game\u3011"
+    },
+    {
+        "content": "\u8fd9\u662f\u4e00\u9053\u5165\u95e8\u9898\u76ee\u5427\uff08\u6076\u610f\u8bc4\u5206\u8ba9\u8fd9\u9053\u9898\u76ee\u4e0a\u4e86\u666e\u53ca\uff0c\u4f46\u662f\u8fd8\u662f\u8ba9\u6211\u6765\u89e3\u91ca\u89e3\u91ca\u5427QAQ\n\n\u4e0d\u8fc7\u4ee4\u6211\u9707\u60ca\u7684\u662f\uff1a\n```\n\u4e3a\u4ec0\u4e48UKE\u554a\u554a\u554a\u554a\u554a\n```\n\n\u597d\u5427\uff0c\u90a3\u8fd8\u662f\u8fdb\u5165\u6b63\u9898\uff1a\n\n\u89c2\u70b9\uff1a\n\n\u9996\u5148\uff1a\u4e00\u4e2a\u6570\u4e0d\u662f\u5076\u6570\u5c31\u662f\u5947\u6570\uff08\u6240\u4ee5\u53ea\u9700\u8981\u4e00\u4e2aif\u548celse\u5373\u53efQAQ\n\n\u7b2c\u4e8c\uff1a\u53ea\u6709\u80fd\u88ab2\u6574\u9664\u7684\u624d\u53ef\u4ee5\u662f\u5076\u6570QAQ\n\n\u7b2c\u4e09\uff1a\u5b9e\u73b0\u7a0b\u5e8f\uff1a\n```\n#include<iostream>\nusing namespace std;\nint main()\n{\n    long long a;    //\u5b9a\u4e49\n    cin>>a;\n    if(a%2==0) cout<<\"Mahmoud\";    //\u5224\u65ad\u5e76\u6309\u7167\u8981\u6c42\u8f93\u51fa\n    else cout<<\"Ehab\";\n    return 0;\n}\n```\n\n\u9898\u89e3\u53ef\u80fd\u51e0\u4e4e\u76f8\u540c\uff0c\u4f46\u662f\u6211\u7684\u89e3\u6cd5\u53ef\u80fd\u7a0d\u6709**\u8be6\u7ec6\u548c\u7b80\u7565**\uff0c\u82e5\u6709\u7591\u95ee\uff0c\u8bf7\u5728**\u53f3\u4fa7**\u53d1\u8868\uff0c\u8c22\u8c22QAQ",
+        "postTime": 1554096213,
+        "uid": 46105,
+        "name": "applese",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF959A \u3010Mahmoud and Ehab and the even-odd game\u3011"
+    }
+]

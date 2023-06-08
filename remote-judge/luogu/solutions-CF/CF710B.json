@@ -1,0 +1,58 @@
+[
+    {
+        "content": "### \u9898\u610f\uff1a\n\n\u7ed9\u5b9a$n$\u4e2a\u6570\uff0c\u8bf7\u4f60\u627e\u5230\u4e00\u4e2a\u6570\uff0c\n\n**\u4f7f\u5f97\u8fd9\u4e2a\u6570\u4e0e\u90a3$n$\u4e2a\u6570\u5dee\u7684\u7edd\u5bf9\u503c\u4e4b\u548c\u7684\u53d6\u5230\u6700\u5c0f\u503c\u3002**\n\n-----\n\n### \u63a8\u5bfc\n\n\u5982\u679c\u6570\u8f74\u4e0a\u6709\u4e24\u4e2a\u6570 $a\uff0cb$\uff0c\u8981\u6c42\u627e\u5230\u4e00\u4e2a\u6570$n$\uff0c\u4f7f\u5f97$n$\u5230 $a,b$\u7684\u8ddd\u79bb\u6700\u77ed\u3002\n\n\u7b80\u5355\u753b\u4e00\u4e2a\u56fe\uff0c\u6211\u4eec\u53ef\u4ee5\u5f97\u5230\u7ed3\u8bba\uff1a\n\n**\u53ea\u8981\u53d6 $a\u2264n\u2264b$ \uff0c\u5f97\u5230\u7684\u90fd\u662f\u6700\u5c0f\u503c\u3002**\n\n\u6240\u4ee5\uff1a\u5982\u679c\u6709\u591a\u4e2a\u6570\uff0c\u8981\u6c42\u627e\u5230 $n$ \uff0c\u90a3\u4e48 $n$ \u53ea\u8981\u53d6**\u8fd9\u4e9b\u6570\u603b\u5c0f\u5230\u5927\u6392\u5e8f\u540e\u7684\u4e2d\u4f4d\u6570\u5373\u53ef\u3002**\n\n\n----\n### \u601d\u8def\uff1a\n\n1.\u8bfb\u5165\u6570\u636e\n\n2.\u5c06\u6570\u7ec4\u8fdb\u884c**sort**\u4ece\u5c0f\u5230\u5927\u5feb\u6392\n\n3.\u8f93\u51fa\u6392\u5e8f\u540e\u6570\u7ec4\u7684\u4e2d\u4f4d\u6570\uff08**\u4f4d\u7f6e\u7684\u6807\u53f7\u5728\u6700\u4e2d\u95f4\u7684\u90a3\u4e2a\u6570**\uff09\n\n\nCode\uff1a\n-\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint n; \nint a[300005];\nint main()\n{\n    cin>>n; //\u8bfb\u5165\u6570\u636e\u4e2a\u6570 \n    for(int i=1;i<=n;i++) {\n    \tcin>>a[i];//\u8bfb\u5165\u6570\u636e \n\t} \n    sort(a+1,a+n+1); //\u5feb\u6392 \n    if (n%2 == 0) {\n    \tcout<<a[n/2]; //\u8f93\u51fa\u4e2d\u4f4d\u6570 \n\t}\n\telse {\n\t\tcout<<a[n/2+1]; //\u8f93\u51fa\u4e2d\u4f4d\u6570 \n\t} \n    return 0;\n}\n```\n\n",
+        "postTime": 1596682102,
+        "uid": 351320,
+        "name": "RBI_GL",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF710B \u3010Optimal Point on a Line\u3011"
+    },
+    {
+        "content": "\u77ed\u4ee3\u7801\u798f\u5229\u3002\n\n\u9996\u5148\uff0c\u8089\u773c\u89c2\u5bdf\u5c31\u77e5\u9053\u662f\u6c42\u4e2d\u4f4d\u6570\u3002\n\n\u6240\u4ee5\u53ef\u4ee5\u76f4\u63a5\u6392\u5e8f\uff0c\u5c31\u597d\u4e86\u3002\n\n```python\nn=int(input())#\u8bfb\u5165\nprint(sorted(map(int,input().split()))[(n-1)//2])\n```\n\n\u89e3\u91ca\u4e00\u4e0b\u7b2c\u4e8c\u884c\uff1a\n\n`input().split()` \u7528\u6765\u8bfb\u5165\u4e00\u884c\u5e76\u5206\u5272\uff0c\u4f46\u8fd8\u90fd\u662f\u5b57\u7b26\u4e32\u3002\n\n`map(int,input().split())` \u53ef\u4ee5\u8fd4\u56de\u4e00\u4e2a\u4e0a\u8ff0\u5217\u8868\u5168\u90e8\u8f6c\u4e3a\u6574\u6570\u7684\u65b0\u5217\u8868\u3002\n\n`sorted(map(int,input().split()))` \u53ef\u4ee5\u8fd4\u56de\u4e00\u4e2a\u6392\u5e8f\u540e\u7684\u4e0a\u8ff0\u65b0\u5217\u8868\u3002\n\n`(n-1)//2` \u662f\u4e2d\u4f4d\u6570\u4f4d\u7f6e\u3002\n\nOver.\n\n\u795d\u5927\u5bb6AC\uff01",
+        "postTime": 1588037621,
+        "uid": 338178,
+        "name": "__\u767d\u8863\u6e21\u6c5f__",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF710B \u3010Optimal Point on a Line\u3011"
+    },
+    {
+        "content": "\u5178\u578b\u7684\u6c42\u4e2d\u4f4d\u6570\n\n\u672c\u9898\u76f4\u63a5\u8bfb\u5165\uff0c\u6392\u5e8f\uff0c\u8f93\u51fa\u4e2d\u4f4d\u6570\n\n\u90a3\u4e48\u4e2d\u4f4d\u6570\u7684\u6c42\u6cd5\u5c31\u662f\u7528n/2+n%2\u6c42\u51fa\n\n## sort\u5927\u6cd5\u597d\uff01\uff01\uff01\n\n\u770b\u5230dalao\u4eec\u6ca1\u6709\u4ecb\u7ecdsort\n\n\u6211\u6765\u4ecb\u7ecd\u4e00\u4e0bsort\n\nsort\u662f\u5c5e\u4e8eSTL\u91cc\u7684\u4e00\u79cd~~\u4f5c\u5f0a~~\u5de5\u5177\n\n\u683c\u5f0f\uff08\u6570\u7ec4\u4ece0\u5f00\u59cb\u5b58\uff09\uff1asort(\u6570\u7ec4\u540d,\u6570\u7ec4\u540d+\u6570\u7ec4\u957f\u5ea6);\n\n\u683c\u5f0f\uff08\u6570\u7ec4\u4ece1\u5f00\u59cb\u5b58\uff09\uff1asort(\u6570\u7ec4\u540d+1,\u6570\u7ec4\u540d+1+\u6570\u7ec4\u957f\u5ea6);\n\n\u7528\u5230\u7684\u5934\u6587\u4ef6\uff1a``` #include<algorithm> ```\n\nsort\u9ed8\u8ba4\u7684\u6392\u5e8f\u65b9\u5f0f\u662f\u4ece\u5c0f\u5230\u5927\u6392\u5e8f\n\n\u597d\u4e86\uff0csort\u5c31\u4ecb\u7ecd\u5230\u8fd9\u4e86\n\n\u4e0a\u4ee3\u7801\uff1a\n\n```cpp\n#include<iostream>\n#include<cstdio>\n#include<algorithm>\n#include<cstring>\n#include<cmath>\n#include<string>\n#include<cstdlib>//\u5934\u6587\u4ef6 \nusing namespace std;\nint n,a[300001];//\u5b9a\u4e49n\u548c\u6240\u6709\u6570 \nint main(){\n    cin>>n;//\u8bfb\u5165\u6709\u51e0\u4e2a\u6570 \n    for(int i=1;i<=n;i++) cin>>a[i];//\u8bfb\u5165\u6570 \n    sort(a+1,a+n+1);//\u6392\u5e8f\uff0c\u7528C++STL\u91cc\u7684sort \n    cout<<a[n/2+n%2];//\u8f93\u51fa\u4e2d\u4f4d\u6570 \n    return 0;\n}\n```\n\n## \u6c42\u8d5e\uff01\uff01\uff01\n\n~~\uff08\u849f\u84bb\u5df2\u7ecf\u9003\u8dd1\u4e86\uff0c\u6ca1\u6cd5\u548c\u6ce5\u840c\u8bf4\u518d\u89c1\u4e86\uff09~~",
+        "postTime": 1582967878,
+        "uid": 307603,
+        "name": "_cmh",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF710B \u3010Optimal Point on a Line\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u7684\u65b9\u6cd5\u76f8\u4fe1\u5927\u5bb6\u90fd\u77e5\u9053\u4e86\uff1a\u5c06\u7ed9\u51fa\u6570\u636e\u6392\u5e8f\u540e\uff0c\u8f93\u51fa\u4ed6\u4eec\u7684\u4e2d\u4f4d\u6570\uff08\u5076\u6570\u4e3a\u7b2cn/2\u4e2a\u6570\uff09\uff0c\u6211\u53ea\u662f\u5728\u6b64\u57fa\u7840\u4e0a\u628a\u5947\u6570\u548c\u5076\u6570\u7684\u60c5\u51b5\u5408\u5e76\u4e86\u4e00\u4e0b\u800c\u5df2\u3002n\u4e3a\u5947\u6570\u65f6\uff0c\u4f4d\u7f6e\u4e3a\u7b2c\uff08n/2+1\uff09\u4e2a\u70b9\uff0c\u7531\u4e8en+1\u4e3a\u5076\u6570\uff0c\u6545(n+1)/2=n/2+1\uff1bn\u4e3a\u5076\u6570\u65f6\uff0c\u4f4d\u7f6e\u4e3a\u7b2cn/2\u4e2a\u6570\uff0c\u800cn/2=(n+1)/2\uff0c\u6545\u4e24\u5f0f\u53ef\u4ee5\u5408\u5e76\u4e3a\uff1a**(n+1)/2**\u3002\n\n _\u4ee3\u7801\u5982\u4e0b\uff1a_ \n\n------------\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint a[300005],n;//\u4e0d\u7528longlong\u4e5f\u80fd\u8fc7\nint main()\n{cin>>n;\n for(int i=1;i<=n;i++) cin>>a[i];//\u8bfb\u5165\n sort(a+1,a+n+1);//\u9898\u76ee\u6ca1\u8bf4\u5347\u5e8f\u8f93\u51fa\uff0c\u6240\u4ee5\u8981\u6392\u5e8f\n cout<<a[(n+1)/2];//\u4f7f\u7528\u5408\u5e76\u540e\u7684\u516c\u5f0f\n}\n\n```",
+        "postTime": 1547520212,
+        "uid": 171250,
+        "name": "sxtm12138",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF710B \u3010Optimal Point on a Line\u3011"
+    },
+    {
+        "content": "\u8fd9\u662f\u4e00\u9053~~\u5c0f\u5b66~~\u6570\u5b66\u9898\n\n\u5047\u8bbe\u6240\u6709\u6570\u4ece\u5c0f\u5230\u5927\u5728\u6570\u8f74\u4e2d\u6392\u5217\uff0c\u90a3\u4e48\u54ea\u4e00\u4e2a\u70b9\u662f\u7b26\u5408\u9898\u610f\u7684\uff1f\n\n\u5982\u679c$n$\u4e0d\u662f$2$\u7684\u500d\u6570\uff0c\u90a3\u4e48\u5c31\u662f\u6700\u4e2d\u95f4\u7684\u4e00\u4e2a\n\n\u5982\u679c$n$\u662f$2$\u7684\u500d\u6570\uff0c\u90a3\u4e48\u5728$n/2$\u548c$n/2+1$\u4e4b\u95f4\u7684\u6570\u90fd\u6ee1\u8db3\uff1b\u7531\u4e8e\u9898\u76ee\u8981\u6c42\u6700\u5c0f\uff0c\u6545\u4e3a$n/2$\u7684\u503c\n\nCode\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint read()  //\u5feb\u8bfb\n{\n\tint ret=0,f=1; char ch=getchar();\n\twhile(ch<'0'||ch>'9') {if(ch=='-') f=-1;ch=getchar();}\n\twhile(ch>='0'&&ch<='9') ret=ret*10+ch-'0',ch=getchar();\n\treturn ret*f;\n}\nint a[300005];  //\u5927\u7684\u6570\u7ec4\u6700\u597d\u5f00\u5728\u5916\u9762\nint main()\n{\n\tint n=read();\n\tfor(int i=1;i<=n;i++) a[i]=read();\n\tsort(a+1,a+1+n);  //\u8bfb\u5165\u6570\u636e\u5e76\u6392\u5e8f\n\tif(n%2==1)  printf(\"%d\",a[n/2+1]);\n\telse printf(\"%d\",a[n/2]);\n\treturn 0;\n}\n```",
+        "postTime": 1543501882,
+        "uid": 78860,
+        "name": "BB2655",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF710B \u3010Optimal Point on a Line\u3011"
+    },
+    {
+        "content": "### \u5927\u6c34\u9898\n\u5176\u5b9e\u8fd9\u9898\u5f88\u7b80\u5355\uff0c\u4e0d\u8981\u60f3\u5f97\u592a\u590d\u6742\u3002\n\n\u56e0\u4e3a\u662f\u6c42\u79bb\u6240\u6709\u6570\u7684\u8ddd\u79bb\u603b\u548c\u6700\u5c0f\u7684\u70b9\uff0c\u6240\u4ee5\u53ef\u4ee5\u77e5\u9053\uff0c\u6700\u4e2d\u95f4\u90a3\u4e2a\u70b9\u80af\u5b9a\u662f\u6700\u4f18\u7684\u70b9\uff08\u521d\u4e00\u7684\u5e94\u8be5\u77e5\u9053\uff09\u3002\u53ea\u8981\u6392\u5e8f\uff0c\u7136\u540e\u9009\u51fa\u6700\u4e2d\u95f4\u7684\u70b9\u5c31\u53ef\u4ee5\u4e86\u3002\n\n#### \u5907\u6ce8\uff1a\n\u4e0d\u77e5\u9053\u4e3a\u4ec0\u4e48\uff0c\u4e0d\u80fd\u63d2\u5165\u4ee3\u7801\uff0c\u8fd9\u662fcpp\u7684\u4ee3\u7801\n```\n#include<iostream>\n#include<cstdio>\n#include<algorithm>\n#include<cmath>\nusing namespace std;\nint n,x[300005],ans,sum=0x3f3f3f3f;\nint main(){\n\tint i,j;\n\tcin>>n;\n\tfor(i=1;i<=n;i++){    //\u8f93\u5165\n\t\tcin>>x[i];\n\t}\n\tint k;\n\tsort(x+1,x+n+1);    //\u6392\u5e8f\n\tif(n%2==1){       //\u7b97\u51fa\u6700\u5c0f\u70b9\n\t\tn=n/2;\n\t\tn+=1;\n\t\tans=x[n];\n\t}else{\n\t\tn=n/2;\n\t\tans=x[n];\n\t}\n\tcout<<ans<<endl;\n\treturn 0;\n}\n```\n",
+        "postTime": 1543397440,
+        "uid": 76751,
+        "name": "Strange_S",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF710B \u3010Optimal Point on a Line\u3011"
+    },
+    {
+        "content": "## \u9898\u610f\uff1a\u7ed9\u4f60n\u4e2a\u6570,\u6c42\u5b83\u4eec\u7684\u4e2d\u4f4d\u6570\n\n\u987e\u540d\u601d\u4e49:\u4e2d\u4f4d\u6570:\u6392\u5e8f\u540e\u4e2d\u95f4\u7684\u90a3\u4e2a\u6570\n\nSo code:\n```\n#include<bits/stdc++.h>/\u4e07\u80fd\u5934\n#define ll long long//\u8fd9\u6837\u52a0\u4e00\u884c\u4e4b\u540e\u53ef\u4ee5\u5c06\u4e0b\u6587\u6240\u6709\u7684ll\u66ff\u6362\u4e3along long,\u65b9\u4fbf\u5feb\u6377\n#define reg register\nusing namespace std;\nll x[1000000],n;//long long\u9632\u7206\nint main()\n{\n    scanf(\"%lld\",&n);\n    for(reg int i=1;i<=n;i++)scanf(\"%lld\",&x[i]);\n    sort(x+1,x+n+1);//\u5feb\u6392,\u9ed8\u8ba4\u4ece\u5c0f\u5230\u5927\n    printf(\"%lld\",n&1?x[n/2+1]:x[n/2]);//\u4e2d\u4f4d\u6570\u7684\u6c42\u6cd5\n    return 0;\n}\n```",
+        "postTime": 1543380932,
+        "uid": 48993,
+        "name": "liuyifan",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF710B \u3010Optimal Point on a Line\u3011"
+    }
+]

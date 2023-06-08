@@ -1,0 +1,17 @@
+{
+    "description": "It's well known that the best way to distract from something is to do one's favourite thing. Job is such a thing for Leha.\n\nSo the hacker began to work hard in order to get rid of boredom. It means that Leha began to hack computers all over the world. For such zeal boss gave the hacker a vacation of exactly $ x $ days. You know the majority of people prefer to go somewhere for a vacation, so Leha immediately went to the travel agency. There he found out that $ n $ vouchers left. $ i $ -th voucher is characterized by three integers $ l_{i} $ , $ r_{i} $ , $ cost_{i} $ \u2014 day of departure from Vi\u010dkopolis, day of arriving back in Vi\u010dkopolis and cost of the voucher correspondingly. The duration of the $ i $ -th voucher is a value $ r_{i}-l_{i}+1 $ .\n\nAt the same time Leha wants to split his own vocation into two parts. Besides he wants to spend as little money as possible. Formally Leha wants to choose exactly two vouchers $ i $ and $ j $ $ (i\u2260j) $ so that they don't intersect, sum of their durations is exactly $ x $ and their total cost is as minimal as possible. Two vouchers $ i $ and $ j $ don't intersect if only at least one of the following conditions is fulfilled: $ r_{i}&lt;l_{j} $ or $ r_{j}&lt;l_{i} $ .\n\nHelp Leha to choose the necessary vouchers!",
+    "inputFormat": "The first line contains two integers $ n $ and $ x $ $ (2<=n,x<=2\u00b710^{5}) $ \u2014 the number of vouchers in the travel agency and the duration of Leha's vacation correspondingly.\n\nEach of the next $ n $ lines contains three integers $ l_{i} $ , $ r_{i} $ and $ cost_{i} $ $ (1<=l_{i}<=r_{i}<=2\u00b710^{5},1<=cost_{i}<=10^{9}) $ \u2014 description of the voucher.",
+    "outputFormat": "Print a single integer \u2014 a minimal amount of money that Leha will spend, or print $ -1 $ if it's impossible to choose two disjoint vouchers with the total duration exactly $ x $ .",
+    "samples": [
+        [
+            "4 5\n1 3 4\n1 2 5\n5 6 1\n1 2 4\n",
+            "5\n"
+        ],
+        [
+            "3 2\n4 6 3\n2 4 1\n3 5 4\n",
+            "-1\n"
+        ]
+    ],
+    "hint": "In the first sample Leha should choose first and third vouchers. Hereupon the total duration will be equal to $ (3-1+1)+(6-5+1)=5 $ and the total cost will be $ 4+1=5 $ .\n\nIn the second sample the duration of each voucher is $ 3 $ therefore it's impossible to choose two vouchers with the total duration equal to $ 2 $ .",
+    "translation": "\u7ed9\u5b9a  $n,m$\u4ee5\u53ca  $n$\u4e2a\u533a\u95f4\uff0c\u533a\u95f4  $i$\u6709\u5de6\u7aef\u70b9  $l_i$\u53f3\u7aef\u70b9  $r_i$\u4ee5\u53ca\u4ef7\u503c  $cost_i$\u3002\u8981\u6c42\u4f60\u9009\u51fa\u4e24\u4e2a\u533a\u95f4\uff0c\u9009\u51fa\u7684\u4e24\u4e2a\u533a\u95f4\u6ee1\u8db3\u4e0b\u9762\u4e24\u4e2a\u6761\u4ef6\uff1a\n\n+ \u4e24\u4e2a\u533a\u95f4\u6ca1\u6709\u4ea4\u96c6\u3002\n\n+ \u8fd9\u4e24\u4e2a\u533a\u95f4\u7684\u957f\u5ea6\u548c\u7b49\u4e8e $m$ \uff08\u8fd9\u91cc\u4e00\u4e2a\u533a\u95f4\u7684\u957f\u5ea6\u662f $r_i - l_i + 1$ \uff09\u3002\n\n\u73b0\u5728\u8981\u6c42\u4f60\u9009\u51fa\u7684\u4e24\u4e2a\u533a\u95f4\u7684\u6743\u503c\u548c\u6700\u5c0f\uff0c\u8f93\u51fa\u6700\u5c0f\u6743\u503c\u548c\u3002"
+}

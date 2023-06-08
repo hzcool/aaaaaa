@@ -1,0 +1,21 @@
+{
+    "description": "Since most contestants do not read this part, I have to repeat that Bitlandians are quite weird. They have their own jobs, their own working method, their own lives, their own sausages and their own games!\n\nSince you are so curious about Bitland, I'll give you the chance of peeking at one of these games.\n\nBitLGM and BitAryo are playing yet another of their crazy-looking genius-needed Bitlandish games. They've got a sequence of $ n $ non-negative integers $ a_{1},a_{2},...,a_{n} $ . The players make moves in turns. BitLGM moves first. Each player can and must do one of the two following actions in his turn:\n\n- Take one of the integers (we'll denote it as $ a_{i} $ ). Choose integer $ x $ $ (1<=x<=a_{i}) $ . And then decrease $ a_{i} $ by $ x $ , that is, apply assignment: $ a_{i}=a_{i}-x $ .\n- Choose integer $ x $ ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF282D/cfd12ee35f4fd2cdcce2f524b91ce3785f31af4d.png). And then decrease all $ a_{i} $ by $ x $ , that is, apply assignment: $ a_{i}=a_{i}-x $ , for all $ i $ .\n\nThe player who cannot make a move loses.\n\nYou're given the initial sequence $ a_{1},a_{2},...,a_{n} $ . Determine who wins, if both players plays optimally well and if BitLGM and BitAryo start playing the described game in this sequence.",
+    "inputFormat": "The first line contains an integer $ n $ ( $ 1<=n<=3 $ ).\n\nThe next line contains $ n $ integers $ a_{1},a_{2},...,a_{n} $ $ (0<=a_{i}&lt;300) $ .",
+    "outputFormat": "Write the name of the winner (provided that both players play optimally well). Either \"BitLGM\" or \"BitAryo\" (without the quotes).",
+    "samples": [
+        [
+            "2\n1 1\n",
+            "BitLGM\n"
+        ],
+        [
+            "2\n1 2\n",
+            "BitAryo\n"
+        ],
+        [
+            "3\n1 2 1\n",
+            "BitLGM\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9\u5b9a\u4e00\u4e2a\u6709n\uff081<=n<=3\uff09\u4e2a\u5143\u7d20\u7684\u975e\u8d1f\u6574\u6570\u5e8f\u5217a1\u2014an(0<ai<=300),\u4e24\u4f4d\u73a9\u5bb6\u8f6e\u6d41\u8fdb\u884c\u5982\u4e0b\u64cd\u4f5c\u4e4b\u4e00\uff1a   \n1. \u4e3aai\uff080<i<=n\uff09\u51cf\u53bb\u4e00\u4e2a\u5c0f\u4e8e\u5b83\u7684\u6574\u6570x(0<x<=ai)\uff1b       \n2. \u4e3a\u5e8f\u5217\u4e2d\u7684\u6bcf\u4e00\u4e2a\u5143\u7d20\u90fd\u51cf\u53bb\u4e00\u4e2a\u6574\u6570x\uff0cx\u8981\u5c0f\u4e8e\u5e8f\u5217\u4e2d\u7684\u6bcf\u4e00\u4e2a\u5143\u7d20(x>0)\u3002\n\n\u7531BitLGM\u5148\u624b\uff0cBitAryo\u540e\u624b\u3002\u6bcf\u56de\u5408\u4e24\u4eba\u90fd\u5fc5\u987b\u8fdb\u884c\u4e0a\u9762\u4e24\u79cd\u64cd\u4f5c\u4e2d\u7684\u4e00\u79cd\u3002\u5f53\u4e00\u4e2a\u4eba\u4e0d\u80fd\u8fdb\u884c\u4efb\u4f55\u64cd\u4f5c\uff0c\u5373\u5e8f\u5217\u4e2d\u7684\u6240\u6709\u5143\u7d20\u5747\u4e3a0\u65f6\uff0c\u6b64\u4eba\u5931\u8d25\u3002   \n\u8981\u6c42\u8f93\u51fa\u5728\u4e24\u4eba\u90fd\u4ee5\u6700\u4f18\u7b56\u7565\u8fdb\u884c\u6e38\u620f\u7684\u60c5\u51b5\u4e0b\u5fc5\u80dc\u7684\u90a3\u4e00\u65b9\u3002"
+}

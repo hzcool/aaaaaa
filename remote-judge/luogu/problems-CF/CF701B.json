@@ -1,0 +1,21 @@
+{
+    "description": "Vasya has the square chessboard of size $ n\u00d7n $ and $ m $ rooks. Initially the chessboard is empty. Vasya will consequently put the rooks on the board one after another.\n\nThe cell of the field is under rook's attack, if there is at least one rook located in the same row or in the same column with this cell. If there is a rook located in the cell, this cell is also under attack.\n\nYou are given the positions of the board where Vasya will put rooks. For each rook you have to determine the number of cells which are not under attack after Vasya puts it on the board.",
+    "inputFormat": "The first line of the input contains two integers $ n $ and $ m $ ( $ 1<=n<=100000 $ , $ 1<=m<=min(100000,n^{2}) $ ) \u2014 the size of the board and the number of rooks.\n\nEach of the next $ m $ lines contains integers $ x_{i} $ and $ y_{i} $ ( $ 1<=x_{i},y_{i}<=n $ ) \u2014 the number of the row and the number of the column where Vasya will put the $ i $ -th rook. Vasya puts rooks on the board in the order they appear in the input. It is guaranteed that any cell will contain no more than one rook.",
+    "outputFormat": "Print $ m $ integer, the $ i $ -th of them should be equal to the number of cells that are not under attack after first $ i $ rooks are put.",
+    "samples": [
+        [
+            "3 3\n1 1\n3 1\n2 2\n",
+            "4 2 0 \n"
+        ],
+        [
+            "5 2\n1 5\n5 1\n",
+            "16 9 \n"
+        ],
+        [
+            "100000 1\n300 400\n",
+            "9999800001 \n"
+        ]
+    ],
+    "hint": "On the picture below show the state of the board after put each of the three rooks. The cells which painted with grey color is not under the attack.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF701B/428dcb8b9bcb24c035678e606e34e08943f7e5f6.png)",
+    "translation": "\u9898\u76ee\u63cf\u8ff0\uff1a\n\n\u7ed9\u5b9a\u4e00\u4e2a $n \\times n$ \u7684\u68cb\u76d8\u548c $m$ \u4e2a\u8f66\u4ee5\u53ca\u8fd9 $m$ \u4e2a\u8f66\u7684\u5750\u6807\uff0c\u95ee\u5728\u653e\u4e0b\u7b2c $i$ \u4e2a\u8f66\u7684\u65f6\u5019\uff0c\u6709\u591a\u5c11\u4e2a\u683c\u5b50\u4e0d\u4f1a\u88ab\u5df2\u653e\u4e0b\u7684\u8f66\u653b\u51fb\u5230\u3002\n\n\u8f93\u5165\u683c\u5f0f\uff1a\n\n\u7b2c $1$ \u884c\u8f93\u5165\u4e24\u4e2a\u6570 $n$ \u548c $m$\uff1b  \n\u7b2c $2$ \u884c\u5230\u7b2c $m-1$ \u884c\uff0c\u8f93\u5165\u7b2c $i$ \u4e2a\u8f66\u7684\u5750\u6807 $x_{i}$ \u548c $y_{i}$ \u3002\n\n\u8f93\u51fa\u683c\u5f0f\uff1a\n\n\u8f93\u51fa $m$ \u4e2a\u6570\u5b57\uff0c\u7b2c $i$ \u4e2a\u6570\u5b57\u8868\u793a\u653e\u7f6e $i$ \u4e2a\u8f66\u540e\u4e0d\u4f1a\u88ab\u653b\u51fb\u5230\u7684\u683c\u5b50\u6570\u91cf\u3002"
+}

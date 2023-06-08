@@ -1,0 +1,17 @@
+{
+    "description": "A tree is an undirected graph with exactly one simple path between each pair of vertices. We call a set of simple paths $ k $ -valid if each vertex of the tree belongs to no more than one of these paths (including endpoints) and each path consists of exactly $ k $ vertices.\n\nYou are given a tree with $ n $ vertices. For each $ k $ from $ 1 $ to $ n $ inclusive find what is the maximum possible size of a $ k $ -valid set of simple paths.",
+    "inputFormat": "The first line of the input contains a single integer $ n $ ( $ 2 \\le n \\le 100\\,000 $ ) \u2014 the number of vertices in the tree.\n\nThen following $ n - 1 $ lines describe the tree, each of them contains two integers $ v $ , $ u $ ( $ 1 \\le v, u \\le n $ ) \u2014 endpoints of the corresponding edge.\n\nIt is guaranteed, that the given graph is a tree.",
+    "outputFormat": "Output $ n $ numbers, the $ i $ -th of which is the maximum possible number of paths in an $ i $ -valid set of paths.",
+    "samples": [
+        [
+            "7\n1 2\n2 3\n3 4\n4 5\n5 6\n6 7\n",
+            "7\n3\n2\n1\n1\n1\n1\n\n"
+        ],
+        [
+            "6\n1 2\n2 3\n2 4\n1 5\n5 6\n",
+            "6\n2\n2\n1\n1\n0\n\n"
+        ]
+    ],
+    "hint": "One way to achieve the optimal number of paths for the second sample is illustrated in the following picture:\n\n![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1039D/e329fedb3b5635727a2fc3d6daa41da197dc92a6.png)",
+    "translation": "\u6709\u4e00\u68f5 $n$ \u4e2a\u8282\u70b9\u7684\u6811\u3002\n\n\u5176\u4e2d\u4e00\u4e2a\u7b80\u5355\u8def\u5f84\u7684\u96c6\u5408\u88ab\u79f0\u4e3a $k$ \u5408\u6cd5\u5f53\u4e14\u4ec5\u5f53\uff1a\n\n\u6811\u7684\u6bcf\u4e2a\u8282\u70b9\u81f3\u591a\u5c5e\u4e8e\u5176\u4e2d\u4e00\u6761\u8def\u5f84\uff0c\u4e14\u6bcf\u6761\u8def\u5f84\u6070\u597d\u5305\u542b $k$ \u4e2a\u70b9\u3002\n\n\u5bf9\u4e8e $k\\in [1,n]$\uff0c\u6c42\u51fa $k$ \u5408\u6cd5\u8def\u5f84\u96c6\u5408\u7684\u6700\u591a\u8def\u5f84\u6570\n\u5373\uff1a\u8bbe $k$ \u5408\u6cd5\u8def\u5f84\u96c6\u5408\u4e3a $S$\uff0c\u6c42\u6700\u5927\u7684 $|S|$\u3002\n\n$n \\leq 10^5$\u3002"
+}

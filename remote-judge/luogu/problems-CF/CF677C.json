@@ -1,0 +1,21 @@
+{
+    "description": "While walking down the street Vanya saw a label \"Hide&Seek\". Because he is a programmer, he used $ & $ as a bitwise AND for these two words represented as a integers in base $ 64 $ and got new word. Now Vanya thinks of some string $ s $ and wants to know the number of pairs of words of length $ |s| $ (length of $ s $ ), such that their bitwise AND is equal to $ s $ . As this number can be large, output it modulo $ 10^{9}+7 $ .\n\nTo represent the string as a number in numeral system with base $ 64 $ Vanya uses the following rules:\n\n- digits from '0' to '9' correspond to integers from $ 0 $ to $ 9 $ ;\n- letters from 'A' to 'Z' correspond to integers from $ 10 $ to $ 35 $ ;\n- letters from 'a' to 'z' correspond to integers from $ 36 $ to $ 61 $ ;\n- letter '-' correspond to integer $ 62 $ ;\n- letter '\\_' correspond to integer $ 63 $ .",
+    "inputFormat": "The only line of the input contains a single word $ s $ ( $ 1<=|s|<=100000 $ ), consisting of digits, lowercase and uppercase English letters, characters '-' and '\\_'.",
+    "outputFormat": "Print a single integer \u2014 the number of possible pairs of words, such that their bitwise AND is equal to string $ s $ modulo $ 10^{9}+7 $ .",
+    "samples": [
+        [
+            "z\n",
+            "3\n"
+        ],
+        [
+            "V_V\n",
+            "9\n"
+        ],
+        [
+            "Codeforces\n",
+            "130653412\n"
+        ]
+    ],
+    "hint": "For a detailed definition of bitwise AND we recommend to take a look in the corresponding article in Wikipedia.\n\nIn the first sample, there are $ 3 $ possible solutions:\n\n1. $ z&_=61&63=61=z $\n2. $ _&z=63&61=61=z $\n3. $ z&z=61&61=61=z $",
+    "translation": "\u7ed9\u4f60\u4e00\u4e32\u957f\u5ea6\u4e3as\u7684\u5b57\u7b26\u4e32\uff0c\u6bcf\u4e2a\u5b57\u7b26\u5bf9\u5e9464\u4ee5\u5185\u7684\u6570\u5b57\uff0c\u8bf7\u4f60\u6c42\u51fa\u957f\u5ea6\u4e0es\u76f8\u7b49\u7684\u4e00\u5bf9\u5b57\u7b26\u4e32\u6bcf\u4e00\u4f4d\u8fdb\u884c&\u8fd0\u7b97\u540e\u4e0e\u6240\u7ed9\u5b57\u7b26\u4e32\u76f8\u7b49\u7684\u5bf9\u6570\uff0c\u7b54\u6848\u53ef\u80fd\u5f88\u5927\uff0c\u5bf91e9+7\u53d6\u6a21\u3002\n\n\u6570\u5b57\u20180\u2019~\u20189\u2019\u5bf9\u5e94\u6570\u5b570~9\uff1b\n\u5c0f\u5199\u5b57\u6bcd\u2018a\u2019~\u2018b\u2019\u5bf9\u5e94\u6570\u5b5710~35\uff1b\n\u5927\u5199\u5b57\u6bcd\u2018A\u2019~\u2018B\u2019\u5bf9\u5e94\u6570\u5b5736~61\uff1b\n\u5b57\u7b26\u2018-\u2019\uff08\u51cf\u53f7\uff09\u5bf9\u5e94\u6570\u5b5762\uff1b\n\u5b57\u7b26\u2018\u2019\uff08\u4e0b\u5212\u7ebf\uff09\u5bf9\u5e94\u6570\u5b5763\uff1b\n\n\u8f93\u5165\u4e00\u4e32\u53ea\u6709\u6570\u5b57\uff0c\u5c0f\u5199\u5b57\u6bcd\uff0c\u5927\u5199\u5b57\u6bcd\uff0c\u2018-\u2019\uff0c\u2018\u2019\u7684\u5b57\u7b26\u4e32\uff081<=s<=100000\uff09\n\n\u8f93\u51fa&\u540e\u7b49\u4e8e\u6240\u7ed9\u5b57\u7b26\u4e32\u7684\u5b57\u7b26\u4e32\u5bf9\u6570\uff0c\u5bf91e9+7\u53d6\u6a21"
+}

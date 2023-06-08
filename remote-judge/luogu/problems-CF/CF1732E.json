@@ -1,0 +1,17 @@
+{
+    "description": "You are given two arrays of integers $ a_1, a_2, \\ldots, a_n $ and $ b_1, b_2, \\ldots, b_n $ . You need to handle $ q $ queries of the following two types:\n\n- $ 1 $ $ l $ $ r $ $ x $ : assign $ a_i := x $ for all $ l \\leq i \\leq r $ ;\n- $ 2 $ $ l $ $ r $ : find the minimum value of the following expression among all $ l \\leq i \\leq r $ : $ $$$\\frac{\\operatorname{lcm}(a_i, b_i)}{\\gcd(a_i, b_i)}. $ $ </li></ul><p>In this problem  $ \\\\gcd(x, y) $  denotes the <a href=\"https://en.wikipedia.org/wiki/Greatest_common_divisor\">greatest common divisor</a> of  $ x $  and  $ y $ , and  $ \\\\operatorname{lcm}(x, y) $  denotes the <a href=\"https://en.wikipedia.org/wiki/Least_common_multiple\">least common multiple</a> of  $ x $  and  $ y$$$.",
+    "inputFormat": "The first line contains two integers $ n $ and $ q $ ( $ 1 \\leq n, q \\leq 5 \\cdot 10^4 $ ) \u2014 the number of numbers in the arrays $ a $ and $ b $ and the number of queries.\n\nThe second line contains $ n $ integers $ a_1, a_2, \\ldots, a_n $ ( $ 1 \\leq a_i \\leq 5 \\cdot 10^4 $ ) \u2014 the elements of the array $ a $ .\n\nThe third line contains $ n $ integers $ b_1, b_2, \\ldots, b_n $ ( $ 1 \\leq b_i \\leq 5 \\cdot 10^4 $ ) \u2014 the elements of the array $ b $ .\n\nThen $ q $ lines follow, $ j $ -th of which starts with an integer $ t_j $ ( $ 1 \\leq t_j \\leq 2 $ ) and means that the $ j $ -th query has type $ t_j $ .\n\nIf $ t_j = 1 $ , it is followed by three integers $ l_j $ , $ r_j $ , and $ x_j $ ( $ 1 \\leq l_j \\leq r_j \\leq n $ , $ 1 \\leq x_j \\leq 5 \\cdot 10^4 $ ).\n\nIf $ t_j = 2 $ , it is followed by two integers $ l_j $ and $ r_j $ ( $ 1 \\leq l_j \\leq r_j \\leq n $ ).\n\nIt is guaranteed that there is at least one query of type $ 2 $ .",
+    "outputFormat": "For each query of the second type, output the minimum value of the expression.",
+    "samples": [
+        [
+            "10 10\n6 10 15 4 9 25 2 3 5 30\n1 2 3 4 6 9 12 15 18 30\n2 1 10\n1 7 10 9\n2 5 10\n1 1 6 14\n2 4 7\n2 3 9\n1 2 9 30\n2 1 4\n2 3 7\n2 5 10",
+            "1\n2\n12\n2\n10\n5\n2"
+        ],
+        [
+            "4 4\n10 2 12 5\n1 12 16 1\n2 2 4\n1 2 3 18\n1 2 2 10\n2 2 3",
+            "5\n30"
+        ]
+    ],
+    "hint": "In the first example:\n\n- For the first query we can choose $ i = 4 $ . So the value is $ \\frac{\\operatorname{lcm}(4, 4)}{\\gcd(4, 4)} = \\frac{4}{4} = 1 $ .\n- After the second query the array $ a = [6, 10, 15, 4, 9, 25, 9, 9, 9, 9] $ .\n- For the third query we can choose $ i = 9 $ . So the value is $ \\frac{\\operatorname{lcm}(9, 18)}{\\gcd(9, 18)} = \\frac{18}{9} = 2 $ .\n\nIn the second:\n\n- For the first query we can choose $ i = 4 $ . So the value is $ \\frac{\\operatorname{lcm}(1, 5)}{\\gcd(1, 5)} = \\frac{5}{1} = 5 $ .\n- After the second query the array $ a = [10, 18, 18, 5] $ .\n- After the third query the array $ a = [10, 10, 18, 5] $ .\n- For the fourth query we can choose $ i = 2 $ . So the value is $ \\frac{\\operatorname{lcm}(10, 12)}{\\gcd(10, 12)} = \\frac{60}{2} = 30 $ .",
+    "translation": "\u521d\u59cb\u7ed9\u5b9a\u5e8f\u5217 $a,b$\uff0c\u9700\u8981\u7ef4\u62a4\u4ee5\u4e0b\u64cd\u4f5c\uff1a\n\n1. \u7ed9\u5b9a $l,r,x$\uff0c\u5bf9\u4e8e $\\forall i\\in[l,r]$\uff0c\u4ee4 $a_i=x$\u3002\n2. \u7ed9\u5b9a $l,r$\uff0c\u6c42 $\\min_{i\\in[l,r]}\\frac{\\operatorname{lcm}(a_i,b_i)}{\\gcd(a_i,b_i)}$\u3002\n\n\u6570\u636e\u8303\u56f4 $1\\leq n,q,a_i\\leq 50000$\u3002\n\nTranslater by Prean"
+}

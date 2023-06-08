@@ -1,0 +1,17 @@
+{
+    "description": "![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1556G/1dd0892a04e175ffb91c0b37172a9db69e22268c.png)As mentioned previously William really likes playing video games. In one of his favorite games, the player character is in a universe where every planet is designated by a binary number from $ 0 $ to $ 2^n - 1 $ . On each planet, there are gates that allow the player to move from planet $ i $ to planet $ j $ if the binary representations of $ i $ and $ j $ differ in exactly one bit.\n\nWilliam wants to test you and see how you can handle processing the following queries in this game universe:\n\n- Destroy planets with numbers from $ l $ to $ r $ inclusively. These planets cannot be moved to anymore.\n- Figure out if it is possible to reach planet $ b $ from planet $ a $ using some number of planetary gates. It is guaranteed that the planets $ a $ and $ b $ are not destroyed.",
+    "inputFormat": "The first line contains two integers $ n $ , $ m $ ( $ 1 \\leq n \\leq 50 $ , $ 1 \\leq m \\leq 5 \\cdot 10^4 $ ), which are the number of bits in binary representation of each planets' designation and the number of queries, respectively.\n\nEach of the next $ m $ lines contains a query of two types:\n\nblock l r \u2014 query for destruction of planets with numbers from $ l $ to $ r $ inclusively ( $ 0 \\le l \\le r < 2^n $ ). It's guaranteed that no planet will be destroyed twice.\n\nask a b \u2014 query for reachability between planets $ a $ and $ b $ ( $ 0 \\le a, b < 2^n $ ). It's guaranteed that planets $ a $ and $ b $ hasn't been destroyed yet.",
+    "outputFormat": "For each query of type ask you must output \"1\" in a new line, if it is possible to reach planet $ b $ from planet $ a $ and \"0\" otherwise (without quotation marks).",
+    "samples": [
+        [
+            "3 3\nask 0 7\nblock 3 6\nask 0 7",
+            "1\n0"
+        ],
+        [
+            "6 10\nblock 12 26\nask 44 63\nblock 32 46\nask 1 54\nblock 27 30\nask 10 31\nask 11 31\nask 49 31\nblock 31 31\nask 2 51",
+            "1\n1\n0\n0\n1\n0"
+        ]
+    ],
+    "hint": "The first example test can be visualized in the following way:\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1556G/55cb79beabdec984b13918f19792c5f801d55644.png)Response to a query ask 0 7 is positive.\n\nNext after query block 3 6 the graph will look the following way (destroyed vertices are highlighted):\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1556G/543aa936604b4e2d226365791a56962070845e5c.png)Response to a query ask 0 7 is negative, since any path from vertex $ 0 $ to vertex $ 7 $ must go through one of the destroyed vertices.",
+    "translation": "- \u6709 $2^n$ \u4e2a\u70b9\uff0c\u7f16\u53f7\u4e3a $i,j$ \u7684\u70b9\u4e4b\u95f4\u6709\u65e0\u5411\u8fb9\u5f53\u4e14\u4ec5\u5f53 $\\mathrm{popcount}(i \\oplus j)=1$\u3002  \n- \u6709 $m$ \u6b21\u64cd\u4f5c\uff0c\u6bcf\u6b21\u8be2\u95ee $a,b$ \u662f\u5426\u80fd\u4e92\u76f8\u5230\u8fbe\uff0c\u6216\u8005\u5220\u9664\u7f16\u53f7\u5728 $[l,r]$ \u4e4b\u95f4\u7684\u6240\u6709\u70b9\u3002  \n- $n \\le 50,m \\le 5 \\times 10^4$\u3002"
+}

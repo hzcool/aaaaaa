@@ -1,0 +1,20 @@
+{
+    "description": "[problemUrl]: https://atcoder.jp/contests/code-festival-2015-okinawa-open/tasks/code_festival_2015_okinawa_g\n\n",
+    "inputFormat": "Inputs will be given by standard input in following format\n\n> $ A $ $ B $ $ N $ $ p_1 $ $ q_1 $ $ p_2 $ $ q_2 $ : $ p_N $ $ q_N $\n\n- For the first line, $ A\u3001B(1\u2266B\u2266A\u2266100,000) $\u3001$ N(0\u2266N\u226620) $ will be given divided by spaces.\n- From the second line there are $ N $ additional lines to give all the Dirty Placements. For the $ i_{th} $ line, integer $ p_i(1\u2266p_i\u2266A) $\u3001$ q_i(1\u2266q_i\u2266B,q_i\u2266p_i) $ will be given divided by spaces.",
+    "outputFormat": "Please output the remainder when the number of all the possible methods that can move all the flower in vase $ 1 $ to vase $ 2 $, modulo $ 1,000,000,007 $.\n\nPrint a newline at the end of output.",
+    "samples": [
+        [
+            "3 1 0",
+            "2"
+        ],
+        [
+            "7 5 3\r\n4 2\r\n6 1\r\n5 4",
+            "0"
+        ],
+        [
+            "98765 43210 5\r\n314 159\r\n26535 8979\r\n3238 46\r\n26433 8327\r\n950 288",
+            "763788532"
+        ]
+    ],
+    "hint": "### Problem\n\nCat Snuke has a pair of vases. One is noted as vase $ 1 $, the other one is noted as vase $ 2 $. At first, the vase $ 1 $ contains $ A $ blue flowers and $ B $ red flowers. In addition, the number of blue flowers is larger than or equal to the number of red flower, in other words, $ A\\ \u2267\\ B $. In addition, vase $ 2 $ is empty, contains neither blue flowers nor red flowers.\n\n By the way, Cat Snuke doesn\u2019t like mixing a specific number of red flowers with a specific number of blue flowers. Such combination is called as a **Dirty Placement** . There are $ N $ different Dirty Placements in total, the $ i_{th} $ **Dirty Placement** is the combination of precisely $ p_i $ blue flowers and $ q_i $ red flowers.\n\nCat Snuke wants to move all the flowers that are in vase $ 1 $ to vase $ 2 $ one by one. However, Cat Snuke has to follow the following rules.\n\n- For vase $ 1 $ and vase $ 2 $, the number of the blue flowers should always be larger than or equal to that of the red flowers.\n- For vase $ 1 $ and vase $ 2 $, the combination of the number of the blue flowers and the number of the red flowers must not be any **Dirty Placement** (at anytime).\n\nIn accordance with the above rules, answer the number of all the possible methods that can move all the flower in vase $ 1 $ to vase $ 2 $, modulo $ 1,000,000,007 $. Please note that all the flowers with the same color are indistinguishable (identical).\n\n### Sample Explanation 1\n\nAs shown below, there are two possible ways to move flowers. - The moving order is as, blue, blue, red, blue. - The moving order is as, blue, red, blue, blue."
+}

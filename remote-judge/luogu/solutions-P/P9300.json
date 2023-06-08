@@ -1,0 +1,90 @@
+[
+    {
+        "content": "\n[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/P9300)\n\n\u9898\u76ee\u89e3\u6790\uff1a\n\n\u672c\u9898\u8003\u67e5\u70b9\uff1a`if` \u7684\u4f7f\u7528\u3002\n\n\u6211\u4eec\u53ea\u9700\u5224\u65ad\u7b2c\u4e00\u4e2a\u5b57\u6bcd\u5373\u53ef\u3002\n\n\u4e0a\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n\tint n;\n\tcin>>n;\n\tint ans=0;\n\tfor(int i=1;i<=n;i++){\n\t\tstring s;\n\t\tcin>>s;\n\t\tif(s[0]=='P') ans+=1500;\n\t\telse if(s[0]=='M') ans+=6000;\n\t\telse if(s[0]=='S') ans+=15500;\n\t\telse if(s[0]=='C') ans+=40000;\n\t\telse if(s[0]=='T') ans+=75000;\n\t\telse ans+=125000;\n\t}\n\tcout<<ans;\n\treturn 0;\n}\n```",
+        "postTime": 1682771896,
+        "uid": 601639,
+        "name": "__tiao__",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3P9300"
+    },
+    {
+        "content": "**\u601d\u8def\uff1a**\n\n\u6bcf\u4e00\u6b21\u8bfb\u5165\u65f6\u5224\u65ad\u662f\u54ea\u79cd\u8fa3\u6912\uff0c\u4e4b\u540e\u5728 $ans$ \u4e2d\u589e\u52a0\u5b83\u5bf9\u5e94\u7684\u8fa3\u5ea6\uff0c\u6700\u540e\u8f93\u51fa $ans$ \u5373\u53ef\u3002\n\n\u7531\u4e8e\u8fa3\u6912\u540d\u79f0\u7684\u9996\u5b57\u6bcd\u4e0d\u540c\uff0c\u6240\u4ee5\u53ea\u9700\u8981\u5224\u65ad\u9996\u5b57\u6bcd\u5373\u53ef\u3002\n\n**\u4e3b\u8981\u4ee3\u7801\uff1a**\n\n```\nscanf(\"%d\",&n);\nwhile(n)\n{\n    n-=1;\n    scanf(\"%s\",s);\n    if(s[0]=='P')ans+=1500;\n    else if(s[0]=='M')ans+=6000;\n    else if(s[0]=='S')ans+=15500;\n    else if(s[0]=='C')ans+=40000;\n    else if(s[0]=='T')ans+=75000;\n    else if(s[0]=='H')ans+=125000;\n}\nprintf(\"%d\\n\",ans);\n```",
+        "postTime": 1682769895,
+        "uid": 750764,
+        "name": "Leaves_xw",
+        "ccfLevel": 0,
+        "title": "P9300\u9898\u89e3"
+    },
+    {
+        "content": "[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/P9300)\n\n### \u5206\u6790\n\n\u9010\u4e2a\u8f93\u5165 $n$ \u4e2a\u5b57\u7b26\u4e32\uff0c\u7528\u5206\u652f\u8bed\u53e5\u5224\u65ad\u8f93\u5165\u7684\u662f\u54ea\u4e2a\u8fa3\u6912\uff0c\u518d\u628a\u5176\u5bf9\u5e94\u7684\u8fa3\u5ea6\u7d2f\u52a0\u5230\u8ba1\u6570\u53d8\u91cf $ans$ \u91cc\u5373\u53ef\u3002\n\n\u6ce8\u610f\u5230\u6bcf\u4e2a\u8fa3\u6912\u540d\u7684\u9996\u5b57\u6bcd\u5404\u4e0d\u76f8\u540c\uff0c\u76f4\u63a5\u5224\u65ad\u9996\u5b57\u6bcd\u66f4\u65b9\u4fbf\u3002\n\n### \u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n\tint n;\n\tcin>>n;\n\tint ans=0;\n\twhile(n--)\n\t{\n\t\tstring s;\n\t\tcin>>s;\n\t\tif(s[0]=='P')\n\t\t{\n\t\t\tans+=1500;\n\t\t}\n\t\telse if(s[0]=='M')\n\t\t{\n\t\t\tans+=6000;\n\t\t}\n\t\telse if(s[0]=='S')\n\t\t{\n\t\t\tans+=15500;\n\t\t}\n\t\telse if(s[0]=='C')\n\t\t{\n\t\t\tans+=40000;\n\t\t}\n\t\telse if(s[0]=='T')\n\t\t{\n\t\t\tans+=75000;\n\t\t}\n\t\telse\n\t\t{\n\t\t\tans+=125000;\n\t\t}\n\t}\n\tcout<<ans<<endl;\n\treturn 0;\n}\n```",
+        "postTime": 1682769640,
+        "uid": 706859,
+        "name": "maomao233",
+        "ccfLevel": 0,
+        "title": "P9300 \u9898\u89e3"
+    },
+    {
+        "content": "\u9010\u4e2a\u8f93\u5165\uff0c\u7528 `if` \u5224\u65ad\u8fa3\u5ea6\uff0c\u7136\u540e\u7d2f\u52a0\u5230\u53d8\u91cf $cnt$ \u91cc\u9762\u3002\n\n\u6ce8\u610f\u5927\u5c0f\u5199\u3002\n\n```cpp\n#include <iostream>\n// #include <bits/stdc++.h>\n// #define abs(a) (a<0?-a:a)\n// #define max(a,b) (a>b?a:b)\n// #define min(a,b) (a<b?a:b)\n// #define int __int128\n// #define int long long\n// #define int unsigned int\n#define endl '\\n'\nusing namespace std;\n\nint n,cnt;\nstring s;\n\nsigned main() {\n    ios::sync_with_stdio(0);\n    cin.tie(NULL);\n    \n    cin >> n;\n    while(n--){\n        cin >> s;\n        if(s == \"Poblano\"){\n            cnt += 1500;\n        }else if(s == \"Mirasol\"){\n            cnt += 6000;\n        }else if(s == \"Serrano\"){\n            cnt += 15500;\n        }else if(s == \"Cayenne\"){\n            cnt += 40000;\n        }else if(s == \"Thai\"){\n            cnt += 75000;\n        }else if(s == \"Habanero\"){\n            cnt += 125000;\n        }\n    }\n    \n    cout << cnt << endl;\n    return 0;\n}\n```",
+        "postTime": 1682768701,
+        "uid": 781159,
+        "name": "wind_kaka",
+        "ccfLevel": 0,
+        "title": "P9300 \u9898\u89e3"
+    },
+    {
+        "content": "## \u601d\u8def\n\n\u4e00\u9053 `if` \u7684\u7ec3\u4e60\u9898\u3002\n\n\u53ea\u9700\u6839\u636e\u8f93\u5165\u6765\u5224\u65ad\u5176\u5bf9\u5e94\u7684\u503c\uff0c\u6700\u540e\u76f8\u52a0\u603b\u548c\u5373\u53ef\uff0c\u6ce8\u610f\u8f93\u5165\u65f6\u9996\u5b57\u6bcd\u662f\u5927\u5199\u7684\u3002\n\n## \u4ee3\u7801\n\n```cpp\n//Author: Saint_ying_xtf\n//help me,qwq\n//Timelimit: 1000ms\n#include <iostream>\n#include <cstdio>\n#include <cstring>\n#include <algorithm>\n#include <map>\nusing namespace std;\n#define int long long\n#define f(W, X, Y, Z) for(int W = X; W <= Y; W += Z)\n#define F(W, X, Y, Z) for(int W = X; W >= Y; W -= Z)\n#define debug puts(\"QAQ\")\nnamespace fastIO{\n\tinline int read(){\n\t\tint x = 0, s = 1;\n\t\tchar c = getchar();\n\t\twhile(c < '0' || c > '9'){\n\t\t\tif(c == '-') s = -1;\n\t\t\tc = getchar();\n\t\t}\n\t\twhile(c >= '0' && c <= '9'){\n\t\t\tx = (x << 3) + (x << 1) + (c ^ '0');\n\t\t\tc = getchar();\n\t\t}\n\t\treturn x * s;\n\t}\n\tinline void Write(int x){\n\t\tif(x < 0){\n\t\t\tputchar('-');\n\t\t\tx = -x;\n\t\t}\n\t\tif(x > 9) Write(x / 10);\n\t\tputchar(x % 10 + '0');\n\t}\n\tinline void write(int x, char c){\n\t\tWrite(x);\n\t\tputchar(c);\n\t}\n}\nusing namespace fastIO;\nnamespace SyxQwQ{\n\tinline int qwq(){\n\t\treturn 0;\n\t}\n\tinline int main(){\n\t\t//todo\n\t\tint n = read(), ans = 0;\n\t\twhile(n--){\n\t\t\tstring s;\n\t\t\tcin >> s;\n\t\t\tif(s == \"Thai\") ans += 75000;\n\t\t\telse if(s == \"Habanero\") ans += 125000;\n\t\t\telse if(s == \"Poblano\") ans += 1500;\n\t\t\telse if(s == \"Mirasol\") ans += 6000;\n\t\t\telse if(s == \"Serrano\") ans += 15500;\n\t\t\telse ans += 40000;\n\t\t}\n\t\twrite(ans, '\\n');\n\t\treturn qwq();\n\t}\n}\nsigned main(){\n\tSyxQwQ::main();\n\treturn 0;\n}\n```",
+        "postTime": 1682768250,
+        "uid": 852144,
+        "name": "Saint_ying_xtf",
+        "ccfLevel": 0,
+        "title": "\u6708\u4eae\u597d\u95ea\uff0c\u62dc\u8c22\u6708\u4eae"
+    },
+    {
+        "content": "## \u9898\u76ee\u601d\u8def\n\u6309\u7167\u9898\u610f\u6a21\u62df\uff0c\u5b9a\u4e49\u53d8\u91cf $ans$ \u8868\u793a\u7b54\u6848\u3002\n\n\u5bf9\u4e8e\u6bcf\u6b21\u8f93\u5165\u7684\u5b57\u7b26\u4e32 $t$\uff1a\n- $t=$ `Poblano`\uff0c$ans+1500$\u3002\n- $t=$ `Mirasol`\uff0c$ans+6000$\u3002\n- $t=$ `Serrano`\uff0c$ans+15500$\u3002\n- $t=$ `Cayenne`\uff0c$ans+40000$\u3002\n- $t=$ `Thai`\uff0c$ans+75000$\u3002\n- $t=$ `Habanero`\uff0c$ans+125000$\u3002\n\n\u6700\u540e\u8f93\u51fa $ans$ \u5373\u53ef\u3002\n\n## \u4ee3\u7801\n```cpp\n//By Jasoncwx\n#include<bits/stdc++.h>\nusing namespace std;\n\nint main(){\n\tint n,sum=0;\n\tcin>>n;\n\twhile(n--){\n\t\tstring t;cin>>t;\n\t\tif(t==\"Poblano\")sum+=1500;\n\t\tif(t==\"Mirasol\")sum+=6000;\n\t\tif(t==\"Serrano\")sum+=15500;\n\t\tif(t==\"Cayenne\")sum+=40000;\n\t\tif(t==\"Thai\")sum+=75000;\n\t\tif(t==\"Habanero\")sum+=125000;\n\t}\n\tcout<<sum;\n    return 0;\n}\n```",
+        "postTime": 1681916876,
+        "uid": 592684,
+        "name": "Jasoncwx",
+        "ccfLevel": 0,
+        "title": "P9300 \u9898\u89e3"
+    },
+    {
+        "content": "\u63d0\u4f9b\u4e00\u4e2a\u4e0d\u4e00\u6837\u7684\u505a\u6cd5\uff0c\u4e2a\u4eba\u89c9\u5f97\u66f4\u52a0\u7b80\u5355\u3002\n\n\u6b64\u9898\u6211\u4f7f\u7528\u4e86 `std::map`\uff0c\u901a\u8fc7\u5b57\u7b26\u4e32\u4e0e\u5143\u7d20\u7684\u6620\u5c04\u901a\u8fc7\u6b64\u9898\u3002`std::map` \u7684\u5177\u4f53\u7528\u6cd5\u53ef\u4ee5\u53c2\u8003[\u6b64\u5904](https://zhuanlan.zhihu.com/p/127860466)\uff0c\u8fd9\u91cc\u4e0d\u518d\u8d58\u8ff0\u3002\n\n\u601d\u8def\uff1a\u63d0\u524d\u5904\u7406\u6bcf\u79cd\u8fa3\u6912\u7684\u8fa3\u5ea6\uff0c\u6bcf\u6b21\u8f93\u5165\u5b57\u7b26\u4e32\uff0c\u76f4\u63a5\u7d2f\u52a0\u7b54\u6848\u5373\u53ef\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>//\u5934\u6587\u4ef6\nusing namespace std;\nmap<string,int> mp;//\u5b9a\u4e49\u4e00\u4e2a\u628a string \u6620\u5c04\u5230 int \u7684 map\n\nint main()\n{\n    mp[\"Poblano\"]=1500;//\u9884\u5904\u7406\u8fa3\u5ea6\u503c\n    mp[\"Mirasol\"]=6000;\n    mp[\"Serrano\"]=15500;\n    mp[\"Cayenne\"]=40000;\n    mp[\"Thai\"]=75000;\n    mp[\"Habanero\"]=125000;\n    int n,ans=0;//\u5b9a\u4e49\u53d8\u91cf\uff0c\u6ce8\u610f ans \u8981\u8d4b\u503c\u4e3a 0\n    cin>>n;\n    while(n--)\n    {\n    \tstring s;\n    \tcin>>s;\n    \tans+=mp[s];//\u8ba1\u7b97\n\t}\n\tcout<<ans;//\u8f93\u51fa\n\treturn 0;\n}\n```",
+        "postTime": 1682773573,
+        "uid": 646208,
+        "name": "Hughpig",
+        "ccfLevel": 0,
+        "title": "P9300"
+    },
+    {
+        "content": "\u4e00\u9053\u5165\u95e8\u9898\u3002\n\n\u9010\u4e2a\u8f93\u5165\u6bcf\u4e2a\u8fa3\u6912\u7684\u540d\u5b57\uff0c\u7528 ```if``` \u5224\u65ad\u662f\u4ec0\u4e48\u8fa3\u6912\uff0c\u6700\u540e\u7528\u4e00\u4e2a\u53d8\u91cf\u52a0\u4e0a\u6240\u6709\u8fa3\u6912\u7684\u8fa3\u5ea6\u5373\u53ef\u3002\n# \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,ans;\nstring s;\nint main(){\n\tcin>>n;\n\twhile(n--){\n\t\tcin>>s;\n\t\tif(s==\"Poblano\")ans+=1500;\n\t\telse if(s==\"Mirasol\")ans+=6000;\n\t\telse if(s==\"Serrano\")ans+=15500;\n\t\telse if(s==\"Cayenne\")ans+=40000;\n\t\telse if(s==\"Thai\")ans+=75000;\n\t\telse ans+=125000;\n\t}\n\tcout<<ans;\n\treturn 0;\n}\n```\n",
+        "postTime": 1682773025,
+        "uid": 780539,
+        "name": "qwertim",
+        "ccfLevel": 0,
+        "title": "Chili Peppers \u9898\u89e3"
+    },
+    {
+        "content": "# \u601d\u8def\n\n\u8fd9\u9053\u9898\u5c31\u662f\u4e00\u4e2a\u8f93\u5165 `n` \u6b21\u7684\u5b57\u7b26\u4e32\uff0c\u5982\u679c\u6ee1\u8db3\u8981\u6c42\u7684\u5c31\u5b58\u50a8\u5230 `sum` \u91cc \u4e3b\u8981\u8003\u5bdf\u7684\u662f `if` \u8bed\u53e5\u7684\u5e94\u7528\uff0c\u9700\u8981\u6ce8\u610f\u7684\u662f\u6bcf\u4e2a\u5b57\u7b26\u4e32\u7684\u5927\u5c0f\u5199\u3002\n\n# # CODE\n\n```c++\n#include<bits/stdc++.h>\nusing namespace std;\nstring s;\nint main() {\n\tint n,sum=0;\n\tcin >> n;\n\twhile(n--){\n\t\tcin >> s;\n\t\tif(s == \"Poblano\")sum+=1500;\n\t\telse if(s==\"Mirasol\")sum+=6000;\n\t\telse if(s==\"Serrano\")sum+=15500;\n\t\telse if(s==\"Cayenne\")sum+=40000;\n\t\telse if(s==\"Thai\")sum+=75000;\n\t\telse if(s==\"Habanero\")sum+=125000;\n\t}\n\tcout << sum;\n    return 0;\n}\n\n```\n\n",
+        "postTime": 1682770015,
+        "uid": 738903,
+        "name": "prt_xcdh",
+        "ccfLevel": 0,
+        "title": "P9300\u9898\u89e3"
+    },
+    {
+        "content": "\u867d\u7136\u662f\u4e00\u9053\u7b80\u5355\u9898\uff0c\u4e0d\u8fc7\u4e5f\u6709\u8981\u6ce8\u610f\u7684\u5730\u65b9\u3002\n\n\u9996\u5148\u662f\u8981\u6ce8\u610f\u5927\u5c0f\u5199\uff0c\u5176\u6b21\uff0c\u4e3a\u4e86\u7701~~\u4e00\u70b9\u70b9~~\u7801\u91cf\uff0c\u6ce8\u610f\u5230\u5404\u4e2a\u8fa3\u6912\u7684\u9996\u5b57\u6bcd\u4e0d\u540c\uff0c\u53ef\u4ee5\u53ea\u6bd4\u8f83\u9996\u5b57\u6bcd\u6765\u786e\u5b9a\u5404\u4e2a\u8fa3\u6912\u8fa3\u5ea6\u3002\n\n\u6700\u540e\u5c06\u6bcf\u4e2a\u8fa3\u6912\u8fa3\u5ea6\u7d2f\u52a0\u5373\u53ef\u3002\n\nAC \u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,ans=0;\nchar s[8];\nint main(){\n\tscanf(\"%d\",&n);\n\twhile(n--){\n\t\tscanf(\"%s\",s);\n\t\tif(s[0]=='P'){\n\t\t\tans+=1500;\n\t\t}\n\t\telse if(s[0]=='M'){\n\t\t\tans+=6000;\n\t\t}\n\t\telse if(s[0]=='S'){\n\t\t\tans+=15500;\n\t\t}\n\t\telse if(s[0]=='C'){\n\t\t\tans+=40000;\n\t\t}\n\t\telse if(s[0]=='T'){\n\t\t\tans+=75000;\n\t\t}\n\t\telse if(s[0]=='H'){\n\t\t\tans+=125000;\n\t\t}\n\t}\n\tprintf(\"%d\",ans);\n\treturn 0;\n}\n```\n",
+        "postTime": 1682769884,
+        "uid": 566451,
+        "name": "Sun_Email",
+        "ccfLevel": 0,
+        "title": "P9300"
+    },
+    {
+        "content": "## \u601d\u8def\n\u6b64\u9898\u4f7f\u7528 STL map \u540c\u6837\u53ef\u89e3\u3002\n\n\u9884\u5904\u7406 $6$ \u79cd\u8fa3\u6912\u6570\u503c\u5373\u53ef\u3002\n\n## Code\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n\nmap<string,int>m;\n\nint main()\n{\n\tm.insert(make_pair(\"Poblano\",1500));\n\tm.insert(make_pair(\"Mirasol\",6000));\n\tm.insert(make_pair(\"Serrano\",15500));\n\tm.insert(make_pair(\"Cayenne\",40000));\n\tm.insert(make_pair(\"Thai\",75000));\n\tm.insert(make_pair(\"Habanero\",125000));\n\tint n,ans=0;\n\tcin>>n;\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tstring s;\n\t\tcin>>s;\n\t\tans+=m[s];\n\t}\n\tcout<<ans;\n    return 0;\n}\n```",
+        "postTime": 1682770433,
+        "uid": 505417,
+        "name": "dpy_dog",
+        "ccfLevel": 4,
+        "title": "P9300 [CCC 2023 J2] Chili Peppers"
+    }
+]

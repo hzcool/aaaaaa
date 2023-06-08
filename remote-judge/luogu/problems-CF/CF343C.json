@@ -1,0 +1,21 @@
+{
+    "description": "Mad scientist Mike does not use slow hard disks. His modification of a hard drive has not one, but $ n $ different heads that can read data in parallel.\n\nWhen viewed from the side, Mike's hard drive is an endless array of tracks. The tracks of the array are numbered from left to right with integers, starting with 1. In the initial state the $ i $ -th reading head is above the track number $ h_{i} $ . For each of the reading heads, the hard drive's firmware can move the head exactly one track to the right or to the left, or leave it on the current track. During the operation each head's movement does not affect the movement of the other heads: the heads can change their relative order; there can be multiple reading heads above any of the tracks. A track is considered read if at least one head has visited this track. In particular, all of the tracks numbered $ h_{1} $ , $ h_{2} $ , $ ... $ , $ h_{n} $ have been read at the beginning of the operation.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF343C/477411d635199d18d36c6b93ba130f0f6f88e682.png)Mike needs to read the data on $ m $ distinct tracks with numbers $ p_{1} $ , $ p_{2} $ , $ ... $ , $ p_{m} $ . Determine the minimum time the hard drive firmware needs to move the heads and read all the given tracks. Note that an arbitrary number of other tracks can also be read.",
+    "inputFormat": "The first line of the input contains two space-separated integers $ n $ , $ m $ ( $ 1<=n,m<=10^{5} $ ) \u2014 the number of disk heads and the number of tracks to read, accordingly. The second line contains $ n $ distinct integers $ h_{i} $ in ascending order ( $ 1<=h_{i}<=10^{10} $ , $ h_{i}&lt;h_{i+1} $ ) \u2014 the initial positions of the heads. The third line contains $ m $ distinct integers $ p_{i} $ in ascending order ( $ 1<=p_{i}<=10^{10} $ , $ p_{i}&lt;p_{i+1} $ ) - the numbers of tracks to read.\n\nPlease, do not use the %lld specifier to read or write 64-bit integers in \u0421++. It is recommended to use the cin, cout streams or the %I64d specifier.",
+    "outputFormat": "Print a single number \u2014 the minimum time required, in seconds, to read all the needed tracks.",
+    "samples": [
+        [
+            "3 4\n2 5 6\n1 3 6 8\n",
+            "2\n"
+        ],
+        [
+            "3 3\n1 2 3\n1 2 3\n",
+            "0\n"
+        ],
+        [
+            "1 2\n165\n142 200\n",
+            "81\n"
+        ]
+    ],
+    "hint": "The first test coincides with the figure. In this case the given tracks can be read in 2 seconds in the following way:\n\n1. during the first second move the 1-st head to the left and let it stay there;\n2. move the second head to the left twice;\n3. move the third head to the right twice (note that the 6-th track has already been read at the beginning).\n\nOne cannot read the tracks in 1 second as the 3-rd head is at distance 2 from the 8-th track.",
+    "translation": "\u9898\u610f\uff1a\u7ed9\u4f60 $n$ \u4e2a\u63a2\u5934\uff0c$m$ \u4e2a\u8981\u8bfb\u7684\u8f68\u9053\uff0c$n$ \u4e2a\u63a2\u5934\u7684\u521d\u59cb\u4f4d\u7f6e\u662f $h_1,h_2,\\cdots h_n$\uff08\u4ece\u5c0f\u5230\u5927\uff09\uff0c$m$ \u4e2a\u8f68\u9053\u7684\u4f4d\u7f6e\u4e3a $p_1,p_2,\\cdots p_n$\uff08\u4e5f\u662f\u4ece\u5c0f\u5230\u5927\uff09\uff0c\u63a2\u5934\u53ef\u4ee5\u5de6\u79fb\u6216\u53f3\u79fb\uff0c\u8fd9\u4e9b\u63a2\u5934\u53ef\u4ee5\u4e00\u8d77\u52a8\uff0c\u6bcf\u79fb\u52a8\u4e00\u683c\u7684\u65f6\u95f4\u4e3a $1$\uff0c\u63a2\u5934\u8bfb\u8f68\u9053\u4e0d\u8ba1\u65f6\u95f4\uff0c\u5982\u679c\u8981\u8bfb\u7684\u8f68\u9053\u4e0a\u5c31\u6709\u63a2\u5934\u90a3\u4e48\u5c31\u4e0d\u9700\u8981\u65f6\u95f4\uff0c\u627e\u6700\u5c0f\u7684\u65f6\u95f4\u6765\u8bfb\u5b8c\u8fd9\u4e9b\u8f68\u9053\u3002"
+}

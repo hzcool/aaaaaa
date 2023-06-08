@@ -1,0 +1,10 @@
+[
+    {
+        "content": "## \u601d\u8def\n\u8981\u6c42\u7684\u7b54\u6848\u662f\u6539\u53d8\u540e\u7684$|\\sum a-\\sum b|$\u7684\u6700\u5927\u503c\u3002\n\n$$\\begin{aligned}\n|\\sum a-\\sum b|_ {\\max}&=|(\\sum a-a_i+b_i)-(\\sum b+a_i-b_i)|_ {\\max}\\\\\n&=|(\\sum a-\\sum b)-2*(a_i-b_i)|_ {\\max}\\\\\n&=\\max(|\\sum a-\\sum b-2*(a_i-b_i)_ {\\max}|,|\\sum a-\\sum b+2*(b_i-a_i)_ {\\max}|)\n\\end{aligned}$$\n\n\u90a3\u4e48\u5bf9\u4e8e\u4e00\u5bf9$a_i$\u548c$b_i$\uff0c\u5b83\u6210\u4e3a\u7b54\u6848\u7684\u5fc5\u8981\u6761\u4ef6\u662f\uff1a\n* $a_i$\u5982\u679c\u5927\u4e8e$b_i$\uff0c$a_i-b_i$\u5e94\u8be5\u5927\u4e8e\u7b49\u4e8e\u6240\u6709$a_j-b_j(1\u2264j\u2264n,j\u2260i)$\u3002\n* $a_i$\u5982\u679c\u5c0f\u4e8e$b_i$\uff0c$b_i-a_i$\u5e94\u8be5\u5927\u4e8e\u7b49\u4e8e\u6240\u6709$b_j-a_j(1\u2264j\u2264n,j\u2260i)$\u3002\n\n\u6211\u4eec\u53ef\u4ee5\u5f97\u5230\u4e24\u7ec4\u6570\uff0c\u5206\u522b\u662f$(a_i-b_i)_ {\\max}$\u548c$(b_i-a_i)_ {\\max}$\u3002\n\n\u8bfb\u5165\u65f6\u5904\u7406\u7136\u540e\u5224\u65ad\u5373\u53ef\u3002\n## \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n    int nowl=0,nowr=0,n,nowlid=1,nowrid=1,suml=0,sumr=0;\n    cin>>n;\n    for(int x=1;x<=n;x++)\n    {\n        int y,z;\n        cin>>y>>z;\n        if(y>z&&y-z>=nowl)nowl=y-z,nowlid=x;\n        if(y<z&&z-y>=nowr)nowr=z-y,nowrid=x;\n        suml+=y;\n        sumr+=z;\n    }\n    //cout<<nowl<<','<<nowr<<','<<nowlid<<','<<nowrid<<','<<suml<<','<<sumr<<endl;\n    if(nowl*nowr==0)cout<<0<<endl;\n    else if(abs(suml-sumr-2*nowl)>=abs(suml-sumr+2*nowr))cout<<nowlid;\n    else cout<<nowrid;\n}\n```",
+        "postTime": 1616330596,
+        "uid": 320087,
+        "name": "N_z_",
+        "ccfLevel": 7,
+        "title": "CF733B-\u3010Parade\u3011\u9898\u89e3"
+    }
+]

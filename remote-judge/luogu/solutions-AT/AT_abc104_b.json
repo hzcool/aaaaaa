@@ -1,0 +1,58 @@
+[
+    {
+        "content": "\u8fd9\u9053\u9898\u5c31\u662f\u7b80\u5355\u7684\u6a21\u62df\u9898\u5566\uff01\u66b4\u529b\u5373\u53ef\u3002\n\n\u8003\u9a8c\u9009\u624b\u7684\u8bfb\u9898\u4ed4\u7ec6\u60c5\u51b5\u3002\n\nShow you the code:\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nstring s;\nint c = 0;\nint main() {\n\tgetline(cin, s); //\u8bfb\u5165\u5b57\u7b26\u4e32\u6700\u597d\u7528 getline\n\tif (s[0] != 'A') {puts(\"WA\"); return 0;} //\u6a21\u62df\u7b2c\u4e00\u79cd\u60c5\u51b5\n\tfor (int i = 0; i < s.size(); ++i) { //\u66b4\u529b\u679a\u4e3e\n\t\tif (s[i] >= 'A' && s[i] <= 'Z')\n\t\t\tif (s[i] != 'A' && s[i] != 'C') {puts(\"WA\"); return 0;} //\u6a21\u62df\u7b2c\u4e8c\u79cd\u60c5\u51b5\n\t}\n\tfor (int i = 2; i < s.size()-1; ++i)\n\t\tif (s[i] == 'C') ++c;\n\tif (c == 1) puts(\"AC\"); \n\telse puts(\"WA\"); //\u6a21\u62df\u7b2c\u4e09\u79cd\u60c5\u51b5\n\treturn 0; //\u5b8c\u7ed3\u6492\u82b1\uff01\n}\n```\n",
+        "postTime": 1618030766,
+        "uid": 159548,
+        "name": "Zachary_Cloud",
+        "ccfLevel": 6,
+        "title": "AT4230 [ABC104B] AcCepted \u9898\u89e3"
+    },
+    {
+        "content": "## \u601d\u8def\n\n\u6a21\u62df\u3002\n\n\u9996\u5148\u5224\u65ad s \u7684\u7b2c\u4e00\u4e2a\u5b57\u7b26\u662f\u5426\u4e3a `A`\u3002\n\n\u7136\u540e\u4ece s \u7684\u7b2c\u4e09\u4e2a\u5b57\u7b26\u4e00\u76f4\u904d\u5386\u5230\u5012\u6570\u7b2c\u4e8c\u4e2a\u5b57\u7b26\uff0c\u5224\u65ad\u662f\u5426\u53ea\u51fa\u73b0\u4e86\u4e00\u6b21 `C`\u3002\n\n\u6700\u540e\u5224\u65ad\u5b57\u7b26\u4e32\u4e2d\u662f\u5426\u9664\u4e86 `A` \u548c `C` \u4ee5\u5916\u6ca1\u6709\u5927\u5199\u5b57\u6bcd\u3002\n\n\u5982\u679c\u4ee5\u4e0a\u6761\u4ef6\u90fd\u7b26\u5408\uff0c\u8f93\u51fa `AC`\uff1b\u5426\u5219\u8f93\u51fa `WA`\u3002\n\n## \u4ee3\u7801\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nint main()\n{\n    ios::sync_with_stdio(0);\n    string s;\n    getline(cin, s);\n    bool flag = (s[0] == 'A');\n    int cnt = 0;\n    for (int i = 2; i < s.size() - 1; ++i) cnt += s[i] == 'C';\n    flag = (flag && cnt == 1);\n    for (char c : s)\n        if (isupper(c) && c != 'A' && c != 'C') flag = 0;\n    cout << (flag ? \"AC\" : \"WA\") << endl;\n    return 0;\n}\n```\n",
+        "postTime": 1615083909,
+        "uid": 485611,
+        "name": "Iron_Heart",
+        "ccfLevel": 0,
+        "title": "AT4230 \u9898\u89e3"
+    },
+    {
+        "content": "\u76f4\u63a5\u6839\u636e\u9898\u610f\u505a\u5c31\u884c\u4e86\n\n\u4e0d\u8981\u5fd8\u8bb0\u8003\u8651\u7b2c\u4e8c\u4e2a\u5b57\u7b26\u548c\u5012\u6570\u7b2c\u4e00\u4e2a\u5b57\u7b26\u7684\u5927\u5c0f\u5199\u60c5\u51b5\n\n\u8fd8\u6709\u5224\u65ad\u662f\u5426\u5b58\u5728\u201cC\u201d\u54e6\n\n\n------------\n\n# \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nchar s[20];\nbool f=0;\nint main(){\n\tcin>>s;\n\tif(s[0]!='A'){\n\t\tprintf(\"WA\");\n\t\treturn 0;\n\t}\n\tif((s[1]>='A'&&s[1]<='Z')||(s[strlen(s)-1]>='A'&&s[strlen(s)-1]<='Z')){\n\t\tprintf(\"WA\");\n\t\treturn 0;\n\t}\n\tfor(int i=2;i<strlen(s)-1;i++)\n\tif(s[i]>='A'&&s[i]<='Z'){\n\t\tif(s[i]=='C'){\n\t\t\tif(f){\n\t\t\t\tprintf(\"WA\");\n\t\t\t\treturn 0;\n\t\t\t}\n\t\t\telse f=1;\n\t\t}\n\t\telse{\n\t\t\tprintf(\"WA\");\n\t\t\treturn 0;\n\t\t}\n\t}\n\tif(!f){\n\t\tprintf(\"WA\");\n\t\treturn 0;\n\t}\n\tprintf(\"AC\");\n\treturn 0;\n}\n```\n",
+        "postTime": 1610162681,
+        "uid": 120010,
+        "name": "CaiXY06",
+        "ccfLevel": 6,
+        "title": "solution-at4230"
+    },
+    {
+        "content": "# **\u6b63\u6587\uff1a**\n## \u9898\u610f\uff1a\n\u672c\u9898\u7684WA\u53ef\u4ee5\u5206\u4e3a\u4e09\u79cd\u60c5\u51b5\uff1a\u9996\u5b57\u6bcd\u4e0d\u662fA\uff0c\u6ca1\u6709\u5305\u542bC\uff0c\u5305\u542b\u5176\u4ed6\u5927\u5199\u5b57\u6bcd\u3002\n\n## \u7a0b\u5e8f\u8bf4\u660e\uff1a\n\n\u9996\u5148\u6211\u4eec\u5224\u65ad\u9996\u5b57\u6bcd\u662f\u5426\u4e3aA\uff0c\u5982\u679c\u4e0d\u662f\u5c31\u76f4\u63a5\u8f93\u51fa\u5e76\u7ed3\u675f\u7a0b\u5e8f\u3002\n\n\u56e0\u4e3a\u9996\u5b57\u6bcd\u540e\u9762\u7684\u552f\u4e00\u4e00\u4e2a\u5927\u5199\u5b57\u6bcd\u53ea\u80fd\u4e3aC\uff0c\u6240\u4ee5\u6211\u4eec\u53ef\u4ee5\u5f80\u540e\u5224\u65ad\u9996\u5b57\u6bcd\u540e\u9762\u662f\u5426\u6709\u9664\u4e86C\u4ee5\u5916\u7684\u5176\u5b83\u5927\u5199\u5b57\u6bcd\uff0c\u6216\u662f\u6839\u672c\u6ca1\u6709\u5927\u5199\u5b57\u6bcd\uff0c\u5982\u679c\u662f\u8fd9\u4e24\u79cd\u60c5\u51b5\u4e5f\u9700\u8981\u76f4\u63a5\u8f93\u51fa\u5e76\u7ed3\u675f\u7a0b\u5e8f\u3002\n\n\u6700\u540e\u6211\u4eec\u5224\u65ad\u662f\u5426\u6709\u91cd\u590dC\u7684\u60c5\u51b5\uff0c\u6211\u4eec\u53ef\u4ee5\u4e8b\u5148\u5c06\u53d1\u73b0\u4e86C\u7684\u5730\u65b9\u50a8\u5b58\u4e3acpos\uff0c\u6700\u540e\u5982\u679c\u5728cpos\u4e4b\u5916\u8fd8\u53d1\u73b0\u4e86C\uff0c\u4e5f\u8868\u660e\u7b54\u6848\u4e0d\u7b26\u5408\uff0c\u76f4\u63a5\u8f93\u51fa\u7ed3\u679c\u5e76\u7ed3\u675f\u7a0b\u5e8f\u3002\n\n\u7a0b\u5e8f\u6267\u884c\u5230\u6700\u540e\u4ee3\u8868\u4ee5\u4e0a\u4e09\u79cd\u60c5\u51b5\u90fd\u6ca1\u6709\u51fa\u73b0\uff0c\u53ef\u4ee5\u8f93\u51faAC\u3002\n\n```cpp\n#include<iostream>\n#include<string>\nusing namespace std;\nint main(){\n    string a;\n    bool flag=0;\n    int cpos;\n    cin>>a;\n    if(a[0]!='A'){\n        cout<<\"WA\";             //\u5982\u679c\u9996\u5b57\u6bcd\u4e0d\u662fA\u5c31\u76f4\u63a5\u8f93\u51fa\n        return 0;\n    }\n    for(int i=2;i<a.length()-1;i++){\n        if(a[i]>='A'&&a[i]<='Z'){\n            if(a[i]!='C'){\n                cout<<\"WA\";  //\u5982\u679c\u540e\u9762\u6709\u5927\u5199\u5b57\u6bcd\u4f46\u662f\u4e0d\u662fA\u4e5f\u8981\u76f4\u63a5\u8f93\u51fa\n                return 0;\n            }\n            cpos=i;     //\u5c06C\u7684\u4f4d\u7f6e\u50a8\u5b58\u4e3acpos\n            flag=1;     //\u5982\u679c\u627e\u5230\u4e86\u5927\u5199\u5b57\u6bcd\u5c31\u5c06flag\u50a8\u5b58\u4e3aA\n            break;\n        }\n    }\n    if(!flag){\n    \tcout<<\"WA\";  //\u5982\u679cflag\u4e3a0\u5c31\u4ee3\u8868\u540e\u9762\u6ca1\u6709\u5927\u5199\u5b57\u6bcd\uff0c\u76f4\u63a5\u8f93\u51fa\n    \treturn 0;\n\t}\n    for(int i=1;i<a.length();i++){\n    \tif(i==cpos)continue;   //\u4e0d\u80fd\u91cd\u590d\u679a\u4e3e\n    \tif(a[i]>='A'&&a[i]<='Z'){\n    \t\tcout<<\"WA\"; //\u5982\u679c\u6709\u9664\u4e86\u4e00\u4e2aA\u548c\u4e00\u4e2aC\u7684\u5176\u5b83\u5927\u5199\u5b57\u6bcd\uff0c\u76f4\u63a5\u8f93\u51fa\n    \t\treturn 0;\n\t\t}\n\t}\n\tcout<<\"AC\";   //\u7a0b\u5e8f\u6267\u884c\u5230\u6700\u540e\u6ca1\u6709\u8f93\u51fa\u4ee3\u8868AC\n    return 0;\n}\n```\n# **THE END**",
+        "postTime": 1607079873,
+        "uid": 299883,
+        "name": "HYdroKomide",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 AT4230 \u3010[ABC104B] AcCepted\u3011"
+    },
+    {
+        "content": "#### \u6b64\u9898\u5f88\u6c34\uff0c\u7eaf\u6a21\u62df\uff0c\u653e\u4e0a\u4ee3\u7801 ~~(\u8bf4\u660e\u5f88\u8be6\u7ec6)~~\uff1a\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main()\n{\n\tstring S;\n\tcin >> S;\n\tint N = S.size();\n\tbool flg = true;\n\tif ( S[0] != 'A' ) flg = false;//\u5982\u679c\u5f00\u5934\u7684\u5b57\u6bcd\u4e0d\u662f'A\u2019,flg\u8bb0\u5f55 \n\tint count = 0;//\u5f00\u5934\u8981\u6e05\u4e3a0\n\tfor ( int i = 2; i < N-1; ++i) {//\u5bfb\u627e\u5176\u4e2d\u6709\u51e0\u4e2a'C' \n\t\tif ( S[i] == 'C' ) ++count;\n\t}\n\tif ( count != 1 ) flg = false;//\u5982\u679c\u5176\u4e2d\u7684'C' \u4e0d\u662f\u4e00\u4e2a,flg\u8bb0\u5f55 \n\tfor ( int i = 1; i < N; ++i) {//\u5224\u65ad\u5176\u4ed6\u5b57\u6bcd\u662f\u4e0d\u662f\u5c0f\u5199\u5b57\u6bcd \n\t\tint x = S[i] - 'a';\n\t\tif ( S[i] != 'C' ) {\n\t\t\tif ( x < 0 or x >= 26 ) flg = false;\n\t\t}\n\t}\n\tif ( flg ) {//\u8f93\u51fa\n\t\tcout << \"AC\" << endl;\n\t} else {\n\t\tcout << \"WA\" << endl;\n\t}\n\treturn 0;\n}\n```\n\n### \u83ab\u6284\u88ad\uff0c\u6e05\u7a7aAC\u8bb0\u5f55\uff0c\u7a7a\u60b2\u5207\uff01\n",
+        "postTime": 1598788529,
+        "uid": 224960,
+        "name": "yzyjh",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT4230 \u3010[ABC104B] AcCepted\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u975e\u5e38\u6c34\uff0c\u66b4\u529b\u6a21\u62df\u5373\u53ef\uff08\u8bf4\u660e\u5728\u6ce8\u91ca\u5185\uff09:\n```cpp\n#include <iostream> // std::cin\n#include <string> // std::string\n#include <cstdio> // puts\n\nstd::string S;\n// \u6839\u636e\u9898\u610f\u5b9a\u4e49\u4e09\u4e2a\u68c0\u67e5\u51fd\u6570\ninline bool check1()\n{\n    return S[0]=='A'; // \u5341\u5206\u7b80\u5355\u4e0d\u4f5c\u8bf4\u660e\n}\n\ninline bool check2()\n{\n    int cnt=0; // \u8ba1\u6570\u5668\n    int len = S.length();\n    for (int i=2;i<=len-2;++i) // \u4ece\u7b2c3\u4e2a\u5230\u5012\u6570\u7b2c2\u4e2a\n    {\n        if (S[i]=='C')  ++ cnt; // \u5982\u679c\u662f'C'\u8ba1\u6570\u5668++\n    }\n    return cnt == 1; // \u8fd4\u56de\u8ba1\u6570\u5668\u662f\u5426\u4e3a1\n}\n\ninline bool check3()\n{\n   for (int i=0;i<S.length();++i)\n   {\n        if (S[i]>'A'&&S[i]<='Z'&&S[i]!='C')\n        // \u6ce8\u610f\u8fd9\u91cc\u662f >'A' \u800c\u4e0d\u662f >='A'\n        // \u5982\u679c\u4e3a\u5927\u5199\u4e14\u4e0d\u4e3a'A'\u6216\u8005'Z'\n            return false;\n   }\n   return true;\n}\n\ninline bool check_tot() // \u603b\u51fd\u6570\n{\n    return check1()&&check2()&&check3();\n}\nint main()\n{\n    std::cin>>S; // \u8bfb\u5165\n    check_tot()?puts(\"AC\"):puts(\"WA\"); // puts\u8f93\u51fa\u7ed3\u679c\n}\n```",
+        "postTime": 1591362182,
+        "uid": 312489,
+        "name": "hero_brine",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT4230 \u3010[ABC104B] AcCepted\u3011"
+    },
+    {
+        "content": "\u8fd9\u9898\u8fd8\u662f\u5f88\u7b80\u5355\u7684\u554a\uff01\n\n\u770b\u5230\u6570\u636e\u8303\u56f4\u540e\uff0c\u6211\u4eec\u8003\u8651\u7528\u66b4\u529b\u505a\u3002\n\nCODE\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nstring s;\nint cnt=0;\nint main() {\n\tcin>>s;\n\tif (s[0]!='A') {cout<<\"WA\"<<endl; return 0;} \n\tfor(int i=0;i<s.size();i++) if (s[i]>='A'&&s[i]<='Z'&&s[i]!='A'&&s[i]!='C') {cout<<\"WA\"<<endl; return 0;}\n\tfor(int i=2;i<s.size()-1;i++) if (s[i]=='C') ++cnt;\n\tif (cnt!=1) cout<<\"WA\"<<endl;else cout<<\"AC\"<<endl;\n\treturn 0;\n}\n```\n\n\u5b8c\u7ed3\u6492\u82b1\uff01",
+        "postTime": 1618030486,
+        "uid": 355448,
+        "name": "Fido_Puppy",
+        "ccfLevel": 0,
+        "title": "AT4230 [ABC104B] AcCepted"
+    }
+]

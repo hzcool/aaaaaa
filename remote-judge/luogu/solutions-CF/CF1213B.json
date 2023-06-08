@@ -1,0 +1,74 @@
+[
+    {
+        "content": "[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/CF1213B)\n\n[\u4e0d\u4f1a\u66f4\u597d\u7684\u9605\u8bfb\u4f53\u9a8c](https://www.luogu.com.cn/blog/493271/solution-cf1213b)\n\n# Thinking\n\n\u89c2\u5bdf\u65f6\u95f4\u590d\u6742\u5ea6 $ 1 \\leq 10^4 , 1 \\leq 150000 $\uff0c\u8f93\u5165\u7684\u65f6\u95f4\u590d\u6742\u5ea6\u4e3a $ O(T $ $ n ) $\uff0c\u56e0\u6b64\u6700\u7ec8\u7684\u65f6\u95f4\u590d\u6742\u5ea6\u53ea\u80fd\u4e3a $ O(T $ $ n ) $\u3002\n\n\u8981\u60f3\u4e00\u5929\u7684\u552e\u4ef7\u662f\u201c\u5408\u7b97\u7684\u201d\uff0c\u8981\u6ee1\u8db3\u5f53\u524d\u8fd9\u5929\u7684\u552e\u4ef7\u4e3a\u540e\u9762\u6240\u6709\u5929\u7684\u552e\u4ef7\u7684\u6700\u5c0f\u503c\u3002\n\n\u800c\u6c42\u6700\u5c0f\u503c\u53ea\u80fd\u7528 $ O(n) $ \u7684\u7b97\u6cd5\uff0c\u56e0\u6b64\u5012\u7740\u904d\u5386\u4e00\u6b21\u5373\u53ef\u3002\n\n\u65f6\u95f4\u590d\u6742\u5ea6 $ O(T $ $ n ) $\u3002\n\n\u9884\u8ba1\u5f97\u5206 $ 100 $ $ pts $\n\n# Coding\n\n```cpp\n  #include<bits/stdc++.h>\n  using namespace std;\n  int T,n,a[150005],ans,minn;\n  signed main(){\n      cin>>T;\n      while(T--){\n          minn=INT_MAX,ans=0;\n          cin>>n;\n          for(int i=1;i<=n;++i) cin>>a[i];\n          for(int i=n;i>=1;--i){\n              if(a[i]>minn) ++ans;\n              else minn=a[i];\n          }\n          cout<<ans<<endl;\n      }\n      return 0;\n  }\n```\n",
+        "postTime": 1645580166,
+        "uid": 493271,
+        "name": "Shimmer_of_Cloud_gap",
+        "ccfLevel": 0,
+        "title": "CF1213B Bad Prices \u9898\u89e3"
+    },
+    {
+        "content": "[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/CF1213B)\n\n[\u66f4\u597d\u7684\u9605\u8bfb\u4f53\u9a8c\uff1f](https://www.luogu.com.cn/blog/557117/solution-cf1213b)\n\n## \u601d\u8def\n\n\u9996\u5148\u53ef\u4ee5\u60f3\u5230\u4e00\u4e2a $ O(n^2) $ \u7684\u7b97\u6cd5\uff0c\u5373\u5bf9\u4e8e\u6bcf\u5929\u90fd\u904d\u5386\u67e5\u627e\u4e00\u6b21\uff0c\u4e0e\u5728\u5f53\u5929\u540e\u6240\u6709\u5929\u8fdb\u884c\u6bd4\u8f83\u3002\n\n\u89c2\u5bdf $ n $ \u7684\u6570\u636e\u8303\u56f4\uff0c $ 1 \u2264 n \u2264 150000 $ \uff0c\u663e\u7136 $ O(n^2) $ \u7684\u7b97\u6cd5\u4f1a\u8d85\u65f6\uff0c\u8003\u8651\u4f18\u5316\u3002\n\n\u4e0e\u5728\u5f53\u5929\u540e\u6240\u6709\u5929\u8fdb\u884c\u6bd4\u8f83\uff0c\u53ef\u4ee5\u8f6c\u5316\u4e3a\u4e0e\u5f53\u5929\u540e\u6240\u6709\u5929\u7684\u6700\u5c0f\u503c\u8fdb\u884c\u6bd4\u8f83\uff0c\u800c\u6211\u4eec\u53ea\u9700\u8981\u9884\u5904\u7406\u6bcf\u5929\u540e\u7684\u6240\u6709\u5929\u7684\u6700\u5c0f\u503c\u5373\u53ef\uff0c\u5373\u5012\u7740\u679a\u4e3e\u5929\uff0c\u4e00\u8fb9\u679a\u4e3e\u4e00\u8fb9\u66f4\u65b0\u6700\u5c0f\u503c\u3002\n\n\u65f6\u95f4\u590d\u6742\u5ea6 $ O(n) $ \uff0c\u5f97\u5206 $ 100 pts $ \u3002\n\n## \u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\ninline char gc(){\n\tstatic char buf[1000010],*p1=buf,*p2=buf;\n\treturn p1==p2&&(p2=(p1=buf)+fread(buf,1,1000010,stdin),p1==p2)?EOF:*p1++;\n}\ninline int read(){\n\tregister int x=0,f=0;\n\tstatic char s=gc();\n\twhile(s<'0'||s>'9')f|=s=='-',s=gc();\n\twhile(s>='0'&&s<='9'){\n\t\tx=(x<<3)+(x<<1)+(s^48);s=gc();\n\t}return f?-x:x;\n}\ninline void write(register int x){\n\tif(x<0)putchar('-'),x=-x;\n\tif(x>9)write(x/10);putchar(x%10^48);\n}//\u5361\u6700\u4f18\u89e3\u7528\u7684\nconst int N=150005;\nint t,n,a[N],ans,minn;\nsigned main(){\n\tt=read();\n\twhile(t--){\n\t\tminn=0x3f3f3f3f;\n\t\tans=0;\n\t\tn=read();\n\t\tfor(int i=1;i<=n;a[i++]=read());\n\t\tfor(int i=n;i>=1;i--){//\u5012\u7740\u66f4\u65b0\u6700\u5c0f\u503c\n\t\t\tif(a[i]>minn){\n\t\t\t\tans++;\n\t\t\t}\n\t\t\telse{\n\t\t\t\tminn=a[i];\n\t\t\t}\n\t\t}\n\t\twrite(ans);\n\t\tputchar('\\n');\n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1643290654,
+        "uid": 557117,
+        "name": "I_love_JTL_forever",
+        "ccfLevel": 0,
+        "title": "CF1213B Bad Prices \u9898\u89e3"
+    },
+    {
+        "content": "\u9898\u610f\uff1a\u8ba1\u7b97\u5e8f\u5217$a$\u4e2d\u6ee1\u8db3$a_i=min\\{a_j, j\\in [i,n]\\}$\u7684\u4e2a\u6570\u3002  \n\u4f7f\u7528\u7c7b\u4f3c\u6ed1\u52a8\u7a97\u53e3\u7684\u65b9\u6cd5\uff0c\u6bcf\u6b21\u8f93\u5165\u6570\u5b57\u65f6\u628a\u961f\u5217\u4e2d\u5f39\u51fa\u6240\u6709\u6bd4\u8fd9\u4e2a\u6570\u5b57\u5927\u7684\u6570\uff0c\u7b54\u6848\u5c31\u662f\u5f39\u51fa\u7684\u6b21\u6570\u3002\u6ce8\u610f\u9700\u8981\u4f7f\u7528\u4f18\u5148\u961f\u5217\u3002  \n\u4ee3\u7801\u5982\u4e0b\uff1a  \n```cpp\n#include <cstdio>\n#include <queue>\nusing namespace std;\n\nint main()\n{\n    int T;\n    scanf(\"%d\", &T);\n    while (T--) {\n        int n;\n        scanf(\"%d\", &n);\n        priority_queue<int> q;\n        int ans = 0;\n        for (int i = 1; i <= n; i++) {\n            int x;\n            scanf(\"%d\", &x);\n            while (!q.empty() && x < q.top())\n                q.pop(), ans++;\n            q.push(x);\n        }\n        printf(\"%d\\n\", ans);\n    }\n    return 0;\n}\n```",
+        "postTime": 1567316701,
+        "uid": 84282,
+        "name": "andyli",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF1213B \u3010Bad Prices\u3011"
+    },
+    {
+        "content": "\u8fd9\u9898\u7a9d\u4e00\u5f00\u59cb\u60f3\u5230\u4e86\u66b4\u529b\uff0c\u7136\u540e\u53d1\u73b0\u4e0d\u884c\u3002\n\n\u7136\u540e\u6211\u53d1\u73b0\uff0c\u53ef\u4ee5\u5012\u7740\u626b\u4e00\u904d\uff0c\u5224\u65ad\u8fd9\u4e2a\u6570\u662f\u5426\u5927\u4e8e\u5f53\u524d\u6700\u5c0f\u503c\uff0c\u540c\u65f6\u8bb0\u5f55\u4e0b\u5f53\u524d\u6700\u5c0f\u503c\uff0c\u5c31\u53ef\u4ee5\u4e86\u3002\n\nCode:\n\n```cpp\n#include<cstdio>\n#include<cstring>\nusing namespace std;\nint t,n,a[150010],b[150010],c[150010];\nint min(int a,int b){\n\treturn a<b?a:b; \n}\nint main(){\n\tscanf(\"%d\",&t);\n\twhile(t--){\n\t\tscanf(\"%d\",&n);\n\t\tmemset(a,0,sizeof(a));\n\t\tint ans=0;\n\t\tfor(int i=1;i<=n;i++)\n\t\t\tscanf(\"%d\",&a[i]);\n\t\tint minn=2147483647;\n\t\tfor(int i=n;i;i--){\n\t\t\tif(a[i]>minn)\n\t\t\t\tans++;\n\t\t\tminn=min(minn,a[i]);\n\t\t}\n\t\tprintf(\"%d\\n\",ans);\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1567235019,
+        "uid": 122641,
+        "name": "GIFBMP",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF1213B \u3010Bad Prices\u3011"
+    },
+    {
+        "content": "**\u9898\u610f**\uff1a\u7ed9\u51fa\u6bcf\u5929\u552e\u4ef7\uff0c\u6839\u636e\u5b9a\u4e49\u6c42\u51fa\u6709\u51e0\u5929\u7684\u552e\u4ef7\u662f\u4e0d\u5408\u7406\u7684\u3002\n\n------------\n**\u601d\u8def**\uff1a\u6839\u636e\u201c\u6211\u4eec\u5b9a\u4e49\u4e00\u5929\u7684\u552e\u4ef7\u662f\u4e0d\u5408\u7b97\u7684\u5982\u679c\u5728\u4ed6\u8fd9\u4e00\u5929\u540e\u9762\u7684\u67d0\u4e00\u5929\u4e2d\u8fd9\u4e2a\u7269\u54c1\u7684\u552e\u4ef7\u5c0f\u4e8e\u8fd9\u4e2a\u7269\u54c1\u8fd9\u4e00\u5929\u7684\u552e\u4ef7\uff0c\u6c42\u6709\u591a\u5c11\u5929\u7684\u552e\u4ef7\u662f\u4e0d\u5408\u7b97\u7684\u201d\uff0c\u8fdb\u884c\u601d\u8003\uff0c\u53ef\u4ee5\u60f3\u5230\u4ece\u540e\u9762\u5f00\u59cb\u8fdb\u884c\u5faa\u73af\uff0c\u627e\u51fa\u4e00\u4e2a\u6700\u5c0f\u503c\uff0c\u5e76\u4e0d\u65ad\u66f4\u65b0\u6700\u5c0f\u503c\uff0c\u82e5\u8be5\u5929\u5927\u4e8e\u6700\u5c0f\u503c\uff0c\u4e0d\u5408\u7b97\u7684\u5929\u6570\u5c31\u591a\u4e00\u5929\u3002\n\n------------\n**\u6ce8\u610f**\uff1a\u6570\u636e\u591a\u7ec4\uff0c\u6309\u7167\u9898\u610f\u8f93\u5165\u8f93\u51fa\uff0c\u6bcf\u6b21\u4f7f\u7528\u5b8c\u7684\u8ba1\u6570\u53d8\u91cf\u8981\u5f52\u96f6\u518d\u6b21\u4f7f\u7528\u3002\n\n------------\n\u4ee3\u7801\uff1a\n\n```cpp\n#include<iostream>\nusing namespace std;\nconst int MAX=150000+1;\nint a[MAX];\nint main()\n{\n\tint f,n,js=0;\n\tcin>>f;//\u6570\u636e\u7ec4\u6570\u3002\n\tfor(int l=1;l<=f;l++){\n\t\tcin>>n;//\u5929\u6570\n\t\tfor(int i=1;i<=n;i++){\n\t\t\tcin>>a[i];\n\t\t}\n\t\tint minn=999999999;//\u5c3d\u53ef\u80fd\u5f00\u5927\uff0c\u65b9\u4fbf\u540e\u9762\u6bd4\u8f83\u3002\n\t\tfor(int i=n;i>=1;i--){\n\t\t\tif(a[i]>minn){//\u5224\u65ad\u3002\n\t\t\t\tjs++;\n\t\t\t}\n\t\t\tminn=min(minn,a[i]);//\u66f4\u65b0\u6700\u5c0f\u503c\u3002\n\t\t}\n\t\tcout<<js<<endl;\n\t\tjs=0,minn=999999999;//\u4f7f\u7528\u5b8c\u5f52\u539f\u3002\n\t}\n\treturn 0;\n}\n```\n\u6492\u82b1\u3002",
+        "postTime": 1624879092,
+        "uid": 358825,
+        "name": "Ybocean_s",
+        "ccfLevel": 4,
+        "title": "CF1213B"
+    },
+    {
+        "content": "# \u601d\u8def\n\u7528\u4e00\u4e2a\u6808\u7ef4\u62a4\u5e8f\u5217\uff0c $x$\u8868\u793a\u8981\u8fdb\u6808\u7684\u5143\u7d20\uff0c \u5982\u679c\u5b83\u6bd4\u6808\u9876\u5927\uff0c \u5219\u8bf4\u660e\u6808\u9876\u5143\u7d20\u662f\u4e0d\u5408\u7b97\u7684\uff0c $ans$++, \u6808\u9876\u5143\u7d20\u51fa\u6808\uff0c \u4e00\u76f4\u5230\u6808\u9876\u5143\u7d20\u5c0f\u4e8e\u7b49\u4e8e$x$\u4e3a\u6b62\uff0c\u6700\u540e\u5c06$x$\u5165\u6808\u3002\u6700\u7ec8\u6c42\u5f97$ans$\u3002\n# \u4ee3\u7801\n```c\n#include <cstdio>\n#include <cstring>\n#include <string>\n#include <algorithm>\n#include <iostream>\n#include <queue>\n#include <stack>\n// #define d lld\n// #define int long long\nusing namespace std;\n\nint t, n;\n \nsigned main () {\n    scanf (\"%d\", &t);\n    while (t--) {\n        stack<int> a;\n        scanf (\"%d\", &n);\n        int ans = 0;\n        for (int i = 1; i <= n; i++) {\n            int x;\n            scanf (\"%d\", &x);\n            while (!a.empty()) {\n                int p = a.top();\n                if (p > x) a.pop(), ans++;\n                else break;\n            }\n            a.push(x);\n        }\n        printf (\"%d\\n\", ans);\n    }\n    return 0;\n}\n```\n",
+        "postTime": 1606631137,
+        "uid": 371178,
+        "name": "Fan_Tuan",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 CF1213B \u3010Bad Prices\u3011"
+    },
+    {
+        "content": "- \u8fd9\u9053\u9898\u4e0d\u96be\uff0c\u7528\u5355\u8c03\u961f\u5217\u5373\u53ef\u8f7b\u677e\u89e3\u51b3\n- \u5bf9\u4e8e\u6bcf\u4e00\u7ec4\u6570\u636e\uff0c\u6211\u4eec\u53ea\u9700\u8981\u7ef4\u62a4\u4e00\u4e2a\u5355\u8c03\u4e0d\u964d\u961f\u5217\uff0c\u5f53\u6bcf\u4e2a\u5143\u7d20\u5165\u961f\u65f6\uff0c\u5f39\u6389\u7684\u5143\u7d20\u4e00\u5b9a\u4f1a\u6bd4\u5b83\u5927\uff0c\u4e5f\u5c31\u662f\u51fa\u73b0\u4e86\u201c\u4e0d\u5408\u7b97\u7684\u201d\u7684\u60c5\u51b5\uff0c\u6240\u4ee5\u53ea\u8981\u8bb0\u5f55\u5f39\u6389\u5143\u7d20\u6b21\u6570\u5373\u53ef\n- \u4ee3\u7801\u8d70\u8d77\n\n```cpp\n#include<bits/stdc++.h>\t\nusing namespace std;\nint q[150001],t;//\u5206\u522b\u4e3a\u961f\u5217\u6a21\u62df\u6570\u7ec4\u3001\u6570\u636e\u7ec4\u6570\nint main() \n{\n    scanf(\"%d\",&t);//\u8bfb\u5165\u7ec4\u6570\n    for(int i=1;i<=t;i++)//\u5faa\u73af\n    {\n\t\tint n,as=0;//\u5206\u522b\u4e3a\u5143\u7d20\u4e2a\u6570\u3001\u5bf9\u4e8e\u6b64\u7ec4\u6570\u636e\u7684\u7b54\u6848\n\t\tmemset(q,0,sizeof(0));//\u6e05\u7a7a\u961f\u5217\n\t\tscanf(\"%d\",&n);//\u8bfb\u5165\u4e00\u4e0b\n\t\tint h=1,t=0;//\u9996\u5c3e\u521d\u503c\n\t\tfor(int x,j=1;j<=n;j++)//\u5faa\u73af\u4e00\u4e0b\n\t\t{\n\t\t\tscanf(\"%d\",&x);//\u8bfb\u5165\u5143\u7d20\n\t\t\twhile(x<q[t]&&h<=t)//\u7ef4\u62a4\u5e76\u8ba1\u6570\n\t\t\t{\n\t\t\t\tt--;\n\t\t\t\tas++;\n\t\t\t}\n\t\t\tq[++t]=x;//\u63d2\u5165\u5143\u7d20\n\t\t}\n\t\tprintf(\"%d\\n\",as);//\u8f93\u51fa\n\t}\n\treturn 0;//\u7a0b\u5e8f\u518d\u89c1\n}\n```\n",
+        "postTime": 1590817127,
+        "uid": 239075,
+        "name": "Eon_Floating",
+        "ccfLevel": 5,
+        "title": "CF1213B \u3010Bad Prices\u3011\u3010\u9898\u89e3\u3011"
+    },
+    {
+        "content": "## B.Bad Prices\n\n### \u9898\u610f\u63cf\u8ff0\n\n\u6709\u4e00\u4e2a\u7269\u54c1\u9500\u552e\u4e86$n$\u5929\uff0c\u7b2c$i$\u5929\u7684\u552e\u4ef7\u4e3a$c_i$\u3002\u6211\u4eec\u5b9a\u4e49\u4e00\u5929\u7684\u552e\u4ef7\u662f\u201c\u4e0d\u5408\u7b97\u7684\u201d\u5982\u679c\u5728\u4ed6\u8fd9\u4e00\u5929\u540e\u9762\u7684\u67d0\u4e00\u5929\u4e2d\u8fd9\u4e2a\u7269\u54c1\u7684\u552e\u4ef7\u5c0f\u4e8e\u8fd9\u4e2a\u7269\u54c1\u8fd9\u4e00\u5929\u7684\u552e\u4ef7\u3002\u6c42\u6709\u591a\u5c11\u5929\u7684\u552e\u4ef7\u662f\u201c\u4e0d\u5408\u7b97\u7684\u201d\u3002\n\n### \u601d\u8def\n\n\u5047\u5982\u4e00\u4e2a\u6570\u540e\u9762\u6709\u6bd4\u4ed6\u5c0f\u7684\uff0c\u90a3\u4e48\u4ed6\u5c31\u662f\u4e0d\u5408\u7b97\u7684\u6570\n\n\u6240\u4ee5\u6211\u4eec\u60f3\u8981\u77e5\u9053\u6bcf\u4e00\u4e2a\u6570\u540e\u9762\u662f\u5426\u6709\u6bd4\u5b83\u5c0f\u7684\n\n\u4e8e\u662f\u6211\u4eec\u5c31\u53ef\u4ee5\u4ece\u540e\u5411\u524d\u626b\u4e00\u904d\uff0c\u7ef4\u62a4\u4e00\u4e2a\u6700\u5c0f\u503c\uff0c\u5f53\u5f53\u524d\u7684\u6570\u5927\u4e8e\u6700\u5c0f\u503c\u65f6\uff0c\u7b54\u6848\u4fbf\u7d2f\u8ba1\uff0c\u5982\u679c\u5c0f\u4e8e\u6700\u5c0f\u503c\uff0c\u4fbf\u66f4\u65b0\u6211\u4eec\u7684\u6700\u5c0f\u503c\n\n### \u4ee3\u7801\n\n```c++\n#include<cstdio>\n#include<iostream>\n#include<cstring>\n#define maxn 170000\nusing namespace std;\nint T,n;\nint a[maxn];\nint main(){\n\tscanf(\"%d\",&T);\n\twhile(T--){\n\t\tscanf(\"%d\",&n);\n\t\tfor(int i=1;i<=n;i++){\n\t\t\tscanf(\"%d\",&a[i]);\n\t\t} \n\t\tint now=10000000;\n\t\tint ans=0;\n\t\tfor(int i=n;i>=1;i--){\n\t\t\tif(a[i]>now){\n\t\t\t\tans++;\n\t\t\t}\n\t\t\tnow=min(now,a[i]);\n\t\t}\n\t\tprintf(\"%d\\n\",ans);\n\t}\n}\n```",
+        "postTime": 1569207543,
+        "uid": 143418,
+        "name": "\u5b51\u5f67",
+        "ccfLevel": 0,
+        "title": "Bad Prices\u89e3\u9898\u62a5\u544a"
+    },
+    {
+        "content": "\u9006\u5e8f\u5bf9\u7b80\u5316\u7248\u3002\n\n\u5206\u6790\u9898\u610f\u53ef\u77e5\uff0c\u6b64\u9898\u76ee\u6807\u662f\u6c42\u6ee1\u8db3$a_i>a_j$\u5e76\u4e14$i<j$\u7684$i$\u7684\u6570\u91cf\u3002\n\n\u7531\u4e8e\u662f\u6c42$i$\u7684\u6570\u91cf\u800c\u4e0d\u662f\u6c42$(i,j)$\u7684\u4e2a\u6570\uff0c\u53ef\u4ee5\u7528\u4e00\u79cd\u7b80\u5355\u7684\u505a\u6cd5\uff1a\n\n\u4ece\u540e\u5f80\u524d\u626b\u4e00\u904d\uff0c\u5982\u679c\u5c0f\u4e8e\u7b49\u4e8e\uff08\u4e5f\u53ef\u4ee5\u53ea\u5c0f\u4e8e\uff0c\u4f46\u8fd9\u91cc\u65b9\u4fbf$else$\uff09\u5f53\u524d\u6700\u5c0f\u503c\u5219\u66f4\u65b0\uff0c\u5426\u5219$ans+1$\u3002\n\n\u4ee3\u7801\u5982\u4e0b\uff1a\n\n```\n#include<cctype>\n#include<cstdio>\nint T,N,mini,x[150005],ans;\ntemplate<class D>inline void read(D &m)//\u65e0\u8111read\n{\n\tm=0;\n\tchar c=getchar();\n\twhile(!isdigit(c))c=getchar();\n\twhile(isdigit(c))m=(m<<3)+(m<<1)+(c&15),c=getchar();\n}\nint main()\n{\n\tread(T);\n\twhile(T--)\n\t{\n\t\tread(N);\n\t\tmini=1000001;\n\t\tans=0;\n\t\tfor(int i=1;i<=N;++i)\n\t\t{\n\t\t\tread(x[i]);\n\t\t}\n\t\twhile(N)\n\t\t{\n\t\t\tif(x[N]<=mini)\n\t\t\t{\n\t\t\t\tmini=x[N];\n\t\t\t}\n\t\t\telse\n\t\t\t{\n\t\t\t\tans++;\n\t\t\t}\n\t\t\tN--;\n\t\t}\n\t\tprintf(\"%d\\n\",ans);\n\t}\n}\n```",
+        "postTime": 1567238807,
+        "uid": 5880,
+        "name": "B_Qu1e7",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1213B \u3010Bad Prices\u3011"
+    }
+]

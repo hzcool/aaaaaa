@@ -1,0 +1,26 @@
+[
+    {
+        "content": "```\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n\tint n,m,ans=0;//\u5b9a\u4e49n\uff0cm\uff0cans\u3002ans\u7528\u6765\u8bb0\u5f55\u6570\u91cf\n\tcin >> n >> m;\n\tfor(int i=n;i<=m;i++)if(i%2==1) ans+=i;//ans\u52a0\u4e0a\u5faa\u73af\u91cc\u7684\u5947\u6570\n\tcout << ans << endl;//\u8f93\u51fa\n\treturn 0;\n}\n```\n",
+        "postTime": 1625282392,
+        "uid": 238691,
+        "name": "Leo2020",
+        "ccfLevel": 4,
+        "title": "B2059\u9898\u89e3"
+    },
+    {
+        "content": "## \u9898\u89e3\r\n\r\n### \u505a\u6cd5 1\r\n\r\n\u8003\u8651\u8ba9 $i$ \u4ece $m$ \u679a\u4e3e\u5230 $n$ \uff0c\u6bcf\u6b21\u5224\u65ad $i$ \u662f\u5426\u662f\u5947\u6570\u3002\u5982\u679c\u662f\u5947\u6570\uff0c\u90a3\u4e48\u5c31\u52a0\u5230 $sum$ \u91cc\u3002\r\n\r\n### \u505a\u6cd5 2\r\n\r\n\u89c2\u5bdf\u53d1\u73b0\uff0c $m\\sim n$ \u5f53\u4e2d\u5947\u6570\u7684\u603b\u548c\uff0c\u5c31\u662f $1\\sim n$ \u5f53\u4e2d\u5947\u6570\u7684\u603b\u548c\u51cf\u53bb $1\\sim m-1$ \u5f53\u4e2d\u5947\u6570\u7684\u603b\u548c\u3002\u8003\u8651\u4ec5\u89e3\u51b3\u524d\u9762\u7684\u95ee\u9898\u3002\u5206\u4e24\u7c7b\u8ba8\u8bba\uff1a $n$ \u4e3a\u5947\u6570\uff0c\u6216\u8005 $n$ \u4e3a\u5076\u6570\u3002\r\n\r\n\u5bf9\u4e8e $n$ \u4e3a\u5947\u6570\u7684\u60c5\u51b5\uff0c\r\n\r\n$$\r\n1+3+5+7+\\cdots+n=\\frac{(1+n)\\times(\\frac{(n-1)}{2}+1)}{2}=\\frac{(1+n)^2}{4}\r\n$$\r\n\r\n\u7b49\u5dee\u6570\u5217\u6c42\u548c\u516c\u5f0f\uff1a\r\n\r\n> **\u9879\u6570**\u7b49\u4e8e\u672b\u9879\u51cf\u53bb\u9996\u9879\u7684\u5dee\uff0c\u9664\u4ee5\u516c\u5dee\u518d\u52a0 $1$\u3002  \r\n> **\u548c**\u7b49\u4e8e\u9996\u9879\u52a0\u672b\u9879\u7684\u548c\uff0c\u4e58\u4ee5\u9879\u6570\u9664\u4ee5 $2$\u3002\r\n\r\n\u5bf9\u4e8e $n$ \u4e3a\u5076\u6570\u7684\u60c5\u51b5\uff1a\r\n\r\n$$\r\n1+3+5+7+\\cdots+(n-1)=\\frac{n^2}{4}\r\n$$\r\n\r\n\u600e\u4e48\u5224\u65ad\u4e00\u4e2a\u6570\u662f\u5426\u662f\u5076\u6570\uff1f\u770b\u5b83\u9664\u4ee5 $2$ \u7684\u4f59\u6570\u662f\u5426\u662f $0$ \u5c31\u884c\u4e86\u3002\u53ef\u4ee5\u7528 $\\verb!%!$ \u8ba1\u7b97\u4e24\u4e2a\u6570\u76f8\u9664\u7684\u4f59\u6570\u3002\r\n\r\n## \u53c2\u8003\u4ee3\u7801\r\n\r\n\r\n```cpp\r\n#include<bits/stdc++.h>\r\n#define up(l,r,i) for(int i=l,END##i=r;i<=END##i;++i)\r\n#define dn(r,l,i) for(int i=r,END##i=l;i>=END##i;--i)\r\nusing namespace std;\r\ntypedef long long i64;\r\nconst int INF =2147483647;\r\nint f(int x){\r\n    return (x%2==1?(x+1)*(x+1):x*x)/4;\r\n}\r\nint n,m;\r\nint main(){\r\n    scanf(\"%d%d\",&m,&n); printf(\"%d\\n\",f(n)-f(m-1));\r\n    return 0;\r\n}\r\n```\r\n",
+        "postTime": 1625363681,
+        "uid": 330759,
+        "name": "\u56e7\u4ed9",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 B2059 \u3010\u5947\u6570\u6c42\u548c\u3011"
+    },
+    {
+        "content": "```python\ns=input().split() # \u8bfb\u5165\na=int(s[0]) # m\nb=int(s[1]) # n\nvar=0; # \u548c\nfor i in range(a,b+1): # \u5faa\u73af\n    if i%2==1: # \u5947\u6570\n        var=var+i # \u52a0\u8d77\u6765\nprint(var) # \u8f93\u51fa\n```",
+        "postTime": 1625289197,
+        "uid": 142548,
+        "name": "int32",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 B2059 \u5947\u6570\u6c42\u548c"
+    }
+]

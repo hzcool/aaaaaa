@@ -1,0 +1,50 @@
+[
+    {
+        "content": "# [Redistribution](https://www.luogu.com.cn/problem/AT_abc178_d)\n\u7528\u7ec4\u5408\u6570\u4e2d\u7684\u63d2\u677f\u6cd5\u5373\u53ef\u89e3\u51b3\u3002\n# \u601d\u8def\u5206\u6790\n\u5982\u679c\u5e8f\u5217\u957f\u5ea6\u56fa\u5b9a\u4e3a $i$\uff0c\u5e76\u8fd0\u7528\u63d2\u677f\u6cd5\u7684\u5efa\u6a21\uff0c\u5219\u9898\u76ee\u5316\u4e3a\uff1a\n\n\u5728 $n$ \u4e2a\u82f9\u679c\u95f4\uff0c\u63d2\u5165 $i-1$ \u5757\u677f\u3002\u5c06\u5176\u5206\u6210 $i$ \u7ec4\uff0c\u6bcf\u7ec4\u7684\u4e2a\u6570 $\\ge 3$\u3002\n\n\u5982\u679c\u6211\u4eec\u9ed8\u8ba4\u6bcf\u7ec4\u4e2d\u539f\u672c\u5c31\u6709\u4e24\u4e2a\u82f9\u679c\uff0c\u8fd9\u6837\u6bcf\u7ec4\u7684\u82f9\u679c\u6570\u53ea\u9700 $\\ge1$ \u5373\u53ef\uff0c\u9898\u76ee\u5316\u4e3a\uff1a\n\n\u5728 $n-2\\times i$ \u4e2a\u82f9\u679c\u95f4\uff0c\u63d2\u5165 $i-1$ \u5757\u677f\uff0c\u6bcf\u7ec4\u81f3\u5c11\u4e00\u4e2a\u82f9\u679c\u3002\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/firv7nhr.png)\n\n\u5728 $n-2\\times i-1$ \u4e2a\u7a7a\u4e2d\u9009 $i-1$ \u4e2a\uff0c\u65b9\u6cd5\u6570\u4e3a $C_{n-2\\times i-1}^{i-1}$\u3002\u7ec4\u5408\u6570\u63d0\u524d\u9884\u5904\u7406\u597d\uff0c\u5e8f\u5217\u957f\u5ea6 $i$ \u4ece $1$ \u5230 $n/3$ \u679a\u4e3e\u3002\n\n# \u4ee3\u7801\u5b9e\u73b0\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n#define int long long\nint n,m,ans,c[2005][2005],mod=1e9+7;\nsigned main()\n{\n\tscanf(\"%lld\",&n);\n\tm=n/3;\n\tfor(int i=0;i<=n;i++)\n\t{\n\t\tc[i][0]=c[i][i]=1;\n\t\tfor(int j=1;j<i;j++)\n\t\t\tc[i][j]=(c[i-1][j-1]+c[i-1][j])%mod;\n\t}\n\tfor(int i=1;i<=m;i++)\n\t{\n\t\tans=(ans+c[n-i*2-1][i-1])%mod;\n\t}\n\tprintf(\"%lld\",ans);\n}\n```\n",
+        "postTime": 1679130568,
+        "uid": 631576,
+        "name": "cyz2010",
+        "ccfLevel": 0,
+        "title": "ABC178D \u9898\u89e3"
+    },
+    {
+        "content": "# \u601d\u8def\n\u6211\u4eec\u53ef\u4ee5\u7528\u52a8\u6001\u89c4\u5212\u548c\u524d\u7f00\u548c\u6765\u505a\uff0c\u6211\u4eec\u5b9a\u4e49 $f_i$ \u4e3a\u5408\u4e3a $i$ \u65f6\u7684\u65b9\u6848\u6570\uff0c\u90a3\u4e48\u521d\u59cb\u5316\u6211\u4eec\u5c31\u53ef\u4ee5\u60f3\u5230\u5bf9\u4e8e $i$ \u7b49\u4e8e $3$ \u65f6\u5c31\u662f $1$\u3002\n\n\u7136\u540e\u6211\u4eec\u5bf9\u4e8e\u6bcf\u4e00\u4e2a $f_i$ \u90fd\u53ef\u4ee5\u7531 $3\\sim i-3$ \u7684\u65b9\u6848\u6570\u76f8\u52a0\u56e0\u4e3a\u6211\u4eec\u53ea\u9700\u8981\u5728\u539f\u672c\u7684\u5e8f\u5217\u540e\u9762\u52a0\u4e0a\u4e00\u4e2a $j-i$ \u5c31\u884c\u4e86\uff08\u6bd5\u7adf $j+(i-j)$ \u662f\u7b49\u4e8e $i$ \u7684\uff09\uff0c\u90a3\u4e48\u5c31\u5341\u5206\u7b80\u5355\u4e86\uff0c\u5e76\u4e14\u6211\u4eec\u5c06 $i$ \u4ece $4$ \u5f00\u59cb\u679a\u4e3e\u7136\u540e $j$ \u4ece $3\\sim i-3$ \u5373\u53ef\u6bd5\u7adf\u4e24\u4e2a\u6570\u90fd\u4e0d\u80fd\u5c0f\u4e8e $3$ \u561b\u3002\n# \u4ee3\u7801\n```cpp\n#include <bits/stdc++.h>\nusing namespace std ;\n#define rep(i,x,y) for(int i=x;i<=y;i++)\n#define int long long\nint n,f[2010];\nconst int mod=1e9+7;\nsigned main() {\n\tstd::ios::sync_with_stdio(false);\n\tcin.tie(0);\n\tcout.tie(0);\n\tcin>>n;\n\tf[3]=1;\n\trep(i,4,n) {\n\t\tf[i]=1;\n\t\trep(j,3,i-3) f[i]=(f[i]+f[j])%mod; \n\t}\n\tcout<<f[n]<<endl;\n\treturn false;\n}\n```\n",
+        "postTime": 1678268741,
+        "uid": 381053,
+        "name": "highkj",
+        "ccfLevel": 4,
+        "title": "AT_abc178_d"
+    },
+    {
+        "content": "# \u601d\u8def\n\u6211\u4eec\u53ef\u4ee5\u7528\u52a8\u6001\u89c4\u5212\u6765\u505a\uff0c\u90a3\u4e48\u6211\u4eec\u5c31\u53ef\u4ee5\u5b9a\u4e49 $f_i$ \u4e3a\u548c\u4e3a $i$ \u65f6\u7684\u65b9\u6848\u6570\uff0c\u7136\u540e\u6211\u4eec\u5c31\u53ef\u4ee5\u60f3\u5230\u5bf9\u4e8e\u6bcf\u4e00\u4e2a $f_i$ \u5b83\u90fd\u7b49\u4e8e\u4ece $i-3$ \u5230 $3$ \u7684\u65b9\u6848\u6570\u603b\u548c\u52a0\u4e00\uff08\u56e0\u4e3a\u5b83\u4e4b\u524d\u7684\u6570\u90fd\u80fd\u901a\u8fc7\u52a0\u4e0a $i-j$ \u6765\u53d8\u6210\u5b83\uff09\uff0c\u6700\u540e\u8f93\u51fa $f_n$ \u5373\u53ef\u3002\n# \u4ee3\u7801\n```cpp\n#include <bits/stdc++.h>\nusing namespace std ;\n#define rep(i,x,y) for(int i=x;i<=y;i++)\n#define int long long\nint n,f[2010];\nconst int mod=1e9+7;\nsigned main() {\n\tcin>>n;\n\tf[3]=1;\n\trep(i,4,n) {\n\t\tf[i]=1;\n\t\trep(j,3,i-3) f[i]=(f[i]+f[j])%mod;\n\t}\n\tcout<<f[n]<<endl;\n\treturn 0;\n}\n```\n\u8fd9\u662f\u849f\u84bb\u7684\u7b2c\u4e00\u7bc7\u9898\u89e3\uff0c\u8bf7\u6c42\u5ba1\u6838\u5927\u5927\u901a\u8fc7\uff01",
+        "postTime": 1678268203,
+        "uid": 780394,
+        "name": "SYC0226_big_PP",
+        "ccfLevel": 0,
+        "title": "AT_abc178_d"
+    },
+    {
+        "content": "### [\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/AT_abc178_d)\n## \u9898\u610f\n\n\u7ed9\u5b9a\u4e00\u4e2a\u6b63\u6574\u6570 $S$\uff0c\u95ee\u6709\u591a\u5c11\u4e2a\u6570\u6ee1\u8db3\u4ee5\u4e0b\u6761\u4ef6\uff1a\n\n- \u5e8f\u5217\u4e2d**\u4e0d\u80fd\u51fa\u73b0**\u5c0f\u4e8e $3$ \u7684\u6b63\u6574\u6570\u3002\n- \u5e8f\u5217\u4e2d\u7684\u548c\u5fc5\u987b**\u7b49\u4e8e**\u8f93\u5165\u7684 $S$\u3002\n\n## \u601d\u8def\n\n- \u8fd9\u662f\u4e00\u9053\u6c42\u65b9\u6848\u6570\u7684\u9898\uff0c\u56e0\u6b64\u6211\u4eec\u9700\u8981\u5148\u5efa\u4e00\u4e2a\u6570\u7ec4\uff0c\u5176\u4e2d $dp[i]$ \u8868\u793a\u4e3a\u5e8f\u5217\u603b\u548c\u4e3a $i$ \u65f6\u7684\u65b9\u6848\u603b\u6570\u3002\n- \u540c\u65f6\u4e3a\u4fdd\u8bc1\u5e8f\u5217\u4e2d**\u4e0d\u51fa\u73b0**\u5c0f\u4e8e $3$ \u7684\u6b63\u6574\u6570\uff0c\u56e0\u6b64\u53ea\u80fd\u53d6 $dp[i-1]$ \u548c $dp[i-3]$ \u4e4b\u548c\uff0c\u6240\u4ee5\u8f6c\u79fb\u65b9\u7a0b\u4e3a $dp[i]=dp[i-1]+dp[i-3]$\u3002\n\n## \u6ce8\u610f\u4e8b\u9879\uff1a\n\n-  $dp[0]$ \u7684\u503c\u8981\u8d4b\u503c\u4e3a $1$\u3002\n- \u9700\u8981\u5728\u8fd0\u7b97\u8fc7\u7a0b\u4e2d $\\bmod10^9+7$\u3002\n- \u6700\u540e\u8981\u8f93\u51fa\u56de\u8f66\u3002\n\n# AC \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\n\nusing namespace std;\n\nconst int MOD = 1e9 + 7, N = 2e3 + 10;\n\nint dp[N];\n\nint main(){\n\tint S;\n\tcin >> S;\n\tdp[0] = 1; dp[1] = 0; dp[2] = 0;\n\tfor(int i = 3; i <= S; i++){\n\t\tdp[i] = (dp[i - 1] + dp[i - 3]) % MOD;//\u8f6c\u79fb\u65b9\u7a0b\n\t}\n\tcout << dp[S] << endl;//\u8f93\u51fa\u65b9\u6848\u6570\n\treturn 0;\n}\n```\n\n------------\n\n### [AC\u8bb0\u5f55](https://www.luogu.com.cn/record/99612781)",
+        "postTime": 1673598372,
+        "uid": 327642,
+        "name": "qinmingze",
+        "ccfLevel": 4,
+        "title": "AT_abc178_d [ABC178D] Redistribution \u9898\u89e3"
+    },
+    {
+        "content": "## \u9898\u610f\n\n\u7ed9\u5b9a\u4e00\u4e2a\u6574\u6570 $S$\uff0c\u95ee\u6709\u591a\u5c11\u4e2a\u5e8f\u5217\u6ee1\u8db3\uff1a\n\n- \u4ec5\u5305\u542b \u5927\u4e8e\u7b49\u4e8e $3$ \u7684\u6574\u6570\u3002\n\n- \u5e8f\u5217\u7684\u6240\u6709\u6570\u4e4b\u548c\u4e3a $S$\u3002\n\n## \u89e3\u6cd5\n\n\u5f88\u5bb9\u6613\u60f3\u5230\u8fd9\u662f\u4e00\u4e2a\u8ba1\u6570 DP\uff0c\u8bbe\u72b6\u6001 $dp[i]$ \u4e3a \u5e8f\u5217\u603b\u548c\u4e3a $i$ \u7684\u65b9\u6cd5\u6570\uff0c\u521d\u59cb\u5316 $dp[0] = 1$\uff0c\u8f6c\u79fb\u65b9\u7a0b\u4e3a:\n\n$$dp[i] = \\sum_{j = 0}^{i-3}dp[j]$$\n\n\u6216\u8005\u679a\u4e3e\u6700\u540e\u4e00\u4e2a\u6570\uff0c\u6700\u5c0f\u4e3a $3$\uff0c\u6700\u5927\u4e3a $i$:\n\n$$dp[i] = \\sum_{j=3}^{i}dp[i-j]$$\n\n\u6700\u540e\u8f93\u51fa $dp[S]$ \u5373\u53ef\u3002\n\n\u522b\u5fd8\u4e86\u8981\u6a21 $10^9 + 7$\u3002\n\n\u65f6\u95f4\u590d\u6742\u5ea6 $O(S^2)$\u3002\n\n## Code\n\n```cpp\n#include<bits/stdc++.h>\n#define LL long long\n#define Fcin\\\n\tios :: sync_with_stdio(0);\\\n\tcin.tie(0); cout.tie(0)\nusing namespace std;\nconst LL MOD = 1e9 + 7;\nconst LL N = 2e3 + 10;\nLL S, dp[N];\nint main(){\n    Fcin;\n    cin >> S;\n    dp[0] = 1;\n    for (LL i = 3; i <= S; i ++){\n    \tfor (LL j = 0; j <= i - 3; j ++){\n    \t\tdp[i] = (dp[i] + dp[j]) % MOD;\n\t\t}\n\t}\n\tcout << dp[S];\n\treturn 0;\n}\n```\n",
+        "postTime": 1668411552,
+        "uid": 431658,
+        "name": "LaDeX",
+        "ccfLevel": 0,
+        "title": "[ABC178D] Redistribution \u9898\u89e3"
+    },
+    {
+        "content": "## [\u9898\u76ee\u4f20\u9001\u5668](https://www.luogu.com.cn/problem/AT_abc178_d)\n## [\u66f4\u723d\u7684\u9605\u8bfb\u4f53\u9a8c](https://yaohaoyou.blog.luogu.org/solution-at-abc178-d)\n\n## \u9898\u610f\n\n\u5728 $n$ \u4e2a\u82f9\u679c\u95f4\uff0c\u63d2\u5165 $i - 1$ \u5757\u677f\u3002\u5c06\u5176\u5206\u6210 $i$ \u7ec4\uff0c\u6bcf\u7ec4\u7684\u4e2a\u6570 $\\ge 3$\u3002\u5b66\u8fc7\u63d2\u677f\u6cd5\u7684\u540c\u5b66\u4eec\u5e94\u8be5\u90fd\u77e5\u9053\u5f53\u8fd9\u4e2a\u9898\u6bcf\u4e2a\u4e2a\u6570 $\\le 1$ \u65f6\u5c31\u5f88\u7b80\u5355\u4e86\uff0c\u6240\u4ee5\u6211\u4eec\u53ef\u4ee5\u628a\u9898\u76ee\u8f6c\u5316\u4e3a\uff0c\u5728 $n - 2 \\times i$ \u4e2a\u82f9\u679c\u95f4\uff0c\u63d2\u5165 $i - 1$ \u5757\u677f\uff0c\u6bcf\u7ec4\u82f9\u679c\u6570 $\\le 1$\u3002\n\n\u73b0\u5728\u5c31\u662f\u4e00\u9053\u5f88\u6a21\u677f\u7684\u63d2\u677f\u6cd5\u4e86\uff0c\u53ef\u4ee5\u770b\u770b [cyz2010](https://www.luogu.com.cn/user/631576) \u7684\u56fe\u81ea\u884c\u7406\u89e3\u3002$ans=\\sum^{m}_{i=1}{C_{n - i \\times 2-1}^{i-1}}$\u3002\n\n## AC Code\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nconst int _maojun_=1e9+7,maxn=2005;\nint n,m,ans,C[maxn][maxn];\nint main()\n{\n    scanf(\"%d\",&n);\n    m=n/3;\n    for(int i=0;i<=n;i++)\n    {\n        C[i][0]=C[i][i]=1;\n        for(int j=1;j<i;j++)\n            C[i][j]=(C[i-1][j-1]+C[i-1][j])%_maojun_;\n    }\n    for(int i=1;i<=m;i++)\n    {\n        ans+=C[n-i*2-1][i-1];\n        ans%=_maojun_;\n    }\n    printf(\"%d\",ans);\n}\n```\n",
+        "postTime": 1679623690,
+        "uid": 739274,
+        "name": "yaohaoyou",
+        "ccfLevel": 5,
+        "title": "AT_abc178_d [ABC178D] Redistribution \u9898\u89e3"
+    }
+]

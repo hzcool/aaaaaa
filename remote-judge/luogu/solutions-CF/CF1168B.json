@@ -1,0 +1,18 @@
+[
+    {
+        "content": "\u795e\u4ed9\u9898\n\n\u591a\u8bd5\u51e0\u4e2a\u5b57\u7b26\u4e32\uff0c\u53ef\u4ee5\u53d1\u73b0\uff0c\u53ea\u8981\u957f\u5ea6\u7a0d\u5fae\u957f\u4e00\u70b9\uff0c\u5f88\u5bb9\u6613\u5c31\u662f\u5408\u6cd5\u7684\n\n\u5b9e\u9645\u4e0a\uff0c\u6240\u6709\u957f\u5ea6\u5927\u4e8e $9$ \u7684\u5b57\u7b26\u4e32\u90fd\u662f\u5408\u6cd5\u7684\uff0c\u8fd9\u4e00\u70b9\u53ef\u4ee5\u66b4\u641c\u8bc1\u660e\n\n\u90a3\u4e48\u63a5\u4e0b\u6765\u5c31\u7b80\u5355\u6781\u4e86\uff0c\u4ece $n$ \u5230 $1$ \u679a\u4e3e\u5de6\u7aef\u70b9 $l$\uff0c\u66b4\u529b\u6c42\u51fa\u6700\u8fd1\u7684\u5408\u6cd5\u53f3\u7aef\u70b9 $r$\uff0c\u7d2f\u52a0\u7b54\u6848\uff0c$r$ \u663e\u7136\u5355\u8c03\u4e0d\u5347\n\n```cpp\nconst int N = 300010;\nchar s[N];int n;\nll ans;\nint main()\n{\n\tscanf(\"%s\",s + 1),n = strlen(s + 1);\n\tint l,r = n + 1;\n\tfor(l = n;l;l--)\n\t{\n\t\tfor(int i = 1;l + 2 * i <= n;i++)\n\t\t\tif(s[l] == s[l + i] && s[l] == s[l + 2 * i])\n\t\t\t{ r = min(r,l + 2 * i);break ;}\n\t\tans += max(n - r + 1,0);\n\t}fprint(ans);\n \treturn 0;\n}\n```",
+        "postTime": 1593483393,
+        "uid": 53994,
+        "name": "81179332_",
+        "ccfLevel": 9,
+        "title": "\u9898\u89e3 CF1168B \u3010Good Triple\u3011"
+    },
+    {
+        "content": "\u6211\u4eec\u5bf9\u4e8e\u6bcf\u4e2a $ l $ \uff0c\u66b4\u529b\u5730\u8ba1\u7b97\u51fa\u80fd\u6784\u6210\u597d\u7684\u5b57\u7b26\u4e32\u7684 $ r $ \u7684\u6700\u5927\u503c\uff0c\u5219\u5bf9\u4e8e\u4e00\u5207 $ r \\in [l,r_{max}] $ \u90fd\u80fd\u6ee1\u8db3\u9898\u76ee\u6240\u7ed9\u51fa\u7684\u6761\u4ef6\u3002\n\n\u8fd9\u6837\u7b97\u7684\u590d\u6742\u5ea6\u4f3c\u4e4e\u662f $ O(n^2) $ \u7684\uff1f\u5b9e\u9645\u4e0a\u5e76\u975e\u5982\u6b64\u3002\u6211\u4eec\u53ef\u4ee5\u8bc1\u660e\uff1a\u4e0d\u5b58\u5728\u957f\u5ea6\u8d85\u8fc7 $ 9 $ \u7684\u5b57\u7b26\u4e32\u3002\u56e0\u800c\u5b9e\u9645\u7684\u590d\u6742\u5ea6\u662f $ O(9n) $ \uff08\u8bf4\u767d\u4e86\u5c31\u662f $ O(n) $ \uff09\u3002\n\n```cpp\n#include <iostream>\n#include <cstring>\nusing namespace std;\nchar s[300005];\nint main()\n{\n cin>>s;\n int len=strlen(s),r=len+1;\n long long ans=0;\n for(int i=len-1;i>=0;i--)\n {\n  for(int j=1;i+2*j<len;j++)\n   if(s[i]==s[i+j]&&s[i+j]==s[i+2*j])\n   {\n    r=min(r,i+2*j);\n    break;\n   }\n  ans+=max(len-r,0);\n }\n cout<<ans<<endl;\n return 0;\n}\n```\n",
+        "postTime": 1559142439,
+        "uid": 22030,
+        "name": "StudyingFather",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF1168B \u3010Good Triple\u3011"
+    }
+]

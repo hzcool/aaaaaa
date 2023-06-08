@@ -1,0 +1,17 @@
+{
+    "description": "You are given an integer array $ a_1, a_2, \\ldots, a_n $ .\n\nThe array $ b $ is called to be a subsequence of $ a $ if it is possible to remove some elements from $ a $ to get $ b $ .\n\nArray $ b_1, b_2, \\ldots, b_k $ is called to be good if it is not empty and for every $ i $ ( $ 1 \\le i \\le k $ ) $ b_i $ is divisible by $ i $ .\n\nFind the number of good subsequences in $ a $ modulo $ 10^9 + 7 $ .\n\nTwo subsequences are considered different if index sets of numbers included in them are different. That is, the values \u200bof the elements \u200bdo not matter in the comparison of subsequences. In particular, the array $ a $ has exactly $ 2^n - 1 $ different subsequences (excluding an empty subsequence).",
+    "inputFormat": "The first line contains an integer $ n $ ( $ 1 \\le n \\le 100\\,000 $ ) \u2014 the length of the array $ a $ .\n\nThe next line contains integers $ a_1, a_2, \\ldots, a_n $ ( $ 1 \\le a_i \\le 10^6 $ ).",
+    "outputFormat": "Print exactly one integer \u2014 the number of good subsequences taken modulo $ 10^9 + 7 $ .",
+    "samples": [
+        [
+            "2\n1 2\n",
+            "3"
+        ],
+        [
+            "5\n2 2 1 22 14\n",
+            "13"
+        ]
+    ],
+    "hint": "In the first example, all three non-empty possible subsequences are good: $ \\{1\\} $ , $ \\{1, 2\\} $ , $ \\{2\\} $\n\nIn the second example, the possible good subsequences are: $ \\{2\\} $ , $ \\{2, 2\\} $ , $ \\{2, 22\\} $ , $ \\{2, 14\\} $ , $ \\{2\\} $ , $ \\{2, 22\\} $ , $ \\{2, 14\\} $ , $ \\{1\\} $ , $ \\{1, 22\\} $ , $ \\{1, 14\\} $ , $ \\{22\\} $ , $ \\{22, 14\\} $ , $ \\{14\\} $ .\n\nNote, that some subsequences are listed more than once, since they occur in the original array multiple times.",
+    "translation": "\u4ece\u5e8f\u5217 $\\{a_1,\\ a_2,\\ ..\\ ,\\ a_n\\}$ \u4e2d\u9009\u51fa**\u975e\u7a7a**\u5b50\u5e8f\u5217 $\\{b_1,\\ b_2,\\ ..\\ ,\\ b_k\\}$\uff0c\u4e00\u4e2a\u5b50\u5e8f\u5217\u5408\u6cd5\u9700\u8981\u6ee1\u8db3 $\\forall\\ i \\in [1,\\ k],\\ i\\ |\\ b_i$\u3002\u6c42\u6709\u591a\u5c11\u4e92\u4e0d\u76f8\u7b49\u7684\u5408\u6cd5\u5b50\u5e8f\u5217\uff0c\u7b54\u6848\u5bf9 $10^9 + 7$ \u53d6\u6a21\u3002\n\n\u5e8f\u5217 $\\{1,\\ 1\\}$ \u6709 $2$ \u79cd\u9009\u6cd5\u5f97\u5230\u5b50\u5e8f\u5217 $\\{1\\}$\uff0c\u4f46 $1$ \u7684\u6765\u6e90\u4e0d\u540c\uff0c\u8ba4\u4e3a\u8fd9\u4e24\u4e2a\u5b50\u5e8f\u5217\u4e0d\u76f8\u7b49\u3002"
+}

@@ -1,0 +1,17 @@
+{
+    "description": "No Great Victory anniversary in Berland has ever passed without the war parade. This year is not an exception. That\u2019s why the preparations are on in full strength. Tanks are building a line, artillery mounts are ready to fire, soldiers are marching on the main square... And the air forces general Mr. Generalov is in trouble again. This year a lot of sky-scrapers have been built which makes it difficult for the airplanes to fly above the city. It was decided that the planes should fly strictly from south to north. Moreover, there must be no sky scraper on a plane\u2019s route, otherwise the anniversary will become a tragedy. The Ministry of Building gave the data on $ n $ sky scrapers (the rest of the buildings are rather small and will not be a problem to the planes). When looking at the city from south to north as a geometrical plane, the $ i $ -th building is a rectangle of height $ h_{i} $ . Its westernmost point has the x-coordinate of $ l_{i} $ and the easternmost \u2014 of $ r_{i} $ . The terrain of the area is plain so that all the buildings stand on one level. Your task as the Ministry of Defence\u2019s head programmer is to find an enveloping polyline using the data on the sky-scrapers. The polyline\u2019s properties are as follows:\n\n- If you look at the city from south to north as a plane, then any part of any building will be inside or on the boarder of the area that the polyline encloses together with the land surface.\n- The polyline starts and ends on the land level, i.e. at the height equal to 0.\n- The segments of the polyline are parallel to the coordinate axes, i.e. they can only be vertical or horizontal.\n- The polyline\u2019s vertices should have integer coordinates.\n- If you look at the city from south to north the polyline (together with the land surface) must enclose the minimum possible area.\n- The polyline must have the smallest length among all the polylines, enclosing the minimum possible area with the land.\n- The consecutive segments of the polyline must be perpendicular.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF35E/23dca3b6890c3864c0838cb5956c4323cb001fd2.png) Picture to the second sample test (the enveloping polyline is marked on the right).",
+    "inputFormat": "The first input line contains integer $ n $ ( $ 1<=n<=100000 $ ). Then follow $ n $ lines, each containing three integers $ h_{i} $ , $ l_{i} $ , $ r_{i} $ ( $ 1<=h_{i}<=10^{9},-10^{9}<=l_{i}&lt;r_{i}<=10^{9} $ ).",
+    "outputFormat": "In the first line output integer $ m $ \u2014 amount of vertices of the enveloping polyline. The next $ m $ lines should contain 2 integers each \u2014 the position and the height of the polyline\u2019s vertex. Output the coordinates of each vertex in the order of traversing the polyline from west to east. Remember that the first and the last vertices of the polyline should have the height of 0.",
+    "samples": [
+        [
+            "2\n3 0 2\n4 1 3\n",
+            "6\n0 0\n0 3\n1 3\n1 4\n3 4\n3 0\n"
+        ],
+        [
+            "5\n3 -3 0\n2 -1 1\n4 2 4\n2 3 7\n3 6 8\n",
+            "14\n-3 0\n-3 3\n0 3\n0 2\n1 2\n1 0\n2 0\n2 4\n4 4\n4 2\n6 2\n6 3\n8 3\n8 0\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9\u51fan\u4e2a\u5e95\u8fb9\u5728x\u8f74\u4e0a\u7684\u77e9\u5f62\uff0c\u6c42\u5916\u9762\u7684\u8f6e\u5ed3\u7ebf\u9876\u70b9\u3002"
+}

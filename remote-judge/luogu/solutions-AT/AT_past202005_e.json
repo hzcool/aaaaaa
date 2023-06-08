@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u601d\u8def\uff1a\u6a21\u62df\u3002\u6211\u4eec\u7528 $c_i$ \u8868\u793a\u70b9 $i$ \u7684\u989c\u8272\uff0c\u518d\u7528\u4e00\u4e2a\u521d\u59cb\u503c\u4e3a\u96f6\u7684\u4e8c\u7ef4\u6570\u7ec4 $a$\uff0c\u5f53 $a_{i,j}=1$ \u65f6\u8868\u793a\u70b9 $i$ \u4e0e\u70b9 $j$ \u6709\u8fb9\u76f8\u8fde\uff0c\u90a3\u4e48\u5bf9\u4e8e\u6bcf\u6761\u8fb9\uff0c\u6211\u4eec\u5c31\u9700\u8981\u628a $a_{u_i,v_i}$ \u548c $a_{v_i,u_i}$ \u90fd\u8d4b\u503c\u4e3a $1$\u3002\u7136\u540e\u518d\u6765\u770b\u64cd\u4f5c\u90e8\u5206\uff1a\u5bf9\u4e8e\u6bcf\u4e2a\u64cd\u4f5c ```1 x```\uff0c\u6211\u4eec\u9700\u8981\u5148\u8f93\u51fa $c_x$\uff0c\u518d\u679a\u4e3e\u6709\u591a\u5c11\u4e2a\u70b9\u4e0e\u5b83\u76f8\u8fde\uff0c\u5373\u627e\u51fa\u6240\u6709\u6ee1\u8db3\u6761\u4ef6 $a_{x,i}=1$ \u7684 $i$\uff0c\u518d\u628a $c_i$ \u8d4b\u503c\u4e3a $c_x$ \u5373\u53ef\uff1b\u5bf9\u4e8e\u6bcf\u4e2a\u64cd\u4f5c ```2 x y``` \u5c31\u66f4\u7b80\u5355\u4e86\uff0c\u53ea\u9700\u8981\u628a $c_x$ \u8d4b\u503c\u4e3a $y$ \u5c31\u53ef\u4ee5\u4e86\u3002\u601d\u8def\u8bb2\u5b8c\u4e86\uff0c\u4e0a\u4ee3\u7801\uff01\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\ninline int read(){\n\tint n=0;\n\tchar c=getchar();\n\twhile(c<'0' || c>'9') c=getchar();\n\twhile(c>='0' && c<='9'){\n\t\tn=(n<<3)+(n<<1)+(c^48);\n\t\tc=getchar();\n\t}\n\treturn n;\n}\nconst int N=205;\nint c[N];\nbool a[N][N];\nint main(){\n\tint n=read(),m=read(),q=read();\n\tfor(int i=1;i<=m;i++){\n\t\tint u=read(),v=read();\n\t\ta[u][v]=a[v][u]=1;\n\t}\n\tfor(int i=1;i<=n;i++) c[i]=read();\n\twhile(q--){\n\t\tint k=read();\n\t\tif(k==1){\n\t\t\tint x=read();\n\t\t\tprintf(\"%d\\n\",c[x]);\n\t\t\tfor(int i=1;i<=n;i++) if(a[x][i]) c[i]=c[x];\n\t\t}\n\t\telse {\n\t\t\tint x=read(),y=read();\n\t\t\tprintf(\"%d\\n\",c[x]);\n\t\t\tc[x]=y;\n\t\t}\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1678953576,
+        "uid": 909294,
+        "name": "zhuweiqi",
+        "ccfLevel": 0,
+        "title": "AT_past202005_e \u9898\u89e3"
+    }
+]

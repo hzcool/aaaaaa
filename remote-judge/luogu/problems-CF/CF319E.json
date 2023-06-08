@@ -1,0 +1,13 @@
+{
+    "description": "In this problem at each moment you have a set of intervals. You can move from interval $ (a,b) $ from our set to interval $ (c,d) $ from our set if and only if $ c \n< a < d $ or $ c < b < d $ . Also there is a path from interval $ I_{1} $ from our set to interval $ I_{2} $ from our set if there is a sequence of successive moves starting from $ I_{1} $ so that we can reach $ I_{2} $ .\n\nYour program should handle the queries of the following two types:\n\n1. \"1 x y\" $ (x&lt;y) $ \u2014 add the new interval $ (x,y) $ to the set of intervals. The length of the new interval is guaranteed to be strictly greater than all the previous intervals.\n2. \"2 a b\" $ (a\u2260b) $ \u2014 answer the question: is there a path from $ a $ -th (one-based) added interval to $ b $ -th (one-based) added interval?\n\nAnswer all the queries. Note, that initially you have an empty set of intervals.",
+    "inputFormat": "The first line of the input contains integer $ n $ denoting the number of queries, $ (1 \\leq n \\leq 10^{5}) $ . Each of the following lines contains a query as described above. All numbers in the input are integers and don't exceed $ 10^{9} $ by their absolute value.\n\nIt's guaranteed that all queries are correct.",
+    "outputFormat": "For each query of the second type print \"YES\" or \"NO\" on a separate line depending on the answer.",
+    "samples": [
+        [
+            "5\n1 1 5\n1 5 11\n2 1 2\n1 2 9\n2 1 2\n",
+            "NO\nYES\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u6709\u4e00\u4e2a\u533a\u95f4\u7684\u96c6\u5408\uff0c\u521d\u59cb\u4e3a\u7a7a\u3002\u5f53 $c<a<d$ \u6216 $c<b<d$ \uff0c\u4e14 $(a,b),(c,d)$ \u90fd\u5728\u96c6\u5408\u4e2d\u65f6\uff0c\u4f60\u53ef\u4ee5\u4ece\u533a\u95f4 $(a,b)$ \u79fb\u52a8\u5230 $(c,d)$\u3002\u4f60\u9700\u8981\u652f\u6301\u4e0b\u9762\u7684\u64cd\u4f5c\uff1a\n\n- 1 x y\uff0c\u52a0\u5165\u4e00\u4e2a\u65b0\u533a\u95f4 $(x,y)$\u3002\u4fdd\u8bc1\u52a0\u5165\u7684\u533a\u95f4\u957f\u5ea6\u4e25\u683c\u5355\u8c03\u9012\u589e\u3002\n\n- 2 a b\uff0c\u8be2\u95ee\u662f\u5426\u80fd\u4ece\u7b2c $a$ \u4e2a\u52a0\u5165\u7684\u533a\u95f4\u79fb\u52a8\u5230\u7b2c $b$ \u4e2a\u3002\n\n\u64cd\u4f5c\u6570 $1\\le n\\le 10^5$\uff0c\u4fdd\u8bc1\u5176\u4ed6\u4efb\u4f55\u6570\u5b57\u90fd\u662f\u6574\u6570\u4e14\u4e0d\u8d85\u8fc7 $10^9$\u3002"
+}

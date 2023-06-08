@@ -1,0 +1,21 @@
+{
+    "description": "Sometimes Mister B has free evenings when he doesn't know what to do. Fortunately, Mister B found a new game, where the player can play against aliens.\n\nAll characters in this game are lowercase English letters. There are two players: Mister B and his competitor.\n\nInitially the players have a string $ s $ consisting of the first $ a $ English letters in alphabetical order (for example, if $ a=5 $ , then $ s $ equals to \"abcde\").\n\nThe players take turns appending letters to string $ s $ . Mister B moves first.\n\nMister B must append exactly $ b $ letters on each his move. He can arbitrary choose these letters. His opponent adds exactly $ a $ letters on each move.\n\nMister B quickly understood that his opponent was just a computer that used a simple algorithm. The computer on each turn considers the suffix of string $ s $ of length $ a $ and generates a string $ t $ of length $ a $ such that all letters in the string $ t $ are distinct and don't appear in the considered suffix. From multiple variants of $ t $ lexicographically minimal is chosen (if $ a=4 $ and the suffix is \"bfdd\", the computer chooses string $ t $ equal to \"aceg\"). After that the chosen string $ t $ is appended to the end of $ s $ .\n\nMister B soon found the game boring and came up with the following question: what can be the minimum possible number of different letters in string $ s $ on the segment between positions $ l $ and $ r $ , inclusive. Letters of string $ s $ are numerated starting from $ 1 $ .",
+    "inputFormat": "First and only line contains four space-separated integers: $ a $ , $ b $ , $ l $ and $ r $ ( $ 1<=a,b<=12 $ , $ 1<=l<=r<=10^{9} $ ) \u2014 the numbers of letters each player appends and the bounds of the segment.",
+    "outputFormat": "Print one integer \u2014 the minimum possible number of different letters in the segment from position $ l $ to position $ r $ , inclusive, in string $ s $ .",
+    "samples": [
+        [
+            "1 1 1 8\n",
+            "2"
+        ],
+        [
+            "4 2 2 6\n",
+            "3"
+        ],
+        [
+            "3 7 4 6\n",
+            "1"
+        ]
+    ],
+    "hint": "In the first sample test one of optimal strategies generate string $ s= $ \"abababab...\", that's why answer is $ 2 $ .\n\nIn the second sample test string $ s= $ \"abcdbcaefg...\" can be obtained, chosen segment will look like \"bcdbc\", that's why answer is $ 3 $ .\n\nIn the third sample test string $ s= $ \"abczzzacad...\" can be obtained, chosen, segment will look like \"zzz\", that's why answer is $ 1 $ .",
+    "translation": "Mister B \u548c\u7535\u8111\u5728\u73a9\u6e38\u620f\u3002\u4e24\u4e2a\u4eba\u8f6e\u6d41\u5411\u5b57\u7b26\u4e32 $s$ \u7684\u672b\u5c3e\u6dfb\u52a0\u5b57\u7b26\uff0cMister B \u5148\u5f00\u59cb\u3002\n\n\u5f00\u59cb\u65f6\uff0c\u5b57\u7b26\u4e32 $s$ \u5305\u542b\u6309\u987a\u5e8f\u7684\u524d $a$ \u4e2a\u5b57\u6bcd\uff0c\u4f8b\u5982 $a=5$ \u65f6 $s=\\texttt{abcde}$\u3002\n\nMister B \u6bcf\u6b21\u5411\u5b57\u7b26\u4e32 $s$ \u7684\u672b\u5c3e\u6dfb\u52a0\u4efb\u610f\u7684 $b$ \u4e2a\u5b57\u7b26\u3002\u7535\u8111\u6bcf\u6b21\u53d6\u51fa $s$ \u7684\u957f\u5ea6\u4e3a $a$ \u7684\u540e\u7f00\uff0c\u5e76\u5c06\u524d $a$ \u4e2a\u6ca1\u6709\u5728\u540e\u7f00\u4e2d\u51fa\u73b0\u7684\u5b57\u6bcd\u6309\u987a\u5e8f\u7ec4\u6210\u5b57\u7b26\u4e32 $t$\uff0c\u518d\u628a $t$ \u52a0\u5165 $s$ \u7684\u672b\u5c3e\u3002\u4f8b\u5982\uff0c$a=4$\uff0c\u540e\u7f00\u4e3a $\\texttt{bfdd}$\uff0c\u5219 $t=\\texttt{aceg}$\u3002\n\n\u6c42 $s$ \u7684\u7b2c $l$ \u5230\u7b2c $r$ \u4e2a\u5b57\u7b26\u4e2d\uff0c\u6700\u5c11\u6709\u591a\u5c11\u4e2a\u4e0d\u540c\u7684\u5b57\u7b26\u3002\uff08\u542b\u7b2c $l$ \u4e2a\u548c\u7b2c $r$ \u4e2a\u5b57\u7b26\uff0c\u5b57\u7b26\u4ece $1$ \u5f00\u59cb\u6807\u53f7\uff09"
+}

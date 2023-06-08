@@ -1,0 +1,42 @@
+[
+    {
+        "content": "# CF1692A Marathon\n\n\u5927\u6c34\u9898\uff0c\u8003\u573a\u4e0a\u4e24\u5206\u949f\u5207\u6389\u3002\n\n## Sol\n\n\u601d\u8def\u6211\u4e0d\u7528\u8bf4\u5927\u5bb6\u5e94\u8be5\u4e5f\u77e5\u9053\u5427\uff0c\u5c31\u662f\u8f93\u5165\u56db\u4e2a\u6570\u540e\u6bd4\u8f83 $a$ \u548c $b\\ c\\ d$ \u7684\u5927\u5c0f\uff0c\u5982\u679c $a$ \u5c0f\u4e86\uff0c\u8ba1\u6570\u5668\u52a0\u4e00\uff0c\u6700\u540e\u8f93\u51fa\u8ba1\u6570\u5668\u5373\u53ef\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\n#define int long long\nusing namespace std;\nint n, m, i, j, k, a, b, c, d;\nsigned main()\n{\n    int T;\n    cin >> T;\n    while (T--)\n    {\n        k = 0;\n        cin >> a >> b >> c >> d;\n        if (b > a) k++;\n        if (c > a) k++;\n        if (d > a) k++;\n        cout << k << endl;\n    }\n    return 0;\n}\n```",
+        "postTime": 1655347801,
+        "uid": 509528,
+        "name": "RE_Prince",
+        "ccfLevel": 5,
+        "title": "CF1692A Marathon Solution"
+    },
+    {
+        "content": "### \u9898\u76ee\u89e3\u6790\n\n\u76f4\u63a5\u6309\u7167\u9898\u610f\u6a21\u62df\u5373\u53ef\u3002\n\n\u5206\u522b\u5224\u65ad $b, c, d$ \u662f\u5426 $\\gt$ $a$\uff0c\u5e76\u5c06\u6761\u4ef6\u6210\u7acb\u7684\u6b21\u6570\u8f93\u51fa\u3002\n\n### \u4ee3\u7801\u89e3\u91ca\n\n\u901a\u8fc7 `while (t--)` \u5b9e\u73b0 $t$ \u7ec4\u6570\u636e\u7684\u8f93\u5165\uff08\u524d\u63d0\u4e3a\u4e0d\u9700\u8f93\u51fa\u6d4b\u8bd5\u7ec4\u5e8f\u53f7\uff09\u3002\n\n\u8bb0\u5f97\u6bcf\u8f6e\u524d\u628a `cnt` \u6e05\u96f6\u3002\n\n### \u4ee3\u7801\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nint t, a, b, c, d, cnt; // \u4e2a\u4eba\u4e60\u60ef\u5168\u5c40\n\nint main() {\n\tcin >> t; // \u8bfb\u5165\u6d4b\u8bd5\u7ec4\u6570\n\twhile (t--) { // \u6d4b\u8bd5\u7ec4\u6570\n\t\tcnt = 0; // \u6e05\u96f6\n\t\tcin >> a >> b >> c >> d; // \u8bfb\u5165\n\t\tif (b > a) { // \u5206\u522b\u5224\u65ad\n\t\t\tcnt++;\n\t\t}\n\t\tif (c > a) {\n\t\t\tcnt++;\n\t\t}\n\t\tif (d > a) {\n\t\t\tcnt++;\n\t\t}\n\t\tcout << cnt << endl; // \u8f93\u51fa\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1655378197,
+        "uid": 250291,
+        "name": "yuchenren",
+        "ccfLevel": 0,
+        "title": "CF1692A Marathon \u9898\u89e3"
+    },
+    {
+        "content": "\u672c\u9898\u8981\u6c42\u8f93\u5165\u56db\u4e2a\u6570 $a,b,c,d$\uff0c\u95ee $b,c,d$ \u5f53\u4e2d\u6709\u51e0\u4e2a\u6570\u6bd4 $a$ \u5927\u3002\n\n\u4f9d\u6b21\u6bd4\u8f83\u5373\u53ef\u3002\n\nAC Code:\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nint main()\n{\n    int t;\n    cin >> t;\n    while(t--)\n    {\n        int a,b,c,d;\n        cin >> a >> b >> c >> d;\n        int cnt = 0;\n        if(b > a) cnt++;\n        if(c > a) cnt++;\n        if(d > a) cnt++;\n        cout << cnt << endl;\n    }\n}\n```",
+        "postTime": 1655356825,
+        "uid": 514470,
+        "name": "hyc1026",
+        "ccfLevel": 0,
+        "title": "CF1692A \u9898\u89e3"
+    },
+    {
+        "content": "## CF1692A Marathon\n\n\u672c\u9898\u662f\u4e00\u9053 CF Div.4 \u7684\u7b7e\u5230\u9898\u3002\n\n\u9898\u76ee\u96be\u5ea6\u4e0d\u9ad8\uff0c\u76f4\u63a5\u6309\u9898\u76ee\u8981\u6c42\u5224\u65ad $b$\uff0c$c$\uff0c$d$ \u4e2d\u6709\u51e0\u4e2a\u6570\u5927\u4e8e $a$ \u5373\u53ef\u3002\n\n\u4ee3\u7801\u9644\u4e0a\uff1a\n```cpp\n//CF1692A Marathon\n#include<bits/stdc++.h>\n#define int long long\n#define elif else if\nusing namespace std;\nvoid func(){\n\tint a,b,c,d,ans=0;\n\tcin>>a>>b>>c>>d;\n\tif(b>a) ++ans;//\u5224\u65ad\u6709\u51e0\u4e2a\u6570>a\n\tif(c>a) ++ans;\n\tif(d>a) ++ans;\n\tcout<<ans<<\"\\n\";\n}\nsigned main(){\n\tios::sync_with_stdio(false);\n\tint n;cin>>n;\n\tfor(int i=1;i<=n;++i) func();\n\treturn 0;\n}\n```\n\u6709\u95ee\u9898\u53ef\u4ee5\u5728\u8bc4\u8bba\u533a\u95ee\u7b14\u8005\uff0c\u7b14\u8005\u4f1a\u5c3d\u5feb\u56de\u7b54\u7684\u3002",
+        "postTime": 1655331856,
+        "uid": 481855,
+        "name": "OLE_OIer",
+        "ccfLevel": 0,
+        "title": "CF1692A Editorial"
+    },
+    {
+        "content": "## \u601d\u8def\uff1a\n\n\u7ed9 $a,b,c,d$\uff0c\u8868\u793a\u56db\u4e2a\u4eba\u8dd1\u6b65\u7684\u8ddd\u79bb\uff0c\u8be2\u95ee\u6bd4 $a$ \u90a3\u4e2a\u4eba\u8dd1\u7684\u8fdc\u7684\u6709\u51e0\u4eba\uff1f\n\n\u95ee\u9898\u53ef\u4ee5\u8f6c\u5316\u4e3a\u6c42 $b,c,d$ \u4e2d\u6bd4 $a$ \u5927\u7684\u6709\u591a\u5c11\u3002\u6bcf\u4e00\u6b21\u9047\u5230\u5927\u7684\u628a\u8ba1\u6570\u5668\u52a0\u4e00\u5373\u53ef\uff0c\u522b\u5fd8\u8bb0\u6e05\u7a7a\u8ba1\u6570\u5668\u4ee5\u5907\u591a\u7ec4\u8be2\u95ee\u3002\n\n## AC CODE\uff1a\n\n```cpp\n#define rep(i,a,b) for(int i=(a);i<=(b);i++)\n#define _rep(i,a,b) for(int i=(a);i<(b);i++)\n#define per(i,a,b) for(int i=(a);i>=(b);i--)\n#define _per(i,a,b) for(int i=(a);i>(b);i--)\n#include<bits/stdc++.h>\ntypedef long long ll;\nusing namespace std;\n#define edl printf(\"\\n\")\n#define space printf(\" \")\nll read()\n{\n\tchar c;\n\tll x=0;\n\tint f=1;\n\tc=getchar();\n\twhile(c<'0'||c>'9')\n\t{\n\t\tif(c=='-')f=-1;\n\t\tc=getchar();\n\t}\n\twhile(c>='0'&&c<='9')\n\t{\n\t\tx=(x<<1)+(x<<3)+(c^48);\n\t\tc=getchar();\n\t}\n\treturn x*f;\n}\nvoid write(ll x)\n{\n\tif(x>9)write(x/10);\n\tputchar(x%10+'0');\n\treturn;\n}\nvoid yn(ll a,ll b)\n{\n\tif(a==0)\n\t{\n\t\tif(b==0)printf(\"yes\\n\");\n\t\telse printf(\"YES\\n\");\n\t}\n\telse\n\t{\n\t\tif(b==0)printf(\"no\\n\");\n\t\telse printf(\"NO\\n\");\n\t}\n}\nll T;\t\nll n,m,k,p,q,r,s,a,b,c,d;\nll minn=9e18,maxx=-9e18;\nint main(){\n\tT=read();\n//\tT=1;\n\twhile(T--)\n\t{\n\t\tp=0;\n\t\ta=read(),b=read(),c=read(),d=read();\n\t\tif(b>a)p++;\n\t\tif(c>a)p++;\n\t\tif(d>a)p++;\n\t\twrite(p);printf(\"\\n\");\n\t}\n\treturn 0;\n}\n//Author:yinhy09,luogu user-id:575320\n//Date:2022.\n//question ID:Codeforces-Competition\n```\n",
+        "postTime": 1655348984,
+        "uid": 575320,
+        "name": "yinhy09",
+        "ccfLevel": 5,
+        "title": "CF1692A\u9898\u89e3"
+    }
+]

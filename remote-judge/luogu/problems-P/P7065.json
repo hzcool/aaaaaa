@@ -1,0 +1,13 @@
+{
+    "description": "\n\nFelix is working on a startup project in his garage. He has already found a great name for his project: SuperFastZilla. By now he is not sure what SuperFastZilla should do, but he is pretty sure it should do it fast, super fast.\n\nOnce he noticed that SuperFastZilla is working too slow, inspite of the fast algorithms used in it. Felix thinks that the problem may be caused by storage fragmentation.\n\nThe storage used by SuperFastZilla consists of $n$ blocks of memory. SuperFastZilla performs some operations on this storage. Each block is used in one operation only, the i-th block is used in the $a_{i}$-th operation.\n\nFelix wants to sort these blocks by the index of the operation they are used. To make it faster, Felix wants to split the storage into minimal number of segments of consecutive blocks, and then rearrange these segments to get the sorted array of blocks. After this rearrangement the order of block's indices of operations must be non-decreasing.\n\nHelp Felix to find the way to split the storage that minimizes the number of segments.\n\nFor example, if $a = [2 , 3 , 1 , 1 , 2 , 2 , 1],$ it can be split into three parts: $[2 , 3], [1 , 1 , 2 , 2]$ and $[1].$ These parts can be rearranged to make the sorted array: $[1], [1 , 1 , 2 , 2], [2 , 3].$\n\n",
+    "inputFormat": "\n\nThe first line of input file contains an integer $n (1 \\le n \\le 10^{5}).$ The next line contains $n$ integers $a_{i} (1 \\le a_{i} \\le 10^{5}).$\n\n",
+    "outputFormat": "\n\nThe first line of the output file must contain an integer number $m$ \u2014 the minimal number of segments.\n\nThe next line must contains $m$ integers, the lengths of the segments, from left to right.\n\n",
+    "samples": [
+        [
+            "7\n2 3 1 1 2 2 1\n",
+            "3\n2 4 1\n"
+        ]
+    ],
+    "hint": "Time limit: 2 s, Memory limit: 256 MB. \n\n",
+    "translation": "\u7ed9\u5b9a\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u6570\u7ec4\uff0c\u4f60\u9700\u8981\u628a\u5b83\u5206\u6210\u5c3d\u91cf\u5c11\u7684\u6bb5\uff0c\u4f7f\u5f97\u4f60\u53ef\u4ee5\u6392\u5217\u8fd9\u4e9b\u6bb5\u4ee4\u6574\u4e2a\u6570\u7ec4\u6709\u5e8f\u3002\n\n\n$n,a_i \\le 10^5$"
+}

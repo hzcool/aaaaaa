@@ -1,0 +1,12 @@
+{
+    "description": "\u7ed9\u5b9a\u6570\u5217$a_1...a_n$\u53ca$x_0$\u3002\n\n\u6ee1\u8db3\n\n$$f[i][j]=\\begin{cases} a_i & j=0,i<=n \\\\ x_0 & j=0,i=n+1 \\\\ f[i][j-1]+f[i-1][j-1] & 0<i,j<=n+1,j<i \\\\ 0 & i<=j \\\\ \\end{cases}$$\n\n\u6c42\n\n$$\\sum_{i=0}^{n+1}\\sum_{j=0}^{n+1}f[i][j]$$\n\n~~\u4f46\u8fd9\u6837\u592a\u6c34\u4e86~~\n\n\u4e8e\u662f\u7ed9\u51fa$m$\u4e2a\u64cd\u4f5c\uff0c\u6bcf\u6b21\u5c06$a[l]...a[r] \\  (0\\le l,r \\le n)$\u52a0$p$\uff0c\u5bf9\u4e8e\u6bcf\u4e2a\u64cd\u4f5c\uff0c\u8f93\u51fa\u7b54\u6848\u3002\n\n\u7279\u522b\u5730\uff0c\u82e5$0$\u5728$l...r$\u8303\u56f4\u5185\uff0c\u6211\u4eec\u8ba4\u4e3a$x_0$\u4e5f\u52a0$p$\u3002\n\n\u53e6\u5916\uff0c\u5728\u8bfb\u5165$m$\u4e2a\u64cd\u4f5c\u524d\uff0c\u4f60\u4e5f\u5e94\u8be5\u8f93\u51fa\u7b54\u6848\u3002\n\n\u7531\u4e8e\u7b54\u6848\u53ef\u80fd\u8fc7\u5927\uff0c\u8f93\u51fa\u7b54\u6848\u5bf9$1234567891$\u53d6\u6a21\u7684\u7ed3\u679c\u3002",
+    "inputFormat": "\u7b2c\u4e00\u884c\uff0c\u4e24\u4e2a\u6574\u6570$n,m$\u3002\n\n\u4e0b\u9762\u4e00\u884c$n+1$\u4e2a\u6574\u6570\uff0c\u4e3a$a_1...a_n$\u53ca$x_0$\uff0c\u4e14\u6700\u540e\u4e00\u4e2a\u662f$x_0$\u3002\n\n\u4e0b\u9762$m$\u884c\uff0c\u6bcf\u884c$3$\u4e2a\u6574\u6570$l,r,p$\u3002",
+    "outputFormat": "\u5171$m+1$\u884c\uff0c\u6bcf\u884c\u4e00\u4e2a\u6574\u6570\uff0c\u4e3a\u7b54\u6848\u3002",
+    "samples": [
+        [
+            "2 2\n1 2 3\n1 2 3\n0 1 3",
+            "22\n46\n64"
+        ]
+    ],
+    "hint": "\u517120\u4e2a\u6570\u636e\u70b9\u3002\n\n\u5bf9\u4e8e\u7b2c$i$\u4e2a\u6570\u636e\u70b9\n\n$$n,m=\\lfloor ln^{12}i+\\pi^5\\rfloor,|a,x,p|\\le \\lfloor ln^{19}i+i^{\\pi}\\rfloor$$\n\n\u4fdd\u8bc1$0 \\le l\\le r \\le n$\n\n~~\u60f3\u4e0d\u5230\u5427\uff01~~"
+}

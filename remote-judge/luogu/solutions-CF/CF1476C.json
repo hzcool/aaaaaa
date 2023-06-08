@@ -1,0 +1,18 @@
+[
+    {
+        "content": "[\u53ef\u80fd\u66f4\u597d\u7684\u9605\u8bfb\u4f53\u9a8c](https://registergen.github.io/post/solution-cf1476c/)\n\nA simple dp problem.\n\n# Solution\n\n\u5e94\u8be5\u80fd\u770b\u51fa\u6765\u662f\u4e2a dp\u3002\n\n\u8bbe $f_i$ \u8868\u793a\u7528\u524d $i$ \u6761\u94fe\uff0c\u4e14\u7b2c $i$ \u6761\u94fe\u5fc5\u987b\u9009\u6240\u80fd\u7ec4\u6210\u7684\u6700\u5927\u7684\u73af\u3002\n\n\u5219\uff1a\n\n$$f_i=\\begin{cases}c_i+1,&a_i=b_i\\\\\\max(c_i+1+f_{i-1}-|a_i-b_i|,c_i+1+|a_i-b_i|),&a_i\\ne b_i\\end{cases}$$\n\n\u53ef\u4ee5\u7ed3\u5408\u4e0b\u56fe\u7406\u89e3\u3002\n\n![](https://i.loli.net/2021/02/01/rIAniPFqdxVUuWY.png)\n\n\u7b54\u6848\u5373\u4e3a $f_1\\sim f_n$ \u4e2d\u7684\u6700\u5927\u503c\u3002\n\n# Code\n\n<https://codeforces.com/contest/1476/submission/105896470>",
+        "postTime": 1612180850,
+        "uid": 242702,
+        "name": "registerGen",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF1476C \u3010Longest Simple Cycle\u3011"
+    },
+    {
+        "content": "\u8003\u8651\u626b\u4e00\u904d\u8fd9\u4e9b\u94fe\u3002\n\n\u6211\u4eec\u5b9a\u4e49\u201c\u534a\u5708\u201d\u8868\u793a\u5dee\u4e00\u6761\u94fe\u5b50\u7684\u4e00\u90e8\u5206\u5c31\u53ef\u4ee5\u53d8\u6210\u4e00\u4e2a\u73af\u7684\u90e8\u5206\u3002\u4f8b\u5982\u4e0b\u56fe\u4e2d\u7684\u7ea2\u8272\u94fe\u4e0e\u7eff\u8272\u94fe\u90fd\u662f\u534a\u5708\u3002\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/rb180dqg.png)\n\n\u8bb0\u76ee\u524d\u5230\u7684\u8fd9\u4e2a\u534a\u5708\u7684\u957f\u5ea6\u4e3a $now$\u3002\n\n\u6211\u4eec\u6bcf\u5230\u4e00\u4e2a\u94fe\u5b50\uff0c\u90fd\u6709\u4ee5\u4e0b\u4e24\u79cd\u64cd\u4f5c\uff1a\n\n- \u653e\u5f03\u524d\u9762\u7684\u90e8\u5206\uff0c\u4ece\u8fd9\u4e2a\u94fe\u5b50\u5f00\u59cb\u7ee7\u7eed\u8003\u8651\uff1b\n\n- \u5c06\u8fd9\u4e2a\u94fe\u5b50\u63a5\u4e0a\u524d\u9762\u7684\u94fe\u5b50\u4f5c\u4e3a\u4e00\u4e2a\u534a\u5708\uff0c\u7ee7\u7eed\u7ef4\u62a4\u534a\u5708\u957f\u5ea6\u3002\n\n\u540c\u65f6\uff0c\u5728\u904d\u5386\u7684\u65f6\u5019\u968f\u65f6\u5bf9\u5f53\u524d\u7684\u534a\u5708\u957f\u5ea6\u52a0\u4e0a\u5f53\u524d\u904d\u5386\u5230\u7684\u94fe\u4e0e\u5de6\u4fa7\u8fde\u63a5\u70b9\u4e24\u70b9\u4e4b\u95f4\u8ddd\u79bb\u53d6 $\\max$\u3002\u8be6\u89c1\u4ee3\u7801\uff1a\n\n```cpp\n#include <bits/stdc++.h>\n#define int long long\n#define rep(i,a,b) for(int i=(a);i<=(b);++i)\n#define per(i,a,b) for(int i=(a);i>=(b);--i)\nusing namespace std;\nint _,n,c[100005],a[100005],b[100005];\nint now=0,ans=0;\nsigned main() {\n    for(scanf(\"%lld\",&_);_;--_) {\n        now=0;ans=0;\n        scanf(\"%lld\",&n);\n        rep(i,1,n) {\n            scanf(\"%lld\",&c[i]);\n        }\n        rep(i,1,n) scanf(\"%lld\",&a[i]);\n        rep(i,1,n) scanf(\"%lld\",&b[i]);\n        per(i,n,2) {\n            if(!now) now=c[i]-1;\n            if(a[i]==b[i]) ans=max(ans,now+2),now=0;\n            else {\n                now+=2;\n                ans=max(ans,now+abs(a[i]-b[i]));\n                now+=c[i-1]-1-abs(a[i]-b[i]);\n                if(c[i-1]-1>now) now=c[i-1]-1;\n            }\n        }\n        printf(\"%lld\\n\",ans);\n    }\n    return 0;\n}\n```",
+        "postTime": 1612157315,
+        "uid": 76156,
+        "name": "henrytb",
+        "ccfLevel": 8,
+        "title": "\u9898\u89e3 CF1476C \u3010Longest Simple Cycle\u3011"
+    }
+]

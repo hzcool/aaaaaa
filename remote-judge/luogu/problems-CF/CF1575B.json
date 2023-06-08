@@ -1,0 +1,17 @@
+{
+    "description": "Mr. Chanek lives in a city represented as a plane. He wants to build an amusement park in the shape of a circle of radius $ r $ . The circle must touch the origin (point $ (0, 0) $ ).\n\nThere are $ n $ bird habitats that can be a photo spot for the tourists in the park. The $ i $ -th bird habitat is at point $ p_i = (x_i, y_i) $ .\n\nFind the minimum radius $ r $ of a park with at least $ k $ bird habitats inside.\n\nA point is considered to be inside the park if and only if the distance between $ p_i $ and the center of the park is less than or equal to the radius of the park. Note that the center and the radius of the park do not need to be integers.\n\nIn this problem, it is guaranteed that the given input always has a solution with $ r \\leq 2 \\cdot 10^5 $ .",
+    "inputFormat": "The first line contains two integers $ n $ and $ k $ ( $ 1 \\leq n \\leq 10^5 $ , $ 1 \\leq k \\leq n $ ) \u2014 the number of bird habitats in the city and the number of bird habitats required to be inside the park.\n\nThe $ i $ -th of the next $ n $ lines contains two integers $ x_i $ and $ y_i $ ( $ 0 \\leq |x_i|, |y_i| \\leq 10^5 $ ) \u2014 the position of the $ i $ -th bird habitat.",
+    "outputFormat": "Output a single real number $ r $ denoting the minimum radius of a park with at least $ k $ bird habitats inside. It is guaranteed that the given input always has a solution with $ r \\leq 2 \\cdot 10^5 $ .\n\nYour answer is considered correct if its absolute or relative error does not exceed $ 10^{-4} $ .\n\nFormally, let your answer be $ a $ , and the jury's answer be $ b $ . Your answer is accepted if and only if $ \\frac{|a - b|}{\\max{(1, |b|)}} \\le 10^{-4} $ .",
+    "samples": [
+        [
+            "8 4\n-3 1\n-4 4\n1 5\n2 2\n2 -2\n-2 -4\n-1 -1\n-6 0",
+            "3.1622776589"
+        ],
+        [
+            "1 1\n0 0",
+            "0.0000000000"
+        ]
+    ],
+    "hint": "In the first example, Mr. Chanek can put the center of the park at $ (-3, -1) $ with radius $ \\sqrt{10} \\approx 3.162 $ . It can be proven this is the minimum $ r $ .\n\nThe following illustrates the first example. The blue points represent bird habitats and the red circle represents the amusement park.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1575B/54e2f785adec78851495651eb26cc87067684ebf.png)",
+    "translation": "\u5e73\u2faf\u4e0a\u6709 $n$ \u4e2a\u70b9\uff0c\u4f60\u8981\u627e\u2f00\u4e2a\u5706\uff0c\u4f7f\u5f97 $(0,0)$ \u70b9\u5728\u5706\u5468\uff0c\u5e76\u4e14\u8986\u76d6\u4e86\u2f84\u5c11 $k$ \u4e2a\u70b9\u3002\n\n\u95ee\u6700\u2f29\u7684\u534a\u5f84\u662f\u591a\u5c11\u3002"
+}

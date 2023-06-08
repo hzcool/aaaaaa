@@ -1,0 +1,25 @@
+{
+    "description": "You are given a string of length $ n $ . Each character is one of the first $ p $ lowercase Latin letters.\n\nYou are also given a matrix $ A $ with binary values of size $ p \\times p $ . This matrix is symmetric ( $ A_{ij} = A_{ji} $ ). $ A_{ij} = 1 $ means that the string can have the $ i $ -th and $ j $ -th letters of Latin alphabet adjacent.\n\nLet's call the string crisp if all of the adjacent characters in it can be adjacent (have 1 in the corresponding cell of matrix $ A $ ).\n\nYou are allowed to do the following move. Choose any letter, remove all its occurrences and join the remaining parts of the string without changing their order. For example, removing letter 'a' from \"abacaba\" will yield \"bcb\".\n\nThe string you are given is crisp. The string should remain crisp after every move you make.\n\nYou are allowed to do arbitrary number of moves (possible zero). What is the shortest resulting string you can obtain?",
+    "inputFormat": "The first line contains two integers $ n $ and $ p $ ( $ 1 \\le n \\le 10^5 $ , $ 1 \\le p \\le 17 $ ) \u2014 the length of the initial string and the length of the allowed prefix of Latin alphabet.\n\nThe second line contains the initial string. It is guaranteed that it contains only first $ p $ lowercase Latin letters and that is it crisp. Some of these $ p $ first Latin letters might not be present in the string.\n\nEach of the next $ p $ lines contains $ p $ integer numbers \u2014 the matrix $ A $ ( $ 0 \\le A_{ij} \\le 1 $ , $ A_{ij} = A_{ji} $ ). $ A_{ij} = 1 $ means that the string can have the $ i $ -th and $ j $ -th letters of Latin alphabet adjacent.",
+    "outputFormat": "Print a single integer \u2014 the length of the shortest string after you make arbitrary number of moves (possible zero).",
+    "samples": [
+        [
+            "7 3\nabacaba\n0 1 1\n1 0 0\n1 0 0\n",
+            "7\n"
+        ],
+        [
+            "7 3\nabacaba\n1 1 1\n1 0 0\n1 0 0\n",
+            "0\n"
+        ],
+        [
+            "7 4\nbacadab\n0 1 1 1\n1 0 0 0\n1 0 0 0\n1 0 0 0\n",
+            "5\n"
+        ],
+        [
+            "3 3\ncbc\n0 0 0\n0 0 1\n0 1 0\n",
+            "0\n"
+        ]
+    ],
+    "hint": "In the first example no letter can be removed from the initial string.\n\nIn the second example you can remove letters in order: 'b', 'c', 'a'. The strings on the intermediate steps will be: \"abacaba\" $ \\rightarrow $ \"aacaa\" $ \\rightarrow $ \"aaaa\" $ \\rightarrow $ \"\".\n\nIn the third example you can remove letter 'b' and that's it.\n\nIn the fourth example you can remove letters in order 'c', 'b', but not in the order 'b', 'c' because two letters 'c' can't be adjacent.",
+    "translation": "**\u9898\u610f**\r\n\r\n\u7ed9\u4e00\u4e2a\u7531\u524d$p$\uff08$p<=17$\uff09\u4e2a\u5c0f\u5199\u5b57\u6bcd\u6784\u6210\u7684\u957f\u5ea6\u4e3a$n$\uff08$n<=100000$\uff09\u7684\u5b57\u7b26\u4e32\uff0c\u518d\u7ed9\u4e00\u4e2a$p\u00d7p$\u7684\u90bb\u63a5\u77e9\u9635$G$\uff08\u4fdd\u8bc1$G_{ij}=G_{ji}$\uff09\uff0c\u82e5\u4e00\u4e2a\u5b57\u7b26\u4e32\u7684\u6240\u6709\u76f8\u90bb\u7684\u5b57\u7b26$i$\u548c$j$\uff08\u8fd9\u91cc\u662f\u6307\u4ece$a$\u5f00\u59cb\u7b2c$i$\u548c\u7b2c$j$\u4e2a\u5b57\u6bcd\uff09\u6ee1\u8db3$G_{ij}=1$\uff0c\u90a3\u4e48\u79f0\u8fd9\u4e2a\u5b57\u7b26\u4e32\u662f\u201c\u597d\u7684\u201d\uff08\u7a7a\u4e32\u4e5f\u662f\u597d\u7684\uff09\u3002\r\n\r\n\u4f60\u6bcf\u6b21\u80fd\u591f\u9009\u62e9\u4e00\u79cd\u5b57\u7b26\u5e76\u628a\u5f53\u524d\u4e32\u5185\u6240\u6709\u8fd9\u4e2a\u5b57\u7b26\u5220\u53bb\uff0c\u4f46\u64cd\u4f5c\u540e\u7684\u5b57\u7b26\u4e32\u5fc5\u987b\u8fd8\u662f\u597d\u7684\u3002\u95ee\u6700\u7ec8\u80fd\u591f\u5f97\u5230\u7684\u5b57\u7b26\u4e32\u7684\u6700\u5c0f\u957f\u5ea6\u3002\r\n\r\n\u4fdd\u8bc1\u4e00\u5f00\u59cb\u7684\u4e32\u662f\u597d\u7684\u3002"
+}

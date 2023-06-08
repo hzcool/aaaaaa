@@ -1,0 +1,34 @@
+[
+    {
+        "content": "# \u9898\u76ee\u601d\u8def\n**\u7b2c\u4e00\u6b65**\uff1a\u8f93\u5165\u3002\n\n**\u7b2c\u4e8c\u6b65**\uff1a\u8ba9\u4e00\u4e2a\u53d8\u91cf\u8ba1\u6570 $a_i\\times b_i$ \u7684\u503c\u3002\n\n**\u7b2c\u4e09\u6b65**\uff1a\u6c42\u51fa $b_i$ \u7684\u6700\u5927\u503c\u3002\n\n\u5176\u5b9e\u672c\u9898\u5c31\u662f\u6c42\u539f\u6765\u6240\u6709 $a_i\\times b_i$ \u7684\u503c\u4e4b\u548c\u52a0\u4e0a $b_i$ \u6700\u5927\u503c\u4e58\u4e0a $x$ \u7684\u503c\uff0c\u60f3\u8981\u63a8\u7b97\u5176\u5b9e\u4e0d\u96be\uff0c\u4f60\u53ef\u4ee5\u7528\u4ee3\u6570\u5f0f\u6765\u63a8\u7b97\u4ee5\u4e0a\u7ed3\u8bba\u3002\n\n\u5173\u4e8e\u6c42\u6700\u5927 $b_i$ \u503c\uff0c\u8fd9\u91cc\u4f7f\u7528\u5faa\u73af\u4e2d\u7684\u6253\u64c2\u53f0\u65b9\u5f0f\u3002\n\n### \u5173\u4e8e\u4e0a\u9762\u7ed3\u8bba\u7684\u89e3\u91ca\u5982\u4e0b\uff1a\n\n\u7531\u9898\u76ee\u53ef\u77e5\uff0c\u9996\u5148\u8981\u6c42\u51fa\u6240\u6709 $a_i\\times b_i$ \u7684\u503c\uff0c \u4e3a\u4e86\u662f\u4fee\u6539\u4e4b\u540e\u7ed3\u679c\u6700\u5927\uff0c\u5e94\u8be5\u5c06 $x$ \u52a0\u5728\u6700\u5927\u7684 $b_i$ \u4e0a\uff0c\u4e5f\u5c31\u662f\u8bf4\uff0c\u8981\u5728\u8ba1\u7b97\u7ed3\u679c\u4e0a\u52a0\u4e0a $b_{max} \\times x $  \u7684\u503c\u3002\n\n\u5176\u5b9e\u5c31\u662f\u8fd9\u4e2a\uff1a`answer+=maxn*x;`\n\n# Code:\n```cpp\n#include<bits/stdc++.h>//\u4e07\u80fd\u5934\nusing namespace std;\nint n,x;\nint a[100000],b[100000];\nint maxn,answer; //\u5b9a\u4e49\uff0c\u4e0d\u8bb2\nint main(){\n\tcin>>n>>x;//\u7b2c\u4e00\u6b65\n   for(int i=1;i<=n;i++){\n      cin>>a[i]>>b[i];\n      answer+=a[i]*b[i];//\u7b2c\u4e8c\u6b65\n      maxn=max(maxn,b[i]);//\u64c2\u53f0\u6cd5\u6c42\u7b2c\u4e09\u6b65\n   }\n   answer+=maxn*x; //\u7ed3\u679c\u8981\u52a0\u4e0a\u6700\u5927\u4e58\u79ef\n   cout<<answer<<endl;\n   return 0;//\u4e00\u5b9a\u8bb0\u4f4f\uff01\n}\n\n```\n\u7136\u540e\u6211\u53d1\u73b0\uff0c\u9898\u89e3\u533a\u6ca1\u6709python\u4ee3\u7801\uff0c\u4e8e\u662f\u6211\u5199\u4e86\u4e00\u4e2a\uff1a\n\n# Python \u4ee3\u7801\uff1a\n```python\nn=int(input())\nx=int(input())\nfor i in range(x):\n\ta=int(input())\n   b=int(input())\n   answer+=int(a)*int(b)\n   if maxn < b:\n   \t\tmaxn=b\nanswer+=int(maxn)*int(b)\nprint(answer)\n```\n\n# C++\u4ee3\u7801\u89e3\u91ca\n\n$answer$  \u6c42\u548c\u7d2f\u52a0\u5668\u3002\n\n$maxn$ \u6700\u5927 $b_i$ \u5b58\u50a8\u3002\n\n`maxn=max(maxn,b[i])`  \u6253\u64c2\u53f0\uff0c\u6c42\u51fa\u6700\u5927\u503c\u3002\n",
+        "postTime": 1682520749,
+        "uid": 796825,
+        "name": "FDOI",
+        "ccfLevel": 0,
+        "title": "AT_code_festival_2018_qualb_b"
+    },
+    {
+        "content": "\u9898\u76ee\u601d\u8def\uff1a\n-\n\u5df2\u77e5 $x$ \u8981\u52a0\u5728\u6700\u5927\u7684 $b_i$ \u7684 $a_i$\uff0c\u6240\u4ee5\u7edf\u8ba1\u539f\u6765\u6240\u6709\u7684 $a_i \\times b_i$ \u518d\u52a0\u4e0a $(x + a_i)\\times b_i - a_i\\times b_i = x \\times b_i$ \u5373\u53ef\uff0c\u4ee5\u4e0b\u662f\u5199\u4ee3\u7801\u7684\u6574\u4f53\u6b65\u9aa4\u3002\n\n**\u7b2c\u4e00\u6b65**\uff1a\u8f93\u5165 $n$\uff0c$x$\uff0c$n$ \u4e2a $a_i$ \u548c $n$ \u4e2a $b_i$\u3002\n\n**\u7b2c\u4e8c\u6b65**\uff1a\u5728\u5faa\u73af\u4e2d\u8ba9\u7528\u6765\u5b58\u50a8\u7684\u53d8\u91cf $ans$ \u52a0\u4e0a $a_i \\times b_i$ \u7684\u79ef\uff0c\u7136\u540e\u5c06 $ma$ \u7b49\u4e8e\u6700\u5927\u7684 $b_i$\u3002\n\n**\u7b2c\u4e09\u6b65**\uff1a\u6700\u540e\u8f93\u51fa $ans$ \u52a0\u4e0a $x \\times ma$ \u7684\u548c\u3002\n\n\u9898\u76ee\u4ee3\u7801\uff1a\n-\n```cpp\n#include<bits/stdc++.h>\n#define int long long\n#define s max \nusing namespace std;\nsigned main() \n{\n    int n , x , ans = 0 , ma = -1 , a[10000] , b[10000];\n    cin >> n >> x;\n    for(int i = 1;i <= n;i++)\n    {\n    \tcin >> a[i] >> b[i];\n    \tans = ans + a[i] * b[i];\n    \tma = s(ma , b[i]);\n\t}\n\tcout << ans + x * ma << endl;\n    return 0;\n}\n```",
+        "postTime": 1682289251,
+        "uid": 794893,
+        "name": "liangyujia45",
+        "ccfLevel": 0,
+        "title": "AT_code_festival_2018_qualb_b \u9898\u89e3"
+    },
+    {
+        "content": "[>> \u4f20\u9001\u95e8 <<](https://www.luogu.com.cn/problem/AT_code_festival_2018_qualb_b)\n\n[>> \u539fOJ\u4f20\u9001\u95e8 <<](https://atcoder.jp/contests/code-festival-2018-qualb/tasks/code_festival_2018_qualb_b)\n\n## \u601d\u8def\n\n\u9898\u76ee\u7ffb\u8bd1\u5df2\u7ecf\u5199\u7684\u5f88\u660e\u786e\u4e86\uff0c\u6211\u5c31\u4e0d\u518d\u8d58\u8ff0\u9898\u76ee\u5927\u610f\uff0c\u76f4\u63a5\u8bf4\u601d\u8def\u3002\n\n\u56e0\u4e3a $b$ \u6570\u7ec4\u662f\u56fa\u5b9a\u7684\uff0c\u52a0\u7684 $x$ \u90fd\u662f\u5728 $a$ \u6570\u7ec4\u4e2d\u52a0\u3002\u6240\u4ee5\u6211\u4eec\u8981\u4f7f\u6700\u7ec8\u7ed3\u679c\u6700\u5927\uff0c\u53ea\u9700\u8981\u5c06 $x$ \u52a0\u5728\u6700\u5927\u7684 $b_i$ \u5bf9\u5e94\u7684 $a_i$ \u4e0a\u5373\u53ef\u3002\u4e5f\u5c31\u662f\u5c06\u7ed3\u679c\u52a0\u4e0a $b_{max} \\times x$\u3002\n\n## \u4ee3\u7801\n\n```cpp\n#include <iostream>\nusing namespace std;\n\nint n, x;\nint a[105], b[105];\nint sum;\nint maxx;\n\nint main()\n{\n    cin >> n >> x;\n    for(int i = 1; i <= n; i++)\n    {\n        cin >> a[i] >> b[i];\n        sum += a[i] * b[i]; // \u6c42\u51fa\u6240\u6709\u7ec4\u7684\u4e58\u79ef\u4e4b\u548c\n        maxx = max(maxx, b[i]); // \u627e\u5230\u6700\u5927\u7684 b[i]\n    }\n    sum += maxx * x; // \u5c06\u7ed3\u679c\u52a0\u4e0a\u6700\u5927\u4e58\u79ef\n    cout << sum << endl;\n    return 0;\n    }\n```",
+        "postTime": 1682511399,
+        "uid": 682394,
+        "name": "Moon_Traveller",
+        "ccfLevel": 0,
+        "title": "AT_code_festival_2018_qualb_b \u9898\u89e3"
+    },
+    {
+        "content": "## \u5206\u6790\n\n\u636e\u9898\u76ee\u63cf\u8ff0\uff0c\u6211\u4eec\u53ef\u4ee5\u53d1\u73b0\uff0c$b$ \u6570\u7ec4\u7684\u503c\u662f\u4e0d\u53ef\u80fd\u6539\u53d8\u7684\u3002\u6362\u53e5\u8bdd\u8bf4\uff0c\u6211\u4eec\u6539\u53d8\u7684\u4efb\u610f\u4e00\u4e2a $a_i$\uff0c\u5176\u5b9e\u90fd\u662f\u76f8\u5f53\u4e8e\u591a\u52a0\u4e86\u4e00\u4e2a\u5bf9\u5e94\u7684 $b_i$\u3002\u6240\u4ee5\u6211\u4eec\u5f97\u5230\u8d2a\u5fc3\u7b56\u7565\uff1a\u628a\u6240\u6709\u80fd\u6539\u7684\u673a\u4f1a\u90fd\u7ed9 $b_i$ \u6700\u5927\u7684\u90a3\u4e2a $a_i$\u3002\n\n## \u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,x;\nstruct node{\n\tint a,b;\n}tr[100000];\nbool cmp(node a,node b){return a.b>b.b;}\nint ans;\nsigned main()\n{\n\tcin>>n>>x;\n\tfor(int i=1;i<=n;i++) cin>>tr[i].a>>tr[i].b;\n\tsort(tr+1,tr+n+1,cmp);\n\ttr[1].a+=x;\n\tfor(int i=1;i<=n;i++) ans+=tr[i].a*tr[i].b;\n\tcout<<ans;\n\treturn 0;\n}\n```\n",
+        "postTime": 1682084231,
+        "uid": 734533,
+        "name": "cq_zry",
+        "ccfLevel": 0,
+        "title": "AT_code_festival_2018_qualb_b Tensai \u9898\u89e3"
+    }
+]

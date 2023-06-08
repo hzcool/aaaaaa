@@ -1,0 +1,66 @@
+[
+    {
+        "content": "\u5176\u5b9e\u8fd9\u4e00\u9898\u8003\u5bdf\u7684\u5c31\u662f\u5b57\u7b26\u4e32\u7684\u6392\u5e8f\n\n\u53ef\u80fd\u6709\u5f88\u591a\u540c\u5b66\u4e0d\u77e5\u9053\uff0c\u5176\u5b9e\u5b57\u7b26\u4e32\u4e5f\u662f\u53ef\u4ee5\u5feb\u6392\u7684\n\n\u5927\u81f4\u5982\u4e0b\uff1a\n```cpp\n#include<cstdio>\n#include<iostream>\n#include<algorithm>\n#include<cstring>\n#include<string>\n#include<cmath>\nusing namespace std;\nstring a[110];\nlong long n;\nint main()\n{\n    cin>>n;\n    for(int i=1;i<=n;i++)\n    {\n    \tcin>>a[i];\n    }\n    sort(a+1,a+1+n);//\u6ca1\u60f3\u5230\u5427\n    for(int i=1;i<=n;i++)\n    {\n    \tcout<<a[i];\n    }\n    return 0;\n}\n```\n\u53ef\u662f\u8fd9\u4e00\u9898\u9700\u8981\u7684\u662f\u4ece\u5927\u5230\u5c0f\n\n\u4e8e\u662f\u518d\u8fd9\u4e2a\u5c31\u884c\u4e86\n```cpp\nbool cmp(string a,string b)\n{\n    return a+b>b+a;\n}\n```\n\u4e8e\u662f\u6211\u4eec\u5f97\u51fa\u6700\u540e\u7684\u7a0b\u5e8f\uff1a\n```cpp\n#include<cstdio>\n#include<iostream>\n#include<algorithm>\n#include<cstring>\n#include<string>\n#include<cmath>\nusing namespace std;\nstring a[110];\nlong long n,m;\nbool cmp(string a,string b)\n{\n    return a+b>b+a;\n}\nint main()\n{\n    cin>>n>>m;\n    for(int i=1;i<=n;i++)\n\t{\n    \tcin>>a[i];\n\t}\n\tsort(a+1,a+1+n,cmp);\n    for(int i=1;i<=n;i++)\n\t{\n    \tcout<<b[i];\n\t}\n    return 0;\n}\n```\n\u662f\u4e0d\u662f\u5f88~~\u7b80\u5355~~\n\n\u5e0c\u671b\u6b64\u9898\u89e3\u80fd\u7ed9\u60a8\u5e26\u6765\u5e2e\u52a9\uff0c\u5343\u4e07\u522bCtrl+C\u54df\uff01",
+        "postTime": 1574137952,
+        "uid": 161414,
+        "name": "stry",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT193 \u3010String Sorting\u3011"
+    },
+    {
+        "content": "**\u524d\u8a00\uff1a\u5982\u679c\u60a8\u91c7\u7528\u4e86\u6b64\u9898\u89e3\uff0c\u573a\u9762\u90a3\u53eb\u4e00\u4e2a\u58ee\u89c2\uff01**\n\n**\u601d\u8def\uff1a\u679a\u4e3ei\u548cj\uff0c\u5224\u65ada[i]+a[j]\u662f\u5426\u5c0f\u4e8ea[j]+a[i]\uff0c\u5982\u679c\u7b26\u5408\uff0cswap(a[i],a[j])\uff0c\u6700\u540e\u628a\u6392\u597d\u5e8f\u7684\u4e1c\u897f\u7ed3\u5408\u6210\u4e00\u4e2a\u6570\u5b57\u4e32\u5e76\u8f93\u51fa**\n\n```\n#include<iostream>\n#include<string>\n#include<algorithm>\n#include<fstream>//\u6587\u4ef6\u5934\u554a\uff0c\u4f60\u600e\u4e48\u8fd9\u4e48\u96be\u554a\nusing namespace std;\nint n;//\u5b9a\u4e49n\nstring st[25],st1;//\u5b9a\u4e49\u5b57\u7b26\u4e32\nint main()\n{\n  cin>>n;       //\u8f93\u5165n\n  for(int i=1;i<=n;i++)\n  {\n\tcin>>st[i];  //\u8f93\u5165\u6bcf\u4e2a\u5b57\u7b26\u4e32\n  }\t  \n  for(int i=1;i<n;i++)\n  {\n\tfor(int j=i+1;j<=n;j++)\n    {\n\t  if(st[i]+st[j]<st[j]+st[i])  swap(st[i],st[j]);\t//\u679a\u4e3ei\u548cj\uff0c\u5224\u65ada[i]+a[j]\u662f\u5426\u5c0f\u4e8ea[j]+a[i]\uff0c\u5982\u679c\u7b26\u5408\uff0cswap(a[i],a[j])\n\t}\t\t\n  }\t  \n  for(int i=1;i<=n;i++)\n  {\n\tst1+=st[i];  //\u628a\u6392\u597d\u5e8f\u7684\u4e1c\u897f\u7ed3\u5408\u6210\u4e00\u4e2a\u6570\u5b57\u4e32\n  }\t  \n  cout<<st1<<endl;//\u8f93\u51fa\uff08\u6362\u884c\uff09\uff01\n    return 0;\n}\n```\n",
+        "postTime": 1574138134,
+        "uid": 122473,
+        "name": "\u52d8\u63a2\u5458\u00b7\u5f15\u9b42\u4eba",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT193 \u3010String Sorting\u3011"
+    },
+    {
+        "content": "## \u4e00\u9053\u7b80\u5355\u7684\u6392\u5e8f\u9898\n\nm\u5176\u5b9e\u6ca1\u6709\u4ec0\u4e48\u7528\uff0c\u6240\u4ee5\u5c31\u8bb2\u8bb2\u6392\u5e8f\u5c31\u884c\u4e86\n\n\t4 2\n    12 32 21\n    \n    \u6392\u5e8f\uff1a\n    x=12,y=32\n    32+12>12+32\n    \u73b0\u5728\uff1a\n    32 12 21\n    x=12,y=21\n    21+12>12+21\n    \u73b0\u5728\uff1a32 21 12\n    \u6700\u540e\u8f93\u51fa\uff1a322112\n    \n\u4ee3\u7801\uff1a\n\n```cpp\n#include<cstdio>\n#include<iostream>\n#include<algorithm>\n#include<cstring>\nusing namespace std;\nstring a[105];\nint n,m;\n//\u5b9a\u4e49\nbool cmp(string x,string y){\n    return x+y>y+x;\n}//\u8fdb\u884c\u6392\u5e8f\nint main(){\n    scanf(\"%d%d\",&n,&m);\n    for(int i=1;i<=n;i++){\n    \tcin>>a[i];\n    }\n    //\u8f93\u51fa\n    sort(a+1,a+1+n,cmp);\n    for(int i=1;i<=n;i++){\n    \tcout<<a[i];\n        //\u6392\u5e8f\u540e\u5df2\u662f\u4ece\u5927\u5230\u5c0f\n        //\u6240\u4ee5\u76f4\u63a5\u8f93\u51fa\n    }\n    cout<<\"\\n\";\n    //\u6700\u540e\u52a0\u4e00\u4e2a\u6362\u884c\n    return 0;\n}\n\n```\n",
+        "postTime": 1574138116,
+        "uid": 90316,
+        "name": "\u6797\u5bb6\u4e09\u5c11",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT193 \u3010String Sorting\u3011"
+    },
+    {
+        "content": "\n\u5c0f\u5b66\u751f\u53c8\u6765\u53d1\u9898\u89e3\u4e86\uff01\n\n\u8fd9\u9053\u9898\u5176\u5b9em\u662f\u6ca1\u6709\u4ec0\u4e48\u7528\u7684\uff0c\u6392\u4e00\u4e0b\u5e8f\u518d\u8f93\u51fa\u5373\u53ef\u3002\n\n    #include<iostream>\n    #include<cstring>\n    #include<cstdio>\n    #include<cmath>\n    #include<string>\n    #include<cstdlib>\n    #include<algorithm>//\u6587\u4ef6\u5934\u4e0d\u89e3\u91ca\n    using namespace std;\n    bool cpp(string x,string y)\n    {\n        return x+y>y+x;\n        /*\u6392\u5e8f\u4e24\u4e2a\u6570\u52a0\u8d77\u6765\u7684\u548c\n        \u4f8b\u59823\u548c4\n        \u6392\u5e8f\u7ed3\u679c\u662f43>34\n        */\n    }\n    string a[100000];\n    long long n,m;//\u5b9a\u4e49\u53d8\u91cf\n    int main()\n    {\n        cin>>n>>m;//\u8bfb\u5165n\u548cm\n        for(int i=1; i<=n; i++)\n        {\n            cin>>a[i];//\u8bfb\u5165\u6570\u636e\n        }\n        sort(a+1,a+1+n,cpp);//\u5feb\u6392\u4e00\u4e0b\n        for(int i=1; i<=n; i++)\n        {\n            cout<<a[i];\t\n        }\n        cout<<endl;\n        return 0;\n    }\n# AT\u4e0d\u6362\u884c\uff0c\u7206\u96f6\u4e24\u884c\u6cea\n\u597d\u4e86\uff0c\u672c\u849f\u84bb\u5c31\u8bb2\u5230\u8fd9\u91cc\uff0c\u5e0c\u671b\u5bf9\u8bfb\u8005\u6709\u6240\u5e2e\u52a9\u3002\n",
+        "postTime": 1571290519,
+        "uid": 210844,
+        "name": "Cambridge",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT193 \u3010String Sorting\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u65b9\u6cd5\u5f88\u7b80\u5355\uff1a\n\n\u8f93\u5165\u4e0d\u8981\u8f93\u5165int\u7c7b\u578b\n\n\u7528string\u7c7b\u578b\u8f93\u5165\uff08~~\u7528\u6765\u6392\u5e8f~~\uff09\n\n\u8981\u7528\u4e00\u4e2a\u51fd\u6570\u6765\u6392\u5e8f\uff1a\n\n\u53ea\u8981\u4e24\u4e2a\u5b57\u7b26\u4e32a b\u63a5\u8d77\u6765\uff1a\n\n\u90e8\u5206code:\n```\nbool cmp(string a,string b){\n\treturn a+b > b+a;\n}\n```\n\u5199\u597d\u4e4b\u540e\u8c03\u7528\u5c31\u53ef\u4ee5\u4e86\n\ncode:\n```\n#include <cstdio>\n#include <iostream>\n#include <algorithm>\n#include <cstring>\nusing namespace std;\nstring s[105];\nint n,m;\nbool cmp(string a,string b){\n\treturn a+b > b+a;\n}\nint main(){\n\tscanf(\"%d %d\",&n,&m);\n\tfor(int i = 1; i <= n;++i) cin>>s[i];\n\tsort(s+1,s+1+n,cmp);\n\tfor(int i = 1; i <= n;++i) cout<<s[i];\n\tcout<<endl;\n\treturn 0;\n}\n```\n\u6ce8\u610f\u6362\u884c\uff01\uff01\uff01\n\n",
+        "postTime": 1555989868,
+        "uid": 179773,
+        "name": "C20210404\u675c\u94d6\u660a",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT193 \u3010String Sorting\u3011"
+    },
+    {
+        "content": "**~~@da32s1da \u7684\u4ee3\u7801\u6709\u4e1c\u897f\u770b\u4e0d\u61c2\uff0c\u6211\u7684\u597d\u4e9b~~**\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nstring a[666];int n,m;\nbool cmp(string p,string q)\n{\n    return p+q>q+p;//\u6392\u5e8f\u7528\n}\n\nmain()\n{\n    scanf(\"%d%d\\n\",&n,&m);\n    for(register int i=0;i<n;i++)cin>>a[i];//\u8f93\u5165\n    sort(a,a+n,cmp);//\u6392\u5e8f\n    for(register int i=0;i<n;i++)cout<<a[i];//\u8f93\u51fa\n    putchar('\\n');//\u6253\u4e00\u4e2a\u56de\u8f66\n}\n```\n## \u5c0f\u4e1c\u897f\uff1a\u542c\u8bf4\u52a0\u4e0a$register$\u8fd0\u884c\u5feb\u4e00\u70b9\n## \u8fd8\u6709\uff1a\u6839\u672c\u7528\u4e0d\u5230$m$!",
+        "postTime": 1533545805,
+        "uid": 90693,
+        "name": "_\u2022\u0301\u3078\u2022\u0301\u256c_",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 AT193 \u3010String Sorting\u3011"
+    },
+    {
+        "content": "\u4e0eP1012\u4e00\u6a21\u4e00\u6837\n\n\u5b57\u7b26\u4e32\u6392\u5e8f\u5373\u53ef\n```\n#include<bits/stdc++.h>\nusing namespace std;\nstring s[1000];\nint n,m;\nint main()\n{\n    cin>>n>>m;\n    for(int i=1;i<=n;i=-~i) cin>>s[i];\n    sort(s+1,s+n+1);\n    for(int i=n;i>=1;i=~-i)cout<<s[i];\n    cout<<endl;\n}\n```",
+        "postTime": 1522553921,
+        "uid": 50092,
+        "name": "da32s1da",
+        "ccfLevel": 8,
+        "title": "\u9898\u89e3 AT193 \u3010String Sorting\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u65b9\u6cd5\u5f88\u7b80\u5355\uff1a\n\n\u8f93\u5165\u4e0d\u8981\u8f93\u5165int\u7c7b\u578b\n\n\u7528string\u7c7b\u578b\u8f93\u5165\uff08\u7528\u6765\u6392\u5e8f\uff09\n\n\u8981\u7528\u4e00\u4e2a\u51fd\u6570\u6765\u6392\u5e8f\uff1a\n\n\u53ea\u8981\u4e24\u4e2a\u5b57\u7b26\u4e32a b\u63a5\u8d77\u6765\uff1a\n\n\u90e8\u5206code:\n\n```\nbool cmp(string a,string b){\n    return a+b > b+a;\n}\n```\n\n\u5199\u597d\u4e4b\u540e\u8c03\u7528\u5c31\u53ef\u4ee5\u4e86\n\ncode:\n```\n#include <cstdio>\n#include <iostream>\n#include <algorithm>\n#include <cstring>\nusing namespace std;\nstring s[105];\nint n,m;\nbool cmp(string a,string b){\n    return a+b > b+a;\n}\nint main(){\n    scanf(\"%d %d\",&n,&m);\n    for(int i = 1; i <= n;++i) cin>>s[i];\n    sort(s+1,s+1+n,cmp);\n    for(int i = 1; i <= n;++i) cout<<s[i];\n    cout<<endl;\n    return 0;\n}\n```\n\n\u6ce8\u610f\u6362\u884c\uff01\uff01\uff01",
+        "postTime": 1556168097,
+        "uid": 179773,
+        "name": "C20210404\u675c\u94d6\u660a",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT193 \u3010String Sorting\u3011"
+    }
+]

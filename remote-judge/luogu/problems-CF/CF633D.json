@@ -1,0 +1,17 @@
+{
+    "description": "Yash has recently learnt about the Fibonacci sequence and is very excited about it. He calls a sequence Fibonacci-ish if\n\n1. the sequence consists of at least two elements\n2. $ f_{0} $ and $ f_{1} $ are arbitrary\n3. $ f_{n+2}=f_{n+1}+f_{n} $ for all $ n>=0 $ .\n\nYou are given some sequence of integers $ a_{1},a_{2},...,a_{n} $ . Your task is rearrange elements of this sequence in such a way that its longest possible prefix is Fibonacci-ish sequence.",
+    "inputFormat": "The first line of the input contains a single integer $ n $ ( $ 2<=n<=1000 $ ) \u2014 the length of the sequence $ a_{i} $ .\n\nThe second line contains $ n $ integers $ a_{1},a_{2},...,a_{n} $ ( $ |a_{i}|<=10^{9} $ ).",
+    "outputFormat": "Print the length of the longest possible Fibonacci-ish prefix of the given sequence after rearrangement.",
+    "samples": [
+        [
+            "3\n1 2 -1\n",
+            "3\n"
+        ],
+        [
+            "5\n28 35 7 14 21\n",
+            "4\n"
+        ]
+    ],
+    "hint": "In the first sample, if we rearrange elements of the sequence as $ -1 $ , $ 2 $ , $ 1 $ , the whole sequence $ a_{i} $ would be Fibonacci-ish.\n\nIn the second sample, the optimal way to rearrange elements is ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF633D/d3ff4ea2c12e52c9ca4c15e14139f2b01f478bed.png), ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF633D/67db7509088e9e5340d450cc0af986d1466ce169.png), ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF633D/7be78903e0b1130fefbb3533b84d31cf4efaa940.png), ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF633D/0d98505f3f5d3d9cd5c06747ea4bb30d03a8d1e8.png), $ 28 $ .",
+    "translation": "Yash\u6700\u8fd1\u8ff7\u4e0a\u4e86fibonacci\u6570\u5217\uff0c\u4ed6\u5b9a\u4e49\u4e86\u4e00\u79cd\u6570\u5217\u53ebfibonacccccci\u6570\u5217\uff1a\r\n1\uff0e \u8fd9\u4e2a\u6570\u5217\u5305\u542b\u81f3\u5c112\u4e2a\u5143\u7d20\uff1b\r\n2\uff0e f[0]\u548cf[1]\u662f\u4efb\u610f\u9009\u53d6\u7684\uff1b\r\n3\uff0e f[n+2]=f[n+1]+f[n] (n>=0)\uff1b\r\n\u73b0\u5728\uff0c\u7ed9\u51fa\u4e00\u4e2a\u6570\u5217a[1..n]\uff0c\u4f60\u53ef\u4ee5\u6539\u53d8\u6570\u5217\u5143\u7d20\u7684\u987a\u5e8f\uff0c\u4f7f\u5f97a[1..m]\r\n\u6ee1\u8db3fibonacccccci\u6570\u5217\u7684\u6761\u4ef6\uff0c\u8bf7\u6c42\u51fa\u6700\u5927\u7684m\u3002\r\n\u3010\u8f93\u5165\u6570\u636e\u3011\r\n\u7b2c\u4e00\u884c1\u4e2a\u6570n\uff0c\u8868\u793a\u6570\u5217\u957f\u5ea6"
+}

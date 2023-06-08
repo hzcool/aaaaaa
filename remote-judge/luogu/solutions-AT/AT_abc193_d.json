@@ -1,0 +1,10 @@
+[
+    {
+        "content": "## \u9898\u76ee\u610f\u601d\n\n\u6709 $1\\sim9$ \u7684\u724c\u5404 $K$ \u5f20\uff0c\u6bcf\u4eba\u5206 $5$ \u5f20\u3002\n\n\u5f97\u5206\u89c4\u5219\u662f $\\displaystyle \\sum_{i=1}^9 i \\times 10^{c_i}$ ,\u5176\u4e2d $C_i$ \u662f\u8fd9\u4e2a\u4eba\u6709\u724c $i$ \u7684\u5f20\u6570\u3002\n\n\u5f53\u6bcf\u4eba\u53d1\u4e86 $4$ \u5f20\u724c\u65f6\uff0c\u95ee\u7b2c\u4e00\u4e2a\u4eba\u83b7\u80dc\u7684\u6982\u7387\u3002\n\n## \u89e3\u6790\n\n\u5bf9\u4e8e\u6bcf\u4e00\u5bf9 $(x,y)$ , Takahashi\u6709\u5361\u724c $x$ \u4e14Aoki\u6709\u5361\u724c$y$ \u7684\u603b\u7ec4\u5408\u6570\u4e3a\uff1a\n\n$\\begin{cases}C_xC_y&{(x\u2260y)}\\\\C_x(C_x-1)&{(x=y)}\\end{cases}$\n\n\u63a5\u7740\u679a\u4e3e\u6bcf\u4e00\u5bf9 $(x,y)$ \uff0c\u62ff\u6700\u7ec8\u7684\u7ed3\u679c\u9664\u4ee5 $(9K-8)(9K-9)$ \u5373\u53ef\u3002\n\n## \u4ee3\u7801\n\n```c\n#include<bits/stdc++.h>\nusing namespace std;\n\nlong long solve(int x)\n{\n\tint i,j;\n\t\n\tlong long a[10],cnt=0,sum=0,num;\n\t\n\twhile(x!=0)\n\t{\n\t\ta[cnt]=x%10;\n\t\t\n\t\tx=x/10;\n\t\t\n\t\tcnt=cnt+1;\n\t}\n\t\n\tfor(i=1;i<=9;i++)\n\t{\n\t\tnum=i;\n\t\t\n\t\tfor(j=0;j<cnt;j++)\n\t\t{\n\t\t\tif(a[j]==i)\n\t\t\t{\n\t\t\t\tnum=num*10;\n\t\t\t}\n\t\t}\n\t\t\n\t\tsum=sum+num;\n\t}\n\t\n\treturn sum;\n}\nint main()\n{\n\tint i,j;\n\t\n\tlong long n,a,b;\n\t\n\tstring s1,s2;\n\t\n\tdouble m;\n\t\n\tcin>>n>>a>>s1>>b>>s2;\n\t\n\tlong long c[15],sum=0,x=a,y=b;\n\t\n\tfor(i=1;i<=9;i++)\n\t{\n\t\tc[i]=n;\n\t}\n\t\n\twhile(a>0)\n\t{\n\t\tc[a%10]=c[a%10]-1;\n\t\t\n\t\ta=a/10;\n\t}\n\t\n\twhile(b>0)\n\t{\n\t\tc[b%10]=c[b%10]-1;\n\t\t\n\t\tb=b/10;\n\t}\n\t\n\tfor(i=1;i<=9;i++)\n\t{\n\t\tfor(j=1;j<=9;j++)\n\t\t{\n\t\t\tif(solve(x*10+i)>solve(y*10+j))\n\t\t\t{\n\t\t\t\tsum=sum+c[i]*(c[j]-(i==j));\n\t\t\t}\n\t\t}\n\t}\n\t\n\tm=1.0*sum/((n*9-8)*(n*9-9));\n\t\n\tcout<<fixed<<setprecision(9)<<m<<endl;\n\treturn 0;\n}\n```\n",
+        "postTime": 1672815300,
+        "uid": 816411,
+        "name": "Toward_Finality",
+        "ccfLevel": 0,
+        "title": "AT ABC193 [D]\u9898\u89e3"
+    }
+]

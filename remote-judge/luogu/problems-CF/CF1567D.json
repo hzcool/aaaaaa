@@ -1,0 +1,13 @@
+{
+    "description": "On the board, Bob wrote $ n $ positive integers in [base](https://en.wikipedia.org/wiki/Positional_notation#Base_of_the_numeral_system) $ 10 $ with sum $ s $ (i. e. in decimal numeral system). Alice sees the board, but accidentally interprets the numbers on the board as base- $ 11 $ integers and adds them up (in base $ 11 $ ).\n\nWhat numbers should Bob write on the board, so Alice's sum is as large as possible?",
+    "inputFormat": "The input consists of multiple test cases. The first line contains an integer $ t $ ( $ 1 \\leq t \\leq 100 $ ) \u2014 the number of test cases. The description of the test cases follows.\n\nThe only line of each test case contains two integers $ s $ and $ n $ ( $ 1 \\leq s \\leq 10^9 $ ; $ 1 \\leq n \\leq \\min(100, s) $ ) \u2014 the sum and amount of numbers on the board, respectively. Numbers $ s $ and $ n $ are given in decimal notation (base $ 10 $ ).",
+    "outputFormat": "For each test case, output $ n $ positive integers \u2014 the numbers Bob should write on the board, so Alice's sum is as large as possible. If there are multiple answers, print any of them.",
+    "samples": [
+        [
+            "6\n97 2\n17 1\n111 4\n100 2\n10 9\n999999 3",
+            "70 27 \n17 \n3 4 100 4\n10 90\n1 1 2 1 1 1 1 1 1 \n999900 90 9"
+        ]
+    ],
+    "hint": "In the first test case, $ 70_{10} + 27_{10} = 97_{10} $ , and Alice's sum is $ $$$70_{11} + 27_{11} = 97_{11} = 9 \\cdot 11 + 7 = 106_{10}. $ $  (Here  $ x\\_b $  represents the number  $ x $  in base  $ b $ .) It can be shown that it is impossible for Alice to get a larger sum than  $ 106\\_{10} $ .</p><p>In the second test case, Bob can only write a single number on the board, so he must write  $ 17 $ .</p><p>In the third test case,  $ 3\\_{10} + 4\\_{10} + 100\\_{10} + 4\\_{10} = 111\\_{10} $ , and Alice's sum is  $ $ 3_{11} + 4_{11} + 100_{11} + 4_{11} = 110_{11} = 1 \\cdot 11^2 + 1 \\cdot 11 = 132_{10}. $ $  It can be shown that it is impossible for Alice to get a larger sum than  $ 132\\_{10}$$$.",
+    "translation": "Bob \u5728\u9ed1\u677f\u4e0a\u5199\u4e0b\u4e86 $n$ \u4e2a\u5341\u8fdb\u5236\u6b63\u6574\u6570\uff0c\u5df2\u77e5\u5b83\u4eec\u5728\u5341\u8fdb\u5236\u4e0b\u7684\u548c\u4e3a $s$\u3002Alice \u6c42\u51fa\u4e86\u8fd9\u4e9b\u6570\u5728 $11$ \u8fdb\u5236\u4e0b\u7684\u548c\u3002\n\n\u8bf7\u6c42\u51fa\u4efb\u610f\u4e00\u7ec4\u4f7f\u5f97 Alice \u6c42\u5f97\u7684 $11$ \u8fdb\u5236\u4e0b\u7684\u548c\u6700\u5927\u7684 $n$ \u4e2a\u6570\u3002\n\n\u6570\u636e\u8303\u56f4\uff1a\n\n- $t$ \u7ec4\u6570\u636e\uff0c$1\\leqslant t\\leqslant 100$\u3002\n- $1\\leqslant s\\leqslant 10^9$\uff0c$1\\leqslant n\\leqslant \\min\\{s,100\\}$\u3002\n\nTranslated by Eason_AC  \n2021.9.6"
+}

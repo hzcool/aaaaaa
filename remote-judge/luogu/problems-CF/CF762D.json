@@ -1,0 +1,17 @@
+{
+    "description": "You are given a rectangular table $ 3\u00d7n $ . Each cell contains an integer. You can move from one cell to another if they share a side.\n\nFind such path from the upper left cell to the bottom right cell of the table that doesn't visit any of the cells twice, and the sum of numbers written in the cells of this path is maximum possible.",
+    "inputFormat": "The first line contains an integer $ n $ ( $ 1<=n<=10^{5} $ ) \u2014 the number of columns in the table.\n\nNext three lines contain $ n $ integers each \u2014 the description of the table. The $ j $ -th number in the $ i $ -th line corresponds to the cell $ a_{ij} $ ( $ -10^{9}<=a_{ij}<=10^{9} $ ) of the table.",
+    "outputFormat": "Output the maximum sum of numbers on a path from the upper left cell to the bottom right cell of the table, that doesn't visit any of the cells twice.",
+    "samples": [
+        [
+            "3\n1 1 1\n1 -1 1\n1 1 1\n",
+            "7\n"
+        ],
+        [
+            "5\n10 10 10 -1 -1\n-1 10 10 10 10\n-1 10 10 10 10\n",
+            "110\n"
+        ]
+    ],
+    "hint": "The path for the first example:\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF762D/d4bf8868df92d7c24fa764038356cd07e2a09006.png)The path for the second example:\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF762D/0b9906fb129c151689b202b0d1e93e29e845ce4c.png)",
+    "translation": "##   **\u9898\u76ee\u63cf\u8ff0**\r\n\u4f60\u88ab\u7ed9\u4e86\u4e00\u4e2a3*n\u7684\u77e9\u5f62\u8868\u683c\u3002\u6bcf\u4e2a\u5c0f\u683c\u542b\u6709\u4e00\u4e2a\u6574\u6570\u3002\u5982\u679c\u4e24\u4e2a\u683c\u5b50\u6709\u5171\u4eab\u7684\u8fb9\uff0c\u4f60\u53ef\u4ee5\u4ece\u4e00\u4e2a\u683c\u5b50\u79fb\u5230\u53e6\u4e00\u4e2a\u683c\u5b50\u3002\r\n\u627e\u5230\u5982\u4e0b\u4ece\u5de6\u4e0a\u89d2\u7684\u683c\u5b50\u5230\u53f3\u4e0b\u89d2\u7684\u683c\u5b50\u7684\u8def\u5f84\uff0c\u8fd9\u6761\u8def\u5f84\u4e0d\u80fd\u91cd\u590d\u53c2\u89c2\u540c\u4e00\u4e2a\u683c\u5b50\uff0c\u5e76\u4e14\u8def\u5f84\u4e2d\u7684\u683c\u5b50\u4e2d\u7684\u6570\u5b57\u7684\u548c\u5e94\u8be5\u662f\u53ef\u80fd\u7684\u6700\u5927\u503c\u3002\r\n\r\n------------\r\n\r\n## **\u8f93\u5165\u683c\u5f0f**## \r\n\u7b2c\u4e00\u884c\u5305\u542b\u4e00\u4e2a\u6574\u6570n\uff081<=n<=10^5\uff09,\u4ee3\u8868\u77e9\u5f62\u8868\u683c\u7684\u7eb5\u5217\u5217\u6570\u3002\r\n\u4e0b\u4e09\u884c\u6bcf\u884c\u6709n\u4e2a\u6570\uff0c\u662f\u5bf9\u8868\u683c\u5bf9\u63cf\u8ff0\u3002\u7b2ci\u884c\u7b2cj\u4e2a\u6570\u5bf9\u5e94\u683c\u5b50aij(-10^9<=aij<=10^9)\u3002\r\n## \u8f93\u51fa\u683c\u5f0f\r\n\u8f93\u51fa\u4ece\u8868\u683c\u7684\u5de6\u4e0a\u683c\u5230\u53f3\u4e0b\u683c\u7684\u8def\u5f84\u4e0a\u7684\u6700\u5927\u6570\u5b57\u603b\u548c\uff0c\u4e0d\u4f1a\u91cd\u590d\u8bbf\u95ee\u540c\u4e00\u4e2a\u683c\u5b50"
+}

@@ -1,0 +1,17 @@
+{
+    "description": "Professor GukiZ was playing with arrays again and accidentally discovered new function, which he called $ GukiZiana $ . For given array $ a $ , indexed with integers from $ 1 $ to $ n $ , and number $ y $ , $ GukiZiana(a,y) $ represents maximum value of $ j-i $ , such that $ a_{j}=a_{i}=y $ . If there is no $ y $ as an element in $ a $ , then $ GukiZiana(a,y) $ is equal to $ -1 $ . GukiZ also prepared a problem for you. This time, you have two types of queries:\n\n1. First type has form $ 1 $ $ l $ $ r $ $ x $ and asks you to increase values of all $ a_{i} $ such that $ l<=i<=r $ by the non-negative integer $ x $ .\n2. Second type has form $ 2 $ $ y $ and asks you to find value of $ GukiZiana(a,y) $ .\n\nFor each query of type $ 2 $ , print the answer and make GukiZ happy!",
+    "inputFormat": "The first line contains two integers $ n $ , $ q $ ( $ 1<=n<=5*10^{5},1<=q<=5*10^{4} $ ), size of array $ a $ , and the number of queries.\n\nThe second line contains $ n $ integers $ a_{1},a_{2},...\\ a_{n} $ ( $ 1<=a_{i}<=10^{9} $ ), forming an array $ a $ .\n\nEach of next $ q $ lines contain either four or two numbers, as described in statement:\n\nIf line starts with $ 1 $ , then the query looks like $ 1 $ $ l $ $ r $ $ x $ ( $ 1<=l<=r<=n $ , $ 0<=x<=10^{9} $ ), first type query.\n\nIf line starts with $ 2 $ , then th query looks like $ 2 $ $ y $ ( $ 1<=y<=10^{9} $ ), second type query.",
+    "outputFormat": "For each query of type $ 2 $ , print the value of $ GukiZiana(a,y) $ , for $ y $ value for that query.",
+    "samples": [
+        [
+            "4 3\n1 2 3 4\n1 1 2 1\n1 1 1 1\n2 3\n",
+            "2\n"
+        ],
+        [
+            "2 3\n1 2\n1 2 2 1\n2 3\n2 4\n",
+            "0\n-1\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9\u5b9a\u4e00\u4e2a\u6570\u5217$a_1,a_2,\\dots,a_n$\uff0c\u6709\u4e24\u4e2a\u64cd\u4f5c\uff1a\n\n1. \u7ed9\u5b9a$l,r,x$\uff0c\u4ee4$a_l,a_{l+1},\\dots,a_r$\u90fd\u52a0\u4e0a$x$\u3002\n2. \u7ed9\u5b9a$y$,\u6c42\u4e00\u4e2a\u6700\u5927\u7684$j-i$\uff0c\u6ee1\u8db3$a_i=a_j=y$\uff0c\u8f93\u51fa\u6700\u5927\u7684$j-i$\uff0c\u65e0\u89e3\u8f93\u51fa$-1$\u3002"
+}

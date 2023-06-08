@@ -1,0 +1,17 @@
+{
+    "description": "Sam has been teaching Jon the Game of Stones to sharpen his mind and help him devise a strategy to fight the white walkers. The rules of this game are quite simple:\n\n- The game starts with $ n $ piles of stones indexed from $ 1 $ to $ n $ . The $ i $ -th pile contains $ s_{i} $ stones.\n- The players make their moves alternatively. A move is considered as removal of some number of stones from a pile. Removal of $ 0 $ stones does not count as a move.\n- The player who is unable to make a move loses.\n\nNow Jon believes that he is ready for battle, but Sam does not think so. To prove his argument, Sam suggested that they play a modified version of the game.\n\nIn this modified version, no move can be made more than once on a pile. For example, if $ 4 $ stones are removed from a pile, $ 4 $ stones cannot be removed from that pile again.\n\nSam sets up the game and makes the first move. Jon believes that Sam is just trying to prevent him from going to battle. Jon wants to know if he can win if both play optimally.",
+    "inputFormat": "First line consists of a single integer $ n $ ( $ 1<=n<=10^{6} $ ) \u2014 the number of piles.\n\nEach of next $ n $ lines contains an integer $ s_{i} $ ( $ 1<=s_{i}<=60 $ ) \u2014 the number of stones in $ i $ -th pile.",
+    "outputFormat": "Print a single line containing \"YES\" (without quotes) if Jon wins, otherwise print \"NO\" (without quotes)",
+    "samples": [
+        [
+            "1\n5\n",
+            "NO"
+        ],
+        [
+            "2\n1\n2\n",
+            "YES"
+        ]
+    ],
+    "hint": "In the first case, Sam removes all the stones and Jon loses.\n\nIn second case, the following moves are possible by Sam: ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF768E/4cf426c19e824968ff19a401a7802c8ac91cbb66.png)\n\nIn each of these cases, last move can be made by Jon to win the game as follows: ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF768E/dbfee646415d7f71d37ff9a2600935f88c5436ae.png)",
+    "translation": "\u6709N\u5806\u77f3\u5b50\uff0c\u6bcf\u6b21\u53ef\u4ee5\u4ece\u4e00\u5806\u77f3\u5b50\u4e2d\u53d6\u51fa\u82e5\u5e72\u4e2a\u77f3\u5b50\uff0c\u4f46\u662f\u4e0d\u80fd\u4e24\u6b21\u4ece\u540c\u4e00\u5806\u77f3\u5b50\u4e2d\u53d6\u51fa\u540c\u6837\u6570\u91cf\u7684\u77f3\u5b50\u3002\u95ee\u540e\u624b\u662f\u5426\u6709\u5fc5\u80dc\u7b56\u7565\u30021\u2264N\u226410^6\uff0c\u6bcf\u5806\u77f3\u5b50\u6570\u91cf\u226460\u3002\n"
+}

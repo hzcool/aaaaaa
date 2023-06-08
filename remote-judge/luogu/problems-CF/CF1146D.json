@@ -1,0 +1,25 @@
+{
+    "description": "A frog is initially at position $ 0 $ on the number line. The frog has two positive integers $ a $ and $ b $ . From a position $ k $ , it can either jump to position $ k+a $ or $ k-b $ .\n\nLet $ f(x) $ be the number of distinct integers the frog can reach if it never jumps on an integer outside the interval $ [0, x] $ . The frog doesn't need to visit all these integers in one trip, that is, an integer is counted if the frog can somehow reach it if it starts from $ 0 $ .\n\nGiven an integer $ m $ , find $ \\sum_{i=0}^{m} f(i) $ . That is, find the sum of all $ f(i) $ for $ i $ from $ 0 $ to $ m $ .",
+    "inputFormat": "The first line contains three integers $ m, a, b $ ( $ 1 \\leq m \\leq 10^9, 1 \\leq a,b \\leq 10^5 $ ).",
+    "outputFormat": "Print a single integer, the desired sum.",
+    "samples": [
+        [
+            "7 5 3\n",
+            "19\n"
+        ],
+        [
+            "1000000000 1 2019\n",
+            "500000001500000001\n"
+        ],
+        [
+            "100 100000 1\n",
+            "101\n"
+        ],
+        [
+            "6 4 5\n",
+            "10\n"
+        ]
+    ],
+    "hint": "In the first example, we must find $ f(0)+f(1)+\\ldots+f(7) $ . We have $ f(0) = 1, f(1) = 1, f(2) = 1, f(3) = 1, f(4) = 1, f(5) = 3, f(6) = 3, f(7) = 8 $ . The sum of these values is $ 19 $ .\n\nIn the second example, we have $ f(i) = i+1 $ , so we want to find $ \\sum_{i=0}^{10^9} i+1 $ .\n\nIn the third example, the frog can't make any jumps in any case.",
+    "translation": "yyb\u5927\u795e\u4ed9\u5728\u6570\u8f74\u7684$0$\u4f4d\u7f6e\u3002yyb\u5927\u795e\u4ed9\u6709\u4e24\u4e2a\u6b63\u6574\u6570$a,b$\uff0c\u5982\u679c\u5f53\u524dyyb\u5927\u795e\u4ed9\u5728\u4f4d\u7f6e$k$\uff0cyyb\u5927\u795e\u4ed9\u53ef\u4ee5\u7528\u795e\u4ed9\u7684\u529b\u91cf\u5c06\u81ea\u5df1\u4f20\u9001\u5230$k+a$\u6216\u8005$k-b$\u4f4d\u7f6e\u3002\n\n\u4f46\u662fyyb\u5927\u795e\u4ed9\u611f\u89c9\u8fd9\u6837\u5f88\u65e0\u804a\u6240\u4ee5\u6253\u7b97\u5c06\u81ea\u5df1\u9650\u5236\u5728\u4e00\u6bb5\u533a\u95f4\u91cc\u3002$f(x)$\u8868\u793ayyb\u5927\u795e\u4ed9\u53ea\u80fd\u5728$[0,x]$\u533a\u95f4\u91cc\u79fb\u52a8\uff0c\u4ece$0$\u5f00\u59cb\u80fd\u5230\u8fbe\u7684\u6574\u70b9\u6570\u91cf\u3002yyb\u5927\u795e\u4ed9\u60f3\u6c42$\\sum_{i=0}^mf(i)$\u3002\n"
+}

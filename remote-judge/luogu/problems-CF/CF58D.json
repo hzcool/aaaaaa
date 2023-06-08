@@ -1,0 +1,21 @@
+{
+    "description": "BerOilGasDiamondBank has branches in $ n $ cities, at that $ n $ is an even number. The bank management wants to publish a calendar with the names of all those cities written in two columns: the calendar should consist of exactly $ n/2 $ lines of strictly equal length, each of which contains exactly two names and exactly one separator character between them. The name of every city should be used in the calendar exactly once. For historical reasons the symbol $ d $ is used as the separator of words in the calendar.\n\nThe BerOilGasDiamondBank management wants to show that all its branches are equally important to it, that's why the order of their appearance in the calendar should be following: if we \"glue\"(concatinate) all the $ n/2 $ calendar lines (from top to bottom) to make a single line, then the lexicographically minimal line is obtained. No separator character will be used to separate calendar lines. For example, if the lines are \"bertown!berville\", \"newberville!bera\", then the resulting line is \"bertown!bervillenewberville!bera\". In some sense one has to find the lexicographically minimal calendar, where the comparison of calendars happens line by line.\n\nHelp BerOilGasDiamondBank and construct the required calendar.",
+    "inputFormat": "The first line contains an integer $ n $ ( $ 1<=n<=10^{4} $ , $ n $ is even) which is the number of branches. Then follow $ n $ lines which are the names of the cities. All the names consist of lowercase Latin letters; their lengths are no less than 1 and no more than 10 symbols. The next line contains a single symbol $ d $ ( $ d $ has an ASCII-code from 33 to 126 inclusively, excluding lowercase Latin letters) which is the separator between words in the calendar lines. It is guaranteed that the calendar is possible to be constructed and all the names are different.",
+    "outputFormat": "Print $ n/2 $ lines of similar length which are the required calendar. Every line should contain exactly two words and exactly one separator between them. If there are several solutions, print the lexicographically minimal one. The lexicographical comparison of lines is realized by the \"<\" operator in the modern programming languages.",
+    "samples": [
+        [
+            "4\nb\naa\nhg\nc\n.\n",
+            "aa.b\nc.hg\n"
+        ],
+        [
+            "2\naa\na\n!\n",
+            "a!aa\n"
+        ],
+        [
+            "2\naa\na\n|\n",
+            "aa|a\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9\u5b9a\u4e00\u4e2a\u5076\u6570$n$ \uff0c$n$ \u4e2a\u5b57\u7b26\u4e32\uff0c\u548c\u4e00\u4e2a\u5206\u5272\u5b57\u7b26$d$ \u3002$d$ \u7684ASCII\u503c\u53ef\u80fd\u4ece32\u5230126\u3002\n\n\u4f60\u8981\u5c06\u6240\u6709$n$ \u4e2a\u5b57\u7b26\u4e32\u653e\u5728$\\frac n2$ \u884c\uff0c\u6bcf\u884c\u4e24\u4e2a\u5b57\u7b26\u4e32\uff0c\u4e4b\u95f4\u7528\u6070\u597d\u4e00\u4e2a\u5206\u5272\u5b57\u7b26$d$ \u9694\u5f00\u3002\u8fd9$\\frac n2$ \u884c\u7684\u957f\u5ea6\u5fc5\u987b\u4e25\u683c\u76f8\u7b49\u3002\n\n\u6c42\u6240\u6709\u5408\u6cd5\u65b9\u6848\u4e2d\uff0c\u5b57\u5178\u5e8f\u6700\u5c0f\u7684\u4e00\u4e2a\u3002\u5b57\u5178\u5e8f\u662f\u6307\u5c06\u6bcf\u884c\u4f9d\u6b21\u62fc\u63a5\u5f97\u5230\u7684\u5b57\u7b26\u4e32\u7684\u5b57\u5178\u5e8f\u3002\n\nTranslated by @_rqy"
+}

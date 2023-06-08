@@ -1,0 +1,50 @@
+[
+    {
+        "content": "\u7136\u540e\u518d\u5c06\u5176\u52a0\u5165\u5bf9\u5e94\u7684\u5956\u724c\u6570\u5185\uff0c\u5373\uff1a\n\n$e\u2190e+a$\n\n$f\u2190f+b$\n\n$g\u2190g+c$\n\n\u6700\u540e\u8f93\u51fa $e,f,g$ \u5c31\u884c\u4e86\u3002\n\n---\n### \u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n   int a,c,d,b,e=0,f=0,g=0;//e,f,g\u5206\u522b\u662f\u91d1\u94f6\u94dc\u724c\u603b\u6570,a\u4e3a\u5929\u6570\n   cin>>a;\n   for(int i=0;i<a;++i)\n   {\n       cin>>c>>d>>b;//\u8f93\u5165\uff1a\u91d1\u94f6\u94dc\u724c\u6570\u91cf\n       e+=c;\n       f+=d;\n       g+=b;\n    }\n    cout<<e<<' '<<f<<' '<<g<<' '<<e+f+g;//\u91d1\u3001\u94f6\u3001\u94dc\u724c\u603b\u6570\u53ca\u603b\u5956\u724c\u6570\n    return 0;\n}\n```",
+        "postTime": 1625447633,
+        "uid": 506921,
+        "name": "Moon_Lighter",
+        "ccfLevel": 0,
+        "title": "B2058\u9898\u89e3"
+    },
+    {
+        "content": "\u8bfb\u5165\u5404\u56fd\u7684\u5956\u724c\u6570\uff0c\u5b9a\u4e49 $x,y,z,sum$ \u56db\u4e2a\u53d8\u91cf\uff0c\u5206\u522b\u8868\u793a\u91d1\u724c\u6570\u3001\u94f6\u724c\u6570\u3001\u94dc\u724c\u6570\u3001\u603b\u5956\u724c\u6570\uff0c\u5206\u522b\u5c06\u5176\u7d2f\u52a0\u8d77\u6765\uff0c\u8f93\u51fa\u5373\u53ef\uff01\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include<iostream>\n#include<cstdio>\n#include<algorithm>\n#include<cstring>\n#include<cmath>\n#include<string>\n#include<cstdlib>\nusing namespace std;\nint n,x,y,z,sum,a,b,c;\nint main(){\n\tcin>>n;\n\tfor(int i=1;i<=n;i++){\n\t\tcin>>a>>b>>c;\n\t\tx+=a;\n\t\ty+=b;\n\t\tz+=c;\n\t\tsum+=a+b+c;\n\t}\n\tcout<<x<<\" \"<<y<<\" \"<<z<<\" \"<<sum;\n \treturn 0;\n}\n```\n",
+        "postTime": 1625449915,
+        "uid": 307603,
+        "name": "_cmh",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 B2058 \u3010\u5965\u8fd0\u5956\u724c\u8ba1\u6570\u3011"
+    },
+    {
+        "content": "## \u9898\u89e3\n\n\u89c2\u5bdf\u53d1\u73b0\u6211\u4eec\u8981\u540c\u65f6\u7edf\u8ba1\u91d1\u94f6\u94dc\u724c\u7684\u6570\u76ee\uff08\u4e0d\u59a8\u8bbe\u4e3a $n_{\\text{Au}},n_{\\text{Ag}},n_{\\text{Cu}}$ \u3002\n\n### \u505a\u6cd5 1\n\n\u6700\u7b80\u5355\u7684\u505a\u6cd5\uff0c\u5c31\u662f\u6bcf\u6b21\u8bfb\u5165\u540e\u5206\u522b\u7d2f\u52a0\u3002\u4f7f\u7528\u5faa\u73af\u7ed3\u6784\uff0c\u6bcf\u6b21\u8bfb\u5165\u4e09\u4e2a\u6570\u5b57 $a,b,c$ \uff0c\u7136\u540e\uff1a\n\n$$n_{\\text{Au}}\\gets n_{\\text{Au}}+a,n_{\\text{Ag}}\\gets n_{\\text{Ag}}+b,n_{\\text{Cu}}\\gets n_{\\text{Cu}}+c$$\n\n### \u505a\u6cd5 2\n\n\u8003\u8651\u628a\u91d1\u94f6\u94dc\u724c\u6346\u7ed1\u5728\u4e00\u8d77\u3002\u5728 C++ \u4e2d\uff0c\u6211\u4eec\u53ef\u4ee5\u7528**\u7ed3\u6784\u4f53**\uff08$\\verb!struct!$\uff09 \u5b9e\u73b0\u8fd9\u4e00\u70b9\u3002\u5927\u81f4\u6846\u67b6\u5982\u4e0b\uff1a\n\n$$\\begin{aligned}\n&\\verb!struct \u7ed3\u6784\u540d{! \\cr\n&\\verb!    \u76f8\u5173\u5b9a\u4e49! \\cr\n&\\verb!};! \\cr\n\\end{aligned}$$\n\n\u6211\u4eec\u5b9a\u4e49\u4e00\u4e2a\u7ed3\u6784\u4f53\u53eb\u505a $\\text{Medal}$ \uff0c\u91cc\u9762\u6709\u4e09\u4e2a\u53d8\u91cf $n_{\\text{Au}},n_{\\text{Ag}},n_{\\text{Cu}}$ \u3002\u6211\u4eec\u5f53\u7136\u9700\u8981\u5b9a\u4e49\u4e00\u4e2a\u5b83\u7684\u521d\u59cb\u5316\u7684\u65b9\u5f0f\uff1a\n\n```cpp\nMedal (int _Au=0,int _Ag=0,int _Cu=0){\n    Au=_Au,Ag=_Ag,Cu=_Cu;\n}\n```\n\n\u5728\u8fd9\u53e5\u8bdd\u4e2d\uff0c $\\text{Au}$ \u7b49\u53d8\u91cf\u521d\u59cb\u65f6\u90fd\u4e3a $0$ \uff1b\u6211\u4eec\u4e5f\u53ef\u4ee5\u4f20\u5165\u53c2\u6570\uff0c\u8fdb\u884c\u521d\u59cb\u5316\u3002\n\n\u6211\u4eec\u518d\u5b9a\u4e49 $\\verb!Medal!$ \u7ed3\u6784\u4f53\u7684\u52a0\u6cd5\uff1a\n\n\u91cd\u5b9a\u4e49\u8fd0\u7b97\u7b26\u7684\u683c\u5f0f\uff1a\n\n$$\\begin{aligned}\n&\\verb!\u8fd0\u7b97\u7b26\u8fd4\u56de\u503c operator \u8fd0\u7b97\u7b26\u540d\u79f0(\u53d8\u91cf\u7c7b\u578b \u53d8\u91cf){! \\cr\n&\\verb!    \u8fd0\u7b97\u7b26\u5b9a\u4e49! \\cr\n&\\verb!}!\\cr\n\\end{aligned}$$\n\n\u4f8b\u5982\uff0c\u6211\u4eec\u5b9a\u4e49 $\\verb!Medal!$ \u7684\u52a0\u6cd5\u5982\u4e0b\uff1a\n\n```cpp\nMedal operator+(Medal t){\n    return Medal(Au+t.Au,Ag+t.Ag,Cu+t.Cu);\n}\n```\n\n\u6700\u540e\u53ea\u8981\u5206\u522b\u76f8\u52a0\uff0c\u7136\u540e\u8f93\u51fa\u5373\u53ef\u3002\n\n### \u53c2\u8003\u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\n#define up(l,r,i) for(int i=l,END##i=r;i<=END##i;++i)\n#define dn(r,l,i) for(int i=r,END##i=l;i>=END##i;--i)\nusing namespace std;\ntypedef long long i64;\nconst int INF =2147483647;\nstruct Medal{\n    int Au,Ag,Cu;\n    Medal (int _Au=0,int _Ag=0,int _Cu=0){\n        Au=_Au,Ag=_Ag,Cu=_Cu;\n    }\n    Medal operator+(Medal t){\n        return Medal(Au+t.Au,Ag+t.Ag,Cu+t.Cu);\n    }\n}tot;\nint n;\nint main(){\n    scanf(\"%d\",&n); up(1,n,i){\n        int a,b,c; scanf(\"%d%d%d\",&a,&b,&c); tot=tot+Medal(a,b,c);\n    }\n    printf(\"%d %d %d %d\\n\",tot.Au,tot.Ag,tot.Cu,tot.Ag+tot.Au+tot.Cu);\n    return 0;\n}\n```",
+        "postTime": 1625363151,
+        "uid": 330759,
+        "name": "\u56e7\u4ed9",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 B2058 \u3010\u5965\u8fd0\u5956\u724c\u8ba1\u6570\u3011"
+    },
+    {
+        "content": "## \u9898\u76ee\u5206\u6790\n\u6b64\u9898\u5373\u4e00\u4e2a\u5f88\u7b80\u5355\u7684\u8ba1\u6570\u95ee\u9898\uff0c\u6211\u4eec\u9700\u8981\u4e09\u4e2a\u8ba1\u6570\u5668\uff0c\u4e09\u4e2a\u8ba1\u6570\u5668\u5206\u522b\u8bb0\u5f55\u91d1\uff0c\u94f6\uff0c\u94dc\u724c\uff0c\u6bcf\u8f93\u5165\u4e00\u6b21\u52a0\u4e00\u6b21\uff0c\u6700\u540e\u5728\u52a0\u8d77\u6765\u7b97\u51fa\u603b\u724c\u6570\u5e76\u5206\u522b\u8f93\u51fa\u3002\n## \u4ee3\u7801\u5b9e\u73b0\n```cpp\n#include<iostream>\nusing namespace std;\nint main(){\n\tint n,l,a[18],b[18],c[18],aa=0,bb=0,cc=0,abc;\n\tcin>>n;\n\tfor(int i=1;i<=n;i++){\n\t\tint a,b,c;\n\t\tcin>>a>>b>>c;\n\t\taa+=a;\n\t\tbb+=b;\n\t\tcc+=c;\n\t}\n\tabc+=aa;\n\tabc+=bb;\n\tabc+=cc;\n\tcout<<aa<<\" \"<<bb<<\" \"<<cc<<\" \"<<abc;\n\treturn 0;\n}\n```\n",
+        "postTime": 1625280023,
+        "uid": 359581,
+        "name": "\u00b7\u7cef\u00b7",
+        "ccfLevel": 5,
+        "title": "B2058"
+    },
+    {
+        "content": "\u5206\u522b\u5f00\u4e00\u4e2a\u53d8\u91cf\u8ba1\u6570\u6bcf\u79cd\u5956\u724c\u7684\u6570\u91cf\uff0c\u8bfb\u5165\u65f6\u52a0\u4e0a\u5404\u4e2a\u5956\u724c\u6570\u91cf\uff0c\u7136\u540e\u8f93\u51fa\u3002\n\n```python\ndays=int(input())\n# \u91d1\u94f6\u94dc\u724c\ngold=0\nsilver=0\nbronze=0\nfor i in range(1,days+1):\n    reader=input().split()\n    # \u52a0\u4e0a\u5956\u724c\u6570\u91cf\n    gold=gold+int(reader[0])\n    silver=silver+int(reader[1])\n    bronze=bronze+int(reader[2])\n# \u5e26\u7a7a\u683c\u8f93\u51fa\nprint(gold,end=' ')\nprint(silver,end=' ')\nprint(bronze,end=' ')\nprint(gold+silver+bronze)\n```",
+        "postTime": 1625404463,
+        "uid": 142548,
+        "name": "int32",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 B2059 \u5956\u724c\u8ba1\u6570"
+    },
+    {
+        "content": "[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/B2058)\n\n\u8fd9\u9898\u8981\u6c42\u6c42\u5404\u79cd\u5956\u724c\u7684\u603b\u6570\u3002\n\n\u90a3\u4e48\u8bbe\u4e00\u4e2a $ans1,ans2,ans3$ \u5206\u522b\u4ee3\u8868\u5404\u79cd\u5956\u724c\u7684\u6570\u91cf\u3002\n\n\u7136\u540e\u7d2f\u52a0\u5373\u53ef\u3002\n\n\u5177\u4f53\u7ec6\u8282\u89c1\u4ee3\u7801\u3002\n\n### Code:\n\n```cpp\n//\u7ea2\u592a\u9633zhouakngyang txdy!\n#pragma GCC target(\"sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,avx2,tune=native\")\n#include<bits/stdc++.h>\n#define Macesuted cout<<\"kawaii\"<<endl\n#define MatrixCascade cout<<\"npsl\"<<endl\n#define Karry5307 cout<<\"nmsl\"<<endl\nusing namespace std;\n//#define int long long\ninline int read()\n{\n\tint sum=0,nega=1;char ch=getchar();\n\twhile(ch>'9'||ch<'0'){if(ch=='-')nega=-1;ch=getchar();}\n\twhile(ch<='9'&&ch>='0')sum=sum*10+ch-'0',ch=getchar();\n\treturn sum*nega;\n}//\u5feb\u8bfb\uff08\u5176\u5b9e\u4e0d\u9700\u8981\uff09 \nint n,ans1,ans2,ans3,x,y,z; \nint main()\n{\n\tn=read();//\u8bfb\u5165 \n\tfor(int i=1;i<=n;i++)x=read(),y=read(),z=read(),ans1+=x,ans2+=y,ans3+=z;//\u66f4\u65b0\u5956\u724c\u548c \n\tcout<<ans1<<\" \"<<ans2<<\" \"<<ans3<<\" \"<<ans1+ans2+ans3<<endl;//\u8f93\u51fa \n\treturn 0;\n}\n\n\n```\n",
+        "postTime": 1625303087,
+        "uid": 97304,
+        "name": "Mophie",
+        "ccfLevel": 0,
+        "title": "B2058 \u5965\u8fd0\u5956\u724c\u8ba1\u6570"
+    }
+]

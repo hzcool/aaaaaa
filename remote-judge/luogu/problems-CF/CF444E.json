@@ -1,0 +1,17 @@
+{
+    "description": "DZY loves planting, and he enjoys solving tree problems.\n\nDZY has a weighted tree (connected undirected graph without cycles) containing $ n $ nodes (they are numbered from $ 1 $ to $ n $ ). He defines the function $ g(x,y) $ $ (1<=x,y<=n) $ as the longest edge in the shortest path between nodes $ x $ and $ y $ . Specially $ g(z,z)=0 $ for every $ z $ .\n\nFor every integer sequence $ p_{1},p_{2},...,p_{n} $ $ (1<=p_{i}<=n) $ , DZY defines $ f(p) $ as ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF444E/7406ac036c223abb962364d94ec8911f66c7c6e3.png).\n\nDZY wants to find such a sequence $ p $ that $ f(p) $ has maximum possible value. But there is one more restriction: the element $ j $ can appear in $ p $ at most $ x_{j} $ times.\n\nPlease, find the maximum possible $ f(p) $ under the described restrictions.",
+    "inputFormat": "The first line contains an integer $ n\u00a0(1<=n<=3000) $ .\n\nEach of the next $ n-1 $ lines contains three integers $ a_{i},b_{i},c_{i}\u00a0(1<=a_{i},b_{i}<=n;\u00a01<=c_{i}<=10000) $ , denoting an edge between $ a_{i} $ and $ b_{i} $ with length $ c_{i} $ . It is guaranteed that these edges form a tree.\n\nEach of the next $ n $ lines describes an element of sequence $ x $ . The $ j $ -th line contains an integer $ x_{j}\u00a0(1<=x_{j}<=n) $ .",
+    "outputFormat": "Print a single integer representing the answer.",
+    "samples": [
+        [
+            "4\n1 2 1\n2 3 2\n3 4 3\n1\n1\n1\n1\n",
+            "2\n"
+        ],
+        [
+            "4\n1 2 1\n2 3 2\n3 4 3\n4\n4\n4\n4\n",
+            "3\n"
+        ]
+    ],
+    "hint": "In the first sample, one of the optimal $ p $ is $ [4,3,2,1] $ .",
+    "translation": "### \u9898\u76ee\u63cf\u8ff0\n\u7ed9\u51fa\u4e00\u4e2a $n$ \u4e2a\u70b9\u7684\u5e26\u8fb9\u6743\u7684\u6811\u3002  \n\u5b9a\u4e49 $g(x,y)$ \u4e3a $x, y$ \u4e24\u70b9\u8def\u5f84\u4e0a\u6743\u503c\u6700\u5927\u8fb9\u7684\u6743\u503c\uff0c\u5e76\u4e14\u5982\u679c $x=y$ \u5219 $g(x,y)=0$ \u3002  \n\u5bf9\u4e8e\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u5e8f\u5217 $P=\\{p_1,p_2, \\dots , p_n\\},(1 \\leq p_i \\leq n)$ \uff0c\u5b9a\u4e49 $f(P)=\\min\\limits_{i=1}^n g(i,p_i)$\u3002  \n\u5982\u679c\u4e00\u4e2a\u5e8f\u5217 $P$ \u662f\u5408\u6cd5\u7684\uff0c\u5f53\u4e14\u4ec5\u5f53\u5143\u7d20 $j$ \u5728\u5e8f\u5217 $P$ \u4e2d\u51fa\u73b0\u7684\u6b21\u6570\u4e0d\u8d85\u8fc7 $x_j$ \u6b21\u3002  \n\u6c42\u6240\u6709\u5408\u6cd5\u7684\u5e8f\u5217 $P$ \u4e2d\uff0c $f(P)$ \u7684\u6700\u5927\u503c\u3002  \n### \u8f93\u5165\u683c\u5f0f  \n\u7b2c\u4e00\u884c\u4e00\u4e2a\u6570 $n$\u3002  \n\u63a5\u4e0b\u6765\u4e00\u5171 $n-1$ \u884c\uff0c\u6bcf\u884c\u4e09\u4e2a\u6570 $u,v,w$ \uff0c\u8868\u793a\u4e00\u6761 $u,v$ \u4e4b\u95f4\u6743\u503c\u4e3a $w$ \u7684\u8fb9\u3002  \n\u6700\u540e\u4e00\u884c\uff0c\u4e00\u5171$n$\u4e2a\u6570\uff0c\u8868\u793a $x_i$\u3002  \n### \u8f93\u51fa\u683c\u5f0f  \n\u4e00\u4e2a\u6570\uff0c\u8868\u793a $f(P)$ \u7684\u6700\u5927\u503c\u3002"
+}

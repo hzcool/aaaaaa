@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u8fd9\u662f\u4e00\u9053\u5206\u7c7b\u8ba8\u8bba+\u6570\u8bba\u597d\u9898\n\n\u628a\u9898\u76ee\u62bd\u8c61\u4e00\u4e0b\uff1a\n\u6bcf\u4e2a\u70b9\u968f\u673a\u4e00\u4e2a$0/1$\u7684\u6743\u503c\uff0c\u968f\u673a\u9009\u62e9\u4e00\u4e2a\u70b9\u4f5c\u4e3a\u6839\uff0c\u6709\u591a\u5c11\u79cd\u65b9\u6848\u4f7f\u5f97\u6839\u8282\u70b9\u5230\u6240\u6709\u53f6\u8282\u70b9\u8def\u5f84\u4e0a\u7684\u5f02\u6216\u548c\u4e3a$0$\u3002\n\n\u53d1\u73b0\u53f6\u8282\u70b9\u5230\u6839\u7684\u8def\u5f84\u7684\u6743\u503c\u5f02\u6216\u548c\u53ef\u4ee5\u7531\u53f6\u8282\u70b9\u786e\u5b9a\u3002\u8bb0\u53f6\u8282\u70b9\u6570\u4e3a$tot$\u3002\n1.\u82e5\u6240\u9009\u7684\u6839\u8282\u70b9\u4e0d\u662f\u53f6\u8282\u70b9\uff0c\u90a3\u4e48\u9664\u53f6\u8282\u70b9\u5916\u7684$n\u2212tot$\u4e2a\u70b9\u7684\u6743\u503c\u53ef\u4ee5\u968f\u4fbf\u9009\uff0c\u65b9\u6848\u6570\u4e3a\n\n$$(n-tot)\\times 2^{n\u2212tot}$$\n\n2.\u82e5\u6240\u9009\u7684\u6839\u8282\u70b9\u662f\u53f6\u8282\u70b9\uff0c\u90a3\u4e48\u9664\u5176\u4ed6$n\u2212tot\u22121$\u4e2a\u53f6\u8282\u70b9\u5916\u7684\u6240\u6709\u7684\u70b9\u6743\u503c\u53ef\u4ee5\u968f\u4fbf\u9009\uff0c\u65b9\u6848\u6570\u4e3a\n$$tot\\times 2^{n\u2212tot+1}$$\n\n$ans=(n\u2212tot)\\times 2n\u2212tot+tot\\times 2n\u2212tot+1=(n+tot)\\times 2n\u2212tot$\n\n\u5feb\u901f\u5e42\u76f4\u63a5\u5207\u6389\n```plain\n#include<cstdio>\nconst int mod=1e9+7;\nconst int N=1e5+7;\nint n,tot;\nint in[N];\nint read()\n{\n    int x=0;\n    char ch=getchar();\n    while(ch<'0' || ch>'9')ch=getchar();\n    while(ch>='0' && ch<='9'){x=x*10+ch-'0';ch=getchar();}\n    return x;\n}\nlong long quick_mod(long long b,int p)\n{\n    long long s=1;\n    for (;p;p>>=1,b=b*b%mod)\n        if (p&1) s=s*b%mod;\n    return s;\n}\nint main()\n{\n    n=read();\n    for(int i=1;i<n;i++)\n        in[read()]++,in[read()]++;\n    for(int i=1;i<=n;i++)\n        if (in[i]==1) tot++;\n    printf(\"%d\\n\",(n+tot)*quick_mod(2,n-tot)%mod);\n    return 0;\n}\n```",
+        "postTime": 1573790614,
+        "uid": 46465,
+        "name": "kevin2006",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF852E \u3010Casinos and travel\u3011"
+    }
+]

@@ -1,0 +1,21 @@
+{
+    "description": "The evil emperor Cactus has in his possession the Magic Keg and has flooded the Enchanted Forest! The Painter and the three little hedgehogs now have to return to the Beaver's den where they will be safe from the water as quickly as possible!\nThe map of the Enchanted Forest consists of R rows and C columns. Empty fields are represented by '.' characters, flooded fields by '*' and rocks by 'X'. Additionally, the Beaver's den is represented by 'D' and the Painter and the three little hedgehogs are shown as 'S'.\nEvery minute the Painter and the three little hedgehogs can move to 4 neighbouring fields (up, down, left or right). Every minute the flood expands as well so that all empty fields that have at least one common side with a flooded field become flooded as well. Neither water nor the Painter and the three little hedgehogs can pass through rocks. Naturally, the Painter and the three little hedgehogs cannot pass through flooded fields, and water cannot flood the Beaver's den.\nWrite a program that will, given a map of the Enchanted Forest, output the shortest time needed for the Painter and the three little hedgehogs to safely reach the Beaver's den.\nNote: The Painter and the three little hedgehogs cannot move into a field that is about to be flooded (in the same minute).",
+    "inputFormat": "The first line of input will contain two integers, R and C, smaller than or equal to 50.\nThe following R lines will each contain C characters ('.', '*', 'X', 'D' or 'S'). The map will contain exactly one 'D' character and exactly one 'S' character.",
+    "outputFormat": "Output the shortest possible time needed for the Painter and the three little hedgehogs to safely reach the Beaver's den. If this is impossible output the word \u201cKAKTUS\u201d on a line by itself.",
+    "samples": [
+        [
+            "3 3\nD.*\n...\n.S.",
+            "3"
+        ],
+        [
+            "3 3\nD.*\n...\n..S",
+            "KAKTUS"
+        ],
+        [
+            "3 6\nD...*.\n.X.X..\n....S.",
+            "6"
+        ]
+    ],
+    "hint": "Clarification of the second sample test: The best they can do is to go along the lower border and then the left border, and get flooded one minute before reaching the den.",
+    "translation": "\u7ed9\u4f60\u4e00\u4e2a$R*C$ \u7684\u77e9\u9635\uff0c\u8fd9\u4e2a\u77e9\u9635\u7531 $*$  , $.$ (\u70b9) , $D$  , $S$  , $X$ \u7ec4\u6210\uff0c\u4f1a\u6709\u6d2a\u6c34\u4ece$*$ \u5904\u6d8c\u51fa\uff0c\u6bcf\u5355\u4f4d\u65f6\u95f4\u90fd\u4f1a\u6df9\u6ca1\u548c\u5176\u56db\u8054\u901a\u7684\u5e73\u5730\uff0c$.$ (\u70b9)\u8868\u793a\u5e73\u5730\uff0c$X$ \u662f\u969c\u788d\uff0c\u4e0d\u53ef\u901a\u884c\uff0c\u4e5f\u4e0d\u4f1a\u6ca1\u6df9\u6ca1\uff0c$S$ \u662f\u51fa\u53d1\u70b9\uff0c\u4e09\u53ea\u523a\u732c(?)\u4ece\u8fd9\u91cc\u51fa\u53d1\u524d\u5f80\u5e87\u62a4\u6240\uff0c\u5b83\u4eec\u53ea\u80fd\u5728\u6ca1\u6709\u88ab\u6d2a\u6c34\u6df9\u6ca1\u7684\u5e73\u5730\u4e0a\u79fb\u52a8\uff0c\u5e76\u4e14\u6bcf\u5355\u4f4d\u65f6\u95f4\u53ea\u80fd\u79fb\u52a8\u5230\u5468\u56f4\u4e00\u4e2a\u56db\u8054\u901a\u7684\u683c\u5b50\uff0c$D$ \u8868\u793a\u5e87\u62a4\u6240\uff0c\u5e87\u62a4\u6240\u4e0d\u4f1a\u88ab\u6d2a\u6c34\u6df9\u6ca1\u3002\n\n\u8f93\u5165\u7b2c\u4e00\u884c\u4e24\u4e2a\u6574\u6570$R,C$ \uff08$R,C\\leq 50$ \uff09\uff0c\u63a5\u4e0b\u6765\u4f7f\u8fd9\u4e2a\u77e9\u9635\u3002\n\n\u8f93\u51fa\u5230\u8fbe\u5e87\u62a4\u6240\u7684\u6700\u77ed\u65f6\u95f4\uff0c\u6216\u8005\u8f93\u51fa\u201cKAKTUS\u201d\uff0c\u8868\u793a\u6839\u672c\u4e0d\u53ef\u80fd\u5230\u3002\n\n\u611f\u8c22@Khassar \u63d0\u4f9b\u7684\u7ffb\u8bd1"
+}

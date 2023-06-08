@@ -1,0 +1,50 @@
+[
+    {
+        "content": "\u53d1\u73b0\u76f4\u63a5\u505a\u4e0d\u5bb9\u6613\u5e76\u4e14 $m$ \u5f88\u5c0f\uff0c\u4e8e\u662f\u9009\u62e9\u89c2\u5bdf\u6027\u8d28\u3002\u8003\u8651\u9e3d\u7b3c\u539f\u7406\uff0c\u5f53 $n>m$ \u65f6\uff0c\u5fc5\u6709\u4e24\u9879 $a_i,a_j$ \u6a21 $m$ \u540c\u4f59\u3002\u6240\u4ee5\u5982\u679c $n>m$ \u7b54\u6848\u5c31\u662f $0$\uff0c\u5426\u5219\u66b4\u529b\u5373\u53ef\u3002\n\n```cpp\nint main(){\n    cin >> n >> m ;\n    for (int i = 1 ; i <= n ; ++ i)\n        scanf(\"%lld\", &base[i]) ;\n    if (n > m) return puts(\"0\"), 0 ;\n    for (int i = 1 ; i <= n ; ++ i)\n        for (int j = i + 1 ; j <= n ; ++ j)\n            (ans *= (LL)abs(base[i] - base[j])) %= m ;\n    cout << ans << endl ;\n}\n```",
+        "postTime": 1583453415,
+        "uid": 28313,
+        "name": "\u768e\u6708\u534a\u6d12\u82b1",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF1305C \u3010Kuroni and Impossible Calculation\u3011"
+    },
+    {
+        "content": "\u8fd9\u4e2a\u7edd\u5bf9\u503c\u770b\u8d77\u6765\u4e0d\u592a\u597d\u641e\uff0c\u90a3\u4e48\u6211\u4eec\u6392\u5e8f\u4e00\u4e0b\uff0c\u5c31\u4e00\u5b9a\u662f\u540e\u9762\u51cf\u524d\u9762\u4e86\u3002\n\n\u4f9d\u6b21\u8003\u8651\u6bcf\u4e2a\u6570\u4e0e\u524d\u9762\u7684\u6570\u5bf9\u7b54\u6848\u7684\u8d21\u732e\uff0c\u4f46\u6211\u4eec\u663e\u7136\u4e0d\u80fd $\\mathcal O(n^2)$ \u679a\u4e3e\u3002\n\n\u6ce8\u610f\u5230\u8fd9\u4e2a\u6a21\u6570\u975e\u5e38\u5c0f\uff0c\u56e0\u6b64\u6211\u4eec\u5bf9\u524d\u9762\u7684\u6570\u5f00\u4e00\u4e2a\u6876\uff0c\u8bb0\u5f55\u6bcf\u4e2a\u4f59\u6570\u7684\u4e2a\u6570\u3002\n\n\u90a3\u4e48\u6211\u4eec\u53ea\u9700\u8981 $\\mathcal O(nm)$ \u5c31\u53ef\u4ee5\u6c42\u51fa\u6bcf\u4e2a\u53ef\u80fd\u7684\u5dee\u7684\u6570\u91cf\uff0c\u6700\u540e\u5feb\u901f\u5e42\u4e00\u4e0b\u5c31\u80fd\u6c42\u51fa\u7b54\u6848\u4e86\u3002\n\n\u4ec0\u4e48\uff0c\u4f60\u95ee $\\mathcal O(nm)$ \u4e0d\u662f $2 \\times 10^8$ \u5417\uff0c\u600e\u4e48\u80fd\u8fc7\uff1f\n\n\u4f60\u8981\u76f8\u4fe1 CF \u795e\u673a\u4e00\u79d2\u8dd1\u5341\u4ebf\u4e0d\u6210\u95ee\u9898\u3002\n\n```cpp\nconst int N = 2e5 + 7, M = 1e3 + 7;\nint n, a[N], c[M];\nll f[M];\nmodint ans = 1;\n\nint main() {\n\trd(n), rd(P), rda(a, n);\n\tsort(a + 1, a + n + 1);\n\tfor (int i = 1; i <= n; i++) {\n\t\ta[i] %= P;\n\t\tfor (int j = 0; j < P; j++)\n\t\t\tf[(a[i]-j+P)%P] += c[j];\n\t\tc[a[i]]++;\n\t}\n\tfor (int i = 0; i < P; i++) ans *= (modint)i ^ f[i];\n\tprint(ans);\n\treturn 0;\n}\n```",
+        "postTime": 1583471767,
+        "uid": 100544,
+        "name": "xht",
+        "ccfLevel": 9,
+        "title": "\u9898\u89e3 CF1305C \u3010Kuroni and Impossible Calculation\u3011"
+    },
+    {
+        "content": "# Solution\n\u6ce8\u610f\u5230\u6a21\u6570m\u5f88\u5c0f\u3002\n\n- \u5f53 $n\\le m$\u65f6\uff0c\u53ef\u4ee5$O(n^2)$\u66b4\u529b\u89e3\u51b3\uff1b\n\n- \u5f53 $n>m$\u65f6\uff0c\u7531\u62bd\u5c49\u539f\u7406\u53ef\u77e5\u5fc5\u5b9a\u5b58\u5728 $a_i$\u4e0e$a_j$\u4f7f\u5f97\n$a_i\\equiv a_j\\pmod{m}$\uff0c\u5373$\\left\\vert a_i -a_j\\right\\vert\\bmod m=0$\u3002\u6545\u6b64\u65f6\u7b54\u6848\u5fc5\u5b9a\u4e3a$0$\u3002\n\n# Code\n\n```cpp\n#include <iostream>\n#include <cstdio>\n#include <cmath>\n#define ll long long\nusing namespace std;\nconst int maxn=2e5+10;\nint n,m,a[maxn],s[maxn];\nll ans=1;\nint main(){\n    cin>>n>>m;\n    if(n<=m){\n        for(int i=1;i<=n;i++)\n            cin>>a[i];\n        for(int i=1;i<=n;i++)\n            for(int j=i+1;j<=n;j++)\n                ans=(ans*abs(a[j]-a[i])%m)%m;\n        cout<<ans;\n    }\n    else\n        cout<<\"0\";\n    return 0;\n}\n```\n",
+        "postTime": 1583457110,
+        "uid": 118433,
+        "name": "LB_tq",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF1305C \u3010Kuroni and Impossible Calculation\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u7b2c\u4e00\u773c\u770b\u4e0a\u53bb\u4ee5\u4e3a\u662f $O(m^2)$ \u7684\u505a\u6cd5\uff0c\u4f46\u600e\u4e48\u4e5f\u60f3\u4e0d\u51fa\u6765\uff0c\u53ea\u60f3\u7684\u51fa\u6765 $O(nm)$ \u7684\u505a\u6cd5\uff0c\u7136\u800c\u6211\u4e0d\u4f1a\u5361\u5e38\uff0c\u6d6a\u8d39\u4e86\u4e24\u6b21\u673a\u4f1a\u3002\n\n\u8003\u8651\u5230\u4e00\u4e2a\u6027\u8d28 $0$ \u4e58\u4efb\u4f55\u6570\u7b49\u4e8e $0$\u3002\n\n\u4e5f\u5c31\u662f\u8bf4\uff0c\u53ea\u8981\u51fa\u73b0\u4e00\u4e2a $0$ \u90a3\u4e48\u7ed3\u679c\u5c31\u4e00\u5b9a\u662f $0$\u3002\n\n\u90a3\u590d\u6742\u5ea6\u5462\uff1f\u56e0\u4e3a\u662f\u6a21 $m$\uff0c\u6240\u4ee5\u81f3\u591a\u6709 $m$ \u79cd\u4e0d\u76f8\u7b49\u60c5\u51b5\uff0c\u4e5f\u5c31\u662f\u8bf4\uff0c\u81f3\u591a\u8fdb\u884c $m$ \u6b21\u3002\n\n\u6240\u4ee5\u603b\u590d\u6742\u5ea6\u4ece $O(nm)$ \u53d8\u6210\u4e86 $O(m^2)$\n\n```cpp\n#pragma GCC optimize(2,3,4,5)\n#include<bits/stdc++.h>\n#define re register\nusing namespace std;\ninline int read(){\n\tre int t=0;\n\tre char v=getchar();\n\twhile(v<'0')v=getchar();\n\twhile(v>='0'){\n\t\tt=(t<<3)+(t<<1)+v-48;\n\t\tv=getchar();\n\t}\n\treturn t;\n}\nint n,x,y,a[200002],f,m,lst,q[1002],v[1002],tp,lstans[1002];\ninline int ksm(re int x,re int y){\n\tint ans=1;\n\twhile(y){\n\t\tif(y&1)ans=ans*x%m;\n\t\tx=x*x%m;\n\t\ty>>=1;\n\t}\n\treturn ans;\n}\ninline int abs(re int x){\n\treturn x>0?x:-x;\n}\nint main(){\n\tf=1;\n\tn=read();m=read();\nfor(re int i=1;i<=n;++i)a[i]=read();\nsort(a+1,a+n+1);\n++v[a[1]%m];q[++tp]=a[1]%m;\nfor(re int i=2;i<=n;++i){\n\tfor(re int j=1;j<=tp;++j)lstans[abs(a[i]-q[j])%m]+=v[q[j]];\n\ta[i]%=m;\n\tif(!v[a[i]])q[++tp]=a[i];\n\t++v[a[i]];\n\tif(lstans[0])break;\n}\nfor(re int i=0;i<m;++i)f=1ll*f*ksm(i,lstans[i])%m;\nprintf(\"%d\",f);\n}\n```\n",
+        "postTime": 1583475952,
+        "uid": 41476,
+        "name": "gyh20",
+        "ccfLevel": 10,
+        "title": "\u9898\u89e3 CF1305C \u3010Kuroni and Impossible Calculation\u3011"
+    },
+    {
+        "content": "## Meaning:\n\n\u6c42\uff1a\n$$\n\\Pi_{1\\leq i < j \\leq n}|a_i-a_j|\\bmod m\n$$\n\n## Solution\uff1a\n\n\u89c2\u5bdf $n,m$ \u7684\u8303\u56f4\uff0c$m$ \u7684\u8303\u56f4\u6709\u8bb2\u7a76\uff0c\u8003\u8651\u7b54\u6848\u8ddf $m$ \u7684\u5173\u7cfb\u3002\n\n- $ n < m$ \u65f6\uff0c$m$ \u7684\u8303\u56f4\u5f88\u5c0f\uff0c\u76f4\u63a5\u7b97\u5373\u53ef\u3002\n\n- $ n > m$ \u65f6\uff0c\u56e0\u4e3a\u5728\u6a21 $m$ \u7684\u60c5\u51b5\u4e0b\u4f59\u6570\u5fc5\u662f $[0,m-1]$ \u8303\u56f4\u5185\u7684\u6570\uff0c\u800c $n > m$\uff0c\u8bf4\u660e\u81f3\u5c11\u6709\u4e00\u5bf9 $a_i,a_j$ \u5728\u6a21 $m$ \u610f\u4e49\u4e0b\u540c\u4f59\uff0c\u90a3\u4e48\u8fd9\u7ec4\u7684\u8d21\u732e\u662f $0$\uff0c\u56e0\u4e3a\u662f\u6c42\u79ef\uff0c\u6240\u4ee5\u7b54\u6848\u662f $0$\u3002\n\n## Code\uff1a\n\n```cpp\n#include<bits/stdc++.h>\n\nusing namespace std;\n\nconst int N=1e6+7;\n\nint n,m,a[N];\nlong long res=1;\n\nint main(){\n\tscanf(\"%d%d\",&n,&m);\n\tif(n>m) return puts(\"0\"),0;\n\tfor(int i=1;i<=n;i++) scanf(\"%d\",&a[i]);\n\tfor(int i=1;i<=n;i++){\n\t\tfor(int j=i+1;j<=n;j++){\n\t\t\tres=(res*(abs(a[i]-a[j]))%m);\n\t\t}\n\t}\n\tprintf(\"%lld\\n\",res);\n\treturn 0;\n}\n```",
+        "postTime": 1655562662,
+        "uid": 397317,
+        "name": "Gym_nastics",
+        "ccfLevel": 0,
+        "title": "CF1305C Kuroni and Impossible Calculation"
+    },
+    {
+        "content": "## Solution\t\n\n\u6211\u4eec\u89c2\u5bdf\u5230\u8fd9\u4e2a $m$ \u5f88\u5c0f\u3002\n\n\u5f53\u5e8f\u5217\u4e2a\u6570\u6bd4\u6a21\u6570\u5927\u7684\u65f6\u5019\uff0c\u7b54\u6848\u4e00\u5b9a\u4e3a $0$\u3002\n\n\u8bc1\u660e\u4e00\u4e0b\uff0c\u5982\u679c\u6ca1\u6709\u91cd\u590d\u5143\u7d20\uff0c\u80af\u5b9a\u4f1a\u51fa\u73b0\u4fe9\u4e2a\u6570\u540c\u4f59\u7684\u60c5\u51b5\u3002\n\n\u5982\u679c\u6709\u91cd\u590d\u5143\u7d20\uff0c\u7b54\u6848\u91cc\u4e58\u4e86\u4e2a $0$\uff0c\u80af\u5b9a\u8fd8\u662f $0$\u3002\n\n\u6240\u4ee5\u5f53 $n > m$ \u7684\u65f6\u5019\u76f4\u63a5\u8f93\u51fa $0$\u3002\n\n\u5426\u5219\u66b4\u529b\u505a\uff0c\u590d\u6742\u5ea6 $\\mathcal{O}(m^2)$\u3002\n\n```cpp\nint a[N], ans = 1;\n\nsigned main() \n{\n\tint n = read(), m = read();\n\tif(n > m) return puts(\"0\"), 0;\n\tfor(int i = 1; i <= n; i++) a[i] = read();\n\tfor(int i = 1; i <= n; i++) {\n\t\tfor(int j = i + 1; j <= n; j++) {\n\t\t\tans = (ans * abs(a[i] - a[j])) % m;\n\t\t}\n\t}\n\treturn print(ans), 0;\n\treturn 0;\n}\n```",
+        "postTime": 1655562312,
+        "uid": 396974,
+        "name": "Buried_Dream",
+        "ccfLevel": 4,
+        "title": "CF1305C Kuroni and Impossible Calculation \u9898\u89e3"
+    }
+]

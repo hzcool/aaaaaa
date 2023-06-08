@@ -1,0 +1,34 @@
+[
+    {
+        "content": "## \u89e3\u6cd5\n\u5b57\u7b26\u578b\u6570\u7ec4\u5b58\u5b57\u7b26\u4e32\uff0c\u5f00\u4e00\u4e2a ```map``` \u7ed9\u4e24\u4e2a\u5b57\u7b26\u4e00\u4e00\u5bf9\u5e94\uff0c\u4f9d\u6b21\u8f93 ```map``` \u4e2d\u5bf9\u5e94\u7684\u503c\u5373\u53ef\n## \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nchar a[1000];//char\u578b\u6570\u7ec4\u5b58\u5b57\u7b26\u4e32 \nint lena;\nmap <char,char>ch;//map\u4e00\u4e00\u5bf9\u5e94 \nint main()\n{\n    cin>>a;\n    lena=strlen(a);//strlen\u51fd\u6570\u8fd4\u56de\u6570\u7ec4\u957f\u5ea6 \n    ch['A']='T';\n    ch['T']='A';\n    ch['C']='G';\n    ch['G']='C';//\u4e00\u4e00\u5bf9\u5e94 \n    for(int i=0;i<lena;i++) cout<<ch[a[i]];//\u8f93\u51fa \n    return 0;\n}\n```\n\n\n",
+        "postTime": 1625446578,
+        "uid": 373705,
+        "name": "\u58a8\u5fe7",
+        "ccfLevel": 4,
+        "title": "B2114 \u914d\u5bf9\u78b1\u57fa\u94fe"
+    },
+    {
+        "content": "\u4e00\u9053\u5b57\u7b26\u6570\u7ec4\u7684\u9898\u3002\n\n\n\n\u4ee5\u4e0b\u662f\u4ee3\u7801~\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nchar s[10001];\nint main(){\n\tcin>>s;\n\tfor (int i=0;i<strlen(s);i++)\n\t if (s[i]=='A') cout<<\"T\";\n   else if (s[i]=='G') cout<<\"C\";\n   else if (s[i]=='T') cout<<\"A\";\n   else if (s[i]=='C') cout<<\"G\";\n   return 0;\n}\n```\n### \u8981\u70b9\uff1a\n\n### 1. \u5728\u7a0b\u5e8f\u4e2d\uff0c\u7531\u4e8e\u5b57\u7b26\u6570\u7ec4\u4e0b\u6807\u4ece0\u5f00\u59cb\u8bb0\uff0c\u6240\u4ee5``` i ```\u4e5f\u8981\u4ece0\u5f00\u59cb\u5faa\u73af\u3002\n\n### 2. \u5728\u7a0b\u5e8f\u4e2d\u7684\u6bd4\u8f83 ```s[i]``` \u4e0e ```'A'```\u4e2d\uff0c\u7531\u4e8e``` s[i] ```\u8868\u793a\u7684\u662f\u4e00\u4e2a\u5b57\u7b26\uff0c\u6545\u5c06\u5176\u4e0e``` 'A'```\uff08\u5b57\u7b26\uff0c\u5355\u5f15\u53f7\uff09 \u8fdb\u884c\u6bd4\u8f83\u3002\n\n",
+        "postTime": 1625324911,
+        "uid": 86942,
+        "name": "\u5348\u5c18",
+        "ccfLevel": 7,
+        "title": "B2114 \u914d\u5bf9\u78b1\u57fa\u94fe"
+    },
+    {
+        "content": "## \u9898\u76ee\u5206\u6790\n\u6b64\u9898\u53ea\u9700\u6839\u636e\u5bf9\u5e94\u5173\u7cfb\uff0c\u6bcf\u8f93\u5165\u4e00\u4e2a\u5b57\u7b26\u5c31\u8f93\u51fa\u5bf9\u5e94\u7684\u5b57\u7b26\u5373\u53ef\uff0c\u6ce8\u610f\u5b57\u6bcd\u5927\u5c0f\u5199\u3002\n## \u4ee3\u7801\u5b9e\u73b0\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nstring s;\nint main(){\n\tcin>>s;\n\tfor(int i=0;i<s.size();i++){\n\t\tif(s[i]=='A')\n\t\t\tcout<<\"T\";\n\t\telse if(s[i]=='T')\n\t\t\tcout<<\"A\";\n\t\telse if(s[i]=='G')\n\t\t\tcout<<\"C\";\n\t\telse if(s[i]=='C')\n\t\t\tcout<<\"G\";\n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1625446338,
+        "uid": 359581,
+        "name": "\u00b7\u7cef\u00b7",
+        "ccfLevel": 5,
+        "title": "B2114"
+    },
+    {
+        "content": "\u6211\u4eec\u4f7f\u7528 C \u98ce\u683c\u5b57\u7b26\u6570\u7ec4\u5b58\u50a8\u78b1\u57fa\u94fe\uff0c\u4f7f\u7528 `strlen()` \u51fd\u6570\u83b7\u53d6\u5b57\u7b26\u4e32\u957f\u5ea6\uff0c\u7136\u540e\u679a\u4e3e\u5b57\u7b26\u4e32\u7684\u6bcf\u4e00\u4f4d\uff0c\u5c06 `ACGT` \u5206\u522b\u66ff\u6362\u4e3a `TGCA` \u5373\u53ef\u3002\n\n\u6709\u4e00\u70b9\u8981\u6ce8\u610f\uff1aC \u98ce\u683c\u5b57\u7b26\u6570\u7ec4\u4e2d\uff0c\u5b57\u7b26\u4e32\u540e\u8fd8\u4f1a\u6709\u4e00\u4f4d `\\0` \u8868\u793a\u5b57\u7b26\u4e32\u7ed3\u5c3e\uff0c\u56e0\u6b64\u6570\u7ec4\u9700\u8981\u5f00\u5927\u4e00\u4f4d\u3002\n\n\u53c2\u8003\u4ee3\u7801\uff1a\n\n```cpp\n//By: Luogu@rui_er(122461)\n#include <bits/stdc++.h>\n#define rep(x,y,z) for(int x=y;x<=z;x++)\n#define per(x,y,z) for(int x=y;x>=z;x--)\n#define debug printf(\"Running %s on line %d...\\n\",__FUNCTION__,__LINE__)\nusing namespace std;\ntypedef long long ll;\nconst int N = 256;\n\nchar s[N];\ntemplate<typename T> void chkmin(T &x, T y) {if(x > y) x = y;}\ntemplate<typename T> void chkmax(T &x, T y) {if(x < y) x = y;}\n\nint main() {\n\tscanf(\"%s\", s);\n\tint n = strlen(s);\n\trep(i, 0, n-1) {\n\t\tswitch(s[i]) {\n\t\t\tcase 'A': putchar('T'); break;\n\t\t\tcase 'C': putchar('G'); break;\n\t\t\tcase 'G': putchar('C'); break;\n\t\t\tcase 'T': putchar('A'); break;\n\t\t}\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1625291275,
+        "uid": 122461,
+        "name": "rui_er",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 B2114 \u914d\u5bf9\u78b1\u57fa\u94fe"
+    }
+]

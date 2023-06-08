@@ -78,6 +78,18 @@ export default class User extends Model {
   @TypeORM.Column({ nullable: true, type: "text" })
   group_id: string;
 
+  @TypeORM.Column({ nullable: true, type: "text" })
+  luogu_account: string;
+
+  @TypeORM.Column({ nullable: true, type: "text" })
+  codeforces_account: string;
+
+  @TypeORM.Column({ nullable: true, type: "text" })
+  atcoder_account: string;
+
+  @TypeORM.Column({ nullable: true, type: "json" })
+  other_OJ_AC_problems: any;
+
   static async fromEmail(email): Promise<User> {
     return User.findOne({
       where: {

@@ -1,0 +1,17 @@
+{
+    "description": "Fillomino is a classic logic puzzle. (You do not need to know Fillomino in order to solve this problem.) In one classroom in Yunqi town, some volunteers are playing a board game variant of it:\n\nConsider an $ n $ by $ n $ chessboard. Its rows are numbered from $ 1 $ to $ n $ from the top to the bottom. Its columns are numbered from $ 1 $ to $ n $ from the left to the right. A cell on an intersection of $ x $ -th row and $ y $ -th column is denoted $ (x, y) $ . The main diagonal of the chessboard is cells $ (x, x) $ for all $ 1 \\le x \\le n $ .\n\nA permutation of $ \\{1, 2, 3, \\dots, n\\} $ is written on the main diagonal of the chessboard. There is exactly one number written on each of the cells. The problem is to partition the cells under and on the main diagonal (there are exactly $ 1+2+ \\ldots +n $ such cells) into $ n $ connected regions satisfying the following constraints:\n\n1. Every region should be connected. That means that we can move from any cell of a region to any other cell of the same region visiting only cells of the same region and moving from a cell to an adjacent cell.\n2. The $ x $ -th region should contain cell on the main diagonal with number $ x $ for all $ 1\\le x\\le n $ .\n3. The number of cells that belong to the $ x $ -th region should be equal to $ x $ for all $ 1\\le x\\le n $ .\n4. Each cell under and on the main diagonal should belong to exactly one region.",
+    "inputFormat": "The first line contains a single integer $ n $ ( $ 1\\le n \\le 500 $ ) denoting the size of the chessboard.\n\nThe second line contains $ n $ integers $ p_1 $ , $ p_2 $ , ..., $ p_n $ . $ p_i $ is the number written on cell $ (i, i) $ . It is guaranteed that each integer from $ \\{1, \\ldots, n\\} $ appears exactly once in $ p_1 $ , ..., $ p_n $ .",
+    "outputFormat": "If no solution exists, output $ -1 $ .\n\nOtherwise, output $ n $ lines. The $ i $ -th line should contain $ i $ numbers. The $ j $ -th number on the $ i $ -th line should be $ x $ if cell $ (i, j) $ belongs to the the region with $ x $ cells.",
+    "samples": [
+        [
+            "3\n2 3 1",
+            "2\n2 3\n3 3 1"
+        ],
+        [
+            "5\n1 2 3 4 5",
+            "1\n2 2\n3 3 3\n4 4 4 4\n5 5 5 5 5"
+        ]
+    ],
+    "hint": "The solutions to the examples are illustrated in the following pictures: ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1517C/9c1f0c1849ccf4ce0e7b23176bd91c953e348595.png)![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1517C/9e88a2fdc4b038adc182da7d0d66d5d0dcc6a27e.png)",
+    "translation": "\u7ed9\u5b9a\u957f\u5ea6\u4e3a $n\\space (1 \\le n \\le 500)$ \u7684\u6392\u5217 $p$\uff0c\u8981\u6c42\u6784\u9020\u4e00\u4e2a\u4e09\u89d2\u5f62\uff0c\u6ee1\u8db3\u4ee5\u4e0b\u6761\u4ef6\uff1a\n\n1. \u4e09\u89d2\u5f62\u5171 $n$ \u884c\uff0c\u7b2c $i$ \u884c\u6709 $i$ \u4e2a\u6570\u3002\u7b2c $i$ \u884c\u6700\u540e\u4e00\u4e2a\u6570\u662f $p_i$\u3002\n\n2. \u63a5\u4e0b\u6765\u6784\u9020 $n$ \u4e2a\u8fde\u901a\u5757\u3002\u5bf9\u4e8e\u7b2c $x \\space (1 \\le x \\le n)$ \u4e2a\u8fde\u901a\u5757,\u6bcf\u4e2a\u5143\u7d20\u3001\u8fde\u901a\u5757\u5927\u5c0f\u90fd\u5fc5\u987b\u7b49\u4e8e $x$\u3002\n\n3. \u4e09\u89d2\u5f62\u6bcf\u4e2a\u683c\u5b50\u5fc5\u987b\u6070\u597d\u586b\u4e00\u4e2a\u6570\u3002\n\n------------\n\n\u8f93\u5165 $n$\u3001$p$\uff0c\u8f93\u51fa\u8be5\u4e09\u89d2\u5f62\u3002"
+}

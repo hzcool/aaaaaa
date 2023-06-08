@@ -1,0 +1,10 @@
+[
+    {
+        "content": "#### \u601d\u8def\n\u4e00\u770b\u5c31\u662f\u52a8\u6001\u89c4\u5212\u4e86\uff0c\u9996\u5148\u6570\u636e\u8981\u5904\u7406\u4e00\u4e0b\n- \u6240\u6709\u70b9\u90fd\u8f6c\u5230\u7b2c\u4e00\u8c61\u9650\n- \u5982\u679c\u6709x[a]>x[b]&&y[a]>y[b]\u90a3\u4e48\u70b9b\u53ef\u4ee5\u5ffd\u7565\n\n\n\u7136\u540e\u6b63\u5e38\u505a\uff0c\u628a\u7b5b\u51fa\u6765\u7684\u70b9\u6309x\u6392\u4e2a\u5e8f\n\n```\ndp[i][0]  \u8868\u793a\u70b9i\u5904\u65b0\u5efa\u4e00\u4e2a\u77e9\u5f62\u65f6\u7684\u6700\u5c0f\u9762\u79ef\n\ndp[i][1]  \u8868\u793a\u4e0d\u65b0\u5efa\u65f6\u7684\u6700\u5c0f\u9762\u79ef\n\n\u65b9\u7a0b\uff1a\ndp[i][0]=w[i]+min(dp[i-1][0],dp[i-1][1]);\ndp[i][1]=min(dp[j][0]+(x[i]-x[j])*y[j]);\uff081<=y<i\uff09\n```\n\u6548\u7387\u8c8c\u4f3c\u662fO(n^2)\u7684,\u4e0d\u8fc7\u6570\u636e\u5e94\u8be5\u6bd4\u8f83\u968f\u673a\uff0c\u8fd8\u662f\u8fc7\u4e86\n#### \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\n#define P pair<int,int>\nusing namespace std;\nint n;\nlong long x[5001];\nlong long y[5001];\nP p[5001];\nint num=0;\nlong long dp[5001][2]={0};\nint main()\n{\n    cin>>n;\n\n    for(int i=1;i<=n;i++)\n    {\n        cin>>p[i].second>>p[i].first;\n        p[i].first=abs(p[i].first);\n        p[i].second=abs(p[i].second);\n    }\n    sort(p+1,p+n+1);\n    int maxx=p[n].second;\n    y[++num]=p[n].first;\n    x[num]=p[n].second;\n    for(int i=n-1;i>=1;i--)\n    {\n        if(p[i].second>maxx)\n        {\n            maxx=p[i].second;\n            x[++num]=maxx;\n            y[num]=p[i].first;\n        }\n    }\n    for(int i=1;i<=num;i++)\n    {\n        dp[i][0]=x[i]*y[i]+min(dp[i-1][0],dp[i-1][1]);\n        dp[i][1]=dp[i][0];\n        for(int j=1;j<i;j++)\n        {\n            dp[i][1]=min(dp[i][1],dp[j][0]+(x[i]-x[j])*y[j]);\n        }\n    }\n    long long ans=min(dp[num][0],dp[num][1]);\n    cout<<ans*4;\n}\n\n```\n",
+        "postTime": 1571377092,
+        "uid": 35192,
+        "name": "\u8def\u4eba\u4e19",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 P4959 \u3010[COCI2017-2018#6] Cover\u3011"
+    }
+]

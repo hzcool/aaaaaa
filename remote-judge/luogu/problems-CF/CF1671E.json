@@ -1,0 +1,29 @@
+{
+    "description": "You are given a rooted tree of $ 2^n - 1 $ vertices. Every vertex of this tree has either $ 0 $ children, or $ 2 $ children. All leaves of this tree have the same distance from the root, and for every non-leaf vertex, one of its children is the left one, and the other child is the right one. Formally, you are given a perfect binary tree.\n\nThe vertices of the tree are numbered in the following order:\n\n- the root has index $ 1 $ ;\n- if a vertex has index $ x $ , then its left child has index $ 2x $ , and its right child has index $ 2x+1 $ .\n\nEvery vertex of the tree has a letter written on it, either A or B. Let's define the character on the vertex $ x $ as $ s_x $ .\n\nLet the preorder string of some vertex $ x $ be defined in the following way:\n\n- if the vertex $ x $ is a leaf, then the preorder string of $ x $ be consisting of only one character $ s_x $ ;\n- otherwise, the preorder string of $ x $ is $ s_x + f(l_x) + f(r_x) $ , where $ + $ operator defines concatenation of strings, $ f(l_x) $ is the preorder string of the left child of $ x $ , and $ f(r_x) $ is the preorder string of the right child of $ x $ .\n\nThe preorder string of the tree is the preorder string of its root.\n\nNow, for the problem itself...\n\nYou have to calculate the number of different strings that can be obtained as the preorder string of the given tree, if you are allowed to perform the following operation any number of times before constructing the preorder string of the tree:\n\n- choose any non-leaf vertex $ x $ , and swap its children (so, the left child becomes the right one, and vice versa).",
+    "inputFormat": "The first line contains one integer $ n $ ( $ 2 \\le n \\le 18 $ ).\n\nThe second line contains a sequence of $ 2^n-1 $ characters $ s_1, s_2, \\dots, s_{2^n-1} $ . Each character is either A or B. The characters are not separated by spaces or anything else.",
+    "outputFormat": "Print one integer \u2014 the number of different strings that can be obtained as the preorder string of the given tree, if you can apply any number of operations described in the statement. Since it can be very large, print it modulo $ 998244353 $ .",
+    "samples": [
+        [
+            "4\nBAAAAAAAABBABAB",
+            "16"
+        ],
+        [
+            "2\nBAA",
+            "1"
+        ],
+        [
+            "2\nABA",
+            "2"
+        ],
+        [
+            "2\nAAB",
+            "2"
+        ],
+        [
+            "2\nAAA",
+            "1"
+        ]
+    ],
+    "hint": "",
+    "translation": "### \u9898\u76ee\u63cf\u8ff0  \n\u7ed9\u4f60\u4e00\u9897 $2^n-1$ \u4e2a\u8282\u70b9\u7684\u5b8c\u7f8e\u4e8c\u53c9\u6811\uff0c\u6309\u7167\u4ee5\u4e0b\u987a\u5e8f\u7f16\u53f7\uff1a  \n - \u6839\u8282\u70b9\u7f16\u53f7\u4e3a $1$;\n - \u7f16\u53f7\u4e3a $x$ \u7684\u8282\u70b9\u5de6\u513f\u5b50\u4e3a $2x$\uff0c\u53f3\u513f\u5b50\u4e3a $2x+1$\u3002\n \n \u6bcf\u4e2a\u9876\u70b9\u4e0a\u6709\u4e00\u4e2a\u5b57\u6bcd `A` \u6216 `B`\uff0c\u5728\u8282\u70b9 $x$ \u4e0a\u7684\u5b57\u6bcd\u4e3a $s_x$\u3002  \n \u9876\u70b9 $x$ \u7684\u5148\u5e8f\u4e32 $f(x)$ \u5b9a\u4e49\u5982\u4e0b\uff1a  \n - \u5982\u679c $x$ \u662f\u53f6\u5b50\uff0c\u90a3\u4e48 $x$ \u7684\u5148\u5e8f\u4e32\u662f $s_x$\uff1b  \n - \u5426\u5219 $x$ \u7684\u5148\u5e8f\u4e32\u662f $s_x+f(l_x)+f(r_x)$\uff0c\u5176\u4e2d $+$ \u8868\u793a\u8fde\u63a5\u4e24\u4e2a\u5b57\u7b26\u4e32\uff0c$l_x,r_x$ \u4ee3\u8868 $x$ \u7684\u5de6\u53f3\u513f\u5b50\u3002\n \n\u4e00\u68f5\u6811\u7684\u5148\u5e8f\u4e32\u662f\u6839\u8282\u70b9\u7684\u5148\u5e8f\u4e32\u3002  \n\u5141\u8bb8\u6267\u884c\u4ea4\u6362\u4efb\u610f\u4e00\u4e2a\u975e\u53f6\u5b50\u8282\u70b9\u7684\u5de6\u53f3\u513f\u5b50\u4efb\u610f\u6b21\uff0c\u6c42\u6811\u53ef\u80fd\u7684\u6240\u6709\u4e0d\u540c\u5148\u5e8f\u4e32\u7684\u4e2a\u6570\uff0c\n\u7b54\u6848\u6a21 $998244353$ \u3002\n\n### \u8f93\u5165\u683c\u5f0f \n\u7b2c\u4e00\u884c\u4e00\u4e2a\u6574\u6570 $n$\uff08$2\\le n\\le18$\uff09\u3002  \n\u7b2c\u4e8c\u884c $2^n-1$ \u4e2a\u5b57\u6bcd `A` \u6216 `B` \u8868\u793a $s_1$ \u5230 $s_{2^n-1}$\uff0c\u4e2d\u95f4\u6ca1\u6709\u7a7a\u683c\u3002  \n\n### \u8f93\u51fa\u683c\u5f0f \n\u4e00\u4e2a\u6574\u6570\u8868\u793a\u7b54\u6848\u6a21 $998244353$ \u7684\u503c\u3002"
+}

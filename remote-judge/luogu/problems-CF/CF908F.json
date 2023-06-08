@@ -1,0 +1,17 @@
+{
+    "description": "Roy and Biv have a set of $ n $ points on the infinite number line.\n\nEach point has one of 3 colors: red, green, or blue.\n\nRoy and Biv would like to connect all the points with some edges. Edges can be drawn between any of the two of the given points. The cost of an edge is equal to the distance between the two points it connects.\n\nThey want to do this in such a way that they will both see that all the points are connected (either directly or indirectly).\n\nHowever, there is a catch: Roy cannot see the color red and Biv cannot see the color blue.\n\nTherefore, they have to choose the edges in such a way that if all the red points are removed, the remaining blue and green points are connected (and similarly, if all the blue points are removed, the remaining red and green points are connected).\n\nHelp them compute the minimum cost way to choose edges to satisfy the above constraints.",
+    "inputFormat": "The first line will contain an integer $ n $ ( $ 1<=n<=300000 $ ), the number of points.\n\nThe next $ n $ lines will contain two tokens $ p_{i} $ and $ c_{i} $ ( $ p_{i} $ is an integer, $ 1<=p_{i}<=10^{9} $ , $ c_{i} $ is a uppercase English letter 'R', 'G' or 'B'), denoting the position of the $ i $ -th point and the color of the $ i $ -th point. 'R' means red, 'G' denotes green, and 'B' means blue. The positions will be in strictly increasing order.",
+    "outputFormat": "Print a single integer, the minimum cost way to solve the problem.",
+    "samples": [
+        [
+            "4\n1 G\n5 R\n10 B\n15 G\n",
+            "23\n"
+        ],
+        [
+            "4\n1 G\n2 R\n3 B\n10 G\n",
+            "12\n"
+        ]
+    ],
+    "hint": "In the first sample, it is optimal to draw edges between the points (1,2), (1,4), (3,4). These have costs 4, 14, 5, respectively.",
+    "translation": "\u6570\u8f74\u4e0a\u6709n\u4e2a\u70b9\uff0c\u4e3a\u7ea2\u6216\u7eff\u6216\u84dd\u8272\uff0c\u7528\u51e0\u6761\u8fb9\u8fde\u63a5\u5b83\u4eec\uff0c\u8fb9\u957f\u4e3a\u4e24\u70b9\u8ddd\u79bb\uff0c\u4f7f\u53bb\u6389\u6240\u6709\u7ea2\u70b9\u6216\u84dd\u70b9\u540e\u5269\u4e0b\u7684\u70b9\u8fde\u901a\uff0c\u6c42\u6700\u5c0f\u8fb9\u957f\u548c"
+}

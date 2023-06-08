@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u8ddf\u5b9e\u6570\u8fd0\u7b97\u6709\u5173\u7684\u9898\u76ee\u505a\u8d77\u6765\u603b\u662f\u5f88\u65b9\u3002\u3002\u3002\n\n\u5c31\u662f\u6c42\u591a\u5c11\u6761\u76f4\u7ebf\u8ddf\u7ebf\u6bb5\u6709\u4ea4\u70b9\n\n\u9488\u5bf9\u6bcf\u6761\u76f4\u7ebf\u6c42\u51fa\u89e3\u6790\u5f0f\n\n$ax+by+c=0-->y=-\\frac{a}{b}x-\\frac{c}{b}$\n\n$x1,x2$\u4ee3\u8fdb\u53bb\uff0c\u53ea\u8981\u4e24\u4e2a\u5bf9\u5e94\u503c\u548c$y1,y2$\u5927\u5c0f\u5173\u7cfb\u4e0d\u4e00\u6837\u5373\u8bf4\u660e\u6709\u4ea4\u70b9\n\n\u7279\u5224$b=0$\u7684\u60c5\u51b5\uff0c\u6b64\u65f6\u76f4\u7ebf\u65b9\u7a0b\u662f$x=-\\frac{c}{a}$\n\n\u6b64\u65f6\u5224\u65ad$x$\u662f\u5426\u2208$[x1,x2](x1<x2)$\u5373\u53ef\n\nCode\uff1a\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint x1, x2, Y1, y2, n;\n\ninline int read(){\n\tint s = 0, w = 1;\n\tchar c = getchar();\n\tfor (; !isdigit(c); c = getchar()) if (c == '-') w = -1;\n\tfor (; isdigit(c); c = getchar()) s = (s << 1) + (s << 3) + (c ^ 48);\n\treturn s * w;\n}\n\nint main(){\n\tx1 = read(), Y1 = read(), x2 = read(), y2 = read(), n = read();\n\tif (x1 > x2) swap(x1, x2), swap(Y1, y2);\n\tint ans = 0;\n\twhile (n--){\n\t\tint a = read(), b = read(), c = read();\n\t\tif (!b){\n\t\t\tdouble x = 1.0 * (-c) / a;\n\t\t\tans += (x1 <= x) && (x2 >= x) ;\n\t\t} else{\n\t\t\tdouble k = 1.0 * (-a) / b, B = 1.0 * (-c) / b;\n\t\t\tdouble fx1 = k * x1 + B, fx2 = k * x2 + B;\n\t\t\tans += (fx1 > Y1) != (fx2 > y2);\n\t\t}\n\t}\n\tprintf(\"%d\\n\", ans);\n\treturn 0;\n}\n```\n",
+        "postTime": 1566466604,
+        "uid": 51719,
+        "name": "ModestCoder_",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF498A \u3010Crazy Town\u3011"
+    }
+]

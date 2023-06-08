@@ -1,0 +1,18 @@
+[
+    {
+        "content": "## \u9898\u610f\n\u7ed9\u4f60 $n$ \u6b21\u8be2\u95ee\uff0c\u6bcf\u4e00\u6b21\u7ed9\u4f60\u4e24\u4e2a\u6570 $x$ \u548c $y$\uff0c\u8ba9\u4f60\u8ba1\u7b97\u5728 $x$ \u7684\u56e0\u5b50\u4e2d\uff0c\u6709\u591a\u5c11\u4e2a\u4e0d\u5b58\u5728 $x-y+1$ \u5230 $x-1$ \u4e2d\u7684\u4efb\u610f\u6570\uff1f\n## \u601d\u8def\n\u66b4\u529b\u3002\u8bb0\u5f55\u6bcf\u4e00\u4e2a\u7684\u56e0\u5b50\u7684\u6700\u540e\u51fa\u73b0\u4f4d\u7f6e\uff0c\u4f18\u5316\uff0c\u90a3\u4e48\u65f6\u95f4\u590d\u6742\u5ea6\u5c31\u5728\u8bb8\u53ef\u8303\u56f4\u5185\u4e86\u3002   \n\u901a\u8fc7\u5bf9\u6700\u540e\u4e00\u4e2a\u4f4d\u7f6e\u7684\u5224\u65ad\uff0c\u4e5f\u53ef\u4ee5\u5224\u65ad\u5f53\u524d\u56e0\u5b50\u662f\u5426\u5408\u6cd5\u3002\n## Code\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,x,y,ans,i,j;\nmap<int,int> ma;\nbool pd(int x,int y,int z){\n\tif (ma[z]>=x-y) {ma[z]=x;return false;}//\u4e0d\u6210\u7acb\u4e5f\u8981\u4fdd\u5b58\n\tma[z]=x;//\u5224\u65ad\u56e0\u5b50\u6700\u540e\u51fa\u73b0\u7684\u4f4d\u7f6e\n\treturn true;\n}\nint main(){\n\tscanf(\"%d\",&n);\n\tfor (i=1;i<=n;i++){\n\t\tscanf(\"%d%d\",&x,&y);\n\t\tans=0;\n\t\tfor (j=1;j*j<=x;j++)\n\t\t\tif (x%j==0){//\u53d6\u51fa\u56e0\u5b50\n\t\t\t\tans+=pd(i,y,j);//\u7d2f\u52a0\n\t\t\t\tif (x!=j*j) ans+=pd(i,y,x/j);//\u53e6\u4e00\u4e2a\u56e0\u5b50\n\t\t\t}\n\t\tprintf(\"%d\\n\",ans); \n\t}\n\treturn 0;\n}\n\n```\n",
+        "postTime": 1638276784,
+        "uid": 315398,
+        "name": "\u5c0f\u6768\u5c0f\u5c0f\u6768",
+        "ccfLevel": 5,
+        "title": "CF111B Petya and Divisors"
+    },
+    {
+        "content": "\u9898\u610f\n\n\u7ed9\u4f60n\u6b21\u8be2\u95ee\uff0c\u6bcf\u6b21\u7ed9\u4f60\u4e00\u4e2ax,y\n\n\u7136\u540e\u8ba9\u4f60\u8f93\u51fa\uff0cx\u8fd9\u4e2a\u6570\u4e2d\u7684\u56e0\u5b50\u6709\u591a\u5c11\u4e2a\u5e76\u6ca1\u6709\u5728\u8fd9\u4e2a\u6570\u7684\u524dy\u4e2a\u6570\u4e2d\u51fa\u73b0\u8fc7\n\n\u9898\u89e3\uff1a\n\n\u5bf9\u4e8e\u6bcf\u6b21\u8be2\u95ee\uff0c\u6211\u4eec\u76f4\u63a5\u66b4\u529b\u7edf\u8ba1\u56e0\u5b50\u4e2a\u6570\n\n\u5bf9\u4e8e\u6bcf\u4e00\u4e2a\u56e0\u5b50\uff0c\u6211\u4eec\u90fd\u8bb0\u5f55\u4e00\u4e0b\u8fd9\u4e2a\u56e0\u5b50\u6700\u540e\u51fa\u73b0\u5728\u5728\u4ec0\u4e48\u65f6\u5019\uff0c\u7136\u540e\u6211\u4eec\u518d\u5224\u65ad\u662f\u5426ans++\u5c31\u597d\u4e86\n\n```cpp\n#include<iostream>\n#include<stdio.h>\n#include<map>\nusing namespace std;\n\nmap<int,int> H;\nint check(int x,int y,int z)\n{\n\n    int flag = 1;\n    if(H[z]>=x-y)\n        flag = 0;\n    H[z]=x;\n    //cout<<x<<\" \"<<y<<\" \"<<z<<\" \"<<flag<<endl;\n    if(flag==0)\n        return 0;\n    return 1;\n}\nint main()\n{\n    int n;scanf(\"%d\",&n);\n    for(int i=1;i<=n;i++)\n    {\n        int x,y;scanf(\"%d%d\",&x,&y);\n        int ans = 0;\n        for(int j=1;j*j<=x;j++)\n        {\n            if(x%j==0)\n            {\n                if(check(i,y,j))\n                    ans++;\n                if(x/j!=j)\n                {\n                    if(check(i,y,x/j))\n                        ans++;\n                }\n            }\n        }\n        printf(\"%d\\n\",ans);\n    }\n}\n```\n",
+        "postTime": 1582278170,
+        "uid": 248806,
+        "name": "dfadfsafsdaf",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF111B \u3010Petya and Divisors\u3011"
+    }
+]

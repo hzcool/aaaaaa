@@ -1,0 +1,16 @@
+{
+    "description": "[problemUrl]: https://atcoder.jp/contests/code-festival-2014-china-open/tasks/code_festival_china_c\n\n",
+    "inputFormat": "Input is given in the following format.\n\n> $ N $ $ x_1 $ $ y_1 $ $ x_2 $ $ y_2 $ : $ x_N $ $ y_N $\n\n- On the first line, you will be given an integer $ N\\ (1\\ \\leq\\ N\\ \\leq\\ 1,000) $, the number of integer lattice points given.\n- On the following $ N $ lines, you will be given the coordinates of each lattice. The $ i $-th $ (1\\ \\leq\\ i\\ \\leq\\ N) $ line consists of two integers $ x_i,y_i\\ (-10^9\\ \\leq\\ x_i,y_i\\ \\leq\\ 10^9) $, the x,y coordinate of the $ i $-th lattice, respectively.\n- Each given lattice is guaranteed to be distinct. In other words, for any $ 2 $ integers $ i,j(1\\ \\leq\\ i,j\\ \\leq\\ N) $, if $ i\\ \\neq\\ j $ then $ (x_i,y_i)\u2260(x_j,y_j) $ holds.",
+    "outputFormat": "On the first line, output $ m $, the number of points you chose to make a regular polygon which has most vertices possible.\n\n On the following $ m $ lines, output the index($ 1 $-indexed) of each points you chose **in ascending order** .\n\nIf you cannot make any regular polygon from the given points, just output a single line containing $ 0 $.",
+    "samples": [
+        [
+            "6\r\n1 0\r\n-1 0\r\n0 1\r\n0 -1\r\n1 2\r\n-1 2",
+            "4\r\n1\r\n2\r\n3\r\n4"
+        ],
+        [
+            "4\r\n0 0\r\n1 0\r\n2 0\r\n3 0",
+            "0"
+        ]
+    ],
+    "hint": "### Problem\n\nYou are given $ N $ points of integer lattice on a rectangular coordinate plane, You want to choose some points from them to make a regular polygon by connecting the chosen points with straight lines. Also, you want to choose as many points as possible to make a regular polygon.\n\nDetermine the points you should choose to make a regular polygon which has most vertices possible. If there are more than one possible answers, you may choose any one of them.\n\n### Sample Explanation 1\n\nAmong the given $ 6 $ points, you can choose $ 4 $ points $ (1,0),(-1,0),(0,1),(0,-1) $ to make a regular square, which has the most vertex possible. So the answer is $ 4 $ and the indices of those points. The $ 4 $ points $ (-1,0),(1,0),(1,2),(-1,2) $ can also make a regular square. So, the indices of them, $ {1,2,5,6} $, will be considered correct too.\n\n### Sample Explanation 2\n\nThe given points are on a straight line. You cannot make any regular polygon from them."
+}

@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u4f7f\u7528\u66b4\u529b\u5373\u53ef\n\n\u66b4\u529b\u601d\u8def\uff1a0\u5206\u80af\u5b9a\u662f\u80fd\u62ff\u7684\uff0c\u5bf9\u4e8e\u4e00\u4e2a\u65b0\u6765\u7684\u5206\u6570\uff1ab\n\n\u5047\u8bbe\u4e4b\u524d$f[x]==ture$\u5373f[x]\u53ef\u4ee5\u62ff\u5230\uff0c\u90a3\u4e48f[x+b]\u4e5f\u53ef\u4ee5\u62ff\u5230\n\n### \u4ee3\u7801\u5982\u4e0b\n```\n#include<bits/stdc++.h>\nusing namespace std;\nlong long a,b,ans;\nbool c[10005];\nint main()\n{\n    cin>>a;\n    c[0]=1;\n    for(int s=0;s<a;s++)\n    {\n        cin>>b;\n        for(int v=10002;v>=0;v--)\n        {\n            if(c[v]==1)\n            {\n                c[v+b]=1;\n            }\n        }\n    }\n    for(int s=0;s<10002;s++)\n    {\n        if(c[s]==1)ans++;\n    }\n    cout<<ans<<endl;\n}\n```",
+        "postTime": 1537937214,
+        "uid": 58543,
+        "name": "RioBlu",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 AT679 \u3010\u30b3\u30f3\u30c6\u30b9\u30c8\u3011"
+    }
+]

@@ -1,0 +1,90 @@
+[
+    {
+        "content": "# \u8fd9\u9053\u9898\u5f88\u7b80\u5355\uff0c\u4e0d\u77e5\u4e3a\u4f55\u4f1a\u6709\u5ae9\u4e48\u591a\u4eba\u4e0d\u8fc7\n### \u5b9a\u4e49\u548csum \u5982\u679c\u662f\u4e00\u6837\u5c31++\uff0c\u4e0d\u4e00\u6837\u5c31\u5224\u65ad if %2==0 ans++ \u6700\u7ec8\u7684\u5c31\u662f\u7ed3\u679c\u5566\uff0c\u5bf9\u5b57\u4e32\u7684\u638c\u63e1\u3002\u3002\n\n\n```cpp\n#include<iostream> //\u5934\u6587\u4ef6\u4e0d\u89e3\u91ca\n#include<cstdio>\n#include<string>\n#include<cstring>\n#include<queue>\n#include<iomanip>\n#include<cmath>\n#include<algorithm>\nusing namespace std;\nchar a[10001];\nint main()\n{\n\tint sum=0,ans=0;\n\tcin>>a;        //\u8bfb\u5165\u5b57\u4e32\n\tint na=strlen(a);\n\tfor(int i=0;i<na;++i)\n\t{\n\t\tif(a[i]==a[i+1])\n\t\t{\n\t\t\tsum++;  //\u76f8\u540c\u5c31++\n\t\t}\n\t\telse\n\t\t{\n\t\t\tif(sum%2!=0) ans++;//\u5076\u6570\u5c31ans++\n\t\t\tsum=0;\n\t\t}\n\t}\n\tcout<<ans;//\u8f93\u51faans\u5c31\u53ef\u4ee5\u4e86\uff0cso easy\n\treturn 0;\n}\n```",
+        "postTime": 1557668923,
+        "uid": 187253,
+        "name": "Aliemo",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF391A \u3010Genetic Engineering\u3011"
+    },
+    {
+        "content": "# \u4e00\u3001\u5bf9\u8be5\u9898\u7684\u5206\u6790\n### \u2460\u9996\u5148\uff0c\u9898\u5e76\u4e0d\u7b97\u96be\uff0c\u5c31\u662f\u627e\u2018A\u2019,'T','G','C'\u540c\u4e00\u5b57\u6bcd\u8fde\u7eed\u51fa\u73b0\u5076\u6570\u6b21\u7684\u5b50\u4e32\u7684\u4e2a\u6570\uff0c\u6211\u4eec\u5927\u6982\u53ea\u9700\u8981\u8dd1\u4e00\u4e0b\u5faa\u73af\n### \u2461\u5176\u6b21\u7528char\u6570\u7ec4\uff08\u6216string\uff09\u5b58\u4e00\u4e0b\u76ee\u6807\u7684\u5076\u6570\u6b21tot=1\uff0c\u7136\u540e\u4e00\u4e00\u6bd4\u8f83\uff08\u53ef\u5148\u91c7\u7528\u9664\u6216mod\uff09\n### \u2462\u6700\u540e\uff0c\u8fdb\u884c\u6bd4\u8f83\n# \u4e8c\u3001\u5177\u4f53\u89e3\u6cd5\n### \u4ee3\u7801\u9996\u5148\u5949\u4e0a\n```cpp\n#include<iostream> //\u672c\u4eba\u662f\u7528C++\n#include<cstdio>  //\u5934\u6587\u4ef6\n#include<cstring>\nusing namespace std;\nint main()\n{\n    char a[105];  //char\u6570\u7ec4\u6765\u5b58\uff08\u4e5f\u53ef\u7528string\uff0c\u4f46\u4e0d\u65b9\u4fbf\u5bfb\u627e\uff09\n    int tot=1,ans=0;// \u7528\u6765\u5b58\u8f93\u5165\u6587\u7ae0\uff0c\n    scanf(\"%s\",a);  //\u8f93\u5165\n    for(int i=1;i<=strlen(a);i++) //strlen\u68c0\u6d4b\u5b57\u7b26\u4e32\u957f\u5ea6\uff0c\u8fdb\u884c\u5faa\u73af\n    {\n        if(a[i]==a[i-1]) tot++;//\u6bcf\u4e24\u4f4d\u8fdb\u884c\u6bd4\u8f83\n        else\n        {\n            if(tot%2==0) ans++;//\u5224\u65ad\u662f\u5426\u6210\u7acb\n            tot=1;\n        }\n    }\n    cout<<ans;//\u8fdb\u884c\u8f93\u51fa\n} \n```\n### \u8f93\u5165\u6570\u636e\uff0c\u7528\u4e00\u4e2achar\u6570\u7ec4\u8fdb\u884c\u5b58\u653e\uff0c\u5bf9\u6bcf\u4e00\u4f4d\u8fdb\u884c\u641c\u7d22\uff0c\u5982\u679c\u6210\u7acb\uff0c\u5c31\u8fdb\u884c\u8f93\u51fa\n### \u672c\u4eba\u4f7f\u7528C++\u8bed\u8a00\uff0c\u5982\u679c\u6709\u6539\u8fdb\u610f\u89c1\u53ef\u4ee5\u5411\u6211\u63d0\u51fa",
+        "postTime": 1560836057,
+        "uid": 177499,
+        "name": "Adrien_Mertens",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 CF391A \u3010Genetic Engineering\u3011"
+    },
+    {
+        "content": "\u9898\u76ee\u4f20\u9001>>[CF391A](https://www.luogu.com.cn/problem/CF391A)  \n### \u9898\u610f\u7b80\u8ff0\uff1a  \n\u6c42\u5b57\u7b26\u4e32\u4e2d\u540c\u4e00\u5b57\u6bcd\u8fde\u7eed\u51fa\u73b0\u5076\u6570\u6b21\u7684\u5b50\u4e32\u7684\u4e2a\u6570\u3002  \n### \u9898\u76ee\u5206\u6790:  \n\u636e\u9898\u610f\u6a21\u62df\u904d\u5386\u5b57\u7b26\u4e32\uff0c\u5206\u522b\u8bb0\u5f55\u540c\u4e00\u5b57\u6bcd\u8fde\u7eed\u51fa\u73b0\u7684\u6b21\u6570\uff0c\u5982\u4e3a\u5076\u6570\u6b21\u6ee1\u8db3\u5219\u7d2f\u52a0\u7b54\u6848\u3002  \n### Code:  \n```cpp\n#include<iostream>\n#include<cstdio>\n#include<cstring>\nusing namespace std;\nchar st[101];    //\u5f00\u6570\u7ec4\u5b58\u5b57\u7b26\u4e32\u4e2d\u7684\u5b57\u7b26\nint main()\n{\n\t//freopen(\"input.in\",\"r\",stdin);\n\t//freopen(\"print.out\",\"w\",stdout);\n\tgets(st);   //gets \u4e3a\u4e13\u95e8\u8bfb\u5b57\u7b26\u4e32\u7684\u51fd\u6570\uff0c\u8bfb\u53d6\u4e00\u884c\u5b57\u7b26\u4e32\n\tint sum=1,ans=0;   //\u5b9a\u4e49\u5b57\u6bcd\u8fde\u7eed\u51fa\u73b0\u7684\u6b21\u6570(\u6ce8\u610f\u521d\u59cb\u5316\u4e3a1)\uff0c\u6ee1\u8db3\u7684\u5b50\u4e32\u7684\u4e2a\u6570\n\tfor(int i=0;i<strlen(st);i++)    //strlen \u8ba1\u7b97\u5b57\u7b26\u4e32\u7684\u957f\u5ea6\n\t{\n\t\tif(st[i]==st[i+1])   //\u5b57\u6bcd\u8fde\u7eed\u51fa\u73b0\n\t\t{\n\t\t\tsum++;\n\t\t}\n\t\telse\n\t\t{\n\t\t\tif(sum%2==0)   //\u5b57\u6bcd\u8fde\u7eed\u51fa\u73b0\u7684\u6b21\u6570\u4e3a\u5076\u6570\u6b21\n\t\t\t{\n\t\t\t\tans++;\n\t\t\t\tsum=1;    //\u5b57\u6bcd\u8fde\u7eed\u51fa\u73b0\u7684\u6b21\u6570\u5f52\u4e3a1\n\t\t\t}\n\t\t}\n\t}\n\tcout<<ans;    //\u7ed3\u675f\u6574\u4e2a\u7a0b\u5e8f\n\treturn 0;\n}\n```\n### \u7ed3\u679c\uff08\u672a\u5438\u6c27\uff09\uff1a  \n![JieGuo](https://cdn.luogu.com.cn/upload/image_hosting/gyt4n1ex.png)  \n\u4f01\u9e45\u7684\u9898\u89e3\u5230\u6b64\u7ed3\u675f\uff0c\u795d\u5404\u4f4d OIers \u8fdb\u6b65++~",
+        "postTime": 1615958366,
+        "uid": 271784,
+        "name": "\u6c42\u5b66\u7684\u4f01\u9e45",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 CF391A Genetic Engineering"
+    },
+    {
+        "content": "\u9898\u610f\uff1a\u7ed9\u51fa\u4e00\u4e2a\u5b57\u7b26\u4e32\uff0c\u8ba9\u6c42\u51fa\u76f8\u540c\u5b57\u6bcd\u51fa\u73b0\u5076\u6b21\u7684\u5b57\u4e32\u4e2a\u6570\u3002\n\n\n------------\n\u601d\u8def\uff1a\u6c42\u51fa\u6bcf\u4e2a\u76f8\u8fde\u5b57\u6bcd\u5b57\u4e32\u7684\u957f\u5ea6\uff0c\u8fdb\u884c\u5224\u65ad\u7edf\u8ba1\u7b26\u5408\u8981\u6c42\u7684\u4e2a\u6570\uff0c\u6700\u540e\u8fdb\u884c\u8f93\u51fa\u3002\n\n\n------------\n\u5982\u4f55\u5224\u65ad\u957f\u5ea6\uff1a\u82e5\u524d\u4e00\u4e2a\u5b57\u7b26\u4e0e\u540e\u4e00\u4e2a\u5b57\u7b26\u76f8\u540c\uff0c\u5219\u7ee7\u7eed\u8fdb\u884c\uff0c\u5426\u5219\u5224\u65ad\uff0c\u5e76\u628a\u8ba1\u7b97\u957f\u5ea6\u7684\u53d8\u91cf\u5f52\u96f6\u3002\n\n------------\n\u4ee3\u7801\uff1a\n\n```cpp\n#include<cstring>\n#include<iostream>\nusing namespace std;\nint main()\n{\n\tint js=0,ans=0;\n\tstring s;//\u8f93\u5165\u3002\n\tcin>>s;\n\tfor(register int i=0;i<s.size();i++){\n\t\tif(s[i]==s[i+1]){//\u76f8\u540c\u7d2f\u52a0\u957f\u5ea6\u3002\n\t\t\tjs++;\n\t\t}else{//\u5426\u5219\u3002\n\t\t\tif(js%2!=0){//\u5224\u65ad\u3002\n\t\t\t\tans++;\n\t\t\t}\n\t\t\tjs=0;\n\t\t}\n\t}\n\tcout<<ans;//\u8f93\u51fa\u3002\n\treturn 0;\n}\n```\n\u6492\u82b1\u3002",
+        "postTime": 1622887295,
+        "uid": 358825,
+        "name": "Ybocean_s",
+        "ccfLevel": 4,
+        "title": "CF391A"
+    },
+    {
+        "content": "\u6c34\u9898\uff0c\u5c31\u662f\u6c42\u8fde\u7eed$n$\u4e2a\u76f8\u540c\u5b57\u7b26\u7684\u4e2a\u6570\u662f\u5426\u4e3a\u5076\u6570\u3002\n\n\u9996\u5148\u6211\u4eec\u6765\u770b\u4e00\u4e0b\u6837\u4f8b\u3002\n\n```\nGTTAAAG\n```\n\n\u6211\u4eec\u4ece\u5b57\u7b26\u4e32\u5f00\u5934\u5f00\u59cb\u904d\u5386\u3002\n\n\u4e00\u5f00\u59cb$G$\u7684\u8fde\u7eed\u4e2a\u6570\u4e3a$1$\u3002\n\n\u6240\u4ee5$ans$\u4e0d\u7528\u589e\u52a0\u3002\n\n\u540e\u6765$T$\u7684\u4e2a\u6570\u4e3a$2$\uff0c$ans$\u589e\u52a0\u4e3a$1$\u3002\n\n$A$\u6709$3$\u4e2a\uff0c$G$\u53c8\u53ea\u6709$1$\u4e2a\uff0c\u6240\u4ee5$ans$\u4e0d\u7528\u589e\u52a0\u3002\n\n\u63a5\u4e0b\u6765\u770b\u770b\u4ee3\u7801\u3002\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n\tstring a;\n\tcin>>a;\n\tint sum=1;//sum\u8981\u8bbe\u4e3a1\u3002\n\tint ans=0;\n\tfor(int i=0;i<a.length();i++)\n\t{\n\t\tif(a[i]==a[i+1])//\u5982\u679c\u8fd9\u4f4d=\u4e0b\u4e00\u4f4d\u7684\u8bdd,sum+1\u3002\n\t\t{\n\t\t\tsum++;\n\t\t}\n\t\telse//\u5982\u679c\u4e0d\u662f\u3002\n\t\t{\n\t\t\tif(sum%2==0)//\u5982\u679csum\u662f\u5076\u6570\u3002\n\t\t\t{\n\t\t\t\tans++;//ans+1\u3002\n\t\t\t}\n\t\t\tsum=1;//sum\u91cd\u65b0\u8bbe\u4e3a1\u3002\n\t\t}\n\t}\n\tcout<<ans;//\u8f93\u51faans\u3002\n\treturn 0; \n}\n```\n",
+        "postTime": 1602592590,
+        "uid": 162084,
+        "name": "thomas_zjl",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 CF391A \u3010Genetic Engineering\u3011"
+    },
+    {
+        "content": "~~\u4e00\u9053\u6700\u5927\u5e73\u53f0\u957f\u5ea6\u7684\u6a21\u677f\u9898~~\n\n### **\u9898\u76ee**\n\u7ed9\u51fa\u4e00\u4e2a**\u5b57\u7b26\u4e32**$n$\uff0c\u6c42\u5b57\u7b26\u4e32\u4e2d**\u540c\u4e00\u5b57\u6bcd** _\u8fde\u7eed\u51fa\u73b0_ **\u5076\u6570\u6b21**\u7684\u5b50\u4e32\u7684\u4e2a\u6570\u3002\n### **\u601d\u8def**\n$s$\u7684\u521d\u59cb\u503c\u4e3a$1$\uff0c\u7136\u540e\u4e00\u4e2a$for$\u5faa\u73af\uff0c\u4ece**2**\u5230$n$\u5b57\u7b26\u4e32\u7684\u957f\u5ea6\uff0c\u4e00\u4e00\u679a\u4e3e\u5373\u53ef\u3002\n\n\u4f46\u662f\u8fd9\u91cc\u8fd8\u8981\u6ce8\u610f\u4e00\u70b9\uff1a\u6700\u540e\u8981\u52a0\u4e00\u4e2a**\u7279\u5224**\n### **\u4ee3\u7801**\n```pascal\nvar\n n:string;//\u5b9a\u4e49n\u5b57\u7b26\u4e32\n s,i,sum:longint;//\u5b9a\u4e49\u522b\u7684\u53d8\u91cf\nbegin\n read(n);//\u8bfb\u5165n\n s:=1;//s\u521d\u59cb\u503c\n for i:=2 to length(n) do//\u4ece2\u5230n\u5b57\u7b26\u4e32\u7684\u957f\u5ea6\n  if n[i]=n[i-1] then inc(s)//\u5982\u679c\u76f8\u90bb\u7684\u4e24\u4e2a\u76f8\u7b49\uff0c\u5219s\u52a0\u4ee5\n                 else//\u5426\u5219\n                  begin\n                   if s mod 2=0 then inc(sum);//\u5982\u679cs\u662f\u5076\u6570\uff0c\u5219sum\u52a01\n                   s:=1;//\u627e\u5230\u4e86\u65b0\u7684\u8d77\u70b9\uff0c\u7ee7\u7eed\n                  end;\n if s mod 2=0 then inc(sum);//\u7279\u5224\u6700\u540e\u4e00\u4f4d\n write(sum);//\u8f93\u51fasum\nend.\n```",
+        "postTime": 1585912651,
+        "uid": 324103,
+        "name": "Franka",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF391A \u3010Genetic Engineering\u3011"
+    },
+    {
+        "content": "\u65e2\u7136\u5927\u4f6c\u4eec\u90fd\u53d1\u4e86$string$\u7684\uff0c\u90a3\u4e48\u6211\u8fd9\u4e2a\u849f\u84bb\u53ea\u80fd\u53d1\u4e00\u4e2a$char$\u7684\u4e86\u3002  \n\u9898\u76ee\u4e0a\u5df2\u7ecf\u8bf4\u8fc7\uff0c\u5b57\u7b26\u4e32\u6700\u957f\u4e0d\u8d85\u8fc7100\uff0c\u90a3\u5c31\u5b9a\u4e49110\u4ee5\u9632\u610f\u5916\u3002  \n\u66b4\u529b\u626b\u63cf\u6240\u6709\u6709\u76f8\u540c\u5b57\u7b26\u7684\u4e32\uff0c\u8bb0\u5f55\u957f\u5ea6\uff0c\u5982\u679c\u662f\u5076\u6570\u8ba1\u6570\u5668++\uff0c\u6700\u540e\u8f93\u51fa\u5373\u53ef\u3002    \n$code$\n```\n#include <bits/stdc++.h>\nusing namespace std;\nconst int N = 110;\nchar s[N];\nint main()\n{\n\tgets(s);\n\tint len=strlen(s),ans=0,lenth=1;\n\tfor(int i=0;i<len;)//i\u8868\u793a\u5b50\u4e32\u5f00\u59cb\u7684\u4f4d\u7f6e\n\t\tfor(int j=i+1;j<=len;j++)//j\u8868\u793a\u5f53\u524d\u4f4d\u7f6e\uff0c\u67e5\u627e\u5b50\u4e32\n\t\t{\n\t\t\tif(s[i]==s[j])//\u4ecd\u7136\u662f\u540c\u4e00\u5b50\u4e32\n\t\t\t\tlenth++;\n\t\t\telse\n\t\t\t{\n\t\t\t\tif(lenth%2==0)//\u957f\u5ea6\u4e3a\u5076\u6570\n\t\t\t\t\tans++;//\u8ba1\u6570\u5668\u81ea\u52a0\n\t\t\t\tlenth=1;//\u5b50\u4e32\u957f\u5ea6\u6539\u4e3a\u4e00\n\t\t\t\ti=j;//\u91cd\u65b0\u4ece\u8fd9\u4e2a\u4f4d\u7f6e\u5f00\u59cb\u5bfb\u627e\n\t\t\t}\n\t\t}\n\tcout<<ans<<\"\\n\";\n}\n```",
+        "postTime": 1553861513,
+        "uid": 86971,
+        "name": "TRZ_2007",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF391A \u3010Genetic Engineering\u3011"
+    },
+    {
+        "content": "\u7528getline\u8bfb\u5165\u5b57\u7b26\u4e32\n\n\u7528g\u8868\u793a\u91cd\u590d\u4e2a\u6570\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n\tstring s;//\u5b57\u7b26\u4e32\n\tint g=1,ans=0;//g\u6700\u5f00\u59cb\u5b9a\u4e49\u4e3a1\n\tgetline(cin,s);\n\tfor(int i=0;i<s.size();){\n\t\tfor(int j=i+1;j<=s.size();j++){\n\t\t\tif(s[j]==s[i]){//\u5224\u65ad\n\t\t\t\tg++;\n\t\t\t}else{\n\t\t\t\tif(g%2==0)ans++;//\u5728\u8fd9\u65f6\u5c31\u5224\u65ad\u662f\u5426\u4e3a\u5076\u6570\n\t\t\t\tg=1;\n\t\t\t\ti=j;//\u5c06i\u53d8\u4e3a\u4e0d\u7b49\u4e8es[i]\u7684\u5b57\u7b26\u7684\u4e0b\u6807\uff0c\u7ee7\u7eed\u5224\u65ad\n\t\t\t}\n\t\t}\n\t}\n\tcout<<ans;\n\treturn 0;\n}\n\n```",
+        "postTime": 1549703071,
+        "uid": 119768,
+        "name": "Goldbach",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF391A \u3010Genetic Engineering\u3011"
+    },
+    {
+        "content": "```\n#include<bits/stdc++.h>\nusing namespace std;\nint i,l,ans,ll;\nstring s;\nint main(){\n\tcin>>s;\n\tl=s.length();\n\ti=0;//\u521d\u59cb\u5316\n\twhile(i<l-1){//\u7531\u4e8e\u7a0b\u5e8f\u4e2d\u6709\u51fa\u73b0s[i+1],\u6545\u8303\u56f4\u5230l-1\n\t\tll=1;//\u76f8\u540c\u4e32\u957f\u5ea6\n\t\tif(s[i]==s[i+1]){//\u6709\u76f8\u540c\n\t\t\twhile(s[i]==s[i+1]&&i<l-1) i++,ll++;//\u5f80\u4e0b\u641c\u7d22\n\t\t\tif(ll%2==0) ans++;//\u5224\u65ad\u957f\u5ea6\n\t\t}\n\t\telse i++;//\u5343\u4e07\u522b\u5fd8\u52a01\n\t}\n\tcout<<ans;\n\treturn 0;\n}\n```",
+        "postTime": 1544000670,
+        "uid": 25051,
+        "name": "\u0430\u0431\u0432\u0433",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF391A \u3010Genetic Engineering\u3011"
+    },
+    {
+        "content": "# \u8fd9\u9053\u9898\u4e0d\u662f\u5f88\u96be\uff0c\u53ea\u9700\u8981\u8dd1\u4e00\u904d\u5faa\u73af\u5373\u53ef\n## \u5177\u4f53\u89e3\u6cd5\n1. \u8bfb\u5165\u5b57\u7b26\u4e32\uff0c\u8fd9\u4e00\u6b65\u5728C++\u548cPython\u4e2d\u90fd\u53ef\u4ee5\u76f4\u63a5\u8bfb\n2. \u8dd1\u5faa\u73af\uff0c\u5982\u679c\u8fd9\u4e2a\u5b57\u7b26\u4e0e\u4e0a\u4e00\u4e2a\u4e0d\u540c\uff0c\u8bf4\u660e\u5df2\u7ecf\u8bfb\u5b8c\u4e00\u4e2a\u5b50\u4e32\n3. \u6bcf\u8bfb\u5b8c\u4e00\u4e2a\u5b50\u4e32\u5224\u65ad\u957f\u5ea6\uff0c\u5982\u679c\u662f\u5076\u6570\uff0c\u8ba1\u6570\u5668\u52a0\u4e00\n\n------------\n\n#### \u4ee5\u4e0b\u662f\u4ee3\u7801\n### c++\n```c\n#include<bits/stdc++.h>//\u5934\u6587\u4ef6\nusing namespace std;\nint main()\n{\n    char a[10000];\n    cin>>a;//\u8f93\u5165\n    int tot=1,ans=0,l=strlen(a);\n  \n    int i=1;\n    while(i<l+1)\n    {\n        if(a[i]==a[i-1])//\u5982\u679c\u76f8\u90bb\u4e24\u4e2a\u5b57\u7b26\u4e00\u6837\n            tot++;\n        else//\u4e0d\u4e00\u6837\u65f6\uff0ctot\u5185\u5b58\u7684\u5c31\u662f\u8fd9\u4e2a\u5b50\u4e32\u7684\u957f\u5ea6\n        {\n            if(tot%2==0)\n                ans++;\n            tot=1;//\u957f\u5ea6\u521d\u59cb\u5316\n        }\n        i++;\n        while(1);\n    }\n    cout<<ans;//\u8f93\u51fa\u7ed3\u679c\n    return 0;//\u7ed3\u675f\n}\n```\n### Python\n```python\ntot=1\nans=0\na=input()\nl=len(a)\ni=1\nwhile i<l+1:\n    if a[i]==a[i-1]:\n        tot+=1\n    else:\n        if tot%2==0:\n            ans+=1\n        tot=1\n    i+=1\nprint(ans)\n```",
+        "postTime": 1561212466,
+        "uid": 173056,
+        "name": "_Veritas",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF391A \u3010Genetic Engineering\u3011"
+    },
+    {
+        "content": "# \u6309\u9898\u610f\u6a21\u62df\u5373\u53ef\n```\n#include<cstdio>\n#include<iostream>\n#include<algorithm>\n#include<cstring>\n#include<string>\nusing namespace std;\nstring s;\nint main()\n{\n\tcin>>s;\n\tint now=1,len=s.size(),temp=1,ans=0;\n\twhile(now<len)\n\t{\n\t\tif(s[now]==s[now-1])\n\t\t{\n\t\t\ttemp++;\n\t\t}\n\t\telse\n\t\t{\n\t\t\tif(!(temp&1))\n\t\t\t{\n\t\t\t\tans++;\n\t\t\t}\n\t\t\ttemp=1;\n\t\t}\n\t\tnow++;\n\t}\n\tif(!(temp&1))\n\t{\n\t\tans++;\n\t}\n\tprintf(\"%d\",ans);\n\treturn 0;\n}\n```",
+        "postTime": 1549204138,
+        "uid": 68273,
+        "name": "xyf007",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF391A \u3010Genetic Engineering\u3011"
+    }
+]

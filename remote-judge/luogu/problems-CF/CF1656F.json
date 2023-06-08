@@ -1,0 +1,13 @@
+{
+    "description": "You are given $ n $ integers $ a_1, a_2, \\ldots, a_n $ . For any real number $ t $ , consider the complete weighted graph on $ n $ vertices $ K_n(t) $ with weight of the edge between vertices $ i $ and $ j $ equal to $ w_{ij}(t) = a_i \\cdot a_j + t \\cdot (a_i + a_j) $ .\n\nLet $ f(t) $ be the cost of the [minimum spanning tree](https://en.wikipedia.org/wiki/Minimum_spanning_tree) of $ K_n(t) $ . Determine whether $ f(t) $ is bounded above and, if so, output the maximum value it attains.",
+    "inputFormat": "The input consists of multiple test cases. The first line contains a single integer $ T $ ( $ 1 \\leq T \\leq 10^4 $ ) \u2014 the number of test cases. Description of the test cases follows.\n\nThe first line of each test case contains an integer $ n $ ( $ 2 \\leq n \\leq 2 \\cdot 10^5 $ ) \u2014 the number of vertices of the graph.\n\nThe second line of each test case contains $ n $ integers $ a_1, a_2, \\ldots, a_n $ ( $ -10^6 \\leq a_i \\leq 10^6 $ ).\n\nThe sum of $ n $ for all test cases is at most $ 2 \\cdot 10^5 $ .",
+    "outputFormat": "For each test case, print a single line with the maximum value of $ f(t) $ (it can be shown that it is an integer), or INF if $ f(t) $ is not bounded above.",
+    "samples": [
+        [
+            "5\n2\n1 0\n2\n-1 1\n3\n1 -1 -2\n3\n3 -1 -2\n4\n1 2 3 -4",
+            "INF\n-1\nINF\n-6\n-18"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9\u5b9a\u4e00\u5f20 $n$ \u4e2a\u70b9\u7684\u65e0\u5411\u5b8c\u5168\u56fe $K_n(t)$ \uff0c\u70b9 $i$ \u548c\u70b9 $j$ \u4e4b\u95f4\u7684\u8fb9\u7684\u8fb9\u6743 $w_{i,j}(t)$ \u4e3a $a_i*a_j+t*(a_i+a_j)$ \uff0c\u5176\u4e2d $t$ \u4e3a\u4efb\u610f\u5b9e\u6570\u3002\n\n\u5b9a\u4e49 $f(t)$ \u4e3a $K_n(t)$ \u7684\u6700\u5c0f\u751f\u6210\u6811\u7684\u8fb9\u6743\u548c\u3002\u8f93\u51fa $f(t)$ \u7684\u6700\u5927\u503c\uff0c\u65e0\u6700\u5927\u503c\u5219\u8f93\u51fa `INF` \u3002 $T$ \u7ec4\u6570\u636e\u3002\n\n $1\\le T\\le 10^4$ \uff0c $2\\le n \\le 2*10^5$ \uff0c $\\sum n\\le 2*10^5$ \uff0c $-10^6\\le a_i\\le 10^6$ \u3002"
+}

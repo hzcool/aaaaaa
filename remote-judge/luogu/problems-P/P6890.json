@@ -1,0 +1,17 @@
+{
+    "description": "Webmaster Kirk is reorganizing his school's website. There are a number of pages on the website and the\ncontent is fine, but he noticed that the pages are not properly linked. In fact, every page contains exactly one link, pointing to some other page in the website. This is a poor design \u2013 starting from the homepage, a visitor will usually have to follow many links before reaching the page of his interest, and some pages might not be reachable from the homepage at all. As a first step, he wants to add a few links so that every page can be quickly accessed from the homepage. New links can be added anywhere in the website.\n\nThe website contains N pages marked with integers 1 to N and the homepage is marked with the number 1.\n\nThere are also N links; **each page contains exactly one link** pointing to some **different** page. For an integer\nK, a website is said to be **K-reachable** if every page on the website other than the homepage can be reached from the homepage by following **at most K** links.\n\nWrite a program that, given the description of the website and an integer K, finds the **minimum number of links that need to be added** in order to make the website K-reachable.",
+    "inputFormat": "\u7b2c\u4e00\u884c\u662f\u4e24\u4e2a\u6574\u6570\u7528\u7a7a\u683c\u9694\u5f00 $N$ \u548c $K$\u3002\n\n\u63a5\u4e0b\u6765 $N$ \u884c\uff1a\n\n\u5176\u4e2d\u7b2c $i+1$ \u884c $(1\\leqslant i\\leqslant N)$ \u8f93\u5165\u4e24\u4e2a\u6574\u6570 $x$ \u548c $y$ , \u8868\u793a\u5b58\u5728\u4e00\u6761\u4ece $x$ \u5230 $y$ \u7684\u5355\u5411\u8fb9\u3002",
+    "outputFormat": "\u8f93\u51fa\u4ec5\u4e00\u4e2a\u6574\u6570\uff1a\u8868\u793a\u6700\u5c11\u9700\u8981\u6dfb\u52a0\u7684\u8fb9\u6570\u3002",
+    "samples": [
+        [
+            "8 3\n1 2\n2 3\n3 5\n4 5\n5 6\n6 7\n7 8\n8 5",
+            "2"
+        ],
+        [
+            "14 4\n1 2\n2 3\n3 4\n4 5\n7 5\n5 6\n6 3\n8 10\n10 9\n9 8\n14 13\n13 12\n12 11\n11 14",
+            "3"
+        ]
+    ],
+    "hint": "\u5728\u7b2c\u4e8c\u7ec4\u6837\u4f8b\u4e2d\uff0c\u4e00\u4e2a\u5408\u6cd5\u7684\u8def\u5f84\u96c6\u5408 $\\{1\\to 7,1\\to 14,14\\to 10\\}$\u3002\n\n$2 \u2264 N \u2264 500 000$, $1 \u2264 K \u2264 20 000$\u3002",
+    "translation": "\u7ed9\u5b9a\u4e00\u4e2a $N$ \u4e2a\u70b9 $N$ \u6761\u8fb9\u7684\u6709\u5411\u56fe\uff08\u5185\u5411\u57fa\u73af\u6811\uff09\uff0c \u8981\u6c42\u5728\u56fe\u4e0a\u6dfb\u52a0\u6700\u4e0a\u7684\u8fb9\uff0c\u4f7f\u5f97\u70b9 $1$ \u5230\u8fbe\u6240\u6709\u5176\u4ed6\u70b9\u7684\u6700\u77ed\u8def\u957f\u5ea6\u4e0d\u8d85\u8fc7 $K$\u3002"
+}

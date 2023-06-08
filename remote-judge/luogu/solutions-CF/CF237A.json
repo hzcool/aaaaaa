@@ -1,0 +1,90 @@
+[
+    {
+        "content": "[\u66f4\u597d\u7684\u9605\u8bfb\u4f53\u9a8c]( http://mywkj.github.io/2020/06/06/cf237a-free-cash-ti-jie/)\n\n\u9898\u76ee\u8fd8\u662f\u6bd4\u8f83\u7b80\u5355\u7684\u3002\u9898\u610f\u5982\u4e0b:\u73b0\u5728\u7ed9\u5b9a$\\mathtt{n}$\u4e2a\u4e8c\u5143\u7ec4$\\mathtt{(x,y)}$,\u6c42\u51fa\u73b0\u6b21\u6570\u6700\u591a\u7684\u4e8c\u5143\u7ec4$\\mathtt{(x,y)}$\u7684\u51fa\u73b0\u6b21\u6570\u3002\n\n\u90a3\u4e48\u6211\u4eec\u5176\u5b9e\u53ea\u8981\u5c06\u6bcf\u4e2a\u4e8c\u5143\u7ec4\u6620\u5c04\u6210\u4e00\u4e2a\u6570\u5b57\uff0c\u53bb\u68c0\u6d4b\u8be5\u6570\u5b57\u51fa\u73b0\u7684\u6b21\u6570\u5373\u53ef\u3002\n\n\u8fd9\u65f6\uff0c\u5c31\u5fc5\u987b\u63d0\u4e00\u63d0\u4e07\u80fd\u7684$\\mathtt{STL}$\u4e86~~map\u5927\u6cd5\u6700\u597d!!!~~\n\nmap\u5c31\u80fd\u5b8c\u7f8e\u7684\u5e2e\u6211\u4eec\u89e3\u51b3\u8fd9\u4e2a\u95ee\u9898\n\n\u4ee3\u7801\u5982\u4e0b:\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nmap< pair<int,int>,int> ptime;\nint n;\nint main()\n{\n\tint ans=0;\n\tscanf(\"%d\",&n);\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tint x,y;\n\t\tscanf(\"%d%d\",&x,&y);\n\t\tptime[make_pair(x,y)]++;\n\t\tans=max(ans,ptime[make_pair(x,y)]);\n\t}\n\tprintf(\"%d\\n\",ans);\n\treturn 0;\n}\n```\n\n",
+        "postTime": 1591437788,
+        "uid": 240405,
+        "name": "wkjwkj",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF237A \u3010Free Cash\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u5c31\u662f\u8ba9\u6211\u4eec\u627e\u91cd\u590d\u6700\u591a\u7684$(x,y)$\u3002\n\n\u8ba9\u6211\u4eec\u5148\u6765\u6a21\u62df\u4e00\u4e0b\u6837\u4f8b$1$\u3002\n\n```\n4\n8 0\n8 10\n8 10\n8 45\n```\n\u6211\u4eec\u8bb0\u8fd9\u4e2a\u91cd\u590d\u7684\u6b21\u6570\u4e3a$sum$\u3002\n\n$(8,0)$\u603b\u5171\u51fa\u73b0\u4e86$1$\u6b21\u3002\n\n$(8,10)$\u603b\u5171\u51fa\u73b0\u4e86$2$\u6b21\u3002\n\n$(8,45)$\u603b\u5171\u51fa\u73b0\u4e86$1$\u6b21\u3002\n\n\u90a3\u4e48\u6211\u4eec\u9009\u62e9\u6700\u5927\u7684$2$,\u5c31\u662f\u8f93\u51fa\u3002\n\n\u4e0d\u8fc7\u8fd8\u6709\u4e00\u4e2a\u96be\u70b9\uff0c\u5c31\u662f\u5bfb\u627e\u91cd\u590d\u7684$(x,y)$\u4f1a$TLE$\u3002\n\n\u6240\u4ee5\u6211\u4eec\u9700\u8981\u7528\u5230\u4e00\u4e2a\u8ba1\u6570\u5668\u6765\u8fa8\u522b\u8fd9\u4e2a\u6570\u7ec4\u662f\u5426\u88ab\u6570\u8fc7\uff0c\u53ef\u4ee5\u5927\u5927\u52a0\u5feb\u7a0b\u5e8f\u7684\u8fd0\u884c\u901f\u5ea6\u3002\n\n\u63a5\u4e0b\u6765\u4e86\u770b\u770b\u4ee3\u7801\u5427\u3002\n\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint a[10000001][2];//\u8bb0\u5f55\uff08x\uff0cy\uff09\u3002\nbool b[10000001]={0};//\u4e0a\u6587\u63d0\u5230\u7684\u8ba1\u6570\u5668\u3002\nint main()\n{\n\tint n;\n\tcin>>n;\n\tfor(int i=0;i<n;i++)\n\t{\n\t\tcin>>a[i][0]>>a[i][1];\n\t}\n\tint sum=0;//\u8bb0\u5f55\uff08x,y\uff09\u51fa\u73b0\u7684\u6b21\u6570\u3002\n\tint max=1;//\u8bb0\u5f55\uff08x,y\uff09\u6700\u5927\u51fa\u73b0\u7684\u6b21\u6570\u3002\n\tfor(int i=0;i<n;i++)\n\t{\n\t\tif(b[i]==0)//\u5982\u679cb[i]\u4e3a0\u7684\u8bdd\uff0c\u53ef\u4ee5\u5f00\u59cb\u8fdb\u884c\u8ba1\u6570\u3002\n\t\t{\n\t\t\tfor(int j=0;j<n;j++)\n\t\t\t{\n\t\t\t\tif(b[j]==0)//\u5982\u679c\u8fd9\u4e2a\u4e3ab[j]\u4e3a0,\u8868\u793a\u4f60\u8fd8\u6ca1\u8bb0\u8fc7\u8fd9\u4e2a\u6570\uff0c\u53ef\u4ee5\u5f00\u59cb\u6bd4\u8f83\u3002\n\t\t\t\t{\n\t\t\t\t\tif(a[i][0]==a[j][0]&&a[i][1]==a[j][1])//\u5982\u679c(a[i][0],a[i][1])=\uff08a[j][0],a[j][1]\uff09\u3002\n\t\t\t\t\t{\n\t\t\t\t\t\tsum++;//sum+1\u3002\n\t\t\t\t\t\tb[j]=1;//\u8fd9\u4e2a\u6570\u7ec4\u88ab\u7edf\u8ba1\u8fc7\u4e86\uff0c\u90a3\u4e48\u8ba1\u6570\u5668\u53d8\u5316\u3002\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\t\n\t\t\t}\n\t\t\tif(sum>max)//\u5982\u679c\u8fd9\u6b21\u91cd\u590d\u7684\u6b21\u6570\u5927\u4e8e\u4e4b\u524d\u6700\u5927\u91cd\u590d\u7684\u6b21\u6570\u3002\n\t\t\t{\n\t\t\t\tmax=sum;//max\u5c31\u8981\u6539\u53d8\u3002\n\t\t\t}\n\t\t\tsum=0;\n\t\t}\n\t\t\n\t}\n\tcout<<max;//\u8f93\u51fa\u3002\n    return 0;\n}\n```\n",
+        "postTime": 1599917896,
+        "uid": 162084,
+        "name": "thomas_zjl",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 CF237A \u3010Free Cash\u3011"
+    },
+    {
+        "content": "[CF237A Free Cash](https://www.luogu.com.cn/problem/CF237A)\n\n### Translate\n\n\u73b0\u5728\u7ed9\u5b9a $n$ \u4e2a\u4e8c\u5143\u7ec4 $(x,y)$\u3002\n\n\u6c42\u51fa\u73b0\u6b21\u6570\u6700\u591a\u7684\u4e8c\u5143\u7ec4 $(x,y)$ \u7684\u51fa\u73b0\u6b21\u6570\u3002\n\n\u6ce8\u610f\uff1a$(x,y)$ \u6309\u4ece\u5c0f\u5230\u5927\u7ed9\u51fa\u3002\n\n### Solution\n\n\u8fd9\u9898\u8c8c\u4f3c\u6c34\u7684\u4e00\u6279 \u2026\u2026\n\n\u9996\u5148\u8f93\u5165 $n$\uff0c\u7136\u540e\u5b9a\u4e49\u4e24\u4e2a\u6574\u6570 $pre_1,pre_2$ \u4ee3\u8868\u8fd9\u4e00\u4e8c\u5143\u7ec4\u524d\u4e00\u4e2a\u4e8c\u5143\u7ec4   \n\u521d\u59cb\u5316\u5c31\u5168\u4e3a $-1$ \u5373\u53ef   \n\u7136\u540e\u5b9a\u4e49\u4e00\u4e2a\u6574\u6570 $cnt$\uff0c\u56e0\u4e3a\u4e8c\u5143\u7ec4\u4e3a\u4ece\u5c0f\u5230\u5927\u8f93\u5165\uff0c\u6240\u4ee5\u8bb0 $cnt$ \u4e3a\u7b2c $cnt$ \u4e2a\u4e0e\u524d\u9762\u4e0d\u540c\u7684\u4e8c\u5143\u7ec4   \n\u521d\u59cb\u5316\u4e3a $1$ \u5373\u53ef   \n\u6700\u540e\u5b9a\u4e49\u4e00\u4e2a\u6570\u7ec4 $ans[i]$ \u4ee3\u8868\u7b2c $i$ \u4e2a\u4e0d\u540c\u7684\u4e8c\u5143\u7ec4\u6709\u591a\u5c11\u4e2a    \n\u521d\u59cb\u5316\u5168\u4e3a $0$ \u5373\u53ef\n\n\u7136\u540e\u6211\u4eec\u5c31\u8f93\u5165 $n$ \u4e2a $x,y$\uff0c\u505a\u4e00\u4e0b\u7684\u64cd\u4f5c\uff1a\n\n- \u5224\u65ad $x,y$ \u548c $pre_1,pre_2$ \u7684\u76f8\u7b49\u5173\u7cfb\n\t- \u5982\u679c\u76f8\u7b49\uff0c\u90a3\u4e48\u5c31\u8ba9 $ans[cnt]++$\n    - \u5982\u679c\u4e0d\u76f8\u7b49\n    \t- \u66f4\u65b0 $pre_1=x,pre_2=y$\n        - \u66f4\u65b0 $cnt++$\n\n\u6700\u540e\u628a $ans$ \u6570\u7ec4 `sort` \u4e00\u4e0b\uff0c\u8f93\u51fa $ans[cnt]$ \u5373\u53ef\u3002",
+        "postTime": 1591448164,
+        "uid": 114914,
+        "name": "\u4e00\u53ea\u4e66\u866b\u4ed4",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 CF237A \u3010Free Cash\u3011"
+    },
+    {
+        "content": "\u6b64\u9898\u8981\u6c42\u51fa\u73b0\u6b21\u6570\u6700\u591a\u7684\u4e8c\u5143\u7ec4\u6570\u91cf\uff0c\u7528\u4e8c\u7ef4\u6570\u7ec4\u5373\u53ef\u89e3\u51b3\u3002\u56e0\u4fdd\u8bc1\u4e8c\u5143\u7ec4\u4ece\u5c0f\u5230\u5927\u7ed9\u51fa\uff0c\u5219\u53ef\u4ee5\u5f00\u4e00\u4e2a\u4e8c\u7ef4\u6570\u7ec4\u6765\u7edf\u8ba1\u4e2a\u6570\uff0c\u8fdb\u884c\u5faa\u73af\uff0c\u4ee5\u4e8c\u5143\u7ec4\u7684\u4e24\u6570\u5f53\u505a\u4e0b\u6807\u8fdb\u884c\u7edf\u8ba1\uff0c\u4f7f\u7528\u6253\u64c2\u53f0\u7684\u601d\u8def\u8fdb\u884c\u6700\u5927\u503c\u7684\u5b9e\u65f6\u66f4\u65b0\uff0c\u6700\u540e\u8f93\u51fa\u6700\u5927\u503c\u3002 \n\n```cpp\n#include <iostream>\n#include <algorithm>\nusing namespace std;\nint n,zu1,zu2,maxn,xiabiao[80][80];\nint main() {\n    cin>>n;\n    while(n--){\n        cin>>zu1>>zu2;\n        xiabiao[zu1][zu2]++;\n        maxn= max(maxn,xiabiao[zu1][zu2]);\n    }\n    cout<<maxn;\n    return 0;\n}\n\n```\n",
+        "postTime": 1601941024,
+        "uid": 371927,
+        "name": "REAL_\u66fc\u5df4",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF237A \u3010Free Cash\u3011"
+    },
+    {
+        "content": "\u6b64\u9898\u8fd8\u662f\u6bd4\u8f83\u7b80\u5355\u7684\u3002\n\n\u5c31\u662f\u6c42\u51fa\u73b0\u6b21\u6570\u6700\u591a\u7684\u4e8c\u5143\u7ec4 $(x,y)$ \u7684\u51fa\u73b0\u6b21\u6570\u3002\n\nmap\u5927\u6cd5\u597d ~~/qq~~\n\nmap\u5f00\u4e00\u4e2a\u4e8c\u7ef4\u6570\u7ec4\uff1a\n```cpp\nmap<int,map<int,int> >a;\n```\n\u5934\u6587\u4ef6\uff1a\n```cpp\n#include<map>\n```\n~~\u5982\u679c\u4f60\u60f3\u7528\u4e8c\u7ef4\u6570\u7ec4\u6211\u4e5f\u62e6\u4e0d\u4f4f\u4f60~~\n\n$a[x][y]$\u8868\u793a\u4e8c\u5143\u7ec4$(x,y)$ \u7684\u51fa\u73b0\u6b21\u6570\n\n\u6700\u540e\u8f93\u51fa\u6700\u5927\u503c\u5373\u53ef\u3002\n\n```cpp\n#include<iostream>\n#include<map>\ntypedef unsigned long long ull;\nusing namespace std;\nint n,cnt,m;\nmap<int,map<int,int> >a;//\u5b9a\u4e49\nint main(){\n\tcin>>n;//\u8f93\u5165n\n\twhile(n--){//\u61d2\u5f97\u7528for\uff08bushi\n\t\tint x,y;\n\t\tcin>>x>>y;\n\t\ta[x][y]++;//\u6b64\u4e8c\u5143\u7ec4\u53c8\u51fa\u73b0\u4e86\u4e00\u6b21\uff0c\u7d2f\u52a0\n\t\tm=max(m,a[x][y]);//\u6253\u64c2\u53f0\u6c42\u6700\u5927\u503c\n\t} \n\tcout<<m;\n}\n\n```",
+        "postTime": 1601725883,
+        "uid": 253765,
+        "name": "houpingze",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF237A \u3010Free Cash\u3011"
+    },
+    {
+        "content": "\u9898\u610f\uff1a\u8f93\u5165n\u7ec4\u7684\u4e24\u4e2a\u6570\uff0c\u6c42\u51fa\u73b0\u6b21\u6570\u6700\u591a\u7684\u51fa\u73b0\u6b21\u6570\u3002\n\n\u56e0\u4e3a$(0<=h_{i}<=23; 0<=m_{i}<=59)$ \u6240\u4ee5\u6211\u4eec\u53ef\u4ee5\u5f00\u4e00\u4e2a\u4e8c\u7ef4\u6570\u7ec4\uff0c\u7528\u6765\u8bb0\u5f55\u51fa\u73b0\u6b21\u6570\n\n$code:$\n\n```cpp\n#include <iostream>\n#include <cstdio>\n#include <cstring>\n#include <algorithm>\n\nusing namespace std;\n\nint a[30][60];//a[30][60] \u591f\u7528\u4e86\nint n,x,y,ans;\n\nint main(){\n\tscanf(\"%d\",&n);\n\tfor(int i=1;i<=n;i++){\n\t\tscanf(\"%d%d\",&x,&y);\n\t\ta[x][y]++;//\u8ba1\u6570\u6570\u7ec4+1\n\t\tans=max(ans,a[x][y]);//\u66f4\u65b0\u7b54\u6848\n\t}\n\tprintf(\"%d\",ans);\n\treturn 0;\n}\n```\n\n$qwq$",
+        "postTime": 1600426816,
+        "uid": 133509,
+        "name": "KazamiHina",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF237A \u3010Free Cash\u3011"
+    },
+    {
+        "content": "\u9898\u610f\uff1a\u8f93\u5165n\u7ec4\u7684\u4e24\u4e2a\u6570\uff0c\u5224\u65ad\u540c\u6837\u7684\u6570\u7ec4\u51fa\u73b0\u6700\u591a\u7684\u6b21\u6570\u3002\n\n\u6211\u4eec\u53ef\u4ee5\u6bcf\u8f93\u5165\u4e00\u4e2a\u6570\u5bf9\u65f6\uff0c\u548c\u4e0a\u6b21\u7684\u6bd4\u8f83\u662f\u5426\u4e00\u6837\uff0c\u4e00\u6837\u7684\u8bdd\u8ba1\u6570\u5668++\uff0c\u5426\u5219\u7684\u8bdd\u8ba1\u6570\u5668=1\u3002\n\n\n\u4ee3\u7801\u5982\u4e0b\n------------\n\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint n,ans,x,y,x1=-1,y1=-1,s;\nint main()\n{\n\tcin>>n;\n\tfor(int i=1;i<=n;i++)//\u5faa\u73afn\u6b21\u8f93\u5165\n        {\n\t    cin>>x>>y;\n\t    if(x==x1&&y==y1)//\u5148\u548c\u4e0a\u4e00\u6b21\u7684\u4f5c\u6bd4\u8f83\uff0c\u5982\u679c\u4e00\u6837\n            {\n\t\ts++;//\u8ba1\u6570\u5668++\n                continue;\n\t    }\n\t    ans=max(ans,s);//\u5426\u5219\u5728\u4e0e\u6700\u7ec8\u7b54\u6848\u4e2d\u627e\u4e00\u4e2a\u6700\u5927\u7684\uff0c\u7b26\u5408\u9898\u610f\n\t    s=1;//\u7136\u540e\u628a\u8ba1\u6570\u5668\u521d\u59cb\u5316\u4e00\u4e0b\uff0c\u6ce8\u610f\uff0c\u4e0d\u662f0\n\t    x=x1;\n            y=y1;//\u5206\u522b\u628a\u4e0a\u4e00\u6b21\u7684x\u3001y\u66ff\u6362\u4e00\u4e0b\n\t}\n\tans=max(ans,s);//\u6700\u540e\u518d\u6bd4\u8f83\u4e00\u4e0b\n\tcout<<ans<<endl;//\u8f93\u51fa\n\treturn 0;\n}\n```\n",
+        "postTime": 1600348260,
+        "uid": 332907,
+        "name": "BeetyX",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF237A \u3010Free Cash\u3011"
+    },
+    {
+        "content": "## Content\n\u7ed9\u51fa $n$ \u4e2a\u4e8c\u5143\u7ec4 $(x,y)$\uff0c\u6c42\u51fa\u73b0\u5f97\u6700\u591a\u7684 $(x,y)$ \u51fa\u73b0\u7684\u6b21\u6570\uff0c\u4fdd\u8bc1 $(x,y)$ \u4ece\u5c0f\u5230\u5927\u7ed9\u51fa\u3002\n\n\u6570\u636e\u8303\u56f4\uff1a$1\\leqslant n\\leqslant 10^5,1\\leqslant x\\leqslant23,1\\leqslant y\\leqslant 59$\u3002\n## Solution\n\u8fd9\u9053\u9898\u76ee\u5176\u5b9e\u76f4\u63a5\u6309\u7167\u539f\u82f1\u6587\u9898\u9762\u7ffb\u8bd1\u7684\u8bdd\u662f\u8fd9\u6837\u7684\uff1a\u6709\u4e00\u5bb6 $24$ \u5c0f\u65f6\u8425\u4e1a\u7684\u5496\u5561\u5e97\uff0c\u4e00\u5929\u4e00\u5171\u8fdb\u6765\u4e86 $n$ \u4e2a\u5ba2\u4eba\uff0c\u5df2\u77e5\u7b2c $i$ \u4e2a\u5ba2\u4eba\u8fdb\u6765\u7684\u65f6\u95f4\u662f $x_i$ \u65f6 $y_i$ \u5206\uff0c\u6c42\u8fdb\u6765\u7684\u5ba2\u4eba\u6700\u591a\u7684\u65f6\u95f4\u3002\n\n\u5176\u5b9e\u8fd9\u9053\u9898\u76ee\u5982\u679c\u6ca1\u6709``\u4fdd\u8bc1(x,y)\u4ece\u5c0f\u5230\u5927\u7ed9\u51fa``\u8fd9\u4e2a\u6761\u4ef6\u7684\u8bdd\u5176\u5b9e\u4e5f\u53ef\u505a\u7684\uff0c\u5c31\u5f00\u4e2a $vis$ \u6570\u7ec4\uff0c\u8bb0\u5f55$(x,y)$\u51fa\u73b0\u7684\u6b21\u6570\uff0c\u90a3\u4e48\u7b54\u6848\u5c31\u662f $max\\{vis_{x_i,y_i}\\}(i\\in[1,n])$\u3002\n\n## Code\n```cpp\n#include <cstdio>\n#include <algorithm>\nusing namespace std;\n\nint n, x, y, ans, vis[27][67];\n\nint main() {\n\tscanf(\"%d\", &n);\n\tfor(int i = 1; i <= n; ++i) {\n\t\tscanf(\"%d%d\", &x, &y);\n\t\tvis[x][y]++;\n\t\tans = max(ans, vis[x][y]);\n\t}\n\tprintf(\"%d\", ans);\n}\n```",
+        "postTime": 1596896974,
+        "uid": 112917,
+        "name": "Eason_AC",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF237A \u3010Free Cash\u3011"
+    },
+    {
+        "content": "\u4e4b\u524d\u5df2\u7ecf\u53d1\u4e86\u4e00\u7bc7\u9898\u89e3\uff0c\u4f46\u662f\u6211\u627e\u5230\u4e86\u53e6\u5916\u4e00\u79cd\u601d\u8def\n\n\u672c\u849f\u84bb\u81ea\u8ba4\u4e3a\u8fd9\u4e2a\u662f\u6700\u4f18\u89e3\uff08\u65f6\u95f4+\u7a7a\u95f4\uff09\n\n\u9996\u5148\uff0c\u6211\u4eec\u5f15\u7528\u4e00\u53e5\u8bdd\uff1a\n\n> (x,y)(x,y) \u6309\u4ece\u5c0f\u5230\u5927\u7ed9\u51fa\u3002\n\n\u4e8e\u662f\u4e4e\uff0c\u6211\u4eec\u5c31\u4e0d\u9700\u8981\u8fdb\u884csort\u6392\u5e8f\u4e86\n\n\u9898\u76ee\u95ee\u4e8c\u5143\u7ec4\u7684\u51fa\u73b0\u6b21\u6570\uff0c\u800c\u4e14\u5e8f\u5217\u5df2\u7ecf\u6309\u7167\u4ece\u5c0f\u5230\u5927\u6392\u5217\u597d\u4e86\uff0c\u4f60\u4eec\u60f3\u5230\u4e86\u4ec0\u4e48\uff1f\n\n\u5bf9\uff01\u662f\u5c06\u73b0\u5728\u8f93\u5165\u7684\u4e8c\u5143\u7ec4\u4e0e\u4e0a\u4e00\u4e2a\u6570\u8fdb\u884c\u6bd4\u8f83\uff0c\u4e00\u76f4\u6bd4\u5230\u4e0d\u76f8\u540c\u4e3a\u6b62\uff0c\u5b58\u50a8\u4e00\u4e0b\u6700\u5927\u503c\uff0c\u6700\u540e\u8f93\u51fa\u5c31\u5b8c\u6210\u4e86\u3002\n\n\u63a5\u7740\uff0c\u6211\u4eec\u53d1\u73b0\uff0c\u4e0a\u4e00\u4e2a\u4e8c\u5143\u7ec4\u53ef\u4ee5\u7528\u4e00\u4e2a\u4e34\u65f6\u53d8\u91cf\u9876\u66ff\uff0c\u6240\u4ee5\u8bf4\u6211\u4eec\u6210\u529f\u5c061\u7ef4\u6570\u7ec4\u538b\u5230\u4e860\u7ef4\uff01\n\n\u63a5\u7740\uff0c\u7531\u4e8e\u6211\u4eec\u662f\u5c06\u5e8f\u5217\u8fdb\u884c\u7ebf\u6027\u6bd4\u5bf9\uff0c\u6240\u4ee5\u8bf4\u5faa\u73af\u6b21\u6570\u5c31\u662f\u76f8\u5f53\u4e8e\u5e8f\u5217\u957f\u5ea6\uff0c\u65f6\u95f4\u590d\u6742\u5ea6\u88ab\u4e25\u683c\u7684\u538b\u5165 $O(n)$\uff01\n\n\u53e6\u5916\u7684\uff0cmap\u3001set\u3001\u54c8\u5e0c\u4e4b\u7c7b\u7684\u6620\u5c04\u4f1a\u6d88\u8017\u590d\u6742\u5ea6\uff0c\u7a7a\u95f4\u4e5f\u662f\u4e00\u9897\u5b9a\u65f6\u70b8\u5f39\n\n\u597d\u7684\uff0c\u653e\u4ee3\u7801\uff1a\n\n```\n#include<iostream>\n#include<cstdio>\n#include<cmath>\n#include<string>\n#include<cstring>\nusing namespace std;\nint n,ans,a,b,x=-1,y=-1,s;\nint main()\n{\n\tcin>>n;\n\tfor(int i=0;i<n;i++){\n\t\tcin>>a>>b;\n\t\tif(a==x&&b==y){\n\t\t\ts++;\n\t\t\tcontinue;\n\t\t}\n\t\tans=max(ans,s);\n\t\ts=1;\n\t\tx=a,y=b;\n\t}\n\tans=max(ans,s);\n\tcout<<ans<<endl;\n\treturn 0;\n}\n\n\n\n```",
+        "postTime": 1591800379,
+        "uid": 253738,
+        "name": "\u542c\u53d6MLE\u58f0\u4e00\u7247",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF237A \u3010Free Cash\u3011"
+    },
+    {
+        "content": "\u8fd9\u9898\u6ca1\u5565\u597d\u8bf4\u7684\uff0c\u8fd9\u91cc\u7ed9\u4e2a $map$ \u505a\u6cd5\uff08\u7531\u4e8e\u8fd9\u9898\u6570\u636e\u8303\u56f4\u5c0f\uff0c\u6240\u4ee5\u7528\u666e\u901a  $int$ \u4e8c\u7ef4\u6570\u7ec4\u4e5f\u80fd\u8f7b\u677e\u8fc7\uff0c\u4f46 $map$ \u5f53\u7136\u8fd8\u662f\u6162\u4e00\u4e9b\uff09\uff0c\u4e3b\u8981\u601d\u8def\u5c31\u662f\u6bcf\u6b21\u5c06\u6b64\u4e8c\u5143\u7ec4\u8bb0\u5f55\u4e0b\u6765\u5e76\u8ba1\u6570\u52a0\u4e00\uff0c\u6bcf\u6b21\u66f4\u65b0\u6700\u5927\u503c\u51fa\u73b0\u6b21\u6570\uff0c\u6700\u540e\u76f4\u63a5\u8f93\u51fa\u5373\u53ef\uff0c\u6beb\u65e0\u6280\u5de7\u7684\u4e00\u9053\u6c34\u9898\uff08\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint t,x,y,maxx;\nmap<int,map<int,int> > mp;//\u4e8c\u7ef4 map \u5d4c\u5957\u5b9a\u4e49 \nint main()\n{\n\tcin>>t;\n    while(t--)//t\u7ec4\u4e8c\u5143\u7ec4\uff0c\u4e5f\u5c31\u662f\u9898\u76ee\u4e2d\u7684 n \n    {\n    \tcin>>x>>y;\n\t\tif(++mp[x][y]>maxx)//\u5224\u65ad\uff0c\u7d2f\u52a0\uff0c\u66f4\u65b0\u6700\u5927\u503c \n\t\t\tmaxx=mp[x][y];\n    }\n    cout<<maxx;\n    return 0;\n}\n```",
+        "postTime": 1591680020,
+        "uid": 253738,
+        "name": "\u542c\u53d6MLE\u58f0\u4e00\u7247",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF237A \u3010Free Cash\u3011"
+    },
+    {
+        "content": "\u9898\u610f\uff1a\u4e00\u4e2a\u670d\u52a1\u5458\u5728\u4e00\u4e2a\u65f6\u95f4\u53ea\u80fd\u670d\u52a1\u4e00\u4f4d\u987e\u5ba2\u3002\u8f93\u5165\u6240\u6709\u987e\u5ba2\u6765\u7684\u65f6\u95f4\uff0c\u6309\u65f6\u95f4\u987a\u5e8f\u6392\u5e8f\u3002\u6c42\u6700\u5c0f\u7684\u670d\u52a1\u5458\u6570\u3002\n\nhash\u7edf\u8ba1\u4e00\u4e0b\u7b80\u5355\u6a21\u62df\u5373\u53ef\u3002\n\n$ code $:\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,maxx,b[100010],t;\nint h,m;\nint a[25][60];\nint main(){\n    cin>>n;\n    maxx=0;\n    int k=1;\n    for(int i=1;i<=n;i++){\n        cin>>h>>m;\n        a[h][m]++;\n    }\n    for(int i=0;i<24;i++)\n        for(int j=0;j<60;j++)\n            if(maxx<a[i][j])maxx=a[i][j];\n\tcout<<maxx<<endl;\n\treturn 0;\n}\n```\n",
+        "postTime": 1585990588,
+        "uid": 151924,
+        "name": "YueYang1235",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF237A \u3010Free Cash\u3011"
+    }
+]

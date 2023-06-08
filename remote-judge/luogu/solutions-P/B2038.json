@@ -1,0 +1,42 @@
+[
+    {
+        "content": "\u8f6c\u6210 `int` \u5224\u65ad\u5373\u53ef\uff0c\u5947\u5076\u53ef\u4ee5\u7528\u4f4d\u8fd0\u7b97\u5224\u65ad\uff1a\n\n```cpp\n#include <iostream>\nusing namespace std;\n\nint main()\n{\n\tchar x;\n\tcin >> x;\n\tint ASCII = (int)x;\n\tcout << (x & 1 ? \"YES\" : \"NO\") << '\\n';\n\treturn 0;\n}\n```\n\u7136\u540e\u4e09\u76ee\u8fd0\u7b97\u7b26\uff1a\n\n```cpp\n\u6761\u4ef61 ? \u6210\u7acb\u7684\u8bdd\u7684\u8bed\u53e5 : \u4e0d\u6210\u7acb\u8bed\u53e5\n```\n\n\u4f8b\u5982\uff1a\n\n```cpp\na & 1 ? a++ : a--;\n```\n\u7b49\u540c\u4e8e\uff1a\n\n```cpp\nif (a & 1) a++;\nelse a--;\n```\n\n\n~~\u597d\u4e0d\u5bb9\u6613\u6c34\u4e2a\u9898\u89e3\uff0c\u8fc7\u4e00\u4e0b\u5457~~",
+        "postTime": 1625310325,
+        "uid": 332914,
+        "name": "happybob",
+        "ccfLevel": 6,
+        "title": "\u5f88\u5bb9\u6613"
+    },
+    {
+        "content": "\u5148\u8bfb\u5165\u4e00\u4e2a\u5b57\u7b26\uff0c\u7136\u540e\u628a\u5b57\u7b26\u7684\u503c\u4f20\u7ed9\u4e00\u4e2a\u6574\u5f62\u3002\n\n\u7531\u4e8e\u5b57\u7b26\u7684\u503c\u9ed8\u8ba4\u5373\u662f ASCII \u503c\uff0c\u6240\u4ee5\u6211\u4eec\u6b64\u65f6\u53ea\u9700\u8981\u5224\u65ad\u8fd9\u4e2a\u6574\u6570\u5373\u53ef\u3002\n\n\u4ee3\u7801\uff1a\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint main() {\n    char s;\n    int x;\n    cin>>s;\n    x=s;\n    if(x&1) cout<<\"YES\";\n    else cout<<\"NO\";\n}\n```\n",
+        "postTime": 1625295673,
+        "uid": 147401,
+        "name": "koishi_offical",
+        "ccfLevel": 4,
+        "title": "B2038\u5947\u5076ASCII\u503c"
+    },
+    {
+        "content": "\u6839\u636e\u5947\u5076\u6570\u5b9a\u4e49\uff1a\n\n- \u5947\u6570\uff1a\u4e0d\u80fd\u88ab $2$ \u6574\u9664\u7684\u6570\u3002\n\n- \u5076\u6570\uff1a\u80fd\u88ab $2$ \u6574\u9664\u7684\u6570\u3002\n\n\u5982\u4f55\u5224\u65ad\u662f\u5426\u6574\u9664\uff1f\u6574\u9664\u7684\u6570\u4f59\u6570\u4e3a $0$ \uff0c\u5426\u5219\u4e0d\u4e3a $0$ \u3002\u6211\u4eec\u53ef\u4ee5\u7528 `n%2` \u8ba1\u7b97 $n\\div 2$ \u7684\u4f59\u6570\uff0c\u5224\u65ad\u5176\u662f\u5426\u4e3a $0$ \u53ef\u77e5\u7b54\u6848\u3002\n\n\u6240\u4ee5\u6211\u4eec\u9700\u8981\u8f93\u5165\u5b57\u7b26\u540e\uff0c\u5c06\u5176\u5f3a\u5236\u7c7b\u578b\u8f6c\u5316\u4e3a\u6574\u6570\uff0c\u518d\u5224\u65ad\u5176\u5947\u5076\u6027\u8f93\u51fa\u3002\n\n\u6240\u4ee5\u7ed3\u5408\u9898\u76ee\u8981\u6c42\uff0c\u5bb9\u6613\u5199\u51fa\u672c\u9898 AC \u4ee3\u7801\uff1a\n\n```cpp\n#include<iostream>\n#include<cstdio>\n#include<algorithm>\n#include<cstring>\n#include<cmath>\n#include<string>\n#include<cstdlib>\nusing namespace std;\nchar n;\nint main(){\n\tcin>>n;\n\tif(n%2) cout<<\"YES\";\n\telse cout<<\"NO\";\n\treturn 0;\n}\n```\n",
+        "postTime": 1625361405,
+        "uid": 307603,
+        "name": "_cmh",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 B2038 \u3010\u5947\u5076 ASCII \u503c\u5224\u65ad\u3011"
+    },
+    {
+        "content": "### \u524d\u8a00\n\n\u5728\u505a\u8fd9\u9053\u9898\u4e4b\u524d\uff0c\u53ef\u4ee5\u505a\u4e00\u4e0b [B2017 \u6253\u5370ASCII\u7801](https://www.luogu.com.cn/problem/B2017)\u3002\n\n### \u9898\u76ee\u5206\u6790\n\n\u9898\u76ee\u7ed9\u6211\u4eec\u4e00\u4e2a\u5b57\u7b26\uff0c\u8981\u6c42\u6211\u4eec\u5224\u65ad\u5b83\u7684 ASCII \u503c\u662f\u5426\u4e3a\u5947\u6570\u3002\n\n\u6211\u4eec\u9700\u8981\u5148\u5c06\u5b57\u7b26\u8f6c\u6362\u4e3a\u6574\u5f62\uff0c\u8fd9\u6837\u53ef\u4ee5\u5f97\u5230\u5b83\u7684 ASCII \u503c\u3002\n\n\u4e4b\u540e\u4f7f\u7528 `if` \u8bed\u53e5\u5224\u65ad ASCII \u503c\u662f\u5426\u4e3a\u5947\u6570\u5373\u53ef\u3002\n\n+ \u5982\u679c\u4e00\u4e2a\u6570 $n$ \u4e3a\u5947\u6570\uff0c\u90a3\u4e48\u8fd9\u4e2a\u6570\u6ee1\u8db3 $n\\mod 2 = 1$\u3002\n\n+ \u7c7b\u4f3c\u5730\uff0c$n$ \u4e3a\u5076\u6570\u5373\u6ee1\u8db3 $n\\mod 2 = 0$\u3002\n\n\n### \u53c2\u8003\u4ee3\u7801\n\n\u6807\u51c6\uff1a\n\n```cpp\n#include <iostream>\n#include <cstdio>\nusing namespace std;\nint main()\n{\n    char ch;\n    cin >> ch;\n    if (((int)ch) % 2 == 1)\n        cout << \"YES\";\n    else\n        cout << \"NO\";\n    return 0;\n}\n```\n\u538b\u884c\u540e\uff1a\n\n```cpp\n#include <iostream>\n#include <cstdio>\nstd::string ans;\nint main(){\n    ((int)getchar()) & 1 ? ans = \"YES\" : ans = \"NO\";\n    return std::cout << ans , 0;\n}\n```",
+        "postTime": 1625274192,
+        "uid": 355844,
+        "name": "EdisonBa",
+        "ccfLevel": 4,
+        "title": "B2038 \u5947\u5076 ASCII \u503c\u5224\u65ad \u9898\u89e3"
+    },
+    {
+        "content": "\u8fd9\u662f\u4e00\u7bc7 **Python \u9898\u89e3**\u3002\n\n\u6211\u4eec\u53ef\u4ee5\u5c06\u9898\u76ee\u8981\u6c42\u5206\u89e3\u4e3a\u4e09\u6b65\uff1a\n\n1. \u5c06\u5b57\u7b26\u8f6c\u5316\u4e3a ASCII \u7801\u3002\n1. \u6c42\u51fa\u8be5 ASCII \u7801\u5bf9 $2$ \u7684\u4f59\u6570\u3002\n1. \u6839\u636e\u4f59\u6570\u8f93\u51fa `YES` \u6216\u8005 `NO`\u3002\n\n\u9996\u5148\u6765\u770b\u7b2c\u4e00\u6b65\uff0cPython \u4e2d\u7684 `ord(s)` \u51fd\u6570\u63a5\u53d7\u4e00\u4e2a**\u957f\u5ea6\u4e3a $1$** \u7684\u5b57\u7b26\u4e32 `s`\uff0c\u8fd4\u56de\u5b83\u5bf9\u5e94\u7684 ASCII \u6216 unicode \u6570\u503c\u3002\u8fd9\u6837\u5c31\u5b8c\u6210\u4e86\u7b2c\u4e00\u6b65\u3002\n\n\u7b2c\u4e8c\u6b65\u53ef\u4ee5\u901a\u8fc7\u4f4d\u8fd0\u7b97\u6765\u89e3\u51b3\uff1a\n\n\u5bf9\u4e8e\u4e00\u4e2a\u6574\u6570\uff0c\u5982\u679c\u5b83\u7684\u6700\u540e\u4e00\u4e2a\u4e8c\u8fdb\u5236\u4f4d\u4e3a $1$ \u5219\u5b83\u662f\u5947\u6570\uff0c\u5426\u5219\u662f\u5076\u6570\u3002\n\n\u7b2c\u4e09\u6b65\u53ef\u4ee5\u4f7f\u7528 Python \u7684\u300c\u5185\u8054 `if` \u8bed\u53e5\u300d\uff08\u7c7b\u4f3c\u4e8e C \u7b49\u8bed\u8a00\u4e2d\u7684\u4e09\u76ee\u8fd0\u7b97\u7b26\uff09\u6765\u89e3\u51b3\u3002\n\n```python\nprint('YES' if ord(input().strip())&1 else 'NO')\n```",
+        "postTime": 1625292845,
+        "uid": 207996,
+        "name": "yzy1",
+        "ccfLevel": 9,
+        "title": "B2038 \u9898\u89e3"
+    }
+]

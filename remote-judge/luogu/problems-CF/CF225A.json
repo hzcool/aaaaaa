@@ -1,0 +1,17 @@
+{
+    "description": "A dice is a cube, its faces contain distinct integers from 1 to 6 as black points. The sum of numbers at the opposite dice faces always equals 7. Please note that there are only two dice (these dices are mirror of each other) that satisfy the given constraints (both of them are shown on the picture on the left).\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF225A/85f2da947143b29924bb6531722e86105dbf28c1.png)Alice and Bob play dice. Alice has built a tower from $ n $ dice. We know that in this tower the adjacent dice contact with faces with distinct numbers. Bob wants to uniquely identify the numbers written on the faces of all dice, from which the tower is built. Unfortunately, Bob is looking at the tower from the face, and so he does not see all the numbers on the faces. Bob sees the number on the top of the tower and the numbers on the two adjacent sides (on the right side of the picture shown what Bob sees).\n\nHelp Bob, tell whether it is possible to uniquely identify the numbers on the faces of all the dice in the tower, or not.",
+    "inputFormat": "The first line contains a single integer $ n $ ( $ 1<=n<=100 $ ) \u2014 the number of dice in the tower.\n\nThe second line contains an integer $ x $ $ (1<=x<=6) $ \u2014 the number Bob sees at the top of the tower. Next $ n $ lines contain two space-separated integers each: the $ i $ -th line contains numbers $ a_{i},b_{i} $ $ (1<=a_{i},b_{i}<=6;\u00a0a_{i}\u2260b_{i}) $ \u2014 the numbers Bob sees on the two sidelong faces of the $ i $ -th dice in the tower.\n\nConsider the dice in the tower indexed from top to bottom from 1 to $ n $ . That is, the topmost dice has index 1 (the dice whose top face Bob can see). It is guaranteed that it is possible to make a dice tower that will look as described in the input.",
+    "outputFormat": "Print \"YES\" (without the quotes), if it is possible to to uniquely identify the numbers on the faces of all the dice in the tower. If it is impossible, print \"NO\" (without the quotes).",
+    "samples": [
+        [
+            "3\n6\n3 2\n5 4\n2 4\n",
+            "YES"
+        ],
+        [
+            "3\n3\n2 6\n4 1\n5 3\n",
+            "NO"
+        ]
+    ],
+    "hint": "",
+    "translation": "## \u9898\u610f\u7ffb\u8bd1\n\n\u6709 $n$ \u4e2a\u9ab0\u5b50\u88ab\u53e0\u5728\u4e86\u4e00\u8d77\u3002\u5bf9\u4e8e\u6bcf\u4e2a\u9ab0\u5b50\u4e0a\u7684\u4e00\u4e2a\u6570\uff0c\u4e0e\u5b83\u5bf9\u9762\u7684\u6570\u7684\u548c\u59cb\u7ec8\u4e3a $7$ \u3002\n\n\u4f60\u662f\u5c0f\u660e\uff0c\u4f60\u53ea\u80fd\u4ece\u6b63\u9762\u770b\u8fd9\u4e2a\u9ab0\u5b50\u5854\uff0c\u4f60\u770b\u5230\u4e86\u6bcf\u4e00\u4e2a\u9ab0\u5b50\u7684\u4e24\u9762 $a$ \u4e0e $b$ \u3002\u4ee5\u53ca\u6700\u9876\u4e0a\u7684\u6570\u3002\n\n\u8bd5\u95ee\u662f\u5426\u6709\u53ef\u80fd\u7528\u6b63\u5e38\u7684\u9ab0\u5b50\u53e0\u51fa\u63cf\u8ff0\u4e2d\u7684\u9ab0\u5b50\u5854\uff1f\n\n\u5982\u679c\u53ef\u4ee5\u8f93\u51fa $\\text{YES}$ \uff0c\u5426\u5219\u8f93\u51fa $\\text{NO}$  \u3002\n\n\u7ffb\u8bd1\u6765\u6e90: @[Pitiless0514](https://www.luogu.com.cn/user/206021)"
+}

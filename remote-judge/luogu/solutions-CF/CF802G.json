@@ -1,0 +1,66 @@
+[
+    {
+        "content": "### STLNB\n\u91c7\u7528stl\u7684string\n\ns.find(ch,pos) \u8868\u793a\u5728\u5b57\u7b26\u4e32s\u4e2d\u4ecepos\u5f00\u59cb\u627e\u5b57\u7b26ch\uff0c\u8fd4\u56de\u7b2c\u4e00\u4e2a\u7684\u4f4d\u7f6e\n\n===string::npos\u8868\u793a\u6ca1\u627e\u5230\n\n\u8fd9\u6837\u5c31\u5f88\u5bb9\u6613\u7406\u89e3\u4e86\u5427\n\n\u627e\u5230\u7b2c\u4e00\u4e2ah\u4e4b\u540e \u5728\u8fd9\u4e2a\u4f4d\u7f6e\u5f80\u540e\u627ee \u4ee5\u6b64\u7c7b\u63a8\n```cpp\n#include<string>\n#include<iostream>\nusing namespace std;\nstring s;\nint main()\n{\n\tcin>>s;\n\tif (s.find('i',s.find('d',s.find('i',s.find('e',s.find('h')))))==string::npos)cout<<\"NO\";\n\telse cout<<\"YES\";\n\treturn 0;\n}\n```",
+        "postTime": 1523094698,
+        "uid": 14374,
+        "name": "zhengrunzhe",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF802G \u3010Fake News (easy)\u3011"
+    },
+    {
+        "content": "# \u9898\u89e3 CF802G \u3010Fake News (easy)\u3011\n\n------------\n\n\u63d0\u793a\uff1a\u6b64\u9898\u4e0e[CF58A \u3010Chat room\u3011](https://www.luogu.org/problemnew/show/CF58A)\u51e0\u4e4e\u5b8c\u5168\u76f8\u540c\n\n\n\u9898\u76ee\u5927\u610f\uff1a\u5728\u4e00\u4e2a\u5e8f\u5217\u4e2d\u5224\u65ad\u5b83\u662f\u5426\u5305\u542b\u5b50\u5e8f\u5217**\"heidi\"**\n\n\n\u90a3\u4e48\u6211\u4eec\u53ef\u4ee5\u5c06\"h\" \"e\" \"i\" \"d\" \"i\"\u4f9d\u6b21\u653e\u5165\u961f\u5217\uff08\u9700\u8981\u5305\u542b\u5934\u6587\u4ef6`<queue>`\uff09\uff0c\u5229\u7528\u961f\u5217\u5148\u8fdb\u5148\u51fa\uff08FIFO\uff09\u7684\u539f\u5219\uff0c\u6bcf\u5f53\u4ece\u5e8f\u5217\u4e2d\u626b\u5230\u961f\u9996\u5143\u7d20\u65f6\uff0c\u5c31\u5c06\u961f\u9996\u5143\u7d20\u51fa\u961f\u3002\u90a3\u4e48\u5f53\u5e8f\u5217\u626b\u5b8c\u65f6\uff0c\u5982\u679c\u961f\u5217\u4e3a\u7a7a\uff0c\u5219\u53ef\u4ee5\u5b8c\u6210\u8981\u6c42\uff0c\u8f93\u51fa\"YES\"\uff1b\n\n\u5982\u679c\u961f\u5217\u4e0d\u7a7a\uff0c\u5219\u4e0d\u80fd\u5b8c\u6210\u8981\u6c42\uff0c\u8f93\u51fa\"NO\"\u3002\n\n\n```cpp\n#include<cstdio>\n#include<cstring>\n#include<queue>\nusing namespace std;\nchar ch[110];\nqueue<char> que;//\u5efa\u961f\nint main() {\n    que.push('h');\n    que.push('e');\n    que.push('i');\n    que.push('d');\n    que.push('i');//\u5c06\u5b50\u5e8f\u5217\u653e\u5165\u961f\u5217\n    scanf(\"%s\", ch);//\u8bfb\u5165\u5e8f\u5217\n    int len=strlen(ch);//\u83b7\u5f97\u5e8f\u5217\u957f\u5ea6\n    for(int i=0; i<len; i++)//\u626b\u63cf\u5e8f\u5217\n    if(ch[i]==que.front()) que.pop();//\u5982\u679c\u6b64\u65f6\u5e8f\u5217\u5143\u7d20\u4e3a\u961f\u9996\u5143\u7d20\uff0c\u5219\u5f39\u51fa\u961f\u9996\u5143\u7d20\n    if(que.empty()) printf(\"YES\");//\u5982\u679c\u961f\u5217\u4e3a\u7a7a\uff0c\u8f93\u51fa\"YES\"\n    else printf(\"NO\");//\u5426\u5219\u8f93\u51fa\"NO\"\n    return 0;\n}\n```",
+        "postTime": 1517368793,
+        "uid": 58502,
+        "name": "char32_t",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF802G \u3010Fake News (easy)\u3011"
+    },
+    {
+        "content": "# \u8fd0\u7528\u5b57\u7b26\u4e32+\u5b57\u7b26\u6570\u7ec4\n\n------------\n\u9996\u5148\u6211\u4eec\u8981**\u987a\u5e8f\u67e5\u627e**heidi\uff0c\u6240\u4ee5\u6211\u4eec\u5fc5\u987b\u4f7f\u5176\u7684\u4f4d\u7f6e\u662f\u4e00\u4e2a**\u4e0a\u5347\u5e8f\u5217**\u3002\u56e0\u6b64\u6211\u60f3\u5230\u4e86\u4e00\u4e2a\u65b9\u6cd5\uff1a\n\n\u56e0\u4e3a\u5982\u679c\u5b58\u5728YES\u7684\u60c5\u51b5\uff0c\u90a3\u4e48\u8fd9\u4e2a\u5b57\u7b26\u4e32\u4e2d\u7684heidi\u80af\u5b9a\u662f\u6309\u7167**h,e,i,d,i\u7684\u987a\u5e8f\u51fa\u73b0**\uff0c\u90a3\u4e48\u5c31\u6709\u4e86\u601d\u8def\uff1a\n\n1. **\u5b9a\u4e49\u4e00\u4e2a\u5b57\u7b26\u6570\u7ec4\u4e3ac[5]\uff0c\u50a8\u5b58h,e,i,d,i\uff0c\u5e76\u7528k\u8868\u793ac\u6570\u7ec4\u7684\u6307\u9488**\n1. \u5b9a\u4e49\u603b\u91cfsum\u4e3a0\n1. \u5f00\u59cbfor\u5faa\u73af\uff0c\u4ece\u5934\u5230\u5c3e\u5224\u65ad\uff0c**\u5982\u679cst[i]==c[k]\uff0csum++\uff0ck++**\n1. **\u5982\u679csum==5\uff0c\u8bf4\u660e\u5b58\u5728heidi\uff0c**\u8f93\u51faYES\uff1b\u5426\u5219\u8f93\u51faNO\n\n\u4e0b\u9762\u5949\u4e0aAC\u4ee3\u7801\uff1a\n```cpp\n#include <iostream>\n#include <string>\nusing namespace std;\nchar c[5]={'h','e','i','d','i'};//\u5b9a\u4e49\u5b57\u7b26\u6570\u7ec4\uff0c\u50a8\u5b58heidi\nint main(){\n\tint i,j,k,n,sum=0;//\u5b9a\u4e49\u603b\u91cfsum\u4e3a0\n\tstring st;\n\tcin>>st;\n\tk=0;\n\tfor(i=0;i<st.length();i++){//for\u5faa\u73af\uff0c\u4ece\u5934\u5230\u5c3e\u5f00\u59cb\u5224\u65ad\n\t\tif(st[i]==c[k]){//\u5982\u679c\u76f8\u7b49\n\t\t\tsum++;\u603b\u91cf\u52a01\n\t\t\tk++;\u6307\u9488\u5f80\u540e\u632a\u4e00\u4f4d\n\t\t}\n\t}\n\tif(sum==5)cout<<\"YES\"<<endl;//\u603b\u91cf\u4e3aheidi\u7684\u957f\u5ea6\uff0c\u8bf4\u660e\u5b58\u5728\n\telse cout<<\"NO\"<<endl;\n\treturn 0;\n}\n```\n\n\n",
+        "postTime": 1550359956,
+        "uid": 133986,
+        "name": "judgejudge",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 CF802G \u3010Fake News (easy)\u3011"
+    },
+    {
+        "content": "\u672c\u9898\u548cCF58A\u51e0\u4e4e\u4e00\u6a21\u4e00\u6837\u554a\u3002  \n\u5e94\u8be5\u53ef\u4ee5\u8bf4\u662f\u8f83\u77ed\u4e14\u6613\u61c2\u7684\u4ee3\u7801\uff08\u601d\u8def\uff09\u4e86......  \n\u8fd9\u91cc\u7528\u4e86\u4e00\u4e2a\u6bd4\u8f83\u5de7\u5999\u7684\u65b9\u6cd5\uff0c\u5148\u7528\u5b57\u7b26\u6570\u7ec4\u628a\u9700\u8981\u7684\u5b57\u7b26\u4e32\u5b58\u8d77\u6765\uff0c\u7136\u540e\u6bcf\u53d1\u73b0\u4e00\u4e2a\u5b57\u7b26ans\u6240\u8868\u793a\u7684\u5b57\u7b26\u76f8\u7b49\uff0c\u5c31\u5c06ans\u7684\u503c+1\u3002\u8fd9\u6837\u5c31\u53ef\u4ee5\u5f88\u7701\u4ee3\u7801\u7684\u5224\u5b9a\u662f\u5426\u6ee1\u8db3\u6761\u4ef6\uff0c\u6700\u540e\u53ea\u9700\u6839\u636eans\u7684\u5927\u5c0f\u5224\u65ad\u662f\u5426\u7b26\u5408\u6761\u4ef6\u5373\u53ef\n\n```cpp\n#include<iostream>\n#include<cstdio>\nusing namespace std;\nchar r[6]={\"heidi\"}//\u9884\u5904\u7406\u9700\u8981\u7684\u5b57\u7b26\u4e32;\n\nint main(){\n\tint i,ans=0;\n\tchar s;\n\t\n\twhile (cin>>s){//\u5982\u679c\u8bfb\u5165\u4e00\u4e2a\u5b57\u7b26\n\t\tif (s==r[ans]) ans++;//\u5224\u65ad\u662f\u5426\u7b26\u5408\u6761\u4ef6\n\t}\n\tif (ans>=5) cout<<\"YES\";\n\telse cout<<\"NO\";\n\t\n\t\n\treturn 0;\n}\n```",
+        "postTime": 1544612202,
+        "uid": 39533,
+        "name": "Rocket_raccoon_",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF802G \u3010Fake News (easy)\u3011"
+    },
+    {
+        "content": "\u5148\u6765\u5eb7\u5eb7\u9898\u76ee\u5927\u610f\uff1a\n\n\u7ed9\u5b9a\u4e00\u4e2a\u5b57\u7b26\u4e32s\uff0c\u8be2\u95ee\u80fd\u5426\u901a\u8fc7\u5220\u9664\u4e00\u4e9b\u5b57\u6bcd\u4f7f\u5176\u53d8\u4e3a\"heidi\"\uff1b\n\n\u5982\u679c\u53ef\u4ee5\u8f93\u51fa\"YES\"\uff0c\u5426\u5219\u8f93\u51fa\"NO\"\u3002\n\n\u601d\u8def\u5f88\u7b80\u5355\uff1a\n\n\u5148\u5b9a\u4e49\u4e00\u4e2a\u4e0e char \u6570\u7ec4\u201cheidi\u201d\u76f8\u5bf9\u5e94\u7684 **bool** \u7c7b\u578b\u6570\u7ec4\uff0c\u7c7b\u4f3c **hash table** \u7684\u539f\u7406\uff0c\u4e00\u4e2a\u5143\u7d20\u4e00\u4e2a\u5143\u7d20**\u6620\u5c04**\u3002\n\n\u672c\u9898\u7684\u5173\u952e\u5c31\u662f\u5b57\u7b26\u7684\u987a\u5e8f\uff0c\u6240\u4ee5\u8fd9\u91cc\u8981\u5224\u65ad\u4e00\u4e0b\uff0c\u5f53\u7b26\u5408\u3010**\u6b64\u5b57\u7b26\u4e0e\u503c\u5df2\u7ecf\u53d8\u4e3a true \u7684\u8fde\u7eed\u6620\u5c04\u5143\u7d20\u7684\u672b\u5c3e\u5143\u7d20\u7684\u4e0b\u4e00\u4e2a\u5143\u7d20\u7684\u5bf9\u5e94\u5b57\u7b26\u76f8\u540c**\u3011\uff08\u4e2d\u62ec\u53f7\u91cc\u7684\u8bdd\u6709\u70b9\u96be\u61c2\uff0c\u8981\u591a\u7406\u89e3\u51e0\u904d\uff09\u65f6\uff0c\u624d\u80fd\u8ba9\u6b64\u5bf9\u5e94\u5b57\u7b26\u7684\u6620\u5c04\u5143\u7d20\u7684\u503c\u53d8\u4e3a **true**\uff0c\u800c\u4e0d\u80fd\u53ea\u662f\u53cc\u5c42\u5faa\u73af\u5224\u65ad\u662f\u4e0d\u662f\u6709\u67d0\u4e2a\u5b57\u7b26\uff0c\u5426\u5219\u5224\u65ad\u4e0d\u4e86\u987a\u5e8f\u662f\u5426\u6b63\u786e\u3002\n\n\u6700\u540e\u53ea\u6709\u6bcf\u4e2a\u5143\u7d20\u7684\u503c\u90fd\u4e3a **true**\uff0c\u624d\u80fd\u8f93\u51fa\"YES\"\u3002\n\n\u4e0b\u9762\u662f\u6ce5\u840c\u6700\u559c\u6b22\u7684\u5b8c\u6574AC\u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n\nchar word[6]={\"heidi\"};\nint pd;\t\t\t\t\t//pd\u53d8\u91cf\u662f\u5faa\u73af\u91cc\u7684\u5224\u65ad\u503c \nbool k[6];\t\t\t\t//k\u6570\u7ec4\u4e3aword\u6570\u7ec4\u7684\u6620\u5c04 \nstring heidi;\t\t\t\t//\"heidi\"\u5b57\u7b26\u4e32\u4e3a\u9700\u5224\u65ad\u7684\u539f\u5b57\u7b26\u4e32 \n\nint main()\n{\n\tgetline(cin,heidi);\t\t\t//\u8fd9\u6837\u8f93\u5165\u5b57\u7b26\u4e32\u65b9\u4fbf\u6d4b\u8bd5\uff08\u4f46\u8981\u8c28\u614e\u4f7f\u7528\uff09\n\tfor(int i=0;i<heidi.length();i++)\n\t{\n\t\tpd=0;\n\t\tfor(int j=1;j<=5;j++)\n\t\t{\n\t\t\tif(k[j]==1)\t\t//\u8fd9\u91cc\u662f\u4e0a\u6587\u6240\u8ff0\u7684\u5224\u65ad \n\t\t\t{\n\t\t\t\tpd++;\n\t\t\t}\n\t\t\telse break;\n\t\t}\n\t\tif(heidi[i]==word[pd]) \n\t\t{\n\t\t\tk[pd+1]=true;\n\t\t}\n    }\n\tif(k[1]&&k[2]&&k[3]&&k[4]&&k[5])\n\t{\n\t\tcout<<\"YES\";\n\t}\n    else \n\t{\n\t\tcout<<\"NO\";\n\t}\n\n    return 0;\n}\n```",
+        "postTime": 1585318696,
+        "uid": 241974,
+        "name": "zoezoykit",
+        "ccfLevel": 0,
+        "title": "CF802G \u9898\u89e3 \u3010Fake News (easy)\u3011"
+    },
+    {
+        "content": "//\u770b\u5230\u672c\u9898\u4e00\u7fa4\u5927\u4f6c\u7528\u4ec0\u4e48stl\u554afind\u505a\u5c31\u5f88233\uff0c\u5206\u660e\u662f\u66b4\u529b\u4e48~QAQ\n```\n#include<stdio.h>\n#include<string.h>\nint i,sry=1;\nchar srx[1001],lhy[11]={'0','h','e','i','d','i'};//\u6570\u7ec4\u5b58\u50a8\nint main()\n{\n    scanf(\"%s\",srx);\n    for(i=0;i<strlen(srx);i++)//strlen\u7b49\u4ef7\u4e8esize\n    {if(srx[i]==lhy[sry])\n    sry++;\n    if(sry>5)//\u51fa\u4e8e\u6570\u7ec4\u4e60\u60ef\uff0c\u521d\u59cb\u503c\u662f1\uff0c\u6240\u4ee5\u5b9e\u9645\u4e0a\u662f6\u624d\u7b26\u5408\n    {printf(\"YES\");\n    return 0;}}\n    printf(\"NO\");//\u82e5\u7b26\u5408\u5c31\u7ed3\u675f\u4e86\uff0c\u82e5\u8fd8\u6ca1\u7ed3\u675f\u5c31\u662f\u4e0d\u7b26\u5408\n    return 0;\n}\n//qwq\n```",
+        "postTime": 1541147775,
+        "uid": 47482,
+        "name": "\u4e0d\u5230\u524d10\u4e0d\u6539\u540d",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF802G \u3010Fake News (easy)\u3011"
+    },
+    {
+        "content": "\u56e0\u4e3a\u5bfb\u627e\u7684\u8fc7\u7a0b\u4e2d\u5fc5\u987b\u8981\u6309\u4ece\u5de6\u5411\u53f3\u7684\u4f4d\u7f6e\u627e\uff0c\u6240\u4ee5\u53ef\u4ee5\u7528\u4e00\u4e2a\u53d8\u91cf\u50a8\u5b58\u6240\u627e\u7684\u5b57\u7b26\u4e32\u7684\u4f4d\u7f6e\uff0c\u627e\u5230\u540e++\u5c31\u53ef\u4ee5\u4e86\u3002\n\n```cpp\n#include <iostream>\n#include <string>\nusing namespace std;\n\nint main()\n{\n\tstring str,find=\"heidi\";\n\tint f=0;\n\tcin>>str;\n\tfor(int i=0;i<str.length() && f<find.length();i++)\n\t\tif(str[i]==find[f])\n\t\t\tf++;\n\tif(f==find.length())cout<<\"Y\\n\";//\u627e\u5230\u6240\u6709\u5b57\u7b26\u4ee5\u540e\u6b63\u597d\u5c31\u662ffind\u7684\u957f\u5ea6\n\telse cout<<\"N\\n\";\n\treturn 0;\n}\n```",
+        "postTime": 1533138396,
+        "uid": 37617,
+        "name": "haohaoh4",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF802G \u3010Fake News (easy)\u3011"
+    },
+    {
+        "content": "\u4e0d\u5fc5\u4e00\u4e2a\u4e00\u4e2a\u5224\u65ad\uff0c\u53ea\u9700\u8981\u6709\u4e00\u4e2a\u6570\u7ec4\u8bb0\u5f55\u8981\u5224\u65ad\u7684\u5b57\u7b26\uff08\"heidi\"\uff09\n\u7136\u540e\u626b\u4e00\u904d\u5b57\u7b26\u4e32\u5373\u53ef\u3002\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nchar p[6]=\"heidi\",c[1005];\nint main()\n{\n    int x=0;  //\u524d\u9762x\u4e2a\u5df2\u7ecf\u627e\u5230\u4e86\n    gets(c);  //\u8bfb\u5165\n    for(int i=0;i<strlen(c);i++)\n        if(c[i]==p[x]) x++;  //\u82e5\u53c8\u627e\u5230\u4e00\u4e2a\uff0c\u7ee7\u7eed\u627e\u4e0b\u4e00\u4e2a\n    if(x>=5) cout<<\"YES\"<<endl;  //\u5982\u679c\u6bcf\u4e00\u4e2a\u90fd\u627e\u5230\u4e86\u5c31\u8f93\u51fayes\n    else cout<<\"NO\"<<endl;  //\u5426\u5219\u8f93\u51faNo\n    return 0;\n}\n```",
+        "postTime": 1518572469,
+        "uid": 34238,
+        "name": "zhylj",
+        "ccfLevel": 9,
+        "title": "\u9898\u89e3 CF802G \u3010Fake News (easy)\u3011"
+    }
+]

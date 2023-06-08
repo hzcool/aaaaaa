@@ -1,0 +1,13 @@
+{
+    "description": "As you might remember from our previous rounds, Vova really likes computer games. Now he is playing a strategy game known as Rage of Empires.\n\nIn the game Vova can hire $ n $ different warriors; $ i $ th warrior has the type $ a_{i} $ . Vova wants to create a balanced army hiring some subset of warriors. An army is called balanced if for each type of warrior present in the game there are not more than $ k $ warriors of this type in the army. Of course, Vova wants his army to be as large as possible.\n\nTo make things more complicated, Vova has to consider $ q $ different plans of creating his army. $ i $ th plan allows him to hire only warriors whose numbers are not less than $ l_{i} $ and not greater than $ r_{i} $ .\n\nHelp Vova to determine the largest size of a balanced army for each plan.\n\nBe aware that the plans are given in a modified way. See input section for details.",
+    "inputFormat": "The first line contains two integers $ n $ and $ k $ ( $ 1<=n,k<=100000 $ ).\n\nThe second line contains $ n $ integers $ a_{1} $ , $ a_{2} $ , ... $ a_{n} $ ( $ 1<=a_{i}<=100000 $ ).\n\nThe third line contains one integer $ q $ ( $ 1<=q<=100000 $ ).\n\nThen $ q $ lines follow. $ i $ th line contains two numbers $ x_{i} $ and $ y_{i} $ which represent $ i $ th plan ( $ 1<=x_{i},y_{i}<=n $ ).\n\nYou have to keep track of the answer to the last plan (let's call it $ last $ ). In the beginning $ last=0 $ . Then to restore values of $ l_{i} $ and $ r_{i} $ for the $ i $ th plan, you have to do the following:\n\n1. $ l_{i}=((x_{i}+last)\u00a0mod\u00a0n)+1 $ ;\n2. $ r_{i}=((y_{i}+last)\u00a0mod\u00a0n)+1 $ ;\n3. If $ l_{i}>r_{i} $ , swap $ l_{i} $ and $ r_{i} $ .",
+    "outputFormat": "Print $ q $ numbers. $ i $ th number must be equal to the maximum size of a balanced army when considering $ i $ th plan.",
+    "samples": [
+        [
+            "6 2\n1 1 1 2 2 2\n5\n1 6\n4 3\n1 1\n2 6\n2 6\n",
+            "2\n4\n1\n3\n2\n"
+        ]
+    ],
+    "hint": "In the first example the real plans are:\n\n1. $ 1\u00a02 $\n2. $ 1\u00a06 $\n3. $ 6\u00a06 $\n4. $ 2\u00a04 $\n5. $ 4\u00a06 $",
+    "translation": "$n$\u4e2a\u6570$a[i]$,$q$\u6b21\u8be2\u95ee,$n,a[i],q<=10^5$.\n\u6bcf\u6b21\u95ee$[l,r]$\u5185\u6700\u591a\u53ef\u4ee5\u9009\u591a\u5c11\u4e2a\u6570,\u6ee1\u8db3\u540c\u4e00\u4e2a\u6570\u7684\u51fa\u73b0\u6b21\u6570\u4e0d\u8d85\u8fc7$k$?\n\nTranslated by @yler"
+}

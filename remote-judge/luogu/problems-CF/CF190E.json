@@ -1,0 +1,17 @@
+{
+    "description": "Berland has managed to repel the flatlanders' attack and is now starting the counter attack.\n\nFlatland has $ n $ cities, numbered from $ 1 $ to $ n $ , and some pairs of them are connected by bidirectional roads. The Flatlandian maps show roads between cities if and only if there is in fact no road between this pair of cities (we do not know whether is it a clever spy-proof strategy or just saving ink). In other words, if two cities are connected by a road on a flatland map, then there is in fact no road between them. The opposite situation is also true: if two cities are not connected by a road on a flatland map, then in fact, there is a road between them.\n\nThe berlanders got hold of a flatland map. Now Vasya the Corporal is commissioned by General Touristov to find all such groups of flatland cities, that in each group of cities you can get from any city to any other one, moving along the actual roads. Also the cities from different groups are unreachable from each other, moving along the actual roads. Indeed, destroying such groups one by one is much easier than surrounding all Flatland at once!\n\nHelp the corporal complete this task and finally become a sergeant! Don't forget that a flatland map shows a road between cities if and only if there is in fact no road between them.",
+    "inputFormat": "The first line contains two space-separated integers $ n $ and $ m $ $ (1<=n<=5\u00b710^{5},0<=m<=10^{6}) $ \u2014 the number of cities and the number of roads marked on the flatland map, correspondingly.\n\nNext $ m $ lines contain descriptions of the cities on the map. The $ i $ -th line contains two integers $ a_{i} $ and $ b_{i} $ $ (1<=a_{i},b_{i}<=n,a_{i}\u2260b_{i}) $ \u2014 the numbers of cities that are connected by the $ i $ -th road on the flatland map.\n\nIt is guaranteed that each pair of cities occurs in the input no more than once.",
+    "outputFormat": "On the first line print number $ k $ \u2014 the number of groups of cities in Flatland, such that in each group you can get from any city to any other one by flatland roads. At the same time, the cities from different groups should be unreachable by flatland roads.\n\nOn each of the following $ k $ lines first print $ t_{i} $ $ (1<=t_{i}<=n) $ \u2014 the number of vertexes in the $ i $ -th group. Then print space-separated numbers of cities in the $ i $ -th group.\n\nThe order of printing groups and the order of printing numbers in the groups does not matter. The total sum $ t_{i} $ for all $ k $ groups must equal $ n $ .",
+    "samples": [
+        [
+            "4 4\n1 2\n1 3\n4 2\n4 3\n",
+            "2\n2 1 4 \n2 2 3 \n"
+        ],
+        [
+            "3 1\n1 2\n",
+            "1\n3 1 2 3 \n"
+        ]
+    ],
+    "hint": "In the first sample there are roads only between pairs of cities 1-4 and 2-3.\n\nIn the second sample there is no road between cities 1 and 2, but still you can get from one city to the other one through city number 3.",
+    "translation": "\u7ed9\u51fa\u4e00\u4e2an \u4e2a\u70b9\uff0c$\\frac{n(n-1)}{2}-m$ \u7684\u65e0\u5411\u56fe\u3002\u7ed9\u51fam\u5bf9\u70b9\uff0c\u8868\u793a\u8fd9\u4e00\u5bf9\u70b9\u4e4b\u95f4\u6ca1\u6709\u8fb9\uff0c\u5426\u5219\u5c31\u662f\u6709\u8fb9\u3002\u95ee\u56fe\u4e2d\u6709\u591a\u5c11\u8fde\u901a\u5206\u91cf\u4ee5\u53ca\u6bcf\u4e2a\u8fde\u901a\u5206\u91cf\u5927\u5c0f\u548c\u70b9\u7684\u7f16\u53f7"
+}

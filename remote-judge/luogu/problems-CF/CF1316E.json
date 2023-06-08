@@ -1,0 +1,21 @@
+{
+    "description": "Alice, the president of club FCB, wants to build a team for the new volleyball tournament. The team should consist of $ p $ players playing in $ p $ different positions. She also recognizes the importance of audience support, so she wants to select $ k $ people as part of the audience.\n\nThere are $ n $ people in Byteland. Alice needs to select exactly $ p $ players, one for each position, and exactly $ k $ members of the audience from this pool of $ n $ people. Her ultimate goal is to maximize the total strength of the club.\n\nThe $ i $ -th of the $ n $ persons has an integer $ a_{i} $ associated with him \u2014 the strength he adds to the club if he is selected as a member of the audience.\n\nFor each person $ i $ and for each position $ j $ , Alice knows $ s_{i, j} $ \u2014 the strength added by the $ i $ -th person to the club if he is selected to play in the $ j $ -th position.\n\nEach person can be selected at most once as a player or a member of the audience. You have to choose exactly one player for each position.\n\nSince Alice is busy, she needs you to help her find the maximum possible strength of the club that can be achieved by an optimal choice of players and the audience.",
+    "inputFormat": "The first line contains $ 3 $ integers $ n,p,k $ ( $ 2 \\leq n \\leq 10^{5}, 1 \\leq p \\leq 7, 1 \\le k, p+k \\le n $ ).\n\nThe second line contains $ n $ integers $ a_{1},a_{2},\\ldots,a_{n} $ . ( $ 1 \\leq a_{i} \\leq 10^{9} $ ).\n\nThe $ i $ -th of the next $ n $ lines contains $ p $ integers $ s_{i, 1}, s_{i, 2}, \\dots, s_{i, p} $ . ( $ 1 \\leq s_{i,j} \\leq 10^{9} $ )",
+    "outputFormat": "Print a single integer $ {res} $ \u2014 the maximum possible strength of the club.",
+    "samples": [
+        [
+            "4 1 2\n1 16 10 3\n18\n19\n13\n15",
+            "44"
+        ],
+        [
+            "6 2 3\n78 93 9 17 13 78\n80 97\n30 52\n26 17\n56 68\n60 36\n84 55",
+            "377"
+        ],
+        [
+            "3 2 1\n500 498 564\n100002 3\n422332 2\n232323 1",
+            "422899"
+        ]
+    ],
+    "hint": "In the first sample, we can select person $ 1 $ to play in the $ 1 $ -st position and persons $ 2 $ and $ 3 $ as audience members. Then the total strength of the club will be equal to $ a_{2}+a_{3}+s_{1,1} $ .",
+    "translation": "### \u9898\u76ee\u63cf\u8ff0\n\n\u4f60\u9700\u8981\u7ec4\u5efa\u4e00\u652f\u6392\u7403\u961f\u3002\u4e3a\u4e86\u7ec4\u7ec7\u4e00\u652f\u6392\u7403\u961f\uff0c\u4f60\u9700\u8981\u4e3a\u961f\u4f0d\u91cc\u7684$p$\u4e2a\u4e0d\u540c\u7684\u4f4d\u7f6e\uff0c\u4ece$n$\u4e2a\u4eba\u4e2d\u9009\u51fa$p$\u4e2a\u4eba\uff0c\u4e14\u6bcf\u4e2a\u4f4d\u7f6e\u4e0a\u90fd\u6070\u597d\u6709\u4e00\u4e2a\u4eba\u3002\u53e6\u5916\u8fd8\u9700\u8981\u4ece\u5269\u4e0b\u7684\u4eba\u4e2d\u9009\u51fa\u6070\u597d$k$\u4e2a\u4eba\u4f5c\u4e3a\u89c2\u4f17\u3002\n\n\u5bf9\u4e8e\u7b2c$i$\u4e2a\u4eba\uff0c\u5df2\u77e5\u4ed6\u4f5c\u4e3a\u89c2\u4f17\u65f6\u80fd\u4e3a\u961f\u4f0d\u589e\u52a0$a_i$\u70b9\u529b\u91cf\uff0c\u8fd8\u6709\u4ed6\u5728\u961f\u4f0d\u7684\u7b2c$j$\u4e2a\u4f4d\u7f6e\u4e0a\u65f6\u80fd\u4e3a\u961f\u4f0d\u589e\u52a0$s_{i,j}$\u70b9\u529b\u91cf\u3002\u8bf7\u95ee\u8fd9\u53ea\u6392\u7403\u961f\u529b\u91cf\u7684\u6700\u5927\u503c\u662f\u591a\u5c11\uff1f\n\n### \u8f93\u5165\u683c\u5f0f\n\n\u7b2c\u4e00\u884c\u4e09\u4e2a\u6b63\u6574\u6570$n,p,k(2\\leq n\\leq 10^5,1\\leq p\\leq 7,1\\leq k,k+p\\leq n$.\n\n\u7b2c\u4e8c\u884c\u6709$n$\u4e2a\u6b63\u6574\u6570$a_i(1\\leq a_i\\leq 10^9)$.\n\n\u63a5\u4e0b\u6765$n$\u884c\u4e2d\uff0c\u7b2c$i$\u884c\u6709$p$\u4e2a\u6b63\u6574\u6570\uff0c\u7b2c$j$\u4e2a\u8868\u793a$s_{i,j}(1\\leq s_{i,j}\\leq 10^9)$.\n\n### \u8f93\u51fa\u683c\u5f0f\n\n\u4e00\u4e2a\u6b63\u6574\u6570\uff0c\u8868\u793a\u7ec4\u5efa\u7684\u6392\u7403\u961f\u7684\u6700\u5927\u529b\u91cf\u503c\u3002\n"
+}

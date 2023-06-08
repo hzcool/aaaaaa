@@ -1,0 +1,25 @@
+{
+    "description": "Recently Maxim has found an array of $ n $ integers, needed by no one. He immediately come up with idea of changing it: he invented positive integer $ x $ and decided to add or subtract it from arbitrary array elements. Formally, by applying single operation Maxim chooses integer $ i $ ( $ 1<=i<=n $ ) and replaces the $ i $ -th element of array $ a_{i} $ either with $ a_{i}+x $ or with $ a_{i}-x $ . Please note that the operation may be applied more than once to the same position.\n\nMaxim is a curious minimalis, thus he wants to know what is the minimum value that the product of all array elements (i.e. ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF721D/ae24ba75281e48338d849938ea05477ca771d520.png)) can reach, if Maxim would apply no more than $ k $ operations to it. Please help him in that.",
+    "inputFormat": "The first line of the input contains three integers $ n,k $ and $ x $ ( $ 1<=n,k<=200000,1<=x<=10^{9} $ ) \u2014 the number of elements in the array, the maximum number of operations and the number invented by Maxim, respectively.\n\nThe second line contains $ n $ integers $ a_{1},a_{2},...,a_{n} $ (![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF721D/572ce5a5b9bda792f62b8b3f471edc8abe20d325.png)) \u2014 the elements of the array found by Maxim.",
+    "outputFormat": "Print $ n $ integers $ b_{1},b_{2},...,b_{n} $ in the only line \u2014 the array elements after applying no more than $ k $ operations to the array. In particular, ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF721D/b40db9bc1a1c2c92af05e7feaa65d75eb4d3773f.png) should stay true for every $ 1<=i<=n $ , but the product of all array elements should be minimum possible.\n\nIf there are multiple answers, print any of them.",
+    "samples": [
+        [
+            "5 3 1\n5 4 3 5 2\n",
+            "5 4 3 5 -1 \n"
+        ],
+        [
+            "5 3 1\n5 4 3 5 5\n",
+            "5 4 0 5 5 \n"
+        ],
+        [
+            "5 3 1\n5 4 4 5 5\n",
+            "5 1 4 5 5 \n"
+        ],
+        [
+            "3 2 7\n5 4 2\n",
+            "5 11 -5 \n"
+        ]
+    ],
+    "hint": "",
+    "translation": "$n$ \u4e2a\u6570\uff0c\u6700\u591a\u8fdb\u884c$k$ \u6b21\u64cd\u4f5c\uff0c\u6bcf\u6b21\u53ef\u4ee5$+x$ \u6216$-x$ ,\u6c42\u5f53$\\Pi_{i-1}^na_i$ \u6700\u5c0f\u65f6\u7684\u6bcf\u4e2a\u5143\u7d20  \n**\u8f93\u5165\uff1a**  \n\u7b2c\u4e00\u884c\uff1a$n,k,x(1\\leq n,k\\leq 200000,1\\leq x\\leq 10^9)$   \n\u7b2c\u4e8c\u884c:$a_i$   \n**\u8f93\u51fa\uff1a**  \n\u4e00\u884c\uff1a$\\Pi_{i-1}^na_i$ \u6700\u5c0f\u65f6\u7684\u6bcf\u4e2a\u5143\u7d20  \n\n\u611f\u8c22@Fheiwn \u63d0\u4f9b\u7684\u7ffb\u8bd1"
+}

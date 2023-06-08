@@ -1,0 +1,21 @@
+{
+    "description": "The Little Elephant loves sortings.\n\nHe has an array $ a $ consisting of $ n $ integers. Let's number the array elements from 1 to $ n $ , then the $ i $ -th element will be denoted as $ a_{i} $ . The Little Elephant can make one move to choose an arbitrary pair of integers $ l $ and $ r $ $ (1<=l<=r<=n) $ and increase $ a_{i} $ by $ 1 $ for all $ i $ such that $ l<=i<=r $ .\n\nHelp the Little Elephant find the minimum number of moves he needs to convert array $ a $ to an arbitrary array sorted in the non-decreasing order. Array $ a $ , consisting of $ n $ elements, is sorted in the non-decreasing order if for any $ i $ $ (1<=i&lt;n) $ $ a_{i}<=a_{i+1} $ holds.",
+    "inputFormat": "The first line contains a single integer $ n $ $ (1<=n<=10^{5}) $ \u2014 the size of array $ a $ . The next line contains $ n $ integers, separated by single spaces \u2014 array $ a $ $ (1<=a_{i}<=10^{9}) $ . The array elements are listed in the line in the order of their index's increasing.",
+    "outputFormat": "In a single line print a single integer \u2014 the answer to the problem.\n\nPlease, do not use the %lld specifier to read or write 64-bit integers in \u0421++. It is preferred to use the cin, cout streams or the %I64d specifier.",
+    "samples": [
+        [
+            "3\n1 2 3\n",
+            "0\n"
+        ],
+        [
+            "3\n3 2 1\n",
+            "2\n"
+        ],
+        [
+            "4\n7 4 1 47\n",
+            "6\n"
+        ]
+    ],
+    "hint": "In the first sample the array is already sorted in the non-decreasing order, so the answer is $ 0 $ .\n\nIn the second sample you need to perform two operations: first increase numbers from second to third (after that the array will be: \\[3, 3, 2\\]), and second increase only the last element (the array will be: \\[3, 3, 3\\]).\n\nIn the third sample you should make at least 6 steps. The possible sequence of the operations is: (2; 3), (2; 3), (2; 3), (3; 3), (3; 3), (3; 3). After that the array converts to \\[7, 7, 7, 47\\].",
+    "translation": "\u7ed9\u4f60 $n$ \u4e2a\u6570\uff0c\u5b9a\u4e49\u4e00\u6b21\u64cd\u4f5c\uff1a\u4efb\u9009\u4e00\u4e2a\u533a\u95f4 $+1$ \uff0c\u76ee\u7684\u662f\u8ba9\u540e\u4e00\u4e2a\u6570\u4e0d\u80fd\u5c0f\u4e8e\u524d\u4e00\u4e2a\u6570\uff08\u4e0d\u4e0b\u964d\u5b50\u5e8f\u5217\uff09\uff0c\u7136\u540e\u6700\u5c0f\u64cd\u4f5c\u6570\u662f\u591a\u5c11\uff1f"
+}

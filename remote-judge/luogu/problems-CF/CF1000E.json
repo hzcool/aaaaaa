@@ -1,0 +1,17 @@
+{
+    "description": "Your friend is developing a computer game. He has already decided how the game world should look like \u2014 it should consist of $ n $ locations connected by $ m $ two-way passages. The passages are designed in such a way that it should be possible to get from any location to any other location.\n\nOf course, some passages should be guarded by the monsters (if you just can go everywhere without any difficulties, then it's not fun, right?). Some crucial passages will be guarded by really fearsome monsters, requiring the hero to prepare for battle and designing his own tactics of defeating them (commonly these kinds of monsters are called bosses). And your friend wants you to help him place these bosses.\n\nThe game will start in location $ s $ and end in location $ t $ , but these locations are not chosen yet. After choosing these locations, your friend will place a boss in each passage such that it is impossible to get from $ s $ to $ t $ without using this passage. Your friend wants to place as much bosses as possible (because more challenges means more fun, right?), so he asks you to help him determine the maximum possible number of bosses, considering that any location can be chosen as $ s $ or as $ t $ .",
+    "inputFormat": "The first line contains two integers $ n $ and $ m $ ( $ 2 \\le n \\le 3 \\cdot 10^5 $ , $ n - 1 \\le m \\le 3 \\cdot 10^5 $ ) \u2014 the number of locations and passages, respectively.\n\nThen $ m $ lines follow, each containing two integers $ x $ and $ y $ ( $ 1 \\le x, y \\le n $ , $ x \\ne y $ ) describing the endpoints of one of the passages.\n\nIt is guaranteed that there is no pair of locations directly connected by two or more passages, and that any location is reachable from any other location.",
+    "outputFormat": "Print one integer \u2014 the maximum number of bosses your friend can place, considering all possible choices for $ s $ and $ t $ .",
+    "samples": [
+        [
+            "5 5\n1 2\n2 3\n3 1\n4 1\n5 2\n",
+            "2\n"
+        ],
+        [
+            "4 3\n1 2\n4 3\n3 2\n",
+            "3\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "**\u9898\u76ee\u5927\u610f\uff1a**\n\n\u7ed9\u5b9a\u4e00\u4e2a $n$ \u4e2a\u70b9 $m$ \u6761\u8fb9\u7684\u65e0\u5411\u56fe\uff0c\u4fdd\u8bc1\u56fe\u8fde\u901a\u3002\u627e\u5230\u4e24\u4e2a\u70b9$s,t$\uff0c\u4f7f\u5f97$s$\u5230$t$**\u5fc5\u987b**\u7ecf\u8fc7\u7684\u8fb9\u6700\u591a\uff08\u4e00\u6761\u8fb9\u65e0\u8bba\u8d70\u54ea\u6761\u8def\u7ebf\u90fd\u7ecf\u8fc7ta\uff0c\u8fd9\u6761\u8fb9\u5c31\u662f\u5fc5\u987b\u7ecf\u8fc7\u7684\u8fb9\uff09\uff0c$2<=n<=3*10^5,1<=m<=3*10^5$\n\n**\u8f93\u5165\u683c\u5f0f\uff1a**\n\n\u7b2c\u4e00\u884c\u4e24\u4e2a\u6574\u6570\uff0c$n,m$\n\n\u4ee5\u4e0bm\u884c\uff0c\u6bcf\u884c\u4e24\u4e2a\u6574\u6570$x,y$\uff0c\u8868\u793a$xy$\u95f4\u6709\u4e00\u6761\u65e0\u5411\u8fb9\u76f8\u8fde\n\n**\u8f93\u51fa\u683c\u5f0f\uff1a**\n\n\u4e00\u4e2a\u6574\u6570\uff0c\u5373\u6700\u591a\u7684\u5fc5\u987b\u7ecf\u8fc7\u8fb9\u6570\n\n\u611f\u8c22@\u5b88\u671b \u63d0\u4f9b\u7ffb\u8bd1"
+}

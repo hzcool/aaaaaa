@@ -1,0 +1,17 @@
+{
+    "description": "You've got string $ s $ , consisting of only lowercase English letters. Find its lexicographically maximum subsequence.\n\nWe'll call a non-empty string $ s[p_{1}p_{2}...\\ p_{k}]=s_{p1}s_{p2}...\\ s_{pk}(1<=p_{1}&lt;p_{2}&lt;...&lt;p_{k}<=|s|) $ a subsequence of string $ s=s_{1}s_{2}...\\ s_{|s|} $ .\n\nString $ x=x_{1}x_{2}...\\ x_{|x|} $ is lexicographically larger than string $ y=y_{1}y_{2}...\\ y_{|y|} $ , if either $ |x|&gt;|y| $ and $ x_{1}=y_{1},x_{2}=y_{2},...\\ ,x_{|y|}=y_{|y|} $ , or exists such number $ r $ $ (r&lt;|x|,r&lt;|y|) $ , that $ x_{1}=y_{1},x_{2}=y_{2},...\\ ,x_{r}=y_{r} $ and $ x_{r+1}&gt;y_{r+1} $ . Characters in lines are compared like their ASCII codes.",
+    "inputFormat": "The single line contains a non-empty string $ s $ , consisting only of lowercase English letters. The string's length doesn't exceed $ 10^{5} $ .",
+    "outputFormat": "Print the lexicographically maximum subsequence of string $ s $ .",
+    "samples": [
+        [
+            "ababba\n",
+            "bbba\n"
+        ],
+        [
+            "abbcbccacbbcbaaba\n",
+            "cccccbba\n"
+        ]
+    ],
+    "hint": "Let's look at samples and see what the sought subsequences look like (they are marked with uppercase bold letters).\n\nThe first sample: aBaBBA\n\nThe second sample: abbCbCCaCbbCBaaBA",
+    "translation": "## \u9898\u76ee\u63cf\u8ff0\uff1a\n\u4f60\u73b0\u5728\u6709\u4e00\u4e2a\u53ea\u5305\u542b\u5c0f\u5199\u82f1\u6587\u5b57\u6bcd\u7684\u5b57\u7b26\u4e32\uff0c\u8981\u6c42\u6c42\u5b83\u7684\u6700\u5927\u5b57\u5178\u5e8f\u5b50\u5e8f\u5217\u3002\n\n\u6211\u4eec\u628a\u4e00\u4e2a\u975e\u7a7a\u5b57\u7b26\u4e32s[p_{1}p_{2}...\\ p_{k}]=s_{p1}s_{p2}...\\ s_{pk}(1<=p_{1}<p_{2}<...<p_{k}<=|s|)\u53eb\u505a\u5b57\u7b26\u4e32s=s1s2\u2026s|s|\u7684\u4e00\u4e2a\u5b50\u5e8f\u5217\u3002\n\n\u5982\u679c|x|>|y|\u800c\u4e14x1=y1,x2=y2\u2026X|y|=Y|y|\u6216\u8005\u5b58\u5728\u4e00\u4e2a\u6570\u5b57r (r<|x|,r<|y|)\u6ee1\u8db3x1=y1,x2=y2\u2026X|y|=Y|y|\u5e76\u4e14x_{r+1}>y_{r+1}\uff0c\u90a3\u4e48\u5b57\u7b26\u4e32x=x1x2\u2026x|x|\u5728\u5b57\u5178\u5e8f\u4e0a\u6bd4\u5b57\u7b26\u4e32y=y1y2\u2026y|y|\u5927\u3002\u5728\u884c\u4e2d\u7684\u5b57\u7b26\u6839\u636e\u4ed6\u4eec\u7684ASCII\u7801\u8fdb\u884c\u6bd4\u8f83\n\n## \u8f93\u5165\u683c\u5f0f\uff1a\n\u53ea\u6709\u4e00\u884c\uff0c\u5305\u62ec\u4e00\u4e2a\u975e\u7a7a\u7684\u53ea\u542b\u5c0f\u5199\u5b57\u6bcd\u7684\u5b57\u7b26\u4e32s\uff0c\u5b57\u7b26\u4e32\u957f\u5ea6\u4e0d\u8d85\u8fc710^5\n\n## \u8f93\u51fa\u683c\u5f0f\uff1a\n\n\u8f93\u51fa\u53ea\u6709\u4e00\u884c\uff0c\u8f93\u51fa\u5b57\u7b26\u4e32s\u7684 \u6700\u5927\u5b57\u5178\u5e8f\u5b50\u5e8f\u5217\n\n## \u8bf4\u660e/\u63d0\u793a\uff1a\n\u8ba9\u6211\u4eec\u770b\u4e00\u4e0b\u6837\u4f8b\u5e76\u770b\u4e00\u770b\u5f85\u6c42\u7684\u5b50\u5e8f\u5217\u957f\u4ec0\u4e48\u6837\u5b50(\u7528\u5927\u5199\u7c97\u4f53\u5b57\u6bcd\u6807\u6ce8\uff09\n\n\u6837\u4f8b1:a**B**a**BBA**\n\n\u6837\u4f8b2:abb**C**b**CC**a**C**bb**CB**aa**BA**"
+}

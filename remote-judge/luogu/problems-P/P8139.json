@@ -1,0 +1,16 @@
+{
+    "description": "You may have already won! In fact, you did already win! You won your very own\nisland, in the deepest reaches of the unexplored ocean! Well, mostly unexplored.\nAs it happens, there was a small military base there before you, and when they\npacked up and flew out they left behind an assortment of scraps, munitions,\ntunnels, $\\ldots$ and unexploded defensive ordnance. That's right: You now possess\nyour very own minefield.\n\nThe minefield consists of an $m\\times n$ grid, with any square of the grid holding\n0 or 1 mines. Fortunately, you were able to recover the engineers' plans from when\nthey deployed the mines. Unfortunately, the exact locations of the mines were never\nwritten down: the engineers had a preselected independent probability of deploying\na mine in each square. However, you do know how many mines were placed in total.\n\nYou would like to estimate how safe various parts of your island are. Write a\nprogram to compute the probability of mine counts over various subsets of the\nminefield.",
+    "inputFormat": "The first line of input contains four integers $m$, $n$, $t$, and $q$, where $m$\nand $n$ ($1 \\leq m,n \\leq 500$) are the dimensions of the minefield, $t$ \n($0 \\leq t \\leq mn$) is the total number of mines, and $q$ ($0 \\leq q \\leq 500$)\nis the number of queries. The second line contains $m$ real numbers \n$p_1, p_2, \\ldots, p_m$ ($0 \\leq p_i \\leq 0.1$ for all $i$, with at most six digits\nafter the decimal point specified), and the third line\ncontains $n$ real numbers $q_1, q_2, \\ldots, q_n$ ($0 \\leq q_j \\leq 0.1$ for all\n$j$, with at most six digits after the decimal point specified).\nThe preselected probability of the engineers placing a mine on square $(i, j)$\nis $p_i + q_j$. All choices of whether to place a mine on a given square were made\nindependently, and the value of $t$ is chosen so that the probability of deploying\nexactly $t$ mines is at least $10^{-5}$. \n\nEach of the remaining $q$ lines describes a single query. Each of those lines\nbegins with an integer $s$ ($0 \\leq s \\leq 500$), followed by $s$ pairs of integers\n$i$ and $j$ ($1 \\leq i \\leq m$, $1 \\leq j \\leq n$), which are the coordinates of $s$\ndistinct squares in the grid.",
+    "outputFormat": "For each query with $s$ squares, output $s+1$ real numbers, which are the\nprobabilities of the $s$ given squares containing $0, 1, \\ldots, s$ mines. Your\nanswer should have an absolute error of at most $10^{-6}$.",
+    "samples": [
+        [
+            "2 2 1 2\n0.05 0.05\n0.05 0.05\n1 1 1\n2 2 1 1 2",
+            "0.75 0.25\n0.5 0.5 0"
+        ],
+        [
+            "3 4 3 4\n0.02 0.04 0.06\n0.005 0.07 0.035 0.09\n1 3 2\n3 1 4 2 4 3 4\n4 1 2 2 3 3 1 1 4\n8 1 1 1 2 1 3 2 1 2 3 3 1 3 2 3 3",
+            "0.649469772 0.350530228\n0.219607636 0.527423751 0.237646792 0.015321822\n0.267615440 0.516222318 0.201611812 0.014550429 0\n0.054047935 0.364731941 0.461044157 0.120175967 0 0 0 0 0"
+        ]
+    ],
+    "hint": ""
+}

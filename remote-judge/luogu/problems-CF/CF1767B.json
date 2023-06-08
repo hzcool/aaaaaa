@@ -1,0 +1,13 @@
+{
+    "description": "There are $ n $ block towers, numbered from $ 1 $ to $ n $ . The $ i $ -th tower consists of $ a_i $ blocks.\n\nIn one move, you can move one block from tower $ i $ to tower $ j $ , but only if $ a_i > a_j $ . That move increases $ a_j $ by $ 1 $ and decreases $ a_i $ by $ 1 $ . You can perform as many moves as you would like (possibly, zero).\n\nWhat's the largest amount of blocks you can have on the tower $ 1 $ after the moves?",
+    "inputFormat": "The first line contains a single integer $ t $ ( $ 1 \\le t \\le 10^4 $ ) \u2014 the number of testcases.\n\nThe first line of each testcase contains a single integer $ n $ ( $ 2 \\le n \\le 2 \\cdot 10^5 $ ) \u2014 the number of towers.\n\nThe second line contains $ n $ integers $ a_1, a_2, \\dots, a_n $ ( $ 1 \\le a_i \\le 10^9 $ ) \u2014 the number of blocks on each tower.\n\nThe sum of $ n $ over all testcases doesn't exceed $ 2 \\cdot 10^5 $ .",
+    "outputFormat": "For each testcase, print the largest amount of blocks you can have on the tower $ 1 $ after you make any number of moves (possibly, zero).",
+    "samples": [
+        [
+            "4\n3\n1 2 3\n3\n1 2 2\n2\n1 1000000000\n10\n3 8 6 7 4 1 2 4 10 1",
+            "3\n2\n500000001\n9"
+        ]
+    ],
+    "hint": "In the first testcase, you can move a block from tower $ 2 $ to tower $ 1 $ , making the block counts $ [2, 1, 3] $ . Then move a block from tower $ 3 $ to tower $ 1 $ , making the block counts $ [3, 1, 2] $ . Tower $ 1 $ has $ 3 $ blocks in it, and you can't obtain a larger amount.\n\nIn the second testcase, you can move a block from any of towers $ 2 $ or $ 3 $ to tower $ 1 $ , so that it has $ 2 $ blocks in it.\n\nIn the third testcase, you can $ 500000000 $ times move a block from tower $ 2 $ to tower $ 1 $ . After that the block countes will be $ [500000001, 500000000] $ .",
+    "translation": "\u7ed9\u5b9a\u4e00\u4e2a $n$ \u4e2a\u6570\u7684\u6570\u5217 $a_1,a_2,\\dots ,a_n$\u3002\n\n\u5728\u6bcf\u6b21\u64cd\u4f5c\u4e2d\uff0c\u4f60\u53ef\u4ee5\u9009\u5b9a\u4e24\u4e2a\u4f4d\u7f6e $i,j$ \u4e14\u6ee1\u8db3 $a_i>a_j$\uff0c\u628a $a_i$ \u51cf\u53bb $1$\uff0c\u540c\u65f6\u628a $a_j$ \u52a0\u4e0a $1$\u3002\n\n\u8be2\u95ee\u5728\u4efb\u610f\u591a\u6b21\u64cd\u4f5c\u540e\uff0c$a_1$ \u7684\u6700\u5927\u503c\u662f\u591a\u5c11\uff1f"
+}

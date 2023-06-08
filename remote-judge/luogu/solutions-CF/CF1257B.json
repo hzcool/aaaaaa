@@ -1,0 +1,50 @@
+[
+    {
+        "content": "\u6ce8\u610f\u5230\u9664$B=1$\u5916\uff0c$A=1$\u7684\u60c5\u51b5\u90fd\u662f`NO`\u3002\n\n\u5426\u5219\uff0c\u9664$B\\leq 3$\u5916\uff0c\u82e5\u6700\u5927\u80fd\u53d8\u5230\u7684\u5076\u6570\u662f$2$\uff0c\u5219\u7b54\u6848\u4e3a`NO`\u3002\n\n\u5426\u5219\u4e3a`YES`\u3002\n\n```\n#include<cstdio>\n#define R register\nint T,X,Y;\ntemplate<class T>inline void read(R T &m)\n{\n\tm=0;\n\tR char c=getchar();\n\twhile(c<48||c>57)c=getchar();\n\twhile(c>47&&c<58)m=(m<<3)+(m<<1)+(c&15),c=getchar();\n}\nint main()\n{\n\tread(T);\n\twhile(T--)\n\t{\n\t\tread(X),read(Y);\n\t\tif(X==Y)puts(\"YES\");\n\t\telse if(X==1)puts(\"NO\");\n\t\telse\n\t\t{\n\t\t\tX-=X&1;//\u4ee4X\u4e3a\u6700\u5927\u5076\u6570\n\t\t\tif(X==2)\n\t\t\t{\n\t\t\t\tputs(Y>3?\"NO\":\"YES\");//X=2,Y\u22643,YES\n\t\t\t}\n\t\t\telse\n\t\t\t{\n\t\t\t\tputs(\"YES\");\n\t\t\t}\n\t\t}\n\t}\n}\n```",
+        "postTime": 1573718155,
+        "uid": 5880,
+        "name": "B_Qu1e7",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1257B \u3010Magic Stick\u3011"
+    },
+    {
+        "content": "upd after 3 years: \u4fee\u6539\u4e86 Latex \u548c\u90e8\u5206\u53d9\u8ff0\u3002\n\n[\u9898\u76ee\u94fe\u63a5](//codeforces.com/problemset/problem/1257/B)\n\n## \u9898\u76ee\u63cf\u8ff0\n\n\u5bf9\u4e8e\u4e00\u4e2a\u6b63\u6574\u6570 $a$\uff0c\u53ef\u4ee5\u8fdb\u884c\u82e5\u5e72\u6b21\u4e0b\u9762\u4e24\u79cd\u64cd\u4f5c\uff1a\n\n1. \u82e5 $a$ \u662f\u5076\u6570\uff0c$a\\mapsto\\frac{3}{2}a$;\n\n2. \u82e5 $a>1$\uff0c$a\\mapsto a - 1$\u3002\n\n\u7ed9\u5b9a $x,y$\uff0c\u95ee\u80fd\u5426\u901a\u8fc7\u4ee5\u4e0a\u64cd\u4f5c\u5c06 $x$ \u53d8\u6210 $y$\u3002\n\n~~\u89c2\u6d4b CF \u6807\u7b7e\u53ef\u5f97\u8fd9\u662f\u4e2a\u6570\u5b66\u9898~~\uff0c\u8003\u8651\u4e71\u641e\u8fc7\u53bb\u3002\n\n\u9996\u5148\uff0c\u7531\u7b2c\u4e8c\u79cd\u64cd\u4f5c\uff0c\u5f53 $x \\ge y$ \u65f6\u4e00\u5b9a\u80fd\u6210\u529f\u3002\u4e8e\u662f\u95ee\u9898\u53d8\u4e3a\u5c06 $x < y$ \u8f6c\u5316\u4e3a $x\\ge y$\u3002\n\n\u7136\u540e\u5224\u65ad\u7b2c\u4e00\u79cd\u64cd\u4f5c\u3002\u6211\u4eec\u7684\u76ee\u6807\u662f\u8ba9 $x\\ge y$\uff0c\u90a3\u4e48\u53ea\u6709 $(\\frac{3}{2})^kx$ \u6c38\u8fdc\u4e0d\u4f1a\u53d8\u5927\u65f6\uff0c\u5373 $a \\le 3$ \u65f6\uff0c\u624d\u4e0d\u80fd\u6210\u529f\u3002\u7279\u5224\u5373\u53ef\u3002\n\n--------------\n\n\u4ee5\u4e0b\u662f\u4ee3\u7801\uff1a\n\n```cpp\n// 1257B Magic Stick\n#include <cstdio>\n\nint t,x,y;\nbool flag; // \u5224\u65ad\u53ef\u4e0d\u53ef\u4ee5\n\nint main() {\n\tscanf(\"%d\",&t);\n\tfor(;t;t --) {\n\t\tflag = true; //\u521d\u59cb\u5316\n\t\tscanf(\"%d%d\",&x,&y);\n\t\tif(x >= y) { // \u5982\u679c\u4ec5\u51ed\u501f\u7b2c\u4e8c\u79cd\u64cd\u4f5c\u53ef\u4ee5\u7684\u8bdd\n\t\t\tputs(\"YES\");\n\t\t\tcontinue;\n\t\t}\n\t\tif(x == 1) flag = false; // \u7279\u5224 x = 1\uff0c\u4ec0\u4e48\u90fd\u505a\u4e0d\u4e86\n\t\tif(x <= 3 && y > 3) flag = false; // \u5982\u679cx <= 3\uff0c\u5c31\u6c38\u8fdc\u8fbe\u4e0d\u5230\u6bd4 3 \u5927\u7684 y\n       // \u6ce8\u610f\uff0c\u5982\u679c\u4e0d\u52a0\u5224\u65ad y > 3\uff0c\u4f1a\u88ab 2 3 \u8fd9\u7ec4\u6570\u636e\u5361\u6389\n\t\tflag ? puts(\"YES\") : puts(\"NO\");\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1573740076,
+        "uid": 114082,
+        "name": "Sya_Resory",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF1257B \u3010Magic Stick\u3011"
+    },
+    {
+        "content": "\u9898\u76ee\u4e2d\u7684\u6761\u4ef6\u7ed9\u5f97\u5f88\u660e\u767d\u4e86\uff0c\u4e00\u4e2a\u662f $\\times \\frac{3}{2}$\uff0c\u53e6\u4e00\u4e2a\u662f $-1$\u3002\n\n\u7b2c\u4e00\u4e2a\u76f8\u5f53\u4e8e $3$ \u4ee5\u4e0a\u6269\u5927\uff0c\u7b2c\u4e8c\u4e2a\u76f8\u5f53\u4e8e\u7f29\u5c0f\u3002\n\n\u4e5f\u5c31\u662f\u8bf4\uff0c\u5bf9 $3$ \u4ee5\u4e0b\u7279\u5224\u5373\u53ef\u3002\n\n\u7ed9\u51fa\u4ee3\u7801\uff1a\n```cpp\n#include<iostream>\nusing namespace std;\nint main(){\n\tint t;\n\tcin>>t;//\u591a\u7ec4\u6570\u636e\n\twhile(t--){\n\t\tint a,b;\n\t\tcin>>a>>b;\n\t\tif(a==1&&b!=1){\n\t\t\tcout<<\"NO\"<<endl;\n\t\t}else if(a==3&&b>3){\n\t\t\tcout<<\"NO\"<<endl;//\u6ce8\u610f3\u548c2\u8fd8\u662f\u53ef\u4ee5\u4e92\u76f8\u8f6c\u5316\u7684\n\t\t}else{\n\t\t\tcout<<\"YES\"<<endl;\n\t\t}\n\t\t\t\n\t} \n\t\n}\n```\n",
+        "postTime": 1684059762,
+        "uid": 706760,
+        "name": "xiaofeng_and_xiaoyu",
+        "ccfLevel": 0,
+        "title": "Magic Stick \u9898\u89e3"
+    },
+    {
+        "content": "[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/CF1257B)\u3002\n\n\u770b\u9898\uff0c\u53ef\u4ee5\u77e5\u9053\u672c\u9898\u6709\u4e24\u4e2a\u4fee\u6539\u6761\u4ef6\uff0c\u6240\u4ee5\u6211\u4eec\u53ef\u4ee5\u8bd5\u8bd5\u627e\u89c4\u5f8b\u3002\n\n\u4ed6\u8981\u4fdd\u8bc1\u505a\u5230 $x=y$\uff0c\u6240\u4ee5\u6211\u4eec\u53ef\u4ee5\u5206\u7c7b\u8ba8\u8bba\u3002\n\n- \u5f53\u9047\u5230 $x$ \u5224\u65ad\u662f\u5426\u7b49\u4e8e $y$\uff0c\u7b49\u4e8e\u8f93\u51fa\u6b63\u786e\uff0c\u76f4\u63a5\u6ee1\u8db3\u6761\u4ef6\u3002\n\n- \u5f53 $x=2$ \u65f6\uff0c$y$ \u53ef\u4ee5\u7b49\u4e8e\u4e00\u6216\u4e8c\u6216\u4e09\u3002\n\n- \u5f53 $x=3$ \u65f6\uff0c\u540c\u4e0a\uff0c$y$ \u53ef\u4ee5\u7b49\u4e8e\u4e00\u6216\u4e8c\u6216\u4e09\u3002\n\n- \u5f53 $x>3$ \u65f6\uff0c\u5982\u679c $x>y$ \u5c31\u51cf\u4e0b\u53bb\u3002\u5982\u679c $y>x$ \u6211\u4eec\u53ef\u4ee5\u4f7f $x \\times \\frac{3}{2}$\uff0c\u6b64\u65f6 $x$ \u5fc5\u5b9a\u5927\u4e8e\u539f\u6765\u7684\uff0c\u7136\u540e\u5927\u4e8e $y$ \u5c31\u51cf\uff0c\u5c0f\u4e8e $y$ \u5c31\u51cf\u6210\u5076\u6570\u518d\u53d8\u5927\u3002\n\n\u6240\u4ee5\u4ee3\u7801\u5982\u4e0b\uff1a\n\n```cpp\n#include<bits/stdc++.h>\n#define ll long long\n#define Test ios::sync_with_stdio(false),cin.tie(0),cout.tie(0)\nusing namespace std;\nconst int N=1e5+10,NN=1e4+10;\nll n,m,k,len,T;\nll minn=INT_MAX,maxn=0;\nchar c[N];\nll arr[N];\nbool dfs(int x,int y){\n\tif(x==y)return 1;\n\tif(x<y)return 0;\n\tif(x%2==0)dfs((3*x)/2,y);\n\tif(x>1)dfs(x-1,y);\n}\nint main(){\n\tcin>>T;\n\twhile(T--){\n\t\tint x;int y;\n\t\tcin>>x>>y;\n\t\tif(x==y){cout<<\"YES\"<<endl;continue;}//\u7b49\u4e8e\n\t\tif(x==1){cout<<\"NO\"<<endl;continue;}//1\n\t\tif(x<=3&&y<=3){cout<<\"YES\"<<endl;continue;}//\u5c0f\u4e8e3\n\t\tif(x<=3){cout<<\"NO\"<<endl;continue;}//\u5927\u4e8e\n\t\tcout<<\"YES\"<<endl;\n\t}\n\n\treturn 0;\n}\n\n\n\n```\n",
+        "postTime": 1683001084,
+        "uid": 529017,
+        "name": "Smg18",
+        "ccfLevel": 0,
+        "title": "CF1257B"
+    },
+    {
+        "content": "[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/CF1257B)\n\n\u5206\u7c7b\u8ba8\u8bba\uff1a\n\n- $x=1$ \u65f6\uff0c$y$ \u53ea\u80fd\u7b49\u4e8e $1$\u3002\n\n- $x=2$ \u65f6\uff0c$y$ \u53ef\u4ee5\u7b49\u4e8e $2-1=1$ \u6216 $2$ \u6216 $2\\times\\frac{3}{2}=3$\uff0c\u5230\u4e86 $3$ \u53ea\u80fd\u56de\u5230 $2$\u3002\n\n- $x=3$ \u65f6\uff0c$y$ \u53ef\u4ee5\u7b49\u4e8e $1$ \u6216 $2$ \u6216 $3$\u3002\n\n- $x\\ge3$ \u65f6\uff0c\u5982\u679c\u53ef\u4ee5\u4f7f\u5f97 $x\\ge y$ \u5c31\u53ef\u4ee5\u4e00\u76f4 $-1$ \u4e86\u3002\u5f53 $x$ \u4e3a\u5947\u6570\u65f6\uff0c$(x-1)\\times\\frac{3}{2}>x$\u3002\u5f53 $x$ \u4e3a\u5076\u6570\u65f6\uff0c$x\\times\\frac{3}{2}>x$\u3002\u6240\u4ee5 $x$ \u53ef\u4ee5\u5927\u4e8e $y$\u3002\n\n[AC \u8bb0\u5f55](https://www.luogu.com.cn/record/108917539)\n\n# \u4ee3\u7801\n\n```cpp\n#include <iostream>\nusing namespace std;\nint main()\n{\n\tint t;\n\tcin>>t;\n\twhile(t--)\n\t{\n\t\tint x,y;\n\t\tcin>>x>>y;\n\t\tif(x==1)\n\t\t{\n\t\t\tif(y==1)\n\t\t\tcout<<\"YES\\n\";\n\t\t\telse\n\t\t\tcout<<\"NO\\n\";\n\t\t}\n\t\telse if(x<=3)\n\t\t{\n\t\t\tif(y<=3)\n\t\t\tcout<<\"YES\\n\";\n\t\t\telse\n\t\t\tcout<<\"NO\\n\";\n\t\t}\n\t\telse\n\t\tcout<<\"YES\\n\";\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1682426946,
+        "uid": 812259,
+        "name": "chenyuchenghsefz",
+        "ccfLevel": 0,
+        "title": "CF1257B \u9898\u89e3"
+    },
+    {
+        "content": "## \u9898\u76ee\u5206\u6790\uff1a\n\n\u5bf9\u4e8e $a$\uff0c\u9898\u76ee\u652f\u6301\u4e24\u79cd\u64cd\u4f5c\uff1a\n\n1.\t\u5982\u679c\u76ee\u524d\u7684\u6570 $a$ \u662f**\u5076\u6570**\uff0c\u90a3\u4e48\u4f60\u53ef\u4ee5\u5c06\u5176\u53d8\u6210 $\\dfrac{3a}{2}$\uff1b\n2.\t\u5982\u679c\u76ee\u524d\u7684\u6570 $a$ \u5927\u4e8e $1$\uff0c\u90a3\u4e48\u4f60\u53ef\u4ee5\u5c06\u5176\u53d8\u6210 $a-1$\u3002\n\n\u73b0\u5728\u6709\u4e00\u4e2a\u6570 $x$\u3002\u8bf7\u95ee\u4f60\u662f\u5426\u53ef\u4ee5\u901a\u8fc7\u4e0a\u8ff0\u64cd\u4f5c\u5c06\u5176\u53d8\u6210 $y$\u3002\n\n\u663e\u7136\uff0c\u5728 $x$ \u4e3a $1$ \u65f6\uff0c\u4e0d\u53ef\u4ee5\u3002\n\n\u5f53 $x>y$ \u65f6\uff0c\u6bcf\u6b21\u5c06 $x$ \u51cf $1$ \u5373\u53ef\u3002\n\n\u5f53 $x \\leq 3$ \u5e76\u4e14 $y > 3$ \u65f6\uff0c$x$ \u6c38\u8fdc\u4e5f\u53d8\u4e0d\u5230 $y$\u3002\u56e0\u4e3a\u80fd\u6267\u884c\u64cd\u4f5c $1$ \u7684\u6570\u53ea\u6709 $2$\u3002\u53d8\u5316\u4e3a $2 \\to 6 \\to 3 \\to 2$\u3002\n\n\u5f53 $x >3$ \u65f6\uff0c\u53ea\u8981\u8ba9 $x$ \u6bcf\u6b21\u4e58 $3$ \u9664 $2$ \u5c31\u4e00\u5b9a\u80fd\u5927\u4e8e $y$\u3002\u56e0\u4e3a\u4e00\u4e2a\u5927\u4e8e $2$ \u7684\u5076\u6570 $\\times \\dfrac{3}{2}$ \uff08\u6ce8\uff1a\u4e58\u5b8c\u5982\u679c\u662f\u5947\u6570\u518d $-1$\uff09\u4e4b\u540e\u90fd\u4e0d\u4f1a\u56de\u5230\u539f\u6765\u7684\u6570\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include<iostream>\nusing namespace std;\nint t,x,y;\nint main(){\n    cin>>t;\n    while(t--){\n        cin>>x>>y;\n        if(x>=y)cout<<\"YES\"<<endl;\n        else if(x==1)cout<<\"NO\"<<endl;\n        else if(x<=3&&y>3)cout<<\"NO\"<<endl;\n        else cout<<\"YES\"<<endl;\n    }\n}\n```\n",
+        "postTime": 1662512693,
+        "uid": 578029,
+        "name": "ivyjiao",
+        "ccfLevel": 3,
+        "title": "CF1257B Magic Stick \u9898\u89e3"
+    }
+]

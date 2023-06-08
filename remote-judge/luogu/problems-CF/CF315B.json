@@ -1,0 +1,13 @@
+{
+    "description": "Sereja has got an array, consisting of $ n $ integers, $ a_{1},a_{2},...,a_{n} $ . Sereja is an active boy, so he is now going to complete $ m $ operations. Each operation will have one of the three forms:\n\n1. Make $ v_{i} $ -th array element equal to $ x_{i} $ . In other words, perform the assignment $ a_{vi}=x_{i} $ .\n2. Increase each array element by $ y_{i} $ . In other words, perform $ n $ assignments $ a_{i}=a_{i}+y_{i} $ $ (1<=i<=n) $ .\n3. Take a piece of paper and write out the $ q_{i} $ -th array element. That is, the element $ a_{qi} $ .\n\nHelp Sereja, complete all his operations.",
+    "inputFormat": "The first line contains integers $ n $ , $ m $ $ (1<=n,m<=10^{5}) $ . The second line contains $ n $ space-separated integers $ a_{1},a_{2},...,a_{n} $ $ (1<=a_{i}<=10^{9}) $ \u2014 the original array.\n\nNext $ m $ lines describe operations, the $ i $ -th line describes the $ i $ -th operation. The first number in the $ i $ -th line is integer $ t_{i} $ $ (1<=t_{i}<=3) $ that represents the operation type. If $ t_{i}=1 $ , then it is followed by two integers $ v_{i} $ and $ x_{i} $ , $ (1<=v_{i}<=n,1<=x_{i}<=10^{9}) $ . If $ t_{i}=2 $ , then it is followed by integer $ y_{i} $ $ (1<=y_{i}<=10^{4}) $ . And if $ t_{i}=3 $ , then it is followed by integer $ q_{i} $ $ (1<=q_{i}<=n) $ .",
+    "outputFormat": "For each third type operation print value $ a_{qi} $ . Print the values in the order, in which the corresponding queries follow in the input.",
+    "samples": [
+        [
+            "10 11\n1 2 3 4 5 6 7 8 9 10\n3 2\n3 9\n2 10\n3 1\n3 10\n1 1 10\n2 10\n2 10\n3 1\n3 10\n3 9\n",
+            "2\n9\n11\n20\n30\n40\n39\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9\u5b9a\u4e00\u4e2a\u6709n\u9879\u7684\u6570\u5217\uff0c\u8fdb\u884cm\u6b21\u64cd\u4f5c\uff0c\u64cd\u4f5c\u53ea\u67093\u79cd\u3002\n\n1\u4ee3\u8868\u628aa[i]\u8d4b\u503c\u4e3ax\u3002\n\n2\u4ee3\u8868\u628a\u6570\u5217\u6bcf\u4e2a\u6570\u52a0x\u3002\n\n3\u4ee3\u8868\u67e5\u8be2a[x]\u3002"
+}

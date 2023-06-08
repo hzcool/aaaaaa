@@ -1,0 +1,21 @@
+{
+    "description": "Easy and hard versions are actually different problems, so read statements of both problems completely and carefully.\n\nSummer vacation has started so Alice and Bob want to play and joy, but... Their mom doesn't think so. She says that they have to read some amount of books before all entertainments. Alice and Bob will read each book together to end this exercise faster.\n\nThere are $ n $ books in the family library. The $ i $ -th book is described by three integers: $ t_i $ \u2014 the amount of time Alice and Bob need to spend to read it, $ a_i $ (equals $ 1 $ if Alice likes the $ i $ -th book and $ 0 $ if not), and $ b_i $ (equals $ 1 $ if Bob likes the $ i $ -th book and $ 0 $ if not).\n\nSo they need to choose some books from the given $ n $ books in such a way that:\n\n- Alice likes at least $ k $ books from the chosen set and Bob likes at least $ k $ books from the chosen set;\n- the total reading time of these books is minimized (they are children and want to play and joy as soon a possible).\n\nThe set they choose is the same for both Alice an Bob (it's shared between them) and they read all books together, so the total reading time is the sum of $ t_i $ over all books that are in the chosen set.\n\nYour task is to help them and find any suitable set of books or determine that it is impossible to find such a set.",
+    "inputFormat": "The first line of the input contains two integers $ n $ and $ k $ ( $ 1 \\le k \\le n \\le 2 \\cdot 10^5 $ ).\n\nThe next $ n $ lines contain descriptions of books, one description per line: the $ i $ -th line contains three integers $ t_i $ , $ a_i $ and $ b_i $ ( $ 1 \\le t_i \\le 10^4 $ , $ 0       \\le a_i, b_i \\le 1 $ ), where:\n\n- $ t_i $ \u2014 the amount of time required for reading the $ i $ -th book;\n- $ a_i $ equals $ 1 $ if Alice likes the $ i $ -th book and $ 0 $ otherwise;\n- $ b_i $ equals $ 1 $ if Bob likes the $ i $ -th book and $ 0 $ otherwise.",
+    "outputFormat": "If there is no solution, print only one integer -1. Otherwise print one integer $ T $ \u2014 the minimum total reading time of the suitable set of books.",
+    "samples": [
+        [
+            "8 4\n7 1 1\n2 1 1\n4 0 1\n8 1 1\n1 0 1\n1 1 1\n1 0 1\n3 0 0",
+            "18"
+        ],
+        [
+            "5 2\n6 0 0\n9 0 0\n1 0 1\n2 1 1\n5 1 0",
+            "8"
+        ],
+        [
+            "5 3\n3 0 0\n2 1 0\n3 1 0\n5 0 1\n3 0 1",
+            "-1"
+        ]
+    ],
+    "hint": "",
+    "translation": "### \u9898\u76ee\u63cf\u8ff0\r\n\r\nAlice \u548c Bob \u4e00\u5171\u6709 $n$ \u672c\u4e66\u8981\u8bfb\u3002\u7b2c $i$ \u672c\u4e66\u6709\u4e09\u4e2a\u5c5e\u6027\uff1a\u9605\u8bfb\u65f6\u95f4 $t_i$\uff0c$a_i$\uff08\u4e3a $1$ \u8868\u793a Alice \u559c\u6b22\u8fd9\u672c\u4e66\uff0c\u4e3a $0$ \u8868\u793a Alice \u4e0d\u559c\u6b22\uff09\uff0c$b_i$\uff08\u4e3a $1$ \u8868\u793a Bob \u559c\u6b22\u8fd9\u672c\u4e66\uff0c\u4e3a $0$ \u8868\u793a Bob \u4e0d\u559c\u6b22\uff09\u3002\r\n\r\n\u4ed6\u4eec\u9700\u8981\u4ece\u8fd9\u4e9b\u4e66\u4e2d\u9009\u62e9\u82e5\u5e72\u672c\uff0c\u6ee1\u8db3\r\n\r\n- \u8fd9\u4e9b\u4e66\u4e2d\u81f3\u5c11\u6709 $k$ \u672c\u662f Alice \u559c\u6b22\u7684\uff0c\u81f3\u5c11\u6709 $k$ \u672c\u662f Bob \u559c\u6b22\u7684\u3002\r\n- \u9605\u8bfb\u7684\u603b\u65f6\u95f4\u6700\u5c0f\uff08\u603b\u65f6\u95f4\u4e3a\u9009\u4e2d\u7684\u4e66\u7684 $t_i$ \u7684\u603b\u548c\uff09\r\n\r\n### \u8f93\u5165\u683c\u5f0f\r\n\r\n\u7b2c\u4e00\u884c\u4e24\u4e2a\u6574\u6570 $n$ \u548c $k$\uff08$1 \\leq k \\leq n \\leq 2 \\cdot 10^5$\uff09\u3002\r\n\r\n\u4e4b\u540e\u7684 $n$ \u884c\uff0c\u6bcf\u884c\u4e09\u4e2a\u6574\u6570 $t_i,a_i,b_i$\uff08$1 \\leq t_i \\leq 10^4$\uff0c$0 \\leq a_i,b_i \\leq 1$\uff09\u3002\r\n\r\n### \u8f93\u51fa\u683c\u5f0f\r\n\r\n\u8f93\u51fa\u6700\u5c0f\u7684\u65f6\u95f4 $T$\u3002\r\n\r\n\u5982\u679c\u65e0\u89e3\uff0c\u8f93\u51fa`-1`\u3002"
+}

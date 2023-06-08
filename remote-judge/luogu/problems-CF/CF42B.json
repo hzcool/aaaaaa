@@ -1,0 +1,21 @@
+{
+    "description": "Once Volodya was at the museum and saw a regular chessboard as a museum piece. And there were only four chess pieces on it: two white rooks, a white king and a black king. \"Aha, blacks certainly didn't win!\", \u2014 Volodya said and was right for sure. And your task is to say whether whites had won or not.\n\nPieces on the chessboard are guaranteed to represent a correct position (every piece occupies one cell, no two pieces occupy the same cell and kings cannot take each other). Thus, your task is only to decide whether whites mate blacks. We would remind you that it means that the black king can be taken by one of the opponent's pieces at the moment and also it cannot move to an unbeaten position. A rook moves vertically or horizontally by any number of free cells (assuming there are no other pieces on its path), a king \u2014 to the adjacent cells (either by corner or by side). Certainly, pieces cannot leave the board. The black king might be able to take opponent's rooks at his turn (see sample 3).",
+    "inputFormat": "The input contains 4 space-separated piece positions: positions of the two rooks, the white king and the black king. Each position on $ 8\u00d78 $ chessboard is denoted by two symbols \u2014 ('a' - 'h') and ('1' - '8') \u2014 which stand for horizontal and vertical coordinates of the cell occupied by the piece. It is guaranteed, that no two pieces occupy the same cell, and kings cannot take each other.",
+    "outputFormat": "Output should contain one word: \"CHECKMATE\" if whites mate blacks, and \"OTHER\" otherwise.",
+    "samples": [
+        [
+            "a6 b4 c8 a8\n",
+            "CHECKMATE\n"
+        ],
+        [
+            "a6 c4 b6 b8\n",
+            "OTHER\n"
+        ],
+        [
+            "a2 b1 a3 a1\n",
+            "OTHER\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "## \u9898\u610f\n\n\u4e00\u5929Volodya\u5728\u535a\u7269\u9986\u770b\u5230\u4e00\u4e2a\u68cb\u76d8\u53c2\u5c55\u3002\u68cb\u76d8\u4e0a\u53ea\u5269\u4e0b\u56db\u4e2a\u68cb\u5b50\uff1a\u4e24\u4e2a\u767d\u8f66\uff0c\u767d\u738b\u548c\u9ed1\u738b\u3002\u201c\u554a\u54c8\uff0c\u9ed1\u65b9\u80af\u5b9a\u6ca1\u8d62\uff01\u201dVolodya\u80af\u5b9a\u7684\u8bf4\u3002\u4f60\u7684\u4efb\u52a1\u662f\u5224\u65ad\u767d\u65b9\u662f\u5426\u8d62\u4e86\u3002\n\n\u68cb\u76d8\u4e0a\u7684\u6bcf\u4e2a\u68cb\u5b50\u5728\u4e00\u4e2a\u6b63\u786e\u7684\u4f4d\u7f6e\uff08\u6bcf\u4e00\u4e2a\u5360\u636e\u4e00\u4e2a\u683c\u5b50\uff0c\u6ca1\u6709\u4e24\u4e2a\u68cb\u5b50\u5360\u636e\u540c\u4e00\u4e2a\u683c\u5b50\uff0c\u56fd\u738b\u4e0d\u80fd\u5728\u540c\u4e00\u4e2a\u683c\u5b50\uff09\u3002\u56e0\u6b64\uff0c\u4f60\u7684\u4efb\u52a1\u662f\u5224\u65ad\u767d\u65b9\u662f\u5426\u83b7\u80dc\u3002\u6211\u4eec\u4f1a\u63d0\u9192\u4f60\uff0c\u8fd9\u610f\u5473\u7740\u73b0\u5728\u7684\u9ed1\u738b\u53ef\u4ee5\u88ab\u5bf9\u65b9\u7684\u4e00\u4e2a\u68cb\u5b50\u5403\u6389\uff0c\u4e5f\u4e0d\u80fd\u79fb\u52a8\u5230\u4e0d\u8d25\u7684\u4f4d\u7f6e\u3002\u8f66\u53ef\u4ee5\u79fb\u52a8\u6c34\u5e73\u6216\u5782\u76f4\u7684\u4efb\u610f\u6570\u91cf\u7684\u683c\u5b50\uff08\u5047\u8bbe\u8def\u5f84\u4e0a\u6ca1\u6709\u5176\u4ed6\u68cb\u5b50\uff09\uff0c\u56fd\u738b\u53ef\u4ee5\u79fb\u52a8\u5230\u76f8\u90bb\u7684\u683c\u5b50\uff08\u6216\u89d2\u6216\u8fb9\uff09\u3002\u5f53\u7136\uff0c\u68cb\u5b50\u4e0d\u80fd\u79bb\u5f00\u68cb\u76d8\u3002\u9ed1\u738b\u53ef\u4ee5\u5403\u6389\u767d\u8f66\uff08\u89c1\u6837\u4f8b3\uff09\u3002\n\n## \u8f93\u5165\u8f93\u51fa\u683c\u5f0f\n\n### \u8f93\u5165\u683c\u5f0f\n\n\u8f93\u51654\u4e2a\u7531\u7a7a\u683c\u5206\u5f00\u7684\u68cb\u5b50\u7684\u4f4d\u7f6e\uff1a\u4e24\u4e2a\u767d\u8f66\u3001\u767d\u738b\u3001\u9ed1\u738b\u3002$8\\times8$ \u68cb\u76d8\u4e0a\u7684\u6bcf\u4e2a\u4f4d\u7f6e\u7531\u4e24\u4e2a\u7b26\u53f7\u8868\u793a\uff1a\u6a2a\u5750\u6807\uff08a-h\uff09\u548c\u7eb5\u5750\u6807\uff081-8\uff09\u3002\u8fd9\u662f\u4e3a\u4e86\u4fdd\u8bc1\uff0c\u6ca1\u6709\u4e24\u4e2a\u68cb\u5b50\u5360\u636e\u76f8\u540c\u7684\u683c\u5b50\uff0c\u5e76\u4e14\u56fd\u738b\u4e0d\u5728\u540c\u4e00\u4e2a\u683c\u5b50\u91cc\u3002\n\n### \u8f93\u51fa\u683c\u5f0f\n\n\u8f93\u51fa\u53ea\u6709\u4e00\u4e2a\u5355\u8bcd\uff1a\u5f53\u767d\u65b9\u80fd\u53d6\u80dc\u65f6\u8f93\u51fa\u201cCHECKMATE\u201d\uff0c\u5426\u5219\u8f93\u51fa\u201cOTHER\u201d\u3002\n\nTranslated by @\u540d\u4fa6\u63a2\u67ef\u53172\u53f7 "
+}

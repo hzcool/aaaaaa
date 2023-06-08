@@ -1,0 +1,21 @@
+{
+    "description": "There are $ n $ students in a class working on group projects. The students will divide into groups (some students may be in groups alone), work on their independent pieces, and then discuss the results together. It takes the $ i $ -th student $ a_{i} $ minutes to finish his/her independent piece.\n\nIf students work at different paces, it can be frustrating for the faster students and stressful for the slower ones. In particular, the imbalance of a group is defined as the maximum $ a_{i} $ in the group minus the minimum $ a_{i} $ in the group. Note that a group containing a single student has an imbalance of $ 0 $ . How many ways are there for the students to divide into groups so that the total imbalance of all groups is at most $ k $ ?\n\nTwo divisions are considered distinct if there exists a pair of students who work in the same group in one division but different groups in the other.",
+    "inputFormat": "The first line contains two space-separated integers $ n $ and $ k $ ( $ 1<=n<=200 $ , $ 0<=k<=1000 $ ) \u2014 the number of students and the maximum total imbalance allowed, respectively.\n\nThe second line contains $ n $ space-separated integers $ a_{i} $ ( $ 1<=a_{i}<=500 $ ) \u2014 the time it takes the $ i $ -th student to complete his/her independent piece of work.",
+    "outputFormat": "Print a single integer, the number of ways the students can form groups. As the answer may be large, print its value modulo $ 10^{9}+7 $ .",
+    "samples": [
+        [
+            "3 2\n2 4 5\n",
+            "3\n"
+        ],
+        [
+            "4 3\n7 8 9 10\n",
+            "13\n"
+        ],
+        [
+            "4 0\n5 10 20 21\n",
+            "1\n"
+        ]
+    ],
+    "hint": "In the first sample, we have three options:\n\n- The first and second students form a group, and the third student forms a group. Total imbalance is $ 2+0=2 $ .\n- The first student forms a group, and the second and third students form a group. Total imbalance is $ 0+1=1 $ .\n- All three students form their own groups. Total imbalance is $ 0 $ .\n\nIn the third sample, the total imbalance must be $ 0 $ , so each student must work individually.",
+    "translation": "\u6709 $n$ \u4e2a\u5b66\u751f\uff0c\u6bcf\u4e2a\u5b66\u751f\u6709\u4e00\u4e2a\u80fd\u529b\u503c $a_i$\u3002\u73b0\u5728\u8981\u628a\u8fd9\u4e9b\u5b66\u751f\u5206\u6210\u4e00\u4e9b(\u4efb\u610f\u6570\u91cf\u7684)\u7ec4\uff0c\u6bcf\u4e00\u7ec4\u7684\u201c\u4e0d\u548c\u8c10\u5ea6\u201d\u662f\u8be5\u7ec4\u80fd\u529b\u503c\u6700\u5927\u7684\u5b66\u751f\u4e0e\u80fd\u529b\u503c\u6700\u5c0f\u7684\u5b66\u751f\u7684\u80fd\u529b\u503c\u7684\u5dee\u3002\u6c42\u6240\u6709\u4e0d\u548c\u8c10\u5ea6\u4e4b\u548c\u4e0d\u8d85\u8fc7 $k$ \u7684\u5206\u7ec4\u65b9\u6848\u603b\u6570\u3002\n\nTranslated by @feng_chengjie  "
+}

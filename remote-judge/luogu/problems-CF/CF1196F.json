@@ -1,0 +1,17 @@
+{
+    "description": "You are given a connected undirected weighted graph consisting of $ n $ vertices and $ m $ edges.\n\nYou need to print the $ k $ -th smallest shortest path in this graph (paths from the vertex to itself are not counted, paths from $ i $ to $ j $ and from $ j $ to $ i $ are counted as one).\n\nMore formally, if $ d $ is the matrix of shortest paths, where $ d_{i, j} $ is the length of the shortest path between vertices $ i $ and $ j $ ( $ 1 \\le i < j \\le n $ ), then you need to print the $ k $ -th element in the sorted array consisting of all $ d_{i, j} $ , where $ 1 \\le i < j \\le n $ .",
+    "inputFormat": "The first line of the input contains three integers $ n, m $ and $ k $ ( $ 2 \\le n \\le 2 \\cdot 10^5 $ , $ n - 1 \\le m \\le \\min\\Big(\\frac{n(n-1)}{2}, 2 \\cdot 10^5\\Big) $ , $ 1 \\le k \\le \\min\\Big(\\frac{n(n-1)}{2}, 400\\Big) $ \u2014 the number of vertices in the graph, the number of edges in the graph and the value of $ k $ , correspondingly.\n\nThen $ m $ lines follow, each containing three integers $ x $ , $ y $ and $ w $ ( $ 1 \\le x, y \\le n $ , $ 1 \\le w \\le 10^9 $ , $ x \\ne y $ ) denoting an edge between vertices $ x $ and $ y $ of weight $ w $ .\n\nIt is guaranteed that the given graph is connected (there is a path between any pair of vertices), there are no self-loops (edges connecting the vertex with itself) and multiple edges (for each pair of vertices $ x $ and $ y $ , there is at most one edge between this pair of vertices in the graph).",
+    "outputFormat": "Print one integer \u2014 the length of the $ k $ -th smallest shortest path in the given graph (paths from the vertex to itself are not counted, paths from $ i $ to $ j $ and from $ j $ to $ i $ are counted as one).",
+    "samples": [
+        [
+            "6 10 5\n2 5 1\n5 3 9\n6 2 2\n1 3 1\n5 1 8\n6 5 10\n1 6 5\n6 4 6\n3 6 2\n3 4 5\n",
+            "3\n"
+        ],
+        [
+            "7 15 18\n2 6 3\n5 7 4\n6 5 4\n3 6 9\n6 7 7\n1 6 4\n7 1 6\n7 2 1\n4 3 2\n3 2 8\n5 3 6\n2 5 5\n3 7 9\n4 1 8\n2 1 1\n",
+            "9\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "### \u9898\u76ee\u63cf\u8ff0\n\n\u7ed9\u5b9a\u4e00\u4e2a\u65e0\u5411\u5e26\u6743\u8fde\u901a\u56fe\uff0c\u6c42\u5b50\u8282\u70b9\u4e24\u4e24\u4e4b\u95f4\u8def\u5f84\u4ece\u5c0f\u5230\u5927\u6392\u5e8f\u4e4b\u540e\u7b2c $k$ \u957f\u7684\u8def\u5f84\u957f\u5ea6\u3002\n\n### \u8f93\u5165\u683c\u5f0f\n\n\u7b2c\u4e00\u884c\u4e09\u4e2a\u6574\u6570 $n,m,k$\u3002\u5171\u6709 $n$ \u4e2a\u7ed3\u70b9\uff0c$m$ \u6761**\u53cc\u5411**\u8fb9\uff0c\u6c42\u7b2c $k$ \u957f\u7684\u8def\u5f84\u3002\n\n\u4e4b\u540e $m$ \u884c\uff0c\u6bcf\u884c\u4e09\u4e2a\u6574\u6570 $x,y,w$\uff0c\u8868\u793a $x,y$ \u4e4b\u95f4\u6709\u4e00\u6761\u957f\u4e3a $w$ \u7684**\u53cc\u5411**\u8fb9\u3002\n\n### \u8f93\u51fa\u683c\u5f0f\n\n\u4e00\u4e2a\u6574\u6570\uff0c\u5373\u5b50\u8282\u70b9\u4e24\u4e24\u4e4b\u95f4\u8def\u5f84\u4ece\u5c0f\u5230\u5927\u6392\u5e8f\u4e4b\u540e\u7b2c $k$ \u957f\u7684\u8def\u5f84\u957f\u5ea6\u3002\n\n###\u63d0\u793a\u4e0e\u8bf4\u660e\n\n\u5bf9\u4e8e $100\\%$ \u7684\u6570\u636e\uff0c$ 2 \\le n \\le 2 \\cdot 10^5 $ , $ n - 1 \\le m \\le \\min\\Big(\\frac{n(n-1)}{2}, 2 \\cdot 10^5\\Big) $ , $ 1 \\le k \\le \\min\\Big(\\frac{n(n-1)}{2}, 400\\Big)$\u3002"
+}

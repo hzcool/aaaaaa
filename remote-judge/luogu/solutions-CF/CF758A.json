@@ -1,0 +1,122 @@
+[
+    {
+        "content": "#### \u9898\u76ee\u5176\u5b9e\u5c31\u662f\u6c42\u4e00\u4e2a\u6570\u5217\u7684\u6700\u5927\u6570\uff0c\u51cf\u53bb\u8fd9\u4e2a\u6570\u5217\u6240\u6709\u6570\u7684\u5dee \u4e4b\u548c\n\n\u5047\u8bbe\u8fd9\u4e2a\u6570\u5217\u7684\u6700\u5927\u6570\u4e3a $m$\uff0c\u5219\u7b54\u6848\n\n$$=(m-a_1)+(m-a_2)+(m-a_3)+\\dots+(m-a_n)$$\n\n$$=m*n-\\sum_{i=1}^{n}a_i$$\n\n\u6211\u4eec\u53ef\u4ee5\u8fb9\u8bfb\u8fb9\u505a\uff0c\u4e00\u8fb9\u6c42\u51fa\u6700\u5927\u503c\uff0c\u4e00\u8fb9\u6c42\u51fa\u6570\u5217\u7684\u548c\uff0c\u8fd9\u6837\u5c31\u4e0d\u7528\u6570\u7ec4\u4e86\n\n### \u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint m,s,n,a;//m\u662f\u6700\u5927\u6570\uff0cs\u662f\u6570\u5217\u7684\u548c\nint main()\n{\n\tcin>>n;\n\tfor(int x=1;x<=n;x++)cin>>a,m=max(m,a),s+=a;\n\tcout<<n*m-s;\n\treturn 0;\n}\n```\n\u5982\u679c\u6709\u9519\u8bef\u6b22\u8fce\u5728\u53f3\u4fa7\u8bc4\u8bba\u533a\u7559\u8a00\u6216\u79c1\u4fe1\n\n$\\mathrm{Upd\\ 2019.11.13:}$ \u7f8e\u5316\u6587\u7ae0\uff0c\u6dfb\u52a0 $\\LaTeX$\uff08\u8bdd\u8bf4\u8fd9\u8fd8\u662f\u6211\u8001\u65e9\u4ee5\u524d\u5199\u7684\u9898\u89e3\uff09",
+        "postTime": 1550656822,
+        "uid": 123294,
+        "name": "Alex_Wei",
+        "ccfLevel": 10,
+        "title": "\u9898\u89e3 CF758A \u3010Holiday Of Equality\u3011"
+    },
+    {
+        "content": "\u8fd9\u5176\u5b9e\u662f\u4e00\u9053\u975e\u5e38\u6c34\u7684\u6a21\u62df\u9898\uff0c\u53ea\u9700\u8981\u627e\u5230\u6700\u5927\u7684\u798f\u5229\uff0c\u7136\u540e\u4e0e\u6bcf\u4e2a\u798f\u5229\u76f8\u51cf\u5f97\u5230\u5dee\uff0c\u518d\u5c06\u8fd9\u4e9b\u5dee\u7d2f\u52a0\u5373\u53ef\u3002\n## \u8bdd\u4e0d\u591a\u8bf4\u4e0a\u4ee3\u7801\n```cpp\n#include<cstdio>\n#include<algorithm>\nusing namespace std;\nint n,a[101];\nint ans;\nint main(){\n\tscanf(\"%d\",&n);//\u8f93\u5165\n\tfor(int i=1;i<=n;i++)scanf(\"%d\",&a[i]);\n\tsort(a+1,a+n+1);//\u5148\u5c06\u6240\u4ee5\u798f\u5229\u6392\u5e8f\uff0c\u5f97\u5230\u6700\u5927\u7684\u798f\u5229\n\tfor(int i=1;i<n;i++){\n\t\tans+=a[n]-a[i];//\u7d2f\u52a0\u6bcf\u4e2a\u798f\u5229\u4e0e\u6700\u5927\u798f\u5229\u4e4b\u95f4\u7684\u5dee\n\t}\n\tprintf(\"%d\",ans);//\u8f93\u51fa\n\treturn 0;\n} //\u5706\u6ee1\u7ed3\u675f\uff0c\u8bf7\u52ff\u6284\u88ad\uff01\uff01\uff01\n``` ",
+        "postTime": 1533734458,
+        "uid": 53691,
+        "name": "whose",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF758A \u3010Holiday Of Equality\u3011"
+    },
+    {
+        "content": "~~\u8fd9\u662f\u9053\u6c34\u9898~~  \n# \u601d\u8def\u5982\u4e0b\uff1a \n\u2488\u5b9a\u4e49  \n\u2489\u8f93\u5165  \n\u248a\u5bfb\u627e\u6700\u5927\u503c\uff08max\uff09  \n\u248b\u8ba1\u6570\u5668\uff08s\uff09\u7d2f\u52a0\u6bcf\u4e2a\u503c\uff08a[i]\uff09\u4e0e\u6700\u5927\u503c\uff08max\uff09\u7684\u5dee\u503c  \n\u248c\u8f93\u51fa\u5dee\u503c  \n\u248d\u7ed3\u675f\n\n\n# \u4ee3\u7801\u2193\u2193\u2193  \n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint a[101];\nint main()\n{\n\tint n,max=0,s=0;//\u2488\u5206\u522b\u5b9a\u4e49\u4e2a\u6570\uff0c\u6700\u5927\u503c\u548c\u8ba1\u6570\u5668\uff0c\u6ce8\u610f\u8ba1\u6570\u5668\u662f\u8981\u5f52\u96f6\u7684 \n\tcin>>n;\n\tfor(int i=0;i<n;i++)\n\t\tcin>>a[i];//\u2489\u8f93\u5165\u6570\u636e \n\tfor(int i=0;i<n;i++)\n\t\tif(a[i]>max) max=a[i];//\u248a\u5faa\u73af+\u5224\u65ad\u627e\u6700\u5927\u503c \n\tfor(int i=0;i<n;i++)\n\t\tif(a[i]<max) s=s+max-a[i];//\u248b\u8ba1\u6570\u5668\u7d2f\u52a0\u6bcf\u4e2a\u503c\u4e0e\u6700\u5927\u503c\u4e4b\u95f4\u7684\u5dee \n\tcout<<s;//\u8f93\u51fa\u5dee\u503c \n\treturn 0;//\u7ed3\u675f \n}\n```\n\n",
+        "postTime": 1563807726,
+        "uid": 111446,
+        "name": "\u6211\u4f3c\u5c0fc",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF758A \u3010Holiday Of Equality\u3011"
+    },
+    {
+        "content": "\u5927\u4f6c\u4eec\u505a\u4e00\u9053\u7ea2\u9898\u600e\u4e48\u80fd\u7528\u6570\u7ec4\u5462\uff1f\n\n\u5e76\u4e14\u7531\u4e24\u6b21\u63d0\u4ea4\u5b9e\u6d4b\u4e86\u4e00\u4e2a\u4e8b\u5b9e\n\n[cin\u8bfb\u5165](https://www.luogu.org/record/show?rid=13644144)\n\n[scanf\u8bfb\u5165](https://www.luogu.org/record/show?rid=13644209)\n\n\u7531\u63d0\u4ea4\u53ef\u77e5scanf\u6d88\u8017\u5185\u5b58\u8f83\u5927\uff0c\u800ccin\u6d88\u8017\u65f6\u95f4\u8f83\u591a\uff0c\u6240\u4ee5\u4ee5\u540e\u5185\u5b58\u5361\u7684\u4e25\u5c31\u7528cin\uff0c\u65f6\u95f4\u7d27\u5c31scanf\n\n\u63a5\u4e0b\u6765\u56de\u5f52\u6b63\u9898\uff0c\u4e0d\u7528\u6570\u7ec4\u7684\u89e3\u6cd5\n\n\n```\n#include<iostream>\nusing namespace std;\nint main(){\n\tint n,w,maxn=0,zong=0;//\u521d\u59cb\u5316\u6700\u5927\u503c\u4e3a0\uff0c\u603b\u503c\u4e3a0\n\tcin>>n;\n\tfor(int i=0;i<n;i++){\n\t\tscanf(\"%d\",&w);//\u8bfb\u5165\n\t\tzong+=w;//\u6c42\u73b0\u5728\u624b\u91cc\u4e00\u5171\u591a\u5c11\u94b1\n\t\tif(w>maxn)maxn=w;//\u6c42\u6700\u5927\u503c\n\t}\n\tcout<<maxn*n-zong;//\u9700\u8981\u7684\u94b1\u5c31\u662fn\u500d\u6700\u5927\u503c\u51cf\n    //\u53bb\u73b0\u6709\u7684\u94b1\uff0c\u56e0\u4e3an\u4e2a\u4eba\u6700\u540e\u90fd\u8981\u62ff\u5230maxn\u6570\u91cf\u7684\u94b1\n\treturn 0;//\u8d70\u4eba\u4e86\n}\n```\n\n\u7528cin\u662f\u53ef\u4ee50MB\u8fc7\u7684",
+        "postTime": 1541893331,
+        "uid": 118852,
+        "name": "tryrtj",
+        "ccfLevel": 4,
+        "title": "Holiday Of Equality"
+    },
+    {
+        "content": "# -\u7eaf\u6a21\u62df-\n\n>\u5176\u5b9e\u6ca1\u4ec0\u4e48\u96be\u5ea6\uff0c\u53ea\u8981\u53d6max\u518d\u6c42\u5dee\uff0c\u628a\u5dee\u76f8\u52a0\u5373\u4e3aans\n\n\u6ce8\uff1amax\u4e3a\u53d6\u8f83\u5927\u503c\u51fd\u6570  >_<\n\n~~~\n#include<bits/stdc++.h>\nusing namespace std;\nint maxx,a[1000005];\nint main(){\n    int n;\n    cin>>n;\n    for(int i=1;i<=n;i++){\n        scanf(\"%d\",&a[i]);\n        maxx=max(maxx,a[i]);\n    }\n    int ans=0;\n    for(int i=1;i<=n;i++){\n        ans+=maxx-a[i];\n    }\n    cout<<ans;\n    return 0;\n}\n~~~",
+        "postTime": 1529558527,
+        "uid": 95346,
+        "name": "OdtreePrince",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF758A \u3010Holiday Of Equality\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u5176\u5b9e\u5c31\u53ea\u9700\u8981\u6c42\u51fa\u6700\u5927\u503c\uff0c\u5e76\u4e14\u66b4\u529b\u4e00\u4e2a\u4e2a\u7684\u5c06\u8fd9\u4e2a\u6570\u4e0e\u6700\u5927\u6570\u7684\u5dee\u7d2f\u52a0\u8d77\u6765\u5c31\u53ef\u4ee5\u4e86\uff08\u627e\u6700\u5927\u503c\u672c\u4eba\u61d2\u60f0\uff0c\u7528\u7684sort\uff09\u3002\u53ef\u4ee5\u7528\u5feb\u8bfb\u5feb\u5199\u4f18\u5316\u65f6\u95f4\uff08\u867d\u7136\u4e0d\u4f1aTLE\uff09\n\n\u76f4\u63a5\u4e0a\u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\ninline int read()\n{\n\tint x=0,w=0;\n\tchar ch=0;\n\twhile(!isdigit(ch))\n\t{\n\t\tw|=ch=='-';\n\t\tch=getchar();\n\t}\n\twhile(isdigit(ch))\n\t{\n\t\tx=(x<<3)+(x<<1)+(ch^48);\n\t\tch=getchar();\n\t}\n\treturn w? -x:x;\n}\ninline void write(int x)\n{\n\tif(x>9)write(x/10);\n\tputchar(x%10+'0');\n}     //\u5feb\u8bfb\u5feb\u5199\u3002\nint n,ans=0,a[105];\nint main()\n{\n\tn=read();\n\tfor(int i=1;i<=n;i++)\n\t\ta[i]=read();\n\tsort(a+1,a+1+n);   //\u8f93\u5165\u4e4b\u540esort\u627e\u51fa\u6700\u5927\u503c\u3002\n\tfor(int i=1;i<n;i++)\n\t{\n\t\tif(a[i]<a[n])ans+=a[n]-a[i];\n\t}     //\u5c06\u6bcf\u4e2a\u6570\u4e0e\u6700\u5927\u6570\u7684\u5dee\u7d2f\u52a0\u8d77\u6765\u3002\n\twrite(ans);   //\u6700\u540e\u8f93\u51fa\u7b54\u6848\u3002\n\treturn 0;\n}\n```",
+        "postTime": 1569134332,
+        "uid": 182930,
+        "name": "\u4e00\u6ef4\u5c0f\u6c34\u6ef4",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF758A \u3010Holiday Of Equality\u3011"
+    },
+    {
+        "content": "\u6bcf\u4e2a\u4eba\u6700\u7ec8\u7684\u798f\u5229\u5c31\u662f\u6700\u521d\u6240\u6709\u4eba\u4e2d\u798f\u5229\u6700\u4e30\u539a\u7684\u90a3\u4e2a\u4eba\u7684\u798f\u5229\u3002\u4e8e\u662f\u53ef\u4ee5\u5f97\u5230\u4e0b\u9762\u8fd9\u4e2a\u516c\u5f0f\uff1a\n\n\u4e00\u4e2a\u4eba\u5f97\u5230\u7684\u798f\u5229=\u6700\u5927\u503c-\u539f\u6765\u7684\u798f\u5229\u3002\n\n\u4e0b\u9762\u662f\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\n\nusing namespace std;\n\nint main()\n{\n\tint a;\n\tscanf(\"%d\", &a);\n\tchar b[100]={0};\n\tfor(int i=0; i<a; i++)\n\t{\n\t\tcin>>b;\n\t\tif(strlen(b)>10)\n\t\t{\n\t\t\tprintf(\"%c%d%c\\n\", b[0], strlen(b)-2, b[strlen(b)-1]);\n\t\t}\n\t\telse\n\t\t{\n\t\t\tprintf(\"%s\\n\", b);\n\t\t}\n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1563627224,
+        "uid": 120885,
+        "name": "\u5f00\u5fc3\u7684\u732a",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF758A \u3010Holiday Of Equality\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u5f88\u6c34\uff0c\u4e2d\u5fc3\u601d\u60f3\u662f\u628a\u4ed6\u4eec\u7684\u6bcf\u4e00\u4e2aa[i]\u4f5c\u5dee\uff0c\u5177\u4f53\u6ce8\u91ca\u4ee3\u7801\u91cc\u6709\n```cpp\n#include <stdio.h>\n#include <cmath>\n#include <iostream>\nusing namespace std;\nint a[101], maxv, answer;     //\u5b9a\u4e49\u5168\u5c40\u6570\u7ec4\u548c\u53d8\u91cf\uff0c\u56e0\u4e3a\u5728\u4e3b\u51fd\u6570\u5916\u5b9a\u4e49\uff0c\u6240\u4ee5\u4e0d\u7528\u521d\u59cb\u5316\u4e3a0 \nint main ()\n{\n\tint n;\n\tscanf(\"%d\",&n);  //\u8bfb\u5165n \n\tif(n==0) return 0; \n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tscanf(\"%d\",&a[i]);    //\u8bfb\u5165a[i] \n\t\tmaxv=max(maxv,a[i]);  //\u6253\u64c2\u53f0\u6c42\u6700\u5927\u503c\uff0c\u6392\u5e8f\u4e5f\u53ef\n\t\t//\u6216\u8005\u5199\u6210  if(maxv<a[i])  maxv=a[i]; \n\t}\n\t\n\tfor(int i=1;i<=n;i++)\n\t\tanswer+=(maxv-a[i]);     //\u6700\u7ec8\u7b54\u6848\u52a0\u4e0a\u6700\u5927\u503c\u51cf\u53bb\u6bcf\u4e00\u4e2aa[i]\n\t\t\n\tcout<<answer<<\"\\n\";   //\u8f93\u51fa \n\treturn 0;   //\u5b8c\u7f8e\u7ed3\u675f \n}\n```\n",
+        "postTime": 1558867161,
+        "uid": 181750,
+        "name": "\u6253\u8868\u5927\u849f\u84bb",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF758A \u3010Holiday Of Equality\u3011"
+    },
+    {
+        "content": "# \u4e3b\u8981\u601d\u8def\u5f88\u91cd\u8981\n\n\n------------\n\u56e0\u4e3a\u8981\u5e73\u5747\uff0c\u6240\u4ee5\u53d6\u6700\u5927\u7684\uff08max\uff09\u4e58\u4e0a\u4eba\u6570\uff08n\uff09\u5c31\u662f\u76ee\u6807\u3002\n\n\u6240\u4ee5\u5f97\u5230\uff1a\n\n------------\n\n## $ans=max*n-sum$\n\n\n\n\u5176\u4e2d\uff0c\n\n\n------------\n\n$sum=\\displaystyle\\sum_{i=1}^{n}a_i$\n\n\n\n------------\n\u4e5f\u5c31\u662f\uff1a\n\n\n------------\n$sum=a_1+a_2+a_3+\\dots+a_n$\n\n------------\n\n\u597d\u4e86\uff0c\u5e9f\u8bdd\u4e0d\u591a\u8bf4\uff0c\n\n\n------------\n\n### \u4e0b\u9762\u7528~~C++~~ C\u6765\u89e3\u51b3\u8fd9\u4e2a\u95ee\u9898\uff1a\n```c\n#include <stdio.h>\n#include <stdlib.h>\nint main()\n{\n\tint n,a[105],m,sum,ans;\n\tint i,j;                      //\u5fc5\u987b\u5728\u5916\u9762\u5b9a\u4e49\n\tm=0;\n\tsum=0;\n\tscanf(\"%d\uff01\",&n);\n\tfor(i=1;i<=n;i++)\n\t{\n\t\tscanf(\"%d\",&a[i]);    //\u8f93\u5165\n\t}\n\tfor(i=1;i<=n;i++)\n\t{\n\t\tsum=sum+a[i];         //\u6c42\u548c\n\t}\n\tfor(i=1;i<=n;i++)\n\t{\n\t\tif(a[i]>m)\n\t\t{\n\t\t\tm=a[i];       //\u627e\u5230\u6700\u5927\n\t\t}\n\t}\n\tans=(m*n)-sum;                //\u4e2d\u5fc3\u516c\u5f0f\n\tprintf(\"%d\",ans);             //\u8f93\u51fa\n\treturn 0;\n}\n```\n\u4e0d\u662f\u5f88\u96be\u5427\uff0c886\uff01\n\n\n",
+        "postTime": 1556174058,
+        "uid": 166528,
+        "name": "\u722c\u884c\u8005\u5c0f\u90d1",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF758A \u3010Holiday Of Equality\u3011"
+    },
+    {
+        "content": "# \u5206\u4e09\u79cd\u60c5\u51b5\u6765\u8d70\uff01\uff01\uff01\n\u9996\u5148\u6211\u4eec\u5fc5\u987b\u8981\u5224\u65ad\u8fd9\u4e9b\u6570\u5b57**\u662f\u5426\u5168\u90e8\u76f8\u7b49**\u6216**\u53ea\u6709\u4e00\u4e2a\u6570\u5b57**\uff0c\u56e0\u4e3a\u5728\u8fd9\u4e24\u79cd\u60c5\u51b5\u4e0b**\u7b54\u6848\u90fd\u4e3a0\uff01\uff01\uff01**\n\n\u6240\u4ee5\u6211\u4eec\u5148\u8fdb\u884c\u5224\u65ad\uff1a\n```cpp\ncin>>n;\n\tfor(i=1;i<=n;i++){\n\t    cin>>a[i];\n\t    if(i>1){//\u8fd9\u91cc\u7b49\u5230i>1\u65f6\u518d\u5224\u65ad\uff0c\u76ee\u7684\u662f\u5224\u65ad\u4e4b\u524d\u90a3\u4e00\u4e2a\u6570\n\t    \tif(a[i]!=a[i-1])k++;//\u5982\u679c\u4e0d\u76f8\u7b49\uff0ck++\n\t\t}\n\t\tif(a[i]>max)max=a[i];//\u8fd9\u91cc\u8d1f\u8d23\u786e\u5b9a\u6700\u5927\u503c\uff0c\u4e4b\u540e\u4f1a\u8bb2\u89e3\n\t}\n\tif(k==0){//k=0\u8bf4\u660e\u5168\u90e8\u6570\u5404\u81ea\u76f8\u7b49\n\t\tcout<<0<<endl;\n\t\treturn 0;\n\t}\n\tif(n==1){//\u603b\u91cf\u4e3a1\n\t\tcout<<0<<endl;\n\t\treturn 0;\n\t}\n```\n\u4e0a\u9762\u63d0\u5230**\u786e\u5b9a\u6700\u5927\u503c**\u7684\u95ee\u9898\uff0c\u5176\u5b9e\u5c31\u662f**\u4e2d\u5fc3\u601d\u60f3**\uff1a\n\n## \u627e\u5230\u6700\u5927\u503c\uff0c\u6c42\u6700\u5927\u503c\u4e0e\u6240\u6709\u6570\u5b57\u5dee\u7684\u548c\uff01\uff01\uff01\n\u90a3\u4e48AC\u4ee3\u7801\u5c31\u51fa\u6765\u4e86:\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint a[1000];\nint sum=0;\nint main(){\n\tint i,j,k=0,n,max=0;\n\tcin>>n;\n\tfor(i=1;i<=n;i++){\n\t    cin>>a[i];\n\t    if(i>1){\n\t    \tif(a[i]!=a[i-1])k++;\n\t\t}\n\t\tif(a[i]>max)max=a[i];\n\t}\n\tif(k==0){\n\t\tcout<<0<<endl;\n\t\treturn 0;\n\t}\n\tif(n==1){\n\t\tcout<<0<<endl;\n\t\treturn 0;\n\t}\n\tfor(i=1;i<=n;i++)sum+=(max-a[i]);//\u5c31\u662f\u627e\u5230\u6700\u5927\u503c\uff0c\u6c42\u6700\u5927\u503c\u4e0e\u6240\u6709\u6570\u5b57\u5dee\u7684\u548c\uff01\uff01\uff01\n\tcout<<sum<<endl;//\u8f93\u51fa\u6700\u5927\u503c\n\treturn 0;\n}\n```",
+        "postTime": 1550102209,
+        "uid": 133986,
+        "name": "judgejudge",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 CF758A \u3010Holiday Of Equality\u3011"
+    },
+    {
+        "content": "\u9996\u5148\uff0c\u8fd9\u9898\u8981\u5206\u6790\u4e00\u4e0b\n\n\t\u5c31\u662f\u8bf4\uff0c\u6bcf\u4e2a\u516c\u6c11\u90fd\u6709\u4e00\u4e2a\u57fa\u7840\u798f\u5229\uff0c\u8981\u8ba9\u4ed6\u4eec\u54c1\u7b49\n    \n\u3010\u201c\u6bcf\u4e2a\u4eba\u7684\u798f\u5229\u90fd\u88ab\u4f30\u8ba1\u4e3a\u4e00\u4e2a\u6574\u6570\u201d\u5c31\u662f\u6bcf\u4e2a\u4eba\u7684\u798f\u5229\u521d\u503c\u5566\u3011\n\n# \u90a3\u4e48\n\n### ~~\u4f3c\u4e4e\u7ed3\u675f\u4e86\u8bf6~~\n\n#### ~~\u518d\u76ae\u51e0\u53e5\u5427~~\n\n\u4ece\u201c\u4ed6\u6ca1\u6709\u6743\u529b\u593a\u8d70\u4efb\u4f55\u94b1\u8d22\u201d\u4e2d\u53ef\u5f97\uff0c\u6700\u5c11\u7684\u53ea\u80fd\u5411\u6700\u591a\u7684\u9760\u62e2\n\n\u90a3\u4e48\u4e2d\u5fc3\u601d\u8def\u5c31\u662f\uff1a\n\n\t\u7b97\u51fa\u4e00\u4e2a\u6700\u5927\u503c\uff0c\u4e00\u4e2a\u4e00\u4e2a\u4f5c\u5dee\uff0c\u52a0\u8d77\u6765\u5c31\u662f\u7b54\u6848\n    \nCode\uff1a\n\n```\n#include<bits/stdc++.h>\nusing namespace std;\nlong long maxn = -2E64+1;  \n//\u6c42\u6700\u5927\u503c\uff0c\u521d\u503c\u8d4b\u5927\u4e00\u70b9\n//2E64\u5c31\u662f2\u768464\u6b21\u65b9\u3010-2E64+1\u662flong long\u7684\u6700\u5c0f\u503c\u3011\n//\u6240\u4ee5\u7528Dev-C++5.10\u4f1a\u8b66\u544a\uff0c\u4e0d\u7528\u7ba1\nvoid maxx( int n , int i ){  //\u4e00\u4e2a\u7b80\u5355\u7684max\n//i\u5176\u5b9e\u4e0d\u7528\u8bfb\u5165\u7684\u5566\u3010\u6ed1\u7a3d\u3011\n\tif ( n > maxn )\n\t{\n\t\tmaxn = n;\n\t}\n\treturn;  //\u8fd9\u4e2a\u6709\u65e0\u90fd\u53ef\n}\nint Pss( int n ){\n\treturn maxn - n;  \n    //\u6211\u628a\u4f5c\u5dee\u7684\u4e1c\u897f\u90fd\u5199\u6210\u51fd\u6570\u4e86\u3010\u4e8c\u6b21\u6ed1\u7a3d\u3011\n}\nint main(){\n\tint n,i,a[101];\n\tcin >> n;\n\tfor ( i = 1 ; i <= n ; i++ )\n\t{\n\t\tcin >> a[i];\n\t\tmaxx( a[i] , i );\n        //\u5728\u8bfb\u5165\u540c\u65f6\u5373\u53ef\u7b97\u6700\u5927\u503c\u4e86\n        //\u7531\u4e8emaxn\u662f\u5168\u5c40\u53d8\u91cf\uff0c\u5c31\u7528void\u5373\u53ef\n\t}\n\tint ans = 0;  //\u4e0d\u662f\u5168\u5c40\u53d8\u91cf\uff0c\u5fc5\u987b\u8981\u8d4b\u521d\u503c\n    //\u4e0d\u8d4b\u521d\u503c\u4f1a\u5f88\u9b3c\u755c\u7684\u3010\u4e09\u6b21\u6ed1\u7a3d\u3011\n\tfor ( i = 1 ; i <= n ; i++ )\n\t{\n\t\tans += Pss( a[i] );  \n        //\u5411\u571f\u8c6a\u9760\u62e2\u3010\u56db\u6b21\u6ed1\u7a3d\u3011\uff0c\u5e76\u628a\u7f3a\u7684\u94b1++\n\t}\n\tcout << ans;\n\treturn 0;  //\u4e0d\u6253CE\u3010\u4e94\u6b21\u6ed1\u7a3d\u3011\n}\n```",
+        "postTime": 1545404417,
+        "uid": 51931,
+        "name": "Ace_Radom",
+        "ccfLevel": 4,
+        "title": "CF758A \u3010Holiday Of Equality\u3011\u9898\u89e3"
+    },
+    {
+        "content": "\u6c34\u4f53\u4e00\u9053\uff0c\u5982\u679c\u6309\u82b1\u6700\u5c11\u7684\u94b1\u6765\u7b97\u7684\u8bdd\uff0c\u6700\u6709\u94b1\u7684\u516c\u6c11\u662f\u4e0d\u7528\u7ed9\u7684\uff0c\n\u7ed9\u7a77\u4eba\u4eec\u8865\u5dee\u4ef7\u5c31\u884c\u4e86~~\u6ed1\u7a3d~~\uff0c\n```\n#include<iostream>\n#include<cstdio>\n#include<string>\nusing namespace std;\nint main()\n{\n\tint n,sum=0,max=-99999;//max\u5f80\u5c0f\u4e86\u5b9a\u4e49\uff0c\n\tint a[9999];//\u5f00\u4e00\u4e2a\u5927\u6570\u7ec4\n\tcin>>n;\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tcin>>a[i];\n\t    if(a[i]>max)\n\t    max=a[i];//\u627e\u5230\u6700\u6709\u94b1\u7684\n\t}\n\tfor(int i=1;i<=n;i++)\n\t  sum+=(max-a[i]);//\u7d2f\u8ba1\u8865\u7684\u5dee\u4ef7\n\tcout<<sum;//\u8f93\u51fa\n\treturn 0;\n}\n```\n~~\u672c\u4eba\u849f\u84bb\u4e00\u4e2a\uff0c\u6c42\u8fc7~~\n\u4f5c\u4e3a\u840c\u65b0\u53ef\u4ee5\u591a\u505a\u6c34\u9898\u54df\uff0c\u4e3a\u4ee5\u540e\u6f2b\u6f2bOI\u8def\u94fa\u57ab",
+        "postTime": 1540975473,
+        "uid": 131078,
+        "name": "wlyzzhaoyilin",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF758A \u3010Holiday Of Equality\u3011"
+    },
+    {
+        "content": "~~**\u554a\uff0c\u5c3d\u7136\u6ca1p\u515a\u51fa\u6ca1\uff0c\u6211\u6765\u6253\u5934\uff01\uff01**~~\n\n\u8fd9\u9898\u5176\u5b9e\u662f\u4e00\u9053\u6a21\u62df\u9898\uff1b\uff1b\n\n\u8bdd\u4e0d\u591a\u8bf4\uff0c\u8fdb\u5165\u6b63\u9898\uff1a\n\n\u9898\u610f\uff1a\u5206\u94b1\uff0c\u6709\u5206\u7ed9\u6bcf\u4eba\u76f8\u540c\u6570\u91cf\u7684\u94b1\uff1b\n\n\u6ce8\u91ca\u8be6\u89c1\u4ee3\u7801\u4e2d\uff1a\n```pascal\nvar\n  n,max,min,i,j:longint;\n  a:Array[1..1000]of longint;\nbegin\n  read(n);//\u8bfb\u5165\uff0c\uff08\u4e0d\u7528\u8bb2\u4e86\u5427\uff01\uff09\n   for i:=1 to n do\n  begin\n    read(a[i]);\n  end;\n max:=0;//\u8d4b\u521d\u503c\uff1b\nfor i:=1 to n do \n  if max<a[i] then max:=a[i];//\u627e\u5230\u90a3\u4e2a\u6700\u5927\u7684\uff1b\u56e0\u4e3a\u4ed8\n  \u51fa\u53bb\u7684\u94b1\u8981\u5c11\uff0c\u6240\u4ee5\u4e0d\u8981\u7ed9\u6700\u591a\u7684\uff0c\u8981\u4ee5\u6700\u591a\u4e3a\u6807\u51c6\u6765\n  \u5206\u94b1\uff1b\n   for i:=1 to n do begin\n    if a[i]<>max then begin\n    min:=min+max-a[i];//\u5faa\u73af\u627e\u5728\u90a3\u4e9b\u5c11\u7684\u7684\u94b1\u4e2d\u8865\u5230\u6700\u591a\n    \u7684\u90a3\u4e2a\u6700\u591a\u7684\u94b1\u7684\u6570\u91cf\uff1b\n   end; //min\u4e3a\u8ba1\u6570\u5668\uff1b\nend;\nwrite(min);\nend.\n```\n~~**\u62d2\u7edd\u6284\u9898\uff0c\u4ece\u6211\u505a\u8d77**~~",
+        "postTime": 1537541925,
+        "uid": 53011,
+        "name": "dl__hh6",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF758A \u3010Holiday Of Equality\u3011"
+    },
+    {
+        "content": "\u601d\u8def\uff1a\u6c42\u51fa\u5e8f\u5217\u4e2d\u6700\u5927\u7684\u6570\uff0c\u7528\u8fd9\u4e2a\u6570\u51cf\u53bb\u5e8f\u5217\u4e2d\u5176\u4ed6\u7684\u6570\uff0c\u8fd9\u4e9b\u5dee\u7d2f\u8ba1\u8d77\u6765\u5373\u4e3a\u7b54\u6848\u3002\uff08\u56e0\u4e3a\u56fd\u738b\u4e0d\u4f1a\u593a\u8d70\u516c\u6c11\u7684\u94b1\u8d22\uff0c\u53c8\u60f3\u82b1\u6700\u5c11\u7684\u94b1\uff0c\u6240\u4ee5\u516c\u6c11\u4e2d\u94b1\u6700\u591a\u7684\u4eba\u56fd\u738b\u4e0d\u4f1a\u518d\u7ed9\uff0c\u53ea\u9700\u5c06\u5176\u4ed6\u4eba\u7684\u94b1\u8d22\u52a0\u5230\u4e0e\u6700\u591a\u94b1\u7684\u516c\u6c11\u76f8\u7b49\u5373\u53ef\uff09\n\n~~\u597d\u5427\uff0c\u6709\u70b9\u5570\u55e6\u4e86~~\n\n\u63a5\u4e0b\u6765\u4e0a\u4ee3\u7801\n\n```cpp\n#include<iostream>//\u5934\u6587\u4ef6\u4e0d\u8bf4\nusing namespace std;\nconst int MAXN=10001;\nint main(){\n    int a[MAXN];      //\u5b9a\u4e4910001\u4e2a\u6570\u7ec4\u5143\u7d20\n    int i,n,maxa,sum=0;\n    cin>>n;            //\u8f93\u5165\n    for(i=1;i<=n;i++)\n      cin>>a[i];        //\u8bfb\u5165n\u4e2a\u6570\uff0c\u5e76\u5b58\u50a8\u5230a[1]~a[n]\u4e2d\n    maxa=a[1];       //\u8d4b\u6700\u5927\u503c\u521d\u503c\u548c\u521d\u59cb\u4f4d\u7f6e\n    for(i=2;i<=n;i++) //\u679a\u4e3e\u6570\u7ec4(a[2]~a[n-1])\uff0c\u627e\u5230\u6700\u5927\u6570\u548c\u4f4d\u7f6e\n      if(a[i]>maxa){  //\u6bd4\u524d\u9762\u6570\u636e\u66f4\u5927\uff0c\u66f4\u65b0\u6700\u5927\u503c\u53ca\u5176\u4e0b\u6807\n        maxa=a[i];  //\u8bb0\u4e0b\u503c\n    }\n    for(i=1;i<=n;i++){\n    \tsum+=(maxa-a[i]); //\u94b1\u6700\u591a\u7684\u516c\u6c11\u7684\u94b1\u8d22\u51cf\u53bb\u5176\u4ed6\u4eba\u7684\u94b1\u8d22\uff0c\u5e76\u7d2f\u52a0\u8d77\u6765\n\t}\n    cout<<sum;           //\u8f93\u51fa\u7b54\u6848\n    return 0;            //\u7ed3\u675f\n}\n```\n\n\u795d\u5404\u4f4dAC\u2026  >_<",
+        "postTime": 1533045798,
+        "uid": 102532,
+        "name": "hzx1",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF758A \u3010Holiday Of Equality\u3011"
+    },
+    {
+        "content": "~~\u53c8\u662f\u4e00\u9053\u6c34\u9898\u5462~~\n\n\u8fd9\u9053\u9898\u5c31\u662f\u627e\u5230\u6700\u5927\u503c\u7136\u540e\u628a\u6ca1\u6709\u8fbe\u5230\u6700\u5927\u503c\u7684\u8865\u6210\u6700\u5927\u503c\uff0c\u6c42\u9700\u8981\u8865\u591a\u5c11\u3002\n\nAC\u4ee3\u7801\u5982\u4e0b\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,maxn,sum;\nint main()\n{\n    cin>>n;int a[n+1];\n    for(int i=1;i<=n;i++)\n    {\n        cin>>a[i];\n        if(a[i]>maxn)//\u8bb0\u5f55\u6700\u5927\u503c\n        maxn=a[i];\n    }\n    for(int i=1;i<=n;i++)\n    {\n        sum+=abs(maxn-a[i]);//\u6bcf\u4e00\u9879\u8fd8\u5dee\u591a\u5c11\u5c31\u52a0\u591a\u5c11\n    }\n    cout<<sum;\n    return 0;//\u8f93\u51fa\uff0c\u6109\u5feb\u7684AC\u5566\uff01\u9535\u9535\uff01\n}\n```\n# \u675c\u7edd\u6284\u88ad\uff0c\u4ece\u6211\u505a\u8d77\uff01\uff01\uff01\uff01\n~~\uff08\u53c8\u6c34\u4e00\u7bc7CF\u9898\u89e3\u771f\u8212\u670d\uff09~~",
+        "postTime": 1528470392,
+        "uid": 90444,
+        "name": "HNYLMS_MuQiuFeng",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF758A \u3010Holiday Of Equality\u3011"
+    }
+]

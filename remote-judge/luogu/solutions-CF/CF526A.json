@@ -1,0 +1,42 @@
+[
+    {
+        "content": "## \u5206\u6790\n\n[\u76f4\u901a\u9898\u76ee](https://www.luogu.com.cn/problem/CF526A#submit)\n\n\u6700\u5f00\u59cb\u8003\u8651\u4e86\u4e00\u4e0b $O(n)$,\u7b49\u5230\u540e\u6765\u624d\u53d1\u73b0 $1 \\le n \\le 100$\uff0c\u8fd9\u4e48\u8bf4\uff0c$O(n^2)$ \u4e0d\u4f1a\u8d85\u65f6\uff08\u8fde $O(n^4)$\uff09\u3002\n\u66b4\u529b\u5c31\u53ef\u4ee5\u76f4\u63a5\u89e3\u51b3\u8fd9\u9053\u9898\u3002\n\n\u6211\u4eec\u53ea\u7528\u679a\u4e3e\u4e24\u4e2a\uff1a\u4e00\u4e2a\u662f\u8d77\u70b9\uff0c\u4e5f\u5c31\u662f\u4ece\u54ea\u91cc\u5f00\u59cb\u8df3\uff08\u8d77\u70b9\u4e5f\u8981\u662f```*```\uff09\uff0c\u53e6\u4e00\u4e2a\u5c31\u662f\u8df3\u7684\u8ddd\u79bb\u3002\u7136\u540e\u518d\u5224\u65ad $c_i \\quad c_{i+j} \\quad c_{i+j*2} \\quad c_{i+j*3} \\quad c_{i+j*4}$ \u662f\u4e0d\u662f```*```\u5373\u53ef\u3002\n\n## Code\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nchar c[105];\nint n;\nint main(){\n\tcin>>n;\n\tcin>>c;\n\tfor(int i=0;i<n;i++){//\u5f00\u59cb\u8df3\u8dc3\u7684\u8d77\u70b9\n\t\tfor(int j=1;j<=n;j++){//\u679a\u4e3e\u6bcf\u6b21\u8df3\u8dc3\u7684\u8ddd\u79bb\n\t\t\tif(c[i]=='*'&&c[i+j]=='*'&&c[i+j*2]=='*'&&c[i+j*3]=='*'&&c[i+j*4]=='*'){//\u5224\u65ad\u80fd\u4e0d\u80fd\u8fdb\u884c\u4e00\u6b21\u5b8c\u7f8e\u7684\u8df3\u8dc3\uff0c\u4e5f\u5c31\u662f\u8bf4\uff0c\u811a\u4e0b\u4e5f\u5fc5\u987b\u662f*\uff0c\u662f\u5c31\u8f93\u51fayes\uff0c\u5426\u5219\u6ca1\u6709\u5c31\u8f93\u51fano\n\t\t\t\tcout<<\"yes\";\n\t\t\t\treturn 0; \n\t\t\t}\n\t\t}\n\t\t\n\t}\n\tcout<<\"no\";\n\treturn 0;\n}\n```\n",
+        "postTime": 1652878339,
+        "uid": 716965,
+        "name": "_zaa_",
+        "ccfLevel": 4,
+        "title": "CF526A \u9898\u89e3"
+    },
+    {
+        "content": "# \u601d\u8def\n\u4e4d\u4e00\u770b\u8fd9\u9053\u9898\u597d\u50cf\u5f88\u96be\u53ef\u662f\uff0c\u5f53\u6211\u770b\u5230 $n\\le100$ \u65f6\u6211\u4eff\u4f5b\u53c8\u770b\u5230\u4e86\u66b4\u529b\u7684\u66d9\u5149\uff0c\u4e8e\u662f\u5c31\u5f00\u59cb\u5199 $O(n ^ 2)$ \u505a\u6cd5\u4e86\u3002\u5176\u5b9e\u8fd9\u9053\u9898\u5c31\u53ea\u7528\u53bb\u679a\u4e3e\u8d77\u70b9\u548c\u8df3\u8dc3\u957f\u5ea6\u518d\u770b\u770b\u4ece $s_i$ \uff08\u521d\u59cb $i=q$ \u6bcf\u6b21 $i$ \u52a0\u4e0a $l$\uff09\u5f00\u59cb\u6709\u51e0\u4e2a\u8fde\u7eed\u7684\u5e73\u53f0\u5c31\u884c\u4e86\uff0c\u5982\u679c\u8fde\u7eed\u4e2a\u6570\u7b49\u4e8e $5$ \u8f93\u51fa\u662f,\u5982\u679c\u679a\u4e3e\u5b8c\u4e86\u4e5f\u6ca1\u6709\u8f93\u51fa\u7684\u8bdd\u5c31\u76f4\u63a5\u8f93\u51fa\u5426 ,\u90a3\u4ee3\u7801\u4e0d\u5c31\u51fa\u6765\u4e86\u5417\uff1f\n# AC\u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n;\nchar s[100100];\nint main(){\n\tcin>>n>>s+1;\n\tfor(int l=1;l<=n;l++) { // \u679a\u4e3e\u8df3\u8dc3\u957f\u5ea6\n\t\tfor(int q=1;q<=n;q++){ // \u679a\u4e3e\u8d77\u70b9 \n\t\t\tint i=q,cnt=false;\n\t\t\twhile(i<=q+4*l){ // \u53bb\u770b\u8def\u5f84\u4e0a\u7684\u70b9 \n\t\t\t\tif(s[i]=='*') cnt++;\n\t\t\t\ti+=l;\n\t\t\t}\n\t\t\tif(cnt==5) {  // \u5982\u679c\u5168\u90e8\u70b9\u90fd\u4e3a\u5e73\u53f0\u8f93\u51faYes \n\t\t\t\tputs(\"yes\");\n\t\t\t\treturn false;\n\t\t\t}\n\t\t} \n\t} \n\tputs(\"no\");\n\treturn false;\n}\n```\n",
+        "postTime": 1661776128,
+        "uid": 381053,
+        "name": "highkj",
+        "ccfLevel": 4,
+        "title": "CF526A"
+    },
+    {
+        "content": "### \u9898\u76ee\u5927\u610f\n\n\u7ed9\u5b9a\u4e00\u6bb5\u8def\uff0c\u5176\u4e2d\u6709\u9677\u9631\u548c\u5e73\u53f0\uff0c\u5982\u679c\u8e29\u5230\u9677\u9631\u5c31\u7b97\u8f93\u3002\u5728\u5e73\u53f0\u4e0a\u53ef\u4ee5\u8df3\u8dc3\u5230\u53e6\u4e00\u4e2a\u5411\u524d\u7684\u5e73\u53f0\u3002\u5982\u679c\u4ece\u5e73\u53f0 $i$ \u8fde\u7eed\u8df3\u56db\u6b21\uff0c\u4e14\u6bcf\u6b21\u8df3\u8dc3\u957f\u5ea6\u76f8\u7b49\uff0c\u5219\u79f0\u4e3a\u8fd9\u662f\u4e00\u6b21\u597d\u7684\u8df3\u8dc3\u3002\n\n\u73b0\u5728\u7ed9\u5b9a\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u5b57\u7b26\u4e32 $s$\uff0c\u5176\u4e2d `.` \u8868\u793a\u9677\u9631\uff0c`*` \u8868\u793a\u5e73\u53f0\uff0c\u8f93\u51fa $s$ \u6709\u65e0\u53ef\u80fd\u51fa\u73b0\u4e00\u6b21\u597d\u7684\u8df3\u8dc3\u3002\n\n### \u601d\u8def\n\n\u8fd9\u4e00\u9053\u9898\u4e00\u770b\uff0c\u5982\u679c\u8981\u5728 $n$ \u5927\u7684\u65f6\u5019\u505a\uff0c\u5fc5\u987b\u7528\u9ad8\u7ea7\u6570\u636e\u7ed3\u6784\u7ef4\u62a4\uff0c\u53ef\u662f\u4e00\u770b $n\\le 100$\u3002\u3002\u3002\n\n\u90a3\u4e48\u6211\u4eec\u53ef\u4ee5\u5148\u679a\u4e3e\u6bcf\u6b21\u8df3\u8dc3\u7684\u957f\u5ea6\uff0c\u5728\u679a\u4e3e\u8d77\u70b9\uff0c\u4e4b\u540e\u6c42\u51fa\u5728\u8d77\u70b9\u4e0a\u6700\u591a\u80fd\u8df3\u51e0\u6b21\uff0c\u5982\u679c\u80fd\u8df3\u56db\u6b21\u53ca\u4ee5\u4e0a\uff0c\u76f4\u63a5\u8f93\u51fa `yes`\u3002\u65f6\u95f4\u590d\u6742\u5ea6 $O(n^3)$\u3002\n\n### \u4ee3\u7801\n\n```cpp\n#include <bits/stdc++.h>\nint n; char s[105];\nsigned main(void) {\n\tcin >> n >> s + 1;\n\tfor (int i = 1; i <= n; ++i) {//\u679a\u4e3e\u8df3\u8dc3\u957f\u5ea6 \n\t\tfor (int j = 1; j <= n; ++j) {// \u679a\u4e3e\u8d77\u70b9\n\t\t\tif (s[j] == '.') continue; //\u5224\u65ad\u8d77\u70b9\u662f\u5426\u4e3a\u5e73\u53f0\n\t\t\tint k, cnt = 0;\n\t\t\tfor (k = j + i; k <= n; k += i) if (s[k] == '.') break; else ++cnt;\n\t\t\tif (cnt >= 4) return puts(\"yes\"), 0;\n\t\t}\n\t}\n\tputs(\"no\");\n}\n```",
+        "postTime": 1644938242,
+        "uid": 377787,
+        "name": "Hooch",
+        "ccfLevel": 6,
+        "title": "CF526A"
+    },
+    {
+        "content": "### Description\n\n\u7ed9\u5b9a\u4e00\u4e2a\u957f\u5ea6\u4e3a $n(1\\le n\\le100)$ \u7684\u4ec5\u542b `.` \u548c `*` \u7684\u5b57\u7b26\u4e32 $s$\uff0c\u6c42\u51fa\u662f\u5426\u5b58\u5728\u4e94\u4e2a\u6570 $f_1,f_2,f_3,f_4,f_5$\uff0c\u6ee1\u8db3\u4ee5\u4e0b\u6761\u4ef6\uff1a\n\n- $s$ \u4e2d\u7684\u7b2c $f_{1}\\sim f_{5}$ \u4e2a\u5b57\u7b26\u90fd\u662f `*`\uff08\u5b57\u7b26\u4e0b\u6807\u4ece $1$ \u5f00\u59cb\uff09\u3002\n- $\\{f_5\\}$ \u4e25\u683c**\u9012\u589e**\uff0c\u4e14\u5bf9\u4e8e $2\\le i\\le 5$\uff0c\u6709 $f_i-f_{i-1}=k$\uff08$k$ \u662f\u5b9a\u503c\uff09\u3002\n\n### Solution\n\n- \u4e2d\u6587\u7248\n\n\u6ce8\u610f\u5230 $n$ \u6700\u5927\u662f $100$\uff0c\u5f88\u5c0f\uff0c~~\u800c\u4e14\u662f A \u9898~~\uff0c\u4e8e\u662f\u8003\u8651\u66b4\u529b\u3002\n\n\u679a\u4e3e $f_1$\uff0c\u5f53\u53d1\u73b0 $f_1$ \u6ee1\u8db3\u6761\u4ef6\u540e\u679a\u4e3e $k$\u3002\n\n\u6ce8\u610f\u5230\u6b64\u65f6 $k$ \u53ea\u8981\u679a\u4e3e\u5230 $\\frac14(n-f_1)$ \u5373\u53ef\u3002\n\n\u6bcf\u6b21\u8ba1\u7b97\u51fa $f_2\\sim f_5$ \u518d\u5224\u65ad\u5373\u53ef\u3002\n\n- [English Version 1 (Offical)](https://www.luogu.com.cn/paste/psml95xe)\n- [English Version 2](https://www.luogu.com.cn/paste/clqnbdlb)\n- [\u65e5\u672c\u8a9e\u7248](https://www.luogu.com.cn/paste/5k8zsbpe)\n\n### Code\n\n```cpp\n#include <cstdio>\n\nusing namespace std;\nint n;\nchar s[110];\nint main(){\n\tscanf(\"%d%s\", &n, s);\n\tfor(int i = 0 ; i < n ; i++){\n\t\tif(s[i] == '*'){\n\t\t\tint res = n - i - 1;\n\t\t\tfor(int j = 1 ; j <= n / 4 ; j++){\n\t\t\t\tint t = i;\n\t\t\t\tbool f = 1;\n\t\t\t\tfor(int k = 0 ; k < 4 ; k++){\n\t\t\t\t\tt += j;\n\t\t\t\t\tif(s[t] != '*') f = 0;\n\t\t\t\t}\n\t\t\t\tif(f){\n\t\t\t\t\tputs(\"yes\");\n\t\t\t\t\treturn 0;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\tputs(\"no\");\n\treturn 0;\n}\n```",
+        "postTime": 1627027753,
+        "uid": 224931,
+        "name": "CSP_Sept",
+        "ccfLevel": 6,
+        "title": "The Solution of CF526A King of Thieves"
+    },
+    {
+        "content": "## \u5206\u6790\n\n\u6b64\u9898 $1 \\le n \\le 100$\uff0c\u53ef $O(n^2)$ \u6c42\u89e3\u3002\n\n\u7b2c\u4e00\u5c42\u5faa\u73af\u679a\u4e3e\u8d77\u8df3\u70b9\uff0c\u7b2c\u4e8c\u5c42\u5faa\u73af\u679a\u4e3e\u8df3\u8dc3\u957f\u5ea6\uff0c\u5982\u679c\u6709\u8fde\u7eed $5$ \u4e2a\uff08\u6ce8\u610f\u9898\u76ee\u8bf4\u7684\u662f\u8df3\u56db\u6b21\uff09\u5dee\u76f8\u540c\u7684 $s_i$ \u5747\u4e3a `*`\uff0c\u90a3\u4e48\u6210\u7acb\uff0c\u5426\u5219\u4e0d\u6210\u7acb\u3002\n\n## AC code\n\n```cpp\n#include <bits/stdc++.h>\n\n#define int long long\n\nusing namespace std;\n\nint n;\nstring s;\n\nsigned main() {\n\tcin >> n >> s;\n\tfor (int i = 0; i < n; i ++ ) \n\t\tfor (int j = 1; j <= n; j ++ ) \n\t\t\tif (s[i] == '*' && s[i + j] == '*' && s[i + j + j] == '*' && s[i + j + j + j] == '*' && s[i + 4 * j] == '*') {\n\t\t\t\tputs(\"yes\");\n\t\t\t\treturn 0;\n\t\t\t}\n\tputs(\"no\");\n\treturn 0;\n}\n```",
+        "postTime": 1676213129,
+        "uid": 638084,
+        "name": "songszh",
+        "ccfLevel": 3,
+        "title": "\u9898\u89e3"
+    }
+]

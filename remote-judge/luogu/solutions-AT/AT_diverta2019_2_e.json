@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u66f4\u591a\u6587\u7ae0\u3001\u66f4\u597d\u7684\u9605\u8bfb\u4f53\u9a8c\uff1a\u53ef\u4ee5\u79fb\u6b65[\u6211\u7684\u535a\u5ba2](https://www.cnblogs.com/frank3215/p/diverta2019-2E.html)\n\n[\u9898\u76ee\u94fe\u63a5](https://www.luogu.com.cn/problem/AT5092)\n\n## Solution\n\n\uff08\u5b98\u65b9\uff09\u9898\u89e3\uff1a\u5b9a\u4e49$(h, x)$\u4e3a\u6700\u9ad8\u9ad8\u5ea6\u4e3a $h$\uff0c\u6700\u9ad8\u5757\u6570\u4e3a $x$ \u7684\u72b6\u6001\u3002(\u5047\u8bbe\u540c\u4e00\u9ad8\u5ea6\u7684\u65b9\u5757\u6709(\u64cd\u4f5c\u987a)\u5e8f)\n\n$N = 4, H = 4, D = 1$ \u65f6\uff0c\u65b9\u6848\u6570\u7b49\u4ef7\u4e8e\u4ee5\u4e0b\u56fe\u7684$(0,4)\\to(4,4)$\u7684\u8def\u5f84\u6761\u6570\uff1a\uff08\u7528Graphviz\u751f\u6210\uff09\n\n![](https://images.cnblogs.com/cnblogs_com/topsecret/1664237/o_210522073408diverta2019-2E-1.png)\n\n$N = 4, H = 4, D = 2$ \u65f6\uff0c\u65b9\u6848\u6570\u7b49\u4ef7\u4e8e\u4ee5\u4e0b\u56fe\u7684$(0,4)\\to(4,4)$\u7684\u8def\u5f84\u6761\u6570\uff1a\n\n![](https://images.cnblogs.com/cnblogs_com/topsecret/1664237/o_210522073527diverta2019-2E-2.svg.png)\n\n\u7136\u540e\u5c31\u505a\u5b8c\u4e86\u2026\u2026\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\ntypedef long long ll;\n\nconst int maxn = 1e6+10, MOD = 1e9+7;\nint n, h, d;\nint a[maxn], sum, b[maxn], s[maxn], ans;\n\nint main() {\n\tscanf(\"%d%d%d\", &n, &h, &d);\n\ta[0] = 1;\n\tfor (int i = 1; i <= n; ++i) {\n\t\ta[i] = (ll)a[i-1]*i%MOD;\n\t\tsum = (ll)(sum+a[i])%MOD;\n\t}\n\tfor (int i = 1; i <= h; ++i) {\n\t\tb[i] = ((s[i-1]-((i-d-1<1)?0:s[i-d-1])+MOD)*(ll)sum+(i<=d))%MOD;\n\t\ts[i] = (s[i-1]+b[i])%MOD;\n\t}\n\tans = (ll)b[h]*a[n]%MOD;\n\tprintf(\"%d\\n\", ans);\n}\n```",
+        "postTime": 1623556421,
+        "uid": 73915,
+        "name": "frank3215",
+        "ccfLevel": 9,
+        "title": "\u3010\u9898\u89e3\u3011[diverta2019-2E] Balanced Piles"
+    }
+]

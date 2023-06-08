@@ -1,0 +1,58 @@
+[
+    {
+        "content": "\u4f5c\u4e3a Codeforces Round #576 Div.2 \u7684A\u9898\uff0c\u8fd9\u9053\u9898\u5176\u5b9e\u5e76\u4e0d\u56f0\u96be\u3002\n\n\u8bfb\u5165\u4e4b\u540e\u76f4\u63a5\u679a\u4e3e\u6bcf\u4e00\u5929\uff0c\u770b\u8fd9\u4e00\u5929\u662f\u5426\u201c\u964d\u96e8\u91cf\u8f83\u5c11\u201d\u5373\u53ef\uff0c\u627e\u5230\u4e4b\u540e\u76f4\u63a5\u8f93\u51fa\u3002\u8fd9\u9053\u9898\u9700\u8981\u6ce8\u610f\u7684\u5730\u65b9\u662f\uff0c\u679a\u4e3e\u65f6\u6ce8\u610f\u8fb9\u754c\uff0c\u4e0d\u80fd\u8d85\u8fc7$1$\u5230$n$\u7684\u8303\u56f4\n\n\u4ee3\u7801\u5982\u4e0b\uff1a\n\n```cpp\n#include <iostream>\n#include <algorithm>\n#include <cstdio>\nusing namespace std;\n\nconst int MAXN = 1000000 + 5;\n\nint a[MAXN];\n\nint main() {\n\tint n, x, y;\n\t\n\tcin >> n >> x >> y;\n\tfor(int i = 1; i <= n; i++) {\n\t\tscanf(\"%d\", &a[i]);\n\t}\n\t\n\tfor(int i = 1; i <= n; i++) {\n\t\tbool flag = true;\n\t\tfor(int j = max(i - x, 1); j < i; j++) {\n\t\t\tif(a[i] >= a[j]) {\n\t\t\t\tflag = false;\n\t\t\t\tbreak;\n\t\t\t}\n\t\t}\n\t\t\n\t\tfor(int j = i + 1; j <= min(i + y, n); j++) {\n\t\t\tif(a[i] >= a[j]) {\n\t\t\t\tflag = false;\n\t\t\t\tbreak;\n\t\t\t}\n\t\t}\n\t\t\n\t\tif(flag) {\n\t\t\tcout << i << endl;\n\t\t\tbreak;\n\t\t}\n\t}\n\t\n\treturn 0;\n}\n```",
+        "postTime": 1564825540,
+        "uid": 132435,
+        "name": "\u667a\u5b50",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF1199A \u3010City Day\u3011"
+    },
+    {
+        "content": "\u672c\u9898\u7684\u9898\u610f\u662f:\u7ed9\u4f60\u4e00\u4e2a\u957f\u5ea6\u4e3a $N$ \u7684\u6570\u5217,\u4e24\u4e2a\u53c2\u6570 $X$ \u548c $Y$ \u6c42\u7b2c\u4e00\u4e2a\u6ee1\u8db3:\u8fd9\u4e2a\u6570\u672c\u8eab\u5c0f\u4e8e\u8fd9\u4e2a\u6570\u524d$X$\u4e2a\u6570\u548c\u8fd9\u4e2a\u6570\u540e$Y$\u4e2a\u6570\u7684\u6570,\u6570\u636e\u4fdd\u8bc1\u4e86\u6709\u89e3\u800c\u4e14\u53ea\u6709\u4e00\u4e2a\u89e3.\n\n\u601d\u8def\u5f88\u7b80\u5355 \u4e00\u6ce2\u66b4\u529b\u679a\u4e3e\u5c31\u80fd\u8fc7\u4e86\n\n\u76f4\u63a5\u4e0a\u4ee3\u7801:\n    \n    \n    #include<iostream>//\u5934\u6587\u4ef6\n    using namespace std;\n    int main()\n    {\n\t int a[100001],n,x,y;\n\t cin>>n>>x>>y;//\u8bfb\u5165\n\t for(int i=1;i<=n;i++)\n\t cin>>a[i];\n\t for(int i=1;i<=n;i++)//\u679a\u4e3e\u6bcf\u4e00\u4e2a\u6570\n\t {\n\t\tbool flag=false;\n\t\tfor(int j=max(1,i-x);j<=min(n,i+y);j++)//\u5224\u65ad\u679a\u4e3e\u5230\u7684\u6570\u5b57\u662f\u5426\u7b26\u5408\u6761\u4ef6\n\t\tif(a[j]<a[i]&&i!=j)flag=true;//\u5982\u679c\u4e0d\u7b26\u5408\u6761\u4ef6\u5219\u6807\u8bb0flag\n\t\tif(!flag)//\u5982\u679c\u7b26\u5408\u6761\u4ef6\u5219\u8df3\u51fa\n\t\t{\n\t\t\tcout<<i<<endl;\n\t\t\tbreak;\n\t\t}\n    }\n    return 0;\n    }\n```\n",
+        "postTime": 1564817312,
+        "uid": 133520,
+        "name": "Retired_lvmao",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF1199A \u3010City Day\u3011"
+    },
+    {
+        "content": "\u9898\u76ee\u5927\u81f4\u53ef\u7b80\u5316\u6210\uff1a\u7ef4\u62a4\u4e00\u4e2a\u6709 $n$ \u4e2a\u5143\u7d20\u7684\u5e8f\u5217\uff0c\u627e\u5230\u7b2c\u4e00\u4e2a $a_i$ \u6ee1\u8db3:\u5b83\u524d\u9762 $x$ \u4e2a\u5143\u7d20\u548c\u540e\u9762 $y$ \u4e2a\u5143\u7d20\u90fd\u4e0d\u5c0f\u4e8e\u5b83\u3002\n\n\u601d\u8def\uff1a\u904d\u5386\u6bcf\u4e00\u4e2a\u5143\u7d20\uff0c\u627e\u5230\u7b2c\u4e00\u4e2a\u89e3\n\n\u6ce8\u610f\uff1a\u82e5 $a_i$ \u524d\u9762\u6ca1\u6709 $x$ \u4e2a\u5143\u7d20\uff0c\u5219\u4ece\u7b2c\u4e00\u4e2a\u5f00\u59cb\u904d\u5386\uff0c\u82e5\u540e\u9762\u6ca1\u6709 $y$ \u4e2a\u5143\u7d20\uff0c\u5219\u904d\u5386\u5230\u7b2c $n$ \u4e2a\u5143\u7d20\u3002\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint a[100050];\n//\u8fd9\u9898\u8bfb\u5165\u7684\u6570\u636e\u6700\u591a\u6709\u5341\u4e07\u4e2a\uff0c\u53ef\u4ee5\u91c7\u53d6\u5feb\u8bfb\nint read(){//\u5feb\u8bfb\u6a21\u677f\n    int w=1;//\u5224\u65ad\u6b63\u8d1f\n    char ch=getchar();\n    while(ch>'9'|| ch<'0'){//\u5224\u65ad\u6b63\u8d1f\n        if(ch=='-') w=-1;\n        ch=getchar();\n    }\n    int num=ch-'0';\n    while((ch=getchar())>='0'&&ch<='9'){//\u5b57\u7b26\u4e32\u8f6c\u6570\u5b57\n        num=num*10+(ch-'0');\n    }\n    return num*w;//\u8fd4\u56de\n}\nint main(){\n    int n,x,y;  \n    n=read(); x=read(); y=read();//\u8bfb\u5165\n    for(int i=0;i<n;i++){\n        a[i]=read();//\u8bfb\u5165\n    }\n    for(int i=0;i<n;i++){\n        bool flag=1;\n        for(int j=max(i-x,0);j<=min(i+y,n-1);j++){//\u679a\u4e3e\n            if(i!=j&&a[j]<a[i]){//\u6ce8\u610f\u5982\u679ci==j,\u5b83\u4eec\u5c31\u662f\u4e00\u4e2a\u6570\u4e86\n                flag=0;//\u4e0d\u7b26\u5408\u89c4\u5b9a\n                break;\n            }\n        }\n        if(flag){//\u7b26\u5408\u89c4\u5b9a\n            cout<<i+1;//\u4ece0\u5f00\u59cb\u904d\u5386i\u8981\u52a01\n            break;//\u627e\u51fa\u7b2c\u4e00\u4e2a\u5c31\u505c\u6b62\n        }\n    }\n    return 0;\n}\n```\n",
+        "postTime": 1645946024,
+        "uid": 345883,
+        "name": "Node_Edge",
+        "ccfLevel": 0,
+        "title": "CF1199A"
+    },
+    {
+        "content": "**\u9898\u76ee\u7ffb\u8bd1**\uff1a\u5728\u4e00\u4e2a\u957f\u5ea6\u4e3a$n$\u7684\u6570\u7ec4\u4e2d\uff0c\u627e\u5230\u6570\u7ec4\u4e2d**\u7b2c\u4e00\u4e2a**\u5de6\u8fb9$x$\u4e2a\u6570\u548c\u53f3\u8fb9$y$\u4e2a\u6570**\u4e25\u683c**\u5927\u4e8e\u67d0\u4e00\u4e2a\u6570\u3002\n\n\u8fd9\u9053\u9898\u505a\u6cd5\u5f88\u7b80\u5355\uff0c\u53ea\u9700\u8981\u626b\u4e00\u904d\u5373\u53ef\uff0c\u4f46\u662f\u5982\u679c\u4e00\u4e2a\u6570\u7684\u5de6$x$\u4e2a\u6570\u6216\u8005$y$\u4e2a\u6570\u8d8a\u51fa\u8fd9\u4e2a\u6570\u7ec4\u7684\u754c\u9650\u4e86\uff0c\u90a3\u4e48\u6211\u4eec\u5c31\u7b97\u90a3\u4e9b\u6570\u6bd4\u8fd9\u4e2a\u6570\u5927\u5c31\u884c\u3002\u53ea\u9700\u8981\u7b80\u5355\u7684\u679a\u4e3e\u51fa\u6765\u5c31\u884c\u3002\n\n\u597d\u4e86\uff0c\u4e0a\u4ee3\u7801:\n```cpp\n#include <bits/stdc++.h>\n#define endl '\\n'\n#define fast ios::sync_with_stdio(0),cin.tie(0),cout.tie(0)\n#define ll long long\nll a[200010]={0};\nusing namespace std;\nint main(){\n\tfast;\n\tint n,x,y,flag=0;\n\tcin>>n>>x>>y;\n\tfor(int i=1;i<=n;i++)cin>>a[i];\n\tfor(int i=1;i<=n;i++){\n\t\tflag=0;//\u7528\u6765\u5224\u65ad\u8fd9\u4e2a\u6570\u662f\u5426\u53ef\u884c\u7684flag\n\t\tint x1=max(1,i-x),x2=min(n,i+y);\n        //\u548c\u754c\u9650\u6bd4\u8f83\uff0cx\u8981\u6bd41\u5927\uff0cy\u4e5f\u8981\u6bd4n\u5c0f\u3002\n\t\tfor(int j=x1;j<=x2;j++){//\u5728\u8fd9\u4e00\u6bb5\u533a\u95f4\u5185\n\t\t\tif(i!=j){//\u7279\u5224\u4e0d\u662f\u5b83\u81ea\u5df1\n\t\t\t\tif(a[j]>a[i])continue;\n\t\t\t\telse{flag=1;break;}//\u65c1\u8fb9\u7684\u6570\u5c0f\u4e8e\u7b49\u4e8e\u8fd9\u4e2a\u6570\uff0c\u4e0d\u6ee1\u8db3\u6761\u4ef6\u3002\n\t\t\t}\n\t\t\telse continue;\n\t\t}\n\t\tif(flag==0){//\u628a\u6ee1\u8db3\u6761\u4ef6\u7684\u4f4d\u7f6e\u8f93\u51fa\u6765\n\t\t\tcout<<i<<endl;\n\t\t\treturn 0;\n\t\t}\n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1564851084,
+        "uid": 25871,
+        "name": "K_Madoka",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF1199A \u3010City Day\u3011"
+    },
+    {
+        "content": "\u6570\u636e\u8303\u56f4\u6c34\uff0c\u76f4\u63a5\u6a21\u62df  \n\u679a\u4e3e$d$\uff0c\u5224\u65ad$d-x$\u5230$d-1$\u5929\u4e0e$d+1$\u5230$d+y$\u5929\u7684\u964d\u96e8\u91cf\u6700\u5c0f\u503c$min$\u662f\u5426\u5927\u4e8e\u7b49\u4e8e$d$\u5929\u7684\u964d\u96e8\u91cf\uff0c\u540c\u65f6\u6ce8\u610f\u8fb9\u754c\n```cpp\n#include <bits/stdc++.h>\n#define lowbit(x) (x & -x)\n#define jh(x, y) x ^= y ^= x ^= y\n#define loc(x, y) (x - 1) * m + y\n#define rg register\n#define inl inline\n#define PI 3.141592654\ntypedef long long ll;\nconst int N = 6e5 + 5, INF = 0x3f3f3f3f, mod = 998244353;\nusing namespace std;\nnamespace fast_IO {\n\tinl ll read() {\n\t\trg char c;\n\t\trg ll x = 0;\n\t\trg bool flag = false;\n\t\twhile ((c = getchar()) == ' ' || c == '\\n' || c == '\\r');\n\t\tif (c == EOF)return c; if (c == '-')flag = true; else x = c ^ 48;\n\t\twhile ((c = getchar()) != ' ' && c != '\\n' && c != '\\r' && ~c)\n\t\t\tx = (x << 1) + (x << 3) + (c ^ 48);\n\t\tif (flag)return -x; return x;\n\t}\n\tinl ll max(rg ll a, rg ll b) { if (a > b)return a; return b; }\n\tinl ll min(rg ll a, rg ll b) { if (a < b)return a; return b; }\n\tvoid write(rg ll x) { if (x < 0)putchar('-'), x = -x; if (x >= 10)write(x / 10); putchar(x % 10 ^ 48); }\n}\nint a[N];\n\nint main() {\n\trg int n = fast_IO::read(), x = fast_IO::read(), y = fast_IO::read();\n\tfor (rg int i = 1; i <= n; ++i)a[i] = fast_IO::read();\n\tfor (rg int i = 1; i <= n; ++i) {\n\t\trg int minn = INF;\n\t\tfor (rg int j = i - 1; j > 0 && j >= i - x; --j)minn = fast_IO::min(minn, a[j]);\n\t\tfor (rg int j = i + 1; j <= n && j <= i + y; ++j)minn = fast_IO::min(minn, a[j]);\n\t\tif (a[i] <= minn) {\n\t\t\tfast_IO::write(i);\n\t\t\treturn 0;\n\t\t}\n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1564841995,
+        "uid": 87283,
+        "name": "Zechariah",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1199A \u3010City Day\u3011"
+    },
+    {
+        "content": "$\\large \\textbf{\u9898\u610f}$\n\n\u627e\u5230\u7f16\u53f7 $i$ \u6700\u5c0f\u7684\u4e00\u4e2a $a_i$ \uff0c\u4f7f $\\forall j\\in [\\max(1,i-x),\\min(n,i+y)]\\cap\\mathbb Z$ \uff0c\u90fd\u6709 $a_i<a_j$ \u3002\u8f93\u51fa $i$ \u3002\n\n--------------\n\n$\\large \\textbf{\u601d\u8def}$\n\n\u66b4\u529b\u679a\u4e3e\u3001\u5224\u65ad\u5373\u53ef\u3002\u65f6\u95f4\u590d\u6742\u5ea6 $\\Theta((x+y)n)$ \u3002\n\n-----------\n\n$\\large \\textbf{\u4ee3\u7801}$\n\n```cpp\n#include<cstdio>\nint n,x,y,a[100010];\nint check(int k) {\n\tfor (int i=1; i<=x&&k-i; ++i) //\u8fd9\u91cc\u679a\u4e3e\u7684\u662f\u9898\u610f\u4e2d\u7684i-j\n\t\tif (a[k]>=a[k-i]) return 0;\n\tfor (int i=1; i<=y&&k+i<=n; ++i) //\u8fd9\u91cc\u679a\u4e3e\u7684\u662f\u9898\u610f\u4e2d\u7684j-i\n\t\tif (a[k]>=a[k+i]) return 0;\n\treturn 1;\n}\n\nint main() {\n\tscanf(\"%d%d%d\",&n,&x,&y);\n\tfor (int i=1; i<=n; ++i) scanf(\"%d\",a+i);\n\tfor (int i=1; i<=n; ++i)\n\t\tif (check(i)) return printf(\"%d\\n\",i),0; //\u627e\u5230\u7b2c\u4e00\u4e2a\u5373\u53ef\u505c\u6b62\n\treturn 0;\n}\n```",
+        "postTime": 1564834302,
+        "uid": 93465,
+        "name": "XCEsupremacy",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1199A \u3010City Day\u3011"
+    },
+    {
+        "content": "**\u9898\u9762**\uff1a\n\n\u627e\u4e00\u4e2a\u6700\u9760\u524d\u7684$a[i]$,\u4f7f$i$\u6ee1\u8db3$a[j] < a[i](i - x \\le j <i )$ \u6216 $(i < j \\le i + y)$\n\n\u8003\u8651\u5230$0 \\le x, y \\le 7$,\u66b4\u529b\u5373\u53ef\n\n\n\n```cpp\n#include<bits/stdc++.h>\n \nusing namespace std;\n \n#define N 100005\n \nint n, a[N], x, y;\n \nint main()\n{\n\tscanf(\"%d%d%d\", &n, &x, &y);\n\tfor(int i = 1; i <= n; i++)\n\t\tscanf(\"%d\", &a[i]);\n\tfor(int i = 1; i <= n; i++)\n\t{\n\t\tbool flag = 1;\n\t\tfor(int j = (i - 1); j >= max(1, (i - x)); j--)\n\t\t\tif(a[j] <= a[i]) {flag = 0; break;}\n\t\tfor(int j = (i + 1); j <= min(n, (i + y)); j++)\n\t\t\tif(a[j] <= a[i]) {flag = 0; break;}\n\t\tif(flag)\n\t\t{\n\t\t\tcout << i << endl;\n\t\t\treturn 0;\n\t\t}\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1564819075,
+        "uid": 54544,
+        "name": "LJB00131",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF1199A \u3010City Day\u3011"
+    }
+]

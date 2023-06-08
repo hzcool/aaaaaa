@@ -1,0 +1,42 @@
+[
+    {
+        "content": "## _Description_\n\u7ed9\u5b9a $a_1,a_2\\dots a_n$\uff0c\u95ee\u80fd\u5426\u5728\u91cd\u65b0\u6392\u5e8f\u540e\uff0c\u4f7f\u5f97 $a_1<a_2\\dots<a_n$\u3002\n## _Solution_\n\u56e0\u4e3a\u9700\u8981\u6ee1\u8db3\u4e25\u683c\u9012\u589e\u7684\u6761\u4ef6\uff0c\u6240\u4ee5\u6570\u5217\u4e2d\u4e0d\u80fd\u76f8\u540c\u7684\u6570\u3002\n\n\u4ece\u5c0f\u5230\u5927\u6392\u5e8f\u540e\uff0c\u5224\u65ad $a_i$ \u662f\u5426\u7b49\u4e8e $a_{i-1}$ \u5373\u53ef\uff08\u76f8\u7b49\u7684\u6570\u6392\u5b8c\u5e8f\u540e\uff0c\u4e00\u5b9a\u76f8\u90bb\uff09\u3002\n## _Code_\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint t;\nint n;\nint a[110];\nint main(){\n    cin>>t;\n    while(t--){\n        cin>>n;\n        for(int i=1;i<=n;i++){\n            cin>>a[i];\n        }\n        sort(a+1,a+1+n);\n        bool f=0;\n        for(int i=1;i<=n-1;i++){\n            if(a[i+1]==a[i]){\n                cout<<\"NO\"<<endl;\n                f=1;\n                break;\n            }\n        }\n        if(f==0)cout<<\"YES\"<<endl;\n    }\n    return 0;\n}\n```\n#### _\u5b8c\u7ed3\u6492\u82b1\uff01\uff01_",
+        "postTime": 1666252706,
+        "uid": 475329,
+        "name": "Larryyu",
+        "ccfLevel": 0,
+        "title": "CF1742B Increasing \u9898\u89e3"
+    },
+    {
+        "content": "\u66b4\u529b\u6a21\u62df\u5373\u53ef\uff0c\u5148\u5bf9\u7ed9\u51fa\u7684\u4e00\u4e32\u6570\u6392\u5e8f\uff0c\u7136\u540e\u5faa\u73af\u786e\u8ba4\u6392\u5e8f\u540e\u7684\u5e8f\u5217\u662f\u5426\u4e3a\u4e25\u683c\u9012\u589e\u5e8f\u5217  \n\u4ee3\u7801\u5982\u4e0b\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint t,n,num[105];\nint main(){\n    scanf(\"%d\",&t);\n    while(t--){\n        scanf(\"%d\",&n);//\u8f93\u5165\n        for(int i=0;i<n;i++) scanf(\"%d\",&num[i]);//\u8f93\u5165\n        sort(num,num+n);//\u6392\u5e8f\n        bool f=0;\n        for(int i=0;i<n-1;i++) {\n            if(num[i]>=num[i+1]){\n                f=1;\n                break;\n            }//\u82e5\u53d1\u73b0\u6709\u4e24\u4e2a\u6570\u4e0d\u6ee1\u8db3\u4e25\u683c\u9012\u589e\u5e8f\u5217,\u6807\u8bb0\u5e76\u7ed3\u675f\u5faa\u73af\n        }//\u5faa\u73af\u786e\u8ba4\u6392\u5e8f\u540e\u7684\u5e8f\u5217\u662f\u5426\u4e3a\u4e25\u683c\u9012\u589e\u5e8f\u5217\n        if(!f) printf(\"YeS\\n\");\n        else printf(\"nO\\n\");\n    }\n    return 0;\n}\n```",
+        "postTime": 1666249469,
+        "uid": 590386,
+        "name": "_LX_",
+        "ccfLevel": 4,
+        "title": "CF1742B Increasing\u9898\u89e3"
+    },
+    {
+        "content": "\u7ed9\u5b9a\u4e00\u4e2a\u957f\u4e3a $n$ \u7684\u5e8f\u5217 $a$\uff0c\u5224\u65ad\u4f60\u662f\u5426\u80fd\u901a\u8fc7\u91cd\u6392\u7684\u65b9\u5f0f\u4f7f\u5e8f\u5217\u4e25\u683c\u9012\u589e\u3002\n\n\u4e25\u683c\u9012\u589e\uff1a\u5f62\u5f0f\u4e0a\u7684\uff0c\u6709 $a_1<a_2<\\dots<a_n$\u3002\n\n---\n\u8003\u8651\u9996\u5148\u53ef\u4ee5\u628a\u5e8f\u5217\u6392\u5e8f\uff0c\u4f7f\u5f97\u5e8f\u5217\u4e0d\u964d\u3002\n\n\u82e5\u5176\u4e2d\u6ca1\u6709\u91cd\u590d\u7684\u6570\uff0c\u5219\u5176\u6ee1\u8db3\u4e25\u683c\u9012\u589e\u3002\n\n\u5426\u5219\uff0c\u65e0\u8bba\u5982\u4f55\u6ee1\u8db3\u4e0d\u4e86\u4e25\u683c\u9012\u589e\u3002\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nvoid solve(){\n    int n,a[105];cin>>n;\n    for(int i=1;i<=n;i++) cin>>a[i];\n    sort(a+1,a+n+1);\n    bool f=1;\n    for(int i=1;f&&i<n;i++) if(a[i]==a[i+1]) f=0;\n    puts(f?\"YES\":\"NO\");\n}\nint main(){\n\tint t;cin>>t;\n\twhile(t--){\n\t\tsolve();\n\t}\n}\n```",
+        "postTime": 1666221882,
+        "uid": 258085,
+        "name": "\u6c5f\u6237\u5ddd\u00b7\u841d\u535c",
+        "ccfLevel": 7,
+        "title": "CF1742B \u9898\u89e3"
+    },
+    {
+        "content": "\u8fd8\u662f\u5927\u6c34\u9898\u3002\n\n\u6309\u7167\u9898\u610f\u6a21\u62df\uff0c\u6392\u5e8f\u540e\u5982\u679c\u5b58\u5728 $i(2\\leq i\\leq n)$ \u4f7f\u5f97 $a_i=a_{i-1}$\uff0c\u5219\u8f93\u51fa\u201cNo\u201d\uff0c\u5426\u5219\u8f93\u51fa\u201cYes\u201d\u3002\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nconst int N=110;\nint T,n,a[N];\nint main()\n{\n\tcin>>T;\n\twhile(T--)\n\t{\n\t\tcin>>n;\n\t\tfor(int i=1;i<=n;i++)\n\t\t\tcin>>a[i];\n\t\tsort(a+1,a+1+n);\n\t\tint flag=1;\n\t\tfor(int i=2;i<=n;i++)\n\t\t\tif(a[i]==a[i-1])\n\t\t\t\tflag=0;\n\t\tif(flag)\n\t\t\tcout<<\"YES\\n\";\n\t\telse\n\t\t\tcout<<\"NO\\n\";\n\t}\n}\n```\n",
+        "postTime": 1666258438,
+        "uid": 743048,
+        "name": "Lovely_Ran",
+        "ccfLevel": 6,
+        "title": "CF1742B"
+    },
+    {
+        "content": "## \u9898\u610f\u7b80\u6790\n\n\u7ed9\u5b9a\u4e00\u4e2a\u5e8f\u5217\uff0c\u95ee\u5c06\u5e8f\u5217\u6392\u5e8f\u540e\u662f\u5426\u4e25\u683c\u9012\u589e\u3002\u56e0\u4e3a\u5e8f\u5217\u4e25\u683c\u9012\u589e\u7684\u5fc5\u8981\u6761\u4ef6\u662f\u5e8f\u5217\u4e2d\u5143\u7d20\u4e92\u4e0d\u76f8\u540c\uff0c\u6240\u4ee5\u76f4\u63a5\u5224\u65ad\u5e8f\u5217\u4e2d\u662f\u5426\u6709\u76f8\u540c\u7684\u5143\u7d20\u5373\u53ef\u3002\n\n## \u4ee3\u7801/\u89e3\u91ca\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nmap<int,bool> mp;//\u56e0\u4e3a\u5143\u7d20\u503c\u57df\u8fbe\u5230 1e9 \u4f46\u662f\u4e2a\u6570\u53ea\u6709 100\uff0c\u53ef\u4ee5\u4f7f\u7528 map \u6765\u5b58\u50a8\nint main()\n{\n    int t,n,a,i;\n    bool f;\n    cin>>t;\n    while(t--)\n    {\n        mp.clear();\n        cin>>n;f=true;\n        for(i=1;i<=n;i++)\n        {\n            cin>>a;\n            if(mp[a]) f=false;//\u5df2\u7ecf\u51fa\u73b0\u8fc7\uff0c\u5224\u65ad\n            else mp[a]=true;//\u7b2c\u4e00\u6b21\u51fa\u73b0\uff0c\u6807\u8bb0\n        }\n        printf(f?\"YES\\n\":\"NO\\n\");\n    }\n    return 0;\n}\n```",
+        "postTime": 1666226586,
+        "uid": 668002,
+        "name": "sw2022_",
+        "ccfLevel": 4,
+        "title": "CF1742B Increasing \u9898\u89e3"
+    }
+]

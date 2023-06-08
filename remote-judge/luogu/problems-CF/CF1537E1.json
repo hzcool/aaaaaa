@@ -1,0 +1,17 @@
+{
+    "description": "This is the easy version of the problem. The only difference is the constraints on $ n $ and $ k $ . You can make hacks only if all versions of the problem are solved.\n\nYou have a string $ s $ , and you can do two types of operations on it:\n\n- Delete the last character of the string.\n- Duplicate the string: $ s:=s+s $ , where $ + $ denotes concatenation.\n\nYou can use each operation any number of times (possibly none).\n\nYour task is to find the lexicographically smallest string of length exactly $ k $ that can be obtained by doing these operations on string $ s $ .\n\nA string $ a $ is lexicographically smaller than a string $ b $ if and only if one of the following holds:\n\n- $ a $ is a prefix of $ b $ , but $ a\\ne b $ ;\n- In the first position where $ a $ and $ b $ differ, the string $ a $ has a letter that appears earlier in the alphabet than the corresponding letter in $ b $ .",
+    "inputFormat": "The first line contains two integers $ n $ , $ k $ ( $ 1 \\leq n, k \\leq 5000 $ ) \u2014 the length of the original string $ s $ and the length of the desired string.\n\nThe second line contains the string $ s $ , consisting of $ n $ lowercase English letters.",
+    "outputFormat": "Print the lexicographically smallest string of length $ k $ that can be obtained by doing the operations on string $ s $ .",
+    "samples": [
+        [
+            "8 16\ndbcadabc",
+            "dbcadabcdbcadabc"
+        ],
+        [
+            "4 5\nabcd",
+            "aaaaa"
+        ]
+    ],
+    "hint": "In the first test, it is optimal to make one duplication: \"dbcadabc\" $ \\to $ \"dbcadabcdbcadabc\".\n\nIn the second test it is optimal to delete the last $ 3 $ characters, then duplicate the string $ 3 $ times, then delete the last $ 3 $ characters to make the string have length $ k $ .\n\n\"abcd\" $ \\to $ \"abc\" $ \\to $ \"ab\" $ \\to $ \"a\" $ \\to $ \"aa\" $ \\to $ \"aaaa\" $ \\to $ \"aaaaaaaa\" $ \\to $ \"aaaaaaa\" $ \\to $ \"aaaaaa\" $ \\to $ \"aaaaa\".",
+    "translation": "\u4f60\u6709\u4e00\u4e2a\u5b57\u7b26\u4e32 $s$\uff0c\u4f60\u53ef\u4ee5\u8fdb\u884c\u4e24\u79cd\u64cd\u4f5c\u3002\n- \u5220\u53bb\u5b57\u7b26\u4e32\u7684\u6700\u540e\u4e00\u4e2a\u5b57\u7b26\u3002\n- \u5c06 $s$ \u53d8\u4e3a $s+s$\uff0c$+$ \u8868\u793a\u5b57\u7b26\u4e32\u8fde\u63a5\uff0c\u4e5f\u5c31\u662f\u590d\u5236\u4e00\u6b21\u5b57\u7b26\u4e32\u3002\n\n\u4f60\u53ef\u4ee5\u968f\u610f\u7684\u8fdb\u884c\u64cd\u4f5c\uff0c\u4e5f\u53ef\u4ee5\u4e0d\u8fdb\u884c\u64cd\u4f5c\u3002\n\n\u4f60\u9700\u8981\u627e\u5230 $s$ \u8fdb\u884c\u64cd\u4f5c\u540e\u83b7\u5f97\u7684\u6240\u6709\u957f\u5ea6\u4e3a $k$ \u7684\u5b57\u7b26\u4e32\u4e2d**\u5b57\u5178\u5e8f\u6700\u5c0f**\u7684\u5b57\u7b26\u4e32\u3002"
+}

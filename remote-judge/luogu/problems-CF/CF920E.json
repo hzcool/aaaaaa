@@ -1,0 +1,13 @@
+{
+    "description": "You are given an undirected graph consisting of $ n $ vertices and ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF920E/2671f3d87e6b285ebb30abeafea800e65bb56d51.png) edges. Instead of giving you the edges that exist in the graph, we give you $ m $ unordered pairs ( $ x,y $ ) such that there is no edge between $ x $ and $ y $ , and if some pair of vertices is not listed in the input, then there is an edge between these vertices.\n\nYou have to find the number of connected components in the graph and the size of each component. A connected component is a set of vertices $ X $ such that for every two vertices from this set there exists at least one path in the graph connecting these vertices, but adding any other vertex to $ X $ violates this rule.",
+    "inputFormat": "The first line contains two integers $ n $ and $ m $ ( $ 1<=n<=200000 $ , ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF920E/2a08d4fdef413c2e634516e97a2188a97c148ac8.png)).\n\nThen $ m $ lines follow, each containing a pair of integers $ x $ and $ y $ ( $ 1<=x,y<=n $ , $ x\u2260y $ ) denoting that there is no edge between $ x $ and $ y $ . Each pair is listed at most once; ( $ x,y $ ) and ( $ y,x $ ) are considered the same (so they are never listed in the same test). If some pair of vertices is not listed in the input, then there exists an edge between those vertices.",
+    "outputFormat": "Firstly print $ k $ \u2014 the number of connected components in this graph.\n\nThen print $ k $ integers \u2014 the sizes of components. You should output these integers in non-descending order.",
+    "samples": [
+        [
+            "5 5\n1 2\n3 4\n3 2\n4 2\n2 5\n",
+            "2\n1 4 "
+        ]
+    ],
+    "hint": "",
+    "translation": "\n\n\u7ed9\u51fa\u4e00\u4e2an \u4e2a\u70b9\uff0c$\\frac{n(n-1)}{2}-m$\u7684\u65e0\u5411\u56fe\uff0c\u95ee\u56fe\u4e2d\u6709\u591a\u5c11\u8fde\u901a\u5206\u91cf\u4ee5\u53ca\u6bcf\u4e2a\u8fde\u901a\u5206\u91cf\u6709\u591a\u5c11\u70b9\n\n\u8f93\u5165\u4e2d\u7ed9\u51fam\u5bf9\u70b9\uff0c\u8868\u793a\u8fd9\u4e00\u5bf9\u70b9\u4e4b\u95f4\u6ca1\u6709\u8fb9\uff0c\u5426\u5219\u5c31\u662f\u6709\u8fb9\n\n\u8f93\u51fa\u8fde\u901a\u5206\u91cf\u7684\u4e2a\u6570\u4ee5\u53ca\u6bcf\u4e2a\u8fde\u901a\u5206\u91cf\u6709\u591a\u5c11\u4e2a\u70b9\n\n\u611f\u8c22@Lyrance \u63d0\u4f9b\u7684\u7ffb\u8bd1"
+}

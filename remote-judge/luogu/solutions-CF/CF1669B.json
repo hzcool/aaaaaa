@@ -1,0 +1,42 @@
+[
+    {
+        "content": "[\u9898\u9762\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/CF1669B)\n\n[\u66f4\u597d\u7684\u9605\u8bfb\u4f53\u9a8c](https://www.luogu.com.cn/blog/t-m-j-y-h-0-9/solution-cf1669b)\n\n## \u9898\u610f\n\n\u7ed9\u5b9a\u957f\u5ea6 $n$ \u7684\u6570\u5217 $a$\uff0c\u8f93\u51fa\u4efb\u610f\u4e00\u4e2a\u51fa\u73b0\u6b21\u6570 $\\ge3$ \u7684\u6570\u3002\n\n## \u5206\u6790\n\n\u8bb0\u5f55\u51fa\u73b0\u6b21\u6570\u53ef\u4ee5\u7528\u4e00\u4e2a\u6876\uff0c\u8fd9\u91cc\u91c7\u7528 STL \u7684\u5173\u8054\u5bb9\u5668\u4e4b\u4e00 `std::map` \u6765\u505a\u7edf\u8ba1\u3002\n\n```cpp\n#include <bits/stdc++.h>\n#define endl '\\n'\nusing namespace std;\n\n\nint main(){\n\tios::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr);\n\tint t;cin>>t;\n\twhile(t--){\n\t\tint n;\n\t\tcin>>n;\n\t\tmap <int,int> cnt;\n\t\tvector <int> a(n);\n\t\tfor(auto &i:a){\n\t\t\tcin>>i;\n\t\t\tcnt[i]++;\n\t\t}\n\t\tfor(auto i:cnt){\n\t\t\tif(i.second>=3){\n\t\t\t\tcout<<i.first<<endl;\n\t\t\t\tgoto qwq;\n\t\t\t}\n\t\t}\n\t\tcout<< -1<<endl;\n\t\tqwq:{}\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1650593012,
+        "uid": 482728,
+        "name": "Engulf",
+        "ccfLevel": 0,
+        "title": "CF1669B Triple \u9898\u89e3"
+    },
+    {
+        "content": "\u8bed\u6cd5\u9898\u3002\n\n\u5229\u7528\u6876\u6392\u5e8f\u7684\u601d\u60f3\uff0c\u6211\u4eec\u5f00\u4e00\u4e2a\u6876\u8bb0\u5f55\uff0c\u5176\u4e2d $c[a[i]]$ \u4ee3\u8868 $a[i]$ \u5728\u8fd9\u4e2a\u6570\u7ec4\u4e2d\u51fa\u73b0\u7684\u6b21\u6570\u3002\n\n\u7136\u540e\u679a\u4e3e $1\\sim n$ \u4e2d\u7684\u6240\u6709\u7684\u6570\uff0c\u5224\u65ad\u8fd9\u4e2a\u6570 $c[a[i]]$ \u662f\u5426 $\\ge 3$ \u5373\u53ef\u3002\n\n\u6ce8\u610f\uff1a\u5982\u679c\u4e0d\u5b58\u5728\u9700\u8981\u8f93\u51fa $-1$\uff0c\u591a\u6d4b\u4e00\u5b9a\u8981\u6e05\u7a7a $c$ \u6570\u7ec4\u3002\n\n```cpp\n#include <bits/stdc++.h>\n\nusing namespace std;\n\nint tong[1000010];\n\nint a[1000010];\n\nsigned main() {\n    int n;\n    cin >> n;\n    for (int i = 1; i <= n; i ++) {\n        int m;\n        cin >> m;\n        for (int j = 1; j <= m; j ++)\n            tong[j] = 0;\n        for (int j = 1; j <= m; j ++)\n            cin >> a[j];\n        for (int j = 1; j <= m; j ++)\n            tong[a[j]] ++;\n        int idx = -1;\n        for (int j = 1; j <= m; j ++)\n            if (tong[j] >= 3) {\n                idx = j;\n                break;\n            }\n        cout << idx << '\\n';\n    }\n    return 0;\n}\n```\n",
+        "postTime": 1650586494,
+        "uid": 378467,
+        "name": "willem248",
+        "ccfLevel": 5,
+        "title": "CF1669B"
+    },
+    {
+        "content": "# \u9898\u76ee\u5206\u6790\n\u5728\u5b58\u50a8\u8f93\u5165\u6570\u636e\u65f6\uff0c\u9664\u5b58\u50a8\u8f93\u5165\u6570\u636e\u5916\uff0c\u518d\u4f7f\u7528\u4e00\u4e2a\u6570\u7ec4 $p$ \u5b58\u50a8\u67d0\u4e00\u4e2a\u6570\u51fa\u73b0\u7684\u6b21\u6570\uff08\u5373\u5c06 $i$ \u51fa\u73b0\u7684\u6b21\u6570\u5b58\u50a8\u4e3a $p_{i}$\uff09\u3002\n\n\u56e0\u6b64\uff0c\u8f93\u51fa\u65f6\uff0c\u53ea\u9700\u8981\u904d\u5386\u6570\u7ec4 $p$\uff0c\u8f93\u51fa\u7b2c\u4e00\u4e2a\u5927\u4e8e\u7b49\u4e8e $3$ \u7684\u6570\u5373\u53ef\u3002\n\n\u5bf9\u4e8e\u6bcf\u7ec4\u6570\u636e\uff0c\u8fd9\u79cd\u65b9\u6cd5\u7684\u65f6\u95f4\u590d\u6742\u5ea6\u4e3a $O(n)$\u3002\n\n# \u4ee3\u7801\n```cpp\n#include <cstdio>\nusing namespace std;\n\nbool flag;\nint t,n,a[200010],p[200010];\n\nint main(){\n    scanf(\"%d\",&t);\n    for (int i = 1;i <= t;i++){\n        flag = false;\n        scanf(\"%d\",&n);\n        for (int j = 1;j <= n;j++) p[j] = 0;\n        for (int j = 1;j <= n;j++){\n            scanf(\"%d\",&a[j]);\n            p[a[j]]++;\n        }\n        for (int j = 1;j <= n;j++){\n            if (p[j] >= 3){\n                printf(\"%d\\n\",j);\n                flag = true;\n                break;\n            }\n        }\n        if (!flag) printf(\"-1\\n\");\n    }\n    return 0;\n}\n```",
+        "postTime": 1650606368,
+        "uid": 415445,
+        "name": "\u96e8\u4f1eCKY",
+        "ccfLevel": 4,
+        "title": "CF1669B Triple\u9898\u89e3"
+    },
+    {
+        "content": "## \u9898\u610f\uff1a\n\n\u7ed9\u5b9a\u4e00\u4e2a\u6570\u7ec4\uff0c\u8f93\u51fa\u4efb\u610f\u4e00\u4e2a\u51fa\u73b0\u6b21\u6570\u5927\u4e8e $3$ \u7684\u6570\uff0c\u6ca1\u6709\u5219\u8f93\u51fa $-1$\u3002\n\n## \u9898\u89e3\uff1a\n\n\u8003\u8651\u5230\u503c\u57df\u6bd4\u8f83\u5c0f\uff0c\u76f4\u63a5\u5f00\u6876\u7edf\u8ba1\u51fa\u73b0\u6b21\u6570\u5e76\u6a21\u62df\u5373\u53ef\u3002\n\n```cpp\n#include<bits/stdc++.h>\n#define int long long\n#define N 1000005\nusing namespace std;\nint T,n,a[N],cnt[N],ans;\nsigned main(){\n\tcin>>T;\n\twhile(T--){\n\t\tcin>>n;\n\t\tfor(int i=1;i<=n;i++)cin>>a[i],cnt[a[i]]++;\n\t\tfor(int i=1;i<=n;i++){\n\t\t\tif(cnt[a[i]]>=3){\n\t\t\t\tcout<<a[i]<<endl;\n\t\t\t\tans=1;\n\t\t\t\tbreak;\n\t\t\t}\n\t\t\tcnt[a[i]]=0;\n\t\t} \n\t\tfor(int i=1;i<=n;i++)cnt[a[i]]=0;\n\t\tif(!ans)puts(\"-1\");\n\t\tans=0;\n\t}\n} \n```\n",
+        "postTime": 1650601444,
+        "uid": 200044,
+        "name": "JS_TZ_ZHR",
+        "ccfLevel": 7,
+        "title": "CF1669B \u3010Triple\u3011"
+    },
+    {
+        "content": "\u8fd9\u4e00\u9898\u5751\u70b9\u6709\u70b9\u591a\uff0c\u4f46\u662f\u9898\u76ee\u8fd8\u662f\u6bd4\u8f83\u7b80\u5355\u7684\uff0c\u7528\u6876\u7684\u601d\u60f3\u5c31\u53ef\u4ee5\u4e86\u3002   \n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n#define int long long\n\nconst int MAX_=2e5;//\u6ce8\u610f\u6570\u636e\u8303\u56f4\uff0c\u4e0d\u7136\u5c31\u4f1aRE\nint f[MAX_];\nsigned main(){\n\tint t,n; cin>>t;\n\twhile(t--){\n\t\tmemset(f,0,sizeof(f));//\u4e00\u5b9a\u8981\u521d\u59cb\u5316\uff01\uff01\uff01\n\t\tint k,maxi=-1,s=0; cin>>n;\n\t\twhile(n--)cin>>k,++f[k],maxi=max(k,maxi);//\u7528\u5bf9\u4e8e\u6bcf\u4e2a\u6570\u5bf9\u5e94\u7684\u6876\u81ea\u589e1\uff0c\u5e76\u4e14\u67e5\u627e\u6700\u5927\u6570maxi\n\t\tfor(int i=1;i<=maxi;++i)if(f[i]>=3){cout<<i<<endl; s=1; break;}//\u679a\u4e3e\u5230maxi\u5373\u53ef\uff0c\u5982\u679c\u627e\u5230\u4e86\u5c31\u8f93\u51fa\u5e76\u4e14\u6807\u8bb0\u8df3\u51fa\u5faa\u73af\n\t\tif(s==0)cout<<-1<<endl;//\u5982\u679c\u6ca1\u6709\u6807\u8bb0\u5c31\u662f\u6ca1\u6709\u627e\u5230\uff0c\u8f93\u51fa-1\n\t}\n}\n```\n",
+        "postTime": 1650591688,
+        "uid": 643561,
+        "name": "Mizuki_official",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3cf1669b"
+    }
+]

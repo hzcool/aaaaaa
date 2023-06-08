@@ -1,0 +1,21 @@
+{
+    "description": "Fibonacci numbers are the sequence of integers: $ f_{0}=0 $ , $ f_{1}=1 $ , $ f_{2}=1 $ , $ f_{3}=2 $ , $ f_{4}=3 $ , $ f_{5}=5 $ , $ ... $ , $ f_{n}=f_{n-2}+f_{n-1} $ . So every next number is the sum of the previous two.\n\nBajtek has developed a nice way to compute Fibonacci numbers on a blackboard. First, he writes a 0. Then, below it, he writes a 1. Then he performs the following two operations:\n\n- operation \"T\": replace the top number with the sum of both numbers;\n- operation \"B\": replace the bottom number with the sum of both numbers.\n\nIf he performs $ n $ operations, starting with \"T\" and then choosing operations alternately (so that the sequence of operations looks like \"TBTBTBTB $ ... $ \"), the last number written will be equal to $ f_{n+1} $ .\n\nUnfortunately, Bajtek sometimes makes mistakes and repeats an operation two or more times in a row. For example, if Bajtek wanted to compute $ f_{7} $ , then he would want to do $ n=6 $ operations: \"TBTBTB\". If he instead performs the sequence of operations \"TTTBBT\", then he will have made 3 mistakes, and he will incorrectly compute that the seventh Fibonacci number is 10. The number of mistakes in the sequence of operations is the number of neighbouring equal operations (\u00abTT\u00bb or \u00abBB\u00bb).\n\nYou are given the number $ n $ of operations that Bajtek has made in an attempt to compute $ f_{n+1} $ and the number $ r $ that is the result of his computations (that is last written number). Find the minimum possible number of mistakes that Bajtek must have made and any possible sequence of $ n $ operations resulting in $ r $ with that number of mistakes.\n\nAssume that Bajtek always correctly starts with operation \"T\".",
+    "inputFormat": "The first line contains the integers $ n $ and $ r $ ( $ 1<=n,r<=10^{6}) $ .",
+    "outputFormat": "The first line of the output should contain one number \u2014 the minimum possible number of mistakes made by Bajtek. The second line should contain $ n $ characters, starting with \"T\", describing one possible sequence of operations with that number of mistakes. Each character must be either \"T\" or \"B\".\n\nIf the required sequence doesn't exist, output \"IMPOSSIBLE\" (without quotes).",
+    "samples": [
+        [
+            "6 10\n",
+            "2\nTBBTTB\n"
+        ],
+        [
+            "4 5\n",
+            "0\nTBTB\n"
+        ],
+        [
+            "2 1\n",
+            "IMPOSSIBLE\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "Feyn \u559c\u6b22\u6590\u6ce2\u90a3\u5951\u6570\u5217\u548c\u9ed1\u677f\uff0c\u4e8e\u662f\u4ed6\u51b3\u5b9a\u628a\u4e8c\u8005\u7ed3\u5408\u8d77\u6765\u3002\n\n\u4e00\u5f00\u59cb\u9ed1\u677f\u4e0a\u6709\u4e24\u4e2a\u6570 $0$ \u548c $1$\uff0c$0$ \u5728\u4e0a\u9762 $1$ \u5728\u4e0b\u9762\u3002\u5b9a\u4e49\u4e24\u79cd\u64cd\u4f5c `T` \u548c `B`\u3002\u524d\u8005\u7684\u610f\u601d\u662f\u628a\u5f53\u524d\u4e0a\u9762\u7684\u90a3\u4e2a\u6570\u64e6\u6389\uff0c\u5e76\u5728\u539f\u4f4d\u7f6e\u5199\u4e0a\u4e24\u4e2a\u6570\u7684\u548c\uff0c\u540e\u8005\u5dee\u4e0d\u591a\uff0c\u53ea\u662f\u6539\u6210\u4e86\u64e6\u6389\u4e0b\u9762\u7684\u6570\uff0c\u5f53\u7136\u4e5f\u8981\u5199\u4e0a\u4e24\u4e2a\u6570\u7684\u548c\u3002\u8fd9\u91cc\u7684\u4e24\u4e2a\u6570\u6307\u7684\u90fd\u662f\u64e6\u6389\u4e4b\u524d\u7684\u4e24\u4e2a\u6570\u3002\n\n\u7ed9\u5b9a $n$ \u548c $r$\uff08$n,r\\le 10^6$\uff09\uff0c\u8bf7\u6784\u9020\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u64cd\u4f5c\u5e8f\u5217\u4f7f\u5f97\u5b8c\u6210\u8fd9\u4e2a\u64cd\u4f5c\u5e8f\u5217\u7684\u8fc7\u7a0b\u4e2d\uff0c**\u6700\u540e\u4e00\u4e2a\u5199\u4e0a\u7684\u6570\u6070\u597d\u662f $r$**\u3002\u5e76\u4e14\u5e0c\u671b\u8fd9\u4e2a\u5e8f\u5217\u7b2c\u4e00\u4e2a\u5b57\u6bcd\u662f `T`\uff0c\u540c\u65f6\u6700\u5c0f\u5316\u5e8f\u5217\u4e2d\u76f8\u90bb\u7684\u76f8\u540c\u5143\u7d20\u5bf9\u6570\u3002\u65e0\u89e3\u8f93\u51fa `IMPOSSIBLE`\u3002"
+}

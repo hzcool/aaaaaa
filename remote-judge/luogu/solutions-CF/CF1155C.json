@@ -1,0 +1,34 @@
+[
+    {
+        "content": "## \u9898\u610f\n\n\u8bbe\u7f6e\u4e00\u4e2a\u521d\u59cb\u65f6\u95f4\uff08\u81ea\u5df1\u5b9a\uff09\uff0c\u8981\u6c42\u6bcf\u6b21\u4e00\u5b9a\u8981\u5728 $ x_i $ \u65f6\u54cd\u4e00\u6b21\uff0c\u4e14\u53ef\u4ee5\u591a\u4f59\u5730\u54cd\u8d77\uff0c\u8fd9\u4e2a\u65f6\u95f4\u5dee\u5f97\u5728\u7ed9\u5b9a\u7684\u5e8f\u5217\u91cc\u9762\u9009\u3002\n\n## \u601d\u8def\n\n~~\u611f\u89c9\u8fd9\u9898\u4e0d\u5e94\u8be5\u662f\u7eff\u9898~~\n\n\u5bb9\u6613\u53d1\u73b0\uff1a\u521d\u59cb\u65f6\u95f4 a \u80af\u5b9a\u4f1a\u8bbe\u6210\u7b2c\u4e00\u4e2a\u8981\u6c42\u54cd\u94c3\u7684\u65f6\u95f4\u3002\n\n\u8981\u6ee1\u8db3\u6bcf\u6b21\u54cd\u94c3\uff0c\u5c31\u5fc5\u987b\u662f\u627e $ b=\\gcd (x_i-a) $ \u7684\u56e0\u6570 $ (i=1,2,...n) $\uff0c\u5bf9\u4e8e\u7ed9\u51fa\u7684 $ p_i $ \u5982\u679c $ p_i\\bmod b = 0 $ \u5c31\u53ef\u4ee5\u76f4\u63a5\u8f93\u51fa\u4e86\u3002\n\n## \u4ee3\u7801\n\n**\u6ce8\uff1a\u53d8\u91cf\u540d\u4e0e\u4e0a\u6587\u7565\u6709\u4e0d\u540c\u3002**\n\n```cpp\n#include <bits/stdc++.h>//\u8be6\u89c1\u4e0a\u6587\uff0c\u795d\u5927\u5bb6\u5b66\u4e60\u6109\u5feb\uff01\n\n#define int long long\n\nusing namespace std;\n\nconst int maxn=3e5+10;\nint a[maxn];\n\nint gcd(int x,int y){\n\tif(y==0) return x;\n\treturn gcd(y,x%y);\n}\n\nsigned main(){\n\t\n\tint n,m;\n\t\n\tscanf(\"%lld %lld %lld\",&n,&m,&a[1]);\n\t\n\tint x=a[1],y=0;\n\t\n\tfor(int i=2;i<=n;i++){\n\t\tscanf(\"%lld\",&a[i]);\n\t\ty=gcd(a[i]-x,y);\n\t}\n\t\n\tfor(int i=1;i<=m;i++){\n\t\tint z;\n\t\tscanf(\"%lld\",&z);\n\t\tif(y%z==0){\n\t\t\tprintf(\"YES\\n%lld %lld\\n\",x,i);\n\t\t\treturn 0;\n\t\t}\n\t}\n\t\n\tputs(\"NO\");\n\t\n\treturn 0;\n}\n```\n",
+        "postTime": 1638277299,
+        "uid": 234469,
+        "name": "hxyqwq",
+        "ccfLevel": 6,
+        "title": "CF1155C"
+    },
+    {
+        "content": "\u663e\u800c\u6613\u89c1\u4e00\u4e2a$p$\u5408\u6cd5\u7684\u5145\u8981\u6761\u4ef6\u662f\u6240\u6709$x$\u5728$modp$\u610f\u4e49\u4e0b\u540c\u4f59\n\n\u5f88\u96be\u505a\uff0c\u518d\u60f3\u60f3\n\n\u65e2\u7136\u540c\u4f59\u7684\u8bdd\u662f\u4e0d\u662f\u4e24\u4e2a\u76f8\u51cf\u5c31\u662f$p$\u7684\u500d\u6570\n\n\u90a3\u4e48\u53c8\u56e0\u4e3a$x$\u9012\u589e\uff0c\u628a\u76f8\u90bb$x$\u7684\u5dee\u7684$gcd$\u6c42\u51fa\u6765\n\n\u770b\u770b\u54ea\u4e2a$p$\u6574\u9664\u90a3\u4e2a$gcd$\u5c31\u597d\u4e86\n\nCode\uff1a\n\n```cpp\n#include <bits/stdc++.h>\n#define LL long long\nusing namespace std;\nLL n, m, x, y, X;\n\ninline LL read(){\n\tLL s = 0, w = 1;\n\tchar c = getchar();\n\tfor (; !isdigit(c); c = getchar()) if (c == '-') w = -1;\n\tfor (; isdigit(c); c = getchar()) s = (s << 1) + (s << 3) + (c ^ 48);\n\treturn s * w;\n}\n\nLL gcd(LL m, LL n){ return !n ? m : gcd(n, m % n); }\n\nint main(){\n\tn = read(), m = read();\n\tX = x = read(), y = read(), x = y - x;\n\tfor (int i = 3; i <= n; ++i){\n\t\tLL z = read();\n\t\tx = gcd(x, z - y), y = z;\n\t}\n\tfor (LL i = 1; i <= m; ++i){\n\t\tLL z = read();\n\t\tif (x % z == 0) return printf(\"YES\\n%lld %lld\\n\", X, i), 0;\n\t}\n\tputs(\"NO\");\n\treturn 0;\n}\n```\n",
+        "postTime": 1566736574,
+        "uid": 51719,
+        "name": "ModestCoder_",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF1155C \u3010Alarm Clocks Everywhere\u3011"
+    },
+    {
+        "content": "> [\u535a\u5ba2\u94fe\u63a5](http://bubbleioa.top/archives/872)\n\n\u6211\u4eec\u8981\u627e\u5230\u4e00\u4e2a x\u548cd \u4f7f\u5f97 $x+kd = a_i$  k\u4e3a\u6b63\u6574\u6570\n\n\u5982\u679c\u6211\u4eec\u7684\u65f6\u95f4\u7d2f\u79ef\u5230 $a_i$ \u4e86\uff0c\u90a3\u4e48\u6211\u4eec\u5176\u5b9e\u5c31\u662f\u8981\u6ee1\u8db3 $a_i+kd=a_{i+1}$ \u5373 $a_{i+1}-a_i=kd$\n\n\u6240\u4ee5\u6211\u4eec\u5c31\u662f\u8981\u7528\u4e00\u4e2a\u95f4\u9694\u6765\u904d\u5386\u5230\u6240\u6709\u65f6\u95f4\u70b9\uff0c\u8fd9\u4e2a\u95f4\u9694\u663e\u7136\u662f\u6240\u6709\u76f8\u90bb\u65f6\u95f4\u95f4\u9694\u7684gcd\uff0c\u8bb0\u4e3ad\n\n\u7136\u540e\u770b\u770b\u7b2c\u4e8c\u884c\u91cc\u9762\u6709\u6ca1\u6709d\u7684\u7ea6\u6570\uff0c\u6709\u7684\u8bdd\u5c31\u8f93\u51fa\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\ntypedef long long ll;\nconst int MAXN=300003;\nint n,m;\nll x,d,z;\n\nll gcd(ll a,ll b){\n\treturn b?gcd(b,a%b):a;\n}\n\nint main(){\n\tscanf(\"%d%d\",&n,&m);\n\tscanf(\"%lld\",&x);\n\tfor (int i=1;i<n;i++) {\n\t\tscanf(\"%lld\", &z);\n\t\td=gcd(d,abs(z-x));\n\t}\n\tfor(int i=1;i<=m;i++){\n\t\tll p;cin>>p;\n\t\tif(d%p==0){\n\t\t\tprintf(\"YES\\n%lld %d\",x,i);\n\t\t\treturn 0;\n\t\t}\n\t}\n\tprintf(\"NO\");\n\treturn 0;\n}\n```",
+        "postTime": 1556025935,
+        "uid": 61150,
+        "name": "\u5192\u6ce1ioa",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 CF1155C \u3010Alarm Clocks Everywhere\u3011"
+    },
+    {
+        "content": "\u5bf9\u4e8e\u7ed9\u5b9a\u7684$n$\u4e2a\u65f6\u523b$x_i$ \u6211\u4eec\u8981\u6c42\u4e00\u4e2a\u95f4\u9694$p$\u80fd\u591f\u6ee1\u8db3\n$$p\\mid x_{i+1}-x_i(0<i<n)$$\n\u90a3\u4e48\u5bf9\u4e8e\u7ed9\u5b9a\u7684$n$\u4e2a\u65f6\u523b \u6211\u4eec\u5148\u6c42\u51fa\u4e24\u4e24\u4e4b\u95f4\u7684\u5dee$d_i$  \n\u4e4b\u540e\u5f88\u663e\u7136\u7684\u6709$p \\mid gcd(d_1,d_2\\dots,d_{n-1})$  \n\u6240\u4ee5\u6211\u4eec\u6c42\u51fa\u540e\u9762\u8fd9\u4e00\u5768\u4e1c\u897f \u4e4b\u540e\u518d\u679a\u4e3e\u4e00\u4e0b\u7ed9\u5b9a\u7684\u6240\u6709$p$\u662f\u5426\u6709\u6ee1\u8db3\u6761\u4ef6\u7684\u5373\u53ef  \n\n```cpp\n#include<bits/stdc++.h>\n\nusing namespace std;\ntypedef long long int_t;\n\nint_t read(){\n    int_t x=0;char ch=0;\n    while(!isdigit(ch))ch=getchar();\n    while(isdigit(ch)){x=x*10+ch-'0';ch=getchar();}\n    return x;\n}\n\nint_t gcd(int_t a,int_t b){\n    return b?gcd(b,a%b):a;\n}\n\nint main(){\n    int_t n = read(),m = read(),lx = read(),pr=-1;\n    int_t fans = lx;\n    for(int_t i=2;i<=n;i++){\n        int_t x = read();\n        if(pr == -1)pr = x-lx;\n        else pr = gcd(pr,x-lx);\n        lx = x;\n    }\n    for(int_t i=1;i<=m;i++){\n        int_t p = read();\n        if(pr % p == 0){\n            cout<<\"YES\\n\"<<fans<<\" \"<<i;\n            return 0;\n        }\n    }\n    cout<<\"NO\";\n}\n```",
+        "postTime": 1555991096,
+        "uid": 74020,
+        "name": "Rainy_chen",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF1155C \u3010Alarm Clocks Everywhere\u3011"
+    }
+]

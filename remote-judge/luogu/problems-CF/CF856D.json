@@ -1,0 +1,13 @@
+{
+    "description": "Masha is fond of cacti. When she was a little girl, she decided to plant a tree. Now Masha wants to make a nice cactus out of her tree.\n\nRecall that tree is a connected undirected graph that has no cycles. Cactus is a connected undirected graph such that each vertex belongs to at most one cycle.\n\nMasha has some additional edges that she can add to a tree. For each edge she knows which vertices it would connect and the beauty of this edge. Masha can add some of these edges to the graph if the resulting graph is a cactus. Beauty of the resulting cactus is sum of beauties of all added edges.\n\nHelp Masha find out what maximum beauty of the resulting cactus she can achieve.",
+    "inputFormat": "The first line of the input data contains two integers $ n $ and $ m $ \u2014 the number of vertices in a tree, and the number of additional edges available ( $ 3<=n<=2\u00b710^{5} $ ; $ 0<=m<=2\u00b710^{5} $ ).\n\nLet us describe Masha's tree. It has a root at vertex 1. The second line contains $ n-1 $ integers: $ p_{2},p_{3},...,p_{n} $ , here $ p_{i} $ \u2014 is the parent of a vertex $ i $ \u2014 the first vertex on a path from the vertex $ i $ to the root of the tree ( $ 1<=p_{i}&lt;i $ ).\n\nThe following $ m $ lines contain three integers $ u_{i} $ , $ v_{i} $ and $ c_{i} $ \u2014 pairs of vertices to be connected by the additional edges that Masha can add to the tree and beauty of edge ( $ 1<=u_{i},v_{i}<=n $ ; $ u_{i}\u2260v_{i} $ ; $ 1<=c_{i}<=10^{4} $ ).\n\nIt is guaranteed that no additional edge coincides with the edge of the tree.",
+    "outputFormat": "Output one integer \u2014 the maximum beauty of a cactus Masha can achieve.",
+    "samples": [
+        [
+            "7 3\n1 1 2 2 3 3\n4 5 1\n6 7 1\n2 3 1\n",
+            "2\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9\u5b9a\u4e00\u68f5$n$\u4e2a\u70b9\u7684\u6811\uff0c\u53e6\u6709$m$\u6761\u8fb9\uff0c\u6bcf\u6761\u8fb9\u6709\u4e00\u4e2a\u6743\u503c$c_i$\uff0c\u8981\u9009\u62e9\u4e00\u4e9b\u8fb9\u52a0\u5165\u6811\u4e2d\uff0c\u4f7f\u5f97\u6811\u6210\u4e3a\u4ed9\u4eba\u638c\uff0c\u6307\u6bcf\u4e00\u4e2a\u70b9\u81f3\u591a\u5305\u542b\u4e8e\u4e00\u4e2a\u73af\u7684\u56fe\uff0c\u5e76\u4f7f\u5f97\u9009\u62e9\u7684\u8fb9\u7684\u6743\u503c\u548c\u6700\u5927\uff0c\u6c42\u51fa\u8fd9\u4e2a\u6700\u5927\u503c\u3002"
+}

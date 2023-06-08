@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u597d\u50cf\u8fd8\u6ca1\u6709\u4eba\u6765\u53d1\u9898\u89e3\uff0c\u6211\u7ed9\u5927\u5bb6\u53d1\u4e00\u7bc7\u3002\n\u8fd8\u6709\uff0c\u5927\u5bb6\u53ef\u80fd\u6ca1\u6709\u770b\u5230\u9898\uff0c\u94fe\u63a5\uff1a[H - U\u30fbN\u30fbC\u30fbO](https://autumn_fest.contest.atcoder.jp/tasks/autumn_fest_08)\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\npair<int,int>p[100001];\nint bit[16][1<<17+1];\nvoid add(int x,int y,int z)\n{\n    while(y<=1<<17)\n    {\n        bit[x][y]=(bit[x][y]+z)%314159265;\n        y+=y&-y;\n    }\n}\nint sum(int x,int y)\n{\n    int num=0;\n    while(y)\n    {\n        num=(num+bit[x][y])%314159265;\n        y-=y&-y;\n    }\n    return num;\n}\nint main()\n{\n    int n,d,x;\n    scanf(\"%d%d\",&n,&d);\n    for(int i=0;i<n;i++)\n        scanf(\"%d%d\",&p[i].first,&p[i].second);\n    sort(p,p+n);\n    for(int i=0;i<n;i++)\n    {\n        p[i].first=p[i].second;\n        p[i].second=n-i;\n    }\n    sort(p,p+n);\n    add(0,1,1);\n    for(int i=0;i<n;i++)\n    {\n        x=p[i].second;\n        for(int j=d-1;j>=0;j--)\n            add(j+1,x,sum(j,x));\n    }\n    cout<<bit[d][1<<17]<<endl;\n    return 0;\n}\n```",
+        "postTime": 1536653612,
+        "uid": 93488,
+        "name": "Porsche",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT325 \u3010U\u30fbN\u30fbC\u30fbO\u3011"
+    }
+]

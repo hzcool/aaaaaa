@@ -1,0 +1,25 @@
+{
+    "description": "You are given a graph consisting of $ n $ vertices and $ m $ directed arcs. The $ i $ -th arc goes from the vertex $ x_i $ to the vertex $ y_i $ , has capacity $ c_i $ and weight $ w_i $ . No arc goes into the vertex $ 1 $ , and no arc goes from the vertex $ n $ . There are no cycles of negative weight in the graph (it is impossible to travel from any vertex to itself in such a way that the total weight of all arcs you go through is negative).\n\nYou have to assign each arc a flow (an integer between $ 0 $ and its capacity, inclusive). For every vertex except $ 1 $ and $ n $ , the total flow on the arcs going to this vertex must be equal to the total flow on the arcs going from that vertex. Let the flow on the $ i $ -th arc be $ f_i $ , then the cost of the flow is equal to $ \\sum \\limits_{i = 1}^{m} f_i w_i $ . You have to find a flow which minimizes the cost.\n\nSounds classical, right? Well, we have some additional constraints on the flow on every edge:\n\n- if $ c_i $ is even, $ f_i $ must be even;\n- if $ c_i $ is odd, $ f_i $ must be odd.\n\nCan you solve this problem?",
+    "inputFormat": "The first line contains two integers $ n $ and $ m $ ( $ 2 \\le n \\le 100 $ ; $ 1 \\le m \\le 200 $ ).\n\nThen $ m $ lines follow. The $ i $ -th of them contains four integers $ x_i $ , $ y_i $ , $ c_i $ , and $ w_i $ ( $ 1 \\le x_i \\le n - 1 $ ; $ 2 \\le y_i \\le n $ ; $ x_i \\ne y_i $ ; $ 1 \\le c_i \\le 100 $ ; $ -100 \\le w_i \\le 100 $ ). These integers describe the $ i $ -th arc.\n\nAdditional constraints on the input:\n\n- there are no negative cycles in the graph.",
+    "outputFormat": "If a flow satisfying all of the constraints does not exist, print Impossible.\n\nOtherwise, print two lines:\n\n- the first line should contain one word Possible;\n- the second line should contain $ m $ integers $ f_1, f_2, \\dots, f_m $ .\n\nIf there are multiple answers, print any of them. Note that the cost of the flow should be minimized.",
+    "samples": [
+        [
+            "3 3\n1 2 3 -10\n1 2 3 -15\n2 3 2 0",
+            "Possible\n1 1 2"
+        ],
+        [
+            "3 3\n1 2 3 -10\n1 2 3 -15\n2 3 3 0",
+            "Impossible"
+        ],
+        [
+            "3 3\n1 2 3 -10\n1 2 3 -15\n2 3 4 0",
+            "Possible\n1 3 4"
+        ],
+        [
+            "6 7\n5 6 9 -40\n1 2 3 -10\n1 4 5 20\n4 5 7 30\n2 5 1 -15\n1 3 3 5\n3 5 3 0",
+            "Possible\n5 1 1 1 1 3 3"
+        ]
+    ],
+    "hint": "",
+    "translation": "- \u4f60\u9700\u8981\u89e3\u51b3\u4e00\u4e2a\u6709\u6e90\u6c47\u6700\u5c0f\u8d39\u7528\u53ef\u884c\u6d41\u95ee\u9898\u3002\n- \u4f46\u662f\uff0c\u5bb9\u91cf\u4e0e\u6d41\u91cf\u7684\u5947\u5076\u6027\u5fc5\u987b\u76f8\u540c\u3002\n- \u70b9\u6570\u5728 $2\\sim100$ \u8303\u56f4\u5185\uff0c\u8fb9\u6570\u5728 $1\\sim200$ \u8303\u56f4\u5185\uff0c\u5bb9\u91cf\u5728 $1\\sim100$ \u8303\u56f4\u5185\uff0c\u8d39\u7528\u5728 $-100\\sim100$ \u8303\u56f4\u5185\u3002\n- \u56fe\u4e2d\u6ca1\u6709\u8d1f\u73af\u3002"
+}

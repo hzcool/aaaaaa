@@ -1,0 +1,98 @@
+[
+    {
+        "content": "\u770b\u61c2\u9898\u76ee\u80cc\u666f\u540e\u5feb\u901f\u641e\u5b9a\uff0c\u4e0d\u5c31\u662f\u4ec5\u6b21\u4e8eP1001 $A+B$ Problem\u7684$A*B$ problem\u561b\uff0c\u8f93\u51fa\u7684\u5c31\u662f$A*B$\u3002\n\n\u4e0a\u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>//\u4e07\u80fd\u5934\u6587\u4ef6\nusing namespace std;\nint a,b;//\u5b9a\u4e49\u53d8\u91cf\nint main()//\u4e3b\u51fd\u6570\n{\n\tcin>>a>>b;//\u8f93\u5165\n\tcout<<a*b<<endl;//\u8f93\u51fa\n\treturn 0;//\u7a0b\u5e8f\u7ed3\u675f\uff0c\u597d\u4e60\u60ef\n } \n```\n\u6700\u57fa\u672c\u7684\u7a0b\u5e8f\uff0c\u521d\u5b66\u8005\u6bcf\u884c\u4ee3\u7801\u90fd\u8981\u641e\u6e05\u695a\u3002\n\n\u5982\u679c\u4e0d\u662f\u521d\u5b66\u8005\u89c9\u5f97\u9898\u76ee\u8fc7\u6c34\u4e0d\u60f3\u505a\uff0c\u53ef\u4ee5\u505a\u505a\u9ad8\u7cbe\u5ea6\u7684[P1303](https://www.luogu.com.cn/problem/P1303)",
+        "postTime": 1576988303,
+        "uid": 163342,
+        "name": "piggymichael",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 P5703 \u3010\u3010\u6df1\u57fa2.\u4f8b5\u3011\u82f9\u679c\u91c7\u8d2d\u3011"
+    },
+    {
+        "content": "\u5176\u5b9e\u8fd9\u5c31\u662f\u4f20\u8bf4\u4e2d\u7684\u9ad8\u7cbe\u5ea6\uff08\u662f\u4e0d\u662f\u6ca1\u6709\u90a3\u4e48\u96be\u7406\u89e3qwq\uff09\n\n\u53ea\u8981\u50cf\u5c0f\u5b66\u90a3\u6837\u8fd0\u7528\u7ad6\u5f0f\u8ba1\u7b97\u7684\u65b9\u6cd5\u7b97\u5c31\u597d\u4e86\uff0c\u6ce8\u610f\u8bfb\u5165\u7528char\u4e4b\u540e\u518d\u8f6c\u5316\u4e3aint\u5c31\u53ef\u4ee5\u4e86\n\n```cpp\n#include<bits/stdc++.h>//\u4e07\u80fd\u5934\nusing namespace std;\nchar aa[2001],bb[2001];\nint a[2001],b[2001],c[4001];\nint lena,lenb,lenc;\nsigned main( )\n{\n\tscanf(\"%s\",aa);//\u8f93\u5165\u7b2c\u4e00\u4e2a\u6570\n\tlena=strlen(aa);\n\tfor(register int i=1;i<=lena;i++)\n\ta[i]=aa[lena-i]-'0';//\u8f6c\u4e3a\u6574\u578b\u5e76\u5012\u5e8f\n\tscanf(\"%s\",bb);\n\tlenb=strlen(bb);//\u8f93\u5165\u7b2c\u4e8c\u4e2a\u6570\n\tfor(register int i=1;i<=lenb;i++)\n\tb[i]=bb[lenb-i]-'0';//\u8f6c\u4e3a\u6574\u578b\u5e76\u5012\u5e8f\n\tfor(register int i=1;i<=lena;i++)\n\tfor(register int j=1;j<=lenb;j++)\n\t{\n\t\tc[i+j-1]+=a[i]*b[j];//\u5148\u7b97\u51fa\u6765\u672c\u8be5\u6709\u7684\u503c\n\t\tc[i+j]+=c[i+j-1]/10;//\u8fdb\u4f4d\n\t\tc[i+j-1]%=10;//\u53d6\u4f59\n\t}\n\tlenc=lena+lenb-1;\n\twhile(c[lenc+1]>0)\n\t{\n\t\tlenc++;\n\t\tc[lenc+1]+=c[lenc]/10;\n\t\tc[lenc]%=10;\n\t}//\u518d\u6765\u4e00\u904d\n\twhile(c[lenc]==0&&lenc>=2)\n\t\tlenc--;//\u5220\u9664\u5f00\u5934\u7684\u96f6\n\tfor(register int i=lenc;i>=1;i--)\n\tcout<<c[i];//\u5012\u7740\u8f93\u51fa\n\texit(0);\n}\n```\n\n\u5e0c\u671b\u5bf9\u5927\u5bb6\u6709\u5e2e\u52a9qwq",
+        "postTime": 1576994632,
+        "uid": 189012,
+        "name": "SKTelecomT1_Faker",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P5703 \u3010\u3010\u6df1\u57fa2.\u4f8b5\u3011\u82f9\u679c\u91c7\u8d2d\u3011"
+    },
+    {
+        "content": "\u5927\u5bb6\u662f\u5728\u5b66 $code$\uff0c\u800c\u4e0d\u662f\u5728\u5b66\u6570\u5b66\uff0c\u4e0d\u5e94\u8be5\u5c06\u4e3a\u4ec0\u4e48\u7b54\u6848\u662f $a \\times b$\uff0c\u5e94\u8be5\u8bb2\u89e3\u4ee3\u7801\u5427\u3002\u53ef\u4ee5\u76f4\u63a5\u770b\u4ee3\u7801\u3002\n\n### \u9898\u76ee\n[P5703 \u3010\u6df1\u57fa2.\u4f8b5\u3011\u82f9\u679c\u91c7\u8d2d](https://www.luogu.com.cn/problem/P5703)\n\n### \u601d\u8def\n$a \\times b$ \u5373\u662f\u7b54\u6848\u3002\n\n### $Code$\n\n```cpp\n#include <iostream>//\u5934\u6587\u4ef6\uff1a\u4f7f\u7528\u4e00\u4e9b\u51fd\u6570\u5fc5\u5907\u7684\uff0c\u5982 cin , cout\n\n#include <cstdio>//\u5934\u6587\u4ef6\uff1a\u4f7f\u7528 scanf , printf \u5fc5\u5907\u7684\n\nusing namespace std;\n//\u5173\u4e8eusing namespace std;\u53ef\u4ee5\u770b\u4e00\u4e0b\u8fd9\u4e2ahttps://blog.csdn.net/quyafeng2011/article/details/68921750\n\nint a,b;\n//\u5b9a\u4e49\u4e24\u4e2a\u6574\u5f62\u7684\u53d8\u91cf\uff0c\u56e0\u4e3a\u9898\u76ee\u4e2d\u8bf4\u4fdd\u8bc1\u8f93\u5165\u548c\u7b54\u6848\u90fd\u5728int\u8303\u56f4\u5185\u7684\u975e\u8d1f\u6574\u6570\u3002\u6240\u4ee5\u7528int\u5c31\u591f\u4e86\u3002\u5982\u679c\u8d85\u51fa\u4e86int\u7684\u8303\u56f4\u7684\u8bdd\u8981\u4f7f\u7528long long\u3002\n\nint main() {//\u4e3b\u51fd\u6570\n\tcin>>a>>b;//\u8f93\u5165\uff0c\u53ef\u4ee5\u4f7f\u7528scanf(\"%d%d\",&a,&b);\n\tcout<<a*b<<'\\n';//\u8f93\u51fa\uff0c\u53ef\u4ee5\u4f7f\u7528printf(\"%d\",a*b);\n\treturn 0;\n}\n```",
+        "postTime": 1576984190,
+        "uid": 142110,
+        "name": "yu__xuan",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P5703 \u3010\u3010\u6df1\u57fa2.\u4f8b5\u3011\u82f9\u679c\u91c7\u8d2d\u3011"
+    },
+    {
+        "content": "\u6709\u9053\u9898\u53eb\u505a $ A+B Problem $ \uff0c\u5219\u8fd9\u9053\u9898\u5c31\u53eb\u505a $ A*B Problem $  \uff01\n\n\u6765\u770b\u770b $ A+B Problem $ \u7684\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint a,b;\nint main()\n{\n\tcin>>a>>b;\n\tcout<<a+b;\n\treturn 0;\n}\n```\n\n\u6240\u4ee5\u8fd9\u9898\u53ea\u9700\u628a $ + $ \u53d8\u6210 $ * $ \u5373\u53ef\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint a,b;\nint main()\n{\n\tcin>>a>>b;\n\tcout<<a*b;\n\treturn 0;\n}\n```\n",
+        "postTime": 1576934093,
+        "uid": 214177,
+        "name": "__\u849f\u84bb__",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P5703 \u3010\u3010\u6df1\u57fa2.\u4f8b5\u3011\u82f9\u679c\u91c7\u8d2d\u3011"
+    },
+    {
+        "content": "\u7b80\u5355\u7684`a*b`\u95ee\u9898\n\n\u6570\u91cf\u5173\u7cfb\u5f0f\uff1a\u82f9\u679c\u603b\u6570\u91cf = \u6bcf\u4f4d\u540c\u5b66\u7684\u82f9\u679c\u6570 * \u540c\u5b66\u6570\n\n\u56e0\u4e3a\u9898\u76ee\u8bf4\uff1a\u201c\u4fdd\u8bc1\u8f93\u5165\u548c\u7b54\u6848\u90fd\u5728int\u8303\u56f4\u5185\u7684\u975e\u8d1f\u6574\u6570\u3002\"\n\n\u6240\u4ee5\u65e0\u9700\u8003\u8651\u9ad8\u7cbe\u5ea6\u7b49\u5751\u70b9\n\n\u4ee3\u7801\uff1a\n\n```\n#include<iostream>\nusing namespace std;\nint main(){\n    int a,b;\n    cin>>a>>b;//\u8bfb\u5165\u6bcf\u4f4d\u540c\u5b66\u53ef\u4ee5\u5206\u5230\u7684\u82f9\u679c\u6570\u4e0e\u540c\u5b66\u6570\n    cout<<a*b<<endl;//\u6c42\u51fa\u5b83\u4eec\u7684\u79ef\uff0c\u5c31\u662f\u7b54\u6848\n    return 0;\n}\n```\n",
+        "postTime": 1576932535,
+        "uid": 120452,
+        "name": "\u8279poy",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P5703 \u3010\u3010\u6df1\u57fa2.\u4f8b5\u3011\u82f9\u679c\u91c7\u8d2d\u3011"
+    },
+    {
+        "content": "\u53ea\u8981\u628a\u4e24\u6570\u76f8\u4e58\u5373\u53ef\n\n\u5b9e\u5728\u662f\u6c34\u9898\uff0c\u4e0d\u8bf4\u4e86\uff0c\u76f4\u63a5\u4e0aAC\u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n    int a,b;\n    cin>>a>>b;//\u8f93\u5165\n    cout<<a*b;//\u8f93\u51fa\n    return 0; //\u7ed3\u675f\n}\n```\n",
+        "postTime": 1576933935,
+        "uid": 293212,
+        "name": "\u849f\u84bb666",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P5703 \u3010\u3010\u6df1\u57fa2.\u4f8b5\u3011\u82f9\u679c\u91c7\u8d2d\u3011"
+    },
+    {
+        "content": "## \u5165\u95e8\u7ecf\u5178\n\u8fd9\u662f\u4e00\u4e2a\u6570\u5b66\u95ee\u9898\u3002\n\n### \u65b9\u6cd5\u4e00\uff1a\n\n\u6211\u4eec\u5df2\u7ecf\u77e5\u9053\u6709\u591a\u5c11\u4eba\u4e86\uff0c\u4e5f\u77e5\u9053\u6bcf\u4e2a\u4eba\u56fa\u5b9a\u7684\u4e2a\u6570\u4e86\uff0c\u53ea\u9700\u8981\u628a\u6bcf\u4e2a\u4eba\u62e5\u6709\u7684\u82f9\u679c\u4e2a\u6570\u76f8\u52a0\u5373\u53ef\u3002\n\n\u6240\u4ee5\u4ee3\u7801\u5982\u4e0b\uff1a\n\n```cpp\n#include<iostream>\nint main(){\n   int a,b,ans;\n   cin>>a>>b;\n   while(b--)ans+=a;\n   cout<<ans;\n}\n```\n\n### \u65b9\u6cd5\u4e8c\uff1a\n\n\u6211\u4eec\u77e5\u9053\uff0c\u5728\u751f\u6d3b\u4e2d\u9700\u8981\u8fde\u7eed\u52a0\u540c\u4e00\u4e2a\u6570\u7684\u8fd0\u7b97\u53ef\u4ee5\u8868\u793a\u4e3a\u201c\u4e58\u201d\uff0c\u6240\u4ee5\u5bf9\u4e8e\u6b64\u9898\u6bcf\u4e2a\u4eba\u53ef\u62e5\u6709\u7684\u82f9\u679c\u4e2a\u6570\u90fd\u662f\u76f8\u540c\u7684\uff0c\u6211\u4eec\u53ef\u4ee5\u76f4\u63a5\u7528\u4eba\u6570\u4e58\u4ee5\u6bcf\u4e2a\u4eba\u62e5\u6709\u7684\u82f9\u679c\u4e2a\u6570\u5373\u53ef\u3002\n\n\u4ee3\u7801\u5982\u4e0b\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n    int a,b;\n    cin>>a>>b;\n    cout<<a*b;\n}\n```",
+        "postTime": 1576933885,
+        "uid": 138314,
+        "name": "King_Parliament",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P5703 \u3010\u3010\u6df1\u57fa2.\u4f8b5\u3011\u82f9\u679c\u91c7\u8d2d\u3011"
+    },
+    {
+        "content": "### \u5206\u6790\n\n\u5df2\u77e5\u6bcf\u4eba\u5206\u5230\u7684\u6570\u91cf\u548c\u540c\u5b66\u7684\u4eba\u6570\uff0c\u5219\u82f9\u679c\u603b\u6570\u4e3a\u4e24\u8005\u4e4b\u79ef\u3002\n\n\u5373\u5df2\u77e5 $a$,$b$\uff0c\u6c42 $a\\times b$\u3002\n\n### \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint a,b;\nint main(){\n\tcin>>a>>b;\n\tcout<<a*b;\n}\n```\n",
+        "postTime": 1576934139,
+        "uid": 136601,
+        "name": "\u3000\u3000\u3000\u543e\u7687",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 P5703 \u3010\u3010\u6df1\u57fa2.\u4f8b5\u3011\u82f9\u679c\u91c7\u8d2d\u3011"
+    },
+    {
+        "content": "![](bilibili:BV1ew411Z76w?page=3)\r\n\r\n## \u5e7f\u544a\r\n\r\nkkksc03 \u7ad9\u957f\u4eb2\u81ea\u8bb2\u6388\u7684\u4ea4\u4e92\u8bfe\uff0c\u914d\u5957\u300a\u6df1\u5165\u6d45\u51fa\u300b\u4f7f\u7528\uff0c\u4eb2\u81ea\u5728\u8bfe\u5802\u4e2d\u7f16\u5199\u7a0b\u5e8f\uff0c\u5728\u52a8\u624b\u7684\u8fc7\u7a0b\u4e2d\u5b66\u4e60\u3002[\u3010\u70b9\u51fb\u6b64\u5904\u62a5\u540d >>\u3011](https://class.luogu.com.cn/course/yugu21rma)\r\n\r\n[![](https://ipic.luogu.com.cn/yugu21rm/banner_jiaohu.png)](http://ipic.luogu.com.cn/l/rma.html)",
+        "postTime": 1623039972,
+        "uid": 21,
+        "name": "\u6d1b\u8c37\u89c6\u9891\u9898\u89e3",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P5703\u3010\u82f9\u679c\u91c7\u8d2d\u3011"
+    },
+    {
+        "content": "\u8fd9\u9898\u5f88\u7b80\u5355\uff0c\u628a\u9898\u76ee\u8f6c\u5316\u4e00\u4e0b\uff0c\u5c31\u4f1a\u53d1\u73b0\uff0c\u4e00\u4e2a\u4ebaa\u4e2a\u82f9\u679c\uff0c\u5171b\u4e2a\u4eba\uff0c\u90a3\u4e48\u2026\u2026\n\n\u4e0d\u5c31\u662f**a*b problem**\u5417\uff1f\uff01\n\n\u4f46\u662f\u2026\u2026\n```\na,b<1000000000......\n```\n\u6240\u4ee5\uff0c\u8981\u5f00\n```\nlong long\n```\n\u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\n#define ll long long\nusing namespace std;\nll n,m;\nint main(){\n\tios::sync_with_stdio(false);\n\tcin>>n>>m;\n\tcout<<n*m;\n\treturn 0;\n}\n\n```",
+        "postTime": 1576938281,
+        "uid": 126471,
+        "name": "inoichi_lim",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P5703 \u3010\u3010\u6df1\u57fa2.\u4f8b5\u3011\u82f9\u679c\u91c7\u8d2d\u3011"
+    },
+    {
+        "content": "\u5c31\u662fa*b\uff0c\u5199\u4e86\u4e00\u4e2a\u9898\u76ee\u80cc\u666f\uff0c\u65e0\u9700\u9ad8\u7cbe\uff0c\u4e0d\u5fc5\u8fc7\u591a\u89e3\u91ca\n\n```\n#include<bits/stdc++.h>//\u4f7f\u7528\u4e07\u80fd\u5934\nusing namespace std;\nint main(){\n\tint a,b;//\u5b9a\u4e49\n\tcin>>a>>b;//\u8bfb\u5165\n\tcout<<a*b;//\u8f93\u51fa\n\treturn 0;\n}\n```\n",
+        "postTime": 1576934969,
+        "uid": 95657,
+        "name": "\u8c37\u6c11",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 P5703 \u3010\u3010\u6df1\u57fa2.\u4f8b5\u3011\u82f9\u679c\u91c7\u8d2d\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u662f\u4e00\u9053\u5927\u6c34\u9898\uff0c\u53ea\u8981\u5c06\u4e24\u4e2a\u6570\u7684\u4e58\u79ef\u8f93\u51fa\u5c31\u884c\u4e86\u3002\n# Code\uff1a\n\n```cpp\n#include <iostream>\nusing namespace std;\nlong long a,b,c;\nint main()\n{\n\tcin>>a>>b;\n\tc=a*b;\n\tcout<<c;\n\treturn 0;\n}\n```\n",
+        "postTime": 1576932186,
+        "uid": 114183,
+        "name": "4\u5e05\u6c14\u7684\u725b\u4ed44",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 P5703 \u3010\u3010\u6df1\u57fa2.\u4f8b5\u3011\u82f9\u679c\u91c7\u8d2d\u3011"
+    }
+]

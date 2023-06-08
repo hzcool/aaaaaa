@@ -1,0 +1,25 @@
+{
+    "description": "Tokitsukaze and CSL are playing a little game of stones.\n\nIn the beginning, there are $ n $ piles of stones, the $ i $ -th pile of which has $ a_i $ stones. The two players take turns making moves. Tokitsukaze moves first. On each turn the player chooses a nonempty pile and removes exactly one stone from the pile. A player loses if all of the piles are empty before his turn, or if after removing the stone, two piles (possibly empty) contain the same number of stones. Supposing that both players play optimally, who will win the game?\n\nConsider an example: $ n=3 $ and sizes of piles are $ a_1=2 $ , $ a_2=3 $ , $ a_3=0 $ . It is impossible to choose the empty pile, so Tokitsukaze has two choices: the first and the second piles. If she chooses the first pile then the state will be $ [1, 3, 0] $ and it is a good move. But if she chooses the second pile then the state will be $ [2, 2, 0] $ and she immediately loses. So the only good move for her is to choose the first pile.\n\nSupposing that both players always take their best moves and never make mistakes, who will win the game?\n\nNote that even if there are two piles with the same number of stones at the beginning, Tokitsukaze may still be able to make a valid first move. It is only necessary that there are no two piles with the same number of stones after she moves.",
+    "inputFormat": "The first line contains a single integer $ n $ ( $ 1 \\le n \\le 10^5 $ ) \u2014 the number of piles.\n\nThe second line contains $ n $ integers $ a_1, a_2, \\ldots, a_n $ ( $ 0 \\le a_1, a_2, \\ldots, a_n \\le 10^9 $ ), which mean the $ i $ -th pile has $ a_i $ stones.",
+    "outputFormat": "Print \"sjfnb\" (without quotes) if Tokitsukaze will win, or \"cslnb\" (without quotes) if CSL will win. Note the output characters are case-sensitive.",
+    "samples": [
+        [
+            "1\n0\n",
+            "cslnb\n"
+        ],
+        [
+            "2\n1 0\n",
+            "cslnb\n"
+        ],
+        [
+            "2\n2 2\n",
+            "sjfnb\n"
+        ],
+        [
+            "3\n2 3 1\n",
+            "sjfnb\n"
+        ]
+    ],
+    "hint": "In the first example, Tokitsukaze cannot take any stone, so CSL will win.\n\nIn the second example, Tokitsukaze can only take a stone from the first pile, and then, even though they have no stone, these two piles will have the same number of stones, which implies CSL will win.\n\nIn the third example, Tokitsukaze will win. Here is one of the optimal ways:\n\n- Firstly, Tokitsukaze can choose the first pile and take a stone from that pile.\n- Then, CSL can only choose the first pile, because if he chooses the second pile, he will lose immediately.\n- Finally, Tokitsukaze can choose the second pile, and then CSL will have no choice but to lose.\n\nIn the fourth example, they only have one good choice at any time, so Tokitsukaze can make the game lasting as long as possible and finally win.",
+    "translation": "$Irressey$\u4e0e$yurzhang$\u5728\u73a9\u4e00\u4e2a\u53d6\u77f3\u5b50\u7684\u6e38\u620f\n\n\u4e00\u5f00\u59cb\uff0c\u4ed6\u4eec\u9762\u524d\u6709$n$\u5806\u77f3\u5b50\uff0c\u7b2c$i$\u5806\u77f3\u5b50\u6709$a_i$\u9897\u77f3\u5934\uff0c\u4ed6\u4eec\u8f6e\u6d41\u53d6\u77f3\u5b50\uff08$Irressey$\u5148\u53d6\uff09\u3002\u6bcf\u4e00\u6b21\uff0c\u53d6\u77f3\u5b50\u7684\u4eba\u4f1a\u9009\u4e2d\u4e00\u4e2a\u975e\u7a7a\u7684\u77f3\u5b50\u5806\u5e76\u53d6\u8d70\u5176\u4e2d\u7684\u4e00\u9897\u77f3\u5b50\u3002\u5982\u679c\u5728\u67d0\u4e2a\u4eba\u7684\u56de\u5408\u524d\u6240\u6709\u7684\u77f3\u5b50\u5806\u90fd\u662f\u7a7a\u7684\uff0c\u6216\u8005\u5728\u4ed6\u53d6\u5b8c\u540e\u6709\u4e24\u5806\u7684\u77f3\u5b50\u6570\u91cf\u76f8\u540c\uff08\u4e24\u5806\u90fd\u6ca1\u6709\u77f3\u5b50\u4e5f\u7b97\uff09\uff0c\u5219\u4ed6\u8f93\u6389\u6e38\u620f\u3002\n\n\u5982\u679c$Irressey$\u80dc\u5229\uff0c\u8f93\u51fa$sjfnb$\uff1b\u5982\u679c$yurzhang$\u80dc\u5229\uff0c\u8f93\u51fa$cslnb$\uff08\u5047\u8bbe\u4e24\u4e2a\u4eba\u90fd\u6309\u6700\u597d\u7684\u7b56\u7565\u53bb\u53d6\uff09\n\n\u6570\u636e\u8303\u56f4\uff1a\n\n$1\\le n \\le10^5$\n\n$0\\le a_1,a_2,a_3...a_n\\le10^9$"
+}

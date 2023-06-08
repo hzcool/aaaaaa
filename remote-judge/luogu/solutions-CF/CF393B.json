@@ -1,0 +1,10 @@
+[
+    {
+        "content": "## \u601d\u8def\n\u6b64\u9898\u4e3b\u8981\u662f\u6a21\u62df\u548c\u4e00\u5b9a\u7684\u6570\u5b66\u63a8\u7406\u3002\n\n\u518d\u770b\u6761\u4ef6\uff1a\n * $\\forall_{i,j}$\uff0c\u6709 $A_{i,j}=A_{j,i}$\n * $\\forall_{i,j}$\uff0c\u6709 $B_{i,j}=-B_{j,i}$\n * $\\forall_{i,j}$\uff0c\u6709 $W_{i,j}=A_{i,j}$+$B_{i,j}$\n \n \u53ef\u63a8\u51fa\uff1a\n * $W_{i,j}-W_{j,i}=2\\times B_{i.j}$ \n * $B_{i,j}=-B_{j,i}$\n * $A_{i,j}=W_{i,j}-B_{i,j}$\n \n\u518d\u7b80\u5355\u6a21\u62df\u3002\n```c\nfor(int i=1;i<=n;i++){\n\tfor(int j=1;j<=n;j++){\n\t\tdouble u=(w[i][j]-w[j][i])*1.0;//B[i][j]\u7684\u4e24\u500d \n\t\tu=u*1.0/2;//B[i][j]\n\t\tb[i][j]=u*1.0;\n\t\ta[i][j]=(w[i][j]-b[i][j])*1.0;//A[i][j]\n\t\tb[j][i]=(0-u)*1.0;\n\t\ta[j][i]=(w[j][i]-b[j][i])*1.0;//A[j][i]\n\t}\n}\n```\n\u6700\u540e\u6ce8\u610f\u4e00\u4e0b\u8f93\u51fa\u3002\n```c\nfor(int i=1;i<=n;i++){\n\tfor(int j=1;j<=n;j++) printf(\"%.8f \",a[i][j]);\n\tprintf(\"\\n\");\n}\nfor(int i=1;i<=n;i++){\n\tfor(int j=1;j<=n;j++) printf(\"%.8f \",b[i][j]);\n\tprintf(\"\\n\");\n}\n```\n## AC \u4ee3\u7801\n```c\n#include<bits/stdc++.h>\nint n;\ndouble w[171][171],a[171][171],b[171][171];\nusing namespace std;\nvoid sovle(){\n\tfor(int i=1;i<=n;i++){\n\t\tfor(int j=1;j<=n;j++){\n\t\t\tdouble u=(w[i][j]-w[j][i])*1.0;//B[i][j]\u7684\u4e24\u500d \n\t\t\tu=u*1.0/2;//B[i][j]\n\t\t\tb[i][j]=u*1.0;\n\t\t\ta[i][j]=(w[i][j]-b[i][j])*1.0;//A[i][j]\n\t\t\tb[j][i]=(0-u)*1.0;\n\t\t\ta[j][i]=(w[j][i]-b[j][i])*1.0;//A[j][i]\n\t\t}\n\t}\n}\nvoid print(){\n\tfor(int i=1;i<=n;i++){\n\t\tfor(int j=1;j<=n;j++) printf(\"%.8f \",a[i][j]);\n\t\tprintf(\"\\n\");\n\t}\n\tfor(int i=1;i<=n;i++){\n\t\tfor(int j=1;j<=n;j++) printf(\"%.8f \",b[i][j]);\n\t\tprintf(\"\\n\");\n\t}\n}\nint main()\n{\n\tscanf(\"%d\",&n);\n\tfor(int i=1;i<=n;i++) for(int j=1;j<=n;j++) scanf(\"%lf\",&w[i][j]);\n\tsovle();\n\tprint();\n}\n```\n",
+        "postTime": 1681546927,
+        "uid": 541072,
+        "name": "\u65e0\u654c\u7684\u795e",
+        "ccfLevel": 0,
+        "title": "CF393B \u9898\u89e3"
+    }
+]

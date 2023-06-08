@@ -1,0 +1,234 @@
+[
+    {
+        "content": "\u6c34\u9898\u3002\n\n\u56e0\u4e3a$S=\\frac{R1+R2}{2}$\n\n\u6240\u4ee5$r2=2 \\times s-r1$\n\n```\n#include <iostream>\n#include <cstdio>\n\nusing namespace std;\n\nint main()\n{\n   int r1,s;\n   scanf(\"%d%d\",&r1,&s);\n   printf(\"%d\\n\",2*s-r1);\n   return 0;\n}\n```",
+        "postTime": 1523512725,
+        "uid": 8457,
+        "name": "chen_zhe",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 P4413 \u3010[COCI2006-2007 Contest2] R2\u3011"
+    },
+    {
+        "content": "## \u5f88\u660e\u663e\u7684\u77e9\u9635\u5feb\u901f\u5e42\u5427\n\u53ef\u4ee5\u628as\u3001r1\u3001r2\u770b\u6210\u4e00\u4e2a\u5e8f\u5217a\uff0c\u5219\u9012\u63a8\u5f0f\u5c31\u662f:\n\n$a_i=$\n$\\left\\{\\begin{matrix}i=1,s\\\\i=2,r1\\\\2*a_{i-2}-a_{i-1}\\end{matrix} \\right\\}$\n\n\u53ef\u4ee5\u76f4\u63a5\u6309\u7167\u9012\u63a8\u5f0f\u9012\u63a8\uff0c\u4f46\u662f\u4e0d\u591f\u5feb\uff01\u600e\u4e48\u529e\u5462\uff1f\n\n\n\u5148\u4e3e\u4e2a\u7b80\u5355\u7684\u4f8b\u5b50\u3002fibonacci\u6570\u5217\u3002\nfibonacci\u6570\u5217\u662f\u6307\u8fd9\u6837\u4e00\u4e2a\u6570\u5217\u3002\u7b2c\u4e00\u9879\u548c\u7b2c\u4e8c\u9879\u662f1\u3002\u7b2ci\u9879\u662f\u7b2ci-1\u9879\u4e0ei-2\u9879\u7684\u548c\u3002\u53ef\u4ee5\u5199\u6210:\n### $f_i=f_{i-1}+f_{i-2}$\n\u6c42\u7b2cn\u9879\u53ef\u4ee5\u76f4\u63a5\u9012\u63a8\u3002\u4f46\u5982\u679cn<=1000000000\u7684\u65f6\u5019\u5462\uff1f\u8fd9\u5c31\u8981\u77e9\u9635\u5feb\u901f\u5e42\u51fa\u573a\u4e86\u3002\u6211\u4eec\u53ef\u4ee5\u628a\u4e0a\u5f0f\u7b80\u5316\u6210\u8fd9\u6837\u4e00\u4e2a\u77e9\u9635\n\n\n$\\left\\{\\begin{matrix}f_i&0\\\\f_i-1&0\\end{matrix}\\right\\}$\n\n\u53ef\u4ee5\u53d1\u73b0\uff1a\n\n$\\left\\{\\begin{matrix}f_i&0\\\\f_{i-1}&0\\end{matrix}\\right\\}=$\n$\\left\\{\\begin{matrix}f_{i-2}&0\\\\f_{i-1}&0\\end{matrix}\\right\\}*$\n$\\left\\{\\begin{matrix}1&1\\\\1&0\\end{matrix}\\right\\}$\n\n\u4e5f\u5c31\u662f\uff1a\n\n$\\left\\{\\begin{matrix}f_{i}&0\\\\f_{i-1}&0\\end{matrix}\\right\\}=$\n$\\left\\{\\begin{matrix}f_{2}&0\\\\f_{1}&0\\end{matrix}\\right\\}*$\n$\\left\\{\\begin{matrix}1&1\\\\1&0\\end{matrix}\\right\\}^{i-1}$\n\n\u7136\u540e\u5c31\u662f\u6253\u77e9\u9635\u5feb\u901f\u5e42\u4e86\u3002\n\n\u5982\u679c\u4e0d\u4f1a\u77e9\u9635\u4e58\u6cd5\u6ca1\u5173\u7cfb\u3002\u77e9\u9635a\u548cb\u76f8\u4e58\uff0c\u8bben\u4e3aa\u7684\u5bbd\u5ea6,\u7b54\u6848c\u7684\u7b2ci\u884cj\u5217\u5c31\u662f\n## $c_{i,j}=\\Sigma_{k=0}^{n}a_{i,k}b_{k,j}$\n\u7136\u540e\u5c31\u662f\u6109\u5feb\u7684\u6253\u5feb\u901f\u5e42\u5566\uff0c\u539f\u7406\u548c\u6574\u6570\u5feb\u901f\u5e42\u76f8\u540c\u3002\n\nso\uff0c\u56de\u5230\u539f\u9898\u3002\u5bf9\u4e8e\u539f\u9898\u7684\u5e8f\u5217\uff0c\u4e5f\u53ef\u4ee5\u770b\u4f5c\u662f\u8fd9\u6837\u4e00\u4e2a\u77e9\u9635\uff1a\n\n$\\left\\{\\begin{matrix}a_{i}&0\\\\a_{i-1}&0\\end{matrix}\\right\\}$\n\n\u4e5f\u53ef\u4ee5\u53d1\u73b0:\n\n\n$\\left\\{\\begin{matrix}a_{i}&0\\\\a_{i-1}&0\\end{matrix}\\right\\}$=\n$\\left\\{\\begin{matrix}2&-1\\\\0&1\\end{matrix}\\right\\}$*\n$\\left\\{\\begin{matrix}a_{i-1}&0\\\\a_{i-2}&0\\end{matrix} \\right\\}$\n\n\u7b80\u5316\u5f97\n\n$\\left\\{\\begin{matrix}a_{i}&0\\\\a_{i-1}&0\\end{matrix}\\right\\}$=\n$\\left\\{\\begin{matrix}2&-1\\\\0&1\\end{matrix}\\right\\}^{i-2}*$\n$\\left\\{\\begin{matrix}a_{2}&0\\\\a_{1}&0\\end{matrix}\\right\\}$\n\n\u7136\u540e\u6109\u5feb\u7684\u5957\u5feb\u901f\u5e42\u5c31ok\u5566\u3002\n\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nstruct Matrix{int a[2][2];};\nMatrix operator * (Matrix a,Matrix b){\n\tMatrix ans;\n\tmemset(ans.a,0,sizeof(ans.a));\n\tfor(int i=0;i<2;i++)\n\t\tfor(int j=0;j<2;j++)\n\t\t\tfor(int k=0;k<2;k++)\n\t\t\t\tans.a[i][j]+=a.a[i][k]*b.a[k][j];\n\treturn ans;\n}\nMatrix power(Matrix a,int p){\n\tMatrix y=a,k=a;int t=p-1;\n\twhile(t){\n\t\tif(t&1) y=y*y;\n\t\tk=k*y;\n\t\tp>>=1;\n\t}\n\treturn y;\n} \nMatrix a,b,c;\nint main(){\n\tmemset(a.a,0,sizeof(a.a));\n\tmemset(b.a,0,sizeof(b.a));\n\tmemset(c.a,0,sizeof(c.a));\n\tcin>>a.a[1][0]>>a.a[0][0];\n\tb.a[0][0]=2;\n\tb.a[0][1]=-1;\n\tb.a[1][1]=1;\n\tb=power(b,3-2);\n\tMatrix k=b*a;\n\tcout<<k.a[0][0];\n\treturn 0;\n}\n```",
+        "postTime": 1555668363,
+        "uid": 98096,
+        "name": "Smallbasic",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 P4413 \u3010[COCI2006-2007#2] R2\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u5176\u5b9e\u53ef\u4ee5\u5217\u4e2a\u65b9\u7a0b\uff0c\u7136\u540e\u5316\u7b80\u4e00\u4e0b\u5f97\u5230\u6700\u7b80\u5355\u7684\u5f0f\u5b50\uff0c\u6700\u540e\u4ee3\u7801\u5316\u4e00\u4e0b\u5c31\u597d\u5566\uff01\n     \uff08^-^\uff09\n\t\u6211\u7684\u5316\u7b80\u8fc7\u7a0b\uff1a\n        s=(r1+r2)/2\n        s=r1/2+r2/2\n\t\tr2/2=s-r1/2\n     \u6240\u4ee5s-r1/2\u7b97\u51fa\u6765\u7684\u7ed3\u679c\u518d*2\u5c31\u53ef\u4ee5\u5566\uff01 \n     \u7531\u8877\u611f\u8c22\u60a8\u5bf9\u6211\u7684\u652f\u6301\uff01\n                              \n                       \n \t#include <bits/stdc++.h>\n\t//\u4e0a\u9762\u662f\u4e07\u80fd\u5934\u6587\u4ef6\uff0c\u5b83\u5305\u542b\u4e86\u8fd1\u4e4ec++\u7684\u6240\u6709\u5934\u6587\u4ef6\n\n\tusing namespace std;\n\n\tint main(){\t\n\t\tfloat s(0),r1,r2;\n\t\tcin>>r1>>s;\n\t\tr2=s-r1/2;\n\t\tr2*=2;\n\t\tint r=r2;\n\t\tcout<<r;\n\t\treturn 0;\n\t}\n\n\n                 \n                 \n                 \n             \n \u4f5c\u8005\uff1a\u7eeb\u4ead\u5c45\u58eb\n            2018\u5e7407\u670806\u65e5\n            \u4e8e\u4e0a\u6d77\u5e02\u7231\u7eeb\u4ead\u5185\n                   ",
+        "postTime": 1530862775,
+        "uid": 108305,
+        "name": "f070331",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P4413 \u3010[COCI2006-2007#2] R2\u3011"
+    },
+    {
+        "content": "\u770b\u7740\u9898\u76eedalao\u90fd\u662f\u7528\u6570\u5b66\u5206\u6790\u7684\u65b9\u6cd5\u76f4\u63a5\u89e3\u51fa\u7b54\u6848\u7684\uff0c~~\u89c9\u5f97\u7528\u679a\u4e3e\u7684\u6211\u597d\u849f\u84bb~~\n\n\u8fd9\u91cc\u53ef\u4ee5\u63d0\u4f9b\u4e00\u4e2a\u65b0\u7684\u65b9\u6848\uff0c\u4e5f\u662f\u6bd4\u8f83\u7b26\u5408\u9898\u610f\u7684\u4e00\u4e2a\u65b9\u6cd5\n~~\uff08\u5176\u5b9e\u9898\u76ee\u5f88\u6c34\u7684\uff09~~\n\n### \u601d\u8def\uff1a\n1. \u770b\u6e05\u9898\u76ee\u6240\u7528\u7684\u516c\u5f0f\uff0c\u5224\u65ad\u597d\u8303\u56f4\n1. ~~\u5b66\u4f1a\u5faa\u73af\u548c\u5224\u65ad~~\n1. \u8fdb\u884c\u6709\u987a\u5e8f\u7684~~\u66b4\u529b~~\u679a\u4e3e\n1. \u7136\u540e\u3002\u3002\u3002\u6ca1\u4e86\u3002\u3002\u3002\n\n### \u6ce8\u610f\u4e8b\u9879\uff1a\n1. \u8f93\u5165\u987a\u5e8f\uff1a\u5148R1\u518dS\n1. \u8303\u56f4\uff1a\u5c3d\u91cf\u5f00\u5927\u70b9\n\n## \u6807\u7a0b\n```cpp\n//S=(R1+R2)/2;\n#include<iostream>\nusing namespace std;\nint main(){\n\tint R1,R2,S;\n\tcin>>R1>>S;\n\tfor(R2=-2020;R2<=2020;++R2){\n\t\tif((R2+R1)/2==S){\n\t\t\tcout<<R2;\n\t\t\tbreak;\n\t\t}\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1524037033,
+        "uid": 75504,
+        "name": "\u0422\u0443\u043f\u043e\u043b\u0435\u0432",
+        "ccfLevel": 0,
+        "title": "LuoguOJ P4413 [COCI2006-2007#2] R2 \u9898\u89e3"
+    },
+    {
+        "content": "# \u7b2c\u4e00\u6b21\u5199\u9898\u89e3\uff0c\u4e0d\u559c\u52ff\u55b7\n## \u6c34\u9898\u4e00\u9053\n### \u5173\u7cfb\u662f\u5f88\u660e\u663e\u7684\n## R2=2S-1\n## so\n## \u4ee3\u7801\u5b9e\u73b0\n```cpp\n#include<iostream>\nusing namespace std;\nint main()\n{\n\tint r1,r2,s;\n\tcin>>r1>>s;\n\tr2=2*s-r1;//\u6700\u6709\u7528\u7684\u4e00\u884c\n\tcout<<r2;\n\t\n\treturn 0;\n} \n```\n### \u7ed3\u675f\n",
+        "postTime": 1551614875,
+        "uid": 165056,
+        "name": "Reio_Stark",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P4413 \u3010[COCI2006-2007#2] R2\u3011"
+    },
+    {
+        "content": " \u4e00\u9053\u6c34\u9898\n \n \u6b64\u9898\u6709\u4e24\u79cd\u89e3\u6cd5\n \n\u7b2c\u4e00\u79cd\uff1a\n\u6839\u636er2=2\u00d7s\u2212r1\u6765\u89e3\n\n\u4ee3\u7801\u5982\u4e0b\uff1a\n```\n#include <iostream>\nusing namespace std;\nint main()\n{\n    int r1,s;\n    cin>>r1>>s;\n    cout<<2*s-r1<<endl;\n    return 0;\n}\n```\n\u7b2c\u4e8c\u79cd\uff1a\u7528for\u5faa\u73af\u627e\n\n\u4ee3\u7801\u5982\u4e0b\uff1a\n```\n#include <iostream>\nusing namespace std;\nint main()\n{\n    int r1,s;\n    cin>>r1>>s;\n    for(int i=-1000;i<=s*2;i++)\n    {\n        if((r1+i)==s*2)cout<<i;\n    }\n    return 0;\n}\n```",
+        "postTime": 1532680689,
+        "uid": 35610,
+        "name": "wzc001",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 P4413 \u3010[COCI2006-2007#2] R2\u3011"
+    },
+    {
+        "content": "## \u4f5c\u4e3ap\u515a\uff0c\u5f53\u7136\u8981\u7ed9\u540c\u80de\u5e26\u70b9\u798f\u5229\u5566\uff01\n\n## \u6ce8\u610f\uff01\u6b64\u9898\u5de8\u6c34\uff01\uff01\n\n\u9996\u5148\uff0cS=(R1+R2)/2\uff0c\u800c\u4e14 (-1000<=R1,S<=1000)\uff0c\u6240\u4ee5\u53ef\u4ee5\u76f4\u63a5\u901a\u8fc7\u7b80\u5355\u8ba1\u7b97\u5f97\u51fa\uff1aR2=S*2-R1\n\n\u7b80\u5355\u8bf4\u660e\u4e0b\u8ba1\u7b97\u8fc7\u7a0b\n\n\u2235s=(R1+R2)/2  \u2234s*2=R1+R2\n\n\u2234R2=s*2-R1\n\n\u8fd9\u6837\uff0c\u6b64\u9898\u5c31\u8fc7\u4e86\n\n\n------------\n\n```pascal\nvar  r1,r2,s,ans:longint;//\u5b9a\u4e2alongint\u9632\u6b62\u67d0\u79cd\uff08\u6076\u5fc3\u7684\uff09\u6570\u636e\u4f1a\u70b8\n\nbegin\n  readln(r1,s);//\u76f4\u63a5\u8bfb\u5165\uff0c\u4e0d\u5fc5\u591a\u8bf4\n  ans:=s*2-r1;//\u8ba1\u7b97\u7b54\u6848\n  writeln(ans);//\u8f93\u51fa\uff0c\u5f00\u5fc3AC\nend.  \n```\n\n\n------------\n\n\u6700\u540e\u9884\u795dpascal\u7684\u540c\u5b66\u4eec\u4e00\u6b21AC",
+        "postTime": 1533014403,
+        "uid": 78129,
+        "name": "\u7a7a\u57ce\u65e7\u68a6\u2014",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P4413 \u3010[COCI2006-2007#2] R2\u3011"
+    },
+    {
+        "content": " ### **P4413 [COCI2006-2007#2] R2**\n\u7528\u5df2\u77e5\u91cf\u5c06\u672a\u77e5\u91cf\u8868\u793a\u51fa\u6765\n------------\n\u6b63\u5e38\u601d\u8def\u4e00\u6b65\u6b65\u5411\u4e0b\u5217\u5c31\u597d\uff0c\u4e0d\u9700\u8981\u5faa\u73af\u5224\u65ad\n\n\u4e0a\u4ee3\u7801\uff0c~~\u55b5\u55b5\u55b5~~\u2014\u2014\u2014\u2014\n\n\n\n------------\n\n#include<iostream>\n  \nusing namespace std;\n\nint main()\n\n{\n\n    int S,R1;//\u5b9a\u4e49\u5df2\u77e5\u91cf\n    cin>>R1>>S;//\u8f93\u5165\n    int R2=2*S-R1;//\u5df2\u77e5\u91cf\u5f52\u5230\u4e00\u8fb9\uff0c\u672a\u77e5\u7684R2\u5f52\u5230\u4e00\u8fb9\n    cout<<R2<<endl;//\u8f93\u51fa\n    return 0;\n}\n\n\n------------\n\u795d\u5927\u5bb6AC\u6109\u5feb \\(^o^)/~\u3000\u3000\n\uff03\u3013 \u00a7 \u3013\n\n\u3000\u3000 \u2193\u3000\n  \n\u3000\u2606\u2605\u2606\u3000\n \n\u2606 Rp++ \u2606\u3000\n\n\u3000\u2606\u2605\u2606\n \n\u3000\u3000\u2193\n  \n\u3000\u3000\u203b\u3000",
+        "postTime": 1550567132,
+        "uid": 171535,
+        "name": "Jasmine_S",
+        "ccfLevel": 0,
+        "title": "P4413 COCI\u9898\u89e3\u55b5"
+    },
+    {
+        "content": "##### \u4e00\u9053\u6c34\u9898\uff0c~~\u534a\u5206\u949fAC~~\n\n\u4e0b\u9762\u662f\u6211\u7684\u4ee3\u7801\uff0c\u8bf7\u5404\u4f4d\u5927\u4f6c\u591a\u591a\u6307\u6559\n\n```\n#include<bits/stdc++.h> \n//\u4e07\u80fd\u5934\u6587\u4ef6\nusing namespace std;\nint s,r1;  //\u6839\u636e\u9898\u76ee\u8981\u6c42\nint main()\n{\n    cin>>r1>>s; //\u8f93\u5165\n    cout<<s*2-r1; //\u81ea\u5df1\u63a8\u51fa\u7684\u516c\u5f0f\n}\n```",
+        "postTime": 1550544002,
+        "uid": 120947,
+        "name": "Purslane",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 P4413 \u3010[COCI2006-2007#2] R2\u3011"
+    },
+    {
+        "content": "\u5927\u5bb6\u597d\uff0c\u6211\u5c31\u4e0d\u5199\u4ee3\u7801\u4e86\uff0c\u56e0\u4e3a\u603b\u662f\u6392\u7248\u4e0d\u6574\u9f50\uff0c**\u89c1\u8c05**\u3002\n\n\n------------\n\u9996\u5148\uff0c\u6b64\u9898\u4e4d\u4e00\u770b\u662f\u5c0f\u5b66\u6570\u5b66\u9898\u5440\u3002\n\nS=(R1+R2)/2\uff08\u5df2\u77e5\uff09\n\n\u53ef\u5f97s=r1/2+r2/2;\n\n\u5373r2/2=s-r1/2;\n\n\u4e24\u8fb9\u540c\u4e58\u4e8c\nr2=s*2-r1;\n\n\n\n------------\n\u4e0a\u8ff0\u6b65\u9aa4\u8f83\u7b80\u5355\uff0c\u6b64\u9898\u4e0d\u987b\u8003\u8651\u7cbe\u51c6\u8303\u56f4(\u65e0\u6570\u7ec4),\u6240\u4ee5\u6839\u636e\u8303\u56f4\u53ef\u5f97\u53ea\u9700int\u5373\u53ef\n\n\n------------\n\n\n------------\n\u6c42\u8fc7\n\n",
+        "postTime": 1530595669,
+        "uid": 45475,
+        "name": "ShineEternal",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P4413 \u3010[COCI2006-2007#2] R2\u3011"
+    },
+    {
+        "content": "    //P\u515a\u7684\u8d85\u7ea7\u5927\u798f\u5229\uff0c\u591a\u79cd\u65b9\u6cd5\u4efb\u4f60\u6284\uff0c\u5f53\u7136\u4e86\uff0c\u548c\u522b\u4eba\u91cd\u590d\u7684\u65b9\u6cd5\u6211\u662f\u4e0d\u4f1a\u8bf4\u7684\u3002\n    //\u65b9\u6cd5\u4e00\uff1a\n    var r1,s,i:int64;//\u5b9a\u91cf\u8fd8\u662f\u5927\u4e9b\u597d\u3002\n    begin\n      readln(r1,s);//\u8f93\u5165\u522b\u641e\u9519\u4e86\u987a\u5e8f\u3002\n      for i:=-1000 to s*2 do//\u91cd\u70b9\u6765\u4e86\uff0c\u5982\u679c\u7528\u5faa\u73af\u627e\u7684\u8bdd\uff0c\u90a3\u5c31\u4e0d\u8981\u5fd8\u4e86\u770b\u6570\u636e,1000<\uff0c\u8fd9\u771f\u662f\u4e2a\u5927\u5751\uff0c\u5c31\u56e0\u4e3a\u8fd9\u4e2a\u6211\u60b2\u5267\u4e86\u597d\u591a\u6b21\u3002\n        if r1+i=s*2 then//\u5982\u679c\u662f\u7684\u8bdd\uff0c\u5c31\u4e0d\u8981\u8fc7\u4e86\u3002\n          begin\n            writeln(i);//\u8f93\u51fa\u4e86\u3002\n            exit;//\u8bb0\u5f97\u9000\u51fa\uff0c\u522b\u6d6a\u8d39\u5185\u5b58\u3002\n          end;\n    end.\n    //\u65b9\u6cd5\u4e8c\uff1a\n    var r1,s,i:int64;\n    begin\n      readln(r1,s);\n      i:=-1000;//\u4ec0\u4e48\uff1f\u4e00\u4e0a\u6765\u5c31\u7ed9\u5b83\u8d4b\u503c\uff01\u8fd9\u662f\u5e72\u4ec0\u4e48\uff1f\u6162\u6162\u5f80\u4e0b\u770b\u5c31\u77e5\u9053\u4e86\uff0c\u8fd9\u65b9\u6cd5\u7edd\u5bf9\u662f\u4e2a\u5bf9\u7684\u3002\n      while 1=1 do//\u7eb3\u5c3c\uff01\u6b7b\u5faa\u73af\uff01\u5f88\u4ee4\u4f60\u9707\u60ca\u5427\uff0c\u4f46\u6b7b\u5faa\u73af\u4e5f\u662f\u53ef\u4ee5\u5bf9\u7684\u3002\n        begin\n          if r1+i=s*2 then//\u5224\u65ad\u4e86\uff0c\u6570\u503c\u7684\u5751\u4e0d\u8981\u6389\u8fdb\u53bb\u554a\u3002\n            begin\n              writeln(i);//\u548c\u65b9\u6cd5\u4e00\u4e00\u6837\u7684\u90e8\u5206\u6211\u5c31\u4e0d\u8bf4\u4e86\n              exit;//\u9000\u51fa\u4e86\u4e0d\u5c31\u4e0d\u6015\u6b7b\u5faa\u73af\u4e86\u5417\uff0c\u600e\u4e48\u6837\uff0c\u4fe1\u6211\u4e86\u5427\u3002\n            end;\n          i:=i+1;//\u8bb0\u5f97\u7d2f\u52a0\uff0c\u4e0d\u7136\u4e5f\u8bb8\u5c31\u771f\u6b7b\u5faa\u73af\u4e86\u3002\n        end;\n    end.\n    //\u65b9\u6cd5\u4e09\uff1a\n    var r1,r2,s:int64;\n    begin\n      readln(r1,s);//\u6700\u7b80\u6734\u7684\u4e00\u79cd\u89e3\u6cd5\u4e86\uff0c\u8f93\u5165\u8ba1\u7b97\u52a0\u8f93\u51fa\u3002\n      r2:=s*2-r1;//\u592a\u7b80\u5355\uff0c\u61d2\u5f97\u8bf4\u4e86\u3002\n      writeln(r2);\n    end.\n    //\u4e09\u79cd\u65b9\u6cd5\u591f\u4e86\u5427\uff0c\u4eca\u5929\u5c31\u5230\u6b64\u4e3a\u6b62\u4e86\u3002",
+        "postTime": 1526906925,
+        "uid": 65799,
+        "name": "\u5feb\u4e50\u7684\u5764",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P4413 \u3010[COCI2006-2007#2] R2\u3011"
+    },
+    {
+        "content": "\u6211\u6765\u53d1\u4e2apascal\u4ee3\u7801\n\n\tvar\n\ta,b:longint\n    read(a,b);\n    write(b*2-a);\n    end.\n\u7b80\u5355\u6613\u61c2\uff0c\u6709\u5751\u52ff\u6284\uff01\n\u8dea\u6c42\u901a\u8fc7\uff01",
+        "postTime": 1523942087,
+        "uid": 82630,
+        "name": "\u5f20\u7693\u6db5",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P4413 \u3010[COCI2006-2007#2] R2\u3011"
+    },
+    {
+        "content": "~~\u6c34\u9898\u6c34\u9898\u6c34\u9898~~  \n\n~~\u8fd9\u9898\u4e0d\u4f1a\u7684\u4eba\u5e94\u8be5\u53bb\u8bfb\u5e7c\u513f\u56ed\u4e86~~\n\n\u8fd9\u91cc\u7ed9\u5927\u5bb6\u6765\u4e2a\u89e3\u65b9\u7a0b\u7684\u65b9\u6cd5\uff08~~\u611f\u89c9\u6211\u5728\u5927\u70ae\u6253\u868a\u5b50~~\uff09\n\n\u65e2\u7136$S=(R1+R2)/2$  \n\u89e3: $2S=R1+R2$  \n    $2S-R1=R2$\n\n\u6240\u4ee5\u660e\u767d\u4e86\u5427\uff1a$R2=2S-R1$\n\n\u6240\u4ee5\u5e9f\u8bdd\u4e0d\u591a\u8bf4\uff0c\u4e0aAC\u4ee3\u7801\uff1a\n```cpp\n#include<iostream>   //\u8fd9\u4e2a\u5c31\u4e0d\u7528\u89e3\u91ca\u4e86\u5427=_=\nusing namespace std;   //\u4e0d\u5199\u8fd9\u4e2a\u4e1c\u4e1c\uff0c\u7535\u8111\u4f1a\u4e0d\u8ba4cin,cout\nint main()\n{\n\tint R1,S;\n\tcin>>R1>>S;\n\tcout<<S*2-R1<<endl;   //\u8f93\u51fa\u7b54\u6848\u5373\u53ef\n\treturn 0;//\u5c31\u8fd9\u4e48\u7ed3\u675f\u4e86\uff1f\n}```",
+        "postTime": 1523883709,
+        "uid": 83345,
+        "name": "Scarlet_Lightning",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P4413 \u3010[COCI2006-2007#2] R2\u3011"
+    },
+    {
+        "content": "## \u5165\u95e8\u9898\u7684\u5386\u7ec3\n$\\color{steelblue}\\texttt{\u6240\u6709\u7684\u795e\u7287\u90fd\u662f\u5728\u65e0\u6570\u5165\u95e8\u9898\u4e0a\u5f62\u6210\u7684}$\n\n\u7136\u540e\u6211\u4eec\u8bb2\u4e00\u8bb2\u8fd9\u9053\u9898\uff1a\n\n\u9996\u5148\uff1a\n$S=\\dfrac{R_1+R_2}{2}$\n\n\u6211\u4eec\u53ef\u4ee5\u5c06\u5b83\u8f6c\u6362\u4e3a\u5173\u4e0e$R_2$\u7684\u65b9\u7a0b\n\n\u5373\u4e3a\uff1a\n\n$2S-R_1=R_2$\n\n\u6240\u4ee5\u53ef\u4ee5\u5217\u51fa\u7b80\u5355\u5f0f\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint a,b; \nint main()\n{\n\tcin>>a>>b;\n\tcout<<b*2-a<<endl;\n\treturn 0;\n}\n```\n\u8fd9\u6837\u5c31\u5b8c\u4e86\uff01\n\n\u795d\u5927\u5bb6\u5728\u6d1b\u8c37\u5237\u9898\u5feb\u4e50\uff01",
+        "postTime": 1573973399,
+        "uid": 212283,
+        "name": "Aw\u987f\u987f",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 P4413 \u3010[COCI2006-2007#2] R2\u3011"
+    },
+    {
+        "content": "\u8bfb\u9898\u540e\u6211\u624d\u53d1\u73b0\uff0c\u539f\u6765\u770b\u7740\u662f\u4e00\u9053\u96be\u9898\u7684\u8fd9\u9053\u9898\u662f\u4e00\u9053~~\u5927\u6c34\u9898~~\u3002\n\n\u7531\u4e8e**S=(r1+r2)/2**\n\n\u90a3\u4e48**r1=(S*2)-r2**\n\n\u7531\u6b64\u53ef\u4ee5\u5f97\u51fa\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>//\u4e07\u80fd\u5934\u4e07\u5c81\uff01\uff01\nusing namespace std\uff1b\nint main()\n{\n\tdouble s,r1,r2\uff1b\n\tcin>>r1>>s\uff1b//\u4ee3\u5165\u516c\u5f0f\n\tr2=s*2-r1\uff1b\n\tcout<<r2<<endl\uff1b//\u8f93\u51fa\u7b54\u6848\n\treturn 0\uff1b\n}\n\n```\n\n# \u6700\u540e\u7684\u6700\u540e\u2014\u2014\u6c42\u8fc7\uff01\uff01\uff01",
+        "postTime": 1571192851,
+        "uid": 142082,
+        "name": "\u7d2b\u91d1\u4f9d\u65e7",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P4413 \u3010[COCI2006-2007#2] R2\u3011"
+    },
+    {
+        "content": "\u8fd9\u662f\u4e00\u9053\u5f88\u9002\u5408\u5c0f\u5b66\u751f\u7684\u9898\n\n\u5c31\u50cf\u662f\u89e3\u65b9\u7a0b\u4e00\u6837\n\n------------\n\n$$S=(R1+R2)\\div2$$\n\u4ee3\u5165\u6837\u4f8b\u8f93\u51651\u5f97\n$$(11+R2)\\div2=15$$\n\u79fb\u9879\u540e\u5f97\n$$11+R2=30$$\n$$R2=19$$\n\n\n------------\n\u6211\u4eec\u6765\u770b\u770bS\u7ecf\u5386\u4e86\u4e9b\u4ec0\u4e48\uff1a\n\n\u5148\u662f\u4e582\uff0c\u518d\u662f\u51cf\u53bb\u4e86R1\uff0811\uff09\uff0c\u6700\u540eS\u5c31\u7b49\u4e8eR2\u4e86\uff1b\n\u6240\u4ee5\u6211\u4eec\u80fd\u5f97\u5230\uff1a\n$$R2=S\\times2-R1$$\n\u63a5\u4e0b\u6765\u5c31\u53ef\u4ee5\u6109\u5feb\u7684\u5199\u4ee3\u7801\u4e86\uff1a\n```cpp\n#include <iostream>\nusing namespace std;\nint main(){\n\tint S = 0;\n\tint R1 = 0,R2 = 0;\n\tcin>> R1 >> S;//\u8fd9\u91cc\u8981\u6ce8\u610f\u8f93\u5165\u7684\u5148\u540e\u987a\u5e8f\n\tR2 = S * 2 - R1;//\u5229\u7528\u6211\u4eec\u63a8\u5bfc\u51fa\u6765\u7684\u516c\u5f0f R2=S*2-R1\n\tcout<< R2;\n\treturn 0;\n}\n```\n\u4ee3\u7801\u5f88\u7b80\u5355\uff0c\u7406\u89e3\u81f3\u4e0a\u3002\n",
+        "postTime": 1566910884,
+        "uid": 239562,
+        "name": "yuyc",
+        "ccfLevel": 0,
+        "title": "\u5c0f\u5b66\u751f\u7684\u9898\u89e3\u4e4b P4413 \u3010[COCI2006-2007#2] R2\u3011"
+    },
+    {
+        "content": "~~\u5176\u5b9e\uff0c\u8fd9\u9898\u8d85\u7ea7\u65e0\u654c\u7684\u7b80\u5355~~\u3002\u6570\u5b66\u597d\u6216\u8005\u4e0d\u597d\u80af\u5b9a\u90fd\u4f1a\u3002\n\n\u597d\u5427\uff0c\u5f53\u6211\u6ca1\u8bf4\u3002\n\n\u63d0\u4f9b\u4e00\u4e2a\u601d\u8def\uff0c\u65e2\u7136\u4ed6\u8bf4S=\uff08R1+R2\uff09/2\uff0c\u5e76\u4e14\uff0c\u4ed6\u544a\u8bc9\u6211\u4eecR1\u4e0eS\uff0c\u5012\u63a8\u56de\u53bb\uff0cS*2-R1=R2\u3002emmmm\uff0c\u5927\u5bb6\u5e94\u8be5\u90fd\u770b\u51fa\u6765\u4e86\u5427\uff0c\u5728\u8349\u7a3f\u7eb8\u4e0a\u8bd5\u4e00\u4e0b\u5c31\u77e5\u9053\u4e86\u3002\u989d\uff0c\u4e0b\u9762\u5949\u4e0a~~\u8d85\u77ed~~\u4ee3\u7801\u3002\n\n------------\n```\n#include<iostream>\n\nusing namespace std;\n\nint a,b,s;\n\nint main ()\n{\n\tcin>>a>>s;\n\tcout<<(s*2-a);\n\treturn 0;\n}\n```\n\u662f\u4e0d\u662f\u975e\u5e38\u7b80\u5355\u5462\uff1f\u76f8\u4fe1\u5404\u4f4d\u90fd\u660e\u767d\u8fd9\u6bb5\u4ee3\u7801\u5427\uff1f\u5728\u8fd9\u91cc\u5c31\u4e0d\u5199\u6ce8\u91ca\u4e86\u3002\n\nPS\uff1a\u7ba1\u7406\u5927\u5927\uff0c\u8fd9\u662f\u6211\u7b2c\u4e00\u6b21\u5199\u9898\u89e3\uff0c\u6c42\u8fc7\u3002\u5404\u4f4d\u5927\u4f6c\uff0c\u5982\u679c\u6709\u4ec0\u4e48\u4e0d\u597d\u7684\u5730\u65b9\uff0c\u52ff\u55b7\uff01\u8c22\u8c22\uff01\uff01\u6709\u4e0d\u61c2\u7684\u53ef\u4ee5\u79c1\u804a\u6211\u3002\n",
+        "postTime": 1564497134,
+        "uid": 220384,
+        "name": "MC_blueberry",
+        "ccfLevel": 4,
+        "title": "\u6c34\u9898\uff0c\u7edd\u5bf9\u6c34\u9898\u3002"
+    },
+    {
+        "content": "```c\n#include<iostream>\nusing namespace std;\nint a,b,ans;\nint print(int dd){\n    cout<<dd;\n}//\u7b2c\u4e00\u4e2a\u51fd\u6570\uff0c\u7528\u6765\u8f93\u51fa\nint find(int c,int d){\n    ans=2*d-c;\n}//\u7b2c\u4e8c\u4e2a\u51fd\u6570\uff0c\u627e\u51fa\u7b54\u6848\nint main(){//\u7b80\u5355\u7684\u4e3b\u7a0b\u5e8f\n    cin>>a>>b;//\u8f93\u5165\n    find(a,b);//\u627e\u7b54\u6848\n    print(ans);//\u8f93\u51fa\n}\n```\n\u5f88\u7b80\u5355\u54e6\n\n\u5176\u5b9e\u53ea\u8981\u6a21\u62df\u5c31\u884c\n\n\u89e3\u65b9\u7a0b\u8d70\u8d77\uff1a\n\nS=(R1+R2)/2  //\u4e24\u8fb9\u540c\u4e582\n\n2S=R1+R2  //\u79fb\u9879\n\nR2=2S-R1  //\u6c42\u89e3\n\n\u6240\u4ee5\u8bf4\uff0c\uff0c\u7b54\u6848\u5c31\u51fa\u6765\u54af\u3002\u3002\u3002\n\n\u518d\u8bb2\u4e00\u4e2a\u65b0\u4e1c\u897f\uff0c\uff0c\uff0c\u51fd\u6570\n\n\u51fd\u6570\u5b9a\u4e49\uff1a\u4e3a\u4e86\u5b9e\u73b0\u67d0\u4e9b\u529f\u80fd\u7684\u7684\u4ee3\u7801\u6a21\u5757\uff0c\u76ee\u7684\u662f\u4e3a\u4e86\u53ef\u4ee5\u91cd\u590d\u8c03\u7528\u8fd9\u4e9b\u529f\u80fd\uff0c\u51fd\u6570\u672c\u8eab\u53ef\u4ee5\u5e26\u5165\u4e0d\u540c\u7684\u53c2\u6570\u8fdb\u884c\u8fd0\u7b97\n\n\u683c\u5f0f\uff1a\n\u8fd4\u56de\u7c7b\u578b \u51fd\u6570\u540d\uff08\u53c2\u65701,\u53c2\u65702,\u2026\u2026){\n\n    \u8fc7\u7a0b\u8bed\u53e5;\n    \n    return \u503c;\uff08\u53ef\u8981\u53ef\u4e0d\u8981\uff09\n}\n\n\u9012\u5f52\uff0cbfs\uff0cdfs\u90fd\u9700\u8981\u7528\u5230\u5b83\uff1b\uff1b\uff1b\u6240\u4ee5\u5b83\u5f88\u91cd\u8981\u54e6\n\n\u597d\u7684\uff0c\u4eca\u5929\u5c31\u5230\u6b64\u7ed3\u675f\uff0c\u611f\u8c22\u9605\u8bfb",
+        "postTime": 1559986969,
+        "uid": 216105,
+        "name": "\u6d1b\u8c37\u4ebf\u4ebf\u5c81",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P4413 \u3010[COCI2006-2007#2] R2\u3011"
+    },
+    {
+        "content": "\u56e0\u4e3aS=(R1+R2)/2\n\n\u6240\u4ee52*S=R1+R2\n\n\u6240\u4ee52*S-R1=R2\n\n\t#include<iostream> \n\t#include<cstdio>\n\t#include<cmath>\n\t#include<math.h>\n\t#include<string>\n\tusing namespace std;\n\tint main()\n\t{\n\t\tint R1,S;\n\t\tcin>>R1>>S;\n\t\tcout<<2*S-R1;\n\t\treturn 0;\n\t}",
+        "postTime": 1551418017,
+        "uid": 147895,
+        "name": "\u7834\u58c1\u4eba\u7f57\u8f91",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 P4413 \u3010[COCI2006-2007#2] R2\u3011"
+    },
+    {
+        "content": "```cpp\n#include<iostream>\nusing namespace std;\nint main(){\n\tint s,r1;\n\tcin>>r1>>s;\n\tcout<<s*2-r1;\n\treturn 0;\n}\n\n```\n\u9006\u8fd0\u7b97\uff0c\u7b80\u5355.\n\n\u63a8\u4e00\u4e2a\u65b9\u7a0b\n\ns=(r1+r2)/2; \n\n2s=r1+r2;\n\nr2=2s-r1;",
+        "postTime": 1550973544,
+        "uid": 165561,
+        "name": "lian_sama",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P4413 \u3010[COCI2006-2007#2] R2\u3011"
+    },
+    {
+        "content": "\u53d1\u4e2apython\u7684\n```\nstring =  input()\nprint (int(string.split(\" \")[1])*2 - int(string.split(\" \")[0]))\n```\n\u7b80\u5355\u6613\u61c2\uff0c\u6c42\u8fc7",
+        "postTime": 1548847184,
+        "uid": 182057,
+        "name": "panyihang",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P4413 \u3010[COCI2006-2007#2] R2\u3011"
+    },
+    {
+        "content": "\u4e22\u51fa\u4e07\u80fd\u5934\u6587\u4ef6\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n```\n\u6839\u636e\u9898\u76ee\u5b9a\u4e49\u6574\u578b\u53d8\u91cfr1,s,r2\uff1a\n```cpp\nint r1,s,r2;\n```\n\u8f93\u5165r1\u548cs\uff1a\n```cpp\ncin>>r1>>s;\n```\n\u6839\u636e\u9898\u76ee\u53ef\u5f97\u4e00\u4e2a\u5f0f\u5b50\uff1a2s=r1+r2,\u7531\u6b64\u53ef\u5f97r2=2s-r1\uff1a\n```cpp\nr2=2*s-r1;\n```\n\u8f93\u51far2\uff1a\n```cpp\ncout<<r2;\n```\n\u522b\u5fd8\u4e86return 0\uff1a\n```cpp\nreturn 0\uff1b\n```\n\u4e0b\u9762\u9644\u4e0a\u5b8c\u6574\u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n\tint r1,s,r2;\n\tcin>>r1>>s;\n\tr2=2*s-r1;\n\tcout<<r2;\n\treturn 0;\n } \n```\n### \u56e0\u672c\u849f\u84bb\u5b9e\u529b\u6709\u9650\uff0c~~\u53ea\u80fd\u5728\u8fd9\u91cc\u7ed3\u675f\u4e86~~\uff0c\u795d\u4f60\u4eecAC~",
+        "postTime": 1548767635,
+        "uid": 164683,
+        "name": "\u5c0f\u90ed\u672c\u4eba",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P4413 \u3010[COCI2006-2007#2] R2\u3011"
+    },
+    {
+        "content": "\u6765\u770b\u4e00\u4e0b\u9898\u76ee\u8bf4\u660e\n![](https://cdn.luogu.com.cn/upload/pic/25507.png)\n\n\u597d\u5427\u6211\u627f\u8ba4\u56fe\u7247\u88ab\u6539\u4e86......\n\nPS:\u88ab\u90a3\u4e2a~~\u4e07\u6076~~\u7684\u6c34\u5370\u906e\u4f4f\u7684\u4e24\u4e2a\u6570\u5b57\u662f11\u548c15\u3002\n\n\u4e0a\u4ee3\u7801\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;  \nint main()\n{\n    int s,r1,r2=-100;    //r2\u7684\u521d\u59cb\u503c\u5fc5\u987b\u4e3a-100\uff0c\u4e0d\u7136\u8f93\u516511 5\u5c31\u4f1a\u8df3\u8fdb\u6b7b\u5faa\u73af\uff08\u6c38\u8fdc\u4e0d\u4f1a\u8f93\u51fa\u503c\uff09\uff0c\u8fd9\u8ba9\u6211\u7b2c\u4e00\u6b21WA(\u8f93\u51fa\u9519\u8bef)\u7684\u539f\u56e0\n    cin>>r1>>s;\n    while(1)\n    {\n    \tr2++;       //\u679a\u4e3e-100\u52302147483647(int\u7c7b\u578b\u80fd\u5b58\u653e\u7684\u6700\u5927\u6570\u5b57\uff0c\u4e5f\u662f\u76ee\u524d\u53d1\u73b0\u7684\u6700\u5927\u8d28\u6570\uff09)\u7684\u6240\u6709\u53ef\u80fd\u6027\n\t\tif((r2+r1)/2==s)   //\u5982\u679c\u627e\u5230\u4e86\u8fd9\u9053\u9898\u7684\u89e3\n        {\n        \tbreak;   //\u8df3\u51fa\u5faa\u73af\n        }\n\t\t\t\n\t}\n    cout<<r2<<endl; //\u6253\u5370\u8fd9\u4e2a\u89e3\n    return 0;   //\u7ed3\u675f\u7a0b\u5e8f\n}\n```\n\n\u4e0b\u9762\u6211\u6765\u79d1\u666e\u4e00\u4e0b\u679a\u4e3e\u548cbreak\u8bed\u53e5\u3002\n\n\u679a\u4e3e\u7684\u610f\u601d\u662f\u6301\u7eed\u5217\u51fa\u89e3\u76f4\u5230\u627e\u5230\u53ef\u884c\u7684\u90a3\u4e00\u4e2a\u3002\u8fd9\u53ea\u662f\u66b4\u529b\u679a\u4e3e\u6cd5\uff0c\u8fd8\u6709\u4e00\u79cd\u679a\u4e3e......\u767e\u5ea6\u4e0a\u622a\u5f20\u56fe\u81ea\u5df1\u4f53\u4f1a\uff1a\n![](https://cdn.luogu.com.cn/upload/pic/25524.png)\n\u6700\u540e\u6765\u8bb2\u4e00\u4e0bbreak\u8bed\u53e5\u3002\n\nbreak\u662f\u7528\u6765**\u8df3\u51fa\u5faa\u73af**\u7684\uff0c\n\u4e3e\u4e2a\u4f8b\u5b50\uff1a\n\n\u4fd7\u8bdd\u8bf4\u201c\u6d53\u7f29\u7684\u90fd\u662f\u7cbe\u534e\u201d\uff0c\u5173\u4e8ebreak\u7684\u8bf4\u660e\u90fd\u5728\u4ee3\u7801\u6ce8\u91ca\u91cc\u4e86\u3002\u4e0d\u8981\u95ee\u6211\u5173\u952e\u5b57\u4e3a\u4ec0\u4e48\u6ca1\u6709\u5f69\u8272\uff0c\u80af\u5b9a\u662fLuogu\u53c8\u51faBug\u4e86\uff1a\n\n\n```cpp\n\n#include <bits/stdc++.h>\nusing namespace std;  \nint main()\n{\n    int s=0;\n    while(1)\n    {\n    \ts++;\n\t\tif(s>10)   //\u5982\u679cs\u5927\u4e8e10\u5c31\u8df3\u51fa\u5faa\u73af\n\t\t\tbreak; //\u8df3\u51fa\u5faa\u73af\n        cout<<Test\"<<endl;   //\u5f53s\u5927\u4e8e10\u7684\u65f6\u5019\u4e0d\u4f1a\u6253\u5370\u201cTest\u201d\uff0c\u56e0\u4e3a\u90a3\u65f6\u5df2\u7ecf\u8df3\u51fa\u5faa\u73af,\u5df2\u7ecf\u9000\u51fa\u7a0b\u5e8f\u201creturn 0\u201d\u4e86\u3002\n\t}\n    return 0;\n}\n```\n\u8fd8\u6709\u4e00\u79cd\u53ebcontinue\u7684\uff0c\u518d\u4e3e\u4e2a\u4f8b\u5b50\uff1a\n```cpp\n\n#include <bits/stdc++.h>\nusing namespace std;  \nint main()\n{\n    int s=0;\n    while(1)\n    {\n    \ts++;\n\t\tif(s==10)\n\t\t\tcontinue;\n        cout<<Test\"<<endl;   //\u5f53s\u7b49\u4e8e10\u7684\u65f6\u5019\u4e0d\u4f1a\u6253\u5370\u201cTest\u201d\uff0c\u56e0\u4e3aif\u91cc\u7684\u6761\u4ef6\u6ee1\u8db3\uff0c\u6267\u884c\u4e86continue\uff0c\u56de\u5230\u4e86\u88abwhile\u4e0b\u9762\u7684\u5927\u62ec\u53f7\u5305\u56f4\u7684\u7b2c\u4e00\u4e2a\u8bed\u53e5\u3002\n\t}\n    return 0;\n}\n```\n\u5982\u679c\u8fd8\u662f\u6709\u70b9\u62bd\u8c61\uff0c\u770b\u56fe\u793a\u5427\uff1a\n![](https://cdn.luogu.com.cn/upload/pic/25530.png)\n\n\u672c\u671f\u9898\u89e3\u5230\u6b64\u7ed3\u675f\u3002",
+        "postTime": 1532680542,
+        "uid": 107715,
+        "name": "qwq2003",
+        "ccfLevel": 0,
+        "title": "\u679a\u4e3e\u548cbreak\u8bed\u53e5\u7684\u7528\u6cd5"
+    },
+    {
+        "content": "## \u8fd9\u9898\u4e0d\u4e00\u5b9a\u8981\u7528\u5176\u4ed6\u4eba\u7684\u6570\u8bba\u505a\u6cd5\uff0c\u6211\u672c\u4eba\u6570\u5b66\u6bd4\u8f83\u5783\u573e\uff0c\u53ea\u597d\u66b4\u529b\u7b97\n## \u7b2c\u4e00\u773c\u770b\u4e0a\u53bb\u597d\u50cf\u53ef\u4ee5\u4e8c\u5206\n### \u6d4b\u4e86\u4e00\u4e0b\u662f\u5bf9\u7684\n```cpp\n#include<iostream>\nusing namespace std;\nint main()\n{\n\tint r1,s;\n\tcin>>r1>>s;\n\tint l=-3000,r=3000;\n\twhile(l<r)\n\t{\n\t\tint mid=(l+r)/2;\n\t\tif(double(r1+mid)/2==s)\n\t\t{\n\t\t\tl=mid;\n\t\t\tbreak;\n\t\t}\n\t\telse if(double(r1+mid)/2<s)\n\t\t\tl=mid+1;\n\t\telse\n\t\t\tr=mid-1;\n\t}\n\tcout<<l<<endl;\n}\n```\n### \u65f6\u95f40ms\uff0c\u8bf4\u660e\u6211\u7684\u505a\u6cd5\u5e76\u4e0d\u592a\u52a3\uff0c\u4e8e\u662f\u62ff\u51fa\u6765\u548c\u5927\u5bb6\u5206\u4eab\u4e00\u4e0b",
+        "postTime": 1530505351,
+        "uid": 37834,
+        "name": "autoint",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P4413 \u3010[COCI2006-2007#2] R2\u3011"
+    },
+    {
+        "content": "\u4e0d\u5751\u4eba\uff0c\u5f88\u6c34\u7684\u4e00\u9053\u9898\u3002\u7528\u6700\u7b80\u5355\u7684\u6570\u5b66\u65b9\u6cd5\u5c31\u53ef\u4ee5\u505a\u51fa\u6765\u4e86\n```\n#include<iostream>\n#include<cstdio>\nusing namespace std;\nint main()\n{\n\tdouble a,b,c;\n\tcin>>a>>b;\n\tc=b*2-a;\n\tcout<<c;\n}\n```",
+        "postTime": 1523616418,
+        "uid": 61426,
+        "name": "\u591c\u96e8\u58f0\u70e6hst",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P4413 \u3010[COCI2006-2007 Contest2] R2\u3011"
+    },
+    {
+        "content": "**\u849f\u84bb\u7684\u7b2c\u4e94\u7bc7\u9898\u89e3\uff01**\n\nchen_zhe\u5927\u4f6c\u51fa\u7684\u6c34\u9898\u3002\u3002\u3002\n\n\u5982\u679c\u628a\u8fd9\u9898\u5f53\u505a**\u6570\u5b66\u9898**\uff0c\u4f8b\uff1a\n\nS=\u5c0f\u660e\u7684\u94b1=16\u5143\n\nR1=\u5c0f\u7ea2\u7684\u94b1=7\u5143\n\nR2=\u5c0f\u6587\u7684\u94b1=\uff1f\u5143\n\n\u5df2\u77e5\u5c0f\u660e\u7684\u94b1=(\u5c0f\u7ea2\u7684\u94b1+\u5c0f\u6587\u7684\u94b1)/2\n\n\u6240\u4ee5\u5c0f\u660e\u7684\u94b1*2=\u5c0f\u7ea2\u7684\u94b1+\u5c0f\u6587\u7684\u94b1\n\n\u90a3\u4e48\u5c0f\u6587\u7684\u94b1=\u5c0f\u660e\u7684\u94b1*2-\u5c0f\u7ea2\u7684\u94b1\n\n\u7b97\u5f0f=16*2-7=25\uff08\u5143\uff09\n\n\u8fd9\u6837\uff0c\u89c4\u5f8b\u5c31\u51fa\u6765\u4e86\n\n\u90a3\u4e48\n\n# R2=S*2-R1\n\nAC\u4ee3\u7801\uff1a\n```\n#include<bits/stdc++.h>  //\u4e07\u80fd\u5934\u6587\u4ef6  \n\nint r1,s,ans;       //\u5b9a\u4e49r1,s\u548cans   \nint main()\n{\nscanf(\"%d%d\",&r1,&s);\t//\u8f93\u5165r1\u548cs\nans=(s*=2)-r1;\t\t\t//\u6309\u7167\u4e0a\u9762\u7684\u89c4\u5f8b\uff0c\u8ba1\u7b97\u7b54\u6848\nprintf(\"%d\",ans);\t//\u8f93\u51fa\n\n\n    return 0;           \n}\n```\n",
+        "postTime": 1569562297,
+        "uid": 168551,
+        "name": "\u4ebf\u5e74\u5df2\u8fc7",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P4413 \u3010[COCI2006-2007#2] R2\u3011"
+    },
+    {
+        "content": "```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint r1,s;\nint main(){\n\tcin>>r1>>s;\n\tcout<<s*2-r1;\n\treturn 0;\n}\n```\n",
+        "postTime": 1557484276,
+        "uid": 191538,
+        "name": "pidan",
+        "ccfLevel": 0,
+        "title": "\u7b80\u6d01\u660e\u4e86"
+    },
+    {
+        "content": "# \u8fd9\u662f\u4e00\u9053\u6c34\u9898\uff1a\n## \u56e0\u4e3aS=(R1+R2)/2,\u6240\u4ee5R2=S*2-R1\n## \u73b0\u5728\u5c31\u76f4\u63a5\u732e\u4e0a\u9898\u89e3\u5427:\n```cpp\n#include<iostream>//cin,cout\u5fc5\u5907 \nusing namespace std;\nint main()\n{\n\tint s,r1;//\u8fd9\u9053\u9898\u7528int\u5373\u53ef\n\tcin>>r1>>s;//\u8f93\u5165,\u4e5f\u53ef\u4ee5\u7528scanf(\"%d%d\",&r1,&r2); \n\tcout<<s*2-r1;//\u8fd0\u7528\u4e0a\u9762\u7684\u516c\u5f0f,\u4e5f\u53ef\u4ee5\u7528printf(\"%d\",s*2-r1);\n\treturn 0;//\u6211\u7231return,return\u7231\u6211!!!\n}\n//\u8fd9\u9053\u9898\u8d85\u6c34\uff01\uff01\uff01\n```",
+        "postTime": 1533555194,
+        "uid": 78206,
+        "name": "ricky_lin",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 P4413 \u3010[COCI2006-2007#2] R2\u3011"
+    },
+    {
+        "content": "~~\u5c0f\u5b665\u5e74\u7ea7\u6c34\u9898\uff08\u9003~~\n\n\u7ed9\u5b9a r1 \u548c s \u6c42 r2,\n\ns=(r1+r2)/2\n\n2s=r1+r2\n\nr2=2*s-r1\n\n\u6240\u4ee5\u53ea\u8981\u8f93\u51fa2*s-r1\u5c31\u884c\u4e86\n------------\n\n```cpp\n#pragma GCC optimize(30000000)\n#include <bits/stdc++.h>\nusing namespace std;\nint r1,s;\nint main(){\n    cin>>r1>>s;\n    cout<<2*s-r1<<endl;\n    return 0;\n}\n```\n\n",
+        "postTime": 1523939078,
+        "uid": 84025,
+        "name": "Kiel",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P4413 \u3010[COCI2006-2007#2] R2\u3011"
+    }
+]

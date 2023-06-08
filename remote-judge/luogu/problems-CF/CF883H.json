@@ -1,0 +1,21 @@
+{
+    "description": "Kolya has a string $ s $ of length $ n $ consisting of lowercase and uppercase Latin letters and digits.\n\nHe wants to rearrange the symbols in $ s $ and cut it into the minimum number of parts so that each part is a palindrome and all parts have the same lengths. A palindrome is a string which reads the same backward as forward, such as madam or racecar.\n\nYour task is to help Kolya and determine the minimum number of palindromes of equal lengths to cut $ s $ into, if it is allowed to rearrange letters in $ s $ before cuttings.",
+    "inputFormat": "The first line contains an integer $ n $ ( $ 1<=n<=4\u00b710^{5} $ ) \u2014 the length of string $ s $ .\n\nThe second line contains a string $ s $ of length $ n $ consisting of lowercase and uppercase Latin letters and digits.",
+    "outputFormat": "Print to the first line an integer $ k $ \u2014 minimum number of palindromes into which you can cut a given string.\n\nPrint to the second line $ k $ strings \u2014 the palindromes themselves. Separate them by a space. You are allowed to print palindromes in arbitrary order. All of them should have the same length.",
+    "samples": [
+        [
+            "6\naabaac\n",
+            "2\naba aca "
+        ],
+        [
+            "8\n0rTrT022\n",
+            "1\n02TrrT20 "
+        ],
+        [
+            "2\naA\n",
+            "2\na A \n"
+        ]
+    ],
+    "hint": "",
+    "translation": "## \u9898\u76ee\u63cf\u8ff0\n\nKolya\u6709\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u5b57\u7b26\u4e32 $s$ \uff0c\u5176\u4e2d\u542b\u6709\u5927\u5c0f\u5199\u82f1\u6587\u5b57\u6bcd\u548c\u6570\u5b57\u3002\n\n\u4ed6\u60f3\u8981\u91cd\u65b0\u7f16\u6392 $s$ \u4e2d\u5b57\u7b26\u7684\u987a\u5e8f\u5e76\u5c06\u5b83\u5207\u5272\u4e3a\u6700\u5c11\u4e2a\u5b50\u4e32\uff0c\u4f7f\u5f97\u6bcf\u4e2a\u5b50\u4e32\u90fd\u4e3a\u56de\u6587\u4e32\u4e14\u6240\u6709\u5b50\u4e32\u957f\u5ea6\u76f8\u7b49\u3002\u56de\u6587\u4e32\u6307\u7684\u662f\u4ece\u524d\u5f80\u540e\u8bfb\u548c\u4ece\u540e\u5f80\u524d\u8bfb\u76f8\u540c \u7684\u5b57\u7b26\u4e32\uff0c\u4f8b\u5982`madam`\u6216`racecar`\u3002\n\n\u4f60\u7684\u4efb\u52a1\u662f\u5e2e\u52a9Kolya\u8ba1\u7b97\u51fa\u6240\u9700\u5207\u5272\u51fa $s$ \u5b50\u4e32\u603b\u6570\u7684\u6700\u5c0f\u503c\u3002\n\n## \u8f93\u5165\u683c\u5f0f\n\n\u7b2c\u4e00\u884c\u5305\u62ec\u4e00\u4e2a\u6574\u6570 $n\uff081 \\leq n \\leq 4\u22c510^5\uff09$\u3002\n\n\u7b2c\u4e8c\u884c\u4e3a\u957f\u5ea6\u4e3a $n$ \u7684\u5b57\u7b26\u4e32 $s$\u3002\n\n## \u8f93\u51fa\u683c\u5f0f\n\n\u7b2c\u4e00\u884c\u8f93\u51fa\u4e00\u4e2a\u6574\u6570 $k$ ,\u8868\u793a\u9700\u8981\u5207\u5272\u51fa\u7684\u6700\u5c11\u5b50\u4e32\u6570\u3002\n\n\u7b2c\u4e8c\u884c\u8f93\u51fa\u5207\u5272\u540e\u7684 $k$ \u4e2a\u5b57\u7b26\u4e32\uff0c\u6bcf\u4e24\u4e2a\u4e4b\u95f4\u7528\u4e00\u4e2a\u7a7a\u683c\u9694\u5f00\u3002\u4f60\u53ef\u4ee5\u4ee5\u4efb\u610f\u987a\u5e8f\u8f93\u51fa\u8fd9\u4e9b\u7b49\u957f\u7684\u5b57\u7b26\u4e32\u3002\n\n\u7531 @Segment_Tree \u63d0\u4f9b\u7ffb\u8bd1\uff0cReformed by @devdede\u3002"
+}

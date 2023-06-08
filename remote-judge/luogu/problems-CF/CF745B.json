@@ -1,0 +1,21 @@
+{
+    "description": "Hongcow likes solving puzzles.\n\nOne day, Hongcow finds two identical puzzle pieces, with the instructions \"make a rectangle\" next to them. The pieces can be described by an $ n $ by $ m $ grid of characters, where the character 'X' denotes a part of the puzzle and '.' denotes an empty part of the grid. It is guaranteed that the puzzle pieces are one 4-connected piece. See the input format and samples for the exact details on how a jigsaw piece will be specified.\n\nThe puzzle pieces are very heavy, so Hongcow cannot rotate or flip the puzzle pieces. However, he is allowed to move them in any directions. The puzzle pieces also cannot overlap.\n\nYou are given as input the description of one of the pieces. Determine if it is possible to make a rectangle from two identical copies of the given input. The rectangle should be solid, i.e. there should be no empty holes inside it or on its border. Keep in mind that Hongcow is not allowed to flip or rotate pieces and they cannot overlap, i.e. no two 'X' from different pieces can share the same position.",
+    "inputFormat": "The first line of input will contain two integers $ n $ and $ m $ ( $ 1<=n,m<=500 $ ), the dimensions of the puzzle piece.\n\nThe next $ n $ lines will describe the jigsaw piece. Each line will have length $ m $ and will consist of characters '.' and 'X' only. 'X' corresponds to a part of the puzzle piece, '.' is an empty space.\n\nIt is guaranteed there is at least one 'X' character in the input and that the 'X' characters form a 4-connected region.",
+    "outputFormat": "Output \"YES\" if it is possible for Hongcow to make a rectangle. Output \"NO\" otherwise.",
+    "samples": [
+        [
+            "2 3\nXXX\nXXX\n",
+            "YES\n"
+        ],
+        [
+            "2 2\n.X\nXX\n",
+            "NO\n"
+        ],
+        [
+            "5 5\n.....\n..X..\n.....\n.....\n.....\n",
+            "YES\n"
+        ]
+    ],
+    "hint": "For the first sample, one example of a rectangle we can form is as follows\n\n`<br></br>111222<br></br>111222<br></br>`For the second sample, it is impossible to put two of those pieces without rotating or flipping to form a rectangle.\n\nIn the third sample, we can shift the first tile by one to the right, and then compose the following rectangle:\n\n`<br></br>.....<br></br>..XX.<br></br>.....<br></br>.....<br></br>.....<br></br>`",
+    "translation": "\u7ed9\u4f60\u4e00\u4e2a\u4e8c\u7ef4\u5b57\u7b26\u6570\u7ec4\uff0c\u95ee\u5176\u4e2d\u5305\u542b\u4e86\u5168\u90e8\u7684 $X$ \u5b57\u7b26\u7684\u77e9\u9635\u7684\u9762\u79ef\u662f\u5426\u4e0e $X$ \u5b57\u7b26\u7684\u6570\u91cf\u76f8\u7b49\u3002\u76f8\u7b49\u8f93\u51fa $YES$\uff0c\u4e0d\u76f8\u7b49\u8f93\u51fa $NO$\u3002\u2014\u2014Glad"
+}

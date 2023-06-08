@@ -1,0 +1,21 @@
+{
+    "description": "You are given a multiset of $ n $ integers. You should select exactly $ k $ of them in a such way that the difference between any two of them is divisible by $ m $ , or tell that it is impossible.\n\nNumbers can be repeated in the original multiset and in the multiset of selected numbers, but number of occurrences of any number in multiset of selected numbers should not exceed the number of its occurrences in the original multiset.",
+    "inputFormat": "First line contains three integers $ n $ , $ k $ and $ m $ ( $ 2<=k<=n<=100000 $ , $ 1<=m<=100000 $ ) \u2014 number of integers in the multiset, number of integers you should select and the required divisor of any pair of selected integers.\n\nSecond line contains $ n $ integers $ a_{1},a_{2},...,a_{n} $ ( $ 0<=a_{i}<=10^{9} $ ) \u2014 the numbers in the multiset.",
+    "outputFormat": "If it is not possible to select $ k $ numbers in the desired way, output \u00abNo\u00bb (without the quotes).\n\nOtherwise, in the first line of output print \u00abYes\u00bb (without the quotes). In the second line print $ k $ integers $ b_{1},b_{2},...,b_{k} $ \u2014 the selected numbers. If there are multiple possible solutions, print any of them.",
+    "samples": [
+        [
+            "3 2 3\n1 8 4\n",
+            "Yes\n1 4 "
+        ],
+        [
+            "3 3 3\n1 8 4\n",
+            "No"
+        ],
+        [
+            "4 3 5\n2 7 7 7\n",
+            "Yes\n2 7 7 "
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9\u51fan\u4e2a\u6574\u6570\u7684\u96c6\u5408\u3002\u4f60\u5e94\u8be5\u51c6\u786e\u5730\u9009\u62e9\u5b83\u4eec\u4e2d\u7684k\u4e2a\u6570\uff0c\u4f7f\u5b83\u4eec\u4e4b\u95f4\u7684\u5dee\u53ef\u4ee5\u88abm\u9664\uff0c\u9664\u975e\u8fd9\u662f\u4e0d\u53ef\u80fd\u7684\u3002  \n\n\u8f93\u5165\u7b2c\u4e00\u884c\u5305\u62ec\u4e00\u4e2an\uff0c\u4e00\u4e2ak\uff0c\u4e00\u4e2am\uff1b  (2<=k<=n<=100000,1<=m<=100000)  \u7b2c\u4e8c\u884c\u4e3an\u4e2a\u6574\u6570a1,a2,...,an ( 0<=ai<=$10^9$ ) \n\n\u5982\u679c\u6ee1\u8db3\u8981\u6c42\uff0c\u5728\u7b2c\u4e00\u884c\u8f93\u51fa\"Yes\"\uff08\u6ca1\u6709\u5f15\u53f7\uff09\uff0c\u5e76\u4e14\u5728\u7b2c\u4e8c\u884c\u8f93\u51fa\u6240\u9009\u7684k\u4e2a\u6570\u3002\uff08\u5982\u679c\u6709\u591a\u4e2a\u53ef\u80fd\u7684\u89e3\u51b3\u65b9\u6848\uff0c\u6253\u5370\u5176\u4e2d\u7684\u4efb\u4f55\u4e00\u4e2a\u3002\uff09  \n\u5982\u679c\u4e0d\u6ee1\u8db3\u8981\u6c42\uff0c\u8f93\u51fa\"No\"\uff08\u6ca1\u6709\u5f15\u53f7\uff09\u3002\n\nBy @SocietyNiu "
+}

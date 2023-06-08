@@ -1,0 +1,21 @@
+{
+    "description": "As Sherlock Holmes was investigating a crime, he identified $ n $ suspects. He knows for sure that exactly one of them committed the crime. To find out which one did it, the detective lines up the suspects and numbered them from $ 1 $ to $ n $ . After that, he asked each one: \"Which one committed the crime?\". Suspect number $ i $ answered either \"The crime was committed by suspect number $ a_{i} $ \", or \"Suspect number $ a_{i} $ didn't commit the crime\". Also, the suspect could say so about himself ( $ a_{i}=i $ ).\n\nSherlock Holmes understood for sure that exactly $ m $ answers were the truth and all other answers were a lie. Now help him understand this: which suspect lied and which one told the truth?",
+    "inputFormat": "The first line contains two integers $ n $ and $ m $ ( $ 1<=n<=10^{5},0<=m<=n $ ) \u2014 the total number of suspects and the number of suspects who told the truth. Next $ n $ lines contain the suspects' answers. The $ i $ -th line contains either \"+ $ a_{i} $ \" (without the quotes), if the suspect number $ i $ says that the crime was committed by suspect number $ a_{i} $ , or \"- $ a_{i} $ \" (without the quotes), if the suspect number $ i $ says that the suspect number $ a_{i} $ didn't commit the crime ( $ a_{i} $ is an integer, $ 1<=a_{i}<=n $ ).\n\nIt is guaranteed that at least one suspect exists, such that if he committed the crime, then exactly $ m $ people told the truth.",
+    "outputFormat": "Print $ n $ lines. Line number $ i $ should contain \"Truth\" if suspect number $ i $ has told the truth for sure. Print \"Lie\" if the suspect number $ i $ lied for sure and print \"Not defined\" if he could lie and could tell the truth, too, depending on who committed the crime.",
+    "samples": [
+        [
+            "1 1\n+1\n",
+            "Truth\n"
+        ],
+        [
+            "3 2\n-1\n-2\n-3\n",
+            "Not defined\nNot defined\nNot defined\n"
+        ],
+        [
+            "4 1\n+2\n-3\n+4\n-1\n",
+            "Lie\nNot defined\nLie\nNot defined\n"
+        ]
+    ],
+    "hint": "The first sample has the single person and he confesses to the crime, and Sherlock Holmes knows that one person is telling the truth. That means that this person is telling the truth.\n\nIn the second sample there are three suspects and each one denies his guilt. Sherlock Holmes knows that only two of them are telling the truth. Any one of them can be the criminal, so we don't know for any of them, whether this person is telling the truth or not.\n\nIn the third sample the second and the fourth suspect defend the first and the third one. But only one is telling the truth, thus, the first or the third one is the criminal. Both of them can be criminals, so the second and the fourth one can either be lying or telling the truth. The first and the third one are lying for sure as they are blaming the second and the fourth one.",
+    "translation": "\u4e00\u5171\u6709N\u4e2a\u4eba\uff0c\u5176\u4e2d\u6709\u4e00\u4eba\u4e3a\u7f6a\u72af\u3002\n\u73b0\u5728\u6bcf\u4e2a\u4eba\u8bf4\u4e86N\u53e5\u8bdd\uff0c\u5185\u5bb9\u662f\u8bf4\u8c01\u662f\u7f6a\u72af\u6216\n\u8c01\u4e0d\u662f\u7f6a\u72af(\u4e5f\u53ef\u4ee5\u8bf4\u81ea\u5df1)\u3002\u5176\u4e2d\u6709M\u53e5\u771f\u8bdd\u3002\n\n\u7ed9\u5b9aN\u548cM\u4ee5\u53caN\u4e2a\u6570\uff0c\u8bbe\u4e3aa[1]~a[N]\n\u5982\u679ca[i]>0,\u4ee3\u8868\u7b2ci\u4e2a\u4eba\u8bf4\u7b2ca[i]\u4e2a\u4eba\u662f\u7f6a\u72af\uff0c\u53cd\u4e4b\u4ee3\u8868\u7b2ci\u4e2a\u4eba\u8bf4\u7b2c-a[i]\u4e2a\u4eba\u4e0d\u662f\u7f6a\u72af\u3002\n\u8f93\u51fa\u6709N\u884c\uff0c\u5982\u679c\u7b2ci\u4e2a\u4eba\u8bf4\u7684\u4e00\u5b9a\u662f\u771f\u8bdd\uff0c\u8f93\u51fa\"Truth\"\uff1b\n\u5982\u679c\u7b2ci\u4e2a\u4eba\u8bf4\u7684\u4e00\u5b9a\u662f\u5047\u8bdd\uff0c\u8f93\u51fa\"Lie\";\n\u5982\u679c\u7b2ci\u4e2a\u4eba\u8bf4\u7684\u53ef\u80fd\u662f\u771f\u8bdd\u4e5f\u53ef\u80fd\u662f\u5047\u8bdd\u5219\u8f93\u51fa\"Not defined\"\u3002"
+}

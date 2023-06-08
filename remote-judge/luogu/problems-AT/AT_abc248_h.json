@@ -1,0 +1,21 @@
+{
+    "description": "[problemUrl]: https://atcoder.jp/contests/abc248/tasks/abc248_h\n\n$ (1,\\ldots,N) $ \u3092\u4e26\u3073\u66ff\u3048\u3066\u5f97\u3089\u308c\u308b\u9577\u3055 $ N $ \u306e\u9806\u5217 $ P=(P_1,\\ldots,P_N) $\u3001\u53ca\u3073\u6574\u6570 $ K $ \u304c\u4e0e\u3048\u3089\u308c\u307e\u3059\u3002\n\n\u4ee5\u4e0b\u306e\u6761\u4ef6\u3092\u5168\u3066\u6e80\u305f\u3059\u6574\u6570\u7d44 $ (L,R) $ \u306e\u500b\u6570\u3092\u6c42\u3081\u3066\u304f\u3060\u3055\u3044\u3002\n\n- $ 1\\ \\leq\\ L\\ \\leq\\ R\\ \\leq\\ N $\n- $ \\mathrm{max}(P_L,\\ldots,P_R)\\ -\\ \\mathrm{min}(P_L,\\ldots,P_R)\\ \\leq\\ R\\ -\\ L\\ +\\ K $",
+    "inputFormat": "\u5165\u529b\u306f\u4ee5\u4e0b\u306e\u5f62\u5f0f\u3067\u6a19\u6e96\u5165\u529b\u304b\u3089\u4e0e\u3048\u3089\u308c\u308b\u3002\n\n> $ N $ $ K $ $ P_1 $ $ P_2 $ $ \\ldots $ $ P_N $",
+    "outputFormat": "\u7b54\u3048\u3092\u51fa\u529b\u305b\u3088\u3002",
+    "samples": [
+        [
+            "4 1\r\n1 4 2 3",
+            "9"
+        ],
+        [
+            "2 0\r\n2 1",
+            "3"
+        ],
+        [
+            "10 3\r\n3 7 10 1 9 5 4 8 6 2",
+            "37"
+        ]
+    ],
+    "hint": "### \u5236\u7d04\n\n- $ 1\\ \\leq\\ N\\ \\leq\\ 1.4\\times\\ 10^5 $\n- $ P $ \u306f $ (1,\\ldots,N) $ \u3092\u4e26\u3073\u66ff\u3048\u3066\u5f97\u3089\u308c\u308b\u9806\u5217\n- $ 0\\ \\leq\\ K\\ \\leq\\ 3 $\n- \u5165\u529b\u306f\u5168\u3066\u6574\u6570\n\n### Sample Explanation 1\n\n\u6761\u4ef6\u3092\u6e80\u305f\u3059\u7d44 $ (L,R) $ \u306f\u4ee5\u4e0b\u306e $ 9 $ \u500b\u3067\u3059\u3002 - $ (1,1) $ - $ (1,3) $ - $ (1,4) $ - $ (2,2) $ - $ (2,3) $ - $ (2,4) $ - $ (3,3) $ - $ (3,4) $ - $ (4,4) $ $ (L,R)\\ =\\ (1,2) $ \u306f $ \\mathrm{max}(A_1,A_2)\\ -\\mathrm{min}(A_1,A_2)\\ =\\ 4-1\\ =\\ 3 $ \u3001$ R-L+K=2-1+1\\ =\\ 2 $ \u3068\u306a\u308b\u306e\u3067\u3001\u6761\u4ef6\u3092\u6e80\u305f\u3057\u307e\u305b\u3093\u3002",
+    "translation": "\u7ed9\u5b9a\u6392\u5217 $ P_n $ \u548c\u6574\u6570 $ k $\uff0c\u6c42\u6ee1\u8db3\u5982\u4e0b\u6761\u4ef6\u7684\u70b9\u5bf9 $ (l, r) $ \u6570\u91cf\u3002\n\n* $ 1 \\le l \\le r \\le n $\u3002\n* $ \\max_{i = l}^rP_i - \\min_{i = l}^rP_i \\le r - l + k $\u3002"
+}

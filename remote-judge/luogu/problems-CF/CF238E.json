@@ -1,0 +1,17 @@
+{
+    "description": "Urpal lives in a big city. He has planned to meet his lover tonight.\n\nThe city has $ n $ junctions numbered from $ 1 $ to $ n $ . The junctions are connected by $ m $ directed streets, all the roads have equal length. Urpal lives in junction $ a $ and the date is planned in a restaurant in junction $ b $ . He wants to use public transportation to get to junction $ b $ . There are $ k $ bus transportation companies. At the beginning of every second, a bus from the $ i $ -th company chooses a random shortest path between junction $ s_{i} $ and junction $ t_{i} $ and passes through it. There might be no path from $ s_{i} $ to $ t_{i} $ . In that case no bus will leave from $ s_{i} $ to $ t_{i} $ . If a bus passes through a junction where Urpal stands, he can get on the bus. He can also get off the bus at any junction along the path.\n\nNow Urpal wants to know if it's possible to go to the date using public transportation in a finite amount of time (the time of travel is the sum of length of the traveled roads) and what is the minimum number of buses he should take in the worst case.\n\nAt any moment Urpal knows only his own position and the place where the date will be. When he gets on the bus he knows only the index of the company of this bus. Of course Urpal knows the city map and the the pairs $ (s_{i},t_{i}) $ for each company.\n\nNote that Urpal doesn't know buses velocity.",
+    "inputFormat": "The first line of the input contains four integers $ n $ , $ m $ , $ a $ , $ b $ $ (2<=n<=100;\u00a00<=m<=n\u00b7(n-1);\u00a01<=a,b<=n;\u00a0a\u2260b) $ .\n\nThe next $ m $ lines contain two integers each $ u_{i} $ and $ v_{i} $ $ (1<=u_{i},v_{i}<=n;\u00a0u_{i}\u2260v_{i}) $ describing a directed road from junction $ u_{i} $ to junction $ v_{i} $ . All roads in the input will be distinct.\n\nThe next line contains an integer $ k $ $ (0<=k<=100) $ . There will be $ k $ lines after this, each containing two integers $ s_{i} $ and $ t_{i} $ $ (1<=s_{i},t_{i}<=n;\u00a0s_{i}\u2260t_{i}) $ saying there is a bus route starting at $ s_{i} $ and ending at $ t_{i} $ . Please note that there might be no path from $ s_{i} $ to $ t_{i} $ , this case is described in the problem statement.",
+    "outputFormat": "In the only line of output print the minimum number of buses Urpal should get on on his way in the worst case. If it's not possible to reach the destination in the worst case print -1.",
+    "samples": [
+        [
+            "7 8 1 7\n1 2\n1 3\n2 4\n3 4\n4 6\n4 5\n6 7\n5 7\n3\n2 7\n1 4\n5 7\n",
+            "2\n"
+        ],
+        [
+            "4 4 1 2\n1 2\n1 3\n2 4\n3 4\n1\n1 4\n",
+            "-1\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "n\u4e2a\u57ce\u5e02\uff0cm\u6761\u6709\u5411\u8fb9\uff0c\u8d77\u70b9\u4e3aa,\u7ec8\u70b9\u4e3ab\uff0c\u6709k\u4e2a\u516c\u8f66\u516c\u53f8\uff0c\u4eba\u4ece\u8d77\u70b9\u8981\u5230\u7ec8\u70b9\n\n\u6bcf\u79d2\u7b2ci\u4e2a\u516c\u53f8\u6709\u4e00\u8f86\u8f66\u968f\u673a\u9009\u4e00\u6761si\u5230ti\u7684\u6700\u77ed\u8def\uff08\u5982\u679c\u6ca1\u6709si\u5230ti\u7684\u8def\uff0c\u8fd9\u4e2a\u516c\u53f8\u5c31\u4e0d\u4f1a\u6709\u8f66\uff09\uff0c\u82e5\u8f66\u7ecf\u8fc7\u4eba\uff0c\u4eba\u53ef\u4ee5\u4e0a\u8f66\n\n\u4eba\u60f3\u77e5\u9053\u6700\u574f\u8981\u6362\u51e0\u6b21\u8f66\uff0c\u82e5\u6700\u574f\u4e0d\u80fd\u5230\u8fbe\uff0c\u8f93\u51fa-1\n\nTranslated by Fheiwn"
+}

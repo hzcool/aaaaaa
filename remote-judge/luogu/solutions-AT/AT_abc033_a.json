@@ -1,0 +1,82 @@
+[
+    {
+        "content": "\u4e09\u79cd\u65b9\u6cd5\uff01\uff01\uff01\n\nNo.1 \u6574\u6570\u62c6\u5206\uff08\u6700\u597d\u60f3\uff09\n\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint a;\nint main(){\n    cin>>a;\n    int a1=a/1000,a2=a/100%10,a3=a/10%10,a4=a%10;\n    if(a1==a2&&a2==a3&&a3==a4)cout<<\"SAME\"<<endl;\n    else cout<<\"DIFFERENT\"<<endl;\n    return 0;\n}\n```\nNo.2 \u5224\u65ad\u6574\u9664\uff08\u6700\u7384\u5b66\uff09\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint a;\nint main(){\n    cin>>a;\n    if(a%1111)cout<<\"DIFFERENT\"<<endl;\n    else cout<<\"SAME\"<<endl;\n    return 0;\n}\n```\nNo.3 \u5b57\u7b26\u5224\u65ad\uff08\u6700\u5feb\u901f\uff09\n```\n#include<bits/stdc++.h>\nusing namespace std;\nchar c;\nint main(){\n    c=getchar();\n    for(int i=1;i<=3;i++)\n        if(c!=getchar()){\n            cout<<\"DIFFERENT\"<<endl;\n            return 0;\n        }\n    cout<<\"SAME\"<<endl;\n    return 0;\n}\n```",
+        "postTime": 1580958285,
+        "uid": 305027,
+        "name": "Tarantula",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 AT1766 \u3010\u6697\u8a3c\u756a\u53f7\u3011"
+    },
+    {
+        "content": "[$\\huge AT1766~\\text{\u6697\u8a3c\u756a\u53f7}$](https://www.luogu.org/problem/AT1766)    \n\u524d\u8a00\uff1a   \n>\u4e00\u9053\u7070\u9898(${\\color{white}\\colorbox{grey}{\u6682\u65e0\u8bc4\u5b9a}}$)\uff08~~\u9898\u9762\u4e0a\u7ed9\u7684\uff09~~\uff0c\u4f46\u6211\u89c9\u7684\u8fd9\u662f\u4e00\u9053\u5341\u5206\u7b80\u5355\u7684\u7ea2\u9898(${\\color{white}\\colorbox{red}{\u5165\u95e8}}$)\uff0c\u4f30\u8ba1\u521a\u5b66$OI$\u7684\u5c0f\u4f19\u4f34\u90fd\u4f1a\u3002\u597d\u4e86\uff0c~~\u5e9f\u8bdd\u4e0d\u591a\u626f\u4e86~~\uff0c\u770b\u9898\u5427\u3002\n\n------------\n\u9898\u76ee\u7ffb\u8bd1\u5df2\u7ecf\u7ed9\u51fa\u6765\u4e86\uff0c\u6211\u5c31\u4e0d\u591a\u5570\u55e6\u4e86\uff0c\u56e0\u4e3a$n$\u4e3a\u56db\u4f4d\u6570\uff0c\u5b8c\u5168\u53ef\u4ee5\u4f7f\u7528```int```\u6765\u505a\uff0c\u4f46\u6211\u56e0\u4e3a\u65b9$(tou)$\u4fbf$(lan)$,\u5c31\u4f7f\u7528```string```\u505a\u4e86\u3002\n\n------------\n\u63a5\u4e0b\u6765\u8bf4\u4e00\u4e0b\u672c\u9898\u7684\u57fa\u672c\u7b97\u6cd5\u6846\u67b6\u3002   \n\u56e0\u4e3a\u5728\u672c\u9898\u89e3\u4e2d\uff0c\u6570\u7684\u50a8\u5b58\u65b9\u5f0f\u662f```string```\uff0c\u6240\u4ee5\uff0c\u4f1a\u53d8\u7684\u5341\u5206\u7b80\u5355\u3002   \n\u53ea\u8981\u4e00\u4e2a```for```\u5faa\u73af\uff0c\u4ece\u5b57\u7b26\u4e32\u7684\u7b2c\u4e8c\u4f4d\u5f00\u59cb\u679a\u4e3e\uff0c\u5230\u5b57\u7b26\u4e32\u7684\u6700\u540e\u4e00\u4f4d\u7ed3\u675f\u3002    \n\u5c06\u5f53\u524d\u679a\u4e3e\u5230\u7684\u90a3\u4e2a**\u4f4d**\u4e0a\u7684\u6570\u4e0e**\u4e0a\u4e00\u4f4d**\u7684\u90a3\u4e2a\u6570\u8fdb\u884c\u5bf9\u6bd4\uff0c\u5982\u679c\u53d1\u73b0\u4e0d\u4e00\u6837\uff0c\u90a3\u5c31\u4e0d\u7b26\u5408\u9898\u76ee\u8981\u6c42\uff0c\u5219```cout<<\"DIFFERENT\"<<endl;```\u518d```return 0;```\u3002   \n\u5982\u679c\u5faa\u73af\u5b8c\u4e86\u8fd8\u6ca1\u6709\u53d1\u73b0\u4e0d\u4e00\u6837\u7684\uff0c\u90a3\u8f93\u5165\u7684\u90a3\u4e2a\u6570\u80af\u5b9a\u7b26\u5408\u8981\u6c42\uff0c\u5219```cout<<\"SAME\"<<endl;```\u3002   \n\u597d\u4e86\uff0c\u672c\u9898\u57fa\u672c\u7b97\u6cd5\u7684\u6846\u67b6\u5c31\u5b8c\u5de5\u4e86\uff0c\u5982\u679c\u8fd8\u6ca1\u660e\u767d\u7684\u8bf7\u770b\u4ee3\u7801\u8fdb\u4e00\u6b65\u8fdb\u884c\u7406\u89e3\u3002\n\n------------\n```cpp\n#include<bits/stdc++.h>  //\u4e07\u80fd\u5934\nusing namespace std;\nint main()\n{\n\tstring s;  //\u5b9a\u4e49\u5b57\u7b26\u4e32\n\tcin>>s;    //\u5c06\u5b57\u7b26\u4e32\u8f93\u5165\n\tfor(int i=1;i<s.size();i++) //\u5f00\u59cb\u679a\u4e3e\n\tif(s[i]!=s[i-1])  //\u5982\u679c\u53d1\u73b0\u5f53\u524d\u4f4d\u7684\u6570\u548c\u4e0a\u4e00\u4f4d\u6570\u4e0d\u4e00\u6837\n\t{\n\t\tcout<<\"DIFFERENT\"<<endl;  //\u8f93\u51fa\n\t\treturn 0;                 //\u76f4\u63a5\u7ed3\u675f\u7a0b\u5e8f\n\t}\n\tcout<<\"SAME\"<<endl;   //\u6bcf\u4e00\u4f4d\u6570\u90fd\u76f8\u540c\n\treturn 0;      //\u7ed3\u675f\u7a0b\u5e8f\n}\n```",
+        "postTime": 1566556777,
+        "uid": 170986,
+        "name": "test_check",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT1766 \u3010\u6697\u8a3c\u756a\u53f7\u3011"
+    },
+    {
+        "content": "\u8fd9\u662f\u4e00\u9053\u5f88\u6c34\u7684**\u5b57\u7b26\u4e32\u6a21\u62df**\u9898\u3002\n\n\u601d\u8def\uff1a\u53ef\u4ee5\u5148\u8f93\u5165\u4e00\u4e2a\u5b57\u7b26 \u7136\u540e\u8f93\u5165\u4e00\u4e2a\u5b57\u7b26\u4e32(\u957f\u5ea6\u5fc5\u4e3a3)\u3002 \u7136\u540e\u4e00\u4f4d\u4e00\u4f4d\u6bd4\u8f83\uff0c\u7528\u4e00\u4e2a$bool$\u53d8\u91cf ,\u82e5\u5f53\u524d\u4e3a$false$ \u8bf4\u660e\u6709\u4e0d\u4e00\u6837\u7684 \u82e5\u4e3a$true$ \u8bf4\u660e**\u6682\u65f6**\u4e00\u6837,\n\u5e94\u8be5\u5230\u6700\u540e\u5728\u5224\u65ad\u8f93\u51fa\u3002\n\n\u597d\u4e86,\u4e0a\u4ee3\u7801\u5427\uff01\n\n$Code:$\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nchar ch;string s;\nint len;bool t;\nint main() {\n\tscanf(\"%c\",&ch);\n\tcin>>s;len=s.length();t=true;\n\tfor(int i=0;i<len;i++)\n\t\tif(s[i]!=ch)t=false;\n\tif(t)printf(\"SAME\\n\");\n\telse printf(\"DIFFERENT\\n\");\n\treturn 0;\n}\n\n```\n\n\n",
+        "postTime": 1571997783,
+        "uid": 238925,
+        "name": "\u4eba\u95f4\u51e1\u4eba",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 AT1766 \u3010\u6697\u8a3c\u756a\u53f7\u3011"
+    },
+    {
+        "content": "### \u9898\u89e3\u533a\u91cc\u597d\u50cf\u6ca1\u6709\u548c\u6211\u4e00\u6837\u7684\u65b9\u6cd5\n###### ~~\u6211\u5c31\u6c34\u4e00\u7bc7\u9898\u89e3\u5427~~\n\n\n------------\n\n# Part 1\n## \u8bfb\u9898\n\u8f93\u5165\u4e00\u4e2a**\u56db\u4f4d\u6570**\uff08\u91cd\u70b9\uff09$n$\uff0c\u5224\u65ad$n$\u7684\u5404\u4f4d\u6570\u662f\u5426\u76f8\u7b49\u3002\u76f8\u7b49\u8f93\u51fa\"$SAME$\"\uff0c\u5426\u5219\u8f93\u51fa\"$DIFFERENT$\"\n\n# Part 2\n## \u601d\u8def\n\u5047\u8bbe$n$\u7684\u5404\u4f4d\u6570\u90fd\u76f8\u7b49\uff0c\u90a3\u4e48\u5b83\u5e94\u8be5\u957f\u8fd9\u6837\uff1a  $\\overline{AAAA}$~~\uff08\u5e9f\u8bdd)~~    \n\u90a3\u4e48$n=1000*A+100*A+10*A+A=1111*A$\n\n\u5f15\u7533\u51fa\u4e24\u79cd\u65b9\u6cd5\uff1a\n1.  \u66b4\u529b\u679a\u4e3e  \n\u56e0\u4e3a$0\\le A \\le9$  \n\u6240\u4ee5$n$\u53ea\u6709$10$\u4e2a\uff0c\u53ef\u4ee5\u76f4\u63a5\u679a\u4e3e$n$\n\n2.  \u5224\u65ad\u6574\u9664  \n\u56e0\u4e3a$n=1111*A$  \n\u6240\u4ee5$n$\u88ab$1111$\u6574\u9664\uff0c\u53ea\u8981\u5224\u65ad\u662f\u5426\u88ab$1111$\u6574\u9664\u5c31\u884c\u4e86\n\n# Part 3\n## Code\uff08~~\u8c01\u6284\u8c01CE~~\uff09\n- \u66b4\u529b\u679a\u4e3e\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint n;\nint mian(){\n    cin>>n;\n    if(n=0000 || n=1111 || n=2222 || n=3333 || n=4444 || n=5555 || n=6666 || n=7777 || n=8888 || n=9999){//\u76f4\u63a5\u679a\u4e3e\n        cout<<\"SAME\";\n    }\n    else{\n        cout<<\"DIFFERENT\";\n    }\n    return 0;\n}\n```\n- \u5224\u65ad\u6574\u9664\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint n;\nint mian(){\n    cin>>n;\n    if(n%1111){//\u4e0d\u88ab1111\u6574\u9664\u7684\u6570\u5c31\u4e0d\u662f\u5404\u4f4d\u6570\u76f8\u7b49\n        cout<<\"DIFFERENT\";\n    }\n    else{\n        cout<<\"SAME\";\n    }\n    return 0\uff1b\n}\n```",
+        "postTime": 1580121276,
+        "uid": 150843,
+        "name": "\u5510\u4e00\u6587",
+        "ccfLevel": 9,
+        "title": "\u9898\u89e3 AT1766 \u3010\u6697\u8a3c\u756a\u53f7\u3011"
+    },
+    {
+        "content": "\u7b2c\u4e00\u9053\u7070\u9898\u796d\uff01\uff01\n\n## Solution\n\u8fd9\u9053\u9898\u76ee\u7684\u5927\u610f\u5c31\u662f\u7ed9\u4f60\u4e00\u4e2a\u56db\u4f4d\u6570\uff0c\u8ba9\u4f60\u5224\u65ad\u8be5\u6570\u5b57\u56db\u4e2a\u6570\u4f4d\u662f\u5426\u76f8\u7b49\u3002  \n\u8fd9\u9898\u6211\u4eec\u6709$\\infty$\u79cd\u65b9\u6cd5\u53bb\u89e3\u51b3\u5b83\uff0c\u4f46\u662f\u7531\u4e8e\u6211\u592a\u83dc\u4e86\uff0c\u53ea\u60f3\u5230\u4e86\u4e24\u79cd\u3002\u5148\u7ed9\u5927\u5bb6\u8bb2\u8bb2\u3002\n\n- 1\uff1a\u6570\u5b66\u6cd5  \n\u901a\u8fc7\u89c2\u5bdf\u6211\u4eec\u53ef\u4ee5\u5f97\u77e5\uff1a\u5982\u679c\u4e00\u4e2a\u6570\u56db\u4e2a\u6570\u4f4d\u76f8\u7b49\uff0c\u5219\u8be5\u6570\u4e00\u5b9a\u80fd\u88ab101\u6574\u9664\u3002  \n\u7531\u4e8e\u8fd9\u4e0d\u662f\u6211\u7684\u6700\u7ec8\u60f3\u6cd5\uff0c\u6240\u4ee5\u4e0d\u653e\u4ee3\u7801\u4e86\u3002\n\n- 2\uff1a\u66b4\u529b\u6cd5  \n\u901a\u8fc7\u66b4\u529b\u6c42\u89e3\uff08\u5b9e\u9645\u4e0a\u4e5f\u6ca1\u5565\u597d\u8bb2\u7684\uff09\n\n## Code\uff08\u66b4\u529b\uff09\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nstring str;\n\nint main() {\n\tcin>>str;\n\tif(str[0] == str[1] && str[1] == str[2] && str[2] == str[3]) puts(\"SAME\");\n\telse puts(\"DIFFERENT\");\n}\n```",
+        "postTime": 1575533669,
+        "uid": 86971,
+        "name": "TRZ_2007",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 AT1766 \u3010\u6697\u8a3c\u756a\u53f7\u3011"
+    },
+    {
+        "content": "\u8fd9\u662f\u7a9d\u7b2c\u4e00\u9053\u6682\u65e0\u8bc4\u5b9a\u7684\u9898\uff0c\u8fd8\u662f\u633a\u7b80\u5355\u7684\uff0c\u53ea\u7528\u8f93\u5165\u540e\u8fdb\u884c\u5404\u4e2a\u4f4d\u5224\u65ad\u5c31\u53ef\u4ee5\u4e86\u3002\n\n\u7531\u4e8e\u4e0d\u592a\u4e60\u60ef\u7528string\uff0c\u6240\u4ee5\u76f4\u63a5\u5f00char\u6570\u7ec4\uff1a\n```cpp\n#include <iostream>\n#include <cstring>//\u6ca1\u5565\u7528\nusing namespace std;\nint main()\n{\n  char n[5]=\"0000\";//\u968f\u4fbf\u8d4b\u4e2a\u521d\u503c\n  for(int i=0; i<4; i++)//\u8f93\u5165\u4e0d\u8bb2\u89e3\n  {\n    cin>>n[i];\n  }\n  for(int j=0; j<3; j++)//\u8fd9\u91cc\u6ce8\u610ffor\u5faa\u73af\u4e2d\u95f4\u7684\u6761\u4ef6\uff0cj\u5fc5\u987b<3\u3002\n  {\n    if(n[j]!=n[j+1])    //\u56e0\u4e3a\u8fd9\u91cc\u5224\u65ad\u7684\u662fn[j]\u4e0en[j+1]\uff0c\u5982\u679c\u4e0a\u9762\u6362\u6210j<4\uff0c\u5f53j=3\u7684\u65f6\u5019\uff0c\u62ffn[3]\u4e0en[4]\u5bf9\u6bd4\u80af\u5b9a\u4e0d\u884c\uff0c\u56e0\u4e3a\u6211\u4eec\u53ea\u8f93\u5165\u5230\u4e86n[3],n[4]\u5c31\u662f\u968f\u673a\u8d4b\u503c\u4e86\n    {\n      cout<<\"DIFFERENT\"<<endl;\n      return 0;//\u4e0d\u4e00\u6837\u7684\u8bdd\u8f93\u51fa\u5b8c\u5c31\u6ca1\u4ec0\u4e48\u4e8b\u4e86\n    }\n  }\n  cout<<\"SAME\"<<endl;//\u7a0b\u5e8f\u8fd0\u884c\u5230\u8fd9\u4e00\u6b65\u5c31\u8bf4\u660e\u662f\u4e00\u6837\u7684\n  return 0;\n}\n```\n20ms\u5c31\u641e\u5b9a\u4e86\u9e2d\uff0c\u641e\u4e0d\u61c2\u65f6\u9650\u662f2s\u662f\u60f3\u5e72\u561b\u3002\n",
+        "postTime": 1569844167,
+        "uid": 239562,
+        "name": "yuyc",
+        "ccfLevel": 0,
+        "title": "\u5c0f\u5b66\u751f\u7684\u9898\u89e3\u4e4b AT1766 \u3010\u6697\u8a3c\u756a\u53f7\u3011"
+    },
+    {
+        "content": "\u7b2c\u4e00\u9053\u7070\u9898\uff0c\u4e0d\u77e5\u9053\u96be\u5ea6\u5982\u4f55\uff0c\u7ed3\u679c\u4e2d\u4e86\u5f20\u5f69\u7968\uff0c\u5982\u6b64\u4e4b\u6c34\u3002\n\u76f4\u63a5\u5b57\u7b26\u4e32\u8bfb\u5165\uff0c\u9047\u5230\u4e0d\u76f8\u540c\u7684\u76f4\u63a5\u5224\u9519\u5373\u53ef\u3002\n\n\u5fe0\u544a\uff1a\u9002\u5f53\u6c34\u9898\u653e\u677e\uff0c\u6c89\u8ff7\u6c34\u9898\u4f24\u8eab\u3002\n\n\u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nconst int maxn=1e6+7;\nchar s[maxn];\nbool flag;\nint main(){\n\tscanf(\"%s\",s);\n\tint len=strlen(s);\n\tchar std=s[0];\n\tfor(int i=1;i<len;i++){\n\t\tif(s[i]!=std){\n\t\t\tflag=true;\n\t\t\tbreak;\n\t\t}\n\t}\n\tif(flag) printf(\"DIFFERENT\\n\");\n\telse printf(\"SAME\\n\");\n\treturn 0;\n} \n```\n\n",
+        "postTime": 1566032630,
+        "uid": 108746,
+        "name": "JBLee",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT1766 \u3010\u6697\u8a3c\u756a\u53f7\u3011"
+    },
+    {
+        "content": "\u4e0d\u77e5\u9053\u8981\u4e0d\u8981\u6ce8\u610f\u4e00\u4e0b**0000**\u3002\u3002\u3002\n\n\u9898\u610f\uff1a\u51fa\u5165\u4e00\u4e2a\u56db\u4f4d\u6570\uff0c\u5224\u65ad\u5b83\u7684\u6bcf\u4e00\u4f4d\u662f\u5426\u76f8\u540c\u3002\n\n\u8fd9\u9898\u8003\u7684\u4e3b\u8981\u662f**\u6570\u5b57\u5206\u79bb**\u3002\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,a,b,c,d\nint main()\n{\n    cin>>n;\n    a = n % 10000 / 1000;\n    b = n % 1000 / 100;\n    c = n % 100 / 10;\n    d = n % 10;\n    if(a==b&&b==c&&c==d) cout<<\"SAME\"<<endl;\n    else cout<<\"DIFFERENT\"<<endl;\n}\n```\n\u5982\u679c\u60f3\u5bf9\u6570\u5b57\u5206\u79bb\u8fdb\u4e00\u6b65\u4e86\u89e3\u7684\uff0c\u63a8\u8350\u4e00\u4e2a\u7f51\u7ad9\u3002\n\n\n[\u4f20\u9001\u95e8](https://www.csdn.net/gather_2a/MtzaEg2sMDEtYmxvZwO0O0OO0O0O.html)",
+        "postTime": 1564451007,
+        "uid": 210744,
+        "name": "01\u80cc\u5305",
+        "ccfLevel": 0,
+        "title": "AT1766 \u6697\u8a3c\u756a\u53f7"
+    },
+    {
+        "content": "\u9898\u610f\uff1a\u4e00\u4e2a\u56db\u4f4d\u6570\uff0c\u6bd4\u8f834\u4f4d\u662f\u5426\u76f8\u540c\u3002\n```\n#include<bits/stdc++.h>\nusing namespace std;\nchar a[5];\nint main(){\n\tcin>>a;\n\tif(a[0]==a[1]&&a[1]==a[2]&&a[2]==a[3]) puts(\"SAME\");//\u6bd4\u8f83\n\telse puts(\"DIFFERENT\");  //puts\u81ea\u5e26\u56de\u8f66\n\treturn 0;\n}\n```",
+        "postTime": 1523446710,
+        "uid": 50092,
+        "name": "da32s1da",
+        "ccfLevel": 8,
+        "title": "\u9898\u89e3 AT1766 \u3010\u6697\u8a3c\u756a\u53f7\u3011"
+    },
+    {
+        "content": "\u6211\u4eec\u8003\u8651\u4e00\u4e2a\u56de\u7b54\u662f`SAME`\u7684\u6570\u5b57\u3002\u8bbe\u5b83\u662f $\\overline{aaaa}$.   \n\u5219 $\\overline{aaaa}=1000a+100a+10a+a=1111a$.   \n\u56e0\u6b64\u5b9e\u9645\u4e0a\u8981\u6c42\u8fd9\u4e2a\u6570\u662f\u5426\u662f1111\u7684\u500d\u6570\u3002\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n\tint n;\n    scanf(\"%d\",&n);\n    if(n%1111)\n    \tputs(\"DIFFERENT\");\n    else\n    \tputs(\"SAME\");\n    return 0;\n}\n```",
+        "postTime": 1580968600,
+        "uid": 101694,
+        "name": "yummy",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 AT1766 \u3010\u6697\u8a3c\u756a\u53f7\u3011"
+    }
+]

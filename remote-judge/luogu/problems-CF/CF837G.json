@@ -1,0 +1,17 @@
+{
+    "description": "You have an array $ f $ of $ n $ functions.The function $ f_{i}(x) $ ( $ 1<=i<=n $ ) is characterized by parameters: $ x_{1},x_{2},y_{1},a,b,y_{2} $ and take values:\n\n- $ y_{1} $ , if $ x<=x_{1} $ .\n- $ a\u00b7x+b $ , if $ x_{1}&lt;x<=x_{2} $ .\n- $ y_{2} $ , if $ x&gt;x_{2} $ .\n\nThere are $ m $ queries. Each query is determined by numbers $ l $ , $ r $ and $ x $ . For a query with number $ i $ ( $ 1<=i<=m $ ), you need to calculate the sum of all $ f_{j}(x_{i}) $ where $ l<=j<=r $ . The value of $ x_{i} $ is calculated as follows: $ x_{i}=(x+last) $ mod $ 10^{9} $ , where $ last $ is the answer to the query with number $ i-1 $ . The value of $ last $ equals $ 0 $ if $ i=1 $ .",
+    "inputFormat": "First line contains one integer number $ n $ ( $ 1<=n<=75000 $ ).\n\nEach of the next $ n $ lines contains six integer numbers: $ x_{1},x_{2},y_{1},a,b,y_{2} $ ( $ 0<=x_{1}&lt;x_{2}<=2\u00b710^{5} $ , $ 0<=y_{1},y_{2}<=10^{9} $ , $ 0<=a,b<=10^{4} $ ).\n\nNext line contains one integer number $ m $ ( $ 1<=m<=500000 $ ).\n\nEach of the next $ m $ lines contains three integer numbers: $ l $ , $ r $ and $ x $ ( $ 1<=l<=r<=n $ , $ 0<=x<=10^{9} $ ).",
+    "outputFormat": "",
+    "samples": [
+        [
+            "1\n1 2 1 4 5 10\n1\n1 1 2\n",
+            "13\n"
+        ],
+        [
+            "3\n2 5 1 1 1 4\n3 6 8 2 5 7\n1 3 5 1 4 10\n3\n1 3 3\n2 3 2\n1 2 5\n",
+            "19\n17\n11\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u4f60\u6709 $n$ \u4e2a\u51fd\u6570\uff0c\u7b2c $i$ \u4e2a\u51fd\u6570 $f_i$ \u4e3a\uff1a\n\n$$f_i(x)=\\begin{cases}y_1,&x\\le x_1\\\\ax+b,&x_1<x\\le x_2\\\\y_2,&x>x_2\\end{cases}$$\n\n$m$ \u6b21\u8be2\u95ee\uff0c\u6bcf\u6b21\u8be2\u95ee\u7ed9\u51fa $l,r,x$\uff0c\u6c42 $\\displaystyle\\sum_{i=l}^r f_i(x)$\u3002**\u5f3a\u5236\u5728\u7ebf\u3002**"
+}

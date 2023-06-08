@@ -1,0 +1,20 @@
+{
+    "description": "Santa Claus likes palindromes very much. There was his birthday recently. $ k $ of his friends came to him to congratulate him, and each of them presented to him a string $ s_{i} $ having the same length $ n $ . We denote the beauty of the $ i $ -th string by $ a_{i} $ . It can happen that $ a_{i} $ is negative \u2014 that means that Santa doesn't find this string beautiful at all.\n\nSanta Claus is crazy about palindromes. He is thinking about the following question: what is the maximum possible total beauty of a palindrome which can be obtained by concatenating some (possibly all) of the strings he has? Each present can be used at most once. Note that all strings have the same length $ n $ .\n\nRecall that a palindrome is a string that doesn't change after one reverses it.\n\nSince the empty string is a palindrome too, the answer can't be negative. Even if all $ a_{i} $ 's are negative, Santa can obtain the empty string.",
+    "inputFormat": "The first line contains two positive integers $ k $ and $ n $ divided by space and denoting the number of Santa friends and the length of every string they've presented, respectively ( $ 1<=k,n<=100000 $ ; $ n\u00b7k\u00a0<=100000 $ ).\n\n $ k $ lines follow. The $ i $ -th of them contains the string $ s_{i} $ and its beauty $ a_{i} $ ( $ -10000<=a_{i}<=10000 $ ). The string consists of $ n $ lowercase English letters, and its beauty is integer. Some of strings may coincide. Also, equal strings can have different beauties.",
+    "outputFormat": "In the only line print the required maximum possible beauty.",
+    "samples": [
+        [
+            "7 3\nabb 2\naaa -3\nbba -1\nzyz -4\nabb 5\naaa 7\nxyx 4\n",
+            "12\n"
+        ],
+        [
+            "3 1\na 1\na 2\na 3\n",
+            "6\n"
+        ],
+        [
+            "2 5\nabcde 10000\nabcde 10000\n",
+            "0\n"
+        ]
+    ],
+    "hint": "In the first example Santa can obtain abbaaaxyxaaabba by concatenating strings $ 5 $ , $ 2 $ , $ 7 $ , $ 6 $ and $ 3 $ (in this order)."
+}

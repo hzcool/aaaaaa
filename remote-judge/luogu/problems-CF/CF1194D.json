@@ -1,0 +1,13 @@
+{
+    "description": "Alice and Bob play a game. There is a paper strip which is divided into $ n+1 $ cells numbered from left to right starting from $ 0 $ . There is a chip placed in the $ n $ -th cell (the last one).\n\nPlayers take turns, Alice is first. Each player during his or her turn has to move the chip $ 1 $ , $ 2 $ or $ k $ cells to the left (so, if the chip is currently in the cell $ i $ , the player can move it into cell $ i-1 $ , $ i-2 $ or $ i-k $ ). The chip should not leave the borders of the paper strip: it is impossible, for example, to move it $ k $ cells to the left if the current cell has number $ i<k $ . The player who can't make a move loses the game.\n\nWho wins if both participants play optimally?\n\nAlice and Bob would like to play several games, so you should determine the winner in each game.",
+    "inputFormat": "The first line contains the single integer $ T $ ( $ 1<=T<=100 $ ) \u2014 the number of games. Next $ T $ lines contain one game per line. All games are independent.\n\nEach of the next $ T $ lines contains two integers $ n $ and $ k $ ( $ 0<=n<=10^{9} $ , $ 3<=k<=10^{9} $ ) \u2014 the length of the strip and the constant denoting the third move, respectively.",
+    "outputFormat": "For each game, print Alice if Alice wins this game and Bob otherwise.",
+    "samples": [
+        [
+            "4\n0 3\n3 3\n3 4\n4 4\n",
+            "Bob\nAlice\nBob\nAlice\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "## \u9898\u76ee\u63cf\u8ff0\n\n\u73b0\u6709n\u4e2a\u4e1c\u897f\uff0c\u6bcf\u6b21\u53ef\u4ee5\u53d61\u4e2a\uff0c2\u4e2a\u6216k\u4e2a\n\nAlice\u548cBob\u8f6e\u6d41\u53d6\uff0c\u4e14Alice\u5148\u53d6\n\n\u95ee\u8c01\u662f\u6700\u540e\u4e00\u4e2a\u53d6\u7684\n\n\u6bcf\u7ec4\u6570\u636e\u6709t\u4e2a\u8be2\u95ee\n\n## \u8f93\u5165\u8f93\u51fa\u683c\u5f0f\n### \u8f93\u5165\u683c\u5f0f\uff1a\n\n\u7b2c1\u884c\u4e00\u4e2a\u6b63\u6574\u6570t$(1<=t<=100)$\n\n\u7b2c2\u5230t+1\u884c\u6bcf\u884c\u4e24\u4e2a\u81ea\u7136\u6570n\u548ck$(0<=n<=10^9,3<=k<=10^9)$\n\n### \u8f93\u51fa\u683c\u5f0f\uff1a\n\n\u5171t\u884c\uff0c\u6bcf\u884c\u8f93\u51fa`Alice`\u6216`Bob`\uff0c\u8868\u793a\u8d62\u5bb6"
+}

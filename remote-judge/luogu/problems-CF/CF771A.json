@@ -1,0 +1,25 @@
+{
+    "description": "Bear Limak examines a social network. Its main functionality is that two members can become friends (then they can talk with each other and share funny pictures).\n\nThere are $ n $ members, numbered $ 1 $ through $ n $ . $ m $ pairs of members are friends. Of course, a member can't be a friend with themselves.\n\nLet A-B denote that members A and B are friends. Limak thinks that a network is reasonable if and only if the following condition is satisfied: For every three distinct members (X, Y, Z), if X-Y and Y-Z then also X-Z.\n\nFor example: if Alan and Bob are friends, and Bob and Ciri are friends, then Alan and Ciri should be friends as well.\n\nCan you help Limak and check if the network is reasonable? Print \"YES\" or \"NO\" accordingly, without the quotes.",
+    "inputFormat": "The first line of the input contain two integers $ n $ and $ m $ ( $ 3<=n<=150000 $ , ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF771A/8f065d6ccf5ce6e7ee658f598aa517f9541bc089.png)) \u2014 the number of members and the number of pairs of members that are friends.\n\nThe $ i $ -th of the next $ m $ lines contains two distinct integers $ a_{i} $ and $ b_{i} $ ( $ 1<=a_{i},b_{i}<=n,a_{i}\u2260b_{i} $ ). Members $ a_{i} $ and $ b_{i} $ are friends with each other. No pair of members will appear more than once in the input.",
+    "outputFormat": "If the given network is reasonable, print \"YES\" in a single line (without the quotes). Otherwise, print \"NO\" in a single line (without the quotes).",
+    "samples": [
+        [
+            "4 3\n1 3\n3 4\n1 4\n",
+            "YES\n"
+        ],
+        [
+            "4 4\n3 1\n2 3\n3 4\n1 2\n",
+            "NO\n"
+        ],
+        [
+            "10 4\n4 3\n5 10\n8 9\n1 2\n",
+            "YES\n"
+        ],
+        [
+            "3 2\n1 2\n2 3\n",
+            "NO\n"
+        ]
+    ],
+    "hint": "The drawings below show the situation in the first sample (on the left) and in the second sample (on the right). Each edge represents two members that are friends. The answer is \"NO\" in the second sample because members $ (2,3) $ are friends and members $ (3,4) $ are friends, while members $ (2,4) $ are not.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF771A/452e04bb457330535035b94604ffb28f5fa05d56.png)",
+    "translation": "\t\u9898\u610f: \u7ed9\u5b9a\u4e00\u5f20\u65e0\u5411\u56fe, \u8981\u6c42\u5982\u679c A \u4e0e B \u4e4b\u95f4\u6709\u8fb9, B \u4e0e C \u4e4b\u95f4\u6709\u8fb9, \u90a3\u4e48 A \u4e0e C \u4e4b\u95f4\u4e5f\u9700\u8981\u6709\u8fb9. \u95ee\u8fd9\u5f20\u56fe\u662f\u5426\u6ee1\u8db3\u8981\u6c42.\n\n\u611f\u8c22@\u661f\u70c1\u6676\u71a0\u8f89 \u63d0\u4f9b\u7684\u7ffb\u8bd1"
+}

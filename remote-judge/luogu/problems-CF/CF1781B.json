@@ -1,0 +1,13 @@
+{
+    "description": "A company of $ n $ people is planning a visit to the cinema. Every person can either go to the cinema or not. That depends on how many other people will go. Specifically, every person $ i $ said: \"I want to go to the cinema if and only if at least $ a_i $ other people will go, not counting myself\". That means that person $ i $ will become sad if:\n\n- they go to the cinema, and strictly less than $ a_i $ other people go; or\n- they don't go to the cinema, and at least $ a_i $ other people go.\n\nIn how many ways can a set of people going to the cinema be chosen so that nobody becomes sad?",
+    "inputFormat": "Each test contains multiple test cases. The first line contains the number of test cases $ t $ ( $ 1 \\le t \\le 10^4 $ ). The description of the test cases follows.\n\nEach test case consists of two lines. The first line contains a single integer $ n $ ( $ 2 \\le n \\le 2 \\cdot 10^5 $ ) \u2014 the number of people in the company.\n\nThe second line contains $ n $ integers $ a_1, a_2, \\ldots, a_n $ ( $ 0 \\le a_i \\le n - 1 $ ) \u2014 integers from peoples' claims.\n\nIt is guaranteed that the sum of $ n $ over all test cases does not exceed $ 2 \\cdot 10^5 $ .",
+    "outputFormat": "For each test case, print a single integer \u2014 the number of different ways to choose a set of people going to the cinema so that nobody becomes sad.",
+    "samples": [
+        [
+            "4\n2\n1 1\n7\n0 1 2 3 4 5 6\n8\n6 0 3 3 6 7 2 7\n5\n3 0 0 3 3",
+            "2\n1\n3\n2"
+        ]
+    ],
+    "hint": "In the first test case, both people want to go to the cinema if and only if the other person goes. There are two valid options: either both people go, or neither of them goes. However, if just one of them goes, both will be sad.\n\nIn the second test case, everyone has to go to the cinema. In any other case, someone will be sad.\n\nIn the third test case, there are three valid options: person number $ 2 $ goes to the cinema; or persons with indices $ 2, 3, 4, 7 $ go; or all eight people go.",
+    "translation": "- **\u672c\u9898\u4e00\u4e2a\u6d4b\u8bd5\u70b9\u5185\u6709\u591a\u7ec4\u6d4b\u8bd5\u6570\u636e**\u3002\n- \u6709 $n$ \u4e2a\u6570 $a_1,a_2,\\cdots,a_n$\uff0c\u6c42\u6709\u591a\u5c11 01 \u6570\u7ec4 $w_1,w_2,\\cdots,w_n$ \u4f7f\u5f97 $\\nexists i\\in[1,n]$\uff1a\n    - \u82e5 $w_i=0$\uff0c$\\sum\\limits_{1\\leq j\\leq n,i\\neq j}w_i\\geq a_i$\uff1b\n    - \u82e5 $w_i=1$\uff0c$\\sum\\limits_{1\\leq j\\leq n,i\\neq j}w_i<a_i$\u3002\n- $2\\leq n,\\sum n\\leq2\\times10^5$\uff0c$0\\leq a_i<n$\u3002"
+}

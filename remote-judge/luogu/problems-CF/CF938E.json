@@ -1,0 +1,17 @@
+{
+    "description": "You are given an array $ a $ of length $ n $ . We define $ f_{a} $ the following way:\n\n- Initially $ f_{a}=0 $ , $ M=1 $ ;\n- for every $ 2<=i<=n $ if $ a_{M}<a_{i} $ then we set $ f_{a}=f_{a}+a_{M} $ and then set $ M=i $ .\n\nCalculate the sum of $ f_{a} $ over all $ n! $ permutations of the array $ a $ modulo $ 10^{9}+7 $ .\n\nNote: two elements are considered different if their indices differ, so for every array $ a $ there are exactly $ n! $ permutations.",
+    "inputFormat": "The first line contains integer $ n $ ( $ 1<=n<=1\\ 000\\ 000 $ ) \u2014 the size of array $ a $ .\n\nSecond line contains $ n $ integers $ a_{1},a_{2},...,a_{n} $ ( $ 1<=a_{i}<=10^{9} $ ).",
+    "outputFormat": "Print the only integer, the sum of $ f_{a} $ over all $ n! $ permutations of the array $ a $ modulo $ 10^{9}+7 $ .",
+    "samples": [
+        [
+            "2\n1 3\n",
+            "1"
+        ],
+        [
+            "3\n1 1 2\n",
+            "4"
+        ]
+    ],
+    "hint": "For the second example all the permutations are:\n\n- $ p=[1,2,3] $ : $ f_{a} $ is equal to $ 1 $ ;\n- $ p=[1,3,2] $ : $ f_{a} $ is equal to $ 1 $ ;\n- $ p=[2,1,3] $ : $ f_{a} $ is equal to $ 1 $ ;\n- $ p=[2,3,1] $ : $ f_{a} $ is equal to $ 1 $ ;\n- $ p=[3,1,2] $ : $ f_{a} $ is equal to $ 0 $ ;\n- $ p=[3,2,1] $ : $ f_{a} $ is equal to $ 0 $ .\n\nWhere $ p $ is the array of the indices of initial array $ a $ . The sum of $ f_{a} $ is equal to $ 4 $ .",
+    "translation": "\u6211\u4eec\u5b9a\u4e49f(a)\u4e3a\uff1a\n\n1\u3001\u5f00\u59cb\u65f6\uff0cf(a)=0,M=1\u3002\n\n2\u3001\u5bf9\u4e8e\u6bcf\u4e2a2<=i<=n,\u5982\u679ca[M]<a[i],\u90a3\u4e48f(a)=f(a)+a[M],M=i\u3002\n\n\u73b0\u5728\u5bf9\u4e8e\u4e00\u4e2a\u7ed9\u5b9a\u7684\u6570\u7ec4a\uff0c\u6c42\u5176\u6240\u6709\u6392\u5217\u7684f(a)\u4e4b\u548c\uff0c\u7b54\u6848\u5bf91e9+7\u53d6\u6a21\u3002\n\nby @ObsdianGungnir "
+}

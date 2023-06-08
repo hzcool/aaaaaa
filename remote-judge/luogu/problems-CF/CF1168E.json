@@ -1,0 +1,21 @@
+{
+    "description": "Toad Mikhail has an array of $ 2^k $ integers $ a_1, a_2, \\ldots, a_{2^k} $ .\n\nFind two permutations $ p $ and $ q $ of integers $ 0, 1, \\ldots, 2^k-1 $ , such that $ a_i $ is equal to $ p_i \\oplus q_i $ for all possible $ i $ , or determine there are no such permutations. Here $ \\oplus $ denotes the [bitwise XOR operation](https://en.wikipedia.org/wiki/Bitwise_operation#XOR).",
+    "inputFormat": "The first line contains one integer $ k $ ( $ 2 \\leq k \\leq 12 $ ), denoting that the size of the array is $ 2^k $ .\n\nThe next line contains $ 2^k $ space-separated integers $ a_1, a_2, \\ldots, a_{2^k} $ ( $ 0 \\leq a_i < 2^k $ ) \u2014 the elements of the given array.",
+    "outputFormat": "If the given array can't be represented as element-wise XOR of two permutations of integers $ 0, 1, \\ldots, 2^k-1 $ , print \"Fou\".\n\nOtherwise, print \"Shi\" in the first line.\n\nThe next two lines should contain the description of two suitable permutations. The first of these lines should contain $ 2^k $ space-separated distinct integers $ p_{1}, p_{2}, \\ldots, p_{2^k} $ , and the second line should contain $ 2^k $ space-separated distinct integers $ q_{1}, q_{2}, \\ldots, q_{2^k} $ .\n\nAll elements of $ p $ and $ q $ should be between $ 0 $ and $ 2^k - 1 $ , inclusive; $ p_i \\oplus q_i $ should be equal to $ a_i $ for all $ i $ such that $ 1 \\leq i \\leq 2^k $ . If there are several possible solutions, you can print any.",
+    "samples": [
+        [
+            "2\n0 1 2 3\n",
+            "Shi\n2 0 1 3 \n2 1 3 0 \n"
+        ],
+        [
+            "2\n0 0 0 0\n",
+            "Shi\n0 1 2 3 \n0 1 2 3 \n"
+        ],
+        [
+            "2\n0 1 2 2\n",
+            "Fou\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "## \u9898\u76ee\u63cf\u8ff0\n\nToad Mikhail \u6709\u4e00\u4e2a\u957f\u5ea6\u4e3a $2^k$ \u7684\u6574\u6570\u6570\u7ec4 $a_1,\\dots,a_{2^k}$\u3002\n\n\u8bf7\u627e\u5230\u4e24\u4e2a $0,\\dots,2^k - 1$ \u7684\u6392\u5217 $p,q$\uff0c\u4f7f\u5f97 $\\forall 1 \\le i \\le 2^k,p_i \\oplus q_i = a_i$\uff0c\u6216\u544a\u8bc9\u6211\u4eec\u65e0\u89e3\u3002  \n\u5176\u4e2d $\\oplus$ \u8868\u793a\u6309\u4f4d\u5f02\u6216\u8fd0\u7b97\u3002\n\n## \u8f93\u5165\u8f93\u51fa\u683c\u5f0f\n\n**\u8f93\u5165\u683c\u5f0f\uff1a**\n\n\u7b2c\u4e00\u884c\uff0c\u4e00\u4e2a\u6574\u6570 $k\\;(2 \\le k \\le 12)$\uff0c\u8868\u793a\u6570\u7ec4\u7684\u957f\u5ea6\u4e3a $2^k$\u3002  \n\u7b2c\u4e8c\u884c\uff0c$2^k$ \u4e2a\u6574\u6570 $a_1,\\dots,a_{2^k}\\;(0 \\le a_i < 2^k)$\uff0c\u8868\u793a\u7ed9\u5b9a\u7684\u6570\u7ec4\u3002\n\n**\u8f93\u51fa\u683c\u5f0f\uff1a**\n\n\u5982\u679c\u65e0\u89e3\uff0c\u8f93\u51fa\u300cFou\u300d\u3002\n\n\u5426\u5219\uff0c\u5728\u7b2c\u4e00\u884c\u8f93\u51fa\u300cShi\u300d\u3002  \n\u63a5\u4e0b\u6765\u4e24\u884c\u63cf\u8ff0\u7b26\u5408\u6761\u4ef6\u7684\u4e24\u4e2a\u6392\u5217\u3002  \n\u5176\u4e2d\u7b2c\u4e00\u884c\u8f93\u51fa $2^k$ \u4e2a\u6574\u6570 $p_1,\\dots,p_{2^k}$\uff0c\u7b2c\u4e8c\u884c\u8f93\u51fa $2^k$ \u4e2a\u6574\u6570 $q_1,\\dots,q_{2^k}$\u3002\n\n\u5982\u679c\u6709\u591a\u89e3\uff0c\u8f93\u51fa\u4efb\u610f\u89e3\u3002"
+}

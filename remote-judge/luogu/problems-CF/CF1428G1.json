@@ -1,0 +1,17 @@
+{
+    "description": "This is the easy version of the problem. The only difference is that in this version $ q=1 $ . You can make hacks only if all versions of the problem are solved.\n\nZookeeper has been teaching his $ q $ sheep how to write and how to add. The $ i $ -th sheep has to write exactly $ k $ non-negative integers with the sum $ n_i $ .\n\nStrangely, sheep have superstitions about digits and believe that the digits $ 3 $ , $ 6 $ , and $ 9 $ are lucky. To them, the fortune of a number depends on the decimal representation of the number; the fortune of a number is equal to the sum of fortunes of its digits, and the fortune of a digit depends on its value and position and can be described by the following table. For example, the number $ 319 $ has fortune $ F_{2} + 3F_{0} $ .\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1428G1/2e5dc16252276b0ec85d4bf61f3eff843360d5df.png)Each sheep wants to maximize the sum of fortune among all its $ k $ written integers. Can you help them?",
+    "inputFormat": "The first line contains a single integer $ k $ ( $ 1 \\leq k \\leq 999999 $ ): the number of numbers each sheep has to write.\n\n The next line contains six integers $ F_0 $ , $ F_1 $ , $ F_2 $ , $ F_3 $ , $ F_4 $ , $ F_5 $ ( $ 1 \\leq F_i \\leq 10^9 $ ): the fortune assigned to each digit.\n\n The next line contains a single integer $ q $ ( $ q = 1 $ ): the number of sheep.\n\nEach of the next $ q $ lines contains a single integer $ n_i $ ( $ 1 \\leq n_i \\leq 999999 $ ): the sum of numbers that $ i $ -th sheep has to write. In this version, there is only one line.",
+    "outputFormat": "Print $ q $ lines, where the $ i $ -th line contains the maximum sum of fortune of all numbers of the $ i $ -th sheep. In this version, you should print only one line.",
+    "samples": [
+        [
+            "3\n1 2 3 4 5 6\n1\n57",
+            "11"
+        ],
+        [
+            "3\n1 2 3 4 5 6\n1\n63",
+            "8"
+        ]
+    ],
+    "hint": "In the first test case, $ 57 = 9 + 9 + 39 $ . The three $ 9 $ 's contribute $ 1 \\cdot 3 $ and $ 3 $ at the tens position contributes $ 2 \\cdot 1 $ . Hence the sum of fortune is $ 11 $ .\n\nIn the second test case, $ 63 = 35 + 19 + 9 $ . The sum of fortune is $ 8 $ .",
+    "translation": "\u7ed9\u5b9a $q$ \u4e2a\u4f4d\u6570\u5c0f\u4e8e\u7b49\u4e8e $5$ \u7684\u6570 $n_1, n_2 ... n_q$\u3002\n\n\u5bf9\u4e8e\u6bcf\u4e00\u4e2a\u6570 $n$\uff0c\u4ed6\u60f3\u628a\u8fd9\u4e2a\u6570\u5212\u5206\u6210 $k$ \u4e2a\u6570\u3002\u4e00\u4e2a\u6570\u7684\u6743\u503c\u662f\u5404\u4e2a\u6570\u4f4d\u7684\u6743\u503c\u548c\u3002\u4e00\u4e2a\u6570\u4f4d\u7684\u6743\u503c\u5982\u4e0b:\n\n![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1428G2/2e5dc16252276b0ec85d4bf61f3eff843360d5df.png)\n\n\u4f8b\u5982\u6570\u5b57 $319$ \u7684\u6743\u503c\u5c31\u662f $F_2 + 3F_0$\u3002\n\n\u4ed6\u60f3\u8ba9\u5212\u5206\u51fa\u6765\u7684\u8fd9\u4e9b\u6570\u6743\u503c\u548c\u6700\u5927\u3002\n\n$q = 1$\uff0c$n \\le 999999$\uff0c$F_i \\le 10^9$\u3002"
+}

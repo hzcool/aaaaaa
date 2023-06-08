@@ -1,0 +1,21 @@
+{
+    "description": "Karen is getting ready for a new school day!\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF816A/d9d19918bc23426418750518f0726b72abe028b5.png)It is currently hh:mm, given in a 24-hour format. As you know, Karen loves palindromes, and she believes that it is good luck to wake up when the time is a palindrome.\n\nWhat is the minimum number of minutes she should sleep, such that, when she wakes up, the time is a palindrome?\n\nRemember that a palindrome is a string that reads the same forwards and backwards. For instance, 05:39 is not a palindrome, because 05:39 backwards is 93:50. On the other hand, 05:50 is a palindrome, because 05:50 backwards is 05:50.",
+    "inputFormat": "The first and only line of input contains a single string in the format hh:mm ( $ 00<= $ hh $ <=23 $ , $ 00<= $ mm $ <=59 $ ).",
+    "outputFormat": "Output a single integer on a line by itself, the minimum number of minutes she should sleep, such that, when she wakes up, the time is a palindrome.",
+    "samples": [
+        [
+            "05:39\n",
+            "11\n"
+        ],
+        [
+            "13:31\n",
+            "0\n"
+        ],
+        [
+            "23:59\n",
+            "1\n"
+        ]
+    ],
+    "hint": "In the first test case, the minimum number of minutes Karen should sleep for is $ 11 $ . She can wake up at 05:50, when the time is a palindrome.\n\nIn the second test case, Karen can wake up immediately, as the current time, 13:31, is already a palindrome.\n\nIn the third test case, the minimum number of minutes Karen should sleep for is $ 1 $ minute. She can wake up at 00:00, when the time is a palindrome.",
+    "translation": "## \u9898\u76ee\u63cf\u8ff0\n\n\u53ef\u601c\u5df2\u7ecf\u51c6\u5907\u597d\u8fce\u63a5\u5728\u5b66\u6821\u7684\u65b0\u7684\u4e00\u5929\u3002\n\n\u73b0\u5728\u662fhh:mm\uff0c\u4e00\u4e2a\u88ab\u4ee524\u5c0f\u65f6\u5236\u7ed9\u4e0e\u7684\u65f6\u95f4\u3002\u6b63\u5982\u4f60\u6240\u77e5\u9053\u7684\uff0c\u53ef\u601c\u559c\u6b22\u56de\u6587\uff0c\u5e76\u4e14\u5979\u76f8\u4fe1\u5982\u679c\u5728\u5979\u9192\u6765\u65f6\u7684\u65f6\u95f4\u662f\u56de\u6587\u7684\u8bdd\u4f1a\u7ed9\u5979\u5e26\u6765\u597d\u8fd0\u3002\n\n\u5f53\u5979\u9192\u6765\u65f6\u65f6\u95f4\u662f\u56de\u6587\u7684\u8bdd\uff0c\u5979\u6700\u5c11\u5e94\u5f53\u7761\u591a\u957f\u65f6\u95f4\uff1f\n\n\u8bb0\u4f4f\uff0c\u4e00\u4e2a\u56de\u6587\u6570\u662f\u4e00\u4e2a\u4ece\u524d\u8bfb\u548c\u4ece\u540e\u8bfb\u76f8\u540c\u7684\u5b57\u7b26\u4e32\u3002\u4f8b\u5982\uff0c05:39\u662f\u4e0d\u662f\u56de\u6587\u6570\uff0c\u56e0\u4e3a05:39\u5012\u7740\u8bfb\u662f93:50\u3002\u53e6\u4e00\u65b9\u9762\uff0c05:50\u662f\u56de\u6587\uff0c\u56e0\u4e3a05:50\u5012\u7740\u8bfb\u662f05:50\u3002\n\n### \u8f93\u5165\u683c\u5f0f\uff1a\n\n\u4ec5\u6709\u4e00\u884c\uff0c\u5305\u542b\u4e00\u4e2a\u683c\u5f0f\u4e3ahh:mm\u7684\u5b57\u7b26\u4e32\uff08$00\\leq hh\\leq23,00\\leq mm\\leq59$ \uff09\u3002\n\n### \u8f93\u51fa\u683c\u5f0f\uff1a\n\n\u4ec5\u8f93\u51fa\u4e00\u884c\u4e00\u4e2a\u6574\u6570\uff0c\u8868\u793a\u8981\u4f7f\u5979\u9192\u6765\u65f6\u7684\u65f6\u95f4\u662f\u56de\u6587\uff0c\u5979\u6240\u7761\u7684\u6700\u5c11\u65f6\u95f4\u3002\n\n### \u8bf4\u660e\n\n\u5728\u7b2c\u4e00\u4e2a\u6837\u4f8b\u4e2d\uff0c\u53ef\u601c\u6700\u5c11\u5e94\u7761\u7684\u65f6\u95f4\u4e3a$11$ \uff0c\u8fd9\u6837\u5979\u53ef\u4ee5\u572805:50\u65f6\u9192\u6765\uff0c\u8fd9\u662f\u4e00\u4e2a\u56de\u6587\u65f6\u95f4\u3002\n\n\u5728\u7b2c\u4e8c\u4e2a\u6837\u4f8b\u4e2d\uff0c\u53ef\u601c\u53ef\u4ee5\u7acb\u523b\u8d77\u6765\uff0c\u5f53\u524d\u65f6\u95f413:31\u5c31\u662f\u4e00\u4e2a\u56de\u6587\u3002\n\n\u5728\u7b2c\u4e09\u4e2a\u6837\u4f8b\u4e2d\uff0c\u53ef\u601c\u6700\u5c11\u5e94\u7761\u7684\u65f6\u95f4\u4e3a$1$ \u5206\u949f\u3002\u5979\u53ef\u4ee5\u572800:00\u9192\u6765\uff0c\u8fd9\u662f\u4e00\u4e2a\u56de\u6587\u65f6\u95f4\u3002\n\n\u611f\u8c22@Khassar \u63d0\u4f9b\u7684\u7ffb\u8bd1"
+}

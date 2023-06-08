@@ -1,0 +1,18 @@
+[
+    {
+        "content": "\u770b Codeforces \u51fa\u4e86 Global Round 7, \u5c31\u7ffb\u4e86\u7ffb\u4ee5\u524d\u7684\u9898\u3002\n\n\u8fd9\u9053\u9898\u53ef\u4ee5\u8bf4\u662f\u627e\u89c4\u5f8b\u3002\u7531\u9ab0\u5b50\u6784\u9020\u53ef\u4ee5\u770b\u51fa\uff0c$1$ \u7684\u5bf9\u9762\u662f $6$, $2$ \u7684\u5bf9\u9762\u662f $5$, $3$ \u7684\u5bf9\u9762\u662f $4$\u3002\u7531\u6b64\u53ef\u89c1\uff0c\u65e0\u8bba\u6446\u653e\u65b9\u5f0f\u5982\u4f55\uff0c\u76f8\u5bf9\u7684\u9762\u7684\u548c\u603b\u4e3a $7$, \u5219\u9ab0\u5b50\u4fa7\u9762\u7684\u70b9\u6570\u548c\u4e3a $14$\u3002\n\n\u540c\u65f6\u9876\u9762\u8fd8\u6709 $1$\u5230 $6$ \u70b9\uff0c\u90a3\u4e48\u6211\u4eec\u5c31\u53ef\u4ee5\u5224\u65ad $x \\bmod 14$ \u662f\u5426\u5927\u4e8e $1$ \u4e14\u5c0f\u4e8e $6$\u3002\n\n\u4f46\u662f\u5982\u679c\u76f4\u63a5\u8fd9\u6837\u4ea4\u4e0a\u53bb\uff0c\u5c31\u4f1a Wrong Answer on test 2 \u3002\u4e3a\u4ec0\u4e48\u5462\uff1f\u6211\u4eec\u53d1\u73b0\uff0c\u65e0\u8bba\u600e\u4e48\u653e\uff0c\u603b\u70b9\u6570\u4e00\u5b9a\u4f1a\u5927\u4e8e $14$\uff0c\u90a3\u4e48\u5982\u679c $x$ \u4e0d\u5927\u4e8e $14$\uff0c\u5219\u76f4\u63a5\u8f93\u51fa `NO` \u5373\u53ef\u3002\n\n\u8bb0\u5f97\u5f00\u5927\u4e00\u70b9\uff0c\u6bd5\u7adf $10^{18}$ \u4e0d\u662f\u4e00\u4e2a\u5c0f\u6570\u76ee\u3002\n\n\u5982\u4e0b\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nunsigned long long t,x;\nint main()\n{\n\tcin>>t;\n\tfor(int i=1;i<=t;++i)\n\t{\n\t\tcin>>x;\n\t\tif(x<=14) cout<<\"NO\"<<endl;\n\t\telse\n\t\t{\n\t\t\tif(x%14>=1&&x%14<=6) cout<<\"YES\"<<endl;\n\t\t\telse cout<<\"NO\"<<endl;\n\t\t}\n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1584495964,
+        "uid": 255381,
+        "name": "C171501",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 CF1266B \u3010Dice Tower\u3011"
+    },
+    {
+        "content": "## \u9898\u610f\n\nBob \u6709 $t$ \u4e2a\u6700\u559c\u6b22\u7684\u6570\uff0c\u73b0\u5728\u60f3\u7528\u82e5\u5e72\u4e2a\u9ab0\u5b50\u7ad6\u7740\u53e0\u8d77\u6765\uff0c\u4f7f\u80fd\u770b\u5230\u7684\u6570\u7684\u548c\u7b49\u4e8e\u8fd9\u4e2a\u6700\u559c\u6b22\u7684\u6570\uff0c\u8fd9\u53ef\u80fd\u5417\uff1f\n\n## \u601d\u8def\n\n![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1266B/4b7ea8a80a5909a0126993bc3864bdd5c9fee908.png)\n\n\u89c2\u5bdf\u9ab0\u5b50\u7ed3\u6784\uff0c\u4f1a\u53d1\u73b0 $1$ \u5bf9 $6$\uff0c$2$ \u5bf9 $5$\uff0c$3$ \u5bf9 $4$\u3002\u6bcf\u4e00\u5bf9\u7684\u548c\u90fd\u4e3a    $7$\u3002\n\n\u5047\u8bbe\u6446 $a$ \u4e2a\u9ab0\u5b50\uff0c\u5219\u65e0\u8bba\u600e\u4e48\u6446\uff0c\u5b83\u7684\u4fa7\u9762\u4e4b\u548c\u90fd\u4e3a $14\\times a$\uff0c\u6240\u4ee5\u80fd\u4e0d\u80fd\u6446\u6210\u6700\u559c\u6b22\u7684\u6570\uff0c\u8fd8\u8981\u770b\u6700\u9876\u4e0a\u7684\u6570\u3002\n\n\u7531\u4e8e\u6700\u9876\u4e0a\u7684\u6570\u80fd\u4e3a\u548c\u6700\u5c11\u8d21\u732e $1$\uff0c\u6700\u591a\u8d21\u732e $6$\uff0c\u6240\u4ee5\u5982\u679c\u6700\u559c\u6b22\u7684\u6570\u53d6\u4f59  $14$  \u7684\u7ed3\u679c\u5927\u4e8e\u7b49\u4e8e $1$ \u4e14\u5c0f\u4e8e\u7b49\u4e8e $6$\uff0c\u90a3\u5b83\u5c31\u80fd\u6446\u51fa\u6765\u3002\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint t;\nlong long n;\nint main(){\n\tcin>>t;\n\twhile(t--)\n\t{\n\t\tcin>>n;\n\t\tif(n<=14)\n\t\t{\n\t\t\tcout<<\"No\"<<endl;\n\t\t\tcontinue;\n\t\t}//\u975e\u5e38\u91cd\u8981\uff0c\u4e0d\u7136\u4f1aWA\u3002 \n\t\telse\n\t\t{\n\t\t\tif(n%14>=1&&n%14<=6)\n\t\t\t\tcout<<\"Yes\"<<endl;\n\t\t\telse\n\t\t\t\tcout<<\"No\"<<endl;\n\t\t}\n\t}\n\treturn 0;\n} \n```\n\n\n\n\n",
+        "postTime": 1676801949,
+        "uid": 877639,
+        "name": "tree_lc",
+        "ccfLevel": 0,
+        "title": "CF1266B\u9898\u89e3"
+    }
+]

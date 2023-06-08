@@ -1,0 +1,26 @@
+[
+    {
+        "content": "\u8fd9\u9898\u5c31\u662f\u5224\u65ad\u4e00\u4e2a\u5e8f\u5217\u4e2d\u6709\u6ca1\u6709\u91cd\u590d\u5143\u7d20\n\n\u6240\u4ee5\u53ef\u4ee5\u5f00\u4e2a$map$\u6620\u5c04\u6765\u4fdd\u5b58\u67d0\u4e2a\u5143\u7d20\u6709\u6ca1\u6709\u51fa\u73b0\u8fc7\n\n\u5982\u679c\u8fd9\u4e2a\u5143\u7d20\u5df2\u7ecf\u51fa\u73b0\u8fc7\u4e86\uff0c\u5c31\u76f4\u63a5\u8f93\u51fa$NO$\n\n\u5426\u5219\u5c31\u76f4\u63a5\u8f93\u51fa$YES$\n\n$code:$\n\n```cpp\n#include <iostream>\n#include <cstdio>\n#include <cstring>\n#include <algorithm>\n#include <map>//map\u8981\u5305\u542b\u7684\u5934\u6587\u4ef6\n\nusing namespace std;\n\nmap < int , bool > vis;//\u5b9a\u4e49map\nint n,tq;\n\nint main(){\n\tscanf(\"%d\",&n);\n\tfor(int i=1;i<=n;i++){\n\t\tscanf(\"%d\",&tq);\n\t\tif(vis[tq]==false)vis[tq]=true;//\u5982\u679c\u5143\u7d20\u6ca1\u51fa\u73b0\u8fc7\uff0c\u5c31\u6253\u4e0a\u6807\u8bb0\n\t\telse return printf(\"NO\"),0;//\u5426\u5219\u76f4\u63a5\u8f93\u51faNO\u5e76\u8fd4\u56de0\n\t}\n\tprintf(\"YES\");//\u8f93\u51faYES\n\treturn 0;\n}\n```\n\n$qwqwq$",
+        "postTime": 1581770069,
+        "uid": 133509,
+        "name": "KazamiHina",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT5245 \u3010[ABC154C] Distinct or Not\u3011"
+    },
+    {
+        "content": "\u6211\u770b\u4e86\u5927\u4f6c\u7684\u9898\u89e3\uff0c\u6709\u6392\u5e8f\u7684\uff0c\u6709\u7528$map$\u7684\uff0c\u90a3\u849f\u84bb\u4eca\u5929\u5c31\u6765\u4e00\u53d1$set$\u7684\u9898\u89e3\u3002\n\n------------\n\u4f17\u6240\u5468\u77e5\uff0c$set$\u53ef\u4ee5\u53bb\u91cd\uff0c\u6240\u4ee5\u53ef\u4ee5\u5c06\u8fd9\u4e9b\u6570\u5b57\u5f80$set$\u4e2d\u585e\u3002\u6700\u540e\u5982\u679c$size$<$n$\uff0c\u5c31\u4ee3\u8868\u6709\u91cd\u590d\u7684\uff0c\u5df2\u5c06\u91cd\u590d\u7684\u53bb\u6389\u4e86\u3002\u53cd\u4e4b\uff0c\u5219\u6ca1\u6709\u91cd\u590d\u3002\n\n------------\n\u5e9f\u8bdd\u4e0d\u591a\u8bf4\uff0c\u4e0a\u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,x;\nset<int>a;\nint main(){\n    scanf(\"%d\",&n);\n    for(int i=1;i<=n;i++){\n        scanf(\"%d\",&x);\n        a.insert(x);\n    }\n    if(a.size()==n){\n        puts(\"YES\");\n    }\n    else{\n        puts(\"NO\");\n    }\n    return 0;\n}\n```",
+        "postTime": 1583236798,
+        "uid": 261370,
+        "name": "Andy_Lin",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT5245 \u3010[ABC154C] Distinct or Not\u3011"
+    },
+    {
+        "content": "\u60f3\u5224\u65ad\u4e00\u4e2a\u5e8f\u5217\u662f\u5426\u6709\u91cd\u590d\u5143\u7d20\u3002\n\n~~\u53d1\u73b0~~\u91cd\u590d\u5143\u7d20\u4f1a\u5728\u6392\u4e86\u5e8f\u7684\u5e8f\u5217\u4e2d\u76f8\u90bb\uff0c\u6240\u4ee5\u53ef\u4ee5\u5e8f\u5217\u6392\u5e8f\uff0c\u5224\u65ad\u7b2c $i$ \u4e2a\u5143\u7d20\u662f\u5426\u7b49\u4e8e\u7b2c $i-1$ \u4e2a\u5143\u7d20\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n// writer: w33z8kqrqk8zzzx33\n#include <bits/stdc++.h>\nusing namespace std;\n \n#define iter(i, a, b) for(int i=(a); i<(b); i++)\n#define rep(i, a) iter(i, 0, a)\n#define rep1(i, a) iter(i, 1, (a)+1)\n#define log(a) cerr<<\"\\033[32m[DEBUG] \"<<#a<<'='<<(a)<<\" @ line \"<<__LINE__<<\"\\033[0m\"<<endl\n#define all(a) a.begin(), a.end()\n#define fi first\n#define se second\n#define pb push_back\n#define mp make_pair\n \nusing ll=long long;\nusing pii=pair<int, int>;\n//#define int ll\nconst int MOD = 1000000007;\n\nsigned main() {\n    ios_base::sync_with_stdio(false); cin.tie(0);\n    int n; cin >> n;\n    vector<int> v;\n    rep(i, n) {\n        int t; cin >> t;\n        v.pb(t);\n    }\n    sort(all(v));\n    iter(i, 1, n) {\n        if(v[i] == v[i-1]) {\n            cout << \"NO\" << endl;\n            return 0;\n        }\n    }\n    cout << \"YES\" << endl;\n}\n\n```",
+        "postTime": 1581907411,
+        "uid": 220037,
+        "name": "w33z8kqrqk8zzzx33",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 AT5245"
+    }
+]

@@ -1,0 +1,25 @@
+{
+    "description": "You are given two trees (connected undirected acyclic graphs) $ S $ and $ T $ .\n\nCount the number of subtrees (connected subgraphs) of $ S $ that are isomorphic to tree $ T $ . Since this number can get quite large, output it modulo $ 10^{9}+7 $ .\n\nTwo subtrees of tree $ S $ are considered different, if there exists a vertex in $ S $ that belongs to exactly one of them.\n\nTree $ G $ is called isomorphic to tree $ H $ if there exists a bijection $ f $ from the set of vertices of $ G $ to the set of vertices of $ H $ that has the following property: if there is an edge between vertices $ A $ and $ B $ in tree $ G $ , then there must be an edge between vertices $ f(A) $ and $ f(B) $ in tree $ H $ . And vice versa \u2014 if there is an edge between vertices $ A $ and $ B $ in tree $ H $ , there must be an edge between $ f^{-1}(A) $ and $ f^{-1}(B) $ in tree $ G $ .",
+    "inputFormat": "The first line contains a single integer $ |S| $ ( $ 1<=|S|<=1000 $ ) \u2014 the number of vertices of tree $ S $ .\n\nNext $ |S|-1 $ lines contain two integers $ u_{i} $ and $ v_{i} $ ( $ 1<=u_{i},v_{i}<=|S| $ ) and describe edges of tree $ S $ .\n\nThe next line contains a single integer $ |T| $ ( $ 1<=|T|<=12 $ ) \u2014 the number of vertices of tree $ T $ .\n\nNext $ |T|-1 $ lines contain two integers $ x_{i} $ and $ y_{i} $ ( $ 1<=x_{i},y_{i}<=|T| $ ) and describe edges of tree $ T $ .",
+    "outputFormat": "On the first line output a single integer \u2014 the answer to the given task modulo $ 10^{9}+7 $ .",
+    "samples": [
+        [
+            "5\n1 2\n2 3\n3 4\n4 5\n3\n1 2\n2 3\n",
+            "3\n"
+        ],
+        [
+            "3\n2 3\n3 1\n3\n1 2\n1 3\n",
+            "1\n"
+        ],
+        [
+            "7\n1 2\n1 3\n1 4\n1 5\n1 6\n1 7\n4\n4 1\n4 2\n4 3\n",
+            "20\n"
+        ],
+        [
+            "5\n1 2\n2 3\n3 4\n4 5\n4\n4 1\n4 2\n4 3\n",
+            "0\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9\u5b9a\u4e24\u68f5\u6811 $S,T$\uff0c\u6c42 $S$ \u6709\u591a\u5c11\u4e2a\u8fde\u901a\u5b50\u56fe\u4e0e $T$ \u540c\u6784\u3002"
+}

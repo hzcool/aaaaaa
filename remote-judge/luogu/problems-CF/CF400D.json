@@ -1,0 +1,25 @@
+{
+    "description": "Dima took up the biology of bacteria, as a result of his experiments, he invented $ k $ types of bacteria. Overall, there are $ n $ bacteria at his laboratory right now, and the number of bacteria of type $ i $ equals $ c_{i} $ . For convenience, we will assume that all the bacteria are numbered from $ 1 $ to $ n $ . The bacteria of type $ c_{i} $ are numbered from ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF400D/982a571b1865821e9e229719b32d90deaece954a.png) to ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF400D/cadef4f1e0deb44673d0bf224d83a90828e59d96.png).\n\nWith the help of special equipment Dima can move energy from some bacteria into some other one. Of course, the use of such equipment is not free. Dima knows $ m $ ways to move energy from some bacteria to another one. The way with number $ i $ can be described with integers $ u_{i} $ , $ v_{i} $ and $ x_{i} $ mean that this way allows moving energy from bacteria with number $ u_{i} $ to bacteria with number $ v_{i} $ or vice versa for $ x_{i} $ dollars.\n\nDima's Chef (Inna) calls the type-distribution correct if there is a way (may be non-direct) to move energy from any bacteria of the particular type to any other bacteria of the same type (between any two bacteria of the same type) for zero cost.\n\nAs for correct type-distribution the cost of moving the energy depends only on the types of bacteria help Inna to determine is the type-distribution correct? If it is, print the matrix $ d $ with size $ k\u00d7k $ . Cell $ d[i][j] $ of this matrix must be equal to the minimal possible cost of energy-moving from bacteria with type $ i $ to bacteria with type $ j $ .",
+    "inputFormat": "The first line contains three integers $ n,m,k $ $ (1<=n<=10^{5};\u00a00<=m<=10^{5};\u00a01<=k<=500) $ . The next line contains $ k $ integers $ c_{1},c_{2},...,c_{k} $ $ (1<=c_{i}<=n) $ . Each of the next $ m $ lines contains three integers $ u_{i},v_{i},x_{i} $ $ (1<=u_{i},v_{i}<=10^{5};\u00a00<=x_{i}<=10^{4}) $ . It is guaranteed that ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF400D/31b6f8aa1e4750c940bc1c186a5143544e1a885a.png).",
+    "outputFormat": "If Dima's type-distribution is correct, print string \u00abYes\u00bb, and then $ k $ lines: in the $ i $ -th line print integers $ d[i][1],d[i][2],...,d[i][k] $ $ (d[i][i]=0) $ . If there is no way to move energy from bacteria $ i $ to bacteria $ j $ appropriate $ d[i][j] $ must equal to -1. If the type-distribution isn't correct print \u00abNo\u00bb.",
+    "samples": [
+        [
+            "4 4 2\n1 3\n2 3 0\n3 4 0\n2 4 1\n2 1 2\n",
+            "Yes\n0 2\n2 0\n"
+        ],
+        [
+            "3 1 2\n2 1\n1 2 0\n",
+            "Yes\n0 -1\n-1 0\n"
+        ],
+        [
+            "3 2 2\n2 1\n1 2 0\n2 3 1\n",
+            "Yes\n0 1\n1 0\n"
+        ],
+        [
+            "3 0 2\n1 2\n",
+            "No\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u6709n\u4e2a\u70b9\uff0c\u6bcf\u4e2a\u70b9\u90fd\u6709\u81ea\u5df1\u7684type\r\n\u7ed9\u51fam\u6761\u8fb9\r\n\u9996\u5148\u8981\u6c42\u5224\u65adtype\u76f8\u540c\u7684\u70b9\u4e4b\u95f4\u80fd\u5426\u4ee50\u4e3a\u4ee3\u4ef7\u4e92\u76f8\u8fde\u901a\r\n\u5982\u679c\u53ef\u4ee5 \u6c42\u4efb\u610f\u4e24\u79cdtype\u8fde\u901a\u7684\u6700\u5c0f\u4ee3\u4ef7"
+}

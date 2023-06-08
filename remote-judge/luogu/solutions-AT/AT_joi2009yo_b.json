@@ -1,0 +1,18 @@
+[
+    {
+        "content": "```\n#include<stdio.h>\nint a[21],i;\nvoid q(int a[],int b,int c)//\u624b\u5199\u5feb\u6392\uff08\u638c\u63e1\u662f\u597d\u4e8b\uff09\n{ \n  int i=b,j=c,t;\n  int p=a[(b+c)/2];\n  while(i<=j)\n  {while(a[i]<p)\n  {i++;}\n  while(a[j]>p)\n  {j--;}\n  if(i<=j)\n  {t=a[i];\n  a[i]=a[j];\n  a[j]=t;\n  i++;\n  j--;}}\n  if(b<j)\n  {q(a,b,j);}\n  if(i<c)\n  {q(a,i,c);}\n  }\nint main()\n{\n    for(i=1;i<=20;i++)\n    scanf(\"%d\",&a[i]);\n    q(a,1,10);//\u4e24\u6b21\u6392\u5e8f\uff0c\u5206\u4e3a\u4e24\u6bb5\u5904\u7406\n    q(a,11,20);\n    printf(\"%d %d\\n\",a[8]+a[9]+a[10],a[18]+a[19]+a[20]);//\u56e0\u4e3a\u662f\u987a\u5e8f\u6392\u5e8f\uff0c\u5c31\u53d6\u540e\u4e09\u4e2a\uff0c\u5f53\u7136\uff0c\u56de\u8f66\u4e0d\u80fd\u5c11\n    return 0;\n}\n```",
+        "postTime": 1535888566,
+        "uid": 47482,
+        "name": "\u4e0d\u5230\u524d10\u4e0d\u6539\u540d",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT2496 \u3010\u30b3\u30f3\u30c6\u30b9\u30c8\u3011"
+    },
+    {
+        "content": "\u4e24\u6b21sort\u5f97\u51fa\u7b54\u6848\n\n\u672c\u9898\u601d\u8def\n\n\u5148\u8f93\u5165\u6570\u7ec4A\u548c\u6570\u7ec4B\n\n\u5feb\u6392A\u6570\u7ec4\u548cB\u6570\u7ec4\n\n\u8f93\u51fa \u6570\u7ec4$A$ \u6700\u5927\u503c+\u6b21\u5927\u503c+\u6b21\u6b21\u5927\u503c\u548c \u6570\u7ec4$B$ \u6700\u5927\u503c+\u6b21\u5927\u503c+\u6b21\u6b21\u5927\u503c\n###### \u7ed9\u5b9a20\u4e2a\u6570\u5b57\u3002\u8f93\u51fa\u524d10\u4e2a\u6570\u5b57\u7684\u6700\u5927\u503c+\u6b21\u5927\u503c+\u6b21\u6b21\u5927\u503c\u53ca\u540e10\u4e2a\u6570\u5b57\u7684\u6700\u5927\u503c+\u6b21\u5927\u503c+\u6b21\u6b21\u5927\u503c\u3002\u4e2d\u95f4\u7528\u7a7a\u683c\u9694\u5f00\uff0c\u6700\u540e\u56de\u8f66\u3002\n\n\u611f\u8c22@da32s1da\u7684\u7ffb\u8bd1\n```\n#include<bits/stdc++.h>\nusing namespace std;\nlong long a[1000],b[1000];\nint main()\n{\n    for(int s=0;s<10;s++)cin>>a[s];//\u8f93\u5165\n    for(int s=0;s<10;s++)cin>>b[s];//\u8f93\u5165\n    sort(a,a+10);//\u5feb\u6392*1\n    sort(b,b+10);//\u5feb\u6392*2\n    cout<<a[9]+a[8]+a[7]<<\" \"<<b[9]+b[8]+b[7]<<endl;//\u8f93\u51fa\n}\n```",
+        "postTime": 1526624997,
+        "uid": 58543,
+        "name": "RioBlu",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 AT2496 \u3010\u30b3\u30f3\u30c6\u30b9\u30c8\u3011"
+    }
+]

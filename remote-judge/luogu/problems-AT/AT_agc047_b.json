@@ -1,0 +1,17 @@
+{
+    "description": "[problemUrl]: https://atcoder.jp/contests/agc047/tasks/agc047_b\n\n\u30ea\u30de\u30af\u306f\u3001\u6587\u5b57\u5217\u306e\u5148\u982d $ 2 $ \u6587\u5b57\u306e\u3046\u3061\u7247\u65b9\u3092\u53d6\u308a\u9664\u304f\u3053\u3068\u3092\u7e70\u308a\u8fd4\u3057\u884c\u3048\u307e\u3059\u3002\u4f8b\u3048\u3070\u3001$ abcxyx\\ \\rightarrow\\ acxyx\\ \\rightarrow\\ cxyx\\ \\rightarrow\\ cyx $ \u3068\u3059\u308b\u3053\u3068\u304c\u3067\u304d\u307e\u3059\u3002\n\n$ N $ \u500b\u306e\u76f8\u7570\u306a\u308b\u6587\u5b57\u5217 $ S_1,\\ S_2,\\ \\ldots,\\ S_N $ \u304c\u4e0e\u3048\u3089\u308c\u307e\u3059\u3002$ N\\ \\cdot\\ (N-1)\\ /\\ 2 $ \u500b\u306e\u30da\u30a2 $ (S_i,\\ S_j) $ \u306e\u3046\u3061\u4f55\u500b\u306b\u304a\u3044\u3066\u3001\u30ea\u30de\u30af\u306f\u4e00\u65b9\u304b\u3089\u3082\u3046\u4e00\u65b9\u3092\u5f97\u308b\u3053\u3068\u304c\u3067\u304d\u308b\u3067\u3057\u3087\u3046\u304b\u3002",
+    "inputFormat": "\u5165\u529b\u306f\u4ee5\u4e0b\u306e\u5f62\u5f0f\u3067\u6a19\u6e96\u5165\u529b\u304b\u3089\u4e0e\u3048\u3089\u308c\u308b\u3002\n\n> $ N $ $ S_1 $ $ S_2 $ $ \\vdots $ $ S_N $",
+    "outputFormat": "\u30ea\u30de\u30af\u304c\u4e00\u65b9\u306e\u6587\u5b57\u5217\u304b\u3089\u3082\u3046\u4e00\u65b9\u3092\u5f97\u3089\u308c\u308b\u3088\u3046\u306a\u975e\u9806\u5e8f\u5bfe $ (S_i,\\ S_j) $ ($ i\\ \\neq\\ j $) \u306e\u500b\u6570\u3092\u51fa\u529b\u305b\u3088\u3002",
+    "samples": [
+        [
+            "3\r\nabcxyx\r\ncyx\r\nabc",
+            "1"
+        ],
+        [
+            "6\r\nb\r\na\r\nabc\r\nc\r\nd\r\nab",
+            "5"
+        ]
+    ],
+    "hint": "### \u5236\u7d04\n\n- $ 2\\ \\leq\\ N\\ \\leq\\ 200\\,000 $\n- $ S_i $ \u306f\u82f1\u5c0f\u6587\u5b57 `a` - `z` \u304b\u3089\u306a\u308b\u3002\n- $ S_i\\ \\neq\\ S_j $\n- $ 1\\ \\leq\\ |S_i| $\n- $ |S_1|\\ +\\ |S_2|\\ +\\ \\ldots\\ +\\ |S_N|\\ \\leq\\ 10^6 $\n\n### Sample Explanation 1\n\n\u6761\u4ef6\u3092\u6e80\u305f\u3059\u30da\u30a2\u306f $ (abcxyx,\\ cyx) $ \u306e\u307f\u3067\u3059\u3002\n\n### Sample Explanation 2\n\n\u6761\u4ef6\u3092\u6e80\u305f\u3059\u30da\u30a2\u306f $ (b,\\ abc) $, $ (a,\\ abc) $, $ (abc,\\ c) $, $ (b,\\ ab) $, $ (a,\\ ab) $ \u306e $ 5 $ \u500b\u3067\u3059\u3002",
+    "translation": "hhoppitree \u6709 $n$ \u4e2a\u5b57\u7b26\u4e32\uff0c\u5176\u4e2d\u7b2c $i$ \u4e2a\u5b57\u7b26\u4e32\u4e3a $s_i$\uff0c\u4ed6\u60f3\u77e5\u9053\u5728\u6240\u6709\u7684\u6574\u6570\u5bf9 $(i,j)(1\\le i\\ne j\\le n)$ \u4e2d\uff0c\u6709\u591a\u5c11\u5bf9\u6574\u6570\u5bf9 $(i,j)$ \u6ee1\u8db3 $s_i$ \u80fd\u901a\u8fc7\u8fdb\u884c\u82e5\u5e72\u6b21\u4ee5\u4e0b\u64cd\u4f5c\u6210\u4e3a $s_j$\uff1a\n\n- \u5f53 $|s_i|\\ge2$ \u65f6\uff0c\u5220\u53bb $s_i$ \u7684\u524d\u4e24\u4e2a\u5b57\u7b26\u4e2d\u7684\u4efb\u610f\u4e00\u4e2a\u5b57\u7b26\u3002"
+}

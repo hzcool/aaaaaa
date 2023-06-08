@@ -1,0 +1,98 @@
+[
+    {
+        "content": "## \u7b80\u8981\u5206\u6790\n\n\u4e00\u4e2a\u5f88\u663e\u7136\u7684\u8d2a\u5fc3\n\n\u9898\u76ee\u544a\u8bc9\u4e86\u6211\u4eec\u4e00\u4e9b\u6392\u540d\uff0c\u663e\u7136\u8fd9\u4e9b\u6392\u540d\u4e4b\u95f4\u6ca1\u6709\u529e\u6cd5\u7ee7\u7eed\u518d\u52a0\u4eba\u4e86\n\n\u8981\u4f7f\u4eba\u6570\u6700\u5927\uff0c\u53ea\u80fd\u5728\u6bd4\u6700\u5c0f\u7684\u5206\u6570\u8fd8\u8981\u5c0f\u7684\u5730\u65b9\u52a0\u4eba\n\n\u76f4\u63a5\u4ece $0$ \u5f00\u59cb\u6bcf\u4e2a\u80fd\u52a0\u7684\u5730\u65b9\u5168\u90e8\u52a0\u6ee1\u5373\u53ef\n\n## \u5b8c\u6574\u4ee3\u7801\n\n```cpp\n#include <bits/stdc++.h>\n#define int long long\n#define ri register int\nusing namespace std;\nint n, ans;\ntemplate <typename T>\ninline void read(T &x)\n{\n\tregister T c = getchar();\n\tfor (; c < 48 || 57 < c;)\n\t\tc = getchar();\n\tfor (x = 0; 48 <= c && c <= 57; c = getchar())\n\t\tx = (x << 3) + (x << 1) + (c & 15);\n}\ntemplate <typename T>\ninline void print(T x)\n{\n\tif (x > 9)\n\t\tprint(x / 10);\n\tputchar(x % 10 | 48);\n}\nsigned main()\n{\n\tread(n);\n\tfor (ri i = 1, a, b, mx = 0; i <= n; ++i)\n\t{\n\t\tread(a), read(b);\n\t\tif (a > mx)\n\t\t\tmx = a, ans = a + b;\n\t}\n\tprint(ans);\n\treturn 0;\n}\n```\n",
+        "postTime": 1609151112,
+        "uid": 51692,
+        "name": "\u706b\u8f66\u53f8\u673a",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3-AT3517"
+    },
+    {
+        "content": "### \u9898\u76ee\u5927\u610f\uff1a\n\n\u7ed9\u4f60\u4e24\u4e2a\u6570\u5217 $\\{A_n\\}$ \u548c $\\{B_n\\}$ \uff0c\u8981\u5728 $A_n$ \u6700\u5927\u7684\u60c5\u51b5\u4e0b\u8f93\u51fa $A_i+B_i$ \u3002\n\n\u8fd9\u4e0d\u5c31\u662f\u6c34\u9898\u5417\uff0c\u76f4\u63a5\u5728\u8f93\u5165\u65f6\u6253\u64c2\u53f0\u627e\u5230\u6700\u5927\u7684 $A_i$\uff0c\u518d\u6c42\u548c\u5c31\u53ef\u4ee5\u4e86\u3002\n\n\u4ee3\u7801\u6765\u55bd\uff1a\n```cpp\n/*#define fastcall __attribute__((optimize(\"-O3\")))\n#pragma GCC optimize(2)\n#pragma GCC optimize(3)\n#pragma GCC target(\"sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native\")*/\n#include<bits/stdc++.h>\n#include<string.h>\n#define min(a,b)(a<b?a:b)\n#define max(a,b)(a>b?a:b)\n#define int long long\n#define mod 998244353\n#define maxn 1001\n#define inf 1<<30\n#define lowbit(i) (i&-i)\nusing namespace std;\ninline int read()\n{\n    char ch=getchar();\n    int s=0,w=1;\n    while(ch<'0'||ch>'9')\n    {\n        if(ch=='-'){w=-1;}\n        ch=getchar();\n    }\n    while(ch>='0'&&ch<='9')\n    {\n        s=(s<<1)+(s<<3)+ch-48;\n        ch=getchar();\n    }\n    return w*s;\n}\ninline void print(int x)\n{\n    if(x<0){putchar('-'),x=-x;}\n    if(x>9){print(x/10);}\n    putchar(x%10+'0');\n}\nint qpow(int a,int b,int p)\n{\n    int ans=1,base=a;\n    while(b)\n    {\n        if(b&1){ans*=base,ans%=p;}\n        base*=base;\n        base%=p;\n        b>>=1;\n    }\n    return ans%p;\n}\ninline int gcd(int a,int b){return !b?a:gcd(b,a%b);}\ninline int lcm(int a,int b){return a*b/gcd(a,b);}\ninline void pc(int x)\n{\n    if(x==1)printf(\"\\n\");\n    if(x==2)printf(\" \");\n    if(x==3)printf(\"YES\");\n    if(x==4)printf(\"Yes\");\n    if(x==5)printf(\"yes\");\n    if(x==6)printf(\"NO\");\n    if(x==7)printf(\"No\");\n    if(x==8)printf(\"no\");\n    if(x==9)printf(\"/\");\n}\ninline string read_char()\n{\n    string str=\"\";\n    while(1)\n    {\n        char ch=getchar();\n        if(ch==EOF){break;}\n        str+=ch;\n    }\n    return str;\n}\nsigned main()\n{\n    int n=read(),maxx=-1*inf,ans=0;\n    while(n--)\n    {\n        int a=read(),b=read();\n        if(a>maxx){maxx=a,ans=a+b;}\n    }\n    print(ans);\n    return 0;\n}\n\n```\n",
+        "postTime": 1655029273,
+        "uid": 360273,
+        "name": "cfkk",
+        "ccfLevel": 3,
+        "title": "AT3517 \u9898\u89e3"
+    },
+    {
+        "content": "[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/AT3517)\n\n\u8fd9\u7edd\u5bf9\u7ea2\u9898\uff01\uff01\uff01\n\n### \u89e3\u6cd5\uff1a\n\n\u679a\u4e3e......\n\n\u4ece $1$ \u5230 $n$ \u6240\u6709\u7684 $x_i$ \u6bd4\u6700\u5927\u503c\uff0c\u8bb0\u5f55 $x_i+y_i$ \u3002\n\n**\u6ce8\u610f\uff1a\u9898\u610f\u4e3a\u6c42\u6700\u5927 $x_i$ \u65f6 $x_i+y_i$ \u7684\u503c\uff0c\u975e\u6c42\u6700\u5927\u7684 $x_i+y_i$** \u3002\n\n**code\uff1a**\n\n```cpp\n#include<cstdio>\n#define int long long\nint n,x[100001],y[100001]; \nsigned main(){\n\tint ans/*\u8bb0\u5f55\u7b54\u6848*/,maxx=0/*\u8bb0\u5f55\u6700\u5927x[i]*/;\n\tscanf(\"%lld\",&n);\n\tfor(int i=1;i<=n;++i){\n\t\tscanf(\"%lld%lld\",&x[i],&y[i]);//\u8f93\u5165 \n\t\tif(x[i]>maxx){//\u5224\u65adx[i]\u4e3a\u5f53\u524d\u6700\u5927\u7684\u65f6\u5019 \n\t\t\tmaxx=x[i];//\u6700\u5927\u503c\u4e3a\u5f53\u524dx[i] \n\t\t\tans=x[i]+y[i];//\u5f53\u524d\u7684x[i]+y[i] \n\t\t}\n\t}\n\tprintf(\"%lld\",ans);//\u8f93\u51fa\u7b54\u6848 \n\treturn 0;\n}\n```\nBye!",
+        "postTime": 1655025163,
+        "uid": 652444,
+        "name": "IcyFoxer_XZY",
+        "ccfLevel": 4,
+        "title": "Different Distribution\u9898\u89e3"
+    },
+    {
+        "content": "**\u9898\u5916\u8bdd**\n\n\u7801\u98ce\u6709\u4ebf\u70b9\u5947\u602a\uff0c\u52ff\u55b7\u3002\n\n## \u9898\u610f\n\n\u8f93\u5165 $ n $ \u7ec4 $ x $ \u548c $ y $ \uff0c\u8ba9\u4f60\u6c42\u51fa\u6700\u5927\u7684 $ x $ \u4ee5\u53ca\u76f8\u5bf9\u5e94\u7684 $ y $ \u7684\u503c\u3002\n\n## \u601d\u8def\n\n\u5b9a\u4e49\u53d8\u91cf $ maxx $ \u7528\u6765\u5b58 $ x $ \u7684\u6700\u5927\u503c\uff0c $ ans $ \u7528\u6765\u5b58 $ x + y $ \u7684\u6700\u5927\u503c\u3002\u8fb9\u8f93\u5165\u8fb9\u5224\u65ad\uff0c\u5982\u679c\u65b0\u8f93\u5165\u7684 $ x $ \u6bd4\u539f\u6765\u7684 $ maxx $ \uff08\u4e5f\u5c31\u662f**\u672a\u8f93\u5165\u65b0\u7684 $ x $ \u65f6 $ x $ \u7684\u6700\u5927\u503c**\uff09\u5927\uff0c\u5c31\u628a $ maxx $ \u66ff\u6362\u6210\u65b0\u8f93\u5165\u7684 $ x $ \u7684\u503c\uff0c\u6700\u540e\u8f93\u51fa $ maxx + y $ \u5373\u53ef\u3002\n\n## \u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\nint main(){\n\tint n,x,y,maxx=0,ans;//\u56e0\u4e3amaxx\u6c42\u7684\u662f\u6700\u5927\u503c\uff0c\u6240\u4ee5\u8981\u521d\u59cb\u5316\u62100 \n\tscanf(\"%d\",&n);\n   \tfor(int i=1;i<=n;i++){\n\t\tscanf(\"%d%d\",&x,&y);\n\t\tif(x>maxx){\n\t\t\tmaxx=x;//\u5982\u679c\u65b0\u8f93\u5165\u7684x\u6bd4\u539f\u6765\u6700\u5927\u7684x\u8fd8\u5927\uff0c\u5c31\u628a\u6700\u5927\u503c\u66ff\u6362\u6210\u65b0\u8f93\u5165\u7684x \n\t\t\tans=x+y;//\u5e76\u628a\u7b54\u6848\u66ff\u6362\u6210\u65b0\u7684x\u4ee5\u53ca\u5b83\u5bf9\u5e94\u7684y \n\t\t}\n\t}\n\tprintf(\"%d\",ans);//\u6700\u540e\u8f93\u51fa\u7b54\u6848\u5373\u53ef \n\treturn 0;//\u5b8c\u7ed3\u6492\u82b1~ \n}\n```",
+        "postTime": 1655024105,
+        "uid": 396336,
+        "name": "Gin_A_QWQ",
+        "ccfLevel": 0,
+        "title": "AT3517 Different Distribution \u9898\u89e3"
+    },
+    {
+        "content": "# AT3517 Different Distribution \u9898\u89e3 \n\n# \u5206\u6790\n\n\u6211\u4eec\u53ef\u4ee5\u5148\u5b9a\u4e49\u4e00\u4e2a\u53eb $maxi$ \u7684\u53d8\u91cf\uff0c\u8868\u793a $\\{A\\}$ \u91cc\u6700\u5927\u7684 $A_i$ \u7684\u4e0b\u6807 $i$\u3002\n\u6211\u4eec\u53ea\u9700\u8981\u6bcf\u8f6e\u5faa\u73af\u627e\u5230 $\\max A$\uff0c\u5e76\u4fdd\u5b58\u5b83\u7684\u4e0b\u6807 $i$ \u8d4b\u503c\u7ed9 $maxi$\uff0c\u6700\u540e\u8f93\u51fa $A_{maxi}+B_{maxi}$ \u5373\u53ef\u3002   \n- \u5751\u70b9\uff1a\u6211\u4eec\u9700\u8981\u628a $-1$ \u8d4b\u503c\u7ed9 $A_0$\uff0c\u8fd8\u8981\u628a $0$ \u8d4b\u503c\u7ed9 $maxi$\u3002\uff08\u9632\u6b62\u4ea7\u751f\u5783\u573e\u6570\u636e\u5e76\u6bd4\u8f83\u4e0d\u51fa\u6765\uff09\n\n# \u4ee3\u7801 \n\n\u63a5\u4e0b\u6765\u653e\u51fa~~\u4f60\u4eec\u6700\u7231\u7684~~\u5b8c\u6574\u4ee3\u7801\uff1a \n```cpp\n#include<iostream>\nusing namespace std;\nint n;\nint main()\n{\n  cin>>n;\n  int maxi=0,A[n+1],B[n+1];\n  A[0]=-1;//\u7c7b\u4f3c\u201c\u8fb9\u754c\u201d\n  for(int i=1; i<=n; i++)\n  {\n    cin>>A[i]>>B[i];\n    if(A[maxi]<A[i])\n    {\n      maxi=i;\n    }\n  }\n  cout<<A[maxi]+B[maxi]<<endl;\n  return 0;//\u517b\u6210\u597d\u4e60\u60ef\n}\n```  \n\u8fd9\u9053\u9898\u7684\u91cd\u70b9\u662f\u628a $-1$ \u8d4b\u503c\u7ed9 $A_0$\uff0c\u8fd8\u8981\u628a $0$ \u8d4b\u503c\u7ed9 $maxi$\uff0c\u7c7b\u4f3c\u201c\u8fb9\u754c\u201d\u3002  \n\nGood Bye! ~~\u6211\u8981\u53bb\u505a\u6587\u5316\u8bfe\u4f5c\u4e1a\u4e86\u3002~~  \n\n\u6709\u4ec0\u4e48\u4e0d\u61c2\u7684\u53ef\u4ee5\u5728\u8bc4\u8bba\u533a\u95ee\u6211\u2026\u2026",
+        "postTime": 1648562093,
+        "uid": 389884,
+        "name": "\u6b63\u8d1f\u541b",
+        "ccfLevel": 4,
+        "title": "AT3517 Different Distribution \u9898\u89e3"
+    },
+    {
+        "content": "## \u9898\u610f\n\n\u5176\u5b9e\u5c31\u662f\u8ba9\u6211\u4eec\u6c42\u6700\u5927\u7684 $x$ \u4e0e\u5176\u76f8\u5bf9\u5e94\u7684 $y$ \u7684\u548c\u3002\n\n\u53ef\u4ee5\u7528\u7b80\u5355\u7684\u904d\u5386\u6bcf\u4e00\u4e2a\u4fe1\u606f\uff0c\u5982\u679c\u6bd4\u4e4b\u524d\u7684 $x$ \u5927\uff0c\u5c31\u66f4\u65b0 $x$ \u4e0e $x+y$\uff0c\u6700\u540e\u8f93\u51fa\u5373\u53ef\u3002\n\n\u65f6\u95f4\u590d\u6742\u5ea6\u4e3a $O(n)$ \u3002\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nint n,x,y,maxX=-0x3f3f3f3f,dsum;\n\nint main(){\n\tcin>>n;\n\tfor(int i=1;i<=n;i++){\n\t\tcin>>x>>y;\n\t\tif(x>maxX){ // \u66f4\u65b0\u7ef4\u62a4\u7684\u6700\u5927x\u4e0e\u5176\u5bf9\u5e94\u7684x+y\n\t\t\tmaxX=x;\n\t\t\tdsum=x+y;\n\t\t}\n      // \u5982\u679c\u6ca1\u6709\u5927\u4e8e\u4ee5\u524d\u7684\u5c31\u4e0d\u66f4\u65b0\n\t}\n\tcout<<dsum<<endl; // \u6700\u540e\u8f93\u51fa\u7ef4\u62a4\u7684x+y\n\treturn 0;\n}\n```",
+        "postTime": 1643089680,
+        "uid": 413065,
+        "name": "xiezheyuan",
+        "ccfLevel": 5,
+        "title": "AT3517 Different Distribution"
+    },
+    {
+        "content": "\u9898\u610f\uff1a\u9898\u76ee\u544a\u8bc9\u6211\u4eec\u4e86\u540c\u5b66\u4eec\u73a9\u4e00\u4e2a\u6e38\u620f\uff0c\u7ed9\u51fa\u4e86\u4e00\u4e9b\u5206\u6570\uff0c\u7b2c\u4e00\u4e2a\u4eba\u7684\u5206\u6570\u4e3a $A_i$ \uff0c\u7b2c\u4e8c\u4e2a\u4eba\u7684\u5206\u6570\u4e3a $B_i$ \u3002\u6bcf\u6b21\u4fe1\u606f\u662f\u4ece\u5f97\u5206\u5927\u7684\u4e2d\u83b7\u53d6\uff0c\u95ee\u6700\u591a\u6709\u51e0\u4eba\u80fd\u53c2\u52a0\u6e38\u620f\u3002\n\nSOL\uff1a\n\n\u8981\u4f7f\u53c2\u52a0\u6e38\u620f\u7684\u4eba\u6570\u6700\u591a\uff0c\u5c31\u8981\u4ece\u5206\u6570\u5c3d\u53ef\u80fd\u5c0f\u7684\u5730\u65b9\u589e\u52a0\uff0c\u5206\u6570\u592a\u5927\uff0c\u82e5\u7b2c $i$ \u6b21\u5206\u6570\u5c0f\u4e8e\u6807\u51c6\uff0c\u5c31\u52a0\u4e0d\u4e86\u6e38\u620f\u4eba\u6570\u4e86\u3002\u6240\u4ee5\u5c31\u53ef\u4ee5\u5f97\u51fa\u662f\u9053\u8d2a\u5fc3\u9898\u3002\n\nCode:\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint n,x,y,maxx,sum;\nint main()\n{\n\tcin>>n;\n\tfor (int i=1;i<=n;i++)\n\t{\n\t\tcin>>x>>y;//\u8f93\u5165\u9898\u76ee\u7ed9\u51fa\u7684\u5206\u6570\u3002\n\t\tif (x>maxx) maxx=x,sum=x+y;//\u82e5\u5206\u6570\u5927\u4e8e\u6807\u51c6\uff0c\u5219\u53ef\u4ee5\u52a0\u5165\uff0c\u4eba\u6570\u7d2f\u52a0\u3002\n\t}\n\tcout<<sum;//\u8f93\u51fa\u4eba\u6570\u3002\n}\n```\n",
+        "postTime": 1638354279,
+        "uid": 347750,
+        "name": "Zhouyc2009",
+        "ccfLevel": 4,
+        "title": "AT3517\u9898\u89e3"
+    },
+    {
+        "content": "\u9898\u610f\u5c31\u662f\u6c42\u51fa\u5f53 $ a $ \u6700\u5927\u65f6 $ a $ \u4e0e $ b $ \u7684\u548c\u3002\n### \u4ee3\u7801\uff1a\n```cpp\n#include<iostream>\nusing namespace std;\nint main(){\n    int n,maxn=-1,ans,a,b;\n    cin>>n;\n    for(int i=1;i<=n;++i){\n        cin>>a>>b;\n        if(a>maxn){\n            maxn=a;\n            ans=a+b;\n        }\n    }\n    cout<<ans<<endl;\n  \treturn 0;\n}\n```\n",
+        "postTime": 1655028758,
+        "uid": 517086,
+        "name": "Anclogy",
+        "ccfLevel": 3,
+        "title": "AT3517"
+    },
+    {
+        "content": "### \u9898\u610f\u7b80\u8ff0\n------------\n\n\u7ed9\u5b9a $n$ \u4e2a\u6574\u6570\u5bf9\uff0c\u5176\u4e2d\u7b2c $i$ \u4e2a\u6574\u6570\u5bf9\u4e3a $x_i$ \u548c $y_i$\u3002\n\n\u6c42\u5f53 $x_i$ \u6700\u5927\u65f6\uff0c$x_i+y_i$ \u7684\u503c\u3002\n\n### \u89e3\u9898\u601d\u8def\n------------\n\n\u5178\u578b\u7684**\u7ed3\u6784\u4f53\u6392\u5e8f**\u9898\u3002\n\n\u6309\u7167 $x_i$ \u7684\u5927\u5c0f\u4ece\u5927\u5230\u5c0f\u6392\u5e8f\u3002\u6700\u540e\u8f93\u51fa\u7b2c\u4e00\u4f4d\u7684 $x_i+y_i$ \u5373\u53ef\u3002\n\n### \u4ee3\u7801\u5b9e\u73b0\n------------\n\n``` cpp\n#include<bits/stdc++.h>\nusing namespace std;\nstruct node {\n\tint x,y;\n}a[1000005];\nbool cmp(node x,node y) { return x.x>y.x;}\nint main() {\n\tint n; scanf(\"%d\",&n);\n\tfor(int i=1;i<=n;i++) scanf(\"%d%d\",&a[i].x,&a[i].y);\n\tsort(a+1,a+n+1,cmp);\n\tprintf(\"%d\",a[1].x+a[1].y);\n\treturn 0;\n}\n//code by TheCedar\n```\n",
+        "postTime": 1655027204,
+        "uid": 564864,
+        "name": "TheCedar",
+        "ccfLevel": 0,
+        "title": "AT3517 Different Distribution \u9898\u89e3"
+    },
+    {
+        "content": "## AT3517 \u9898\u89e3\n\n\u9898\u5916\u8bdd\uff1a\u5efa\u8bae\u8bc4\u7ea2\u3002\n\n### $\\texttt{solution}$\n\n\u8981\u6c42\u6c42\u51fa\u5f53 $a$ \u6700\u5927\u65f6\u7684 $a+b$ \u7684\u503c\u3002\u8f93\u5165\u65f6\u5224\u65ad\u8f93\u5165\u7684 $a$ \u662f\u5426\u4e3a\u6700\u5927\u503c\uff0c\u5982\u679c\u662f\uff0c\u90a3\u4e48\u5c31\u66f4\u65b0\u7b54\u6848 $a+b$ \u7684\u503c\u3002\n\n### $\\texttt{code}$\n\n```\n#include <iostream>\nusing namespace std;\nint a,n,maxn,b,ans;\nint main(){\n    cin>>n;\n    for(int i=1;i<=n;i++){\n        cin>>a>>b;\n        if(a>maxn){\n            maxn=a;//\u66f4\u65b0\u6700\u5927\u503c\n            ans=a+b;//\u66f4\u65b0\u7b54\u6848\n        }\n    }\n    cout<<ans;\n    return 0;\n}\n```",
+        "postTime": 1655023465,
+        "uid": 517643,
+        "name": "__Li2021__",
+        "ccfLevel": 4,
+        "title": "AT3517 \u9898\u89e3"
+    },
+    {
+        "content": "## \u9898\u610f\u7ffb\u8bd1\n\u8fd9\u9053\u9898\u76ee\u7684\u7ffb\u8bd1\u5df2\u7ecf\u5f88\u597d\u4e86\uff0c\u8fd9\u91cc\u5c31\u4e0d\u53e6\u5916\u7ffb\u8bd1\u4e86\u3002\n## \u601d\u8def\u5206\u6790\n\u5bf9\u4e8e\u6bcf\u4e00\u4e2a $x_i$ \u548c $y_i$\uff0c\u6211\u4eec\u9700\u8981\u5148\u6c42\u51fa\u6700\u5927\u7684 $x_i$\uff0c\u518d\u6c42\u51fa\u5b83\u4e0e $y_i$ \u7684\u548c\u3002\n\n\u5f53\u7136\uff0c\u6211\u4eec\u4e5f\u53ef\u4ee5\u4f7f\u7528\u8fb9\u8f93\u5165\u8fb9\u7b97\u7b54\u6848\u7684\u65b9\u6cd5\u3002\n## Ac Code\n```cpp\n#include<stdio.h>\nint main(){\n\tint n,maxx=0,sum=0;//maxx\u662f\u6700\u5927\u7684x\uff0csum\u5219\u662f\u5b83\u4e0ey\u7684\u548c\u3002\n\tscanf(\"%d\",&n);//n\u7ec4\u6570\u636e \n\twhile(n--){\n\t\tint x,y;//\u6bcf\u4e00\u4e2ax\u548cy\uff0c\u5728\u7ebf\u505a \n\t\tscanf(\"%d%d\",&x,&y);\n\t\tif(x>maxx) maxx=x,sum=x+y;//\u5982\u679cx\u6bd4\u5f53\u524d\u6700\u5927\u7684x\u5927\uff0c\u5c31\u628ax\u7684\u503c\u8d4b\u7ed9maxx\uff0csum\u4e3a\u5f53\u524dx\u548cy\u7684\u548c \n\t}\n\tprintf(\"%d\\n\",sum);//\u8f93\u51fa\n\treturn 0; \n} \n```\n\u5e0c\u671b\u8fc7\u5ba1\uff01",
+        "postTime": 1649596502,
+        "uid": 569795,
+        "name": "MrCR7",
+        "ccfLevel": 0,
+        "title": "AT3517 Different Distribution-\u9898\u89e3"
+    },
+    {
+        "content": "\u7ed3\u6784\u4f53\u5165\u95e8\u9898\u3002\n\n\u601d\u8def\uff1a\u5b9a\u4e49\u7ed3\u6784\u4f53 $a$ \u7136\u540e\u6a21\u62df\u5faa\u73af\uff0c\u6bcf\u6b21\u8f93\u5165 $a[i].x$ \u548c $a[i].y$\uff0c\u5982\u679c $a[i].x$ \u5927\u4e8e\u5f53\u524d\u6700\u5927 $x$\uff0c\u5c31\u5c06\u5f53\u524d\u6700\u5927\u6570 $maxn$ \u8d4b\u503c\u4e3a $x$ \uff0c\u4e0b\u6807 $maxx$ \u8d4b\u503c\u4e3a $i$\uff0c\u6700\u540e\u8f93\u51fa $a[maxx].x+a[maxx].y$ \u5373\u53ef\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include<iostream>\nusing namespace std;\nint n,maxn=-1,maxx=-1;\nstruct p{\n    int x,y;\n}a[100001];\nint main(){\n    cin>>n;\n    for(int i=1;i<=n;i++){\n        cin>>a[i].x>>a[i].y;\n        if(a[i].x>maxn){\n            maxn=a[i].x;\n            maxx=i;\n        }\n    }\n    cout<<a[maxx].x+a[maxx].y;\n}\n```\n\n\u6b64\u9898\u8fd8\u53ef\u4ee5\u5168\u90e8\u8f93\u5165\u540e\u518d\u6392\u5e8f\uff0c\u8fd9\u79cd\u601d\u8def\u5c31\u4e0d\u653e\u4ee3\u7801\u4e86\u3002",
+        "postTime": 1654655241,
+        "uid": 578029,
+        "name": "ivyjiao",
+        "ccfLevel": 3,
+        "title": "AT_tenka1_2017_b Different Distribution \u9898\u89e3"
+    }
+]

@@ -1,0 +1,18 @@
+[
+    {
+        "content": "### Solution\n\n\u770b\u5230\u662f\u4e00\u4e2a\u5f02\u6216\u548c\u7684\u5e8f\u5217\uff0c\u6211\u4eec\u53ef\u4ee5\u8003\u5f02\u6216\u7684\u6027\u8d28\u3002\n\n\u6211\u4eec\u6784\u9020\u4e00\u4e2a\u6570\u7ec4 $b$ \uff1a $b_0=0,b_i=a_i\\oplus b_{i-1}$ \uff0c\u7531\u5f02\u6216\u6027\u8d28\u5f97 $a_i=b_i\\oplus b_{i-1}$ \uff0c\u6240\u4ee5 $a_l\\oplus a_{l+1}\\oplus\\cdots\\oplus a_r\\not=0\\Rightarrow b_{l-1}\\oplus b_r\\not= 0$ \uff0c\u9898\u76ee\u4e2d\u8bf4 $l\\leq r$ \uff0c\u6240\u4ee5 $b$ \u6570\u7ec4\u4e2d\u7684\u6bcf\u4e2a\u6570\u90fd\u4e0d\u76f8\u540c\u3002\n\n\u56e0\u4e3a $a_i=b_i\\oplus b_{i-1}$ \uff0c\u6240\u4ee5 $b_i\\in[1,2^m]$ \uff0c\u5219\u7b54\u6848\u5c31\u662f\u627e\u957f\u5ea6\u4e3a $n$ \u7684\u6570\u7ec4\u4e14\u6570\u7ec4\u4e2d\u7684\u6570\u5728 $[1,2^m]$ \u5404\u4e0d\u76f8\u540c\uff0c\u5373 $A_{2^m}^n$ \u3002\n\n### \u4ee3\u7801\n\n```c++\n#include<bits/stdc++.h>\n#define ll long long\n\nusing namespace std;\nconst int mod=1e9+9;\nint n,m; ll ans=1,pow2=1;\n\nint main(){\n    cin>>n>>m;\n    for(int i=1;i<=m;i++) pow2=(pow2*2)%mod;\n    for(int i=1;i<=n;i++) ans=(ans*(pow2-i))%mod;\n    printf(\"%lld\\n\",ans);\n    return 0;\n}\n```\n\n",
+        "postTime": 1601989290,
+        "uid": 272143,
+        "name": "\u662f\u4e2a\u6c49\u5b50",
+        "ccfLevel": 4,
+        "title": "CF238A Not Wool Sequences"
+    },
+    {
+        "content": "# \u601d\u8def\n\u8003\u8651\u6784\u9020 $b_0=0,b_i=a_i \\oplus b_{i-1}$\uff0c\u5219\u663e\u7136 $\\left \\{ b_n \\right \\} $ \u4e24\u4e24\u4e0d\u540c\uff0c\u6240\u4ee5\u7b54\u6848\u5373\u4e3a\u4ece $2^m$ \u4e2a\u6570\u4e2d\u53d6 $m$ \u4e2a\u6570\u4e14\u8003\u8651\u987a\u5e8f\uff0c\u5373 $2^m \\choose n$\u3002\n\n\u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n#define int long long \nconst int MOD=1e9+9;\nint n,m;\ninline int qpow(int a,int x){\n\tint ans=1,base=a%MOD;\n\twhile(x){\n\t\tif(x&1)ans=(ans*base)%MOD;\n\t\tbase=(base*base)%MOD;\n\t\tx>>=1;\n\t}\n\treturn ans%MOD;\n}\nsigned main(){\n\tcin>>n>>m;\n\tint tmp=qpow(2,m);//ksm\n\tint ans=1;\n\tfor(int i=1;i<=n;i++){\n\t\tans=(ans*(tmp-i))%MOD;//A(2^m,n)\n\t}\n\tcout<<ans%MOD<<endl;\n\treturn 0;\n}\n```\n",
+        "postTime": 1661518647,
+        "uid": 673601,
+        "name": "FWT__FFT",
+        "ccfLevel": 0,
+        "title": "CF238A"
+    }
+]

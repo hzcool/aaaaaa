@@ -1,0 +1,21 @@
+{
+    "description": "You are given an undirected connected graph with $ n $ vertices and $ m $ edges. Each edge has an associated counter, initially equal to $ 0 $ . In one operation, you can choose an arbitrary spanning tree and add any value $ v $ to all edges of this spanning tree.\n\nDetermine if it's possible to make every counter equal to its target value $ x_i $ modulo prime $ p $ , and provide a sequence of operations that achieves it.",
+    "inputFormat": "The first line contains three integers $ n $ , $ m $ , and $ p $ \u2014 the number of vertices, the number of edges, and the prime modulus ( $ 1 \\le n \\le 500 $ ; $ 1 \\le m \\le 1000 $ ; $ 2 \\le p \\le 10^9 $ , $ p $ is prime).\n\nNext $ m $ lines contain three integers $ u_i $ , $ v_i $ , $ x_i $ each \u2014 the two endpoints of the $ i $ -th edge and the target value of that edge's counter ( $ 1 \\le u_i, v_i \\le n $ ; $ 0 \\le x_i < p $ ; $ u_i \\neq v_i $ ).\n\nThe graph is connected. There are no loops, but there may be multiple edges between the same two vertices.",
+    "outputFormat": "If the target values on counters cannot be achieved, print -1.\n\nOtherwise, print $ t $ \u2014 the number of operations, followed by $ t $ lines, describing the sequence of operations. Each line starts with integer $ v $ ( $ 0 \\le v < p $ ) \u2014 the counter increment for this operation. Then, in the same line, followed by $ n - 1 $ integers $ e_1 $ , $ e_2 $ , ... $ e_{n - 1} $ ( $ 1 \\le e_i \\le m $ ) \u2014 the edges of the spanning tree.\n\nThe number of operations $ t $ should not exceed $ 2m $ . You don't need to minimize $ t $ . Any correct answer within the $ 2m $ bound is accepted. You are allowed to repeat spanning trees.",
+    "samples": [
+        [
+            "3 3 101\n1 2 30\n2 3 40\n3 1 50",
+            "3\n10 1 2\n20 1 3\n30 2 3"
+        ],
+        [
+            "2 2 37\n1 2 8\n1 2 15",
+            "2\n8 1\n15 2"
+        ],
+        [
+            "5 4 5\n1 3 1\n2 3 2\n2 5 3\n4 1 4",
+            "-1"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u4f60\u5728\u4e00\u4e2a\u65e0\u5411\u56fe\u4e2d\u9009\u62e9\u82e5\u5e72\u751f\u6210\u6811\uff0c\u5e76\u7ed9\u6bcf\u68f5\u751f\u6210\u6811\u7684\u6240\u6709\u8fb9\u7684\u8fb9\u6743\u589e\u52a0\u4e00\u4e2a\u503c $v$\uff0c\u4f7f\u5f97\u6bcf\u6761\u8fb9\u7684\u8fb9\u6743\u90fd\u80fd\u591f\u8fbe\u5230\u5b83\u7684\u76ee\u6807\u503c $x_i$\uff08\u5bf9\u8d28\u6570 $p$ \u53d6\u6a21\uff09\u3002"
+}

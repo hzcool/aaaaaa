@@ -1,0 +1,17 @@
+{
+    "description": "Let us define two functions $ f $ and $ g $ on positive integer numbers.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF932B/5ea922a7608f7b43dbb7e14356bf3e8277d2c765.png)![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF932B/c3f9cee55fe0b74363392f2f9845da5254de38c3.png)\n\nYou need to process $ Q $ queries. In each query, you will be given three integers $ l $ , $ r $ and $ k $ . You need to print the number of integers $ x $ between $ l $ and $ r $ inclusive, such that $ g(x)=k $ .",
+    "inputFormat": "The first line of the input contains an integer $ Q $ ( $ 1<=Q<=2\u00d710^{5} $ ) representing the number of queries.\n\n $ Q $ lines follow, each of which contains 3 integers $ l $ , $ r $ and $ k $ $ (1<=l<=r<=10^{6},1<=k<=9) $ .",
+    "outputFormat": "For each query, print a single line containing the answer for that query.",
+    "samples": [
+        [
+            "4\n22 73 9\n45 64 6\n47 55 7\n2 62 4\n",
+            "1\n4\n0\n8\n"
+        ],
+        [
+            "4\n82 94 6\n56 67 4\n28 59 9\n39 74 4\n",
+            "3\n1\n1\n5\n"
+        ]
+    ],
+    "hint": "In the first example:\n\n- $ g(33)=9 $ as $ g(33)=g(3\u00d73)=g(9)=9 $\n- $ g(47)=g(48)=g(60)=g(61)=6 $\n- There are no such integers between $ 47 $ and $ 55 $ .\n- $ g(4)=g(14)=g(22)=g(27)=g(39)=g(40)=g(41)=g(58)=4 $",
+    "translation": "\u5b9a\u4e49\u5982\u4e0b\u51fd\u6570\uff1a\n\n$f(x)$ \u4e3a $x$ \u5404\u4f4d\u4e0a\u975e $0$ \u6570\u5b57\u4e4b\u79ef\uff0c$g(x)=\\begin{cases}x&x<10\\\\g(f(x))&x\\ge 10\\end{cases}$\n\n$Q$ \u7ec4\u8be2\u95ee\u3002\u6bcf\u95ee\u6c42\u4f7f\u5f97 $g(x)=k$ \u7684 $x(x\\in[l,r])$ \u7684\u4e2a\u6570\u3002"
+}

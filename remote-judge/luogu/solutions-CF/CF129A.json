@@ -1,0 +1,82 @@
+[
+    {
+        "content": "\u76f4\u63a5\u628a\u997c\u5e72\u603b\u6570\u52a0\u8d77\u6765\n\n\u770b\u770b\u997c\u5e72\u603b\u6570\u51cf\u53bb$a[i]$\u662f\u5426\u662f\u5076\u6570\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint a,b[105],c,ans;\nint main()\n{\n    cin>>a;\n    for(int s=0;s<a;s++)//s\u5c31\u662fi\uff0c\u672c\u4eba\u4e60\u60ef\u7528s\n    {\n        cin>>b[s];\n        c=c+b[s];//\u628a\u997c\u5e72\u6570\u91cf\u52a0\u8d77\u6765\n    }\n    for(int s=0;s<a;s++)\n    {\n        if((c-b[s])%2==0)//\u997c\u5e72\u603b\u6570\u51cf\u53bba[i]\uff08b[s]\u5c31\u662fa[i]\uff09\n        {\n            ans++;//\u7b54\u6848\n        }\n    }\n    cout<<ans<<endl;//\u8f93\u51fa\n    return 0;//\u5b8c\u7f8e\u7ed3\u675f\n}\n```",
+        "postTime": 1523945250,
+        "uid": 58543,
+        "name": "RioBlu",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF129A \u3010Cookies\u3011"
+    },
+    {
+        "content": "# CF129A \u3010Cookies\u3011\n\u8fd9\u9053\u9898\u6211\u4eec\u8bb8\u54df\u7528\u5230\u4e24\u4e2a\u5f88\u7b80\u5355\u7684\u3001\u5c0f\u5b66\u751f\u90fd\u77e5\u9053\u7684\u516c\u5f0f\uff1a\n## \u5947\u6570+\u5076\u6570=\u5947\u6570\n## \u5076\u6570+\u5076\u6570=\u5076\u6570\n\u901a\u8fc7\u8fd9\u4e24\u4e2a\u516c\u5f0f\uff0c\u6211\u4eec\u5c31\u53ef\u4ee5\u60f3\u51fa\u8fd9\u9898\u7684\u601d\u8def\uff1a\u6c42\u51fa\u997c\u5e72\u7684\u4e2a\u6570\uff0c\u5982\u679c\u662f\u5947\u6570\u4e2a\uff0c\u5c31\u62ff\u6389\u5947\u6570\u4e2a\u6570\u7684\u888b\u5b50\uff0c\u5426\u5219\u5c31\u62ff\u6389\u5076\u6570\u4e2a\u6570\u7684\u888b\u5b50\u3002\n\n\u4ee3\u7801\u5982\u4e0b\uff1a\n```\n#include <bits/stdc++.h>//\u4e07\u80fd\u5934\u6587\u4ef6 \nusing namespace std;\nint n,a[101],s,ans;\nint main()\n{\n\tcin>>n;//\u8f93\u5165 \n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tcin>>a[i];//\u8f93\u5165 \n\t\ts+=a[i];//\u6c42\u548c \n\t}\n\tif(s%2==0)//\u5982\u679c\u662f\u5076\u6570 \n\t{\n\t\tfor(int i=1;i<=n;i++)\n\t\t{\n\t\t\tif(a[i]%2==0) ans++;//\u6c42\u5076\u6570\u4e2a\u997c\u5e72\u888b\u7684\u4e2a\u6570 \n\t\t}\n\t}\n\telse//\u5982\u679c\u662f\u5947\u6570 \n\t{\n\t\tfor(int i=1;i<=n;i++)\n\t\t{\n\t\t\tif(a[i]%2==1) ans++;//\u6c42\u5947\u6570\u4e2a\u997c\u5e72\u888b\u7684\u4e2a\u6570 \n\t\t}\n\t}\n\tcout<<ans;//\u8f93\u51fa\u4e2a\u6570 \n\treturn 0;//\u7ed3\u675f\u7a0b\u5e8f \n} \n```\n",
+        "postTime": 1568424901,
+        "uid": 106918,
+        "name": "bym666",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF129A \u3010Cookies\u3011"
+    },
+    {
+        "content": "```cpp\n#include<bits/stdc++.h>//\u4e07\u80fd\u5934\nusing namespace std;\nint main()\n{\n\tint n,a[1005];//\u5f00\u4e00\u4e2a\u6570\u7ec4\uff0c\u6700\u597d\u5f00\u5f97\u5927\u4e00\u70b9\n\tint s=0,ans=0,k;//\u521d\u59cb\u5316\n\tcin>>n;\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tcin>>a[i];\n\t    s=s+a[i];//\u7d2f\u52a0\u997c\u5e72\u7684\u6570\u91cf\n\t    int k=s;//\u7528\u4e00\u4e2a\u53d8\u91cf\u6765\u50a8\u5b58\u6570\u91cf\n\t}\n\tfor(int i=1;i<=n;i++)\n\t {\n\t \tif((s-a[i])%2==0)//\u6309\u7167\u9898\u610f\uff0c\u82e5\u662f\u5076\u6570\uff0c\u65b9\u6848\u6570\u52a01\n\t \t{\n\t \t\tans++;\n\t \t\ts=s;//\u8fd8\u539f\uff0c\u7ee7\u7eed\u5faa\u73af\n\t\t }\n\t\t else s=s;//\u4e0d\u7136\uff0c\u7ee7\u7eed\u5faa\u73af\n\t }\n\t cout<<ans;//\u8f93\u51fa\u65b9\u6848\u6570\n\t return 0;\n } \n\n```",
+        "postTime": 1547728463,
+        "uid": 172612,
+        "name": "\u7c73\u5947\u5947\u7c73",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF129A \u3010Cookies\u3011"
+    },
+    {
+        "content": "#### ~~\u8bba\u5982\u4f55\u6311\u6218\u6700\u77ed\u4ee3\u7801~~\n\u5176\u5b9e\u6b64\u9898\u5f88\u7b80\u5355,\u5206\u522b\u7d2f\u52a0\u5947\u6570\u5076\u6570,\u518d\u5224\u65ad\u8f93\u51fa  \n\u9001\u4e0a\u4ec50.15k\u7684\u4ee3\u7801:\n```cpp\n#include<iostream>\nusing namespace std;\nint o,e,n,a,s;\nint main(){\n\tcin>>n;\n    while (n--)\n        cin>>a,a%2==0?e++:o++,s+=a;\n    return (cout<<(s%2==0?e:o))&&0;\n}\n```",
+        "postTime": 1531039858,
+        "uid": 82583,
+        "name": "Hzq11_",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF129A \u3010Cookies\u3011"
+    },
+    {
+        "content": "~~\u5c0f\u5b66\u751f\u90fd\u4f1a\u7684\u9898\u76ee\u3002~~\n\n### \u9996\u5148\u6e29\u6545\u4e00\u4e0b\u5c0f\u5b66\u7684\u77e5\u8bc6\uff1a\n\n* #### \u5947\u6570-\u5947\u6570=\u5076\u6570\uff1b\n* #### \u5076\u6570-\u5076\u6570=\u5076\u6570\uff1b\n* #### \u5947\u6570-\u5076\u6570=\u5947\u6570\uff1b\n* #### \u5076\u6570-\u5947\u6570=\u5947\u6570\u3002\n~~\u7136\u800c\u8fd9\u91cc\u53ea\u80fd\u7528\u5230\u524d\u4e24\u4e2a\u3002~~\n\n### \u6240\u4ee5\uff0c\u53ea\u7528\u628a\u8fd9$n$\u4e2a\u6570\u7684\u548c\u52a0\u4ee5\u6765\uff0c\u7136\u540e\u628a\u8fd9$n$\u4e2a\u6570\u7684\u5947\u5076\u6027\u5206\u6e05\u695a\uff0c\u5c31\u53ef\u4ee5\u6f47\u6d12\u7684\u89e3\u51b3\u8fd9\u9898\u4e86\u3002\n```\nvar n,i,x,ji,ou:longint;\n    s:0..1;\nbegin\n readln(n);//\u8bfb\u5165n\n for i:=1 to n do\n  begin\n   read(x);//\u8bfb\u5165\u7b2ci\u4e2a\u6570\n   if odd(x) then inc(ji)//\u5224\u65ad\u5947\u5076\u6027\uff0c\u5982\u679c\u662f\u5947\u6570\uff0c\u5c31\u52a0\u5230\u5947\u6570\u7684\u6876\u91cc\n             else inc(ou);//\u5426\u5219\u52a0\u5230\u5076\u6570\u7684\u6876\u91cc\n   s:=(s+x) mod 2;//\u628a\u548c\u52a0\u8d77\u6765\n  end;\n if odd(s) then writeln(ji)//\u5982\u679c\u548c\u662f\u5947\u6570\uff0c\u90a3\u4e48\u5c31\u8981\u62ff\u5947\u6570\u7684\u6876\u53bb\u51cf\uff0c\u6240\u4ee5\u8f93\u51fa\u5947\u6570\u7684\u6876\n           else writeln(ou);//\u540c\u7406\nend.\n```",
+        "postTime": 1584403663,
+        "uid": 324103,
+        "name": "Franka",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF129A \u3010Cookies\u3011"
+    },
+    {
+        "content": "\u849f\u84bb\u53c8\u6765\u6c34\u9898\u89e3\u4e86\u3002\n\n\u5728\u505a\u8fd9\u9053\u9898\u4e4b\u524d\u6211\u4eec\u53ef\u4ee5\u5148\u6765\u590d\u4e60\u4e00\u4e0b\u5c0f\u5b66\u77e5\u8bc6\uff1a\n- ### \u5076\u6570=\u5076\u6570+\u5076\u6570\n- ### \u5947\u6570=\u5076\u6570+\u5947\u6570\n\u672c\u9898\u5c31\u53ef\u4ee5\u901a\u8fc7\u4ee5\u4e0a\u4e24\u4e2a\u516c\u5f0f\u6c42\u89e3\u3002\n\n\u5bf9\u4e8e\u997c\u5e72\u7684\u603b\u6570$sum$,\u5219\u6709\u4ee5\u4e0b\u4e24\u79cd\u60c5\u51b5\uff1a\n\n- \u82e5$sum$\u4e3a\u5076\u6570\uff0c\u5219\u8981\u4f7f\u5269\u4e0b\u7684\u997c\u5e72\u6570\u4e3a\u5076\u6570\uff0c\u62ff\u8d70\u7684\u888b\u5b50\u4e2d\u5c31\u5fc5\u987b\u662f\u5076\u6570\u4e2a\u997c\u5e72\u3002\u6240\u4ee5\u62ff\u8d70\u997c\u5e72\u888b\u5b50\u7684\u65b9\u6848\u6570\u5c31\u7b49\u4e8e\u997c\u5e72\u6570\u4e3a\u5076\u6570\u7684\u888b\u5b50\u4e2a\u6570\u3002\n\n- \u82e5$sum$\u4e3a\u5947\u6570\uff0c\u5219\u8981\u4f7f\u5269\u4e0b\u7684\u997c\u5e72\u6570\u4e3a\u5076\u6570\uff0c\u62ff\u8d70\u7684\u888b\u5b50\u4e2d\u5c31\u5fc5\u987b\u662f\u5947\u6570\u4e2a\u997c\u5e72\u3002\u6240\u4ee5\u62ff\u8d70\u997c\u5e72\u888b\u5b50\u7684\u65b9\u6848\u6570\u5c31\u7b49\u4e8e\u997c\u5e72\u6570\u4e3a\u5947\u6570\u7684\u888b\u5b50\u4e2a\u6570\u3002\n\n\u89e3\u6cd5\u663e\u7136\u3002\u5148\u5206\u522b\u8bb0\u5f55\u997c\u5e72\u7684\u603b\u6570\u3001\u997c\u5e72\u6570\u91cf\u4e3a\u5076\u6570\u7684\u888b\u6570\u3001\u997c\u5e72\u6570\u91cf\u4e3a\u5947\u6570\u7684\u888b\u6570\u3002\u5982\u679c\u997c\u5e72\u603b\u6570\u4e3a\u5076\u6570\uff0c\u8f93\u51fa\u997c\u5e72\u6570\u91cf\u4e3a\u5076\u6570\u7684\u888b\u6570\uff1b\u53cd\u4e4b\uff0c\u8f93\u51fa\u997c\u5e72\u6570\u91cf\u4e3a\u5947\u6570\u7684\u888b\u6570\u3002\u5f53\u7136\u6211\u4eec\u53ef\u4ee5\u4e00\u8fb9\u8bfb\u5165\u4e00\u8fb9\u64cd\u4f5c\u3002\n\n### CODE\n\n```cpp\n#include <iostream>\nusing namespace std;\n\nint n, a[105];\nint js,os,num;//js\u8bb0\u5f55\u997c\u5e72\u6570\u4e3a\u5947\u6570\u7684\u888b\u5b50\u4e2a\u6570\uff0cos\u8bb0\u5f55\u997c\u5e72\u6570\u4e3a\u5076\u6570\u7684\u888b\u5b50\u4e2a\u6570\uff0cnum\u8bb0\u5f55\u997c\u5e72\u603b\u6570\n\nint main(void)\n{\n\tcin>>n;\n\t\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tcin>>a[i];\n\t\t\n\t\tif(a[i]%2 == 0)//\u5224\u65ad\u8fd9\u4e2a\u888b\u5b50\u7684\u997c\u5e72\u6570\u662f\u5947\u6570\u8fd8\u662f\u5076\u6570\n\t\t\tos++;\n\t\telse\n\t\t\tjs++\uff1b\n\t\t\n\t\tnum += a[i];\n\t}//\u8f93\u5165\u5e76\u7edf\u8ba1\n\t\n\tif(num%2 == 0)//\u5982\u679c\u997c\u5e72\u603b\u6570\u4e3a\u5076\u6570\n\t\tcout<<os<<endl;//\u65b9\u6848\u6570\u4e3a\u997c\u5e72\u6570\u4e3a\u5076\u6570\u7684\u888b\u5b50\u4e2a\u6570\n\telse//\u997c\u5e72\u603b\u6570\u4e3a\u5947\u6570\n\t\tcout<<js<<endl;//\u65b9\u6848\u6570\u4e3a\u997c\u5e72\u6570\u4e3a\u5947\u6570\u7684\u888b\u5b50\u4e2a\u6570\n\t\n\treturn 0;//\u5b8c\u7f8eAC~\n}\n```",
+        "postTime": 1583322640,
+        "uid": 246019,
+        "name": "_came11ia_",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF129A \u3010Cookies\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u5176\u5b9e\u53ef\u4ee5\u4e0d\u4f7f\u7528\u6570\u7ec4\u4fdd\u5b58$n$\u4e2a\u6570\uff0c\u4e0d\u8fc7\u672c\u849f\u84bb\u5f53\u65f6\u6ca1\u6709\u60f3\u5230\u8fd9\u79cd\u65b9\u6cd5\u3002\n\n\u5176\u5b9e\u5c31\u662f\u6a21\u62df\u2014\u2014\u8f93\u5165$n$\u4e2a\u6570\u5e76\u6c42\u548c\uff0c\u5373$S$\uff0c\u5e76\u5224\u65ad\u5947\u5076\u6027\u3002\u518d\u641c\u7d22\u6bcf\u4e00\u4e2a\u5143\u7d20\uff0c\u770b\u6709\u591a\u5c11\u4e2a\u5947\u5076\u6027\u4e0e$S$\u76f8\u540c\u5373\u53ef\u3002\n\n$AC$\u4ee3\u7801\uff1a\n\n```cpp\n#include<cstdio>\nint n,a[100],i,s,S;\nint main()\n{\n    scanf(\"%d\",&n);\n    for(;i<n;i++)scanf(\"%d\",&a[i]),s+=a[i];//\u8fb9\u8f93\u5165\u8fb9\u7d2f\u52a0\uff0c\u6c42\u548c\n    for(i=0;i<n;i++)if(a[i]%2==s%2)S++;//\u5982\u679c\u8be5\u5143\u7d20\u5947\u5076\u6027\u4e0e\u548c\u76f8\u540c\u5219\u8ba1\u6570\u5668\u52a01\n    printf(\"%d\",S);//\u8f93\u51fa\u8ba1\u6570\u5668\u6240\u4fdd\u5b58\u7684\u6570\uff0c\u5373\u6709\u591a\u5c11\u4e2a\u5947\u5076\u6027\u4e0e\u548c\u76f8\u540c\uff0c\u5373\u9898\u76ee\u6240\u6c42\u7b54\u6848\uff08\u4e0d\u9700\u8981\u5bf9\u6ca1\u6709\u8fd9\u6837\u7684\u6570\u8fdb\u884c\u7279\u5224\uff0c\u56e0\u4e3a\u76f4\u63a5\u8f93\u51fa0\uff09\n}\n```",
+        "postTime": 1583224959,
+        "uid": 137367,
+        "name": "hensier",
+        "ccfLevel": 6,
+        "title": "CF129A Cookies \u9898\u89e3"
+    },
+    {
+        "content": "> \u9898\u610f\uff1a\u6709n\u888b\u997c\u5e72\uff0c\u6bcf\u888b\u6709a[i]\u4e2a\uff0c\u73b0\u5728\u62ff\u8d70\u4e00\u888b\u997c\u5e72\uff0c\u4f7f\u5f97\u5269\u4e0b\u7684\u997c\u5e72\u6570\u662f\u5076\u6570\uff0c\u95ee\u6709\u591a\u5c11\u79cd\u65b9\u6848\n\n\u6b64\u9898\u6570\u636e\u8303\u56f4\u5f88\u5c0f\uff0c\u76f4\u63a5\u6a21\u62df\u5373\u53ef\u3002\n\n\u8be6\u89c1\u4ee3\u7801\uff1a\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main()\n{\n\tint n;\n\tcin>>n;\n\tint x,i,cnt,even,odd;\n\tcnt=even=odd=0;//\u987e\u540d\u601d\u4e49\uff0ceven\u8bb0\u5f55\u5076\u6570\u7684\u4e2a\u6570\uff0codd\u8bb0\u5f55\u5947\u6570\u7684\u4e2a\u6570\n\tfor (i=1;i<=n;i++)\n\t{\n\t\tcin>>x;//\u53ef\u4ee5\u4e0d\u7528\u5f00\u6570\u7ec4\uff0c\u8282\u7ea6\u7a7a\u95f4\n\t\tcnt+=x;//cnt\u7d2f\u52a0\u51fa\u6240\u6709\u6570\u7684\u548c\n\t\tif (x%2==0)\n\t\t{\n\t\t\teven++;//\u7edf\u8ba1\u6570\u7684\u5947\u5076\u6027\n\t\t}\n\t\telse\n\t\t{\n\t\t\todd++;\n\t\t}\n\t}\n\tif (cnt%2==0)//\u5982\u679c\u603b\u548c\u662f\u5076\u6570\uff0c\u5219\u53ef\u4ee5\u53bb\u6389\u4e00\u4e2a\u5076\u6570\uff0c\u5426\u5219\u53bb\u6389\u4e00\u4e2a\u5947\u6570\n\t{\n\t\tcout<<even<<endl;\n\t}\n\telse\n\t{\n\t\tcout<<odd<<endl;\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1550052079,
+        "uid": 40198,
+        "name": "FP\u00b7\u8377\u5170\u732a",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF129A \u3010Cookies\u3011"
+    },
+    {
+        "content": "# -\u6570\u8bba-\n\n\u4f5c\u4e3a\u4e00\u4f4d\u6570\u5b66\u7231\u597d\u8005\uff0c\u6570\u8bba\u2260\u9898\u89e3\u662f\u6211\u7684\u98ce\u683c\uff0c\u80fd\u7528\u6570\u8bba\u7684\u5c31\u7528\u6570\u8bba\n\n\u672c\u9898\u5c31\u662f\u8003\u5bdf\u5947\u5076\u6027\uff0cj\u7edf\u8ba1\u5947\u6570\u4e2a\u6570\uff0co\u7edf\u8ba1\u5076\u6570\u4e2a\u6570\uff0csum\u7edf\u8ba1\u548c\uff0c\u5982\u679c\u548c\u4e3a\u5947\uff0c\u8f93\u51faj\uff08\u5947\u6570\u4e2a\u6570\uff09\uff1b\u5426\u5219\uff0c\u8f93\u51fao\uff08\u5076\u6570\u4e2a\u6570\uff09\n\nOK\uff0c\u4e0a\u4ee3\u7801\uff01\n\n~~~\n#include<bits/stdc++.h>\nusing namespace std;\nint n,a,j,o,sum;\nint main(){\n    scanf(\"%d\",&n);\n    for(int i=1;i<=n;i++){\n        scanf(\"%d\",&a);\n        if(a%2==1) j++;\n        else o++;\n        sum+=a;\n    }\n    if(sum%2==1) cout<<j;\n    else cout<<o;\n    return 0;\n}\n~~~",
+        "postTime": 1530419824,
+        "uid": 95346,
+        "name": "OdtreePrince",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF129A \u3010Cookies\u3011"
+    },
+    {
+        "content": "\n```cpp\n//\u672c\u9898\u89e3\u7528\u4e86string\u51fd\u6570\u8f93\u5165\uff08getline\uff09\u5b57\u7b26\u4e32\u5f62\u5f0f\n//\u7528for\u5faa\u73af\u5224\u65ad\n//for\u5faa\u73af\u5fc5\u987b\u4ece0\u5f00\u59cb\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n    int a,c;//int\n    int ans=0;//int\n    string b;//string\n    cin>>a;//\u8bfb\u5165\n    getline(cin,b);//\u8bfb\u5165\n    a=b.size();//\u6c42\u957f\u5ea6\uff08\u5b57\u7b26\u4e32\uff09\n    for(int i=0;i<a;i++)//for\n    {\n        c=c+b[i];\n    }\n    for(int i=0;i<a;i++)//for\n    {\n        if((c-b[i])%2==0)//if\u5224\u65ad\n        {\n            ans++;\n        }\n    }\n    cout<<ans<<endl;//\u8f93\u7ed3\u679c\n    return 0;\n}\n```",
+        "postTime": 1527599236,
+        "uid": 81668,
+        "name": "Hola_chen",
+        "ccfLevel": 3,
+        "title": "\u9898\u89e3 CF129A \u3010Cookies\u3011"
+    }
+]

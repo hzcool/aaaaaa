@@ -1,0 +1,50 @@
+[
+    {
+        "content": "[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/AT3853)\u3002\n\n\u66b4\u529b\u679a\u4e3e\u9898\u3002\n\n**\u5206\u6790**\n\nStep 1\uff1a\u5b9a\u4e49\u4e24\u4e2a\u53d8\u91cf\uff0c$n$\u548c$y$\u3002\n```cpp\n\tint n,y;\n\tcin>>n>>y;\n```\n\nStep 2\uff1a\u4f7f\u7528**\u4e8c\u91cd\u5faa\u73af**\u8fdb\u884c\u66b4\u529b\u679a\u4e3e\u3002\n```cpp\n\tfor(int i=0;i<=n;i++)\n\t\tfor(int j=0;j<=n-i;j++)\n\t\t\tif(i*10000+j*5000+(n-i-j)*1000==y)\n\t\t\t\tcout<<i<<' '<<j<<' '<<n-i-j<<'\\n',exit(0);\n\n```\n\n\u5728\u8fd9\u4e00\u6b65\u4e0a\u5f88\u591a\u5927\u4f6c\u4f7f\u7528\u4e86**\u4e09\u91cd\u5faa\u73af**\uff0c\u5176\u5b9e\u7528\u4e8c\u91cd\u5faa\u73af\u5c31\u53ef\u4ee5\u89e3\u51b3\u4e86\u3002\n\nStep 3\uff1a\u627e\u5b8c\u4e86\u8fd8\u662f\u6ca1\u6709\u7b26\u5408\u8981\u6c42\u7684\u6570\u3002\u76f4\u63a5\u8f93\u51fa`-1 -1 -1`\u5e76\u7ed3\u675f\u7a0b\u5e8f\u3002\n```cpp\n\tcout<<\"-1 -1 -1\\n\";\n```\n\n\n**\u5b8c\u6574\u4ee3\u7801**\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main()\n{\n\tint n,y;\n\tcin>>n>>y;\n\tfor(int i=0;i<=n;i++)\n\t\tfor(int j=0;j<=n-i;j++)\n\t\t\tif(i*10000+j*5000+(n-i-j)*1000==y)\n\t\t\t\tcout<<i<<' '<<j<<' '<<n-i-j<<'\\n',exit(0);\n\tcout<<\"-1 -1 -1\\n\";\n\treturn 0;\n}\n```\n\n**\u82e5\u9898\u89e3\u6709\u95ee\u9898\u8bf7\u79c1\u4fe1\u6211\u3002**",
+        "postTime": 1575899430,
+        "uid": 219791,
+        "name": "tZERO\u3061\u3083\u3093",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT3853 \u3010Otoshidama\u3011"
+    },
+    {
+        "content": "[AT3853 [ABC085C] Otoshidama](https://www.luogu.com.cn/problem/AT3853)\n\n[AC\u8bb0\u5f55~](https://www.luogu.com.cn/record/32432033)\n\n\u7b97\u6cd5 \uff1a**\u66b4\u529b\u679a\u4e3e**\n\n\u601d\u8def \uff1a\u7528\u4e24\u5c42\u5faa\u73af\u679a\u4e3e $10000,5000$ \u548c $1000$ \u7684\u4e2a\u6570\uff0c\u7528\u4e24\u5c42\u5faa\u73af\u5373\u53ef\uff0c\u7136\u540e\u679a\u4e3e $i\\cdot 10000+j\\cdot 5000+(n-i-j)\\cdot 1000$ \uff0c\u770b\u662f\u4e0d\u662f\u7b49\u4e8e $y$ \uff0c\u662f\u7684\u8bdd\u7acb\u523b\u9000\u51fa\u7a0b\u5e8f\uff0c\u7136\u540e\u5230\u6700\u540e\u6ca1\u6709\u9000\u51fa\u7a0b\u5e8f\u8f93\u51fa `-1` \u3002\n\nTips : \u6807\u7a0b\u522b\u6284\uff0c\u592a\u8fc7\u7384\u5b66\uff0c\u6309\u7167\u8fd9\u4e2a\u601d\u8def\u6807\u7a0b\u4e0d\u662f\u5bf9\u7684\uff0c\u4e0d\u77e5\u9053\u600e\u4e48\u56de\u4e8b AC \u4e86\uff08\n\n```cpp\n#include <bits/stdc++.h>\n\nusing namespace std;\n\nint main () {\n    int n, y;\n    scanf(\"%d%d\", &n, &y);\n    for (int i = 0; i < n + 1; i++)\n        for (int j = 0; j < n - i + 1; j++)\n            if (i * 10000 + j * 5000 + (n - i - j) * 1000 == y) {\n            \tint coin = n - i - j;\n            \tprintf(\"%d %d %d\", i, j, coin);\n            \treturn 0;\n\t\t\t}\n    printf(\"-1 -1 -1\");\n    return 0;\n}\n```",
+        "postTime": 1585904095,
+        "uid": 114914,
+        "name": "\u4e00\u53ea\u4e66\u866b\u4ed4",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 AT3853 \u3010[ABC085C] Otoshidama\u3011"
+    },
+    {
+        "content": "# \u5927\u6c34\u9898\uff01\uff01\uff01\n\u4e00\u9053\u66b4\u529b\u679a\u4e3e\u5165\u95e8\u9898\uff0c\u679a\u4e3e\u6bcf\u4e00\u79cdmoney\u7684\u6570\u91cf\n- \u5982\u679c**\u6570\u91cf\u548c=N\uff0c\u94b1\u603b\u548c=Y**\uff0c\u90a3\u4e48\u8fd9\u5c31\u662f\u4e00\u4e2a\u53ef\u884c\u7684\u89e3\n- \u5982\u679c\u6ca1\u6709\u4e00\u79cd\u6ee1\u8db3\uff0c\u90a3\u4e48\u4e45\u8f93\u51fa-1 -1 -1\n\n\n------------\n### \u4f18\u5316\uff1a\n- \u679a\u4e3e\u53ef\u4ee5\u4ece10000\u7684money\u5f00\u59cb\u679a\u4e3e\uff0c~~\u8fd9\u6837\u679a\u4e3e\u6b21\u6570\u53ef\u80fd\u4f1a\u5c11\u4e00\u70b9\u70b9\uff08\u5c31\u4e00\u70b9\u70b9\uff09~~\n- \u679a\u4e3e\u65f6\u5982\u679c\u94b1\u603b\u6570\u5df2\u7ecf\u5927\u4e8eY\uff0c\u5c31\u53ef\u4ee5\u4e0d\u7528\u505a\u4e86\uff0c\u4e0d\u9700\u8981\u7b49\u5230\u949e\u7968\u6570>N\u65f6\uff0c~~\u8fd9\u6837\u679a\u4e3e\u6b21\u6570\u53ef\u80fd\u4f1a\u5c11\u4e00\u70b9\u70b9\uff08\u4e5f\u5c31\u4e00\u70b9\u70b9\uff09~~\n\n _\u4e0a\u4ee3\u7801_ \n\n```cpp\n#include<cmath>\n#include<cstdio>\n#include<cstring>\n#include<iostream>\n#include<algorithm>\nusing namespace std;\n\nint n,y;\n\nint main(){\n\tscanf(\"%d%d\",&n,&y);\n\tfor(int i=0;i<=n&&10000*i<=y;i++)//\u94b1\u603b\u6570\u5927\u4e8eY\uff0c\u505c\u6b62\n\t    for(int j=0;i+j<=n&&10000*i+5000*j<=y;j++)//\u949e\u7968\u6570\u5927\u4e8eN\uff0c\u505c\u6b62 \u6216 \u94b1\u603b\u6570\u5927\u4e8eY\uff0c\u505c\u6b62\n\t        if((y-10000*i-5000*j)%1000==0&&(y-10000*i-5000*j)/1000==n-i-j){\n            //N-I-J\u7684\u5c31\u662f1000\u7684\u6570\u91cf\uff0c\u5982\u679c\u53ef\u4ee5\u5c31\u627e\u5230\u89e3\u5566\n\t        \tprintf(\"%d %d %d\\n\",i,j,(y-10000*i-5000*j)/1000);\n\t        \treturn 0;\n\t\t\t}\n\t//\u5982\u679c\u4e00\u7ec4\u89e3\u4e5f\u6ca1\u6709\uff0c\u90a3\u6211\u4e5f\u6ca1\u529e\u6cd5\u3002\u3002\u3002\n\tprintf(\"-1 -1 -1\\n\");\n\treturn 0;\n}\n\n```\n",
+        "postTime": 1567329749,
+        "uid": 218764,
+        "name": "The_Tarnished",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 AT3853 \u3010Otoshidama\u3011"
+    },
+    {
+        "content": "P\u515a\u4ee3\u7801\u7edd\u65e0\u4ec5\u6709\uff08\u7b11\uff09\n\n```pascal\nvar\n  n,y,i,j,k:longint;\nbegin\n  readln(n,y);\n  if (y div n=10000) then//\u4ee5\u4e0b\u4e3a\u7279\u6b8a\u5224\u65ad\uff0c\u4f1a\u5feb\u5f88\u591a\n  begin\n     writeln(n,' ',0,' ',0);\n     halt;\n  end;\n  if (y div n=5000) then\n  begin\n    writeln(0,' ',n,' ',0);\n    halt;\n  end;\n  if (y div n=1000) then\n  begin\n    writeln(0,' ',0,' ',n);\n    halt;\n  end;\n  if (n*10000<y) then\n  begin\n    writeln('-1 -1 -1');\n    halt;\n  end;\n  if (n*1000>y) then\n  begin\n    writeln('-1 -1 -1');\n    halt;\n  end;\n  if (y mod 1000<>0) then\n  begin\n    writeln('-1 -1 -1');\n    halt;\n  end;//\u66b4\u529b\u5f00\u59cb\uff01\n  for i:=0 to y div 10000 do//\u4ece\u4e0d\u9009\u5230\u81f3\u5c11\u9009\u591a\u5c11\u4e2a\uff0c\u8fd9\u6837\u65f6\u95f4\u590d\u6742\u5ea6\u4f1a\u5c11\uff0c\u6700\u91cd\u8981\uff01\n  for j:=0 to n-i do//n-i\u53bb\u91cd\uff0c\u51cf\u65f6\u95f4\uff0c\u4e0d\u7136\u8fc7\u4e0d\u53bb\n  if (i*10000+j*5000+(n-i-j)*1000=y) //\u5224\u65ad\u8fd9\u4e2a\u65b9\u6848\u662f\u5426\u6210\u7acb\n  then begin\n     writeln(i,' ',j,' ',n-i-j);//\u6210\u7acb\u8f93\u51fa\n     halt;//\u7ed3\u675f\u6240\u6709\u7a0b\u5e8f\n  end;\n  writeln('-1 -1 -1');//\u5982\u679c\u4e0d\u6210\u7acb\u90a3\u4e48\u4ed6\u5c31\u4e0d\u4f1a\u7ed3\u675f\u7a0b\u5e8f\uff0c\u5c31\u53ef\u4ee5\u8f93\u51fa\u4e0d\u6210\u7acb\u7684\u7ed3\u679c\u62c9\nend.\n```",
+        "postTime": 1535024451,
+        "uid": 63739,
+        "name": "\u5e7b\u84dd",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT3853 \u3010Otoshidama\u3011"
+    },
+    {
+        "content": "\u7a0d\u52a0\u5224\u65ad\uff0c\u7136\u540e\u5927\u529b\u5faa\u73af\n\n\u679a\u4e3e\u4e09\u79cd\u949e\u7968\u7684\u6570\u91cf\uff0c\u5e76\u4e14\u8fdb\u884c\u526a\u679d\n\n\u786e\u5b9e\u975e\u5e38\u66b4\u529b\uff0c\u4f46\u5f88\u7ba1\u7528\n\n\u4ee3\u7801\u5982\u4e0b\n```cpp\n#include<bits/stdc++.h>\n \nusing namespace std;\n \nint main(){\n    int m,n;\n    scanf(\"%d%d\",&m,&n);\n    \n    if(m*10000<n){\n        printf(\"-1 -1 -1\");\n        return 0;\n    }\n    if(m*1000>n){\n        printf(\"-1 -1 -1\");\n        return 0;\n    }\n    if(n%1000!=0){\n        printf(\"-1 -1 -1\");\n        return 0;\n    }\n    for(int i=0;i<=m;i++)\n     for(int j=0;j<=m;j++)\n      for(int k=0;k<=m,i+j+k<=m;k++)\n       {\n       \t\tif(i+j+k==m && i*1000+j*5000+k*10000==n)\n       \t\t{\n       \t\t\tprintf(\"%d %d %d\",k,j,i);\n                return 0;\t\n            }\n       }\n    printf(\"-1 -1 -1\");\n    return 0;\n}\n```",
+        "postTime": 1522757599,
+        "uid": 60136,
+        "name": "chengni",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT3853 \u3010Otoshidama\u3011"
+    },
+    {
+        "content": "\u611f\u8c22\u697c\u4e0b\u5927\u4f6c\u63d0\u793a\uff0c\u6211\u7ed9\u4ed6\u7684\u4ee3\u7801\u4f18\u5316\u4e86\u4e00\u4e0b\uff01\uff01\uff01\u65e0\u9700\u52a0\u7279\u5224\uff0c\u56e0\u4e3a\u4e0b\u9762\u5faa\u73af\u5c31\u662f\u7279\u5224\uff01\uff01\uff01\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n    int m,n;\n    scanf(\"%d%d\",&m,&n);\n    for(int i=0;i<=m;i++)\n     for(int j=0;j<=m;j++)\n      for(int k=0;k<=m,i+j+k<=m;k++)\n       {\n            if(i+j+k==m && i*1000+j*5000+k*10000==n)\n            {\n                printf(\"%d %d %d\",k,j,i);\n                return 0;   \n            }\n       }\n    printf(\"-1 -1 -1\");\n    return 0;\n}\n```\n\u5176\u5b9e\u8fd9\u9898\u4e0d\u591f\u4e25\u8c28\uff0c\u6837\u4f8b\u6709\u591a\u79cd\u60c5\u51b5\uff0c\u6bd4\u5982\u6837\u4f8b1\uff0c\u5b83\u7684\u60c5\u51b5\u6709\u591a\u79cd\uff0c\u5efa\u8bae\u66f4\u6539QAQ",
+        "postTime": 1534466929,
+        "uid": 95569,
+        "name": "Teddy\u00b7Bear",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT3853 \u3010Otoshidama\u3011"
+    }
+]

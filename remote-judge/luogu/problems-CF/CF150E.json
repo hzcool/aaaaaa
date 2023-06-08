@@ -1,0 +1,25 @@
+{
+    "description": "This winter is so... well, you've got the idea :-) The Nvodsk road system can be represented as $ n $ junctions connected with $ n-1 $ bidirectional roads so that there is a path between any two junctions. The organizers of some event want to choose a place to accommodate the participants (junction $ v $ ), and the place to set up the contests (junction $ u $ ). Besides, at the one hand, they want the participants to walk about the city and see the neighbourhood (that's why the distance between $ v $ and $ u $ should be no less than $ l $ ). On the other hand, they don't want the participants to freeze (so the distance between $ v $ and $ u $ should be no more than $ r $ ). Besides, for every street we know its beauty \u2014 some integer from $ 0 $ to $ 10^{9} $ . Your task is to choose the path that fits in the length limits and has the largest average beauty. We shall define the average beauty as a median of sequence of the beauties of all roads along the path.\n\nWe can put it more formally like that: let there be a path with the length $ k $ . Let $ a_{i} $ be a non-decreasing sequence that contains exactly $ k $ elements. Each number occurs there exactly the number of times a road with such beauty occurs along on path. We will represent the path median as number $ a_{\u230ak/2\u230b} $ , assuming that indexation starting from zero is used. $ \u230ax\u230b $ \u2014 is number $ \u0445 $ , rounded down to the nearest integer.\n\nFor example, if $ a={0,5,12} $ , then the median equals to $ 5 $ , and if $ a={0,5,7,12} $ , then the median is number $ 7 $ .\n\nIt is guaranteed that there will be at least one path with the suitable quantity of roads.",
+    "inputFormat": "The first line contains three integers $ n $ , $ l $ , $ r $ ( $ 1\\le l\\le r,n\\le 10^{5} $ ).\n\nNext $ n-1 $ lines contain descriptions of roads of the Nvodsk, each line contains three integers $ a_{i} $ , $ b_{i} $ , $ c_{i} $ ( $ 1<=a_{i},b_{i}<=n $ , $ 0<=c_{i}<=10^{9} $ , $ a_{i}\u2260b_{i} $ ) \u2014 junctions $ a_{i} $ and $ b_{i} $ are connected with a street whose beauty equals $ c_{i} $ .",
+    "outputFormat": "Print two integers \u2014 numbers of the junctions, where to accommodate the participants and set up the contests, correspondingly. If there are multiple optimal variants, print any of them.",
+    "samples": [
+        [
+            "6 3 4\n1 2 1\n2 3 1\n3 4 1\n4 5 1\n5 6 1\n",
+            "4 1\n"
+        ],
+        [
+            "6 3 4\n1 2 1\n2 3 1\n3 4 1\n4 5 2\n5 6 2\n",
+            "6 3\n"
+        ],
+        [
+            "5 1 4\n1 2 1\n1 3 4\n3 4 7\n3 5 2\n",
+            "4 3\n"
+        ],
+        [
+            "8 3 6\n1 2 9\n2 3 7\n3 4 7\n4 5 8\n5 8 2\n3 6 3\n2 7 4\n",
+            "5 1\n"
+        ]
+    ],
+    "hint": "In the first sample all roads have the same beauty. That means that all paths of the positive length have the same median. Thus, any path with length from $ 3 $ to $ 4 $ , inclusive will be valid for us.\n\nIn the second sample the city looks like that: 1 - 2 - 3 - 4 - 5 - 6. Two last roads are more valuable and we should choose any path that contains both of them and has the suitable length. It is either the path between $ 2 $ and $ 6 $ or the path between $ 3 $ and $ 6 $ .",
+    "translation": "\u7ed9\u5b9a\u4e00\u9897\u5e26\u8fb9\u6743\u7684\u6811\uff0c\u6c42\u4e00\u6761\u8fb9\u6570\u5728 $[L,R]$ \u4e4b\u95f4\u7684\u8def\u5f84\uff0c\u5e76\u4f7f\u5f97\u8def\u5f84\u4e0a\u8fb9\u6743\u7684\u4e2d\u4f4d\u6570\u6700\u5927\u3002\u8f93\u51fa\u4e00\u6761\u53ef\u884c\u8def\u5f84\u7684\u4e24\u4e2a\u7aef\u70b9\u3002\n\n\u6ce8\uff1a\u6b64\u5904 $1,2,3,4$ \u7684\u4e2d\u4f4d\u6570\u4e3a $3$ \uff0c\u800c\u975e $2$ \u6216\u8005 $2.5$ \u3002\n\n"
+}

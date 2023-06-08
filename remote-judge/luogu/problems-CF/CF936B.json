@@ -1,0 +1,21 @@
+{
+    "description": "Petya and Vasya arranged a game. The game runs by the following rules. Players have a directed graph consisting of $ n $ vertices and $ m $ edges. One of the vertices contains a chip. Initially the chip is located at vertex $ s $ . Players take turns moving the chip along some edge of the graph. Petya goes first. Player who can't move the chip loses. If the game lasts for $ 10^{6} $ turns the draw is announced.\n\nVasya was performing big laboratory work in \"Spelling and parts of speech\" at night before the game, so he fell asleep at the very beginning of the game. Petya decided to take the advantage of this situation and make both Petya's and Vasya's moves.\n\nYour task is to help Petya find out if he can win the game or at least draw a tie.",
+    "inputFormat": "The first line of input contain two integers $ n $ and $ m $ \u2014 the number of vertices and the number of edges in the graph ( $ 2<=n<=10^{5} $ , $ 0<=m<=2\u00b710^{5} $ ).\n\nThe next $ n $ lines contain the information about edges of the graph. $ i $ -th line ( $ 1<=i<=n $ ) contains nonnegative integer $ c_{i} $ \u2014 number of vertices such that there is an edge from $ i $ to these vertices and $ c_{i} $ distinct integers $ a_{i,j} $ \u2014 indices of these vertices ( $ 1<=a_{i,j}<=n $ , $ a_{i,j}\u2260i $ ).\n\nIt is guaranteed that the total sum of $ c_{i} $ equals to $ m $ .\n\nThe next line contains index of vertex $ s $ \u2014 the initial position of the chip ( $ 1<=s<=n $ ).",
+    "outputFormat": "If Petya can win print \u00abWin\u00bb in the first line. In the next line print numbers $ v_{1},v_{2},...,v_{k} $ ( $ 1<=k<=10^{6} $ ) \u2014 the sequence of vertices Petya should visit for the winning. Vertex $ v_{1} $ should coincide with $ s $ . For $ i=1...\\ k-1 $ there should be an edge from $ v_{i} $ to $ v_{i+1} $ in the graph. There must be no possible move from vertex $ v_{k} $ . The sequence should be such that Petya wins the game.\n\nIf Petya can't win but can draw a tie, print \u00abDraw\u00bb in the only line. Otherwise print \u00abLose\u00bb.",
+    "samples": [
+        [
+            "5 6\n2 2 3\n2 4 5\n1 4\n1 5\n0\n1\n",
+            "Win\n1 2 4 5 \n"
+        ],
+        [
+            "3 2\n1 3\n1 1\n0\n2\n",
+            "Lose\n"
+        ],
+        [
+            "2 2\n1 2\n1 1\n1\n",
+            "Draw\n"
+        ]
+    ],
+    "hint": "In the first example the graph is the following:\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF936B/933142db306dc9f63dae26cdeb8c3bafdfa66ba8.png)Initially the chip is located at vertex $ 1 $ . In the first move Petya moves the chip to vertex $ 2 $ , after that he moves it to vertex $ 4 $ for Vasya. After that he moves to vertex $ 5 $ . Now it is Vasya's turn and there is no possible move, so Petya wins.\n\nIn the second example the graph is the following:\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF936B/8e2fea186d4a4262837a056dce297e786dfbf02f.png)Initially the chip is located at vertex $ 2 $ . The only possible Petya's move is to go to vertex $ 1 $ . After that he has to go to $ 3 $ for Vasya. Now it's Petya's turn but he has no possible move, so Petya loses.\n\nIn the third example the graph is the following:\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF936B/100651d77b5f87ec828b8f8f5fba499fe3f37744.png)Petya can't win, but he can move along the cycle, so the players will draw a tie.",
+    "translation": "\u4e00\u4e2a\u4eba\u4ece\u8d77\u70b9($s$)\u8d70,\u5f53\u4ed6\u8d70\u4e0d\u52a8\u7684\u65f6\u5019,\u5982\u679c\u8d70\u4e86\u5947\u6570\u6b65\uff0c\u8f93\u51fa\"Win\",\u5426\u5219\u5982\u679c\u6709\u73af\uff0c\u8f93\u51fa\"Draw\"\uff0c\u5426\u5219\u8f93\u51fa\"Lose\""
+}

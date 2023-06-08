@@ -1,0 +1,21 @@
+{
+    "description": "There are $ n $ students in the first grade of Nlogonia high school. The principal wishes to split the students into two classrooms (each student must be in exactly one of the classrooms). Two distinct students whose name starts with the same letter will be chatty if they are put in the same classroom (because they must have a lot in common). Let $ x $ be the number of such pairs of students in a split. Pairs $ (a, b) $ and $ (b, a) $ are the same and counted only once.\n\nFor example, if there are $ 6 $ students: \"olivia\", \"jacob\", \"tanya\", \"jack\", \"oliver\" and \"jessica\", then:\n\n- splitting into two classrooms (\"jack\", \"jacob\", \"jessica\", \"tanya\") and (\"olivia\", \"oliver\") will give $ x=4 $ ( $ 3 $ chatting pairs in the first classroom, $ 1 $ chatting pair in the second classroom),\n- splitting into two classrooms (\"jack\", \"tanya\", \"olivia\") and (\"jessica\", \"oliver\", \"jacob\") will give $ x=1 $ ( $ 0 $ chatting pairs in the first classroom, $ 1 $ chatting pair in the second classroom).\n\nYou are given the list of the $ n $ names. What is the minimum $ x $ we can obtain by splitting the students into classrooms?\n\nNote that it is valid to place all of the students in one of the classrooms, leaving the other one empty.",
+    "inputFormat": "The first line contains a single integer $ n $ ( $ 1\\leq n \\leq 100 $ ) \u2014 the number of students.\n\nAfter this $ n $ lines follow.\n\nThe $ i $ -th line contains the name of the $ i $ -th student.\n\nIt is guaranteed each name is a string of lowercase English letters of length at most $ 20 $ . Note that multiple students may share the same name.",
+    "outputFormat": "The output must consist of a single integer $ x $ \u2014 the minimum possible number of chatty pairs.",
+    "samples": [
+        [
+            "4\njorge\njose\noscar\njerry\n",
+            "1\n"
+        ],
+        [
+            "7\nkambei\ngorobei\nshichiroji\nkyuzo\nheihachi\nkatsushiro\nkikuchiyo\n",
+            "2\n"
+        ],
+        [
+            "5\nmike\nmike\nmike\nmike\nmike\n",
+            "4\n"
+        ]
+    ],
+    "hint": "In the first sample the minimum number of pairs is $ 1 $ . This can be achieved, for example, by putting everyone except jose in one classroom, and jose in the other, so jorge and jerry form the only chatty pair.\n\nIn the second sample the minimum number of pairs is $ 2 $ . This can be achieved, for example, by putting kambei, gorobei, shichiroji and kyuzo in one room and putting heihachi, katsushiro and kikuchiyo in the other room. In this case the two pairs are kambei and kyuzo, and katsushiro and kikuchiyo.\n\nIn the third sample the minimum number of pairs is $ 4 $ . This can be achieved by placing three of the students named mike in one classroom and the other two students in another classroom. Thus there will be three chatty pairs in one classroom and one chatty pair in the other classroom.",
+    "translation": "\u73b0\u5728\u6709\u4e00\u7fa4\u5b66\u751f\uff0c\u6211\u4eec\u9700\u8981\u5c06\u8fd9\u4e9b\u5b66\u751f\u5206\u5230\u4e24\u4e2a\u73ed\u4e0a\u3002\u5bf9\u4e8e\u4e24\u540d\u5728\u540c\u4e00\u73ed\u7ea7\u7684\u5b66\u751f\uff0c\u5982\u679c\u4ed6\u4eec\u7684\u540d\u5b57\u9996\u5b57\u6bcd\u76f8\u540c\uff0c\u4ed6\u4eec\u5c31\u4f1a\u804a\u5929\u3002\n\n\u73b0\u5728\u7ed9\u5b9a\u8fd9\u4e9b\u5b66\u751f\u7684\u540d\u5b57\uff0c\u95ee\u6700\u5c11\u6709\u591a\u5c11\u5bf9\u5b66\u751f\u4f1a\u5728\u4e00\u8d77\u804a\u5929\u3002\n\n\u611f\u8c22 @Qiuly \u63d0\u4f9b\u7ffb\u8bd1\u3002"
+}

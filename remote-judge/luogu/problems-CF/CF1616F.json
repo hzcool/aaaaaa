@@ -1,0 +1,13 @@
+{
+    "description": "You are given a simple undirected graph with $ n $ vertices and $ m $ edges. Edge $ i $ is colored in the color $ c_i $ , which is either $ 1 $ , $ 2 $ , or $ 3 $ , or left uncolored (in this case, $ c_i = -1 $ ).\n\nYou need to color all of the uncolored edges in such a way that for any three pairwise adjacent vertices $ 1 \\leq a < b < c \\leq n $ , the colors of the edges $ a \\leftrightarrow b $ , $ b \\leftrightarrow c $ , and $ a \\leftrightarrow c $ are either pairwise different, or all equal. In case no such coloring exists, you need to determine that.",
+    "inputFormat": "The first line of input contains one integer $ t $ ( $ 1 \\leq t \\leq 10 $ ): the number of test cases.\n\nThe following lines contain the description of the test cases.\n\nIn the first line you are given two integers $ n $ and $ m $ ( $ 3 \\leq n \\leq 64 $ , $ 0 \\leq m \\leq \\min(256, \\frac{n(n-1)}{2}) $ ): the number of vertices and edges in the graph.\n\nEach of the next $ m $ lines contains three integers $ a_i $ , $ b_i $ , and $ c_i $ ( $ 1 \\leq a_i, b_i \\leq n $ , $ a_i \\ne b_i $ , $ c_i $ is either $ -1 $ , $ 1 $ , $ 2 $ , or $ 3 $ ), denoting an edge between $ a_i $ and $ b_i $ with color $ c_i $ . It is guaranteed that no two edges share the same endpoints.",
+    "outputFormat": "For each test case, print $ m $ integers $ d_1, d_2, \\ldots, d_m $ , where $ d_i $ is the color of the $ i $ -th edge in your final coloring. If there is no valid way to finish the coloring, print $ -1 $ .",
+    "samples": [
+        [
+            "4\n3 3\n1 2 1\n2 3 2\n3 1 -1\n3 3\n1 2 1\n2 3 1\n3 1 -1\n4 4\n1 2 -1\n2 3 -1\n3 4 -1\n4 1 -1\n3 3\n1 2 1\n2 3 1\n3 1 2",
+            "1 2 3 \n1 1 1 \n1 2 2 3 \n-1"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u4f60\u6709\u4e00\u4e2a $n$ \u4e2a\u70b9\u3001$m$ \u6761\u8fb9\u7684\u7b80\u5355\u65e0\u5411\u56fe\uff0c\u6bcf\u6761\u8fb9\u6709\u989c\u8272\u7f16\u53f7 $c_i$\uff0c\u8981\u4e48\u88ab\u67d3\u6210 $1,2,3$ \u4e2d\u7684\u4e00\u79cd\u989c\u8272\uff0c\u8981\u4e48\u6ca1\u6709\u88ab\u67d3\u8272\uff08$c_i=-1$\uff09\u3002\n\n\u73b0\u5728\uff0c\u4f60\u8981\u5bf9\u672a\u88ab\u67d3\u8272\u7684\u8fb9\u67d3\u8272\uff0c\u4f7f\u5f97\u5bf9\u4e8e\u6240\u6709\u4e09\u5143\u73af\uff0c\u73af\u4e0a\u7684\u4e09\u6761\u8fb9\u989c\u8272\u5404\u4e0d\u76f8\u540c\u6216\u5168\u90e8\u76f8\u540c\u3002\n\n\u9700\u8f93\u51fa\u65b9\u6848\u3002\u65e0\u89e3\u8f93\u51fa $-1$\u3002"
+}

@@ -1,0 +1,32 @@
+{
+    "description": "Vika has a set of all consecutive positive integers from $ 1 $ to $ 2n $ , inclusive.\n\nExactly $ k $ times Vika will choose and perform one of the following two actions:\n\n- take two smallest integers from her current set and remove them;\n- take two median integers from her current set and remove them.\n\nRecall that medians are the integers located exactly in the middle of the set if you write down its elements in increasing order. Note that Vika's set always has an even size, thus the pair of median integers is uniquely defined. For example, two median integers of the set $ \\{1, 5, 6, 10, 15, 16, 18, 23\\} $ are $ 10 $ and $ 15 $ .\n\nHow many different sets can Vika obtain in the end, after $ k $ actions? Print this number modulo $ 998\\,244\\,353 $ . Two sets are considered different if some integer belongs to one of them but not to the other.",
+    "inputFormat": "The only line contains two integers $ n $ and $ k $ ( $ 1 \\le k \\le n \\le 10^6 $ ).",
+    "outputFormat": "Print a single integer \u2014 the number of sets Vika can obtain in the end, modulo $ 998\\,244\\,353 $ .",
+    "samples": [
+        [
+            "3 1",
+            "2"
+        ],
+        [
+            "3 2",
+            "3"
+        ],
+        [
+            "3 3",
+            "1"
+        ],
+        [
+            "7 4",
+            "11"
+        ],
+        [
+            "23 8",
+            "88"
+        ],
+        [
+            "100 77",
+            "825430474"
+        ]
+    ],
+    "hint": "In the first example, Vika's initial set is $ \\{1, 2, 3, 4, 5, 6\\} $ . She can remove the minimums from it to obtain $ \\{3, 4, 5, 6\\} $ , or she can remove the medians from it to obtain $ \\{1, 2, 5, 6\\} $ .\n\nIn the second example, Vika can obtain $ \\{1, 6\\} $ , $ \\{3, 6\\} $ , or $ \\{5, 6\\} $ . For instance, Vika can obtain $ \\{3, 6\\} $ if she removes two smallest integers first ( $ \\{1, 2, 3, 4, 5, 6\\} \\rightarrow \\{3, 4, 5, 6\\} $ ), and then she removes two median integers ( $ \\{3, 4, 5, 6\\} \\rightarrow \\{3, 6\\} $ ).\n\nIn the third example, regardless of Vika's choices, she'll end up with an empty set."
+}

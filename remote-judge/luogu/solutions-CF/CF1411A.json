@@ -1,0 +1,34 @@
+[
+    {
+        "content": "# \u601d\u8def\n\n\u8fd9\u9053\u9898\u6570\u636e\u4e0d\u5927\uff0c\u53ef\u4ee5\u76f4\u63a5\u66b4\u529b\uff0c\u4ece\u540e\u5f80\u524d\u627e\uff0c\u627e\u5230\u4e0d\u662f \u2018\uff09\u2019 \u7684\u5b57\u7b26\u5c31\u9000\u51fa\u5faa\u73af\u3002\n\n\u76f4\u63a5\u7528 if \u8bed\u53e5\u5224\u65ad\u5373\u53ef\u3002\n\n```cpp\nif(s[i]!=')')\n```\n\n\u5982\u679c $s$ \u7684\u957f\u5ea6\u51cf\u53bb $c$ \u5c0f\u4e8e $c$ \uff0c\u5219\u8f93\u51fa \"Yes\" \uff0c \u5426\u5219\u8f93\u51fa \"No\"\u3002\n\n\u4e5f\u662f\u7528 if \u8bed\u53e5\u5224\u65ad\u3002\n\n```\nif(c>s.size()-c)\n```\n\n\n\n# \u4ee3\u7801\n```cpp\n#include<iostream>\n#include<cstdio>\n#include<cstring>\nusing namespace std;\nstring s;\nint main()\n{\n    int t;\n    cin>>t;\n    while(t--)\n    {\n        cin>>s>>s;\n        int c=0;\n        for(int i=s.size()-1;i>=0;i--)\n        {\n            if(s[i]!=')')\n            {\n                break;\n            }\n            c++;\n        }\n        if(c>s.size()-c)\n        {\n            cout<<\"Yes\"<<endl;\n        }\n        else\n        {\n            cout<<\"No\"<<endl;\n        }\n    }\n    return 0;\n}\n```\n\n\n",
+        "postTime": 1630207095,
+        "uid": 291251,
+        "name": "\u966a\u4f60\u770b\u6d41\u661f\u96e8",
+        "ccfLevel": 0,
+        "title": "CF1411A"
+    },
+    {
+        "content": "## \u57fa\u672c\u8981\u70b9\n\u5176\u5b9e\u5c31\u8003\u66b4\u529b\u641c\u7d22\uff0c\u4ece\u5c3e\u90e8\u5f00\u59cb\u641c\uff0c\u641c\u5230\u4e0d\u662f\u201c)\u201d\u7684\u5b57\u7b26\u5c31\u505c\u3002\n## AC \u4ee3\u7801\n```cpp\n#include<iostream>\n#include<string> //\u8981\u7528\u5230\u5b57\u7b26\u4e32\nusing namespace std;\n\nint main(){\n    int t,x=0; //x \u662f\u7528\u6765\u8bb0\u5f55\u53f3\u62ec\u53f7\u4e2a\u6570\u7684\n    cin>>t;\n    string a[t];\n    int n[t];\n    for(int i=0;i<t;i++){\n        cin>>n[i]>>a[i];\n    }\n    for(int i=0;i<t;i++){\n        x=0;  //\u522b\u5fd8\u4e86\u5bf9\u6bcf\u7ec4\u6d4b\u8bd5\u6570\u636e\u90fd\u8981\u5f52\u96f6\n        for(int j=n[i]-1;j>=0;j--){\n            if(a[i][j]==')'){\n                x++;\n            }else{\n                break;  //\u4ec5\u9000\u51fa\u5185\u5c42\u5faa\u73af\n            }\n        }\n        //\u522b\u5fd8\u4e86\u6362\u884c\uff08\u8f93\u51faendl\uff09\uff01\n        if(x>n[i]-x){  \n            cout<<\"Yes\"<<endl;\n        }else{\n            cout<<\"No\"<<endl;\n        }\n    }\n    \n    \n    \n    return 0;\n}\n```\nAC \u8bb0\u5f55[\u4f20\u9001\u95e8](https://www.luogu.com.cn/record/56401241)\n### \u7b2c\u4e00\u7bc7\u9898\u89e3\uff0c\u6b22\u8fce\u5927\u4f6c\u6307\u6b63",
+        "postTime": 1629368976,
+        "uid": 538243,
+        "name": "123rrc",
+        "ccfLevel": 0,
+        "title": "CF1411A \u7684\u9898\u89e3"
+    },
+    {
+        "content": "## \u601d\u8def\n\n\u4ece\u540e\u5f80\u524d\u7edf\u8ba1\u53f3\u62ec\u53f7\u7684\u4e2a\u6570\uff0c\u5982\u679c\u5f53\u524d\u5b57\u7b26\u4e0d\u662f\u53f3\u62ec\u53f7\u5c31\u9000\u51fa\u5faa\u73af\uff0c\u5982\u679c\u5f53\u524d\u5b57\u7b26\u662f\u53f3\u62ec\u53f7\u5219\u8ba1\u6570\u5668\u52a0\u4e00\uff0c\u6700\u540e\u6bd4\u8f83\u5b57\u7b26\u4e32\u5c3e\u90e8\u53f3\u62ec\u53f7\u7684\u6570\u91cf\u548c\u5269\u4e0b\u7684\u53f3\u62ec\u53f7\u6570\u91cf\u3002\n\n## \u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\n\nusing namespace std;\n\nint main()\n{\n    int t;\n    string s;\n    cin >> t;\n    while(t --)\n    {\n        cin >> s >> s;\n        int cnt = 0;\n        for(int i = s.length() - 1;i >= 0;i --)\n        {\n            if(s[i] != ')')\n            {\n                break;\n            }\n            cnt ++;\n        }\n        if(cnt > s.length() - cnt)\n        {\n            puts(\"Yes\");\n        }\n        else\n        {\n            puts(\"No\");\n        }\n    }\n}\n```\n",
+        "postTime": 1628565156,
+        "uid": 100706,
+        "name": "\u6e05\u6e05\u8001\u5927",
+        "ccfLevel": 0,
+        "title": "CF1411A In-game Chat \u9898\u89e3"
+    },
+    {
+        "content": "\u4ece\u540e\u5f80\u524d\u641c\uff0c\u9047\u5230\u4e0d\u662f\u53f3\u62ec\u53f7\u7684\u5b57\u7b26\u5c31\u505c\u4e0b\u6765\uff0c\u7136\u540e\u5224\u65ad\u641c\u8fc7\u7684\u53f3\u62ec\u53f7\u7684\u6570\u91cf\u662f\u5426\u5927\u4e8e\u5b57\u7b26\u4e32\u5269\u4e0b\u7684\u5b57\u7b26\u7684\u6570\u91cf\u5373\u53ef\u3002\n\n\u6838\u5fc3\u4ee3\u7801\uff1a\n```cpp\ncin>>n;scanf(\"%s\",str+1);//\u8bfb\u5165\ncnt=0,m=n;//\u521d\u59cb\u5316\nwhile(str[m]==')') cnt++,m--;//\u641c\u5230\u7b2c\u4e00\u4e2a\u4e0d\u662f\u53f3\u62ec\u53f7\u7684\u4e3a\u6b62\nputs(cnt>n-cnt?\"Yes\":\"No\");//\u5224\u65ad\n```",
+        "postTime": 1610105067,
+        "uid": 71491,
+        "name": "shenmadongdong",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF1411A \u3010In-game Chat\u3011"
+    }
+]

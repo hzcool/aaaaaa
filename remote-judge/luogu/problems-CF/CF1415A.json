@@ -1,0 +1,13 @@
+{
+    "description": "There is a prison that can be represented as a rectangular matrix with $ n $ rows and $ m $ columns. Therefore, there are $ n \\cdot m $ prison cells. There are also $ n \\cdot m $ prisoners, one in each prison cell. Let's denote the cell in the $ i $ -th row and the $ j $ -th column as $ (i, j) $ .\n\nThere's a secret tunnel in the cell $ (r, c) $ , that the prisoners will use to escape! However, to avoid the risk of getting caught, they will escape at night.\n\nBefore the night, every prisoner is in his own cell. When night comes, they can start moving to adjacent cells. Formally, in one second, a prisoner located in cell $ (i, j) $ can move to cells $ ( i - 1 , j ) $ , $ ( i + 1 , j ) $ , $ ( i , j - 1 ) $ , or $ ( i , j + 1 ) $ , as long as the target cell is inside the prison. They can also choose to stay in cell $ (i, j) $ .\n\nThe prisoners want to know the minimum number of seconds needed so that every prisoner can arrive to cell $ ( r , c ) $ if they move optimally. Note that there can be any number of prisoners in the same cell at the same time.",
+    "inputFormat": "The first line contains an integer $ t $ $ (1 \\le t \\le 10^4) $ , the number of test cases.\n\nEach of the next $ t $ lines contains four space-separated integers $ n $ , $ m $ , $ r $ , $ c $ ( $ 1 \\le r \\le n \\le 10^9 $ , $ 1 \\le c \\le m \\le 10^9 $ ).",
+    "outputFormat": "Print $ t $ lines, the answers for each test case.",
+    "samples": [
+        [
+            "3\n10 10 1 1\n3 5 2 4\n10 2 5 1",
+            "18\n4\n6"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u6709\u4e00\u4e2a $n$ \u884c $m$ \u5217\u7684\u76d1\u72f1\uff0c\u5b83\u7684\u6bcf\u4e2a\u683c\u5b50\u91cc\u90fd\u6709\u4e00\u4e2a\u56da\u72af\u3002\u8fd9\u4e9b\u56da\u72af\u88ab\u547d\u4ee4\u8d70\u5230\u7b2c $r$ \u884c\u7b2c $c$ \u4e2a\u683c\u5b50\u3002\n\n\u8bf7\u6c42\u51fa\u8fd9\u4e9b\u56da\u72af\u8d70\u5230\u7b2c $r$ \u884c\u7b2c $c$ \u4e2a\u683c\u5b50\u6240\u9700\u6b65\u6570\u4e2d\u7684\u6700\u5927\u503c\u3002\uff08\u6bcf\u4e2a\u56da\u72af\u6bcf\u6b65\u53ea\u80fd\u5f80\u4e0a\u3001\u4e0b\u3001\u5de6\u6216\u53f3\u56db\u4e2a\u65b9\u5411\u8d70\u4e00\u683c\u3002\uff09\n\n**\u672c\u9898\u6bcf\u4e2a\u6d4b\u8bd5\u70b9\u4e2d\u6709\u591a\u7ec4\u6570\u636e\uff0c\u5177\u4f53\u8f93\u5165\u683c\u5f0f\u8bf7\u53c2\u89c1\u6837\u4f8b\u3002**\n\nTranslated By @NSObject"
+}

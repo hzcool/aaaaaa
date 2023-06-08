@@ -1,0 +1,18 @@
+[
+    {
+        "content": "### \u9898\u76ee\u5927\u610f\n\n\u7ed9\u5b9a $A,B,C,D,E,F$ \uff0c\u6c42 $(A$ $\\times$ $B$ $\\times$ $C)$ $-(D$ $\\times$ $E$ $\\times$ $F)$ $\\bmod$ $998244353$\u3002\n\n### \u601d\u8def\n\u7531\u4e8e\u8f93\u5165\u7684\u6570\u5b57\u8fc7\u5927\uff0c\u76f4\u63a5\u4e58\u4f1a\u7206\u6389\uff0c\u6240\u4ee5\u91c7\u7528\u8fb9\u4e58\u8fb9\u6a21\u7684\u65b9\u5f0f\u8fd0\u7b97\uff0c\u6ce8\u610f\u76f4\u63a5\u53d6\u6a21\u518d\u51cf\u53ef\u80fd\u4f1a\u5bfc\u81f4\u8d1f\u6574\u6570\uff0c\u6240\u4ee5\u8981\u5148\u52a0\u4e0a\u6a21\u6570\u518d\u51cf\u3002\n\n### \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\n#define int long long\nusing namespace std;\nint a,b,c,d,e,f,mod=998244353,s1,s2,sum1,sum2;\nsigned main(){\n\tcin>>a>>b>>c>>d>>e>>f;\n\ts1=((a%mod)*(b%mod))%mod;\n\ts2=((d%mod)*(e%mod))%mod;\n\tsum1=(s1*(c%mod))%mod;\n\tsum2=(s2*(f%mod))%mod;\n\tcout<<(sum1+mod-sum2)%mod//\u9632\u6b62\u51fa\u73b0\u8d1f\u6570;\n\treturn 0;\n}\n```\n",
+        "postTime": 1667579189,
+        "uid": 399171,
+        "name": "CeyHigNmNu",
+        "ccfLevel": 3,
+        "title": "AT_abc275_b [ABC275B] ABC-DEF \u9898\u89e3"
+    },
+    {
+        "content": "## \u9898\u610f\n\n\u8f93\u5165 $A,B,C,D,E,F(0\\le A,B,C,D,E,F\\le10^{18})$\uff0c\u8f93\u51fa $(A\\times B\\times C)-(D\\times E \\times F) \\mod 998244353$\n\n## \u601d\u8def\n\n\u6ce8\u610f\u7206 `long long`!\n\n\u6211\u4eec\u77e5\u9053\u4e58\u5b8c\u518d\u53d6\u6a21\u548c\u8fb9\u4e58\u8fb9\u53d6\u6a21\u7684\u7ed3\u679c\u662f\u4e00\u6837\u7684\uff0c\u7531\u4e8e\u7ed9\u51fa\u7684\u6570\u5f88\u5927\uff0c\u56e0\u6b64\u6211\u4eec\u8981\u5148\u964d\u5b83\u4eec\u53d6\u6a21\uff0c\u7136\u540e\u6bcf\u4e58\u4e00\u6b21\u90fd\u8981\u53d6\u4e00\u6b21\u6a21\u4ee5\u4fdd\u8bc1\u6570\u503c\u4e0d\u8d85 `long long`\uff0c\u7136\u540e\u53d6\u5b8c\u6a21\u4ee5\u540e\u53ef\u80fd\u51fa\u73b0\u88ab\u51cf\u6570\u5c0f\u4e8e\u51cf\u6570\u7684\u60c5\u51b5\uff0c\u56e0\u6b64\u52a0\u4e0a\u6a21\u6570\u518d\u53d6\u6a21\u5373\u53ef\u3002\n\n## \u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n#define mod 998244353\nlong long a,b,c,d,e,f;\nint main(){\n    cin>>a>>b>>c>>d>>e>>f;\n    cout<<((((a%mod)*(b%mod))%mod*(c%mod))%mod+mod-(((d%mod)*(e%mod))%mod*(f%mod))%mod)%mod<<endl;\n    return 0;\n}\n```\n",
+        "postTime": 1667627197,
+        "uid": 305424,
+        "name": "yuheng_wang080904",
+        "ccfLevel": 0,
+        "title": "ABC275B"
+    }
+]

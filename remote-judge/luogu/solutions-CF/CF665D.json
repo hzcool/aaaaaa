@@ -1,0 +1,18 @@
+[
+    {
+        "content": "### $\\text{Difficulty : 1800}$\n\n---\n### \u89e3\u9898\u601d\u8def\uff1a\n\n\u8003\u8651\u5206\u60c5\u51b5\u8ba8\u8bba\uff0c\u5206\u522b\u7edf\u8ba1\uff1a\n1. \u6bd4\u67d0\u4e2a\u8d28\u6570\u5c0f\u4e00\u7684\u6570\u548c\u82e5\u5e72\u4e2a\u4e00\u3002\n2. \u4e00\u4e2a\u5947\u6570\u548c\u4e00\u4e2a\u5076\u6570\u3002\n4. \u5355\u72ec\u4e00\u4e2a\u6570\u3002\n\n\u8fd9\u4e09\u79cd\u60c5\u51b5\uff0c\u53d6\u6700\u5927\u503c\u5373\u53ef\u3002\n\n---\n\u8003\u8651\u63a8\u5bfc\u8fc7\u7a0b\u3002\u4efb\u4f55\u4e00\u4e2a\u8d28\u6570\u53ea\u53ef\u80fd\u662f\u7531\u4e00\u4e2a\u5947\u6570\u548c\u4e00\u4e2a\u5076\u6570\u6216\u8005\u4e24\u4e2a $1$ \u6784\u9020\u800c\u6210\uff0c\u6240\u4ee5\u5982\u679c\u6ca1\u6709 $1$ \u7684\u534f\u52a9\uff0c\u6700\u591a\u53ea\u80fd\u6709\u4e24\u4e2a\u6570\u88ab\u9009\u4e2d\uff0c\u5426\u5219\u5c31\u662f\u82e5\u5e72\u4e2a $1$ \u548c\u4e00\u4e2a\u80fd\u548c $1$ \u6784\u6210\u8d28\u6570\u7684\u6570\u3002\n\n\n---\n### \u4ee3\u7801\uff1a\n\n```cpp\n#include<cstdio>\n#include<algorithm>\nusing namespace std;\nint n,num[1005],ans,c[3000005],pri[3000005],tot,cnt,flag1,flag2,flag3;\nint main(){\n\tscanf(\"%d\",&n);\n\tfor(int i=1;i<=n;i++)scanf(\"%d\",&num[i]);\n\tsort(num+1,num+n+1);\n\tfor(int i=1;i<=n;i++)if(num[i]==1)cnt++;\n\tfor(int i=2;i<=2000000;i++){\n\t\tif(c[i]==0)pri[++tot]=i;\n\t\tfor(int j=1;j<=tot;j++){\n\t\t\tif((long long)i*(long long)pri[j]>2000000)break;\n\t\t\tc[i*pri[j]]=1;\n\t\t\tif(i%pri[j]==0)break;\n\t\t}\n\t}\n\tans=cnt;flag1=-1;\n\tfor(int i=cnt+1;i<=n;i++){\n\t\tif(c[num[i]+1]==0){\n\t\t\tif(ans>=cnt+1)continue;\n\t\t\tans=cnt+1;\n\t\t\tflag1=1;flag2=i;\n\t\t}\n\t\tfor(int j=cnt+1;j<=n;j++){\n\t\t\tif(c[num[i]+num[j]]==0){\n\t\t\t\tif(ans>=2)continue;\n\t\t\t\tans=2;\n\t\t\t\tflag1=2;flag2=i;flag3=j;\n\t\t\t}\n\t\t}\n\t}\n\tif(ans==0){\n\t\tprintf(\"%d\\n%d\\n\",1,num[1]);\n\t\treturn 0;\n\t}\n\tprintf(\"%d\\n\",ans);\n\tif(flag1==-1){\n\t\tfor(int i=1;i<=ans;i++)printf(\"%d \",1);\n\t\tprintf(\"\\n\");\n\t\treturn 0;\n\t}\n\tif(flag1==1){\n\t\tfor(int i=1;i<=ans-1;i++)printf(\"%d \",1);\n\t\tprintf(\"%d\\n\",num[flag2]);\n\t\treturn 0;\n\t}\n\tprintf(\"%d %d\\n\",num[flag2],num[flag3]);\n\treturn 0;\n}\n```\n",
+        "postTime": 1646057394,
+        "uid": 223559,
+        "name": "qxp101",
+        "ccfLevel": 6,
+        "title": "CF665D Simple Subset \u9898\u89e3"
+    },
+    {
+        "content": "\u663e\u800c\u6613\u89c1\uff0c\u67094\u79cd\u60c5\u51b5\uff1a\n\n1.\u65e0\u9650\u4e2a1\uff0c\u4e00\u4e2a\u5076\u6570\u4e14\u8fd9\u4e2a\u5076\u6570+1\u662f\u8d28\u6570\n\n2.\u6240\u6709\u90fd\u662f1\n\n3.1\u59471\u5076\n\n4.\u4efb\u610f\u4e00\u4e2a\u6570\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint a[1001],cnt[1000001],n;\nint nisp[2000001];\nint main(){\n\tint i,j;\n\tcin>>n;\n\tnisp[0]=nisp[1]=1;\n\tfor(i=2;i<=2000000;++i)\n\t\tif(!nisp[i])\n\t\t\tfor(j=i+i;j<=2000000;j+=i) nisp[j]=1;\n\tfor(i=0;i<n;++i) cin>>a[i],++cnt[a[i]];\n\tif(cnt[1]){//case 1\n\t\tfor(i=2;i<=1000000;i+=2) if(cnt[i] and !nisp[i+1]){\n\t\t\tcout<<cnt[1]+1<<endl;\n\t\t\tfor(j=0;j<cnt[1];++j) cout<<1<<' ';\n\t\t\tcout<<i<<endl;\n\t\t\treturn 0;\n\t\t}\t\t\n\t}\n\tif(cnt[1]>=2){//case 2\n\t\tcout<<cnt[1]<<endl;\n\t\tfor(i=0;i<cnt[1];++i) cout<<1<<' ';\n\t\tcout<<endl;\n\t\treturn 0;\n\t}\n\tfor(i=0;i<n;++i) if(a[i]&1) for(j=0;j<n;++j) if(!(a[j]&1)) if(!nisp[a[i]+a[j]]){  //case 3\n\t\tcout<<2<<endl;\n\t\tcout<<a[i]<<' '<<a[j]<<endl;\n\t\treturn 0;\n\t}\n\tcout<<1<<endl<<a[0]<<endl;  //case 4\n\treturn 0;\n}\n```",
+        "postTime": 1562073090,
+        "uid": 125964,
+        "name": "\u4e16\u672bOIer",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF665D \u3010Simple Subset\u3011"
+    }
+]

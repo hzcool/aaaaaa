@@ -1,0 +1,20 @@
+{
+    "description": "A plane contains a not necessarily convex polygon without self-intersections, consisting of $ n $ vertexes, numbered from 1 to $ n $ . There is a spider sitting on the border of the polygon, the spider can move like that:\n\n1. Transfer. The spider moves from the point $ p_{1} $ with coordinates $ (x_{1},y_{1}) $ , lying on the polygon border, to the point $ p_{2} $ with coordinates $ (x_{2},y_{2}) $ , also lying on the border. The spider can't go beyond the polygon border as it transfers, that is, the spider's path from point $ p_{1} $ to point $ p_{2} $ goes along the polygon border. It's up to the spider to choose the direction of walking round the polygon border (clockwise or counterclockwise).\n2. Descend. The spider moves from point $ p_{1} $ with coordinates $ (x_{1},y_{1}) $ to point $ p_{2} $ with coordinates $ (x_{2},y_{2}) $ , at that points $ p_{1} $ and $ p_{2} $ must lie on one vertical straight line ( $ x_{1}=x_{2} $ ), point $ p_{1} $ must be not lower than point $ p_{2} $ ( $ y_{1}>=y_{2} $ ) and segment $ p_{1}p_{2} $ mustn't have points, located strictly outside the polygon (specifically, the segment can have common points with the border).\n\nInitially the spider is located at the polygon vertex with number $ s $ . Find the length of the shortest path to the vertex number $ t $ , consisting of transfers and descends. The distance is determined by the usual Euclidean metric ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF223D/d3ce90fe413df39b4f0232d7dab269112efea291.png).",
+    "inputFormat": "The first line contains integer $ n $ ( $ 3<=n<=10^{5} $ ) \u2014 the number of vertexes of the given polygon. Next $ n $ lines contain two space-separated integers each \u2014 the coordinates of the polygon vertexes. The vertexes are listed in the counter-clockwise order. The coordinates of the polygon vertexes do not exceed $ 10^{4} $ in their absolute value.\n\nThe last line contains two space-separated integers $ s $ and $ t $ ( $ 1<=s,t<=n $ ) \u2014 the start and the end vertexes of the sought shortest way.\n\nConsider the polygon vertexes numbered in the order they are given in the input, that is, the coordinates of the first vertex are located on the second line of the input and the coordinates of the $ n $ -th vertex are on the $ (n+1) $ -th line. It is guaranteed that the given polygon is simple, that is, it contains no self-intersections or self-tangencies.",
+    "outputFormat": "In the output print a single real number \u2014 the length of the shortest way from vertex $ s $ to vertex $ t $ . The answer is considered correct, if its absolute or relative error does not exceed $ 10^{-6} $ .",
+    "samples": [
+        [
+            "4\n0 0\n1 0\n1 1\n0 1\n1 4\n",
+            "1.000000000000000000e+000\n"
+        ],
+        [
+            "4\n0 0\n1 1\n0 2\n-1 1\n3 3\n",
+            "0.000000000000000000e+000\n"
+        ],
+        [
+            "5\n0 0\n5 0\n1 4\n0 2\n2 1\n3 1\n",
+            "5.650281539872884700e+000\n"
+        ]
+    ],
+    "hint": "In the first sample the spider transfers along the side that connects vertexes 1 and 4.\n\nIn the second sample the spider doesn't have to transfer anywhere, so the distance equals zero.\n\nIn the third sample the best strategy for the spider is to transfer from vertex 3 to point (2,3), descend to point (2,1), and then transfer to vertex 1."
+}

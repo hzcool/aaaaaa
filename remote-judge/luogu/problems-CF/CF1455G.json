@@ -1,0 +1,25 @@
+{
+    "description": "Polycarp is editing a complicated computer program. First, variable $ x $ is declared and assigned to $ 0 $ . Then there are instructions of two types:\n\n1. set $ y $ $ v $  \u2014 assign $ x $ a value $ y $ or spend $ v $ burles to remove that instruction (thus, not reassign $ x $ );\n2. if $ y $ $ \\dots $ end block \u2014 execute instructions inside the if block if the value of $ x $ is $ y $ and ignore the block otherwise.\n\nif blocks can contain set instructions and other if blocks inside them.\n\nHowever, when the value of $ x $ gets assigned to $ s $ , the computer breaks and immediately catches fire. Polycarp wants to prevent that from happening and spend as few burles as possible.\n\nWhat is the minimum amount of burles he can spend on removing set instructions to never assign $ x $ to $ s $ ?",
+    "inputFormat": "The first line contains two integers $ n $ and $ s $ ( $ 1 \\le n \\le 2 \\cdot 10^5 $ , $ 1 \\le s \\le 2 \\cdot 10^5 $ ) \u2014 the number of lines in the program and the forbidden value of $ x $ .\n\nThe following $ n $ lines describe the program. Each line is one of three types:\n\n1. set $ y $ $ v $  $ (0 \\le y \\le 2 \\cdot 10^5, 1 \\le v \\le 10^9) $ ;\n2. if $ y $  $ (0 \\le y \\le 2 \\cdot 10^5) $ ;\n3. end.\n\nEach if instruction is matched by an end instruction. Each end instruction has an if instruction to match.",
+    "outputFormat": "Print a single integer \u2014 the minimum amount of burles Polycarp can spend on removing set instructions to never assign $ x $ to $ s $ .",
+    "samples": [
+        [
+            "5 1\nset 1 10\nset 2 15\nif 2\nset 1 7\nend",
+            "17"
+        ],
+        [
+            "7 2\nset 3 4\nif 3\nset 10 4\nset 2 7\nset 10 1\nend\nset 4 2",
+            "4"
+        ],
+        [
+            "9 200\nif 0\nset 5 5\nif 5\nset 100 13\nend\nif 100\nset 200 1\nend\nend",
+            "1"
+        ],
+        [
+            "1 10\nset 1 15",
+            "0"
+        ]
+    ],
+    "hint": "",
+    "translation": "### \u9898\u610f\u7b80\u8ff0\n\u5df2\u77e5\u521d\u59cb\u503c$x=0$\uff0c\u7ed9\u5b9a\u4e0b\u97622\u79cd\u547d\u4ee4\uff1a\n1. `set` $y$ $v$\uff0c\u4ee4$x=y$\uff0c\u6216\u82b1\u8d39$v$\u5143\u94b1\u5220\u9664\u8be5\u547d\u4ee4\uff1b\n2. `if` $y$ ... `end`\uff0c\u5982\u679c$x==y$\uff0c\u6267\u884c`if...end`\u4e2d\u7684\u547d\u4ee4\uff0c\u5426\u5219\u8df3\u8fc7\u8be5`if...end`\u3002\n\n\u4f60\u9700\u8981\u4f7f\u7528\u6700\u5c11\u7684\u82b1\u8d39\uff0c\u4f7f\u5f97\u65e0\u8bba\u8fd0\u884c\u5230\u54ea\u91cc\uff0c\u90fd\u6709$x \\neq s$\u3002\n### \u8f93\u5165\u683c\u5f0f\n\u7b2c\u4e00\u884c\uff1a\u4e24\u4e2a\u6574\u6570$n$\uff0c$s$\uff1b\n\u63a5\u4e0b\u6765$n$\u884c\uff1a\u7ed9\u5b9a\u5373\u5c06\u8fd0\u884c\u7684\u4ee3\u7801\uff0c\u6bcf\u884c\u683c\u5f0f\u89c1\u4e0b\uff1a\n1. `set` $y$ $v$\n2. `if` $y$\n3. end\n\n\u4fdd\u8bc1\u6bcf\u4e2a`end`\u90fd\u4e0e\u4e00\u4e2a`if`\u5bf9\u5e94\u3002\n### \u8f93\u51fa\u683c\u5f0f\n\u8f93\u51fa\u4f7f\u4f7f\u5f97\u65e0\u8bba\u8fd0\u884c\u5230\u54ea\u91cc\uff0c\u90fd\u6709$x \\neq s$\u7684\u6700\u5c0f\u82b1\u8d39\u3002\n\nTranslated by [Cym10x](/user/354015)."
+}

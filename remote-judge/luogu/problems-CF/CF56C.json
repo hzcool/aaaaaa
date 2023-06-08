@@ -1,0 +1,21 @@
+{
+    "description": "The Beroil corporation structure is hierarchical, that is it can be represented as a tree. Let's examine the presentation of this structure as follows:\n\n- $ employee $ ::= $ name $ . | $ name $ : $ employee_{1} $ , $ employee_{2} $ , ... , $ employee_{k} $ .\n- $ name $ ::= name of an employee\n\nThat is, the description of each employee consists of his name, a colon (:), the descriptions of all his subordinates separated by commas, and, finally, a dot. If an employee has no subordinates, then the colon is not present in his description.\n\nFor example, line MIKE:MAX.,ARTEM:MIKE..,DMITRY:DMITRY.,DMITRY... is the correct way of recording the structure of a corporation where the director MIKE has subordinates MAX, ARTEM and DMITRY. ARTEM has a subordinate whose name is MIKE, just as the name of his boss and two subordinates of DMITRY are called DMITRY, just like himself.\n\nIn the Beroil corporation every employee can only correspond with his subordinates, at that the subordinates are not necessarily direct. Let's call an uncomfortable situation the situation when a person whose name is $ s $ writes a letter to another person whose name is also $ s $ . In the example given above are two such pairs: a pair involving MIKE, and two pairs for DMITRY (a pair for each of his subordinates).\n\nYour task is by the given structure of the corporation to find the number of uncomfortable pairs in it.\n\n![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF56C/9868b26a06de68925d83118f98afdf9f4510a164.png)",
+    "inputFormat": "The first and single line contains the corporation structure which is a string of length from 1 to 1000 characters. It is guaranteed that the description is correct. Every name is a string consisting of capital Latin letters from 1 to 10 symbols in length.",
+    "outputFormat": "Print a single number \u2014 the number of uncomfortable situations in the company.",
+    "samples": [
+        [
+            "MIKE:MAX.,ARTEM:MIKE..,DMITRY:DMITRY.,DMITRY...\n",
+            "3\n"
+        ],
+        [
+            "A:A..\n",
+            "1\n"
+        ],
+        [
+            "A:C:C:C:C.....\n",
+            "6\n"
+        ]
+    ],
+    "hint": "",
+    "translation": " _**Alice:Bob\uff0cCalif\uff0cDaddy.**_ \n\n\u8868\u660eAlice\u6709\u4e09\u4e2a\u4e0b\u5c5e\u5206\u522b\u53ebBob\uff0cCalif\uff0cDadd\n\n\uff08\u6574\u4e2a\u4f53\u7cfb\u4e2d\u53ef\u80fd\u51fa\u73b0**\u591a\u4e2a\u4eba\u6709\u76f8\u540c\u7684\u540d\u5b57**\uff09\n\n\u6bcf\u4e2a\u4eba\u53ea\u80fd\u4e0e\u4e0b\u5c5e\u901a\u4fe1\uff08\u53ef\u4ee5\u662f\u95f4\u63a5\u4e0b\u5c5e\uff09\n\n\u5b9a\u4e49\u201c**\u4e0d\u8212\u670d\u60c5\u51b5**\u201d\u4e3a\u4e00\u4e2a\u540d\u53ebA\u7684\u4e0a\u53f8\u4e0e\u4e00\u4e2a\u540d\u53ebA\u7684\u4e0b\u5c5e\u901a\u4fe1\uff08\u5373\u540c\u540d\u7684\u4eba\u6709\u4e0a\u4e0b\u7ea7\u5173\u7cfb\uff09\n\n**\u8f93\u5165**\n\n\u4fdd\u8bc1\u603bstring\u957f\u5ea6\u4e0d\u5927\u4e8e1000\uff08\u6bcf\u4e2a\u4eba\u540d\u957f\u5ea6\u4e0d\u8d85\u8fc710\uff09\n\n**\u8f93\u51fa**\n\n\u4e0d\u8212\u670d\u7684\u60c5\u51b5\u7684**\u6570\u91cf**"
+}

@@ -1,0 +1,21 @@
+{
+    "description": "The football season has just ended in Berland. According to the rules of Berland football, each match is played between two teams. The result of each match is either a draw, or a victory of one of the playing teams. If a team wins the match, it gets $ w $ points, and the opposing team gets $ 0 $ points. If the game results in a draw, both teams get $ d $ points.\n\nThe manager of the Berland capital team wants to summarize the results of the season, but, unfortunately, all information about the results of each match is lost. The manager only knows that the team has played $ n $ games and got $ p $ points for them.\n\nYou have to determine three integers $ x $ , $ y $ and $ z $ \u2014 the number of wins, draws and loses of the team. If there are multiple answers, print any of them. If there is no suitable triple $ (x, y, z) $ , report about it.",
+    "inputFormat": "The first line contains four integers $ n $ , $ p $ , $ w $ and $ d $ $ (1 \\le n \\le 10^{12}, 0 \\le p \\le 10^{17}, 1 \\le d < w \\le 10^{5}) $ \u2014 the number of games, the number of points the team got, the number of points awarded for winning a match, and the number of points awarded for a draw, respectively. Note that $ w > d $ , so the number of points awarded for winning is strictly greater than the number of points awarded for draw.",
+    "outputFormat": "If there is no answer, print $ -1 $ .\n\nOtherwise print three non-negative integers $ x $ , $ y $ and $ z $ \u2014 the number of wins, draws and losses of the team. If there are multiple possible triples $ (x, y, z) $ , print any of them. The numbers should meet the following conditions:\n\n- $ x \\cdot w + y \\cdot d = p $ ,\n- $ x + y + z = n $ .",
+    "samples": [
+        [
+            "30 60 3 1\n",
+            "17 9 4\n"
+        ],
+        [
+            "10 51 5 4\n",
+            "-1\n"
+        ],
+        [
+            "20 0 15 5\n",
+            "0 0 20\n"
+        ]
+    ],
+    "hint": "One of the possible answers in the first example \u2014 $ 17 $ wins, $ 9 $ draws and $ 4 $ losses. Then the team got $ 17 \\cdot 3 + 9 \\cdot 1 = 60 $ points in $ 17 + 9 + 4 = 30 $ games.\n\nIn the second example the maximum possible score is $ 10 \\cdot 5 = 50 $ . Since $ p = 51 $ , there is no answer.\n\nIn the third example the team got $ 0 $ points, so all $ 20 $ games were lost.",
+    "translation": "&#160;&#160;&#160;&#160;&#160;&#160;&#160;Berland capital team\u6bd4\u4e86n\u573a\u6bd4\u8d5b\uff0c\u603b\u5f97\u5206\u4e3ap\u3002\u5df2\u77e5\u80dc\u4e00\u573a\u5f97w\u5206\uff0c\u5e73\u5c40d\u5206\uff0c\u8d25\u4e860\u5206\u3002\n\n&#160;&#160;&#160;&#160;&#160;&#160;&#160;\u7b54\u6848\u8868\u793a\u4e3a\uff08x\uff0cy\uff0cz\uff09\uff1a\u8868\u793a\u80dc\u4e86x\u573a\uff0c\u5e73\u5c40y\u573a\uff0c\u8d25\u4e86z\u573a\u3002\u4f7f\u5f97\uff1a\n- x * w + y * d=p\n- x+y+z=n\n\n\u82e5\u65e0\u65b9\u6848\u5219\u8f93\u51fa-1\uff1b\u82e5\u6709\u591a\u91cd\u65b9\u6848\uff0c\u8f93\u51fa\u4efb\u610f\u4e00\u4e2a\u5373\u53ef\u3002"
+}

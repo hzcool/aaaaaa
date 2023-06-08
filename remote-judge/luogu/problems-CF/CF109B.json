@@ -1,0 +1,17 @@
+{
+    "description": "Petya loves lucky numbers. We all know that lucky numbers are the positive integers whose decimal representations contain only the lucky digits 4 and 7. For example, numbers 47, 744, 4 are lucky and 5, 17, 467 are not.\n\nPetya and his friend Vasya play an interesting game. Petya randomly chooses an integer $ p $ from the interval $ [p_{l},p_{r}] $ and Vasya chooses an integer $ v $ from the interval $ [v_{l},v_{r}] $ (also randomly). Both players choose their integers equiprobably. Find the probability that the interval $ [min(v,p),max(v,p)] $ contains exactly $ k $ lucky numbers.",
+    "inputFormat": "The single line contains five integers $ p_{l} $ , $ p_{r} $ , $ v_{l} $ , $ v_{r} $ and $ k $ ( $ 1<=p_{l}<=p_{r}<=10^{9},1<=v_{l}<=v_{r}<=10^{9},1<=k<=1000 $ ).",
+    "outputFormat": "On the single line print the result with an absolute error of no more than $ 10^{-9} $ .",
+    "samples": [
+        [
+            "1 10 1 10 2\n",
+            "0.320000000000\n"
+        ],
+        [
+            "5 6 8 10 1\n",
+            "1.000000000000\n"
+        ]
+    ],
+    "hint": "Consider that $ [a,b] $ denotes an interval of integers; this interval includes the boundaries. That is, ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF109B/3baf0964dff89707940ee601b97374ef5d1c102f.png)\n\nIn first case there are $ 32 $ suitable pairs: $ (1,7),(1,8),(1,9),(1,10),(2,7),(2,8),(2,9),(2,10),(3,7),(3,8),(3,9),(3,10),(4,7),(4,8),(4,9),(4,10),(7,1),(7,2),(7,3),(7,4),(8,1),(8,2),(8,3),(8,4),(9,1),(9,2),(9,3),(9,4),(10,1),(10,2),(10,3),(10,4) $ . Total number of possible pairs is $ 10\u00b710=100 $ , so answer is $ 32/100 $ .\n\nIn second case Petya always get number less than Vasya and the only lucky $ 7 $ is between this numbers, so there will be always $ 1 $ lucky number.",
+    "translation": "Petya \u559c\u6b22\u5e78\u8fd0\u6570\u5b57\uff08\u6574\u6570\uff09\uff0c\u5e78\u8fd0\u6570\u5b57\u5fc5\u987b\u662f\u53ea\u5305\u542b $4$ \u548c $7$ \u4e24\u4e2a\u6574\u6570\u3002\u4e00\u5929\uff0cPetya \u548c\u5979\u7684 Vasya \u670b\u53cb\u73a9\u6e38\u620f\uff0cPetya \u4f1a\u5728\u95ed\u533a\u95f4 $[pl,pr]$ \u4e2d\u7b49\u6982\u7387\u5730\u9009\u51fa\u4e00\u4e2a\u6574\u6570 $p$ \uff0cVasya \u5219\u5728\u95ed\u533a\u95f4 $[vl,vr]$ \u4e2d\u7b49\u6982\u7387\u5730\u9009\u51fa\u4e00\u4e2a\u6574\u6570 $v$\u3002\u5982\u679c $v>p$ \u5219\u4ea4\u6362 $v$ \u548c $p$\u3002\u6c42\u6ee1\u8db3\u95ed\u533a\u95f4 $[v,p]$ \u6070\u597d\u5305\u542b $k$ \u4e2a\u5e78\u8fd0\u6570\u7684\u6982\u7387\u662f\u591a\u5c11\uff1f\u7b54\u6848\u7684\u7edd\u5bf9\u8bef\u5dee\u4e0d\u8d85\u8fc7 $10^{-9}$\u3002"
+}

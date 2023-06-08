@@ -1,0 +1,34 @@
+[
+    {
+        "content": "## \u9898\u89e3 AT3674 \u3010[ABC079A] Good Integer\u3011\n\n~~\u4e3a\u4ec0\u4e48\u9898\u89e3\u533a\u91cc\u9762\u90fd\u662f\u7528\u5b57\u7b26\u4e32\u7684\u554a\u2026\u2026\u96be\u9053\u7528\u6574\u6570\u4e0d\u597d\u5417\u2026\u2026~~\n\n\u9996\u5148\uff0c\u8f93\u5165\u4e00\u4e2a\u56db\u4f4d\u6570 $n$ \u540e\uff0c\u6211\u4eec\u5c06\u5b83\u4e00\u4f4d\u4e00\u4f4d\u62c6\u89e3\uff0c\u6700\u540e\u5224\u65ad\u6709\u6ca1\u6709\u76f8\u90bb\u4e09\u4e2a\u6570\u76f8\u540c\u5c31\u53ef\u4ee5\u4e86QWQ\u3002\n\n\u8fd9\u9053\u9898\u8f83\u4e3a\u7b80\u5355\uff0c\u6240\u4ee5\u5c31\u76f4\u63a5\u653e\u4ee3\u7801\u5427QAQ\u3002\n\n### $Code:$\n\n```cpp\n#include <iostream>\n#include <cstdio>\n#include <algorithm>\n#include <cstring>//\u56db\u5927\u5e38\u7528\u5934\u6587\u4ef6\nusing namespace std;\nint n, a, b, c, d;\nint main(){\n\tscanf(\"%d\", &n);\n\ta = n / 1000;\n\tb = n / 100 % 10;\n\tc = n / 10 % 10;\n\td = n % 10;//\u4e00\u4f4d\u4e00\u4f4d\u62c6\u89e3\n\tif((a == b && b == c) || (b == c && c == d)) puts(\"Yes\");//\u56e0\u4e3a AT \u7684\u9898\u8981\u6362\u884c\uff0c\u6240\u4ee5\u7528 puts\n\telse puts(\"No\");\n\treturn 0;//\u5b8c\u7ed3\u6492\u82b1-v-\n} \n```\n## End",
+        "postTime": 1582884244,
+        "uid": 147999,
+        "name": "Warriors_Cat",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 AT3674 \u3010[ABC079A] Good Integer\u3011"
+    },
+    {
+        "content": "at\u6c34\u9898\u4e00\u9053\uff08\u4e0d\u77e5\u6570\u636e\u4e3a\u4f55\u53ea\u6709\u56db\u4f4d\u6570\uff0c\u6211\u5dee\u70b9\u60f3\u6210\u51e0\u5343\u4f4d\u7684\u90a3\u79cd\uff09\n```\n#include<stdio.h>\nint main()\n{\n    int n[5],i;\n    for(i=1;i<=4;i++)\n    scanf(\"%1d\",&n[i]);//%1d\u5c31\u662f\u4e3a\u4e86\u8f93\u5165\u65b9\u4fbf\uff08\u5bb3\u5f97\u6211\u7528while\u6d6a\u8d39\u4e86\u4e00\u6b21~\uff09\n    if(n[1]==n[2]&&n[2]==n[3])\n    {printf(\"Yes\\n\");\n    return 0;}//\u53ea\u6709\u8fd9\u4e24\u79cd\u60c5\u51b5\uff0c1=2=3,2=3=4\uff1b\n    if(n[2]==n[3]&&n[3]==n[4])\n    {printf(\"Yes\\n\");\n    return 0;}\n    printf(\"No\\n\");//\u90fd\u4e0d\u662f\u5c31\u8f93\u51faNo\uff08\u8bb0\u4f4f\u5927\u5199\uff09\n    return 0;\n}\n```\n//\u7eaf\u7cb9\u662fC\u8bed\u8a00\uff0c\u6ca1\u6709\u4ec0\u4e48\u597d\u89e3\u91ca\u7684\u4e86",
+        "postTime": 1533217990,
+        "uid": 47482,
+        "name": "\u4e0d\u5230\u524d10\u4e0d\u6539\u540d",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT3674 \u3010Good Integer\u3011"
+    },
+    {
+        "content": "# \u8fd9\u9053\u9898\u662f\u4e00\u9053\u6253\u8868\u9898\n\n\u4e0d\u77e5\u4e3a\u4f55\u6ca1\u6709\u4f7f\u7528\u6a21\u7684\n\n\u6240\u4ee5\u672c\u849f\u84bb\u4f7f\u7528\u6a21\u6765\u89e3\u51b3\n\n\u6b63\u6587\uff1a\n\nGood\u6570\u5b57\u5206\u4e09\u7c7b\n\ni:$xxxx$(\u6b64\u65f6\u6a21$1111=0$)\n\nii:$xxxy$\uff08\u6b64\u65f6\u6a21$1110$\u65f6\u5c0f\u4e8e$10$\uff09\n\niii:$yxxx$(\u6b64\u65f6\u6a21$1000$\u518d\u6a21$111$\u65f6$=0$)\n\n\u8fd9\u4e09\u79cd\u90fd\u662fGood\u6570\u5b57\uff0c\u8f93\u51fa$Yes$;\u5269\u4e0b\u7684\u90fd\u4e0d\u662f,\u8f93\u51fa$No$\u3002\n\n\u6240\u4ee5\u53ea\u8981\u6253\u8868\u5c31\u884c\u4e86\u3002\n\n\u4ee3\u7801\uff1a\n\n```\n#include<iostream>\nusing namespace std;\nint main(){\nint a,b,c;\ncin>>a;\nb=a%1000;\nc=a%1110;\nif(a%1111==0)cout<<\"Yes\";\nelse if(b%111==0||c<=9)cout<<\"Yes\";\nelse cout<<\"No\";\n}\n```\n\u5e0c\u671b\u5927\u4f6c\u4eec\u591a\u591a\u63d0\u51fa\u610f\u89c1\u3002",
+        "postTime": 1584079759,
+        "uid": 232697,
+        "name": "mwhxiaopy",
+        "ccfLevel": 0,
+        "title": "\u849f\u84bb\u7684\u9898\u89e3 AT3674"
+    },
+    {
+        "content": "\u5224\u65ad\u4e00\u4e2a4\u4f4d\u6570\u662f\u5426\u8fde\u7eed3\u4f4d\u4ee5\u4e0a\u90fd\u4e00\u6837\u7684\u8bdd\u53ea\u8981\u5224\u65ad\uff1a\n\n### \u7b2c1\u4f4d\u662f\u5426\u548c\u7b2c2\uff0c3\u4f4d\u76f8\u540c\n\n### \u7b2c2\u4f4d\u662f\u5426\u548c\u7b2c3\uff0c4\u4f4d\u76f8\u540c\n\n#### \u5176\u4e2d\u4e00\u4e2a\u6216\u4ee5\u4e0a\u6210\u7acb\u8f93\u51fa\"Yes\" \u5426\u5219\u8f93\u51fa\"No\"\n\n\n```\n#include<bits/stdc++.h>\nusing namespace std;\nstring n;\nint u[20];\nint main()\n{\n\tcin>>n;\n    for(int s=2;s<n.size();s++)\n    {\n    \tif(n[s]==n[s-1]&&n[s]==n[s-2])\n    \t{\n    \t\tcout<<\"Yes\"<<endl;\n    \t\treturn 0;\n\t\t}\n\t}\n\tcout<<\"No\"<<endl;\n\treturn 0;\n}\n```",
+        "postTime": 1532330138,
+        "uid": 58543,
+        "name": "RioBlu",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 AT3674 \u3010Good Integer\u3011"
+    }
+]

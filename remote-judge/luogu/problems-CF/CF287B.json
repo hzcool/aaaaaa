@@ -1,0 +1,21 @@
+{
+    "description": "Vova, the Ultimate Thule new shaman, wants to build a pipeline. As there are exactly $ n $ houses in Ultimate Thule, Vova wants the city to have exactly $ n $ pipes, each such pipe should be connected to the water supply. A pipe can be connected to the water supply if there's water flowing out of it. Initially Vova has only one pipe with flowing water. Besides, Vova has several splitters.\n\nA splitter is a construction that consists of one input (it can be connected to a water pipe) and $ x $ output pipes. When a splitter is connected to a water pipe, water flows from each output pipe. You can assume that the output pipes are ordinary pipes. For example, you can connect water supply to such pipe if there's water flowing out from it. At most one splitter can be connected to any water pipe.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF287B/d347ad4c15760876dd4efdb4df653ce9dd1bfe47.png)The figure shows a $ 4 $ -output splitterVova has one splitter of each kind: with $ 2 $ , $ 3 $ , $ 4 $ , ..., $ k $ outputs. Help Vova use the minimum number of splitters to build the required pipeline or otherwise state that it's impossible.\n\nVova needs the pipeline to have exactly $ n $ pipes with flowing out water. Note that some of those pipes can be the output pipes of the splitters.",
+    "inputFormat": "The first line contains two space-separated integers $ n $ and $ k $ ( $ 1<=n<=10^{18} $ , $ 2<=k<=10^{9} $ ).\n\nPlease, do not use the %lld specifier to read or write 64-bit integers in \u0421++. It is preferred to use the cin, cout streams or the %I64d specifier.",
+    "outputFormat": "Print a single integer \u2014 the minimum number of splitters needed to build the pipeline. If it is impossible to build a pipeline with the given splitters, print -1.",
+    "samples": [
+        [
+            "4 3\n",
+            "2\n"
+        ],
+        [
+            "5 5\n",
+            "1\n"
+        ],
+        [
+            "8 4\n",
+            "-1\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\r\n\u9898\u76ee\u63cf\u8ff0\r\n\r\nB\u57ce\u5e02\u81ea\u6765\u6c34\u5382\u6709n\u4e2a\u5ba2\u6237\u9700\u8981\u4f9b\u6c34\uff0c\u73b0\u5728\u53ea\u6709\u4e00\u6761\u4e3b\u7ba1\u9053\u901a\u5f80\u8fd9n\u4e2a\u5ba2\u6237\u3002\u4f46\u6bcf\u4e2a\u5ba2\u6237\u90fd\u5e0c\u671b\u5355\u72ec\u9700\u8981\u4e00\u6761\u7ba1\u9053\u8fdb\u81ea\u5df1\u5bb6\u91cc\u4f9b\u6c34\uff0c\u4e8e\u662f\u53ea\u80fd\u7528\u5206\u79bb\u5668\u5c06\u4e00\u7ba1\u9053\u53d8\u4e3a\u591a\u7ba1\u9053\u3002\r\n\r\n\u73b0\u5728\u81ea\u6765\u6c34\u5382\u6709k-1\u4e2a\u5206\u79bb\u5668\uff0c\u578b\u53f7\u5206\u522b\u662f2-out\uff0c3-out\uff0c\u2026, k-out\uff0c\u5176\u4e2d\uff0ci-out\u4ee3\u8868\u8fd9\u4e2a\u5206\u79bb\u5668\u53ef\u4ee5\u63a5\u5165\u4e00\u4e2a\u7ba1\u9053\uff0c\u4ea7\u751f\u51fai\u4e2a\u7ba1\u9053\uff08\u5373\u5c061\u7ba1\u9053\u53d8\u4e3ai\u7ba1\u9053\uff09\u3002\u81ea\u6765\u6c34\u5382\u60f3\u77e5\u9053\uff0c\u6700\u5c11\u7528\u51e0\u4e2a\u5206\u79bb\u5668\uff0c\u53ef\u4ee5\u6ee1\u8db3n\u4e2a\u5ba2\u6237\u7684\u9700\u6c42\uff0c\u8f93\u51fa\u6700\u5c11\u6570\u91cf\uff1b\u65e0\u6cd5\u6ee1\u8db3\u5ba2\u6237\u9700\u6c42\uff0c\u5219\u8f93\u51fa-1\u3002\r\n\r\n\u4f8b\u5982n=4\uff0ck=3\uff0c\u90a3\u4e48\u9700\u89812-out\u548c3-out\u7684\u5206\u79bb\u5668\u624d\u80fd\u4f7f\u5f97\u4e00\u4e2a\u7ba1\u9053\u53d8\u4e3a4\u4e2a\u7ba1\u9053\uff0c\u81f3\u5c11\u9700\u89812\u4e2a\u3002\r\n\r\n\u53e6\u5916n=8, k=4\u65f6\uff0c\u6700\u591a\u53ea\u80fd\u53d8\u62107\u4e2a\u7ba1\u9053\uff0c\u65e0\u6cd5\u6ee1\u8db3\u5ba2\u6237\u9700\u6c42\uff0c\u8f93\u51fa-1\u3002\r\n\r\n\u8f93\u5165\r\n\r\n\u8f93\u5165n, k\r\n\r\n\u8f93\u51fa\r\n\r\n\u8f93\u51fa\u6700\u5c11\u6570\u91cf\uff0c\u65e0\u6cd5\u6ee1\u8db3\u8f93\u51fa-1\u3002"
+}

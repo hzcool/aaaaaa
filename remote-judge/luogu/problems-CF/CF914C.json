@@ -1,0 +1,17 @@
+{
+    "description": "The Travelling Salesman spends a lot of time travelling so he tends to get bored. To pass time, he likes to perform operations on numbers. One such operation is to take a positive integer $ x $ and reduce it to the number of bits set to $ 1 $ in the binary representation of $ x $ . For example for number $ 13 $ it's true that $ 13_{10}=1101_{2} $ , so it has $ 3 $ bits set and $ 13 $ will be reduced to $ 3 $ in one operation.\n\nHe calls a number special if the minimum number of operations to reduce it to $ 1 $ is $ k $ .\n\nHe wants to find out how many special numbers exist which are not greater than $ n $ . Please help the Travelling Salesman, as he is about to reach his destination!\n\nSince the answer can be large, output it modulo $ 10^{9}+7 $ .",
+    "inputFormat": "The first line contains integer $ n $ ( $ 1<=n<2^{1000} $ ).\n\nThe second line contains integer $ k $ ( $ 0<=k<=1000 $ ).\n\nNote that $ n $ is given in its binary representation without any leading zeros.",
+    "outputFormat": "Output a single integer \u2014 the number of special numbers not greater than $ n $ , modulo $ 10^{9}+7 $ .",
+    "samples": [
+        [
+            "110\n2\n",
+            "3\n"
+        ],
+        [
+            "111111011\n2\n",
+            "169\n"
+        ]
+    ],
+    "hint": "In the first sample, the three special numbers are $ 3 $ , $ 5 $ and $ 6 $ . They get reduced to $ 2 $ in one operation (since there are two set bits in each of $ 3 $ , $ 5 $ and $ 6 $ ) and then to $ 1 $ in one more operation (since there is only one set bit in $ 2 $ ).",
+    "translation": "\u5bf9\u4e8e\u4e00\u4e2a\u6b63\u6574\u6570x\uff0c\u6211\u4eec\u5b9a\u4e49\u4e00\u6b21\u64cd\u4f5c\u662f\u5c06\u5176\u53d8\u4e3a\u5b83\u4e8c\u8fdb\u5236\u4e0b\u201c1\u201d\u7684\u4e2a\u6570,\u6bd4\u5982\u6211\u4eec\u77e5\u9053$13_{10}$=$1101_2$ ,\u800c1101\u6709\u4e09\u4e2a\"1\",\u6240\u4ee5\u5bf913\u8fdb\u884c\u4e00\u6b21\u64cd\u4f5c\u5c31\u4f1a\u5c06\u5176\u53d8\u4e3a3\u3002\u663e\u800c\u6613\u89c1\u7684\u662f\uff0c\u5bf9\u4e8e\u4e00\u4e2a\u6b63\u6574\u6570\uff0c\u6211\u4eec\u5728\u8fdb\u884c\u82e5\u5e72\u6b21\u64cd\u4f5c\u540e\uff0c\u4e00\u5b9a\u4f1a\u5c06\u5176\u53d8\u4e3a1\u3002\n\n\u7ed9\u5b9an\u548ckk\uff0c\u5176\u4e2dn\u662f\u5728\u4e8c\u8fdb\u5236\u4e0b\u88ab\u7ed9\u51fa\uff0c\u6c42\u51fa\u6240\u6709\u4e0d\u5927\u4e8en\u4e14\u5c06\u5176\u53d8\u4e3a1\u7684\u6700\u5c0f\u64cd\u4f5c\u6b21\u6570\u4e3akk\u7684\u6570\u7684\u4e2a\u6570\u5bf9$10^9+7$\u53d6\u6a21\u7684\u7ed3\u679c\u3002"
+}

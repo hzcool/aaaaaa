@@ -1,0 +1,17 @@
+{
+    "description": "Bessie and the cows are playing with sequences and need your help. They start with a sequence, initially containing just the number 0, and perform $ n $ operations. Each operation is one of the following:\n\n1. Add the integer $ x_{i} $ to the first $ a_{i} $ elements of the sequence.\n2. Append an integer $ k_{i} $ to the end of the sequence. (And hence the size of the sequence increases by 1)\n3. Remove the last element of the sequence. So, the size of the sequence decreases by one. Note, that this operation can only be done if there are at least two elements in the sequence.\n\nAfter each operation, the cows would like to know the average of all the numbers in the sequence. Help them!",
+    "inputFormat": "The first line contains a single integer $ n\u00a0(1<=n<=2\u00b710^{5}) $ \u2014 the number of operations. The next $ n $ lines describe the operations. Each line will start with an integer $ t_{i} $ $ (1<=t_{i}<=3) $ , denoting the type of the operation (see above). If $ t_{i}=1 $ , it will be followed by two integers $ a_{i},x_{i} $ $ (|x_{i}|<=10^{3};\u00a01<=a_{i}) $ . If $ t_{i}=2 $ , it will be followed by a single integer $ k_{i} $ $ (|k_{i}|<=10^{3}) $ . If $ t_{i}=3 $ , it will not be followed by anything.\n\nIt is guaranteed that all operations are correct (don't touch nonexistent elements) and that there will always be at least one element in the sequence.",
+    "outputFormat": "Output $ n $ lines each containing the average of the numbers in the sequence after the corresponding operation.\n\nThe answer will be considered correct if its absolute or relative error doesn't exceed $ 10^{-6} $ .",
+    "samples": [
+        [
+            "5\n2 1\n3\n2 3\n2 1\n3\n",
+            "0.500000\n0.000000\n1.500000\n1.333333\n1.500000\n"
+        ],
+        [
+            "6\n2 1\n1 2 20\n2 2\n1 2 -3\n3\n3\n",
+            "0.500000\n20.500000\n14.333333\n12.333333\n17.500000\n17.000000\n"
+        ]
+    ],
+    "hint": "In the second sample, the sequence becomes ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF283A/56857d21d773e19700b8e6f134c0c7d8dc59ae9f.png)",
+    "translation": "\u8d1d\u897f\u548c\u5976\u725b\u6b63\u5728\u73a9\u5e8f\u5217\u6e38\u620f\uff0c\u9700\u8981\u60a8\u7684\u5e2e\u52a9\u3002 \u5b83\u4eec\u4ece\u4e00\u4e2a\u5e8f\u5217\u5f00\u59cb\uff0c\u6700\u521d\u4ec5\u5305\u542b\u6570\u5b570\uff0c\u5e76\u6267\u884cn\u6b21\u64cd\u4f5c\u3002 \u6bcf\u4e2a\u64cd\u4f5c\u662f\u4ee5\u4e0b\u4e4b\u4e00\uff1a\n1.\u5c06\u6574\u6570$x_{i}$\u6dfb\u52a0\u5230\u5e8f\u5217\u7684\u524d$a_{i}$\u5143\u7d20\u4e2d\u3002\n2.\u5728\u5e8f\u5217\u672b\u5c3e\u9644\u52a0\u4e00\u4e2a\u6574\u6570$k_{i}$\u3002 \uff08\u56e0\u6b64\uff0c\u5e8f\u5217\u7684\u5927\u5c0f\u589e\u52a01\uff09\n3.\u5220\u9664\u5e8f\u5217\u7684\u6700\u540e\u4e00\u4e2a\u5143\u7d20\u3002 \u56e0\u6b64\uff0c\u5e8f\u5217\u7684\u5927\u5c0f\u51cf\u5c111\u3002 \u8bf7\u6ce8\u610f\uff0c\u53ea\u6709\u5728\u5e8f\u5217\u4e2d\u81f3\u5c11\u6709\u4e24\u4e2a\u5143\u7d20\u65f6\u624d\u80fd\u6267\u884c\u6b64\u64cd\u4f5c\u3002\n\u6bcf\u6b21\u64cd\u4f5c\u540e\uff0c\u5976\u725b\u90fd\u60f3\u77e5\u9053\u5e8f\u5217\u4e2d\u6240\u6709\u6570\u5b57\u7684\u5e73\u5747\u503c\u3002"
+}

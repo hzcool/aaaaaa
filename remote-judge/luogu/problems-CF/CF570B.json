@@ -1,0 +1,17 @@
+{
+    "description": "One day Misha and Andrew were playing a very simple game. First, each player chooses an integer in the range from $ 1 $ to $ n $ . Let's assume that Misha chose number $ m $ , and Andrew chose number $ a $ .\n\nThen, by using a random generator they choose a random integer $ c $ in the range between $ 1 $ and $ n $ (any integer from $ 1 $ to $ n $ is chosen with the same probability), after which the winner is the player, whose number was closer to $ c $ . The boys agreed that if $ m $ and $ a $ are located on the same distance from $ c $ , Misha wins.\n\nAndrew wants to win very much, so he asks you to help him. You know the number selected by Misha, and number $ n $ . You need to determine which value of $ a $ Andrew must choose, so that the probability of his victory is the highest possible.\n\nMore formally, you need to find such integer $ a $ ( $ 1<=a<=n $ ), that the probability that ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF570B/fcf679a711cde29d2e9f9a082e28c313061224e7.png) is maximal, where $ c $ is the equiprobably chosen integer from $ 1 $ to $ n $ (inclusive).",
+    "inputFormat": "The first line contains two integers $ n $ and $ m $ ( $ 1<=m<=n<=10^{9} $ ) \u2014 the range of numbers in the game, and the number selected by Misha respectively.",
+    "outputFormat": "Print a single number \u2014 such value $ a $ , that probability that Andrew wins is the highest. If there are multiple such values, print the minimum of them.",
+    "samples": [
+        [
+            "3 1\n",
+            "2"
+        ],
+        [
+            "4 3\n",
+            "2"
+        ]
+    ],
+    "hint": "In the first sample test: Andrew wins if $ c $ is equal to $ 2 $ or $ 3 $ . The probability that Andrew wins is $ 2/3 $ . If Andrew chooses $ a=3 $ , the probability of winning will be $ 1/3 $ . If $ a=1 $ , the probability of winning is $ 0 $ .\n\nIn the second sample test: Andrew wins if $ c $ is equal to $ 1 $ and $ 2 $ . The probability that Andrew wins is $ 1/2 $ . For other choices of $ a $ the probability of winning is less.",
+    "translation": "\u7ed9 n\uff0cm (m <= n)\uff0c\u6c42\u4e00\u4e2a\u6570 a(1<= a <=n), \u4f7f\u5f97\u5f53 c \u5728 1 \u5230 n \u7684\u6574\u6570\u4e2d \u968f\u673a\u53d6\u503c\u65f6\n,|c-a| < |c-m| \u6210\u7acb\u7684\u6982\u7387\u6700\u5927\u3002\n\n\u611f\u8c22@\u51c9\u51c9 \u63d0\u4f9b\u7684\u7ffb\u8bd1"
+}

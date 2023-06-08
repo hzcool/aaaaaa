@@ -1,0 +1,42 @@
+[
+    {
+        "content": "[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/P9299)\n\n### \u5206\u6790\n\n\u8ba1\u7b97 Deliv-e-droid \u83b7\u5f97\u7684\u94b1\uff0c\u603b\u5171\u5206\u4e24\u6b65\uff1a\n\n1. \u9001\u8fbe\u7684**\u5956\u52b1\u7684\u94b1**\u548c\u672a\u9001\u8fbe\u7684**\u6263\u9664\u7684\u94b1**\uff1b\n2. \u5224\u65ad\u662f\u5426\u6709 $500$ \u5143\u5956\u52b1\u3002\n\n\u5148\u8ba1\u7b97\u7b2c\u4e00\u6b65\uff0c\u6309\u7167\u5c0f\u5b66\u4e58\u6cd5\u8ba1\u7b97\u516c\u5f0f\uff1a\n\n\u4efd\u6570\uff08\u9001\u8fbe\u7684\u5feb\u9012\u7684\u6570\u91cf\uff09$\\times$ \u4e00\u4efd\u91cf\uff08\u5956\u52b1\u7684 $50$ \u5143\u94b1\uff09$=$ \u5956\u52b1\u7684\u94b1\u3002\n\n\u4efd\u6570\uff08\u672a\u9001\u8fbe\u7684\u5feb\u9012\u7684\u6570\u91cf\uff09$\\times$ \u4e00\u4efd\u91cf\uff08\u6263\u9664\u7684 $10$ \u5143\u94b1\uff09$=$ \u6263\u9664\u7684\u94b1\u3002\n\n\u90a3\u4e48\u83b7\u5f97\u7684\u94b1\u5c31\u662f**\u5956\u52b1\u7684\u94b1**\u4e0e**\u6263\u9664\u7684\u94b1\u4e4b\u5dee**\uff0c\u5373 $50p-10c$\u3002\n\n\u7b2c\u4e8c\u6b65\uff0c\u76f4\u63a5\u7528\u5206\u652f\u8bed\u53e5\u5224\u65ad\uff1a\n\n```cpp\nif(p>c)\n{\n\t\u83b7\u5f97\u7684\u94b1 +500\u3002\n}\n```\n\n\u52a0\u4e0a\u7b2c\u4e00\u6b65\uff0c\u518d\u7528[\u4e09\u76ee\u8fd0\u7b97\u7b26](https://baike.baidu.com/item/%E6%9D%A1%E4%BB%B6%E8%BF%90%E7%AE%97%E7%AC%A6/6180633)\u4f18\u5316\u4e00\u4e0b\uff0c\u516c\u5f0f\u4e3a\uff1a\n\n```cpp\n(50*p-10*c)+((p>c)?500:0)\n```\n\n\u4ee3\u7801\u5c31\u51fa\u6765\u4e86\u3002",
+        "postTime": 1682768868,
+        "uid": 706859,
+        "name": "maomao233",
+        "ccfLevel": 0,
+        "title": "P9299 \u9898\u89e3"
+    },
+    {
+        "content": "## \u9898\u76ee\u601d\u8def\n\u6309\u7167\u9898\u610f\u6a21\u62df\uff0c\u5b9a\u4e49\u53d8\u91cf $ans$ \u8868\u793a\u7b54\u6848\u3002$ans$ \u5219\u4e3a\u9001\u8fbe\u7684\u5feb\u9012\u603b\u6570 $\\times50-$ \u672a\u9001\u8fbe\u7684\u5feb\u9012\u603b\u6570 $\\times10$\u3002\n\n\n\u5982\u679c $P>C$\uff0c$ans+500$\u3002\n\n\u6700\u540e\u8f93\u51fa $ans$ \u5373\u53ef\u3002\n\n## \u4ee3\u7801\n```cpp\n//By Jasoncwx\n#include<bits/stdc++.h>\nusing namespace std;\n\nint main(){\n\tint p,c;\n\tcin>>p>>c;\n\tint ans=p*50-c*10;\n\tif(p>c)ans+=500;\n\tcout<<ans;\n    return 0;\n}\n```",
+        "postTime": 1680278459,
+        "uid": 592684,
+        "name": "Jasoncwx",
+        "ccfLevel": 0,
+        "title": "P9299 \u9898\u89e3"
+    },
+    {
+        "content": "# \u5206\u6790\n\n- \u5206\u652f\u7ed3\u6784\u7ec3\u4e60\u9898\uff0c\u6211\u4eec\u5229\u7528\u95ee\u53f7\u8868\u8fbe\u5f0f\u4e00\u884c\u5373\u53ef\u641e\u5b9a\u3002\n\n# \u4ee3\u7801\n\n```cpp\n#include<iostream>\nusing namespace std;\n\nlong long a, b;\n\nint main() {\n    cin >> a >> b;\n    cout << (a > b ? 50 * a - 10 * b + 500 : 50 * a - 10 * b);\n    return 0;\n}\n```\n",
+        "postTime": 1682773574,
+        "uid": 663295,
+        "name": "ruruo",
+        "ccfLevel": 0,
+        "title": "P9299 \u9898\u89e3"
+    },
+    {
+        "content": "\u8fd9\u9898\u9898\u610f\u8bf4\u7684\u975e\u5e38\u660e\u786e\uff0c\u8ba1\u7b97\u94b1\u7684\u516c\u5f0f\u4e5f\u975e\u5e38\u7b80\u5355\u3002\u4e0d\u8fc7\u8981\u6ce8\u610f\u7684\u662f\uff1a\u5982\u679c $p>c$\uff0c\u94b1\u6570\u8981 $+500$\u3002\uff08\u4e0d\u8981\u6f0f\u6389\uff01\uff09\n\nAC \u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint p,c,ans=0;\nint main(){\n\tscanf(\"%d%d\",&p,&c);\n\tans=p*50-c*10;\n\tif(p>c){\n\t\tans+=500;\n\t}\n\tprintf(\"%d\",ans);\n\treturn 0;\n}\n```\n\u5b8c\u7ed3\u6492\u82b1",
+        "postTime": 1682770274,
+        "uid": 566451,
+        "name": "Sun_Email",
+        "ccfLevel": 0,
+        "title": "P9299"
+    },
+    {
+        "content": "**\u601d\u8def\uff1a**\n\n\u9996\u5148\u4e00\u4e2a\u5224\u65ad\uff0c\u82e5 $P > C$\uff0c\u5219 $ans$ \u7d2f\u52a0 $500$\uff0c\u968f\u540e\u518d\u8f93\u51fa $ans + 50 \\times P-10 \\times C$ \u5c31\u884c\u4e86\u3002\n\n**\u4ee3\u7801\uff1a**\n\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint ans=0;\nint main()\n{\n    int p,c;\n    cin>>p>>c;\n    if(p>c)ans+=500;\n    ans=p*50-c*10;\n    cout<<ans<<endl;\n    return 0;\n}\n```",
+        "postTime": 1682769796,
+        "uid": 750764,
+        "name": "Leaves_xw",
+        "ccfLevel": 0,
+        "title": "P9299\u9898\u89e3"
+    }
+]

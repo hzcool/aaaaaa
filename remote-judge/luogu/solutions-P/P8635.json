@@ -1,0 +1,106 @@
+[
+    {
+        "content": "### \u601d\u8def\n\u5148\u4ece $0$ \u5230 $n$ \u679a\u4e3e $i,j,k$\uff08\u5e73\u65b9\u548c\u5747\u4e0d\u80fd\u8d85\u8fc7 $n$\uff09\uff0c\u518d\u4f7f\u7528 $\\sqrt{n - i^2 - j^2 - k^2}$ \u6c42\u51fa\u7b2c\u56db\u4e2a\u6570\u3002\u5982\u679c\u7b2c\u56db\u4e2a\u6570\u4e3a\u6574\u6570\uff0c\u5219\u8f93\u51fa\u5373\u53ef\u3002\n\u9644\u4ee3\u7801\uff1a\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main()\n{\n    int n;\n    cin >> n;\n    for(register int i = 0; i * i <= n; i++)\n    {\n        for(int j = 0; i * i + j * j <= n; j++)\n        {\n            for(int k = 0; i * i + j * j + k * k <= n; k++)\n            {\n                int t = n - i * i - j * j - k * k;\n                int m = sqrt(t);\n                if(m * m == t)\n                {\n                    cout << i << \" \" << j << \" \" << k << \" \" << m << endl;\n                    return 0;\n                }\n            }\n        }\n    }\n    return 0;\n}\n```\n",
+        "postTime": 1681993542,
+        "uid": 793150,
+        "name": "ccg12345",
+        "ccfLevel": 0,
+        "title": "P8635 [\u84dd\u6865\u676f 2016 \u7701 AB] \u56db\u5e73\u65b9\u548c"
+    },
+    {
+        "content": "## \u5206\u6790\n\n**\u3010\u4e3b\u4f53\u601d\u8def\u3011**\n\n\u5bf9\u4e8e\u6bcf\u4e2a $n$\uff0c\u6211\u4eec\u53ef\u4ee5\u53bb\u679a\u4e3e $a,b,c$ \u7684\u503c\uff0c\u56e0\u4e3a\u5728 $n=a^2+b^2+c^2+d^2$ \u65f6\uff0c$d$ \u4e00\u5b9a\u662f\u7b49\u4e8e $\\sqrt {n-a^2-b^2-c^2}$ \u7684\u3002\u800c $a,b,c,d$ \u53c8\u90fd\u662f\u6574\u6570\uff0c\u6240\u4ee5\u6211\u4eec\u53ea\u9700\u8981\u770b $d$ \u7684\u503c\u662f\u4e0d\u662f\u6574\u6570\u5c31\u884c\u5566\u3002\n\n**\u3010\u8fb9\u754c\u5224\u65ad\u3011**\n\n\u56e0\u4e3a\u9898\u76ee\u4fdd\u8bc1 $a \\le b \\le c \\le d$\uff0c\u6240\u4ee5\u5728\u679a\u4e3e $a$ \u65f6\uff0c\u82e5 $a^2+a^2+a^2+a^2>n$\uff0c\u5219\u4e00\u5b9a\u65e0\u6cd5\u518d\u6709\u53ef\u80fd\u60c5\u51b5\u4e86\uff0c$b,c$ \u540c\u7406\u3002\n\n## \u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n;\nint check(int a,int b,int c,int d){return a*a+b*b+c*c+d*d;}\n//\u6c42a^2+b^2+c^2+d^2\nint main()\n{\n\tcin>>n;\n\tfor(int i=0;;i++)\n\t{\n\t\tif(check(i,i,i,i)>n) break;//\u8fb9\u754c\u5224\u65ad\n\t\tfor(int j=i;;j++)\n\t\t{\n\t\t\tif(check(i,j,j,j)>n) break;\n\t\t\tfor(int k=j;;k++)\n\t\t\t{\n\t\t\t\tif(check(i,j,k,k)>n) break;\n\t\t\t\telse\n\t\t\t\t{\n\t\t\t\t\tint s=sqrt(n-check(i,j,k,0));\n\t\t\t\t\tif(check(i,j,k,s)==n) return cout<<i<<\" \"<<j<<\" \"<<k<<\" \"<<s,0; \n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\n```\n",
+        "postTime": 1682001071,
+        "uid": 734533,
+        "name": "cq_zry",
+        "ccfLevel": 0,
+        "title": "P8635 [\u84dd\u6865\u676f 2016 \u7701 AB] \u56db\u5e73\u65b9\u548c \u9898\u89e3"
+    },
+    {
+        "content": "### \u601d\u8def\n\n\u66b4\u529b\u679a\u4e3e\u3002\u4e0d\u8fc7\u8981\u52a0\u4ebf\u4e9b\u4f18\u5316\u3002\uff08\u4e3a\u4e86\u65b9\u4fbf\uff0c\u8fd9\u91cc\u5c06\u7b2c\u4e00\u4e2a\u6570\u8bbe\u4e3a $i$\uff0c\u7b2c\u4e8c\u4e2a\u6570\u8bbe\u4e3a $j$\uff0c\u7b2c\u4e09\u4e2a\u6570\u8bbe\u4e3a $k$\uff0c\u7b2c\u56db\u4e2a\u6570\u8bbe\u4e3a $l$\uff09\n\n1. \u5728\u679a\u4e3e $i$ \u7684\u65f6\u5019\uff0c$i^2$ \u8981\u5c0f\u4e8e $n$\uff0c\u4e0d\u7136 $i^2+j^2+k^2+l^2$ \u80af\u5b9a\u4f1a\u5927\u4e8e $n$\u3002\n\n2. \u6211\u4eec\u53ea\u9700\u8981\u679a\u4e3e $i$\u3001$j$ \u548c $k$\uff0c\u56e0\u4e3a $l=\\sqrt{n-i^2+j^2+k^2}$\u3002\n\n### \u4ee3\u7801\n\n```cpp\n#pragma GCC optmize(2,3,\"Ofast\",\"inline\")\n#include<bits/stdc++.h>\n#define int long long\n#define endl '\\n'\nusing namespace std;\nint n;\nsigned main(){\n\tios::sync_with_stdio(false);\n\tcin.tie(0);\n\tcout.tie(0);\n\tcin >> n;\n\tfor(int i = 0;i * i <= n;i++){\n\t\tfor(int j = 0;i * i + j * j <= n;j++){\n\t\t\tfor(int k = 0;i * i + j * j + k * k <= n;k++){\n\t\t\t\tint t = n - i * i - j * j - k * k;\n\t\t\t\tif(sqrt(t) == floor(sqrt(t))){\n\t\t\t\t\tcout << i << \" \" << j << \" \" << k << \" \" << sqrt(t) << endl;\n\t\t\t\t\treturn 0;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\n```",
+        "postTime": 1681982570,
+        "uid": 857323,
+        "name": "linxuanrui",
+        "ccfLevel": 0,
+        "title": "P8635\u9898\u89e3"
+    },
+    {
+        "content": "~~\u84dd\u6865\u676f\u4e0d\u6127\u4e3a\u66b4\u529b\u676f\u554a\uff01~~\n\n\u66b4\u529b\u4ece $0$ \u5230 $\\sqrt{n}$ \u679a\u4e3e\u524d\u4e09\u4e2a\u6570 $a, b, c$\uff0c\u6b64\u65f6\u53ef\u4ee5\u7b97\u51fa $d = n - \\sqrt{a} - \\sqrt{b} - \\sqrt{c}$\uff0c\u5224\u65ad $\\sqrt{d}$ \u662f\u5426\u4e3a\u6574\u6570\u4e14\u6ee1\u8db3\u9898\u610f\u5373\u53ef\u3002\n\n```\n#include <bits/stdc++.h>\n#define F(i, r) for (int i = 0, END## i = sqrt(r); i <= END## i; i++)\n#define sq(n) n * n\nusing namespace std;\n\nint main() {\n    int n;\n    scanf (\"%d\", &n);\n    F(i, n) {\n        F(j, n) {\n            F(k, n) {\n                int l = sqrt(n - sq(i) - sq(j) - sq(k));\n                if (l != (int)floor(l)) continue;\n                if (sq(i) + sq(j) + sq(k) + sq(l) == n) {\n                    printf (\"%d %d %d %d\\n\", i, j, k, l);\n                    return 0;\n                }\n            }\n        }\n    }\n    return 0;\n}\n```",
+        "postTime": 1681956524,
+        "uid": 672333,
+        "name": "VT_SODC3DC3BSLF",
+        "ccfLevel": 0,
+        "title": "\u56db\u5e73\u65b9\u548c \u9898\u89e3"
+    },
+    {
+        "content": "\u4e09\u91cd\u5faa\u73af\u679a\u4e3e $a,b,c$\uff0c\u518d\u5224\u65ad $n-a^2-b^2-c^2$ \u662f\u5426\u4e3a\u5b8c\u5168\u5e73\u65b9\u6570\u3002\u5e76\u7b26\u5408\u8303\u56f4\u5373\u53ef\u3002\n\n\u4e00\u822c\u60c5\u51b5\u4e0b $x$ \u8f83\u5c0f\u65f6\u53ef\u4ee5\u7528 `int(sqrt(x)) * int(sqrt(x)) == x` \u6765\u5224\u65ad $x$ \u662f\u5426\u4e3a\u5b8c\u5168\u5e73\u65b9\u6570\u3002  \n\n```cpp\nint main() {\n    dR(int, n);\n    for (int a = 0; a * a <= n; a++)\n        for (int b = a; a * a + b * b <= n; b++)\n            for (int c = b; a * a + b * b + c * c <= n; c++) {\n                int t = n - a * a - b * b - c * c, d = sqrt(t);\n                if (d * d == t && d >= c)\n                    return writeln({a, b, c, d}), 0;\n            }\n    return 0;\n}\n```",
+        "postTime": 1681919761,
+        "uid": 84282,
+        "name": "andyli",
+        "ccfLevel": 7,
+        "title": "P8635 [\u84dd\u6865\u676f 2016 \u7701 AB] \u56db\u5e73\u65b9\u548c \u9898\u89e3"
+    },
+    {
+        "content": "## \u9898\u610f\u7406\u89e3\n\n\u7ed9\u51fa\u4e00\u4e2a\u6574\u6570 $n$\uff0c\u6c42\u56db\u4e2a\u5e73\u65b9\u548c\u4e3a $n$ \u7684\u975e\u8d1f\u6574\u6570\u3002\n\n\u8f93\u51fa\u56db\u4e2a\u6574\u6570\uff0c\u4ece\u5c0f\u5230\u5927\u3002\n\n## \u601d\u8def\u9610\u8ff0\n\n\u770b\u89c1\u65f6\u95f4\u9650\u5236\uff08\u7b97\u6cd5\u6807\u7b7e\uff09\u9996\u5148\u60f3\u5230\u679a\u4e3e\uff0c\u4e09\u5c42\u5faa\u73af\u52a0\u4e0a\u4e00\u70b9\u70b9\u4f18\u5316\u5373\u53ef\u3002\n\n\u6bcf\u4e0b\u4e00\u5c42\u5faa\u73af\u4ece\u5f53\u524d\u6570\u5b57\u5f00\u59cb\uff0c\u6700\u540e\u4e00\u4e2a\u6570\u4e0d\u7528\u7ba1\uff0c\u56e0\u4e3a\u8fd9\u79cd\u60c5\u51b5\u4f1a\u5728\u4e4b\u524d\u7684\u679a\u4e3e\u4e2d\u4ee5\u6b63\u786e\u7684\u6392\u5217\u65b9\u5f0f\u51fa\u73b0\u3002\n\n## \u4ee3\u7801\u5448\u73b0\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nint n;\n\nsigned main(){\n    \n    scanf(\"%d\",&n);//\u8f93\u5165\n    for(int i=0;i*i<=n;i++)//\u5faa\u73af\u7b2c\u4e00\u4e2a\u6570\uff08\u6700\u5c0f\u7684\uff09\n        for(int j=i;i*i+j*j<=n;j++)//\u5faa\u73af\u7b2c\u4e8c\u4e2a\u6570\uff08\u7b2c\u4e8c\u5c0f\u7684\uff09\n            for(int k=j;i*i+j*j+k*k<=n;k++){//\u5faa\u73af\u7b2c\u4e09\u4e2a\u6570\uff08\u7b2c\u4e09\u5c0f\u7684\uff09\n                int l=int(sqrt(n-i*i-j*j-k*k));//\u7b97\u51fa\u7b2c\u56db\u4e2a\u6570\n                if(i*i+j*j+k*k+l*l==n){\n                    printf(\"%d %d %d %d\",i,j,k,l);\n                    return 0;\n                }\n            }\n}\n```\n",
+        "postTime": 1681999616,
+        "uid": 750513,
+        "name": "zhan_c_h",
+        "ccfLevel": 0,
+        "title": "P8635 [\u84dd\u6865\u676f 2016 \u7701 AB] \u56db\u5e73\u65b9\u548c"
+    },
+    {
+        "content": "\u8fd9\u9898**\u66b4\u529b\u679a\u4e3e\u52a0\u4e00\u70b9\u526a\u679d**\u5c31\u884c\u4e86\u3002\n\n### \u601d\u8def\uff1a\n\n\u76f4\u63a5\u66b4\u529b\u679a\u4e3e\u80af\u5b9a\u4e0d\u884c\uff0c$O(n^2)$ \u7684\u65f6\u95f4\u590d\u6742\u5ea6\u76f4\u63a5\u6559\u4f60\u505a\u4eba\u3002\u4f46\u7a0d\u5fae\u52a0\u4e00\u70b9\u70b9\u526a\u679d\u5c31\u53ef\u4ee5\u8fc7\u4e86\u3002\n\n\u5bf9\u4e8e\u7b2c\u56db\u4e2a\u6570\uff0c\u6211\u4eec\u53ef\u4ee5\u8fd9\u4e48\u6c42\uff1a$d=\\sqrt{n-a^2-b^2-c^2}$\u3002\n\n\u800c\u524d\u9762\u4e09\u4e2a\u5faa\u73af\uff0c\u6211\u4eec\u53ea\u8981\u4fdd\u8bc1\u524d\u4e09\u4e2a\u7684\u503c\u7684\u5e73\u65b9\u52a0\u8d77\u6765\u5c0f\u4e8e $n$ \u5373\u53ef\u3002\n\n\u53ea\u8981\u52a0\u4e0a\u526a\u679d\uff0c\u5c31\u4e00\u5b9a\u80fd\u8fc7\u3002\n\n### \u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\n#define int long long\nusing namespace std;\nint n;\nsigned main(){\n\tcin>>n;\n\tfor(int i=0;i*i<=n;i++){\n\t\tfor(int j=i;i*i+j*j<=n;j++){\n\t\t\tfor(int k=j;i*i+j*j+k*k<=n;k++){\n\t\t\t\tint l=(int)(sqrt(n-i*i-j*j-k*k));\n\t\t\t\tif(i*i+j*j+k*k+l*l==n){\n\t\t\t\t\tprintf(\"%lld %lld %lld %lld\",i,j,k,l);\n\t\t\t\t\treturn 0;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\treturn 0;\n}\n\n```\n",
+        "postTime": 1681996770,
+        "uid": 644337,
+        "name": "haozinojc",
+        "ccfLevel": 0,
+        "title": "P8635\u9898\u89e3"
+    },
+    {
+        "content": "\u663e\u7136\u76f4\u63a5\u66b4\u529b\u80af\u5b9a\u603c\u4e0d\u8fc7\u53bb\uff0c\u65f6\u95f4\u590d\u6742\u5ea6\u4e3a $O(\\sqrt{n}^4)=O(n^2)$\n\n\u526a\u679d $1$\uff1a\n\n\u6211\u4eec\u53ef\u4ee5\u4ece\u5c0f\u5230\u5927\u9009 $i,j,k$\uff0c\u7b2c\u56db\u4e2a\u6570 $s=\\sqrt{n-i^2-j^2-k^2}$\uff0c\u8981\u6c42\u6839\u53f7\u5185\u7684\u6570\u4e3a\u5b8c\u5168\u5e73\u65b9\u6570\u3002\u53ef\u4ee5\u5c06\u590d\u6742\u5ea6\u4f18\u5316\u5230 $O(n\\sqrt{n})$\u3002\n\n\u526a\u679d $2$\uff1a\n\n\u82e5 $\\sqrt s\\le k$\uff0c\u53ef\u4ee5\u76f4\u63a5\u9000\u51fa\u5faa\u73af\u3002\u56e0\u4e3a\u6211\u4eec\u4fdd\u8bc1\u679a\u4e3e\u5347\u5e8f\u3002\n\n### \u4ee3\u7801\u5982\u4e0b\uff1a\n\n```\n#include<bits/stdc++.h>\nusing namespace std;\ntypedef long long ll;\nconst int N=1e5+10;\n//===\n//\u7f3a\u7701\u6e90\n//===\nint n;\nint main(){\n\t//freopen(\".in\",\"r\",stdin);\n\t//freopen(\".out\",\"w\",stdout);\n\tcin>>n;\n\tfor(int i=0;i*i<=n;i++)\n\t\tfor(int j=i;j*j<=n-i*i;j++)\n\t\t\tfor(int k=j;k*k<=n-i*i-j*j;k++){\n\t\t\t\tint p=n-i*i-j*j-k*k;\n\t\t\t\tint r=int(sqrt(p));\n\t\t\t\tif(r<k)break;\n\t\t\t\tif(p==r*r){\n\t\t\t\t\tint a[4]={i,j,k,r};\n\t\t\t\t\tfor(int s=0;s<4;s++)\n\t\t\t\t\t\tprintf(\"%d \",a[s]);\n\t\t\t\t\treturn 0;\n\t\t\t\t}\n\t\t\t}\n\treturn 0;\n}\n\n\n\n\n\n\n```\n",
+        "postTime": 1681985759,
+        "uid": 511271,
+        "name": "\u30c0\u6708",
+        "ccfLevel": 5,
+        "title": "[\u84dd\u6865\u676f 2016 \u7701 AB] \u56db\u5e73\u65b9\u548c"
+    },
+    {
+        "content": "## P8635 \u56db\u5e73\u65b9\u548c \u9898\u89e3\n\n### \u89e3\u9898\u601d\u8def\n\n\u8bbe\u4e09\u4e2a\u6570 $i,j,k$\uff0c\u5148\u679a\u4e3e $i,j,k$ \u7684\u5e73\u65b9\u548c\uff08\u90fd\u4e0d\u80fd\u8d85\u8fc7 $n$\uff09\uff0c\u518d\u7528 $\\sqrt{n-i^2-j^2-k^2}$ \u6c42\u51fa\u7b2c\u56db\u4e2a\u6570\uff0c\u5982\u679c\u7b2c\u56db\u4e2a\u6570\u4e3a\u6574\u6570\uff0c\u90a3\u4e48\u5c31\u8f93\u51fa\u7ed3\u679c\u3002\n\n### Code\n\n```cpp\n#include <iostream>\n#include <cmath>\nusing namespace std;\nint n;\nint main(){\n\tcin>>n;\n\tfor(int i=0;i*i<=n;i++){\n\t\tint i2=i*i;\n\t\tfor(int j=0;i2+j*j<=n;j++){\n\t\t\tint j2=j*j;\n\t\t\tfor(int k=0;i2+j2+k*k<=n;k++){\n\t\t\t\tint k2=k*k,x=n-i2-j2-k2,gx=sqrt(x);\n\t\t\t\tif(gx*gx==x)  return cout<<i<<\" \"<<j<<\" \"<<k<<\" \"<<gx,0;\n\t\t\t}\n\t\t}\n\t}\n\treturn 0;\n}\n```\n\n",
+        "postTime": 1681979514,
+        "uid": 517643,
+        "name": "__Li2021__",
+        "ccfLevel": 4,
+        "title": "P8635 \u56db\u5e73\u65b9\u548c \u9898\u89e3"
+    },
+    {
+        "content": "## \u601d\u8def\n\n\u4e00\u70b9\u4e00\u70b9\u679a\u4e3e $i,j,k$ \u7684\u8303\u56f4\uff0c\u7136\u540e\u7531\u4e8e $i^2+j^2+k^2+l^2=n$\uff0c\u6240\u4ee5\u6211\u4eec\u53ef\u4ee5\u76f4\u63a5\u7528 $\\sqrt {n-i^2-j^2-k^2}$ \u6c42\u51fa $l$\uff0c\u6700\u540e\u5224\u65ad $i^2+j^2+k^2+l^2$ \u662f\u5426\u4e3a $n$ \u5373\u53ef\u3002\n\n## \u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\n#define int long long\nsigned main(){\n    int n;\n\tscanf(\"%lld\",&n);\n\tfor(int i=0;i*i<=n;i++)\n\t\tfor(int j=i;i*i+j*j<=n;j++)\n\t\t\tfor(int k=j;i*i+j*j+k*k<=n;k++){\n\t\t\t\tint l=(long long)(sqrt(n-i*i-j*j-k*k));\n\t\t\t\tif(i*i+j*j+k*k+l*l==n)\n\t\t\t\t\treturn printf(\"%lld %lld %lld %lld\",i,j,k,l), 0;\n\t\t\t}\t\n}\n\n```",
+        "postTime": 1681978626,
+        "uid": 938449,
+        "name": "xiaoming007",
+        "ccfLevel": 0,
+        "title": "\uff0c"
+    },
+    {
+        "content": "\u4ece $ 0 $ \u5230 $ \\sqrt n $ \u66b4\u529b\u679a\u4e3e $ a , b , c $\uff0c\u5219\u6709 $ d = \\sqrt { n - a ^ 2 - b ^ 2 - c ^ 2 } $\u3002\u6b64\u65f6\u5224\u65ad $ d $ \u662f\u5426\u4e3a\u6574\u6570\uff0c\u5982\u679c\u4e3a\u6574\u6570\uff0c\u5c31\u8f93\u51fa\u3002\n\n\u5224\u65ad $ d $ \u662f\u5426\u4e3a\u6574\u6570\uff0c\u53ea\u8981\u5224\u65ad $ a ^ 2 + b ^ 2 + c ^ 2 + { \\lfloor d \\rfloor } ^ 2 $ \u662f\u5426\u4e0e $ n $ \u76f8\u7b49\u5373\u53ef\u3002\n\n\u4ee3\u7801\u5982\u4e0b\uff1a\n\n```cpp\n\n#include<cstdio>\n#include<cmath>\nint n;\nint main(){\n\tscanf(\"%d\",&n);\n\tfor(int i=0;i*i<=n;i++)\n\t\tfor(int j=i;i*i+j*j<=n;j++)\n\t\t\tfor(int k=j;i*i+j*j+k*k<=n;k++){\n\t\t\t\tint l=int(sqrt(n-i*i-j*j-k*k));\n\t\t\t\tif(i*i+j*j+k*k+l*l==n){\n\t\t\t\t\tprintf(\"%d %d %d %d\",i,j,k,l);\n\t\t\t\t\treturn 0;\n\t\t\t\t}\n\t\t\t}\t\n}\n\n```",
+        "postTime": 1681973283,
+        "uid": 775213,
+        "name": "yangmingshuo114514",
+        "ccfLevel": 0,
+        "title": "P8635 [\u84dd\u6865\u676f 2016 \u7701 AB] \u56db\u5e73\u65b9\u548c"
+    },
+    {
+        "content": "[\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/P8635)\n\n\u8fd9\u9898\u66b4\u529b\u679a\u4e3e\u5c31\u884c\u4e86\u3002$a\\times a$ \u679a\u4e3e $a$ \u5230 $n$\uff0c$a\\times a+b\\times b$ \u679a\u4e3e $b$ \u5230 $n$\uff0c$a\\times a+b\\times b+c\\times c$ \u679a\u4e3e $c$ \u5230 $n$\uff0c\u6700\u540e\u5224\u65ad $n-a\\times a-b\\times b-c\\times c$ \u5f00\u6839\u53f7\u662f\u5426\u4e3a\u6574\u6570\uff0c\u4e3a\u6574\u6570\u5c31\u8f93\u51fa\u3002\n\n# CODE:\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n;\nint main()\n{\n    scanf(\"%d\",&n);\n    for(register int i=0;i*i<=n;i++)\n    \tfor(register int j=0;i*i+j*j<=n;j++)\n    \t\tfor(register int k=0;i*i+j*j+k*k<=n;k++)\n    \t\t{\n    \t\t\tint x=n-i*i-j*j-k*k,l=sqrt(x);\n    \t\t\tif(l*l==x){printf(\"%d %d %d %d\",i,j,k,l);return 0;}\n\t\t\t}\n    return 0;\n}\n```",
+        "postTime": 1681969150,
+        "uid": 658973,
+        "name": "what_can_I_do",
+        "ccfLevel": 0,
+        "title": "P8635\u9898\u89e3"
+    },
+    {
+        "content": "## P8635 [\u84dd\u6865\u676f 2016 \u7701 AB] \u56db\u5e73\u65b9\u548c \u9898\u89e3\n\n### \u9898\u610f\uff1a\n\u5bf9\u4e8e\u7ed9\u5b9a\u7684\u4efb\u610f\u6b63\u6574\u6570 $n$\uff0c\u90fd\u6709\u56db\u4e2a\u6b63\u6574\u6570\u7684\u5e73\u65b9\u548c\u4e0e\u5b83\u76f8\u7b49\uff0c\u73b0\u8981\u6c42\u6c42\u51fa\u8fd9\u56db\u4e2a\u6570\u3002\n\n------------\n### \u601d\u8def\uff1a\n\u5148\u66b4\u529b\u679a\u4e3e\u51fa\u524d\u4e09\u4e2a\u6570\u7684\u6bcf\u4e00\u79cd\u60c5\u51b5\uff0c\u63a5\u7740\u7b97\u51fa\u7b2c\u56db\u4e2a\u6570\uff0c\u5224\u65ad\u7b2c\u56db\u4e2a\u6570\u662f\u5426\u662f\u4e00\u4e2a\u6b63\u6574\u6570\uff0c\u5982\u679c\u662f\uff0c\u5219\u76f4\u63a5\u8f93\u51fa\u3002\n\n------------\n\u9644\u4e0a [AC](https://www.luogu.com.cn/record/108526197) \u4ee3\u7801\uff1a\n\n```cpp\n#include<iostream>\n#include<cmath>\n/*\u6b64\u4ee3\u7801\u8981\u7528\u5230sqrt()\u51fd\u6570\uff0c\u52a0\u4e0acmath\u5934\u6587\u4ef6*/\nusing namespace std;\nint n;  //\u7ed9\u5b9a\u6b63\u6574\u6570\u3002\nint main(){\n\tcin>>n;  //\u8f93\u5165\u3002\n\tfor(int a=0;a*a<=n;a++){  //\u679a\u4e3e\u7b2c\u4e00\u4e2a\u6570\uff0c\u201ca*a\u201d\u662f\u4e3a\u4e86\u51cf\u5c11\u4e0d\u9700\u8981\u679a\u4e3e\u7684\u60c5\u51b5\u3002\n\t\tfor(int b=0;a*a+b*b<=n;b++){  //\u7b2c\u4e8c\u4e2a\uff0c\u540c\u4e0a\u3002\n\t\t\tfor(int c=0;a*a+b*b+c*c<=n;c++){  //\u7b2c\u4e09\u4e2a\uff0c\u540c\u4e0a\u3002\n\t\t\t\tif(double(int(sqrt(n-a*a-b*b-c*c)))==double(sqrt(n-a*a-b*b-c*c))){  //\u5224\u65ad\u7b2c\u56db\u4e2a\u6570\u662f\u5426\u4e3a\u6b63\u6574\u6570\u3002\n\t\t\t\t\tcout<<a<<\" \"<<b<<\" \"<<c<<\" \"<<sqrt(n-a*a-b*b-c*c)<<endl;  //\u662f\u5219\u8f93\u51fa\u56db\u4e2a\u6570\u3002\n\t\t\t\t\treturn 0;  //\u76f4\u63a5\u7ed3\u675f\u7a0b\u5e8f\u3002\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\treturn 0;\n}\n```\n\u70b9\u4e2a\u8d5e\u518d\u8d70\u5457\u3002",
+        "postTime": 1681977584,
+        "uid": 729002,
+        "name": "Lemonlwl",
+        "ccfLevel": 0,
+        "title": "P8635 [\u84dd\u6865\u676f 2016 \u7701 AB] \u56db\u5e73\u65b9\u548c \u9898\u89e3"
+    }
+]

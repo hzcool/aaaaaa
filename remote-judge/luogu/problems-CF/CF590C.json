@@ -1,0 +1,17 @@
+{
+    "description": "The famous global economic crisis is approaching rapidly, so the states of Berman, Berance and Bertaly formed an alliance and allowed the residents of all member states to freely pass through the territory of any of them. In addition, it was decided that a road between the states should be built to guarantee so that one could any point of any country can be reached from any point of any other State.\n\nSince roads are always expensive, the governments of the states of the newly formed alliance asked you to help them assess the costs. To do this, you have been issued a map that can be represented as a rectangle table consisting of $ n $ rows and $ m $ columns. Any cell of the map either belongs to one of three states, or is an area where it is allowed to build a road, or is an area where the construction of the road is not allowed. A cell is called passable, if it belongs to one of the states, or the road was built in this cell. From any passable cells you can move up, down, right and left, if the cell that corresponds to the movement exists and is passable.\n\nYour task is to construct a road inside a minimum number of cells, so that it would be possible to get from any cell of any state to any cell of any other state using only passable cells.\n\nIt is guaranteed that initially it is possible to reach any cell of any state from any cell of this state, moving only along its cells. It is also guaranteed that for any state there is at least one cell that belongs to it.",
+    "inputFormat": "The first line of the input contains the dimensions of the map $ n $ and $ m $ ( $ 1<=n,m<=1000 $ ) \u2014 the number of rows and columns respectively.\n\nEach of the next $ n $ lines contain $ m $ characters, describing the rows of the map. Digits from $ 1 $ to $ 3 $ represent the accessory to the corresponding state. The character '.' corresponds to the cell where it is allowed to build a road and the character '\\#' means no construction is allowed in this cell.",
+    "outputFormat": "Print a single integer \u2014 the minimum number of cells you need to build a road inside in order to connect all the cells of all states. If such a goal is unachievable, print -1.",
+    "samples": [
+        [
+            "4 5\n11..2\n#..22\n#.323\n.#333",
+            "2"
+        ],
+        [
+            "1 5\n1#2#3\n",
+            "-1\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9\u4f60\u4e00\u4e2a $n\\times m$ \u7684\u5730\u56fe\uff0c`.` \u662f\u8352\u5730\uff0c`#` \u662f\u77f3\u5934\uff08\u4e0d\u80fd\u8d70\uff09\uff0c\u6570\u5b57\u662f\u56fd\u5bb6\uff08\u7f16\u53f7\u4e3a `1`\u3001`2`\u3001`3`\uff09\uff0c\u6c42\u6700\u5c11\u628a\u591a\u5c11\u8352\u5730\u4fee\u6210\u8def\u53ef\u4ee5\u4f7f\u5f97\u4e09\u4e2a\u56fd\u5bb6\u8fde\u901a\uff0c\u65e0\u89e3\u8f93\u51fa $-1$\u3002   \n\n$1\\le n,m\\le 10^3$\u3002"
+}

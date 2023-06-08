@@ -1,0 +1,154 @@
+[
+    {
+        "content": "## \u9898\u610f\n\n\u5bf9\u4e8e\u4e00\u4e2a\u6574\u6570 $m$\uff0c\u51cf\u53bb\u6700\u5c0f\u7684\u6570 $d$ \u4f7f\u5b83\u6210\u4e3a $10$ \u7684\u6b21\u5e42\u3002\n\n# \u5206\u6790\n\n\u76f4\u63a5\u6a21\u62df\u5373\u53ef\u3002\u8fd9\u91cc\u63d0\u4f9b\u4e24\u79cd\u601d\u8def\uff1a\n\n1. \u5c06 $m$ \u8f6c\u5316\u4e3a\u5b57\u7b26\u4e32\u5904\u7406\uff0c\u7b2c\u96f6\u4f4d\u51cf\u53bb $1$\uff0c\u5269\u4e0b\u76f4\u63a5\u8f93\u51fa\u5373\u53ef\u3002**\u6ce8\u610f\u524d\u5bfc\u96f6\u7684\u5904\u7406\u4ee5\u53ca $d$ \u4e3a\u96f6\u7684\u7279\u5224\u3002**\n\n1. \u66b4\u529b\u5bfb\u627e $m$ \u51cf\u5b8c\u540e\u5269\u4f59\u7684\u6570\uff0c\u76f4\u63a5\u7528 $m$ \u51cf\u53bb\u8fd9\u4e2a\u6570\u5373\u53ef\u3002\u6ca1\u6709\u90a3\u4e48\u591a\u9ebb\u70e6\u7684\u5224\u5b9a\u3002\n\n### \u4ee3\u7801\n\n```cpp\n#include <bits/stdc++.h>//\u7b2c\u4e8c\u79cd\nusing namespace std;\n#define int long long\nint t, num, k, num1, rest;\nsigned main() {\n\tcin >> t;\n\twhile (t--) {\n\t\trest = 1;//\u521d\u59cb\u5316\n\t\tcin >> num;\n\t\tnum1 = num;\n\t\twhile (num1)\n\t\t\tnum1 /= 10, rest *= 10; //\u8ba1\u7b97\u5269\u4f59\u503c\n\t\tcout << num - rest / 10 << \"\\n\";\n\t}\n\treturn 0;\n}\n/*#include <bits/stdc++.h> //\u7b2c\u4e00\u79cd\nusing namespace std;\nint t, l;\nstring s;\nsigned main() {\n\tcin >> t;\n\twhile (t--) {\n\t\tcin >> s;\n\t\ts[0] -= 1; //\u540c\u4e0a\n\t\tl = 0; //\u521d\u59cb\u5316\n\t\twhile(s[l] == '0' && l < s.length()) //\u5904\u7406\u524d\u5bfc\u96f6\n\t\t\tl++;\n\t\tif (l == s.length())  // d\u4e3a0\u7684\u7279\u5224\n\t\t\tl--;\n\t\tfor (int i = l; i < s.length(); i++) \n\t\t\tcout << s[i];\n\t\tcout << \"\\n\";\n\t}\n\treturn 0;\n}*/\n```\n",
+        "postTime": 1657597679,
+        "uid": 663517,
+        "name": "Jeremiahy",
+        "ccfLevel": 0,
+        "title": "CF1702A Round Down the Price \u9898\u89e3"
+    },
+    {
+        "content": "\u5c0f\u5b66\u751f\u7b2c\u4e8c\u6b21\u53d1\u9898\u89e3\u4e86!!\n\n[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/CF1702A)\n\n**\u9898\u76ee\u5927\u610f**\n\n$t$ \u7ec4\u8be2\u95ee\uff0c\u6bcf\u7ec4\u4e00\u4e2a\u6574\u6570 $m$\uff0c\u95ee\u901a\u8fc7\u51cf\u53bb\u4e00\u4e2a\u81ea\u7136\u6570 $d$ \u628a $m$ \u53d8\u6210 $10^k$ \uff0c\u8fd9\u4e2a $d$ \u6700\u5c0f\u662f\u591a\u5c11\u3002\n\n**\u89e3\u9898\u601d\u8def**\n\n$10^k$ \u53ef\u4ee5\u5199\u6210 $100\\cdots0$ \u3002\n\n\u5b9a\u4e49\u4e00\u4e2a\u6570\u7ec4 $a$ \uff0c\u7528\u6765\u5b58\u6570 $n$ , $ans$ \u6765\u5b58\u7b54\u6848\uff0c$k$ \u6765\u5b58\u6570\u4f4d\u3002\n\n\u5b58\u5b8c $a$ \u6570\u7ec4\u4ee5\u540e\uff0c\u6bcf\u6b21 $ans$ \u52a0 $a_i \\times k$ \uff0c\u4f46\u6700\u540e\u4e00\u6b21\u8981\u7279\u5224\uff0c\u56e0\u4e3a\u9996\u4f4d\u4e0d\u4e3a $0$\uff0c\u6240\u4ee5 $ans$ \u8981\u52a0 $(a_i - 1) \\times k$\u3002\n\n**AC\u4ee3\u7801\uff0c\u8bf7\u52ff\u6284\u88ad**\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main() {\n    int t; // t \u7ec4\u6570\u636e\n    cin >> t;\n    while(t--) {\n        int n, a[15], cnt = 0, ans = 0;\n        cin >> n;\n        int s = n;\n        while(s) { // \u5c06 n \u5b58\u5165 a \u6570\u7ec4\n            a[++cnt] = s % 10;\n            s /= 10;\n        }\n        int i, k; // \u8ba1\u7b97\u7b54\u6848\n        for(i = 1, k = 1; i < cnt; i++, k *= 10) {\n            ans += k * a[i];\n        }\n        ans += k * (a[i] - 1); // \u7279\u5224\n        cout << ans << \"\\n\"; // \u8f93\u51fa\n    }\n    return 0;\n}\n```",
+        "postTime": 1657591316,
+        "uid": 482592,
+        "name": "cyfqwq",
+        "ccfLevel": 4,
+        "title": "CF1702A Round Down the Price"
+    },
+    {
+        "content": "### \u601d\u8def\n\u6211\u4eec\u53ef\u4ee5\u4ece\u5927\u5230\u5c0f\u679a\u4e3e $10^n$ $(1 \\leq n \\leq 9)$ \u7684\u6570\uff0c\u4e0e $m$ \u4f5c\u5dee\u3002\u5f53 $m$ \u9996\u6b21\u5927\u4e8e $10^n$ \u65f6\uff0c\u5373\u53ef\u627e\u5230\u4e0d\u5927\u4e8e\u4f46\u6700\u63a5\u8fd1\u7684 $n$\uff0c\u6700\u540e\u8f93\u51fa\u5b83\u4eec\u7684\u5dee\u5373\u53ef\u3002\n### Code\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nlong long t,m,num;\nint main(){\n\tcin>>t;\n\twhile(t--){\n\t\tcin>>m;\n\t\tfor(int i=10;i>=1;i--){\n\t\t\tnum=1;\n\t\t\tfor(int j=1;j<i;j++){\n\t\t\t\tnum*=10;//\u627e\u5230\u6700\u63a5\u8fd1\u7684\n\t\t\t}\n\t\t\tif(m-num>=0){\n\t\t\t\tcout<<m-num<<\"\\n\";\n\t\t\t\tbreak;\n\t\t\t}\n\t\t}\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1657614716,
+        "uid": 395142,
+        "name": "shenyiran",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3CF1702A Round Down the Price"
+    },
+    {
+        "content": "## \u9898\u610f\u7b80\u8ff0\n\n\u6211\u4eec\u628a\u4e00\u4e2a $10^x$ \u7684\u6570\u53eb\u505a round number\uff0c\u7ed9\u5b9a\u4e00\u4e2a\u6570\uff0c\u8ba9\u4f60\u6c42\u4e00\u4e2a\u6700\u5c0f\u7684\u81ea\u7136\u6570\uff0c\u4f7f\u5f97\u7ed9\u5b9a\u7684\u6570\u51cf\u53bb\u8be5\u6570\u4e3a\u4e00\u4e2a round number\u3002\n\n\u6211\u4eec\u53ef\u4ee5\u679a\u4e3e $10$ \u7684\u6307\u6570 $x$\uff0c\u4e00\u65e6 $10^x$ \u5927\u4e8e\u7ed9\u5b9a\u7684\u6570\uff0c\u5c31\u7acb\u523b\u9000\u51fa\uff0c\u8fd9\u65f6 $10^{x-1}$ \u5c31\u662f\u6700\u5927\u7684 round number\uff0c\u4e8e\u662f\u6c42\u51fa\u7b54\u6848\u3002\n\n## Code\uff1a\n```cpp\n#include<bits/stdc++.h>\n#define int long long\nusing namespace std;\nmain()\n{\n    int t;\n    cin>>t;\n    while(t--)\n    {\n        int x;\n        cin>>x;\n        int ans=1;\n        while(1)\n        {\n            ans*=10;\n            if(ans>x)break;\n        }\n        ans/=10;\n        cout<<x-ans<<endl;\n    }\n} \n```",
+        "postTime": 1657609993,
+        "uid": 441247,
+        "name": "Halberd_Cease",
+        "ccfLevel": 5,
+        "title": "CF1702A \u9898\u89e3"
+    },
+    {
+        "content": "\u9898\u610f\uff1a\u7ed9\u5b9a\u4e00\u4e2a\u6570 $m$\uff0c\u6c42 $m$ \u4e0e\u4e0d\u5927\u4e8e\u8fd9\u4e2a\u6570\u7684 $10$ \u7684\u5e42\u6570\u4e2d\u6700\u5927\u7684\u4e00\u4e2a\u6570\u7684\u5dee\u3002\n\n\u8fd9\u9053\u9898\u5f88\u7b80\u5355\uff0c\u6211\u4eec\u5148\u6253\u51fa $10$ \u7684\u5e42\u6570\u7684\u8868\uff0c\u56e0\u4e3a $ m \\le 10^9 $\uff0c\u6240\u4ee5\u6211\u4eec\u53ea\u9700\u8981\u6253\u5230\u5341\u7684\u5341\u6b21\u65b9\u5373\u53ef\u3002\n\n\u7136\u540e\u6211\u4eec\u679a\u4e3e\u5341\u7684\u5e42\u6570\uff0c\u5982\u679c\u679a\u4e3e\u5230\u4e00\u4e2a\u5341\u7684\u5e42\u6570\u6bd4 $m$ \u5927\uff0c\u90a3\u4e48\u7b54\u6848\u5c31\u662f $m$ \u4e0e\u4e0a\u4e00\u4e2a\u5341\u7684\u5e42\u6570\u7684\u5dee\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include<cstdio>\n\nusing namespace std;\n\nlong long p10[20]={1,10,100,1000,10000,100000,1000000,10000000,100000000,1000000000,10000000000};\n//\u6253\u8868\nint t;\nint n;\n\nint main(){\n\tscanf(\"%d\",&t);\n\twhile(t--){\n\t\tscanf(\"%d\",&n);\n\t\tfor(int i=1;;i++){//\u679a\u4e3e\n\t\t\tif(p10[i]>n){\n\t\t\t\tprintf(\"%d\\n\",n-p10[i-1]);\n\t\t\t\tbreak;\n\t\t\t}\n\t\t}\n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1657592816,
+        "uid": 593299,
+        "name": "iyag",
+        "ccfLevel": 5,
+        "title": "CF1702A Round Down the Price \u9898\u89e3"
+    },
+    {
+        "content": "## \u9898\u610f\n\u8fd9\u9053\u9898\u5176\u5b9e\u5c31\u662f\u8ba9\u4f60\u6c42\u51fa\u5f53\u524d\u6570\u5b57\u4e0e $10$ \u7684\u6574\u6570\u5e42\u6b21\u7684\u5dee\u503c\uff08\u6ce8\u610f\u4e0d\u80fd\u5411\u4e0a\u53d6\uff0c\u53ea\u80fd\u5411\u4e0b\u53d6\uff09\u3002\n\n\u800c\u4e14\u9898\u76ee\u4e5f\u6807\u6ce8\u4e86 $1 \\le k \\le 9$\uff0c\u6240\u4ee5\u6211\u4eec\u53ef\u4ee5\u8ba9 $i$ \u4ece $0 \\sim 9$ \u5faa\u73af\u4e00\u904d\uff0c\u5982\u679c $10^i \\le n < 10^{i +1}$\uff0c\u6211\u4eec\u5c31\u8f93\u51fa $n - 10^i$\uff08$n$ \u4ee3\u8868\u5f53\u524d\u6570\u5b57\uff09\u5c31\u884c\u4e86\uff01\n\n\u76f4\u63a5\u4e0a\u4ee3\u7801\uff01\n\n## \u4ee3\u7801\n```c++\n// Problem: A. Round Down the Price\n// Contest: Codeforces Round #805 (Div. 3)\n// URL: https://codeforces.com/contest/1702/problem/A\n// Memory Limit: 256 MB\n// Time Limit: 1000 ms\n// \n// Powered by CP Editor (https://cpeditor.org)\n\n// Author: CrazyWolf\n\n#include <bits/stdc++.h>\n#define int long long\nusing namespace std;\n\nvoid Work()\n{\n\tint n;\n\tcin >> n;\n\tfor (int i = 0; i < 10; i ++)\n\t{\n\t\tif (pow(10, i) <= n && n < pow(10, i + 1))\n\t\t{\n\t\t\tcout << (long long)(n - pow(10, i)) << endl; //\u6ce8\u610f\u8fd9\u91cc\u4e00\u5b9a\u8981\u5f3a\u5236\u7c7b\u578b\u8f6c\u6362 \n\t\t\treturn ;\n\t\t}\n\t}\n}\n\nsigned main()\n{\n\tint t;\n\tcin >> t;\n\twhile (t --)\n\t{\n\t\tWork();\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1657591349,
+        "uid": 509154,
+        "name": "CrazyWolf",
+        "ccfLevel": 4,
+        "title": "CF1702A \u9898\u89e3"
+    },
+    {
+        "content": "## \u9898\u610f\n\n\u7ed9\u51fa $m$ \u6c42 $d$\uff0c\u4f7f $m-d=10^k$\uff0c\u5e76\u8ba9 $10^k$ \u6700\u5927\u3002\n\n## \u601d\u8def\n\n\u6362\u4e00\u79cd\u8bf4\u6cd5\uff0c\u5c31\u662f\u627e\u51fa\u5c0f\u4e8e $m$ \u7684\u6700\u5927 $10^k$\u3002\n\n\u5148\u6253\u4e00\u4e2a\u8868\uff0c\u679a\u4e3e\u51fa\u6240\u6709 $10^k$\uff08int \u8303\u56f4\u5185\uff09\u3002\u4ece\u5c0f\u5230\u5927\u627e\u51fa\u7b2c\u4e00\u4e2a\u5927\u4e8e $m$ \u7684 $10^k$\uff0c\u4e5f\u5c31\u662f $10^k>m$\uff0c\u8f93\u51fa $m-10^{k-1}$ \u5e76\u8df3\u51fa\u5faa\u73af\u3002\n\n## \u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint t,m;\nint d[20]; \nint main(){\n\td[0]=1;\n\tfor(int i=1;i<=9;i++)d[i]=d[i-1]*10;\n\tscanf(\"%d\",&t);\n\twhile(t--){\n\t\tscanf(\"%d\",&m); \n\t\tfor(int i=0;i<=9;i++){\n\t\t\tif(m-d[i]<0){\n\t\t\t\tprintf(\"%d\\n\",m-d[i-1]);\n\t\t\t\tbreak;\n\t\t\t}\n\t\t\tif(m-d[i]==0){\n\t\t\t\tprintf(\"%d\\n\",m-d[i]);\n\t\t\t\tbreak;\n\t\t\t}\n\t\t}\n\t}\n\treturn 0;\n}\n\n```",
+        "postTime": 1657589403,
+        "uid": 572482,
+        "name": "__Interstellar__",
+        "ccfLevel": 4,
+        "title": "CF1702A \u9898\u89e3"
+    },
+    {
+        "content": "### \u9898\u610f\n\n\u7b2c\u4e00\u884c\u8f93\u5165 $T$,\u63a5\u4e0b\u6765 $T$ \u884c\u6bcf\u884c\u4e00\u4e2a\u6b63\u6574\u6570 $m$\u3002\u8bbe $k$ \u662f $m$ \u7684\u4f4d\u6570\uff0c\u6c42 $m-10^k$\u3002\n\n### \u505a\u6cd5\n\n\u5148\u628a\u8f93\u5165\u6570\u7684\u4f4d\u6570\u6c42\u51fa\uff0c\u518d\u7528\u8f93\u5165\u6570\u51cf\u53bb $10^k$\u3002\n\n\u6ce8\u610f\u5728\u6c42\u4f4d\u6570\u65f6\u521d\u59cb\u8981\u8d4b\u503c\u4e3a\u4e00\uff0c\u800c\u4e0d\u662f\u96f6\uff0c\u8981\u4e0d\u7136\u5c31\u9519\u4e86\u3002\n\n### \u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n#define N 114514\n#define M 1919810\n#define ll long long  \nll t,m;\nll ws(ll x){\n\tll len=1;   //\u6ce8\u610f\u8d4b\u503c\u4e3a\u4e00 \n\twhile(x){\n\t\tx/=10;\n\t\tlen*=10;\n\t}\n\tlen/=10;\n\treturn len;\n}\nint main(){\n\tcin>>t;\n\tfor(int i=1;i<=t;i++){\n\t\tcin>>m;\n\t\tcout<<m-ws(m)<<endl;  //\u522b\u5fd8\u4e86\u56de\u8f66 \n\t}\n\treturn 0;\n} \n```\n",
+        "postTime": 1657606990,
+        "uid": 526677,
+        "name": "mzyc\u306e\u55b0\u79cd",
+        "ccfLevel": 0,
+        "title": "CF1702A"
+    },
+    {
+        "content": "### \u4e00\u3001\u7ffb\u8bd1&\u9898\u610f\n\n\u5b9a\u4e49 $10^k$ \u4e3a\u201c\u6574\u6570\u201d\uff0c\u5176\u4e2d $k$ \u4e3a\u81ea\u7136\u6570\u3002\n\n\u73b0\u5728\u7ed9\u51fa $m$\uff0c\u51cf\u53bb\u6700\u5c0f\u7684\u81ea\u7136\u6570 $x$ \u4f7f\u5f97 $m-x$ \u4e3a\u201c\u6574\u6570\u201d\u3002\n\n### \u4e8c\u3001\u601d\u8def\n\n\u7b80\u5355\u7684\u8d2a\u5fc3\u3002\n\n\u663e\u7136\u5730\uff0c\u56e0\u4e3a $m$ \u662f\u4e0d\u53d8\u7684\uff0c \u6c42 $\\min\\left\\{x\\right\\}$  \u5c31\u662f\u6c42 $\\max\\left\\{m-x\\right\\}$\u3002\n\n\u8fd9\u4e2a\u6570\u5f88\u597d\u6c42\uff0c\u56e0\u4e3a $10^k$ \u4e0d\u8d85\u8fc7 $m$\uff0c\u6240\u4ee5\u5219 $k=\\lfloor\\log_{10}m\\rfloor$\uff0c\u7b54\u6848\u4e3a $m-10^k$\u3002\n\n### \u4e09\u3001\u4ee3\u7801\n\n```cpp\n#include <stdio.h>\nint t,m;\nint main(){\n\tscanf(\"%d\",&t);\n\twhile(t--){\n\t\tscanf(\"%d\",&m);\n\t\tauto k(1ll);//\u8981\u5f00long long\uff0c1e9\u7684\u6781\u9650\u4e0bk\u4f1a\u7206\n\t\twhile(k<=m)\n\t\t\tk*=10;\n\t\tprintf(\"%d\\n\",(int)(m-k/10));\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1657603226,
+        "uid": 575994,
+        "name": "Etinorally",
+        "ccfLevel": 5,
+        "title": "CF1702A"
+    },
+    {
+        "content": "## \u9898\u610f\n\n\u7ed9\u5b9a\u6b63\u6574\u6570 $n$\uff0c\u6c42\u5c0f\u4e8e\u7b49\u4e8e $n$ \u4e14\u6700\u5927\u7684\u662f $10^x$ \u7684\u6b63\u6574\u6570 $y$\uff0c\u6ee1\u8db3 $x \\in \\mathbb N$\u3002\u8f93\u51fa $n - y$\u3002\u591a\u7ec4\u6570\u636e\u3002\n\n## \u505a\u6cd5\n\n\u663e\u7136\u53ef\u4ee5\u66b4\u529b\u679a\u4e3e\u3002\u7531\u4e8e $1 \\leq n \\leq 10^9$\uff0c\u6240\u4ee5\u6bcf\u6b21\u679a\u4e3e $10^0$ \u5230 $10^9$ \u5373\u53ef\uff0c\u603b\u5171 $10$ \u4e2a\u6570\uff0c\u590d\u6742\u5ea6\u662f\u5e38\u6570\uff0c\u5373 $O(1)$\u3002\u603b\u590d\u6742\u5ea6 $O(t)$\u3002\n\n\u53e6\u5916\u6709\u4e00\u79cd\u505a\u6cd5\uff0c\u5176\u5b9e\u7b54\u6848\u662f $n - 10^{\\lfloor \\log_{10} n \\rfloor}$\uff0c\u5e26\u5165\u5373\u53ef\u3002\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\n#define int long long\n#define ll long long\n\nconst int N = 1e5 + 5, INF = 2e9, MOD = 1e9 + 7;\n\ninline int read()\n{\n\tchar ch = getchar();\n\tint x = 0;\n\twhile (ch < '0' || ch > '9') ch = getchar();\n\twhile (ch >= '0' && ch <= '9')\n\t{\n\t\tx = (x << 1) + (x << 3) + (ch ^ 48);\n\t\tch = getchar();\n\t}\n\treturn x;\n}\n\nvoid write(const int x)\n{\n\tif (x > 9) write(x / 10);\n\tputchar(x % 10 + '0');\n}\n\nint n, m, t;\n\nsigned main()\n{\n\tt = read();\n\twhile (t--)\n\t{\n\t\tn = read();\n\t\tprintf(\"%lld\\n\", n - (long long)pow(10, (long long)log10(n)));\n\t}\n\treturn 0;\n}\n\n\n```\n",
+        "postTime": 1657602911,
+        "uid": 332914,
+        "name": "happybob",
+        "ccfLevel": 6,
+        "title": "CF1702A Round Down the Price"
+    },
+    {
+        "content": "# \u9898\u610f\n\n\u7ed9\u4f60 $t( 1\\le t \\le 10^4)$ \u4e2a\u6570\uff0c\u6bcf\u4e2a\u6570 $m(1 \\le m \\le 10^9)$ \uff0c\u8981\u4f60\u627e\u4e00\u4e2a\u5c0f\u4e8e $m$ \u7684 $10$ \u7684\u5e42\u6b21\u65b9\u7684\u6570\uff0c\u5982 $1$ \uff0c $10$\uff0c $100$ \u7b49\u90fd\u662f $10$ \u7684\u5e42\u6b21\u65b9\u7684\u6570\uff0c\u8f93\u51fa\u5b83\u4eec\u7684\u5dee\u3002\n\n# \u601d\u8def\n\n\u8f93\u5165\u6570\uff0c\u66b4\u529b\u679a\u4e3e\u627e\u5230\u79bb\u5b83\u6700\u8fd1\u7684 $10$ \u7684\u5e42\u6b21\u65b9\u7684\u6570\uff0c\u8f93\u51fa\u5dee\u3002\n\n# \u7a0b\u5e8f\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nlong long n,a,b;\nint main()\n{\n\tcin>>n;\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tcin>>a;\n\t\tfor(b=1;b<=a;b*=10);\n\t\tb/=10;\n\t\tcout<<a-b<<\"\\n\";\n\t}\n\t\n\treturn 0;\n}\n```",
+        "postTime": 1657601419,
+        "uid": 574215,
+        "name": "stswkl",
+        "ccfLevel": 0,
+        "title": "CF1702A Round Down the Price \u9898\u89e3"
+    },
+    {
+        "content": "## \u9898\u610f\u7b80\u8ff0\n\n\u82e5\u53ef\u4ee5\u5c06\u4e00\u4e2a\u6b63\u6574\u6570 $m$ \u51cf\u53bb\u4e00\u4e2a\u81ea\u7136\u6570 $d$ \u5f97\u5230 $m'$\uff0c\u4f7f $m'$ \u6700\u5927\u7684\u540c\u65f6\u662f $10$ \u7684\u975e\u8d1f\u6574\u6570\u6b21\u5e42\uff0c\u6c42 $m$ \u4e0e $m'$ \u7684\u5dee\u3002\n\n## \u89e3\u6cd5 1\n\n\u6211\u4eec\u53ef\u4ee5\u5f88\u5bb9\u6613\u5730\u53d1\u73b0\uff0c\u5f53 $10^k\\le m<10^{k+1}$\uff08$k$ \u662f\u4efb\u610f\u975e\u8d1f\u6574\u6570\uff09\u65f6\uff0c$m'$ \u4e3a $10^k$\u3002\u7b54\u6848\u4e3a $(m-10^k)$\u3002\n\n\u6b64\u9898 $m$ \u7684\u8303\u56f4\u5e76\u4e0d\u5f88\u5927\uff0c\u6839\u636e\u8fd9\u79cd\u6027\u8d28\uff0c\u6211\u4eec\u53ef\u4ee5\u6253\u8868\uff1a\n\n```cpp\nif(m<=9)              printf(\"%d\",m-1);\nelse if(m<=99)        printf(\"%d\",m-10);\nelse if(m<=999)       printf(\"%d\",m-100);\nelse if(m<=9999)      printf(\"%d\",m-1000);\nelse if(m<=99999)     printf(\"%d\",m-10000);\nelse if(m<=999999)    printf(\"%d\",m-100000);\nelse if(m<=9999999)   printf(\"%d\",m-1000000);\nelse if(m<=99999999)  printf(\"%d\",m-10000000);\nelse if(m<=999999999) printf(\"%d\",m-100000000);\nelse                  printf(\"0\");//\u8fd9\u91cc\u662f m=10^9 \u7684\u60c5\u51b5\n```\n\n## \u89e3\u6cd5 2\n\n\u5982\u679c\u6b64\u9898 $m$ \u53ef\u80fd\u7684\u6700\u5927\u503c\u66f4\u5927\u65f6\uff0c\u89e3\u6cd5 1 \u4e2d\u9700\u8981\u6253\u7684\u8868\u5c31\u4f1a\u53d8\u5f97\u6781\u4e3a\u5197\u957f\u3002\u8fd9\u65f6\u5019\uff0c\u6211\u4eec\u9700\u8981\u4e00\u79cd\u66f4\u52a0\u7b80\u4fbf\u7684\u65b9\u6cd5\u3002\n\n\u7531\u4e8e $10^k$ \u603b\u662f\u5f62\u5982 $\\begin{matrix}1\\underbrace{00\\cdots00}\\\\k\\text{\u4e2a0}\\end{matrix}$ \u7684\uff0c\u5e76\u4e14 $m$ \u603b\u662f\u6709 $k+1$ \u4f4d\uff0c\u6240\u4ee5\u5982\u679c\u7528\u5b57\u7b26\u4e32\u6765\u5b58\u50a8 $m$\uff0c\u7136\u540e\u5c06\u6700\u9ad8\u4f4d\u51cf\u53bb $1$ \u4e4b\u540e _\u770b\u60c5\u51b5_ \u53bb\u9664\u53ef\u80fd\u5b58\u5728\u7684\u524d\u5bfc`0`\u5c31\u53ef\u4ee5\u5f97\u51fa\u7b54\u6848\u3002\n\n_\u770b\u60c5\u51b5_\uff1a\u5f53\u8fd9\u65f6 $m$ \u53ea\u7531\u4e00\u4e2a\u5b57\u7b26`0`\u7ec4\u6210\u65f6\u4e0d\u5e94\u8be5\u53bb\u9664\u8fd9\u4e2a`0`\u3002\n\n```cpp\nstring m;\ncin>>m;\nm[0]--;\nfor(int i=0;i<m.size();i++)\n{\n\tif(i==0&&m[i]=='0'&&m.size()!=1)\n\tcontinue;\n\tcout<<m[i];\n}\nprintf(\"\\n\");\n```\n\n## \u5b8c\u6574\u4ee3\u7801\n\n```cpp\n#include<iostream>\n#include<cstdio>\n#include<string>\n#define elif else if//\u5b8f\u5b9a\u4e49\u7b80\u5316\u4ee3\u7801\nusing namespace std;\nvoid work()//\u89e3\u6cd5 1\n{\n\tint m;\n\tscanf(\"%d\",&m);\n\tif(m<=9)           printf(\"%d\",m-1);\n\telif(m<=99)        printf(\"%d\",m-10);\n\telif(m<=999)       printf(\"%d\",m-100);\n\telif(m<=9999)      printf(\"%d\",m-1000);\n\telif(m<=99999)     printf(\"%d\",m-10000);\n\telif(m<=999999)    printf(\"%d\",m-100000);\n\telif(m<=9999999)   printf(\"%d\",m-1000000);\n\telif(m<=99999999)  printf(\"%d\",m-10000000);\n\telif(m<=999999999) printf(\"%d\",m-100000000);\n\telse               printf(\"0\");\n\tprintf(\"\\n\");\n}\nvoid work2()//\u89e3\u6cd5 2\n{\n\tstring m;\n\tcin>>m;\n\tm[0]--;\n\tfor(int i=0;i<m.size();i++)\n\t{\n\t\tif(i==0&&m[i]=='0'&&m.size()!=1)\n\t\tcontinue;\n\t\tcout<<m[i];\n\t}\n\tprintf(\"\\n\");\n}\nint main()\n{\n\tint t;\n\tscanf(\"%d\",&t);\n\twhile(t--)\n\twork();\n\treturn 0;\n}\n```",
+        "postTime": 1657600443,
+        "uid": 366897,
+        "name": "HarunluoON",
+        "ccfLevel": 4,
+        "title": "CF1702A Round Down the Price \u9898\u89e3"
+    },
+    {
+        "content": "\u9898\u610f\uff1a\u7ed9\u4e00\u4e9b\u6570\uff0c\u628a\u8fd9\u4e9b\u6570\u7684\u6700\u9ad8\u4f4d\u51cf\u53bb\u4e00\u3002\n\n\u601d\u8def\uff1a\u6211\u4eec\u53ea\u9700\u8981\u5224\u65ad\u8fd9\u4e2a\u6570\u662f\u51e0\u4f4d\u6570\uff0c\u7136\u540e\u505a\u51cf\u6cd5\uff08\u5982\uff1a\u662f\u5341\u4f4d\u6570\u5c31\u51cf\u5341\uff0c\u662f\u767e\u4f4d\u6570\u5c31\u51cf\u4e00\u767e\uff0c\u4ee5\u6b64\u7c7b\u63a8\uff09\u3002\n\n\u5b9e\u73b0\uff1a\u8bfb\u5165\uff0c\u5224\u65ad\u5373\u53ef\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nlong long t,n;\nint main()\n{\n\tcin>>t;\n\twhile(t--)\n\t{\n\t\tcin>>n;\n\t\tif(n<10) cout<<n-1<<endl;\n\t\tif(10<=n&&n<100) cout<<n-10<<endl;\n\t\tif(100<=n&&n<1000) cout<<n-100<<endl;\n\t\tif(1000<=n&&n<10000) cout<<n-1000<<endl;\n\t\tif(10000<=n&&n<100000) cout<<n-10000<<endl;\n\t\tif(100000<=n&&n<1000000) cout<<n-100000<<endl;\n\t\tif(1000000<=n&&n<10000000) cout<<n-1000000<<endl;\n\t\tif(10000000<=n&&n<100000000) cout<<n-10000000<<endl;\n\t\tif(100000000<=n&&n<1000000000) cout<<n-100000000<<endl;\n\t\tif(1000000000<=n&&n<10000000000) cout<<n-1000000000<<endl;\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1657597356,
+        "uid": 514610,
+        "name": "mzyc_yang2021",
+        "ccfLevel": 4,
+        "title": "CF1702A Round Down the Price"
+    },
+    {
+        "content": "\u63a8\u4e00\u4e0b\u5f0f\u5b50\uff1a\n\n\u6700\u9ad8\u4f4d\u662f $\\lfloor\\log_{10}m\\rfloor$\uff0c\u6240\u4ee5\u4fdd\u7559 $10^{\\lfloor\\log_{10}m\\rfloor}$\uff0c\u90a3\u4e48\u7b54\u6848\u5c31\u662f $m-10^{\\lfloor\\log_{10}m\\rfloor}$\u3002",
+        "postTime": 1657594825,
+        "uid": 556362,
+        "name": "UnnamedOrNamed",
+        "ccfLevel": 5,
+        "title": "CF1702A Round Down the Price \u9898\u89e3"
+    },
+    {
+        "content": "\u9898\u610f\uff1a\u7ed9\u5b9a\u4e00\u4e2a\u6570\uff0c\u6c42\u8fd9\u4e2a\u6570\u4e0e\u5c0f\u4e8e\u7b49\u4e8e\u8fd9\u4e2a\u6570\u7684\u6700\u5927\u7684 $10^k$ \u7684\u5dee\u3002\n\n\u505a\u6cd5\uff1a\u5c06\u6570\u5b57\u4f5c\u5b57\u7b26\u4e32\u8f93\u5165\uff0c\u8bbe\u8be5\u5b57\u7b26\u4e32\u957f\u5ea6\u4e3a $len$\uff0c\u90a3\u4e48\u5c0f\u4e8e\u7b49\u4e8e\u8fd9\u4e2a\u6570\u7684\u6700\u5927 $10^k$ \u5c31\u662f $10^{len-1}$\u3002\u7136\u540e\u5c06\u5b57\u7b26\u4e32\u8f6c\u5316\u4e3a\u6570\u5b57\u4f5c\u5dee\u5373\u53ef\u3002\n\n$Code$\n```cpp\n#include<bits/stdc++.h>\n\nusing namespace std;\n\nstring s;\n\nint main(){\n\tint t=1;\n\tcin>>t;\n\twhile(t--){\n\t\tcin>>s;\n\t\tint ans=0;\n\t\tint res=pow(10,s.length()-1);\n\t\tfor(int i=0;i<s.length();++i){\n\t\t\tans=ans*10+s[i]-'0';\n\t\t}\n\t\tans-=res;\n\t\tcout<<ans<<'\\n';\n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1657591231,
+        "uid": 574886,
+        "name": "Leonador",
+        "ccfLevel": 0,
+        "title": "CF1702A Round Down the Price \u9898\u89e3"
+    },
+    {
+        "content": "\u9898\u610f\uff1a\u7ed9\u5b9a\u4e00\u4e2a\u6570 $n$\uff0c\u627e\u51fa\u4e00\u4e2a\u6570\u4e3a $10^k \\leq n$\uff0c\u6c42\u4e8c\u8005\u7684\u5dee\u3002\n\n\u5efa\u7acb\u4e00\u4e2a\u6570\u7ec4\uff0c\u50a8\u5b58 $10^k$\uff0c\u6bcf\u6b21\u76f4\u63a5\u67e5\u8be2\u6c42\u5dee\u8f93\u51fa\u3002\n\n\u6ce8\u610f\u6570\u636e\u8303\u56f4\u3002\n\n```cpp\n#include<cstdio>\n#include<iostream>\nusing namespace std;\nlong long s[15]={0,1,10,100,1000,10000,100000,1000000,10000000,100000000,1000000000,10000000000};\nint t,m;\nint main(){\n\tscanf(\"%d\",&t);\n\twhile(t--){\n\t\tscanf(\"%d\",&m);\n\t\tfor(int i=1;i<=11;i++){\n\t\t\tif(m<s[i]){\n\t\t\t\tprintf(\"%d\\n\",m-s[i-1]);\n\t\t\t\tbreak;\n\t\t\t}\n\t\t}\n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1657591118,
+        "uid": 448593,
+        "name": "ldh081122",
+        "ccfLevel": 4,
+        "title": "CF1702A Round Down the Price \u9898\u89e3"
+    },
+    {
+        "content": "### \u89e3\u9898\u601d\u8def\n\u56e0\u4e3a\u8981\u5c3d\u91cf\u7528\u51cf\u6cd5\u63a5\u8fd1 $10^{k}$\uff0c\u800c\u4ece\u9898\u9762\u53c8\u80fd\u770b\u51fa $1 \\leq k \\leq 9$\uff0c\u6240\u4ee5\u4e0d\u59a8\u6253\u4e00\u4e2a\u8868\uff1a\n\n```cpp\nconst int ten[11] = {1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000};\n\n```\n\n\u7136\u540e\uff0c\u6211\u4eec\u518d\u627e\u5230\u6bd4\u8fd9\u4e2a\u6570\u5c0f\u4f46\u6700\u63a5\u8fd1\u7684 $10^{k}$\uff0c\u4ed6\u4eec\u7684\u5dee\u5c31\u662f\u7b54\u6848\u4e86\u3002\n\n### \u4ee3\u7801\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nconst int ten[11] = {1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000};\nint t, n, ans;\nint read() {\n  int sum = 0;\n  scanf(\"%d\", &sum);\n  return sum;\n}\nint main() {\n  t = read();\n  while (t--) {\n    ans = 1145141919;\n    n = read();\n    for (int i = 0; i <= 9; i++) {\n      if (ten[i] > n) {\n        continue;\n      }\n      ans = min(ans, n - ten[i]);//\u5176\u5b9e\u4e00\u65e6\u627e\u5230\u5c31\u80fd break \u4e86\u3002\n    }\n    printf(\"%d\\n\", ans);\n  }\n  return 0;\n}\n```",
+        "postTime": 1657590868,
+        "uid": 482347,
+        "name": "ZZQF5677",
+        "ccfLevel": 0,
+        "title": "CF1702A Round Down the Price - TJ"
+    },
+    {
+        "content": "[CF1702A Round Down the Price](https://www.luogu.com.cn/problem/CF1702A)\n\n### \u9898\u610f\n\n\u6c42\u6bcf\u4e2a\u6570\u6ee1\u8db3\u4ee5\u4e0b\u4e24\u4e2a\u6761\u4ef6\u7684\u6700\u5927\u6570\uff1a\n\n1.\u5c0f\u4e8e\u539f\u6570\n\n2.\u80fd\u88ab $10$ \u6574\u9664\n\n\u8f93\u51fa\u539f\u6570\u4e0e\u90a3\u4e2a\u6700\u5927\u6570\u7684\u5dee\n\n\u6211\u4eec\u53ef\u4ee5\u5148\u6253\u4e2a\u8868\uff0c\u76f4\u63a5 $a$ \u6570\u7ec4\u8bb0\u5f55 $10$ \u7684\u6b21\u5e42\u3002\u5728\u8f93\u5165\u6bcf\u4e2a\u6570\u65f6\uff0c\u4ece\u540e\u5f80\u524d\u904d\u5386 $a$ \u6570\u7ec4\u3002\u53ea\u8981\u627e\u5230\u5c0f\u4e8e\u8f93\u5165\u7684\u6570\uff0c\u5c31\u8f93\u51fa\u5b83\u4eec\u7684\u5dee\u3002\n\n### \u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,a[11]={1,10,100,1000,10000,100000,1000000,10000000,100000000,1000000000},b;\nint main(){\n\tcin>>n;\n\tfor(int i=1;i<=n;i++){\n\t\tcin>>b;\n\t\tfor(int i=10;i>=1;i--)\n\t\t\tif(b-a[i]>=0){\n\t\t\t\tcout<<b-a[i]<<endl;\n\t\t\t\tbreak;\n\t\t\t}\n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1657618758,
+        "uid": 531499,
+        "name": "windows_fleon",
+        "ccfLevel": 4,
+        "title": "CF1702A Round Down the Price"
+    },
+    {
+        "content": "## Description\n\n\u7ed9\u5b9a $n$\uff0c\u8981\u6c42\u5c06 $n$ \u51cf\u53bb\u4e00\u4e2a\u6700\u5c0f\u7684\u975e\u8d1f\u6574\u6570\uff0c\u4f7f\u5f97 $n$ \u662f $10$ \u7684\u6574\u6b21\u5e42\uff0c\u6c42\u8fd9\u4e2a\u6574\u6570\u3002\n\n## Solution\n\n\u660e\u663e\u7684\u8d2a\u5fc3\uff0c\u8981\u60f3\u8ba9\u51cf\u53bb\u7684\u6570\u6700\u5c0f\uff0c\u5c31\u8ba9\u5269\u4e0b\u7684\u6570\u6700\u5927\u3002\n\n\u9884\u5904\u7406 $10$ \u7684\u6574\u6b21\u5e42\uff0c\u627e\u5230 $\\le n$ \u4e2d\u6700\u5927\u7684\uff0c\u5373\u53ef\u6c42\u51fa\u7b54\u6848\u3002\n\n## Code\n\n```cpp\n#include <bits/stdc++.h>\n#define int long long\nusing namespace std;\nint n,i,a[15];\nvoid solve(){\n\tcin>>n;\n\tfor (i=10;i>=1;i--)\n\t\tif (n>=a[i]){\n\t\t\tcout<<n-a[i]<<'\\n';\n\t\t\treturn;\n\t\t}\n}\nvoid init(){\n\ta[1]=1;\n\tfor (i=2;i<=10;i++)\n\t\ta[i]=a[i-1]*10;\n}\nsigned main(){\n\tios::sync_with_stdio(0),cin.tie(0),cout.tie(0);\n\tinit();\n\tint tests=1;\n\tcin>>tests;\n\twhile (tests--)\n\t\tsolve();\n\treturn 0;\n}\n\n```\n",
+        "postTime": 1657616660,
+        "uid": 562686,
+        "name": "yeshubo_qwq",
+        "ccfLevel": 5,
+        "title": "CF1702A Round Down the Price \u9898\u89e3"
+    }
+]

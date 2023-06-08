@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u628a\u6570\u636e\u9884\u5148\u6392\u5e8f\u5e76\u4e0d\u4f1a\u5f71\u54cd\u7b54\u6848\uff0c\u4e8e\u662f $ a $ \u5355\u8c03\u4e0d\u51cf\uff0c\u53ef\u4ee5\u628a\u7edd\u5bf9\u503c\u7b26\u53f7\u53bb\u6389\uff0c\u539f\u5f0f\u5b50\u53d8\u4e3a\u6c42 $ \\sum_{i=1}^{N-1}\\sum_{j=i+1}^{N}\\ (a_j-a_i) $\u3002\n\n\u800c $ \\sum_{i=1}^{N-1}\\sum_{j=i+1}^{N}\\ (a_j-a_i)=\\sum_{i=1}^{N}(\\sum_{j=i+1}^{N}\\ a_j-(N-i)\\times a_i)$\uff0c\u4e8e\u662f\u53ef\u4ee5\u9884\u5904\u7406\u524d\u7f00\u548c $ s $\uff0c\u5f0f\u5b50\u53d8\u4e3a $ \\sum_{i=1}^{N}(s_n-s_i-(N-i)\\times a_i) $\uff0c\u7136\u540e\u679a\u4e3e\u6bcf\u4e2a $ i $ \u5373\u53ef $ \\mathcal{O}(1) $ \u8ba1\u7b97\u51fa\u540e\u9762\u7684\u7b54\u6848\u3002\n\n\u65f6\u95f4\u590d\u6742\u5ea6 $ \\mathcal{O}(n\\log{n}) $\uff0c\u6765\u81ea\u6392\u5e8f\u7684\u590d\u6742\u5ea6\uff0c\u53ef\u4ee5\u901a\u8fc7\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nconst int maxn=2e6+10;\n#define int long long\nint a[maxn],sum[maxn];\nsigned main()\n{\n\tint t=1;\n\twhile(t--)\n\t{\n    int n;\n\tcin>>n;\n\tfor(int i=1;i<=n;i++)\n\tcin>>a[i];\n    sort(a+1,a+n+1);\n\tfor(int i=1;i<=n;i++)\n    sum[i]=sum[i-1]+a[i];\n    int ans=0;\n    for(int i=1;i<=n;i++)\n    ans+=sum[n]-sum[i]-(n-i)*a[i];\n    cout<<ans<<'\\n';;\n    }\n}\n```\n",
+        "postTime": 1666482787,
+        "uid": 714821,
+        "name": "loser_seele",
+        "ccfLevel": 4,
+        "title": "ABC186D\u9898\u89e3"
+    }
+]

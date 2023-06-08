@@ -1,0 +1,66 @@
+[
+    {
+        "content": "\u4ece$l$\u5f00\u59cb\u679a\u4e3e$l\\sim r$\u4e4b\u95f4\u7684\u6570\u5b57\uff0c\u5224\u65ad\u662f\u5426\u6ee1\u8db3\u9898\u610f\u8981\u6c42\u3002\u82e5\u5747\u65e0\u6cd5\u6ee1\u8db3\u9898\u610f\u8981\u6c42\uff0c\u5219\u8f93\u51fa$-1$\u3002  \n\u4e3b\u7a0b\u5e8f\u4ee3\u7801\u5982\u4e0b\uff1a  \n```cpp\nint main()\n{\n    int L, R;\n    io.read(L, R);\n    for (int i = L; i <= R; i++) {\n        char str[10];\n        sprintf(str, \"%d\", i);\n        bool flag[10], t = true;\n        memset(flag, 0, sizeof(flag));\n        for (int j = 0; str[j]; j++)\n            if (flag[str[j] - 48] && !(t = false))\n                break;\n            else\n                flag[str[j] - 48] = true;\n        if (t) {\n            writeln(i); // \u6ee1\u8db3\u9898\u610f\u8981\u6c42\n            return 0;\n        }\n    }\n    writeln(-1); // \u4e0d\u6ee1\u8db3\u9898\u610f\u8981\u6c42\n    return 0;\n}\n```",
+        "postTime": 1569823320,
+        "uid": 84282,
+        "name": "andyli",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF1228A \u3010Distinct Digits\u3011"
+    },
+    {
+        "content": "\u6309\u7167\u9898\u4e49\u6a21\u62df\u5373\u53ef\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nbool vis[10];\nint main()\n{\n\tint l,r;\n\tscanf(\"%d%d\",&l,&r);\n\tfor (int i=l;i<=r;i++)\n\t{\n\t\tmemset(vis,0,sizeof(vis));\n\t\tint x=i;\n\t\tbool flag=1;\n\t\twhile(x)\n\t\t{\n\t\t\tint xx=x%10;\n\t\t\tx/=10;\n\t\t\tif (vis[xx])\n\t\t\t{\n\t\t\t\tflag=0;\n\t\t\t\tbreak;//\u4e0d\u7b26\u5408\u5219\u6807\u8bb0\uff0cbreak\n\t\t\t}\n\t\t\tvis[xx]=1;//\u5224\u65ad\u5404\u4f4d\u662f\u5426\u76f8\u540c\n\t\t}\n\t\tif (flag) {\n\t\t\tcout<<i;//\u7b26\u5408\u5219\u8f93\u51fa\n\t\t\treturn 0;\n\t\t}\n\t}\n\tcout<<-1;\n\treturn 0;\n   puts(\"I AK IOI\");\n } \n ```",
+        "postTime": 1569805266,
+        "uid": 32879,
+        "name": "k1saki",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF1228A \u3010Distinct Digits\u3011"
+    },
+    {
+        "content": "\u5148\u8d34\u4ee3\u7801\uff1a\n\n```cpp\ninclude<cstdio>\n#include<iostream>\n#include<queue>\n#include<algorithm>\n#include<cstring>\n#include<cctype>\n#include<vector>\n#include<ctime>\n#define LL long long\n#define pii pair<int,int>\n#define mk make_pair\n#define fi first\n#define se second\nusing namespace std;\ninline int read(){\n\tint v = 0,c = 1;char ch = getchar();\n\twhile(!isdigit(ch)){\n\t\tif(ch == '-') c = -1;\n\t\tch = getchar();\n\t}\n\twhile(isdigit(ch)){\n\t\tv = v * 10 + ch - 48;\n\t\tch = getchar();\n\t}\n\treturn v * c;\n}\nbool book[13];\ninline bool check(int x){\n\tmemset(book,0,sizeof(book));\n\twhile(x){\n\t\tif(book[x % 10]) return 0;\n\t\tbook[x % 10] = 1;\n\t\tx /= 10;\t\n\t}\n\treturn 1;\n}\nint main(){\n\tint l = read(),r = read();\n\tfor(int i = l;i <= r;++i){\n\t\tif(check(i)) return printf(\"%d\\n\",i) * 0;\n\t}\n\tputs(\"-1\");\n    return 0;\n}\n```\n\n\n\n\n\n\n\u5feb\u8bfb\u4e0d\u89e3\u91ca\u3002\n\n$book$ \u6570\u7ec4\u7528\u4e8e\u8bb0\u5f55\u6bcf\u4e2a\u6570\u6709\u6ca1\u6709\u51fa\u73b0\u8fc7\uff0c\u5982\u679c\u4e4b\u524d\u6709\uff0c\u76f4\u63a5\u8fd4\u56de $0$\uff08\u5047\uff09\uff0c\u5426\u5219\u628a\u5f53\u524d $book$ \u503c\u8bbe\u4e3a $1$\u3002\n\n\u7136\u540e\u5982\u679c\u5565\u4e8b\u6ca1\u6709\u8bf4\u660e\u6210\u529f\u4e86\u3002\n\n\u6700\u540e\u4ece $l$ \u5230 $r$\uff0c\u9010\u4e00\u5c1d\u8bd5\u3002\n\n\u6ca1\u6709\u8f93\u51fa $-1$\u3002\n",
+        "postTime": 1648370827,
+        "uid": 302394,
+        "name": "dingshengyang",
+        "ccfLevel": 4,
+        "title": "\u66b4\u529b\u679a\u4e3e\u5927\u6cd5\u597d\u554a\uff01"
+    },
+    {
+        "content": "\u8fd9\u662f\u4e00\u7bc7 **Python** \u9898\u89e3\u3002\n\n\u6211\u4eec\u53ef\u4ee5\u5148\u5c06 $ans$ \u521d\u59cb\u5316\u4e3a $-1$\uff0c\u7136\u540e\u4ece $l$ \u5230 $r$ \u9010\u4e2a\u679a\u4e3e\uff0c\u5982\u679c\u6ee1\u8db3\u6761\u4ef6\u5c31\u4fee\u6539 $ans$ \u7684\u503c\u5e76\u76f4\u63a5\u8df3\u51fa\u5faa\u73af\u3002\u8fd9\u65f6\uff0c$ans$ \u4fbf\u662f\u7b54\u6848\u3002\n\n\u90a3\u4e48\uff0c\u5982\u4f55\u5224\u65ad\u4e00\u4e2a\u6570\u5b57\u662f\u5426\u6ee1\u8db3\u6761\u4ef6\uff1f\n\n\u6211\u4eec\u53ef\u4ee5\u9010\u4e2a\u5206\u79bb\u6570\u4f4d\uff0c\u68c0\u67e5\u662f\u5426\u91cd\u590d\u51fa\u73b0\u3002\n\n\u4ee3\u7801\u5982\u4e0b\uff1a\n\n```python\ndef check(x):\n    lst=[]\n    while x!=0:\n        if lst.count(x%10)!=0:\n            return 0\n        lst.append(x%10)\n        x=x//10\n    return 1\nans=-1\nl,r=map(int,input().split())\nfor i in range(l,r+1):\n    if check(i)==1:\n        ans=i\n        break\nprint(ans)\n```\n\n\u6ce8\uff1a\n\n`lst.count(x%10)`\u8fd4\u56de\u7684\u662f\u5217\u8868`lst`\u4e2d\u5143\u7d20\u503c\u4e3a`x%10`\u7684\u5143\u7d20\u4e2a\u6570\uff0c\u5982\u679c`lst.count(x%10)`\u4e0d\u4e3a $0$\uff0c\u5219\u8bf4\u660e\u6709\u91cd\u590d\uff0c`x`\u4e0d\u6ee1\u8db3\u6761\u4ef6\u3002\n\n`lst.append(x%10)`\u7684\u4f5c\u7528\u662f\u5728`lst`\u4e2d\u6dfb\u52a0\u503c\u4e3a`x%10`\u7684\u5143\u7d20\u3002\n\n\u5728[\u8fd9\u7bc7](https://www.runoob.com/python3/python3-list.html)\u6587\u7ae0\u4e2d\uff0c\u5bf9\u4e8e Python \u4e2d\u5217\u8868\u7684\u64cd\u4f5c\u6709\u66f4\u52a0\u8be6\u7ec6\u7684\u8bf4\u660e\u3002",
+        "postTime": 1637923482,
+        "uid": 511907,
+        "name": "\u4e00\u53ea\u5927\u9f99\u732b",
+        "ccfLevel": 5,
+        "title": "CF1228A \u9898\u89e3"
+    },
+    {
+        "content": "\u6765\u6c34\u4e00\u6ce2`set`\n\n\u4f17\u6240\u5468\u77e5\uff0cset\u6709\u4e24\u4e2a\u7279\u6027\uff1a\n\n1. \u53bb\u91cd\n\n2. \u6392\u5e8f\n\n\u4f46\u662f\u6211\u53ea\u9700\u8981\u8fd9\u4e2a\uff1a\n\n# \u53bb\u91cd\n\n\u90a3\u4e48\u601d\u8def\u76f8\u4fe1\u67d0\u4e9b\u94f6\u5c31\u660e\u767d\u4e86qaq\n\n\u4f46\u662f\u914d\u5408\u4ee3\u7801\u7406\u89e3\u4f1a\u66f4\u597d\uff08\u5176\u5b9e\u662f\u6211\u8bed\u6587\u6c34\u5e73\u592a\u70c2\u4e86qaq\n\n```\n#include<iostream>\n#include<algorithm>\n#include<stdio.h>\n#include<cstdio>\n\n#include<set>\nusing namespace std;\nint l,r;\nset <int> s;//\u6211\u4eec\u8fd9\u7bc7\u4ee3\u7801\u7684\u6700\u6700\u6700\u6700\u4e2d\u5fc3\u7684\u4e1c\u897f\nbool checker(int a){\n\ts.clear();//\u8bb0\u5f97\u6bcf\u6b21\u8fd0\u7b97\u6e05\u7406\u4e00\u4e0b\n\tint num=0;\n\twhile(a){\n\t\tnum=s.size();//\u5c06\u4e0a\u4e00\u6b21\u7684\u5143\u7d20\u4e2a\u6570\u4fdd\u7559\u4e00\u4e0b\n\t\ts.insert(a%10);//\u7136\u540e\u538b\u8fdb\u53bb\u4e00\u4e2a\u6570\n\t\ta/=10;\n\t\tif(num==s.size()){//\u8fd9\u4e2aif\u5f88\u5173\u952e\uff1a\n/*\n\u5982\u679c\u4e00\u4e2aset\u538b\u8fdb\u53bb\u4e00\u4e2a\u6570\u4f46\u662fset\u5b58\u50a8\u7684\u5143\u7d20\u6ca1\u6709\u53d8\uff0c\u90a3\u8fd9\u53ea\u53ef\u80fd\u6709\u4e24\u4e2a\u60c5\u51b5:\n\n1.\u4f60\u7528\u4e86\u4e00\u4e2a\u5047set\uff08\u5212\u6389\n\n2.\u56e0\u4e3a\u8fd9\u4e2a\u5143\u7d20\u5df2\u7ecf\u88ab\u538b\u8fdb\u53bb\u4e86!\uff08\u91cd\u8981\uff0c\u6572\u9ed1\u677f\n\n\u5df2\u7ecf\u88ab\u538b\u8fdb\u53bb\u4e86\u8bf4\u660e\u4e86\u4ec0\u4e48\uff1f\n\n\u8bf4\u660e\u4e86a\u6709\u4e24\u4e2a\u76f8\u540c\u7684\u6570\u7801\uff0c\u4e5f\u5c31\u662f\u8bf4a\u4e0d\u80fd\u6ee1\u8db3\u9898\u76ee\u8981\u6c42\n\n\u6240\u4ee5\uff0c\u6211\u4eec\u5229\u7528set\u81ea\u5e26\u53bb\u91cd\u6765\u5de7\u5999\u6ef4\u89e3\uff08\u5077\uff09\u51fa\uff08\u4e86\uff09\u4e86\uff08\u4e0b\uff09\u9898\uff08\u61d2\uff09\n*/\n\t\t\treturn false;//\u6325\u624b\u544a\u522b\u8fd9\u4e2a\u51fd\u6570\uff0cfalse\n\t\t}\n\t}\n\treturn true;//\u6ca1\u6709\u76f8\u540c\u7684\u6570\u7801\u8bf4\u660e\u8fd9\u4e2aa\u662f\u7b26\u5408\u7684\uff01\n}\nint main(){\n\tcin>>l>>r;\n\tfor(int i=l;i<=r;i++){//\u679a\u4e3e\u68c0\u67e5\u54ea\u4e00\u4e2a\u7b26\u5408\u8981\u6c42\n\t\tif(checker(i)){//\u5224\u65ad\u51fd\u6570\n\t\t\tcout<<i<<endl;\n\t\t\treturn 0;\n\t\t}\n\t}\n\tputs(\"-1\");\n\treturn 0;\n}\n```\n\nThe End.",
+        "postTime": 1569935779,
+        "uid": 122605,
+        "name": "\u7075\u5149\u4e00\u95ea",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1228A \u3010Distinct Digits\u3011"
+    },
+    {
+        "content": "\u8fd9\u91cc\u53ef\u4ee5\u66b4\u529b\u3002\n\n\u53ea\u9700\u8981\u4ecel\u679a\u4e3e\u5230r,\u7136\u540e\u5224\u65ad\u6bcf\u4e00\u4f4d\u6570\u5b57\u662f\u5426\u76f8\u540c\u3002\u5224\u65ad\u4e00\u5806\u6570\u662f\u5426\u76f8\u540c,\u53ef\u4ee5\u7528\u6807\u8bb0\u6cd5\u3002\n\n\u5177\u4f53\u65b9\u6cd5\u5728\u4ee3\u7801\u91cc\u5199\u4e86\u6ce8\u91ca\u3002\n\n```cpp\n#include<iostream>\n#include<cstring>\nusing namespace std;\nbool mark[11]={0}; //\u6807\u8bb0\u6570\u7ec4\u3002\nbool check(int a){ //\u68c0\u6d4b\u8fd9\u4e2a\u6570\u5b57\u662f\u5426\u7b26\u5408\u6807\u51c6\u3002\n\twhile(a!=0){ //\u662f\u4e0d\u662f\u5df2\u7ecf\u68c0\u6d4b\u5b8c\u4e86\u6240\u6709\u7684\u4f4d\u3002\n\t\tif(mark[a%10]){ //\u88ab\u6807\u8bb0\u8fc7(\u51fa\u73b0\u8fc7)\u3002\n\t\t\treturn false;\n\t\t}\n\t\tmark[a%10]=1; //\u6807\u8bb0\u3002a%10\u8868\u793a\u53d6\u4e2a\u4f4d\u3002\n\t\ta/=10; //\u820d\u53bb\u540e\u4e00\u4f4d\u3002\n\t}\n\treturn true;\n}\nint main(){\n\tint l,r,i;\n\tcin>>l>>r;\n\tfor(i=l;i<=r;i++){\n\t\tmemset(mark,0,sizeof(mark)); //\u6e05\u7a7a\u51fd\u6570\u3002\n\t\tif(check(i)){\n\t\t\tcout<<i;\n\t\t\treturn 0; //\u9898\u76ee\u8981\u6c42print any of them,\u53ea\u8981\u6253\u5370\u4e00\u4e2a,\u6240\u4ee5\u8981\u53ca\u65f6\u8fd4\u56de\u3002\n\t\t}\n\t}\n\tcout<<-1; //\u9898\u76ee\u8981\u6c42Otherwise(\u5426\u5219), print -1. \u5982\u679c\u5faa\u73af\u7ed3\u675f\u4e86\u90fd\u6ca1\u6709\u627e\u5230\u4e00\u4e2a\u7b26\u5408\u8981\u6c42\u7684\u6570\u5b57,\u6309\u9898\u76ee\u8981\u6c42,\u8f93\u51fa-1\u3002\n\treturn 0;\n}\n```",
+        "postTime": 1569849148,
+        "uid": 87799,
+        "name": "xh39",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1228A \u3010Distinct Digits\u3011"
+    },
+    {
+        "content": "## \u5e7f\u544a\n\u60f3\u8981\u66f4\u4f73\u7684\u98df\u7528\u4f53\u9a8c\uff0c\u8bf7\u524d\u5f80[\u849f\u84bb\u306eBlog](https://stevenmhy.tk/archives/9b983113.html)\n\n## $Pro1$\n\n[\u4f20\u9001\u95e8](https://codeforces.com/contest/1228/problem/A)\n\n\u8ba9\u4f60\u627e\u5230\u4efb\u610f\u4e00\u4e2a\u6570$x \\in [l,r]$\uff0c\u4f7f\u5f97$x$\u7684\u5404\u4f4d\u6570\u5b57\u90fd\u4e0d\u540c\u3002\n\n## $Sol1$\n\n\u6ce8\u610f\u5230$1 \\le l \\le r \\le 10^5$\uff0c\u6bcf\u4e2a\u6570\u6700\u591a$5$\u4f4d\u3002\n\n\u4e8e\u662f\u786c\u4e0a$O(n \\log _{10} n)$\u5927\u6a21\u62df\u5373\u53ef\u3002\n\n## $Code1$\n\n```cpp\n#include <bits/stdc++.h>\n#define MAXN 2000005\nusing namespace std;\ninline int read(){\n    int x=0,f=1;\n    char ch=getchar();\n    while (ch<'0'||ch>'9'){\n        if (ch=='-') f=-1;\n        ch=getchar();\n    }\n    while (ch>='0'&&ch<='9'){\n        x=(x<<3)+(x<<1)+(ch^'0');\n        ch=getchar();\n    }\n    return x*f;\n}\ninline int Check(int x){\n\tint cnt[10];\n\tmemset(cnt,0,sizeof(cnt));\n\twhile (x) {\n\t\tcnt[x%10]++;\n\t\tx/=10;\n\t}\n\tfor (register int i=0;i<=9;++i){\n\t\tif (cnt[i]>1) return false;//\u51fa\u73b0\u8d85\u8fc71\u6b21\u8868\u793a\u6709\u91cd\u590d\n\t}\n\treturn true;\n}\nint main(){\n\tint l=read(),r=read();\n\tfor (register int i=l;i<=r;++i){\n\t\tif (Check(i)){\n\t\t\tprintf(\"%d\\n\",i);\n\t\t\treturn 0;\n\t\t}\n\t}\n\tputs(\"-1\");\n\treturn 0;\n}\n```\n",
+        "postTime": 1569848205,
+        "uid": 45109,
+        "name": "Steven_Meng",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1228A \u3010Distinct Digits\u3011"
+    },
+    {
+        "content": "# $\\mathcal{codeforces}$ $\\mathcal{1228}$\n\n## $\\mathcal{A}$  $\\mathcal{Distinct Digits}$\n\n### $\\mathcal{Description}$\n\n\u7ed9\u4f60\u4e24\u4e2a\u6570 $l$ \u548c $r$ $(1 \\leq l \\leq r \\leq 10 ^ 5)$\uff0c\u8981\u6ee1\u8db3 $l\\leq x \\leq r$ \u4ee5\u53ca $x$ \u7684\u6bcf\u4e00\u4f4d\u6570\u5b57\u90fd\u4e0d\u76f8\u540c\uff0c\u8f93\u51fa\u4efb\u610f\u4e00\u4e2a\u6ee1\u8db3\u6761\u4ef6\u7684\u6570\uff0c\u5982\u679c\u6ca1\u6709\u5219\u8f93\u51fa $-1$\u3002\n\n### $\\mathcal{Solution}$\n\n\u56e0\u4e3a$1 \\leq l \\leq r \\leq 10 ^ 5$\uff0c\u6240\u4ee5\u6211\u4eec\u53ef\u4ee5\u76f4\u63a5\u66b4\u529b\u6c42\u7b54\u6848\u3002\n\n### $\\mathcal{Code}$\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint l, r, f[20];\nint main() {\n    scanf(\"%d%d\", &l, &r);\n    for (int i = l; i <= r; i++) {\n        int x = i;\n        bool tf = true;\n        memset(f, 0, sizeof(f));\n        while (x > 0) {\n            if (f[x % 10] == 1) {\n                tf = false;\n                break;\n            }\n            f[x % 10]++;\n            x = x / 10;\n        }\n        if (tf == true) return printf(\"%d\\n\", i), 0;\n    }\n    printf(\"-1\\n\");\n    return 0;\n}\n```",
+        "postTime": 1569804635,
+        "uid": 13746,
+        "name": "Trimsteanima",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1228A \u3010Distinct Digits\u3011"
+    }
+]

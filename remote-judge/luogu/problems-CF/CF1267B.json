@@ -1,0 +1,29 @@
+{
+    "description": "Balph is learning to play a game called Buma. In this game, he is given a row of colored balls. He has to choose the color of one new ball and the place to insert it (between two balls, or to the left of all the balls, or to the right of all the balls).\n\nWhen the ball is inserted the following happens repeatedly: if some segment of balls of the same color became longer as a result of a previous action and its length became at least $ 3 $ , then all the balls of this segment are eliminated.\n\nConsider, for example, a row of balls 'AAABBBWWBB'. Suppose Balph chooses a ball of color 'W' and the place to insert it after the sixth ball, i. e. to the left of the two 'W's. After Balph inserts this ball, the balls of color 'W' are eliminated, since this segment was made longer and has length $ 3 $ now, so the row becomes 'AAABBBBB'. The balls of color 'B' are eliminated now, because the segment of balls of color 'B' became longer and has length $ 5 $ now. Thus, the row becomes 'AAA'. However, none of the balls are eliminated now, because there is no elongated segment.\n\nHelp Balph count the number of possible ways to choose a color of a new ball and a place to insert it that leads to the elimination of all the balls.",
+    "inputFormat": "The only line contains a non-empty string of uppercase English letters of length at most $ 3 \\cdot 10^5 $ . Each letter represents a ball with the corresponding color.",
+    "outputFormat": "Output the number of ways to choose a color and a position of a new ball in order to eliminate all the balls.",
+    "samples": [
+        [
+            "BBWWBB\n",
+            "3\n"
+        ],
+        [
+            "BWWB\n",
+            "0\n"
+        ],
+        [
+            "BBWBB\n",
+            "0\n"
+        ],
+        [
+            "OOOWWW\n",
+            "0\n"
+        ],
+        [
+            "WWWOOOOOOWWW\n",
+            "7\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "### \u9898\u76ee\u63cf\u8ff0\n\u5df4\u5c14\u592b\u5728\u73a9\u4e00\u4e2a\u6e38\u620f\u3002\u5728\u8fd9\u4e2a\u6e38\u620f\u4e2d\uff0c\u4ed6\u5c06\u5f97\u5230\u4e00\u4e32\u5f69\u8272\u7684\u7403\u3002\u4ed6\u9700\u8981\u9009\u62e9\u4e00\u4e2a\u989c\u8272\u7684\u7403\u5e76\u5728\u8fd9\u4e32\u7403\u4e2d\u9009\u62e9\u4efb\u610f\u4e00\u4e2a\u4f4d\u7f6e\u63d2\u5165\u8fd9\u4e2a\u7403\u3002\n\n\u5f53\u4e00\u4e2a\u7403\u88ab\u63d2\u5165\u540e\uff0c\u4ee5\u4e0b\u60c5\u51b5\u4f1a\u91cd\u590d\u53d1\u751f\uff1a\u5982\u679c\u8fde\u7eed\u4e00\u4e32\u76f8\u540c\u989c\u8272\u7684\u7403**\u7531\u4e8e\u5148\u524d\u7684\u64cd\u4f5c\u800c\u53d8\u957f**\uff0c\u5e76\u4e14\u5176\u957f\u5ea6\u5927\u4e8e\u6216\u7b49\u4e8e$3$\uff0c\u5219\u8fd9\u4e00\u4e32\u76f8\u540c\u989c\u8272\u7684\u7403\u90fd\u5c06\u88ab\u6d88\u9664\u3002\n\n\u4f8b\u5982\uff0c\u4e00\u4e32\u7403\u201cAAABBBWWBB\u201d\u3002\u5047\u5982\u5df4\u5c14\u592b\u9009\u62e9\u4e86\u4e00\u4e2a\u989c\u8272\u4e3a\u2018W\u2019\u7684\u7403\uff0c\u5e76\u5c06\u5176\u63d2\u5165\u5230\u7b2c$6$\u4e2a\u4f4d\u7f6e\uff08\u5373\u2018B\u2019\u548c\u2018W\u2019\u4e4b\u95f4\uff09\uff0c\u6b64\u65f6\u989c\u8272\u4e3a\u2018W\u2019\u7684\u7403\u5c06\u88ab\u6d88\u9664\uff0c\u56e0\u4e3a\u8be5\u64cd\u4f5c\u4f7f\u5f97\u6b64\u6bb5\u53d8\u957f\u4e14\u957f\u5ea6\u4e3a$3$\u3002\u73b0\u5728\uff0c\u8fd9\u4e32\u7403\u4e3a\u201cAAABBBBB\u201d\u3002\u989c\u8272\u4e3a\u2018B\u2019\u7684\u7403\u73b0\u5728\u88ab\u6d88\u9664\u4e86\uff0c\u56e0\u4e3a\u989c\u8272\u4e3a\u2018B\u2019\u7684\u7403\u6bb5\u53d8\u957f\u4e86\uff0c\u5e76\u4e14\u957f\u5ea6\u4e3a$5$\u3002\u5269\u4e0b\u7684\u7403\u4e3a\u201cAAA\u201d\uff0c\u7531\u4e8e\u6ca1\u6709\u4efb\u4f55\u64cd\u4f5c\u4f7f\u5f97\u989c\u8272\u4e3a\u2018A\u2019\u7684\u7403\u6bb5\u53d8\u957f\uff0c\u6240\u4ee5\u65e0\u6cd5\u518d\u6b21\u8fdb\u884c\u6d88\u9664\u3002\n\n\u5df4\u5c14\u592b\u60f3\u77e5\u9053\uff0c\u5982\u679c\u7ed9\u4f60\u4efb\u610f\u4e00\u4e32\u7403\uff0c\u6709\u591a\u5c11\u79cd\u63d2\u5165\u7684\u65b9\u5f0f\u80fd\u4f7f\u5f97\u6240\u6709\u7684\u7403\u90fd\u80fd\u88ab\u6d88\u9664\uff1f\n\n### \u8f93\u5165\u683c\u5f0f\n\u4e00\u884c\u5b57\u7b26\u4e32\uff0c\u957f\u5ea6\u4e0d\u8d85\u8fc7300000\n\n### \u8f93\u51fa\u683c\u5f0f\n\u4e00\u4e2a\u6574\u6570\uff0c\u8868\u793a\u80fd\u4f7f\u5f97\u6240\u6709\u7684\u7403\u90fd\u80fd\u88ab\u6d88\u9664\u7684\u65b9\u6848\u603b\u6570"
+}

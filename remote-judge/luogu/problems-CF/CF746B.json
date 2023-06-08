@@ -1,0 +1,21 @@
+{
+    "description": "Polycarp is mad about coding, that is why he writes Sveta encoded messages. He calls the median letter in a word the letter which is in the middle of the word. If the word's length is even, the median letter is the left of the two middle letters. In the following examples, the median letter is highlighted: contest, info. If the word consists of single letter, then according to above definition this letter is the median letter.\n\nPolycarp encodes each word in the following way: he writes down the median letter of the word, then deletes it and repeats the process until there are no letters left. For example, he encodes the word volga as logva.\n\nYou are given an encoding $ s $ of some word, your task is to decode it.",
+    "inputFormat": "The first line contains a positive integer $ n $ ( $ 1<=n<=2000 $ ) \u2014 the length of the encoded word.\n\nThe second line contains the string $ s $ of length $ n $ consisting of lowercase English letters \u2014 the encoding.",
+    "outputFormat": "Print the word that Polycarp encoded.",
+    "samples": [
+        [
+            "5\nlogva\n",
+            "volga\n"
+        ],
+        [
+            "2\nno\n",
+            "no\n"
+        ],
+        [
+            "4\nabba\n",
+            "baba\n"
+        ]
+    ],
+    "hint": "In the first example Polycarp encoded the word volga. At first, he wrote down the letter l from the position $ 3 $ , after that his word looked like voga. After that Polycarp wrote down the letter o from the position $ 2 $ , his word became vga. Then Polycarp wrote down the letter g which was at the second position, the word became va. Then he wrote down the letter v, then the letter a. Thus, the encoding looked like logva.\n\nIn the second example Polycarp encoded the word no. He wrote down the letter n, the word became o, and he wrote down the letter o. Thus, in this example, the word and its encoding are the same.\n\nIn the third example Polycarp encoded the word baba. At first, he wrote down the letter a, which was at the position $ 2 $ , after that the word looked like bba. Then he wrote down the letter b, which was at the position $ 2 $ , his word looked like ba. After that he wrote down the letter b, which was at the position $ 1 $ , the word looked like a, and he wrote down that letter a. Thus, the encoding is abba.",
+    "translation": "## **\u9898\u76ee\u5927\u610f**\r\nPolycarp\u5f88\u60f3\u7f16\u7801\uff0c\u8fd9\u5c31\u662f\u4ed6\u7f16\u5199Sveta\u7f16\u7801\u4fe1\u606f\u7684\u539f\u56e0\u3002\u4ed6\u628a\u4e2d\u95f4\u5b57\u6bcd\u79f0\u4e3a\u5355\u8bcd\u4e2d\u95f4\u7684\u5b57\u6bcd\u3002\u5982\u679c\u5355\u8bcd\u7684\u957f\u5ea6\u662f\u5076\u6570\uff0c\u5219\u4e2d\u95f4\u5b57\u6bcd\u662f\u4e24\u4e2a\u4e2d\u95f4\u5b57\u6bcd\u7684\u5de6\u8fb9\u3002\u5728\u4ee5\u4e0b\u793a\u4f8b\u4e2d\uff0c\u4e2d\u95f4\u5b57\u6bcd\u7a81\u51fa\u663e\u793a\uff1acon**t** est\uff0ci**n**fo\u3002\u5982\u679c\u5355\u8bcd\u7531\u5355\u4e2a\u5b57\u6bcd\u7ec4\u6210\uff0c\u5219\u6839\u636e\u4e0a\u9762\u7684\u5b9a\u4e49\uff0c\u8fd9\u4e2a\u5b57\u6bcd\u662f\u4e2d\u95f4\u5b57\u6bcd\u3002\r\n\r\nPolycarp\u4ee5\u4e0b\u5217\u65b9\u5f0f\u5bf9\u6bcf\u4e2a\u5355\u8bcd\u8fdb\u884c\u7f16\u7801\uff1a\u4ed6\u5199\u4e0b\u5355\u8bcd\u7684\u4e2d\u95f4\u5b57\u6bcd\uff0c\u7136\u540e\u5c06\u5176\u5220\u9664\u5e76\u91cd\u590d\u8be5\u8fc7\u7a0b\uff0c\u76f4\u5230\u6ca1\u6709\u5b57\u6bcd\u4e3a\u6b62\u3002\u4f8b\u5982\uff0c\u4ed6\u5c06volga\u7f16\u7801\u4e3alogva\u3002\r\n\r\n\u4f60\u5f97\u5230\u4e00\u4e2a\u7f16\u7801\uff0c\u4f60\u7684\u4efb\u52a1\u662f\u8fdb\u884c\u8bd1\u7801\u3002\r\n### **\u8f93\u5165\u683c\u5f0f\uff1a**\r\n\u7b2c\u4e00\u884c\u5305\u542b\u6b63\u6574\u6570\uff081<=n<=2000\uff09n\u4ee3\u8868\u7f16\u7801\u5b57\u7684\u957f\u5ea6\u3002\r\n\r\n\u7b2c\u4e8c\u884c\u5305\u542b\u4e00\u4e2a\u53ea\u7531\u5c0f\u5199\u82f1\u6587\u5b57\u6bcd\u7ec4\u6210\u7684\u5b57\u7b26\u4e32\u7f16\u7801\u3002\r\n\r\n### **\u8f93\u51fa\u683c\u5f0f\uff1a**\r\n\u8f93\u51faPolycarp\u8fdb\u884c\u7f16\u7801\u7684\u539f\u5355\u8bcd\u8f93\u51faPolycarp\u8fdb\u884c\u7f16\u7801\u7684\u539f\u5355\u8bcd\u3002"
+}

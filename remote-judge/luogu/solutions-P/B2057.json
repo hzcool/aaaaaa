@@ -1,0 +1,34 @@
+[
+    {
+        "content": "## \u9898\u76ee\u5206\u6790\n\u8fd9\u9898\u53ef\u4ee5\u4f7f\u7528\u5feb\u6392\uff0c\u5c06\u6570\u7ec4\u4ece\u5c0f\u5230\u5927\u6392\u597d\u5e8f\u540e\u518d\u8f93\u51fa\u6700\u540e\u4e00\u4e2a\u6570\u5373\u53ef\u3002\u6ce8\u610f\u6570\u636e\u8303\u56f4\u3002\n## \u4ee3\u7801\u5b9e\u73b0\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n\tint n;\n\tint a[110];\n\tcin>>n;\n\tfor(int i=1;i<=n;i++)\n\t\tcin>>a[i];\n\tsort(a+1,a+n+1);\n\tcout<<a[n]<<endl;\n\treturn 0;\n}\n\n```\n",
+        "postTime": 1625302306,
+        "uid": 359581,
+        "name": "\u00b7\u7cef\u00b7",
+        "ccfLevel": 5,
+        "title": "B2057"
+    },
+    {
+        "content": "## \u9898\u89e3\n\nC++ \u5f53\u4e2d\u6709\u4e00\u4e2a\u51fd\u6570 $\\verb!max!$ \uff0c\u53ef\u4ee5\u8fd4\u56de\u4e24\u4e2a\u6570\u5f53\u4e2d\u66f4\u5927\u7684\u90a3\u4e2a\u6570\u3002\u56e0\u6b64\uff0c\u6211\u4eec\u8bbe\u5f53\u524d\u6700\u5927\u7684\u6570\u662f $s$ \uff0c\u6bcf\u5f53\u8bfb\u5165\u4e00\u4e2a\u6570\u5b57 $x$ \u65f6\uff0c\u6bd4\u8f83 $s$ \u548c $x$ \u7684\u5927\u5c0f\uff1b\u82e5\u540e\u8005\u5927\u4e8e\u524d\u8005\u5c31\u66f4\u65b0 $s$ \u3002\n\n### \u5c0f\u6269\u5c55\n\n\u5047\u5982\u8bfb\u5165\u7684\u6570\u5b57\u975e\u5e38\u5927\uff08\u6bd4\u5982\u6709 $100$ \u4f4d\uff0c\u8fd9\u8fdc\u8fdc\u8d85\u8fc7\u4e86\u6574\u5f62\u7684\u8303\u56f4\uff09\uff0c\u6211\u4eec\u5c31\u4e0d\u80fd\u7528\u5e38\u89c4\u7684\u65b9\u5f0f\u4e86\u3002\u8003\u8651\u5c06\u4e24\u4e2a\u6570\u5b57\u8f6c\u6362\u6210\u4e24\u4e2a\u5b57\u7b26\u4e32\uff0c\u5e76\u6bd4\u8f83\u5927\u5c0f\u3002\n\n\u5728 C++ \u5f53\u4e2d\u539f\u751f\u652f\u6301 $\\verb!string!$ \u7c7b\u578b\u6bd4\u8f83\u5927\u5c0f\uff0c\u4f46\u662f\u8fd9\u79cd\u6bd4\u5927\u5c0f\u6bd4\u8f83\u7684\u662f\u5b57\u5178\u5e8f\uff08\u6b63\u5982\u8fd9\u4e2a\u540d\u5b57\uff0c\u5b57\u5178\u5e8f\u4e2d\u5b57\u6bcd\u987a\u5e8f\u8d8a\u5c0f\u7684\u8d8a\u9760\u524d\uff09\uff0c\u6211\u4eec\u8f6c\u5316\u4e3a\u6574\u5f62\u7684\u90a3\u79cd\u6bd4\u8f83\u65b9\u5f0f\uff0c\u5c31\u5148\u6bd4\u8f83\u5b83\u4eec\u7684\u957f\u5ea6\uff0c\u663e\u7136\u4e00\u4e2a\u957f\u4e8e/\u77ed\u4e8e\u53e6\u4e00\u4e2a\u90fd\u53ef\u4ee5\u76f4\u63a5\u5f97\u51fa\u7ed3\u679c\u3002\u800c\u5f53\u4e14\u4ec5\u5f53\u4f4d\u6570\u76f8\u540c\u65f6\uff0c\u6bd4\u8f83\u5b57\u5178\u5e8f\uff0c\u5c31\u662f\u6570\u503c\u4e0a\u7684\u5927\u5c0f\u5173\u7cfb\u4e86\u3002\n\n\u6b64\u5916\uff0c $\\verb!max!$ \u91cc\u9762\u53ef\u4ee5\u4f20\u5165\u6bd4\u8f83\u51fd\u6570\u3002\u6bd4\u8f83\u51fd\u6570\u6bd4\u8f83\u7684\u662f $a$ \u662f\u5426\u5c0f\u4e8e $b$ \u3002\n\n## \u53c2\u8003\u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\n#define up(l,r,i) for(int i=l,END##i=r;i<=END##i;++i)\n#define dn(r,l,i) for(int i=r,END##i=l;i>=END##i;--i)\nusing namespace std;\ntypedef long long i64;\nconst int INF =2147483647;\nbool cmp(string a,string b){\n    return a.length()<b.length()||(a.length()==b.length()&&a<b);\n}\nstring s,x; int n;\nint main(){\n    cin>>n; up(1,n,i) cin>>x,s=max(s,x,cmp); cout<<s<<endl;\n    return 0;\n}\n```",
+        "postTime": 1625325940,
+        "uid": 330759,
+        "name": "\u56e7\u4ed9",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 B2057 \u3010\u6700\u9ad8\u7684\u5206\u6570\u3011"
+    },
+    {
+        "content": "[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/B2057)\n\n\u5f88\u663e\u7136\u5c31\u662f\u627e\u5230\u6700\u5927\u7684\u6570\u3002\n\n\u90a3\u4e48\u5f04\u4e00\u4e2a\u7b54\u6848\uff0c\u7136\u540e\u6bcf\u6b21\u8f93\u5165\u7684\u65f6\u5019\u66f4\u65b0\u6700\u5927\u503c\u5373\u53ef\u3002\n\n\u5177\u4f53\u5b9e\u73b0\u89c1\u4ee3\u7801\uff1a\n\n### Code:\n\n```cpp\n//\u7ea2\u592a\u9633zhouakngyang txdy!\n#pragma GCC target(\"sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,avx2,tune=native\")\n#include<bits/stdc++.h>\n#define Macesuted cout<<\"kawaii\"<<endl\n#define MatrixCascade cout<<\"npsl\"<<endl\n#define Karry5307 cout<<\"nmsl\"<<endl\nusing namespace std;\n//#define int long long\ninline int read()\n{\n\tint sum=0,nega=1;char ch=getchar();\n\twhile(ch>'9'||ch<'0'){if(ch=='-')nega=-1;ch=getchar();}\n\twhile(ch<='9'&&ch>='0')sum=sum*10+ch-'0',ch=getchar();\n\treturn sum*nega;\n}//\u5feb\u8bfb\uff08\u5176\u5b9e\u4e0d\u9700\u8981\uff09 \nint n,x;\nint ans;\nint main()\n{\n\tn=read();//\u8bfb\u5165 \n\tfor(int i=1;i<=n;i++)x=read(),ans=max(ans,x);//\u66f4\u65b0\u6700\u5927\u503c \n\tcout<<ans<<endl;//\u8f93\u51fa \n\treturn 0;\n}\n\n\n```\n",
+        "postTime": 1625302047,
+        "uid": 97304,
+        "name": "Mophie",
+        "ccfLevel": 0,
+        "title": "B2057 \u6700\u9ad8\u7684\u5206\u6570 \u9898\u89e3"
+    },
+    {
+        "content": "\u7528\u53d8\u91cf $mx$ \u5b58\u50a8\u5f53\u524d\u6700\u9ad8\u7684\u5206\u6570\u3002\n$mx$ \u521d\u59cb\u4e3a0\u3002\n\n\u6bcf\u6b21\u8bfb\u5165\u4e00\u4e2a\u6570\u65f6\uff0c\u4e0e $mx$ \u505a\u6bd4\u8f83\uff0c\n\u5982\u679c\u6bd4 $mx$ \u5927\u5c31\u7528\u8fd9\u4e2a\u6570\u66f4\u65b0 $mx$\u3002\n\n\u4e5f\u53ef\u4ee5\u4f7f\u7528 iostream \u5e93\u91cc\u7684 `max` \u51fd\u6570\u5b8c\u6210\u8fd9\u6b65\u64cd\u4f5c\u3002\n\nCode:\n```cpp\n#include<iostream>\n#include<cstdio>\n\nusing namespace std;\n\nint main()\n{\n\tint n, mx = 0;\n\tscanf(\"%d\", &n);\n\tfor(int i = 1; i <= n; ++i)\n\t{\n\t\tint t;\n\t\tscanf(\"%d\", &t);\n\t\tif(t > mx) mx = t;\n\t\t//\u6216\u8005\u5199\u6210  mx = max(mx, t); \n\t}\n\tprintf(\"%d\\n\", mx);\n}\n```",
+        "postTime": 1625303316,
+        "uid": 88627,
+        "name": "koishi_x",
+        "ccfLevel": 8,
+        "title": "B2057 \u6700\u9ad8\u7684\u5206\u6570"
+    }
+]

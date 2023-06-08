@@ -1,0 +1,74 @@
+[
+    {
+        "content": "\u8fd9\u662f\u849f\u84bb\u7684\u7b2c\u4e8c\u7bc7\u9898\u89e3\n\n\u8fd9\u9053\u9898\u9700\u8981\u4e00\u70b9\u5c0f\u5c0f\u7684\u63a8\u7406\u3002\n\n\u6211\u4eec\u77e5\u9053```o```\u8868\u793a\u8981\u52a0\u4e0a\u8fd9\u79cd\u914d\u6599\uff0c\u5426\u5219\u4e0d\u52a0\u3002\n\n\u5f53\u4e09\u4e2a```x```\u65f6\uff0c\u4ef7\u94b1\u4e3a700\u5143 ~~\uff08\u9ed1\u5fc3\uff09~~\n\n\u5f53\u4e09\u4e2a```o```\u65f6\uff0c\u4ef7\u94b1\u4e3a1000\u5143\n\n\u90a3\u4e48\u53ef\u4ee5\u5f97\u51fa\u6bcf\u4e2a```o```100\u5143\n\n\u90a3\u4e48\u6211\u4eec\u628a $ans$ \u7684\u521d\u503c\u8bbe\u4e3a700,\u6bcf\u6709\u4e00\u4e2a```o```\u5c31\u52a0\u4e0a100,\u6700\u540e\u8f93\u51fa\u3002\n\n```cpp\n#include<iostream>\nusing namespace std;\nint ans=700;\nint main() {\n\tchar a,b,c;\n\tcin>>a>>b>>c;\n\tif(a=='o') ans+=100;\n\tif(b=='o') ans+=100;\n\tif(c=='o') ans+=100;\n\tcout<<ans<<endl;\n\treturn 0;\n}\n```\n\n\u5927\u6982\u5c31\u662f\u8fd9\u4e2a\u6837\u5b50",
+        "postTime": 1582337383,
+        "uid": 189521,
+        "name": "ahawzlc",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 AT4115 \u3010[ABC095A] Something on It\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u53ef\u4ee5\u91c7\u7528\u679a\u4e3e\u5927\u6cd5\u6765\u505a\uff0c\u5373\u5206\u522b\u5217\u51fa\u6bcf\u79cd\u60c5\u51b5\uff0c\u53ca\u5176\u4ef7\u683c\u3002\u60c5\u51b5\u4e00\u5171\u6709\u516b\u79cd\uff0c\u5373$2\u00d72\u00d72=8$\uff0c\u5206\u522b\u4e3a\n\n|\u5b57\u7b26 | \u8f93\u51fa|\n| -----------: | -----------: |\n| xxx | 700|\n| oxx | 800|\n| xox | 800|\n| xxo | 800|\n| oox | 900|\n| oxo | 900|\n| xoo | 900|\n| ooo | 1000|\n\n\u56e0\u6b64\uff0c\u53ef\u4ee5\u5f97\u5230\n\n$code$\uff1a\n```\n#include<iostream>\nusing namespace std;\nint main()\n{\n\tstring s;\n\tcin>>s;\n\tif(s==\"ooo\")cout<<1000;\n\telse if(s==\"xoo\")cout<<900;\n\telse if(s==\"oxo\")cout<<900;\n\telse if(s==\"oox\")cout<<900;\n\telse if(s==\"xxo\")cout<<800;\n\telse if(s==\"xox\")cout<<800;\n\telse if(s==\"oxx\")cout<<800;\n\telse cout<<700;\n\treturn 0;\n}\n```\n\n",
+        "postTime": 1582815349,
+        "uid": 272205,
+        "name": "Ares\u309c",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT4115 \u3010[ABC095A] Something on It\u3011"
+    },
+    {
+        "content": "\u65e2\u7136o\u662f\u52a0\u914d\u6599\uff0cx\u662f\u4e0d\u52a0\u914d\u6599\uff0c\u90a3\u4e48\u5565\u4e5f\u4e0d\u52a0\u7684\u62c9\u9762\u7684\u4ef7\u94b1\u662f900-2*100=700\u5143\u3002\n\n\u5f97\u51fa\u4e86\u5149\u9762\u7684\u4ef7\u94b1\uff0c\u90a3\u4e48\u63a5\u4e0b\u6765\u5c31\u5f88\u597d\u7b97\u4e86\uff1a\n\n\u4e00\u5171\u4e5f\u5c313\u4e2a\u5b57\u7b26\uff0c\u5982\u679c\u662fo\uff0c\u90a3\u4e48\u4ef7\u94b1\u5c31\u52a0100\u5143\uff0c\u5982\u679c\u662fx\uff0c\u90a3\u5c31\u4e0d\u53d8\u3002\n\n# **\u4ee3\u7801\u5982\u4e0b**\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint a=700;//\u521d\u59cb\u5316\u4e00\u4e0b\u5149\u9762\u7684\u4ef7\u683c\nint main()\n{\n    char x,y,z;\n    cin>>x>>y>>z;//\u8f93\u5165\n    if(x=='o')//\u5f00\u59cb\u4e09\u4e2a\u5b57\u7b26\u4e00\u4e2a\u4e00\u4e2a\u5224\u65ad\n    {\n        a=a+100;//\u5982\u679c\u662fo\uff0c\u62c9\u9762\u4ef7\u683c\u5c31+100\n    }\n    if(y=='o')\n    {\n    \ta=a+100;\n    }\n    if(z=='o')\n    {\n        a=a+100;\n    }\n    cout<<a<<endl;//\u8f93\u51fa\uff0c\u522b\u5fd8\u4e86\u6362\u884c\n    return 0;\n    \n}\n    \n```\n\n",
+        "postTime": 1589431864,
+        "uid": 332907,
+        "name": "BeetyX",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT4115 \u3010[ABC095A] Something on It\u3011"
+    },
+    {
+        "content": "\u6ca1\u6709java\u9898\u89e3\uff0c\u672c\u849f\u84bb\u6765\u6c34\u4e00\u53d1\u3002\n\n\u9898\u76ee\u7ffb\u8bd1\u5e76\u6ca1\u6709\u544a\u8bc9\u6211\u4eec\u4e0d\u52a0\u914d\u6599\u7684\u4ef7\u683c\uff0c\u4f46\u662f\u6211\u4eec\u53ef\u4ee5\u63a8\u51fa\u6765\u3002\u6211\u4eec\u8bbe\u4e0d\u52a0\u914d\u6599\u9700\u8981$x$\u5143\uff0c\u7531\u6837\u4f8b$1$\u53ef\u5f97\uff0c$x+100+100=900$\uff0c\u89e3\u5f97$x=700$\u3002\u6240\u4ee5\u4e0d\u52a0\u914d\u6599\u9700\u8981$700$\u5143\uff0c\u6bcf\u52a0\u4e00\u79cd\u914d\u6599\u989d\u5916\u591a$100$\u5143\u3002\n\n\u6240\u4ee5\u6211\u4eec\u9700\u8981\u5224\u65ad\u8f93\u5165\u7684$3$\u4e2a\u5b57\u7b26\uff0c\u53ef\u4ee5\u58f0\u660e\u4e00\u4e2a\u5b57\u7b26\u4e32\uff0c\u8bfb\u5165\u4e4b\u540e\u4e00\u4e2a\u4e00\u4e2a\u5224\u65ad\u662f\u5426\u4e3a$o$\u5373\u53ef\uff0c\u4ee3\u7801\u5982\u4e0b\uff08\u7ec6\u8282\u95ee\u9898\u89c1\u6ce8\u91ca\uff09\uff1a\n\n```java\nimport java.util.Scanner;//\u5bfc\u5165Scanner\u6a21\u5757\npublic class Main {\n\tpublic static void main(String[] args)\t{\n\t\tScanner scan=new Scanner(System.in);//\u65b9\u4fbf\u8bfb\u5165\n\t\tString s=scan.nextLine();//\u58f0\u660e\u5b57\u7b26\u4e32s\u5e76\u8bfb\u5165\n\t\tint ans=700;//\u4e0d\u52a0\u914d\u6599700\u5143\n\t\tfor (int i=0;i<3;++i)\n\t\t\tif\t(s.charAt(i)=='o')\tans+=100;//\u5224\u65ad\u6bcf\u4e00\u4e2a\u5b57\u7b26\uff0c\u5982\u679c\u662fo\u5c31\u591a100\u5143\n\t\tSystem.out.println(ans);//\u8f93\u51fa\u7b54\u6848\u5373\u53ef\uff0c\u6ce8\u610f\u6362\u884c\n\t}\n}\n```",
+        "postTime": 1589256261,
+        "uid": 297433,
+        "name": "Brian_WBY",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 AT4115 \u3010[ABC095A] Something on It\u3011"
+    },
+    {
+        "content": "\u901b\u4e86\u4e00\u904d\u9898\u89e3\u533a\u53d1\u73b0\u6ca1\u6709$python$\u9898\u89e3\uff0c\u672c\u849f\u84bb\u5728\u6b64\u6c34\u4e00\u7bc7\u3002\n****\n\u9996\u5148\uff0c\u6211\u4eec\u77e5\u9053o\u8868\u793a\u8981\u52a0\u4e0a\u8fd9\u79cd\u914d\u6599\uff08\u5927\u96fe\uff09\uff0c\u5426\u5219\u4e0d\u52a0\u3002\n\n\n\u53c8\u56e0\u4e3a\u5f53\u6709$3$\u4e2a$x$\u65f6\u4e3a$700$\u5143\uff0c\u6709$3$\u4e2a$o$\u65f6\u4e3a$1000$\u5143\uff0c\u6240\u4ee5\u6bcf\u4e00\u4e2a$o$\u4e3a$100$\u5143\u3002\n****\n\u8fd9\u91cc\u6211\u4f7f\u7528$python$\u7ed9\u51fa\u4e00\u4e2a\u6781\u4e3a\u77ed\u5c0f\u7684\u505a\u6cd5\uff0c\u5982\u4e0b:\n```python\nS = list(input()) # \u4f7f\u7528list\u683c\u5f0f\u5316\u8bfb\u5165\nprint(700+100*(S.count('o'))) \n# \u5bf9S\u4e2d\u7684'o'\u8fdb\u884c\u8ba1\u6570\u5904\u7406\uff0c\u7528\u57fa\u6570700\u52a0\u4e0a100\u4e58\u4ee5\u4e2a\u6570\n```\n\u5f53\u7136\u5982\u679c\u4f60\u8981\u7528$Cpp$\u4e5f\u53ef\u4ee5\uff0c\u4ee3\u7801\u5982\u4e0b:\n```cpp\n#include <cstdio>\n#include <cstring>\nchar a[4];int res=700;\nint main()\n{\n    scanf(\"%s\",a); // \u6ce8\u610f\u8fd9\u91cc\u4e0d\u9700\u8981 &a\n    for (register int i=0;i<strlen(a);++i)\n        if (a[i]=='o')\n            res += 100; // \u5224\u65ad 'o' \n    printf(\"%d\\n\",res); // \u8f93\u51fa\u7ed3\u679c\uff0c\u8bb0\u5f97\u8981\u6362\u884c\n    return 0;\n}\n```",
+        "postTime": 1589080580,
+        "uid": 312489,
+        "name": "hero_brine",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT4115 \u3010[ABC095A] Something on It\u3011"
+    },
+    {
+        "content": "\u7ffb\u4e86\u4e00\u4e0b \u6ca1\u6709$bitset$\u7684\u505a\u6cd5 $/cy$\n\n\u5c31 \u7528$bitset$\u7edf\u8ba1\u4e00\u4e0b$1$\u7684\u4e2a\u6570\u5373\u53ef\n\n$code:$\n\n```cpp\n#include <iostream>\n#include <cstdio>\n#include <cstring>\n#include <algorithm>\n#include <bitset>\n\nusing namespace std;\n\nbitset < 10 > v;\nchar w;\n\nint main(){\n\tv.reset();\n\tfor(int i=1;i<=3;i++){\n\t\tcin>>w;\n\t\tif(w=='o')v[i]=1;//\u628ao\u8f6c\u5316\u62101\n\t\telse v[i]=0;\n\t}\n\tcout<<v.count()*100+700;//\u7edf\u8ba11\u7684\u4e2a\u6570\u7136\u540e*100+700\u5f97\u5230\u7b54\u6848\n\treturn 0;\n}\n```\n\n$qwq$",
+        "postTime": 1587263541,
+        "uid": 133509,
+        "name": "KazamiHina",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT4115 \u3010[ABC095A] Something on It\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u5f88\u7b80\u5355\u554a\u3002\n\n\u9898\u76ee\u7684\u8981\u6c42\u662f\uff1a\u8f93\u5165\u4e09\u4e2a\u5b57\u7b26\uff0c\u662f\u201co\u201d\u2014\u5c31\u52a0100\u5143\uff0c\u662f\u201cx\u201d\u5c31\u4e0d\u52a0\uff0c\u4e00\u7897\u62c9\u9762700\u5143\u3002\n\n\u600e\u4e48\u5f97\u5230\u7684\u5462\uff1f\u770b\u6837\u4f8b\u554a\uff01\n\n\u6837\u4f8b3\u5168\u662fx\uff0c\u4e5f\u5c31\u4ee3\u8868\u6ca1\u6709\u52a0\u4efb\u4f55\u4e00\u79cd\u914d\u6599\uff0c\u8f93\u51fa\u7684\u4e5f\u5c31\u662f\u4e00\u7897\u62c9\u9762\u7684\u4ef7\u94b1\u3002\n\n\u4e8e\u662f\uff0c\u8fd9\u9053\u9898\u7684\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint ans=700;//\u62c9\u9762\u4ef7\u94b1\nint main() {\n    char a,b,c;//\u4e09\u79cd\u914d\u6599\n    cin>>a>>b>>c;\u8f93\u5165\n    if(a=='o') ans+=100;//\u5224\u65ad\u987e\u5ba2\u662f\u5426\u8981\u52a0\u914d\u6599\n    if(b=='o') ans+=100;\n    if(c=='o') ans+=100;\n    cout<<ans<<endl;//\u8f93\u51fa\u6700\u7ec8\u7ed3\u679c\n    return 0;\n}\n```\n",
+        "postTime": 1583202527,
+        "uid": 205199,
+        "name": "fx_05",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 AT4115 \u3010[ABC095A] Something on It\u3011"
+    },
+    {
+        "content": "\u4e00\u62ff\u5230\u8fd9\u4e00\u9898\uff0c\u9996\u5148\u5148\u89e3\u65b9\u7a0b\uff1a\n\n\u89e3\uff1a\u8bbe  ``o`` \u4e3a $x$ \u5143\uff0c\u539f\u4ef7 $y$ \u5143\u3002\n\n$\\begin{cases}2x+y=900\\\\3x+y=1000\\\\y=700\\end{cases}$ \n\n\u5c06 $y=700$ \u5e26\u5165\u2460\u5f0f\u548c\u2461\u5f0f\uff0c\u5f97\uff1a\n\n$\\begin{cases}2x+700=900\\\\3x+700=1000\\end{cases}$ \n\n\u5316\u7b80\uff0c\u5f97\uff1a\n\n$\\begin{cases}2x=200\\\\3x=300\\end{cases}$ \n\n\u89e3\u5f97\uff1a\n\n$\\begin{cases}x=100\\\\y=700\\end{cases}$ \n\n\u6240\u4ee5\uff0c\u914d\u6599\u662f$100$\u5143\uff0c\u539f\u4ef7\u662f\uff1a$700$\u5143\u3002\n\n\n\u7531\u9898\u610f\u5f97\uff1a\u603b\u4ef7$d=700+100\\times x$\u3002\n\n\u6240\u4ee5\uff0c\u4e0b\u9762\u662f\u4ee3\u7801\uff1a\n```cpp\n#include<iostream>//\u8fd9\u4e2a\u5fc5\u987b\u5199\u5427\uff01\n#include<string>//\u7528\u4e8e\u5b57\u7b26\u4e32\nusing namespace std;\nint main()\n{\n    int a=700,b=0;//a\u662f\u4e0d\u52a0\u4efb\u4f55\u8c03\u6599\u7684\u94b1\uff0cb\u662f\u7528\u4e8e\u7edf\u8ba1o\u8fd9\u4e2a\u5b57\u7b26\u51fa\u73b0\u4e86\u51e0\u6b21\n    string x;//\u5b9a\u4e49\u5b57\u7b26\u4e32\n    cin>>x;//\u8f93\u5165\u5b57\u7b26\u4e32\n    for(int i=0;i<x.size();++i)//\u5faa\u73af\u5224\u65ad\n    if(x[i]=='o')//\u5982\u679c\u51fa\u73b0\u4e86o\uff0c\u90a3\u4e48b\u5c31\u81ea\u589e\u3002\n       b++;\n    a=a+(100*b);//\u603b\u4ef7a\u3010\u5957\u516c\u5f0f\u3011\n    cout<<a<<endl;//\u8bb0\u5f97\u6362\u884c\uff01\n}\n```\n\u597d\u4e86\uff0c\u4eca\u5929\u5c31\u5230\u8fd9\u91cc\uff01 \n## [\u8bc4\u6d4b\u94fe\u63a5](https://www.luogu.com.cn/record/31159066)\n\n# \u8dea\u6c42\u8fc7\u548c\u8d5e\uff01",
+        "postTime": 1582868270,
+        "uid": 252431,
+        "name": "sh7adow_",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT4115 \u3010[ABC095A] Something on It\u3011"
+    },
+    {
+        "content": "### \u601d\u8def&\u89e3\u6790\uff1a\n\u8f93\u5165\u4e00\u4e2a\u5b57\u7b26\u4e32\uff0c\u5b57\u7b26\u4e32\u91cc\u6709\u591a\u5c11\u4e2a $o$ \u5c31\u8f93\u51fa $700+100\\times o$\u7684\u4e2a\u6570\u3002\n\n\u4f46\u662f\u56e0\u4e3a\u8fd9\u4e2a\u5b57\u7b26\u4e32\u53ea\u6709\u4e09\u4f4d\uff0c\u6709\u591a\u5c11\u79cd\u4e0d\u540c\u7684\u5b57\u7b26\u4e32\u5462\uff1f\n\n$$C^0_3+C^1_3+C^2_3+C^3_3=1+3+3+1=8$$\n\n\u53ea\u6709$8$\u79cd\uff0c\u6240\u4ee5\u6253\u8868\u5f88\u65b9\u4fbf\u5566\u3002\n\n\u53ea\u6709$xxx,oxx,xox,xxo,oox,oxo,xoo,ooo$\u8fd9$8$\u79cd\u53ef\u80fd\u3002\n\n\u5bf9\u5e94\u7684\u8f93\u51fa\u4e3a$700,800,800,800,900,900,900,1000$\u3002\n\n\u5f53\u7136\u4e5f\u53ef\u4ee5\u7528\u4e09\u76ee\u8fd0\u7b97\u7b26\u548c $ \\operatorname{if}$ \u6765\u5199(\u6700\u5f00\u59cb\u8bb2\u7684\uff09\u3002\n\n------------\n### \u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nstring s[9]={\"xxx\",\"oxx\",\"xox\",\"xxo\",\"oox\",\"oxo\",\"xoo\",\"ooo\"};\nint a[9]={700,800,800,800,900,900,900,1000};\nint main(){\n\tstring t;\n\tcin>>t;\n\tfor(int i=0;i<8;i++)\n\t\tif(t==s[i]){\n\t\t\tcout<<a[i]<<'\\n';\n\t\t\tbreak;\n\t\t}\n\treturn 0;\n}\n```\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n\tstring s;\n\tcin>>s;\n\tint x=700;\n\tfor(int i=0;i<3;i++)s[i]=='o'?x+=100:x+=0;\n\tcout<<x<<'\\n';\n\treturn 0;\n}\n```\n\n",
+        "postTime": 1582861125,
+        "uid": 242984,
+        "name": "\u6b7b\u795e\u5ba1\u5224",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT4115 \u3010[ABC095A] Something on It\u3011"
+    }
+]

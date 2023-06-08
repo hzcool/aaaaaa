@@ -1,0 +1,17 @@
+{
+    "description": "You are given two multisets $ A $ and $ B $ . Each multiset has exactly $ n $ integers each between $ 1 $ and $ n $ inclusive. Multisets may contain multiple copies of the same number.\n\nYou would like to find a nonempty subset of $ A $ and a nonempty subset of $ B $ such that the sum of elements in these subsets are equal. Subsets are also multisets, i.e. they can contain elements with equal values.\n\nIf no solution exists, print $ -1 $ . Otherwise, print the indices of elements in any such subsets of $ A $ and $ B $ that have the same sum.",
+    "inputFormat": "The first line of the input contains a single integer $ n $ ( $ 1<=n<=1000000 $ ) \u2014 the size of both multisets.\n\nThe second line contains $ n $ integers, denoting the elements of $ A $ . Each element will be between $ 1 $ and $ n $ inclusive.\n\nThe third line contains $ n $ integers, denoting the elements of $ B $ . Each element will be between $ 1 $ and $ n $ inclusive.",
+    "outputFormat": "If there is no solution, print a single integer $ -1 $ . Otherwise, your solution should be printed on four lines.\n\nThe first line should contain a single integer $ k_{a} $ , the size of the corresponding subset of $ A $ . The second line should contain $ k_{a} $ distinct integers, the indices of the subset of $ A $ .\n\nThe third line should contain a single integer $ k_{b} $ , the size of the corresponding subset of $ B $ . The fourth line should contain $ k_{b} $ distinct integers, the indices of the subset of $ B $ .\n\nElements in both sets are numbered from $ 1 $ to $ n $ . If there are multiple possible solutions, print any of them.",
+    "samples": [
+        [
+            "10\n10 10 10 10 10 10 10 10 10 10\n10 9 8 7 6 5 4 3 2 1\n",
+            "1\n2\n3\n5 8 10\n"
+        ],
+        [
+            "5\n4 4 3 3 3\n2 2 2 2 5\n",
+            "2\n2 3\n2\n3 5\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9\u4f60\u4e24\u4e2a\u53ef\u91cd\u96c6 $A, B$\uff0c$A, B$ \u7684\u5143\u7d20\u4e2a\u6570\u90fd\u4e3a $n$\uff0c\u5b83\u4eec\u4e2d\u6bcf\u4e2a\u5143\u7d20\u7684\u5927\u5c0f $x\\in [1,n]$\u3002\u8bf7\u4f60\u5206\u522b\u627e\u51fa $A, B$ \u7684\u5b50\u96c6\uff0c\u4f7f\u5f97\u5b83\u4eec\u4e2d\u7684\u5143\u7d20\u4e4b\u548c\u76f8\u7b49\u3002\n\n$n\\leq 10^6$\u3002"
+}

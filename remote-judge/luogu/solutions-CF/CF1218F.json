@@ -1,0 +1,18 @@
+[
+    {
+        "content": "\u4e00\u9053\u6bd4\u8f83\u6c34\u7684\u9898\uff08\u597d\u5947\u4e3a\u4ec0\u4e48\u662fF\u9898\uff09\n\n\u9898\u76ee\u5927\u610f\uff1a\n\n\u7ed9\u5b9a$n$\uff0c$x_i$\u8868\u793a\u7b2c$i$\u4e2a\u76ee\u6807\uff0c$c_i$\u8868\u793a\u7b2c$i$\u5904\u63d0\u9ad8\u80fd\u529b\u503c\u82b1\u8d39\u4ee3\u4ef7\uff0c\u521d\u59cb\u6709\u4e00\u4e2a\u80fd\u529b\u503c$k$\uff0c\u6bcf\u6b21\u63d0\u5347$a$\u70b9\u80fd\u529b\u503c\uff0c\u6c42\u51fa\u6700\u5c0f\u4ee3\u4ef7\n\n\u4e0d\u96be\u770b\u51fa\u662f\u4e00\u9053\u8d2a\u5fc3\u9898\uff0c\u5177\u4f53\u89c1\u6ce8\u91ca\n\n\u76f4\u63a5\u4e0a\u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\ntypedef long long ll;\ntypedef double lf;\n#define reg register\n#define gc() (p1==p2&&(p2=(p1=buf)+fread(buf,1,1<<21,stdin),p1==p2)?EOF:*p1++)\n#define input(a){a=0;char c=gc();int f=1;while(c<'0'||c>'9'){if(c=='-')f=-1;c=gc();}while(c>='0'&&c<='9'){a=(a<<3)+(a<<1)+(c&15);c=gc();}a*=f;}\nstatic char buf[1<<21],*p1=buf,*p2=buf;\nchar bu[1<<21],cha[20];int p,pp=-1;\n#define flush(){fwrite(bu,1,pp+1,stdout),pp=-1;}\n#define output(x){if(pp>1<<20)flush();if(x<0)bu[++pp]=45,x=-x;do{cha[++p]=x%10+48;}while(x/=10);do{bu[++pp]=cha[p];}while(--p);}\n#define Endl bu[++pp]='\\n'\n#define Space bu[++pp]=' '\n#define pc(c) bu[++pp]=c\n//\u5ffd\u7565\u672c\u6ce8\u91ca\u4ee5\u4e0a\u90e8\u5206\nconst int N=100010;\nint x[N],n,k,a;\nll ans;\npriority_queue<int,vector<int>,greater<int> >q;\n//\u5229\u7528\u4f18\u5148\u961f\u5217\uff0c\u662f\u5c06\u6700\u5c0f\u503c\u653e\u5728\u524d\u9762\u7684\u5806\nint main()\n{\n\tcin>>n>>k;\n\tfor(int i=1;i<=n;++i)cin>>x[i];\n\tcin>>a;\n    //\u8bfb\u5165\n\tfor(int c,i=1;i<=n;++i)\n\t{\n\t\tcin>>c;\n\t\tq.push(c);\n        //\u5c06\u5f53\u524d\u8d39\u7528\u5165\u961f\n\t\twhile(k<x[i])//\u53ea\u8981\u4e0d\u80fd\u5b8c\u6210\u4efb\u52a1\n\t\t{\n\t\t\tif(q.empty())\n\t\t\t{\n\t\t\t\tprintf(\"-1\\n\");//\u7528\u5b8c\u6240\u6709\u63d0\u9ad8\u80fd\u529b\u503c\u7684\u673a\u4f1a\u4ecd\u4e0d\u591f\n\t\t\t\treturn 0;\n\t\t\t}\n\t\t\tk+=a;//\u80fd\u529b\u503c\u63d0\u9ad8\n\t\t\tans+=q.top();//\u7b54\u6848\u66f4\u65b0\uff0c\u7528\u6700\u5c0f\u4ee3\u4ef7\n\t\t\tq.pop();//\u5c06\u8fd9\u4e00\u4e2a\u673a\u4f1a\u6d88\u9664\n\t\t}\n\t}\n\tprintf(\"%lld\\n\",ans);//\u8f93\u51fa\n\treturn 0;\n}\n```",
+        "postTime": 1568732755,
+        "uid": 70592,
+        "name": "Victory_Defeat",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1218F \u3010Workout plan\u3011"
+    },
+    {
+        "content": "\u7528\u5c0f\u6839\u5806\u7ef4\u62a4\u6240\u6709\u7684\u5206\u6570\uff0c\u5e76\u4e14\u8bb0\u5f55\u5f53\u524d\u7684\u5206\u6570\uff0c\u5982\u679c\u5f53\u524d\u5c0f\u4e8e\u76ee\u6807\uff0c\u5219\u5c06\u5c0f\u6839\u5806\u4e2d\u7684\u5143\u7d20\u52a0\u5165\uff0c\u5982\u679c\u5c0f\u6839\u5806\u4e3a\u7a7a\u5e76\u4e14\u5f53\u524d\u7684\u5206\u6570\u8fd8\u662f\u5c0f\u4e8e\u76ee\u6807\u5219\u8f93\u51fa-1\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\ntypedef pair<int,int> pii;\ntypedef vector<int> vi;\ntypedef long long ll;\nconst int N=100005;\npriority_queue<int,vector<int>,greater<int> > Q;\nint a[N],b[N],n,K,now;\nll ans;\nint main(){\n\tcin >> n >> now;\n\tfor (int i=1;i<=n;++i) cin >> a[i];\n\tcin >> K;\n\tfor (int i=1;i<=n;++i) cin >> b[i];\n\tfor (int i=1;i<=n;++i){\n\t\tQ.push(b[i]);\n\t\twhile(now<a[i]){\n\t\t\tif(Q.empty()){\n\t\t\t\tputs(\"-1\");\n\t\t\t\treturn 0;\n\t\t\t}\n\t\t\tnow+=K;\n\t\t\tans+=Q.top();\n\t\t\tQ.pop();\n\t\t}\n\t\tif(now<a[i]){\n\t\t\tputs(\"-1\");\n\t\t\treturn 0;\n\t\t}\n\t}\n\tcout<<ans<<endl;\n\treturn 0;\n}\n\n```\n",
+        "postTime": 1568982575,
+        "uid": 26937,
+        "name": "_soul_",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1218F \u3010Workout plan\u3011"
+    }
+]

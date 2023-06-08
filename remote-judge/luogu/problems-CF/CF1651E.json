@@ -1,0 +1,13 @@
+{
+    "description": "Let's denote the size of the maximum matching in a graph $ G $ as $ \\mathit{MM}(G) $ .\n\nYou are given a bipartite graph. The vertices of the first part are numbered from $ 1 $ to $ n $ , the vertices of the second part are numbered from $ n+1 $ to $ 2n $ . Each vertex's degree is $ 2 $ .\n\nFor a tuple of four integers $ (l, r, L, R) $ , where $ 1 \\le l \\le r \\le n $ and $ n+1 \\le L \\le R \\le 2n $ , let's define $ G'(l, r, L, R) $ as the graph which consists of all vertices of the given graph that are included in the segment $ [l, r] $ or in the segment $ [L, R] $ , and all edges of the given graph such that each of their endpoints belongs to one of these segments. In other words, to obtain $ G'(l, r, L, R) $ from the original graph, you have to remove all vertices $ i $ such that $ i \\notin [l, r] $ and $ i \\notin [L, R] $ , and all edges incident to these vertices.\n\nCalculate the sum of $ \\mathit{MM}(G(l, r, L, R)) $ over all tuples of integers $ (l, r, L, R) $ having $ 1 \\le l \\le r \\le n $ and $ n+1 \\le L \\le R \\le 2n $ .",
+    "inputFormat": "The first line contains one integer $ n $ ( $ 2 \\le n \\le 1500 $ ) \u2014 the number of vertices in each part.\n\nThen $ 2n $ lines follow, each denoting an edge of the graph. The $ i $ -th line contains two integers $ x_i $ and $ y_i $ ( $ 1 \\le x_i \\le n $ ; $ n + 1 \\le y_i \\le 2n $ ) \u2014 the endpoints of the $ i $ -th edge.\n\nThere are no multiple edges in the given graph, and each vertex has exactly two incident edges.",
+    "outputFormat": "Print one integer \u2014 the sum of $ \\mathit{MM}(G(l, r, L, R)) $ over all tuples of integers $ (l, r, L, R) $ having $ 1 \\le l \\le r \\le n $ and $ n+1 \\le L \\le R \\le 2n $ .",
+    "samples": [
+        [
+            "5\n4 6\n4 9\n2 6\n3 9\n1 8\n5 10\n2 7\n3 7\n1 10\n5 8",
+            "314"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u8bb0 $MM(G)$ \u8868\u793a\u56fe $G$ \u7684\u6700\u5927\u5339\u914d\u6570\u3002\n\n\u7ed9\u5b9a\u4e00\u4e2a\u4e8c\u5206\u56fe $G=(V,E)$\uff0c\u5de6\u4fa7\u70b9\u7f16\u53f7\u4e3a $1\\sim n$\uff0c\u53f3\u4fa7\u70b9\u7f16\u53f7\u4e3a $n+1\\sim 2n$\u3002\u6bcf\u4e2a\u70b9\u7684\u5ea6\u6570\u4e3a $2$\u3002\n\n\u5bf9\u4e8e\u4e00\u4e2a\u6ee1\u8db3 $1\\le l\\le r\\le n,n+1\\le L \\le R \\le 2n$ \u7684\u56db\u5143\u7ec4 $(l,r,L,R)$\uff0c\u5b9a\u4e49 $G'(l,r,L,R)=V',E'$\uff0c\u5176\u4e2d $V'=\\{l,l+1,\\dots,r,L,L+1,\\dots,R\\},E'=\\{(u,v)|u,v \\in V',(u,v)\\in E\\}$\u3002\n\n\u6c42 $\\sum\\limits_{1\\le l \\le r \\le n,n+1\\le L \\le R \\le 2n} MM(G(l,r,L,R))$\u3002"
+}

@@ -1,0 +1,17 @@
+{
+    "description": "Farmer John has just given the cows a program to play with! The program contains two integer variables, $ x $ and $ y $ , and performs the following operations on a sequence $ a_{1},a_{2},...,a_{n} $ of positive integers:\n\n1. Initially, $ x=1 $ and $ y=0 $ . If, after any step, $ x<=0 $ or $ x&gt;n $ , the program immediately terminates.\n2. The program increases both $ x $ and $ y $ by a value equal to $ a_{x} $ simultaneously.\n3. The program now increases $ y $ by $ a_{x} $ while decreasing $ x $ by $ a_{x} $ .\n4. The program executes steps 2 and 3 (first step 2, then step 3) repeatedly until it terminates (it may never terminate). So, the sequence of executed steps may start with: step 2, step 3, step 2, step 3, step 2 and so on.\n\nThe cows are not very good at arithmetic though, and they want to see how the program works. Please help them!\n\nYou are given the sequence $ a_{2},a_{3},...,a_{n} $ . Suppose for each $ i $ $ (1<=i<=n-1) $ we run the program on the sequence $ i,a_{2},a_{3},...,a_{n} $ . For each such run output the final value of $ y $ if the program terminates or -1 if it does not terminate.",
+    "inputFormat": "The first line contains a single integer, $ n $ ( $ 2<=n<=2\u00b710^{5} $ ). The next line contains $ n-1 $ space separated integers, $ a_{2},a_{3},...,a_{n} $ ( $ 1<=a_{i}<=10^{9} $ ).",
+    "outputFormat": "Output $ n-1 $ lines. On the $ i $ -th line, print the requested value when the program is run on the sequence $ i,a_{2},a_{3},...a_{n} $ .\n\nPlease do not use the %lld specifier to read or write 64-bit integers in \u0421++. It is preferred to use the cin, cout streams or the %I64d specifier.",
+    "samples": [
+        [
+            "4\n2 4 1\n",
+            "3\n6\n8\n"
+        ],
+        [
+            "3\n1 2\n",
+            "-1\n-1\n"
+        ]
+    ],
+    "hint": "In the first sample\n\n1. For $ i=1, $ $ x $ becomes ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF283B/c3adc91e6a416ef5e3a3efeecae9ab6c709eb6f3.png) and $ y $ becomes $ 1+2=3 $ .\n2. For $ i=2, $ $ x $ becomes ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF283B/25cfed609f3dc5147a57c7f4ac4fe5ab1317ed75.png) and $ y $ becomes $ 2+4=6. $\n3. For $ i=3, $ $ x $ becomes ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF283B/3160e5591c358bc094f55b65bd30a378832bf854.png) and $ y $ becomes $ 3+1+4=8. $",
+    "translation": "\u8f93\u5165n\uff0c\u8f93\u5165\u4e00\u4e32\u5e8f\u5217$a_2$,$a_3$,$a_4$\u2026\u2026$a_n$,$a_1$\u662f\u8fd0\u884c\u7a0b\u5e8f\u7684\u6b21\u6570\r\n\r\n\u5df2\u77e5\u4e00\u4e2a\u7a0b\u5e8f\uff1a\r\n\u5bf9\u4e8e\u6570x,y\u67094\u79cd\u64cd\u4f5c\uff1a\r\n1. \u6700\u521d\uff0cx=1\u4e14y=0\u3002\u5982\u679c\u4efb\u4e00\u6b65\u9aa4\u4e4b\u540e\uff0cx\u22640\u6216x>n\uff0c\u5219\u7a0b\u5e8f\u7acb\u5373\u7ec8\u6b62\u3002\r\n2. x\u548cy\u540c\u65f6\u589e\u52a0$a_x$\u3002\r\n3. y\u589e\u52a0$a_x$\uff0c\u540c\u65f6x\u51cf\u5c11$a_x$\u3002\r\n4. \u7a0b\u5e8f\u91cd\u590d\u6267\u884c\u6b65\u9aa42\u548c3\uff08\u5148\u662f\u6b65\u9aa42\uff0c\u7136\u540e\u662f\u6b65\u9aa43\uff09\uff0c\u76f4\u5230\u5b83\u7ec8\u6b62\uff08\u5b83\u53ef\u80fd\u6c38\u8fdc\u4e0d\u4f1a\u7ec8\u6b62\uff09\u3002\r\n\r\n\u8fd0\u884cn-1\u6b21\u7a0b\u5e8f\uff0c\u6bcf\u884c\u8f93\u51fa\u6bcf\u6b21\u7a0b\u5e8f\u7ec8\u6b62\u540ey\u7684\u503c\uff0c\u82e5\u4e0d\u80fd\u7ec8\u6b62\uff0c\u8f93\u51fa-1"
+}

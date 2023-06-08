@@ -1,0 +1,13 @@
+{
+    "description": "A robot is placed in a cell $ (0, 0) $ of an infinite grid. This robot has adjustable length legs. Initially, its legs have length $ 1 $ .\n\nLet the robot currently be in the cell $ (x, y) $ and have legs of length $ m $ . In one move, it can perform one of the following three actions:\n\n- jump into the cell $ (x + m, y) $ ;\n- jump into the cell $ (x, y + m) $ ;\n- increase the length of the legs by $ 1 $ , i. e. set it to $ m + 1 $ .\n\nWhat's the smallest number of moves robot has to make to reach a cell $ (a, b) $ ?",
+    "inputFormat": "The first line contains a single integer $ t $ ( $ 1 \\le t \\le 100 $ ) \u2014 the number of test cases.\n\nThe only line of each test case contains two integers $ a $ and $ b $ ( $ 1 \\le a, b \\le 10^9 $ ) \u2014 the ending cell.",
+    "outputFormat": "For each test case, print a single integer \u2014 the smallest number of moves the robot is required to make to reach a cell $ (a, b) $ from a cell $ (0, 0) $ .",
+    "samples": [
+        [
+            "3\n1 1\n1 6\n8 4",
+            "2\n5\n6"
+        ]
+    ],
+    "hint": "In the first testcase, the robot can first jump to $ (0, 1) $ , then to $ (1, 1) $ . If it ever increases the length of its legs, it will only be able to jump past $ (1, 1) $ .\n\nIn the second testcase, the robot can jump to $ (1, 0) $ , then increase the length of its length to $ 2 $ and jump three times to reach $ (1, 6) $ .\n\nIn the third testcase, the robot can increase the length of its legs three times to make it $ 4 $ . Then jump to $ (0, 4) $ . Then jump twice to reach $ (8, 4) $ .",
+    "translation": "\u7ed9\u4f60\u4e00\u4e2a\u65e0\u9650\u5927\u5c0f\u7684\u68cb\u76d8\uff0c\u4e00\u4e2a\u673a\u5668\u4eba\u521d\u59cb\u4f4d\u7f6e\u4e3a $(0,0)$\uff0c\u521d\u59cb\u6bcf\u6b21\u53ef\u79fb\u52a8\u7684\u957f\u5ea6\u4e3a $1$\u3002  \n\u5bf9\u4e8e\u4e00\u4e2a\u5f53\u524d\u5728 $(x,y)$ \u7684\u673a\u5668\u4eba\uff0c\u4e14\u5b83\u5f53\u524d\u7684\u53ef\u79fb\u52a8\u957f\u5ea6\u4e3a $m$\uff08\u521d\u59cb\u4e3a $1$)\u3002\u5219\u5b83\u53ef\u4ee5\u8017\u8d39\u4e00\u4e2a\u65f6\u95f4\u8fdb\u884c\u5982\u4e0b\u64cd\u4f5c\uff1a  \n$\\qquad$ 1.\u79fb\u52a8\u5230 $(x+m,y)$\u3002  \n$\\qquad$ 2.\u79fb\u52a8\u5230 $(x,y+m)$\u3002   \n$\\qquad$ 3.\u4f7f\u5f97 $m=m+1$\u3002  \n\u6ce8\u610f\uff1a\u5728\u5f53\u524d\u4f4d\u7f6e\u4f7f\u5f97 $m=m+1$ \u540e\u4f1a\u5f71\u54cd\u540e\u9762\u7684\u64cd\u4f5c\u3002  \n\u73b0\u5728\u7ed9\u4f60\u4e24\u4e2a\u6b63\u6574\u6570 $a,b(1 \\leq a,b \\leq 10^9)$\uff0c\u95ee\u673a\u5668\u4eba\u6700\u5c11\u9700\u8981\u591a\u5c11\u5355\u4f4d\u65f6\u95f4\u53ef\u4ee5\u5230\u8fbe $(a,b)$\u3002"
+}

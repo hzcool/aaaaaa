@@ -1,0 +1,21 @@
+{
+    "description": "You are given a graph with $ n $ nodes and $ m $ directed edges. One lowercase letter is assigned to each node. We define a path's value as the number of the most frequently occurring letter. For example, if letters on a path are \"abaca\", then the value of that path is $ 3 $ . Your task is find a path whose value is the largest.",
+    "inputFormat": "The first line contains two positive integers $ n,m $ ( $ 1<=n,m<=300000 $ ), denoting that the graph has $ n $ nodes and $ m $ directed edges.\n\nThe second line contains a string $ s $ with only lowercase English letters. The $ i $ -th character is the letter assigned to the $ i $ -th node.\n\nThen $ m $ lines follow. Each line contains two integers $ x,y $ ( $ 1<=x,y<=n $ ), describing a directed edge from $ x $ to $ y $ . Note that $ x $ can be equal to $ y $ and there can be multiple edges between $ x $ and $ y $ . Also the graph can be not connected.",
+    "outputFormat": "Output a single line with a single integer denoting the largest value. If the value can be arbitrarily large, output -1 instead.",
+    "samples": [
+        [
+            "5 4\nabaca\n1 2\n1 3\n3 4\n4 5\n",
+            "3\n"
+        ],
+        [
+            "6 6\nxzyabc\n1 2\n3 1\n2 3\n5 4\n4 3\n6 4\n",
+            "-1\n"
+        ],
+        [
+            "10 14\nxzyzyzyzqx\n1 2\n2 4\n3 5\n4 5\n2 6\n6 8\n6 5\n2 10\n3 9\n10 9\n4 6\n1 10\n2 8\n3 7\n",
+            "4\n"
+        ]
+    ],
+    "hint": "In the first sample, the path with largest value is $ 1\u21923\u21924\u21925 $ . The value is $ 3 $ because the letter 'a' appears $ 3 $ times.",
+    "translation": "\n\u7ed9\u4f60\u4e00\u4e2a\u6709\u5411\u56fe\uff0c\u6bcf\u4e2a\u70b9\u6709\u4e00\u4e2a\u5c0f\u5199\u5b57\u6bcd\u6743\u503c\n\n\u5b9a\u4e49\u4e00\u6761\u8def\u5f84\u7684\u6743\u503c\u662f\u8fd9\u6761\u8def\u5f84\u51fa\u73b0\u6b21\u6570\u6700\u591a\u7684\u5b57\u6bcd\u7684\u4e2a\u6570\n\n\u6c42\u51fa\u8fd9\u4e2a\u56fe\u6743\u503c\u6700\u5927\u6743\u503c\u7684\u8def\u5f84\u7684\u6743\u503c\u3002\n\n\u53ef\u80fd\u6709\u81ea\u73af\u3002\u3002\n\n\nTranslated by \u8fdc\u822a\u4e4b\u66f2"
+}

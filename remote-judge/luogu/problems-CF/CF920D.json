@@ -1,0 +1,21 @@
+{
+    "description": "Petya sometimes has to water his field. To water the field, Petya needs a tank with exactly $ V $ ml of water.\n\nPetya has got $ N $ tanks, $ i $ -th of them initially containing $ a_{i} $ ml of water. The tanks are really large, any of them can contain any amount of water (no matter how large this amount is).\n\nAlso Petya has got a scoop that can contain up to $ K $ ml of water (initially the scoop is empty). This scoop can be used to get some water from some tank, and after that pour it all into some other tank (it is impossible to get water from multiple tanks without pouring it, or leave some water in the scoop when pouring it). When Petya tries to get some water from a tank, he gets $ min(v,K) $ water, where $ v $ is the current volume of water in the tank.\n\nIs it possible to obtain a tank with exactly $ V $ ml of water using these operations? If it is possible, print a sequence of operations that allows to do it. If there are multiple ways to obtain needed amount of water in some tank, print any of them.",
+    "inputFormat": "The first line contains $ 3 $ integers: $ N $ $ (2<=N<=5000) $ , $ K $ $ (1<=K<=5000) $ , and $ V $ $ (0<=V<=10^{9}) $ \u2014 the number of tanks, the maximum volume of water the scoop can contain, and the required amount of water in some tank, respectively.\n\nThe second line contains $ N $ integers $ a_{i} $ $ (0<=a_{i}<=10^{5}) $ , where $ a_{i} $ is initial volume of water in $ i $ -th tank.",
+    "outputFormat": "If it is impossible to obtain a tank with exactly $ V $ ml of water, print NO.\n\nOtherwise print YES in the first line, and beginning from the second line, print the sequence of operations in the following format:\n\nEach line has to contain $ 3 $ numbers denoting a compressed operation: \" $ cnt $ $ x $ $ y $ \" $ (1<=cnt<=10^{9},1<=x,y<=N) $ , where $ x $ is the index of the tank where we get water, $ y $ is the index of the tank where we pour water, and $ cnt $ is the number of times we transfer water from tank $ x $ to tank $ y $ .\n\nThe number of these lines must not exceed $ N+5 $ .",
+    "samples": [
+        [
+            "2 3 5\n2 3\n",
+            "YES\n1 2 1\n"
+        ],
+        [
+            "2 3 4\n2 3\n",
+            "NO\n"
+        ],
+        [
+            "5 2 0\n1 3 5 7 9\n",
+            "YES\n2 2 1\n3 3 1\n4 4 1\n5 5 1\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u6709$n$\u4e2a\u6c34\u69fd\n\n\u90fd\u53ef\u4ee5\u88c5\u65e0\u7a77\u591a\u7684\u6c34\n\n\u7b2c$i$\u4e2a\u6c34\u69fd\u91cc\u9762\u6709\u7684\u6c34\u7684\u4f53\u79ef\u4e3a$ai$\n\n\u6709\u4e00\u4e2a\u5bb9\u91cf\u4e3a$k$\u7684\u6c34\u74e2\n\n\u6bcf\u6b21\u53ef\u4ee5\u4ece\u4e00\u4e2a\u6c34\u69fd\u4e2d\u62ff\u8d70$min(ai,k)$\u7684\u6c34\uff08$ai$\u662f\u5269\u4f59\u7684\u6c34\uff09\u653e\u5230\u53e6\u5916\u4e00\u4e2a\u6c34\u69fd\u4e2d\n\n\u95ee\u6700\u540e\u80fd\u5426\u4f7f\u5f97\u67d0\u4e2a\u6c34\u69fd\u4e2d\u5269\u4f59\u5bb9\u91cf\u4e3a$V$\n\n\u9700\u8981\u8f93\u51fa\u65b9\u6848\uff08\u4e0d\u80fd\u8d85\u8fc7$n+5$\u6b65\uff09\n\n\u8f93\u51fa\u7684\u5f62\u5f0f\u5f62\u5982\uff1a$cnt\\ x\\ y$\n\n\u8868\u793a\u4ece$x$\u4e2d\u5411$y$\u4e2d\u7528\u6c34\u74e2\u8f6c\u79fb$cnt$\u6b21\u6c34\n\u8d21\u732e\u8005\uff1ayybyyb"
+}

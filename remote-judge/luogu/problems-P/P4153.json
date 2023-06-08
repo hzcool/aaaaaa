@@ -1,0 +1,16 @@
+{
+    "description": "\u7ed9\u51fa\u4e00\u4e2a\u6709\u5411\u5e26\u6743\u7f51\u7edc $G = (V, E)$\uff0c\u6743\u503c\u51fd\u6570 $w: E \\rightarrow \\mathbb{Z^{*}}$\uff08\u5373\u4efb\u610f\u8fb9 $e$ \u7684\u6743\u503c $w(e)$ \u5747\u4e3a\u6b63\u6574\u6570\uff09\uff0c\u548c\u70b9 $s, t \\in E$\uff0c\u4f7f\u5f97\u5728 $G' = (V, E - S)$ \u4e0a\u4e0d\u5b58\u5728 $s$ \u5230 $t$ \u7684\u8def\u5f84\u3002\n\n\n\u8bbe $\\mathfrak{S}$ \u662f\u6240\u6709\u6ee1\u8db3\u6761\u4ef6\u7684\u8fb9\u96c6 $S$ \u7684\u5168\u96c6\uff0c\u6309 $w(S)$ \u4ece\u5c0f\u5230\u5927\u8f93\u51fa $\\mathfrak{S}$ \u4e2d\u524d $k$ \u5c0f\u7684\u8fb9\u96c6\u7684\u8fb9\u6743\u548c\u3002\u5176\u4e2d $w(S) = \\sum_{e \\in S} w(e)$\u3002\n",
+    "inputFormat": "\u7b2c\u4e00\u884c\u5305\u542b $5$ \u4e2a\u6b63\u6574\u6570 $n, m, s, t, k$\uff0c\u5176\u4e2d $s, t, k$ \u610f\u4e49\u5982\u4e0a\uff0c$n, m$ \u5206\u522b\u8868\u793a $\\lvert V \\rvert, \\lvert E \\rvert$\uff08\u5373\u70b9\u6570\u548c\u8fb9\u6570\uff09\u3002\u89c4\u5b9a\u56fe\u4e2d\u7684\u8282\u70b9\u7528 $1$ \u5230 $n$ \u7684\u6574\u6570\u8868\u793a\u3002\u4fdd\u8bc1 $s \\neq t$\u3002\n\n\n\u63a5\u4e0b\u6765 $m$ \u884c\uff0c\u6bcf\u884c $3$ \u4e2a\u6574\u6570 $x, y, z$\uff0c\u8868\u793a\u4e00\u6761\u8fb9\u6743\u4e3a $z$ \u7684\u4ece $x$ \u5230 $y$ \u7684\u8fb9\u3002\u53ef\u80fd\u6709\u91cd\u8fb9\u4f46\u4fdd\u8bc1\u6ca1\u6709\u81ea\u73af\u3002\n",
+    "outputFormat": "\u5982\u679c $\\lvert \\mathfrak{S} \\rvert < k$\uff0c\u5148\u8f93\u51fa $\\lvert \\mathfrak{S} \\rvert$ \u884c\uff0c\u6bcf\u884c\u5305\u542b\u4e00\u4e2a\u6574\u6570\uff0c\u8868\u793a\u524d $\\lvert \\mathfrak{S} \\rvert$ \u4e2a $w(S)$\uff1b\u518d\u8f93\u51fa\u4e00\u884c\u4e00\u4e2a\u6574\u6570 $-1$\u3002\n\n\n\u5982\u679c $\\lvert \\mathfrak{S} \\rvert \\geq k$\uff0c\u5219\u8f93\u51fa $k$ \u884c\uff0c\u8868\u793a\u524d $k$ \u4e2a $w(S)$\u3002\n\n\n\u4e24\u79cd\u60c5\u51b5\u5747\u9700\u6309\u7167 $w(S)$ \u4ece\u5c0f\u5230\u5927\u8f93\u51fa\u3002\n",
+    "samples": [
+        [
+            "3 3 1 3 100\n1 2 3\n2 3 4\n1 3 5\n",
+            "8\n9\n12\n-1\n"
+        ],
+        [
+            "5 8 1 5 10\n1 2 45176\n1 3 41088\n1 4 32001\n2 5 48931\n3 5 39291\n4 5 28970\n2 3 48131\n4 2 49795\n",
+            "116468\n117192\n118265\n120223\n145438\n147235\n149193\n157556\n158280\n161311\n"
+        ]
+    ],
+    "hint": "| \u6d4b\u8bd5\u70b9\u7f16\u53f7 | $n \\le$ | $m$ | $k \\le$ | \u7ea6\u675f |\n|:-:|:-:|:-:|:-:|:-:|\n| $1 \\sim 2$ | $10$ | $\\le 20$ | ${10}^6$ | \u8fb9\u6743\u4e0d\u8d85\u8fc7 $65536$ |\n| $3 \\sim 6$ | $50$ | $\\le 100$ | $100$ | \u8fb9\u6743\u4e0d\u8d85\u8fc7 $65536$ |\n| $7 \\sim 10$ | $3000$ | $= 2 n - 4$ | $5 \\times {10}^5$ | $s$ \u6709\u8fb9\u8fde\u5411\u6240\u6709\u975e $t$ \u8282\u70b9\uff0c\u6240\u6709\u975e $s$ \u7ed3\u70b9\u6709\u8fb9\u8fde\u5411 $t$\uff0c\u8fb9\u6743\u4e0d\u8d85\u8fc7 $2^{31} - 1$ |\n| $11 \\sim 14$ | $1.5 \\times {10}^5$ | $= 2 n - 4$ | $5 \\times {10}^5$ | $s$ \u6709\u8fb9\u8fde\u5411\u6240\u6709\u975e $t$ \u8282\u70b9\uff0c\u6240\u6709\u975e $s$ \u7ed3\u70b9\u6709\u8fb9\u8fde\u5411 $t$\uff0c\u8fb9\u6743\u4e0d\u8d85\u8fc7 $2^{31} - 1$ |\n| $15 \\sim 20$ | $50$ | $\\le 1500$ | $100$ | \u8fb9\u6743\u4e0d\u8d85\u8fc7 $65536$ |"
+}

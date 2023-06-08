@@ -1,0 +1,13 @@
+{
+    "description": "At the store, the salespeople want to make all prices round.\n\nIn this problem, a number that is a power of $ 10 $ is called a round number. For example, the numbers $ 10^0 = 1 $ , $ 10^1 = 10 $ , $ 10^2 = 100 $ are round numbers, but $ 20 $ , $ 110 $ and $ 256 $ are not round numbers.\n\nSo, if an item is worth $ m $ bourles (the value of the item is not greater than $ 10^9 $ ), the sellers want to change its value to the nearest round number that is not greater than $ m $ . They ask you: by how many bourles should you decrease the value of the item to make it worth exactly $ 10^k $ bourles, where the value of $ k $ \u2014 is the maximum possible ( $ k $ \u2014 any non-negative integer).\n\nFor example, let the item have a value of $ 178 $ -bourles. Then the new price of the item will be $ 100 $ , and the answer will be $ 178-100=78 $ .",
+    "inputFormat": "The first line of input data contains a single integer $ t $ ( $ 1 \\le t \\le 10^4 $ ) \u2014 the number of test cases .\n\nEach test case is a string containing a single integer $ m $ ( $ 1 \\le m \\le 10^9 $ ) \u2014 the price of the item.",
+    "outputFormat": "For each test case, output on a separate line a single integer $ d $ ( $ 0 \\le d < m $ ) such that if you reduce the cost of the item by $ d $ bourles, the cost of the item will be the maximal possible round number. More formally: $ m - d = 10^k $ , where $ k $ \u2014 the maximum possible non-negative integer.",
+    "samples": [
+        [
+            "7\n1\n2\n178\n20\n999999999\n9000\n987654321",
+            "0\n1\n78\n10\n899999999\n8000\n887654321"
+        ]
+    ],
+    "hint": "In the example:\n\n- $ 1 - 0 = 10^0 $ ,\n- $ 2 - 1 = 10^0 $ ,\n- $ 178 - 78 = 10^2 $ ,\n- $ 20 - 10 = 10^1 $ ,\n- $ 999999999 - 899999999 = 10^8 $ ,\n- $ 9000 - 8000 = 10^3 $ ,\n- $ 987654321 - 887654321 = 10^8 $ .\n\nNote that in each test case, we get the maximum possible round number.",
+    "translation": "\u6709 $t$ \u7ec4\u8be2\u95ee\uff0c\u6bcf\u7ec4\u4e00\u4e2a\u6574\u6570 $m$\uff0c\u6c42\u901a\u8fc7\u51cf\u53bb\u4e00\u4e2a\u81ea\u7136\u6570 $d$ \u628a $m$ \u53d8\u6210 $10^k$\uff0c\u8fd9\u4e2a $d$ \u6700\u5c0f\u662f\u591a\u5c11\u3002"
+}

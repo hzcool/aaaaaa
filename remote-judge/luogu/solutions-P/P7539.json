@@ -1,0 +1,82 @@
+[
+    {
+        "content": "**\u8fd9\u662f\u672c\u849f\u84bb\u7b2c\u56db\u6b21\u5199\u7684\u9898\u89e3\uff0c\u5982\u6709\u9519\u8bef\u70b9\u8bf7\u597d\u5fc3\u6307\u51fa\uff01**\n\n## \u95ee\u9898\u7b80\u8ff0\n\n__\u8fd9\u9053\u9898\u6211\u4eec\u53ef\u4ee5\u6362\u53e6\u4e00\u79cd\u601d\u8def\u53bb\u770b\u5f85\u5b83\uff0c\u5c31\u5bb9\u6613\u7406\u89e3\u4e86\uff1a__\n\n\u7ed9\u4f60\u7531 $8$ \u4e2a\u6570\u5b57\u7ec4\u6210\u7684\u5e8f\u5217\uff0c\u5982\u679c\u8be5\u5e8f\u5217\u4e3a\u4e0a\u5347\u5e8f\u5217\uff0c\u5c31\u8f93\u51fa ascending\uff1b\u5982\u679c\u8be5\u5e8f\u5217\u4e3a\u4e0b\u964d\u5e8f\u5217\uff0c\u5c31\u8f93\u51fa descending\uff1b\u5982\u679c\u90fd\u4e0d\u662f\uff0c\u5c31\u8f93\u51fa mixed\u3002\n\n## \u89e3\u6cd5\u7efc\u8ff0\n\n\u56e0\u4e3a\u7ed9\u51fa\u7684\u5e8f\u5217\u662f\u7531 $8$ \u4e2a\u6570\u5b57\u7ec4\u6210\u7684\uff0c\u4e3a\u56fa\u5b9a\u503c\u4e14\u6570\u91cf\u5c11\uff0c\u6240\u4ee5\u53ef\u4ee5\u8003\u8651\u7528 $8$ \u4e2a\u53d8\u91cf\u6765\u505a\u3002\n\n\u5148\u8bfb\u5165 $8$ \u4e2a\u53d8\u91cf\uff0c\u7136\u540e\u5224\u65ad\u8fd9\u4e9b\u53d8\u91cf\u7ec4\u6210\u7684\u5e8f\u5217\u662f\u4ec0\u4e48\u7c7b\u578b\uff0c\u4e4b\u540e\u8f93\u51fa\u8be5\u7c7b\u578b\u5bf9\u5e94\u7684\u7b54\u6848\u5373\u53ef\u3002\n\n## \u4ee3\u7801\u63cf\u8ff0\n```cpp\n#include<cmath>\n#include<cstdio>\nint a,b,c,d,e,f,g,h;\nint main()\n{\n\tscanf(\"%d%d%d%d%d%d%d%d\",&a,&b,&c,&d,&e,&f,&g,&h);\n\tif(a<b&&b<c&&c<d&&d<e&&e<f&&f<g&&g<h) printf(\"ascending\");//\u5982\u679c\u8be5\u5e8f\u5217\u4e3a\u4e0a\u5347\u5e8f\u5217\n\telse if(b<a&&c<b&&d<c&&e<d&&f<e&&g<f&&h<g) printf(\"descending\");//\u5982\u679c\u8be5\u5e8f\u5217\u4e3a\u4e0b\u964d\u5e8f\u5217\n\telse printf(\"mixed\");//\u5982\u679c\u90fd\u4e0d\u662f\n\treturn 0;\n}\n```",
+        "postTime": 1619857603,
+        "uid": 455757,
+        "name": "yydfj",
+        "ccfLevel": 4,
+        "title": "P7539 [COCI2009-2010#1] NOTE \u9898\u89e3"
+    },
+    {
+        "content": "**\u9898\u76ee\u4f20\u9001\u95e8\uff1a[P7539 [COCI2009-2010#1] NOTE](https://www.luogu.com.cn/problem/P7539)**\n#### \u524d\u8bb0\uff1a\n\u849f\u84bb\u770b\u5230\u9898\u89e3\u4e2d\u5927\u90e8\u5206\u7528\u4e86\u6570\u7ec4~~\u800c\u6d6a\u8d39\u4e86\u7a7a\u95f4~~\uff0c\u4e8e\u662f\u51b3\u5b9a\u53d1\u4e00\u4e2a\u65b0\u5947\u7684\u505a\u6cd5\u3002\n#### \u9898\u610f\uff1a\n\u8bfb\u5165 $8$ \u4e2a\u6570\uff0c\u95ee\u4f60\u5b83\u7684\u987a\u5e8f\u3002\n#### \u601d\u8def\uff1a\n\u8bb2\u4e00\u4e2a\u4e0d\u7528\u6570\u7ec4\u7684\u65b9\u6cd5\uff1a**\u7528\u4e00\u4e2a `int` \u4ee3\u66ff\u6570\u7ec4\u3002**\n\n\u4e5f\u8bb8\u4f60\u770b\u4e0d\u61c2\u4ec0\u4e48\u610f\u601d\uff0c\u6ca1\u5173\u7cfb\uff0c\u8bf4\u660e\u4e00\u4e0b\uff1a\n\n\u9898\u76ee\u7ed9\u7684\u662f $8,1,7,2,6,3,5,4$ \uff0c\u6211\u4eec\u5728\u8bfb\u5165\u65f6\u53ef\u4ee5\u5c06\u4ed6\u8f6c\u6362\u6210 $81726354$ \u8fd9\u4e2a\u6570\u5b57\u3002\u7136\u540e\u6bd4\u8f83\u65f6\u53ef\u4ee5\u5c06\u8be5\u6570\u4e0e $12345678$ \u548c $87654321$ \u6bd4\u8f83\u3002\n#### \u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n\tint s=0,a;//s\u662f\u8f6c\u5316\u540e\u7684\u6570\uff0c\u522b\u5fd8\u8bb0\u7ed9s\u521d\u59cb\u5316\n\tfor(int i=1;i<=8;i++){\n\t\tcin>>a;\n\t\ts=s*10+a;//\u5c068\u4e2a\u6570\u5b57\u8f6c\u6362\u6210\u4e00\u4e2a\u6570\n\t}\n\tif(s==12345678)\n\t\tputs(\"ascending\");\n\telse if(s==87654321)\n\t\tputs(\"descending\");\n\telse\n\t\tputs(\"mixed\");\n\treturn 0;\n}\n```\n~~\u4ee3\u7801\u8c8c\u4f3c\u8fd8\u633a\u77ed\u3002~~",
+        "postTime": 1620012031,
+        "uid": 478461,
+        "name": "lfxxx",
+        "ccfLevel": 7,
+        "title": "P7539 [COCI2009-2010#1] NOTE"
+    },
+    {
+        "content": "## \u601d\u8def\n\n\u76f4\u63a5\u8fdb\u884c\u5224\u65ad\u5373\u53ef\u3002\n\n- \u5982\u679c\u6ee1\u8db3 $a_i>a_{i-1}$ \uff0c\u90a3\u5c31\u662f\u5347\u5e8f\u3002\n\n- \u5982\u679c\u6ee1\u8db3 $a_i<a_{i-1}$ \uff0c\u90a3\u5c31\u662f\u964d\u5e8f\u3002\n\n- \u5426\u5219\u5c31\u662f\u6df7\u5408\u7684\u3002\n\n\u5177\u4f53\u5b9e\u73b0\u89c1\u4ee3\u7801\u3002\n\n## Code\n\n```cpp\n#include<bits/stdc++.h>\n#define N 11\nusing namespace std;\nint a[N];\nbool Is_up()//\u5224\u65ad\u662f\u5426\u4e3a\u5347\u5e8f \n{\n\tfor(int i=2;i<=8;i++)\n\t\tif(a[i]<a[i-1])\n\t\t\treturn false;\n\treturn true;\n}\nbool Is_down()//\u5224\u65ad\u662f\u5426\u4e3a\u964d\u5e8f \n{\n\tfor(int i=2;i<=8;i++)\n\t\tif(a[i]>a[i-1])\n\t\t\treturn false;\n\treturn true;\n}\nsigned main()\n{\n\tfor(int i=1;i<=8;i++)cin>>a[i];//\u8bfb\u5165 \n\tif(Is_up())//\u5982\u679c\u662f\u5347\u5e8f \n\t\tcout<<\"ascending\";\n\telse if(Is_down())//\u5982\u679c\u662f\u964d\u5e8f \n\t\tcout<<\"descending\";\n\telse//\u5426\u5219\u662f\u6df7\u5408\u7684 \n\t\tcout<<\"mixed\";\n    return 0;\n}\n```",
+        "postTime": 1619956158,
+        "uid": 381566,
+        "name": "_lzh_",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P7534 \u3010[COCI2009-2010#1] NOTE\u3011"
+    },
+    {
+        "content": "### \u601d\u8def\uff1a\n\u6211\u4eec\u8bbe\u7f6e $b$ \u6570\u7ec4\u7528\u6765\u5b58\u50a8\u97f3\u9636**\u5347\u5e8f\u6392\u5e8f**\u540e\u7684\u5e8f\u5217\uff0c\u8bbe\u7f6e $c$ \u6570\u7ec4\u7528\u6765\u5b58\u50a8\u97f3\u9636**\u964d\u5e8f\u6392\u5e8f**\u540e\u7684\u5e8f\u5217\u3002\n\n\u5982\u679c\u539f\u6570\u7ec4\u548c $b$ \u6570\u7ec4\u76f8\u540c\uff0c\u90a3\u4e48\u5c31\u662f\u5347\u5e8f\u3002\n\n\u5982\u679c\u539f\u6570\u7ec4\u548c $c$ \u6570\u7ec4\u76f8\u540c\uff0c\u90a3\u4e48\u5c31\u662f\u964d\u5e8f\u3002\n\n\u5982\u679c\u4e24\u4e2a\u90fd\u4e0d\u6ee1\u8db3\uff0c\u5c31\u662f\u6df7\u5408\u3002\n\n### [Code](https://www.luogu.com.cn/paste/jb2xlwav)\n",
+        "postTime": 1619858335,
+        "uid": 365726,
+        "name": "\u5e7c\u513f\u56ed\u7b2c\u4e00\u540d",
+        "ccfLevel": 4,
+        "title": "P7539 [COCI2009-2010#1] NOTE"
+    },
+    {
+        "content": "#### \u601d\u8def\n\n\u7531\u4e8e\u4e0a\u5347\u548c\u4e0b\u964d\u90fd\u53ea\u6709\u4e00\u79cd\u5e8f\u5217\uff0c\u6211\u4eec\u5c31\u53ef\u4ee5\u5355\u72ec\u50a8\u5b58\uff08\u8fd9\u91cc\u4e0d\u5efa\u8bae\u4f7f\u7528\u5b57\u7b26\u4e32\uff0c\u5426\u5219\u4f60\u9700\u8981\u5904\u7406\u4e2d\u95f4\u7684\u7a7a\u683c\uff0c\u7a7a\u884c\u7b49\uff09\u3002\n\n\u90a3\u6211\u4eec\u5c31\u7528\u4e24\u4e2a\u6570\u7ec4\u5206\u522b\u4fdd\u5b58\u4e24\u4e2a\u5e8f\u5217\uff0c\u518d\u8fdb\u884c\u5339\u914d\u3002\n\n\u8fd9\u91cc\u6211\u4eec\u53ef\u4ee5\u5f15\u5165\u4e00\u4e2a\u4e34\u65f6\u53d8\u91cf\uff0c\u82e5\u4e24\u4e2a\u5e8f\u5217\u4e2d\u76f8\u540c\u4f4d\u7f6e\u7684\u4e24\u4e2a\u6570\u76f8\u540c\uff0c\u5219\u8bb0\u5f55\u5b83\u4eec\u7684\u4f4d\u7f6e\uff0c\u53cd\u4e4b\u5219\u9000\u51fa\u3002\n\n\u56e0\u6b64\uff0c\u5f53\u4e34\u65f6\u53d8\u91cf\u7b49\u4e8e $8$ \u65f6\uff0c\u5c31\u8bf4\u660e\u8fd9\u4e24\u4e2a\u5e8f\u5217\u76f8\u540c\u3002\n\n\u4e0a\u4ee3\u7801\uff1a\n\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint a[10],b[10],c[10],tot1,tot2;\nint main() {\n\tfor(int i=1;i<=8;i++) {\n\t\tb[i]=i;\n\t\tc[i]=8-i+1;\n\t}\n\tfor(int i=1;i<=8;i++)\n\t\tscanf(\"%d\",&a[i]);\n\tfor(int i=1;i<=8;i++) {\n\t\tif(a[i]==b[i])\n\t\t\ttot1=i;\n\t\telse\n\t\t\tbreak;\n\t}\n\tif(tot1==8) {\n\t\tprintf(\"ascending\");\n\t\treturn 0;\n\t}\n\tfor(int i=1;i<=8;i++) {\n\t\tif(a[i]==c[i])\n\t\t\ttot2=i;\n\t\telse\n\t\t\tbreak;\n\t}\n\tif(tot2==8) {\n\t\tprintf(\"descending\");\n\t\treturn 0;\n\t}\n\tprintf(\"mixed\");\n\treturn 0;\n}\n```\n\n\u5b8c\u7ed3\u6492\u82b1~",
+        "postTime": 1619915843,
+        "uid": 299783,
+        "name": "\u96f6\u6b87",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P7539 \u3010 [COCI2009-2010#1] NOTE\u3011"
+    },
+    {
+        "content": "## \u505a\u6cd5\n\u8fb9\u8f93\u5165\u8fb9\u5224\u65ad\u3002\n\n\u7528\u4e00\u4e2a\u53d8\u91cf ```type``` \u6765\u8868\u793a\u97f3\u9636\u662f\u5347\u5e8f\u3001\u964d\u5e8f\u8fd8\u662f\u6df7\u5408\u7684\u3002\u5b9a\u4e49\u5f53 ```type``` \u4e3a ```0``` \u65f6\u8868\u793a\u97f3\u9636\u662f\u5347\u5e8f\u7684\uff0c\u4e3a ```1``` \u65f6\u8868\u793a\u97f3\u9636\u662f\u964d\u5e8f\u7684\uff0c\u4e3a ```2``` \u65f6\u8868\u793a\u97f3\u9636\u662f\u6df7\u5408\u7684\uff0c\u4e3a ```-1``` \u65f6\u8868\u793a\u5f85\u786e\u5b9a\u3002\u90a3\u4e48\u6211\u4eec\u53ea\u8981\u5728\u8f93\u5165\u7684\u65f6\u5019\u5224\u65ad\u4e00\u4e0b\u672c\u4e2a\u548c\u524d\u4e00\u4e2a\u97f3\u7b26\u7684\u5927\u5c0f\u5173\u7cfb\u5c31\u53ef\u4ee5\u5f88\u8f7b\u677e\u5730\u8ba1\u7b97\u51fa\u6700\u7ec8\u7684 ```type``` \u4e86\u3002\n\n## AC \u4ee3\u7801\n```cpp\n#include <iostream>\n#include <cstdio>\n\nusing namespace std;\n\nint a[10];\nint type=-1; // \u5e8f\u5217\u7c7b\u578b\uff0c-1 \u8868\u793a\u672a\u77e5\uff0c0 \u8868\u793a\u5347\u5e8f\uff0c1 \u8868\u793a\u964d\u5e8f\uff0c2 \u8868\u793a\u6df7\u5408 \n\nint main()\n{\n\tscanf(\"%d\",&a[1]); // \u5148\u8f93\u5165\u7b2c\u4e00\u4e2a\u97f3\u7b26 \n\tfor(int i=2;i<=8;i++)\n\t{\n\t\tscanf(\"%d\",&a[i]);\n\t\tif(a[i-1]<a[i]) // \u6bd4\u524d\u4e00\u4e2a\u97f3\u9ad8\uff0c\u5e8f\u5217\u662f\u5347\u5e8f\u7684 \n\t\t{\n\t\t\tif(type==-1) // \u672a\u786e\u5b9a \n\t\t\t{\n\t\t\t\ttype=0; // \u7c7b\u578b\u66f4\u6539\u4e3a\u5347\u5e8f \n\t\t\t}\n\t\t\tif(type==1) // \u4e4b\u524d\u662f\u964d\u5e8f\u7684 \n\t\t\t{\n\t\t\t\ttype=2; // \u7c7b\u578b\u66f4\u6539\u4e3a\u6df7\u5408 \n\t\t\t}\n\t\t}\n\t\tif(a[i-1]>a[i]) // \u6bd4\u524d\u4e00\u4e2a\u97f3\u4f4e\uff0c\u5e8f\u5217\u662f\u964d\u5e8f\u7684 \n\t\t{\n\t\t\tif(type==-1) // \u672a\u786e\u5b9a \n\t\t\t{\n\t\t\t\ttype=1; // \u7c7b\u578b\u6539\u4e3a\u964d\u5e8f \n\t\t\t}\n\t\t\tif(type==0) // \u4e4b\u524d\u662f\u5347\u5e8f\u7684 \n\t\t\t{\n\t\t\t\ttype=2; // \u7c7b\u578b\u6539\u4e3a\u6df7\u5408 \n\t\t\t}\n\t\t}\n\t}\n\tif(type==0) // \u5347\u5e8f \n\t{\n\t\tprintf(\"ascending\\n\");\n\t}\n\tif(type==1) // \u964d\u5e8f \n\t{\n\t\tprintf(\"descending\\n\");\n\t}\n\tif(type==2) // \u6df7\u5408 \n\t{\n\t\tprintf(\"mixed\\n\");\n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1619876710,
+        "uid": 251130,
+        "name": "lovely_ckj",
+        "ccfLevel": 0,
+        "title": "P7539 [COCI2009-2010#1] NOTE \u9898\u89e3"
+    },
+    {
+        "content": "# Solution P7539 [COCI2009-2010#1] NOTE\n\n\u6ce8\u610f\uff1a\u672c\u9898\u6ee1\u5206$30$\uff0c\u6240\u4ee5\u4f1a\u51fa\u73b0$Accepted 30$\u7684\u60c5\u51b5\uff0c\u4ee3\u8868\u901a\u8fc7\u3002\n\n## \u4e00\u3001\u601d\u8def\u603b\u7ed3\uff1a\n\n\u601d\u8def\u8fd8\u662f\u5f88\u7b80\u5355\u7684\uff0c\u4e00\u5171\u8f93\u5165$8$\u4e2a\u6570\uff0c$a[i]$\u8868\u793a\u7b2c$i$\u4e2a\u6570\uff1a\n\n- \u5982\u679c\u662f**\u5347\u5e8f**\uff0c\u4e5f\u5c31\u662f$a[i]==1$\uff1b\n\n- \u5982\u679c\u662f**\u964d\u5e8f**\uff0c\u4e5f\u5c31\u662f$a[i]==8-i+1$\uff1b\n\n- \u4e24\u4e2a\u90fd\u4e0d\u662f\uff0c\u5c31\u662f**\u6df7\u5408**\u7684\u3002\n\n## \u4e8c\u3001\u53c2\u8003\u4ee3\u7801\uff1a\n\n\u6ce8\u610f\uff0c\u6211\u8fd9\u91cc$a[]$\u6570\u7ec4\u662f\u4ece$0$\u5f00\u59cb\u8ba1\u7b97\u7684\uff0c\u4e5f\u5c31\u662f\u8f93\u5165$a[0]$\u5230$a[7]$\u3002\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint a[8];\nint main(){\n\tfor(int i=0;i<8;i++) cin>>a[i];//\u6211\u662f\u4ecea[0]\u5f00\u59cb\u8f93\u5165\u7684\n\tif(a[0]==1&&a[1]==2&&a[2]==3&&a[3]==4&&a[4]==5&&a[5]==6&&a[6]==7&&a[7]==8){//\u4f9d\u6b21\u5224\u65ad\n\t\tcout<<\"ascending\";\n\t}\n\telse if(a[0]==8&&a[1]==7&&a[2]==6&&a[3]==5&&a[4]==4&&a[5]==3&&a[6]==2&&a[7]==1){\n\t\tcout<<\"descending\";\n\t}\n\telse cout<<\"mixed\";\n\treturn 0;\n}\n```\n\n\u611f\u8c22\u60a8\u7684\u9605\u89c8\uff0c\u795d\u60a8\u65e9\u65e5\u7287\u7287\uff01",
+        "postTime": 1619873755,
+        "uid": 166234,
+        "name": "Aiopr_2378",
+        "ccfLevel": 6,
+        "title": "P7539 [COCI2009-2010#1] NOTE"
+    },
+    {
+        "content": "### Solution\n\n\u4f5c\u4e3a 2009 \u7684 COCI T1\uff0c\u8fd9\u9898\u8fd8\u662f\u5f88\u6c34\u7684\uff08\n\n\u6839\u636e\u9898\u610f\uff0c\u663e\u7136\uff1a\n\n- ascending\uff1a$\\texttt{1 2 3 4 5 6 7 8}$\uff1b\n- descending\uff1a$\\texttt{8 7 6 5 4 3 2 1}$\uff1b\n- mixed\uff1a\u65e2\u4e0d\u662f ascending \u53c8\u4e0d\u662f descending\u3002\n\n\u6240\u4ee5\u6211\u4eec\u8bfb\u5165\u4e00\u4e2a\u5b57\u7b26\u4e32\uff0c\u5224\u65ad\u5b83\u662f\u4e0d\u662f $\\texttt{1 2 3 4 5 6 7 8}$ \u6216 $\\texttt{8 7 6 5 4 3 2 1}$\uff0c\u662f\u5c31\u8f93\u51fa\u5bf9\u5e94\u7684\u5b57\u7b26\u4e32\uff0c\u4e0d\u662f\u5c31\u8f93\u51fa `mixed`\u3002\n\n### Code\n```cpp\n#include <bits/stdc++.h>\n#define debug printf(\"%d\",__LINE__)\nusing namespace std;\nsigned main()\n{\n\tstring des = \"8 7 6 5 4 3 2 1\";\n\tstring asc = \"1 2 3 4 5 6 7 8\";\n\tstring s;\n\tgetline (cin, s);\n\tif (s == des) {\n\t\tputs(\"descending\");\n\t} else if (s == asc) {\n\t\tputs(\"ascending\");\n\t} else {\n\t\tputs(\"mixed\");\n\t}\n\treturn 0;\n}\n\n```",
+        "postTime": 1619870057,
+        "uid": 219791,
+        "name": "tZERO\u3061\u3083\u3093",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P7539 \u3010[COCI2009-2010#1] NOTE\u3011"
+    },
+    {
+        "content": "## **\u6b63\u6587\uff1a**\n### \u601d\u8def\uff1a\n\u4e00\u9053\u6781\u6c35\u7684\u5206\u652f\u5224\u65ad\u9898\u76ee\u3002\u53ea\u9700\u8981\u5224\u65ad\u662f\u5426\u4e3a $8,7,6,5,4,3,2,1$ \u6216\u8005 $1,2,3,4,5,6,7,8$ \u5373\u53ef\u3002\u524d\u8005\u8f93\u51fa `descending`\uff0c\u540e\u8005\u8f93\u51fa `ascending`\uff0c\u5176\u4ed6\u60c5\u51b5\u8f93\u51fa `mixed`\u3002\u7a0b\u5e8f\u4e5f\u5e94\u8be5\u4e0d\u9700\u8981\u89e3\u91ca\u4e86\uff0c\u6ca1\u5b66\u8fc7 `for` \u5faa\u73af\u7684\u90fd\u80fd\u770b\u61c2\u3002\n### \u7a0b\u5e8f\u5982\u4e0b\uff1a\n```cpp\n#include<cstdio>\nusing namespace std;\nint a,b,c,d,e,f,g,h;\nint main(){\n    scanf(\"%d%d%d%d%d%d%d%d\",&a,&b,&c,&d,&e,&f,&g,&h);\n    if(a==1&&b==2&&c==3&&d==4&&e==5&&f==6&&g==7&&h==8)printf(\"ascending\\n\");\n    else if(a==8&&b==7&&c==6&&d==5&&e==4&&f==3&&g==2&&h==1)printf(\"descending\\n\");\n    else printf(\"mixed\\n\");\n    return 0;\n}\n```\n## **THE END**",
+        "postTime": 1619866472,
+        "uid": 299883,
+        "name": "HYdroKomide",
+        "ccfLevel": 6,
+        "title": "P7539 \u9898\u89e3"
+    },
+    {
+        "content": "\u56e0\u4e3a8\u4e2a\u6570\u90fd\u8981\u8f93\u5165\u800c\u4e148\u4e2a\u6570\u90fd\u4e0d\u91cd\u590d\uff0c\u90a3\u4e48\u5347\u5e8f\u53ea\u80fd\u662f1\uff0c2\uff0c3\uff0c4... 8\u8fd9\u6837\uff0c\u964d\u5e8f\u53ea\u80fd\u662f 8\uff0c7\uff0c6\uff0c5...1\u8fd9\u6837\uff0c\u5176\u4f59\u7684\u5c31\u662f\u6df7\u5408\u3002\u90a3\u4e48\u8fd9\u6837\u53ea\u9700\u8981\u5148\u7528 $sort$ \u51fd\u6570\u6392\u4e00\u6b21\u5347\u5e8f\uff0c\u5224\u65ad\u662f\u4e0d\u662f\uff0c\u518d\u6392\u4e00\u4e0b\u964d\u5e8f\uff0c\u5224\u65ad\u662f\u4e0d\u662f\uff0c\u82e5\u90fd\u4e0d\u662f\uff0c\u5c31\u662f\u6df7\u5408\u3002\n\nAC code:\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint a[10],b[10];\nbool flag1 = 1,flag2 = 1;\nbool cmp(int x,int y)\n{\n    return x > y;\n}\nint main()\n{\n    for(int i = 0;i < 8;i++) cin >> a[i];\n    for(int i = 0;i < 8;i++) b[i] = a[i];\n    sort(b,b + 8);\n    for(int i = 0;i < 8;i++) if(a[i] != b[i]) flag1 = 0;\n    if(flag1) \n    {\n        cout << \"ascending\";\n        return 0;\n    }\n    sort(b,b + 8,cmp);\n    for(int i = 0;i < 8;i++) if(a[i] != b[i]) flag2 = 0;\n    if(flag2) \n    {\n        cout << \"descending\";\n        return 0;\n    }\n    cout << \"mixed\";\n    return 0;\n}\n\n```\n",
+        "postTime": 1620006062,
+        "uid": 384736,
+        "name": "\u5965\u65af\u5361\u5c0f\u51b0\u4eba",
+        "ccfLevel": 4,
+        "title": "\u6c34\u9898\u9898\u89e3"
+    }
+]

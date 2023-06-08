@@ -1,0 +1,13 @@
+{
+    "description": "You've got an $ n\u00d7n\u00d7n $ cube, split into unit cubes. Your task is to number all unit cubes in this cube with positive integers from $ 1 $ to $ n^{3} $ so that:\n\n- each number was used as a cube's number exactly once;\n- for each $ 1<=i&lt;n^{3} $ , unit cubes with numbers $ i $ and $ i+1 $ were neighbouring (that is, shared a side);\n- for each $ 1<=i&lt;n $ there were at least two different subcubes with sizes $ i\u00d7i\u00d7i $ , made from unit cubes, which are numbered with consecutive numbers. That is, there are such two numbers $ x $ and $ y $ , that the unit cubes of the first subcube are numbered by numbers $ x $ , $ x+1 $ , $ ... $ , $ x+i^{3}-1 $ , and the unit cubes of the second subcube are numbered by numbers $ y $ , $ y+1 $ , $ ... $ , $ y+i^{3}-1 $ .\n\nFind and print the required numeration of unit cubes of the cube.",
+    "inputFormat": "The first line contains a single integer $ n $ ( $ 1<=n<=50 $ ) \u2014 the size of the cube, whose unit cubes need to be numbered.",
+    "outputFormat": "Print all layers of the cube as $ n $ $ n\u00d7n $ matrices. Separate them with new lines. Print the layers in the order in which they follow in the cube. See the samples for clarifications.\n\nIt is guaranteed that there always is a solution that meets the conditions given in the problem statement.",
+    "samples": [
+        [
+            "3\n",
+            "1 4 17 \n2 3 18 \n27 26 19 \n\n8 5 16 \n7 6 15 \n24 25 20 \n\n9 12 13 \n10 11 14 \n23 22 21 \n\n"
+        ]
+    ],
+    "hint": "In the sample the cubes with sizes $ 2\u00d72\u00d72 $ are numbered with integers $ 1,...,8 $ and $ 5,...,12 $ .",
+    "translation": "### \u9898\u610f\r\n\r\n\u7528 $1 \\sim n^3$ \u7684\u6570\u6784\u9020\u4e00\u4e2a $n \\times n \\times n$ \u7684\u7acb\u65b9\u4f53\uff0c\u8981\u6c42\u6bcf\u4e2a\u6570\u6070\u597d\u51fa\u73b0\u4e00\u6b21\uff0c $i$ \u548c $i+1$ \u5fc5\u987b\u76f8\u90bb\uff0c\u5bf9\u4e8e\u6bcf\u4e2a $i$ \u90fd\u81f3\u5c11\u8981\u6709\u4e24\u4e2a $i \\times i \\times i$ \u7684\u5b50\u7acb\u65b9\u4f53\u4e2d\u7684\u6570\u662f\u8fde\u7eed\u7684\u3002\r\n\r\n### \u8f93\u51fa\u683c\u5f0f\r\n\r\n $n$ \u4e2a $n \\times n $ \u7684\u77e9\u9635\uff0c\u6bcf\u4e2a\u77e9\u9635\u4e4b\u95f4\u7a7a\u4e00\u884c\uff0c\u8868\u793a\u6700\u7ec8\u7684\u7acb\u65b9\u4f53\u4fef\u89c6\u56fe\u4ece\u4e0a\u5230\u4e0b\u6bcf\u5c42\u7684\u6570\u5b57\u3002\r\n \r\n\u6570\u636e\u4fdd\u8bc1\u6709\u89e3\u3002\r\n\r\n### \u6570\u636e\u8303\u56f4\r\n\r\n $n \\leqslant 50$ "
+}

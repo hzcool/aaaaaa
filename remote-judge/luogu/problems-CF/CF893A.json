@@ -1,0 +1,17 @@
+{
+    "description": "Alex, Bob and Carl will soon participate in a team chess tournament. Since they are all in the same team, they have decided to practise really hard before the tournament. But it's a bit difficult for them because chess is a game for two players, not three.\n\nSo they play with each other according to following rules:\n\n- Alex and Bob play the first game, and Carl is spectating;\n- When the game ends, the one who lost the game becomes the spectator in the next game, and the one who was spectating plays against the winner.\n\nAlex, Bob and Carl play in such a way that there are no draws.\n\nToday they have played $ n $ games, and for each of these games they remember who was the winner. They decided to make up a log of games describing who won each game. But now they doubt if the information in the log is correct, and they want to know if the situation described in the log they made up was possible (that is, no game is won by someone who is spectating if Alex, Bob and Carl play according to the rules). Help them to check it!",
+    "inputFormat": "The first line contains one integer $ n $ ( $ 1<=n<=100 $ ) \u2014 the number of games Alex, Bob and Carl played.\n\nThen $ n $ lines follow, describing the game log. $ i $ -th line contains one integer $ a_{i} $ ( $ 1<=a_{i}<=3 $ ) which is equal to $ 1 $ if Alex won $ i $ -th game, to $ 2 $ if Bob won $ i $ -th game and $ 3 $ if Carl won $ i $ -th game.",
+    "outputFormat": "Print YES if the situation described in the log was possible. Otherwise print NO.",
+    "samples": [
+        [
+            "3\n1\n1\n2\n",
+            "YES\n"
+        ],
+        [
+            "2\n1\n2\n",
+            "NO\n"
+        ]
+    ],
+    "hint": "In the first example the possible situation is:\n\n1. Alex wins, Carl starts playing instead of Bob;\n2. Alex wins, Bob replaces Carl;\n3. Bob wins.\n\nThe situation in the second example is impossible because Bob loses the first game, so he cannot win the second one.",
+    "translation": "## \u9898\u76ee\u63cf\u8ff0\nA\uff0cB\uff0cC \u4e09\u4eba\u4e0b\u68cb\uff0cA\u548cB\u5148\u4e0b\uff0c\u6bcf\u6b21\u4e0b\u5b8c\u68cb\u4e4b\u540e\u7531\u73b0\u5728\u89c2\u6218\u7684\u4eba\uff08\u4f8b\u5982\u7b2c\u4e00\u5c40\u5c31\u7531C\uff09\u4ee3\u66ff\u4e0b\u8f93\u7684\u4eba\u3002\n\u6bcf\u6b21\u8f93\u5165\u4e00\u4e2a\u6570\u8868\u793a\u8c01\u8d62\u4e86\uff08A\u662f1\uff0cB\u662f2\uff0cC\u662f3\uff09\uff0c\u5982\u679c\u6bcf\u4e00\u6b21\u8f93\u5165\u7684\u8d62\u5bb6\u90fd\u4e0d\u662f\u5f53\u65f6\u65c1\u89c2\u8005\uff0c\u5219\u8f93\u51fa \u201cYES\u201d\uff0c\u5426\u5219\u8f93\u51fa\u201cNO\u201d\u3002\n## \u8f93\u5165\u8f93\u51fa\u683c\u5f0f\n**\u8f93\u5165\u683c\u5f0f\uff1a**\n\u7b2c\u4e00\u884c\u8f93\u5165\u6b63\u6574\u6570n\uff08n\u2264100\uff09\uff0c\u8868\u793a\u6bd4\u8d5b\u5c40\u6570\u3002\n\u63a5\u4e0b\u6765n\u884c\uff0c\u6bcf\u4e00\u884c\u8f93\u5165\u4e00\u4e2a\u6b63\u6574\u6570ai\uff081\u2264ai\u22643\uff09\uff0c\u8868\u793a\u6b64\u5c40\u8d62\u5bb6\n\n**\u8f93\u51fa\u683c\u5f0f\uff1a**\n\u5982\u679c\u6b64\u8fc7\u7a0b\u4e2d\u4e0d\u5b58\u5728\u65c1\u89c2\u8005\u80dc\u5229\uff0c\u5219\u8f93\u51fa\u201cYES\u201d\uff0c\u5426\u5219\u8f93\u51fa\u201cNO\u201d\u3002\uff08\u6ca1\u6709\u5f15\u53f7\uff09\n## \u8bf4\u660e\n\u7b2c\u4e00\u4e2a\u6837\u4f8b\u987a\u5e8f\uff1a  \nA:B\uff0cA\u80dc  \nA:C\uff0cA\u80dc   \nA:B\uff0cB\u80dc \n\n\u7b2c\u4e8c\u4e2a\u6837\u4f8bB\u8f93\u4e86\u7b2c\u4e00\u573a\uff0c\u53ef\u662f\u4ed6\u7b2c\u4e8c\u573a\u8d62\u4e86\uff0c\u77db\u76fe\uff0c\u8f93\u51fa\u201cNO\u201d\u3002"
+}

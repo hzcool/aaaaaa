@@ -1,0 +1,25 @@
+{
+    "description": "The only difference between the easy and the hard versions is constraints.\n\nA subsequence is a string that can be derived from another string by deleting some or no symbols without changing the order of the remaining symbols. Characters to be deleted are not required to go successively, there can be any gaps between them. For example, for the string \"abaca\" the following strings are subsequences: \"abaca\", \"aba\", \"aaa\", \"a\" and \"\" (empty string). But the following strings are not subsequences: \"aabaca\", \"cb\" and \"bcaa\".\n\nYou are given a string $ s $ consisting of $ n $ lowercase Latin letters.\n\nIn one move you can take any subsequence $ t $ of the given string and add it to the set $ S $ . The set $ S $ can't contain duplicates. This move costs $ n - |t| $ , where $ |t| $ is the length of the added subsequence (i.e. the price equals to the number of the deleted characters).\n\nYour task is to find out the minimum possible total cost to obtain a set $ S $ of size $ k $ or report that it is impossible to do so.",
+    "inputFormat": "The first line of the input contains two integers $ n $ and $ k $ ( $ 1 \\le n, k \\le 100 $ ) \u2014 the length of the string and the size of the set, correspondingly.\n\nThe second line of the input contains a string $ s $ consisting of $ n $ lowercase Latin letters.",
+    "outputFormat": "Print one integer \u2014 if it is impossible to obtain the set $ S $ of size $ k $ , print -1. Otherwise, print the minimum possible total cost to do it.",
+    "samples": [
+        [
+            "4 5\nasdf\n",
+            "4\n"
+        ],
+        [
+            "5 6\naaaaa\n",
+            "15\n"
+        ],
+        [
+            "5 7\naaaaa\n",
+            "-1\n"
+        ],
+        [
+            "10 100\najihiushda\n",
+            "233\n"
+        ]
+    ],
+    "hint": "In the first example we can generate $ S $ = { \"asdf\", \"asd\", \"adf\", \"asf\", \"sdf\" }. The cost of the first element in $ S $ is $ 0 $ and the cost of the others is $ 1 $ . So the total cost of $ S $ is $ 4 $ .",
+    "translation": "\u672c\u9898\u548cH\u9898\u552f\u4e00\u7684\u4e0d\u540c\u70b9\u662f\u6570\u636e\u8303\u56f4\u3002\n\n\u4f60\u6709\u4e00\u4e2a\u957f\u5ea6\u4e3a$n$\u7684\u5b57\u7b26\u4e32\u3002\u4f60\u53ef\u4ee5\u9009\u62e9\u5b83\u7684\u4efb\u610f\u4e00\u4e2a\u5b50\u5e8f\u5217\u3002\u5b50\u5e8f\u5217\u5b9a\u4e49\u4e3a\u53ef\u4ee5\u5c06\u8fd9\u4e2a\u5b57\u7b26\u4e32\u5220\u53bb\u82e5\u5e72\u4e2a\u5b57\u7b26\u5f97\u5230\u3002\u7279\u522b\u7684\uff0c\u7a7a\u4e32\u4e5f\u662f\u4e00\u4e2a\u5b50\u5e8f\u5217\u3002\n\n\u5bf9\u4e8e\u4e00\u4e2a\u957f\u5ea6\u4e3a$m$\u7684\u5b50\u5e8f\u5217\uff0c\u9009\u51fa\u5b83\u7684\u82b1\u8d39\u662f$n-m$\uff0c\u4e5f\u5c31\u662f\u4f60\u9700\u8981\u5220\u6389\u7684\u5b57\u7b26\u6570\u91cf\u3002\n\n\u4f60\u7684\u4efb\u52a1\u662f\u9009\u51fa\u6765$k$\u4e2a**\u672c\u8d28\u4e0d\u540c**\u7684\u5b50\u5e8f\u5217\uff0c\u4f7f\u5f97\u603b\u82b1\u8d39\u6700\u5c0f\u3002\u8f93\u51fa\u8fd9\u4e2a\u6700\u5c0f\u82b1\u8d39\u3002\n\n\u5982\u679c\u9009\u4e0d\u51fa$k$\u4e2a\uff0c\u8f93\u51fa$-1$\u3002\n\n$\\text{\u2014\u2014by wucstdio}$"
+}

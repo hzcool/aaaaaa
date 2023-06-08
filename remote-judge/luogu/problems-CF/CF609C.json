@@ -1,0 +1,21 @@
+{
+    "description": "In the school computer room there are $ n $ servers which are responsible for processing several computing tasks. You know the number of scheduled tasks for each server: there are $ m_{i} $ tasks assigned to the $ i $ -th server.\n\nIn order to balance the load for each server, you want to reassign some tasks to make the difference between the most loaded server and the least loaded server as small as possible. In other words you want to minimize expression $ m_{a}-m_{b} $ , where $ a $ is the most loaded server and $ b $ is the least loaded one.\n\nIn one second you can reassign a single task. Thus in one second you can choose any pair of servers and move a single task from one server to another.\n\nWrite a program to find the minimum number of seconds needed to balance the load of servers.",
+    "inputFormat": "The first line contains positive number $ n $ ( $ 1<=n<=10^{5} $ ) \u2014 the number of the servers.\n\nThe second line contains the sequence of non-negative integers $ m_{1},m_{2},...,m_{n} $ ( $ 0<=m_{i}<=2\u00b710^{4} $ ), where $ m_{i} $ is the number of tasks assigned to the $ i $ -th server.",
+    "outputFormat": "Print the minimum number of seconds required to balance the load.",
+    "samples": [
+        [
+            "2\n1 6\n",
+            "2\n"
+        ],
+        [
+            "7\n10 11 10 11 10 11 11\n",
+            "0\n"
+        ],
+        [
+            "5\n1 2 3 4 5\n",
+            "3\n"
+        ]
+    ],
+    "hint": "In the first example two seconds are needed. In each second, a single task from server #2 should be moved to server #1. After two seconds there should be 3 tasks on server #1 and 4 tasks on server #2.\n\nIn the second example the load is already balanced.\n\nA possible sequence of task movements for the third example is:\n\n1. move a task from server #4 to server #1 (the sequence $ m $ becomes: 2 2 3 3 5);\n2. then move task from server #5 to server #1 (the sequence $ m $ becomes: 3 2 3 3 4);\n3. then move task from server #5 to server #2 (the sequence $ m $ becomes: 3 3 3 3 3).\n\nThe above sequence is one of several possible ways to balance the load of servers in three seconds.",
+    "translation": "\u5b66\u6821\u91cc\u6709$n$\u4e2a\u670d\u52a1\u5668\uff0c\u7b2c$i$\u4e2a\u670d\u52a1\u5668\u6709$m_{i}$\u4e2a\u4efb\u52a1\u3002\r\n\r\n\u4f60\u53ef\u4ee5\u5bf9\u670d\u52a1\u5668\u7684\u4efb\u52a1\u5206\u914d\u505a**\u591a\u6b21\u8c03\u6574**\uff0c\u6bcf\u6b21\u53ef\u4ee5\u5c06\u4e00\u4e2a\u4efb\u52a1\u4ece\u4e00\u4e2a\u670d\u52a1\u5668$a$\u8c03\u6574\u5230\u53e6\u4e00\u4e2a\u670d\u52a1\u5668$b$\uff0c\u8fd9\u4f1a\u4f7f$m_{a}$\u51cf\u5c0f$1$\u3001$m_{b}$\u589e\u52a0$1$\uff0c\u5e76**\u8017\u8d39$1$\u79d2\u7684\u65f6\u95f4**\u3002\r\n\r\n\u8bf7\u6c42\u51fa**\u6700\u5c11\u591a\u5c11\u79d2**\u53ef\u4ee5\u4f7f\u4efb\u52a1\u5206\u914d\u5f97\u5c3d\u91cf\u5e73\u8861\u3002\r\n\r\n\u4efb\u52a1\u5206\u914d\u5f97\u5c3d\u91cf\u5e73\u8861\u6307\u7684\u662f\uff1a\u4efb\u52a1\u6700\u591a\u7684\u670d\u52a1\u5668\u4e0e\u4efb\u52a1\u6700\u5c11\u7684\u670d\u52a1\u5668\u7684\u4efb\u52a1\u6570\u91cf\u7684\u5dee\u8ddd\u5c3d\u91cf\u5c0f\uff0c\u7b80\u5355\u8bf4\uff0c\u5c31\u662f\u6700\u5c0f\u5316$m_{max}-m_{min}$ \u3002"
+}

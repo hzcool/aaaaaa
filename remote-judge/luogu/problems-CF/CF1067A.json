@@ -1,0 +1,17 @@
+{
+    "description": "Ivan unexpectedly saw a present from one of his previous birthdays. It is array of $ n $ numbers from $ 1 $ to $ 200 $ . Array is old and some numbers are hard to read. Ivan remembers that for all elements at least one of its neighbours ls not less than it, more formally:\n\n $ a_{1} \\le a_{2} $ ,\n\n $ a_{n} \\le a_{n-1} $ and\n\n $ a_{i} \\le max(a_{i-1}, \\,\\, a_{i+1}) $ for all $ i $ from $ 2 $ to $ n-1 $ .\n\nIvan does not remember the array and asks to find the number of ways to restore it. Restored elements also should be integers from $ 1 $ to $ 200 $ . Since the number of ways can be big, print it modulo $ 998244353 $ .",
+    "inputFormat": "First line of input contains one integer $ n $ ( $ 2 \\le n \\le 10^{5} $ ) \u2014 size of the array.\n\nSecond line of input contains $ n $ integers $ a_{i} $ \u2014 elements of array. Either $ a_{i} = -1 $ or $ 1 \\le a_{i} \\le 200 $ . $ a_{i} = -1 $ means that $ i $ -th element can't be read.",
+    "outputFormat": "Print number of ways to restore the array modulo $ 998244353 $ .",
+    "samples": [
+        [
+            "3\n1 -1 2\n",
+            "1\n"
+        ],
+        [
+            "2\n-1 -1\n",
+            "200\n"
+        ]
+    ],
+    "hint": "In the first example, only possible value of $ a_{2} $ is $ 2 $ .\n\nIn the second example, $ a_{1} = a_{2} $ so there are $ 200 $ different values because all restored elements should be integers between $ 1 $ and $ 200 $ .",
+    "translation": "## \u9898\u76ee\u63cf\u8ff0\n$Ivan$\u5076\u7136\u53d1\u73b0\u4e00\u4e2a\u65e7\u7684\u751f\u65e5\u793c\u7269\u3002\u793c\u7269\u662f\u4e00\u4e2a\u542b\u6709$n$\u4e2a\u5143\u7d20\u7684\u6570\u7ec4\uff0c\u6bcf\u4e2a\u5143\u7d20\u90fd\u4ecb\u4e8e$1$\u548c$200$\u4e4b\u95f4\u3002\u4f46\u662f\u73b0\u5728\u6570\u7ec4\u5df2\u7ecf\u5f88\u65e7\u4e86\uff0c\u6709\u7684\u6570\u5b57\u96be\u4ee5\u770b\u6e05\u3002\u4ed6\u8bb0\u5f97\u5bf9\u4e8e\u6240\u6709\u5143\u7d20\uff0c\u5b83\u7684\u76f8\u90bb\u5143\u7d20\u4e2d\u81f3\u5c11\u6709\u4e00\u4e2a\u4e0d\u5c0f\u4e8e\u5b83\u3002\u4e5f\u5c31\u662f\u8bf4\uff1a\n\n$a_1\\le a_2,a_n\\le a_{n-1}$\u4e14$a_i\\le \\max \\left( a_{i-1},a_{i+1} \\right) $\u5bf9\u4e8e\u4efb\u610f$i\\in \\left[ 2,n-1 \\right] $\u90fd\u6210\u7acb\u3002\n\n$Ivan$\u60f3\u77e5\u9053\u6709\u591a\u5c11\u79cd\u65b9\u6848\u80fd\u591f\u8fd8\u539f\u8fd9\u4e2a\u6570\u7ec4\u3002\u5f53\u7136\uff0c\u8fd8\u539f\u540e\u8981\u4fdd\u8bc1\u6bcf\u4e2a\u5143\u7d20\u4ecd\u7136\u4ecb\u4e8e$1$\u548c$200$\u4e4b\u95f4\u3002\u8f93\u51fa\u65b9\u6848\u6570\u5bf9$998244353$\u53d6\u6a21\u7684\u7ed3\u679c\u3002\n\n## \u8f93\u5165\u8f93\u51fa\u683c\u5f0f\n### \u8f93\u5165\u683c\u5f0f\n\u7b2c\u4e00\u884c\u4e00\u4e2a\u6574\u6570$n\\left( 2\\le n\\le 10^5 \\right)$\uff0c\u8868\u793a\u6570\u7ec4\u5927\u5c0f\u3002\n\n\u7b2c\u4e8c\u884c$n$\u4e2a\u6574\u6570\uff0c\u8868\u793a\u6570\u7ec4\u4e2d\u7684\u5143\u7d20\uff08\u4fdd\u8bc1\u6bcf\u4e2a\u5143\u7d20\u90fd\u4ecb\u4e8e$1$\u548c$200$\u4e4b\u95f4\uff09\u3002\u82e5$a_i=-1$\u8868\u793a\u8fd9\u4e2a\u6570\u5df2\u7ecf\u770b\u4e0d\u6e05\u4e86\u3002\n\n### \u8f93\u51fa\u683c\u5f0f\n\u65b9\u6848\u6570\u5bf9$998244353$\u53d6\u6a21\u7684\u7ed3\u679c\u3002\n\n## \u8bf4\u660e\n\u7b2c\u4e00\u4e2a\u6837\u4f8b\uff0c$a_2$\u53ea\u80fd\u4e3a$2$\u3002\n\n\u7b2c\u4e8c\u4e2a\u6837\u4f8b\uff0c$a_1=a_2$\uff0c\u6240\u4ee5\u6709$200$\u4e2d\u53ef\u80fd\u3002"
+}

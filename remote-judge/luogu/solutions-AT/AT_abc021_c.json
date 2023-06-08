@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u5e7f\u641c\u5373\u53ef\u3002\n\n\u8bbe\u6570\u7ec4 $c$ \u4e3a\u8d77\u70b9\u5230\u6bcf\u4e2a\u70b9\u6700\u77ed\u8def\u7684\u6570\u91cf\uff0c$v$ \u4e3a\u662f\u5426\u7ecf\u8fc7\u67d0\u4e2a\u70b9\u7684\u6807\u8bb0\u3002\u7136\u540e\u4e00\u5708\u4e00\u5708\u5f80\u5916\u641c\uff0c\u5982\u679c\u641c\u5230\u4e86\u5c31\u66f4\u65b0\u7b54\u6848\u3002\n\n\u653e\u4ee3\u7801\uff1a\n\n```cpp\n#include<queue>\n#include<vector>\n#include<iostream>\n#include<algorithm>\n#define int long long // \u672c\u9898\u5751\u70b9\nusing namespace std;\nvector<int> g[1000001];\nint a[1000001],c[1000001];\nbool v[1000001];\nsigned main(){\n    int n,s,b,m; cin>>n>>s>>b>>m;\n    for(int i=1;i<=m;i++){\n        int x,y; cin>>x>>y;\n        g[x].push_back(y); g[y].push_back(x);\n    } // \u7528 vector \u5b58\u56fe\n    queue<int> q; q.push(s); v[s]=c[s]=1;\n    while(!q.empty()){ // \u5e7f\u641c\u8fc7\u7a0b\n        int x=q.front(); q.pop();\n        for(int i=0;i<g[x].size();i++){\n            int h=g[x][i];\n            if(!v[h]){v[h]=1; a[h]=a[x]+1; q.push(h);}\n            if(a[h]==a[x]+1)c[h]=(c[h]+c[x])%1000000007; // \u66f4\u65b0\u7b54\u6848\n        }\n    }\n    cout<<c[b]<<endl; // \u8f93\u51fa\u7b54\u6848\n    return 0;\n}",
+        "postTime": 1650974679,
+        "uid": 556366,
+        "name": "zyc212303",
+        "ccfLevel": 5,
+        "title": "[ABC021C] \u6b63\u76f4\u8005\u306e\u9ad8\u6a4b\u304f\u3093 \u9898\u89e3"
+    }
+]

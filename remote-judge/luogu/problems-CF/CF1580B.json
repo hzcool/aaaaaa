@@ -1,0 +1,25 @@
+{
+    "description": "Let $ c_1, c_2, \\ldots, c_n $ be a permutation of integers $ 1, 2, \\ldots, n $ . Consider all subsegments of this permutation containing an integer $ x $ . Given an integer $ m $ , we call the integer $ x $ good if there are exactly $ m $ different values of maximum on these subsegments.\n\nCirno is studying mathematics, and the teacher asks her to count the number of permutations of length $ n $ with exactly $ k $ good numbers.\n\nUnfortunately, Cirno isn't good at mathematics, and she can't answer this question. Therefore, she asks you for help.\n\nSince the answer may be very big, you only need to tell her the number of permutations modulo $ p $ .\n\nA permutation is an array consisting of $ n $ distinct integers from $ 1 $ to $ n $ in arbitrary order. For example, $ [2,3,1,5,4] $ is a permutation, but $ [1,2,2] $ is not a permutation ( $ 2 $ appears twice in the array) and $ [1,3,4] $ is also not a permutation ( $ n=3 $ but there is $ 4 $ in the array).\n\nA sequence $ a $ is a subsegment of a sequence $ b $ if $ a $ can be obtained from $ b $ by deletion of several (possibly, zero or all) elements from the beginning and several (possibly, zero or all) elements from the end.",
+    "inputFormat": "The first line contains four integers $ n, m, k, p $ ( $ 1 \\le n \\le 100, 1 \\le m \\le n, 1 \\le k \\le n, 1 \\le p \\le 10^9 $ ).",
+    "outputFormat": "Output the number of permutations modulo $ p $ .",
+    "samples": [
+        [
+            "4 3 2 10007",
+            "4"
+        ],
+        [
+            "6 4 1 769626776",
+            "472"
+        ],
+        [
+            "66 11 9 786747482",
+            "206331312"
+        ],
+        [
+            "99 30 18 650457567",
+            "77365367"
+        ]
+    ],
+    "hint": "In the first test case, there are four permutations: $ [1, 3, 2, 4] $ , $ [2, 3, 1, 4] $ , $ [4, 1, 3, 2] $ and $ [4, 2, 3, 1] $ .\n\nTake permutation $ [1, 3, 2, 4] $ as an example:\n\nFor number $ 1 $ , all subsegments containing it are: $ [1] $ , $ [1, 3] $ , $ [1, 3, 2] $ and $ [1, 3, 2, 4] $ , and there're three different maxima $ 1 $ , $ 3 $ and $ 4 $ .\n\nSimilarly, for number $ 3 $ , there're two different maxima $ 3 $ and $ 4 $ . For number $ 2 $ , there're three different maxima $ 2 $ , $ 3 $ and $ 4 $ . And for number $ 4 $ , there're only one, that is $ 4 $ itself.",
+    "translation": "\u6c42\u6ee1\u8db3\u4ee5\u4e0b\u6761\u4ef6\u7684\u6392\u5217\u4e2a\u6570\uff1a\n\n- \u957f\u5ea6\u4e3a $n$\u3002\n- \u6070\u6709 $k$ \u4e2a\u6570\u6ee1\u8db3\uff1a\u6240\u6709\u5305\u542b\u8fd9\u4e2a\u6570\u7684\u533a\u95f4\u4e2d\uff0c\u4e0d\u540c\u7684\u6700\u5927\u503c\u7684\u4e2a\u6570\u6070\u6709 $m$ \u4e2a\u3002\n\n\u7b54\u6848\u5bf9 $p$ \u53d6\u6a21\u3002"
+}

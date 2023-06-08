@@ -1,0 +1,21 @@
+{
+    "description": "These days Arkady works as an air traffic controller at a large airport. He controls a runway which is usually used for landings only. Thus, he has a schedule of planes that are landing in the nearest future, each landing lasts $ 1 $ minute.\n\nHe was asked to insert one takeoff in the schedule. The takeoff takes $ 1 $ minute itself, but for safety reasons there should be a time space between the takeoff and any landing of at least $ s $ minutes from both sides.\n\nFind the earliest time when Arkady can insert the takeoff.",
+    "inputFormat": "The first line of input contains two integers $ n $ and $ s $ ( $ 1 \\le n \\le 100 $ , $ 1 \\le s \\le 60 $ ) \u2014 the number of landings on the schedule and the minimum allowed time (in minutes) between a landing and a takeoff.\n\nEach of next $ n $ lines contains two integers $ h $ and $ m $ ( $ 0 \\le h \\le 23 $ , $ 0 \\le m \\le 59 $ ) \u2014 the time, in hours and minutes, when a plane will land, starting from current moment (i. e. the current time is $ 0 $ $ 0 $ ). These times are given in increasing order.",
+    "outputFormat": "Print two integers $ h $ and $ m $ \u2014 the hour and the minute from the current moment of the earliest time Arkady can insert the takeoff.",
+    "samples": [
+        [
+            "6 60\n0 0\n1 20\n3 21\n5 0\n19 30\n23 40\n",
+            "6 1\n"
+        ],
+        [
+            "16 50\n0 30\n1 20\n3 0\n4 30\n6 10\n7 50\n9 30\n11 10\n12 50\n14 30\n16 10\n17 50\n19 30\n21 10\n22 50\n23 59\n",
+            "24 50\n"
+        ],
+        [
+            "3 17\n0 30\n1 0\n12 0\n",
+            "0 0\n"
+        ]
+    ],
+    "hint": "In the first example note that there is not enough time between 1:20 and 3:21, because each landing and the takeoff take one minute.\n\nIn the second example there is no gaps in the schedule, so Arkady can only add takeoff after all landings. Note that it is possible that one should wait more than $ 24 $ hours to insert the takeoff.\n\nIn the third example Arkady can insert the takeoff even between the first landing.",
+    "translation": "\u9898\u76ee\u63cf\u8ff0\uff1a\n\n\u6700\u8fd1 Arkady \u5728\u4e00\u4e2a\u5927\u578b\u673a\u573a\u5f53\u7a7a\u4e2d\u4ea4\u901a\u7ba1\u7406\u5458.\u4ed6\u7ba1\u7406\u7740\u4e00\u6761\u7528\u4e8e\u98de\u673a\u964d \u843d\u7684\u8dd1\u9053\u3002\u56e0\u6b64\uff0c\u4ed6\u7684\u624b\u4e2d\u6709\u4e00\u4efd\u5f53\u5929\u7684\u98de\u673a\u964d\u843d\u65f6\u523b\u8868\u3002\u6bcf\u67b6\u98de\u673a\u9700\u8981\u4e00\u5206\u949f \u6765\u964d\u843d\u3002\uff08\u5373\uff1a\u4ece\u7ed9\u5b9a\u7684\u65f6\u95f4\u6301\u7eed\u4e00\u5206\u949f\uff09\n\n\u73b0\u5728\u6709\u4e00\u67b6\u98de\u673a\u8981\u63d2\u961f\u3002\u8fd9\u67b6\u98de\u673a\u4e5f\u9700\u8981\u4e00\u5206\u949f\u6765\u964d\u843d\uff0c\u4f46\u662f\u4e3a\u4e86\u5b89\u5168\uff0c\u5b83 \u7684\u964d\u843d\u524d\u540e\u5e94\u8be5\u6709\u4e00\u6bb5\u65f6\u95f4\u7684\u7a7a\u7f3a\uff0c\u524d\u540e\u5404 s \u5206\u949f\u3002\n\n\u8bf7\u4f60\u627e\u5230\u6700\u65e9\u7684\u53ef\u4ee5\u5b89\u6392\u63d2\u961f\u7684\u65f6\u95f4\u3002\n\n\u8f93\u5165\u683c\u5f0f\uff1a\n\n\t\u7b2c\u4e00\u884c\u8f93\u5165\u4e24\u4e2a\u6574\u6570 n \u548c s\u3002\uff081<=n<=100,1<=s<=60)\u3002    \u6ce8\uff1an\u67b6\u98de\u673a\uff1b\n\n\t\u63a5\u4e0b\u6765\u7684n\u884c  \u5373\u4e3a\u6bcf\u67b6\u98de\u673a\u964d\u843d\u7684\u65f6\u95f4\uff0c\u4ee5h m\u5f62\u5f0f\u7ed9\u51fa\uff080<=h<=23,0<=m<=59)\u3002(\u5c0f\u65f6\uff0c\u5206\u949f\uff09\n\n\u8f93\u51fa\u683c\u5f0f\uff1a\n\n\t\u6700\u65e9\u7684\u65f6\u95f4\uff0c\u540c\u6837\u4ee5h m\u5f62\u5f0f\u8f93\u51fa\uff1b\n\u6ce8\uff1a\n\u5982\u679c\u5728\u7b2c\u4e00\u67b6\u98de\u673a\u4e4b\u524d\u5c31\u53ef\u4ee5\u52a0\u5165\uff0c\u8f93\u51fa0 0\uff1b\n\u5982\u679c\u53ea\u80fd\u5728\u6700\u540e\u52a0\u5165\uff0ch\u53ef\u4ee5\u5927\u4e8e24\uff1b\n\n\u611f\u8c22@shzr \u63d0\u4f9b\u7684\u7ffb\u8bd1"
+}

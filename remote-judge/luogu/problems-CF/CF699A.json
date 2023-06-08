@@ -1,0 +1,17 @@
+{
+    "description": "There will be a launch of a new, powerful and unusual collider very soon, which located along a straight line. $ n $ particles will be launched inside it. All of them are located in a straight line and there can not be two or more particles located in the same point. The coordinates of the particles coincide with the distance in meters from the center of the collider, $ x_{i} $ is the coordinate of the $ i $ -th particle and its position in the collider at the same time. All coordinates of particle positions are even integers.\n\nYou know the direction of each particle movement \u2014 it will move to the right or to the left after the collider's launch start. All particles begin to move simultaneously at the time of the collider's launch start. Each particle will move straight to the left or straight to the right with the constant speed of $ 1 $ meter per microsecond. The collider is big enough so particles can not leave it in the foreseeable time.\n\nWrite the program which finds the moment of the first collision of any two particles of the collider. In other words, find the number of microseconds before the first moment when any two particles are at the same point.",
+    "inputFormat": "The first line contains the positive integer $ n $ ( $ 1<=n<=200000 $ ) \u2014 the number of particles.\n\nThe second line contains $ n $ symbols \"L\" and \"R\". If the $ i $ -th symbol equals \"L\", then the $ i $ -th particle will move to the left, otherwise the $ i $ -th symbol equals \"R\" and the $ i $ -th particle will move to the right.\n\nThe third line contains the sequence of pairwise distinct even integers $ x_{1},x_{2},...,x_{n} $ ( $ 0<=x_{i}<=10^{9} $ ) \u2014 the coordinates of particles in the order from the left to the right. It is guaranteed that the coordinates of particles are given in the increasing order.",
+    "outputFormat": "In the first line print the only integer \u2014 the first moment (in microseconds) when two particles are at the same point and there will be an explosion.\n\nPrint the only integer -1, if the collision of particles doesn't happen.",
+    "samples": [
+        [
+            "4\nRLRL\n2 4 6 10\n",
+            "1\n"
+        ],
+        [
+            "3\nLLR\n40 50 60\n",
+            "-1\n"
+        ]
+    ],
+    "hint": "In the first sample case the first explosion will happen in $ 1 $ microsecond because the particles number $ 1 $ and $ 2 $ will simultaneously be at the same point with the coordinate $ 3 $ .\n\nIn the second sample case there will be no explosion because there are no particles which will simultaneously be at the same point.",
+    "translation": "\u6709\u4e00\u4e9b\u73a9\u610f\uff08\uff1f\uff0c\u5b83\u4eec\u5728\u4e00\u6761\u7ebf\u4e0a\uff0c\u4ee5\u6bcf\u6beb\u79d21\u7c73\u7684\u5300\u901f\u5411\u4e00\u4e2a\u65b9\u5411\u5954\u53bb\uff08\u6216\u5de6\u6216\u53f3\uff09\u95ee\u51e0\u6beb\u79d2\u540e\uff0c\u67d0\u4e24\u4e2a\u73a9\u610f\u4f1a\u76f8\u649e\uff08\u5047\u8bbe\u8fd9\u6761\u7ebf\u65e0\u9650\u957f\uff09\u5982\u679c\u65e0\u6cd5\u76f8\u649e\uff0c\u8f93\u51fa-1\n\n\u8f93\u5165\u4e00\u5171\u4e09\u884c\uff0c\u7b2c\u4e00\u884c\u8868\u793a\u6709\u51e0\u4e2a\u73a9\u610f \u7b2c\u4e8c\u884c\u8868\u793a\u5b83\u4eec\u7684\u65b9\u5411L(left\u5de6)R(right\u53f3) \u7b2c\u4e09\u884c\u8868\u793a\u5b83\u4eec\u5728\u7ebf\u4e0a\u7684\u4f4d\u7f6e"
+}

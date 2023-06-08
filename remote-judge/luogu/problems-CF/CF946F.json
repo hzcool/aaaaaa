@@ -1,0 +1,17 @@
+{
+    "description": "You are given a binary string $ s $ (each character of this string is either 0 or 1).\n\nLet's denote the cost of string $ t $ as the number of occurences of $ s $ in $ t $ . For example, if $ s $ is 11 and $ t $ is 111011, then the cost of $ t $ is $ 3 $ .\n\nLet's also denote the Fibonacci strings sequence as follows:\n\n- $ F(0) $ is 0;\n- $ F(1) $ is 1;\n- $ F(i)=F(i-1)+F(i-2) $ if $ i&gt;1 $ , where $ + $ means the concatenation of two strings.\n\nYour task is to calculate the sum of costs of all subsequences of the string $ F(x) $ . Since answer may be large, calculate it modulo $ 10^{9}+7 $ .",
+    "inputFormat": "The first line contains two integers $ n $ and $ x $ ( $ 1<=n<=100 $ , $ 0<=x<=100 $ ) \u2014 the length of $ s $ and the index of a Fibonacci string you are interested in, respectively.\n\nThe second line contains $ s $ \u2014 a string consisting of $ n $ characters. Each of these characters is either 0 or 1.",
+    "outputFormat": "Print the only integer \u2014 the sum of costs of all subsequences of the string $ F(x) $ , taken modulo $ 10^{9}+7 $ .",
+    "samples": [
+        [
+            "2 4\n11\n",
+            "14\n"
+        ],
+        [
+            "10 100\n1010101010\n",
+            "553403224\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u5b9a\u4e49\u6590\u6ce2\u90a3\u5951\u5b57\u7b26\u4e32\uff1a\r\n\r\n- $F(0)=\"0\"$\r\n- $F(1)=\"1\"$\r\n- $F(i)=F(i-1)+F(i-2),i>1$\r\n\r\n\u5176\u4e2d\uff0c\"+\"\u8868\u793a\u5c06\u4e24\u4e2a\u5b57\u7b26\u4e32\u9996\u5c3e\u76f8\u63a5\u62fc\u6210\u4e00\u4e2a\u65b0\u5b57\u7b26\u4e32\u3002\r\n\r\n\u7ed9\u51fa\u4e00\u4e2a\u957f\u5ea6\u4e3a$n(n\\le 100)$\u7684\u5b57\u7b26\u4e32$s$\uff08\u53ea\u5305\u542b\u5b57\u7b26$0,1$\uff09\u548c$x$\uff08$x\\le 100$\uff09\uff0c\u6c42\u51fa$s$\u5728$F(x)$\u7684**\u6240\u6709\u5b50\u5e8f\u5217**\u4e2d\u4f5c\u4e3a\u5b50\u4e32\u7684\u51fa\u73b0\u6b21\u6570\uff0c\u7b54\u6848\u6a21$10^9 +7$\u3002"
+}

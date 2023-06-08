@@ -1,0 +1,21 @@
+{
+    "description": "Dr. Evil kidnapped Mahmoud and Ehab in the evil land because of their performance in the Evil Olympiad in Informatics (EOI). He decided to give them some problems to let them go.\n\nDr. Evil is interested in sets, He has a set of $ n $ integers. Dr. Evil calls a set of integers evil if the MEX of it is exactly $ x $ . the MEX of a set of integers is the minimum non-negative integer that doesn't exist in it. For example, the MEX of the set $ {0,2,4} $ is $ 1 $ and the MEX of the set $ {1,2,3} $ is $ 0 $ .\n\nDr. Evil is going to make his set evil. To do this he can perform some operations. During each operation he can add some non-negative integer to his set or erase some element from it. What is the minimal number of operations Dr. Evil has to perform to make his set evil?",
+    "inputFormat": "The first line contains two integers $ n $ and $ x $ ( $ 1<=n<=100 $ , $ 0<=x<=100 $ ) \u2014 the size of the set Dr. Evil owns, and the desired MEX.\n\nThe second line contains $ n $ distinct non-negative integers not exceeding $ 100 $ that represent the set.",
+    "outputFormat": "The only line should contain one integer \u2014 the minimal number of operations Dr. Evil should perform.",
+    "samples": [
+        [
+            "5 3\n0 4 5 6 7\n",
+            "2\n"
+        ],
+        [
+            "1 0\n0\n",
+            "1\n"
+        ],
+        [
+            "5 0\n1 2 3 4 5\n",
+            "0\n"
+        ]
+    ],
+    "hint": "For the first test case Dr. Evil should add $ 1 $ and $ 2 $ to the set performing $ 2 $ operations.\n\nFor the second test case Dr. Evil should erase $ 0 $ from the set. After that, the set becomes empty, so the MEX of it is $ 0 $ .\n\nIn the third test case the set is already evil.",
+    "translation": "**\u9898\u610f\u63cf\u8ff0**\n\n\u5728\u4e00\u7247\u90aa\u6076\u4e4b\u5730\uff0c\u90aa\u6076\u535a\u58eb\u7ed1\u67b6\u4e86Mahmoud\u548cEhab\uff0c\u56e0\u4e3a\u4ed6\u4eec\u5728\u90aa\u6076\u4fe1\u606f\u5b66\u5965\u6797\u5339\u514b\u7ade\u8d5b(Evil Olympiad in Informatics,EOI)\u4e2d\u7684\u7a81\u51fa\u8868\u73b0\u3002\u90aa\u6076\u535a\u58eb\u53c8\u51b3\u5b9a\u7ed9\u4ed6\u4eec\u4e00\u4e9b\u95ee\u9898\u8ba9\u4ed6\u4eec\u56de\u7b54\u3002\u95ee\u9898\u5982\u4e0b\uff1a\n\n\u90aa\u6076\u535a\u58eb\u5bf9\u96c6\u5408\u5f88\u611f\u5174\u8da3\u3002\u4ed6\u6709\u4e00\u4e2a\u5305\u542bn\u4e2a\u6574\u6570\u7684\u96c6\u5408\u3002\u90aa\u6076\u535a\u58eb\u8ba4\u4e3a\uff0c\u5982\u679c\u4e00\u4e2a\u96c6\u5408\u7684Mex\u503c\u6070\u597d\u4e3ax\uff0c\u90a3\u4e48\u8fd9\u4e2a\u96c6\u5408\u5c31\u662f\u90aa\u6076\u7684\u3002\u5b9a\u4e49Mex\u503c\u4e3a\u4e00\u4e2a\u96c6\u5408\u4e2d\u6ca1\u6709\u51fa\u73b0\u7684\u6700\u5c0f\u975e\u8d1f\u6574\u6570\u3002\u4e3e\u4e2a\u4f8b\u5b50\uff0cMex\uff08{0,2,4}\uff09 = 1\uff0cMex\uff08{1,2,3}\uff09 = 0 \u3002\n\n\u90aa\u6076\u535a\u58eb\u60f3\u8ba9\u4ed6\u7684\u96c6\u5408\u53d8\u5f97\u90aa\u6076\uff0c\u56e0\u6b64\u4ed6\u4f1a\u6267\u884c\u4e00\u4e9b\u64cd\u4f5c\u3002\u5728\u6bcf\u4e2a\u64cd\u4f5c\u4e2d\u4ed6\u53ef\u80fd\u4f1a\u52a0\u5165\u4e00\u4e2a\u975e\u8d1f\u6574\u6570\uff0c\u4e5f\u53ef\u80fd\u5220\u53bb\u4e00\u4e2a\u6570\u3002\u8bf7\u95ee\u6700\u5c11\u9700\u8981\u591a\u5c11\u6b21\u64cd\u4f5c\u624d\u80fd\u8ba9\u90aa\u6076\u535a\u58eb\u7684\u96c6\u5408\u53d8\u5f97\u90aa\u6076\uff1f\n\n**\u8f93\u5165\u8f93\u51fa\u683c\u5f0f**\n\n**\u8f93\u5165\u683c\u5f0f\uff1a**\n\n\u7b2c\u4e00\u884c\uff0c\u5305\u62ec\u4e24\u4e2a\u6574\u6570n\u548cx\uff0c\u610f\u4e49\u5982\u4e0a\u8ff0\u30021<=n<=100,1<=x<=100.\n\n\u7b2c\u4e8c\u884c\uff0c\u5305\u62ecn\u4e2a\u4e0d\u540c\u7684\u975e\u8d1f\u6574\u6570\uff0c\u4e14\u6bcf\u4e2a\u6570\u5747\u4e0d\u8d85\u8fc7100\uff0c\u8868\u793a\u4e00\u5f00\u59cb\u96c6\u5408\u4e2d\u7684\u5143\u7d20\u3002\n\n**\u8f93\u51fa\u683c\u5f0f\uff1a**\n\n\u4ec5\u8f93\u51fa\u4e00\u884c\uff0c\u8868\u793a\u90aa\u6076\u535a\u58eb\u6700\u5c11\u9700\u8981\u6267\u884c\u591a\u5c11\u6b21\u64cd\u4f5c\u3002"
+}

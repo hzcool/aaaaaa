@@ -1,0 +1,21 @@
+{
+    "description": "A system of $ n $ vessels with water is given. Several pairs of vessels are connected by tubes with transfusion mechanisms. One may transfer an integer amount of liters of water between two vessels connected by such tube (tube works in both directions). There might be multiple tubes between two vessels. Total number of tubes equals $ e $ . Volume of each vessel equals $ v $ liters. Of course, the amount of the water in any vessel cannot exceed $ v $ liters in the process of transfusions.\n\nGiven the initial amounts $ a_{i} $ of water in the vessels and the desired amounts $ b_{i} $ find a sequence of transfusions that deals with the task. Total number of transfusions must not exceed $ 2\u00b7n^{2} $ .",
+    "inputFormat": "First line of the input contains integers $ n $ , $ v $ , $ e $ ( $ 1<=n<=300 $ , $ 1<=v<=10^{9} $ , $ 0<=e<=50000 $ ).\n\nNext two lines contain $ n $ integers each: initial $ a_{i} $ and the desired amounts $ b_{i} $ of water in corresponding vessels ( $ 0<=a_{i},b_{i}<=v $ ).\n\nNext $ e $ lines describe one tube each in the format $ x $ $ y $ ( $ 1<=x,y<=n,x\u2260y $ ) for a tube between vessels number $ x $ and $ y $ . There might be multiple tubes between two vessels. You may assume that vessels are numbered from 1 to $ n $ in some way.",
+    "outputFormat": "Print \"NO\" (without quotes), if such sequence of transfusions does not exist.\n\nOtherwise print any suitable sequence in the following format. On the first line print the total number of transfusions $ k $ ( $ k $ should not exceed $ 2\u00b7n^{2} $ ). In the following $ k $ lines print transfusions in the format $ x $ $ y $ $ d $ (transfusion of $ d $ liters from the vessel number $ x $ to the vessel number $ y $ , $ x $ and $ y $ must be distinct). For all transfusions $ d $ must be a non-negative integer.",
+    "samples": [
+        [
+            "2 10 1\n1 9\n5 5\n1 2\n",
+            "1\n2 1 4\n"
+        ],
+        [
+            "2 10 0\n5 2\n4 2\n",
+            "NO\n"
+        ],
+        [
+            "2 10 0\n4 2\n4 2\n",
+            "0\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u6709 $n$ \u4e2a\u6c34\u6876\u7f16\u53f7\u4e3a $1$~$n$\uff0c\u6bcf\u4e2a\u6c34\u6876\u7684\u5bb9\u91cf\u4e3a\u6574\u6570 $v$\u3002\u6c34\u6876\u4e4b\u95f4\u6709 $e$ \u6761\u53cc\u5411\u7ba1\u9053\uff08\u53ef\u80fd\u91cd\u590d\uff09\uff0c\u4e00\u6b21\u64cd\u4f5c\u53ef\u4ee5\u4ece\u4e00\u4e2a\u6c34\u6876\u901a\u8fc7\u7ba1\u9053\u8f93\u9001\u4efb\u610f\u975e\u8d1f\u6574\u6570\u91cf\u7684\u6c34\u5230\u53e6\u4e00\u4e2a\u6c34\u6876\uff0c\u4f46\u8981\u4fdd\u8bc1\u4efb\u610f\u65f6\u523b\u6c34\u6876\u4e2d\u7684\u6c34\u91cf\u4e0d\u8d85\u8fc7\u5bb9\u91cf\u3002\u73b0\u7ed9\u5b9a\u4e00\u4e2a\u521d\u59cb\u5c40\u9762 $\\big<a_i\\big>$\uff08\u8868\u793a\u7b2c $i$ \u4e2a\u6c34\u6876\u7684\u6c34\u91cf\u4e3a $a_i$ \uff09\u548c\u4e00\u4e2a\u76ee\u6807\u5c40\u9762$\\big<b_i\\big>$\uff0c\u95ee\u662f\u5426\u53ef\u4ee5\u5728 $2n^2$ \u6b21\u64cd\u4f5c\u5185\u4ece\u521d\u59cb\u5c40\u9762\u5230\u8fbe\u76ee\u6807\u5c40\u9762\u3002\u5982\u679c\u53ef\u4ee5\u8f93\u51fa\u65b9\u6848\uff0c\u5426\u5219\u8f93\u51fa `NO`\u3002  \n$1\\le n \\le300,1\\le v \\le 10^9,0\\le e \\le50000$\n$0\\le a_i,b_i\\le v$"
+}

@@ -1,0 +1,17 @@
+{
+    "description": "\n\nEva studies geometry. The current topic is about convex polygons, but Eva prefers rectangles. Eva's workbook contains drawings of several convex polygons and she is curious what is the area of the maximum rectangle that fits inside each of them.\n\n![](/upload/images2/eg.png)\n\nHelp Eva! Given the convex polygon, find the rectangle of the maximum possible area that fits inside this polygon. Sides of the rectangle must be parallel to the coordinate axes.\n\n",
+    "inputFormat": "\n\nThe first line contains a single integer $n$ -- the number of sides of the polygon $(3 \\le n \\le 100 000)$ . The following $n$ lines contain Cartesian coordinates of the polygon's vertices -- two integers $x_{i}$ and $y_{i} (-10^{9} \\le x_{i}, y_{i} \\le 10^{9})$ per line. Vertices are given in the clockwise order.\n\nThe polygon is convex.\n\n",
+    "outputFormat": "\n\nOutput four real numbers $x_{mi_n}, y_{mi_n}, x_{max}$ and $y_{max}$ -- the coordinates of two rectangle's corners $(x_{mi_n} < x_{max}, y_{mi_n} < y_{max}).$ The rectangle must fit into the polygon and have the maximum possible area.\n\nThe absolute precision of the coordinates should be at least $10-^{5}.$\n\nThe absolute or relative precision of the rectangle area should be at least $10^{-5}.$ That is, if $A'$ ; is the actual maximum possible area, the following must hold: $mi_n(|A-A'|,|A\u2212A'|/A') ) \\le 10^{-5}.$\n\n",
+    "samples": [
+        [
+            "4\n5 1\n2 4\n3 7\n7 3\n",
+            "3.5 2.5 5.5 4.5\n"
+        ],
+        [
+            "5\n1 1\n1 4\n4 7\n7 4\n7 1\n",
+            "1 1 7 4\n"
+        ]
+    ],
+    "hint": "Time limit: 1 s, Memory limit: 128 MB. \n\n",
+    "translation": "**\u4e00\u53e5\u8bdd\u9898\u610f\uff1a** \n\n\u7ed9\u4f60\u4e00\u4e2a\u51f8 $n$ \u8fb9\u5f62\uff0c\u5e76\u6309\u987a\u65f6\u9488\u7ed9\u51fa\u6bcf\u4e00\u4e2a\u9876\u70b9\u7684\u5750\u6807\uff0c\u6c42\u51fa\u5728\u8fd9\u4e2a\u51f8 $n$ \u8fb9\u5f62\u4e4b\u5185\u7684\u9762\u79ef\u6700\u5927\u7684\u4e00\u4e2a\u8fb9\u5e73\u884c\u5750\u6807\u8f74\u7684\u77e9\u5f62\u7684\u56db\u4e2a\u9876\u70b9\u3002\n\n**\u8f93\u5165\u683c\u5f0f\uff1a**\n\n\u7b2c\u4e00\u884c\u662f\u4e00\u4e2a\u6b63\u6574\u6570 $n$ \uff0c\u4e14 $3\\le n \\le 100000$ \u3002\n\n\u63a5\u4e0b\u6765 $n$ \u884c\uff0c\u6bcf\u884c\u4e24\u4e2a\u6574\u6570 $x$ \uff0c $y$ \uff0c\u4ee3\u8868\u4e00\u4e2a\u9876\u70b9\u7684 $x$ \u5750\u6807\u548c $y$ \u5750\u6807\u3002 $-10^9 \\le x,y \\le 10^9$ \u3002\n\n**\u8f93\u51fa\u683c\u5f0f\uff1a**\n\n\u8f93\u51fa\u56db\u4e2a\u6574\u6570 $x_{min},y_{min},x_{max},y_{max}$ \uff0c\u4ee3\u8868\u4f60\u7ed9\u51fa\u7684\u8fd9\u4e2a\u9762\u79ef\u6700\u5927\u7684\u77e9\u5f62\u3002\u5176\u4e2d $x_{min} \\le x_{max} $ \uff0c $y_{min} \\le y_{max} $ \u3002\n\n\u7cbe\u5ea6\u8981\u6c42\uff1a\u5982\u679c $A$ \u662f\u4f60\u7b97\u51fa\u7684\u503c\uff0c $A'$ \u662f\u771f\u5b9e\u7684\u6700\u5927\u9762\u79ef\uff0c\u90a3\u4e48\u4f60\u9700\u8981\u4fdd\u8bc1 $min( |A-A'|,|A-A'|/A') \\le10^{-5}$ \u3002"
+}

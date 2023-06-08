@@ -1,0 +1,82 @@
+[
+    {
+        "content": "[\u9898\u9762](https://www.luogu.com.cn/problem/P7018)\n\n\u672c\u9898\u5176\u5b9e\u5c31\u662f\u4e00\u4e2a\u9006\u63a8\u3002\u6211\u4eec\u8bbe $a_i$ \u8868\u793a\u5230\u8fbe\u7b2c $i$ \u7ad9\u540e\u8fd8\u5269\u4e0b\u7684\u4eba\u6570\uff0c\u7531\u9898\u53ef\u5f97\uff0c$a_k=0$\u3002\u4f9d\u7136\u7531\u9898\u53ef\u5f97\uff1a\n\n$$\\frac{a_i-1}{2}=a_{i+1}$$\n\n\u6240\u4ee5\uff0c\u6211\u4eec\u53ef\u4ee5\u5f97\u51fa\uff1a\n\n$$a_i=a_{i+1}\\times 2+1$$\n\n\u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint t,n,ans;\nint main()\n{\n\tcin>>t;\n\twhile(t--){\n\t\tcin>>n;\n\t\tans=0;//\u5df2\u77e5a[k]=0\n\t\twhile(n--)ans=ans*2+1;//\u9006\u63a8\n\t\tcout<<ans<<endl;\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1641600563,
+        "uid": 428358,
+        "name": "cqbztzl",
+        "ccfLevel": 5,
+        "title": "P7018\u9898\u89e3"
+    },
+    {
+        "content": "[\u94fe\u63a5](https://www.luogu.com.cn/problem/P7018)\n\n~~\u4e00\u5b9a\u8981\u8bc4\u7ea2~~\n\n---\n**\u9898\u610f\u5206\u6790\uff1a**\n\n>\u6709\u4e00\u4e2a\u516c\u4ea4\u8f66\uff0c\u521d\u59cb\u65f6\u8f66\u4e0a\u6709 $n$ \u4e2a\u4eba\uff0c\u6bcf\u505c\u4e00\u7ad9\uff0c\u8f66\u4e0a\u4f1a\u5148\u4e0b\u53bb\u4e00\u4e2a\u4eba\uff0c\u7136\u540e\u518d\u4e0b\u8f66\u4e0a\u5269\u4e0b\u7684\u4eba\u6570\u7684\u4e00\u534a\u7684\u4eba\u3002\u5df2\u77e5\u7ecf\u8fc7\u4e86 $k$ \u4e2a\u7ad9\u4e4b\u540e\uff0c\u8f66\u4e0a\u6ca1\u4eba\u4e86\u3002\u73b0\u5728\uff0c\u7ed9\u51fa $k$\uff0c\u6c42\u4e00\u5f00\u59cb\u8f66\u4e0a\u7684\u4eba\u6570 $n$\u3002\n\n\u6211\u4eec\u77e5\u9053\u6bcf\u4e2a\u7ad9\u7684\u4eba\u6570\u90fd\u4f1a $-1$ \u518d $\\div2$ \uff0c\u6240\u4ee5\u6211\u4eec\u5982\u679c\u8981\u9006\u63a8\uff0c\u90a3\u5c31\u5148 $\\times 2$ \u518d $+1$ \u3002\n\n\u65f6\u95f4\u590d\u6742\u5ea6\uff1a $\\Theta(30T)$\n\n---\n**\u4ee3\u7801\u90e8\u5206\uff1a**\n\n~~\u54c8\u54c8\u54c8\uff0c\u4ee3\u7801\u6765\u54af\uff1a~~\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint t,n,cnt;\nint main()\n{\n    cin>>t;\n    while(t--)\n    {\n        cin>>n;\n        cnt=0;\n        for(int i=1;i<=n;i++)\n            cnt=2*cnt+1;\n        cout<<cnt<<endl;\n    }\n    return 0;\n}\n```\n---\n**\u4f18\u5316\uff1a**\n\n\u4f60\u4ee5\u4e3a\u8fd9\u5c31\u6ca1\u4e86\uff1f\u4e0d\uff01\u6211\u4eec\u8fd8\u80fd\u505a\u5f97\u66f4\u597d\uff1a\n\n[\u9884\u5904\u7406 $\\Theta(30+T)$](https://www.luogu.com.cn/paste/sfuvecao)\n\n[\u8bb0\u5fc6\u5316 $\\Theta(30+T)$](https://www.luogu.com.cn/paste/jtv17snn)\n\n[\u6570\u8bba+\u4f4d\u8fd0\u7b97 $\\Theta(T)$](https://www.luogu.com.cn/paste/odj58vfh)\n\n\u8bf4\u660e\uff1a\n\n$$ans=\\begin{matrix}\\underbrace{2\\times(2\\times(2\\times(\\cdots0+1\\cdots)+1)+1)+1}\\\\n\\end{matrix}$$\n\n$$=2^{n-1}+2^{n-2}+2^{n-3}+\\cdots+1$$\n\n$$=2^n-1$$\n\n",
+        "postTime": 1641967348,
+        "uid": 340502,
+        "name": "MattL",
+        "ccfLevel": 5,
+        "title": "P7018 \u9898\u89e3"
+    },
+    {
+        "content": "## \u9898\u610f\n\u9898\u76ee\u5df2\u7ed9\u3002\n## \u601d\u8def\n\u4ece\u524d\u5f80\u540e\u662f $n$ \u5148\u51cf $1$ \u518d\u9664\u4ee5 $2$\uff0c\u90a3\u5012\u8fc7\u6765\u5c31\u662f\u5148\u4e58 $2$ \u518d\u51cf $1$\uff0c\u5177\u4f53\u89c1\u4ee3\u7801\uff0c\u6ce8\u610f\u6700\u540e\u4e00\u7ad9\u53ea\u4e0b\u4e00\u4e2a\u4eba\u3002\n## \u4ee3\u7801\n```cpp\n#include<iostream>\nusing namespace std;\nint main(){\n    int t;\n    cin>>t;\n    while(t--){\n        int n,ans=1;\n        cin>>n;\n        while(n--&&n>0){\n            ans*=2;\n            ans++;\n        }\n        cout<<ans<<endl;\n    }\n}\n```\n[AC\u8bb0\u5f55](https://www.luogu.com.cn/record/66206819)",
+        "postTime": 1641195187,
+        "uid": 367652,
+        "name": "Jerrlee\u2705",
+        "ccfLevel": 5,
+        "title": "P7018 \u9898\u89e3"
+    },
+    {
+        "content": "\u7b80\u5355\u7684\u9898\u76ee\u3002~~\u7136\u800c\u6211WA\u4e86\u4e00\u6b21\u3002~~\n\n\u9012\u63a8\uff0c\u6309\u7167\u9898\u76ee\u89c4\u5219\u4e0b\u4eba\uff0c\u63a8\u5bfc $f_i$\u3002\n\n$$\n\\because \\dfrac{f_i-1}{2}=f_{i-1}\n$$\n$$\n\\therefore f_i=2 \\cdot f_{i-1} +1\n$$\n\n\u90a3\u4e48\u5bf9\u4e8e\u6bcf\u4e00\u7ec4\u8be2\u95ee\uff0c\u76f4\u63a5\u8f93\u51fa\u5373\u53ef\u3002\n\n$k$ \u53ea\u6709 $30$\uff0c\u4e0d\u4f1a\u7206 int\u3002\n\n\u4ee3\u7801\u5982\u4e0b\uff1a\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint t,n,f[40];\nint main(){\n\tcin >> t;\n\tf[1]=1;\n\tfor(int i=2;i<=30;i++) f[i]=2*f[i-1]+1; \n\twhile(t--){\n\t\tcin >> n;\n\t\tcout << f[n] << endl;\n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1627872271,
+        "uid": 339842,
+        "name": "DF_Factory",
+        "ccfLevel": 0,
+        "title": "P7018\u9898\u89e3"
+    },
+    {
+        "content": "# \u601d\u8def\n\u6839\u636e\u9898\u610f\u6a21\u62df\u3002\n\n\u7531\u4e8e\u6211\u4eec\u4e0d\u77e5\u9053\u6700\u5f00\u59cb\u7684\u4eba\u6570\uff0c\u4e8e\u662f\u4fbf\u91c7\u7528\u5012\u63a8\u6cd5\uff0c\u62ff $k=5$ \u505a\u4e2a\u4f8b\u5b50\uff1a\n1. \u6700\u540e\u4e00\u7ad9\u4eba\u4f1a\u4e0b\u5149\uff0c\u6240\u4ee5\u5012\u6570\u7b2c\u4e8c\u7ad9\u53ea\u4f1a\u6709\u4e00\u4e2a\u4eba\u3002\n2. \u540e\u9762\u6bcf\u5f80\u524d\u4e00\u4e2a\u7ad9\uff0c\u6700\u5f00\u59cb\u7684\u4eba\u6570 $n$ \u5c31\u4f1a\u5148\u7ffb\u500d\uff0c\u518d\u52a0\u4e00\uff0c\u4e8e\u662f\u4fbf\u53ef\u4ee5\u5f88\u8f7b\u677e\u7684\u5199\u51fa\u4ee3\u7801\uff1a\n```cpp\nn=1;//\u6bcf\u6b21\u8be2\u95ee\u662f\u72ec\u7acb\u7684\uff0c\u6240\u4ee5\u6bcf\u6b21\u90fd\u8981\u521d\u59cb\u5316\nk--;//\u6700\u540e\u4e00\u7ad9\u4e0d\u7eb3\u5165\u8003\u8651\nwhile(k--){\n\tn*=2;\n\tn++;\n}\n```\n# \u4ee3\u7801\n\u6838\u5fc3\u4ee3\u7801\u5df2\u5728\u601d\u8def\u4e2d\u7ed9\u51fa\u3002",
+        "postTime": 1641191225,
+        "uid": 461375,
+        "name": "_easy_",
+        "ccfLevel": 0,
+        "title": "P7018"
+    },
+    {
+        "content": "# \u9898\u76ee\u5927\u610f\n\n\u56e0\u4e3a\u4f60\u8c37\u5173\u952e\u8bcd\u653e\u4e0d\u4e0a\u6765\u3002\n\n# \u9898\u76ee\u5206\u6790\n\n\u4ee4 $dp[i]$ \u8868\u793a\u5269\u4e0b $i$ \u4e2a\u4eba\u65f6\uff0c\u8f66\u4e0a\u6700\u5f00\u59cb\u7684\u4eba\u6570\u3002\n\n\u9996\u5148\uff0c$dp[1]=1$\u3002\n\n\u5f53\u524d\u8f66\u4e0a\u521a\u5f00\u59cb\u7684\u4eba\u6570\uff0c\u663e\u7136\u662f\u7531\u4e0b\u4e00\u4e2a\u9636\u6bb5\u7684\u4eba\u6570\u5f97\u6765\u7684\uff0c\u4e3a\u4e86\u65b9\u4fbf\u4ee3\u7801\uff0c\u8fd9\u91cc\u5148\u9884\u5904\u7406\u6c42\u51fa\u6240\u6709 $dp[i]$\u3002\n\n\u72b6\u6001\u8f6c\u79fb\u65b9\u7a0b\uff1a$dp[i]=dp[i-1]*2+1$\u3002\n\n\u65b9\u7a0b\u5f88\u597d\u7406\u89e3\uff0c\u5c31\u4e0d\u7ec6\u8bf4\u4e86\u3002\n\n# \u4ee3\u7801\n\n```cpp\n//2021/12/11\n\n#define _CRT_SECURE_NO_WARNINGS\n\n#include <iostream>\n\n#include <cstdio>\n\n#include <climits>//need \"INT_MAX\",\"INT_MIN\"\n\n#define enter() putchar(10)\n\n#define debug(c,que) cerr<<#c<<\" = \"<<c<<que\n\n#define cek(c) puts(c)\n\n#define blow(arr,st,ed,w) for(register int i=(st);i<=(ed);i++)cout<<arr[i]<<w;\n\n#define speed_up() cin.tie(0),cout.tie(0)\n\n#define endl \"\\n\"\n\n#define Input_Int(n,a) for(register int i=1;i<=n;i++)scanf(\"%d\",a+i);\n\n#define Input_Long(n,a) for(register long long i=1;i<=n;i++)scanf(\"%lld\",a+i);\n\n#define mst(a,k) memset(a,k,sizeof(a))\n\nnamespace Newstd\n{\n\tinline int read()\n\t{\n\t\tint x=0,k=1;\n\t\tchar ch=getchar();\n\t\twhile(ch<'0' || ch>'9')\n\t\t{\n\t\t\tif(ch=='-')\n\t\t\t{\n\t\t\t\tk=-1;\n\t\t\t}\n\t\t\tch=getchar();\n\t\t}\n\t\twhile(ch>='0' && ch<='9')\n\t\t{\n\t\t\tx=(x<<1)+(x<<3)+ch-'0';\n\t\t\tch=getchar();\n\t\t}\n\t\treturn x*k;\n\t}\n\tinline void write(int x)\n\t{\n\t\tif(x<0)\n\t\t{\n\t\t\tputchar('-');\n\t\t\tx=-x;\n\t\t}\n\t\tif(x>9)\n\t\t{\n\t\t\twrite(x/10);\n\t\t}\n\t\tputchar(x%10+'0');\n\t}\n}\n\nusing namespace Newstd;\n\nusing namespace std;\n\nconst int ma=35;\n\nint dp[ma];\n\nint main(void)\n{\n\tfor(register int i=1;i<=30;i++)\n\t{\n\t\tdp[i]=dp[i-1]*2+1;\n\t}\n\t\n\tint T=read();\n\t\n\twhile(T--)\n\t{\n\t\tint n=read();\n\t\t\n\t\tprintf(\"%d\\n\",dp[n]);\n\t}\n\t\n\treturn 0;\n}\n```",
+        "postTime": 1639187270,
+        "uid": 430409,
+        "name": "Coros_Trusds",
+        "ccfLevel": 6,
+        "title": "P7018 [CERC2013]Bus"
+    },
+    {
+        "content": "### \u89e3\u9898\u601d\u8def\n\u672c\u9898\u4f7f\u7528\u5012\u63a8\u6cd5\u3002\u56e0\u4e3a\u4e0b\u4e00\u7ad9\u7b49\u4e8e\u672c\u7ad9\u4eba\u6570\u51cf\u53bb\u4e00\u4e2a\u518d\u9664\u4ee5\u4e8c\uff0c\u800c\u7b2c $0$ \u7ad9\u53ea\u6709 $0$ \u4e2a\u4eba\uff0c\u6240\u4ee5\u53cd\u8fc7\u6765\u8bf4 $a_i$\uff08$a_i$ \u6307\u672c\u7ad9\uff09 \u76f8\u5f53\u4e8e $a_{i-1} \\times 2 + 1$\uff08$a_{-1}$ \u6307\u4e0b\u4e00\u7ad9\uff09\u3002\n### \u4ee3\u7801\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint a[35], t, k;\nint main() {\n  a[0] = {0};                      // \u4e00\u5f00\u59cb\u53ea\u6709 0 \u4eba\u3002\n  for (int i = 1; i <= 30; i++) {  //\u5012\u63a8\n    a[i] = a[i - 1] * 2 + 1;       //\u672c\u7ad9\u76f8\u5f53\u4e8e\u4e0b\u4e00\u7ad9\u7684\u4eba\u6570 \u00d7 2 + 1\u3002\n  }\n  cin >> t;\n  while (t--) {\n    cin >> k;\n    cout << a[k] << endl;\n  }\n  return 0;\n}\n```",
+        "postTime": 1639146149,
+        "uid": 482347,
+        "name": "ZZQF5677",
+        "ccfLevel": 0,
+        "title": "P7018TJ"
+    },
+    {
+        "content": "### \u6570\u5b66\u63a8\u5bfc\n\u9996\u5148\uff0c\u770b\u5230\u672c\u9898\uff0c\u8bbe\u73b0\u5728\u8f66\u4e0a\u6709 $k$ \u4eba\uff0c\u64cd\u4f5c\u5b8c\u6210\u540e\u6709 $m$ \u4eba\u3002\u5219\u4e00\u6b21\u64cd\u4f5c\u540e $m\\gets\\frac{k-1}{2}$\u3002\u5728\u5df2\u77e5 $m$ \u7684\u60c5\u51b5\u4e0b\uff0c\u89e3\u5f97 $k=2\\times m+1$\u3002\uff08\u867d\u7136\u672c\u9898\u4ecd\u7136\u6709 bug\uff1a\u4e0b\u4e00\u529e\u7684\u4eba\u662f\u5411\u4e0a\u8fd8\u662f\u5411\u4e0b\u53d6\u6574\uff1f\u4f46\u672c\u9898\u6309\u7167\u8fd9\u4e2a\u65b9\u5f0f\u9006\u63a8\u56de\u53bb\uff0c\u4e00\u5b9a\u662f\u53ef\u4ee5\u7684\u3002\uff09\u800c\u4e14\u8fd9\u6837\u7684\u7b54\u6848\u6700\u5927\u4e3a $2^{30}$\uff0c\u53ea\u9700\u8981 `int` \u5373\u53ef\u3002\u6b64\u5904\u6709\u4e00\u4e2a\u5c0f\u4f18\u5316\uff1a\u7b54\u6848\u5148\u9884\u5904\u7406\u5728\u4e00\u4e2a\u6570\u7ec4\u4e2d\uff0c\u8fd9\u6837\u65f6\u95f4\u590d\u6742\u5ea6\u53ea\u6709 $O(T)$\uff0c\u53ef\u8fc7\u3002\n### AC Code:\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint t,k,ans[31];\nint main(){\n\tscanf(\"%d\",&t);\n\tans[1]=1;\n\tfor(int i=2;i<=30;i++)\n\t\tans[i]=ans[i-1]*2+1;\n    while(t--){\n        scanf(\"%d\",&k);\n\t\tprintf(\"%d\\n\",ans[k]);\n    }\n    return 0;\n}\n```",
+        "postTime": 1639065177,
+        "uid": 556362,
+        "name": "UnnamedOrNamed",
+        "ccfLevel": 5,
+        "title": "P7018 [CERC2013]Bus \u9898\u89e3"
+    },
+    {
+        "content": "\u8fd9\u9898\u4e00\u770b\u5c31\u662f\u5012\u63a8\u95ee\u9898\u3002\n\n\u8bbe\u5230\u8fbe\u7b2c $i$ \u7ad9\u65f6\u5269 $f_i$ \u4eba\u3002\n\n\u5219\u4e0d\u96be\u5f97\u5230 $f_i=\\frac{f_{i-1}-1}{2}$ \uff0c\u7136\u540e\u6211\u4eec\u53ea\u8981\u6839\u636e\u8f93\u5165\u7684n\u8fdb\u884c\u9012\u63a8\u5373\u53ef\u3002\n\n\u65f6\u95f4\u590d\u6742\u5ea6 $O(tk)$ \u3002\n\n# $AC$ $code$\n```cpp\n#include<iostream>\nusing namespace std;\nint main()\n{\n\tint t;//\u6570\u636e\u7ec4\u6570\n\tcin>>t;\n\twhile(t--)//\u6570\u636e\u7ec4\u6570\uff0cwhile\u6bd4for\u66f4\u597d\u7528\n\t{\n\t\tint k,ans=0;//ans\u8bb0\u7b54\u6848\uff0ck\u670930\uff0c\u4e0d\u7528ll\n\t\tcin>>k;\n\t\tfor(int i=1;i<=k;i++)\n\t\t\tans=ans*2+1;//\u9012\u63a8\n\t\tcout<<ans<<endl;//\u8bb0\u5f97\u6362\u884c\n\t}\n\treturn 0;//\u7ed3\u675f\n}\n\n```",
+        "postTime": 1639056608,
+        "uid": 327444,
+        "name": "Tothetime_tolife",
+        "ccfLevel": 0,
+        "title": "P7018"
+    },
+    {
+        "content": "## \u8fd9\u662f\u4e00\u9053\u7b80\u5355\u7684\u9012\u63a8\n\u9012\u63a8\uff0c\u6309\u7167\u9898\u76ee\u89c4\u5219\u4e0b\u4eba\uff0c\u63a8\u5bfc $f_{i}$ $=$ $f_{i-1} \\times 2 $ $+$ $ 1$ ;  \u4e0d\u7528\u6570\u7ec4\u5b58\uff0c\u53ea\u8981\u4e00\u4e2a\u53d8\u91cf\u5c31\u597d\u4e86\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n    int t;\n    cin>>t;\n    while(t--)//t\u7ec4\u6570\u636e\n    {\n        int k,ans=0;//2^30\u4e0d\u7528\u8d85long long\n        cin>>k;\n        for(int i=1;i<=k;i++)\n            ans=ans*2+1;//\u9012\u63a8\n        cout<<ans<<endl;\n    }\n    return 0;\n}\n```\n",
+        "postTime": 1639058018,
+        "uid": 507201,
+        "name": "\u8fdd\u89c4\u7528\u6237\u540dgAGt8$%z",
+        "ccfLevel": 0,
+        "title": "P7018\u9898\u89e3"
+    }
+]

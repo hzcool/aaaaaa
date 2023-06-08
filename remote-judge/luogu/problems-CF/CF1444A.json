@@ -1,0 +1,13 @@
+{
+    "description": "Oleg's favorite subjects are History and Math, and his favorite branch of mathematics is division.\n\nTo improve his division skills, Oleg came up with $ t $ pairs of integers $ p_i $ and $ q_i $ and for each pair decided to find the greatest integer $ x_i $ , such that:\n\n- $ p_i $ is divisible by $ x_i $ ;\n- $ x_i $ is not divisible by $ q_i $ .\n\n Oleg is really good at division and managed to find all the answers quickly, how about you?",
+    "inputFormat": "The first line contains an integer $ t $ ( $ 1 \\le t \\le 50 $ ) \u2014 the number of pairs.\n\nEach of the following $ t $ lines contains two integers $ p_i $ and $ q_i $ ( $ 1 \\le p_i \\le 10^{18} $ ; $ 2 \\le q_i \\le 10^{9} $ ) \u2014 the $ i $ -th pair of integers.",
+    "outputFormat": "Print $ t $ integers: the $ i $ -th integer is the largest $ x_i $ such that $ p_i $ is divisible by $ x_i $ , but $ x_i $ is not divisible by $ q_i $ .\n\nOne can show that there is always at least one value of $ x_i $ satisfying the divisibility conditions for the given constraints.",
+    "samples": [
+        [
+            "3\n10 4\n12 6\n179 822",
+            "10\n4\n179"
+        ]
+    ],
+    "hint": "For the first pair, where $ p_1 = 10 $ and $ q_1 = 4 $ , the answer is $ x_1 = 10 $ , since it is the greatest divisor of $ 10 $ and $ 10 $ is not divisible by $ 4 $ .\n\nFor the second pair, where $ p_2 = 12 $ and $ q_2 = 6 $ , note that\n\n- $ 12 $ is not a valid $ x_2 $ , since $ 12 $ is divisible by $ q_2 = 6 $ ;\n- $ 6 $ is not valid $ x_2 $ as well: $ 6 $ is also divisible by $ q_2 = 6 $ .\n\n The next available divisor of $ p_2 = 12 $ is $ 4 $ , which is the answer, since $ 4 $ is not divisible by $ 6 $ .",
+    "translation": "\u7ed9\u5b9a $t$ \u7ec4\u8be2\u95ee\uff0c\u6bcf\u7ec4\u7ed9\u4e24\u4e2a\u6570 $p_i$ \u548c $q_i$\uff0c\u627e\u51fa\u6700\u5927\u7684\u6574\u6570 $x_i$\uff0c\u8981\u6c42 $p_i$ \u53ef\u88ab $x_i$ \u6574\u9664\uff0c\u4e14 $x_i$ \u4e0d\u53ef\u88ab $q_i$ \u6574\u9664\u3002"
+}

@@ -1,0 +1,21 @@
+{
+    "description": "There are $ N $ cities in Bob's country connected by roads. Some pairs of cities are connected by public transport. There are two competing transport companies \u2014 Boblines operating buses and Bobrail running trains. When traveling from $ A $ to $ B $ , a passenger always first selects the mode of transport (either bus or train), and then embarks on a journey. For every pair of cities, there are exactly two ways of how to travel between them without visiting any city more than once \u2014 one using only bus routes, and the second using only train routes. Furthermore, there is no pair of cities that is directly connected by both a bus route and a train route.\n\nYou obtained the plans of each of the networks. Unfortunately, each of the companies uses different names for the same cities. More precisely, the bus company numbers the cities using integers from $ 1 $ to $ N $ , while the train company uses integers between $ N+1 $ and $ 2N $ . Find one possible mapping between those two numbering schemes, such that no pair of cities is connected directly by both a bus route and a train route. Note that this mapping has to map different cities to different cities.",
+    "inputFormat": "The first line contains an integer $ N $ ( $ 2<=N<=10000 $ ), the number of cities.\n\n $ N-1 $ lines follow, representing the network plan of Boblines. Each contains two integers $ u $ and $ v $ ( $ 1<=u,v<=N $ ), meaning that there is a bus route between cities $ u $ and $ v $ .\n\n $ N-1 $ lines follow, representing the network plan of Bobrail. Each contains two integers $ u $ and $ v $ ( $ N+1<=u,v<=2N $ ), meaning that there is a train route between cities $ u $ and $ v $ .",
+    "outputFormat": "If there is no solution, output a single line with the word \"No\".\n\nIf a solution exists, output two lines. On the first line, there should be the word \"Yes\". On the second line, there should be $ N $ integers $ P_{1},P_{2},...,P_{N} $ ( $ N+1<=P_{i}<=2N $ ) \u2014 the mapping between the two numbering schemes. More precisely, for $ i\u2260j $ it should be $ P_{i}\u2260P_{j} $ , and for every direct bus route $ (i,j) $ , there is no direct train route between $ (P_{i},P_{j}) $ .\n\nIf there are multiple solutions, you may print any of them.",
+    "samples": [
+        [
+            "4\n1 2\n2 3\n3 4\n5 6\n6 7\n7 8\n",
+            "Yes\n6 8 5 7\n"
+        ],
+        [
+            "4\n1 2\n2 3\n3 4\n5 6\n5 7\n5 8\n",
+            "No\n"
+        ],
+        [
+            "7\n1 2\n1 3\n1 4\n1 5\n5 6\n6 7\n8 9\n9 10\n10 11\n11 12\n12 13\n13 14\n",
+            "Yes\n9 14 11 12 13 10 8\n"
+        ]
+    ],
+    "hint": "The first sample (bus lines in red and rail lines in blue):\n\n![](/predownloaded/e3/6c/e36cd5e5ca71e7bda72854c8df16e433a744f7db.png)",
+    "translation": "\u7ed9\u5b9a\u4e24\u68f5\u6811\uff0c\u90fd\u5305\u542b $n$ \u4e2a\u7ed3\u70b9\u3002\u5176\u4e2d\u4e00\u68f5\u6811\u6309\u7167 $1,2,\\dots,n$ \u7f16\u53f7\uff0c\u53e6\u4e00\u68f5\u6309\u7167 $n+1,n+2,\\dots,2n$ \u7f16\u53f7\u3002\n\n\u73b0\u5728\uff0c\u4f60\u9700\u8981\u627e\u5230\u4e00\u79cd\u8ba9\u7b2c\u4e00\u68f5\u6811\u7684\u7ed3\u70b9\u548c\u7b2c\u4e8c\u68f5\u6811\u7684\u7ed3\u70b9\u4e00\u4e00\u5bf9\u5e94\u7684\u65b9\u5f0f\u2014\u2014\u4e5f\u5373\uff0c\u4f60\u9700\u8981\u627e\u5230\u4e00\u4e2a $\\{n+1,n+2,\\dots, 2n\\}$ \u7684\u6392\u5217 $P$\u3002$P$ \u6ee1\u8db3\uff1a\u5982\u679c $(i,j)$ \u8fd9\u6761\u8fb9\u5b58\u5728\u4e8e\u7b2c\u4e00\u68f5\u6811\u4e2d\uff0c\u5219 $(P_i,P_j)$ \u8fd9\u6761\u8fb9**\u4e0d\u5b58\u5728**\u4e8e\u7b2c\u4e8c\u68f5\u6811\u4e2d\u3002\n\n\u5982\u679c\u5b58\u5728\u8fd9\u6837\u7684 $P$\uff0c\u8f93\u51fa `Yes` \u5e76\u4efb\u610f\u7ed9\u51fa\u4e00\u79cd\u65b9\u6848\uff1b\u5426\u5219\uff0c\u8f93\u51fa `No`\u3002"
+}

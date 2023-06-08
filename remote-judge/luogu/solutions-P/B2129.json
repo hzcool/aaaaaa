@@ -1,0 +1,42 @@
+[
+    {
+        "content": "\u4f17\u6240\u5468\u77e5\uff0c\u5728 `algorithm` \u5e93\u4e2d\u6709\u4e00\u4e2a `max` \u51fd\u6570\uff0c\u4f46\u4f60\u4e0d\u77e5\u9053\u7684\u662f `ISO c++11` \u4e2d `max` \u53ef\u4ee5\u63a5\u53d7\u591a\u4e2a\u53c2\u6570\uff0c\u524d\u63d0\u662f\u8981\u7528\u4e2d\u62ec\u53f7\u62ec\u8d77\u6765\uff0c\u5982\uff1a\n\n```cpp\nint a = max({9, 9, 12, 97301, 937});\n```\n\n\u8fd8\u6709\uff0c`printf` \u652f\u6301\u8f93\u51fa\u4fdd\u7559\u5c0f\u6570\u70b9\u4f4d\u6570\u7684\u6570\uff0c\u4f46\u662f\u5f88\u591a\u4eba\u4e0d\u77e5\u9053 `cout` \u4e5f\u53ef\u4ee5\uff0c\u4f46\u662f\u9700\u8981\u5305\u542b\u5934\u6587\u4ef6 `iomanip`\uff0c\u4ee3\u7801\uff1a\n\n```cpp\ncout << fixed << setprecision(\u4f4d\u6570) << \u503c;\n```\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include <iostream>\n#include <algorithm>\nusing namespace std;\n\nint main()\n{\n    double a, b, c;\n    cin >> a >> b >> c;\n    cout << fixed << setprecision(3) << max({a, b, c}) / (max({a + b, b, c}) * max({a, b, b + c})) << endl;\n    return 0;\n}\n```\n",
+        "postTime": 1625372415,
+        "uid": 332914,
+        "name": "happybob",
+        "ccfLevel": 6,
+        "title": "\u6559\u7ed9\u5927\u5bb6\u4e24\u4e2a\u65b0\u65b9\u6cd5"
+    },
+    {
+        "content": "## \u524d\u7f6e\u77e5\u8bc6\uff1a$\\max$ \u51fd\u6570\u5e94\u7528\n\n\u8fd9\u9053\u9898\u662f\u4e00\u9053\u51fd\u6570\u5165\u95e8\u9898\uff0c\u6211\u4eec\u53ef\u4ee5\u81ea\u5b9a\u4e49\u4e00\u4e2a\u51fd\u6570\uff1a\u6c42\u4e09\u4e2a\u6570\u7684\u6700\u5927\u503c\uff0c\u53ef\u4ee5\u4f7f\u7528 $\\texttt{C++}$ \u7684 $\\max$ \u51fd\u6570\uff0c\u53d8\u4e3a $\\max(a, b, c) = \\max(a, \\max(b, c))$\uff0c\u7136\u540e\u6839\u636e\u9898\u610f\u5177\u4f53\u8ba1\u7b97\u5373\u53ef\u3002\n\n\u89e3\u6790\u90fd\u5728\u4ee3\u7801\u91cc\u4e86\uff0c\u4e0d\u61c2\u8be6\u89c1\u4ee3\u7801\u3002\n## $\\texttt{Code}:$\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\ndouble MAX(double a,double b,double c){ //\u6240\u6709\u503c\u90fd\u8981\u662fdouble\uff0c\u56e0\u4e3a\u9898\u76ee\u8bf4\u8981\u4fdd\u75593\u4f4d\u5c0f\u6570\u3002 \n\treturn max(a,max(b,c)); //\u6838\u5fc3\u4ee3\u7801\uff0c\u4e09\u6570\u6c42\u6700\u5927\u503c\u3002 \n}\nint main(){\n\tios::sync_with_stdio(false);cin.tie(0);cout.tie(0);\n\tdouble a,b,c; cin>>a>>b>>c; \n\tdouble m=MAX(a,b,c)/MAX(a+b,b,c)/MAX(a,b,b+c); //\u6309\u7167\u9898\u610f\u8ba1\u7b97\u7b54\u6848\u3002 \n\tprintf(\"%.3lf\",m); //\u4fdd\u7559\u4e09\u4f4d\u5c0f\u6570\u3002 \n\treturn 0;\n}\n```\n",
+        "postTime": 1626069635,
+        "uid": 252013,
+        "name": "Answer_21",
+        "ccfLevel": 0,
+        "title": "B2129 \u6700\u5927\u6570 max(x,y,z)"
+    },
+    {
+        "content": "[B2129](https://www.luogu.com.cn/problem/B2129)  \n### \u9898\u610f\n\u7ed9\u5b9a $a,b,c$\uff0c\u6c42 $m = \\dfrac{max(a, b, c)}{max(a+b,b,c) \\times max(a,b,b+c)}$\u3002\n\n### \u601d\u8def\n\nC++ \u4e2d\u81ea\u5e26\u7684\u51fd\u6570 `max(a, b)` \u5c06\u8fd4\u56de $a$ \u4e0e $b$ \u4e4b\u95f4\u7684\u8f83\u5927\u503c\u3002\n\n\u60f3\u8981\u6c42\u5230\u4e09\u4e2a\u6570\u7684\u6700\u5927\u503c\uff0c\u53ef\u4ee5\u4f7f\u7528 `max(a, max(b, c))`\u3002\n\n\u63a5\u4e0b\u6765\u6309\u7167\u9898\u76ee\u7684\u5f0f\u5b50\u8ba1\u7b97\u5373\u53ef\u3002 \n\n$\\dfrac{a}{b\\times c} = a / b / c$\u3002\n\n[AC code\u8bb0\u5f55 1](https://www.luogu.com.cn/record/52355849)\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\ndouble a, b, c;\n\nint main()\n{\n    scanf(\"%lf%lf%lf\", &a, &b, &c);\n    return printf(\"%.3lf\", max(a, max(b, c)) / max(a + b, max(b, c)) / max(a, max(b, b + c))), 0;\n}\n```\n\n\u4f46\u662f\u5f88\u660e\u663e\u7684\u770b\u5230\uff0c\u8fd9\u6837\u7684\u4ee3\u7801\u8f83\u4e3a\u81c3\u80bf\u3002\u6240\u4ee5\uff0c\u6211\u4eec\u53ef\u4ee5\u81ea\u5df1\u5b9a\u4e49\u4e00\u4e2a `max1` \u51fd\u6570\uff0c`max1(a, b, c)` \u5c06\u8fd4\u56de\u4e09\u4e2a\u6570\u4e2d\u7684\u6700\u5927\u503c\u3002  \n\n```cpp\ndouble max1(double a, double b, double c)\n{\n    return max(a, max(b, c));\n}\n```  \n\n[AC code\u8bb0\u5f55 2](https://www.luogu.com.cn/record/52355699)\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\ndouble a, b, c;\ndouble max1(double a, double b, double c)\n{\n    return max(a, max(b, c));\n}\n\nint main()\n{\n    scanf(\"%lf%lf%lf\", &a, &b, &c);\n    return printf(\"%.3lf\", max1(a, b, c) / max1(a + b, b, c) / max1(a, b, b + c)), 0;\n}\n```\n\n\u4ee3\u7801\u663e\u5f97\u7b80\u6d01\u6613\u61c2\u8bb8\u591a\u3002  \n\n`printf(\"%.xlf\")`   \n\u5176\u4e2d$x$ \u4e3a\u975e\u8d1f\u6574\u6570\uff0c\u5c06\u4f1a\u4fdd\u7559 $x$ \u4e3a\u5c0f\u6570\u3002",
+        "postTime": 1625320090,
+        "uid": 409236,
+        "name": "StayAlone",
+        "ccfLevel": 6,
+        "title": "B2129 \u6700\u5927\u6570 C++\u9898\u89e3"
+    },
+    {
+        "content": "\u4e3b\u8981\u662f\u7f16\u5199\u4e09\u4e2a\u6570\u6700\u5927\u503c\u7684\u51fd\u6570\u3002\n\n\u5728\u7f16\u5199\u51fd\u6570\u65f6\uff0c\u6211\u4eec\u53ef\u4ee5\u7528\u5230 STL \u4e2d\u7684 $\\max$ \u51fd\u6570\uff0c\u4e5f\u5c31\u662f\uff1a\n\n$\\operatorname{maxx}(a, b, c)=\\max(\\max(a, b), c)$\n\n```cpp\nint maxx(int a, int b, int c){\n    return max(max(a, b), c);\n}\n```\n\n\u5982\u679c\u4f60\u901a\u8fc7\u4e86\u8fd9\u9053\u9898\uff0c\u90a3\u4e48 [B2049](https://www.luogu.com.cn/problem/B2049) \u4e5f\u5e94\u8be5\u8f7b\u677e\u901a\u8fc7\u3002\n\nAC code:\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint a, b, c;\ndouble m;\nint maxx(int a, int b, int c){//\u6c42\u4e09\u4e2a\u6570\u7684\u6700\u5927\u503c\n    return max(max(a, b), c);\n}\nint main(){\n    scanf(\"%d%d%d\", &a, &b, &c);\n    m = maxx(a, b, c) * 1.0 / (maxx(a + b, b, c) * maxx(a, b, b + c));\n    //\u8981\u4e58 1.0\uff0c\u5426\u5219\u4f1a\u81ea\u52a8\u53d6\u6574\n    printf(\"%.3lf\", m);//\u6ce8\u610f\u4fdd\u7559\u4e09\u4f4d\u5c0f\u6570\n    return 0;\n}\n```\n",
+        "postTime": 1625295809,
+        "uid": 377643,
+        "name": "__Cartesian__Tree__",
+        "ccfLevel": 5,
+        "title": "B2129\u9898\u89e3"
+    },
+    {
+        "content": "`max()` \u662f C++ \u4e2d\u6c42\u89e3\u6700\u5927\u503c\u7684\u51fd\u6570\u3002\n\n\u4f7f\u7528\u65b9\u6cd5:\n\n\u4ee5\u6bd4\u8f83\u4e09\u4e2a\u6570 $a,b,c$ \u4e3a\u4f8b\u5b50\u3002\n\n\u2460 `_MAX=max({a,b,c});//\u82b1\u62ec\u53f7\u62ec\u8d77\u6765`\uff08\u8fd9\u4e00\u79cd\u8981\u7528 C++11\uff09\n\n\u2461 `_MAX=max(a,max(b,c));//max \u5d4c\u5957`\n\n\u4e0a\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint INP_A, INP_B, INP_C;\nint MAX_Q1, MAX_Q2, MAX_Q3;\ndouble ANS_B2129;\nsigned main(){\n\tcin>>INP_A>>INP_B>>INP_C;\n   \t//\u91c7\u53d6\u7b2c2\u79cd\u65b9\u6cd5\u6c42MAX\n\tMAX_Q1=max(INP_A,max(INP_B,INP_C));\n\tMAX_Q2=max(INP_A+INP_B,max(INP_B,INP_C));\n\tMAX_Q3=max(INP_A,max(INP_B,INP_B+INP_C));\n\tANS_B2129=1.0*MAX_Q1/(MAX_Q2*MAX_Q3);\n\tprintf(\"%.3lf\",ANS_B2129);\n\treturn 0;\n}\n```\n\n\u7801\u98ce\u6709\u70b9\u4e71\uff0c\u8bf7\u89c1\u8c05\uff01",
+        "postTime": 1625485582,
+        "uid": 490670,
+        "name": "Elysiaqwq",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 B2129 \u6700\u5927\u6570"
+    }
+]

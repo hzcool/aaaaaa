@@ -1,0 +1,17 @@
+{
+    "description": "The Bitlandians are quite weird people. They have very peculiar customs.\n\nAs is customary, Uncle J. wants to have $ n $ eggs painted for Bitruz (an ancient Bitland festival). He has asked G. and A. to do the work.\n\nThe kids are excited because just as is customary, they're going to be paid for the job!\n\nOverall uncle J. has got $ n $ eggs. G. named his price for painting each egg. Similarly, A. named his price for painting each egg. It turns out that for each egg the sum of the money both A. and G. want for the painting equals $ 1000 $ .\n\nUncle J. wants to distribute the eggs between the children so as to give each egg to exactly one child. Also, Uncle J. wants the total money paid to A. to be different from the total money paid to G. by no more than $ 500 $ .\n\nHelp Uncle J. Find the required distribution of eggs or otherwise say that distributing the eggs in the required manner is impossible.",
+    "inputFormat": "The first line contains integer $ n $ $ (1<=n<=10^{6}) $ \u2014 the number of eggs.\n\nNext $ n $ lines contain two integers $ a_{i} $ and $ g_{i} $ each $ (0<=a_{i},g_{i}<=1000;\u00a0a_{i}+g_{i}=1000) $ : $ a_{i} $ is the price said by A. for the $ i $ -th egg and $ g_{i} $ is the price said by G. for the $ i $ -th egg.",
+    "outputFormat": "If it is impossible to assign the painting, print \"-1\" (without quotes).\n\nOtherwise print a string, consisting of $ n $ letters \"G\" and \"A\". The $ i $ -th letter of this string should represent the child who will get the $ i $ -th egg in the required distribution. Letter \"A\" represents A. and letter \"G\" represents G. If we denote the money Uncle J. must pay A. for the painting as $ S_{a} $ , and the money Uncle J. must pay G. for the painting as $ S_{g} $ , then this inequality must hold: $ |S_{a}-S_{g}|<=500 $ .\n\nIf there are several solutions, you are allowed to print any of them.",
+    "samples": [
+        [
+            "2\n1 999\n999 1\n",
+            "AG\n"
+        ],
+        [
+            "3\n400 600\n400 600\n400 600\n",
+            "AGA\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "## \u95ee\u9898\u63cf\u8ff0\n\n\u6709$n$ \u4e2a\u86cb\uff0cA\u548cG\u9700\u8981\u7ed9\u8fd9$n$ \u4e2a\u9e21\u86cb\u6d82\u8272\u3002A\u6d82\u7b2c$i$ \u4e2a\u9e21\u86cb\u5f97\u5230\u7684\u94b1\u4e3a$A_i$ \uff0cG\u6d82\u7b2c$i$ \u4e2a\u9e21\u86cb\u5f97\u5230\u7684\u94b1\u4e3a$G_i$ \uff0c\u4e14\u6ee1\u8db3$A_i+G_i=1000$ \u3002\u9700\u8981\u628a\u8fd9$n$ \u4e2a\u9e21\u86cb\u5206\u914d\u7ed9A\u548cG\uff0c\u6c42\u600e\u6837\u5206\u914d\u4f7f\u5f97A\u548cG\u5f97\u5230\u7684\u94b1$S_A$ \u548c$S_G$ \u7684\u5dee\u4e0d\u8d85\u8fc7$500$ \u3002\n\n## \u8f93\u5165\u8f93\u51fa\u683c\u5f0f\n### \u8f93\u5165\u683c\u5f0f\uff1a\n\u7b2c\u4e00\u884c\u4e00\u4e2a\u6574\u6570$n(1\\le n\\le 10^6)$ \u3002\n\n\u63a5\u4e0b\u6765$n$ \u884c\uff0c\u6bcf\u884c\u4e24\u4e2a\u6574\u6570$A_i,G_i(0\\le A_i,G_i\\le 1000,A_i+G_i=1000)$ \u3002\n### \u8f93\u51fa\u683c\u5f0f\uff1a\n\u4e00\u884c\uff0c\u957f\u5ea6\u4e3a $n$ \u7684\u5b57\u7b26\u4e32\uff0c\u7b2c $i$ \u4e2a\u5b57\u7b26\u4e3a `A` \u6216 `G`\uff0c\u8868\u793a\u5206\u914d\u65b9\u6848\u3002\n\n\u6709\u591a\u79cd\u89e3\u8f93\u51fa\u4efb\u610f\u4e00\u79cd\uff0c\u9700\u8981\u6ee1\u8db3 $|S_A-S_G|\\le 500$\u3002\n\n\u5982\u679c\u65e0\u89e3\uff0c\u8f93\u51fa `-1`\u3002\n\n\u611f\u8c22@rill7747 \u63d0\u4f9b\u7684\u7ffb\u8bd1"
+}

@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u5bf9\u4e8e\u6240\u6709\u6570\u636e\uff0c\u6211\u4eec\u90fd\u6784\u9020\u4e00\u4e2a $100\\times 100$ \u7684\u77e9\u9635\u3002\u7136\u540e\uff1a\r\n\r\n1.  \u5c06\u4e0a\u534a\u90e8\u5206\u6d82\u767d\uff0c\u4e0b\u534a\u90e8\u5206\u6d82\u9ed1\u3002\r\n2.  \u9009\u62e9\u4e0a\u534a\u90e8\u5206\u7684 $B-1$ \u4e2a\u683c\u5b50\u4e0d\u76f8\u90bb\u4e14\u4e0d\u4f1a\u628a\u767d\u8272\u9694\u65ad\u7684\u683c\u5b50\u6d82\u9ed1\uff0c\u9009\u62e9\u4e0b\u534a\u90e8\u5206\u7684 $A-1$ \u4e2a\u8fd9\u6837\u7684\u683c\u5b50\u6d82\u767d\u3002\r\n\r\n\u793a\u610f\u56fe\uff1a\r\n\r\n![img](https://cdn.luogu.com.cn/upload/image_hosting/olqgr45x.png)\r\n\r\n```cpp\r\n#include<bits/stdc++.h>\r\n#define int long long\r\nconst int N=155;\r\nusing namespace std;\r\n\r\nchar col[N][N];\r\nconst int A=50,B=100;\r\n\r\nvoid solve(){\r\n\tint a,b;cin>>a>>b;\r\n\ta--,b--;\r\n\tcout<<B<<' '<<B<<endl;\r\n\tfor(int i=1;i<=A;i++)\r\n\t\tfor(int j=1;j<=B;j++){\r\n\t\t\tcol[i][j]='.';\r\n\t\t\tcol[i+A][j]='#';\r\n\t\t}\r\n\tfor(int i=2;b;i+=2)\r\n\t\tfor(int j=2;b&&j<=B;j+=2)\r\n\t\t\tcol[i][j]='#',b--;\r\n\tfor(int i=52;a;i+=2)\r\n\t\tfor(int j=2;a&&j<=B;j+=2)\r\n\t\t\tcol[i][j]='.',a--;\r\n\tfor(int i=1;i<=B;i++){\r\n\t\tfor(int j=1;j<=B;j++)\r\n\t\t\tcout<<col[i][j];\r\n\t\tcout<<endl;\r\n\t}\r\n}\r\n\r\nmain(){\r\n\tios::sync_with_stdio(0);\r\n\tint _T=1;//cin>>_T;\r\n\twhile(_T--)solve();\r\n}\r\n\r\n```\r\n\r\n",
+        "postTime": 1661999346,
+        "uid": 79067,
+        "name": "dottle",
+        "ccfLevel": 10,
+        "title": "AT3979\uff08ARC093B\uff09"
+    }
+]

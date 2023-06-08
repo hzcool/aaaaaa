@@ -1,0 +1,98 @@
+[
+    {
+        "content": "##    [\u9898 \u76ee \u4f20 \u9001 \u95e8](https://www.luogu.com.cn/problem/AT2079)\n\n###  \u9898\u610f \n\u8f93\u5165\u4e00\u4e2a\u957f\u5ea6\u4e3a16\u4e14\u65e0\u7279\u6b8a\u5b57\u7b26\u7684\u5b57\u7b26\u4e32\u548c\u201cCODEFESTIVAL2016\u201d\u6bd4\u8f83\uff0c\u6c42\u51fa\u6709\u51e0\u4e2a\u5b57\u7b26\u4e0d\u76f8\u540c\n\n### \u601d\u8def\n\u9010\u4e00\u6bd4\u5bf9\uff0c\u53ef\u4ee5\u76f4\u63a5\u7528\u5b57\u7b26\uff0c\u4e5f\u53ef\u4ee5\u7528ASCII\u7801\n\n### \u4ee3\u7801\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint ans,b[16]={67,79,68,69,70,69,83,84,73,86,65,76,50,48,49,54};//CODEFESTIVAL2016\u7684ASCII\u7801\u503c \nchar a[16]; \nint main()\n{\n\tfor(int i=0;i<16;i++)//\u5faa\u73af\u5341\u516d\u904d \n\t{\n\t\tcin>>a[i];\n\t\tif(a[i]!=b[i])//\u662f\u201c\uff01=\u201d\u53f7 \n\t\t{\n\t\t\tans++;\n\t\t}\n       \t\t//\u8f93\u5165\u5e76\u9010\u4e00\u6bd4\u5bf9 \n\t}\n\tcout<<ans<<endl;//\u522b\u5fd8\u6362\u884c\n\treturn 0;//\u7ed3\u675f\n}\n\n```\n",
+        "postTime": 1585473538,
+        "uid": 275834,
+        "name": "Ca1JH",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT2079 \u3010Signboard\u3011"
+    },
+    {
+        "content": "**\u6c34\u554a\uff01\u53ea\u670916\u4e2a\u5b57\u7b26\uff01**\n\n~~\u8dd1\u9898\u4e86\u3002~~\n\n\u5927\u81f4\u601d\u8def\uff08\u8fd9\u73a9\u610f\u8fd8\u9700\u8981\u601d\u8def\uff1f\uff01\uff09\uff1a\u8f93\u5165\u4e00\u4e2a\u5b57\u7b26\u4e32\uff0c\u7528\u81ea\u5e26\u7684\u6570\u7ec4\u5b58\u50a8\uff0c\u63a5\u4e0b\u6765\u7528 $if$ \u8bed\u53e5\u5224\u65ad\uff0c\u5982\u679c\u76f8\u540c\u5219\u8ba1\u6570\u5668 $ans$ \u589e\u52a0\uff0c\u6700\u540e\u7528$16$\u4e00\u51cf\u5c31\u662f\u4e0d\u540c\u7684\uff0c\u8f93\u51fa\u5373\u53ef\u3002\n\n**\u6ce8\u610f\u6570\u7ec4\u8981\u4ece$0$\u5f00\u59cb\uff01\u4ece$0$\u5f00\u59cb\uff01\u4ece$0$\u5f00\u59cb\uff01**\uff08\u91cd\u8981\u7684\u4e8b\u60c5\u8bf4\u4e09\u904d\uff09\n\n\u540c\u65f6\uff0c\u4e00\u5b9a\u8981\u5bf9\u8ba1\u6570\u5668\u8fdb\u884c\u521d\u59cb\u5316\uff0c\u4e0d\u7136\u53ef\u80fd\u4f1a\u6709\u7384\u5b66\u9519\u8bef\u3002\n\n\n\n\u8be5\u8bf4\u7684\u90fd\u5728\u4ee3\u7801\u91cc\u3002\n\n```python\ns=input()   #\u8f93\u5165\u5b57\u7b26\u4e32\nans=0      #\u521d\u59cb\u5316\u603b\u6570\n\n#\u63a5\u4e0b\u6765\u6328\u4e2a\u5b57\u7b26\u5224\u65ad\uff0c\u6ca1\u4ec0\u4e48\u597d\u8bf4\u7684\uff0c\u4e00\u6837\u5c31\u589e\u52a0\u603b\u6570\n\n#\u8981\u6ce8\u610f\u7684\u4e00\u70b9\u5c31\u662f\u6570\u7ec4\u4e00\u5b9a\u8981\u4ece0\u5f00\u59cb\uff0c\u4e0d\u7136\u4f1a\u6570\u7ec4\u8d8a\u754c\n\nif s[0]=='C':\n    ans+=1\nif s[1]='O':\n    ans+=1\nif s[2]='D':\n    ans+=1\nif s[3]='E':\n    ans+=1\nif s[4]='F':\n    ans+=1\nif s[5]='E':\n    ans+=1\nif s[6]='S':\n    ans+=1\nif s[7]='T':\n    ans+=1\nif s[8]='I':\n    ans+=1\nif s[9]='V':\n    ans+=1\nif s[10]='A':\n    ans+=1\nif s[11]='L':\n    ans+=1\nif s[12]='2':\n    ans+=1\nif s[13]='0':\n    ans+=1\nif s[14]='1':\n    ans+=1\nif s[15]='6':\n    ans+=1\nans=16-ans\nprint(ans)  #\u7531\u4e8e\u662f\u7edf\u8ba1\u4e86\u76f8\u540c\u7684\uff0c\u6700\u540e\u8981\u51cf\u4e00\u4e0b\uff0c\u7136\u540e\u8f93\u51fa\u5373\u53ef\n```\n\n\u6211\u662f\u7edf\u8ba1\u4e86\u76f8\u540c\u7684\uff0c\u5927\u5bb6\u4e5f\u73c2\u4ee5\u5c1d\u8bd5\u76f4\u63a5\u7edf\u8ba1\u4e0d\u540c\u7684\u7136\u540e\u8f93\u51fa\uff0c\u6548\u679c\u76f8\u540c\u3002~~\u56e0\u4e3a\u6211\u4f5c\uff0c~~\u6211\u9009\u62e9\u4e86\u4e00\u4e2a\u8f83\u5bb9\u6613\u51fa\u9519\u7684\uff0c\u5927\u5bb6\u8bb0\u5f97\u6700\u540e\u7528$16$\u51cf\u4e00\u4e0b\u3002\n\n**\u6c42\u8fc7\uff01\uff01**",
+        "postTime": 1586175615,
+        "uid": 197599,
+        "name": "\u9ad8\u96cd\u535a",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 AT2079 \u3010Signboard\u3011"
+    },
+    {
+        "content": "\u6ca1\u6709\u4ec0\u4e48\u662f\u4e00\u4e2a\u6570\u7ec4\u89e3\u51b3\u4e0d\u4e86\u7684\uff0c\u5982\u679c\u6709\uff0c\u90a3\u5c31\u5f00\u4e24\u4e2a\n\n\u6ca1\u9519\uff0c\u6211\u53c8\u6765\u6c34\u5c9b\u56fd\u6c34\u9898\u4e86\uff0c\u8fd9\u9898\u7ffb\u8bd1\u975e\u5e38\u901a\u4fd7\u6613\u61c2\uff0c\u6211\u5c31\u4e0d\u8bf4\u4e86\n\n```\n#include<iostream>\nusing namespace std;\nchar a[16], b[16] = {'C', 'O', 'D', 'E', 'F', 'E', 'S', 'T', 'I', 'V', 'A', 'L', '2', '0', '1', '6'};//\u76f4\u63a5\u5b57\u7b26\u6570\u7ec4\u8d70\u4e00\u6ce2\uff0c\u540e\u9762\u6bd4\u8f83\u65b9\u4fbf\nint ans;//\u5b9a\u4e49ans\u4e3a\u7b54\u6848/\u5728\u51fd\u6570\u5916\u9762\u5b9a\u4e49\u7684\u5168\u5c40\u53d8\u91cf\u521d\u59cb\u503c\u9ed8\u8ba4\u4e3a0\nint main()\n{\n\tcin >> a;//\u4e0d\u9700\u8981\u4e00\u4e2a\u5b57\u7b26\u4e00\u4e2a\u5b57\u7b26\u7684\u8f93\uff0c\u9898\u76ee\u6570\u636e\u5168\u90fd\u662f16\u4f4d\u7684\uff0c\u4e0d\u7528\u62c5\u5fc3\u8d85\u754c\u9650\n\tfor(int i = 0; i < 16; i ++){\n\t\tif(a[i] != b[i]) ans ++;//\u5faa\u73af\u6bd4\u8f83\uff0c\u5982\u679c\u4e0d\u4e00\u6837ans+1\n\t}\n\tcout << ans << endl;//endl\u53ef\u4ee5\u4e0d\u52a0\n\treturn 0;//\u517b\u6210\u597d\u4e60\u60ef\n}\n```\n\u6700\u540e\u82b1\u5f0f\u6c42\u8fc7QwQ",
+        "postTime": 1570352771,
+        "uid": 226067,
+        "name": "\u849f\u84bb\u53d6\u4e0d\u6765\u540d",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT2079 \u3010Signboard\u3011"
+    },
+    {
+        "content": "\u770b\u5b8c\u9898\u89e3\uff0c\u53d1\u73b0\u6ca1\u6709\u6b63\u5411\u8ba1\u6570\u7684\u7a0b\u5e8f\u5462\uff08\u672c\u849f\u84bb\u4e5f\u5c31\u770b\u61c2\u4e86\u4e24\u7bc7\uff09\uff0c\u5e72\u8106\u52a8\u624b\u5199\u4e00\u7bc7\u7b97\u4e86~~\uff08\u53cd\u6b63\u662f\u5927\u6c34\u9898\uff09~~\n\uff08\u849f\u84bb\u7b2c\u4e00\u6b21\u53d1\u9898\u89e3\uff0c\u5404\u4f4d\u5927\u4f6c\u52ff\u55b7\uff09\n\u4e0b\u9762\u4e3aAC\u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>//\u7956\u4f20\u5934\u6587\u4ef6 \nusing namespace std;\nstring m,n=\"CODEFESTIVAL2016\";//\u540c\u9006\u5411\u8ba1\u6570\u505a\u6cd5\uff0c\u7528\u5b57\u7b26\u4e32\u79d2\u5929\u79d2\u5730\u79d2\u7a7a\u6c14 \nint tot;//\u5b9a\u4e49\u603b\u6570total \nint main(){\n    cin>>m;//\u8bfb\u5165\u9700\u5224\u65ad\u7684\u5b57\u7b26\u4e32 \n    for(int i=0;i<16;i++){\n    \tif(m[i]!=n[i])//\u4f9d\u6b21\u5224\u65ad \n    \t\ttot++;//\u82e5\u4e0d\u4e00\u6837\uff0c\u603b\u6570\u81ea\u589e \n\t}\n\tcout<<tot<<endl;//\u6253\u5370total,ps:\u6211\u611f\u89c9ATcoder\u90fd\u8981\u6c42\u52a0\u6362\u884c\u7b26\uff0c\u52a0\u4e0a\u4fdd\u9669\u4e9b\uff08\u53cd\u6b63\u52a0\u4e0a\u53c8\u4e0d\u4f1a\u9519\uff09 \n    return 0;//\u5b8c\u7ed3\u6492\u82b1\uff0cQAQ\u6c42\u8fc7 \n}\n```\n\n\n\u8fd9\u91cc\u63d0\u9192\u4e00\u4e0b\uff0c\u672c\u9898\u6709\u4e2a\u8bef\u533a\uff0c\u6b64\u5904\u5224\u65ad\u662f\u5426\u4e00\u81f4\u7684\u5bf9\u8c61\u662f\u5bf9\u5e94\u7684\uff0c\u6bd4\u65b9\u8bf4\u6837\u672c\u7b2c\u4e00\u4e2aC\u5c31\u5bf9\u5e94\u5bf9\u8c61\u7684\u4ee5\u4e00\u4e2a\u5b57\u7b26\uff0c\u82e5\u4e00\u81f4\u503c\u5c31\u589e\u52a01\uff0c\u53cd\u4e4b\u5219\u5426\n\u4ee5\u4e0b\u4e3a\u4e2d\u62db\u4ee3\u7801\uff1a\n\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nstring m,n=\"CODEFESTIVAL2016\";\nint tot,to;\nint main(){\n    cin>>m;\n    for(int i=0;i<16;i++){\n    \tfor(int l=1;l<=16;l++){\n    \t\tif(m[i]!=n[l])\n    \t\t\tto++;\n\t\t}\n\t\tif(to=16)\n\t\t\ttot++;\n\t}\n\tcout<<tot<<endl;\n    return 0;\n}\n```\n\u8fd9\u9898\u771f\u7684\u5f88~~\u96be~~\uff0c\u7c73\u5a1c\u6851\u52a1\u5fc5\u81ea\u5df1\u52a8\u624b\uff08\u7b11\uff09",
+        "postTime": 1565598961,
+        "uid": 230342,
+        "name": "ShimizuSKT",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT2079 \u3010Signboard\u3011"
+    },
+    {
+        "content": "\u505a\u6cd5\uff1a\u5148\u5047\u8bbe\u5168\u90e8\u9519\u8bef\uff0c\u7136\u540e\u5982\u679c\u6709\u6b63\u786e\u7684\uff0c\u5c31\u51cf\u53bb$1$\uff0c\u6700\u540e\u5c31\u662f\u7b54\u6848\u3002\n\n\n------------\n\n```cpp\n#include<bits/stdc++.h>//\u5934\u6587\u4ef6\nusing namespace std;\nstring a,b=\"CODEFESTIVAL2016\";\nint c=16;//\u5168\u9519\nint main(){\n    cin>>a;\n    for(int i=0;i<16;i++)//\u5faa\u73af16\u6b21\uff0c\u9010\u4e2a\u5224\u65ad\n    c-=(a[i]==b[i])?1:0;//\u95ee\u53f7\u8fd0\u7b97\u7b26\n    cout<<c<<endl;//\u8f93\u51fa\u7b54\u6848\n    return 0;//\u5b8c\u7f8e\u7ed3\u675f\n}\n```",
+        "postTime": 1535852925,
+        "uid": 58546,
+        "name": "CZQ_King",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 AT2079 \u3010Signboard\u3011"
+    },
+    {
+        "content": "~~\u697c\u4e0b\u90a3\u4f4d\u66b4\u529b\u5224\u65ad\u7684,\u4f60\u5c31\u4e0d\u4f1a\u5199\u4e2afor\u5417~~\n\n\u9898\u610f:\u8f93\u5165\u4e00\u4e2a\u5b57\u7b26\u4e32,\u8f93\u51fa\u5b83\u4e0e\u201cCODEFESTIVAL2016\u201d\u4e0d\u540c\u5b57\u7b26\u7684\u4e2a\u6570\n\n\u6b63\u89e3:\u5c06\u8f93\u5165\u7684\u5b57\u7b26\u4e32\u4e0e\u6807\u51c6\u5b57\u7b26\u4e32\u9010\u5b57\u6bd4\u5bf9,\u5982\u679c\u4e0d\u4e00\u6837\u5c31ans++\n\ncode:\n```cpp\n#include<bits/stdc++.h>//\u4e07\u80fd\u5934\u6587\u4ef6,\u5305\u542b\u4e86c++\u4e2d\u51e0\u4e4e\u6240\u6709\u7684\u5e93\n#define ll long long\nusing namespace std;\nstring s=\"CODEFESTIVAL2016a;//\u5b9a\u4e49\u5b57\u7b26\u4e32\nll ans;//\u4e60\u60ef\u6027\u5f00long long\nint main()\n{\n\tgetline(cin,a);//\u4e0ecin>>a\u76f8\u6bd4\u53ef\u4ee5\u76f4\u63a5\u8bfb\u5165\u4e00\u6574\u884c,\u5c06\u7a7a\u683c\u4e00\u5e76\u8bfb\u5165,\u9047\u5230\u56de\u8f66\u505c\u6b62\n\t//\u867d\u7136\u8fd9\u9053\u9898\u597d\u50cf\u5e76\u6ca1\u6709\u8fd9\u7c7b\u6570\u636e\n\tfor(register ll i=0;i<=15i++)\n\tif(a[i]!=s[i])ans++;//\u9010\u5b57\u6bd4\u5bf9\n\t\u6ce8\u610f\u5b57\u7b26\u4e32\u662f\u4ece0\u5f00\u59cb\u5b58\u50a8\u7684,\u5230length-1\u622a\u6b62\n    cout<<ans<<endl;\n    return 0;\n}\n```\n\u62d2\u7edd\u6284\u88ad,\u5171\u5efa\u548c\u8c10\u6d1b\u8c37",
+        "postTime": 1535346804,
+        "uid": 48993,
+        "name": "liuyifan",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT2079 \u3010Signboard\u3011"
+    },
+    {
+        "content": "\u8fd9\u4e48~~\u96be~~\u7684\u4e00\u9898\u600e\u4e48\u6ca1\u4eba\u53d1\u9898\u89e3\u561e\n\n\u6211\u6765\u4e00\u7bc7\n\n\u4e00\u4f4ddalao\u7684\u9690\u85cf \u9898\u610f\uff1a\u521d\u59cb\u5b57\u7b26\u4e32\uff1aCODEFESTIVAL2016\n\n\u7136\u540e\u8f93\u5165\u4e00\u4e2a\u957f\u5ea6\u76f8\u540c\u7684\u5b57\u7b26\u4e32\uff0c\u8f93\u51fa\u6709\u51e0\u4e2a\u5b57\u7b26\u4e0e\u521d\u59cb\u5b57\u7b26\u4e32\u4e0d\u540c\u3002\n\n\u4ee3\u7801\u4e0a\n\n```\n#include<bits/stdc++.h>//\u4e07\u80fd\u6587\u4ef6\u5934\nusing namespace std;\nstring s=\"CODEFESTIVAL2016\";//\u597d\u50cf\u4e5f\u6ca1\u4ec0\u4e48\u7528\nstring a;\nlong long ans;\nint main(){\n    cin>>a;//\u8f93\u5165\u5b57\u7b26\u4e32\n    if(a[0] != 'C') ans++;//\u5f00\u59cb\u65e0\u8111\u5224\u65ad\n    if(a[1] != 'O') ans++;//\u8981\u662f\u6709\u4e00\u4e2a\u4e0d\u4e00\u6837\n    if(a[2] != 'D') ans++;//\u5c31\u9a6c\u4e0a\u52a0\u4e0a\u53bb\n    if(a[3] != 'E') ans++;\n    if(a[4] != 'F') ans++;\n    if(a[5] != 'E') ans++;\n    if(a[6] != 'S') ans++;\n    if(a[7] != 'T') ans++;\n    if(a[8] != 'I') ans++;\n    if(a[9] != 'V') ans++;\n    if(a[10] != 'A') ans++;\n    if(a[11] != 'L') ans++;\n    if(a[12] != '2') ans++;\n    if(a[13] != '0') ans++;\n    if(a[14] != '1') ans++;\n    if(a[15] != '6') ans++;\n    cout<<ans<<endl;//\u52a0\u5b8c\u4e86\uff0c\u8f93\u51fa\n}\n```",
+        "postTime": 1532101363,
+        "uid": 39603,
+        "name": "Messi\u674e",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT2079 \u3010Signboard\u3011"
+    },
+    {
+        "content": "~~\u6ca1\u6709Pascal\u7684\u9898\u89e3\uff1f\u90a3\u6211\u5c31\u6765\u6c34\u4e00\u53d1\u3002~~\n\n### **\u9898\u76ee**\n\u8f93\u5165\u4e00\u4e2a**\u5b57\u7b26\u4e32**,\u8f93\u51fa\u5b83\u4e0e**CODEFESTIVAL2016**\u4e0d\u540c\u5b57\u7b26\u7684\u4e2a\u6570\u3002\n\n### **\u601d\u8def**\n\u53ea\u9700\u8bfb\u5165\u4e00\u4e2a\u5b57\u7b26\u4e32\uff0c\u7136\u540e\u4e00\u4e2a$for$\u5faa\u73af\uff0c\u770b\u770b$n_i$\u8ddf$n1_i$\u662f\u4e0d\u662f\u4e0d\u4e00\u6837\uff0c\u5982\u679c\u4e0d\u4e00\u6837\uff0c\u5219$s$\u52a0\u4e00\u3002\n### **\u4ee3\u7801**\n```pascal\nvar\n n,n1:string;//\u5b9a\u4e49n\u548cn1\n i,s:longint;//\u5b9a\u4e49i\u548cs\nbegin\n readln(n);//\u8bfb\u5165n\n n1:='CODEFESTIVAL2016';//n1\u521d\u59cb\u5316\n for i:=1 to 16 do if n[i]<>n1[i] then inc(s);\u5982\u679c\u4e0d\u4e00\u6837\uff0c\u5219s\u52a0\u4e00\n writeln(s);//\u8f93\u51fas\nend.//\u5b8c\u7f8e\u7ed3\u675f\n```\n",
+        "postTime": 1585884749,
+        "uid": 324103,
+        "name": "Franka",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT2079 \u3010Signboard\u3011"
+    },
+    {
+        "content": "# \u9898\u610f\u68b3\u7406\n\u8981\u6c42\u6211\u4eec\u6c42\u8f93\u5165\u7684\u5b57\u7b26\u4e32\u4e2d\u6709\u51e0\u4e2a\u548cCODEFESTIVAL2016\u4e0d\u540c\uff0c\n\u6240\u4ee5\u53ea\u8981**\u4e00\u4e2a\u4e2a\u5224\u65ad**(\u272a\u03c9\u272a)\u5373\u53efqwq\n# \u4ee3\u7801\uff0c\u5224\u65ad\u5224\u65ad\u518d\u5224\u65ad\n```\n/**/\n#include<bits/stdc++.h>\nusing namespace std;\nchar a[100001];\nint ans;\nint main(){\n\tios::sync_with_stdio(false);\n\tgets(a);\n\tif(a[0]!='C'){\n\t\tans++;\n\t}if(a[1]!='O'){\n\t\tans++;\n\t}if(a[2]!='D'){\n\t\tans++;\n\t}if(a[3]!='E'){\n\t\tans++;\n\t}if(a[4]!='F'){\n\t\tans++;\n\t}if(a[5]!='E'){\n\t\tans++;\n\t}if(a[6]!='S'){\n\t\tans++;\n\t}if(a[7]!='T'){\n\t\tans++;\n\t}if(a[8]!='I'){\n\t\tans++;\n\t}if(a[9]!='V'){\n\t\tans++;\n\t}if(a[10]!='A'){\n\t\tans++;\n\t}if(a[11]!='L'){\n\t\tans++;\n\t}if(a[12]!='2'){\n\t\tans++;\n\t}if(a[13]!='0'){\n\t\tans++;\n\t}if(a[14]!='1'){\n\t\tans++;\n\t}if(a[15]!='6'){\n\t\tans++;\n\t}\n\tcout<<ans<<endl;\n\treturn 0;\n}\n```\n",
+        "postTime": 1573829455,
+        "uid": 197603,
+        "name": "ygl666666",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 AT2079 \u3010Signboard\u3011"
+    },
+    {
+        "content": "\u89e3\u9898\u601d\u8def\uff1a\u8f93\u5165\u4e00\u4e2a\u5b57\u7b26\u4e32,\u8f93\u51fa\u5b83\u4e0e\u201cCODEFESTIVAL2016\u201d\u4e0d\u540c\u5b57\u7b26\u7684\u4e2a\u6570\n\u4e0a\u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>//\u4e07\u80fd\u5934\u6587\u4ef6 \nusing namespace std; \nint ans;//\u5b9a\u4e49\u4e00\u4e2a\u8ba1\u6570\u5668\uff0c\u6765\u8bb0\u5f55\u4e0eCODEFESTIVAL2016\u4e0d\u540c\u7684\u5b57\u6bcd\u4e2a\u6570 \nstring s;//\u5b9a\u4e49\u4e00\u4e2a\u5b57\u7b26\u4e32 \nint main()\n{\n\t//freopen(\".in\",\"r\",stdin);\n\t//freopen(\".out\",\"w\",strout);\n\tcin>>s;//\u8f93\u5165\u8fd9\u4e2a\u5b57\u7b26\u4e32\uff0c\u2193\u4f7f\u7528\u6253\u8868\u7684\u65b9\u6cd5 \n\tif(s[0]!='C')  ans++;//CODEFESTIVAL2016\n\tif(s[1]!='O')  ans++;//ODEFESTIVAL2016\n\tif(s[2]!='D')  ans++;//DEFESTIVAL2016\n\tif(s[3]!='E')  ans++;//EFESTIVAL2016\n\tif(s[4]!='F')  ans++;//FESTIVAL2016\n\tif(s[5]!='E')  ans++;//ESTIVAL2016\n\tif(s[6]!='S')  ans++;//STIVAL2016\n\tif(s[7]!='T')  ans++;//TIVAL2016\n\tif(s[8]!='I')  ans++;//IVAL2016\n\tif(s[9]!='V')  ans++;//VAL2016\n\tif(s[10]!='A')  ans++;//AL2016\n\tif(s[11]!='L')  ans++;//L2016\n\tif(s[12]!='2')  ans++;//2016\n\tif(s[13]!='0')  ans++;//016\n\tif(s[14]!='1')  ans++;//16\n\tif(s[15]!='6')  ans++;//6\n\tcout<<ans<<endl;//\u6700\u540e\u8f93\u51fa \n\n\treturn 0;//\u5b8c\u7f8e\u7ed3\u675f \n}\n```\n",
+        "postTime": 1569230038,
+        "uid": 106009,
+        "name": "\u53ef\u7231\u7684\u5c0f\u767d",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT2079 \u3010Signboard\u3011"
+    },
+    {
+        "content": "\u5927\u6c34\u9898\u2026\u2026\n\n\u9898\u610f\u8ba8\u8bba\u5e16\u91cc\u6709\u2026\u2026\n\n**\u601d\u8def\uff1a\u5148\u7ed9\u521d\u59cb\u5b57\u7b26\u4e32\u8d4b\u503c\uff0c\u518dfor\u5faa\u73af\u5224\u65ad**\n\n\u76f4\u63a5\u4e0a\u4ee3\u7801\uff1a\n```pascal\nvar\n s,s1:string;\n ss,i:longint;\nbegin\n readln(s);\n s1:='CODEFESTIVAL2016';//\u521d\u59cb\u5b57\u7b26\u4e32\u8d4b\u503c\n for i:=1 to 16 do\n  if s[i]<>s1[i] then inc(ss);//\u5224\u65ad\u662f\u5426\u76f8\u7b49\uff0c\u4e0d\u76f8\u7b49\u5c31\u7d2f\u52a0\n writeln(ss);//\u8f93\u51fa\u6709\u591a\u5c11\u4e2a\u4e0d\u540c\u7684\u5b57\u7b26\nend.\n```",
+        "postTime": 1538642019,
+        "uid": 99489,
+        "name": "wushuang0828",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT2079 \u3010Signboard\u3011"
+    },
+    {
+        "content": "\u697c\u4e0b\u90a3\u4f4d\u5927\u4f6c\u8c8c\u4f3c\u4e0d\u4f1a\u7528LaTeX\u5462\uff08\u9003~\uff09\n\n```\n#include<stdio.h> \n#include<string.h>\nint main()\n{\n    int i,ans=0;\n    char srx[21],sry[21]={\"CODEFESTIVAL2016\"};\n    gets(srx);//\u8fd8\u662f\u4f7f\u7528C\u8bed\u8a00gets\u7684\u6211\u662f\u4e0d\u662f\u5f88\u8822...\n    for(i=0;i<strlen(srx);i++)\n    if(srx[i]!=sry[i])\n    ans++;//\u5176\u5b9e\u4e5f\u53ef\u4ee5\u662fans=15; if(srx[i]==sry[i]\uff09ans--;\n    printf(\"%d\\n\",ans);//\u56de\u8f66\u8fd9\u79cd\u4e1c\u897f\u4e0d\u7528\u8bf4...\n    return 0;\n}\n```",
+        "postTime": 1535464941,
+        "uid": 47482,
+        "name": "\u4e0d\u5230\u524d10\u4e0d\u6539\u540d",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT2079 \u3010Signboard\u3011"
+    }
+]

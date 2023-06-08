@@ -1,0 +1,34 @@
+[
+    {
+        "content": "\u5206\u6790\uff1a\n\n1. \u8d1d\u831c\u8981\u9009\u51fa\u4e00\u4e9b\u94c1\u8def\uff0c\u628a\u6240\u6709\u725b\u68da\u8fde\u5728\u4e00\u8d77\u3002\n2. \u9009\u51fa\u7684\u94c1\u8def\u4e0d\u80fd\u6709\u73af\u3002\n\n\u6240\u4ee5\u9009\u51fa\u7684\u94c1\u8def\u6784\u6210\u4e00\u4e2a\u751f\u6210\u6811\u3002\n\n\u9898\u76ee\u8bf4\u4e86\u8981\u6c42\u6700\u5927\u503c\uff0c\u6240\u4ee5\u672c\u9898\u8981\u6c42\u6700\u5927\u751f\u6210\u6811\u3002\n\n\u7136\u540e\u505a\u4e00\u904d kruskal \u5c31\u884c\u4e86\u3002\n\n\u8bb0\u5f97\u5f00 long long\u3002\n\ncode\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nconst int maxn=200010;\n#define int long long\nint fa[maxn];\n\nstruct node{\n\tint a,b,c;\n};\n\nnode s[maxn];\n\nint find(int x)\n{\n\tif (fa[x]==x)\n\t\treturn x;\n\t\n\tfa[x]=find(fa[x]);\n\treturn fa[x];\n}\n\nbool cmp(node x,node y)\n{\n\treturn x.c>y.c;\n}\nsigned main()\n{\n\t\t\n\tint n,m;\n\tscanf(\"%lld%lld\",&n,&m);\n\t\n\tfor (int i=0;i<m;i++)\n\t\tscanf(\"%lld%lld%lld\",&s[i].a,&s[i].b,&s[i].c);\n\t\t\n\tfor (int i=1;i<=n;i++)\n\t\tfa[i]=i;\n\t \n\tsort(s,s+m,cmp);\n\tint ret=0,cnt=0;\n\t\n\tfor (int i=0;i<m;i++)\n\t{\n\t\tint ta=find(s[i].a);\n\t\tint tb=find(s[i].b);\n\t\t\n\t\tif (ta!=tb)\n\t\t{\n\t\t\tfa[ta]=tb;\n\t\t\tcnt++;\n\t\t\tret+=s[i].c;\n\t\t\t\n\t\t}\n\t}\n\t\n\tif (cnt!=n-1)\n\t\tprintf(\"-1\");\n\telse\n\t\tprintf(\"%lld\",ret); \n\t\n\treturn 0;\n}\n```\n",
+        "postTime": 1683208889,
+        "uid": 546301,
+        "name": "past_tense",
+        "ccfLevel": 0,
+        "title": "P1669 \u9898\u89e3"
+    },
+    {
+        "content": "[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/P1669)\n[\u9898\u89e3\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/solution/P1669)\n[\u66f4\u597d\u7684\u98df\u7528](https://www.luogu.com.cn/blog/sinius/)\n\n### \u9898\u76ee\u5927\u610f ###\n\n\u6c42\u6700\u5927\u751f\u6210\u6811\u3002\n\n### \u9898\u76ee\u601d\u8def ###\n\n\u672c\u8d28\u4e0a\u5c31\u662f\u628a\u6700\u5c0f\u751f\u6210\u6811\u7684\u6392\u5e8f\u90e8\u5206\u6539\u6210\u964d\u5e8f\u6392\u5e8f\uff0c\u56e0\u6b64\uff0c\u8fd9\u91cc\u4f7f\u7528 Kruskal\u3002\n\n\u4f46\u662f\u5224\u73af\u90e8\u5206\u4e0d\u80fd\u76f4\u63a5\u5224\u65ad\u8282\u70b9 $1$ \u548c\u8282\u70b9 $n$ \u662f\u5426\u540c\u7956\u5b97\uff0c\u8981\u5224\u65ad\u662f\u5426\u80fd\u7531 $n$ \u4e2a\u70b9\u7ec4\u6210\u3002\n\nKruskal \u7684\u57fa\u672c\u601d\u8def\u662f\u6bcf\u6b21\u53d6\u51fa\u6700\u5c0f\u6216\u6700\u5927\u7684\u8fb9\uff0c\u542c\u8d77\u6765\u633a\u9ebb\u70e6\uff0c\u5176\u5b9e\u4e00\u4e2a\u6392\u5e8f\u52a0\u4e00\u4e2a\u904d\u5386\u5c31\u641e\u5b9a\u4e86\u3002\n\n\u5f53\u7136\u7528 Prim \u4e5f\u53ef\u4ee5\uff0c\u4f46\u662f\u5bf9\u4e8e\u4e0d\u4fdd\u8bc1\u7a20\u5bc6\u7684\u968f\u673a\u56fe\uff0c\u7b80\u5355\u7684 Kruskal \u663e\u7136\u66f4\u9002\u5408\u3002\n\n### \u53c2\u8003\u4ee3\u7801 ###\n\n```cpp\n#include<bits/stdc++.h>\n#define yhx long long\n#define lyq bitand\nusing namespace std;\nstruct node\n{\n\tyhx u,v,w;\n}a[222222];\nyhx n,m,su,f[6666],j;\nbool cmp(node a,node b)\n{\n\treturn a.w>b.w;\n}\nyhx find(yhx x)\n{\n\tif(x==f[x])return x;\n\telse return f[x]=find(f[x]);\n}\nvoid kruskal()\n{\n\tsort(a+1,a+1+m,cmp);\n\tfor(yhx i=1;i<=m;i++)\n\t{\n\t\tyhx x=find(a[i].u),y=find(a[i].v);\n\t\tif(x!=y)\n\t\t{\n\t\t\tsu+=a[i].w,j++;\n\t\t\tf[x]=y;\n\t\t}\n\t}\n}\nint main()\n{\n\tcin>>n>>m;\n\tfor(yhx i=1;i<=m;i++)scanf(\"%lld %lld %lld\",lyq a[i].u,lyq a[i].v,lyq a[i].w);\n\tfor(yhx i=1;i<=n;i++)f[i]=i;\n\tkruskal();\n\tif(j==n-1)cout<<su;\n\telse cout<<\"-1\";\n\treturn 0;\n}\n```\n",
+        "postTime": 1685353806,
+        "uid": 1006159,
+        "name": "Antiluna",
+        "ccfLevel": 0,
+        "title": "P1669 \u9898\u89e3"
+    },
+    {
+        "content": "## \u9898\u76ee\u5206\u6790\n1. \u8fd9\u4e9b\u94c1\u8def\u8981\u628a\u6240\u6709\u7684\u725b\u68da\u8fde\u5728\u4e00\u8d77\uff1b\n\n2. \u94c1\u8def\u4e0d\u80fd\u6709\u73af\u3002\n\n\u6240\u4ee5\u9009\u51fa\u7684\u94c1\u8def\u6784\u6210\u4e00\u4e2a\u751f\u6210\u6811\uff08\u8981\u6700\u5927\uff09\u3002\n\n\u8bb0\u5f97\u5f00 long long\u3002\n\n## \u4ee3\u7801\n```c\n#include<bits/stdc++.h>\nusing namespace std;\nint n,m,fa[1005],ans,cnt;\nstruct edge{\n\tint u,v,w;\n}e[20005];\nbool cmp(edge a,edge b)\n{\n\treturn a.w>b.w;\n}\nint find(int x)\n{\n\treturn x==fa[x]?x:fa[x]=find(fa[x]);\n}\nvoid merge(int x)\n{\n\tint fax=find(e[x].u),fay=find(e[x].v);\n\tif(fax!=fay)fa[fax]=fay,ans+=e[x].w,cnt++;\n}\nint main()\n{\n\tcin>>n>>m;\n\tfor(int i=1;i<=m;i++)cin>>e[i].u>>e[i].v>>e[i].w;\n\tfor(int i=1;i<=n;i++)fa[i]=i;\n\tsort(e+1,e+m+1,cmp);\n\tfor(int i=1;i<=m&&cnt<n-1;i++)merge(i);\n\tif(cnt==n-1)cout<<ans;\n\telse cout<<-1;\n\treturn 0;\n} \n```\n",
+        "postTime": 1685094691,
+        "uid": 656124,
+        "name": "zwye",
+        "ccfLevel": 0,
+        "title": "P1669 [USACO04DEC] Bad Cowtractors S \u9898\u89e3"
+    },
+    {
+        "content": "#### \u5206\u6790 \uff1a\n1. \u8fd9\u4e9b\u94c1\u8def\u8981\u628a\u6240\u6709\u7684\u725b\u68da\u8fde\u5728\u4e00\u8d77\uff1b\n\n2. \u94c1\u8def\u4e0d\u80fd\u6709\u73af\u3002\n\n\u8fd9\u5c31\u662f\u4e00\u4e2a\u751f\u6210\u6811\uff0c\u9898\u76ee\u91cc\u8bf4\u8981\u82b1\u8d39\u6700\u5927\uff0c\u4e5f\u5c31\u662f\u8bf4\u6c42\u6700\u5927\u751f\u6210\u6811\u7684\u6743\u503c\u548c\uff0c\u8dd1\u4e00\u904d Kruskal \u5c31\u884c\u4e86\uff0c\u6ce8\u610f\u6392\u5e8f\u65f6\u8981\u964d\u5e8f\u6392\u3002\n\n#### Code \uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,m,fa[1005],ans,cnt;\nstruct edge{\n\tint u,v,w;\n}e[20005];\nbool cmp(edge a,edge b){\n\treturn a.w>b.w;//\u964d\u5e8f\u6392\u5e8f\n}\nint find(int x){\n\treturn x==fa[x]?x:fa[x]=find(fa[x]);\n}\nvoid merge(int x){\n\tint fax=find(e[x].u),fay=find(e[x].v);\n\tif(fax!=fay)fa[fax]=fay,ans+=e[x].w,cnt++;\n}\nint main(){\n\tcin>>n>>m;\n\tfor(int i=1;i<=m;i++)cin>>e[i].u>>e[i].v>>e[i].w;\n\tfor(int i=1;i<=n;i++)fa[i]=i;\n\tsort(e+1,e+m+1,cmp);\n\tfor(int i=1;i<=m&&cnt<n-1;i++)merge(i);\n\tif(cnt==n-1)cout<<ans;\n\telse cout<<-1;\n\treturn 0;\n} \n```",
+        "postTime": 1683621835,
+        "uid": 876283,
+        "name": "2021changqing52",
+        "ccfLevel": 4,
+        "title": "P1669\u9898\u89e3"
+    }
+]

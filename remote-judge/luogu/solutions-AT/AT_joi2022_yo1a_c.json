@@ -1,0 +1,42 @@
+[
+    {
+        "content": "[\u6d1b\u8c37 \u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/AT_joi2022_yo1a_c) | [AtCoder \u4f20\u9001\u95e8](https://atcoder.jp/contests/joi2022yo1a/tasks/joi2022_yo1a_c)\n\n[\u66f4\u597d\u7684\u9605\u8bfb\u4f53\u9a8c](https://www.luogu.com.cn/blog/sunrize/solution-at-joi2022-yo1a-c)\n\n\u9898\u76ee\u5927\u610f\uff1a\n\n- \u8f93\u5165\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u5b57\u7b26\u4e32 $s$\uff0c\u53ea\u5305\u542b `A` \u5230 `E` \u56db\u4e2a\u5b57\u7b26\u3002\n\n- \u5982\u679c\u5b57\u7b26\u6570\u91cf $\\ge 3$\uff0c\u5219\u8f93\u51fa `Yes`\uff0c\u5426\u5219\u8f93\u51fa `No`\u3002\n\n- $1 \\le n \\le 100$\u3002\n\n---\n\n### \u5206\u6790\n\n\u5f00\u4e00\u4e2a\u6570\u7ec4 $\\text{appear}_i = 0/1$\uff0c\u8868\u793a\u7f16\u53f7\u4e3a $i$ \u7684\u5b57\u7b26\u6709\u6ca1\u6709\u51fa\u73b0\u8fc7\uff0c\u51fa\u73b0\u8fc7\u4e3a $1$\uff0c\u5426\u5219\u4e3a $0$\uff08$i = 0$ \u8868\u793a `A`\uff0c$i = 1$ \u8868\u793a `B`\uff0c\u4ee5\u6b64\u7c7b\u63a8\uff09\u3002\n\n\u628a\u5b57\u7b26\u4e32\u626b\u8fc7\u4e00\u904d\u540e\u518d\u626b\u4e00\u904d $\\text{appear}$ \u6570\u7ec4\uff0c\u7edf\u8ba1\u6709\u591a\u5c11\u4e2a\u5b57\u7b26\u51fa\u73b0\u8fc7\uff0c\u6700\u540e\u5224\u65ad\u4e00\u4e0b\u5373\u53ef\u3002\n\n---\n\n\u590d\u6742\u5ea6 $O(n)$\u3002\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint n, cnt, appear[10];\nstring s;\nint main() {\n    cin >> n >> s;\n    for (int i = 0; i < n; i ++ )  appear[s[i] - 'A'] ++ ;\n    for (int i = 0; i < 5; i ++ )  if (appear[i])  cnt ++ ;\n    if (cnt >= 3)  puts(\"Yes\");\n    else  puts(\"No\");\n    return 0;\n}\n```",
+        "postTime": 1668164290,
+        "uid": 502658,
+        "name": "Sunrize",
+        "ccfLevel": 0,
+        "title": "[AT_joi2022_yo1a_c] \u8907\u96d1\u306a\u6587\u5b57\u5217 \u9898\u89e3"
+    },
+    {
+        "content": "\u9898\u610f\uff1a\u8f93\u5165 $n$ \u4ee5\u53ca\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u5b57\u7b26\u4e32\uff0c\u5224\u65ad\u8fd9\u4e2a\u5b57\u7b26\u4e32\u4e2d\u662f\u5426\u5305\u542b\u4e86**\u4e0d\u5c0f\u4e8e\uff08\u800c\u4e0d\u662f\u8d85\u8fc7\uff09** $3$ \u79cd\u5b57\u6bcd\uff0c\u5982\u679c\u662f\uff0c\u8f93\u51fa `Yes`\uff0c\u5426\u5219\u8f93\u51fa `No`\u3002\n\n\u8be6\u89c1\uff1a<https://www.luogu.com.cn/discuss/526680>\n\n\u601d\u8def\uff1a\u4e00\u9053 $n$ \u6ca1\u7528\u7684\u9898\uff0c\u76f4\u63a5\u7528\u5b57\u7b26\u8bfb\u5165\u3001\u6570\u7ec4\u8bb0\u5f55\uff0c\u6700\u540e\u7edf\u8ba1\u8f93\u51fa\u5373\u53ef\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include<iostream>\nusing namespace std;\nint a[1001],ans;\nchar p;\nint main(){\n    while(cin>>p) if(p=='A'||p=='B'||p=='C'||p=='D'||p=='E') a[int(p)]=1;\n    if(a[int('A')]==1) ans++;\n    if(a[int('B')]==1) ans++;\n    if(a[int('C')]==1) ans++;\n    if(a[int('D')]==1) ans++;\n    if(a[int('E')]==1) ans++;\n    if(ans>=3) puts(\"Yes\");\n    else puts(\"No\");\n}\n```\n",
+        "postTime": 1668000231,
+        "uid": 578029,
+        "name": "ivyjiao",
+        "ccfLevel": 3,
+        "title": "AT_joi2022_yo1a_c \u8907\u96d1\u306a\u6587\u5b57\u5217 (Complex String) \u9898\u89e3"
+    },
+    {
+        "content": "### \u9898\u76ee\u5206\u6790\r\n\r\n\u5b9a\u4e49\u6570\u7ec4 $x$ , $x _ 1 \\sim x _ 5$ \u5206\u522b\u8868\u793a $\\text{A,B,C,D,E}$ \u8fd9 $5$ \u4e2a\u5b57\u6bcd\u51fa\u73b0\u7684\u6b21\u6570\uff0c\u5224\u65ad\u6709\u51e0\u79cd\u5b57\u6bcd\u51fa\u73b0\u5373\u53ef\u3002\r\n\r\n\r\n```\r\n#include <iostream>\r\nusing namespace std;\r\nint n,x[10],cnt;\r\nchar a[105]; \r\nint main(){\r\n\tcin>>n;cin>>a;\r\n\tfor(int i=0;i<n;i++){\r\n\t\tx[a[i]-64]++; \r\n\t}\r\n\tfor(int i=1;i<=5;i++){\r\n\t\tif(x[i]!=0)cnt++;\r\n\t}\r\n\tif(cnt>=3)cout<<\"Yes\";\r\n\telse cout<<\"No\";\r\n\treturn 0;\r\n}\r\n\r\n```",
+        "postTime": 1667971474,
+        "uid": 528867,
+        "name": "Handsome_LHC_QAQ_orz",
+        "ccfLevel": 0,
+        "title": "AT_joi2022_yo1a_c"
+    },
+    {
+        "content": "\u8fd9\u9898\u76f4\u63a5\u5b9a\u4e49\u4e00\u4e2a\u6570\u7ec4 $a$ \u6765\u5b58\u54ea\u4e9b\u5b57\u6bcd\u51fa\u73b0\u8fc7\uff0c\u7136\u540e\u7528 $ans$ \u6765\u7edf\u8ba1\u51fa\u73b0\u54ea\u79cd\u4e0d\u540c\u7684\u5b57\u6bcd\uff0c\u6700\u540e\u5224\u65ad\u4e00\u4e0b\u5c31\u884c\u4e86\u3002\n\n**_AC code_**\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,a[100],ans;\nchar ch;\nint main(){\n\tcin>>n;\n\tfor(int i=1;i<=n;i++){\n\t\tcin>>ch;\n\t\ta[ch-64]=1;\n\t}\n\tfor(int i=1;i<=26;i++) if(a[i]) ans++;\n\tif(ans>=3) cout<<\"Yes\\n\";\n\telse cout<<\"No\\n\";\n    return 0;\n}\n```\n",
+        "postTime": 1668344262,
+        "uid": 686445,
+        "name": "NOI_AK_dreeeam",
+        "ccfLevel": 0,
+        "title": "AT_joi2022_yo1a_c \u8907\u96d1\u306a\u6587\u5b57\u5217 (Complex String) \u9898\u89e3"
+    },
+    {
+        "content": "\u672c\u9898\u601d\u8def\uff1a\u53ea\u5982\u679c\u7ed9\u7684\u5b57\u7b26\u4e32\u4e2d\u51fa\u73b0\u4e86 $\\texttt{A}$\uff0c$\\texttt{B}$\uff0c$\\texttt{C}$\uff0c$\\texttt{D}$\uff0c$\\texttt{E}$ \u8fd9\u4e94\u4e2a\u5b57\u7b26\u4e2d\u7684\u4efb\u4f55\u4e00\u4e2a\uff0c\u90fd\u53ea\u628a\u8fd9\u4e2a\u5b57\u7b26\u8bb0\u4e00\u6b21\uff0c\u4e4b\u540e\u4e0d\u518d\u91cd\u590d\u7d2f\u8ba1\u3002\u5982\u679c\u7d2f\u8ba1\u7684\u7ed3\u679c\u5927\u4e8e\u7b49\u4e8e $3$\uff0c\u5219\u6700\u540e\u8f93\u51fa `Yes`\uff0c\u5426\u5219\u6700\u540e\u8f93\u51fa `No`\u3002\n\n\u53c2\u8003\u4ee3\u7801\uff1a\n\n```cpp\n#include <bits/stdc++.h>\n\nusing namespace std;\n\nmap<char, bool> f;\nint n, ans;\nbool flag;\n\nint main () {\n    cin >> n;\n    while (n --) {\n        char c;\n        cin >> c;\n        if (c == 'A' && f[c] == false) {\n            ans ++;\n            f[c] = true;\n        } else if (c == 'E' && f[c] == false) {\n            ans ++;\n            f[c] = true;\n        } else if (c == 'B' && f[c] == false) {\n            ans ++;\n            f[c] = true;\n        } else if (c == 'C' && f[c] == false) {\n            ans ++;\n            f[c] = true;\n        } else if (c == 'D' && f[c] == false) {\n            ans ++;\n            f[c] = true;\n        }\n        if (ans >= 3) flag = true;\n    }\n    if (flag == true) cout << \"Yes\\n\";\n    else cout << \"No\\n\";\n    return 0;\n}\n```\n",
+        "postTime": 1668079565,
+        "uid": 462047,
+        "name": "jimmyfj",
+        "ccfLevel": 0,
+        "title": "AT_joi2022_yo1a_c"
+    }
+]

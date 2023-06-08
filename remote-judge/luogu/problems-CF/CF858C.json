@@ -1,0 +1,21 @@
+{
+    "description": "Beroffice text editor has a wide range of features that help working with text. One of the features is an automatic search for typos and suggestions of how to fix them.\n\nBeroffice works only with small English letters (i.e. with 26 letters from a to z). Beroffice thinks that a word is typed with a typo if there are three or more consonants in a row in the word. The only exception is that if the block of consonants has all letters the same, then this block (even if its length is greater than three) is not considered a typo. Formally, a word is typed with a typo if there is a block of not less that three consonants in a row, and there are at least two different letters in this block.\n\nFor example:\n\n- the following words have typos: \"hellno\", \"hackcerrs\" and \"backtothefutttture\";\n- the following words don't have typos: \"helllllooooo\", \"tobeornottobe\" and \"oooooo\".\n\nWhen Beroffice editor finds a word with a typo, it inserts as little as possible number of spaces in this word (dividing it into several words) in such a way that each of the resulting words is typed without any typos.\n\nImplement this feature of Beroffice editor. Consider the following letters as the only vowels: 'a', 'e', 'i', 'o' and 'u'. All the other letters are consonants in this problem.",
+    "inputFormat": "The only line contains a non-empty word consisting of small English letters. The length of the word is between $ 1 $ and $ 3000 $ letters.",
+    "outputFormat": "Print the given word without any changes if there are no typos.\n\nIf there is at least one typo in the word, insert the minimum number of spaces into the word so that each of the resulting words doesn't have any typos. If there are multiple solutions, print any of them.",
+    "samples": [
+        [
+            "hellno\n",
+            "hell no \n"
+        ],
+        [
+            "abacaba\n",
+            "abacaba \n"
+        ],
+        [
+            "asdfasdf\n",
+            "asd fasd f \n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u90fd\u662f\u5c0f\u5199\u5b57\u6bcd\u3002\r\n\r\n\u7ed9\u4f60\u4e00\u4e2a\u5b57\u7b26\u4e32\uff0c\u5982\u679c\u5b83\u7684\u5b50\u4e32\u540c\u65f6\u6ee1\u8db3  \r\n1\u3001\u4e09\u4e2a\u6216\u4ee5\u4e0a\u4e2a\u8fde\u7740\u7684\u8f85\u97f3\u5b57\u6bcd   \r\n2\u3001\u8fd9\u4e00\u6bb5\u8fde\u7740\u7684\u8f85\u97f3\u5b57\u6bcd\u4e0d\u662f\u5168\u90e8\u4e00\u6837\u7684   \r\n\u5c31\u8ba4\u4e3a\u5b83\u4e0d\u5408\u6cd5\r\n\r\n\u73b0\u5728\u8981\u6c42\u7528\u6700\u5c11\u7684\u7a7a\u683c\u9694\u5f00\u8fd9\u4e2a\u5b57\u7b26\u4e32\uff0c\u4f7f\u5f97\u5b83\u53d8\u6210\u5408\u6cd5\u7684\u3002"
+}

@@ -1,0 +1,17 @@
+{
+    "description": "When Valera has got some free time, he goes to the library to read some books. Today he's got $ t $ free minutes to read. That's why Valera took $ n $ books in the library and for each book he estimated the time he is going to need to read it. Let's number the books by integers from 1 to $ n $ . Valera needs $ a_{i} $ minutes to read the $ i $ -th book.\n\nValera decided to choose an arbitrary book with number $ i $ and read the books one by one, starting from this book. In other words, he will first read book number $ i $ , then book number $ i+1 $ , then book number $ i+2 $ and so on. He continues the process until he either runs out of the free time or finishes reading the $ n $ -th book. Valera reads each book up to the end, that is, he doesn't start reading the book if he doesn't have enough free time to finish reading it.\n\nPrint the maximum number of books Valera can read.",
+    "inputFormat": "The first line contains two integers $ n $ and $ t $ $ (1<=n<=10^{5};\u00a01<=t<=10^{9}) $ \u2014 the number of books and the number of free minutes Valera's got. The second line contains a sequence of $ n $ integers $ a_{1},a_{2},...,a_{n} $ $ (1<=a_{i}<=10^{4}) $ , where number $ a_{i} $ shows the number of minutes that the boy needs to read the $ i $ -th book.",
+    "outputFormat": "Print a single integer \u2014 the maximum number of books Valera can read.",
+    "samples": [
+        [
+            "4 5\n3 1 2 1\n",
+            "3\n"
+        ],
+        [
+            "3 3\n2 2 3\n",
+            "1\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u4f60\u6709 $n$ \u672c\u4e66\uff0c\u8bfb\u7b2c $i$ \u672c\u4e66\u9700\u8981 $a_i$ \u5206\u949f\uff0c\u4f60\u73b0\u5728\u6709 $m$ \u5206\u949f\n\n\u4f60\u8bfb\u4e66\u7684\u65b9\u5f0f\u662f\u8fd9\u6837\u7684\uff1a\u627e\u51fa\u4efb\u610f\u4e00\u4e2a\u6570 $x$\uff0c\u5e76\u6309\u7f16\u53f7\u4ece\u5c0f\u5230\u5927\u7684\u987a\u5e8f\u8bfb\u7b2c $x \\sim n$ \u672c   \n\u5982\u679c\u4f60\u8bfb\u5b8c\u4e86\u7b2c $n$ \u672c\uff0c\u90a3\u4e48\u8bfb\u4e66\u7ed3\u675f  \n\u5982\u679c\u4f60\u51c6\u5907\u8981\u8bfb\u7b2c $i$ \u672c\u4e66\uff0c\u4f46\u662f\u5269\u4e0b\u7684\u65f6\u95f4\u5c0f\u4e8e $a_i$\uff08\u4e5f\u5c31\u662f\u8bfb\u4e0d\u5b8c\u8fd9\u672c\u4e66\uff09\uff1a\u90a3\u4e48\u4f60\u5c31**\u4e0d\u53ef\u4ee5\u5f00\u59cb\u8bfb**\u8fd9\u672c\u4e66\u4e86\uff0c\u5e76\u4e14\u8bfb\u4e66\u7ed3\u675f  \n\u6362\u53e5\u8bdd\u8bf4\uff0c\u5982\u679c\u4f60\u8bfb\u4e00\u672c\u4e66\uff0c\u5c31\u5fc5\u987b\u8981\u8bfb\u5b8c\uff0c\u5426\u5219\u5c31\u4e0d\u80fd\u8bfb\n\n\u6c42\u6700\u591a\u80fd\u8bfb\u591a\u5c11\u672c\u4e66\n\n### \u8f93\u5165\u683c\u5f0f\n\n\u7b2c\u4e00\u884c\u4e24\u4e2a\u6574\u6570 $n,m$\uff0c\u5206\u522b\u8868\u793a\u4e66\u7684\u6570\u91cf\u548c\u9650\u5b9a\u65f6\u95f4  \n\u7b2c\u4e8c\u884c $n$ \u4e2a\u6574\u6570 $a_1 \\sim a_n$\uff0c\u8868\u793a\u8bfb\u6bcf\u672c\u4e66\u7684\u6240\u8017\u65f6\u95f4\n\n### \u8f93\u51fa\u683c\u5f0f\n\n\u4e00\u884c\u4e00\u4e2a\u6574\u6570\uff0c\u8868\u793a\u6700\u591a\u80fd\u8bfb\u7684\u4e66\u7684\u6570\u91cf\n\n#### \u8bf4\u660e\u4e0e\u63d0\u793a\n\n$1 \\le n \\le 10^5$  \n$1 \\le m \\le 10^9$  \n$1 \\le a_i \\le 10^4$\n\n\u611f\u8c22 @[_Wolverine](https://www.luogu.com.cn/user/120362) \u63d0\u4f9b\u7684\u7ffb\u8bd1"
+}

@@ -1,0 +1,17 @@
+{
+    "description": "Rebel spy Heidi has just obtained the plans for the Death Star from the Empire and, now on her way to safety, she is trying to break the encryption of the plans (of course they are encrypted \u2013 the Empire may be evil, but it is not stupid!). The encryption has several levels of security, and here is how the first one looks.\n\nHeidi is presented with a screen that shows her a sequence of integers $ A $ and a positive integer $ p $ . She knows that the encryption code is a single number $ S $ , which is defined as follows:\n\nDefine the score of $ X $ to be the sum of the elements of $ X $ modulo $ p $ .\n\nHeidi is given a sequence $ A $ that consists of $ N $ integers, and also given an integer $ p $ . She needs to split $ A $ into $ 2 $ parts such that:\n\n- Each part contains at least $ 1 $ element of $ A $ , and each part consists of contiguous elements of $ A $ .\n- The two parts do not overlap.\n- The total sum $ S $ of the scores of those two parts is maximized. This is the encryption code.\n\nOutput the sum $ S $ , which is the encryption code.",
+    "inputFormat": "The first line of the input contains two space-separated integer $ N $ and $ p $ ( $ 2<=N<=100000 $ , $ 2<=p<=10000 $ ) \u2013 the number of elements in $ A $ , and the modulo for computing scores, respectively.\n\nThe second line contains $ N $ space-separated integers which are the elements of $ A $ . Each integer is from the interval $ [1,1000000] $ .",
+    "outputFormat": "Output the number $ S $ as described in the problem statement.",
+    "samples": [
+        [
+            "4 10\n3 4 7 2\n",
+            "16\n"
+        ],
+        [
+            "10 12\n16 3 24 13 9 8 7 5 12 12\n",
+            "13\n"
+        ]
+    ],
+    "hint": "In the first example, the score is maximized if the input sequence is split into two parts as $ (3,4) $ , $ (7,2) $ . It gives the total score of ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF958C1/39bbc2e047bed6ad62ef40401430a139534974d3.png).\n\nIn the second example, the score is maximized if the first part consists of the first three elements, and the second part consists of the rest. Then, the score is ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF958C1/d991bcec92c9c10d8e1b00b096112e99ba9e2d35.png).",
+    "translation": "\u6709\u4e00\u4e2a\u5305\u542b$n$\u4e2a\u6b63\u6574\u6570\u7684\u6570\u5217\uff0c\u5c06\u8fd9\u4e2a\u6570\u5217\u5206\u6210$2$\u4e2a\u975e\u7a7a\u6bb5\uff0c\u6bcf\u6bb5\u7684\u4ef7\u503c\u4e3a\u8fd9\u6bb5\u7684\u6240\u6709\u6570\u603b\u548c$mod$ $p$\uff0c\u4f60\u9700\u8981\u4f7f$2$\u6bb5\u4ef7\u503c\u603b\u548c\u6700\u5927\uff0c\u8bf7\u6c42\u51fa\u8fd9\u4e2a\u6700\u5927\u503c\u3002"
+}

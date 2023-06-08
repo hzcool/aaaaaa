@@ -1,0 +1,17 @@
+{
+    "description": "Pak Chanek has a grid that has $ N $ rows and $ M $ columns. Each row is numbered from $ 1 $ to $ N $ from top to bottom. Each column is numbered from $ 1 $ to $ M $ from left to right.\n\nEach tile in the grid contains a number. The numbers are arranged as follows:\n\n- Row $ 1 $ contains integers from $ 1 $ to $ M $ from left to right.\n- Row $ 2 $ contains integers from $ M+1 $ to $ 2 \\times M $ from left to right.\n- Row $ 3 $ contains integers from $ 2 \\times M+1 $ to $ 3 \\times M $ from left to right.\n- And so on until row $ N $ .\n\nA domino is defined as two different tiles in the grid that touch by their sides. A domino is said to be tight if and only if the two numbers in the domino have a difference of exactly $ 1 $ . Count the number of distinct tight dominoes in the grid.\n\nTwo dominoes are said to be distinct if and only if there exists at least one tile that is in one domino, but not in the other.",
+    "inputFormat": "The only line contains two integers $ N $ and $ M $ ( $ 1 \\leq N, M \\leq 10^9 $ ) \u2014 the number of rows and columns in the grid.",
+    "outputFormat": "An integer representing the number of distinct tight dominoes in the grid.",
+    "samples": [
+        [
+            "3 4",
+            "9"
+        ],
+        [
+            "2 1",
+            "1"
+        ]
+    ],
+    "hint": "The picture below is the grid that Pak Chanek has in the first example.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1725A/6ffa3c95ba2e7eb37086c5fb9dfc34c4a6f85917.png)The picture below is an example of a tight domino in the grid.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1725A/783449c7a56f95aae2e8417723a42d88940b07e9.png)",
+    "translation": "## \u9898\u76ee\u63cf\u8ff0\n\u7ed9\u5b9a\u4e00\u4e2a $N$ \u884c $M$ \u5217\u7684\u77e9\u9635\uff0c\u6570\u5b57\u4ece $1$ \u5f00\u59cb\uff0c\u4ece\u5de6\u5230\u53f3\uff0c\u4ece\u4e0a\u5230\u4e0b\u4f9d\u6b21\u5728\u77e9\u9635\u5185\u6392\u5217\u3002\n\n\u5b9a\u4e49 domino \u4e3a\u77e9\u9635\u5185\u76f8\u90bb\u7684\u4e24\u4e2a\u5dee\u4e3a $1$ \u7684\u6570\uff0c\u6c42\u4e00\u5171\u6709\u591a\u5c11\u4e2a\u4e0d\u540c\u7684 domino\u3002\n\n\u4e24\u4e2a domino \u4e0d\u540c\u5f53\u4e14\u4ec5\u5f53\u7b2c\u4e00\u4e2a domino \u5176\u4e2d\u7684\u81f3\u5c11\u4e00\u4e2a\u6570\u5728\u7b2c\u4e8c\u4e2a domino \u6ca1\u6709\u51fa\u73b0\u3002\n\n## \u8f93\u5165\u683c\u5f0f\n\u4e00\u884c\u4e24\u4e2a\u6574\u6570 $N$ \u548c $M$ ( $ 1 \\leq N, M \\leq 10^9 $ ) \uff0c\u8868\u793a\u77e9\u9635\u5171\u6709 $N$ \u884c $M$ \u5217\u3002\n\n## \u8f93\u51fa\u683c\u5f0f\n\u4e00\u4e2a\u6574\u6570\uff0c\u8868\u793a\u4e00\u5171\u6709\u591a\u5c11\u4e2a\u4e0d\u540c\u7684 domino\u3002"
+}

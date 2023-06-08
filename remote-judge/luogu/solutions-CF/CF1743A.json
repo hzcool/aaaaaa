@@ -1,0 +1,50 @@
+[
+    {
+        "content": "## _Description_\n\u6709\u4e00\u4e2a\u5bc6\u7801\uff0c\u5bc6\u7801\u4e3a\u56db\u4f4d\u6570\u4e14\u4ec5\u5305\u542b\u4e24\u79cd\u4e0d\u540c\u7684\u6570\u5b57\uff0c\u6bcf\u79cd\u6570\u5b57\u6070\u597d\u51fa\u73b0\u4e24\u904d\u3002\n\n\u8fd9\u4e2a\u5bc6\u7801\u7edd\u5bf9\u4e0d\u5305\u542b\u4e00\u4e9b\u6570\u5b57 $a_1,a_2\\dots,a_n$\uff0c\u95ee\u6709\u591a\u5c11\u79cd\u6ee1\u8db3\u4e0a\u8ff0\u6240\u6709\u6761\u4ef6\u7684\u5bc6\u7801\u3002\n## _Solution_\n\u9700\u8981\u4e00\u4e9b[\u6392\u5217\u7ec4\u5408](https://oi-wiki.org/math/combinatorics/combination/)\u76f8\u5173\u7684\u77e5\u8bc6\u3002\n\n\u5bc6\u7801\u80fd\u591f\u7528\u7684\u6570\u5b57\u6709 $10-n$ \u4e2a\u3002\n\n\u5176\u4e2d\u53d6\u4e24\u4e2a\u7684\u7ec4\u5408\u6709 $C^2_{10-n}$ \u4e2a\u3002\n\n\u7531\u4e24\u4e2a\u4e0d\u540c\u7684\uff0c\u4e2a\u6570\u5747\u4e3a\u4e8c\u7684\u6570\u7ec4\u6210\u7684\u56db\u4f4d\u6570\u5bc6\u7801\u6709\u516d\u79cd\uff1a$\\texttt{xxyy},\\texttt{xyxy},\\texttt{xyyx},\\texttt{yyxx},\\texttt{yxyx},\\texttt{yxxy}$\u3002\n\n\u6240\u4ee5\u6ee1\u8db3\u6761\u4ef6\u7684\u5bc6\u7801\u4e2a\u6570\u4e3a $C^2_{10-n}\\times6$\u3002\n## _Code_\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n#define ll long long\nint t;\nint n;\nll read(){\n    ll x=0,f=1;\n    char ch;\n    ch=getchar();\n    while(ch<'0'||ch>'9'){\n        if(ch=='-') f=-1;\n        ch=getchar();\n    }\n    while(ch>='0'&&ch<='9'){\n        x=(x<<1)+(x<<3)+ch-'0';\n        ch=getchar();\n    }\n    return x*f;\n}\nvoid solve(){\n\tn=read();\n\tfor(int i=1;i<=n;i++){\n\t\tint x=read();\n\t}\n\tn=10-n;\n\tcout<<6*(n*(n-1))/2<<endl;\n}\nint main(){\n\tt=read();\n\twhile(t--){\n\t\tsolve();\n\t}\n\treturn 0;\n}\n\n```\n#### _\u5b8c\u7ed3\u6492\u82b1\uff01\uff01_",
+        "postTime": 1666254190,
+        "uid": 475329,
+        "name": "Larryyu",
+        "ccfLevel": 0,
+        "title": "CF1743A Password \u9898\u89e3"
+    },
+    {
+        "content": "\u56e0\u4e3a\u6211\u592a\u83dc\u4e86\uff0c\u770b\u5230\u9898\u65f6\u6ca1\u6709\u60f3\u5230\u6b63\u89e3\uff0c\u4e8e\u662f\u624b\u52a8\u628a\u4ed6\u4eec\u5168\u7b97\u51fa\u6765\u4e86\n\n\u6b63\u89e3\u5176\u4ed6\u4eba\u5df2\u7ecf\u8bb2\u7684\u975e\u5e38\u6e05\u695a\u4e86\uff0c\u8fd9\u91cc\u5c31\u9644\u4e0a\u6253\u8868\u505a\u6cd5\n\n```\n#include <iostream>\nusing namespace std;\nint a[9] = {0, 216, 168, 126, 90, 60, 36, 18, 6}, t, x, n;\nint main() {\n\tcin >> t;\n\twhile (t--) {\n\t\tcin >> x;\n\t\tfor (int i = 1; i <= x; i++) cin >> n;\n\t\tcout << a[x] << endl;\n\t}\n\treturn 0;\n}\n```\n\u5982\u679c\u4f60\u8fd9\u9898\u4e00\u76f4\u4e0d\u5bf9\uff0c\u53ef\u4ee5\u6765\u5bf9\u7740\u8fd9\u4e2a\u770b\u4e00\u770b\u627e\u51fa\u4f60\u7684\u9519\u8bef",
+        "postTime": 1666340338,
+        "uid": 534008,
+        "name": "YeKaiYuan",
+        "ccfLevel": 3,
+        "title": "CF1743A Password \u9898\u89e3"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u5e94\u8be5\u600e\u4e48\u505a\u5230\u4e00\u62ff\u5230\u624b\u5c31\u901a\u8fc7\uff1f\n\n\u9996\u5148\u5c31\u662f\u63d0\u53d6\u5173\u952e\u4fe1\u606f\uff0c\u6837\u4f8b $1$ \u4e2d\u7981\u7528\u4e86 $8$ \u4e2a\u6570\u5b57\uff0c\u7136\u540e\u6709 $6$ \u79cd\u53ef\u80fd\u7684\u5bc6\u7801\uff0c\u8bf4\u660e\u4e24\u4e2a\u6570\u5b57\u5c31\u53ef\u4ee5\u5f04\u51fa\u6765 $6$ \u79cd\u5bc6\u7801\uff0c\u800c\u9898\u76ee\u91cc\u53c8\u53ea\u8ba9\u5bc6\u7801\u91cc\u7528\u4e24\u4e2a\u6570\u5b57\uff0c\u6240\u4ee5\u7b54\u6848\u5c31\u76f4\u63a5\u662f $6\\cdot C_{k}^{2}$\uff0c\u5176\u4e2d $k$ \u8868\u793a\u8fd8\u53ef\u4ee5\u7528\u7684\u6570\u5b57\u6570\u91cf\u3002\n\n\u8fd9\u9898\u51fa\u5f97\u5f88\u7cdf\u7cd5\uff0c\u4f46\u662f\u6211\u66f4\u7cdf\u7cd5\u3002\n\nAC Code:\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint t,n;\nint main()\n{\n\tcin>>t;\n\twhile(t--)\n\t{\n\t\tint ans,d;\n\t\tcin>>n;\n\t\tfor(int i=1;i<=n;i++) cin>>d;//\u751a\u81f3\u90fd\u4e0d\u9700\u8981\u77e5\u9053\u7981\u7528\u7684\u662f\u54ea\u4e9b\u6570\u5b57\uff0c\u53ea\u56e0\u591a\u6d4b\u7684\u7279\u6b8a\u60c5\u51b5\n\t\tn=10-n;//\u8fd8\u80fd\u7528\u7684\n\t\tans=6*n*(n-1)/2;\n\t\tcout<<ans<<endl;\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1666276052,
+        "uid": 636849,
+        "name": "HiCode2009",
+        "ccfLevel": 0,
+        "title": "CF1743A Password\u9898\u89e3"
+    },
+    {
+        "content": "## Problem\n\n\u73b0\u6709 $4$ \u4f4d\u5bc6\u7801\uff0c\u6ee1\u8db3\u4ee5\u4e0b\u6761\u4ef6\uff1a\n\n- \u7ed9\u5b9a\u6570\u4f4d\u7684\u96c6\u5408 $S$\uff0c\u5bc6\u7801\u4e2d\u6ca1\u6709\u7528\u5230\u8fd9\u4e9b\u6570\u4f4d\u3002\n- \u5bc6\u7801\u4e2d\u6070\u597d\u5305\u542b\u4e24\u4e2a\u6570\u4f4d\uff0c\u6bcf\u4e2a\u6570\u4f4d\u51fa\u73b0\u4e86\u4e24\u6b21\u3002\n\n\u6c42\u7b26\u5408\u6761\u4ef6\u7684\u5bc6\u7801\u4e2a\u6570\u3002\n\n## Solution\n\u5047\u8bbe $S$ \u4e2d\u6709 $n$ \u4e2a\u6570\uff0c\u90a3\u4e48\u5c31\u6709 $10 - n$ \u4e2a\u53ef\u9009\u3002\u968f\u610f\u4ece\u4e2d\u9009\u53d6\u4e24\u4e2a\uff0c\u65b9\u6848\u6570\u662f $(10 - n)(9 - n) \\div 2$\u3002\n\n\u518d\u4ece\u56db\u4e2a\u4f4d\u7f6e\u4e2d\u968f\u610f\u9009\u53d6\u4e24\u4e2a\uff0c\u653e\u7f6e\u7b2c\u4e00\u79cd\u6570\u4f4d\uff0c\u65b9\u6848\u6570\u662f $C_{4}^{2}$ \u79cd\u3002\u56e0\u6b64\u7b54\u6848\u662f $3 \\times (10 - n)(9 - n)$\u3002\n\n\u5f53\u7136\uff0c\u4ee5\u672c\u9898\u7684\u6570\u636e\u8303\u56f4\uff0c\u5355\u7eaf\u679a\u4e3e\u4e5f\u5b8c\u5168\u53ef\u4ee5\u901a\u8fc7\u3002\n\n## Code\n```c++\n#include <bits/stdc++.h>\nusing namespace std;\n\n#define file(x) freopen(x\".in\", \"r\", stdin), freopen(x\".out\", \"w\", stdout);\n#define r(x) x = read()\n\ninline int read()\n{\n    int d = 0;\n    char ch = getchar();\n    while (ch < '0' || ch > '9')\n        ch = getchar();\n    while (ch >= '0' && ch <= '9')\n        d = (d << 3) + (d << 1) + ch - 48, ch = getchar();\n    return d;\n}\n\nvoid work()\n{\n    int n;\n    r(n);\n\tfor (int i = 1, x; i <= n; i ++)\n        cin >> x;\n\tcout << 3 * (10 - n) * (9 - n) << '\\n';\n}\n\nint main()\n{\n    file(\"\");\n    int tt = 1;\n    r(tt);\n    while (tt --)\n        work();\n    return 0;\n}\n```",
+        "postTime": 1666270127,
+        "uid": 509154,
+        "name": "CrazyWolf",
+        "ccfLevel": 4,
+        "title": "CF1743A \u9898\u89e3"
+    },
+    {
+        "content": "$a_i$ \u662f\u591a\u5c11\u6211\u4eec\u4e0d\u5173\u5fc3\uff0c\u6211\u4eec\u53ea\u5173\u5fc3 $n$\u3002\n\n\u4ee4 $m=10-n$\u3002\n\n\u663e\u7136\u8981\u4ece $m$ \u4e2a\u6570\u4e2d\u4efb\u610f\u9009\u51fa\u4e24\u4e2a\u6570\u4f5c\u4e3a\u4e00\u7ec4\u6784\u6210\u5bc6\u7801\uff0c\u6bcf\u7ec4\u6570\u80fd\u6784\u6210 $6$ \u4e2a\u5bc6\u7801\u3002\u56e0\u4e3a\u9009\u6570\u7684\u987a\u5e8f\u4e5f\u4e0d\u91cd\u8981\uff0c\u6240\u4ee5\u9009\u4e24\u4e2a\u6570\u7684\u65b9\u6848\u6709 $C_m^2$ \u79cd\uff0c\u5219\u7b54\u6848\u5c31\u662f $6\\times C_m^2$ \u5373 $3m(m-1)$\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint t,n,m,a;\nint main()\n{\n\tcin>>t;\n\twhile(t--)\n\t{\n\t\tcin>>n;\n\t\tfor(int i=1;i<=n;i++)\n\t\t\tcin>>a;\n\t\tm=10-n;\n\t\tcout<<3*m*(m-1)<<'\\n';\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1666268618,
+        "uid": 555301,
+        "name": "zfx1569_HCl_2023",
+        "ccfLevel": 0,
+        "title": "CF1743A\u9898\u89e3"
+    },
+    {
+        "content": "## \u9898\u610f\u7b80\u6790\n\n\u5df2\u77e5\u4e00\u4e2a\u5305\u542b\u56db\u4e2a\u5143\u7d20\u7684\u5e8f\u5217\u6ee1\u8db3\uff1a\u5143\u7d20\u662f\u4e00\u4f4d\u6574\u6570\uff0c\u53ea\u6709\u4e24\u79cd\u5143\u7d20\uff0c\u6bcf\u4e2a\u5143\u7d20\u51fa\u73b0\u4e24\u6b21\u3002\u7ed9\u5b9a\u5df2\u77e5\u4e0d\u53ef\u80fd\u6709\u7684\u5143\u7d20\u6570\u91cf $n\\ (1\\le n\\le 8)$\uff0c\u95ee\u6ee1\u8db3\u6761\u4ef6\u7684\u53ef\u80fd\u5e8f\u5217\u6709\u591a\u5c11\u79cd\u3002\n\n\u7b80\u5355\u7ec4\u5408\u8ba1\u6570\u95ee\u9898\uff0c\u5148\u8003\u8651\u8fd9\u4e24\u4e2a\u5143\u7d20\u5728\u503c\u57df\u5185\u7ec4\u5408\u7684\u6570\u91cf\u3002\u56e0\u4e3a\u4e00\u4f4d\u6574\u6570\u53ea\u6709 $10$ \u4e2a\uff0c\u5373 $0\\sim 9$\uff0c\u6240\u4ee5\u7ec4\u5408\u6570\u91cf\u4e3a$\\dbinom{10-n}{2}$\u3002\u7136\u540e\u8003\u8651\u7ec4\u5408\u7684\u4e24\u4e2a\u5143\u7d20\u5728\u8fd9\u4e2a\u5e8f\u5217\u4e2d\u53ef\u80fd\u6709\u591a\u5c11\u79cd\u7ec4\u5408\u3002\u663e\u7136\uff0c\u5982\u679c\u786e\u5b9a\u4e86\u4e00\u79cd\u5143\u7d20\u4e24\u6b21\u5206\u522b\u51fa\u73b0\u7684\u4f4d\u7f6e\uff0c\u90a3\u4e24\u4e00\u79cd\u5143\u7d20\u4e24\u6b21\u5206\u522b\u51fa\u73b0\u7684\u4f4d\u7f6e\u4e5f\u662f\u552f\u4e00\u786e\u5b9a\u7684\uff0c\u6240\u4ee5\u7ec4\u5408\u6570\u91cf\u4e3a $\\dbinom{4}{2}=6$\u3002\u6839\u636e\u4e58\u6cd5\u539f\u7406\uff0c\u603b\u7ec4\u5408\u6570\u91cf\u5c31\u662f $6\\times \\dbinom{10-n}{2}$\u3002\n\n\u56e0\u4e3a\u8be2\u95ee\u6b21\u6570 $t$ \u7684\u503c\u57df\u5927\u4e8e $n$ \u7684\u503c\u57df\uff0c\u6240\u4ee5\u53ef\u4ee5\u9884\u5904\u7406\u503c\u57df\u5185\u5bf9\u4e8e\u6240\u6709 $n$ \u7684\u7b54\u6848\uff0c\u7136\u540e\u6bcf\u6b21\u8be2\u95ee\u5bf9\u5e94\u8f93\u51fa\u5373\u53ef\uff08\u867d\u7136\u8bf4\u8fd9\u9898\u8be2\u95ee\u6570\u91cf\u8f83\u5c0f\uff0c\u4e0d\u9884\u5904\u7406\u4e5f\u53ef\u4ee5\u8fc7\uff09\u3002\n\n## \u4ee3\u7801/\u89e3\u91ca\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint f[9];\nint C(int n,int k)\n{\n    int s=1;\n    for(int i=1;i<=k;i++)\n    s=s*(n-i+1)/i;\n    return s;\n}\nint main()\n{\n    int t,n,a,i;\n    for(i=1;i<=8;i++)\n    f[i]=C(10-i,2)*6;//\u9884\u5904\u7406\u7b54\u6848\n    cin>>t;\n    while(t--)\n    {\n        cin>>n;\n        for(i=1;i<=n;i++)\n        cin>>a;\n        printf(\"%d\\n\",f[n]);//\u5bf9\u5e94\u8f93\u51fa\n    }\n    return 0;\n}\n```",
+        "postTime": 1666228603,
+        "uid": 668002,
+        "name": "sw2022_",
+        "ccfLevel": 4,
+        "title": "CF1743A Password \u9898\u89e3"
+    }
+]

@@ -1,0 +1,10 @@
+[
+    {
+        "content": "## \u601d\u8def\n\u8bbe $mp_i$ \u8868\u793a\u5bf9\u4e8e $x=i$ \u65f6\u6709\u591a\u5c11\u4e2a\u76f8\u540c\u7684 $x$\uff0c\u8bbe $f_i$ \u8868\u793a\u5bf9\u4e8e $x=i$ \u6709\u591a\u5c11\u5bf9\u76f8\u540c\u7684 $y$\uff0c\u4ee4 $sum$ \u8868\u793a\u6240\u6709 $f_i$ \u7684\u548c\u3002\u7b54\u6848\u5c31\u662f\u6240\u6709 $mp_i$ \u7684\u9636\u4e58\u7684\u4e58\u79ef\u9664\u4ee5 $2^{sum}$\u3002\u56e0\u4e3a\u6240\u6709 $x$ \u76f8\u540c\u7684\u70b9\u987a\u5e8f\u90fd\u53ef\u4ee5\u8fdb\u884c\u4efb\u610f\u7684\u6392\u5e8f\uff0c\u4f46\u662f\u4e00\u65e6\u6709\u76f8\u7b49\u7684\u8bdd\u4ed6\u4eec\u4e24\u4e2a\u7684\u987a\u5e8f\u5c31\u4e0d\u91cd\u8981\u4e86\u3002\u4f46\u662f\u9664\u4ee5\u4e8c\u4e0d\u80fd\u7528\u9006\u5143\uff0c\u6240\u4ee5\u8981\u5728\u6c42\u9636\u4e58\u7684\u540c\u65f6\u9664\u4ee5\u4e8c\u3002\n\n## \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\n#define int long long\nusing namespace std;\nint mod;\nint n,ans=1;\nint a[100005],b[100005];\nmap<int,int> mp,mp1,f;\nint get_sum(int maxn,int cnt)//cnt\u8868\u793a\u8981\u9664\u4ee5\u51e0\u4e2a2\n{\n\tint sum=1;\n\tfor(int i=1;i<=maxn;i++)//\u6c42\u9636\u4e58\n\t{\n\t\tif(i%2==0&&cnt) sum=sum*i/2%mod,cnt--;\n\t\telse sum=sum*i%mod;\n\t}\n\treturn sum;\n}\nsigned main()\n{\n\tcin>>n;\n\tfor(int i=1;i<=n;i++) cin>>a[i];\n\tfor(int i=1;i<=n;i++) cin>>b[i];\n\tcin>>mod;\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tmp[a[i]]++,mp[b[i]]++;//\u8bb0\u5f55\u6709\u591a\u5c11\u4e2a\u76f8\u540c\u7684x\n\t\tif(b[i]==a[i]) f[a[i]]++;//\u8bb0\u5f55x\uff0cy\u90fd\u76f8\u7b49\u7684\u70b9\u6709\u591a\u5c11\u7ec4\n\t}\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tif(!mp1[a[i]])//\u6ca1\u6709\u88ab\u7edf\u8ba1\u8fc7\n\t\t{\n\t\t\tans=ans*get_sum(mp[a[i]],f[a[i]]);//\n\t\t\tans%=mod;\n\t\t\tmp1[a[i]]=1;\n\t\t}\n\t\tif(!mp1[b[i]])\n\t\t{\n\t\t\tans=ans*get_sum(mp[b[i]],f[b[i]]);\n\t\t\tans%=mod;\n\t\t\tmp1[b[i]]=1;\n\t\t}\n\t}\n\tcout<<ans<<endl;\n}\n```\n",
+        "postTime": 1646046601,
+        "uid": 406947,
+        "name": "Allanljx",
+        "ccfLevel": 5,
+        "title": "CF272D\u9898\u89e3"
+    }
+]

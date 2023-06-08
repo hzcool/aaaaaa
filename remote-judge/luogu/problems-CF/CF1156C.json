@@ -1,0 +1,17 @@
+{
+    "description": "You are given a set of points $ x_1 $ , $ x_2 $ , ..., $ x_n $ on the number line.\n\nTwo points $ i $ and $ j $ can be matched with each other if the following conditions hold:\n\n- neither $ i $ nor $ j $ is matched with any other point;\n- $ |x_i - x_j| \\ge z $ .\n\nWhat is the maximum number of pairs of points you can match with each other?",
+    "inputFormat": "The first line contains two integers $ n $ and $ z $ ( $ 2 \\le n \\le 2 \\cdot 10^5 $ , $ 1 \\le z \\le 10^9 $ ) \u2014 the number of points and the constraint on the distance between matched points, respectively.\n\nThe second line contains $ n $ integers $ x_1 $ , $ x_2 $ , ..., $ x_n $ ( $ 1 \\le x_i \\le 10^9 $ ).",
+    "outputFormat": "Print one integer \u2014 the maximum number of pairs of points you can match with each other.",
+    "samples": [
+        [
+            "4 2\n1 3 3 7\n",
+            "2\n"
+        ],
+        [
+            "5 5\n10 9 5 8 7\n",
+            "1\n"
+        ]
+    ],
+    "hint": "In the first example, you may match point $ 1 $ with point $ 2 $ ( $ |3 - 1| \\ge 2 $ ), and point $ 3 $ with point $ 4 $ ( $ |7 - 3| \\ge 2 $ ).\n\nIn the second example, you may match point $ 1 $ with point $ 3 $ ( $ |5 - 10| \\ge 5 $ ).",
+    "translation": "## \u9898\u76ee\u63cf\u8ff0\n\u7ed9\u4f60\u4e00\u4e2a\u5728\u6570\u8f74\u4e0a\u7684\u70b9\u96c6$x_1, x_2, \\dots, x_n$\u3002  \n\u6bcf\u4e24\u4e2a\u70b9$i$\uff0c$j$\u53ef\u4ee5\u5728\u6ee1\u8db3\u4ee5\u4e0b\u60c5\u51b5\u7684\u65f6\u5019\u76f8\u8fde:  \n\n- \u70b9$i$\u548c\u70b9$j$\u5747\u672a\u4e0e\u5176\u4ed6\u70b9\u76f8\u8fde;\n- $\\left| x_i - x_j \\right| \\geq z$.\n\n\u90a3\u4e48\u8bf7\u4f60\u6c42\u51fa\u6700\u591a\u53ef\u4ee5\u8fde\u63a5\u591a\u5c11\u70b9\u5bf9\uff1f\n\n## \u8f93\u5165\u8f93\u51fa\u683c\u5f0f\n### \u8f93\u5165\u683c\u5f0f\uff1a\n\u7b2c\u4e00\u884c\u5305\u542b\u4e24\u4e2a\u6574\u6570$n$\u548c$z\\;(2 \\leq n \\leq 2 \\cdot 10^5,\\,1 \\leq z \\leq 10^9)$ \u2014\u2014 \u5206\u522b\u4ee3\u8868\u70b9\u7684\u6570\u91cf\u548c\u8fde\u63a5\u70b9\u5bf9\u65f6\u6700\u957f\u8ddd\u79bb\u3002  \n\u7b2c\u4e8c\u884c\u5305\u542b$n$\u4e2a\u6574\u6570$x_1, x_2, \\dots, x_n\\;(1 \\leq x_i \\leq 10^9)$.\n### \u8f93\u51fa\u683c\u5f0f\uff1a\n\u8f93\u51fa\u4e00\u4e2a\u6574\u6570\uff0c\u4ee3\u8868\u6700\u5927\u80fd\u591f\u4e92\u76f8\u8fde\u63a5\u7684\u70b9\u5bf9\u6570\u91cf\u3002\n\n## \u8f93\u5165\u8f93\u51fa\u6837\u4f8b\uff1a\n\u7565...\n\n## \u8bf4\u660e\uff1a\n\u6837\u4f8b1\u4e2d\uff0c\u53ef\u4ee5\u8fde\u63a51\u53f7\u70b9\u548c2\u53f7\u70b9($\\left| 3 - 1 \\right| \\geq 2$)\uff0c3\u53f7\u70b9\u548c4\u53f7\u70b9($\\left| 7 - 3 \\right| \\geq 2$).  \n\u6837\u4f8b2\u4e2d\uff0c\u53ef\u4ee5\u8fde\u63a51\u53f7\u70b9\u548c3\u53f7\u70b9($\\left|5 - 10\\right| \\geq 5$).  "
+}

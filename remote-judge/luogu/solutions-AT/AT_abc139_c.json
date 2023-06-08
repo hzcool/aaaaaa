@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u4ece\u9898\u76ee\u53ef\u4ee5\u770b\u5230\u8fd9\u9898\u6c42\u7684\u662f\u6700\u957f\u4e0d\u4e0b\u964d\u5b50\u5e8f\u5217\n\n\u56e0\u4e3a$n\\leq10^5$\u6240\u4ee5\u53ea\u80fd\u7528$O(n)$\u7684\u529e\u6cd5\u505a\uff0c\u4f46\u662f\u4f9d\u7136\u5f88\u6c34\u3002\n\n\u5bf9\u4e8e\u8bfb\u5165\u7684\u6570$a_i$\uff0c\u6bcf\u6b21\u548c$a_{i-1}$\u8fdb\u884c\u6bd4\u8f83\u3002\u82e5$a_i \\leq a_{i-1}$\uff0c\u5219\u628a\u8ba1\u6570\u5668$ans$\u52a0\u4e00\uff0c\u5426\u5219\uff0c\u5bf9\u4e0a\u4e00\u4e2a\u4e0d\u4e0b\u964d\u5b50\u5e8f\u5217\u7684\u957f\u5ea6\u8fdb\u884c\u6bd4\u8f83\uff0c\u518d\u628a$ans$\u6e05\u7a7a\u5373\u53ef\u3002\n\n\u6700\u540e\u8f93\u51fa\u65f6\u8fd8\u8981\u628a$ans$\u548c\u76ee\u524d\u6700\u957f\u4e0d\u4e0b\u964d\u5b50\u5e8f\u5217\u957f\u5ea6\u8fdb\u884c\u6bd4\u8f83\uff0c\u56e0\u4e3a\u6700\u957f\u4e0d\u4e0b\u964d\u5b50\u5e8f\u5217\u7684\u7ec8\u70b9\u53ef\u80fd\u5728\u8fd9\u4e32\u6570\u5b57\u7684\u672b\u7aef\u3002\n\nAC code\uff1a\n\n```\n#include<bits/stdc++.h>\n#define ft(i,l,r) for(register int i=l;i<=r;i++)\n#define fd(i,r,l) for(register int i=r;i>=l;i--)\nusing namespace std;\nint n,a[233333],ans,mx; \nint main()\n{\n\tcin>>n;\n\tft(i,1,n)\n\t{\n\t\tscanf(\"%d\",&a[i]);\n\t\tif(a[i]<=a[i-1]) ans++;\n\t\telse mx=max(mx,ans),ans=0;\n\t}\n\tcout<<max(ans,mx);\n\treturn 0;\n}\n```\n",
+        "postTime": 1587384781,
+        "uid": 233251,
+        "name": "Star_Wind",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 AT4871 \u3010[ABC139C] Lower\u3011"
+    }
+]

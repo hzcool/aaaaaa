@@ -1,0 +1,17 @@
+{
+    "description": "Being bored of exploring the Moon over and over again Wall-B decided to explore something he is made of \u2014 binary numbers. He took a binary number and decided to count how many times different substrings of length two appeared. He stored those values in $ c_{00} $ , $ c_{01} $ , $ c_{10} $ and $ c_{11} $ , representing how many times substrings 00, 01, 10 and 11 appear in the number respectively. For example:\n\n $ 10111100 \\rightarrow c_{00} = 1, \\ c_{01} = 1,\\ c_{10} = 2,\\ c_{11} = 3 $\n\n $ 10000 \\rightarrow c_{00} = 3,\\ c_{01} = 0,\\ c_{10} = 1,\\ c_{11} = 0 $\n\n $ 10101001 \\rightarrow c_{00} = 1,\\ c_{01} = 3,\\ c_{10} = 3,\\ c_{11} = 0 $\n\n $ 1 \\rightarrow c_{00} = 0,\\ c_{01} = 0,\\ c_{10} = 0,\\ c_{11} = 0 $\n\nWall-B noticed that there can be multiple binary numbers satisfying the same $ c_{00} $ , $ c_{01} $ , $ c_{10} $ and $ c_{11} $ constraints. Because of that he wanted to count how many binary numbers satisfy the constraints $ c_{xy} $ given the interval $ [A, B] $ . Unfortunately, his processing power wasn't strong enough to handle large intervals he was curious about. Can you help him? Since this number can be large print it modulo $ 10^9 + 7 $ .",
+    "inputFormat": "First two lines contain two positive binary numbers $ A $ and $ B $ ( $ 1 \\leq A \\leq B < 2^{100\\,000} $ ), representing the start and the end of the interval respectively. Binary numbers $ A $ and $ B $ have no leading zeroes.\n\nNext four lines contain decimal numbers $ c_{00} $ , $ c_{01} $ , $ c_{10} $ and $ c_{11} $ ( $ 0 \\leq c_{00}, c_{01}, c_{10}, c_{11} \\leq 100\\,000 $ ) representing the count of two-digit substrings 00, 01, 10 and 11 respectively.",
+    "outputFormat": "Output one integer number representing how many binary numbers in the interval $ [A, B] $ satisfy the constraints mod $ 10^9 + 7 $ .",
+    "samples": [
+        [
+            "10\n1001\n0\n0\n1\n1\n",
+            "1\n"
+        ],
+        [
+            "10\n10001\n1\n2\n3\n4\n",
+            "0\n"
+        ]
+    ],
+    "hint": "Example 1: The binary numbers in the interval $ [10,1001] $ are $ 10,11,100,101,110,111,1000,1001 $ . Only number 110 satisfies the constraints: $ c_{00} = 0, c_{01} = 0, c_{10} = 1, c_{11} = 1 $ .\n\nExample 2: No number in the interval satisfies the constraints",
+    "translation": "\u6c42\u5728$[l,r]$\u533a\u95f4\u5185\u6709\u591a\u5c11\u6570\u6ee1\u8db3\u5728\u4e8c\u8fdb\u5236\u4e0b\uff1a\r\n\r\n- \u5b50\u4e32$00$\u7684\u4e2a\u6570\u4e3a$C00$\u3002\r\n- \u5b50\u4e32$01$\u7684\u4e2a\u6570\u4e3a$C01$\u3002\r\n- \u5b50\u4e32$10$\u7684\u4e2a\u6570\u4e3a$C10$\u3002\r\n- \u5b50\u4e32$11$\u7684\u4e2a\u6570\u4e3a$C11$\u3002\r\n\u7b54\u6848\u5bf9$10^9+7$\u53d6\u6a21\u3002\r\n\r\n$\\large l,r\u22642^{100 \\ 000}$"
+}

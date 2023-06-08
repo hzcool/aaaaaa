@@ -1,0 +1,66 @@
+[
+    {
+        "content": "# \u63d0\u4f9b\u4f18\u5148\u961f\u5217\u89e3\u6cd5\n\u9898\u76ee\u94fe\u63a5 [AT2646](https://www.luogu.com.cn/problem/AT2646)\u3002  \n\u4f18\u5148\u961f\u5217\u7684\u89e3\u6cd5\u53ef\u4ee5\u65e0\u8111\u89e3\u51fa\u4e00\u90e8\u5206\u8f83\u4e3a\u7b80\u5355\u7684\u6c42\u6700\u503c\u7684\u9898\u76ee\u3002  \n\u4e0e\u6b64\u9898\u76f8\u4f3c\u7684\u9898\u76ee\u8fd8\u6709 [P5718](https://www.luogu.com.cn/problem/P5718) \u548c [P5724](https://www.luogu.com.cn/problem/P5724)\u3002\n## \u9898\u76ee\u5927\u610f\n\u7ed9\u4f60\u4e09\u4e2a\u6570 $a$\u3001$b$ \u548c $c$\uff0c\u8f93\u51fa\u5176\u5347\u5e8f\u6392\u5217\u540e\u524d\u4e24\u9879\u7684\u548c\u3002\n## \u53d8\u91cf\u4ecb\u7ecd\n1. $q$ \u662f $STL$ \u4e2d\u7684\u5c0f\u6839\u5806\uff0c\u5728\u6b64\u9898\u4e2d\u7528\u4e8e\u5b9e\u73b0\u6570\u5217\u6709\u5e8f\u3002\n2. $ans$ \u7528\u4e8e\u7edf\u8ba1\u524d\u4e24\u9879\u7684\u548c\u3002\n\n## \u89e3\u9898\u8fc7\u7a0b\n\u9996\u5148\u6ce8\u610f\u5c0f\u6839\u5806\u7684\u58f0\u660e\u3002\n```cpp\npriority_queue<int, vector<int >, greater<int > > q;\n```\n\u7136\u540e\u8f93\u5165\u4e09\u4e2a\u6570\u5b57\uff0c\u5c06\u5176\u538b\u5165\u5c0f\u6839\u5806\u4e2d\u3002\n```cpp\nfor (int i = 1; i <= 3; ++i) {\n\tint t;\n\tscanf(\"%d\", &t);\n\tq.push(t);\n}\n```\n\u56e0\u4e3a\u5c0f\u6839\u5806\u5185\u90e8\u5df2\u7ecf\u6709\u5e8f\u4e86\uff0c\u6240\u4ee5 $ans$ \u52a0\u4e0a\u5806\u9876\u5143\u7d20\uff0c\u7136\u540e\u5f39\u51fa\u5806\u9876\u5143\u7d20\uff0c\u518d\u52a0\u4e0a\u73b0\u5728\u7684\u5806\u9876\u5143\u7d20\u5373\u662f\u7b54\u6848\u3002\n```cpp\nans += q.top(); q.pop(); ans += q.top();\n```\n## AC CODE\n```cpp\n#include <iostream>\n#include <cstdio>\n#include <queue>\n#include <vector>\nusing namespace std;\n\npriority_queue<int, vector<int >, greater<int > > q;\nint ans = 0;\n\nint main() {\n\tfor (int i = 1; i <= 3; ++i) {\n\t\tint t;\n\t\tscanf(\"%d\", &t);\n\t\tq.push(t);\n\t}\n\tans += q.top(); q.pop(); ans += q.top();\n\tprintf(\"%d\\n\", ans);\n\treturn 0;\n}\n```\n## \u611f\u8c22\u89c2\u8d4f\uff01",
+        "postTime": 1583976100,
+        "uid": 215368,
+        "name": "Easy_revenge",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT2646 \u3010[ABC066A] ringring\u3011"
+    },
+    {
+        "content": "# \u53c8\u4e00\u9053\u6c34\u9898\n## \u8fd9\u9898\u597d\u591a$dalao$\u90fd\u7528\u5feb\u6392$(sort)$\n### \u672c\u849f\u84bb\u5c31\u63d0\u4f9b\u4e00\u79cd\u65b0\u601d\u8def\uff1a\n## $all-biggest=smallest+smallest_{second}$\n\u4e5f\u5c31\u662f\u603b\u548c-\u6700\u5927\u503c=\u6700\u5c0f\u503c+\u6b21\u5c0f\u503c\n~~\uff08\u672c\u4eba\u82f1\u8bed\u4e0d\u597d\uff09~~\n```cpp\n#include<bits/stdc++.h>//\u5934\u6587\u4ef6\nusing namesapce std;\nint a,b,c;//\u5b9a\u4e49\u4e09\u79cd\u4ef7\u683c\nint main(){\n    cin>>a>>b>>c;//\u8f93\u5165\u4ef7\u683c\n    cout<<(a+b+c)-max(a,max(b,c))<<endl;//\u6309\u7167\u601d(tao)\u8def\u8f93\u51fa\n    return 0;//\u5b8c\u7f8e\u7ed3\u675f\n}\n```",
+        "postTime": 1528641723,
+        "uid": 58546,
+        "name": "CZQ_King",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 AT2646 \u3010ringring\u3011"
+    },
+    {
+        "content": "### \u7b80\u8981\u9898\u610f\n\u7ed9\u5b9a\u4e09\u4e2a\u6574\u6570$\\texttt{a,b}$\u548c$\\texttt{c}$\uff0c\u6c42\u5176\u4e2d\u8f83\u5c0f\u7684\u4e24\u8005\u4e4b\u548c\u3002\n\n---\n\u5982\u679c\u8fd9\u9053\u9898\u7528$\\texttt{std::sort}$\u6765\u5199\uff0c\u60f3\u5fc5\u662f\u975e\u5e38\u8f7b\u677e\u7684\u3002\n\n\u4f46\u662f\uff0c\u8fd8\u662f\u624b\u5199\uff08\u8fd0\u884c\uff09\u6bd4\u8f83\u5feb\uff0c\u987a\u4fbf\u8fd8\u53ef\u4ee5\u953b\u70bc\u4e00\u4e0b\u4ee3\u7801\u901f\u5ea6\u3002\n\n\u6ce8\u610f**\u51c6\u786e\u5206\u7c7b\u8ba8\u8bba**\uff1a\n- \u56e0\u4e3a\u5b58\u5728\u6709\u4e24\u4e2a\u91cf\u76f8\u540c\u7684\u60c5\u51b5\uff0c\u5404\u5904\u6bd4\u8f83\u90fd\u8981\u52a0\u4e0a$\\texttt{=}$\u3002\n- \u56e0\u4e3a\u52a0\u4e0a\u4e86$\\texttt{=}$\uff0c\u53ef\u80fd\u5b58\u5728\u540c\u65f6\u6ee1\u8db3\u591a\u79cd\u60c5\u51b5\uff0c\u6240\u4ee5\u8981\u7528**else if**\u3002\n\n```cpp\n#include <cstdio>\nint main(){\n    int a,b,c;\n    scanf(\"%d %d %d\",&a,&b,&c);\n    if(a<=b&&b<=c)printf(\"%d\\n\",a+b);\n    else if(a<=b&&c<=b)printf(\"%d\\n\",a+c);\n    else if(b<=a&&a<=c)printf(\"%d\\n\",a+b);\n    else if(b<=a&&c<=a)printf(\"%d\\n\",b+c);\n    else if(c<=a&&a<=b)printf(\"%d\\n\",a+c);\n    else printf(\"%d\\n\",b+c);\n}\n```",
+        "postTime": 1528028605,
+        "uid": 47842,
+        "name": "middle_set",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT2646 \u3010ringring\u3011"
+    },
+    {
+        "content": "\u5bf9\u4e8e\u8fd9\u9053\u9898\uff0c\u6211\u4eec\u53ea\u9700\u8981\u6c42\u51fa $\\min(a,b,c)$ \u52a0\u4e0a $\\operatorname{mid}(a,b,c)$ \u7684\u503c\u5373\u53ef\u3002\n\n\u5bf9\u4e8e\u6c42 $\\operatorname{mid}(a,b,c)$\uff0c\u53ef\u4ee5\u8f6c\u5316\u4e3a\u603b\u548c\u51cf\u53bb\u6700\u5927\u503c\u548c\u6700\u5c0f\u503c\u3002\n\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n\tint a,b,c;\n\tint d,e,f;//d\u4e3a\u6700\u5927\u503c\uff0ce\u4e3a\u4e2d\u95f4\u503c\uff0cf\u4e3a\u6700\u5c0f\u503c\n\tscanf(\"%d%d%d\",&a,&b,&c);\n\td=max(a,max(b,c));\n\tf=min(a,min(b,c));\n\te=a+b+c-d-f;\n\tprintf(\"%d\\n\",e+f);\n    return 0;\n}\n```\n",
+        "postTime": 1583134929,
+        "uid": 148913,
+        "name": "Graphcity",
+        "ccfLevel": 8,
+        "title": "\u9898\u89e3 AT2646 \u3010[ABC066A] ringring\u3011"
+    },
+    {
+        "content": "## \u8fd9\u4e00\u9898\u5176\u5b9e\u53ea\u9700\u8981\u7528**\u6392\u5e8f**\uff0c\u627e\u5230\u6700\u5c0f\u7684\u4e24\u9879\u76f8\u52a0\u5373\u4e3a\u7b54\u6848\u3002\n\n\u4e0b\u9762\u7ed9\u5927\u5bb6\u666e\u53ca\u51e0\u79cd\u5e38\u89c1\u6392\u5e8f\u65b9\u6cd5\uff1a\n#### 1.\u5f52\u5e76\u6392\u5e8f\n```cpp\nint a[MM+11],ls[MM+11];\nvoid msort(int l, int r) \n{\n\tif(l == r) return;\n\tint mid = (l + r) >> 1;\n\tmsort(l, mid);\n\tmsort(mid + 1, r);\n\tint i = l, j = mid + 1, k = l;\n\twhile(i <= mid && j <= r)\n\t\tif(a[i] <= a[j]) ls[k++] = a[i++];\n\t\telse ls[k++] = a[j++];\n\twhile(i <= mid) ls[k] = a[i], k++, i++;\n\twhile(j <= r) ls[k] = a[j], k++, j++;\n\tfor(int i = l;i <= r;i++) a[i] = ls[i];\n}\n```\n#### 2.\u624b\u5199\u5feb\u6392\n```cpp\nint a[100005];\nvoid qsort(int l,int r)\n{\n\tint i,j,tmp;\n\tif(l>=r)\n\t   return;\n\ti=l;\n\tj=r;\n\ttmp=a[i];\n\twhile(i<j)\n\t{\n\t\twhile(a[j]>tmp&&j>i) \n\t\t   j--;\n\t\tif(i<j)\n\t\t{\n\t\t   a[i]=a[j];\n\t\t   i++;\n\t\t}\n\t\twhile(a[i]<tmp&&i<j)\n\t\t   i++;\n\t\tif(i<j)\n\t\t{\n\t\t   a[j]=a[i];\n\t\t   j--;\n\t\t}\n\t}\n\ta[i]=tmp;\n\tqsort(l,i-1);\n\tqsort(i+1,r);\n}\n```\n#### 3.\u5192\u6ce1\u6392\u5e8f\n```cpp\nfor(int j = 1;j < n; j++)\n\tfor(int i = 1;i <= n - j; i++)\n\t\tif(a[i] > a[i + 1])\n\t\t\tswap(a[i], a[i + 1]);\n```\n#### 4.\u63d2\u5165\u6392\u5e8f\n```cpp\nfor(int i = 2;i <= n;i++) {\n\tint p = i;\n\twhile(p > 1 && a[p] > a[p - 1]) {\n\t\tswap(a[p], a[p - 1]);\n\t\tp--;\n\t}\n}\n```\n#### 5.\u9009\u62e9\u6392\u5e8f\n```cpp\nfor(int i = 1;i < n;i++) {\n\tint maxx = a[i], p = i;\n\tfor(int j = i + 1;j <= n;j++)\n\t\tif(a[j] > maxx) maxx = a[p = j];\n\tswap(a[i], a[p]);\n}\n```\n### \u201c\u6761\u6761\u5927\u8def\u901a\u7f57\u9a6c\u201d\uff0c\u6392\u5e8f\u65b9\u6cd5\u5404\u79cd\u5404\u6837\uff0c\u4f46\u4e0d\u540c\u7684\u9898\u76ee\uff0c\u5f80\u5f80\u662f\u62e9\u4f18\u3002\n\n**\u8fd9\u91cc\u6211\u7528\u7684\u662fSTL\u5e93\u4e2d\u7684sort\uff0c\u65b9\u4fbf\u5feb\u6377\u3002**\n\ncode\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint a[4];\nint main()\n{\n\tfor(int i=1;i<=3;i++)\n\t    scanf(\"%d\",&a[i]);\n\tsort(a+1,a+4);\n\tprintf(\"%d\\n\",a[1]+a[2]);\n\treturn 0;\t    \n}\n```",
+        "postTime": 1582805871,
+        "uid": 189621,
+        "name": "\u674e\u4e4b\u6052",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 AT2646 \u3010[ABC066A] ringring\u3011"
+    },
+    {
+        "content": "\u4e00\u5f00\u59cb\u6211\u4ee5\u4e3a\u662f\u8f93\u51fa\u6700\u5c0f\u7684\u4e24\u500d\uff0c\u7ed3\u679c WA \u4e86\n\n\u7136\u540e\u8bb2\u4e00\u4e0b\u4e09\u79cd\u65b9\u6cd5\uff1a\n\n1. \u624b\u52a8\u8f93\u5165\u6570\u7ec4\u6392\u5e8f\u540e\u8f93\u51fa\u524d\u4e24\u9879\n\nsort \u4ee3\u7801\uff0c\u53ef\u4ee5\u5f88\u6e05\u695a\u7684\u8f93\u51fa\u524d\u4e24\u9879\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n\tint a[3];\n\tcin>>a[0]>>a[1]>>a[2];\n\tsort(a,a+3);\n\tcout<<a[0]+a[1]<<endl;\n\treturn 0;\n}\n```\n\n\n\u7136\u540e\u5c31\u662f\u76f8\u5bf9\u590d\u6742\u4e00\u70b9\u7684 if \u7248\u672c\uff0c\u901a\u8fc7\u4e00\u4e9b\u5224\u65ad\uff0c\u5206\u51fa\u4e09\u79cd\u8f93\u51fa\u60c5\u51b5\uff0c\u7136\u540e\u5206\u522b\u653b\u6253\u6d4b\u8bd5\u70b9\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint a,b,c;\nint main()\n{\n    cin>>a>>b>>c;\n    if((a<=b&&b<=c)||(b<=a&&a<=c))cout<<a+b;\n    \n    else if((a<=b&&c<=b)||(c<=a&&a<=b))cout<<a+c;\n    else cout<<c+b;\n    return 0;\n}\n```\n\n\u90a3\u4e48\u6211\u4eec\u518d\u6765\u770b\u770b\u6c42\u548c\u4e4b\u540e\u4f7f\u7528 $\\min$ \u51fd\u6570\u7684\uff0c\u8f93\u51fa\u591a\u6709\u53ef\u80fd\u7b54\u6848\u4e2d\u7684\u6700\u5c0f\u503c\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint a,b,c,s1,s2,s3;\nint main()\n{\n    cin>>a>>b>>c;\n    s1=a+b;\n    s2=b+c;\n    s3=a+c;\n    cout<<min(s1,min(s2,s3))<<endl;\n    return 0;\n}\n```\n\n\u90a3\u4e48\u4eca\u5929\u7684\u8bb2\u89e3\u5c31\u5230\u8fd9\u91cc\u4e86\uff0c\u8c22\u8c22\u5927\u5bb6\uff01",
+        "postTime": 1581902030,
+        "uid": 212283,
+        "name": "Aw\u987f\u987f",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 AT2646 \u3010[ABC066A] ringring\u3011"
+    },
+    {
+        "content": "## \u5176\u5b9e\uff0c\u8fd9\u4e00\u9898\u975e\u5e38\u6c34\uff0c\u53ea\u662f\u6c42\u4e24\u4e2a\u6700\u5c0f\u6570\u7684\u548c\uff0c\u6240\u4ee5\u6211\u4eec\u53ea\u8981\u627e\u51fa\u6700\u5c0f\u7684\u4e24\u4e2a\u6570\u4fbf\u53ef\u4ee5 \u4e86\uff1b\n### \u5e9f\u8bdd\u4e0d\u591a\u8bf4\uff0c\u7a0b\u5e8f\u5982\u4e0b\uff1a\n```cpp\n//\u5934\u6587\u4ef6\n#include<iostream>\n#include<fstream>\n#include<string>\n#include<cstdio>\n#include<algorithm>\nusing namespace std;\nint s[5];\nint main()\n{\n //\u65e0\u7528\u7684\u4e1c\u897f\n //freopen(\".in\",\"r\",stdin);\n //freopen(\".out\",\"w\",stdout);\n //\u8bfb\u5165\uff08\u6211\u7528\u7684\u662f\u6570\u7ec4\u8bfb\u5165\uff0c\u8fd9\u6837\u7528\u4e0b\u9762\u7684sort\u4e0d\u7528\u6253\u592a\u591a\u7684\u5224\u65ad\u6761\u4ef6)\n cin>>s[1]>>s[2]>>s[3];\n //\u6392\u5e8f\n sort(s+1,s+3+1);\n //\u8f93\u51fa\u6700\u5c0f\u7684\u7684\u4e24\u4e2a\u6570\u7684\u548c\n cout<<s[1]+s[2];\n //\u5b8c\u7f8e\u6536\u573a\n return 0;\n}\n\n\n```",
+        "postTime": 1528157964,
+        "uid": 57373,
+        "name": "_Error",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 AT2646 \u3010ringring\u3011"
+    },
+    {
+        "content": "\u770b\u5230\u6bcf\u4eba\u53d1\u9898\u89e3\uff0c\u6211\u6765\u53d1\u4e00\u7bc7   \n\u5176\u5b9e\u8fd9\u9053\u9898\u5f88\u597d\u505a\uff0c\u4f46\u662f\u5f88\u591a\u4eba\u90fd\u4e0d\u7406\u89e3\u610f\u601d   \n\n\u5927\u81f4\u610f\u601d\uff1a\u8f93\u5165\u4e09\u4e2a\u6570\uff0c\u628a\u6700\u5c0f\u7684\u4e24\u4e2a\u6570\u52a0\u8d77\u6765   \n\n\u6570\u7ec4\u505a\u6cd5\uff1a\n---   \n```cpp\n#include<bits/stdc++.h>//\u4e07\u80fd\u5934\u6587\u4ef6\nusing namespace std;\nint a[2];//\u7528\u6570\u7ec4\u66f4\u65b9\u4fbf\nint main()\n{\n scanf(\"%d%d%d\",&a[0],&a[1],&a[2]);//\u8f93\u5165\u4e09\u4e2a\u6570\n sort(a,a+3); //\u76f4\u63a5\u5feb\u6392\n printf(\"%d\",a[0]+a[1]);//a[0]\u6700\u5927\u6570\uff0ca[1]\u7b2c\u4e8c\u5927\n return 0;\n}\n```\n\u9664\u4e86\u6570\u7ec4\u505a\u6cd5\uff0c\u8fd8\u6709\u4e0d\u7528\u6570\u7ec4\u7684\u505a\u6cd5   \n\u4e0d\u7528\u6570\u7ec4\u7684\u505a\u6cd5\uff1a\n---\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint a,b,c;\nint main()\n{\n scanf(\"%d%d%d\",&a,&b,&c);\n if(a<c&&b<c)cout<<(\"%d\",a+b);\n if(a<b&&c<b)cout<<(\"%d\",a+c);\n if(b<a&&c<a)printf(\"%d\",b+c);\n return 0;\n}\n```",
+        "postTime": 1528105133,
+        "uid": 103942,
+        "name": "\u6211\u548c\u4f60\u3002\u3002",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT2646 \u3010ringring\u3011"
+    }
+]

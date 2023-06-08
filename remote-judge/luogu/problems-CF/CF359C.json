@@ -1,0 +1,25 @@
+{
+    "description": "Simon has a prime number $ x $ and an array of non-negative integers $ a_{1},a_{2},...,a_{n} $ .\n\nSimon loves fractions very much. Today he wrote out number ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF359C/30ceed91a13d03a8240cb0eaa60aa832738192a0.png) on a piece of paper. After Simon led all fractions to a common denominator and summed them up, he got a fraction: ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF359C/e0810919ce9aff20137654b00c598ccaa33ece8d.png), where number $ t $ equals $ x^{a_{1}+a_{2}+...+a_{n}} $ . Now Simon wants to reduce the resulting fraction.\n\nHelp him, find the greatest common divisor of numbers $ s $ and $ t $ . As GCD can be rather large, print it as a remainder after dividing it by number $ 1000000007 $ ( $ 10^{9}+7 $ ).",
+    "inputFormat": "The first line contains two positive integers $ n $ and $ x $ ( $ 1<=n<=10^{5} $ , $ 2<=x<=10^{9} $ ) \u2014 the size of the array and the prime number.\n\nThe second line contains $ n $ space-separated integers $ a_{1},a_{2},...,a_{n} $ ( $ 0<=a_{1}<=a_{2}<=...<=a_{n}<=10^{9} $ ).",
+    "outputFormat": "Print a single number \u2014 the answer to the problem modulo $ 1000000007 $ ( $ 10^{9}+7 $ ).",
+    "samples": [
+        [
+            "2 2\n2 2\n",
+            "8\n"
+        ],
+        [
+            "3 3\n1 2 3\n",
+            "27\n"
+        ],
+        [
+            "2 2\n29 29\n",
+            "73741817\n"
+        ],
+        [
+            "4 5\n0 0 0 0\n",
+            "1\n"
+        ]
+    ],
+    "hint": "In the first sample ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF359C/a1e2654626975b2109236cae030121c98f55e9d0.png). Thus, the answer to the problem is $ 8 $ .\n\nIn the second sample, ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF359C/21aa04c7cee2f3b67d81ff94d48ffd8a4add7ce1.png). The answer to the problem is $ 27 $ , as $ 351=13\u00b727 $ , $ 729=27\u00b727 $ .\n\nIn the third sample the answer to the problem is $ 1073741824\u00a0mod\u00a01000000007=73741817 $ .\n\nIn the fourth sample ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF359C/b75d78ae6544e1f3836b40eca1b29ba08f0f671d.png). Thus, the answer to the problem is $ 1 $ .",
+    "translation": "Simon \u6709\u4e00\u4e2a\u8d28\u6570 $x$ \u548c\u82e5\u5e72\u975e\u8d1f\u6574\u6570 $a_1,a_2,\\dots,a_n$.\r\n\r\nSimon \u5f88\u559c\u6b22\u5206\u6570\u3002\u4eca\u5929\uff0c\u4ed6\u5728\u7eb8\u4e0a\u5199\u51fa\u4e86\u4e00\u4e2a\u6570 $\\dfrac{1}{x^{a_1}}+\\dfrac{1}{x^{a_2}}+\\cdots+\\dfrac{1}{x^{a_n}}$\u3002Simon \u901a\u5206\u5e76\u8ba1\u7b97\u51fa\u8fd9\u4e2a\u548c\u5f0f\u4e4b\u540e\u5f97\u5230\u4e86\u4e00\u4e2a\u5206\u6570 $\\dfrac st$\uff0c\u5176\u4e2d $t=x^{a_1+a_2+\\dots+a_n}$\u3002\u73b0\u5728\uff0cSimon \u5e0c\u671b\u5316\u7b80\u8fd9\u4e2a\u7ed3\u679c\u3002\r\n\r\n\u8bf7\u5e2e\u52a9 Simon \u6c42\u51fa $s$ \u548c $t$ \u7684\u6700\u5927\u516c\u56e0\u6570\u3002\u56e0\u4e3a\u8fd9\u4e2a\u6700\u5927\u516c\u56e0\u6570\u53ef\u80fd\u5f88\u5927\uff0c\u8f93\u51fa\u5b83\u9664 $1000000007$\uff08$10^9+7$\uff09\u7684\u4f59\u6570\u3002\r\n\r\n\u8f93\u5165\u7b2c\u4e00\u884c\u5305\u62ec\u4e24\u4e2a\u6b63\u6574\u6570 $n$ \u548c $x$\uff08$1\\le n\\le10^5$\uff0c$2\\le x\\le10^9$\uff09\u2014\u2014\u6570\u7ec4\u7684\u5927\u5c0f\u548c\u8fd9\u4e2a\u8d28\u6570\uff0c\u7b2c\u4e8c\u884c\u5305\u62ec $n$ \u4e2a\u7528\u7a7a\u683c\u9694\u5f00\u7684\u6574\u6570 $a_1,a_2,\\dots,a_n$\uff08$0\\le a_1\\le a_2\\le\\dots\\le a_n\\le10^9$\uff09.\r\n\r\n\u8f93\u51fa\u4e00\u4e2a\u6574\u6570\u2014\u2014\u95ee\u9898\u7684\u7b54\u6848\u9664 $1000000007$\uff08$10^9+7$\uff09\u7684\u4f59\u6570\u3002"
+}

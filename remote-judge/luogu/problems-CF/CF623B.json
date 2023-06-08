@@ -1,0 +1,21 @@
+{
+    "description": "You are given array $ a_{i} $ of length $ n $ . You may consecutively apply two operations to this array:\n\n- remove some subsegment (continuous subsequence) of length $ m<n $ and pay for it $ m\u00b7a $ coins;\n- change some elements of the array by at most $ 1 $ , and pay $ b $ coins for each change.\n\nPlease note that each of operations may be applied at most once (and may be not applied at all) so you can remove only one segment and each number may be changed (increased or decreased) by at most $ 1 $ . Also note, that you are not allowed to delete the whole array.\n\nYour goal is to calculate the minimum number of coins that you need to spend in order to make the greatest common divisor of the elements of the resulting array be greater than $ 1 $ .",
+    "inputFormat": "The first line of the input contains integers $ n $ , $ a $ and $ b $ ( $ 1<=n<=1000000,0<=a,b<=10^{9} $ ) \u2014 the length of the array, the cost of removing a single element in the first operation and the cost of changing an element, respectively.\n\nThe second line contains $ n $ integers $ a_{i} $ ( $ 2<=a_{i}<=10^{9} $ ) \u2014 elements of the array.",
+    "outputFormat": "Print a single number \u2014 the minimum cost of changes needed to obtain an array, such that the greatest common divisor of all its elements is greater than $ 1 $ .",
+    "samples": [
+        [
+            "3 1 4\n4 2 3\n",
+            "1\n"
+        ],
+        [
+            "5 3 2\n5 17 13 5 6\n",
+            "8\n"
+        ],
+        [
+            "8 3 4\n3 7 5 4 3 12 9 4\n",
+            "13\n"
+        ]
+    ],
+    "hint": "In the first sample the optimal way is to remove number $ 3 $ and pay $ 1 $ coin for it.\n\nIn the second sample you need to remove a segment $ [17,13] $ and then decrease number $ 6 $ . The cost of these changes is equal to $ 2\u00b73+2=8 $ coins.",
+    "translation": "\u7ed9\u5b9a\u4e00\u4e2a\u957f\u4e3a$n$\u7684\u6570\u7ec4$a_i$\uff0c\u4f60\u53ef\u4ee5\u8fdb\u884c\u4ee5\u4e0b\u4e24\u4e2a\u64cd\u4f5c\uff1a\n\n- \u5bf9\u4e8e\u6574\u4e2a\u6570\u7ec4\uff0c\u4f60\u53ef\u4ee5\u5220\u9664\u4e00\u4e2a\u957f\u5ea6\u4e3a$m(m<n)$\u7684\u533a\u95f4\uff0c\u4ee3\u4ef7$m\\times a$\u4e3ab\uff0c\u53ea\u80fd\u64cd\u4f5c\u4e00\u6b21\u3002\n\n- \u5bf9\u4e8e\u6bcf\u4e00\u4e2a\u5143\u7d20\uff0c\u4f60\u53ef\u4ee5\u82b1\u8d39$b$\u5143\u8ba9\u5b83$+1$\u6216$-1$\uff0c\u5bf9\u4e8e\u6bcf\u4e2a\u5143\u7d20\u53ea\u80fd\u64cd\u4f5c\u4e00\u6b21\uff1b\n\n\u6c42\u901a\u8fc7\u4e0a\u8ff0\u64cd\u4f5c\u4f7f\u5f97\u5269\u4e0b\u7684\u6570\u7684\u6700\u5927\u516c\u7ea6\u6570\u5927\u4e8e1\u7684\u6700\u5c0f\u82b1\u8d39\u3002"
+}

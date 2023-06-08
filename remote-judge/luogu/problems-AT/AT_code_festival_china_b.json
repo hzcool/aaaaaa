@@ -1,0 +1,12 @@
+{
+    "description": "[problemUrl]: https://atcoder.jp/contests/code-festival-2014-china-open/tasks/code_festival_china_b\n\n",
+    "inputFormat": "Input is given in the following format\n\n> $ Q $ $ n_1 $ $ n_2 $ : $ n_Q $\n\n- On the first line, you will be given an integer $ Q\\ (1\\ \\leq\\ Q\\ \\leq\\ 100,000) $, the number of queries.\n- On the following $ Q $ lines, each line contains the information of each query. The $ i $-th $ (1\\ \\leq\\ i\\ \\leq\\ Q) $ line consists of $ n_i\\ (1\\ \\leq\\ n_i\\ \\leq\\ 10^{18}) $, the number $ n $ of the $ i $-th query.",
+    "outputFormat": "Output $ Q $ lines, each line containing the answer to each query in the order the queries appear in the input. Make sure to insert a line break at the end of the last line.",
+    "samples": [
+        [
+            "7\r\n1\r\n2\r\n3\r\n4\r\n5\r\n6\r\n1000000000000000000",
+            "0 0\r\n-1 0\r\n0 -1\r\n0 1\r\n1 0\r\n-2 0\r\n263818038 443288743"
+        ]
+    ],
+    "hint": "### Problem\n\nLet us define an strict total order relation between $ 2 $ distinct points $ P(x_1,y_1) $,$ Q(x_2,y_2) $ on a rectangular coordinate plane as following.\n\n- If $ |x_1|+|y_1|\\neq|x_2|+|y_2| $ and $ |x_1|+|y_1|\\ <\\ |x_2|+|y_2| $ then $ P\\ <\\ Q $\n- If $ |x_1|+|y_1|=|x_2|+|y_2| $ and $ x_1\\neq{x_2} $ and $ x_1\uff1cx_2 $ then $ P\uff1cQ $\n- If $ |x_1|+|y_1|=|x_2|+|y_2| $ and $ x_1=x_2 $ and $ y_1\uff1cy_2 $ then $ P\uff1cQ $\n- If else, $ P\\ >\\ Q $\n\nYour task is to answer many queries that asks, \"When you sort the set of all the integer lattice $ \\mathbb{Z}^2 $ in ascending order by the relation defined above, output the $ n $-th ($ 1 $-indexed) element.\""
+}

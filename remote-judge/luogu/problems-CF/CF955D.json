@@ -1,0 +1,21 @@
+{
+    "description": "Jenya has recently acquired quite a useful tool \u2014 $ k $ -scissors for cutting strings. They are generally used for cutting out two non-intersecting substrings of length $ k $ from an arbitrary string $ s $ (its length should be at least $ 2\u00b7k $ in order to perform this operation) and concatenating them afterwards (preserving the initial order). For example, with the help of $ 2 $ -scissors you can cut $ ab $ and $ de $ out of $ abcde $ and concatenate them into $ abde $ , but not $ ab $ and $ bc $ since they're intersecting.\n\nIt's a nice idea to test this tool before using it in practice. After looking through the papers, Jenya came up with two strings $ s $ and $ t $ . His question is whether it is possible to apply his scissors to string $ s $ such that the resulting concatenation contains $ t $ as a substring?",
+    "inputFormat": "The first line contains three integers $ n $ , $ m $ , $ k $ $ (2<=m<=2\u00b7k<=n<=5\u00b710^{5}) $ \u2014 length of $ s $ , length of $ t $ and the aforementioned scissors' parameter correspondingly.\n\nThe next two lines feature $ s $ and $ t $ consisting of lowercase latin letters.",
+    "outputFormat": "If there is no answer, print \u00abNo\u00bb.\n\nOtherwise print \u00abYes\u00bb and two integers $ L $ and $ R $ denoting the indexes where cutted substrings start ( $ 1 $ -indexed). If there are several possible answers, output any.",
+    "samples": [
+        [
+            "7 4 3\nbaabaab\naaaa\n",
+            "Yes\n1 5\n"
+        ],
+        [
+            "6 3 2\ncbcbcb\nbcc\n",
+            "Yes\n2 5\n"
+        ],
+        [
+            "7 5 3\naabbaaa\naaaaa\n",
+            "No\n"
+        ]
+    ],
+    "hint": "In the first sample case you can cut out two substrings starting at $ 1 $ and $ 5 $ . The resulting string baaaab contains aaaa as a substring.\n\nIn the second sample case the resulting string is bccb.",
+    "translation": "\u7ed9\u5b9a\u4e24\u4e2a\u4e32$s$,$t$\u548c\u6574\u6570$k$,\u4f60\u53ef\u4ee5\u5728$s$\u4e2d\u53d6\u51fa\u4efb\u610f\u7684\u4e24\u4e2a\u4e0d\u76f8\u4ea4\u7684\u4e32\uff0c\u5c06\u5b83\u4eec\u6309\u987a\u5e8f\u62fc\u5728\u4e00\u8d77\u5f62\u6210\u4e00\u4e2a\u65b0\u4e32\u3002\n\n\u6c42\u4e00\u79cd\u53d6\u4e32\u7684\u65b9\u6848\u4f7f\u5f97$t$\u662f\u65b0\u4e32\u7684\u5b50\u4e32\u3002\nps\uff1ak\u4e3a\u4e24\u4e2a\u957f\u5ea6\u4e3ak\u7684\u4e0d\u76f8\u4ea4\u7684\u5b50\u4e32"
+}

@@ -1,0 +1,18 @@
+[
+    {
+        "content": "\u9898\u76ee\u5927\u610f\uff1a\n\n\u9898\u9762\u6709\u4e00\u70b9\u70b9\u95ee\u9898\uff0c\u76d2\u5b50\u662f\u6b63\u65b9\u4f53\u6ca1\u6709\u88ab\u7ffb\u8bd1\u51fa\u6765\u3002\n\n\u5206\u6790\uff1a\n\n\u8fd9\u9898\u53ef\u4ee5\u7528\u8d2a\u5fc3\uff0c\u4ee5\u76d2\u5b50\u7684\u8fb9\u957f\u4ece\u5c0f\u5230\u5927\u8003\u8651\uff0c\u4e00\u4e2a\u5927\u76d2\u5b50\u80fd\u88c5\u56db\u4e2a\u6bd4\u6b63\u597d\u5b83\u5c0f\u7684\u76d2\u5b50\uff0c\u7edf\u8ba1\u5f53\u524d\u76d2\u5b50\u6570\uff0c\u5982\u679c\u5927\u76d2\u5b50\u80fd\u88c5\u4e0b\u5c0f\u76d2\u5b50\uff0c\u90a3\u4e48\u76d2\u5b50\u6570\u9664\u4ee5 $4$\uff0c\u5426\u5219\u8981\u591a\u7528\u4e00\u4e2a\u5927\u76d2\u5b50\uff0c\u76d2\u5b50\u6570\u9664\u4ee5 $4$ \u518d\u52a0\u4e0a $1$\u3002\u5f53\u76d2\u5b50\u6570\u4e3a $1$ \u65f6\u770b\u4e00\u4e0b\u5f53\u524d\u957f\u5ea6\uff0c\u5982\u679c\u521a\u597d\u7b49\u4e8e\u6700\u5927\u76d2\u5b50\u6570\u957f\u5ea6\u52a0\u4e00\uff0c\u5426\u5219\uff0c\u76f4\u63a5\u8f93\u51fa\u957f\u5ea6\u3002\n\n\u4ee3\u7801\u5982\u4e0b\uff08\u6709\u6ce8\u91ca\uff09\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nstruct name{\n\tint x,y;\n}bl[100001];\nint n,cnt1,cnt2;//cnt1\u8bb0\u5f55\u5f53\u524d\u6240\u9700\u6700\u5c0f\u957f\u5ea6\uff0ccnt2\u662f\u5f53\u524d\u957f\u5ea6\u6240\u9700\u7684\u6700\u5c0f\u76d2\u5b50\u6570\nbool cmp(name a,name b)\n{\n\treturn a.x<b.x;\n}\nint main()\n{\n\tscanf(\"%d\",&n);\n\tfor(int i=1;i<=n;i++)\n\tscanf(\"%d%d\",&bl[i].x,&bl[i].y);\n\tsort(bl+1,bl+n+1,cmp);\n\tcnt1=bl[1].x;\n\tcnt2=bl[1].y;//\u4ece\u957f\u5ea6\u6700\u5c0f\u5f00\u59cb\u679a\u4e3e\n\tfor(int i=2;i<=n;i++)\n\t{\n\t\tif(bl[i].x==cnt1)\n\t\tcnt2=cnt2+bl[i].y;\n\t\telse\n\t\t{\n\t\t\tfor(int j=1;j<=bl[i].x-cnt1;j++)\n\t\t\t{\n\t\t\t\tif(cnt2%4==0)\n\t\t\t\tcnt2=cnt2/4;//\u5982\u679c\u521a\u597d\u88ab\u88c5\u4e0b\n\t\t\t\telse\n\t\t\t\tcnt2=cnt2/4+1;//\u88c5\u4e0d\u4e0b\u5c31\u52a01\u4e2a\u76d2\u5b50\n\t\t\t\tif(cnt2==1)\n\t\t\t\tbreak;\n\t\t\t}\n\t\t\tcnt1=bl[i].x;//\u66f4\u65b0\u957f\u5ea6\n\t\t\tcnt2=max(cnt2,bl[i].y);//\u66f4\u65b0\u6700\u5c0f\u6240\u9700\u7684\u76d2\u5b50\u6570\n\t\t}\n\t}\n\twhile(1)\n\t{\n\t\tif(cnt2==1)\n\t\tbreak;\n\t\tif(cnt2%4==0)\n\t\tcnt2=cnt2/4;\n\t\telse\n\t\tcnt2=cnt2/4+1;\n\t\tcnt1++;\n\t}\n\tif(cnt1==bl[n].x)\n\tprintf(\"%d\",cnt1+1);\n\telse\n\tprintf(\"%d\",cnt1);\n}\n```\n",
+        "postTime": 1626007648,
+        "uid": 311266,
+        "name": "miraculously",
+        "ccfLevel": 0,
+        "title": "CF269A Magical Boxes"
+    },
+    {
+        "content": "\u6211\u4eec\u53ef\u4ee5\u5bf9\u6bcf\u4e2a\u4e0d\u540c\u7684 $k$ \u5206\u522b\u8003\u8651\u3002\u8bbe\u7b54\u6848\u8fb9\u957f\u4e3a $t$\uff0c\u5219\u53ef\u4ee5\u7531\u9762\u79ef\u5173\u7cfb\u5217\u51fa\u8fd9\u6837\u7684\u5f0f\u5b50\uff1a\n$$2^t\\times 2^t \\geq 2^k\\times 2^k\\times a$$\n\u5373\n$$2^{2t-2k}\\geq a$$\n\u4e8e\u662f\u6211\u4eec\u53ef\u4ee5\u627e\u5230\u6700\u5c0f\u7684 $2t-2k$\uff08\u8bbe\u4e3a $x$\uff09\uff0c\u5219 $t\\geq \\lceil x/2\\rceil+k$\u3002\n\u6ce8\u610f\u4e00\u4e2a\u76d2\u5b50\u4e0d\u80fd\u88c5\u4e0b\u548c\u5b83\u4e00\u6837\u5927\u7684\u76d2\u5b50\uff0c\u6240\u4ee5 $t\\geq k+1$\u3002\n\n\u62ff\u5230\u4e86\u6700\u4f18\u89e3\u3002\n### \u4ee3\u7801\uff1a\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main()\n{\n   int n, ans = 0;\n   ios::sync_with_stdio(0);\n   cin >> n;\n   for(int i = 0; i < n; ++i)\n   {\n      int a, b, x = 0; cin >> a >> b;\n      while((1<<x) < b) ++x;\n      ans = max(ans, max(1,(x+1)>>1)+a);\n   }\n   cout << ans << '\\n';\n   return 0;\n}\n```",
+        "postTime": 1660104156,
+        "uid": 404961,
+        "name": "baiABC",
+        "ccfLevel": 6,
+        "title": "CF269A Magical Boxes \u9898\u89e3"
+    }
+]

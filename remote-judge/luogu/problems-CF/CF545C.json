@@ -1,0 +1,17 @@
+{
+    "description": "Little Susie listens to fairy tales before bed every day. Today's fairy tale was about wood cutters and the little girl immediately started imagining the choppers cutting wood. She imagined the situation that is described below.\n\nThere are $ n $ trees located along the road at points with coordinates $ x_{1},x_{2},...,x_{n} $ . Each tree has its height $ h_{i} $ . Woodcutters can cut down a tree and fell it to the left or to the right. After that it occupies one of the segments $ [x_{i}-h_{i},x_{i}] $ or $ [x_{i};x_{i}+h_{i}] $ . The tree that is not cut down occupies a single point with coordinate $ x_{i} $ . Woodcutters can fell a tree if the segment to be occupied by the fallen tree doesn't contain any occupied point. The woodcutters want to process as many trees as possible, so Susie wonders, what is the maximum number of trees to fell.",
+    "inputFormat": "The first line contains integer $ n $ ( $ 1<=n<=10^{5} $ ) \u2014 the number of trees.\n\nNext $ n $ lines contain pairs of integers $ x_{i},h_{i} $ ( $ 1<=x_{i},h_{i}<=10^{9} $ ) \u2014 the coordinate and the height of the $ \u0456 $ -th tree.\n\nThe pairs are given in the order of ascending $ x_{i} $ . No two trees are located at the point with the same coordinate.",
+    "outputFormat": "Print a single number \u2014 the maximum number of trees that you can cut down by the given rules.",
+    "samples": [
+        [
+            "5\n1 2\n2 1\n5 10\n10 9\n19 1\n",
+            "3\n"
+        ],
+        [
+            "5\n1 2\n2 1\n5 10\n10 9\n20 1\n",
+            "4\n"
+        ]
+    ],
+    "hint": "In the first sample you can fell the trees like that:\n\n- fell the $ 1 $ -st tree to the left \u2014 now it occupies segment $ [-1;1] $\n- fell the $ 2 $ -nd tree to the right \u2014 now it occupies segment $ [2;3] $\n- leave the $ 3 $ -rd tree \u2014 it occupies point $ 5 $\n- leave the $ 4 $ -th tree \u2014 it occupies point $ 10 $\n- fell the $ 5 $ -th tree to the right \u2014 now it occupies segment $ [19;20] $\n\nIn the second sample you can also fell $ 4 $ -th tree to the right, after that it will occupy segment $ [10;19] $ .",
+    "translation": "\u7ed9 $n$ \u68f5\u6811\u5728\u4e00\u7ef4\u6570\u8f74\u4e0a\u7684\u5750\u6807 $x_i$\uff0c\u4ee5\u53ca\u5b83\u4eec\u7684\u957f\u5ea6 $h_i$\u3002\u73b0\u5728\u8981\u4f60\u780d\u5012\u8fd9\u4e9b\u6811\uff0c\u6811\u53ef\u4ee5\u5411\u5de6\u5012\u4e5f\u53ef\u4ee5\u5411\u53f3\u5012\uff0c\u780d\u5012\u7684\u6811\u4e0d\u80fd\u91cd\u5408\u3001\u5f53\u7136\u4e5f\u4e0d\u80fd\u8986\u76d6\u5176\u4ed6\u7684\u6811\u539f\u6765\u7684\u4f4d\u7f6e\uff0c\u73b0\u5728\u6c42\u6700\u5927\u53ef\u4ee5\u780d\u5012\u7684\u6811\u7684\u6570\u76ee\u3002\n\n$ 1 \\le n \\le {10}^5$\n\n$ 1 \\le x_i, h_i \\le {10}^9$"
+}

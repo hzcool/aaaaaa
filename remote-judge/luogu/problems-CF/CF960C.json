@@ -1,0 +1,17 @@
+{
+    "description": "Pikachu had an array with him. He wrote down all the non-empty subsequences of the array on paper. Note that an array of size $ n $ has $ 2^{n}-1 $ non-empty subsequences in it.\n\nPikachu being mischievous as he always is, removed all the subsequences in which Maximum\\_element\\_of\\_the\\_subsequence $ - $ Minimum\\_element\\_of\\_subsequence $ >=d $\n\nPikachu was finally left with $ X $ subsequences.\n\nHowever, he lost the initial array he had, and now is in serious trouble. He still remembers the numbers $ X $ and $ d $ . He now wants you to construct any such array which will satisfy the above conditions. All the numbers in the final array should be positive integers less than $ 10^{18} $ .\n\nNote the number of elements in the output array should not be more than $ 10^{4} $ . If no answer is possible, print $ -1 $ .",
+    "inputFormat": "The only line of input consists of two space separated integers $ X $ and $ d $ ( $ 1<=X,d<=10^{9} $ ).",
+    "outputFormat": "Output should consist of two lines.\n\nFirst line should contain a single integer $ n $ ( $ 1<=n<=10000 $ )\u2014 the number of integers in the final array.\n\nSecond line should consist of $ n $ space separated integers \u2014 $ a_{1},a_{2},...\\ ,a_{n} $ ( $ 1<=a_{i}<10^{18} $ ).\n\nIf there is no answer, print a single integer -1. If there are multiple answers, print any of them.",
+    "samples": [
+        [
+            "10 5\n",
+            "6\n5 50 7 15 6 100"
+        ],
+        [
+            "4 2\n",
+            "4\n10 100 1000 10000"
+        ]
+    ],
+    "hint": "In the output of the first example case, the remaining subsequences after removing those with Maximum\\_element\\_of\\_the\\_subsequence $ - $ Minimum\\_element\\_of\\_subsequence $ >=5 $ are $ [5],[5,7],[5,6],[5,7,6],[50],[7],[7,6],[15],[6],[100] $ . There are $ 10 $ of them. Hence, the array $ [5,50,7,15,6,100] $ is valid.\n\nSimilarly, in the output of the second example case, the remaining sub-sequences after removing those with Maximum\\_element\\_of\\_the\\_subsequence $ - $ Minimum\\_element\\_of\\_subsequence $ >=2 $ are $ [10],[100],[1000],[10000] $ . There are $ 4 $ of them. Hence, the array $ [10,100,1000,10000] $ is valid.",
+    "translation": "\u76ae\u5361\u4e18\u548c\u4ed6\u6392\u6210\u4e00\u5217\u3002\u4ed6\u5728\u7eb8\u4e0a\u5199\u4e0b\u4e86\u6570\u7ec4\u7684\u6240\u6709\u975e\u7a7a\u5b50\u5e8f\u5217\u3002\u540c\u65f6\u4ed6\u5220\u9664\u4e86\u6240\u6709\u7684\u300c\u5b50\u5e8f\u5217\u7684\u6700\u5927\u5143\u7d20-\u5b50\u5e8f\u5217\u7684\u6700\u5c0f\u5143\u7d20 $\\geq d$\u300d\u7684\u5b50\u5e8f\u5217\uff0c\u6700\u7ec8\u5269\u4e0b $X$ \u4e2a\u5b50\u5e8f\u5217\u3002\u73b0\u5728\u7ed9\u51fa $X,d$ \uff0c\u6784\u9020\u4e00\u4e2a\u5408\u6cd5\u7684\u539f\u5e8f\u5217\u3002\n\n\u8f93\u51fa\u6570\u7ec4\u4e2d\u7684\u5143\u7d20\u6570\u4e0d\u5e94\u5927\u4e8e $10^4$\uff0c\u6570\u503c\u5927\u5c0f\u4e0d\u5e94\u8d85\u8fc7 $10^{18}$ \u3002\u4fdd\u8bc1 $1\\leq X,d\\leq 10^9$ \u3002\n\ntranslated by @\u768e\u6708\u534a\u6d12\u82b1\u3002"
+}

@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u9996\u5148\u4e0d\u96be\u53d1\u73b0\u8fdb\u5236\u8f6c\u6362\u540e\u7684\u6570\u6709\u663e\u7136\u7684\u5355\u8c03\u6027\u3002\n\n\u5982\u679c $ \\left| X \\right|=1 $\uff0c\u5219\u5206\u7c7b\u8ba8\u8bba\u5373\u53ef\uff0c\u7b54\u6848\u603b\u4e3a $ 0 $ \u6216 $ 1 $\u3002\n\n\u6240\u4ee5\u8003\u8651\u6734\u7d20\u4e8c\u5206\uff0c\u6bcf\u6b21\u4e8c\u5206\u7684\u65f6\u5019\u5224\u65ad\u8fdb\u5236\u8f6c\u5316\u540e\u7684\u7b54\u6848\u662f\u5426\u6ee1\u8db3\u6761\u4ef6\u5373\u53ef\u3002\u7531\u4e8e $ X $ \u662f $ 10 $ \u8fdb\u5236\u6570\uff0c\u6240\u4ee5\u7b54\u6848\u6700\u5927\u4e3a $ M $\uff0c\u6ce8\u610f\u8ba1\u7b97\u65f6\u53ef\u80fd\u4f1a\u6ea2\u51fa\u3002\n\n\u65f6\u95f4\u590d\u6742\u5ea6\u663e\u7136\u4e3a $ \\mathcal{O}(\\left| X \\right| \\times \\log{M}) $\uff0c\u6765\u6e90\u4e8e\u4e8c\u5206\u7684\u65f6\u95f4\u590d\u6742\u5ea6\u548c\u6bcf\u6b21\u68c0\u67e5\u7b54\u6848\u90fd\u9700\u8981\u904d\u5386\u6570\u7ec4\u3002\n\n\u636e\u8bf4\u6709\u4e25\u683c $ \\mathcal{O}(\\log{M}) $ \u7684\u505a\u6cd5\uff0c\u4e0d\u8fc7\u5bf9\u4e8e\u672c\u9898\u800c\u8a00\u4e0d\u662f\u5fc5\u8981\u7684\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#import<bits/stdc++.h>\nusing namespace std;\n#define ll long long\nint main() \n{\n    string X;\n    ll M;\n    cin>>X>>M;\n    if(X.size()==1) \n    {\n        if(stoi(X)<=M) \n        cout<<1;\n        else \n        cout<<0;\n        return 0;\n    }\n    int d=0;\n    for(auto c:X) \n    d=max(d,c-'0');\n    ll left=d;\n    ll right=M+1;\n    while(right-left>1) \n    {\n        ll mid=(left+right)>>1;\n        ll v=0;\n        for(auto c:X) \n        {\n            if(v>M/mid) \n            v=M+1;\n            else \n            v=v*mid+c-'0';\n        }\n        if(v<=M) \n        left=mid;\n        else\n        right=mid;\n    }\n    cout<<left-d;\n}\n```\n",
+        "postTime": 1671772005,
+        "uid": 714821,
+        "name": "loser_seele",
+        "ccfLevel": 4,
+        "title": "ABC192D\u9898\u89e3"
+    }
+]

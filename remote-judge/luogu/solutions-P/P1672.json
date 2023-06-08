@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u5206\u6790\uff1a\n\n\u7531\u4e8e $D$ \u4e0d\u5927\uff0c\u6240\u4ee5\u8003\u8651\u6c42\u51fa\u6bcf\u5929\u5403\u6389\u591a\u5c11\u9972\u6599\u3002\n\n\u5bf9\u4e8e\u6bcf\u4e00\u5934\u725b\uff0c\u8bbe\u5b83\u6765\u5230\u4ed3\u5e93\u7684\u65f6\u95f4\u662f $l$\uff0c\u79bb\u5f00\u4ed3\u5e93\u7684\u65f6\u95f4\u662f $r$\u3002\n\n\u8fd9\u5934\u725b\u7684\u8d21\u732e\u76f8\u5f53\u4e8e\u533a\u95f4 $[l,r]$ \u5185\u7684\u6bcf\u4e2a\u5143\u7d20\u90fd\u52a0 $1$\u3002\n\n\u8fd9\u4e2a\u95ee\u9898\u53ef\u4ee5\u7528\u5dee\u5206\u5b9e\u73b0\uff0c\u5373 $sum_l$ \u52a0 $1$\uff0c$sum_{r+1}$ \u51cf $1$\u3002\n\n\u8fd9\u6837\u6211\u4eec\u5c31\u6c42\u51fa\u4e86\u6bcf\u5929\u5403\u6389\u4e86\u591a\u5c11\u9972\u6599\u3002\n\n\u7136\u540e\u6211\u4eec\u4ece $D$ \u5f00\u59cb\u5f80\u4e0b\u679a\u4e3e\uff0c\u6bcf\u6b21\u51cf\u53bb\u5f53\u5929\u5403\u6389\u7684\u9972\u6599\u6570\u3002\u5f53\u51cf\u53bb\u7684\u6240\u6709\u6570\u7684\u548c\u7b49\u4e8e $F1 - F2$ \u65f6\uff0c\u8bf4\u660e\u8fd9\u5929\u7684\u9972\u6599\u6709 $F1$ \u5343\u514b\u3002\n\ncode\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n\nconst int maxn=1e5+10;\nint sum[maxn];\n\nint main(){\n\tint n,f1,f2,d;\n\tscanf(\"%d%d%d%d\",&n,&f1,&f2,&d);\n\t\n\tfor (int i=1;i<=n;i++){\n\t\tint l,r;\n\t\tscanf(\"%d%d\",&l,&r);\n\t\t\n\t\tsum[l]++; sum[r+1]--;\n\t}\n\t\n\tfor (int i=1;i<=d;i++) sum[i]+=sum[i-1];\n\t\n\tint num=f1-f2;\n\tfor (int i=d;i>=1;i--){\n\t\tnum-=sum[i];\n\t\tif (num==0){\n\t\t\tprintf(\"%d\",i);\n\t\t\treturn 0;\n\t\t}\n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1683298160,
+        "uid": 546301,
+        "name": "past_tense",
+        "ccfLevel": 0,
+        "title": "P1672 \u9898\u89e3"
+    }
+]

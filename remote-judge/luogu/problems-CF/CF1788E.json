@@ -1,0 +1,21 @@
+{
+    "description": "You are given an array $ a_1, a_2, \\ldots, a_n $ of $ n $ integers. Consider $ S $ as a set of segments satisfying the following conditions.\n\n- Each element of $ S $ should be in form $ [x, y] $ , where $ x $ and $ y $ are integers between $ 1 $ and $ n $ , inclusive, and $ x \\leq y $ .\n- No two segments in $ S $ intersect with each other. Two segments $ [a, b] $ and $ [c, d] $ intersect if and only if there exists an integer $ x $ such that $ a \\leq x \\leq b $ and $ c \\leq x \\leq d $ .\n- For each $ [x, y] $ in $ S $ , $ a_x+a_{x+1}+ \\ldots +a_y \\geq 0 $ .\n\nThe length of the segment $ [x, y] $ is defined as $ y-x+1 $ . $ f(S) $ is defined as the sum of the lengths of every element in $ S $ . In a formal way, $ f(S) = \\sum_{[x, y] \\in S} (y - x + 1) $ . Note that if $ S $ is empty, $ f(S) $ is $ 0 $ .\n\nWhat is the maximum $ f(S) $ among all possible $ S $ ?",
+    "inputFormat": "The first line contains one integer $ n $ ( $ 1 \\leq n \\leq 2 \\cdot 10^5 $ ).\n\nThe next line is followed by $ n $ integers $ a_1, a_2, \\ldots, a_n $ ( $ -10^9 \\leq a_i \\leq 10^9 $ ).",
+    "outputFormat": "Print a single integer, the maximum $ f(S) $ among every possible $ S $ .",
+    "samples": [
+        [
+            "5\n3 -3 -2 5 -4",
+            "4"
+        ],
+        [
+            "10\n5 -2 -4 -6 2 3 -6 5 3 -2",
+            "9"
+        ],
+        [
+            "4\n-1 -2 -3 -4",
+            "0"
+        ]
+    ],
+    "hint": "In the first example, $ S=\\{[1, 2], [4, 5]\\} $ can be a possible $ S $ because $ a_1+a_2=0 $ and $ a_4+a_5=1 $ . $ S=\\{[1, 4]\\} $ can also be a possible solution.\n\nSince there does not exist any $ S $ that satisfies $ f(S) > 4 $ , the answer is $ 4 $ .\n\nIn the second example, $ S=\\{[1, 9]\\} $ is the only set that satisfies $ f(S)=9 $ . Since every possible $ S $ satisfies $ f(S) \\leq 9 $ , the answer is $ 9 $ .\n\nIn the third example, $ S $ can only be an empty set, so the answer is $ 0 $ .",
+    "translation": "\u7ed9\u4f60\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u5e8f\u5217 $a_1,a_2 ... a_{n-1},a_n$\uff0c\u73b0\u5728\u8bf7\u4f60\u627e\u5230\u8fd9\u4e2a\u5e8f\u5217\u7684\u82e5\u5e72\u4e2a**\u4e0d\u76f8\u4ea4\u7684\u5408\u6cd5\u5b50\u6bb5**\u3002     \n\u5bf9\u4e8e\u4f60\u9009\u62e9\u7684\u4e00\u4e2a\u5b50\u6bb5 $[x,y]$\uff0c\u5176\u4e3a\u4e00\u4e2a\u5408\u6cd5\u5b50\u6bb5\u5f53\u4e14\u4ec5\u5f53 $\\sum^{i\\leq y}_{i=x} a_i \\geq 0$\uff0c\u5373\u5b50\u6bb5\u7684\u533a\u95f4\u548c\u975e\u8d1f\u3002     \n\u5bf9\u4e8e\u4e00\u4e2a\u5408\u6cd5\u7684\u5b50\u6bb5 $S=[x,y]$\uff0c\u6211\u4eec\u8bb0 $f(S)=(y-x+1)$\uff0c\u4e14\u5f53\u5b50\u6bb5 $S$ \u4e3a\u7a7a\u65f6\uff0c $f(S)=0$\u3002   \n\u5bf9\u4e8e\u4f60\u9009\u62e9\u7684\u8fd9\u82e5\u5e72\u4e2a**\u4e0d\u76f8\u4ea4\u5408\u6cd5\u5b50\u6bb5**\uff0c\u8bf7\u6700\u5927\u5316$\\sum_S f(S)$\u5e76\u8f93\u51fa\u8fd9\u4e2a\u6700\u5927\u503c"
+}

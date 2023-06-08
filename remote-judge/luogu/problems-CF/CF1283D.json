@@ -1,0 +1,17 @@
+{
+    "description": "There are $ n $ Christmas trees on an infinite number line. The $ i $ -th tree grows at the position $ x_i $ . All $ x_i $ are guaranteed to be distinct.\n\nEach integer point can be either occupied by the Christmas tree, by the human or not occupied at all. Non-integer points cannot be occupied by anything.\n\nThere are $ m $ people who want to celebrate Christmas. Let $ y_1, y_2, \\dots, y_m $ be the positions of people (note that all values $ x_1, x_2, \\dots, x_n, y_1, y_2, \\dots, y_m $ should be distinct and all $ y_j $ should be integer). You want to find such an arrangement of people that the value $ \\sum\\limits_{j=1}^{m}\\min\\limits_{i=1}^{n}|x_i - y_j| $ is the minimum possible (in other words, the sum of distances to the nearest Christmas tree for all people should be minimized).\n\nIn other words, let $ d_j $ be the distance from the $ j $ -th human to the nearest Christmas tree ( $ d_j = \\min\\limits_{i=1}^{n} |y_j - x_i| $ ). Then you need to choose such positions $ y_1, y_2, \\dots, y_m $ that $ \\sum\\limits_{j=1}^{m} d_j $ is the minimum possible.",
+    "inputFormat": "The first line of the input contains two integers $ n $ and $ m $ ( $ 1 \\le n, m \\le 2 \\cdot 10^5 $ ) \u2014 the number of Christmas trees and the number of people.\n\nThe second line of the input contains $ n $ integers $ x_1, x_2, \\dots, x_n $ ( $ -10^9 \\le x_i \\le 10^9 $ ), where $ x_i $ is the position of the $ i $ -th Christmas tree. It is guaranteed that all $ x_i $ are distinct.",
+    "outputFormat": "In the first line print one integer $ res $ \u2014 the minimum possible value of $ \\sum\\limits_{j=1}^{m}\\min\\limits_{i=1}^{n}|x_i - y_j| $ (in other words, the sum of distances to the nearest Christmas tree for all people).\n\nIn the second line print $ m $ integers $ y_1, y_2, \\dots, y_m $ ( $ -2 \\cdot 10^9 \\le y_j \\le 2 \\cdot 10^9 $ ), where $ y_j $ is the position of the $ j $ -th human. All $ y_j $ should be distinct and all values $ x_1, x_2, \\dots, x_n, y_1, y_2, \\dots, y_m $ should be distinct.\n\nIf there are multiple answers, print any of them.",
+    "samples": [
+        [
+            "2 6\n1 5\n",
+            "8\n-1 2 6 4 0 3 \n"
+        ],
+        [
+            "3 5\n0 3 1\n",
+            "7\n5 -2 4 -1 2 \n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u6709 $n$ \u68f5\u5723\u8bde\u6811\u548c $m$ \u4e2a\u4eba\uff0c\u7b2c $i$ \u68f5\u5723\u8bde\u6811\u6240\u5728\u7684\u4f4d\u7f6e\u662f $a_i$ \uff0c\u4ee4 $d(x)$ \u8868\u793a\u7b2c $x$ \u4e2a\u4eba\u5230\u79bb\u4ed6\u6700\u8fd1\u7684\u5723\u8bde\u6811\u7684\u8ddd\u79bb\uff0c\u73b0\u5728\u9700\u8981\u4f60\u7ed9\u6bcf\u4e2a\u4eba\u5b89\u6392\u4e00\u4e2a\u4f4d\u7f6e\uff0c\u4f7f\u5f97 $\\sum\\limits_{i=1}^m d(i)$ \u6700\u5c0f\uff0c\u5e76\u8f93\u51fa\u8fd9\u4e2a\u503c\u4ee5\u53ca\u6bcf\u4e2a\u4eba\u7684\u4f4d\u7f6e\n\n\u6ce8\u610f\u4efb\u4f55\u4f4d\u7f6e\u6700\u591a\u53ea\u80fd\u6709\u4e00\u4e2a\u4eba\u6216\u8005\u5723\u8bde\u6811"
+}

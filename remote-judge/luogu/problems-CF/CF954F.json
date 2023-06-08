@@ -1,0 +1,13 @@
+{
+    "description": "You are running through a rectangular field. This field can be represented as a matrix with $ 3 $ rows and $ m $ columns. $ (i,j) $ denotes a cell belonging to $ i $ -th row and $ j $ -th column.\n\nYou start in $ (2,1) $ and have to end your path in $ (2,m) $ . From the cell $ (i,j) $ you may advance to:\n\n- $ (i-1,j+1) $ \u2014 only if $ i&gt;1 $ ,\n- $ (i,j+1) $ , or\n- $ (i+1,j+1) $ \u2014 only if $ i&lt;3 $ .\n\nHowever, there are $ n $ obstacles blocking your path. $ k $ -th obstacle is denoted by three integers $ a_{k} $ , $ l_{k} $ and $ r_{k} $ , and it forbids entering any cell $ (a_{k},j) $ such that $ l_{k}<=j<=r_{k} $ .\n\nYou have to calculate the number of different paths from $ (2,1) $ to $ (2,m) $ , and print it modulo $ 10^{9}+7 $ .",
+    "inputFormat": "The first line contains two integers $ n $ and $ m $ ( $ 1<=n<=10^{4} $ , $ 3<=m<=10^{18} $ ) \u2014 the number of obstacles and the number of columns in the matrix, respectively.\n\nThen $ n $ lines follow, each containing three integers $ a_{k} $ , $ l_{k} $ and $ r_{k} $ ( $ 1<=a_{k}<=3 $ , $ 2<=l_{k}<=r_{k}<=m-1 $ ) denoting an obstacle blocking every cell $ (a_{k},j) $ such that $ l_{k}<=j<=r_{k} $ . Some cells may be blocked by multiple obstacles.",
+    "outputFormat": "Print the number of different paths from $ (2,1) $ to $ (2,m) $ , taken modulo $ 10^{9}+7 $ . If it is impossible to get from $ (2,1) $ to $ (2,m) $ , then the number of paths is $ 0 $ .",
+    "samples": [
+        [
+            "2 5\n1 3 4\n2 2 3\n",
+            "2\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u6709\u4e00\u4e2a $3 \\times m$ \u7684\u7530\u91ce\uff0c\u4e00\u5f00\u59cb\u4f60\u5728 $(2, 1)$ \u4f4d\u7f6e\u3002\n\n\u5982\u679c\u4f60\u5728 $(i,j)$ \u4f4d\u7f6e\uff0c\u5728\u4e0d\u51fa\u754c\u7684\u524d\u63d0\u4e0b\uff0c\u53ef\u4ee5\u8d70\u5230 $(i,j+1),(i\\pm 1,j+1)$\u3002\n\n\u6709 $n$ \u6bb5\u969c\u788d\uff0c\u969c\u788d\u4e0d\u80fd\u8d70\u3002\u6bcf\u6bb5\u969c\u788d\u90fd\u6709 $3$ \u4e2a\u53c2\u6570 $a_i,l_i,r_i$\uff0c\u8868\u793a\u8fd9\u6bb5\u969c\u788d\u5728\u7b2c $a_i$ \u884c\uff0c\u4e14\u5de6\u53f3\u7aef\u70b9\u5206\u522b\u4e3a $l_i$ \u548c $r_i$\u3002\u5177\u4f53\u5730\uff0c\u5bf9\u4e8e\u6240\u6709\u7684 $l_i \\le j \\le r_i$\uff0c\u7530\u91ce\u7684 $(a_i, j)$ \u4e0a\u6709\u969c\u788d\u3002\n\n\u8be2\u95ee\u4ece $(2, 1)$ \u5230\u8fbe $(2, m)$ \u7684\u65b9\u6848\u6570\uff0c\u7b54\u6848\u5bf9 $10^9 + 7$ \u53d6\u6a21\u3002"
+}

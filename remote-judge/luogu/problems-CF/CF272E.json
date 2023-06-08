@@ -1,0 +1,21 @@
+{
+    "description": "Dima came to the horse land. There are $ n $ horses living in the land. Each horse in the horse land has several enemies (enmity is a symmetric relationship). The horse land isn't very hostile, so the number of enemies of each horse is at most 3.\n\nRight now the horse land is going through an election campaign. So the horses trusted Dima to split them into two parts. At that the horses want the following condition to hold: a horse shouldn't have more than one enemy in its party.\n\nHelp Dima split the horses into parties. Note that one of the parties can turn out to be empty.",
+    "inputFormat": "The first line contains two integers $ n,m $ ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF272E/dac9c4b7533b005d45a40124a615b184d0f4824d.png) \u2014 the number of horses in the horse land and the number of enemy pairs.\n\nNext $ m $ lines define the enemy pairs. The $ i $ -th line contains integers $ a_{i},b_{i} $ $ (1<=a_{i},b_{i}<=n;\u00a0a_{i}\u2260b_{i}) $ , which mean that horse $ a_{i} $ is the enemy of horse $ b_{i} $ .\n\nConsider the horses indexed in some way from 1 to $ n $ . It is guaranteed that each horse has at most three enemies. No pair of enemies occurs more than once in the input.",
+    "outputFormat": "Print a line, consisting of $ n $ characters: the $ i $ -th character of the line must equal \"0\", if the horse number $ i $ needs to go to the first party, otherwise this character should equal \"1\".\n\nIf there isn't a way to divide the horses as required, print -1.",
+    "samples": [
+        [
+            "3 3\n1 2\n3 2\n3 1\n",
+            "100\n"
+        ],
+        [
+            "2 1\n2 1\n",
+            "00\n"
+        ],
+        [
+            "10 6\n1 2\n1 3\n1 4\n2 3\n2 4\n3 4\n",
+            "0110000000\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9\u5b9a $n$ \u4e2a\u70b9\u548c $m$ \u6761\u53cc\u5411\u8fb9\uff0c\u6bcf\u4e2a\u70b9\u6700\u591a\u6709 $3$ \u4e2a\u70b9\u4e0e\u5b83\u76f4\u63a5\u8fde\u63a5\uff0c\u5c06\u56fe\u5206\u6210\u4e24\u4e2a\u90e8\u5206\uff0c\u4fdd\u8bc1\u4e00\u4e2a\u90e8\u5206\u4e2d\u7684\u6bcf\u4e2a\u70b9\u5728\u6b64\u90e8\u5206\u4e2d\u4e0d\u5b58\u5728 $2$ \u4e2a\u53ca\u4ee5\u4e0a\u7684\u70b9\u4e0e\u5b83\u76f4\u63a5\u8fde\u63a5\u3002\u5982\u679c\u65e0\u89e3\u8f93\u51fa $-1$\uff0c\u5426\u5219\u8f93\u51fa\u5212\u5206\u65b9\u6848\uff0c\u5212\u5206\u5728\u7b2c\u4e00\u90e8\u5206\u8f93\u51fa $0$\uff0c\u5212\u5206\u5728\u7b2c\u4e8c\u90e8\u5206\u8f93\u51fa $1$\uff0c\u4e0d\u52a0\u7a7a\u683c\u3002"
+}

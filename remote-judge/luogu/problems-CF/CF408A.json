@@ -1,0 +1,17 @@
+{
+    "description": "Little Vasya went to the supermarket to get some groceries. He walked about the supermarket for a long time and got a basket full of products. Now he needs to choose the cashier to pay for the products.\n\nThere are $ n $ cashiers at the exit from the supermarket. At the moment the queue for the $ i $ -th cashier already has $ k_{i} $ people. The $ j $ -th person standing in the queue to the $ i $ -th cashier has $ m_{i,j} $ items in the basket. Vasya knows that:\n\n- the cashier needs 5 seconds to scan one item;\n- after the cashier scans each item of some customer, he needs 15 seconds to take the customer's money and give him the change.\n\nOf course, Vasya wants to select a queue so that he can leave the supermarket as soon as possible. Help him write a program that displays the minimum number of seconds after which Vasya can get to one of the cashiers.",
+    "inputFormat": "The first line contains integer $ n $ ( $ 1<=n<=100 $ ) \u2014 the number of cashes in the shop. The second line contains $ n $ space-separated integers: $ k_{1},k_{2},...,k_{n} $ ( $ 1<=k_{i}<=100 $ ), where $ k_{i} $ is the number of people in the queue to the $ i $ -th cashier.\n\nThe $ i $ -th of the next $ n $ lines contains $ k_{i} $ space-separated integers: $ m_{i,1},m_{i,2},...,m_{i,ki} $ ( $ 1<=m_{i,j}<=100 $ ) \u2014 the number of products the $ j $ -th person in the queue for the $ i $ -th cash has.",
+    "outputFormat": "Print a single integer \u2014 the minimum number of seconds Vasya needs to get to the cashier.",
+    "samples": [
+        [
+            "1\n1\n1\n",
+            "20\n"
+        ],
+        [
+            "4\n1 4 3 2\n100\n1 2 2 3\n1 9 1\n7 8\n",
+            "100\n"
+        ]
+    ],
+    "hint": "In the second test sample, if Vasya goes to the first queue, he gets to the cashier in $ 100\u00b75+15=515 $ seconds. But if he chooses the second queue, he will need $ 1\u00b75+2\u00b75+2\u00b75+3\u00b75+4\u00b715=100 $ seconds. He will need $ 1\u00b75+9\u00b75+1\u00b75+3\u00b715=100 $ seconds for the third one and $ 7\u00b75+8\u00b75+2\u00b715=105 $ seconds for the fourth one. Thus, Vasya gets to the cashier quicker if he chooses the second or the third queue.",
+    "translation": "\u8d85\u5e02\u51fa\u53e3\u6709 $n$ \u4e2a\u6536\u94f6\u5458\uff0c\u7b2c $i$ \u4e2a\u6536\u94f6\u5458\u7684\u961f\u5217\u4e2d\u4e00\u5171\u6392\u4e86 $k_i$ \u4e2a\u987e\u5ba2\uff0c\u5176\u4e2d\u7b2c $i$ \u4e2a\u6536\u94f6\u5458\u7684\u7b2c $j$ \u4e2a\u987e\u5ba2\u8d2d\u4e70\u4e86 $m_{i,j}$ \u4ef6\u5546\u54c1\u3002\u7ed3\u8d26\u6d41\u7a0b\u662f\uff1a\n\n- \u6bcf\u4ef6\u5546\u54c1\u9700\u8981\u82b1 $5$ \u79d2\u949f\u626b\u63cf\uff1b\n- \u626b\u63cf\u5b8c\u67d0\u4f4d\u987e\u5ba2\u7684\u5168\u90e8\u5546\u54c1\u540e\uff0c\u9700\u8981\u82b1 $15$ \u79d2\u949f\u6765\u4ed8\u6b3e\u548c\u627e\u96f6\u3002\n\n\u73b0\u5728\u53ef\u4ee5\u4efb\u9009\u4e00\u4e2a\u961f\u5217\u53bb\u6392\u961f\uff0c\u8f93\u51fa\u6700\u5c11\u9700\u8981\u591a\u5c11\u79d2\u624d\u80fd\u5230\u8fbe\u6536\u94f6\u5458\u9762\u524d\u3002"
+}

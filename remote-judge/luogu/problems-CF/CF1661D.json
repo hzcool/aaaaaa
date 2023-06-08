@@ -1,0 +1,25 @@
+{
+    "description": "You are given two arrays: an array $ a $ consisting of $ n $ zeros and an array $ b $ consisting of $ n $ integers.\n\nYou can apply the following operation to the array $ a $ an arbitrary number of times: choose some subsegment of $ a $ of length $ k $ and add the arithmetic progression $ 1, 2, \\ldots, k $ to this subsegment \u2014 i. e. add $ 1 $ to the first element of the subsegment, $ 2 $ to the second element, and so on. The chosen subsegment should be inside the borders of the array $ a $ (i.e., if the left border of the chosen subsegment is $ l $ , then the condition $ 1 \\le l \\le l + k - 1 \\le n $ should be satisfied). Note that the progression added is always $ 1, 2, \\ldots, k $ but not the $ k, k - 1, \\ldots, 1 $ or anything else (i.e., the leftmost element of the subsegment always increases by $ 1 $ , the second element always increases by $ 2 $ and so on).\n\nYour task is to find the minimum possible number of operations required to satisfy the condition $ a_i \\ge b_i $ for each $ i $ from $ 1 $ to $ n $ . Note that the condition $ a_i \\ge b_i $ should be satisfied for all elements at once.",
+    "inputFormat": "The first line of the input contains two integers $ n $ and $ k $ ( $ 1 \\le k \\le n \\le 3 \\cdot 10^5 $ ) \u2014 the number of elements in both arrays and the length of the subsegment, respectively.\n\nThe second line of the input contains $ n $ integers $ b_1, b_2, \\ldots, b_n $ ( $ 1 \\le b_i \\le 10^{12} $ ), where $ b_i $ is the $ i $ -th element of the array $ b $ .",
+    "outputFormat": "Print one integer \u2014 the minimum possible number of operations required to satisfy the condition $ a_i \\ge b_i $ for each $ i $ from $ 1 $ to $ n $ .",
+    "samples": [
+        [
+            "3 3\n5 4 6",
+            "5"
+        ],
+        [
+            "6 3\n1 2 3 2 2 3",
+            "3"
+        ],
+        [
+            "6 3\n1 2 4 1 2 3",
+            "3"
+        ],
+        [
+            "7 3\n50 17 81 25 42 39 96",
+            "92"
+        ]
+    ],
+    "hint": "Consider the first example. In this test, we don't really have any choice, so we need to add at least five progressions to make the first element equals $ 5 $ . The array $ a $ becomes $ [5, 10, 15] $ .\n\nConsider the second example. In this test, let's add one progression on the segment $ [1; 3] $ and two progressions on the segment $ [4; 6] $ . Then, the array $ a $ becomes $ [1, 2, 3, 2, 4, 6] $ .",
+    "translation": "## \u9898\u76ee\u63cf\u8ff0\n\n\u4f60\u6709\u4e24\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u6570\u7ec4 $a$\uff0c$b$\u3002\n\n$a$ \u6570\u7ec4\u521d\u59cb\u4e3a $0$\u3002\u4f60\u6bcf\u6b21\u53ef\u4ee5\u6267\u884c\u4e00\u4e2a\u64cd\u4f5c\uff0c\u9009\u5b9a\u4e00\u6bb5\u957f\u5ea6\u4e3a $k$ \u7684\u533a\u95f4\uff08\u8bbe\u533a\u95f4\u5de6\u7aef\u70b9\u4e3a $l$\uff0c\u5219\u6709 $1\\leq l\\leq l+k\u22121 \\leq n$ \uff09\uff0c\u628a\u7b2c\u4e00\u4e2a\u5143\u7d20\u52a0 $1$\uff0c\u7b2c\u4e8c\u4e2a\u5143\u7d20\u52a0 $2$\uff0c\u4ee5\u6b64\u7c7b\u63a8\u3002\n\n\u7ed9\u5b9a $n$\uff0c$k$ \u4e0e $b$\uff0c\u6c42\u4ee4 $\\forall i \\in [1, n]$\uff0c\u6ee1\u8db3 $a_i \\ge b_i$ \u7684\u6700\u5c0f\u64cd\u4f5c\u6570\u3002"
+}

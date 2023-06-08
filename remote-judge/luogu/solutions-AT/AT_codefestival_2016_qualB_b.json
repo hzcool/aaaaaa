@@ -1,0 +1,26 @@
+[
+    {
+        "content": "[\u9898\u9762](https://www.luogu.com.cn/problem/AT2080)\n\n\u672c\u9898\u53ea\u662f\u4e00\u4e2a\u6a21\u62df\u9898\u800c\u5df2\uff0c\u4ece\u524d\u5f80\u540e\u904d\u5386\u6574\u4e2a\u9009\u624b\u6570\u7ec4\uff0c\u6309\u9898\u76ee\u8981\u6c42\u5224\u65ad\u5c31\u884c\u4e86\u3002\n\n\u6211\u4eec\u8bbe $a$ \u8868\u793a\u5df2\u5165\u9009\u7684 $a$ \u7c7b\u9009\u624b\u6570\uff0c$b$ \u8868\u793a\u5df2\u5165\u9009\u7684 $b$ \u7c7b\u9009\u624b\u6570\u3002\n\n\u90a3\u4e48\uff0c\u5bf9\u4e8e\u6bcf\u4e00\u4e2a\u9009\u624b\uff1a\n\n- \u5982\u679c\u662f $a$ \u7c7b\uff0c\u53ea\u8981\u6ee1\u8db3 $a+b<A+B$\uff0c\u5c31\u5c06 $a$ \u52a0 1\uff0c\u5728\u8f93\u51fa `Yes`\uff0c\u5426\u5219\u8f93\u51fa  `No`\u3002\n\n- \u5982\u679c\u662f $b$ \u7c7b\uff0c\u53ea\u8981\u6ee1\u8db3 $a+b<A+B$ \u4e14 $b<B$\uff08\u6392\u540d\u5728 $b$ \u7c7b $B$ \u4f4d\u4ee5\u5185\uff09\uff0c\u5c31\u5c06 $b$ \u52a0 1\uff0c\u5728\u8f93\u51fa `Yes`\uff0c\u5426\u5219\u8f93\u51fa `No`\u3002\n\n- \u5982\u679c\u662f $c$ \u7c7b\uff0c\u76f4\u63a5\u8f93\u51fa `No`\u3002\n\n\u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,a,b,A,B;\nchar c[100005];//\u9009\u624b\u6570\u7ec4\nint main(){\n\tscanf(\"%d%d%d\",&n,&A,&B);//\u8bfb\u5165\n\tscanf(\"%s\",c+1);\n\tfor(int i=1;i<=n;i++){\n\t\tif(c[i]=='a'){//\u6309\u8981\u6c42\u5224\u65ad\n\t\t\tif(a+b<A+B)printf(\"Yes\\n\"),a++;\n\t\t\telse printf(\"No\\n\");\n\t\t}\n\t\telse if(c[i]=='b'){\n\t\t\tif(a+b<A+B&&b<B)printf(\"Yes\\n\"),b++;\n\t\t\telse printf(\"No\\n\");\n\t\t}\n\t\telse printf(\"No\\n\");\n\t} \n\treturn 0;\n}\n```",
+        "postTime": 1641276061,
+        "uid": 428358,
+        "name": "cqbztzl",
+        "ccfLevel": 5,
+        "title": "AT2080\u9898\u89e3"
+    },
+    {
+        "content": "### \u601d\u8def\uff1a\u5efa\u4e24\u4e2a\u53d8\u91cf\uff0c\u8bb0\u5f55a\u7c7b\u548cb\u7c7b\u901a\u8fc7\u6570\u5373\u53ef\n\ncode:\n```\n#include<bits/stdc++.h>\nusing namespace std;\n\nint n,a,b,asum=0,bsum=0;\nchar x;\n\nint main(){\n\tscanf(\"%d%d%d\",&n,&a,&b);\n\tfor(int rp=1;rp<=n;++rp){\n\t\tcin>>x;\n\t\tif(x=='c'){\n\t\t\tprintf(\"No\\n\");//c\u7c7b\u76f4\u63a5\u8df3\u8fc7\n\t\t\tcontinue;\n\t\t}\n\t\tif(x=='a'){\n\t\t\tif(asum+bsum<a+b){//a\u7c7b\u5224\u65ad\u8fd8\u6709\u540d\u989d\n\t\t\t\tprintf(\"Yes\\n\");\n\t\t\t\tasum++;//\u8ba1\u6570\u5668\u589e\u52a0\n\t\t\t\tcontinue;\n\t\t\t}else{\n\t\t\t\tprintf(\"No\\n\");\n\t\t\t\tcontinue;\n\t\t\t}\n\t\t}\n\t\tif(x=='b'){\n\t\t\tif(asum+bsum<a+b&&bsum<b){//b\u7c7b\u5224\u65ad\u8fd8\u6709\u540d\u989d\n\t\t\t\tprintf(\"Yes\\n\");\n\t\t\t\tbsum++;//\u8ba1\u6570\u5668\u589e\u52a0\n\t\t\t\tcontinue;\n\t\t\t}else {\n\t\t\t\tprintf(\"No\\n\");\n\t\t\t\tcontinue;\n\t\t\t}\n\t\t}\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1608034012,
+        "uid": 250123,
+        "name": "Lycoris_Walnut",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT2080 \u3010Qualification simulator\u3011"
+    },
+    {
+        "content": "\u672c\u9898\u9898\u76ee\u6709\u4e9b\u7e41\u7410\uff0c\u6211\u4eec\u53ef\u4ee5\u5c06\u9898\u76ee\u7406\u89e3\u4e3a\u901a\u8fc7\u9884\u9009\u7684\u4eba\u5c0f\u4e8e A+B \u4eba\uff0ca \u7c7b\u5c31\u901a\u8fc7\u9884\u9009\uff1b\u901a\u8fc7\u9884\u9009\u7684\u4eba\u5c0f\u4e8e A+B \u4eba\u4e14\u901a\u8fc7\u9884\u9009\u7684 b \u7c7b\u4eba\u5c0f\u4e8e B \u4eba\uff0c\u9700\u8981\u6ce8\u610f\u7684\u662f\u5c0f\u4e8e\u4e0d\u80fd\u5199\u6210\u5c0f\u4e8e\u7b49\u4e8e\u3002\n\n\u6211\u4eec\u53ef\u4ee5\u7528\u4e00\u4e2a\u5faa\u73af\u9010\u4e2a\u5224\u65ad a \u7c7b\u4e0e b \u7c7b\u7684\u4eba\u662f\u5426\u6ee1\u8db3\u9898\u76ee\u4e2d\u6240\u8bf4\u7684\u6761\u4ef6\uff0c\u5982\u679c\u6ee1\u8db3\uff0c\u8f93\u51fa \"Yes\"\uff0c\u76f4\u63a5\u4e0b\u4e00\u4e2a\u5faa\u73af\uff0c\u5982\u679c\u6267\u884c\u5230\u4e86\u5faa\u73af\u7684\u672b\u5c3e\uff0c\u5c31\u8868\u660e\u8fd9\u4eba\u4e0d\u7b26\u5408\u901a\u8fc7\u6761\u4ef6\uff0c\u76f4\u63a5\u8f93\u51fa \"No\" \u3002\n\n\u672c\u9898\u5176\u5b9e\u633a\u5751\u7684\uff0c\"Yes\" \u548c \"No\" \u7684\u5927\u5c0f\u5199\u5751\u6211\u7ea2\u4e00\u7247\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n    static int n,a,b;\n    cin>>n>>a>>b;\n    string s;\n    cin>>s;\n    int pass=0,bpass=0;//pass\u662f\u901a\u8fc7\u7684\uff0cbpass\u662f\u901a\u8fc7\u7684b\u7c7b \n    for(int i=0;i<s.length();i++)\n    {\n    \tif(s[i]=='a')\n    \t{\n    \t\tif(pass<a+b)//\u901a\u8fc7\u7684\u8fd8\u5c0f\u4e8ea+b\uff0c\u8868\u660e\u52a0\u4e0a\u8be5\u4eba\u5c31\u4e0d\u80fd\u518d\u901a\u8fc7\u4e86 \n    \t\t{\n    \t\t\tcout<<\"Yes\\n\";\n    \t\t\tpass++;\n    \t\t\tcontinue;//\u76f4\u63a5\u4e0b\u4e00\u4e2a\u5faa\u73af \n\t\t\t}\n\t\t}\n\t\tif(s[i]=='b')\n\t\t{\n\t\t\tif(pass<a+b&&bpass<b)//\u540c\u4e0a \n\t\t\t{\n\t\t\t\tcout<<\"Yes\\n\";\n\t\t\t\tpass++,bpass++;//pass\u52a0\u4e00\u7684\u540c\u65f6bpass\u4e5f\u8981\u52a0\u4e00 \n\t\t\t\tcontinue;\n\t\t\t}\n\t\t}\n\t\tcout<<\"No\\n\";//\u90fd\u4e0d\u7b26\u5408\u6216\u8005\u4e3ac\uff0c\u8f93\u51faNO \n\t}\n    return 0;\n}\n```\n",
+        "postTime": 1640388742,
+        "uid": 451825,
+        "name": "JDuru",
+        "ccfLevel": 0,
+        "title": "AT2080 \u9898\u89e3"
+    }
+]

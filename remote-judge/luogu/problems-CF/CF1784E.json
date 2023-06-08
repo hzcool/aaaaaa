@@ -1,0 +1,37 @@
+{
+    "description": "Alice and Bob are playing an infinite game consisting of sets. Each set consists of rounds. In each round, one of the players wins. The first player to win two rounds in a set wins this set. Thus, a set always ends with the score of $ 2:0 $ or $ 2:1 $ in favor of one of the players.\n\nLet's call a game scenario a finite string $ s $ consisting of characters 'a' and 'b'. Consider an infinite string formed with repetitions of string $ s $ : $ sss \\ldots $ Suppose that Alice and Bob play rounds according to this infinite string, left to right. If a character of the string $ sss \\ldots $ is 'a', then Alice wins the round; if it's 'b', Bob wins the round. As soon as one of the players wins two rounds, the set ends in their favor, and a new set starts from the next round.\n\nLet's define $ a_i $ as the number of sets won by Alice among the first $ i $ sets while playing according to the given scenario. Let's also define $ r $ as the limit of ratio $ \\frac{a_i}{i} $ as $ i \\rightarrow \\infty $ . If $ r > \\frac{1}{2} $ , we'll say that scenario $ s $ is winning for Alice. If $ r = \\frac{1}{2} $ , we'll say that scenario $ s $ is tied. If $ r < \\frac{1}{2} $ , we'll say that scenario $ s $ is winning for Bob.\n\nYou are given a string $ s $ consisting of characters 'a', 'b', and '?'. Consider all possible ways of replacing every '?' with 'a' or 'b' to obtain a string consisting only of characters 'a' and 'b'. Count how many of them result in a scenario winning for Alice, how many result in a tied scenario, and how many result in a scenario winning for Bob. Print these three numbers modulo $ 998\\,244\\,353 $ .",
+    "inputFormat": "The only line contains a single string $ s $ ( $ 1 \\le |s| \\le 200 $ ), consisting of characters 'a', 'b', and '?'.",
+    "outputFormat": "Print three integers: how many ways result in a scenario winning for Alice, how many result in a tied scenario, and how many result in a scenario winning for Bob, modulo $ 998\\,244\\,353 $ .",
+    "samples": [
+        [
+            "??",
+            "1\n2\n1"
+        ],
+        [
+            "?aa?b",
+            "1\n3\n0"
+        ],
+        [
+            "a???ba",
+            "4\n3\n1"
+        ],
+        [
+            "????????",
+            "121\n14\n121"
+        ],
+        [
+            "ba????a?a???abbb?",
+            "216\n57\n239"
+        ],
+        [
+            "a????a??????b??abbababbbb?a?aaa????bb",
+            "97833\n28387\n135924"
+        ],
+        [
+            "??????????????a????????????????b?????",
+            "484121060\n448940322\n484613337"
+        ]
+    ],
+    "hint": "In the first example, there are four ways to replace the question marks:\n\n- $ s = \\mathtt{aa} $ : Alice wins every set $ 2:0 $ \u2014 the scenario is winning for Alice;\n- $ s = \\mathtt{ab} $ : Alice and Bob win sets in turns, with the score of $ 2:1 $ each \u2014 the scenario is tied;\n- $ s = \\mathtt{ba} $ : Bob and Alice win sets in turns, with the score of $ 2:1 $ each \u2014 the scenario is tied;\n- $ s = \\mathtt{bb} $ : Bob wins every set $ 2:0 $ \u2014 the scenario is winning for Bob.",
+    "translation": "Alice \u548c Bob \u6b63\u5728\u73a9\u4e00\u4e2a\u7531\u96c6\u5408\u7ec4\u6210\u7684\u65e0\u9650\u6e38\u620f\u3002\u6bcf\u7ec4\u7531\u591a\u4e2a\u56de\u5408\u7ec4\u6210\u3002\u5728\u6bcf\u4e00\u8f6e\u6bd4\u8d5b\u4e2d\uff0c\u5176\u4e2d\u4e00\u540d\u9009\u624b\u83b7\u80dc\u3002\u7b2c\u4e00\u4e2a\u5728\u4e00\u76d8\u6bd4\u8d5b\u4e2d\u8d62\u5f97\u4e24\u8f6e\u6bd4\u8d5b\u7684\u7403\u5458\u8d62\u5f97\u4e86\u8fd9\u76d8\u6bd4\u8d5b\u3002\u56e0\u6b64\uff0c\u4e00\u76d8\u603b\u662f\u4ee5 $2:0$ \u6216 $2:1$ \u7684\u6bd4\u5206\u7ed3\u675f\uff0c\u6709\u5229\u4e8e\u5176\u4e2d\u4e00\u540d\u7403\u5458\u3002\n\n\u8ba9\u6211\u4eec\u5c06\u6e38\u620f\u573a\u666f\u79f0\u4e3a\u7531\u5b57\u7b26 `a` \u548c `b` \u7ec4\u6210\u7684\u6709\u9650\u5b57\u7b26\u4e32 $s$ \u3002\u8003\u8651\u4e00\u4e2a\u7531\u5b57\u7b26\u4e32 $ s $ : $ sss \\ldots $ \u7684\u91cd\u590d\u7ec4\u6210\u7684\u65e0\u9650\u5b57\u7b26\u4e32\u2026\u2026 \u5047\u8bbe Alice \u548c Bob \u6309\u7167\u8fd9\u4e2a\u65e0\u9650\u5b57\u7b26\u4e32\u4ece\u5de6\u5230\u53f3\u8fdb\u884c\u5faa\u73af\u3002\u5982\u679c\u5b57\u7b26\u4e32 $ sss \\ldots $ \u7684\u8fd9\u4e2a\u5b57\u7b26\u662f `a` \uff0c\u5219 Alice \u8d62\u5f97\u8fd9\u4e00\u8f6e\uff1b\u5982\u679c\u662f `b` \uff0c\u5219 Bob \u8d62\u5f97\u8fd9\u4e00\u8f6e\u3002\u4e00\u65e6\u5176\u4e2d\u4e00\u540d\u7403\u5458\u8d62\u4e86\u4e24\u8f6e\uff0c\u8fd9\u4e00\u76d8\u5c31\u4ee5\u4ed6\u4eec\u7684\u4f18\u52bf\u7ed3\u675f\uff0c\u4e0b\u4e00\u8f6e\u5f00\u59cb\u65b0\u7684\u4e00\u76d8\u3002\n\u8ba9\u6211\u4eec\u5c06ai\u5b9a\u4e49\u4e3a\u5728\u6839\u636e\u7ed9\u5b9a\u573a\u666f\u8fdb\u884c\u6e38\u620f\u65f6\uff0cAlice \u5728\u524d i \u4e2a\u96c6\u5408\u4e2d\u8d62\u5f97\u7684\u96c6\u5408\u6570\u3002\n\n\u8ba9\u6211\u4eec\u5c06 $a_i$ \u5b9a\u4e49\u4e3a Alice \u5728\u6839\u636e\u7ed9\u5b9a\u573a\u666f\u8fdb\u884c\u6e38\u620f\u65f6\u5728\u524d $i$ \u96c6\u5408\u4e2d\u8d62\u5f97\u7684\u96c6\u5408\u6570\u3002\u6211\u4eec\u8fd8\u5c06 $r$ \u5b9a\u4e49\u4e3a\u6bd4\u7387 $ \\frac{a_i}{i} $ \u7684\u9650\u5236 $ i \\rightarrow \\infty $ \u3002\u5982\u679c $ r > \\frac{1}{2} $ \uff0c\u6211\u4eec\u5c06\u8bf4\u573a\u666f $s$ \u4e2d Alice \u83b7\u80dc\u3002\u5982\u679c $ r = \\frac{1}{2} $ \uff0c\u6211\u4eec\u5c06\u8bf4\u573a\u666f $s$ \u53cc\u65b9\u5e73\u5c40\u3002\u5982\u679c $ r < \\frac{1}{2} $ \uff0c\u6211\u4eec\u4f1a\u8bf4\u573a\u666f $s$ \u4e2d Bob \u83b7\u80dc\u3002\n\n\u73b0\u5728\u7ed9\u4f60\u4e00\u4e2a\u7531\u5b57\u7b26 `a` \uff0c`b` \uff0c\u548c `?` \u7ec4\u6210\u7684\u5b57\u7b26\u4e32\uff0c\u8003\u8651\u66ff\u6362\u6bcf\u4e2a `?` \u7684\u6240\u6709\u53ef\u80fd\u65b9\u6cd5\u4f7f\u7528 `a` \u6216 `b` \u83b7\u53d6\u4ec5\u7531\u5b57\u7b26 `a` \u548c `b` \u7ec4\u6210\u7684\u5b57\u7b26\u4e32\u3002\u7edf\u8ba1\u5b83\u4eec\u4e2d\u6709\u591a\u5c11\u6b21 Alice \u8d62\u5f97\u4e86\u6bd4\u8d5b\uff0c\u6709\u591a\u5c11\u6b21\u5e73\u5c40\uff0c\u8fd8\u6709\u591a\u5c11\u6b21 Bob \u8d62\u5f97\u4e86\u6bd4\u8d5b\u3002\u4ee5 $998\\ 244\\ 353$ \u4e3a\u6a21\u8f93\u51fa\u8fd9\u4e09\u4e2a\u6570\u5b57\u3002\n\n\u8f93\u5165\u4e00\u884c\uff0c\u5305\u542b\u4e00\u4e2a\u5b57\u7b26\u4e32 $s$\uff08 $ 1 \\le |s| \\le 200 $ \uff09\uff0c\u7531\u5b57\u7b26 `a` \uff0c`b`\uff0c\u548c `?` \u7ec4\u6210\u3002\n\n\u8f93\u51fa\u4e00\u884c\uff0c\u4e09\u4e2a\u6574\u6570\uff0c\u8868\u793a\u5b57\u7b26\u4e32\u4e2d\u6709\u591a\u5c11\u6b21 Alice \u8d62\u5f97\u4e86\u6bd4\u8d5b\uff0c\u6709\u591a\u5c11\u6b21\u5e73\u5c40\uff0c\u8fd8\u6709\u591a\u5c11\u6b21 Bob \u8d62\u5f97\u4e86\u6bd4\u8d5b\u3002"
+}

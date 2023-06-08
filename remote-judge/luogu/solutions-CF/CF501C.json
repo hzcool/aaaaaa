@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u7b80\u5355\u9898\u3002\n\n\u8003\u8651\u5230\u5ea6\u4e3a $1$ \u7684\u8282\u70b9\u4e0e\u4ed6\u76f8\u90bb\u7684\u70b9\u53ef\u4ee5\u786e\u5b9a\uff0c\u4e8e\u662f\u53ef\u4ee5\u50cf\u62d3\u6251\u6392\u5e8f\u90a3\u6837\u4e0d\u65ad\u52a0\u53f6\u5b50\uff0c\u5220\u8fb9\u3002\n\n\u6ca1\u4e86\u3002\n\n\u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,d[100005],a[100005];\nvector<pair<int,int> > ans;\nqueue<int> q;\nint main()\n{\n\tcin>>n;\n\tfor(int i=0;i<n;i++)\n\t{\n\t\tcin>>d[i]>>a[i];\n\t}\n\tfor(int i=0;i<n;i++)\n\t{\n\t\tif(d[i]==1) \n\t\t{\n\t\t\tq.emplace(i);//\u52a0\u53f6\u5b50\n\t\t}\n\t}\n\twhile(!q.empty())\n\t{\n\t\tint x=q.front();\n\t\tq.pop();\n\t\tif(d[x]==0) continue ;\n\t\td[x]--;\n\t\td[a[x]]--;\n\t\ta[a[x]]^=x;\n\t\tans.emplace_back(x,a[x]);//\u5220\u6389\u53f6\u5b50\uff0c\u52a0\u5165\u8fb9\n\t\tif(d[a[x]]==1)\n\t\t{\n\t\t\tq.emplace(a[x]);\n\t\t}\n\t}\n\tcout<<ans.size()<<\"\\n\";\n\tfor(auto i:ans)\n\t{\n\t\tcout<<i.first<<\" \"<<i.second<<\"\\n\";\n\t}\n}\n```",
+        "postTime": 1666093421,
+        "uid": 122836,
+        "name": "World_Creater",
+        "ccfLevel": 0,
+        "title": "CF501C Misha and Forest"
+    }
+]

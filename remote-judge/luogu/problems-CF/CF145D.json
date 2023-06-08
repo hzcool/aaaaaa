@@ -1,0 +1,21 @@
+{
+    "description": "Petya loves lucky numbers very much. Everybody knows that lucky numbers are positive integers whose decimal record contains only the lucky digits 4 and 7. For example, numbers 47, 744, 4 are lucky and 5, 17, 467 are not.\n\nPetya has an array $ a $ of $ n $ integers. The numbers in the array are numbered starting from $ 1 $ . Unfortunately, Petya has been misbehaving and so, his parents don't allow him play with arrays that have many lucky numbers. It is guaranteed that no more than $ 1000 $ elements in the array $ a $ are lucky numbers.\n\nPetya needs to find the number of pairs of non-intersecting segments $ [l_{1};r_{1}] $ and $ [l_{2};r_{2}] $ ( $ 1<=l_{1}<=r_{1}&lt;l_{2}<=r_{2}<=n $ , all four numbers are integers) such that there's no such lucky number that occurs simultaneously in the subarray $ a[l_{1}..r_{1}] $ and in the subarray $ a[l_{2}..r_{2}] $ . Help Petya count the number of such pairs.",
+    "inputFormat": "The first line contains an integer $ n $ $ (2<=n<=10^{5}) $ \u2014 the size of the array $ a $ . The second line contains $ n $ space-separated integers $ a_{i} $ ( $ 1<=a_{i}<=10^{9} $ ) \u2014 array $ a $ . It is guaranteed that no more than $ 1000 $ elements in the array $ a $ are lucky numbers.",
+    "outputFormat": "On the single line print the only number \u2014 the answer to the problem.\n\nPlease do not use the %lld specificator to read or write 64-bit integers in \u0421++. It is preferred to use the cin, cout streams or the %I64d specificator.",
+    "samples": [
+        [
+            "4\n1 4 2 4\n",
+            "9\n"
+        ],
+        [
+            "2\n4 7\n",
+            "1\n"
+        ],
+        [
+            "4\n4 4 7 7\n",
+            "9\n"
+        ]
+    ],
+    "hint": "The subarray $ a[l..r] $ is an array that consists of elements $ a_{l} $ , $ a_{l+1} $ , ..., $ a_{r} $ .\n\nIn the first sample there are $ 9 $ possible pairs that satisfy the condition: $ [1,1] $ and $ [2,2] $ , $ [1,1] $ and $ [2,3] $ , $ [1,1] $ and $ [2,4] $ , $ [1,1] $ and $ [3,3] $ , $ [1,1] $ and $ [3,4] $ , $ [1,1] $ and $ [4,4] $ , $ [1,2] $ and $ [3,3] $ , $ [2,2] $ and $ [3,3] $ , $ [3,3] $ and $ [4,4] $ .\n\nIn the second sample there is only one pair of segments \u2014 $ [1;1] $ and $ [2;2] $ and it satisfies the condition.",
+    "translation": "\u4e00\u4e2a\u6b63\u6574\u6570\u662f\u5e78\u8fd0\u6570\uff0c\u5f53\u4e14\u4ec5\u5f53\u5176\u5728\u5341\u8fdb\u5236\u8868\u793a\u4e0b\u5404\u4f4d\u6570\u5b57\u4ec5\u7531 $4$ \u548c $7$ \u7ec4\u6210\u3002\u6bd4\u5982 $47,44774$ \u662f\u5e78\u8fd0\u6570\uff0c\u800c $467$ \u4e0d\u662f\u3002\n\n\u73b0\u6709\u4e00\u4e2a\u6b63\u6574\u6570\u5e8f\u5217 $a$\uff0c\u4f60\u9700\u8981\u627e\u5230\u4e24\u4e2a\u533a\u95f4 $[l_1,r_1],[l_2,r_2]$\uff0c\u4f7f\u5f97 $l_1\\le r_1<l_2\\le r_2$\uff0c\u4e14 $a[l_1\\cdots r_1]$ \u548c $a[l_2\\cdots r_2]$ \u4e0d\u5305\u542b\u76f8\u540c\u7684\u5e78\u8fd0\u6570\u5b57\u3002\n\n\u6c42\u8fd9\u6837\u7684\u533a\u95f4\u5bf9\u7684\u6570\u91cf\u3002"
+}

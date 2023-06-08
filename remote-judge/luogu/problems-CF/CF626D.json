@@ -1,0 +1,17 @@
+{
+    "description": "Andrew and Jerry are playing a game with Harry as the scorekeeper. The game consists of three rounds. In each round, Andrew and Jerry draw randomly without replacement from a jar containing $ n $ balls, each labeled with a distinct positive integer. Without looking, they hand their balls to Harry, who awards the point to the player with the larger number and returns the balls to the jar. The winner of the game is the one who wins at least two of the three rounds.\n\nAndrew wins rounds 1 and 2 while Jerry wins round 3, so Andrew wins the game. However, Jerry is unhappy with this system, claiming that he will often lose the match despite having the higher overall total. What is the probability that the sum of the three balls Jerry drew is strictly higher than the sum of the three balls Andrew drew?",
+    "inputFormat": "The first line of input contains a single integer $ n $ ( $ 2<=n<=2000 $ ) \u2014 the number of balls in the jar.\n\nThe second line contains $ n $ integers $ a_{i} $ ( $ 1<=a_{i}<=5000 $ ) \u2014 the number written on the $ i $ th ball. It is guaranteed that no two balls have the same number.",
+    "outputFormat": "Print a single real value \u2014 the probability that Jerry has a higher total, given that Andrew wins the first two rounds and Jerry wins the third. Your answer will be considered correct if its absolute or relative error does not exceed $ 10^{-6} $ .\n\nNamely: let's assume that your answer is $ a $ , and the answer of the jury is $ b $ . The checker program will consider your answer correct, if ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF626D/259203790d90e969d73ec841bd0673c1e8e7d69a.png).",
+    "samples": [
+        [
+            "2\n1 2\n",
+            "0.0000000000\n"
+        ],
+        [
+            "3\n1 2 10\n",
+            "0.0740740741\n"
+        ]
+    ],
+    "hint": "In the first case, there are only two balls. In the first two rounds, Andrew must have drawn the $ 2 $ and Jerry must have drawn the $ 1 $ , and vice versa in the final round. Thus, Andrew's sum is $ 5 $ and Jerry's sum is $ 4 $ , so Jerry never has a higher total.\n\nIn the second case, each game could've had three outcomes \u2014 $ 10-2 $ , $ 10-1 $ , or $ 2-1 $ . Jerry has a higher total if and only if Andrew won $ 2-1 $ in both of the first two rounds, and Jerry drew the $ 10 $ in the last round. This has probability ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF626D/278aa205373ddbc5533818ea01281d6e5a703b92.png).",
+    "translation": "\u4e24\u4e2a\u4eba\u5728\u505a\u6e38\u620f\uff0c\u4e00\u4e2a\u888b\u5b50\u91cc\u6709$n$\u4e2a\u7403\uff0c\u7403\u4e0a\u7684\u6570\u5b57\u5927\u5c0f\u90fd\u4e0d\u76f8\u540c\u3002\r\n\r\n\u5171\u8fdb\u884c\u4e09\u56de\u5408\uff0c\u6bcf\u4e00\u56de\u5408\u4e24\u4e2a\u4eba\u540c\u65f6\u5404\u81ea\u4ece\u888b\u5b50\u91cc\u62ff\u51fa\u4e00\u4e2a\u7403\u3002\r\n\r\n\u6c42\u524d\u4e24\u4e2a\u56de\u5408A\u62ff\u51fa\u7684\u7403\u7684\u6570\u5b57\u5927\u4e8eB\uff0c\u4f46\u662f\u4e09\u4e2a\u56de\u5408\u52a0\u8d77\u6765\u7684\u6570\u5b57\u7684\u548cB\u5927\u4e8eA\u7684\u6982\u7387\u3002"
+}

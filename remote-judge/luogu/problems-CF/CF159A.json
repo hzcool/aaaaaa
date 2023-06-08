@@ -1,0 +1,17 @@
+{
+    "description": "Polycarpus has a hobby \u2014 he develops an unusual social network. His work is almost completed, and there is only one more module to implement \u2014 the module which determines friends. Oh yes, in this social network one won't have to add friends manually! Pairs of friends are deduced in the following way. Let's assume that user $ A $ sent user $ B $ a message at time $ t_{1} $ , and user $ B $ sent user $ A $ a message at time $ t_{2} $ . If $ 0&lt;t_{2}-t_{1}<=d $ , then user $ B $ 's message was an answer to user $ A $ 's one. Users $ A $ and $ B $ are considered to be friends if $ A $ answered at least one $ B $ 's message or $ B $ answered at least one $ A $ 's message.\n\nYou are given the log of messages in chronological order and a number $ d $ . Find all pairs of users who will be considered to be friends.",
+    "inputFormat": "The first line of the input contains two integers $ n $ and $ d $ ( $ 1<=n,d<=1000 $ ). The next $ n $ lines contain the messages log. The $ i $ -th line contains one line of the log formatted as \" $ A_{i} $ $ B_{i} $ $ t_{i} $ \" (without the quotes), which means that user $ A_{i} $ sent a message to user $ B_{i} $ at time $ t_{i} $ ( $ 1<=i<=n $ ). $ A_{i} $ and $ B_{i} $ are non-empty strings at most $ 20 $ characters long, consisting of lowercase letters ('a' ... 'z'), and $ t_{i} $ is an integer ( $ 0<=t_{i}<=10000 $ ). It is guaranteed that the lines are given in non-decreasing order of $ t_{i} $ 's and that no user sent a message to himself. The elements in the lines are separated by single spaces.",
+    "outputFormat": "In the first line print integer $ k $ \u2014 the number of pairs of friends. In the next $ k $ lines print pairs of friends as \" $ A_{i} $ $ B_{i} $ \" (without the quotes). You can print users in pairs and the pairs themselves in any order. Each pair must be printed exactly once.",
+    "samples": [
+        [
+            "4 1\nvasya petya 1\npetya vasya 2\nanya ivan 2\nivan anya 4\n",
+            "1\npetya vasya\n"
+        ],
+        [
+            "1 1000\na b 0\n",
+            "0\n"
+        ]
+    ],
+    "hint": "In the first sample test case Vasya and Petya are friends because their messages' sending times are one second apart. Anya and Ivan are not, because their messages' sending times differ by more than one second.",
+    "translation": "\u7ed9\u4f60$n$\u6761\u8bb0\u5f55\uff0c\u6bcf\u4e2a\u8bb0\u5f55\u5305\u542b$a_i,b_i,t_i$\uff0c\u5206\u522b\u4e3a\u53d1\u4ef6\u4eba\uff0c\u6536\u4ef6\u4eba\u548c\u65f6\u95f4\u3002\n\n\u6c42\u8fd9\u6837\u7684\u670b\u53cb\u5bf9\uff1a$a$\u7ed9$b$\u53d1\u4e86\u4e00\u6761\u6d88\u606f\uff0c\u7136\u540e$b$\u518d\u6709\u9650\u65f6\u95f4$d$\u5185\u56de\u4e86\u4e00\u6761\u6d88\u606f\uff0c\u4f60\u9700\u8981\u6c42\u51fa\u4ed6\u4eec\u7684\u540d\u5b57\u548c\u670b\u53cb\u5bf9\u603b\u6570\u3002\n\n\u8f93\u51fa\u987a\u5e8f\u968f\u610f\uff0c $0<t_i-t_j<=d$\u3002"
+}

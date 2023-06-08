@@ -1,0 +1,17 @@
+{
+    "description": "Little penguin Polo adores strings. But most of all he adores strings of length $ n $ .\n\nOne day he wanted to find a string that meets the following conditions:\n\n1. The string consists of $ n $ lowercase English letters (that is, the string's length equals $ n $ ), exactly $ k $ of these letters are distinct.\n2. No two neighbouring letters of a string coincide; that is, if we represent a string as $ s=s_{1}s_{2}...\\ s_{n} $ , then the following inequality holds, $ s_{i}\u2260s_{i+1}(1<=i&lt;n) $ .\n3. Among all strings that meet points 1 and 2, the required string is lexicographically smallest.\n\nHelp him find such string or state that such string doesn't exist.\n\nString $ x=x_{1}x_{2}...\\ x_{p} $ is lexicographically less than string $ y=y_{1}y_{2}...\\ y_{q} $ , if either $ p&lt;q $ and $ x_{1}=y_{1},x_{2}=y_{2},...\\ ,x_{p}=y_{p} $ , or there is such number $ r $ $ (r&lt;p,r&lt;q) $ , that $ x_{1}=y_{1},x_{2}=y_{2},...\\ ,x_{r}=y_{r} $ and $ x_{r+1}&lt;y_{r+1} $ . The characters of the strings are compared by their ASCII codes.",
+    "inputFormat": "A single line contains two positive integers $ n $ and $ k $ $ (1<=n<=10^{6},1<=k<=26) $ \u2014 the string's length and the number of distinct letters.",
+    "outputFormat": "In a single line print the required string. If there isn't such string, print \"-1\" (without the quotes).",
+    "samples": [
+        [
+            "7 4\n",
+            "ababacd\n"
+        ],
+        [
+            "4 7\n",
+            "-1\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "```\nCF288A\n\u9898\u76ee\u5927\u610f\uff1a\n\u627e\u5230\u4e00\u4e2a\u5b57\u7b26\u4e32\uff0c\u6ee1\u8db3\u4ee5\u4e0b\u6761\u4ef6\uff1a\n1\u3001\u957f\u5ea6\u4e3an\uff0c\u4e14\u5b57\u7b26\u4e32\u4e2d\u5305\u542bk\u79cd\u5c0f\u5199\u5b57\u6bcd\uff1b\n2\u3001\u76f8\u90bb\u7684\u5b57\u7b26\u4e0d\u76f8\u7b49\uff1b\n3\u3001\u5728\u6ee1\u8db31\u30012\u4e24\u6761\u4ef6\u7684\u6240\u6709\u5b57\u7b26\u4e32\u4e2d\u5b57\u5178\u5e8f\u6700\u5c0f\u3002\n\n\u8f93\u5165\u683c\u5f0f\uff1a\n\u4e00\u884c\uff0c\u5305\u542b\u4e24\u4e2a\u6574\u6570n\u3001k\uff0c\u5206\u522b\u8868\u793a\u5b57\u7b26\u4e32\u7684\u957f\u5ea6\u4ee5\u53ca\u5305\u542b\u7684\u5c0f\u5199\u5b57\u6bcd\u6570\u91cf\uff081<=n<=1000000,1<=k<=26\uff09\n\n\u8f93\u51fa\u683c\u5f0f\uff1a\n\u82e5\u5b58\u5728\u6ee1\u8db3\u4e0a\u8ff0\u6761\u4ef6\u7684\u5b57\u7b26\u4e32\uff0c\u8f93\u51fa\u8be5\u5b57\u7b26\u4e32\uff0c\u5426\u5219\u8f93\u51fa-1\n```"
+}

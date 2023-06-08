@@ -1,0 +1,18 @@
+[
+    {
+        "content": "## AT441\u9898\u89e3\n\u8fd9\u9898\u662f\u7ecf\u5178\u7684\u8ffd\u53ca\u95ee\u9898\u3002\n\n1. \u6211\u4eec\u7528 while \u5faa\u73af\u6c42\u51fa N \u6b21\u540e\u4e4c\u9f9f\u4e0e\u9ad8\u6865\u541b\u7684\u8ddd\u79bb\u3002\n\n2. \u7528 double \u7c7b\u578b\uff0c \u8bb0\u5f97\u4fdd\u7559\u5c0f\u6570\u70b9\u540e\u4f4d\u6570\u3002\n\n3. $T=\\dfrac{S}{V}\\ \\text{\u5e76\u4e14}\\ S=T \\times V$ \u6240\u4ee5\u6211\u4eec\u53ef\u4ee5\u6c42\u51fa N \u6b21\u540e\u4e4c\u9f9f\u4e0e\u9ad8\u6865\u541b\u7684\u8ddd\u79bb\u3002\n\n4. \u5982\u679c\u6700\u7ec8\u8def\u7a0b\u4e3a\u96f6\u5c31\u76f4\u63a5\u7ed3\u675f\u3002\n\n\u63a5\u4e0b\u6765\u2014\u2014\u4e0a\u4ee3\u7801\u3002\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n\tdouble n, va, vb, l;\n\tcin>>n>>va>>vb>>l; \n\twhile(n--)\n\t{\n\t\tdouble t=l/va;\n\t\tl=t*vb;\n\t}\n\tif(l==0)\n\t\treturn 0;\n\tcout<<fixed<<setprecision(12)<<l<<endl;\n\treturn 0;\n}\n```",
+        "postTime": 1633346769,
+        "uid": 519444,
+        "name": "ylinxin2010",
+        "ccfLevel": 5,
+        "title": "AT441 \u30a2\u30ad\u30ec\u30b9\u3068\u4e80\u9898\u89e3"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u5176\u5b9e\u5c31\u662f\u4e00\u9053\u6a21\u62df\u9898\uff0c\u601d\u8def\u5982\u4e0b:\n\n- \u53ef\u4ee5\u7528 while \u5faa\u73af\uff0c\u6bcf\u6b21\u7b97\u51fa\u9ad8\u6865\u541b\u548c\u4e4c\u9f9f\u7684\u4f4d\u7f6e\uff0c\u76f4\u5230\u7b2c N \u6b21\u3002\n- \u6ce8\u610f\u8981\u5f00 double \u7c7b\u578b\n\n\u7136\u540e\u5c31\u4e0a\u4ee3\u7801\u5427\uff1a\n\n```cpp\n\n\n#include<iostream>\n#include<iomanip>//\u9650\u5236\u7cbe\u5ea6\u51fd\u6570\u7684\u5934\u6587\u4ef6\u3002\n\nusing namespace std;\n\nint _N = 0;\ndouble _Va = 0;\ndouble _Vb = 0;\ndouble _L = 0;\n\nint main () {\n\tdouble gao = 0;//\u6bcf\u6b21\u6a21\u62df\u7684\u9ad8\u6865\u541b\u7684\u4f4d\u7f6e\u3002\n\tdouble gui = 0;//\u6bcf\u6b21\u6a21\u62df\u7684\u4e4c\u9f9f\u7684\u4f4d\u7f6e\u3002\n\tdouble t = 0;//\u8ddf\u4ea4\u6362\u4e24\u4e2a\u6570\u540c\u7406\uff0c\u7531\u4e8e\u4e24\u4e2a\u6570\u90fd\u8981\u53d8\uff0c\u6240\u4ee5\u8981\u6709\u4e00\u4e2a\u53d8\u91cf\u6765\u5b58\u6ca1\u6709\u66f4\u65b0\u7684\u9ad8\u6865\u541b\u7684\u4f4d\u7f6e\u3002\n\tcin >> _N >> _Va >> _Vb >> _L;\n\tgui = _L;//\u4e4c\u9f9f\u5728 _L \u7684\u4f4d\u7f6e\u3002\n\twhile(_N > 0){\n\t\tt = gao;//\u5b58\u4e0b\u9ad8\u6865\u541b\u7684\u8fd8\u6ca1\u6709\u66f4\u65b0\u7684\u4f4d\u7f6e\u3002\n\t\tgao = gui;//\u9ad8\u6865\u541b\u5230\u8fbe\u4e86\u4e4c\u9f9f\u7684\u4f4d\u7f6e\u3002\n\t\tgui = gui + _Vb * ((gui - t) / _Va);//\u4e4c\u9f9f\u73b0\u5728\u5f80\u524d\u8d70\u5230\u7684\u4f4d\u7f6e\u3002\n\t\t_N --;\n\t}\n\tcout << fixed << setprecision(6) << gui - gao << endl;//\u8f93\u51fa\u7ed3\u679c\u3002\n\treturn 0;\n}\n```",
+        "postTime": 1633084547,
+        "uid": 422647,
+        "name": "zchqwq",
+        "ccfLevel": 4,
+        "title": "AT441 \u9898\u89e3"
+    }
+]

@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u53ef\u4ee5\u53d1\u73b0\uff0c\u6211\u4eec\u8981\u6c42\u7684\u7b54\u6848\u662f:\n\n$$\\log_2(cnt^{\\frac{n}{m}})$$\n\n\u5176\u4e2d $cnt$ \u662f\u5408\u6cd5\u7684\u6570\u636e\u5305\u79cd\u7c7b\u6570\u3002\n\n\u6211\u4eec\u5c31\u53ea\u9700\u8981\u6c42 $cnt$ \u5c31\u884c\u4e86\u3002\n\n\u8003\u8651\u7528 $dp$ \u6765\u6c42\u89e3\u8fd9\u4e2a\u95ee\u9898\u3002\n\n\u5217\u51fa $dp$ \u8f6c\u79fb\u5f0f:\n\n$$dp[i][j] = dp[i - 1][j - 1]$$\n\n$$dp[i][1] = (k - 1)\\sum_{j = 1}^{l - 1}dp[i - 1][j]$$\n\n\u65f6\u95f4\u590d\u6742\u5ea6 $O(ml)$ \u3002\n\n\u968f\u4fbf\u4e00\u987f\u4e71\u6253\u63d0\u4ea4\uff0c \u83b7\u5f97 $0$ \u5206\u7684\u597d\u6210\u7ee9\u3002 \u4ed4\u7ec6\u4e00\u770b\uff0c \u53d1\u73b0 $cnt$ \u7684\u6570\u636e\u8303\u56f4\u8fc7\u5927\uff0c c++ \u7684 __int128 \u76f4\u63a5\u88ab\u7206\u597d\u51e0\u5708\u3002\n\n\u56e0\u6b64\uff0c \u6211\u4eec\u5c06\u89c6\u7ebf\u8f6c\u5230\u53e6\u4e00\u4e2a\u5148\u5929\u652f\u6301\u9ad8\u7cbe\u5ea6\u7684\u8bed\u8a00: python \u3002\n\n\u6211\u4eec\u7528 python \u518d\u5c06\u4e0a\u9762\u7684 $dp$ \u5b9e\u73b0\u4e00\u904d\u5373\u53ef\u3002\u65f6\u95f4\u590d\u6742\u5ea6\u4e0d\u53d8\uff0c\u4f46\u9274\u4e8e python \u7684\u4e58\u6cd5\u590d\u6742\u5ea6\u4e3a $O((\\log w)^{1.585})$ , \u603b\u65f6\u95f4\u590d\u6742\u5ea6\u4e3a $O(ml(\\log ans)^{1.585})$ \u3002 \u6700\u5927\u7684\u6570\u636e\u7b97\u51fa\u6765 $\\log ans \\approx 3321$ \u3002\n\n\u4ee3\u7801:\n```python3\nfrom math import *\nimport sys\nk, n, m, l = map(int, input().split())\nn = n // m\ndp = [[], [0] * l]\n\ndp[1][1] = k;\n\nfor i in range(2, m + 1):\n\tdp[i & 1] = [0] * l\n\tfor j in range(2, l):\n\t\tdp[i & 1][j] = dp[~ i & 1][j - 1]\n\tfor j in range(1, l):\n\t\tdp[i & 1][1] += dp[~ i & 1][j]\n\tdp[i & 1][1] *= k - 1\n\nans = 0\nfor i in range(1, l):\n\tans += dp[m & 1][i]\n\nans = ans ** n\n\nass = -1\n\nwhile ans > 0:\n\tass = ass + 1\n\tans >>= 1\nprint(ass)\n```",
+        "postTime": 1579589204,
+        "uid": 7035,
+        "name": "Great_Influence",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P5945 \u3010[POI2002]\u534f\u8bae\u3011"
+    }
+]

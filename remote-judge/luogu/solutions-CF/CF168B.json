@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u8fd9\u9053\u9898\u6211\u8fd8\u662f\u63a8\u8350\u4f7f\u7528 char \u7c7b\u578b\u6570\u7ec4\uff0c\u6bd5\u7adf\u5b83\u7684\u901f\u5ea6\u6bd4 string \u5feb\u4e86\u8bb8\u591a\u3002  \n\n**\u9898\u76ee\u5206\u6790\uff1a** \u4ece\u6570\u636e\u8303\u56f4\u4e2d\u6211\u4eec\u53ef\u4ee5\u5f97\u77e5\uff0c $O(n^2)$ \u7684\u65f6\u95f4\u590d\u6742\u5ea6\u662f\u8fc7\u4e0d\u53bb\u7684\uff0c\u800c $O(n)$ \u5219\u662f\u4e0d\u53ef\u80fd\u7684\uff0c\u6240\u4ee5\u6211\u4eec\u5c31\u53ea\u80fd\u4ece $O(n \\log n)$ \u7684\u7b97\u6cd5\u4e0a\u53bb\u60f3\u4e86\u3002\n\n**\u9898\u76ee\u601d\u8def\uff1a** \u8001\u5e08\u544a\u8bc9\u6211\u4eec\uff0c\u6392\u5e8f\u548c\u4e8c\u5206\u7684\u65f6\u95f4\u590d\u6742\u5ea6\u90fd\u662f $O(n \\log n)$\uff0c\u6839\u636e\u9898\u76ee\u4e00\u770b\u5c31\u77e5\u9053\u4e86\u662f **\u8d2a\u5fc3**\u3002\u9996\u5148\u5bf9\u53ef\u66ff\u6362\u7684\u6570\u5b57\u8fdb\u884c\u5b57\u5178\u5e8f\u6392\u5e8f\uff0c\u5728\u5bf9\u539f\u6570\u4ece\u9ad8\u4f4d\u5f80\u4f4e\u4f4d\u8fdb\u884c\u6bd4\u8f83\uff0c\u5982\u679c\u53ef\u66ff\u6362\u7684\u6bd4\u539f\u6765\u7684\u5927\uff0c\u5c31\u66ff\u6362\u6389\u3002\n\n###### \u5751\u70b9\uff1a\u8981\u7528\u5b57\u7b26\u7c7b\u578b\u6765\u4fdd\u5b58\uff0c\u7c7b\u4f3c\u4e8e\u4ee5\u540e\u8981\u5b66\u7684\u9ad8\u7cbe\u5ea6\u3002\n\n\n------------\n```cpp\n#include <bits/stdc++.h>\n#define I return\n#define AK 0\n#define IOI ;\n#define ll long long\nusing namespace std;\nconst int N = 1e5 + 5;\nchar a[N], b[N];\nbool cmp(char x, char y)\n{\n    return x > y;\n}\nint main()\n{\n    scanf(\"%s%s\", &a, &b);\n    int lena = strlen(a);\n    int lenb = strlen(b);\n    int now = 0;\n    sort(b, b + lenb, cmp);\n    for (int i = 0; i < lena; ++i)\n    {\n        if (b[now] > a[i])\n        {\n            a[i] = b[now];\n            ++now;\n        }\n    }\n    printf(\"%s\", a);\n    I AK IOI\n}\n\n\n```\n",
+        "postTime": 1639236477,
+        "uid": 521258,
+        "name": "jxbe6666",
+        "ccfLevel": 3,
+        "title": "CF169B \u9898\u89e3"
+    }
+]

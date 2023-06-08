@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u624b\u73a9\u4e00\u4e0b\u9898\u76ee\u4e2d\u7684\u51fd\u6570,\n$ f(i,j) $ \u5c31\u662f \u6cbf\u7740 $i$ -> $p_i$ \u7684\u65b9\u5411\u4e00\u76f4\u8d70 $j-1$ \u6b65\u6700\u540e\u5f97\u5230\u7684  \n$p_i$ \u503c\u3002  \n\n\u90a3\u4e48\u8981\u8ba9 $ f(i,j) = i$ \uff0c\u5c31\u663e\u7136\u662f\u8981\u6784\u6210\u4e00\u4e2a\u5927\u5c0f\u4e3a $j$ \u7684\u73af\u3002  \n  \n\u5373\u8981\u8ba9 $g(i) = j$, \u6211\u4eec\u9700\u8981\u8ba9 $i$ \u8fd9\u4e2a\u70b9\u5728\u4e00\u4e2a\u5927\u5c0f\u4e3a $j$ \u7684\u73af\u4e0a\u3002  \n\n\u90a3\u4e48\u5982\u4f55\u6784\u9020\u8ba9\u6bcf\u4e2a\u70b9\u90fd\u6ee1\u8db3\u5462?\n\n\u5982\u56fe:  (\u753b\u56fe\u6c34\u5e73\u592a\u5dee\u4e0d\u8981\u5728\u610f)\n![](https://cdn.luogu.com.cn/upload/pic/14944.png )  \n\n\u8fd9\u6837\u7684\u8bdd\u53ef\u4ee5\u770b\u52303\u4e2a\u70b9\u90fd\u5904\u5728\u5927\u5c0f\u4e3a3\u7684\u73af\u4e0a\u3002  \n\n\u63a5\u4e0b\u6765\u5c31\u5f88\u7b80\u5355\u4e86\u5427\u3002\n\n\u5148\u8ba9$g(i)=a$\u4e00\u76f4\u6784\u9020\u5927\u5c0f\u4e3a$a$\u7684\u73af\uff0c\u76f4\u5230\u5269\u4e0b\u7684\u70b9\u6570\u53ef\u4ee5\u6574\u9664$b$,\u5c31\u4e00\u76f4\u6784\u9020  \n\u5927\u5c0f\u4e3a$b$\u7684\u73af\u77e5\u9053\u7ed3\u675f\u3002  \n\n\u82e5\u5230\u6700\u540e\u90fd\u4f1a\u6709\u591a\u4f59,\u5c31\u662f\u65e0\u89e3\u3002\n\n```cpp\n#include<cstdio>\n#include<cstring>\n#include<algorithm>\n#include<iostream>\nusing namespace std;\nconst int N=2e6+10;\nint p[N];\nint main(){\n\tint n,a,b;\n\tscanf(\"%d%d%d\",&n,&a,&b);\n\tint t=n,i=1;\n\tbool flag=0;\n\tif(t%a==0) flag=1;\n\tif(t%b==0) a=b,flag=1;\n\twhile(i<=n){\n\t\tp[i]=i+a-1;\n\t\tif(p[i]>n) break;\n\t\tfor(int j=p[i];j>i;--j) p[j]=j-1;\n\t\ti+=a;\n\t\tif(!flag){\n\t\t\tt-=a;\n\t\t\tif(t%b==0) a=b,flag=1;\n\t\t}\n\t}\n\tif(!flag) return puts(\"-1\")&0;\n\tfor(int i=1;i<=n;++i) printf(\"%d \",p[i]);\n}\n```",
+        "postTime": 1519714755,
+        "uid": 31511,
+        "name": "dormantbs",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF932C \u3010Permutation Cycle\u3011"
+    }
+]

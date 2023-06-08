@@ -1,0 +1,21 @@
+{
+    "description": "You are given a connected weighted undirected graph, consisting of $ n $ vertices and $ m $ edges.\n\nYou are asked $ k $ queries about it. Each query consists of a single integer $ x $ . For each query, you select a spanning tree in the graph. Let the weights of its edges be $ w_1, w_2, \\dots, w_{n-1} $ . The cost of a spanning tree is $ \\sum \\limits_{i=1}^{n-1} |w_i - x| $ (the sum of absolute differences between the weights and $ x $ ). The answer to a query is the lowest cost of a spanning tree.\n\nThe queries are given in a compressed format. The first $ p $ $ (1 \\le p \\le k) $ queries $ q_1, q_2, \\dots, q_p $ are provided explicitly. For queries from $ p+1 $ to $ k $ , $ q_j = (q_{j-1} \\cdot a + b) \\mod c $ .\n\nPrint the xor of answers to all queries.",
+    "inputFormat": "The first line contains two integers $ n $ and $ m $ ( $ 2 \\le n \\le 50 $ ; $ n - 1 \\le m \\le 300 $ ) \u2014 the number of vertices and the number of edges in the graph.\n\nEach of the next $ m $ lines contains a description of an undirected edge: three integers $ v $ , $ u $ and $ w $ ( $ 1 \\le v, u \\le n $ ; $ v \\neq u $ ; $ 0 \\le w \\le 10^8 $ ) \u2014 the vertices the edge connects and its weight. Note that there might be multiple edges between a pair of vertices. The edges form a connected graph.\n\nThe next line contains five integers $ p, k, a, b $ and $ c $ ( $ 1 \\le p \\le 10^5 $ ; $ p \\le k \\le 10^7 $ ; $ 0 \\le a, b \\le 10^8 $ ; $ 1 \\le c \\le 10^8 $ ) \u2014 the number of queries provided explicitly, the total number of queries and parameters to generate the queries.\n\nThe next line contains $ p $ integers $ q_1, q_2, \\dots, q_p $ ( $ 0 \\le q_j < c $ ) \u2014 the first $ p $ queries.",
+    "outputFormat": "Print a single integer \u2014 the xor of answers to all queries.",
+    "samples": [
+        [
+            "5 8\n4 1 4\n3 1 0\n3 5 3\n2 5 4\n3 4 8\n4 3 4\n4 2 8\n5 3 9\n3 11 1 1 10\n0 1 2",
+            "4"
+        ],
+        [
+            "6 7\n2 4 0\n5 4 7\n2 4 0\n2 1 7\n2 6 1\n3 4 4\n1 4 8\n4 10 3 3 7\n3 0 2 1",
+            "5"
+        ],
+        [
+            "3 3\n1 2 50\n2 3 100\n1 3 150\n1 10000000 0 0 100000000\n75",
+            "164"
+        ]
+    ],
+    "hint": "The queries in the first example are $ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 $ . The answers are $ 11, 9, 7, 3, 1, 5, 8, 7, 5, 7, 11 $ .\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1633E/cc44ec2a2f7074b3d4db31716a40d840e49d6671.png)The queries in the second example are $ 3, 0, 2, 1, 6, 0, 3, 5, 4, 1 $ . The answers are $ 14, 19, 15, 16, 11, 19, 14, 12, 13, 16 $ .\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1633E/8c952d1a0cb110f0d7bc671856ab3b11fe089a16.png)The queries in the third example are $ 75, 0, 0, \\dots $ . The answers are $ 50, 150, 150, \\dots $ .\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1633E/0df04a7e4050b5f60aca076480a18740ebab3d6b.png)",
+    "translation": "\u7ed9\u5b9a\u4e00\u4e2a\u5305\u542b $n$ \u4e2a\u70b9\u548c $m$ \u6761\u8fb9\u7684\u65e0\u5411\u5e26\u6743\u56fe\uff0c\u4f60\u6709 $k$ \u6b21\u8be2\u95ee\uff0c\u7b2c $i$ \u6b21\u8be2\u95ee\u7ed9\u5b9a\u4e00\u4e2a\u6574\u6570 $q_i$\uff0c\u4f60\u9700\u8981\u4ece\u56fe\u4e2d\u9009\u51fa\u4e00\u68f5\u751f\u6210\u6811\uff0c\u8bbe\u8be5\u751f\u6210\u6811\u7684 $n-1$ \u6761\u8fb9\u7684\u6743\u503c\u4e3a $w_1,w_2,\\dots,w_{n-1}$\uff0c\u4f60\u9700\u8981\u6c42\u51fa $\\sum\\limits_{j=1}^{n-1}|w_j-q_i|$ \u7684\u6700\u5c0f\u503c\u3002\n\n\u8be5\u9898\u6240\u6709 $k$ \u6b21\u8be2\u95ee\u4e2d\uff0c\u524d $p$ \u6b21\u8be2\u95ee\u7684 $q_1,q_2,\\dots,q_p$ \u5728\u8f93\u5165\u4e2d\u7ed9\u5b9a\uff0c\u4ece\u7b2c $p+1$ \u6b21\u8be2\u95ee\u5f00\u59cb\u7684 $q_i=(q_{i-1}\\cdot a+b)\\bmod c$\u3002\n\n\u6570\u636e\u8303\u56f4\uff1a\n\n- $2\\leqslant n\\leqslant 50$\uff0c$n-1\\leqslant m\\leqslant 300$\uff0c$1\\leqslant p\\leqslant 10^5$\uff0c$p\\leqslant k\\leqslant 10^7$\uff0c$0\\leqslant a,b\\leqslant 10^8$\uff0c$1\\leqslant c\\leqslant 10^8$\u3002\n- $0\\leqslant w_i\\leqslant 10^8$\u3002\n\nTranslated by Eason_AC  \n2022.2.2"
+}

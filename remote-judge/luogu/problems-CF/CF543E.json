@@ -1,0 +1,13 @@
+{
+    "description": "Please note that the memory limit differs from the standard.\n\nYou really love to listen to music. During the each of next $ s $ days you will listen to exactly $ m $ songs from the playlist that consists of exactly $ n $ songs. Let's number the songs from the playlist with numbers from $ 1 $ to $ n $ , inclusive. The quality of song number $ i $ is $ a_{i} $ .\n\nOn the $ i $ -th day you choose some integer $ v $ ( $ l_{i}<=v<=r_{i} $ ) and listen to songs number $ v,v+1,...,v+m-1 $ . On the $ i $ -th day listening to one song with quality less than $ q_{i} $ increases your displeasure by exactly one.\n\nDetermine what minimum displeasure you can get on each of the $ s $ next days.",
+    "inputFormat": "The first line contains two positive integers $ n $ , $ m $ ( $ 1<=m<=n<=2\u00b710^{5} $ ). The second line contains $ n $ positive integers $ a_{1},a_{2},...,a_{n} $ ( $ 0<=a_{i}&lt;2^{30} $ ) \u2014 the description of songs from the playlist.\n\nThe next line contains a single number $ s $ ( $ 1<=s<=2\u00b710^{5} $ ) \u2014 the number of days that you consider.\n\nThe next $ s $ lines contain three integers each $ l_{i},r_{i},x_{i} $ ( $ 1<=l_{i}<=r_{i}<=n-m+1 $ ; $ 0<=x_{i}&lt;2^{30} $ ) \u2014 the description of the parameters for the $ i $ -th day. In order to calculate value $ q_{i} $ , you need to use formula: ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF543E/1bb5dced0895ed7046b88afe786c4973f192f501.png), where $ ans_{i} $ is the answer to the problem for day $ i $ . Assume that $ ans_{0}=0 $ .",
+    "outputFormat": "Print exactly $ s $ integers $ ans_{1},ans_{2},...,ans_{s} $ , where $ ans_{i} $ is the minimum displeasure that you can get on day $ i $ .",
+    "samples": [
+        [
+            "5 3\n1 2 1 2 3\n5\n1 1 2\n1 3 2\n1 3 3\n1 3 5\n1 3 1\n",
+            "2\n0\n2\n3\n1\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9\u4f60\u4e00\u4e2a\u957f\u5ea6\u4e3a$n$\u5e8f\u5217$a_i$\uff0c\u548c\u4e00\u4e2a\u5e38\u6570$m$\uff0c\u5b9a\u4e49\u4e00\u4e2a\u51fd\u6570$f(l,x)$\u4e3a$[l,l+m-1]$\u4e2d\u5c0f\u4e8e$x$\u7684\u6570\u7684\u4e2a\u6570\uff0c\u6709$q$\u4e2a\u8be2\u95ee\uff0c\u6bcf\u6b21\u7ed9\u5b9a$l,r,x$\u67e5\u8be2$min_{i=l}^rf(i,x)$\u3002\n\n\u5f3a\u5236\u5728\u7ebf\uff0c\u6bcf\u6b21\u8f93\u5165\u7684 $x$ \u5f02\u6216\u4e0a\u4e0a\u4e00\u6b21\u7684\u7b54\u6848\u540e\u624d\u4e3a\u771f\u5b9e\u503c\u3002"
+}

@@ -1,0 +1,21 @@
+{
+    "description": "[problemUrl]: https://atcoder.jp/contests/xmascon20/tasks/xmascon20_d\n\n\u6b63\u306e\u6574\u6570 $ N $ \u3068\u6574\u6570 $ C $ \u304c\u4e0e\u3048\u3089\u308c\u308b\uff0e$ N\\ \\times\\ N $ \u884c\u5217 $ A $ \u3092\u6b21\u306e\u3088\u3046\u306b\u5b9a\u3081\u308b\uff1a $ (i,\\ j) $ \u6210\u5206 ($ 1\\ \\le\\ i\\ \\le\\ N $\uff0c$ 1\\ \\le\\ j\\ \\le\\ N $) \u306f\n\n- $ i\\ =\\ j $ \u306e\u3068\u304d $ 1 $\uff0c\n- $ j $ \u304c $ i $ \u3067\u5272\u308a\u5207\u308c\u306a\u3044\u3068\u304d $ C $\uff0c\n- \u4e0a\u306e\u3044\u305a\u308c\u3067\u3082\u306a\u3044\u5834\u5408 $ 0 $\uff0e\n\n\u3053\u306e\u3068\u304d\uff0c$ \\det\\ A $ \u3092 $ 998244353 $ \u3067\u5272\u3063\u305f\u4f59\u308a ($ 0 $ \u4ee5\u4e0a $ 998244353 $ \u672a\u6e80) \u3092\u6c42\u3081\u3088\uff0e",
+    "inputFormat": "\u5165\u529b\u306f\u4ee5\u4e0b\u306e\u5f62\u5f0f\u3067\u6a19\u6e96\u5165\u529b\u304b\u3089\u4e0e\u3048\u3089\u308c\u308b\uff0e\n\n> $ N $ $ C $",
+    "outputFormat": "$ \\det\\ A $ \u3092 $ 998244353 $ \u3067\u5272\u3063\u305f\u4f59\u308a ($ 0 $ \u4ee5\u4e0a $ 998244353 $ \u672a\u6e80) \u3092\u51fa\u529b\u305b\u3088\uff0e",
+    "samples": [
+        [
+            "6 3",
+            "998244345"
+        ],
+        [
+            "2020 11",
+            "515894850"
+        ],
+        [
+            "1000000000 2020",
+            "4909496"
+        ]
+    ],
+    "hint": "### \u5236\u7d04\n\n- $ 1\\ \\le\\ N\\ \\le\\ 10^9 $\uff0e\n- $ 0\\ \\le\\ C\\ <\\ 998244353 $\uff0e\n\n### \u90e8\u5206\u70b9\n\n- $ N\\ \\le\\ 10^5 $ \u3092\u6e80\u305f\u3059\u30c7\u30fc\u30bf\u30bb\u30c3\u30c8\u306b\u6b63\u89e3\u3057\u305f\u5834\u5408\u306f\uff0c$ 20 $ \u70b9\u304c\u4e0e\u3048\u3089\u308c\u308b\uff0e\n- \u8ffd\u52a0\u5236\u7d04\u306e\u306a\u3044\u30c7\u30fc\u30bf\u30bb\u30c3\u30c8\u306b\u6b63\u89e3\u3057\u305f\u5834\u5408\u306f\uff0c\u4e0a\u8a18\u3068\u306f\u5225\u306b $ 80 $ \u70b9\u304c\u4e0e\u3048\u3089\u308c\u308b\uff0e\n\n### Sample Explanation 1\n\n$ A\\ =\\ \\begin{bmatrix}1&amp;0&amp;0&amp;0&amp;0&amp;0\\\\3&amp;1&amp;3&amp;0&amp;3&amp;0\\\\3&amp;3&amp;1&amp;3&amp;3&amp;0\\\\3&amp;3&amp;3&amp;1&amp;3&amp;3\\\\3&amp;3&amp;3&amp;3&amp;1&amp;3\\\\3&amp;3&amp;3&amp;3&amp;3&amp;1\\end{bmatrix} $ \u3067\u3042\u308a\uff0c$ \\det\\ A\\ =\\ -8 $ \u3068\u306a\u308b\uff0e",
+    "translation": "\u7ed9\u51fa\u6b63\u6574\u6570 $N$ \u548c\u6574\u6570 $C$\u3002$N\\times N$ \u77e9\u9635 $A$ \u5982\u4e0b\u786e\u5b9a\uff1a\uff08$i$\uff0c$j$\uff09\u5206\u91cf\uff08$1\\le i\\le N$\uff0c$1\\le j\\le N$\uff09\u4e3a \n$i=j$ \u65f6 $1$ \uff0c\n$j$ \u4e0d\u80fd\u7528 $i$ \u9664\u5c3d\u65f6 $C$\uff0c\n\u975e\u4e0a\u8ff0\u4efb\u4e00\u79cd\u60c5\u51b5\u4e0b\u4e3a $0$\u3002\n\u6b64\u65f6\uff0c\u6c42 $\\text{det A}$ \u9664\u4ee5 $998244353$ \u7684\u4f59\u6570\uff08$0$ \u4ee5\u4e0a $998244353$\u4ee5\u4e0b\uff09\u3002\n\u8f93\u5165\u683c\u5f0f\n\u8f93\u5165\u4ee5\u4ee5\u4e0b\u5f62\u5f0f\u4ece\u6807\u51c6\u8f93\u5165\u88ab\u7ed9\u4e88\u3002\n\n$N\\hspace{0.4cm} C\\\\$ \n\u8f93\u51fa\u683c\u5f0f\n\n\u8f93\u51fa $\\text{det A}$\u9664\u4ee5 $998244353$ \u4f59\u6570\uff08$0$ \u4ee5\u4e0a $998244353$ \u4ee5\u4e0b\uff09\u3002"
+}

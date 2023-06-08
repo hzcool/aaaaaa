@@ -1,0 +1,18 @@
+[
+    {
+        "content": "- \u6ce8\u610f\uff1a\u53ea\u6709\u82f1\u6587\u9898\u9762\u662f\u6b63\u786e\u7684\u3002\n\n## Solution\n\n\u5b57\u7b26\u4e32 $s$ \u7684\u6bcf\u4e00\u4e2a\u5b57\u7b26\u6ca1\u6709\u4e92\u76f8\u5f71\u54cd\uff0c\u56e0\u6b64\u5148\u5c06\u5b57\u7b26\u4e32\u7684\u6bcf\u4e00\u4e2a\u5b57\u7b26\u6309\u7167\u89c4\u5219\u8f6c\u6362\u4e3a\u4e8c\u8fdb\u5236\u6570 $a_i$\uff0c\u518d\u5bf9\u6bcf\u4e00\u4e2a\u5b57\u7b26\u8fdb\u884c\u89e3\u51b3\u3002\n\n\n\u53c8\u56e0\u4e3a\u6bcf\u4e2a\u4e8c\u8fdb\u5236\u4f4d\u7684\u4e0e\u8fd0\u7b97\u662f\u4e92\u4e0d\u5f71\u54cd\u7684\uff0c\u6240\u4ee5\u8003\u8651\u5355\u72ec\u4e00\u4e2a\u4e8c\u8fdb\u5236\u4f4d\uff1a\u8bbe\u4e00\u7ec4\u53ef\u884c\u7b54\u6848\u7684\u7b2c $i$ \u4e2a\u5b57\u7b26\u5bf9\u5e94\u7684\u6570\u4e3a $b_i$ \u548c $c_i$\u3002\u5982\u679c $a_i$ \u7684\u67d0\u4e00\u4f4d\u662f $1$\uff0c\u5219 $b_i$ \u548c $c_i$ \u7684\u8fd9\u4e00\u4f4d\u4e5f\u90fd\u662f $1$\u3002\u5426\u5219\u6709 $10$\u3001$01$\u3001$00$ \u4e09\u79cd\u60c5\u51b5\u3002\n\n\u8fd9\u6837\u505a\u6cd5\u5c31\u51fa\u6765\u4e86\uff1a\u7edf\u8ba1 $a_i$ \u8f6c\u5316\u4e3a $6$ \u4f4d\u4e8c\u8fdb\u5236\u6570\u540e $0$ \u7684\u4e2a\u6570 $cnt_i$\uff0c\u5219\u7b54\u6848\u4e3a $3^{sum}$\uff0c\u5176\u4e2d $sum = \\sum\\limits_{i=1}^{n} a_i$\u3002\n\n## Code\n```cpp\n#include<bits/stdc++.h>\n#define int long long\n#define il inline\nusing namespace std;\nconst int N=1e5+5;\nconst int P=1e9+7;\n\nstring s;\nint n,a[N],ans;\n\nint v(char x){ //\u8f6c\u6362\u89c4\u5219\u3002\n\tif(x>='0' && x<='9') return x-'0';\n\tif(x>='A' && x<='Z') return x-'A'+10;\n\tif(x>='a' && x<='z') return x-'a'+36;\n\treturn x=='-' ? 62 : 63;\n}\n\nil int qpow(int a,int b){\n\tint ans=1;\n\twhile(b){\n\t\tif(b&1) (ans*=a)%=P;\n\t\t(a*=a)%=P,b>>=1; \n\t}\n\treturn ans;\n}\n\nmain(){\n\tcin >> s,n=s.size(),s=\" \"+s;\n\tfor(int i=1;i<=n;++i) a[i]=v(s[i]);\n\t\n\tfor(int i=1;i<=n;++i){\n\t\tint cnt=6;\n\t\tfor(int j=0;j<6;++j) cnt-=((a[i]>>j)&1); //\u7edf\u8ba1 0 \u7684\u4e2a\u6570\u3002\n\t\tans+=cnt;\n\t}\n\t\n\treturn printf(\"%lld\",qpow(3ll,ans)),0;\n}\n```",
+        "postTime": 1682240631,
+        "uid": 722253,
+        "name": "cppcppcpp3",
+        "ccfLevel": 0,
+        "title": "CF677C \u9898\u89e3"
+    },
+    {
+        "content": "\u5feb\u901f\u5e42\uff0c\u56e0\u4e3a0&\u4efb\u4f55\u503c\u90fd\u5565\u90fd\u7b49\u4e8e\u5176\u672c\u8eab\uff0c\u6240\u4ee5\u6211\u4eec\u53ea\u9700\u8981\u7528tot\u7edf\u8ba1\u6bcf\u4e00\u4e2a\u5b57\u7b26\u4e8c\u8fdb\u5236\u540e\u76840\u7684\u4e2a\u6570\uff0c\u518d\u7d2f\u52a0\u5373\u53ef\u3002\n\n\u6700\u540e\u7684\u7b54\u6848\u5373\u662f$3^{tot}$\u3002\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n#define ll long long\n\nconst ll Mod=1e9+7;\n\nint Cheak(char a){\n\tint x=0;\n\tif('9'>=a&&a>='0'){\n\t\tx=a-'0';\n\t\treturn x;\n\t}\n\tif('Z'>=a&&a>='A'){\n\t\tx=a-'A'+10;\n\t\treturn x;\n\t}\n\tif('z'>=a&&a>='a'){\n\t\tx=a-'a'+36;\n\t\treturn x;\n\t}\n\tif(a=='-')\n\t\treturn 62;\n\tif(a=='_')\n\t\treturn 63;\n\treturn 100;\n}\n\nint CHEAK(int x){\n\tint tot=0;\n\tfor(int i=1;i<=6;i++){\n\t\tif(x&1){\n\t\t\tx>>=1;\n\t\t\tcontinue;\n\t\t}\n\t\tx>>=1;\n\t\ttot++;\n\t}\n\treturn tot;\n}\n\nll Pow(ll a,ll b){\n\tll ans=1;\n\twhile(b){\n\t\tif(b&1){\n\t\t\tans=ans*a%Mod;\n\t\t}\n\t\ta=a*a%Mod;\n\t\tb>>=1;\n\t}\n\treturn ans%Mod;\n}\n\nint main(){\n\tchar a[1000005];\n\tscanf(\"%s\",a+1);\n\tint n=strlen(a+1);\n\tll sum=0;\n\tfor(int i=1;i<=n;i++){\n\t\tint now=Cheak(a[i]);\n\t\tsum+=CHEAK(now);\n\t}\n\tprintf(\"%lld\",Pow(3,sum));\n\treturn 0;\n}\n\n```",
+        "postTime": 1610769678,
+        "uid": 225883,
+        "name": "MiRaciss",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF677C \u3010Vanya and Label\u3011"
+    }
+]

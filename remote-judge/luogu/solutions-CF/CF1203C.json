@@ -1,0 +1,58 @@
+[
+    {
+        "content": "\u5148\u6c42\u51fa\u6240\u6709\u6570\u5b57\u7684\u6700\u5927\u516c\u7ea6\u6570$x$\uff0c\u7136\u540e\u901a\u8fc7\u5206\u89e3\u8d28\u56e0\u6570\u7684\u65b9\u6cd5\u6765\u8ba1\u7b97$x$\u7684\u7ea6\u6570\u4e2a\u6570\u3002\n\u5982\u4f55\u7528\u5206\u89e3\u8d28\u56e0\u6570\u7684\u65b9\u6cd5\u8ba1\u7b97\u67d0\u4e2a\u6570\u7684\u7ea6\u6570\u4e2a\u6570\u5462\uff1f  \n\u5047\u8bbe\u6211\u4eec\u9700\u8981\u6c42$216$\u8fd9\u4e2a\u6570\u5b57\u7684\u56e0\u6570\u4e2a\u6570\uff0c\u5206\u89e3\u8d28\u56e0\u6570\u540e\u5f97\u5230\uff1a  \n$$216=2^3*3^3$$  \n\n\u5bf9\u4e8e2\u8fd9\u4e2a\u8d28\u6570\u67094\u79cd\u9009\u6cd5\uff1a$2^0,2^1,2^2,2^3$\uff0c3\u4e5f\u67094\u79cd\u9009\u6cd5\uff1a$3^0,3^1,3^2,3^3$\uff0c\u6240\u4ee5216\u7684\u56e0\u6570\u4e2a\u6570\u5c31\u662f$4\\times4=16$.  \n\n\u65e2\u7136\u660e\u767d\u4e86\u8fd9\u4e2a\u9053\u7406\uff0c\u5c31\u53ef\u4ee5\u8f7b\u677e\u7f16\u5199\u51fa\u7a0b\u5e8f\u4e86\uff0c\u6ce8\u610f\u4f7f\u7528$long long$\u3002\u4ee3\u7801\u5982\u4e0b\uff1a  \n```cpp\n#include <cmath>\n#include <cstdio>\n#include <numeric>\nusing namespace std;\nconst int maxn = 400005;\n\nlong long A[maxn];\nbool isprime(long long n) // \u5224\u65ad\u8d28\u6570\n{\n    if (n <= 1)\n        return false;\n    int m = sqrt(n) + 0.5;\n    for (int i = 2; i <= m; i++)\n        if (n % i == 0)\n            return false;\n    return true;\n}\nint main()\n{\n    int n;\n    scanf(\"%d%lld\", &n, &A[1]);\n    long long x = A[1];\n    for (int i = 2; i <= n; i++)\n        scanf(\"%lld\", &A[i]), x = gcd(x, A[i]); // <numeric>\u5934\u6587\u4ef6\u4e2d\u5728C++17\u6807\u51c6\u91cc\u5185\u7f6e\u4e86gcd\u51fd\u6570\n    long long ans = 1;\n    for (long long i = 2; i * i <= x; i++) { // \u5c06x\u5206\u89e3\u8d28\u56e0\u6570\u5e76\u8ba1\u7b97ans\n        if (isprime(i)) {\n            int cnt = 0;\n            while (x % i == 0)\n                x /= i, cnt++;\n            ans *= (cnt + 1);\n        }\n    }\n    printf(\"%lld\\n\", x > 1 ? (ans << 1) : ans); // \u8f93\u51fa\u7b54\u6848\n    return 0;\n}\n```",
+        "postTime": 1565770889,
+        "uid": 84282,
+        "name": "andyli",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF1203C \u3010Common Divisors\u3011"
+    },
+    {
+        "content": "## \u5206\u6790\n\n\u6211\u4eec\u77e5\u9053\uff0c\u82e5\u4e00\u4e2a\u6574\u6570 $x$\uff0c\u6ee1\u8db3\uff1a$a_1 \\bmod x=0,a_2 \\bmod x=0,...,a_n \\bmod x=0$\uff0c\u5219 $x$ \u4e00\u5b9a\u662f $a_1,a_2,...,a_n$ \u7684\u516c\u56e0\u6570\u3002\u800c\u8fd9\u9053\u9898\u8981\u6211\u4eec\u627e\u51fa\u6240\u6709\u6ee1\u8db3\u7684 $x$\uff0c\u6240\u4ee5\u6211\u4eec\u53ef\u4ee5\u628a $a_1,a_2,...,a_n$ \u7684\u6700\u5927\u516c\u56e0\u6570\u6c42\u51fa\u6765\uff0c\u56e0\u4e3a\u4e00\u65e6\u6709\u6700\u5927\u516c\u56e0\u6570 $x_1$\uff0c\u5176\u4f59\u7684\u516c\u56e0\u6570 $x_i$ \u4e5f\u4e00\u5b9a\u662f $x_1$ \u7684\u4e00\u90e8\u5206\uff0c\u5373\uff1a$x_1 \\bmod x_i=0$\u3002\u4e8e\u662f\uff0c\u6211\u4eec\u5728\u6c42\u51fa\u6765\u6700\u5927\u516c\u56e0\u6570\u4e4b\u540e\uff0c\u518d\u6c42\u5176\u7684\u56e0\u6570\u4e2a\u6570\u5373\u53ef\u3002\n\n## \u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nlong long n;\nconst int N=1e6+10;\nlong long a[N],gcd_all;\nlong long ans;\nsigned main()\n{\n\tcin>>n;\n\tfor(long long i=1;i<=n;i++)\n\t\tcin>>a[i];\n\tgcd_all=a[1];\n\tfor(long long i=2;i<=n;i++)\n\t\tgcd_all=__gcd(gcd_all,a[i]);\n\tfor(long long i=1;i*i<=gcd_all;i++)\n\t\tif(gcd_all%i==0) \n\t\t\tans+=2;\n\tif((long long)(sqrt(gcd_all))*(long long)(sqrt(gcd_all))==gcd_all) ans--;\n\treturn cout<<ans,0;\n}\n```\n",
+        "postTime": 1683897353,
+        "uid": 734533,
+        "name": "cq_zry",
+        "ccfLevel": 0,
+        "title": "CF1203C Common Divisors \u9898\u89e3"
+    },
+    {
+        "content": "## \u601d\u8def\n\u73b0\u5728\u6211\u4eec\u9700\u8981\u5904\u7406\u4e24\u79cd\u64cd\u4f5c\uff1a\u6c42\u6700\u5927\u516c\u7ea6\u6570\u548c\u8ba1\u7b97\u56e0\u6570\u4e2a\u6570\u3002\n\n\u9996\u5148\u770b\u7b2c $1$ \u79cd\u64cd\u4f5c\uff0c\u6211\u4eec\u53ea\u9700\u8981\u7528\u8f97\u8f6c\u76f8\u9664\u6cd5\u4e24\u4e24\u6c42\u503c\u5c31\u884c\u4e86\u3002\n\n\u7b2c $2$ \u4e2a\u64cd\u4f5c\u4e2d\uff0c\u8bbe\u6700\u5927\u516c\u7ea6\u6570\u4e3a $x$\uff0c\u5219\u8bbe $x=p_1^{a_1} \\times p_2^{a_2} \\cdots p_k^{a_k}$\uff0c\u5219\u5176\u56e0\u6570\u4e2a\u6570\u4e3a $\\prod_{i=1}^{k} a_i+1$\u3002\n\n\u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n#define int long long\ninline int gcd(int x,int y){//\u6c42\u6700\u5927\u516c\u7ea6\u6570 \n\tif(y==0)return x;\n\treturn gcd(y,x%y);\n}\nbool isprime(int x){\n\tif(x<2)return false;\n\tfor(int i=2;i*i<=x;i++){\n\t\tif(x%i==0)return false;\n\t}\n\treturn true;\n} \ninline int calc(int x){//\u8ba1\u7b97\u56e0\u6570\u4e2a\u6570\n\tint ans=1;\n\tfor(int i=2;i*i<=x;i++){\n\t\tif(isprime(i)){\n\t\t\tint cnt=0;\n\t\t\twhile(x%i==0){\n\t\t\t\tx/=i;\n\t\t\t\tcnt++;\n\t\t\t}\n\t\t\tans*=(cnt+1);\n\t\t}\n\t}\n\treturn x>1?(ans<<1):ans;\n}\nint n,x;\nsigned main(){\n\tcin>>n;\n\tint ans=0;\n\twhile(n--){\n\t\tcin>>x;\n\t\tans=gcd(ans,x);\n\t}\n\tcout<<calc(ans)<<endl;\n\treturn 0;\n}\n```\n",
+        "postTime": 1661437606,
+        "uid": 673601,
+        "name": "FWT__FFT",
+        "ccfLevel": 0,
+        "title": "CF1203C"
+    },
+    {
+        "content": "\u9898\u610f\u5c31\u662f\u6c42\u4e00\u7ec4\u6570\u7684\u516c\u56e0\u5b50\u4e2a\u6570\n\n\u4e8e\u662f\u5148\u6c42\u6700\u5927\u516c\u56e0\u6570\u518d\u6c42\u6700\u5927\u516c\u56e0\u6570\u7684\u56e0\u5b50\u4e2a\u6570\n\n\u6628\u5929\u665a\u4e0a\u4e00\u76f4TLE\uff08i\\*i\u53d8\u8d1f\u6570\uff09\uff0c\u6ce8\u610f\u5c0f\u5fc3\u4e58\u6cd5\u7206int\n\n\u4e8e\u662f\u4ee3\u7801\u5c31\u5f88\u7b80\u5355\u4e86\n\uff08\u7136\u800c\u8fd9\u4e48\u7b80\u5355\u7684\u9898\u849f\u84bb\u4e5f\u88abTLE\u56f0\u6270\u4e86\u597d\u4e45\uff09\n\n```\n#include <algorithm>\n#include <cstdio>\n#include <cmath>\nusing namespace std;\nint n, ans;\nlong long x, s;\nint main() {\n    scanf(\"%d%I64d\", &n, &s);\n    for (int i = 2; i <= n; i++) scanf(\"%I64d\", &x), s = __gcd(x, s);\n    //\u5982\u679c\u5199i * i <= n\uff0c\u5c0f\u5fc3i * i\u7206int\n    int lim = sqrt(s);\n    for (int i = 1; i <= lim; i++) if (s % i == 0) ans += 2;\n    printf(\"%d\\n\", 1ll * lim * lim == s ? --ans : ans);\n}\n```",
+        "postTime": 1565796884,
+        "uid": 149392,
+        "name": "w1049",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1203C \u3010Common Divisors\u3011"
+    },
+    {
+        "content": "**\u89e3\u9898\u601d\u8def**\n\n\u5148\u7b97\u51fa\u6240\u6709\u5143\u7d20\u7684\u6700\u5927\u516c\u56e0\u6570\uff0c\u5982\u679c\u6700\u5927\u516c\u56e0\u6570 $g$ \u4e3a $1$\uff0c\u5373\u6240\u6709\u5143\u7d20\u4e24\u4e24\u4e92\u8d28\uff0c\u5219\u76f4\u63a5\u8f93\u51fa $1$\uff1b\u5426\u5219\u8f93\u51fa $g$ \u7684\u56e0\u6570\u4e2a\u6570\u3002\n\n\u6700\u540e\u6ce8\u610f\u8981\u5f00 `long long`\u3002\n\n**\u6c42\u89e3\u56e0\u6570\u4e2a\u6570\u4ee3\u7801**\n\n```cpp\nfor(ll i = 1; i * i <= g; i++) {\n\tif(g % i == 0) {\n\t\tif(i * i == g) {\n\t\t\tans++;\n\t\t} else {\n\t\t\tans += 2;\n\t\t}\n\t}\n}\n```\n\n**AC \u4ee3\u7801\uff0c\u8bf7\u52ff\u6284\u88ad**\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\ntypedef long long ll;\nconst int N = 4e5 + 5;\nint n;\nll a[N], g, ans;\nll gcd(ll a, ll b) {\n\tif(a % b == 0) {\n\t\treturn b;\n\t}\n\treturn gcd(b, a % b);\n}\nint main() {\n\tcin >> n;\n\tfor(int i = 1; i <= n; i++) {\n\t\tcin >> a[i];\n\t}\n\tg = a[1];\n\tfor(int i = 2; i <= n; i++) {\n\t\tg = gcd(g, a[i]);\n\t}\n\tif(g == 1) {\n\t\tcout << 1;\n\t\treturn 0;\n\t}\n\tfor(ll i = 1; i * i <= g; i++) {\n\t\tif(g % i == 0) {\n\t\t\tif(i * i == g) {\n\t\t\t\tans++;\n\t\t\t} else {\n\t\t\t\tans += 2;\n\t\t\t}\n\t\t}\n\t}\n\tcout << ans;\n\treturn 0;\n}\n```",
+        "postTime": 1685755667,
+        "uid": 482592,
+        "name": "cyfqwq",
+        "ccfLevel": 4,
+        "title": "CF1203C \u9898\u89e3"
+    },
+    {
+        "content": "## \u9898\u76ee\u610f\u601d\n\u7ed9\u4e00\u4e32\u6570\u7ec4\uff0c\u6c42\u80fd\u6574\u9664\u6570\u7ec4\u4e2d\u6bcf\u4e00\u4e2a\u503c\u7684\u6570\u7684\u4e2a\u6570\u3002\n## \u9898\u76ee\u5206\u6790\n\u9996\u5148\u60f3\u5230\u7684\u662f\u66b4\u529b\uff0c\u76f4\u63a5\u679a\u4e3e\u3002\u4f46\u662f\u806a\u660e\u7684\u4f60\u4e00\u5b9a\u770b\u5230\u4e86 $a[i]$ \u7684\u8303\u56f4\u3002\u6240\u4ee5\u5e94\u8be5\u679c\u65ad\u653e\u5f03\u3002\n\n\u6b63\u786e\u7684\u601d\u8def\u5e94\u8be5\u662f\uff0c\u5148\u6c42\u51fa\u6574\u4e2a\u6570\u7ec4\u7684**\u6700\u5927\u516c\u56e0\u6570**\uff0c\u7136\u540e\u53bb\u679a\u4e3e\u6700\u5927\u516c\u56e0\u6570\u7684**\u56e0\u5b50**\u6709\u591a\u5c11\u4e2a\uff0c\u56e0\u5b50\u7684\u4e2a\u6570\u5c31\u662f\u80fd\u6574\u9664\u6570\u7ec4\u6bcf\u4e2a\u503c\u5f97\u4e2a\u6570\u3002\n## \u4ee3\u7801\u5b9e\u73b0\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\ntypedef long long ll;//\u4e0d\u5f00longlong\u89c1\u7956\u5b97\nll n,g,ans,x;\nint main(){\n\tcin>>n;\n\tfor(int i=0;i<n;i++){\n\t\tcin>>x;\n\t\tg = __gcd(g,x);//\u6c42\u51fa\u6574\u4e2a\u6570\u7ec4\u6700\u5927\u7684\u516c\u56e0\u6570 \n\t} \n\t//\u7136\u540e\u679a\u4e3eg\u7684\u56e0\u6570\u7684\u4e2a\u6570 \n\tfor(ll i=1;i*i<=g;i++){\n\t\tif(g % i == 0){\n\t\t\tans++;\n\t\t\tif(i * i != g){\n\t\t\t\tans++;\n\t\t\t}\n\t\t}\n\t}\n\tcout<<ans;//\u56e0\u6570\u7684\u4e2a\u6570\u5c31\u662f\u7b54\u6848 \n\treturn 0;//over\n}\n```",
+        "postTime": 1683809595,
+        "uid": 782628,
+        "name": "knsg251",
+        "ccfLevel": 0,
+        "title": "Common Divisors"
+    },
+    {
+        "content": "\u5f88\u6c34\u7684\u9898\u4e86\n\n\u9996\u5148\u5f88\u5bb9\u6613\u60f3\u5230\u7684\u662f\u8fd9\u4e00\u5768\u6570\u7684gcd\u662f\u53ef\u4ee5\u6ee1\u8db3\u8981\u6c42\u7684\n\n\u90a3\u4e48\u6211\u4eec\u6c42\u51fa\u6765\u8fd9\u4e00\u5768\u6570\u7684gcd \u5f88\u663e\u7136gcd\u7684\u56e0\u6570\u4e5f\u662f\u6ee1\u8db3\u7684\n\n\u6574\u4f53\u590d\u6742\u5ea6\uff1fO\uff08nlogmaxx+sqrt(gcd)\uff09\n\nlog\u662f\u6c42gcd\u7684\u590d\u6742\u5ea6\n\n\u8bb0\u5f97\u5f00long long \u4e0d\u7136\u4f1aWA3\n\ncode:\n\n```cpp\n#include<bits/stdc++.h>\n#define int long long\nusing namespace std;\ninline int read(){\n\tint x=0,f=1;\n\tchar ch=getchar();\n\twhile(ch>'9'||ch<'0'){\n\t\tif(ch=='-'){\n\t\t\tf=-1;\n\t\t}\t\t\n\t\tch=getchar();\t\t  \n\t} \n\twhile(ch>='0'&&ch<='9'){\n\t\tx=(x<<1)+(x<<3)+(ch^48);\n\t\tch=getchar();\n\t}\n\treturn x*f;\n}\nconst int N=1e6+10;\nint n,a[N],r=1,ans,tot=0,now; \ninline int gcd(int a,int b){\n\t return b?gcd(b,a%b):a;  \n} \ninline bool check(int k){\n\tfor(int i=1;i<=n;i++){\n\t\tif(a[i]%k){\n\t\t\treturn false;\n\t\t}\n\t}\n\treturn true;\n}\nsigned main(){\n\tn=read();\n\tfor(int i=1;i<=n;i++){\n\t\ta[i]=read();\t\n\t}\n\tr=gcd(a[1],a[2]);\n\tfor(int i=3;i<=n;i++){\n\t\tr=gcd(a[i],r);\n\t}\n\tfor(int i=1;i<=sqrt(r);i++){\n\t\tif(r%i==0){\n\t\t\tans++;\n\t\t\tif(i*i!=r){\n\t\t\t\tans++;\n\t\t\t} \n\t\t}\n\t}\n\tprintf(\"%lld\",ans);\n\treturn 0; \n} \n```\n",
+        "postTime": 1565744918,
+        "uid": 142373,
+        "name": "Kendrick_Z",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1203C \u3010Common Divisors\u3011"
+    }
+]

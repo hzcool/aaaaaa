@@ -1,0 +1,21 @@
+{
+    "description": "ZS the Coder and Chris the Baboon arrived at the entrance of Udayland. There is a $ n\u00d7n $ magic grid on the entrance which is filled with integers. Chris noticed that exactly one of the cells in the grid is empty, and to enter Udayland, they need to fill a positive integer into the empty cell.\n\nChris tried filling in random numbers but it didn't work. ZS the Coder realizes that they need to fill in a positive integer such that the numbers in the grid form a magic square. This means that he has to fill in a positive integer so that the sum of the numbers in each row of the grid (![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF711B/e9e8af3f495bde6f05bb15fe8a019d478bbc6918.png)), each column of the grid (![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF711B/715dbd8d1021ddf349931cbf725fd485f986bf2d.png)), and the two long diagonals of the grid (the main diagonal \u2014 ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF711B/141aae991a978e02f2d5b71795da24f641569581.png) and the secondary diagonal \u2014 ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF711B/0aa6adfaeb4cdadf568645c01154f2786989c40b.png)) are equal.\n\nChris doesn't know what number to fill in. Can you help Chris find the correct positive integer to fill in or determine that it is impossible?",
+    "inputFormat": "The first line of the input contains a single integer $ n $ ( $ 1<=n<=500 $ ) \u2014 the number of rows and columns of the magic grid.\n\n $ n $ lines follow, each of them contains $ n $ integers. The $ j $ -th number in the $ i $ -th of them denotes $ a_{i,j} $ ( $ 1<=a_{i,j}<=10^{9} $ or $ a_{i,j}=0 $ ), the number in the $ i $ -th row and $ j $ -th column of the magic grid. If the corresponding cell is empty, $ a_{i,j} $ will be equal to $ 0 $ . Otherwise, $ a_{i,j} $ is positive.\n\nIt is guaranteed that there is exactly one pair of integers $ i,j $ $ (1<=i,j<=n) $ such that $ a_{i,j}=0 $ .",
+    "outputFormat": "Output a single integer, the positive integer $ x $ ( $ 1<=x<=10^{18} $ ) that should be filled in the empty cell so that the whole grid becomes a magic square. If such positive integer $ x $ does not exist, output $ -1 $ instead.\n\nIf there are multiple solutions, you may print any of them.",
+    "samples": [
+        [
+            "3\n4 0 2\n3 5 7\n8 1 6\n",
+            "9\n"
+        ],
+        [
+            "4\n1 1 1 1\n1 1 0 1\n1 1 1 1\n1 1 1 1\n",
+            "1\n"
+        ],
+        [
+            "4\n1 1 1 1\n1 1 0 1\n1 1 2 1\n1 1 1 1\n",
+            "-1\n"
+        ]
+    ],
+    "hint": "In the first sample case, we can fill in $ 9 $ into the empty cell to make the resulting grid a magic square. Indeed,\n\nThe sum of numbers in each row is:\n\n $ 4+9+2=3+5+7=8+1+6=15 $ .\n\nThe sum of numbers in each column is:\n\n $ 4+3+8=9+5+1=2+7+6=15 $ .\n\nThe sum of numbers in the two diagonals is:\n\n $ 4+5+6=2+5+8=15 $ .\n\nIn the third sample case, it is impossible to fill a number in the empty square such that the resulting grid is a magic square.",
+    "translation": "\u6709\u4e00\u4e2a $n\\times n$ \u7684\u77e9\u9635\uff0c\u5176\u4e2d\u6709\u4e00\u4e2a\u6570\u5b57\u662f $0$ \u3002\u8bf7\u95ee\u5728\u8fd9\u4e2a\u4f4d\u7f6e\u586b\u5165\u4e00\u4e2a\u4ec0\u4e48\u6570\uff0c\u4ed6\u624d\u80fd\u6210\u4e3a\u4e00\u4e2a\u5e7b\u65b9\uff1f\u65e0\u89e3\u8f93\u51fa `-1` \u3002"
+}

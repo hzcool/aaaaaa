@@ -1,0 +1,58 @@
+[
+    {
+        "content": "### \u524d\u8a00\n\n\u81ea\u52a8\u8bc6\u522b\u8bed\u8a00\u628a Python \u8bc6\u522b\u4e3a Pascal \u5dee\u8bc4\u3002\n\n\u7ffb\u8bd1\u6709\u8bef\u5dee\u8bc4\u3002\n\n### \u6b63\u6587\n\n>\u6709 $n$ \u4e2a\u9ab0\u5b50\uff0c\u7b2c $i$ \u4e2a\u9ab0\u5b50\u671d\u4e0a\u7684\u9762\u7684\u53ef\u80fd\u503c\u5728 $1$ \u5230  $d_i$ \u4e4b\u95f4\uff0c\u6254\u4e86\u4e00\u904d\u8fd9\u4e9b\u9ab0\u5b50\u4e4b\u540e\u53d1\u73b0\u671d\u4e0a\u7684\u9762\u7684\u503c\u4e4b\u548c\u4e3a $A$\u3002\u73b0\u5728\u9700\u8981\u4f60\u5bf9\u4e8e\u6bcf\u4e00\u4e2a\u9ab0\u5b50\u8ba1\u7b97\u51fa\u5176\u629b\u51fa\u591a\u5c11\u79cd\u503c\u4e00\u5b9a\u51d1\u4e0d\u6210 $A$\u3002$1\\le n\\le 2\\times10^5$,$n\\le A\\le \\sum d_i$,$1\\le d_i\\le 10^6$\n\n\u6211\u4eec\u8bb0 $\\sum d_i=sum$\uff0c\u8fd9\u4e2a\u9ab0\u5b50\u6295\u51fa\u7684\u662f $c_i$\u3002\n\n\u4e0d\u96be\u53d1\u73b0\uff0c\u9664\u53bb $d_i$\uff0c\u5269\u4e0b\u7684\u9ab0\u5b50\u53ef\u4ee5\u6295\u51fa\u6240\u6709\u6ee1\u8db3 $n-1\\le x\\le sum-d_i$ \u7684\u6574\u6570\u3002\n\n\u5982\u679c $c_i>A-(n-1)$ \u90a3\u4e48\u662f\u4e00\u5b9a\u51d1\u4e0d\u6210 $A$ \u7684\u3002\u663e\u7136\u8fd9\u6837\u7684 $c_i$ \u6709 $\\max(0,d_i+n-a-1)$ \u4e2a\u3002\n\n\u5982\u679c $c_i<A-(sum-d_i)$ \u90a3\u4e48\u4e5f\u662f\u51d1\u4e0d\u6210 $A$ \u7684\u3002\u663e\u7136\u8fd9\u6837\u7684 $c_i$ \u6709 $\\max(0,A-sum+d_i-1)$ \u4e2a\u3002\n\n\u90a3\u4e48\u5f97\u51fa:\n\n$$v_i=\\max(0,d_i+n-a-1)+\\max(0,A-sum+d_i-1)$$\n\n\u6b64\u65f6\u8fd9\u79cd\u7b80\u5355\u9898\u7528 C++ \u663e\u5f97\u7b28\u62d9\uff0c\u5197\u957f\u4e14\u6ca1\u6709\u5fc5\u8981\u3002\u6211\u4eec\u91c7\u7528 Python \u6c42\u89e3\u3002\n\n### Code\n\n```python\ns=input().split()\nn=int(s[0]);a=int(s[1]);d=[];sum=0\ns=input().split()\nfor i in range(n):\n    d.append(int(s[i]));sum=sum+d[i]\nfor i in range(n):\n    print(max(0,d[i]+n-a-1)+max(0,a-sum+d[i]-1),end=\" \")\n```\n\n~~\u597d\u50cf\u6709\u79cd\u8bf4\u6cd5\u975e C++ \u7684\u9898\u89e3\u66f4\u5bb9\u6613\u901a\u8fc7\uff1f~~",
+        "postTime": 1621943610,
+        "uid": 217300,
+        "name": "Error_Eric",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF534C \u3010Polycarpus' Dice\u3011"
+    },
+    {
+        "content": "```cpp\n\u770b\u4ee3\u7801\uff1a\n#include<bits/stdc++.h>//\u4e07\u80fd\u5934\u6587\u4ef6\nusing namespace std;\nint main() \n{\n\tlong long n,d[200005],a,ans=0;//\u5b9a\u4e49\uff0c\u8bb0\u5f97\u5f00long long\n    \n\tcin>>n>>a;\n\tfor(long long i=1;i<=n;i++)\n\t{\n\t\tcin>>d[i];\n\t\tans+=d[i];//\u7b97\u548c\n\t}//\u8bfb\u5165\n    \n\tfor(long long i=1;i<=n;i++)\n\t{\n\t\tlong long hhh=min(a-n+1,d[i]);//\u6700\u5927\u7684\n\t\tlong long zzz=0;\n\t\tif(a+d[i]-ans-1>0)\n\t\t\tzzz=a+d[i]-ans-1;//\u6700\u5c0f\u7684\n        //abs(zzz-hhh)\u5c31\u662f\u53ef\u884c\u7684\u60c5\u51b5\n\t\tcout<<d[i]-abs(zzz-hhh)<<\" \";//\u8f93\u51fa\n\t}\n\tcout<<endl;//\u8f93\u51fa\u6362\u884c\n    return 0;//\u5b8c\u7f8e\u7ed3\u675f\n}\n//\u6700\u540e\u611f\u8c22\u6211\u4eec\u7684hello_world2005\u7ed9\u6211\u4eec\u7684\u53c2\u8003\n\n```\n**By \u4f60\u4eec\u6700\u53ef\u7231\u7684czy**",
+        "postTime": 1533693728,
+        "uid": 106738,
+        "name": "_Felix",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF534C \u3010Polycarpus' Dice\u3011"
+    },
+    {
+        "content": "```cpp\n\u770b\u770b\u6211\u5199\u7684\u4ee3\u7801\u5427\uff1a\n#include<bits/stdc++.h>\nusing namespace std;\nlong long d[200007];//\u5f00\u5927\u70b9\uff0c\u522bTLE\nint main()\n{\n\tlong long n,a;\n\tlong long zuidanengbiaoshi=0;//\u6700\u5927\u80fd\u8868\u793a\u7684\u6570\uff08\u4e5f\u53ef\u4ee5\u8bf4\u662f\u603b\u548c\uff09\uff08\u6211\u624d\u4e0d\u544a\u8bc9\u4f60\u6211\u90fd\u8fd9\u6837\u547d\u540d\u53d8\u91cf\u5462\uff09\n\tcin>>n>>a;\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tcin>>d[i];\n\t\tzuidanengbiaoshi+=d[i];\n\t}//\u8bfb\u5165\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tlong long ans=0;\n\t\tif(a-n+1<d[i]) ans+=(d[i]+n-a-1);//d[i]\u592a\u5927\u4e86\n\t\tif(d[i]+a-zuidanengbiaoshi-1>=0) ans+=(a-zuidanengbiaoshi+d[i]-1);//d[i]\u592a\u5c0f\u4e86\n\t\tcout<<ans<<\" \";//\u8f93\u51fa\uff0c\u522b\u5fd8\u4e86\u662flong long\n\t}\n}\n```",
+        "postTime": 1533773590,
+        "uid": 89092,
+        "name": "lihanyang",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF534C \u3010Polycarpus' Dice\u3011"
+    },
+    {
+        "content": "### Part 0 \u524d\u8a00\n\n\u597d\u4e45\u6ca1\u89c1\u8fc7\u8fd9\u4e48\u6c34\u7684\u9898\u4e86\u2026\u2026\n\n\u4f46\u662f\u6709\u4e9b\u9898\u89e3\u90fd\u6ca1\u6709\u8bb2\u6e05\u695a\u8fc7\uff0c\u5dee\u5dee\u5dee\u8bc4\u3002\n\n### Part 1 \u9898\u76ee\u5206\u6790\n\n\u5bf9\u4e8e\u6bcf\u4e00\u4e2a\u9ab0\u5b50\u800c\u8a00\uff0c\u65e0\u8bba\u5982\u4f55\u90fd\u65e0\u6cd5\u6ee1\u8db3\u8981\u6c42\u7684\u6709\u4ee5\u4e0b\u51e0\u79cd\u60c5\u51b5\uff1a\n\n- \u65e0\u8bba\u5176\u4ed6\u9ab0\u5b50\u53d6\u591a\u5927\u7684\u6570\uff0c\u603b\u548c\u90fd\u4e0d\u80fd\u8fbe\u5230 $A$\u3002\u8fd9\u79cd\u60c5\u51b5\u4e0b\uff0c\u8bb0\u5f55 $\\sum{a_i}$ \u4e3a $sum$\uff0c\u5219\u8fd9\u6837\u7684\u70b9\u6570\u6709 $\\max(0,(A-sum+a_i)-1)$ \u4e2a\u3002\u5176\u4e2d $A-sum+a_i=A-(sum-a_i)$\uff0c\u8868\u793a\u628a $A$ \u51cf\u53bb\u6240\u6709\u7684\u5176\u4ed6\u5143\u7d20\uff0c\u8fd8\u5269\u4e0b\u7684\u503c\u3002\n- \u65e0\u8bba\u5176\u4ed6\u9ab0\u5b50\u53d6\u591a\u5c0f\u7684\u6570\uff0c\u603b\u548c\u90fd\u4e0d\u80fd\u8fbe\u5230 $A$\u3002\u8fd9\u79cd\u60c5\u51b5\u4e0b\uff0c$a_i>A-(n-1)$ \u65f6\u65e0\u89e3\u3002\u56e0\u6b64\u8fd9\u6837\u7684\u70b9\u6570\u6709 $\\max(0,a_i-(A-(n-1)))=\\max(0,a_i+n-A-1)$ \u4e2a\u3002\n\n\u63a8\u51fa $ans=\\max(0,(A-sum+a_i)-1)+\\max(0,a_i+n-A-1)$\u3002\n\n### Part 2 \u4ee3\u7801\n\n\u8d34\u8d34\u3002\n\n\u4e0d\u8981\u5fd8\u4e86\u5f00 long long \u54e6\u3002\n\n```cpp\n#include <bits/stdc++.h>\n#define int long long\nusing namespace std;\nint n,A,a[200010];\nint sum; \nsigned main() {\n\tcin >> n >> A;\n\tfor (int i=1;i<=n;i++) {\n\t\tcin >> a[i]; \n\t}\n\tfor (int i=1;i<=n;i++) sum += a[i];\n\tfor (int i=1;i<=n;i++) {\n\t\tint ans = max (0LL,a[i]+n-A-1) + max (0LL,a[i]-sum+A-1);\n\t\tcout << ans << \" \";\n\t}\n    return 0;\n}\n```\n\n### Part 3 \u5e7f\u544a\n\n\u5173\u6ce8 @[\u827e\u56e0\u65af\u5766](https://www.luogu.com.cn/user/529722) \u8c22\u8c22\u55b5~",
+        "postTime": 1675778764,
+        "uid": 529722,
+        "name": "Dream_Creator",
+        "ccfLevel": 4,
+        "title": "CF534C Polycarpus' Dice \u9898\u89e3"
+    },
+    {
+        "content": "## \u9898\u76ee\u5206\u6790\n\u4e0d\u6210\u7acb\u4e00\u5171\u6709\u4e24\u79cd\u60c5\u51b5\u3002\n\n1. \u8fd9\u6b21\u53d6\u5f97\u592a\u5927\u4e86\uff0c\u522b\u7684\u9ab0\u5b50\u90fd\u53d6 1\uff0c\u4e5f\u8d85\u8fc7\u4e86 A\u3002\n2. \u8fd9\u6b21\u53d6\u5f97\u592a\u5c0f\u4e86\uff0c\u522b\u7684\u9ab0\u5b50\u90fd\u53d6 max\uff0c\u4e5f\u8fbe\u4e0d\u5230 A\u3002\n\n\n------------\n\n\n\u4ee3\u7801\u5f88\u7b80\u5355\uff0c\u8d34\u8d34\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\ntypedef long long ll;\ntypedef double db;\n#define re register\n#define inf 1e9+10\n#define lim 200010\n#define mod 998244353\n#define rarr(n,a) for(int i=1;i<=n;i++)cin>>a[i];\n//rarr\u8bfb\u5165\u6570\u7ec4//\u5feb\u8bfb \ninline int rd(){\n    int x=0,f=1;char ch=getchar();\n    while (ch<'0' || ch>'9'){if (ch=='-')f=-1;ch=getchar();}\n    while ('0'<=ch && ch<='9'){x=(x<<3)+(x<<1)+(ch^48);ch=getchar();}\n    return x*f;\n}\nll n,A,d[lim],sum=0;\nint main(){\n\tios_base::sync_with_stdio(false);cin.tie(0);\n\tcin>>n>>A; \n\tfor(int i=1;i<=n;i++)cin>>d[i];//\u597d\u50cf\u6ca1\u7528rarr\n\tfor(int i=1;i<=n;i++)sum+=d[i];\n\tfor(int i=1;i<=n;i++){\n\t\tll ans=0;\n\t\tans+=max(0LL,d[i]+n-A-1);//\u592a\u5c0f\u4e86\n\t\tans+=max(0LL,A-sum+d[i]-1); //\u592a\u5927\u4e86\n\t\tcout<<ans<<\" \";\n\t}\n\t\n\treturn 0;\n}\n\n\n```\n\n",
+        "postTime": 1649066117,
+        "uid": 366316,
+        "name": "\u6843\u96e8\u51ea\u4e1d",
+        "ccfLevel": 5,
+        "title": "CF534C\u9898\u89e3"
+    },
+    {
+        "content": "## \u66f4\u6b63\u9898\u610f\n\n- \u8981\u6c42\u8f93\u51fa\u7684\u662f\u6bcf\u4e2a\u8272\u5b50\u4e0d\u80fd\u8fbe\u5230\u8981\u6c42\u70b9\u6570\u7684\u4e2a\u6570\u3002\n\n## \u601d\u8def\n\n- \u5bf9\u4e8e\u4e00\u4e2a\u8272\u5b50\uff0c\u6211\u4eec\u5148\u6c42\u51fa\u5176\u4ed6\u8272\u5b50\u53ef\u4ee5\u63b7\u51fa\u7684\u8303\u56f4\uff0c\u90a3\u4e48\u6211\u4eec\u5c31\u80fd\u5f97\u5230\u8fd9\u4e2a\u8272\u5b50\u6240\u53ef\u80fd\u63b7\u51fa\u7684\u8303\u56f4\uff0c\u8fd9\u6837\u5c06\u8fd9\u4e2a\u8303\u56f4\u51cf\u53bb\u5c31\u53ef\u4ee5\u6c42\u51fa\u7b54\u6848\u4e86\u3002\n\n## \u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\n#define int long long\nnamespace SGT\n{\n\tchar getc(){return getchar();}\n\tvoid putc(char ch){putchar(ch);}\n\tint read(){int mk=1,x=0;char ch=getc();while(ch!='-'&&(ch<'0'||ch>'9'))ch=getc();if(ch=='-')mk=-1,ch=getc();while('0'<=ch&&ch<='9')x=(x<<1)+(x<<3)+(ch^48),ch=getc();return x*mk;}\n\tvoid write(int x,std::string ch){char cc[100000];int t=0;if(x==0)putc('0');if(x<0) putc('-'),x=-x;while(x){cc[++t]=char(x%10+48);x/=10;}for(int i=t;i>=1;i--)putc(cc[i]);if(ch.size()>0)putc(ch[0]);}\n\tvoid write(char str[],std::string ch){for(int i=0;i<strlen(str);i++)putc(str[i]);if(ch.size()>0)putc(ch[0]);}\n\tvoid write(char wr,std::string ch){putc(wr);if(ch.size()>0)putc(ch[0]);}\n\tint max(int a,int b){return (a>b?a:b);}\n\tint min(int a,int b){return (a<b?a:b);}\n\tint gcd(int a,int b){int r;while(b>0){r=a%b;a=b;b=r;}return a;}\n}\nusing namespace SGT;\nint n,k,a[200010],sum;\nsigned main()\n{\n\tn=read();\n\tk=read();\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\ta[i]=read();\n\t\tsum+=a[i];\n\t}\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tint ans=0;\n\t\tint minn=n-1;\n\t\tint maxx=sum-a[i];//\u5176\u4ed6\u8272\u5b50\u7684\u8303\u56f4\n\t\tif(k-maxx>0) ans+=k-maxx-1;\n\t\tif(k-minn<=a[i]) ans+=a[i]-k+minn;\n\t\twrite(ans,\" \");\n\t}\n\treturn 0;\n}\n\n\n```",
+        "postTime": 1621929607,
+        "uid": 377751,
+        "name": "Scapegoat_Tree",
+        "ccfLevel": 5,
+        "title": "CF534C Polycarpus' Dice \u9898\u89e3"
+    },
+    {
+        "content": "~~\u6bd4\u8f83\u7b80\u5355\uff0c\u5e94\u8be5\u6ca1\u6709\u7d2b\u9898\u7684\u96be\u5ea6~~\n\n\u5148\u628a\u603b\u548c\u7b97\u51fa\u6765\uff0c\u7136\u540eO\uff08n\uff09\u628a\u6bcf\u4e2a\u9ab0\u5b50\u626b\u4e00\u904d\uff0c\u7136\u540e\u770b\u603b\u548c\u51cf\u6389\u8fd9\u4e2a\u9ab0\u5b50\u7684di\u540e\u4e0eA\u7684\u5dee\u5373\u53ef\n\n\n```\n#include<cstdio>\n#include<iostream>\n#include<cstring>\n#include<cmath>\nusing namespace std;\nlong long mx(int a,long long b)\n{\n    if(a>b) return a;\n    else return b;\n}\nint main()\n{\n    long long a,b,c,k=0,d[200001],e,f,j=1,z=1;\n    cin>>a>>b;\n    for(long long i=1;i<=a;i++)\n    {\n        cin>>d[i];\n        k+=d[i];\n    }\n    for(long long j=1;j<=a;j++)\n    {\n        e=min(d[j],b-a+1);\n        f=max(z,b-(k-d[j]));\n        cout<<(d[j]-(e-f+1))<<\" \";\n    }\n    return 0;\n}\n```\n",
+        "postTime": 1566181920,
+        "uid": 132290,
+        "name": "\u5f00\u59cb\u65b0\u7684\u8bb0\u5fc6",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF534C \u3010Polycarpus' Dice\u3011"
+    }
+]

@@ -1,0 +1,58 @@
+[
+    {
+        "content": "\u7ba1\u7406\u5458\u5907\u6ce8\uff1a\u672c\u9898\u6570\u636e\u5df2\u4e8e 2023 \u5e74\u66f4\u65b0\uff0c\u5728\u6781\u9650\u60c5\u51b5\u4e0b\u8fd0\u7b97\u8fc7\u7a0b\u4e2d\u53ef\u80fd\u51fa\u73b0\u6570\u636e\u6ea2\u51fa `int` \u7684\u60c5\u51b5\uff0c\u56e0\u6b64\u8bf7\u5c06\u672c\u9898\u6240\u6709\u9898\u89e3\u4e2d\u7684\u4ee3\u7801\u8fd0\u7b97\u89c6\u4f5c `long long` \u8fd0\u7b97\u3002\r\n\r\n```cpp\r\n#include <bits/stdc++.h>\r\nusing namespace std;\r\nlong long n;\r\nint main() {\r\n\tcin >> n;\r\n\twhile (n != 1) {\t  \r\n\t\tif (n % 2 != 0) { \r\n\t\t\tcout << n << \"*3+1=\" << n * 3 + 1 << endl;\r\n\t\t\tn = n * 3 + 1;\r\n\t\t} else { \r\n\t\t\tcout << n << \"/2=\" << n / 2 << endl;\r\n\t\t\tn = n / 2;\r\n\t\t}\r\n\t}\r\n\tcout << \"End\" << endl;\r\n\treturn 0;\r\n}\r\n\r\n```\r\n\r\n---\r\n\r\n\u8fd9\u9053\u9898\u4e0d\u96be\uff0c\u8003\u5bdf\u7684\u662f\u5bf9\u5faa\u73af\u7684\u8fd0\u7528\u3002\u8fd9\u91cc\u6211\u4eec\u91c7\u7528 while \u5faa\u73af\u6765\u505a\u3002\u8fd8\u8981\u6ce8\u610f\u4e00\u4e0b\u683c\u5f0f\uff0c\u7ed3\u5c3e\u6709 End\u3002\r\n```cpp\r\n#include<bits/stdc++.h>\r\nusing namespace std;\r\nint n;\r\nint main(){\r\n    cin>>n;\r\n    while(n!=1){//n\u4e0d\u4e3a1\r\n        if(n%2!=0){//\u5947\u6570\r\n            cout<<n<<\"*3+1=\"<<n*3+1<<endl;\r\n            n=n*3+1;\r\n        }\r\n        else{//\u5076\u6570\r\n            cout<<n<<\"/2=\"<<n/2<<endl;\r\n            n=n/2;\r\n        }\r\n    }\r\n    cout<<\"End\";//\u7ed3\u5c3e\u8f93\u51faEnd\r\n    return 0;\r\n}\r\n```\r\n",
+        "postTime": 1626079166,
+        "uid": 341801,
+        "name": "MStar",
+        "ccfLevel": 4,
+        "title": "B2077 \u89d2\u8c37\u731c\u60f3 \u9898\u89e3"
+    },
+    {
+        "content": "## \u89d2\u8c37\u731c\u60f3 \u9898\u89e3\n\n\u89d2\u8c37\u731c\u60f3\uff1a\n\n$f(x)=\\begin{cases}End&x=1\\\\x\\times 3+1&x\\% 2=1 \\\\x\\div2&x\\%2=0\\end{cases}$\n\n\u6839\u636e\u9898\u610f\u6a21\u62df\u5373\u53ef\n\n\u5176\u4ed6\u95ee\u9898\u89c1\u4ee3\u7801\u6ce8\u91ca\n\n```cpp\n#include <cstdio>\nint main() {\n\tint n;\n\tscanf(\"%d\", &n);\n\twhile(n != 1)//\u7ed3\u675f\u6761\u4ef6\u4e3an=1\n\t\tif(n & 1) {//\u4f4d\u8fd0\u7b97\u63d0\u9ad8\u6548\u7387\uff0c\u4e5f\u53ef\u4ee5\u5199\u6210n % 2 == 1\n\t\t\tprintf(\"%d*3+1=%d\\n\", n, n * 3 + 1);\n\t\t\tn = n * 3 + 1;//n\u4e3a\u5947\u6570\u7684\u60c5\u51b5\n\t\t} else {\n\t\t\tprintf(\"%d/2=%d\\n\", n, n / 2);\n\t\t\tn /= 2;//n\u4e3a\u5076\u6570\u7684\u60c5\u51b5\n\t\t}\n\tprintf(\"End\");//\u7ed3\u675f\u8f93\u51fa\n\treturn 0;\n}\n```\n",
+        "postTime": 1626148320,
+        "uid": 490522,
+        "name": "VividCycle",
+        "ccfLevel": 7,
+        "title": "B2077 \u89d2\u8c37\u731c\u60f3 \u9898\u89e3"
+    },
+    {
+        "content": "\u89e3\u6cd5\uff1a\n\n\u672c\u9898\u4e3b\u8981\u8003\u67e5 $ \\texttt{while} $ \u5faa\u73af\u7684\u4f7f\u7528\uff0c\u6211\u4eec\u6309\u7167\u9898\u610f\u6a21\u62df\u5373\u53ef\u3002\n\n\u53c2\u8003\u4ee3\u7801\uff1a\n```cpp\n#include<cstdio>\nint main(){\n    int n;\n    scanf(\"%d\",&n);\n\t\twhile(n!=1){//\u5982\u679cn\u4e0d\u7b49\u4e8e1\uff0c\u5c31\u7ee7\u7eed\u5224\u65ad\u3002\u56e0\u4e3a\u6700\u7ec8\u7ed3\u679c\u8981\u5f97\u5230\u7684\u662f1.\n\t\t\tif(n%2!=0){//\u5224\u65ad\u662f\u5426\u4e3a\u5947\u6570\u3002\n\t\t\t\tprintf(\"%d*3+1=%d\\n\",n,n*3+1);\n           //\u5148\u8f93\u51fa\u4e58\u4e09\u52a0\u4e00,\u8f93\u51fa\u540e\u518d\u5c06n\u8bbe\u4e3an*3+1\u3002    \n\t\t\t\tn=n*3+1;\n\t\t\t}\n\t\t\telse{//\u4e0d\u662f\u5947\u6570\uff0c\u5c31\u662f\u5076\u6570\u3002\n\t\t\t\tprintf(\"%d/2=%d\\n\",n,n/2);\n           //\u5148\u8f93\u51fa\u9664\u4ee52\uff0c\u8f93\u51fa\u540e\u5c06n\u8bbe\u4e3an/2\n\t\t\t\tn/=2;\n\t\t\t}\n\t\t}\n\tprintf(\"End\\n\");//\u6700\u540e\u7528End\u7ed3\u5c3e\uff0c\u6ce8\u610f\u5927\u5c0f\u5199\u3002\n    return 0;\n}\n```\n",
+        "postTime": 1626078723,
+        "uid": 517086,
+        "name": "Anclogy",
+        "ccfLevel": 3,
+        "title": "B2077\u9898\u89e3"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u6211\u4eec\u76f4\u63a5\u6a21\u62df\u5373\u53ef\uff0c\u5bf9\u4e8e\u6bcf\u4e00\u4e2a\u6570\u5224\u65ad\u5b83\u7684\u5947\u5076\u6027\uff0c\u5982\u679c\u662f\u5947\u6570\u5219\u6309\u4e58 $3$ \u52a0 $1$ \u5904\u7406\uff0c\u5982\u679c\u662f\u5076\u6570\u5219\u6309\u9664\u4ee5 $2$ \u5904\u7406\uff0c\u4e00\u76f4\u5230\u53d8\u6210 $1$ \u4e3a\u6b62\u3002\n\nCODE\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n    int n;\n    cin>>n;\n    while(n!=1)//\u53ea\u8981n\u8fd8\u4e0d\u662f1\u5c31\u7ee7\u7eed\u5904\u7406\n    {\n        if(n%2==1)//\u5947\u6570\n        {\n            cout<<n<<\"*3+1=\"<<n*3+1<<endl;//\u4e583\u52a01\n            n=n*3+1;\n        }\n        else//\u5076\u6570\n        {\n            cout<<n<<\"/2=\"<<n/2<<endl;//\u9664\u4ee52\n            n/=2;\n        }\n    }\n    cout<<\"End\"<<endl;//\u6ce8\u610f\u5927\u5c0f\u5199\n    return 0;\n}\n```\n",
+        "postTime": 1625309092,
+        "uid": 242193,
+        "name": "DeepSkyBlue__",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 B2077 \u3010\u89d2\u8c37\u731c\u60f3\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u53ef\u4ee5\u7528\u9012\u5f52\u89e3\u3002\n\n\u6211\u4eec\u5206\u4e24\u79cd\u60c5\u51b5\u8003\u8651\uff1a\n\n\u5982\u679c\u5b83\u662f\u5947\u6570\uff0c\u628a\u5b83\u4e58 $3$ \u52a0 $1$ \u3002\n\n\u5982\u679c\u5b83\u662f\u5076\u6570\uff0c\u628a\u4ed6\u9664\u4ee5 $2$ \u3002\n\n\u9012\u5f52\u7ec8\u6b62\u6761\u4ef6\uff1a\u6b64\u6570\u4e3a $1$ \uff0c\u8f93\u51fa ```End``` \u3002\n\n\u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nvoid jiaogu(int n) {//\u9012\u5f52\u51fd\u6570 \n\tif(n==1) {//\u7ec8\u6b62\u6761\u4ef6 \n\t\tcout<<\"End\";\n\t\treturn;\n\t}\n\tif(n%2==0){\n\t\tcout<<n<<\"/2=\"<<n/2<<endl;\n\t\tjiaogu(n/2);//\u9012\u5f52 \n\t}\n\telse{\n\t\tcout<<n<<\"*3+1=\"<<n*3+1<<endl;\n\t\tjiaogu(n*3+1);//\u9012\u5f52 \n\t}\n}\nint main() {\n\tint n;\n\tcin>>n;\n\tjiaogu(n);//\u8c03\u7528\u51fd\u6570 \n\treturn 0;\n}\n```\n",
+        "postTime": 1625996201,
+        "uid": 495265,
+        "name": "_ZhouYuHan_",
+        "ccfLevel": 4,
+        "title": "B2077 \u89d2\u8c37\u731c\u60f3 \u9898\u89e3"
+    },
+    {
+        "content": "\u4ece\u9898\u9762\u5206\u6790\uff1a  \n\u672c\u9898\u8003\u67e5\u5faa\u73af\u7684\u719f\u7ec3\u8fd0\u7528\u3002  \n\u6b64\u9898\u9700\u8981\u6a21\u62df\u89d2\u8c37\u731c\u60f3\u7684\u8fd0\u7b97\u8fc7\u7a0b\uff08\u5982\u679c\u8fd8\u4e0d\u77e5\u9053\u4ec0\u4e48\u662f\u89d2\u8c37\u731c\u60f3\u7684\u53ef\u4ee5\u770b[\u8fd9\u91cc](https://baike.baidu.com/item/%E5%86%B0%E9%9B%B9%E7%8C%9C%E6%83%B3?fromtitle=%E8%A7%92%E8%B0%B7%E7%8C%9C%E6%83%B3&fromid=5213440)\uff09\u3002  \n\u5bf9\u4e8e\u6b64\u9898\uff0c\u6211\u4eec\u53ef\u4ee5\u7528\u4e00\u4e2a\u5faa\u73af\u6765\u5b8c\u6210\uff1a  \n\u9996\u5148\u53ef\u4ee5\u5b9a\u4e49\u4e00\u4e2a`while`\u5faa\u73af\u6765\u4e0d\u65ad\u5730\u5bf9 $n$ \u8fdb\u884c\u64cd\u4f5c\uff0c\u5f97\u5230 $1$ \u65f6\u5c31\u9000\u51fa\u5faa\u73af\u3002  \n\u5728\u5faa\u73af\u5185\uff0c\u6211\u4eec\u53ef\u4ee5\u7528`if`\u6765\u5224\u65ad\u5947\u6570\u8fd8\u662f\u5076\u6570\uff0c\u518d\u6309\u9898\u76ee\u7684\u8981\u6c42\u64cd\u4f5c\uff0c\u6700\u540e\u8f93\u51fa\u5373\u53ef\u3002  \n\u5faa\u73af\u7ed3\u675f\u540e\uff0c\u518d\u8f93\u51fa\u4e00\u4e2aEnd\u3002  \n\u770b\u6570\u636e\u8303\u56f4\uff1a  \n\u901a\u8fc7\u89c2\u5bdf\u53ef\u77e5 $n$ \u7684\u8303\u56f4\u5728`int`\u4e4b\u5185\uff0c\u6240\u4ee5\u7528`int`\u5b9a\u4e49\u5373\u53ef\u3002  \n\u4ee3\u7801\uff1a  \n```cpp\n#include <bits/stdc++.h>\n\nusing namespace std;\n\nint main(){\n\tint n;\n\tcin >> n;\n\twhile(n != 1){//\u5faa\u73af\u64cd\u4f5c\n\t\tif(n % 2 == 0){//\u5076\u6570\n\t\t\tprintf(\"%lld/2=%lld\\n\" ,n ,n / 2);//\u8f93\u51fa\n\t\t\tn /= 2;//\u8fdb\u884c\u64cd\u4f5c\n\t\t}\n\t\telse{//\u5947\u6570\n\t\t\tprintf(\"%lld*3+1=%lld\\n\", n, n * 3 + 1);//\u8f93\u51fa\n\t\t\tn = n * 3 + 1;//\u8fdb\u884c\u64cd\u4f5c\n\t\t}\n\t}\n\tprintf(\"End\");//\u8f93\u51faEnd\n\treturn 0;\n}\n```",
+        "postTime": 1625644143,
+        "uid": 218180,
+        "name": "lighthouse",
+        "ccfLevel": 4,
+        "title": "B2077\u9898\u89e3"
+    },
+    {
+        "content": "## \u9898\u89e3\n\n\u8003\u8651\u4f7f\u7528 $\\verb!while!$ \u5faa\u73af\u89e3\u9898\u3002\u5f53 $n=1$ \u65f6\uff0c\u5c31\u9000\u51fa\uff1b\u5426\u5219\uff0c\n\n- \u5f53 $n\\equiv 1\\pmod 2$ \u65f6\uff0c\u6839\u636e\u9898\u9762\u4e0a\u7684\u683c\u5f0f\u8f93\u51fa\uff0c\u5e76\u8ba9 $n\\gets 3\\times n+1$ \uff1b\n\n- \u5f53 $n\\equiv 0\\pmod 2$ \u65f6\uff0c\u540c\u6837\u5730\uff0c\u6839\u636e\u9898\u9762\u4e0a\u7684\u683c\u5f0f\u8f93\u51fa\u540e\u4ee4 $n\\gets n\\div 2$ \u3002\n\n\u6700\u540e\u4f7f\u7528 $\\verb!puts!$ \u51fd\u6570\uff08\u5b83\u53ef\u4ee5\u7528\u6765\u8f93\u51fa\u4e00\u4e2a C\u98ce\u683c\u5b57\u7b26\u4e32\u5e76\u6362\u884c\uff09\uff0c\u8f93\u51fa $\\verb!End!$ \u3002\u5982 `puts(\"End\")` \u3002\n\n---\n\n\u5728 C++ \u7684\u8868\u8fbe\u5f0f\u7684\u8ba1\u7b97\u4e2d\uff0c\u5b83\u662f\u5148\u8ba1\u7b97\u5b8c\u8868\u8fbe\u5f0f\u7684\u503c\u540e\u518d\u8fd4\u56de\u7684\u3002\u7279\u522b\u5730\uff0c\u5bf9\u4e8e\u8d4b\u503c\u8bed\u53e5\uff08\u4f8b\u5982 `t=3*n+1` \uff09\uff0c\u90a3\u4e48\u5b83\u4f1a\u5148\u5c06 $3\\times n+1$ \u7684\u7ed3\u679c\u8ba1\u7b97\u51fa\u6765\uff0c\u8d4b\u503c\u5230 $t$ \u4e0a\uff0c**\u7136\u540e\u5c06 $\\bm t$ \u7684\u503c\u4f5c\u4e3a\u8868\u8fbe\u5f0f\u7684\u8fd4\u56de\u503c**\u3002\u56e0\u6b64\u6211\u4eec\u53ef\u4ee5\u8fd9\u6837\u7b80\u5316\u4e00\u4e0b\u4ee3\u7801\u3002\n\n## \u53c2\u8003\u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\n#define up(l,r,i) for(int i=l,END##i=r;i<=END##i;++i)\n#define dn(r,l,i) for(int i=r,END##i=l;i>=END##i;--i)\nusing namespace std;\ntypedef long long i64;\nconst int INF =2147483647;\nint n,t;\nint main(){\n    scanf(\"%d\",&n); while(n!=1){\n        if(n%2==1) printf(\"%d*3+1=%d\\n\",n,t=n*3+1);\n        else       printf(\"%d/2=%d\\n\",n,t=n/2);\n        n=t;\n    }\n    puts(\"End\");\n    return 0;\n}\n```",
+        "postTime": 1625373922,
+        "uid": 330759,
+        "name": "\u56e7\u4ed9",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 B2077 \u3010\u89d2\u8c37\u731c\u60f3\u3011"
+    }
+]

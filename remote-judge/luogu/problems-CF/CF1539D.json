@@ -1,0 +1,17 @@
+{
+    "description": "Lena is the most economical girl in Moscow. So, when her dad asks her to buy some food for a trip to the country, she goes to the best store \u2014 \"PriceFixed\". Here are some rules of that store:\n\n- The store has an infinite number of items of every product.\n- All products have the same price: $ 2 $ rubles per item.\n- For every product $ i $ there is a discount for experienced buyers: if you buy $ b_i $ items of products (of any type, not necessarily type $ i $ ), then for all future purchases of the $ i $ -th product there is a $ 50\\% $ discount (so you can buy an item of the $ i $ -th product for $ 1 $ ruble!).\n\nLena needs to buy $ n $ products: she must purchase at least $ a_i $ items of the $ i $ -th product. Help Lena to calculate the minimum amount of money she needs to spend if she optimally chooses the order of purchasing. Note that if she wants, she can buy more items of some product than needed.",
+    "inputFormat": "The first line contains a single integer $ n $ ( $ 1 \\leq n \\leq 100\\,000 $ ) \u2014 the number of products.\n\nEach of next $ n $ lines contains a product description. Each description consists of two integers $ a_i $ and $ b_i $ ( $ 1 \\leq a_i \\leq 10^{14} $ , $ 1 \\leq b_i \\leq 10^{14} $ ) \u2014 the required number of the $ i $ -th product and how many products you need to buy to get the discount on the $ i $ -th product.\n\nThe sum of all $ a_i $ does not exceed $ 10^{14} $ .",
+    "outputFormat": "Output the minimum sum that Lena needs to make all purchases.",
+    "samples": [
+        [
+            "3\n3 4\n1 3\n1 5",
+            "8"
+        ],
+        [
+            "5\n2 7\n2 8\n1 2\n2 4\n1 8",
+            "12"
+        ]
+    ],
+    "hint": "In the first example, Lena can purchase the products in the following way:\n\n1. one item of product $ 3 $ for $ 2 $ rubles,\n2. one item of product $ 1 $ for $ 2 $ rubles,\n3. one item of product $ 1 $ for $ 2 $ rubles,\n4. one item of product $ 2 $ for $ 1 $ ruble (she can use the discount because $ 3 $ items are already purchased),\n5. one item of product $ 1 $ for $ 1 $ ruble (she can use the discount because $ 4 $ items are already purchased).\n\nIn total, she spends $ 8 $ rubles. It can be proved that it is impossible to spend less.\n\nIn the second example Lena can purchase the products in the following way:\n\n1. one item of product $ 1 $ for $ 2 $ rubles,\n2. two items of product $ 2 $ for $ 2 $ rubles for each,\n3. one item of product $ 5 $ for $ 2 $ rubles,\n4. one item of product $ 3 $ for $ 1 $ ruble,\n5. two items of product $ 4 $ for $ 1 $ ruble for each,\n6. one item of product $ 1 $ for $ 1 $ ruble.\n\nIn total, she spends $ 12 $ rubles.",
+    "translation": "\u5e02\u573a\u4e0a\u6709 $n$ \u79cd\u5546\u54c1\uff0c\u6bcf\u79cd\u5546\u54c1\u7684\u4ef7\u683c\u90fd\u662f $2$\u3002\u73b0\u5728\u4f60\u9700\u8981\u4e70\u7b2c $i$ \u79cd\u5546\u54c1\u81f3\u5c11 $a_i$ \u4ef6\u3002\u4f46\u662f\u5bf9\u4e8e\u7b2c $i$ \u79cd\u5546\u54c1\u6709\u4e00\u4e2a\u5c5e\u6027 $b_i$\uff0c\u610f\u5473\u7740\u5982\u679c\u4f60\u5df2\u7ecf\u4e70\u4e86 $b_i$ \u4ef6\u5546\u54c1\uff08\u4e0d\u4e00\u5b9a\u662f\u8fd9\u4e00\u79cd\u5546\u54c1\uff09\uff0c\u90a3\u4e48\u6b64\u5546\u54c1\u6253\u6298\uff0c\u4ef7\u683c\u4f1a\u964d\u5230 $1$\u3002\n\n\u4f60\u9700\u8981\u6700\u5c0f\u5316\u4f60\u7684\u4ee3\u4ef7\u3002\n\n\u5176\u4e2d $1\\le n \\le 1\\times 10^5,1\\le a_i,b_i\\le 1\\times 10^{14}$\u3002"
+}

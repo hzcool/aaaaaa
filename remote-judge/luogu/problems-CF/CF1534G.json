@@ -1,0 +1,29 @@
+{
+    "description": "Annie has gotten bored of winning every coding contest and farming unlimited rating. Today, she is going to farm potatoes instead.\n\nAnnie's garden is an infinite 2D plane. She has $ n $ potatoes to plant, and the $ i $ -th potato must be planted at $ (x_i,y_i) $ . Starting at the point $ (0, 0) $ , Annie begins walking, in one step she can travel one unit right or up (increasing her $ x $ or $ y $ coordinate by $ 1 $ respectively). At any point $ (X,Y) $ during her walk she can plant some potatoes at arbitrary points using her potato gun, consuming $ \\max(|X-x|,|Y-y|) $ units of energy in order to plant a potato at $ (x,y) $ . Find the minimum total energy required to plant every potato.\n\nNote that Annie may plant any number of potatoes from any point.",
+    "inputFormat": "The first line contains the integer $ n $ ( $ 1 \\le n \\le 800\\,000 $ ).\n\nThe next $ n $ lines contain two integers $ x_i $ and $ y_i $ ( $ 0 \\le x_i,y_i \\le 10^9 $ ), representing the location of the $ i $ -th potato. It is possible that some potatoes should be planted in the same location.",
+    "outputFormat": "Print the minimum total energy to plant all potatoes.",
+    "samples": [
+        [
+            "2\n1 1\n2 2",
+            "0"
+        ],
+        [
+            "2\n1 1\n2 0",
+            "1"
+        ],
+        [
+            "3\n5 5\n7 7\n4 9",
+            "2"
+        ],
+        [
+            "10\n5 1\n4 0\n9 6\n0 2\n10 1\n9 10\n3 10\n0 10\n8 9\n1 5",
+            "19"
+        ],
+        [
+            "10\n1 1\n2 2\n2 0\n4 2\n4 0\n2 0\n0 2\n4 0\n4 2\n5 1",
+            "6"
+        ]
+    ],
+    "hint": "In example $ 1 $ , Annie can travel to each spot directly and plant a potato with no energy required.\n\nIn example $ 2 $ , moving to $ (1,0) $ , Annie plants the second potato using $ 1 $ energy. Next, she travels to $ (1,1) $ and plants the first potato with $ 0 $ energy.",
+    "translation": "\u4f60\u5728\u4e00\u4e2a\u4e8c\u7ef4\u5e73\u9762\u76f4\u89d2\u5750\u6807\u7cfb\u7684\u539f\u70b9 $(0,0)$ \u4e0a\uff0c\u4f60\u53ef\u4ee5\u5411\u4e0a\u6216\u5411\u53f3\u79fb\u52a8 $1$ \u5355\u4f4d\u957f\u5ea6\u4efb\u610f\u6b21\u3002  \n\u73b0\u5728\u7ed9\u4f60 $n$ \u4e2a\u70b9\uff0c\u7b2c $i$ \u4e2a\u70b9\u4e3a $(x_i,y_i)$\u3002\u4f60\u9700\u8981\u5bf9\u8fd9 $n$ \u4e2a\u70b9\u90fd\u6253\u4e0a\u6807\u8bb0\u3002\u5177\u4f53\u7684\uff0c\u5728\u4efb\u610f\u65f6\u523b\uff0c\u5982\u679c\u4f60\u5728\u70b9 $(X,Y)$ \u5e76\u5e0c\u671b\u5bf9\u70b9 $(x,y)$ \u6253\u6807\u8bb0\uff0c\u4f60\u9700\u8981\u82b1\u8d39 $\\max(|X-x|,|Y-y|)$ \u5355\u4f4d\u80fd\u91cf\u3002  \n\u6c42\u6700\u5c11\u82b1\u8d39\u591a\u5c11\u5355\u4f4d\u80fd\u91cf\u3002  \n$1\\leq n\\leq8\\times10^5;0\\leq x_i,y_i\\leq10^9;$"
+}

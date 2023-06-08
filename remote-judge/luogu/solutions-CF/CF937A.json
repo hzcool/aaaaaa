@@ -1,0 +1,154 @@
+[
+    {
+        "content": "\n     #include <stdio.h>\n     #include <string.h>\n     #define maxn 620\n     int main(){\n\t     int a[maxn],n,x,num=0;\n\t     scanf(\"%d\",&n);\n\t     memset(a,0,sizeof(a)); //\u4e0d\u662f\u5168\u5c40\u53d8\u91cf\uff0c\u8981\u6e05\u96f6\n\t     for(int i=1;i<=n;i++){\n\t\t      scanf(\"%d\",&x);\n\t\t      a[x]++;  //\u76f8\u5e94\u5206\u6570\u7684\u5143\u7d20++\uff0c\u907f\u514d\u91cd\u590d\n\t     }\n\t     for(int i=1;i<=600;i++){\n\t\t      if(a[i]!=0) num++; //\u5982\u679c\u4e0d\u662f\u96f6\u5c31++\n\t\t      else continue;\n\t     }\n\t     printf(\"%d\\n\",num);\n         return 0;  //\u522b\u5fd8\u4e86\n      }",
+        "postTime": 1543927813,
+        "uid": 132932,
+        "name": "ZSsst",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF937A \u3010Olympiad\u3011"
+    },
+    {
+        "content": "\u5176\u5b9e\u672c\u9898\u5c31\u662f\u95ee\u8f93\u5165\u7684\u6570\u4e2d\u9664\u4e860\u6709\u591a\u5c11\u79cd\u6570\u3002\n\n\u901a\u8fc7STL\u7684set\u7c7b\uff0c\u501f\u52a9set\u96c6\u5408\u7684\u60df\u4e00\u6027\uff0c\u53ef\u4ee5\u975e\u5e38\u597d\u5730\u5b8c\u6210\u8981\u6c42\u3002\n\n\u4ee3\u7801:\n```\n#include <iostream>\n#include <set>\nusing namespace std; //\u5934\u6587\u4ef6\u548c\u547d\u540d\u7a7a\u95f4\nint main(){\n\tios::sync_with_stdio(false); //\u8f93\u5165\u8f93\u51fa\u52a0\u901f\n\tregister int i; //\u5faa\u73af\u8ba1\u6570\u5668\n\tset<int> setScore; //\u5b58\u653e\u5206\u6570\u7684\u96c6\u5408\n\tint iTemp, nCount; //iTemp-\u6682\u5b58\u8f93\u5165\u7684\u6570\uff1bnCount-\u4e2a\u6570\n\tcin >> nCount; //\u8bfb\u5165\u4e2a\u6570\n\tfor (i = 1; i <= nCount; ++i){ //\u8bfb\u5165\u6570\u5b57\n\t\tcin >> iTemp;\n\t\tif (iTemp != 0){ //\u5982\u679c\u4e0d\u662f0\n\t\t\tsetScore.insert(iTemp); //\u5c06\u6570\u5b57\u7f6e\u5165\u96c6\u5408\uff0c\u91cd\u590d\u7684\u4f1a\u88ab\u5ffd\u7565\n\t\t}\n\t}\n\tcout << setScore.size(); //\u8f93\u51fa\u96c6\u5408\u5927\u5c0f\uff0c\u4e5f\u5c31\u662f\u65b9\u6848\u6570\n\treturn 0; //\u7ed3\u675f\n}\n```",
+        "postTime": 1519657024,
+        "uid": 74038,
+        "name": "PC_DOS",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF937A \u3010Olympiad\u3011"
+    },
+    {
+        "content": "\u9996\u5148\u6211\u4eec\u770b\u770b\u6570\u636e\u8303\u56f4\uff0c0<=a[i]<=600\n\n\u7b2c\u4e00\u773c\u60f3\u5230\u7684\u5e94\u8be5\u662fbool f[601]\u6765\u7edf\u8ba1\n\n\u8fd9\u79cd\u601d\u8def\u662f\u80fdA\n\n\u4f46\u662f\n\n\u6211\u60f3\u8bb2\u7684\u662f\uff1a\n\n## \u5f530<=a[i]<=1e9\u65f6\uff0c \u8be5\u600e\u4e48\u505a\uff1f\n\n\u663e\u7136\u4e0d\u80fd\u518dbool f[1000000001]\u4e86\n\n\u90a3\u4e48\uff0c\u6211\u4eec\u5c31\u9700\u8981hash\u4e86\n\n\u5177\u4f53\u7684\u8f83\u4e3a\u7b80\u5355\u7684hash\u65b9\u6cd5\u5c31\u662f\uff1a\n\n# **\u5bf9\u4e00\u4e2a\u5927\u8d28\u6570\u6c42\u4f59**\n\n\u5177\u4f53\u601d\u8def\u7ed3\u5408\u4ee3\u7801\u8fdb\u884c\u601d\u8003\n\n\n```cpp\n#include <bits/stdc++.h>\n#define in(a) scanf (\"%d\", &a)\n#define mem(a, b, l) for(int i = 0; i < l; i ++) a[i] = b;\n#define out(a) printf (\"%d\", a)\nusing namespace std\uff1b\n//\u4ee5\u4e0a\u4e3a\u4e2a\u4eba\u4e60\u60ef\uff0c\u65e0\u9700\u592a\u5173\u6ce8\nconst int dzs = 500017;//\u8fd9\u4e2a\u5927\u8d28\u6570\u53ef\u4ee5\u662f\u4efb\u4f55\u4e00\u4e2a1e4\u4ee5\u4e0a\u7684\uff0c500017\u53ea\u662f\u4e2a\u4eba\u4e60\u60ef\nvector < int > _map[500017];//\u6253\u4e00\u4e2a\u5927\u8d28\u6570\u8868\nint n;\nint ans = 0;\nint main()\n{\n\tin (n);\n\tfor (int i = 0; i < n; i ++)\n\t{\n\t\tint t;\n\t\tbool f = 1;\n\t\tin (t);\n\t\tint tmp = t % dzs;\n\t\t//\u5bf9t\u8fdb\u884c%\u5927\u8d28\u6570\uff0c\u627e\u5230\u6240\u5c5e\u7684\u5f52\u7c7b\n\t\tfor (int j = 0; j < _map[tmp].size(); j ++)//\u679a\u4e3e\u4f59\u6570\u662ftmp\u7684\u6bcf\u4e00\u4e2a\u6570\uff0c\u800c\u8fd9\u6bcf\u4e00\u4e2a\u6570\uff0c\u90fd\u5b58\u5728_map[tmp]\u91cc\n\t\t\tif (_map[tmp][j] == t)\n\t\t\t{\n\t\t\t\tf = 0;//\u627e\u5230\u91cd\u590d->\u6807\u8bb0=0\n\t\t\t\t//printf (\"find it!\\n\");\n\t\t\t\tbreak;\n\t\t\t}\n\t\tif (f && t)//\u6ce8\u610f\u4e86\uff1a\u6ca1\u627e\u5230&&t!=0\u624d\u884c\n\t\t\t_map[tmp].push_back (t), ans ++;//\u66f4\u65b0\n\t}\n\tout (ans);\n\treturn 0;\n}\n```\n\n~~\u5982\u6709\u7591\u95ee\u6b22\u8fce\u79c1\u4fe1\u9a9a\u6270\u554a~~",
+        "postTime": 1531750045,
+        "uid": 49562,
+        "name": "\u5361\u7279\u7433\u5a1c",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF937A \u3010Olympiad\u3011"
+    },
+    {
+        "content": "\u4f3c\u4e4e\u8fd9\u4e2a\u9898\u4e0d\u9700\u8981\u4ec0\u4e48\u9ad8\u7ea7\u7684\u7b97\u6cd5\uff1f\n\u5148\u6254\u4e00\u4e2aCpp\u4ee3\u7801\uff0c\u7136\u540e\u8bb2\u4e00\u8bb2qwq\u3002\n\u8fd9\u4e2a\u9996\u5148\u662f\u8bfb\u5165\uff0c\u7136\u540e\u518d\u8bfb\u5165\u5206\u6570\uff0c\u7136\u540e\u6807\u8bb0b\u6570\u7ec4\u3002\n\u6807\u8bb0\u5b8c\u4e86\u4e4b\u540e\u4f1a\u8981\u7edf\u8ba1\u591a\u5c11\u79cd\u5206\u6570\uff0c\u90a3\u4e48\u5982\u679cb\u6570\u7ec4\u7684\u67d0\u4e2a\u6570\u4e0d\u4e3a0\uff08\u5c31\u662f1\uff09\u90a3\u4e48\u8bf4\u660e\u6709\u8fd9\u4e2a\u6570\u3002\u8bbe\u4e00\u4e2a\u8ba1\u6570\u5668sum\uff0c\u7136\u540e\u5b58\u5728\u7684\u8bddsum\u81ea\u589e\u5c31\u597d\u4e86\u3002\n```\n#include<iostream>\n#include<cstdio>\n\nusing namespace std;\n\nbool b[601];\nint n,a,i,sum;\n\nint main(){\n\tcin>>n;\n\tfor(i=1;i<=n;i++) {\n\t\tcin>>a;\n\t\tb[a]=1;\n\t}\n\tfor(i=1;i<=601;i++){\n\t\tif(b[i]!=0) sum++;\n\t} \n\tcout<<sum;\n\treturn 0;\n}\n```\n",
+        "postTime": 1522848555,
+        "uid": 58424,
+        "name": "kenlig",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF937A \u3010Olympiad\u3011"
+    },
+    {
+        "content": "\u6211\u770b\u5230\u5927\u4f6c\u4eec\u7684\u9898\u89e3\u90fd\u90a3\u4e48\u957f\uff0c\u611f\u89c9\u81ea\u5df1\u4e0d\u5927\u5bf9\uff1b\n\n\u6211\u8fd9\u9053\u9898\u4f7f\u7528\u7684\u6807\u8bb0\uff0c\u5c31\u662f\u628a\u6bcf\u4e2a\u6570\u653e\u8fdb\u4e00\u4e2abool\u6570\u7ec4\u91cc\uff0c\u8fd9\u6837\u5c31\u505a\u5230\u4e86\u53bb\u91cd\uff1b\n\n```\nfor(int i=0;i<n;i++)\n{\n\tcin>>a[i];\n\tflag[a[i]]=true;\n}\n```\n\n\u7136\u540e\u6392\u5e8f\uff0c\u627e\u6700\u5927\u503c\uff0c\u4ece\u96f6\u5230\u6700\u5927\u503c\u904d\u5386\uff0c\u7528\u4e00\u4e2a\u8ba1\u6570\u5668\u7d2f\u8ba1\uff1b\n\n```\n\tsort(a,a+n);\n\tfor(int i=1;i<=a[n-1]+10;i++)\n\t\tif(flag[i]==true)\n\t\t\tans++;\n```\n\n\u6700\u540e\u8f93\u51fa\uff1b\n\n\u8d34\u4e0a\u6211\u7684\u5b8c\u6574\u4ee3\u7801\uff1a\n\n```\n#include<iostream>\n#include<algorithm> \nusing namespace std;\nint a[10010],b,c,ans,n;\nbool flag[10010];\nint main()\n{\n\tcin>>n;//\u8f93\u5165 \n\tfor(int i=0;i<n;i++)\n\t{\n\t\tcin>>a[i];//\u8f93\u5165\uff1b \n\t\tflag[a[i]]=true;//\u6807\u8bb0\u6570\u5b57\uff0c\u53bb\u91cd \n\t}\n\tsort(a,a+n);//\u6392\u5e8f\uff0c\u5bfb\u627e\u6700\u5927\u503c\uff1b \n\tfor(int i=1;i<=a[n-1]+10;i++)//\u4ece\u4e00\u5230\u6700\u5927\u503c\u904d\u5386\uff0c\u8fd9\u91cca[n-1]+10\u662f\u4e3a\u4e86\u9632\u6b62\u8bef\u5dee \n\t\tif(flag[i]==true)//\u68c0\u67e5\u6807\u8bb0 \n\t\t\tans++;//\u7d2f\u8ba1 \n\tcout<<ans<<endl;//\u8f93\u51fa\u603b\u6570\uff0c\u5b8c\u7f8e\u7ed3\u675f \n\treturn 0;\n}\n```\n",
+        "postTime": 1563353678,
+        "uid": 178034,
+        "name": "thename",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF937A \u3010Olympiad\u3011"
+    },
+    {
+        "content": "\u770b\u5230\u5927\u5bb6\u6709\u4e86\u8fd9\u4e9b\u7b97\u6cd5\uff1a\n\nset\u3001map\u3001sort+\u76f8\u90bb\u6bd4\u8f83\u3001\u6876\u6392\u5e8f\n\n\u6211\u5c31\u5199\u4e2a$O(N^2)$\u7684\u66b4\u529b\u3002\n\n\u6839\u636e\u9898\u610f\uff0c\u6211\u4eec\u8981\u5b8c\u6210\u7684\u5de5\u4f5c\u662f\u53bb\u91cd\u548c\u53bb0\u3002\n\n\u521a\u63a5\u89e6OI\u65f6\uff0c\u5927\u5bb6\u5e94\u8be5\u5b66\u8fc7\u8fd9\u79cd\u53bb\u91cd\u65b9\u6cd5\uff1a\u5bf9\u4e8e\u4e0b\u6807\u4e3ai\u7684\u6570\uff0c\u67e5\u627ej\u2208{0, i-1}\u5e76\u6bd4\u8f83\u3002\u81f3\u4e8e\u53bb0\uff0c\u52a0\u4e2a\u7279\u5224\u5373\u53ef\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include <iostream>\nusing namespace std;\n\nint main()\n{\n    int n;\n    cin>>n;\n    int a[n];\n    int cnt = 0;\n    for(int i=0;i<n;i++)\n    {\n        cin>>a[i];\n        if(a[i] == 0) continue;\n        bool flag = true;\n        for(int j=0;j<i;j++)\n        {\n            if(a[i] == a[j])\n            {\n                flag = false;\n                break;\n            }\n        }\n        if(flag) ++cnt;\n    }\n    cout<<cnt<<endl;\n    return 0;\n}\n```",
+        "postTime": 1562646350,
+        "uid": 122461,
+        "name": "rui_er",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF937A \u3010Olympiad\u3011"
+    },
+    {
+        "content": "\u770b\u4e86\u770b\u9898\u76ee\u672c\u4ee5\u4e3a\u662f\u5feb\u6392\uff0c\u7ed3\u679c\u6570\u636e\u662f1<n<100\u90a3\u5c31\u592a\u7b80\u5355\u4e86\u3002\u4e0b\u9762\uff0c\u672c\u849f\u84bb\u7ed9\u5404\u4f4d\u521a\u5b66OI\u7684\u840c\u65b0\u4eec\u4e0a\u4f20\u4e00\u4e2a\u901a\u4fd7\u6613\u61c2\u7684\u4ee3\u7801\n## \u4ee3\u7801\u6838\u5fc3\n~~~~\nif(a[i]!=a[i+1]&&a[i]!=0) p++;//\u524d\u9762\u4e00\u4e2a\u6392\u5e8f\uff0c\u5224\u65ada[i]\uff08\u7b2c\u4e00\u4e2a\u6570\uff09\u548ca[i+1]\uff08\u540e\u9762\u4e00\u4e2a\u6570\uff09\u6bd4\u8f83\uff0c\u53ea\u8981\u4ed6\u4eec\u4fe9\u4e0d\u76f8\u7b49\u65b9\u6848\u6570++\uff0c\u8fd8\u6709\u4e00\u4e2a\u8981\u70b9\u2014\u2014\u5224\u65ada[i]\u662f\u4e0d\u662f\u7b49\u4e8e\u96f6\u3002\n~~~~\n### \u5b8c\u6574\u4ee3\u7801\n~~~~\n#include<bits/stdc++.h>\t\t\t\t\t\t \nusing namespace std;\nint main()\n{\n\tlong long n,m,i,j,c,p=0;\n\tcin>>n;\n\tlong long a[n];\n\tfor(m=1;m<=n;m++)\n\t{\n\t\tcin>>a[m];\n\t}\n\tfor(i=1;i<=n-1;i++)\n\tfor(j=i+1;j<=n;j++)\n\t{\n\t\tif(a[i]>a[j])\n\t\t{\n\t\t\tc=a[i];\n\t\t\ta[i]=a[j];\n\t\t\ta[j]=c;\n\t\t}\n\t}//\u4ee5\u4e0a\u90e8\u5206\u662f\u6392\u5e8f\uff0c\u521a\u5b66OI\u7684\u840c\u65b0\u4e5f\u5e94\u8be5\u77e5\u9053\t\n\tfor(i=1;i<=n;i++)\n\t{\n\t\tif(a[i]!=a[i+1]&&a[i]!=0) p++;\t\n\t}\t\t\t\t\t\t\t\t\n\tcout<<p;\n\treturn 0;\n}\n~~~~\n",
+        "postTime": 1552972697,
+        "uid": 118872,
+        "name": "\u4e01\u4e01\u306e\u4e01\u4e01",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF937A \u3010Olympiad\u3011"
+    },
+    {
+        "content": "\u4e3b\u8981\u7684\u601d\u60f3\u5c31\u662f\u5148\u628a\u4ed6\u6392\u597d\u5e8f\uff0c\u7136\u540e\u518d\u641c\u7d22\uff0c\u5982\u679c\u627e\u5230\u4e0d\u4e00\u6837\u7684\u4e86\uff0c\u90a3\u5c31\u53ef\u4ee5\u591a\u6dfb\u52a0\u4e00\u79cd\u4e86\u2026\u2026\n\n\u4ee3\u7801\uff1a\n```cpp\n#include<iostream>\n#include<cstring>\n#include<algorithm>\nusing namespace std;\nint main()\n{\n\tint n,a[300000],x,b[10000],ans=0,js=0,mq;\n\tcin>>n;\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tcin>>a[i];\n\t}\n\tsort(a+1,a+n+1);\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tif(a[i]!=0)\n\t\t{\n\t\t\tif(i==1)\n\t\t{\n\t\t\tmq=a[1];\n\t\t\tjs+=1;\n\t\t}\n\t\tif(a[i]==mq)\n\t\t{\n\t\t\tb[js]++;\n\t\t}\n\t\telse\n\t\t{\n\t\t\tmq=a[i];\n\t\t\tjs++;\n\t\t}\n\t\t}\n\t}\n\tcout<<js; \n\treturn 0;\n}\n```\n\n\u8fd9\u9898\u53ea\u8981\u60f3\u6cd5\u6b63\u786e\u4e86\uff0c\u5176\u5b9e\u6ca1\u6709\u4ec0\u4e48\u96be\u7684\u5566\uff01",
+        "postTime": 1540985131,
+        "uid": 51386,
+        "name": "return\u5148\u751f",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF937A \u3010Olympiad\u3011"
+    },
+    {
+        "content": "```\n//\u7b2c\u4e00\u6b21\u4e0a\u9898\u89e3\u4e3a2018\u5e749\u670827\u65e5\uff0c\u4e8e2018\u5e7410\u670830\u65e5\u8fdb\u884c\u4e00\u4e2a\u5c0f\u4fee\u6539\n```\n\u8fd9\u5e94\u8be5\u662f\u6bd4\u8f83\u6c34\u7684\u4e00\u9053\u9898\u4e86\uff0c\u6d4f\u89c8\u4e0b\u5176\u4ed6\u9898\u89e3\uff0c\u6211\u8fd9\u4e2a\u4ee3\u7801\u53ef\u80fd\u6709\u70b9\u957f\u3002\u3002\u3002\n\u5176\u5b9e\u8fd9\u9053\u9898\u53ef\u4ee5\u5206\u4e3a\u4e24\u4e2a\u90e8\u5206\uff0c\u5728\u4ee3\u7801\u91cc\u6211\u4f1a\u505a\u4e00\u4e0b\u89e3\u91ca\n\n\u8fd9\u91cc\u662f\u53bb\u9664\u91cd\u590d\u6574\u6570\u7684\u4ee3\u7801\uff08\u4ee3\u7801\u91cc\u5c31\u4e0d\u52a0\u6ce8\u91ca\u4e86\uff0c\u56e0\u4e3a\u6ee1\u5206\u4ee3\u7801\u91cc\u9762\u6709\u6ce8\u91ca\uff09\uff1a\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint a[20001],sum=0;\nbool s[20001];\nint main()\n{\n    int n;\n    cin>>n;\n    memset(s,true,sizeof(s));\n    for(int i=1;i<=n;i++)\n    {\n        cin>>a[i];\n    }\n    for(int i=1;i<=n;i++)\n    {\n        if(s[i])\n        for(int j=i+1;j<=n;j++)\n        if(a[i]==a[j])s[j]=false;\n    }\n    for(int i=1;i<=n;i++)\n    {\n        if(s[i]==true)\n        {\n            sum++;\n        }\n    }\n    cout<<sum;\n    return 0;\n}\n```\n\u8fd9\u9053\u9898\u9700\u8981\u7edf\u8ba1\u4e2a\u6570\uff0c\u6240\u4ee5\u5c31\u52a0\u4e86\u4e00\u4e2asum\uff0c\u4f46\u662f\u6ca1\u6709\u52a00\u4e5f\u8981\u53bb\uff0c\u6240\u4ee5\u63a5\u4e0b\u6765\u9700\u8981\u52a0\u4e0a\u53bb\u96f6\u7684\u4ee3\u7801\uff0c\u4e0b\u9762\u4e0a\u6700\u7ec8\u7684\u6ee1\u5206\u4ee3\u7801\uff1a\n```\n#include<bits/stdc++.h> //\u4e07\u80fd\u5934\u5c31\u4e0d\u89e3\u91ca\u4e86qwq\nusing namespace std;\nint a[20001],sum=0;//\u5b9a\u4e49\u6570\u7ec4\u548c\u8ba1\u6570\u5668\nbool s[20001];\u4e5f\u662f\u5b9a\u4e49\u3002\u3002\u3002\nint main()\n{\n\tstd::ios::sync_with_stdio(false);//\u8fd9\u4e2a\u52a0\u4e0d\u52a0\u6ca1\u4ec0\u4e48\u592a\u5927\u533a\u522b\uff0c\u4e07\u4e00T\u4e86\u5462\n    int n;//\u8f93\u5165\u4e2a\u6570\n    cin>>n;\n    memset(s,true,sizeof(s));\n    for(int i=1;i<=n;i++)\n    {\n        cin>>a[i];//\u8f93\u5165\u9700\u8981\u7b97\u7684\u6570\u7ec4\n    }\n    for(int i=1;i<=n;i++)\n    {\n        if(s[i])\n        for(int j=i+1;j<=n;j++)\n        if(a[i]==a[j])s[j]=false;//\u505a\u4e00\u4e2a\u7b80\u5355\u7684\u5224\u65ad\n    }//\uff01\uff01\uff01\uff01\uff01\uff01\u4ee5\u4e0a\u5c31\u662f\u53bb\u9664\u591a\u4f59\u5206\u6570\n    for(int i=1;i<=n;i++)\n    {\n        if(s[i]==true&&a[i]!=0)//\u4e00\u5b9a\u8981\u6ce8\u610f\u540e\u9762\u6709\u4e00\u4e2aa[i]!=0\uff0c\u6211\u7b2c\u4e00\u6b21\u505a\u9898\u6ca1\u52a0\uff0c\u7136\u540e\u5c31WA\u4e86\u3002\n        {\n            sum++;//\u7edf\u8ba1\u5206\u6570\u79cd\u7c7b\u6570\n        }\n    }//\uff01\uff01\uff01\uff01\uff01\u7edf\u8ba1\u4e00\u4e0b\n    cout<<sum;//\u8f93\u51fa\u6700\u7ec8\u7b54\u6848\uff0c\u5f53\u7136\uff0c\u7528ans\u4e5f\u884c\n    return 0;\n}\n```\n\n\u5c06\u4e00\u9053\u9898\u5206\u6210\u4e24\u90e8\u5206\u89e3\u662f\u4e2a\u5f88\u597d\u7684\u601d\u8def\u54e6\uff0c\u638c\u63e1\u597d\u4e86\u53ef\u4ee5\u5c06\u4e00\u4e2a\u5927\u95ee\u9898\u5316\u6210\u51e0\u4e2a\u7b80\u5355\u4e9b\u7684\u95ee\u9898~~qwq~~",
+        "postTime": 1538056923,
+        "uid": 114677,
+        "name": "Yoo_",
+        "ccfLevel": 0,
+        "title": "CF937A\u9898\u89e3"
+    },
+    {
+        "content": "# \u4e00\u4e2a\u5f31\u667a\u7684\u6876\u6392\uff0c\u4e0d\u8d85\u8fc7600\uff0c\u597d\u6c34\u5440\n\u5e03\u5c14\u6211\u90fd\u61d2\u5f97\u7528\u4e86\n\n\u76f4\u63a5\u4e0a\u4ee3\u7801\n```cpp\n#include <iostream>//\u8f93\u5165\u8f93\u51fa\u6d41\u5e93\n#include <cstring>//memset\u5e93\n#define retunr return//\u5b8f\u5b9a\u4e49\uff0c\u603b\u662f\u624b\u6ed1\u628areturn\u6253\u6210retunr#\u6ed1\u7a3d\nusing namespace std;//\u514d\u5f97std::\nint main(){\n\tint s[601]/*\u6876*/,a,sum=0/*\u7edf\u8ba1\u4e2a\u6570*/,n;\n\tmemset(s,0,sizeof(s));//\u6876\u6e05\u96f6\n\tcin>>n;\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tcin>>a;\n\t\ts[a]++;//\u585e\u8fdb\u6876\u91cc\n\t}\n\tfor(int i=1;i<=600;i++)\n\t\tif(s[i]>0) sum++;//\u5224\u65ad\uff0c\u4e0d\u662f0\u5c31++\n\tcout<<sum<<endl;//\u8f93\u51fa\n\tretunr 0;//\u54c8\u54c8\uff0cretunr\n}\n```\n\u6700\u8fd1\u6709\u4ef6\u4e8b\u6211\u60f3\u95ee\u95ee\u6d1b\u8c37\uff0c\u6628\u5929\u6211\u540c\u6837\u4e5f\u5728\u5237\u4e00\u9053\u6876\u6392\u7684CF\u6c34\u9898\uff0c\u6211\u9009\u6807\u7b7e\u8f93\u8fdb\u53bb\u7684\u65f6\u5019\u603b\u662f\u4e0d\u4f1a\u5f39\u51fa\u6765\uff0c\u975e\u8981\u6211\u5237\u65b0\u3001\u53d6\u6d88\u8f93\u5165\u5f88\u591a\u6b21\u624d\u80fd\u5f39\u51fa\u6765\uff1f\uff1f\uff1f",
+        "postTime": 1534819280,
+        "uid": 80679,
+        "name": "Register",
+        "ccfLevel": 9,
+        "title": "\u9898\u89e3 CF937A \u3010Olympiad\u3011"
+    },
+    {
+        "content": "\u662f\u6211\u8822\u8fd8\u662f\u4ec0\u4e48\n\n## \u4e3a\u5565\u8981\u7528**map**\uff1f\n\n## **\u4e00\u4e2abool\u578b\u6570\u7ec4**\u5c31\u53ef\u4ee5\u4e86\uff01\n\n\u5c31\u662f\u8bfb\u5165\uff0c\u4e00\u4e2a\u4e00\u4e2a\u67e5\uff0c\u518d\u5faa\u73af\u4e00\u904d\u67e5\u627e\uff0c\u8f93\u51fa\uff0c\u7ed3\u675f\n\n**\u4e1d\u6beb\u4e0d\u7528\u4ec0\u4e48\u6620\u5c04\u548c\u6392\u5e8f\uff08~~\u5806\u554a\u4ec0\u4e48\u7684~~\uff09**\n\nCode\uff1a\n\n```\n#include<bits/stdc++.h>\nusing namespace std;\nbool bo[601];\n//\u7528\u6765\u8bb0\u5f55\u51fa\u73b0\u8fc7\u7684\u5206\u6570\n//\u5168\u5c40\u53d8\u91cf\u91ccbool\u9ed8\u8ba4\u4e3afalse\nint main(){\n\tint n,t;\n\tcin >> n;\n\tfor ( int i = 1 ; i <= n ; i++ )\n\t{\n\t\tcin >> t;\n\t\tbo[t] = true;  //\u628a\u6240\u6709\u7684\u51fa\u73b0\u8fc7\u7684\u5206\u6570\u8bbe\u4e3atrue\n\t}\n\tint ans = 0;\n\tfor ( int i = 1 ; i <= 601 ; i++ )\n    //Warning\uff1a\u7531\u4e8e\u4e0d\u7b970\uff0c\u6240\u4ee5\u4ece\u4e00\u5f00\u59cb\n\t{\n\t\tif ( bo[i] )\n\t\t\tans++;\n        //\u4e3atrue\uff0c\u8868\u660e\u8fd9\u4e2a\u5206\u6570\u51fa\u73b0\u8fc7\uff0cans++\n\t}\n\tcout << ans;\n\treturn 0;\n}\n```",
+        "postTime": 1544448186,
+        "uid": 51931,
+        "name": "Ace_Radom",
+        "ccfLevel": 4,
+        "title": "CF937A \u3010Olympiad\u3011\u9898\u89e3"
+    },
+    {
+        "content": "\u8fd9\u9898\u7528\u6876\u505a\u6bd4\u8f83\u7b80\u5355\n\n```cpp\nvar\n  x,a:array[0..600] of longint;\n  i,j,c,d,e,b,n:Longint;\n begin\n   readln(n);\n     for i:=1 to n do\n       begin\n         read(a[i]);\n         inc(x[a[i]]);//\u7d2f\u52a0\nend;\n  for i:=1 to 600 do//0\u4e0d\u7b97\uff0c\u6240\u4ee5\u4ece1\u5f00\u59cb\u7b97\u8d77\n    if x[i]<>0 then inc(e);//\u53d1\u73b0\u4e00\u4e2a\u6570\uff0c\u7d2f\u52a0\n writeln(e);//\u8f93\u51fa\nend.\n```",
+        "postTime": 1543920527,
+        "uid": 102692,
+        "name": "jinhangjie2006",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF937A \u3010Olympiad\u3011"
+    },
+    {
+        "content": "\u6ca1\u4ec0\u4e48\u597d\u8bf4\u7684\uff0c\u601d\u8def\u770b\u4ee3\u7801\u6ce8\u91ca\n\n```pascal\nvar\n  n,i,x,t:longint;\n  b:array[0..601] of boolean;\nbegin\n  readln(n);  //\u8f93\u5165n    \u5410\u69fd\uff1a\u8fd9\u90fd\u8981\u8bf4\uff01\uff01\uff01\n  for i:=1 to n do\n  begin\n    read(x);  //\u8282\u7701\u7a7a\u95f4\uff0c\u4e0d\u7528\u6570\u7ec4\n    b[x]:=true;  //\u5c06b[x]\u5e03\u5c14\u6570\u7ec4\u8bbe\u4e3atrue\uff0c\u9ed8\u8ba4\u662ffalse\n  end;\n  for i:=1 to 600 do  //\u770b\u9898\u76ee\u4e2d\u7684\u6570\u636e\u8303\u56f4\uff0c\u6bcf\u4e2a\u6570\u4e0d\u8d85\u8fc7600\n    if b[i] then inc(t);  //\u5982\u679c\u627e\u5230\u51fa\u73b0\u8fc7\u7684\u6570\u5b57\u90a3\u4e48t+1\n  writeln(t); //\u8f93\u51fa \u5410\u69fd\uff1a\u8fd9\u90fd\u8981\u8bf4\uff01\uff01\uff01\uff08\u9996\u5c3e\u547c\u5e94[\u624b\u52a8\u6ed1\u7a3d]\uff09\nend.\n```",
+        "postTime": 1539944351,
+        "uid": 78279,
+        "name": "\u79cb\u672c\u9984\u6de1",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF937A \u3010Olympiad\u3011"
+    },
+    {
+        "content": "## \u9898\u76ee:\u73b0\u5728\u6709n\u4e2a\u4eba\uff0c\u6bcf\u4e2a\u4eba\u90fd\u6709\u4e00\u4e9b\u5206\u6570\uff080<=a[i]<=600\uff09,\u4f60\u8981\u505a\u7684\u662f\u7edf\u8ba1\u6709\u591a\u5c11\u79cd\u5206\u6570\uff080\u548c\u91cd\u590d\u7684\u90fd\u4e0d\u7b97\uff09\u3002\n### ##### # \u8d85\u7ea7\u6c34\u7684\u4e00\u9053\u9898\u5440\uff0c\u6876\u6392\u8f7b\u677eAC\uff0c\u4e0d\u591a\u8bf4\uff0c\u653e\u4ee3\u7801\uff08pascal),\u62d2\u7eddCtil+c\uff1b#\n```pascal\nvar\n a:array[0..600] of longint;//\u6570\u636e\u8303\u56f4\u5c0f\uff0c\u6240\u4ee50~600\u5c31\u591f\u4e86\n i,j,n,x,s:longint;\nbegin\n readln(n);\n for i:=1 to n do \n  begin\n   read(x);\n   if (a[x]=0) and (x<>0) then //\u5224\u65ad\u662f\u5426\u4e0d\u7b49\u4e8e0\u4ee5\u53ca\u524d\u9762\u6ca1\u6709\u91cd\u590d\u8fc7\u8fd9\u4e2a\u6570\uff0c\u7d2f\u52a0s\uff08\u6ce8\uff1a0\u548c\u540c\u6837\u7684\u4e0d\u80fd\u7b97\uff01\uff09\n    begin \n     a[x]:=1;//\u6807\u8bb0\n     s:=s+1;//\u7b26\u5408\u6761\u4ef6\u7d2f\u52a0s\n   end;\n  end;\nwriteln(s);//\u8f93\u51fa\u4e00\u5171\u6709\u591a\u5c11\u4e0d\u540c\u7684\u6570\nend.\n```",
+        "postTime": 1538353292,
+        "uid": 98933,
+        "name": "Jinyeke",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF937A \u3010Olympiad\u3011pascal\u6876\u6392\u8f7b\u677eAC"
+    },
+    {
+        "content": "Python3\u849f\u84bb\u6765\u6c34\u4e00\u53d1\u9898\u89e3\n```python\na=int(input())\nb=input().split()\nfor i in range(len(b)):\n    b[i]=int(b[i])\nwhile 1>0: //\u5176\u5b9e\u5e94\u8be5\u6709\u66f4\u597d\u7684\u65b9\u6cd5\u53bb\u96640\uff0c\u4e0d\u8fc7\u6211\u6ca1\u60f3\u5230= =\n    if int(b.count(int(0)))==0:\n        break\n    else:\n        b.remove(int(0)) //\u901a\u8fc7\u5faa\u73af\u53bb\u9664\u6240\u6709\u76840\nb=list(set(b)) //\u53ef\u4ee5\u4f7f\u7528Python\u7684set\u529f\u80fd\u6765\u53bb\u91cd\u3002\nprint(int(len(b))) //\u5728\u6700\u540e\uff0c\u76f4\u63a5\u6253\u5370\u79cd\u7c7b\u6570\uff08\u5373len\uff09\u5373\u53ef\n```\n**\u6ce8\u610f\uff1a\u5728Python3\u4e2d\uff0c\u8f93\u5165\u662f\u6309\u884c\u8bfb\u5165\u7684\u3002\u3002**\n\n\u8bf8\u4f4d\u7ba1\u7406\u5458\uff0c\u6c42\u901a\u8fc7\uff0c\u8c22\u8c22\uff01",
+        "postTime": 1528522074,
+        "uid": 95251,
+        "name": "monkeywoora",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF937A \u3010Olympiad\u3011"
+    },
+    {
+        "content": "\u770b\u4e86\u8fd9\u4e48\u591a\u9898\u89e3\uff0c\u6ca1\u6709\u7528`map`\u505a\u7684\u3002\n\n`map`\u8868\u793a\u6620\u5c04\u5173\u7cfb\uff0c\u53ef\u4ee5\u5f53\u505a\u54c8\u5e0c\u8868\u7528\u3002\n```cpp\n#include<cstdio>\n#include<cstring>\n#include<map>\nusing namespace std;\nmap<int,bool>hash;\n\nint main(){\n    int n;scanf(\"%d\",&n);\n    while(n--){\n        int x;scanf(\"%d\",&x);\n        if(x)\n            hash[x]=1;\n    }\n    printf(\"%d\\n\",hash.size());\n    return 0;\n}\n```",
+        "postTime": 1521365708,
+        "uid": 23398,
+        "name": "frankchenfu",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF937A \u3010Olympiad\u3011"
+    },
+    {
+        "content": "\u9996\u5148\uff0c\u8fd9\u9053\u9898\u662f\u5f88\u7b80\u5355\u7684\uff0c\u7528\u4e0d\u7740\u5f88\u9ebb\u70e6\u7684\u641c\u7d22\u3002\u76f4\u63a5\u7528\u4e00\u4e2a\u6807\u5fd7\u6570\u7ec4\u5c31OK\u4e86\n\n\u4e0b\u9762\u4e0a\u4ee3\u7801\n\n```\n#include<iostream>\nusing namespace std;\nint n,i,ans;\nint a[101],b[601];\\\\b\u662f\u6807\u5fd7\u6570\u7ec4\uff0ca\u8f93\u5165\u6570\u636e\u3002\n\\\\\u7531\u4e8e\u9898\u76ee\u4e2d\u6709\uff080<=a[i]<=600)\uff0c\u6240\u4ee5\u53ea\u7528\u5f00\u4e00\u4e2a\u5185\u5b58\u4e3a600\u7684\u6807\u5fd7\u6570\u7ec4\u5c31\u884c\u4e86\u3002\nint main()\n{\n\tcin>>n;\n\tfor(i=1;i<=n;i++)\n\t{\n\t\tcin>>a[i];//\u8bfb\u5165\u6570\u636e\n\t\tb[a[i]]++;//\u6807\u5fd7\u8fc7\u7a0b\uff0cb\u6570\u7ec4\u7528\u6765\u5b58\u6bcf\u4e00\u4e2a\u6570\u51fa\u73b0\u7684\u6b21\u6570\n                  //\u5176\u5b9e\u7528bool\u6570\u7ec4\u6765\u5224\u65ad\u4e5f\u662f\u53ef\u4ee5\u7684\n\t}\n\tfor(i=1;i<=600;i++)  //\u6ce8\u610f\uff01\u4ece1\u5f00\u59cb\n\tif(b[i]) ans++;   //\u5982\u679ci\u8fd9\u4e2a\u6570\u5728\u8bfb\u5165\u65f6\u5b58\u5728\u8fc7\uff08\u5373\u4e2a\u6570\u4e0d\u4e3a0\uff09\uff0cans++\n\tcout<<ans;       //\u5b8c\u7f8e\u8f93\u51fa\n    }\n    ```\n    \u603b\u7ed3\u4e00\u4e0b\uff0c\u8fd9\u9053\u9898\u8fd8\u662f\u6bd4\u8f83\u6c34\u7684\uff0c\u9002\u5408\u65b0\u624b\u4eec\u6765\u505a\u3002\u5982\u679c\u7b2c\u4e00\u6b21\u6ca1\u6709\u60f3\u5230\u8fd9\u4e2a\u65b9\u6cd5\u7684\u53ef\u4ee5\u6765\u770b\u4e00\u4e0b\uff0c\u6807\u5fd7\u6570\u7ec4\u7684\u6280\u5de7\u5728\u4ee5\u540e\u4f1a\u7528\u5230\u5f88\u591a\u6b21\u7684\u3002",
+        "postTime": 1521034248,
+        "uid": 86210,
+        "name": "Fellyhosn",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF937A \u3010Olympiad\u3011"
+    },
+    {
+        "content": "\u6c34\u9898\u89e3\u3002\n\n\u5f00\u4e2a\u6876\uff0c\u8bb0\u5f55\u662f\u5426\u51fa\u73b0\u3002\n\n~~\uff08\u53d1\u73b0\u672c\u9898\u5df2\u7ecf\u6709\u53ef\u4ee5\u8bf4\u662f\u6076\u641e\u7684\u9898\u89e3\u4e86\uff0c\u5c31\u4e0d\u8fd9\u4e48\u5e72\u4e86\uff09~~\n\n---\n\u4ee3\u7801\uff1a\n\n```cpp\n#include<iostream>\n#include<cstdio>\nusing namespace std;\n#define maxscore 607\nint a[maxscore],n,x,ans;\nint main()\n{\n\tscanf(\"%d\",&n);\n\tfor(register int i=1;i<=n;i++)\n\t{\n\t\tscanf(\"%d\",&x);\n\t\tif(x&&!a[x])\n\t\t{\n\t\t\ta[x]=1;\n\t\t\tans++;\n\t\t}\n\t}\n\tprintf(\"%d\\n\",ans);\n\treturn 0;\n}\n```",
+        "postTime": 1520044855,
+        "uid": 28910,
+        "name": "\u89c8\u904d\u5343\u79cb",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF937A \u3010Olympiad\u3011"
+    },
+    {
+        "content": "\u770b\u5230\u9898\u89e3\u4e2d\u7684\u8bb8\u591a\u5927\u4f6c\u90fd\u7528\u4e86\u6392\u5e8f\u6216STL\u7b49\u9ad8\u7ea7\u7b97\u6cd5\uff0c\u4f46\u5176\u5b9e\u8fd9\u9053\u9898\u5e76\u6ca1\u6709\u90a3\u4e48\u9ebb\u70e6\u3002\n\n\u6211\u4eec\u53ef\u4ee5\u53d1\u73b0\u8f93\u5165\u7684$a[i]$\u7684\u8303\u56f4\u53ea\u6709$0$\u5230$600$\uff0c\u90a3\u4e48\u6211\u4eec\u4e3a\u4ec0\u4e48\u4e0d\u8ba1\u6570\u5462\uff1f\n\n$F[x]$\u8868\u793a$x$\u5728\u8f93\u5165\u4e2d\u51fa\u73b0\u7684\u6b21\u6570\u3002\n\u8fd9\u6837\u6700\u540e\u6211\u4eec\u53ea\u7528\u626b\u63cf\u4e00\u4e0b\uff0c\u770b$F[x]$\u5927\u4e8e$0$\u7684\u6570\u6709\u51e0\u4e2a\u5373\u53ef\u3002\n\n\u6ce8\u610f\uff1a\u5982\u679c\u8f93\u5165\u4e2d\u542b$0$\uff0c\u662f\u4e0d\u7b97\u5165\u7b54\u6848\u4e2d\u7684(\u89c1\u6837\u4f8b$3$)\u3002\u6240\u4ee5\u6700\u540e\u626b\u63cf\u7684\u65f6\u5019\u5e94\u8be5\u4ece$1$\u5230$600$\u54e6\uff01\n\n$Code:$\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,x,ans,f[605];\nint main() {\n\tscanf(\"%d\",&n);\n\tfor(int i=1;i<=n;i++){\n\t    scanf(\"%d\",&x);\n\t    f[x]++;   \n            //\u8bb0\u5f55x\u5728\u8f93\u5165\u4e2d\u51fa\u73b0\u7684\u6b21\u6570\t\n\t}\n\tfor(int i=1;i<=600;i++)//  \u6ce8\u610f\uff1a\u4ece1\u5230600 \u800c\u4e0d\u662f0\u54e6\n\t    if(f[i])ans++;\n\tprintf(\"%d\\n\",ans);\n\treturn 0;\n}\n```\n",
+        "postTime": 1571637550,
+        "uid": 238925,
+        "name": "\u4eba\u95f4\u51e1\u4eba",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF937A \u3010Olympiad\u3011"
+    }
+]

@@ -68,6 +68,7 @@ app.get('/luogu/problems/:type', async (req, res) => {
             type: req.params.type
         })
     } catch (e) {
+        syzoj.log(e);
         res.render('error', {
             err: e
         });
@@ -92,8 +93,49 @@ app.post('/luogu/problems/:type/search', async (req, res) => {
             problems: x.problems
         })
     } catch (e) {
+        syzoj.log(e);
         res.send( {
             err: e
         });
+    }
+});
+
+app.get('/luogu/problems/:type/solutions/:pid', async (req, res) => {
+    try {
+        if(!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
+        let helper = syzoj.newLuoguHelper(req.params.type);
+        let sol = helper.getSolutions(req.params.pid);
+        let solutions = "";
+        for (let i = 0; i < sol.length; i++) {
+            if (i) solutions += '\n\n<div class="el-divider el-divider--horizontal" role="separator" style="--el-border-style: solid;"></div>\n\n';
+            solutions += `### ${i+1}. ${sol[i].name}&nbsp;&nbsp;&nbsp;${sol[i].title}&nbsp;&nbsp;&nbsp;${syzoj.utils.formatDate(sol[i].postTime)}\n\n`;
+            solutions += sol[i].content;
+        }
+        solutions = await syzoj.utils.markdown(solutions);
+        res.send({solutions});
+    } catch (e) {
+        syzoj.log(e);
+        res.send({err: e});
+    }
+});
+
+app.get('/luogu/problems/:type/statement/:pid', async (req, res) => {
+    try {
+        if(!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
+        let helper = syzoj.newLuoguHelper(req.params.type)
+        let x = helper.getStatement(req.params.pid)
+        let statement = x.description;
+        if (x.translation) statement += '\n\n' + x.translation;
+        statement += '\n### 输入格式\n' + x.inputFormat;
+        statement += '\n### 输出格式\n' + x.outputFormat;
+        for (let i = 0; i < x.samples.length; i++) {
+            statement += '\n ### 样例输入' + (i + 1) + '\n```plain\n' + x.samples[i][0] + '\n```';
+            statement += '\n ### 样例输出' + (i + 1) + '\n```plain\n' + x.samples[i][1] + '\n```';
+        }
+        statement = await syzoj.utils.markdown(statement);
+        res.send({statement});
+    } catch (e) {
+        syzoj.log(e);
+        res.send({err: e});
     }
 });

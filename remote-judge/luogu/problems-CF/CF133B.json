@@ -1,0 +1,17 @@
+{
+    "description": "Unary is a minimalistic Brainfuck dialect in which programs are written using only one token.\n\nBrainfuck programs use 8 commands: \"+\", \"-\", \"\\[\", \"\\]\", \"<\", \">\", \".\" and \",\" (their meaning is not important for the purposes of this problem). Unary programs are created from Brainfuck programs using the following algorithm. First, replace each command with a corresponding binary code, using the following conversion table:\n\n- \">\" $ \u2192 $ 1000,\n- \"<\" $ \u2192 $ 1001,\n- \"+\" $ \u2192 $ 1010,\n- \"-\" $ \u2192 $ 1011,\n- \".\" $ \u2192 $ 1100,\n- \",\" $ \u2192 $ 1101,\n- \"\\[\" $ \u2192 $ 1110,\n- \"\\]\" $ \u2192 $ 1111.\n\nNext, concatenate the resulting binary codes into one binary number in the same order as in the program. Finally, write this number using unary numeral system \u2014 this is the Unary program equivalent to the original Brainfuck one.\n\nYou are given a Brainfuck program. Your task is to calculate the size of the equivalent Unary program, and print it modulo $ 1000003 $ $ (10^{6}+3) $ .",
+    "inputFormat": "The input will consist of a single line $ p $ which gives a Brainfuck program. String $ p $ will contain between 1 and 100 characters, inclusive. Each character of $ p $ will be \"+\", \"-\", \"\\[\", \"\\]\", \"<\", \">\", \".\" or \",\".",
+    "outputFormat": "Output the size of the equivalent Unary program modulo $ 1000003 $ $ (10^{6}+3) $ .",
+    "samples": [
+        [
+            ",.\n",
+            "220\n"
+        ],
+        [
+            "++++[&gt;,.&lt;-]\n",
+            "61425\n"
+        ]
+    ],
+    "hint": "To write a number $ n $ in unary numeral system, one simply has to write 1 $ n $ times. For example, 5 written in unary system will be 11111.\n\nIn the first example replacing Brainfuck commands with binary code will give us 1101 1100. After we concatenate the codes, we'll get 11011100 in binary system, or 220 in decimal. That's exactly the number of tokens in the equivalent Unary program.",
+    "translation": "\u4e00\u79cd\u53ebBrainfuck\u7684\u8bed\u8a00\u6709\u4e00\u4e2a\u65b9\u8a00\u53ebUnary\u3002\r\n\r\nBrainfuck\u8bed\u8a00\u7684\u7a0b\u5e8f\u7531\u5982\u4e0b\u516b\u79cd\u5b57\u7b26\u6784\u6210\uff1a\"+\", \"-\", \"[\", \"]\", \"<\", \">\", \".\" \u548c \",\"\u3002\r\n\r\nBrainfuck\u8bed\u8a00\u7684\u7a0b\u5e8f\u8f6c\u6362\u6210Unary\u9996\u5148\u8981\u5c06\u7ed9\u5b9a\u7684\u5b57\u7b26\u8f6c\u6362\u6210\u4e8c\u8fdb\u5236\u4e32\uff1a\r\n- \">\" $\u2192$ 1000,\r\n- \"<\" $\u2192$ 1001,\r\n- \"+\" $\u2192$ 1010,\r\n- \"-\" $\u2192$ 1011,\r\n- \".\" $\u2192$ 1100,\r\n- \",\" $\u2192$ 1101,\r\n- \"[\" $\u2192$ 1110,\r\n- \"]\" $\u2192$ 1111.\r\n\r\n\u7136\u540e\u628a\u8fd9\u4e9b\u4e8c\u8fdb\u5236\u4e32\u6309\u5728\u7a0b\u5e8f\u4e2d\u51fa\u73b0\u7684\u987a\u5e8f\u8fde\u63a5\u5728\u4e00\u8d77\u5f62\u6210\u4e00\u4e2a\u4e8c\u8fdb\u5236\u6570$n$\uff0c\u4e00\u4e2a\u4e0e\u4e0a\u8ff0Brainfuck\u7a0b\u5e8f\u7b49\u4ef7\u7684Unary\u7a0b\u5e8f\u5c31\u662f$n$\u4e2a$1$\u3002\r\n\r\n\u4f60\u7684\u4efb\u52a1\u662f\uff1a\u7ed9\u4f60\u4e00\u4e2aBrainfuck\u7a0b\u5e8f\uff0c\u6c42\u4ed6\u5bf9\u5e94\u7684Unary\u7a0b\u5e8f\u4e2d\u6709\u591a\u5c11\u4e2a$1$\u3002\u7531\u4e8e\u8fd9\u4e2a\u6570\u53ef\u80fd\u5f88\u5927\uff0c\u8bf7\u4f60\u8f93\u51fa\u8fd9\u4e2a\u6570$mod\\space1000003$\u7684\u503c\u3002"
+}

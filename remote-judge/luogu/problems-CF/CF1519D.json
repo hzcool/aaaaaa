@@ -1,0 +1,21 @@
+{
+    "description": "You are given two integer arrays $ a $ and $ b $ of length $ n $ .\n\nYou can reverse at most one subarray (continuous subsegment) of the array $ a $ .\n\nYour task is to reverse such a subarray that the sum $ \\sum\\limits_{i=1}^n a_i \\cdot b_i $ is maximized.",
+    "inputFormat": "The first line contains one integer $ n $ ( $ 1 \\le n \\le 5000 $ ).\n\nThe second line contains $ n $ integers $ a_1, a_2, \\dots, a_n $ ( $ 1 \\le a_i \\le 10^7 $ ).\n\nThe third line contains $ n $ integers $ b_1, b_2, \\dots, b_n $ ( $ 1 \\le b_i \\le 10^7 $ ).",
+    "outputFormat": "Print single integer \u2014 maximum possible sum after reversing at most one subarray (continuous subsegment) of $ a $ .",
+    "samples": [
+        [
+            "5\n2 3 2 1 3\n1 3 2 4 2",
+            "29"
+        ],
+        [
+            "2\n13 37\n2 4",
+            "174"
+        ],
+        [
+            "6\n1 8 7 6 3 6\n5 9 6 8 8 6",
+            "235"
+        ]
+    ],
+    "hint": "In the first example, you can reverse the subarray $ [4, 5] $ . Then $ a = [2, 3, 2, 3, 1] $ and $ 2 \\cdot 1 + 3 \\cdot 3 + 2 \\cdot 2 + 3 \\cdot 4 + 1 \\cdot 2 = 29 $ .\n\nIn the second example, you don't need to use the reverse operation. $ 13 \\cdot 2 + 37 \\cdot 4 = 174 $ .\n\nIn the third example, you can reverse the subarray $ [3, 5] $ . Then $ a = [1, 8, 3, 6, 7, 6] $ and $ 1 \\cdot 5 + 8 \\cdot 9 + 3 \\cdot 6 + 6 \\cdot 8 + 7 \\cdot 8 + 6 \\cdot 6 = 235 $ .",
+    "translation": "\u7ed9\u5b9a\u4e24\u4e2a\u957f\u4e3a $n$ \u7684\u5e8f\u5217 $a$ \u548c $b$\u3002\u4f60\u53ef\u4ee5\u5bf9 $a$ \u7684\u4e00\u6bb5\u533a\u95f4\u7ffb\u8f6c\uff0c\u4e5f\u53ef\u4ee5\u4e0d\u7ffb\u8f6c\uff0c\u8981\u6c42\u7ffb\u8f6c\u540e $a$ \u4e0e $b$ \u5bf9\u5e94\u4f4d\u7f6e\u4e4b\u79ef\u7684\u548c\u6700\u5927\u3002\u5373\u6c42\u4e0b\u5f0f\u7684\u503c\u6700\u5927\uff1a\n$$\\sum_{i=1}^na_i\\times b_i$$\n\n\u5176\u4e2d $n\\le 5000$\uff0c$a_i,b_i\\le10^7$\u3002\n\ntranslated by @zc_Ethan"
+}

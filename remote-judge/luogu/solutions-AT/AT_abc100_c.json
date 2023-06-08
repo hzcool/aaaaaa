@@ -1,0 +1,74 @@
+[
+    {
+        "content": "## [\u9898\u9762](https://www.luogu.com.cn/problem/AT4156)\n\n\u672c\u9898\u662f\u4e00\u9053**\u8d2a\u5fc3**\u9898\uff0c\u5bf9\u4e8e\u6bcf\u4e00\u4e2a $a_i$\uff0c\u4e58 3 \u662f\u6ca1\u6709\u5f71\u54cd\u7684\uff08\u4e0d\u7ba1\u600e\u4e48\u4e58\u90fd\u662f\u6574\u6570\uff09\u3002\u4f46\u662f\u9664\u4ee5 2 \u662f\u6709\u6b21\u6570\u9650\u5236\u7684\uff0c\u6700\u591a\u662f $a_i$ \u542b\u6709\u7684 2 \u7684\u4e2a\u6570\u3002\u8d2a\u5fc3\u7684\u7b56\u7565\u5c31\u51fa\u6765\u4e86\uff1a\u6bcf\u6b21\u53ea\u5bf9 1 \u4e2a\u8fd8\u53ef\u4ee5\u9664\u4ee5 2 \u7684 $a_i$ \u8fdb\u884c\u5904\u4e8e 2 \u64cd\u4f5c\uff0c\u5219\u64cd\u4f5c\u6b21\u6570\u5c31\u662f\u6240\u6709 $a_i$ \u542b\u6709 2 \u7684\u4e2a\u6570\u7684\u548c\u3002\n\n### \u4ee3\u7801\n```cpp\n  #include<bits/stdc++.h>\n  using namespace std;\n  int n,a,ans;\n  int main()\n  {\n      scanf(\"%d\",&n);\n      for(int i=1;i<=n;i++){\n          scanf(\"%d\",&a);\n          while(a%2==0)ans++,a/=2;//\u7d2f\u52a0\n      }\n      printf(\"%d\",ans);\n      return 0;\n  }\n```",
+        "postTime": 1639548398,
+        "uid": 428358,
+        "name": "cqbztzl",
+        "ccfLevel": 5,
+        "title": "AT4156\u9898\u89e3"
+    },
+    {
+        "content": "\u56e0\u4e3a $\\times 3$ \u5e76\u4e0d\u4f1a\u5f71\u54cd\u64cd\u4f5c\uff0c\u800c $\\div 2$ \u5c31\u4f1a\u5c11\u4e00\u6b21\u64cd\u4f5c\u673a\u4f1a\uff0c\u6240\u4ee5\u76f4\u63a5\u7edf\u8ba1\u6bcf\u4e2a\u6570\u5b57\u5206\u89e3\u6210\u8d28\u6570\u76f8\u4e58\u5f62\u5f0f\u540e\u4ee5 $2$ \u4e3a\u5e95\u6570\u7684\u9879\u7684\u6b21\u6570\u5373\u53ef ( \u4e5f\u5c31\u662f\u8bf4\u7edf\u8ba1\u6240\u6709\u6570\u5b57\u80fd\u9664\u4ee5\u591a\u5c11\u4e2a $2$ )\u3002\u9664\u4ee5\u4e00\u6b21 $2$\uff0c$ans$ \u5c31\u81ea\u589e $1$\uff0c\u6700\u540e\u8f93\u51fa\u7edf\u8ba1\u7684\u6570\u5373\u53ef ( \u6570\u7ec4\u4e5f\u53ef\u4ee5\u4e0d\u7528 )\u3002\n\n  \u65f6\u95f4\u590d\u6742\u5ea6\uff1a $O(n \\log{a_i})$\n\n  \u7a7a\u95f4\u590d\u6742\u5ea6\uff1a $O(1)$\n\n  ```cpp\n  #include <iostream>\n  using namespace std;\n  int n, a, ans = 0;\n  int main() {\n  \tscanf(\"%d\", &n);\n  \tfor(int i = 1; i <= n; i ++) {\n  \t\tscanf(\"%d\", &a);\n  \t\twhile(a && a % 2 == 0) {\n  \t\t\ta /= 2;\n  \t\t\tans ++;\n  \t\t}\n  \t}\n  \tprintf(\"%d\", ans);\n  \treturn 0;\n  }\n  ```",
+        "postTime": 1612169327,
+        "uid": 393632,
+        "name": "Selnev",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT4156 \u3010[ABC100C] *3 or /2\u3011"
+    },
+    {
+        "content": "\u7b80\u5355\u6574\u6570\u5206\u6790\u3002\n\n\u8003\u8651 $\\times3$ \u548c $\\div 2$ \u4e24\u79cd\u64cd\u4f5c\u3002\u4e00\u4e2a\u6574\u6570\u65e0\u8bba\u600e\u4e48 $\\times 3$ \u90fd\u8fd8\u662f\u4e00\u4e2a\u6574\u6570\uff0c\u4f46\u662f $\\div 2$ \u5c31\u4e0d\u4e00\u5b9a\u4e86\u3002\u8003\u8651\u552f\u4e00\u5206\u89e3\u5b9a\u7406\uff0c\u4e00\u4e2a\u6570 $p$ \u6709\u5982\u4e0b\u5206\u89e3\uff1a\n$$p=\\prod_{i=1}^n\\alpha_i^{k_i}$$\n\u5982\u679c\u5c06\u5176\u8d28\u56e0\u6570\u96c6\u8bb0\u4f5c $A=\\{\\alpha_1,\\alpha_2,\\cdots,\\alpha_n\\}$\uff0c\u4e14 $2\\in A$\uff0c\u5219 $2$ \u5bf9\u5e94\u7684\u6307\u6570\u5c31\u662f\u6700\u591a\u80fd\u88ab\u9664\u4ee5 $2$ \u7684\u6b21\u6570\u3002\n\n\u63a5\u4e0b\u6765\u8003\u8651\u6700\u4f18\u7b56\u7565\u3002\u663e\u7136\uff0c\u4e3a\u4e86\u64cd\u4f5c\u6b21\u6570\u5c3d\u91cf\u591a\uff0c\u6bcf\u6b21\u53ea\u5e94\u9009 $1$ \u4e2a\u6570\u505a $\\div 2$ \u76f4\u5230\u4e0d\u80fd\u591f\u518d\u9664\u3002\u4e8e\u662f\u7edf\u8ba1\u6bcf\u4e2a\u6570\u80fd\u88ab $2$ \u6574\u9664\u7684\u6b21\u6570\uff0c\u6c42\u548c\u5373\u53ef\u3002\n\n\u4ee3\u7801\u5982\u4e0b\uff1a\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint n,a,ans;\nint main(void) {\n    cin>>n;\n    while(n--) {\n        scanf(\"%d\",&a);\n        while(!(a%2)) ++ans,a/=2;\n    }\n    printf(\"%d\",ans);\n    return 0;\n}\n```\n\n\u5b8c\u7ed3\u6492\u82b1~",
+        "postTime": 1623114786,
+        "uid": 372299,
+        "name": "\u8d85\u7ea7\u739b\u4e3d\u738b\u5b50",
+        "ccfLevel": 5,
+        "title": "AT4156 \u7ea2\u8272\u7684\u6570\u5b66"
+    },
+    {
+        "content": "\u7b80\u5355\u6570\u8bba\u9898\uff1a\n\n\u5bf9\u4e8e\u4e00\u4e2a\u6570 $x$\uff0c\n\n\u6574\u6570\u8303\u56f4\u5185\u53ef\u4ee5\u65e0\u9650 $\\times3$ \uff0c\n\n\u4f46  $\\div2$ \u6b21\u6570\u6709\u9650\u3002\n\n\u56e0\u6b64\u6211\u4eec\u53ea\u9700\u63a2\u7a76 $x$ \u53ef\u4ee5 $\\div$ \u591a\u5c11\u6b21 $2$ \u3002\n\n\u90a3\u4e48\uff0c\u6211\u4eec\u53ea\u8981\u91cd\u590d $n$ \u904d\u8bfb\u5165 $x$\uff0c\n\n\u518d\u8fdb\u884c\u4e0a\u8ff0\u64cd\u4f5c\u5373\u53ef\u3002\n\n\u4ee3\u7801\u5b9e\u73b0\u5982\u4e0b\uff1a\n\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint s;\nint main(){\n    int n; cin>>n;\n    for(int i=1,x;i<=n;i++){\n        cin>>x;\n        while(x%2==0)\n            s++,x/=2;\n    }\n    cout<<s<<endl;\n    return 0;\n}\n```\n\n## \u5b8c\u7ed3\u6492\u82b1",
+        "postTime": 1612188377,
+        "uid": 261981,
+        "name": "Jiyuu_no_Tsubasa",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 AT4156 \u3010[ABC100C] *3 or /2\u3011"
+    },
+    {
+        "content": "\u6b64\u9898\u662f\u4e00\u9053\u7b80\u5355\u7684\u6570\u8bba\u9898\u3002\n\n\u4e00\u4e2a\u6570 $\\times 3$ \u548c $\\div 2$ \u662f\u6ca1\u6709\u5173\u8054\u7684\uff0c\u800c\u4e00\u4e2a\u6574\u6570\u53ef\u4ee5\u65e0\u9650\u6b21 $\\times 3$\uff0c\u6240\u4ee5\u6211\u4eec\u53ea\u7528\u8003\u8651 $\\div 2$\u3002\n\n\u9898\u76ee\u6c42\u64cd\u4f5c\u6b21\u6570\u7684**\u6700\u5927\u503c**\uff0c\u56e0\u6b64\u6211\u4eec\u6bcf\u6b21\u64cd\u4f5c\u53ef\u4ee5\u53ea\u9009\u62e9\u4e00\u4e2a\u6570 $\\div 2$\uff0c\u5176\u4ed6\u6570 $\\times 3$\uff0c\u76f4\u5230\u6240\u6709\u6570\u90fd\u4e0d\u80fd\u88ab $2$ \u6574\u9664\u4e3a\u6b62\uff0c\u8fd9\u6837\u6700\u5212\u7b97\u3002\n\n\u6240\u4ee5\u8fd9\u9053\u9898\u5c31\u53d8\u5f97\u5341\u5206\u7b80\u5355\u4e86\uff1a\u6c42\u6570\u7ec4\u4e2d\u6bcf\u4e2a\u6570\u80fd\u6700\u591a\u88ab $2$ \u6574\u9664\u51e0\u6b21\uff0c\u6c42\u8fd9\u4e2a\u6b21\u6570\u7684\u548c\u3002\n\n\u6211\u4eec\u751a\u81f3\u53ef\u4ee5\u4e0d\u7528\u6570\u7ec4\uff0c\u5728\u7ebf\u5904\u7406\u6bcf\u4e00\u4e2a\u6570\u3002\n\n\u65f6\u95f4\u590d\u6742\u5ea6\uff1a$O(n\\ log\\ a_i)$\n\n\u7a7a\u95f4\u590d\u6742\u5ea6\uff1a$O(1)$\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nint n, ans;\n\nint main()\n{\n    ios::sync_with_stdio(0);\n    cin >> n;\n    for (int i = 0; i < n; ++i)\n    {\n        int num, res = 0;\n        cin >> num;\n        while (num % 2 == 0) // \u5f53 num \u8fd8\u53ef\u4ee5\u88ab 2 \u6574\u9664\u65f6\u6267\u884c\u64cd\u4f5c\n        {\n            num /= 2;\n            ++res;\n        }\n        ans += res;\n    }\n    cout << ans << endl; // \u5207\u8bb0 AT \u7684\u9898\u4e00\u5b9a\u8981\u6362\u884c\n    return 0;\n}\n```\n",
+        "postTime": 1609043708,
+        "uid": 275273,
+        "name": "zltqwq",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT4156 \u3010[ABC100C] *3 or /2\u3011"
+    },
+    {
+        "content": "\n# ~~\u8fd9\u9053\u9898\u771f\u7684\u7279\u522b\u6c34~~\n\n\u56e0\u4e3a\u4e00\u4e2a\u6570\u00d73\u548c\u00f72\u662f\u6ca1\u6709\u5173\u7cfb\u7684\uff0c\u5e76\u4e14\u00d73\u5bf9\u4e8e\u00f72\u5e76\u6ca1\u6709\u5f71\u54cd\uff0c\u6240\u4ee5\u8ba1\u7b97\u53ef\u4ee5\u00f72\u7684\u4e2a\u6570\u5373\u53ef\uff1b\n\u4e8e\u662f\u53ef\u4ee5\u5f97\u77e5\uff0c\u53ea\u7528\u8ba9\u6bcf\u4e00\u4e2a\u6570\u4e00\u76f4\u00f72\uff0cans++\uff0c\u5c31\u884c\u4e86\n\n\n------------\n_\u8fde\u6570\u7ec4\u90fd\u4e0d\u7528_ \n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint f(int x) {\n\tint sum = 0;\n\twhile (x % 2 == 0) {\n\t\tsum++;\n\t\tx /= 2;\n\t}\n\treturn sum;\n}\nint a;\nint main() {\n\tint n;\n\tscanf(\"%d\", &n);\n\tint ans = 0;\n\tfor (int i = 1; i <= n; i++) {\n\t\tscanf(\"%d\", &a);\n\t\tans += f(a);\n\t}\n\tprintf(\"%d\", ans);\n}\n```\n",
+        "postTime": 1608299147,
+        "uid": 301817,
+        "name": "QZJ666",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 AT4156 \u3010[ABC100C] *3 or /2\u3011"
+    },
+    {
+        "content": "[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/AT4156)\n\n# \u601d\u8def\n\n\u9996\u5148\uff0c\u56e0\u4e3a $\\times 3$ \u5bf9\u4e8e\u6574\u4e2a\u9898\u76ee\u6765\u8bf4\u6ca1\u6709\u592a\u5927\u7684\u5f71\u54cd\uff08\u4e58\u6765\u4e58\u53bb\u90fd\u662f\u6574\u6570\uff09\uff0c\u6682\u4e14\u5148\u4e0d\u8003\u8651\uff0c\u4e3b\u8981\u8003\u8651$\\div 2$\u3002\n\n\u81f3\u6b64\uff0c\u6574\u4e2a\u9898\u76ee\u5c31\u8f6c\u5316\u6210\u4e86\u6c42\u4e00\u4e2a\u6570\u5217\u4e2d\u7684\u6570\u5171\u80fd\u88ab\u591a\u5c11\u4e2a$2$\u6574\u9664\u3002\n\n~~\u8fd9\u6211\u76f8\u4fe1\u5927\u5bb6\u5e94\u8be5\u90fd\u4f1a\u4e86\u5427~~\n\n# \u5e9f\u8bdd\u4e0d\u591a\u8bf4\uff0c\u4e0a\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h> //\u61d2\u4eba\u4e13\u7528\u5934\u6587\u4ef6 \nusing namespace std;\nint n,now,ans=0; //n\uff0cnow(a)\u89c1\u9898\u9762\uff0cans\u662f\u7b54\u6848 \nint main(){\n    cin>>n; //\u8f93\u5165 \n    for(int i=1;i<=n;i++){\n        cin>>now; //\u8f93\u5165 \n        while(!(now%2)){ \n            /*\n            \u5f53!(now%2)\u4e3a\u771f\uff08\u5373\u975e\u96f6\uff09\u65f6\uff0c\u8bf4\u660enow\u80fd\u88ab2\u6574\u9664 \n            \u63a8\u5bfc\u4e00\u4e0b\uff1a \n            !(now%2)!=0\n            now%2==0\uff08\u540c\u65f6\u53d6\u53cd\uff09\uff0c\u5373now\u80fd\u88ab2\u6574\u9664 \n            \u7ed9\u840c\u65b0\u770b\u7684\uff0cdalao\u52ff\u55b7QwQ\n            */\n            now/=2; //now\u9664\u4ee52 \n            ans++; //ans\u52a01 \n        }\n    }\n    cout<<ans<<endl; //\u8f93\u51fa \n    return 0; //\u597d\u4e60\u60ef \n}\n```\n\u4ee3\u7801\u770b\u5b8c\u4e86\uff0c\u4f60\u5b66\u5e9f\u4e86\u5417\uff1f",
+        "postTime": 1606227410,
+        "uid": 200097,
+        "name": "FuriousC",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 AT4156 \u3010[ABC100C] *3 or /2\u3011"
+    },
+    {
+        "content": "## \u9898\u89e3 AT4156 \u3010[ABC100C] *3 or /2\u3011\n\n### $Description:$\n\n\u7ed9\u4f60\u4e00\u4e2a\u5e8f\u5217\uff0c\u6bcf\u6b21\u64cd\u4f5c\u5c06\u6240\u6709\u6570 $\\times3$ \u6216 $\\div 2$\uff0c\u64cd\u4f5c\u540e\u6bcf\u4e2a\u6570\u5fc5\u987b\u662f\u6574\u6570\uff0c\u4e14 $\\times 3$ \u548c $\\div 2$ \u90fd\u8981\u6709\u3002\u95ee\u6700\u591a\u64cd\u4f5c\u591a\u5c11\u6b21\u3002\n\n### $Solution:$\n\n\u9996\u5148\uff0c$\\times 3$ \u8fd9\u4e2a\u4e1c\u4e1c\u6ca1\u6709\u4ec0\u4e48\u5927\u5f71\u54cd\uff0c\u56e0\u4e3a\u4e00\u4e2a\u6574\u6570 $\\times 3$ \u4e00\u5b9a\u8fd8\u662f\u4e00\u4e2a\u6574\u6570\u3002\n\n\u4e8e\u662f\uff0c\u6211\u4eec\u5c31\u53ea\u8981\u8003\u8651 $\\div 2$ \u5c31\u53ef\u4ee5\u4e86\u3002\n\n\u5bf9\u4e8e\u6bcf\u4e00\u4e2a\u6570\uff0c\u6211\u4eec\u7b97\u4e00\u4e0b\u8fd9\u4e2a\u6570\u80fd\u88ab $2$ \u6574\u9664\u591a\u5c11\u6b21\uff0c\u7136\u540e\u5c06\u8fd9 $n$ \u4e2a\u6b21\u6570\u7d2f\u52a0\u4e00\u4e0b\uff0c\u7b54\u6848\u5c31\u7b97\u51fa\u6765\u60f9QWQ\u3002\n\n\u4e8e\u662f\u4ee3\u7801\u4e5f\u53d8\u5f97\u975e\u5e38\u7b80\u5355\uff0c\u5c31\u76f4\u63a5\u653e\u5427\u3002\n\n### $Code:$\n\n```cpp\n#include<iostream>\n#include<cstdio>\nusing namespace std;\nint n, x, ans;\nint main(){\n\tscanf(\"%d\", &n);\n\twhile(n--){\n\t\tscanf(\"%d\", &x);\n\t\twhile(!(x & 1)){//\u7528\u4f4d\u8fd0\u7b97\u8282\u7701\u65f6\u95f4\n\t\t\tans++;\n\t\t\tx >>= 1;//\u8fd8\u662f\u4f4d\u8fd0\u7b97QWQ\n\t\t}\n\t}\n\tprintf(\"%d\\n\", ans);//\u6ce8\u610f AT \u9898\u8981\u6362\u884c\n\treturn 0;//\u5b8c\u7ed3\u6492\u82b1-v-\n}\n```\n## End",
+        "postTime": 1582943029,
+        "uid": 147999,
+        "name": "Warriors_Cat",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 AT4156 \u3010[ABC100C] *3 or /2\u3011"
+    },
+    {
+        "content": "### \u9898\u610f\uff1a\n\u7ed9\u5b9a\u4e00\u4e2a\u5e8f\u5217\uff0c\u6bcf\u6b21\u64cd\u4f5c\u5c06\u6240\u6709\u6570 $\\times3$ \u6216\u8005 $\\div2$\uff0c\u4e24\u79cd\u64cd\u4f5c\u5fc5\u987b\u90fd\u8981\u6709\uff0c\u4e14\u6570\u5217\u5fc5\u987b\u4e3a\u6574\u6570\u3002\u6c42\u6700\u591a\u64cd\u4f5c\u6b21\u6570\u3002\n### \u601d\u8def\uff1a\n\u9898\u610f\uff1a\u672c\u9898\u6bcf\u4e00\u6b21\u90fd\u5fc5\u987b\u6709 $\\div 2$ \u548c $\\times 3$ \u64cd\u4f5c\uff0c\u4f46\u662f $\\div 2$ \u7684\u6b21\u6570\u662f\u6709\u9650\u5236\u7684\uff0c\u5426\u5219\u5c31\u4e0d\u4e3a\u6574\u6570\u4e86\u3002\n\n\u6211\u4eec\u8003\u8651\u4f7f\u6bcf\u4e00\u6b21 $\\div 2$ \u7684\u64cd\u4f5c\u6700\u5c11\uff0c\u4e5f\u5c31\u662f\u6bcf\u6b21\u53ea\u5c06\u5176\u4e2d\u4e00\u4e2a\u6570 $\\div 2$\uff0c\u5176\u4ed6\u6570 $\\times3$\u3002\n\n\u4e00\u5171\u7684\u64cd\u4f5c\u6570\u5c31\u662f\u6240\u6709\u7684\u6570\u80fd\u591f $\\div 2$ \u7684\u6b21\u6570\u4e4b\u548c\u3002\n\n### \u7a0b\u5e8f\u5982\u4e0b\uff1a\n```cpp\n#include<cstdio>\n#include<cmath>\nusing namespace std;\nint main(){\n    int n,ans=0;\n    scanf(\"%d\",&n);\n    for(int i=1;i<=n;i++){\n        int a;//\u4e0d\u9700\u8981\u4f7f\u7528\u6570\u7ec4\n        scanf(\"%d\",&a);\n        while(a%2==0){//\u6c42\u8fd9\u4e2a\u6570\u53ef\u4ee5/2\u7684\u6b21\u6570\n            a/=2;\n            ans++;//\u52a0\u5165\u603b\u548c\n        }\n    }\n    printf(\"%d\\n\",ans);\n    return 0;\n}\n```\n\n### **THE END**\n~~**\u672c\u849f\u84bb\u7b2c\u4e00\u7bc7\u9898\u89e3\u796d**~~\n\nUPDATE 2021.08.24\uff1a\u4fee\u6539\u4e86\u8bed\u8a00\u3001\u683c\u5f0f\u548cLaTeX\u3002",
+        "postTime": 1605357299,
+        "uid": 299883,
+        "name": "HYdroKomide",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 AT4156"
+    }
+]

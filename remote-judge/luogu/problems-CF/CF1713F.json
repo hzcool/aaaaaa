@@ -1,0 +1,21 @@
+{
+    "description": "My orzlers, we can optimize this problem from $ O(S^3) $ to $ O\\left(T^\\frac{5}{9}\\right) $ !\n\n\u2014 Spyofgame, founder of Orzlim religion\n\n\n\nA long time ago, Spyofgame invented the famous array $ a $ ( $ 1 $ -indexed) of length $ n $ that contains information about the world and life. After that, he decided to convert it into the matrix $ b $ ( $ 0 $ -indexed) of size $ (n + 1) \\times (n + 1) $ which contains information about the world, life and beyond.\n\nSpyofgame converted $ a $ into $ b $ with the following rules.\n\n- $ b_{i,0} = 0 $ if $ 0 \\leq i \\leq n $ ;\n- $ b_{0,i} = a_{i} $ if $ 1 \\leq i \\leq n $ ;\n- $ b_{i,j} = b_{i,j-1} \\oplus b_{i-1,j} $ if $ 1 \\leq i, j \\leq n $ .\n\nHere $ \\oplus $ denotes the [bitwise XOR operation](https://en.wikipedia.org/wiki/Bitwise_operation#XOR).\n\nToday, archaeologists have discovered the famous matrix $ b $ . However, many elements of the matrix has been lost. They only know the values of $ b_{i,n} $ for $ 1 \\leq i \\leq n $ (note that these are some elements of the last column, not the last row).\n\nThe archaeologists want to know what a possible array of $ a $ is. Can you help them reconstruct any array that could be $ a $ ?",
+    "inputFormat": "The first line contains a single integer $ n $ ( $ 1 \\leq n \\leq 5 \\cdot 10^5 $ ).\n\nThe second line contains $ n $ integers $ b_{1,n}, b_{2,n}, \\ldots, b_{n,n} $ ( $ 0 \\leq b_{i,n} < 2^{30} $ ).",
+    "outputFormat": "If some array $ a $ is consistent with the information, print a line containing $ n $ integers $ a_1, a_2, \\ldots, a_n $ . If there are multiple solutions, output any.\n\nIf such an array does not exist, output $ -1 $ instead.",
+    "samples": [
+        [
+            "3\n0 2 1",
+            "1 2 3"
+        ],
+        [
+            "1\n199633",
+            "199633"
+        ],
+        [
+            "10\n346484077 532933626 858787727 369947090 299437981 416813461 865836801 141384800 157794568 691345607",
+            "725081944 922153789 481174947 427448285 516570428 509717938 855104873 280317429 281091129 1050390365"
+        ]
+    ],
+    "hint": "If we let $ a = [1,2,3] $ , then $ b $ will be:\n\n  $ \\bf{0} $  $ \\bf{1} $  $ \\bf{2} $  $ \\bf{3} $  $ \\bf{0} $  $ 1 $  $ 3 $  $ 0 $  $ \\bf{0} $  $ 1 $  $ 2 $  $ 2 $  $ \\bf{0} $  $ 1 $  $ 3 $  $ 1 $ The values of $ b_{1,n}, b_{2,n}, \\ldots, b_{n,n} $ generated are $ [0,2,1] $ which is consistent with what the archaeologists have discovered.",
+    "translation": "\u7ed9\u51fa\u4e00\u4e2a\u4ece $1$ \u5230 $n$ \u7684\u6570\u7ec4 $a$\u3002\u6709\u4e00\u4e2a\u4ece $0$ \u5f00\u59cb\u6807\u53f7\u7684\u5927\u5c0f\u4e3a $(n+1)\\times (n+1)$ \u7684\u77e9\u9635 $b$\uff0c\u901a\u8fc7\u4ee5\u4e0b\u65b9\u5f0f\u751f\u6210\uff1a\n- \u5bf9\u4e8e $ 0 \\leq i \\leq n $\uff0c$ b_{i,0} = 0 $\u3002\n- \u5bf9\u4e8e $ 1 \\leq i \\leq n $\uff0c$ b_{0,i} = a_{i} $\u3002\n- \u5bf9\u4e8e $ 1 \\leq i, j \\leq n $\uff0c$ b_{i,j} = b_{i,j-1} \\oplus b_{i-1,j}$\u3002\n\n\u73b0\u5728\uff0c\u7ed9\u51fa $ b_{1,n}, b_{2,n}, \\ldots, b_{n,n} $\uff0c\u8bd5\u8fd8\u539f\u51fa\u4e00\u4e2a\u6ee1\u8db3\u6761\u4ef6\u7684 $a$ \u6570\u7ec4\uff0c\u6216\u8005\u62a5\u544a\u65e0\u89e3\u3002"
+}

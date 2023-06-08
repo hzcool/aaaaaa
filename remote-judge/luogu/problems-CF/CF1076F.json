@@ -1,0 +1,21 @@
+{
+    "description": "Vova has taken his summer practice this year and now he should write a report on how it went.\n\nVova has already drawn all the tables and wrote down all the formulas. Moreover, he has already decided that the report will consist of exactly $ n $ pages and the $ i $ -th page will include $ x_i $ tables and $ y_i $ formulas. The pages are numbered from $ 1 $ to $ n $ .\n\nVova fills the pages one after another, he can't go filling page $ i + 1 $ before finishing page $ i $ and he can't skip pages.\n\nHowever, if he draws strictly more than $ k $ tables in a row or writes strictly more than $ k $ formulas in a row then he will get bored. Vova wants to rearrange tables and formulas in each page in such a way that he doesn't get bored in the process. Vova can't move some table or some formula to another page.\n\nNote that the count doesn't reset on the start of the new page. For example, if the page ends with $ 3 $ tables and the next page starts with $ 5 $ tables, then it's counted as $ 8 $ tables in a row.\n\nHelp Vova to determine if he can rearrange tables and formulas on each page in such a way that there is no more than $ k $ tables in a row and no more than $ k $ formulas in a row.",
+    "inputFormat": "The first line contains two integers $ n $ and $ k $ ( $ 1 \\le n \\le 3 \\cdot 10^5 $ , $ 1 \\le k \\le 10^6 $ ).\n\nThe second line contains $ n $ integers $ x_1, x_2, \\dots, x_n $ ( $ 1 \\le x_i \\le 10^6 $ ) \u2014 the number of tables on the $ i $ -th page.\n\nThe third line contains $ n $ integers $ y_1, y_2, \\dots, y_n $ ( $ 1 \\le y_i \\le 10^6 $ ) \u2014 the number of formulas on the $ i $ -th page.",
+    "outputFormat": "Print \"YES\" if Vova can rearrange tables and formulas on each page in such a way that there is no more than $ k $ tables in a row and no more than $ k $ formulas in a row.\n\nOtherwise print \"NO\".",
+    "samples": [
+        [
+            "2 2\n5 5\n2 2\n",
+            "YES\n"
+        ],
+        [
+            "2 2\n5 6\n2 2\n",
+            "NO\n"
+        ],
+        [
+            "4 1\n4 1 10 1\n3 2 10 1\n",
+            "YES\n"
+        ]
+    ],
+    "hint": "In the first example the only option to rearrange everything is the following (let table be 'T' and formula be 'F'):\n\n- page $ 1 $ : \"TTFTTFT\"\n- page $ 2 $ : \"TFTTFTT\"\n\nThat way all blocks of tables have length $ 2 $ .\n\nIn the second example there is no way to fit everything in such a way that there are no more than $ 2 $ tables in a row and $ 2 $ formulas in a row.",
+    "translation": "\u7ed9\u5b9a  $n$ \u4e2a\u5b57\u7b26\u4e32\uff0c\u7b2c  $i$ \u4e2a\u5b57\u7b26\u4e32\u7531  $x_i$ \u4e2a `T` \u4e0e  $y_i$ \u4e2a `F` \u6784\u6210\u3002\u95ee\u662f\u5426\u6709\u529e\u6cd5\u91cd\u6392\u6bcf\u4e2a\u5b57\u7b26\u4e32\uff0c\u4f7f\u5f97  $n$ \u4e2a\u5b57\u7b26\u4e32\u9996\u5c3e\u76f8\u63a5\u6210\u7684\u957f\u5b57\u7b26\u4e32\u4e2d\u6ca1\u6709\u8fde\u7eed  $k +1$ \u4e2a\u76f8\u540c\u5b57\u7b26"
+}

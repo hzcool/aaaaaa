@@ -1,0 +1,21 @@
+{
+    "description": "You can not just take the file and send it. When Polycarp trying to send a file in the social network \"Codehorses\", he encountered an unexpected problem. If the name of the file contains three or more \"x\" (lowercase Latin letters \"x\") in a row, the system considers that the file content does not correspond to the social network topic. In this case, the file is not sent and an error message is displayed.\n\nDetermine the minimum number of characters to remove from the file name so after that the name does not contain \"xxx\" as a substring. Print 0 if the file name does not initially contain a forbidden substring \"xxx\".\n\nYou can delete characters in arbitrary positions (not necessarily consecutive). If you delete a character, then the length of a string is reduced by $ 1 $ . For example, if you delete the character in the position $ 2 $ from the string \"exxxii\", then the resulting string is \"exxii\".",
+    "inputFormat": "The first line contains integer $ n $ $ (3 \\le n \\le 100) $ \u2014 the length of the file name.\n\nThe second line contains a string of length $ n $ consisting of lowercase Latin letters only \u2014 the file name.",
+    "outputFormat": "Print the minimum number of characters to remove from the file name so after that the name does not contain \"xxx\" as a substring. If initially the file name dost not contain a forbidden substring \"xxx\", print 0.",
+    "samples": [
+        [
+            "6\nxxxiii\n",
+            "1\n"
+        ],
+        [
+            "5\nxxoxx\n",
+            "0\n"
+        ],
+        [
+            "10\nxxxxxxxxxx\n",
+            "8\n"
+        ]
+    ],
+    "hint": "In the first example Polycarp tried to send a file with name contains number $ 33 $ , written in Roman numerals. But he can not just send the file, because it name contains three letters \"x\" in a row. To send the file he needs to remove any one of this letters.",
+    "translation": "\u5f53Polycarp\u8bd5\u56fe\u5728\u793e\u4ea4\u7f51\u7edc\u201cCodehorses\u201d\u53d1\u9001\u6587\u4ef6\u65f6\uff0c\u4ed6\u9047\u5230\u4e86\u610f\u60f3\u4e0d\u5230\u7684\u95ee\u9898\u3002\u5982\u679c\u8be5\u6587\u4ef6\u7684\u540d\u79f0\u5728\u4e00\u884c\u4e2d\u5305\u542b\u4e09\u4e2a\u6216\u66f4\u591a`x`\uff0c\u5219\u7cfb\u7edf\u8ba4\u4e3a\u6587\u4ef6\u5185\u5bb9\u4e0e\u793e\u4ea4\u7f51\u7edc\u4e3b\u9898\u4e0d\u7b26\u3002\u5728\u8fd9\u79cd\u60c5\u51b5\u4e0b\uff0c\u6587\u4ef6\u4f1a\u88ab\u548c\u8c10\u3002\n\n\u786e\u5b9a\u8981\u4ece\u6587\u4ef6\u540d\u4e2d\u5220\u9664\u7684\u6700\u5c11\u5b57\u7b26\u6570\uff0c\u4ee5\u4fbf\u540d\u79f0\u4e0d\u5305\u542b`xxx`\u3002\u5982\u679c\u6587\u4ef6\u540d\u6700\u521d\u4e0d\u5305\u542b\u5b50\u5b57\u7b26\u4e32`xxx`\uff0c\u5219\u6253\u5370`0`\u3002\n\n\u60a8\u53ef\u4ee5\u5220\u9664\u4efb\u610f\u4f4d\u7f6e\u7684\u5b57\u7b26$($\u4e0d\u4e00\u5b9a\u662f\u8fde\u7eed\u7684$)$\u3002\u5982\u679c\u5220\u9664\u4e00\u4e2a\u5b57\u7b26\uff0c\u5219\u5b57\u7b26\u4e32\u7684\u957f\u5ea6\u4f1a\u51cf\u5c11$1$\u3002\u4f8b\u5982\uff0c\u5982\u679c\u4ece\u5b57\u7b26\u4e32`exxxii`\u4e2d\u5220\u9664\u4f4d\u7f6e$2$\u4e2d\u7684\u5b57\u7b26\uff0c\u5219\u7ed3\u679c\u5b57\u7b26\u4e32\u4e3a`exxii`\u3002\n\n## \u8f93\u5165\n\u7b2c\u4e00\u884c\u5305\u542b\u6574\u6570$n$ $(3 \\le n \\le 100)$ - \u6587\u4ef6\u540d\u7684\u957f\u5ea6\u3002\n\n\u7b2c\u4e8c\u884c\u5305\u542b\u4e00\u4e2a\u957f\u5ea6\u4e3a$n$\u7684\u5b57\u7b26\u4e32\uff0c\u5176\u4e2d\u5305\u542b\u4ec5\u7531\u5c0f\u5199\u5b57\u6bcd\u7ec4\u6210\u7684\u6587\u4ef6\u540d\u3002\n\n## \u8f93\u51fa\n\u6253\u5370\u8981\u4ece\u6587\u4ef6\u540d\u4e2d\u5220\u9664\u7684\u6700\u5c11\u5b57\u7b26\u6570\uff0c\u4ee5\u4fbf\u8be5\u540d\u79f0\u4e0d\u5305\u542b`xxx`\u3002\u5982\u679c\u6700\u521d\u6587\u4ef6\u540d\u4e0d\u5305\u542b\u5b50\u5b57\u7b26\u4e32`xxx`\uff0c\u5219\u8f93\u51fa`0`\u3002\n\n\n\u7531 @cplusplus \u63d0\u4f9b\u7ffb\u8bd1"
+}

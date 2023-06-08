@@ -1,0 +1,66 @@
+[
+    {
+        "content": "### \u9898\u76ee\u5927\u610f\uff1a\n\n\u6709 $ n $ \u4e2a\u4eba\uff0c\u5df2\u77e5\u6bcf\u4e2a\u4eba\u4e0e\u4eba\u4e4b\u95f4\u7684\u503a\u52a1\uff0c\u6c42\u503a\u52a1\u603b\u548c\u3002\n\n### \u601d\u8def\n\n\u8bbe\u7f6e\u4e00\u4e2a\u6570\u7ec4 $a$\uff0c\u8868\u793a\u6bcf\u4e2a\u4eba\u6b20\u7684\u94b1\u3002\n\n\u6bcf\u5f53\u8f93\u5165\u503a\u52a1\u65f6\uff0c\u5c06\u6b20\u94b1\u4eba\u7684\u503a\u52a1\u589e\u52a0\u8f93\u5165\u7684\u94b1\u6570\uff0c\u5c06\u501f\u94b1\u4eba\u7684\u503a\u52a1\u51cf\u5c11\u8fd9\u4e2a\u94b1\u6570\u3002\n\n\u6700\u540e\uff0c\u628a\u6240\u6709\u6b63\u6570\u52a0\u8d77\u6765\uff0c\u5c31\u5f97\u5230\u4e86\u7b54\u6848\u3002\n\n### AC\u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,m,a[105];\nint main()\n{\n\tios::sync_with_stdio(0);\n\tcin.tie(0);cout.tie(0);\n\tcin>>n>>m;\n\tfor(int i=0;i<m;i++)\n\t{\n\t\tint x,y,z;\n\t\tcin>>x>>y>>z;\n\t\ta[x]-=z;//\u501f\u94b1\u4eba\u7684\u503a\u52a1\u51cf\u5c11z\n\t\ta[y]+=z;//\u6b20\u94b1\u4eba\u7684\u503a\u52a1\u589e\u52a0z\n\t}\n\tint ans=0;\n\tfor(int i=1;i<=n;i++)\n\t\tif(a[i]>0) ans+=a[i];//\u628a\u94b1\u6ca1\u8fd8\u6e05\u7684\u4eba\u6b20\u7684\u94b1\u52a0\u8d77\u6765\n\tcout<<ans;\n \treturn 0;\n}\n\n\n```",
+        "postTime": 1658383340,
+        "uid": 559919,
+        "name": "FQR_",
+        "ccfLevel": 5,
+        "title": "CF376B I.O.U. \u9898\u89e3"
+    },
+    {
+        "content": "[\u9898\u76ee](https://www.luogu.com.cn/problem/CF376B)\n\n\u8fd9\u9053\u9898\u4f18\u5316\u503a\u52a1\u7684\u65b9\u6cd5\u5c31\u662f\u7528\u4e00\u4e2a\u4eba\u53ef\u4ee5\u6536\u56de\u7684\u503a\u53bb\u8865\u8fd9\u4e2a\u4eba\u6b20\u7684\u503a\u3002\n\n\u4e8e\u662f\u6211\u4eec\u7528\u4e00\u4e2a $a$ \u6570\u7ec4\u53bb\u8bb0\u5f55\u7b2c $i$ \u4e2a\u4eba\u6b20\u503a\u7684\u60c5\u51b5\uff0c\n\n\u6b20\u503a\u5c31\u51cf\u53bb\u5bf9\u5e94\u7684\u6570\u503c\uff0c\u5426\u5219\u52a0\u4e0a\u5bf9\u5e94\u7684\u6570\u503c\u3002\n\n\u8fd9\u6837\u7684\u8bdd\uff0c\u6b20\u7684\u503a\u548c\u6536\u56de\u7684\u503a\u4f1a\u81ea\u52a8\u62b5\u6d88\u3002\n\n\u65f6\u95f4\u590d\u6742\u5ea6\u53ea\u6709 $O(n)$ .\n\n```cpp\n#include <bits/stdc++.h>\n#include <vector>\n#include <string>\nusing namespace std;\nint n,m,ans=0,a[10005];\nint main(){\n\tscanf(\"%d%d\",&n,&m);\n\tfor(int i=1;i<=m;i++){\n\t\tint x,y,z;\n\t\tscanf(\"%d%d%d\",&x,&y,&z);\n\t\ta[x]-=z,a[y]+=z;//\u81ea\u52a8\u62b5\u6d88\n\t}\n\tfor(int i=1;i<=n;i++){\n\t\tif(a[i]>0) ans+=a[i];//\u5982\u679c\u662f\u7edd\u5bf9\u503c\uff0c\u4e00\u4e2a\u503a\u4f1a\u88ab\u7b97\u4e24\u904d\n\t}\n\tprintf(\"%d\",ans);//\u8f93\u51fa\u7b54\u6848\n\treturn 0;\n}\n\n```\n",
+        "postTime": 1658566775,
+        "uid": 316018,
+        "name": "MikeWa",
+        "ccfLevel": 5,
+        "title": "CF376B"
+    },
+    {
+        "content": "### \u9898\u610f\uff1a\n\n\u6709 $n$ \u4e2a\u4eba\u548c $m$ \u7ec4\u503a\u52a1\u5173\u7cfb\uff0c\u7b2c $i$ \u7ec4\u503a\u52a1\u5173\u7cfb\u8868\u793a\u7b2c $a$ \u4eba\u6b20\u4e86\u7b2c $b$ \u4eba $c$ \u5143\u3002\u8981\u6c42\u4f60\u8f93\u51fa **\u5316\u7b80\u503a\u52a1** \u540e\u7684\u503a\u52a1\u603b\u548c\u3002\n\n### \u601d\u8def\uff1a\n\n\u8003\u8651\u7528\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u6570\u7ec4 $money$\uff0c$money_{i}$ \u8868\u793a\u7b2c $i$ \u4e2a\u4eba\u73b0\u6709\u7684\u94b1\u3002\u5982\u679c\u6b20\u94b1\uff0c\u5c31\u51cf\u53bb\u6b20\u7684\u94b1\u6570\uff1b\u5982\u679c\u522b\u4eba\u6b20\u4f60\u94b1\uff0c\u5c31\u52a0\u4e0a\u6b20\u7684\u94b1\u6570\u3002\u56e0\u4e3a\u94b1\u662f\u6d41\u901a\u7684\uff0c\u81ea\u5df1\u4e00\u5f00\u59cb\u6b20\u7684\u94b1\u53ef\u80fd\u4f1a\u901a\u8fc7\u5176\u4ed6\u4eba\u6b20\u4ed6\u94b1\u7684\u65b9\u5f0f\u4f7f\u81ea\u5df1\u8fd8\u6e05\u503a\u52a1\u3002\u4f46\u662f\uff0c\u5982\u679c\u6240\u6709\u64cd\u4f5c\u8fdb\u884c\u5b8c\u4ee5\u540e\u8fd8\u662f\u65e0\u6cd5\u8fd8\u6e05\u503a\u52a1\uff0c\u5c31\u9700\u8981\u7edf\u8ba1\u4e00\u4e0b\u7b54\u6848\u3002\u540c\u65f6\uff0c\u8fd9\u6837\u80fd\u4f7f\u503a\u52a1\u6d41\u901a\uff0c\u4ece\u800c\u5316\u7b80\u503a\u52a1\u3002\n\n\u4e0d\u61c2\u6b22\u8fce\u56de\u590d\u3002\n\n### \u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\ninline int read()\n{\n\tint x=0,f=1;char c=getchar();\n\twhile(!isdigit(c)){if(c=='-')f=-1;c=getchar();}\n\twhile(isdigit(c)){x=x*10+c-48;c=getchar();}\n\treturn x*f;\n}\nint n,m,money[1005],ans=0;\nint main()\n{\n\tn=read(),m=read();\n\tfor(int i=1,a,b,c;i<=m;i++) {\n\t\ta=read(),b=read(),c=read();\n\t\tmoney[a]-=c;\n\t\tmoney[b]+=c;\n\t}\n\tfor(int i=1;i<=n;i++)\n\t\tif(money[i]<0)ans+=abs(money[i]);//\u82e5\u4ed6\u59cb\u7ec8\u65e0\u6cd5\u8fd8\u6e05\u503a\u52a1\uff0c\u5219\u9700\u8981\u7d2f\u8ba1\u7b54\u6848\n\tcout<<ans;\n\treturn 0;\n}\n```",
+        "postTime": 1651917768,
+        "uid": 716206,
+        "name": "pengzy",
+        "ccfLevel": 0,
+        "title": "CF376B I.O.U. \u9898\u89e3"
+    },
+    {
+        "content": "~~\u8fd9\u4e00\u9053\u9898\u8bc4\u6210\u84dd\u9898\u5c31\u6709\u70b9\u8fc7\u4e86\u5427\uff01\u8fd9\u4e5f\u5c31\u9ec4\u9898\u7684\u611f\u89c9\uff01~~\n\n\u8fdb\u5165\u6b63\u9898\uff1a\n------------\n\n\u6211\u4eec\u53ef\u4ee5\u5c06\u6bcf\u4e2a\u4eba\u7684\u94b1\u6570\u8bbe\u4e3a $0$\uff0c\u5982\u679c `a` \u6b20 `b` $\\ n$ \u5143\uff0c\u5c31\u5c06 $money_a - n$ \u4e14 $money_b + n$\uff0c\u6700\u540e\u5c06\u6240\u6709\u7684\u503a\u52a1\u7528\u7edd\u5bf9\u503c\u8ba1\u7b97\uff0c\u8fd9\u6837\u5c31\u5b8c\u6210\u4e86\u3002\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n#define int long long\nint read() {\n\tint g = 0, f = 1;\n\tchar c = getchar();\n\twhile (!isdigit(c)) {\n\t\tif (c == '-') f = -1;\n\t\tc = getchar();\n\t}\n\twhile (isdigit(c)) g = (g << 1) + (g << 3) + (c ^ 48), c = getchar();\n\treturn g * f;\n}\nvoid write(int x) {\n\tif (x > 9) write(x / 10);\n\tputchar(x % 10 + '0');\n}\nint mon[1005];\nsigned main() {\n\tint n = read(), m = read();\n\tfor (int i = 1; i <= m; i++) {\n\t\tint x = read(), y = read(), num = read();\n\t\tmon[x] -= num;//x\u7684\u94b1\u6570\u51cf\u53bbn\n\t\tmon[y] += num;//y\u7684\u94b1\u6570\u52a0\u4e0an\n\t}\n\tint sum = 0;\n\tfor (int i = 1; i <= n; i++) sum += abs(mon[i]);//\u628a\u6bcf\u4e2a\u4eba\u7684\u94b1\u7528\u7edd\u5bf9\u503c\u52a0\u8d77\u6765\n\twrite(sum / 2);//\u9664\u4ee52\u5c31\u662f\u7b54\u6848\u4e86\n\treturn 0;\n}\n```\n",
+        "postTime": 1646535320,
+        "uid": 479325,
+        "name": "Xdl_rp",
+        "ccfLevel": 0,
+        "title": "CF376B"
+    },
+    {
+        "content": "## STEP 1 \u9898\u76ee\u7b80\u8ff0\n\n\u6709 $n$ \u4e2a\u4eba\u4ee5\u53ca\u4ed6\u4eec\u4e4b\u95f4\u7684 $m$ \u4e2a\u503a\u52a1\u5173\u7cfb\uff0c\u5982\u679c $A$ \u6b20 $B$ $m$ \u5143\uff0c$B$ \u6b20 $C$ $m$ \u5143\uff0c\u5219 $A$ \u6b20 $C$ $m$ \u5143\u4e14 $B$ \u4e0d\u518d\u6709\u4efb\u4f55\u503a\u52a1\u5728\u8eab\u3002\n\n## STEP 2 \u6d45\u8c08\u505a\u6cd5\n\n\u770b\u5230\u8fd9\u9053\u9898\u7684\u7b2c\u4e00\u773c\uff0c\u5176\u5b9e\u6211\u662f\u60f3\u7528\u56fe\u8bba\u505a\u7684\uff0c\u4f46\u662f\u89c9\u5f97\u6709\u70b9\u9ebb\u70e6\uff0c\u4e8e\u662f\u5c31\u6ca1\u6709\u5f00\u52a8\u3002\n\n\u7ecf\u8fc7\u4e00\u756a\u601d\u8003\uff0c\u5176\u5b9e\u6211\u4eec\u53ef\u4ee5\u60f3\u5230\uff0c\u5982\u679c $A$ \u6b20 $B$ $m$ \u5143\uff0c\u5219\u76f8\u5f53\u4e8e $B$ \u5982\u679c\u6b20\u522b\u4eba\u7684\u94b1\u5219\u53ef\u4ee5\u5c11\u8fd8 $m$ \u5143\u3002\n\n\u4e8e\u662f\u6211\u4eec\u5c31\u53ef\u4ee5\u60f3\u5230\u7528\u4e00\u4e2a\u6570\u7ec4\u6765\u8868\u793a\u6bcf\u4e00\u4e2a\u73b0\u5728\u7684\u94b1\uff0c\u521d\u59cb\u5747\u4e3a $0$\u3002\u7136\u540e\u6bcf\u6b21\u6b20\u6b3e\u5219\u76f8\u5f53\u4e8e\u662f\u501f\u94b1\u8005\u5c11\u4e86 $m$ \u5143\uff0c\u7ed9\u94b1\u8005\u591a\u4e86 $m$ \u5143\u3002\u6700\u7ec8\u8f93\u51fa\u6240\u6709\u6b63\u6570\u6216\u8005\u8d1f\u6570\u7684\u6b20\u6b3e\u989d\u5373\u53ef\u3002\n\n**\u4ee3\u7801\u5982\u4e0b\uff1a**\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n#define N 105\nint n,m,now[N];\nint read(){\n\tint w=0,f=1;\n\tchar c=getchar();\n\twhile (c>'9'||c<'0'){\n\t\tif (c=='-') f=-1;\n\t\tc=getchar();\n\t}\n\twhile (c>='0'&&c<='9'){\n\t\tw=(w<<3)+(w<<1)+(c^48);\n\t\tc=getchar();\n\t}\n\treturn w*f;\n}\n\nint main(){\n\tn=read(),m=read();\n\tfor (int i=1;i<=m;i++){\n\t\tint x=read(),y=read(),z=read();\n\t\tnow[y]+=z,now[x]-=z; \n\t} \n\tint ans=0;\n\tfor (int i=1;i<=n;i++)\n\t\tif (now[i]>0) ans+=now[i];\n\tprintf(\"%d\\n\",ans);\n\treturn 0;\n}\n```\n",
+        "postTime": 1601287119,
+        "uid": 257621,
+        "name": "\u7ffc\u5fb7\u5929\u5c0a",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF376B \u3010I.O.U.\u3011"
+    },
+    {
+        "content": "# \u5c06\u6240\u6709\u6b20\u503a\u7684\u4eba\u51cf\u53bb\u503a\u52a1\u989d\uff0c\u53cd\u4e4b\u52a0\u4e0a\u503a\u52a1\u989d\n# \u518d\u628a\u6240\u6709\u6b63\u6570\u76f8\u52a0\n# \u4ee3\u7801\u5982\u4e0b\uff1a\n\t#include<bits/stdc++.h>  \n\tusing namespace std;  \n\tint a[110];  \n\tint main()  \n\t{\n\t\tint n,m,ans=0;\n\t\tcin>>n>>m;\n\t\tfor(int i=0;i<m;i++)\n\t\t{\n\t\t\tint x,y,z;\n\t\t\tcin>>x>>y>>z;\n\t\t\ta[y]+=z;\n\t\t\ta[x]-=z;\n\t\t}\n\t\tfor(int i=1;i<=n;i++)\n\t\t\tif(a[i]>0)ans+=a[i];\n\t\tcout<<ans;\n\t\treturn 0;  \n\t}",
+        "postTime": 1545901275,
+        "uid": 90946,
+        "name": "wzm2007",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF376B \u3010I.O.U.\u3011"
+    },
+    {
+        "content": "\u6559\u7ec3\u90a3\u4e2a\u6df7\u86cb\u5c45\u7136\u642c\u539f\u9898\u8003\u6211\u4eec\u3002\u3002\u3002\u3002\n\n~~\uff08\u867d\u7136\u6211\u8fd8\u662f0\u7206\u4e86\uff09~~\n\n\u8868\u8fbe\u4e00\u4e0b\u6211\u60b2\u75db\u7684\u5fc3\u60c5\n```cpp\n#include <cstdio>\n#include <cstring>\n#include <cmath>\n#include <cstdlib>\n#include <iostream>\nusing namespace std;\nconst int max_n=1e6+10;\nconst int max_m=1e6+10;\nint a[max_n];\ninline int getnum()\n{\n\tint ans=0;\n\tbool flag=false;\n\tchar c;\n\twhile((c=getchar())==' '||c=='\\n' ||c=='\\r');\n\tif(c=='-')\n\t\tflag=true;\n\telse\n\t\tans=c -'0';\n\twhile(isdigit(c=getchar()))\n\t\tans=ans*10+c-'0';\n\treturn ans;\n}//\u8bfb\u5165\u4f18\u5316\uff08\u6211\u4eec\u8003\u8bd5\u8bc4\u6d4b\u8fd9\u9053\u9898\u6ca1\u8bf4\u8981\u4f18\u5316=-=\uff0c\u7ed3\u679c\u4e00\u628a80\u5206\uff09\u867d\u7136\u4e0d\u77e5\u9053\u8fd9\u91cc\u8981\u4e0d\u8981\u3002\u3002\u3002\u3002\u3002\u3002\u3002\nint main()\n{\n//\tfreopen(\"debt.in\",\"r\",stdin);\n//\tfreopen(\"debt.out\",\"w\",stdout);//\u8fd9\u4e2a\u662f\u6587\u4ef6\u8f93\u5165\u548c\u8f93\u51fa\n\tint n=getnum();\n\tint m=getnum();\n\tfor(int i=1;i<=m;i++)\n\t{\n\t\tint aa,bb,c;\n\t\taa=getnum();\n\t\tbb=getnum();\n\t\tc=getnum();\n\t\ta[aa]+=c;\n\t\ta[bb]-=c;//\u6b20\u522b\u4eba\u7684\u548c\u88ab\u4eba\u6b20\u7684\u76f8\u62b5\u6d88\n\t}\n\tint ans=0;\n\tfor(int i=1;i<=n;i++)\n\t\tif(a[i]>0)\n\t\t\tans += a[i];//\u8fd8\u6709\u5269\u5c31\u52a0\u8d77\u6765\n\tcout<<ans;\n}\n```\n~~\u6211tm\u90a3\u4e2a\u65f6\u5019\u5c45\u7136\u6253\u9519\u4e86\u3002\u3002\u3002~~",
+        "postTime": 1538555106,
+        "uid": 116160,
+        "name": "Y_inG",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF376B \u3010I.O.U.\u3011"
+    },
+    {
+        "content": "[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/CF376B)\n\n\u597d\u6c34\u554a\u3002\n\n**\u601d\u8def**\n\n\u5176\u5b9e\u5427\uff0c\u8fd9\u9898\u7684\u601d\u8def\u5f88\u7b80\u5355\uff0c\u53ea\u8981\u628a\u6bcf\u4e2a\u4eba\u7684\u8d22\u4ea7\u90fd\u7b97\u51fa\u6765\u5c31\u884c\u4e86\u3002\u5f53\u6709\u4eba\u6b20\u4ed6\u94b1\u65f6\u8d22\u4ea7\u5c31\u589e\u52a0\uff0c\u4ed6\u6b20\u522b\u4eba\u94b1\u65f6\u8d22\u4ea7\u5c31\u51cf\u5c11\uff0c\u6700\u540e\u7edf\u8ba1\u6240\u6709\u6b20\u7684\u94b1\u7684\u603b\u548c\u5373\u53ef\u3002\u4e4b\u6240\u4ee5\u53ef\u4ee5\u8fd9\u6837\u505a\uff0c\u662f\u56e0\u4e3a\u6211\u4eec\u53ef\u4ee5\u5047\u8bbe\u6709\u4e00\u4e2a\u94f6\u884c\u4f5c\u4e3a\u4e2d\u8f6c\u5546\uff0c\u5f53\u6709\u4eba\u9700\u8981\u8fd8\u94b1\u65f6\uff0c\u4e0d\u59a8\u4ee4\u5176\u5411\u94f6\u884c\u501f\u94b1\u3002\u5982\u6b64\u4e00\u6765\uff0c\u6bcf\u4e2a\u4eba\u90fd\u4e0d\u4f1a\u6b20\u4eba\u94b1\u4e86\u3002\u800c\u6700\u540e\u5982\u679c\u8fd8\u6709\u65e0\u6cd5\u901a\u8fc7\u522b\u4eba\u7684\u8fd8\u94b1\u8fd8\u6e05\u5411\u94f6\u884c\u501f\u7684\u94b1\u7684\u4eba\uff0c\u5c31\u53ea\u80fd\u8ba9\u503a\u52a1\u603b\u989d\u52a0\u4e0a\u8fd9\u4e00\u7b14\u94b1\u4e86\u3002\n\n**CODE**\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\ninline int read(int x=0,bool f=1){\n\tchar c=getchar();\n\twhile(c>'9'||c<'0'){if(c=='-')f=0;c=getchar();}\n\twhile(c>='0'&&c<='9'){x=(x<<3)+(x<<1)+c-'0';c=getchar();}\n\treturn f?x:-x;\n}\nint n,m,val[105],x,y,z,ans;//val \u5b58\u6bcf\u4e2a\u4eba\u7684\u94b1\u6570\nint main(){\n\tn=read(),m=read();\n\twhile(m--){\n\t\tx=read(),y=read(),z=read();\n\t\tval[x]-=z;\n\t\tval[y]+=z;\n\t}\n\tfor(int i=1;i<=n;i++)\n\t\tans+=max(0,val[i]);\n        //\u5176\u5b9e\u7531\u4e8e\u8d22\u4ea7\u603b\u548c\u4e3a 0\uff0c\u4e0d\u7b97\u4e8f\u7684\u7b97\u8d5a\u7684\u4e5f\u53ef\u4ee5\n\tprintf(\"%d\\n\",ans);\n\treturn 0;\n}\n\n```\n\n~~\u8bdd\u8bf4\u8fd9\u9898\u5e94\u8be5\u7528\u56fe\u8bba\u4e5f\u53ef\u4ee5\uff0c\u5c31\u662f\u4f5c\u8005\u592a\u83dc\u4e86\u4e0d\u4f1a\u5199\u7f62\u4e86\u3002~~",
+        "postTime": 1646574121,
+        "uid": 324666,
+        "name": "diqiuyi",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3CF376B"
+    }
+]

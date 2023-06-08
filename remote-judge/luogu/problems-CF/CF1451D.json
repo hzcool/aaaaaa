@@ -1,0 +1,13 @@
+{
+    "description": "Utkarsh is forced to play yet another one of Ashish's games. The game progresses turn by turn and as usual, Ashish moves first.\n\nConsider the 2D plane. There is a token which is initially at  $ (0,0) $ . In one move a player must increase either the $ x $ coordinate or the $ y $ coordinate of the token by exactly $ k $ . In doing so, the player must ensure that the token stays within a (Euclidean) distance $ d $ from $ (0,0) $ .\n\nIn other words, if after a move the coordinates of the token are $ (p,q) $ , then $ p^2 + q^2 \\leq d^2 $ must hold.\n\nThe game ends when a player is unable to make a move. It can be shown that the game will end in a finite number of moves. If both players play optimally, determine who will win.",
+    "inputFormat": "The first line contains a single integer $ t $ ( $ 1 \\leq t \\leq 100 $ ) \u2014 the number of test cases.\n\nThe only line of each test case contains two space separated integers $ d $ ( $ 1 \\leq d \\leq 10^5 $ ) and $ k $ ( $ 1 \\leq k \\leq d $ ).",
+    "outputFormat": "For each test case, if Ashish wins the game, print \"Ashish\", otherwise print \"Utkarsh\" (without the quotes).",
+    "samples": [
+        [
+            "5\n2 1\n5 2\n10 3\n25 4\n15441 33",
+            "Utkarsh\nAshish\nUtkarsh\nUtkarsh\nAshish"
+        ]
+    ],
+    "hint": "In the first test case, one possible sequence of moves can be\n\n $ (0, 0) \\xrightarrow{\\text{Ashish }} (0, 1) \\xrightarrow{\\text{Utkarsh }} (0, 2) $ .\n\nAshish has no moves left, so Utkarsh wins.\n\n![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1451D/00adebe318fd60c39c1fde9564efcda9489c81f2.png)",
+    "translation": "\u5728\u5750\u6807\u8f74\u4e0a\uff0c\u6709\u4e00\u4e2a\u4ee5 $(0,0)$ \u4e3a\u5706\u70b9\uff0c$d$ \u4e3a\u534a\u5f84\u7684\u5706\u3002  \n\u73b0\u5728 Ashish \u548c Utkarsh \u73a9\u6e38\u620f\uff0cAshish \u662f\u5148\u624b\u3002  \n\u5728 $(0,0)$ \u5904\u6709\u4e00\u9897\u68cb\u5b50\uff0c\u4e24\u4eba\u8f6e\u6d41\u5c06\u68cb\u5b50\u5411\u4e0a\u6216\u5411\u53f3\u79fb\u52a8 $k$ \u4e2a\u5355\u4f4d\uff0c\u68cb\u5b50\u4e0d\u80fd\u79fb\u51fa\u5706\uff0c\u8c01\u65e0\u6cd5\u79fb\u52a8\u8c01\u8f93\u3002  \n\nTranslate by leapfrog"
+}

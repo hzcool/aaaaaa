@@ -1,0 +1,21 @@
+{
+    "description": "Petya collects beautiful matrix.\n\nA matrix of size $ n \\times n $ is beautiful if:\n\n- All elements of the matrix are integers between $ 1 $ and $ n $ ;\n- For every row of the matrix, all elements of this row are different;\n- For every pair of vertically adjacent elements, these elements are different.\n\nToday Petya bought a beautiful matrix $ a $ of size $ n \\times n $ , and now he wants to determine its rarity.\n\nThe rarity of the matrix is its index in the list of beautiful matrices of size $ n \\times n $ , sorted in lexicographical order. Matrix comparison is done row by row. (The index of lexicographically smallest matrix is zero).\n\nSince the number of beautiful matrices may be huge, Petya wants you to calculate the rarity of the matrix $ a $ modulo $ 998\\,244\\,353 $ .",
+    "inputFormat": "The first line contains one integer $ n $ ( $ 1 \\le n \\le 2000 $ ) \u2014 the number of rows and columns in $ a $ .\n\nEach of the next $ n $ lines contains $ n $ integers $ a_{i,j} $ ( $ 1 \\le a_{i,j} \\le n $ ) \u2014 the elements of $ a $ .\n\nIt is guaranteed that $ a $ is a beautiful matrix.",
+    "outputFormat": "Print one integer \u2014 the rarity of matrix $ a $ , taken modulo $ 998\\,244\\,353 $ .",
+    "samples": [
+        [
+            "2\n2 1\n1 2\n",
+            "1\n"
+        ],
+        [
+            "3\n1 2 3\n2 3 1\n3 1 2\n",
+            "1\n"
+        ],
+        [
+            "3\n1 2 3\n3 1 2\n2 3 1\n",
+            "3\n"
+        ]
+    ],
+    "hint": "There are only $ 2 $ beautiful matrices of size $ 2 \\times 2 $ :\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1085G/f867c5eaa161b1f1aa9e5f2c90e4500d9ce0b908.png)There are the first $ 5 $ beautiful matrices of size $ 3 \\times 3 $ in lexicographical order:\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1085G/1658b23d01963b8d7e8ba033e0ef04c32e0bd4a6.png)",
+    "translation": "## \u9898\u76ee\u63cf\u8ff0\r\nPetya\u5728\u6536\u96c6\u7f8e\u4e3d\u77e9\u9635\r\n\u4e00\u4e2an\u00d7n\u7684\u7f8e\u4e3d\u77e9\u9635\u8981\u4fdd\u8bc1\uff1a\r\n1.\u6240\u6709\u7684\u77e9\u9635\u5185\u7684\u5143\u7d20\u90fd\u662f1~n\u7684\u6574\u6570\uff1b\r\n2.\u6bcf\u4e00\u884c\u4e0d\u80fd\u6709\u76f8\u540c\u7684\u5143\u7d20\uff1b\r\n3.\u6bcf\u4e00\u5bf9\u7ad6\u76f4\u76f8\u90bb\u7684\u5143\u7d20\u4e0d\u80fd\u76f8\u540c\u3002\r\nPetya\u5b9a\u4e49 \u7a00\u6709\u5ea6 \u4e3a\u5c06\u6240\u6709n\u00d7n\u7684\u7f8e\u4e3d\u77e9\u9635\u6309\u7167\u5b57\u5178\u5e8f\u6392\u597d\u5e8f\uff08\u4ece0\u5f00\u59cb\u8ba1\u6570\uff09\u8be5\u7f8e\u4e3d\u77e9\u9635\u6240\u5728\u7684\u7f16\u53f7\u3002\r\n\u4ed6\u5e0c\u671b\u4f60\u6c42\u51fa\u4ed6\u6240\u7ed9\u7684\u77e9\u9635\u7684\u7a00\u6709\u5ea6\uff08\u6a21 998244353 \uff09\r\n\u5982 2\u00d72 \u7684\u7f8e\u4e3d\u77e9\u9635\u6709\r\n\r\n1 2 ||| 2 1\r\n\r\n2 1 ||| 1 2\r\n\r\n0\u53f7 ||| 1\u53f7\r\n\r\n\u6240\u4ee5\u6837\u4f8b\u4e00\u4e2d\u7684\u77e9\u9635\u7684\u7a00\u6709\u5ea6\u4e3a1\u3002\r\n## \u8f93\u5165\u8f93\u51fa\u683c\u5f0f\r\n### \u8f93\u5165\u683c\u5f0f\uff1a\r\n\u7b2c\u4e00\u884c\u4e3an\r\n\u5269\u4e0b\u7684\u662f\u4e00\u4e2an\u00d7n\u7684\u7f8e\u4e3d\u77e9\u9635\u3002\r\n### \u8f93\u51fa\u683c\u5f0f\uff1a\r\n\u4e00\u884c\uff0c\u8be5\u77e9\u9635\u7684\u7a00\u6709\u5ea6\u3002"
+}

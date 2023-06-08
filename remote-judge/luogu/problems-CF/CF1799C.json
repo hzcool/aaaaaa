@@ -1,0 +1,13 @@
+{
+    "description": "You are given a string $ s $ . You can reorder the characters to form a string $ t $ . Define $ t_{\\mathrm{max}} $ to be the lexicographical maximum of $ t $ and $ t $ in reverse order.\n\nGiven $ s $ determine the lexicographically minimum value of $ t_{\\mathrm{max}} $ over all reorderings $ t $ of $ s $ .\n\nA string $ a $ is lexicographically smaller than a string $ b $ if and only if one of the following holds:\n\n- $ a $ is a prefix of $ b $ , but $ a \\ne b $ ;\n- in the first position where $ a $ and $ b $ differ, the string $ a $ has a letter that appears earlier in the alphabet than the corresponding letter in $ b $ .",
+    "inputFormat": "The first line contains a single integer $ t $ ( $ 1 \\leq t \\leq 10^5 $ ) \u2014 the number of test cases. Descriptions of test cases follow.\n\nThe first and only line of each test case contains a string $ s $ ( $ 1 \\leq |s| \\leq 10^5 $ ). $ s $ consists of only lowercase English letters.\n\nIt is guaranteed that the sum of $ |s| $ over all test cases does not exceed $ 10^5 $ .",
+    "outputFormat": "For each test case print the lexicographically minimum value of $ t_{\\mathrm{max}} $ over all reorderings $ t $ of $ s $ .",
+    "samples": [
+        [
+            "12\na\naab\nabb\nabc\naabb\naabbb\naaabb\nabbb\nabbbb\nabbcc\neaga\nffcaba",
+            "a\naba\nbab\nbca\nabba\nabbba\nababa\nbbab\nbbabb\nbbcca\nagea\nacffba"
+        ]
+    ],
+    "hint": "For the first test case, there is only one reordering of $ s $ , namely \"a\".\n\nFor the second test case, there are three reorderings of $ s $ .\n\n- $ t = \\mathtt{aab} $ : $ t_{\\mathrm{max}} = \\max(\\mathtt{aab}, \\mathtt{baa}) = \\mathtt{baa} $\n- $ t = \\mathtt{aba} $ : $ t_{\\mathrm{max}} = \\max(\\mathtt{aba}, \\mathtt{aba}) = \\mathtt{aba} $\n- $ t = \\mathtt{baa} $ : $ t_{\\mathrm{max}} = \\max(\\mathtt{baa}, \\mathtt{aab}) = \\mathtt{baa} $\n\nThe lexicographical minimum of $ t_{\\mathrm{max}} $ over all cases is \"aba\".",
+    "translation": "\u7ed9\u4f60\u4e00\u4e2a\u5b57\u7b26\u4e32 $s$\uff0c\u4f60\u53ef\u4ee5\u91cd\u6392 $s$ \u4e2d\u7684\u5b57\u6bcd\u800c\u5f97\u5230\u5b57\u7b26\u4e32 $t$\u3002\u5b9a\u4e49 $t_{\\max}$ \u4e3a $t$ \u548c $\\operatorname{rev}(t)$\uff08$\\operatorname{rev}(t)$ \u8868\u793a\u628a $t$ \u524d\u540e\u7ffb\u8f6c\u5f97\u5230\u7684\u5b57\u7b26\u4e32\uff09\u4e2d\u5b57\u5178\u5e8f\u8f83\u5927\u8005\u3002\u73b0\u5728\u4f60\u9700\u8981\u8ba9 $t_{\\max}$ \u7684\u5b57\u5178\u5e8f\u6700\u5c0f\uff0c\u5e76\u8f93\u51fa $t_{\\max}$\uff08\u800c\u4e0d\u662f $t$\uff0c\u6240\u4ee5\u7b54\u6848\u662f\u552f\u4e00\u7684\uff09\u3002\n\n$T\\leqslant 10^5$\uff0c$\\sum |s|\\leqslant 10^5$\u3002"
+}

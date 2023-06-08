@@ -1,0 +1,21 @@
+{
+    "description": "You are given a sequence of n integers $ a_{1},a_{2},...,a_{n} $ .\n\nDetermine a real number $ x $ such that the weakness of the sequence $ a_{1}-x,a_{2}-x,...,a_{n}-x $ is as small as possible.\n\nThe weakness of a sequence is defined as the maximum value of the poorness over all segments (contiguous subsequences) of a sequence.\n\nThe poorness of a segment is defined as the absolute value of sum of the elements of segment.",
+    "inputFormat": "The first line contains one integer $ n $ ( $ 1<=n<=200000 $ ), the length of a sequence.\n\nThe second line contains $ n $ integers $ a_{1},a_{2},...,a_{n} $ ( $ |a_{i}|<=10000 $ ).",
+    "outputFormat": "Output a real number denoting the minimum possible weakness of $ a_{1}-x,a_{2}-x,...,a_{n}-x $ . Your answer will be considered correct if its relative or absolute error doesn't exceed $ 10^{-6} $ .",
+    "samples": [
+        [
+            "3\n1 2 3\n",
+            "1.000000000000000\n"
+        ],
+        [
+            "4\n1 2 3 4\n",
+            "2.000000000000000\n"
+        ],
+        [
+            "10\n1 10 2 9 3 8 4 7 5 6\n",
+            "4.500000000000000\n"
+        ]
+    ],
+    "hint": "For the first case, the optimal value of $ x $ is $ 2 $ so the sequence becomes $ -1 $ , $ 0 $ , $ 1 $ and the max poorness occurs at the segment \"-1\" or segment \"1\". The poorness value (answer) equals to $ 1 $ in this case.\n\nFor the second sample the optimal value of $ x $ is $ 2.5 $ so the sequence becomes $ -1.5,-0.5,0.5,1.5 $ and the max poorness occurs on segment \"-1.5 -0.5\" or \"0.5 1.5\". The poorness value (answer) equals to $ 2 $ in this case.",
+    "translation": "\u7ed9\u5b9a\u4e00\u4e2a\u957f\u5ea6\u4e3an\u7684\u6570\u7ec4ai\uff0c\u6c42\u4e00\u4e2a\u5b9e\u6570x\uff0c\u4f7f\u5f97\u5e8f\u5217a1-x,a2-x,...,an-x\u7684\u4e0d\u7f8e\u597d\u7a0b\u5ea6\u6700\u5c0f\u3002\n\n\u4e0d\u7f8e\u597d\u7a0b\u5ea6\u5b9a\u4e49\u4e3a\uff0c\u4e00\u4e2a\u5e8f\u5217\u7684\u6240\u6709\u8fde\u7eed\u5b50\u5e8f\u5217\u7684\u7cdf\u7cd5\u7a0b\u5ea6\u7684\u6700\u5927\u503c\u3002\n\n\u7cdf\u7cd5\u7a0b\u5ea6\u5b9a\u4e49\u4e3a\uff0c\u4e00\u4e2a\u5e8f\u5217\u7684\u6240\u6709\u4f4d\u7f6e\u7684\u548c\u7684\u7edd\u5bf9\u503c\u3002\n\n\u8f93\u5165\n\u7b2c\u4e00\u884cn\u3002\n\n\u7b2c\u4e8c\u884cn\u4e2a\u6570\uff0c\u8868\u793aai\u3002\n\n\u8f93\u51fa\n\u4e00\u4e2a\u5b9e\u6570\uff0c\u7cbe\u786e\u52306\u4f4d\u5c0f\u6570\uff0c\u8868\u793a\u6700\u5c0f\u4e0d\u7f8e\u597d\u7a0b\u5ea6\u503c\u3002"
+}

@@ -1,0 +1,25 @@
+{
+    "description": "You have a rectangular $ n\u00d7m $ -cell board. Some cells are already painted some of $ k $ colors. You need to paint each uncolored cell one of the $ k $ colors so that any path from the upper left square to the lower right one doesn't contain any two cells of the same color. The path can go only along side-adjacent cells and can only go down or right.\n\nPrint the number of possible paintings modulo $ 1000000007 $ $ (10^{9}+7) $ .",
+    "inputFormat": "The first line contains three integers $ n,m,k $ $ (1<=n,m<=1000,1<=k<=10) $ . The next $ n $ lines contain $ m $ integers each \u2014 the board. The first of them contains $ m $ uppermost cells of the board from the left to the right and the second one contains $ m $ cells from the second uppermost row and so on. If a number in a line equals 0, then the corresponding cell isn't painted. Otherwise, this number represents the initial color of the board cell \u2014 an integer from 1 to $ k $ .\n\nConsider all colors numbered from 1 to $ k $ in some manner.",
+    "outputFormat": "Print the number of possible paintings modulo $ 1000000007 $ $ (10^{9}+7) $ .",
+    "samples": [
+        [
+            "2 2 4\n0 0\n0 0\n",
+            "48\n"
+        ],
+        [
+            "2 2 4\n1 2\n2 1\n",
+            "0\n"
+        ],
+        [
+            "5 6 10\n0 0 0 0 0 0\n0 0 0 0 0 0\n0 0 0 0 0 0\n0 0 0 0 0 0\n0 0 0 0 0 0\n",
+            "3628800\n"
+        ],
+        [
+            "2 6 10\n1 2 3 4 5 6\n0 0 0 0 0 0\n",
+            "4096\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u3010\u95ee\u9898\u63cf\u8ff0\u3011\n\n\u7ed9\u5b9a\u4e00\u4e2a n*m \u7684\u77e9\u5f62\u8272\u677f\uff0c\u6709 k \u79cd\u4e0d\u540c\u7684\u989c\u6599\uff0c\u6709\u4e9b\u683c\u5b50\u5df2\u7ecf\u586b\u4e0a\u4e86\u67d0\u79cd\u989c\u8272\uff0c\u73b0\u5728 \n\u9700\u8981\u5c06\u5176\u4ed6\u683c\u5b50\u4e5f\u586b\u4e0a\u989c\u8272\uff0c\u4f7f\u5f97\u4ece\u5de6\u4e0a\u89d2\u5230\u53f3\u4e0b\u89d2\u7684\u4efb\u610f\u8def\u5f84\u7ecf\u8fc7\u7684\u683c\u5b50\u90fd\u4e0d\u4f1a\u51fa\u73b0\u4e24\u79cd \n\u53ca\u4ee5\u4e0a\u76f8\u540c\u7684\u989c\u8272\u3002\u8def\u5f84\u53ea\u80fd\u6cbf\u7740\u76f8\u90bb\u7684\u683c\u5b50\uff0c\u4e14\u53ea\u80fd\u5411\u4e0b\u6216\u8005\u5411\u53f3\u3002 \n\u8ba1\u7b97\u6240\u6709\u53ef\u80fd\u7684\u65b9\u6848\uff0c\u7ed3\u679c\u5bf9 1000000007 (10^9 + 7)\u6c42\u6a21\u3002\n\n\u3010\u8f93\u5165\u6570\u636e\u3011\n\n\u7b2c\u4e00\u884c\uff0c\u4e09\u4e2a\u6574\u6570 n, m, k (1 \u2264 n, m \u2264 1000, 1 \u2264 k \u2264 10)\uff1b \n\u63a5\u4e0b\u6765 n \u884c\uff0c\u6bcf\u884c\u5305\u542b m \u4e2a\u6574\u6570\uff0c\u8868\u793a\u989c\u8272\u3002\u5176\u4e2d 0 \u8868\u793a\u672a\u6d82\u8272\uff0c\u975e 0 \u8868\u793a\u989c\u8272\u7684\u7f16\u53f7\uff0c \n\u989c\u8272\u7f16\u53f7\u4e3a 1 \u5230 k\u3002\n\n\u3010\u8f93\u51fa\u6570\u636e\u3011\n\n\u4e00\u884c\uff0c\u4e00\u4e2a\u6574\u6570\uff0c\u8868\u793a\u6d82\u8272\u65b9\u6848\u5bf9 1000000007 (10^9 + 7)\u6c42\u6a21\u7684\u7ed3\u679c\u3002\n\n\u7531 @hicc0305 \u63d0\u4f9b\u7ffb\u8bd1"
+}

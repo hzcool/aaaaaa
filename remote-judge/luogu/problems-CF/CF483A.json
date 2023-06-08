@@ -1,0 +1,21 @@
+{
+    "description": "Your friend has recently learned about coprime numbers. A pair of numbers $ {a,b} $ is called coprime if the maximum number that divides both $ a $ and $ b $ is equal to one.\n\nYour friend often comes up with different statements. He has recently supposed that if the pair $ (a,b) $ is coprime and the pair $ (b,c) $ is coprime, then the pair $ (a,c) $ is coprime.\n\nYou want to find a counterexample for your friend's statement. Therefore, your task is to find three distinct numbers $ (a,b,c) $ , for which the statement is false, and the numbers meet the condition $ l<=a<b<c<=r $ .\n\nMore specifically, you need to find three numbers $ (a,b,c) $ , such that $ l<=a<b<c<=r $ , pairs $ (a,b) $ and $ (b,c) $ are coprime, and pair $ (a,c) $ is not coprime.",
+    "inputFormat": "The single line contains two positive space-separated integers $ l $ , $ r $ ( $ 1<=l<=r<=10^{18} $ ; $ r-l<=50 $ ).",
+    "outputFormat": "Print three positive space-separated integers $ a $ , $ b $ , $ c $ \u2014 three distinct numbers $ (a,b,c) $ that form the counterexample. If there are several solutions, you are allowed to print any of them. The numbers must be printed in ascending order.\n\nIf the counterexample does not exist, print the single number -1.",
+    "samples": [
+        [
+            "2 4\n",
+            "2 3 4\n"
+        ],
+        [
+            "10 11\n",
+            "-1\n"
+        ],
+        [
+            "900000000000000009 900000000000000029\n",
+            "900000000000000009 900000000000000010 900000000000000021\n"
+        ]
+    ],
+    "hint": "In the first sample pair $ (2,4) $ is not coprime and pairs $ (2,3) $ and $ (3,4) $ are.\n\nIn the second sample you cannot form a group of three distinct integers, so the answer is -1.\n\nIn the third sample it is easy to see that numbers $ 900000000000000009 $ and $ 900000000000000021 $ are divisible by three.",
+    "translation": "\u9898\u610f:\n\n\u6c42\u6ee1\u8db3l<=a<b<c<=r\n\n\u4e14gcd(a,b)=gcd(b,c)=1 gcd(a,c)\u22601\u7684\u4efb\u610f\u4e00\u7ec4a,b,c\n\n\u8f93\u5165\uff1al,r(r-l<=50)\n\n\u8f93\u51fa\uff1a\u5176\u4e2d\u4e00\u7ec4a,b,c \u82e5\u4e0d\u5b58\u5728\uff0c\u8f93\u51fa-1\n\n\u6570\u636e\u8303\u56f4\uff1a1<=l<a<b<c<=r<=10^18\n\n\u611f\u8c22@\u725b\u7684\u4f20\u8bf4 \u63d0\u4f9b\u7684\u7ffb\u8bd1"
+}

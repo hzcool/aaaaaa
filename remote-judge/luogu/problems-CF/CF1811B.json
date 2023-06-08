@@ -1,0 +1,12 @@
+{
+    "description": "Conveyor matrix $ m_n $ is matrix of size $ n \\times n $ , where $ n $ is an even number. The matrix consists of concentric ribbons moving clockwise.\n\nIn other words, the conveyor matrix for $ n = 2 $ is simply a matrix $ 2 \\times 2 $ , whose cells form a cycle of length $ 4 $ clockwise. For any natural $ k \\ge 2 $ , the matrix $ m_{2k} $ is obtained by adding to the matrix $ m_{2k - 2} $ an outer layer forming a clockwise cycle.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1811B/9983d2b36278ac1465bae7e881cd16110c58e71c.png) The conveyor matrix $ 8 \\times 8 $ . You are standing in a cell with coordinates $ x_1, y_1 $ and you want to get into a cell with coordinates $ x_2, y_2 $ . A cell has coordinates $ x, y $ if it is located at the intersection of the $ x $ th row and the $ y $ th column.\n\nStanding on some cell, every second you will move to the cell next in the direction of movement of the tape on which you are. You can also move to a neighboring cell by spending one unit of energy. Movements happen instantly and you can make an unlimited number of them at any time.\n\nYour task is to find the minimum amount of energy that will have to be spent to get from the cell with coordinates $ x_1, y_1 $ to the cell with coordinates $ x_2, y_2 $ .\n\nFor example, $ n=8 $ initially you are in a cell with coordinates $ 1,3 $ and you want to get into a cell with coordinates $ 6, 4 $ . You can immediately make $ 2 $ movements, once you are in a cell with coordinates $ 3, 3 $ , and then after $ 8 $ seconds you will be in the right cell.",
+    "inputFormat": "The first line contains an integer $ t $ ( $ 1 \\le t \\le 2 \\cdot 10^5 $ ) \u2014 the number of test cases.\n\nThe descriptions of the test cases follow.\n\nThe description of each test case consists of one string containing five integers $ n $ , $ x_1 $ , $ y_1 $ , $ x_2 $ and $ y_2 $ ( $ 1 \\le x_1, y_1, x_2, y_2 \\le n \\le 10^9 $ ) \u2014 matrix size and the coordinates of the start and end cells. It is guaranteed that the number $ n $ is even.",
+    "outputFormat": "For each test case, print one integer in a separate line \u2014 the minimum amount of energy that will have to be spent to get from the cell with coordinates $ x_1, y_1 $ to the cell with coordinates $ x_2, y_2 $ .",
+    "samples": [
+        [
+            "5\n2 1 1 2 2\n4 1 4 3 3\n8 1 3 4 6\n100 10 20 50 100\n1000000000 123456789 987654321 998244353 500000004",
+            "0\n1\n2\n9\n10590032"
+        ]
+    ],
+    "hint": ""
+}

@@ -1,0 +1,25 @@
+{
+    "description": "Serval loves Brain Power and his brain power problem.\n\nServal defines that a string $ T $ is powerful iff $ T $ can be obtained by concatenating some string $ T' $ multiple times. Formally speaking, $ T $ is powerful iff there exist a string $ T' $ and an integer $ k\\geq 2 $ such that \n\n$$\nT=\\underbrace{T'+T'+\\dots+T'}_{k\\text{ times}}\n$$\n\nFor example, $\\texttt{gogogo}$ is powerful because it can be obtained by concatenating $\\texttt{go}$ three times, but $\\texttt{power}$ is not powerful.\n\nServal has a string  $ S $  consists of lowercase English letters. He is curious about the longest powerful subsequence of  $ S $ , and he only needs you to find out the length of it. If all the non-empty subsequences of  $ S $  is not powerful, the answer is considered to be  $ 0 $ .\n\nA string  $ a $  is a subsequence of a string  $ b $  if  $ a $  can be obtained from  $ b$ by the deletion of several (possibly, zero or all) characters.",
+    "inputFormat": "The first line contains a single string $ S $ ( $ |S|\\leq 80 $ ) consisting of lowercase English letters.",
+    "outputFormat": "Print a single integer \u2014 the length of the longest powerful subsequence of $ S $ . If all the non-empty subsequences of $ S $ is not powerful, print $ 0 $ .",
+    "samples": [
+        [
+            "buaa",
+            "2"
+        ],
+        [
+            "codeforcesround",
+            "6"
+        ],
+        [
+            "oooooooooooaaaaeaaiaujooooooooooooo",
+            "24"
+        ],
+        [
+            "zero",
+            "0"
+        ]
+    ],
+    "hint": "For the first sample, all of the non-empty subsequences of buaa are listed below:\n\n- b\n- u\n- a (occurred twice, buaa and buaa)\n- bu\n- ba (occurred twice, buaa and buaa)\n- ua (occurred twice, buaa and buaa)\n- aa\n- bua (occurred twice, buaa and buaa )\n- baa\n- uaa\n- buaa\n\nSince $ \\texttt{aa} = \\texttt{a} + \\texttt{a} $ , aa is a powerful subsequence. It can be shown that aa is the only powerful subsequence among them. So the answer is $ 2 $ .\n\nFor the second sample, the longest powerful subsequence is codcod from codeforcesround. So the answer is $ 6 $ .",
+    "translation": "### \u9898\u76ee\u63cf\u8ff0\n\n\u5b9a\u4e49\u4e00\u4e2a\u5b57\u7b26\u4e32 $T$ \u662f\u597d\u7684\uff0c\u5f53\u4e14\u4ec5\u5f53\u5b58\u5728\u5b57\u7b26\u4e32 $T'$ \u548c\u6574\u6570 $k(k\\geq2)$\uff0c\u4f7f\u5f97 $T$ \u53ef\u4ee5\u7531 $k$ \u4e2a $T'$ \u9996\u5c3e\u76f8\u63a5\u5f97\u5230\u3002  \n\u4f8b\u5982\uff0c\u5b57\u7b26\u4e32 $\\texttt{gogogo}$ \u5c31\u662f\u597d\u7684\uff0c\u56e0\u4e3a\u5b83\u53ef\u4ee5\u7531 $3$ \u4e2a\u5b57\u7b26\u4e32 $\\texttt{go}$ \u9996\u5c3e\u76f8\u63a5\u5f97\u5230\uff1b\u800c $\\texttt{power}$ \u5c31\u4e0d\u662f\u597d\u7684\u3002  \n\u7ed9\u5b9a\u4ec5\u5305\u542b\u5c0f\u5199\u82f1\u6587\u5b57\u6bcd\u7684\u5b57\u7b26\u4e32 $S$\u3002  \n\u4f60\u9700\u8981\u6c42\u51fa $S$ \u6700\u957f\u7684\u597d\u7684\u5b50\u5e8f\u5217\uff08\u4e0d\u4e00\u5b9a\u8fde\u7eed\uff09\u7684\u957f\u5ea6\uff0c\u7279\u522b\u7684\u5982\u679c $S$ \u6ca1\u6709\u597d\u7684\u5b50\u5e8f\u5217\uff0c\u7b54\u6848\u4e3a $0$\u3002  \n\n### \u8f93\u5165\u683c\u5f0f\n\n\u8f93\u5165\u4e00\u884c\u4e00\u4e2a\u5c0f\u5199\u82f1\u6587\u5b57\u6bcd\u5b57\u7b26\u4e32\u8868\u793a $S(|S|\\leq80)$\u3002  \n\n### \u8f93\u51fa\u683c\u5f0f\n\n\u8f93\u51fa\u4e00\u884c\u4e00\u4e2a\u6574\u6570\u8868\u793a $S$ \u4e2d\u6700\u957f\u7684\u597d\u7684\u5b50\u5e8f\u5217\u7684\u957f\u5ea6\u3002  \n\u5982\u679c $S$ \u6ca1\u6709\u597d\u7684\u5b50\u5e8f\u5217\uff0c\u8f93\u51fa $0$\u3002"
+}

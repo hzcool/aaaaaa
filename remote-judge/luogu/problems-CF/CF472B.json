@@ -1,0 +1,21 @@
+{
+    "description": "One way to create a task is to learn from life. You can choose some experience in real life, formalize it and then you will get a new task.\n\nLet's think about a scene in real life: there are lots of people waiting in front of the elevator, each person wants to go to a certain floor. We can formalize it in the following way. We have $ n $ people standing on the first floor, the $ i $ -th person wants to go to the $ f_{i} $ -th floor. Unfortunately, there is only one elevator and its capacity equal to $ k $ (that is at most $ k $ people can use it simultaneously). Initially the elevator is located on the first floor. The elevator needs $ |a-b| $ seconds to move from the $ a $ -th floor to the $ b $ -th floor (we don't count the time the people need to get on and off the elevator).\n\nWhat is the minimal number of seconds that is needed to transport all the people to the corresponding floors and then return the elevator to the first floor?",
+    "inputFormat": "One way to create a task is to learn from life. You can choose some experience in real life, formalize it and then you will get a new task.\n\nLet's think about a scene in real life: there are lots of people waiting in front of the elevator, each person wants to go to a certain floor. We can formalize it in the following way. We have $ n $ people standing on the first floor, the $ i $ -th person wants to go to the $ f_{i} $ -th floor. Unfortunately, there is only one elevator and its capacity equal to $ k $ (that is at most $ k $ people can use it simultaneously). Initially the elevator is located on the first floor. The elevator needs $ |a-b| $ seconds to move from the $ a $ -th floor to the $ b $ -th floor (we don't count the time the people need to get on and off the elevator).\n\nWhat is the minimal number of seconds that is needed to transport all the people to the corresponding floors and then return the elevator to the first floor?",
+    "outputFormat": "Output a single integer \u2014 the minimal time needed to achieve the goal.",
+    "samples": [
+        [
+            "3 2\n2 3 4\n",
+            "8\n"
+        ],
+        [
+            "4 2\n50 100 50 100\n",
+            "296\n"
+        ],
+        [
+            "10 3\n2 2 2 2 2 2 2 2 2 2\n",
+            "8\n"
+        ]
+    ],
+    "hint": "In first sample, an optimal solution is:\n\n1. The elevator takes up person #1 and person #2.\n2. It goes to the 2nd floor.\n3. Both people go out of the elevator.\n4. The elevator goes back to the 1st floor.\n5. Then the elevator takes up person #3.\n6. And it goes to the 2nd floor.\n7. It picks up person #2.\n8. Then it goes to the 3rd floor.\n9. Person #2 goes out.\n10. Then it goes to the 4th floor, where person #3 goes out.\n11. The elevator goes back to the 1st floor.",
+    "translation": "\u73b0\u5728\u4e00\u5171\u6709 $n$ \u4e2a\u4eba\uff0c\u4e00\u4e2a\u53ea\u80fd\u627f\u8f7d $k$ \u4e2a\u4eba\u7684\u7535\u68af\uff0c\u7b2c $i$ \u4e2a\u4eba\u60f3\u53bb\u7b2c $f_i$ \u5c42\uff0c\u95ee\u7535\u68af\u6700\u5c0f\u8fd0\u884c\u5c42\u6570\u3002"
+}

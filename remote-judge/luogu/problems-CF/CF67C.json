@@ -1,0 +1,21 @@
+{
+    "description": "You are given a sequence of balls $ A $ by your teacher, each labeled with a lowercase Latin letter 'a'-'z'. You don't like the given sequence. You want to change it into a new sequence, $ B $ that suits you better. So, you allow yourself four operations:\n\n- You can insert any ball with any label into the sequence at any position.\n- You can delete (remove) any ball from any position.\n- You can replace any ball with any other ball.\n- You can exchange (swap) two adjacent balls.\n\nYour teacher now places time constraints on each operation, meaning that an operation can only be performed in certain time. So, the first operation takes time $ t_{i} $ , the second one takes $ t_{d} $ , the third one takes $ t_{r} $ and the fourth one takes $ t_{e} $ . Also, it is given that $ 2\u00b7t_{e}>=t_{i}+t_{d} $ .\n\nFind the minimal time to convert the sequence $ A $ to the sequence $ B $ .",
+    "inputFormat": "The first line contains four space-separated integers $ t_{i},t_{d},t_{r},t_{e} $ ( $ 0<t_{i},t_{d},t_{r},t_{e}<=100 $ ). The following two lines contain sequences $ A $ and $ B $ on separate lines. The length of each line is between 1 and 4000 characters inclusive.",
+    "outputFormat": "Print a single integer representing minimum time to convert $ A $ into $ B $ .",
+    "samples": [
+        [
+            "1 1 1 1\nyoushouldnot\nthoushaltnot\n",
+            "5\n"
+        ],
+        [
+            "2 4 10 3\nab\nba\n",
+            "3\n"
+        ],
+        [
+            "1 10 20 30\na\nza\n",
+            "1\n"
+        ]
+    ],
+    "hint": "In the second sample, you could delete the ball labeled 'a' from the first position and then insert another 'a' at the new second position with total time 6. However exchanging the balls give total time 3.",
+    "translation": "### \u9898\u610f\n\u6709\u4e24\u4e2a\u5b57\u7b26\u4e32$A$ \uff0c$B$ \uff0c\u6bcf\u6b21\u53ef\u4ee5\u8fdb\u884c$4$ \u79cd\u64cd\u4f5c\n1. \u63d2\u5165\u4e00\u4e2a\u5b57\u7b26\uff0c\u82b1\u8d39$t_i$ \u5143\n2. \u5220\u9664\u4e00\u4e2a\u5b57\u7b26\uff0c\u82b1\u8d39$t_d$ \u5143\n3. \u66ff\u6362\u4e00\u4e2a\u5b57\u7b26\uff0c\u82b1\u8d39$t_r$ \u5143\n4. \u4ea4\u6362\u76f8\u90bb\u7684\u4e24\u4e2a\u5b57\u7b26\uff0c\u82b1\u8d39$t_e$ \u5143\n\n**\u203b\u4fdd\u8bc1\u8d39\u7528\u90fd\u662f$(0,100]$ \u4e4b\u95f4\u7684\u6b63\u6574\u6570\uff0c \u4e14$2t_e\u2265t_i+t_d$ **\n\n\u73b0\u5728\u5bf9$A$ \u8fdb\u884c\u82e5\u5e72\u6b21\u64cd\u4f5c\uff0c\u6c42\u53d8\u6210$B$ \u6700\u5c11\u9700\u8981\u591a\u5c11\u5143\n\n### \u8f93\u5165\n\u7b2c\u4e00\u884c$4$ \u4e2a\u6570$t_i$ \u3001$t_d$ \u3001$t_r$ \u3001$t_e$ \u3002\n\n\u63a5\u4e0b\u6765\u4e24\u884c\uff0c\u4e24\u4e2a\u5b57\u7b26\u4e32$A$ \u3001$B$ \uff0c\u4fdd\u8bc1\u5b83\u4eec\u957f\u5ea6\u90fd\u4e0d\u8d85\u8fc7$4000$ \u3002\n\n### \u8f93\u51fa\n\u4ec5\u4e00\u884c\uff0c\u4e00\u4e2a\u975e\u8d1f\u6574\u6570\u8868\u793a\u6700\u5c0f\u8d39\u7528\n\n\u611f\u8c22@C20191629 \u63d0\u4f9b\u7684\u7ffb\u8bd1"
+}

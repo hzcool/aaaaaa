@@ -1,0 +1,21 @@
+{
+    "description": "John Doe has recently found a \"Free Market\" in his city \u2014 that is the place where you can exchange some of your possessions for other things for free.\n\nJohn knows that his city has $ n $ items in total (each item is unique). You can bring any number of items to the market and exchange them for any other one. Note that each item is one of a kind and that means that you cannot exchange set $ {a,b} $ for set $ {v,a} $ . However, you can always exchange set $ x $ for any set $ y $ , unless there is item $ p $ , such that $ p $ occurs in $ x $ and $ p $ occurs in $ y $ .\n\nFor each item, John knows its value $ c_{i} $ . John's sense of justice doesn't let him exchange a set of items $ x $ for a set of items $ y $ , if $ s(x)+d&lt;s(y) $ ( $ s(x) $ is the total price of items in the set $ x $ ).\n\nDuring one day John can exchange only one set of items for something else. Initially, he has no items. John wants to get a set of items with the maximum total price. Find the cost of such set and the minimum number of days John can get it in.",
+    "inputFormat": "The first line contains two space-separated integers $ n $ , $ d $ ( $ 1<=n<=50 $ , $ 1<=d<=10^{4} $ ) \u2014 the number of items on the market and John's sense of justice value, correspondingly. The second line contains $ n $ space-separated integers $ c_{i} $ ( $ 1<=c_{i}<=10^{4} $ ).",
+    "outputFormat": "Print two space-separated integers: the maximum possible price in the set of items John can get and the minimum number of days needed to get such set.",
+    "samples": [
+        [
+            "3 2\n1 3 10\n",
+            "4 3\n"
+        ],
+        [
+            "3 5\n1 2 3\n",
+            "6 2\n"
+        ],
+        [
+            "10 10000\n10000 9999 1 10000 10000 10000 1 2 3 4\n",
+            "50010 6\n"
+        ]
+    ],
+    "hint": "In the first sample John can act like this:\n\n- Take the first item ( $ 1-0<=2 $ ).\n- Exchange the first item for the second one ( $ 3-1<=2 $ ).\n- Take the first item ( $ 1-0<=2 $ ).",
+    "translation": "\u6709 $n$ \u4e2a\u54c1\u79cd\u7684\u7269\u54c1\uff0c\u6bcf\u4e2a\u7269\u54c1\u7684\u4ef7\u683c\u4e3a $c_i$\uff0c\u6bcf\u6b21\u4f60\u53ef\u4ee5\u4ece\u4f60\u62e5\u6709\u7684\u7269\u54c1\u4e2d\u6311\u53d6\u90e8\u5206\u53bb\u5546\u5e97\u53bb\u5151\u6362\uff0c\u4e5f\u53ef\u4ee5\u4ec0\u4e48\u90fd\u4e0d\u62ff\u3002\u5151\u6362\u6709\u5982\u4e0b\u9650\u5236\uff1a\n\n1. \u4f60\u62ff\u53bb\u5151\u6362\u7684\u7269\u54c1\uff08\u4e0d\u59a8\u8bbe\u62ff\u53bb\u5151\u6362\u7684\u7269\u54c1\u53ef\u7a7a\u96c6\u5408\u4e3a $S$\uff09\uff0c\u90fd\u8981\u6362\u6210\u96c6\u5408 $S$ \u6240\u6ca1\u6709\u7684\u3002\u6bd4\u5982 $(a,b) \\to (v,a)$ \u5c31\u662f\u4e0d\u5408\u6cd5\u7684\u3002\n\n2. \u4f60\u62ff\u53bb\u5151\u6362\u7684\u7269\u54c1\u96c6 $S_1$ \u91cc\u7684\u4ef7\u503c\u548c $\\mathit{cost}_1$ \u4e0e\u4f60\u5151\u6362\u56de\u6765\u7684\u7269\u54c1\u96c6 $S_2$ \u91cc\u7684\u4ef7\u503c\u548c $\\mathit{cost}_2$ \u9700\u8981\u6ee1\u8db3\uff1a$\\mathit{cost}_1 + d \\ge \\mathit{cost}_2$\u3002\n\n\u6bcf\u5929\u53ea\u80fd\u53bb\u5151\u6362\u4e00\u6b21\u3002\n\n\u95ee\u901a\u8fc7\u5151\u6362\u53ef\u4ee5\u83b7\u5f97\u7684\u7269\u54c1\u96c6\u7684\u4ef7\u503c\u548c\u6700\u5927\u503c\uff0c\u4ee5\u53ca\u6240\u9700\u7684\u5151\u6362\u5929\u6570\u3002\n"
+}

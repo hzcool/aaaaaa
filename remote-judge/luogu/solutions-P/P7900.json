@@ -1,0 +1,34 @@
+[
+    {
+        "content": "~~\u6839\u636e\u9898\u76ee\u53ef\u4ee5\u77e5\u9053\uff0c\u8fd9\u662f\u4e00\u9053\u5927\u6c34\u9898~~\n\n\u9996\u5148\u7531\u4e8e\u4e0d\u4f1a\u6709\u4e09\u6761\uff08\u6216\u4ee5\u4e0a\uff09\u5bf9\u89d2\u7ebf\u4ea4\u4e8e\u4e00\u70b9\uff0c\u6240\u4ee5\u786e\u5b9a\u4e24\u6761\u5bf9\u89d2\u7ebf\u5c31\u80fd\u786e\u5b9a\u552f\u4e00\u7684\u4ea4\u70b9\u3002\n\n\u6362\u53e5\u8bdd\u8bf4\uff0c\u53ea\u8981\u786e\u5b9a\u56db\u4e2a\u9876\u70b9\u5c31\u80fd\u786e\u5b9a\u4e00\u7684\u4ea4\u70b9\u3002\n\n\u90a3\u4e48\u8fd9\u9053\u9898\u5c31\u53d8\u6210\u4e86\u6c42\u51fa\u4ece $n$ \u4e2a\u70b9\u4e2d\u53d6 $4$ \u4e2a\u70b9\u7684\u65b9\u6848\u6570\u3002\n\n\u7531\u4e8e\u7b2c\u4e00\u4e2a\u70b9\u6709 $n$ \u79cd\u53d6\u6cd5\uff0c\u7b2c\u4e8c\u4e2a\u70b9\u6709 $n-1$ \u79cd\u53d6\u6cd5\uff0c\u7b2c\u4e09\u4e2a\u70b9\u6709 $n-2$ \u79cd\u53d6\u6cd5\uff0c\u7b2c\u56db\u4e2a\u70b9\u6709 $n-3$ \u79cd\u53d6\u6cd5\uff0c\u53c8\u56e0\u4e3a\u6539\u53d8\u56db\u4e2a\u70b9\u7684\u987a\u5e8f\u4e0d\u4f1a\u6539\u53d8\u5bf9\u89d2\u7ebf\uff0c\u6240\u4ee5\u8fd8\u8981\u9664\u4ee5 $4$ \u4e2a\u70b9\u7684\u53d6\u6cd5\u6570\uff0c\u4e5f\u5c31\u662f\u9664\u4ee5 $4!(1 \\times 2 \\times 3 \\times 4)$\u3002\n\n\u4e8e\u662f\u5c31\u53ef\u4ee5\u63a8\u51fa\u516c\u5f0f\uff1a $n \\times (n-1) \\times (n-2) \\times (n-3) \\div 1 \\div 2 \\div 3 \\div 4$\n\n### Code:\n```c++\n#include<bits/stdc++.h>\nusing namespace std;\nint a;\nint main(){     \n    cin>>a;\n    if(a==3) cout<<0;\n    else cout<<a*(a-1)*(a-2)*(a-3)/1/2/3/4;\n    return 0;\n}\n```",
+        "postTime": 1638002737,
+        "uid": 519734,
+        "name": "zct_sky",
+        "ccfLevel": 5,
+        "title": "P7900 [COCI2006-2007#2] SJECI\u0160TA"
+    },
+    {
+        "content": "## \u9898\u76ee\u5927\u610f\n\n\u8003\u8651\u4e00\u4e2a\u6709 n \u4e2a\u9876\u70b9\u7684\u51f8\u591a\u8fb9\u5f62\uff0c\u4e14\u8fd9\u4e2a\u591a\u8fb9\u5f62\u6ca1\u6709\u4efb\u4f55\u4e09\u4e2a\uff08\u6216\u4ee5\u4e0a\uff09\u7684\u5bf9\u89d2\u7ebf\u4ea4\u4e8e\u4e00\u70b9\u3002\n\n\u73b0\u5728\u8bf7\u4f60\u6c42\u51fa\u8fd9\u6837\u7684\u591a\u8fb9\u5f62\u7684\u5bf9\u89d2\u7ebf\u4ea4\u70b9\u4e2a\u6570\u3002\n\n## \u95ee\u9898\u8f6c\u5316\n\n**\u6bcf\u56db\u4e2a\u70b9\u5fc5\u5b9a\u80fd\u786e\u5b9a\u4e00\u4e2a\u4ea4\u70b9\uff0c**\n\n**\u6240\u4ee5\u7b54\u6848\u5c31\u662f $C_{4}^{n}$\u3002**\n\n\u7531\u4e8e $n\\leq100$ \uff0c\u6240\u4ee5\u5fc5\u987b\u7528\u9ad8\u7cbe\u5ea6\u3002\n\n\u4e0d\u60f3\u5199\u9ad8\u7cbe\u4e58\u9664\uff0c\u5c31\u7528 dp \u63a8\u3002\n\n\u96be\u70b9\u5c31\u662f\u9ad8\u7cbe\u5ea6\uff0c\u96be\u5ea6\u5927\u6982\u662f\u6a59\u8272\u3002\n## \u95ee\u9898\u5ef6\u5c55\n\u540c\u7c7b\u95ee\u9898\u4f9b\u5927\u5bb6\u601d\u8003\uff1a\n\n1\uff0c $n$ \u6761\u4e0d\u5e73\u884c\u7684\u76f4\u7ebf\u6700\u591a\u80fd\u4ea4\u591a\u5c11\u70b9?\n\n2\uff0c $n*m$ \u7684\u7f51\u683c\u4e2d\u6700\u591a\u53ef\u4ee5\u627e\u51fa\u591a\u5c11\u4e2a\u77e9\u5f62?\n\n\n\n## \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n\nstruct num{\n\tchar s[105];\n\tint len;\n};\n\nnum dp[105][105];\nvoid print(num x){\n\tfor(int i=0;i<x.len;i++) cout<<x.s[i]; \n}\nint a[105],b[105],c[105];\nvoid add(num &t,num x,num y){\n\tint sx=x.len,sy=y.len,st=max(sx,sy);\n\tmemset(a,0,sizeof(a));\n\tmemset(b,0,sizeof(b));\n\tmemset(c,0,sizeof(c));\n\tfor(int i=0;i<sx;i++) a[sx-i]=x.s[i]-'0';\n\tfor(int i=0;i<sy;i++) b[sy-i]=y.s[i]-'0';\n\tint k=0;\n\tfor(int i=1;i<=st;i++){\n\t\tc[i]=(a[i]+b[i]+k)%10;\n\t\tk=(a[i]+b[i]+k)/10;\n\t}\n\tif(k) c[++st]=1;\n\tfor(int i=0;i<st;i++) t.s[i]=c[st-i]+'0';\t\n\tt.len=st;\n}\nvoid fu(num &x){\n\tx.s[0]='1';\n\tx.len=1;\n}\nint n;\nint main(){\n\tcin>>n;\n\tif(n<=3){\n\t\tcout<<0;return 0;\n\t}\n\tfor(int i=1;i<=n+1;i++) fu(dp[i][1]),fu(dp[i][i]);\n\tfor(int i=3;i<=n+1;i++){\n\t\tfor(int j=2;j<=i-1;j++){\n\t\t\tadd(dp[i][j],dp[i-1][j-1],dp[i-1][j]);\n\t\t}\n\t}\n\tprint(dp[n+1][5]);\n} \n```\n",
+        "postTime": 1637060790,
+        "uid": 79543,
+        "name": "\u4e00\u5927",
+        "ccfLevel": 3,
+        "title": "P7900 [COCI2006-2007#2] SJECI\u0160TA"
+    },
+    {
+        "content": "\u4e00\u9053\u5173\u4e8e\u6570\u8bba\u7684\u9898 (\u6781\u6c34)  \r\n\r\n\u5148\u5217\u4e00\u4e0b\u516c\u5f0f $\u2193$\uff1a\r\n\r\n**$n \\times (n-1)  \\div 2 \\times (n-2) \\div 3 \\times (n-3) \\div 4$**\r\n\r\n\u90a3\u4e3a\u4ec0\u4e48\u8fd9\u6837\u4e00\u5b9a\u662f\u5bf9\u7684\u5462\uff1f\u96be\u9053\u4e0d\u4f1a\u56e0\u4e3a\u9664\u4e0d\u5c3d\u5374\u5411\u4e0b\u53d6\u6574\u800c\u5bfc\u81f4\u9519\u8bef\u5417\uff1f \u9996\u5148 $n$ \u548c $n-1$ \u4e00\u5b9a\u6709\u4e00\u4e2a\u662f $ 2 $ \u7684\u500d\u6570\uff0c\u56e0\u6b64 $2$ \u53ef\u4ee5\u6574\u9664\uff0c\u540c\u7406 $n,n-1,n-2$ \u4e2d\u4e00\u5b9a\u6709\u4e00\u4e2a\u662f $ 3 $ \u7684\u500d\u6570\uff0c\u56e0\u6b64 $ 3 $ \u53ef\u4ee5\u6574\u9664\uff08\u9664\u6389 $2$ \u53ea\u4f1a\u6d88\u9664\u56e0\u6570 $2$ \u800c\u5bf9$3$ \u6ca1\u6709\u5f71\u54cd\uff09\u540c\u7406 $4$ \u4e5f\u53ef\u4ee5\u9664\u5c3d\u3002  \r\n\r\n\u6709\u4e86\u516c\u5f0f\u4ee5\u540e\uff0cAC \u5c31\u518d\u4e5f\u4e0d\u662f\u95ee\u9898\u4e86\u3002  \r\n\r\n\r\n------------\r\n\r\nAC \u4ee3\u7801\u2193\u2193\u2193\r\n\r\n```cpp\r\n#include<bits/stdc++.h>\r\nusing namespace std;\r\nint main () {\r\n\tlong long n; \r\n\tcin >> n;\r\n\tif (n == 3) cout << '0';\r\n\telse cout << n*(n-1)/2*(n-2)/3*(n-3)/4;\r\n\treturn 0;//QwQ\r\n}\r\n```\r\n",
+        "postTime": 1637993435,
+        "uid": 521258,
+        "name": "jxbe6666",
+        "ccfLevel": 3,
+        "title": "P7900\u9898\u89e3"
+    },
+    {
+        "content": "#### \u5f15\u7406\n\n\u4e00\u6761\u7ebf\u6bb5\u6709\u4e24\u4e2a\u7aef\u70b9\uff0c\u6240\u4ee5\uff0c\u8981\u5728\u5e73\u9762\u4e0a\u627e\u5230\u4e24\u6761\u76f8\u4ea4\u4e14\u4e0d\u5171\u9876\u70b9\u7684\u7ebf\u6bb5\uff0c\u9700\u8981\u56db\u4e2a\u9876\u70b9\n\n#### \u5206\u6790\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/91bigwir.png)\n\n\u5982\u4e0a\u56fe\uff0c\u7eff\u8fb9\u662f\u4e00\u4e2a\u56db\u8fb9\u5f62\u4e2d\u7684\u56db\u6761\u8fb9\u548c\u4e24\u6761\u5bf9\u89d2\u7ebf\uff0c\u5728\u56db\u8fb9\u5f62\u91cc\u9762\u53ea\u6709\u4e00\u4e2a\u4ea4\u70b9\uff08\u6837\u4f8b#2\u5df2\u7ecf\u5e2e\u6211\u8bf4\u4e86\uff09\u56e0\u4e3a\u9009\u51fa\u7684\u56db\u4e2a\u70b9\u4e00\u5b9a\u80fd\u6784\u6210\u56db\u8fb9\u5f62\uff08\u5b9a\u7406\uff1a\u51f8\u591a\u8fb9\u5f62\u6ca1\u6709\u4efb\u610f\u4e09\u70b9\u5171\u7ebf\uff09\uff0c\u6240\u4ee5\u4e00\u5b9a\u6709\u4e00\u4e2a\u4ea4\u70b9\uff0c\u7b54\u6848\u5c31\u662f\u8981\u5728 $n$ \u4e2a\u70b9\u4e2d\u9009 $4$ \u4e2a\u70b9\uff0c\u5c31\u662f ${C}^{4}_ {n} = n \\times (n-1) \\times (n-2) \\times (n-3) \\div 24$\u3002\n\n#### \u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n; \nint main()\n{\n\tcin>>n;\n\tcout<<n * (n - 1) * (n - 2) * (n - 3) / 24; \n}\n\n\n```\n\n\n",
+        "postTime": 1636986566,
+        "uid": 329072,
+        "name": "BINYU",
+        "ccfLevel": 7,
+        "title": "P7900 \u9898\u89e3"
+    }
+]

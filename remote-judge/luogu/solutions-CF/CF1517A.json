@@ -1,0 +1,42 @@
+[
+    {
+        "content": "## \u601d\u8def\n\n\u5982\u679c $n$ \u4e0d\u80fd\u6574\u9664 $2050$\uff0c\u5219\u76f4\u63a5\u8f93\u51fa `-1`\u3002\n\n\u5426\u5219\uff0c$\\dfrac{n}{2050}$ \u5404\u6570\u4f4d\u7684\u548c\u5373\u4e3a\u6700\u7ec8\u7b54\u6848\u3002\n\n## \u5173\u952e\u4ee3\u7801\n\n```\n        if (n % 2050) {\n            puts(\"-1\");\n            continue;\n        }\n        ll a = n / 2050;\n        int sum = 0;\n        while (a) {\n            sum += a % 10;\n            a /= 10;\n        }\n        printf(\"%d\\n\", sum);\n```\n",
+        "postTime": 1619430493,
+        "uid": 275273,
+        "name": "zltqwq",
+        "ccfLevel": 0,
+        "title": "CF1517A \u9898\u89e3"
+    },
+    {
+        "content": "#### [\u9898\u76ee](https://www.luogu.com.cn/problem/CF1517A)\u5206\u6790\n\n\u89c2\u5bdf `2050-number`\uff1a\n\n$$\n2050,20500,205000,2050000,...\n$$\n\n\u6211\u4eec\u53d1\u73b0\u540e\u4e00\u4e2a\u6570\u662f\u524d\u4e00\u4e2a\u6570\u7684 $10$ \u500d\u3002\n\n\u8981\u5224\u65ad\u4e00\u4e2a\u6570\u662f\u5426\u7531\u82e5\u5e72\u4e2a `2050-number` \u76f8\u52a0\u5f97\u5230\uff0c\u6211\u4eec\u53ef\u4ee5\u9996\u5148\u5224\u65ad\u8fd9\u4e2a\u6570\u80fd\u4e0d\u80fd\u6574\u9664 $2050$\uff0c\u5982\u679c\u4e0d\u80fd\u6574\u9664\uff0c\u90a3\u4e48\u5b83\u4e00\u5b9a\u4e0d\u7b26\u5408\u6761\u4ef6\u3002\n\n\u6211\u4eec\u4ee4 $t=n \\div 2050$\u3002\n\n\u63a5\u4e0b\u6765\u89c2\u5bdf $24600$ \u8fd9\u4e2a\u6570\uff1a\n\n$$\n24600=12\u00d72050 \n$$\n\n$$\n=10\u00d72050+2\u00d72050\n$$\n\n$$\n=1\u00d720500+2\u00d72050\n$$\n\n\u5219\u6700\u540e\u7684\u7b54\u6848\u662f $1+2=3$\u3002\n\n\u901a\u8fc7\u89c2\u5bdf\uff0c\u6211\u4eec\u5f97\u51fa\uff1a\u6700\u7ec8\u7684\u7b54\u6848\u5c31\u662f $t$ \u7684\u6bcf\u4e00\u4f4d\u4e4b\u548c\u3002\n\n#### \u4ee3\u7801\n```cpp\n#include <iostream>\n#include <cstdio>\n#define ll long long\nusing namespace std;\n\nint main()\n{\n    ll T = read();\n    for (ll i = 1; i <= T; ++i){\n        ll n = read();\n\n        double t = (1.0 * n / 2050.0);\n        ll t_int = (ll)t; //\u5224\u65ad\u80fd\u4e0d\u80fd\u6574\u96642050\n        if (t != t_int){\n            puts(\"-1\");\n            continue;\n        }\n\n        ll ans = 0;\n        while (t_int){ //\u53d6t\u6bcf\u4e00\u4f4d\u7684\u548c\u5e76\u7d2f\u52a0\n            ans += (t_int % 10);\n            t_int /= 10;\n        }\n\n        printf(\"%lld\\n\", ans); //\u8f93\u51fa\u7b54\u6848\n    }\n    return 0;\n}\n```",
+        "postTime": 1619435846,
+        "uid": 355844,
+        "name": "EdisonBa",
+        "ccfLevel": 4,
+        "title": "CF1517A \u9898\u89e3"
+    },
+    {
+        "content": "\u9898\u76ee\u5927\u610f\uff1a\n\n\u89c4\u5b9a\u6240\u6709\u53ef\u4ee5\u88ab\u8868\u793a\u6210 $2050\\times10^k$\uff08$k$ \u662f\u4e0d\u5c0f\u4e8e $0$ \u7684\u6574\u6570\uff09\u5f62\u5f0f\u7684\u6570\u53eb 2050\u6570\u3002\n\n\u6c42\u6700\u5c11\u9700\u8981\u51e0\u4e2a 2050\u6570 \u4f7f\u5f97\u5b83\u4eec\u7684\u548c\u4e3a\u6574\u6570 $n$\uff0c\u65e0\u89e3\u8f93\u51fa $-1$\u3002\n\n---\n\n\u9996\u5148\u53ef\u4ee5\u770b\u51fa\uff0c\u5982\u679c $2050$ \u4e0d\u662f $n$ \u7684\u56e0\u6570\uff0c\u90a3\u4e48\u4e00\u5b9a\u65e0\u89e3\u3002\u56e0\u4e3a\u663e\u7136\u6839\u636e\u5b9a\u4e49\u53ef\u4ee5\u77e5\u9053\u6240\u6709 2050\u6570 \u90fd\u662f $2050$ \u7684\u500d\u6570\uff0c\u90a3\u4e48\u4e00\u5806 2050\u6570 \u7684\u548c\u4e5f\u662f $2050$ \u7684\u500d\u6570\u3002\n\n\u7136\u540e\u6211\u4eec\u5c31\u53ef\u4ee5\u628a $n$ \u9664\u4ee5 $2050$ \u5f97\u5230\u4e00\u4e2a\u6570 $k$\uff0c\u7b54\u6848\u5c31\u662f $k$ \u7684\u5404\u4f4d\u4e4b\u548c\uff0c\u56e0\u4e3a\u663e\u7136\u6211\u4eec\u53ef\u4ee5\u628a $n$ \u8868\u793a\u6210 $2050\\times k$ \u7684\u5f62\u5f0f\uff0c\u4e5f\u5c31\u53ef\u4ee5\u628a $n$ \u8868\u793a\u6210 $2050\\times k_1+2050\\times10\\times k_2+2050\\times100\\times k_3+\\cdots$\uff08\u5176\u4e2d $k_i$ \u8868\u793a $k$ \u7684\u7b2c $i$ \u4f4d\uff09\uff0c\u53ef\u4ee5\u8bc1\u660e\u8fd9\u79cd\u65b9\u6cd5\u6700\u4f18\u3002",
+        "postTime": 1619433065,
+        "uid": 199139,
+        "name": "devans",
+        "ccfLevel": 0,
+        "title": "CF1517A \u9898\u89e3 Sum of 2050"
+    },
+    {
+        "content": "## \u601d\u8def\n\u9996\u5148\uff0c\u6211\u4eec\u9700\u8981\u68c0\u67e5 $n$ \u662f\u5426\u662f $2050$ \u7684\u500d\u6570\u3002\u5982\u679c $n$ \u4e0d\u662f $2050$ \u7684\u500d\u6570\uff0c\u7b54\u6848\u603b\u662f $-1$ \u3002\n\n\u90a3\u4e48\u6211\u4eec\u53ef\u4ee5\u7528 $n$ \u9664\u4ee5 $2050$\uff0c\u73b0\u5728\u7684\u95ee\u9898\u662f\u5982\u4f55\u5c06 $n$ \u8868\u793a\u4e3a $10$ \u7684\u5e42\u7684\u603b\u548c\u3002\u6240\u4ee5\uff0c\u7b54\u6848\u662f\u5b83\u7684\u5341\u8fdb\u5236\u4e2d\u6bcf\u4e00\u4f4d\u6570\u7684\u603b\u548c\u3002\n\n## code\n```python\nfor _ in range(int(input())):\n    n=int(input())\n    k=str(n//2050)\n    s=0\n    for i in k:\n        s+=int(i)\n    if n%2050!=0:\n        print(-1)\n    else:\n        print(s)\n```",
+        "postTime": 1619226971,
+        "uid": 348831,
+        "name": "qinyihao",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1517A \u3010Sum of 2050\u3011"
+    },
+    {
+        "content": "# \u524d\u7f6e\u829d\u58eb\uff1a\u4f4d\u7f6e\u539f\u7406\n\n\u5bf9\u4e8e\u4e00\u4e2a $y$ \u8fdb\u5236\u6570 $n$\uff0c\u4ee4 $n$ \u7684\u957f\u5ea6\u4e3a $l$\uff0c\u5206\u522b\u5c06\u6bcf\u4e2a\u4f4d\u6570\u7684\u6570\u4ece\u5404\u4f4d\u5230\u6700\u9ad8\u4f4d\u5b9a\u4e49\u4e3a $x_1, x_2, x_3, \\cdots, x_l$ \uff0c\u5219\u6709 $n = x_1 \\times y^0 + x_2 \\times y^1 + x_3 \\times y^2 + \\cdots + x_l \\times y^{l-1}$\u3002\n\n# \u8fdb\u5165\u6b63\u9898\n\n\u9996\u5148\u6211\u4eec\u5148\u6765\u5224\u65ad\u4ec0\u4e48\u65f6\u5019\u8f93\u51fa $-1$\uff0c\u5f88\u660e\u663e\uff0c\u5bf9\u4e8e\u6bcf\u4e2a\u52a0\u6570\uff0c\u90fd\u662f $2050$ \u7684\u500d\u6570\uff0c\u6240\u4ee5\u6700\u540e\u80af\u5b9a\u4e5f\u5fc5\u987b\u662f $2050$ \u7684\u500d\u6570\uff0c\u6240\u4ee5\u5982\u679c\u4e0d\u662f\uff0c\u8f93\u51fa $-1$\u3002\n\n\u800c\u6211\u4eec\u77e5\u9053\uff0c\u6bcf\u4e2a\u6570\u4f4d\u7684\u6570\u5c31\u4ee3\u8868\u4e8e\u8fd9\u4e2a\u6570\u4e58\u4ee5 $10$ \u7684\u82e5\u5e72\u6b21\u65b9\uff0c\u5c31\u6709\u8fd9\u4e2a\u6570\u591a\u4e2a $10$ \u7684\u82e5\u5e72\u6b21\u65b9\u3002\u6240\u4ee5\u5c06 $n$ \u9664\u4ee5 $2050$ \u7684\u6bcf\u4e00\u4f4d\u6570\u52a0\u4e00\u8d77\u5373\u4e3a\u7b54\u6848\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include <iostream>\nusing namespace std;\n\nint main()\n{\n\tios::sync_with_stdio(false);\n\tint T;\n\tcin >> T;\n\twhile (T--)\n\t{\n\t\tlong long n;\n\t\tcin >> n;\n\t\tif (n % 2050 != 0)\n\t\t{\n\t\t\tcout << \"-1\\n\";\n\t\t}\n\t\telse\n\t\t{\n\t\t\tlong long x = n / 2050, ans = 0;\n\t\t\twhile (x)\n\t\t\t{\n\t\t\t\tans += x % 10;\n\t\t\t\tx /= 10;\n\t\t\t}\n\t\t\tcout << ans << endl;\n\t\t}\n\t}\n\t//system(\"pause\");\n\treturn 0;\n}\n```\n\n\n",
+        "postTime": 1619704033,
+        "uid": 332914,
+        "name": "happybob",
+        "ccfLevel": 6,
+        "title": "CF1517A \u9898\u89e3"
+    }
+]

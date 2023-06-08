@@ -1,0 +1,13 @@
+{
+    "description": "You have a string $ s $ consisting of digits from $ 0 $ to $ 9 $ inclusive. You can perform the following operation any (possibly zero) number of times:\n\n- You can choose a position $ i $ and delete a digit $ d $ on the $ i $ -th position. Then insert the digit $ \\min{(d + 1, 9)} $ on any position (at the beginning, at the end or in between any two adjacent digits).\n\nWhat is the lexicographically smallest string you can get by performing these operations?\n\nA string $ a $ is lexicographically smaller than a string $ b $ of the same length if and only if the following holds:\n\n- in the first position where $ a $ and $ b $ differ, the string $ a $ has a smaller digit than the corresponding digit in $ b $ .",
+    "inputFormat": "The first line contains a single integer $ t $ ( $ 1 \\le t \\le 10^4 $ ) \u2014 the number of test cases. Then the test cases follow.\n\nEach test case consists of a single line that contains one string $ s $ ( $ 1 \\le |s| \\le 2 \\cdot 10^5 $ ) \u2014 the string consisting of digits. Please note that $ s $ is just a string consisting of digits, so leading zeros are allowed.\n\nIt is guaranteed that the sum of lengths of $ s $ over all test cases does not exceed $ 2 \\cdot 10^5 $ .",
+    "outputFormat": "Print a single string \u2014 the minimum string that is possible to obtain.",
+    "samples": [
+        [
+            "4\n04829\n9\n01\n314752277691991",
+            "02599\n9\n01\n111334567888999"
+        ]
+    ],
+    "hint": "In the first test case:\n\n- Delete $ 8 $ and insert $ 9 $ at the end of the notation. The resulting notation is $ 04299 $ .\n- Delete $ 4 $ and insert $ 5 $ in the $ 3 $ -rd position of the notation. The resulting notation is $ 02599 $ .\n\nNothing needs to be done in the second and third test cases.",
+    "translation": "\u7ed9\u5b9a\u4e00\u4e2a\u4ec5\u5305\u542b $0$ \u5230 $9$ \u8fd9\u51e0\u4e2a\u6570\u5b57\u7684\u5b57\u7b26\u4e32\uff0c\u4f60\u53ef\u4ee5\u6267\u884c\u4ee5\u4e0b\u64cd\u4f5c\u4efb\u610f\u6b21\uff1a\n\n\u9009\u62e9\u5b57\u7b26\u4e32\u4e2d\u7684\u4e00\u4e2a\u6570\u5b57 $d$\uff0c\u5c06 $d$ \u5220\u9664\u540e\uff0c\u5411\u5b57\u7b26\u4e32\u4efb\u610f\u4f4d\u7f6e\u63d2\u5165\u4e00\u4e2a\u6570\u5b57 $\\min(d+1,9)$.\n\n\u6c42\u80fd\u591f\u5f97\u5230\u7684\u5b57\u5178\u5e8f\u6700\u5c0f\u7684\u5b57\u7b26\u4e32\u3002"
+}

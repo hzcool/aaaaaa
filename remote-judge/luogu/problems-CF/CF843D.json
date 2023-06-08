@@ -1,0 +1,17 @@
+{
+    "description": "You are given a weighted directed graph, consisting of $ n $ vertices and $ m $ edges. You should answer $ q $ queries of two types:\n\n- 1 v \u2014 find the length of shortest path from vertex $ 1 $ to vertex $ v $ .\n- 2 c $ l_{1}\\ l_{2}\\ ...\\ l_{c} $  \u2014 add $ 1 $ to weights of edges with indices $ l_{1},l_{2},...,l_{c} $ .",
+    "inputFormat": "The first line of input data contains integers $ n $ , $ m $ , $ q $ ( $ 1<=n,m<=10^{5} $ , $ 1<=q<=2000 $ ) \u2014 the number of vertices and edges in the graph, and the number of requests correspondingly.\n\nNext $ m $ lines of input data contain the descriptions of edges: $ i $ -th of them contains description of edge with index $ i $ \u2014 three integers $ a_{i} $ , $ b_{i} $ , $ c_{i} $ ( $ 1<=a_{i},b_{i}<=n $ , $ 0<=c_{i}<=10^{9} $ ) \u2014 the beginning and the end of edge, and its initial weight correspondingly.\n\nNext $ q $ lines of input data contain the description of edges in the format described above ( $ 1<=v<=n $ , $ 1<=l_{j}<=m $ ). It's guaranteed that inside single query all $ l_{j} $ are distinct. Also, it's guaranteed that a total number of edges in all requests of the second type does not exceed $ 10^{6} $ .",
+    "outputFormat": "For each query of first type print the length of the shortest path from $ 1 $ to $ v $ in a separate line. Print -1, if such path does not exists.",
+    "samples": [
+        [
+            "3 2 9\n1 2 0\n2 3 0\n2 1 2\n1 3\n1 2\n2 1 1\n1 3\n1 2\n2 2 1 2\n1 3\n1 2\n",
+            "1\n0\n2\n1\n4\n2\n"
+        ],
+        [
+            "5 4 9\n2 3 1\n2 4 1\n3 4 1\n1 2 0\n1 5\n1 4\n2 1 2\n2 1 2\n1 4\n2 2 1 3\n1 4\n2 1 4\n1 4\n",
+            "-1\n1\n2\n3\n4\n"
+        ]
+    ],
+    "hint": "The description of changes of the graph in the first sample case:\n\n![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF843D/24bd98e5125f858d47fdfa77b158c3a581ad248b.png)\n\nThe description of changes of the graph in the second sample case:\n\n![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF843D/d325c1b90420a99987b13a59d8addca767eb6927.png)",
+    "translation": "\u6709\u4e00\u5f20 $n$ \u4e2a\u70b9 $m$ \u6761\u8fb9\u7684\u6709\u5411\u5e26\u6743\u56fe\uff0c\u4f60\u9700\u8981\u56de\u7b54\u5982\u4e0b\u7684 $q$ \u4e2a\u95ee\u9898\uff1a\n1. `1 v` \u8be2\u95ee\u4ee5 $1$ \u4e3a\u8d77\u70b9\u5230 $v$ \u7684\u6700\u77ed\u8def\n2. `2 c l_1 l_2 ... l_c` \u5bf9\u4e8e $l_1, l_2, \\ldots, l_c$ \u7684\u8fb9\u7684\u8fb9\u6743\u589e\u52a0 $1$\u3002\n\n\u4e0d\u5b58\u5728\u8f93\u51fa `-1`\u3002\n\n$1 \\leq n, m \\leq 10^5$\uff0c$1 \\leq q \\leq 2000$\u3002"
+}

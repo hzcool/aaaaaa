@@ -1,0 +1,26 @@
+[
+    {
+        "content": "## \u9898\u610f\n\u4f60\u8981\u731c\u4e00\u4e2a\u6570 $x$ \uff0c\u4e14 $0\\le x < n$ \u3002\u7279\u522b\u5730\uff0c\u8bbe\u4e00\u6b21\u4ea4\u4e92\u731c\u7684\u6570\u4e3a $y$ \uff0c\u82e5 $y \\ne x$ \u5219 $x$ \u53d8\u4e3a $z$ \uff0c\u5176\u4e2d $x \\oplus z=y$ \u3002\u4f60\u9700\u8981\u5728 $n$ \u6b21\u4ea4\u4e92\u5185\u731c\u51fa $x$ \u3002\n## \u9898\u89e3\n\u9996\u5148\u5bb9\u6613\u5f97\u51fa \uff1a\n\n$x \\oplus z=y \n\\Longrightarrow x \\oplus y = z$\n\n\u6240\u4ee5\u6211\u4eec\u53ef\u4ee5\u60f3\u4e00\u79cd\u65b9\u6cd5\u8ba9\u524d\u9762\u7684\u8be2\u95ee\u4e0d\u4f1a\u5bf9\u73b0\u5728\u7684\u8be2\u95ee\u4ea7\u751f\u5f71\u54cd\u3002\n\n\u6211\u4eec\u53ef\u4ee5\u8003\u8651\u987a\u5e8f\u679a\u4e3e $1$ \u5230 $n$ \uff0c\u6bcf\u6b21\u8f93\u51fa$i \\oplus (i-1)$\uff0c\u5f53\u8be2\u95ee\u5230\u7b2c$i$\u6b21\u65f6\u539f\u5148\u7684$x$\u53d8\u4e3a\uff1a\n\n$x \\oplus (0 \\oplus 1) \\oplus (1 \\oplus 2) \\cdots \\oplus ((i-1) \\oplus i)$ \n\n\u6839\u636e\u5f02\u6216\u8fd0\u7b97\u7684\u7ed3\u5408\u5f8b\u5316\u4e3a\uff1a\n\n$x \\oplus 0 \\oplus (1 \\oplus 1) \\oplus (2 \\oplus 2) \\cdots \\oplus ((i-1) \\oplus (i-1)) \\oplus i$\n\n$\\because x \\oplus 0 = x$  and  $x \\oplus x =0$\n\n$\\therefore$ \u539f\u5f0f $= x \\oplus i$\n\n\u5f53 $x=i+1$ \u65f6\u4f1a\u5728\u679a\u4e3e\u5230 $i+1$ \u65f6\u731c\u4e2d\u3002\u4e3b\u8981\u5c31\u662f\u4e00\u4e2a\u8f6c\u6362\u548c\u62b5\u6d88\u7684\u60f3\u6cd5\uff0c\u8fd8\u662f\u4e0d\u96be\u60f3\u7684\u3002\n\n## Code\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\ntypedef long long ll;\nint T,n,k;\nint main(){\n\tcin>>T;\n\twhile(T--){\n\t\tcin>>n>>k;\n\t\tint re,x=0;\n\t\tcout<<\"0\"<<endl;\n\t\tcin>>re;\n\t\tif(re==0){\n\t\t\tfor(int i=1;i<=n;i++){\n\t\t\t\tcout<<(x^i)<<endl;\n\t\t\t\tx=i;\n\t\t\t\tcin>>re;\n\t\t\t\tif(re==1)break;\n\t\t\t}\n\t\t}\n\t}\n}\n```",
+        "postTime": 1626093552,
+        "uid": 271642,
+        "name": "cccllf",
+        "ccfLevel": 7,
+        "title": "CF1543D1\u9898\u89e3"
+    },
+    {
+        "content": "# CF1543D1 \u9898\u89e3\n\n\n\n## \u601d\u8def\u5206\u6790\n\n\u5148\u5047\u8bbe\u6bcf\u6b21\u64cd\u4f5c\u5b8c\u4e0d\u6539\u53d8 $x$ \u503c\uff0c\u663e\u7136\u7531\u4e8e\u8be2\u95ee\u6b21\u6570\u6709 $n$ \u6b21\uff0c\u56e0\u6b64\u6bcf\u6b21\u6211\u4eec\u8be2\u95ee $0\\sim n-1$ \u5373\u53ef\u3002\n\n\u90a3\u4e48\u5728\u6539\u53d8 $x$ \u503c\u7684\u60c5\u51b5\u4e0b\uff0c\u6211\u4eec\u5bf9\u4e8e\u7b2c $i$ \u6b21\u8be2\u95ee\uff0c\u53ea\u8981\u8be2\u95ee\u5728 $x$ \u6700\u521d\u4e3a $i$ \u7684\u60c5\u51b5\u4e0b\u7ecf\u8fc7\u82e5\u5e72\u6b21\u4fee\u6539\u540e\u5f97\u5230\u7684\u503c\u5373\u53ef\u3002\n\n\u6ce8\u610f\u5230\u6bcf\u6b21\u8be2\u95ee $q$ \u5b9e\u9645\u4e0a\u5c31\u662f\u8ba9 $x$ \u53d8\u6210 $x\\oplus q$\uff0c\u56e0\u6b64\u7ef4\u62a4\u6240\u6709\u8be2\u95ee\u7684 $q$ \u7684\u5f02\u6216\u548c\u5373\u53ef\u3002\n\n\u65f6\u95f4\u590d\u6742\u5ea6 $\\Theta(n)$\u3002\n\n## \u4ee3\u7801\u5448\u73b0\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\ninline bool read(int n) {\n\tcout<<n<<endl;\n\tint ret; cin>>ret; return ret;\n}\ninline void solve() {\n\tint n,k;\n\tcin>>n>>k;\n\tfor(int i=0,q=0;i<n;++i) {\n\t\tif(read(q^i)) return ;\n\t\telse q^=q^i;\n\t}\n}\nsigned main() {\n\tint T;\n\tscanf(\"%d\",&T);\n\twhile(T--) solve();\n\treturn 0;\n}\n```\n\n",
+        "postTime": 1673140946,
+        "uid": 539618,
+        "name": "DaiRuiChen007",
+        "ccfLevel": 6,
+        "title": "CF1543D1 \u9898\u89e3"
+    },
+    {
+        "content": "# \u601d\u8def\uff1a\n\u6839\u636e\u5f02\u6216\u7684\u6027\u8d28\uff0c\n\u7b2c\u4e00\u6b21\u731c $0$ \uff0c\u7b2c\u4e8c\u6b21\u731c $1$ \u5f02\u6216 $0$ \uff0c\u7b2c\u4e09\u6b21\u731c $2$ \u5f02\u6216 $1$ \u2026\u2026\u4e00\u76f4\u731c\u5230 $n-1$ \u5f02\u6216 $n-2$\uff0c\u5728\u8fd9\u8fc7\u7a0b\u4e2d\u5fc5\u7136\u6709\u4e00\u6b21\u662f\u731c\u5bf9\u7684\u3002\n\n\u8bc1\u660e\u5982\u4e0b\uff1a\n\n\u8bbe\u521d\u59cb\u5bc6\u7801\u4e3a $x$ \uff0c\u5047\u8bbe\u73b0\u5728\u731c\u7684\u662f $i$ \u5f02\u6216 $i-1$ \uff0c\u90a3\u4e48\u521d\u59cb\u5bc6\u7801\u5df2\u7ecf\u88ab\u66f4\u6539\u6210\u4e86 $x \\oplus 0\\oplus 1 \\oplus 0\\oplus 2 \\oplus 1 \\oplus 3 \\oplus 2 \\oplus(i-1)\\oplus (i-2)\\oplus i\\oplus(i-1)=x \\oplus i$ \n\u5f53 $i=x-1$ \u65f6\uff0c\u5fc5\u7136\u731c\u5bf9\u3002\n\n\u5982\u679c $x=0$ \uff0c\u5c31\u662f\u7b2c\u4e00\u6b21\u5c31\u731c\u5bf9\uff0c\u9700\u8981\u7279\u5224\u4e00\u4e0b\u3002\n# \u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n  int T,n,k,x;\n  scanf(\"%d\",&T);//\u8f93\u5165\n  while(T--)\n  {\n    scanf(\"%d%d\",&n,&k);//\u8f93\u5165\n    for(int i=0; i<n; ++i)//\u679a\u4e3e\n    {\n      if(!i) printf(\"0\\n\");\n      else printf(\"%d\\n\",i^(i-1));//\u76f4\u63a5\u731c\n      cout.flush();//\u4e0d\u52a0\u8fd9\u4e00\u884c\u4f1aUKE\n      scanf(\"%d\",&x);\n      if(x==1) break;\n    }\n  }\n}\n```\n",
+        "postTime": 1646976166,
+        "uid": 598275,
+        "name": "liguanghan",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3CF1543D1"
+    }
+]

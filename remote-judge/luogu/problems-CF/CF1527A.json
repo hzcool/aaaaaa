@@ -1,0 +1,13 @@
+{
+    "description": "Given an integer $ n $ , find the maximum value of integer $ k $ such that the following condition holds:\n\n $ n $ &amp; ( $ n-1 $ ) &amp; ( $ n-2 $ ) &amp; ( $ n-3 $ ) &amp; ... ( $ k $ ) = $ 0 $  where &amp; denotes the [bitwise AND operation.](https://en.wikipedia.org/wiki/Bitwise_operation#AND)",
+    "inputFormat": "The first line contains a single integer $ t $ ( $ 1 \\le t \\le 3 \\cdot 10^4 $ ). Then $ t $ test cases follow.\n\nThe first line of each test case contains a single integer $ n $ ( $ 1 \\le n \\le 10^9 $ ).",
+    "outputFormat": "For each test case, output a single integer \u2014 the required integer $ k $ .",
+    "samples": [
+        [
+            "3\n2\n5\n17",
+            "1\n3\n15"
+        ]
+    ],
+    "hint": "In the first testcase, the maximum value for which the continuous &amp; operation gives 0 value, is 1.\n\nIn the second testcase, the maximum value for which the continuous &amp; operation gives 0 value, is 3. No value greater then 3, say for example 4, will give the &amp; sum 0.\n\n- $ 5 \\, \\& \\, 4 \\neq 0 $ ,\n- $ 5 \\, \\& \\, 4 \\, \\& \\, 3 = 0 $ .\n\nHence, 3 is the answer.",
+    "translation": "### \u9898\u76ee\u63cf\u8ff0\n\u7ed9\u5b9a\u4e00\u4e2a\u6b63\u6574\u6570 $n$\uff0c\u8bf7\u4f60\u6c42\u51fa\u4e00\u4e2a\u6700\u5927\u7684\u6b63\u6574\u6570 $k$\uff0c\u6ee1\u8db3 $n \\& (n-1)\\&(n-2)\\&...\\&(k)$ \u7684\u503c\u4e3a 0\u3002\uff08\u8fd9\u91cc\u7684 $\\&$ \u6307\u7684\u662f\u6309\u4f4d\u4e0e\u64cd\u4f5c\uff0c\u5373 ` C++` \u8bed\u8a00\u91cc\u7684 `&` \u8fd0\u7b97\u7b26\uff09\n\n### \u8f93\u5165\u683c\u5f0f\n\u7b2c\u4e00\u884c\u662f\u4e00\u4e2a\u6b63\u6574\u6570 $t$\uff08$1\\le t\\le 3 \\times 10^4$\uff09\uff0c\u8868\u793a\u6570\u636e\u7684\u7ec4\u6570\u3002\n\n\u63a5\u4e0b\u6765 $t$ \u884c\uff0c\u6bcf\u884c\u4e00\u4e2a\u6b63\u6574\u6570 $n$\uff08$1\\le n\\le 10^9$\uff09\u3002\n\n### \u8f93\u51fa\u683c\u5f0f\n$t$ \u884c\uff0c\u5bf9\u4e8e\u6bcf\u7ec4\u6570\u636e\uff0c\u8f93\u51fa\u4e00\u4e2a\u6b63\u6574\u6570 $k$\u3002"
+}

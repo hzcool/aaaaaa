@@ -1,0 +1,29 @@
+{
+    "description": "Warning: This problem has an unusual memory limit!\n\nBob decided that he will not waste his prime years implementing GUI forms for a large corporation and instead will earn his supper on the Stock Exchange Reykjavik. The Stock Exchange Reykjavik is the only actual stock exchange in the world. The only type of transaction is to take a single share of stock $ x $ and exchange it for a single share of stock $ y $ , provided that the current price of share $ x $ is at least the current price of share $ y $ .\n\nThere are $ 2n $ stocks listed on the SER that are of interest to Bob, numbered from $ 1 $ to $ 2n $ . Bob owns a single share of stocks $ 1 $ through $ n $ and would like to own a single share of each of $ n+1 $ through $ 2n $ some time in the future.\n\nBob managed to forecast the price of each stock \u2014 in time $ t \\geq 0 $ , the stock $ i $ will cost $ a_i \\cdot \\lfloor t \\rfloor + b_i $ . The time is currently $ t = 0 $ . Help Bob find the earliest moment in time in which he can own a single share of each of $ n+1 $ through $ 2n $ , and the minimum number of stock exchanges he has to perform in order to do that.\n\nYou may assume that the Stock Exchange has an unlimited amount of each stock at any point in time.",
+    "inputFormat": "The first line contains a single integer $ n $ ( $ 1 \\leq n \\leq 2200 $ ) \u2014 the number stocks currently owned by Bob.\n\nEach of the next $ 2n $ lines contains integers $ a_i $ and $ b_i $ ( $ 0 \\leq a_i, b_i \\leq 10^9 $ ), representing the stock price of stock $ i $ .",
+    "outputFormat": "If it is impossible for Bob to achieve his goal, output a single integer $ -1 $ .\n\nOtherwise, output two integers $ T $ and $ E $ , where $ T $ is the minimum time in which he can achieve his goal, and $ E $ is the minimum number of exchanges in which he can achieve his goal at time $ T $ .",
+    "samples": [
+        [
+            "1\n3 10\n1 16\n",
+            "3 1\n"
+        ],
+        [
+            "2\n3 0\n2 1\n1 10\n1 11\n",
+            "6 3\n"
+        ],
+        [
+            "1\n42 42\n47 47\n",
+            "-1\n"
+        ],
+        [
+            "8\n145 1729363\n891 4194243\n424 853731\n869 1883440\n843 556108\n760 1538373\n270 762781\n986 2589382\n610 99315884\n591 95147193\n687 99248788\n65 95114537\n481 99071279\n293 98888998\n83 99764577\n769 96951171\n",
+            "434847 11\n"
+        ],
+        [
+            "8\n261 261639\n92 123277\n271 131614\n320 154417\n97 258799\n246 17926\n117 222490\n110 39356\n85 62864876\n86 62781907\n165 62761166\n252 62828168\n258 62794649\n125 62817698\n182 62651225\n16 62856001\n",
+            "1010327 11\n"
+        ]
+    ],
+    "hint": "In the first example, Bob simply waits until time $ t = 3 $ , when both stocks cost exactly the same amount.\n\nIn the second example, the optimum strategy is to exchange stock $ 2 $ for stock $ 1 $ at time $ t = 1 $ , then exchange one share of stock $ 1 $ for stock $ 3 $ at time $ t = 5 $ (where both cost $ 15 $ ) and then at time $ t = 6 $ exchange the second on for the stock number $ 4 $ (when they cost $ 18 $ and $ 17 $ , respectively). Note that he can achieve his goal also with only two exchanges, but this would take total time of $ t = 9 $ , when he would finally be able to exchange the share number $ 2 $ for the share number $ 3 $ .\n\nIn the third example, Bob can never achieve his goal, as the second stock is always strictly more expensive than the first one.",
+    "translation": "\u80a1\u7968\u4ea4\u6613\u6240\u91cc\u6709 $2n$ \u79cd\u80a1\u7968\uff0c\u6bcf\u79cd\u80a1\u7968\u6709\u4e24\u4e2a\u5c5e\u6027 $a_i,b_i$\uff0c\u5728\u65f6\u523b $t\\ge 0$\uff0c\u7b2c $i$ \u79cd\u80a1\u7968\u7684\u4ef7\u683c\u4e3a $a_i*\\lfloor t\\rfloor+b_i$\u3002\n\n\u6bcf\u4e2a\u65f6\u523b\u53ef\u4ee5\u8fdb\u884c\u4efb\u610f\u6b21\u80a1\u7968\u4ea4\u6613\uff0c\u5728\u65f6\u523b $t$ \u65f6\u80fd\u591f\u628a\u80a1\u7968 $i$ \u6362\u6210\u80a1\u7968 $j$ \u5f53\u4e14\u4ec5\u5f53\u80a1\u7968 $i$ \u5728\u65f6\u523b $t$ \u7684\u4ef7\u683c\u4e0d\u5c0f\u4e8e\u80a1\u7968 $j$ \u5728\u65f6\u523b $t$ \u7684\u4ef7\u683c\u3002\n\n\u73b0\u5728\u4f60\u624b\u4e0a\u6709 $1$ \u5230 $n$ \u53f7\u80a1\u7968\u5404\u4e00\u5f20\uff0c\u73b0\u5728\u8981\u6c42\u7684\u662f\u628a\u8fd9\u4e9b\u80a1\u7968\u6362\u6210 $n+1$ \u5230 $2n$ \u53f7\u80a1\u7968\u5404\u4e00\u5f20\u7684\u6700\u65e9\u65f6\u523b\uff0c\u4ee5\u53ca\u5728\u6700\u65e9\u6362\u5b8c\u80a1\u7968\u524d\u63d0\u4e0b\u7684\u6700\u5c11\u4ea4\u6613\u6b21\u6570\u3002\n\n$1\\le n\\le 2200,0\\le a_i,b_i\\le 10^9$"
+}

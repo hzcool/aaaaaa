@@ -1,0 +1,13 @@
+{
+    "description": "$ n $ students are taking an exam. The highest possible score at this exam is $ m $ . Let $ a_{i} $ be the score of the $ i $ -th student. You have access to the school database which stores the results of all students.\n\nYou can change each student's score as long as the following conditions are satisfied:\n\n- All scores are integers\n- $ 0 \\leq a_{i} \\leq m $\n- The average score of the class doesn't change.\n\nYou are student $ 1 $ and you would like to maximize your own score.\n\nFind the highest possible score you can assign to yourself such that all conditions are satisfied.",
+    "inputFormat": "Each test contains multiple test cases.\n\nThe first line contains the number of test cases $ t $ ( $ 1 \\le t \\le 200 $ ). The description of the test cases follows.\n\nThe first line of each test case contains two integers $ n $ and $ m $ ( $ 1 \\leq n \\leq 10^{3} $ , $ 1 \\leq m \\leq 10^{5} $ ) \u2014 the number of students and the highest possible score respectively.\n\nThe second line of each testcase contains $ n $ integers $ a_1, a_2, \\dots, a_n $ ( $  0 \\leq a_{i} \\leq m $ ) \u2014 scores of the students.",
+    "outputFormat": "For each testcase, output one integer \u2014 the highest possible score you can assign to yourself such that both conditions are satisfied.\\_",
+    "samples": [
+        [
+            "2\n4 10\n1 2 3 4\n4 5\n1 2 3 4",
+            "10\n5"
+        ]
+    ],
+    "hint": "In the first case, $ a = [1,2,3,4]  $ , with average of $ 2.5 $ . You can change array $ a $ to $ [10,0,0,0] $ . Average remains $ 2.5 $ , and all conditions are satisfied.\n\nIn the second case, $ 0 \\leq a_{i} \\leq 5 $ . You can change $ a $ to $ [5,1,1,3] $ . You cannot increase $ a_{1} $ further as it will violate condition $ 0\\le a_i\\le m $ .",
+    "translation": "$n$ \u540d\u5b66\u751f\u6b63\u5728\u53c2\u52a0\u8003\u8bd5\u3002\u6b64\u8003\u8bd5\u7684\u6700\u9ad8\u5206\u6570\u662f $m$\u3002\u8ba9 $a_{i}$ \u662f\u7b2c $i$ \u540d\u5b66\u751f\u7684\u5206\u6570\u3002\u60a8\u53ef\u4ee5\u8bbf\u95ee\u5b58\u50a8\u6240\u6709\u5b66\u751f\u6210\u7ee9\u7684\u5b66\u6821\u6570\u636e\u5e93\u3002\n\n\u53ea\u8981\u6ee1\u8db3\u4ee5\u4e0b\u6761\u4ef6\uff0c\u60a8\u5c31\u53ef\u4ee5\u66f4\u6539\u6bcf\u4e2a\u5b66\u751f\u7684\u5206\u6570\uff1a\n\n- \u6240\u6709\u5206\u6570\u5747\u4e3a\u6574\u6570\n- $0 \\leq a_{i} \\leq m$\n- \u73ed\u7ea7\u7684\u5e73\u5747\u5206\u6570\u4e0d\u53d8\u3002\n\n\u60a8\u662f\u5b66\u751f 1\uff0c\u5e76\u4e14\u60f3\u8981\u6700\u5927\u5316\u81ea\u5df1\u7684\u5206\u6570\u3002\n\n\u627e\u5230\u53ef\u4ee5\u5206\u914d\u7ed9\u81ea\u5df1\u7684\u6700\u9ad8\u5206\uff0c\u4ee5\u4fbf\u6ee1\u8db3\u6240\u6709\u6761\u4ef6\u3002"
+}

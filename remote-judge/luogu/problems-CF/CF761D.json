@@ -1,0 +1,21 @@
+{
+    "description": "Dasha logged into the system and began to solve problems. One of them is as follows:\n\nGiven two sequences $ a $ and $ b $ of length $ n $ each you need to write a sequence $ c $ of length $ n $ , the $ i $ -th element of which is calculated as follows: $ c_{i}=b_{i}-a_{i} $ .\n\nAbout sequences $ a $ and $ b $ we know that their elements are in the range from $ l $ to $ r $ . More formally, elements satisfy the following conditions: $ l<=a_{i}<=r $ and $ l<=b_{i}<=r $ . About sequence $ c $ we know that all its elements are distinct.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF761D/63cff245a6c359006c34b5fd0a255c1b253d148b.png)Dasha wrote a solution to that problem quickly, but checking her work on the standard test was not so easy. Due to an error in the test system only the sequence $ a $ and the compressed sequence of the sequence $ c $ were known from that test.\n\nLet's give the definition to a compressed sequence. A compressed sequence of sequence $ c $ of length $ n $ is a sequence $ p $ of length $ n $ , so that $ p_{i} $ equals to the number of integers which are less than or equal to $ c_{i} $ in the sequence $ c $ . For example, for the sequence $ c=[250,200,300,100,50] $ the compressed sequence will be $ p=[4,3,5,2,1] $ . Pay attention that in $ c $ all integers are distinct. Consequently, the compressed sequence contains all integers from $ 1 $ to $ n $ inclusively.\n\nHelp Dasha to find any sequence $ b $ for which the calculated compressed sequence of sequence $ c $ is correct.",
+    "inputFormat": "The first line contains three integers $ n $ , $ l $ , $ r $ $ (1<=n<=10^{5},1<=l<=r<=10^{9}) $ \u2014 the length of the sequence and boundaries of the segment where the elements of sequences $ a $ and $ b $ are.\n\nThe next line contains $ n $ integers $ a_{1},a_{2},...,a_{n} $ $ (l<=a_{i}<=r) $ \u2014 the elements of the sequence $ a $ .\n\nThe next line contains $ n $ distinct integers $ p_{1},p_{2},...,p_{n} $ $ (1<=p_{i}<=n) $ \u2014 the compressed sequence of the sequence $ c $ .",
+    "outputFormat": "If there is no the suitable sequence $ b $ , then in the only line print \"-1\".\n\nOtherwise, in the only line print $ n $ integers \u2014 the elements of any suitable sequence $ b $ .",
+    "samples": [
+        [
+            "5 1 5\n1 1 1 1 1\n3 1 5 4 2\n",
+            "3 1 5 4 2 "
+        ],
+        [
+            "4 2 9\n3 4 8 9\n3 2 1 4\n",
+            "2 2 2 9 "
+        ],
+        [
+            "6 1 5\n1 1 1 1 1 1\n2 3 5 4 1 6\n",
+            "-1\n"
+        ]
+    ],
+    "hint": "Sequence $ b $ which was found in the second sample is suitable, because calculated sequence $ c=[2-3,2-4,2-8,9-9]=[-1,-2,-6,0] $ (note that $ c_{i}=b_{i}-a_{i} $ ) has compressed sequence equals to $ p=[3,2,1,4] $ .",
+    "translation": "# \u9898\u76ee\u5927\u610f\n\t\u73b0\u6709a[i]\uff0cb[i]\u4e24\u4e2a\u6570\u7ec4(l<=a[i]<=b[i]<=r),\u6211\u4eec\u5b9a\u4e49p,c\u4e24\u4e2a\u6570\u7ec4,\u5176\u4e2dc[i]=b[i]-a[i],p\u6570\u7ec4\u662fc\u6570\u7ec4\u7684\u76f8\u5bf9\u5927\u5c0f,\u73b0\u7ed9\u4f60a\u548cp\u6570\u7ec4,\u628a\u4efb\u610f\u6ee1\u8db3\u7684\u4e00\u7ec4b\u6570\u7ec4\u6c42\u51fa\u6765.\u5982\u679c\u6ca1\u6709\u6ee1\u8db3\u7684,\u5219\u8f93\u51fa\u2018-1\u2019(\u6ca1\u6709\u5f15\u53f7).\n# \u8f93\u5165\u683c\u5f0f\n\t\u7b2c\u4e00\u884c\u5305\u542b3\u4e2a\u6574\u6570n,l,r\n\t\u5176\u4e2d(1<=n<=10^5)\uff0c(1<=l<=r<=10^9)\n    \u7b2c\u4e8c\u884c\u4e3an\u4e2aa[1],a[2],...,a[n],\n    \u7b2c\u4e09\u884c\u4e3an\u4e2ap[1],p[2],...,p[n]\n    a,p\u7684\u610f\u4e49\u5df2\u5728\u9898\u76ee\u5927\u610f\u4e2d\u6709\u8bb2\u8ff0\n# \u8f93\u51fa\u683c\u5f0f\n\t\u4e00\u884c\u7b26\u5408\u6761\u4ef6\u7684b\u6570\u7ec4\uff0c\n    \u82e5\u6ca1\u6709\u7b26\u5408\u7684\u60c5\u51b5\uff0c\u5219\u8f93\u51fa'-1'(\u6ca1\u6709\u5f15\u53f7)\n    "
+}

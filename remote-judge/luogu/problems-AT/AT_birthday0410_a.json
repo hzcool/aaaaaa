@@ -1,0 +1,8 @@
+{
+    "description": "[problemUrl]: https://atcoder.jp/contests/birthday0410/tasks/birthday0410_a\n\n*writer: JAPLJ*  \n*statement: kyuridenamida*",
+    "inputFormat": "",
+    "outputFormat": "",
+    "samples": [],
+    "hint": "",
+    "translation": "\u627e\u51fa\u4e00\u4e0b\u7a0b\u5e8f\u7684 hack \u6570\u636e\u3002  \n\u4e00\u3001\n```cpp\n#include <iostream>\n\nusing namespace std;\n\nint main()\n{\n  int A, B;\n\n  while(cin >> A >> B, A+B!=0) {\n    cout << A+B << endl;\n  }\n\n  return 0;\n}\n```\n\u4e8c\u3001\n```cpp\n#include <iostream>\n\nusing namespace std;\n\nint myAbs(int n)\n{\n  if(n < 0) return -n;\n  else return n;\n}\n\nint main()\n{\n  int A, B;\n\n  while(cin >> A >> B, (A|B) != 0) {\n    while(myAbs(A) >= 100000) {\n      if(A > 0) {\n        B += 100000;\n        A -= 100000;\n      } else {\n        B -= 100000;\n        A += 100000;\n      }\n    }\n\n    if(A > 0) {\n      for(int i=0; i<A; ++i) {\n        B++;\n      }\n    } else {\n      for(int i=0; i<-A; ++i) {\n        B--;\n      }\n    }\n\n    cout << B << endl;\n  }\n\n  return 0;\n}\n```\n\u4e09\u3001\n```cpp\n#include<iostream>\n\nusing namespace std;\n\nint C[3][32];\n\nint main()\n{\n  int A, B;\n\n  while(cin >> A >> B, A!=0 || B!=0) {\n    for(int i=0; i<32; ++i) {\n      C[0][i] = (A >> i) & 1;\n      C[1][i] = (B >> i) & 1;\n    }\n\n    for(int i=0; i<32; ++i) {\n      if(C[0][i] + C[1][i] >= 2) {\n        C[C[1][i-1] & 1][i+1]++;\n        C[0][i]--;\n        C[1][i]--;\n      }\n      C[2][i] = C[0][i] + C[1][i];\n    }\n\n    int R = 0;\n    for(int i=0; i<32; ++i) {\n      R |= C[2][i] << i;\n    }\n\n    cout << R << endl;\n  }\n\n  return 0;\n}\n```"
+}

@@ -1,0 +1,17 @@
+{
+    "description": "Numbers $ k $ -bonacci ( $ k $ is integer, $ k&gt;1 $ ) are a generalization of Fibonacci numbers and are determined as follows:\n\n- $ F(k,n)=0 $ , for integer $ n $ , $ 1<=n&lt;k $ ;\n- $ F(k,k)=1 $ ;\n- $ F(k,n)=F(k,n-1)+F(k,n-2)+...+F(k,n-k) $ , for integer $ n $ , $ n&gt;k $ .\n\nNote that we determine the $ k $ -bonacci numbers, $ F(k,n) $ , only for integer values of $ n $ and $ k $ .\n\nYou've got a number $ s $ , represent it as a sum of several (at least two) distinct $ k $ -bonacci numbers.",
+    "inputFormat": "The first line contains two integers $ s $ and $ k $ $ (1<=s,k<=10^{9};\u00a0k&gt;1) $ .",
+    "outputFormat": "In the first line print an integer $ m $ $ (m>=2) $ that shows how many numbers are in the found representation. In the second line print $ m $ distinct integers $ a_{1},a_{2},...,a_{m} $ . Each printed integer should be a $ k $ -bonacci number. The sum of printed integers must equal $ s $ .\n\nIt is guaranteed that the answer exists. If there are several possible answers, print any of them.",
+    "samples": [
+        [
+            "5 2\n",
+            "3\n0 2 3\n"
+        ],
+        [
+            "21 5\n",
+            "3\n4 1 16\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u5b9a\u4e49$k$-bonacci\u6570\u5217${Fn}:Fi=0(i<k),Fi=1 (i=k),Fi=\\sum_{j=i-k}^{n-1}Fj$\r\n\r\n\u7ed9\u51fa$s\\ (s\u226410^9)$\u548c$k\\ (k\u226410^9)$\uff0c\u5c06$s$\u62c6\u6210\u82e5\u5e72\u4e2a$k$-bonacci\u6570\u4e4b\u548c\u3002"
+}

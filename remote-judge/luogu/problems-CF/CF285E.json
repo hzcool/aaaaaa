@@ -1,0 +1,29 @@
+{
+    "description": "Permutation $ p $ is an ordered set of integers $ p_{1},p_{2},...,p_{n} $ , consisting of $ n $ distinct positive integers, each of them doesn't exceed $ n $ . We'll denote the $ i $ -th element of permutation $ p $ as $ p_{i} $ . We'll call number $ n $ the size or the length of permutation $ p_{1},p_{2},...,p_{n} $ .\n\nWe'll call position $ i $ ( $ 1<=i<=n $ ) in permutation $ p_{1},p_{2},...,p_{n} $ good, if $ |p[i]-i|=1 $ . Count the number of permutations of size $ n $ with exactly $ k $ good positions. Print the answer modulo $ 1000000007 $ ( $ 10^{9}+7 $ ).",
+    "inputFormat": "The single line contains two space-separated integers $ n $ and $ k $ ( $ 1<=n<=1000,0<=k<=n $ ).",
+    "outputFormat": "Print the number of permutations of length $ n $ with exactly $ k $ good positions modulo $ 1000000007 $ ( $ 10^{9}+7 $ ).",
+    "samples": [
+        [
+            "1 0\n",
+            "1\n"
+        ],
+        [
+            "2 1\n",
+            "0\n"
+        ],
+        [
+            "3 2\n",
+            "4\n"
+        ],
+        [
+            "4 1\n",
+            "6\n"
+        ],
+        [
+            "7 4\n",
+            "328\n"
+        ]
+    ],
+    "hint": "The only permutation of size 1 has 0 good positions.\n\nPermutation $ (1,2) $ has 0 good positions, and permutation $ (2,1) $ has 2 positions.\n\nPermutations of size 3:\n\n1. $ (1,2,3) $ \u2014 0 positions\n2. ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF285E/0be2e55cf7a19e2daea8429a422511a827d2e236.png) \u2014 2 positions\n3. ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF285E/581bad7452cc25f3e2dca31dac99a205bf6361ef.png) \u2014 2 positions\n4. ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF285E/aad15ec07c7621cca60c3be370547e4457323e38.png) \u2014 2 positions\n5. ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF285E/b2a9b87daae026f62e110bd34347625817635c68.png) \u2014 2 positions\n6. $ (3,2,1) $ \u2014 0 positions",
+    "translation": "\u79f0\u4e00\u4e2a $1\\sim n$ \u7684\u6392\u5217\u7684\u5b8c\u7f8e\u6570\u4e3a\u6709\u591a\u5c11\u4e2a $i$ \u6ee1\u8db3 $|P_i-i|=1$ \u3002  \n\u6c42\u6709\u591a\u5c11\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u5b8c\u7f8e\u6570\u6070\u597d\u4e3a $m$ \u7684\u6392\u5217\u3002\u7b54\u6848\u5bf9 $10^9+7$ \u53d6\u6a21\u3002\n\n$1 \\le n \\le 1000,0 \\le m \\le n$\u3002"
+}

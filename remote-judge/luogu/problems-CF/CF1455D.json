@@ -1,0 +1,13 @@
+{
+    "description": "You are given a sequence $ a $ consisting of $ n $ integers $ a_1, a_2, \\dots, a_n $ , and an integer $ x $ . Your task is to make the sequence $ a $ sorted (it is considered sorted if the condition $ a_1 \\le a_2 \\le a_3 \\le \\dots \\le a_n $ holds).\n\nTo make the sequence sorted, you may perform the following operation any number of times you want (possibly zero): choose an integer $ i $ such that $ 1 \\le i \\le n $ and $ a_i > x $ , and swap the values of $ a_i $ and $ x $ .\n\nFor example, if $ a = [0, 2, 3, 5, 4] $ , $ x = 1 $ , the following sequence of operations is possible:\n\n1. choose $ i = 2 $ (it is possible since $ a_2 > x $ ), then $ a = [0, 1, 3, 5, 4] $ , $ x = 2 $ ;\n2. choose $ i = 3 $ (it is possible since $ a_3 > x $ ), then $ a = [0, 1, 2, 5, 4] $ , $ x = 3 $ ;\n3. choose $ i = 4 $ (it is possible since $ a_4 > x $ ), then $ a = [0, 1, 2, 3, 4] $ , $ x = 5 $ .\n\nCalculate the minimum number of operations you have to perform so that $ a $ becomes sorted, or report that it is impossible.",
+    "inputFormat": "The first line contains one integer $ t $ ( $ 1 \\le t \\le 500 $ ) \u2014 the number of test cases.\n\nEach test case consists of two lines. The first line contains two integers $ n $ and $ x $ ( $ 1 \\le n \\le 500 $ , $ 0 \\le x \\le 500 $ ) \u2014 the number of elements in the sequence and the initial value of $ x $ .\n\nThe second line contains $ n $ integers $ a_1 $ , $ a_2 $ , ..., $ a_n $ ( $ 0 \\le a_i \\le 500 $ ).\n\nThe sum of values of $ n $ over all test cases in the input does not exceed $ 500 $ .",
+    "outputFormat": "For each test case, print one integer \u2014 the minimum number of operations you have to perform to make $ a $ sorted, or $ -1 $ , if it is impossible.",
+    "samples": [
+        [
+            "6\n4 1\n2 3 5 4\n5 6\n1 1 3 4 4\n1 10\n2\n2 10\n11 9\n2 10\n12 11\n5 18\n81 324 218 413 324",
+            "3\n0\n0\n-1\n1\n3"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9\u51fa\u4e00\u4e2a\u5e8f\u5217\u548c $x$\uff0c\u6bcf\u6b21\u53ef\u4ee5\u628a\u5e8f\u5217\u4e2d\u7684\u4e00\u4e2a $> x$ \u7684\u6570\u4e0e $x$ \u4ea4\u6362\uff0c\u95ee\u6700\u5c11\u64cd\u4f5c\u591a\u5c11\u6b21\u4f7f\u5f97\u6574\u4e2a\u5e8f\u5217\u5347\u5e8f\u6392\u5e8f\uff0c\u5982\u679c\u4e0d\u80fd\u8f93\u51fa `-1`\u3002"
+}

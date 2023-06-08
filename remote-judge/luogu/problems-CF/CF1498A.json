@@ -1,0 +1,13 @@
+{
+    "description": "The $ \\text{ $ gcdSum $ } $ of a positive integer is the $ gcd $ of that integer with its sum of digits. Formally, $ \\text{ $ gcdSum $ }(x) = gcd(x, \\text{ sum of digits of } x) $ for a positive integer $ x $ . $ gcd(a, b) $ denotes the greatest common divisor of $ a $ and $ b $ \u2014 the largest integer $ d $ such that both integers $ a $ and $ b $ are divisible by $ d $ .\n\nFor example: $ \\text{ $ gcdSum $ }(762) = gcd(762, 7 + 6 + 2)=gcd(762,15) = 3 $ .\n\nGiven an integer $ n $ , find the smallest integer $ x \\ge n $ such that $ \\text{ $ gcdSum $ }(x) > 1 $ .",
+    "inputFormat": "The first line of input contains one integer $ t $ $ (1 \\le t \\le 10^4) $ \u2014 the number of test cases.\n\nThen $ t $ lines follow, each containing a single integer $ n $ $ (1 \\le n \\le 10^{18}) $ .\n\nAll test cases in one test are different.",
+    "outputFormat": "Output $ t $ lines, where the $ i $ -th line is a single integer containing the answer to the $ i $ -th test case.",
+    "samples": [
+        [
+            "3\n11\n31\n75",
+            "12\n33\n75"
+        ]
+    ],
+    "hint": "Let us explain the three test cases in the sample.\n\nTest case 1: $ n = 11 $ :\n\n $ \\text{ $ gcdSum $ }(11) = gcd(11, 1 + 1) = gcd(11,\\ 2) = 1 $ .\n\n $ \\text{ $ gcdSum $ }(12) = gcd(12, 1 + 2) = gcd(12,\\ 3) = 3 $ .\n\nSo the smallest number $ \\ge 11 $ whose $ gcdSum $ $ > 1 $ is $ 12 $ .\n\nTest case 2: $ n = 31 $ :\n\n $ \\text{ $ gcdSum $ }(31) = gcd(31, 3 + 1) = gcd(31,\\ 4) = 1 $ .\n\n $ \\text{ $ gcdSum $ }(32) = gcd(32, 3 + 2) = gcd(32,\\ 5) = 1 $ .\n\n $ \\text{ $ gcdSum $ }(33) = gcd(33, 3 + 3) = gcd(33,\\ 6) = 3 $ .\n\nSo the smallest number $ \\ge 31 $ whose $ gcdSum $ $ > 1 $ is $ 33 $ .\n\nTest case 3: $ \\ n = 75 $ :\n\n $ \\text{ $ gcdSum $ }(75) = gcd(75, 7 + 5) = gcd(75,\\ 12) = 3 $ .\n\nThe $ \\text{ $ gcdSum $ } $ of $ 75 $ is already $ > 1 $ . Hence, it is the answer.",
+    "translation": "$\\operatorname{gcdSum(x)=}\\gcd(x,\\sum_{i=1}^ka_i)$\n\n\u5176\u4e2d $a_i$ \u8868\u793a $x$ \u7684\u4ece\u5de6\u5230\u53f3\u7b2c $i$ \u4f4d\uff0c$k$ \u8868\u793a $x$ \u7684\u4f4d\u6570\u3002\n\n\u4f8b\u5982 $\\operatorname{gcdSum(762)}=\\gcd(762,2+6+7)=\\gcd(762,15)=3$\n\n\u7ed9\u5b9a\u4e00\u4e2a $n$\uff0c\u8bf7\u4f60\u627e\u5230\u4e00\u4e2a\u6700\u5c0f\u7684\u6574\u6570 $x$ \u6ee1\u8db3\uff1a\n\n- $x\\ge n$\n\n- $\\operatorname{gcdSum(x)}>1$"
+}

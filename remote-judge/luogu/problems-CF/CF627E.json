@@ -1,0 +1,21 @@
+{
+    "description": "Paul is at the orchestra. The string section is arranged in an $ r\u00d7c $ rectangular grid and is filled with violinists with the exception of $ n $ violists. Paul really likes violas, so he would like to take a picture including at least $ k $ of them. Paul can take a picture of any axis-parallel rectangle in the orchestra. Count the number of possible pictures that Paul can take.\n\nTwo pictures are considered to be different if the coordinates of corresponding rectangles are different.",
+    "inputFormat": "The first line of input contains four space-separated integers $ r $ , $ c $ , $ n $ , $ k $ ( $ 1<=r,c,n<=3000 $ , $ 1<=k<=min(n,10) $ ) \u2014 the number of rows and columns of the string section, the total number of violas, and the minimum number of violas Paul would like in his photograph, respectively.\n\nThe next $ n $ lines each contain two integers $ x_{i} $ and $ y_{i} $ ( $ 1<=x_{i}<=r $ , $ 1<=y_{i}<=c $ ): the position of the $ i $ -th viola. It is guaranteed that no location appears more than once in the input.",
+    "outputFormat": "Print a single integer \u2014 the number of photographs Paul can take which include at least $ k $ violas.",
+    "samples": [
+        [
+            "2 2 1 1\n1 2\n",
+            "4\n"
+        ],
+        [
+            "3 2 3 3\n1 1\n3 1\n2 2\n",
+            "1\n"
+        ],
+        [
+            "3 2 3 2\n1 1\n3 1\n2 2\n",
+            "4\n"
+        ]
+    ],
+    "hint": "We will use '\\*' to denote violinists and '\\#' to denote violists.\n\nIn the first sample, the orchestra looks as follows:\n\n`<br></br>*#<br></br>**<br></br>` Paul can take a photograph of just the viola, the $ 1\u00d72 $ column containing the viola, the $ 2\u00d71 $ row containing the viola, or the entire string section, for $ 4 $ pictures total.In the second sample, the orchestra looks as follows:\n\n`<br></br>#*<br></br>*#<br></br>#*<br></br>` Paul must take a photograph of the entire section.In the third sample, the orchestra looks the same as in the second sample.",
+    "translation": "\u5728\u4e00\u4e2a $r \\times c$ \u7684\u77e9\u9635\u4e2d\u6709 $n$ \u4e2a\u70b9\uff0c\u95ee\u6709\u591a\u5c11\u4e2a\u8fde\u7eed\u5b50\u77e9\u9635\u81f3\u5c11\u5305\u542b $k$ \u4e2a\u70b9\u3002\n\n$r,c,n \\le 3 \\times 10^3$\uff0c$k \\le 10$\u3002"
+}

@@ -1,0 +1,21 @@
+{
+    "description": "Madoka decided to entrust the organization of a major computer game tournament \"OSU\"!\n\nIn this tournament, matches are held according to the \"Olympic system\". In other words, there are $ 2^n $ participants in the tournament, numbered with integers from $ 1 $ to $ 2^n $ . There are $ n $ rounds in total in the tournament. In the $ i $ -th round there are $ 2^{n - i} $ matches between two players (one of whom is right, the other is left), after which the winners go further along the tournament grid, and the losing participants are eliminated from the tournament. Herewith, the relative order in the next round does not change. And the winner of the tournament \u2014 is the last remaining participant.\n\nBut the smaller the participant's number, the more he will pay Madoka if he wins, so Madoka wants the participant with the lowest number to win. To do this, she can arrange the participants in the first round as she likes, and also determine for each match who will win \u2014 the participant on the left or right.\n\nBut Madoka knows that tournament sponsors can change the winner in matches no more than $ k $ times. (That is, if the participant on the left won before the change, then the participant on the right will win after the change, and if the participant on the right won, then the participant on the left will win after the change).\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1717D/f3b4c42531ac8b0aab0fa40e7e46069a137caf77.png)So, the first image shows the tournament grid that Madoka made, where the red lines denote who should win the match. And the second one shows the tournament grid, after one change in the outcome of the match by sponsors (a match between $ 1 $ and $ 3 $ players).Print the minimum possible number of the winner in the tournament, which Madoka can get regardless of changes in sponsors. But since the answer can be very large, output it modulo $ 10^9 + 7 $ . Note that we need to minimize the answer, and only then take it modulo.",
+    "inputFormat": "The first and the only line contains two integers $ n $ and $ k $ ( $ 1 \\le n \\le 10^5, 1 \\le k \\le \\min(2^n - 1, 10^9) $ ) \u2014 the number of rounds in the tournament and the number of outcomes that sponsors can change.",
+    "outputFormat": "Print exactly one integer \u2014 the minimum number of the winner modulo $ 10^9 + 7 $",
+    "samples": [
+        [
+            "1 1",
+            "2"
+        ],
+        [
+            "2 1",
+            "3"
+        ],
+        [
+            "3 2",
+            "7"
+        ]
+    ],
+    "hint": "In the first example, there is only one match between players $ 1 $ and $ 2 $ , so the sponsors can always make player $ 2 $ wins.\n\nThe tournament grid from the second example is shown in the picture in the statement.",
+    "translation": "\u6709$2^n$\u540d\u53c2\u8d5b\u8005\uff0c\u53c2\u8d5b\u8005\u7f16\u53f7\u4e3a$1$\u81f3$2^n$\u3002\n\n\u4e00\u5171\u6709$n$\u8f6e\u6bd4\u8d5b\uff0c\u6bcf\u4e00\u8f6e\uff0c\u53c2\u8d5b\u8005\u4e24\u4e24\u6bd4\u8d5b\uff0c\u80dc\u8005\u8fdb\u5165\u4e0b\u4e00\u8f6e\u3002\u56e0\u6b64\u5982\u56fe\u6240\u793a\uff0c\u8d5b\u7a0b\u56fe\u662f\u4e00\u4e2a\u6ee1\u4e8c\u53c9\u6811\u3002\n\n\u73b0\u5728\u4f60\u53ef\u4ee5\u51b3\u5b9a\u6bcf\u4e00\u4e2a\u53c2\u8d5b\u8005\u7b2c\u4e00\u8f6e\u7684\u521d\u59cb\u6392\u5217\u987a\u5e8f\uff08\u5bf9\u5e94\u4e8c\u53c9\u6811\u53f6\u5b50\u8282\u70b9\u7684\u987a\u5e8f\uff09\uff0c\u5e76\u4e14\u4f60\u53ef\u4ee5\u51b3\u5b9a\u6bcf\u4e00\u573a\u6bd4\u8d5b\u662f\u5de6\u8fb9\u7684\u4eba\u80dc\u51fa\u6216\u662f\u53f3\u8fb9\u7684\u4eba\u80dc\u51fa\uff08\u5982\u56fe\u7ea2\u7ebf\u4e3a\u80dc\u51fa\u8005\uff09\u3002\u4f60\u5e0c\u671b\u7b2c\u4e00\u540d\u7684\u4eba\u7f16\u53f7\u6700\u5c0f\u3002\n\n\u4f46\u662f\uff0c\u6709\u53e6\u4e00\u4e2a\u4eba\u4e5f\u80fd\u64cd\u7eb5\u6bd4\u8d5b\u3002\u4ed6\u53ef\u4ee5\u66f4\u6539\u4efb\u610f$k$\u573a\u6bd4\u8d5b\u7684\u7ed3\u679c\u3002\n\n\u8f93\u51fa\u4f60\u80fd\u786e\u4fdd\u5f97\u7b2c\u4e00\u540d\u7684\u4eba\u7684\u7f16\u53f7\u7684\u6700\u5c0f\u503c\uff0c\u5bf9$10^9+7$\u53d6\u6a21\u3002"
+}

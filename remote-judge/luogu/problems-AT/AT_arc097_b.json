@@ -1,0 +1,25 @@
+{
+    "description": "[problemUrl]: https://atcoder.jp/contests/abc097/tasks/arc097_b\n\n$ 1 $ \u304b\u3089 $ N $ \u307e\u3067\u306e\u6574\u6570\u3092\u4e26\u3073\u66ff\u3048\u305f\u9806\u5217 $ p_1 $, $ p_2 $, .., $ p_N $ \u304c\u3042\u308a\u307e\u3059\u3002 \u307e\u305f\u3001 $ 1 $ \u4ee5\u4e0a $ N $ \u4ee5\u4e0b\u306e\u6574\u6570\u306e\u30da\u30a2\u304c $ M $ \u500b\u4e0e\u3048\u3089\u308c\u307e\u3059\u3002 \u3053\u308c\u3089\u306f $ (x_1,y_1) $, $ (x_2,y_2) $, .., $ (x_M,y_M) $ \u3067\u8868\u3055\u308c\u307e\u3059\u3002 \u30b7\u30ab\u306e AtCoDeer \u304f\u3093\u306f\u9806\u5217 $ p $ \u306b\u6b21\u306e\u64cd\u4f5c\u3092\u597d\u304d\u306a\u3060\u3051\u884c\u3063\u3066\u3001 $ p_i\\ =\\ i $ \u3068\u306a\u308b $ i $ ($ 1 $ $ <\\ = $ $ i $ $ <\\ = $ $ N $) \u306e\u6570\u3092\u6700\u5927\u306b\u3057\u3088\u3046\u3068\u8003\u3048\u3066\u3044\u307e\u3059\u3002\n\n- $ 1 $ $ <\\ = $ $ j $ $ <\\ = $ $ M $ \u306a\u308b $ j $ \u3092\u9078\u3073\u3001 $ p_{x_j} $ \u3068 $ p_{y_j} $ \u3092\u30b9\u30ef\u30c3\u30d7\u3059\u308b\n\n\u64cd\u4f5c\u5f8c\u306e $ p_i\\ =\\ i $ \u3068\u306a\u308b $ i $ \u306e\u6570\u3068\u3057\u3066\u8003\u3048\u3046\u308b\u6700\u5927\u5024\u3092\u6c42\u3081\u3066\u304f\u3060\u3055\u3044\u3002",
+    "inputFormat": "\u5165\u529b\u306f\u4ee5\u4e0b\u306e\u5f62\u5f0f\u3067\u6a19\u6e96\u5165\u529b\u304b\u3089\u4e0e\u3048\u3089\u308c\u308b\u3002\n\n> $ N $ $ M $ $ p_1 $ $ p_2 $ $ .. $ $ p_N $ $ x_1 $ $ y_1 $ $ x_2 $ $ y_2 $ $ : $ $ x_M $ $ y_M $",
+    "outputFormat": "\u64cd\u4f5c\u5f8c\u306e $ p_i\\ =\\ i $ \u3068\u306a\u308b $ i $ ($ 1 $ $ <\\ = $ $ i $ $ <\\ = $ $ N $) \u306e\u6570\u3068\u3057\u3066\u8003\u3048\u3046\u308b\u6700\u5927\u5024\u3092\u51fa\u529b\u305b\u3088\u3002",
+    "samples": [
+        [
+            "5 2\r\n5 3 1 4 2\r\n1 3\r\n5 4",
+            "2"
+        ],
+        [
+            "3 2\r\n3 2 1\r\n1 2\r\n2 3",
+            "3"
+        ],
+        [
+            "10 8\r\n5 3 6 8 7 10 9 1 2 4\r\n3 1\r\n4 1\r\n5 9\r\n2 5\r\n6 5\r\n3 5\r\n8 9\r\n7 9",
+            "8"
+        ],
+        [
+            "5 1\r\n1 2 3 4 5\r\n1 5",
+            "5"
+        ]
+    ],
+    "hint": "### \u5236\u7d04\n\n- $ 2 $ $ <\\ = $ $ N $ $ <\\ = $ $ 10^5 $\n- $ 1 $ $ <\\ = $ $ M $ $ <\\ = $ $ 10^5 $\n- $ p $ \u306f $ 1 $ \u304b\u3089 $ N $ \u307e\u3067\u306e\u6574\u6570\u3092\u4e26\u3073\u66ff\u3048\u305f\u9806\u5217\n- $ 1 $ $ <\\ = $ $ x_j,y_j $ $ <\\ = $ $ N $\n- $ x_j $ $ \u2260 $ $ y_j $\n- $ i $ $ \u2260 $ $ j $ \u306a\u3089\u3001 $ \\{x_i,y_i\\} $ $ \u2260 $ $ \\{x_j,y_j\\} $\n- \u5165\u529b\u306f\u5168\u3066\u6574\u6570\n\n### Sample Explanation 1\n\n$ j=1 $ \u3092\u9078\u3093\u3067\u64cd\u4f5c\u3059\u308b\u3068\u3001 $ p $ \u306f `1 3 5 4 2` \u3068\u306a\u308a\u3001\u3053\u308c\u304c\u30d9\u30b9\u30c8\u306a\u306e\u3067\u7b54\u3048\u306f $ 2 $ \u3067\u3059\u3002\n\n### Sample Explanation 2\n\n\u4f8b\u3048\u3070 $ j=1 $, $ j=2 $, $ j=1 $ \u306e\u9806\u306b\u64cd\u4f5c\u3059\u308b\u3068\u3001 $ p $ \u306f `1 2 3` \u3068\u306a\u308a\u660e\u3089\u304b\u306b\u3053\u308c\u304c\u30d9\u30b9\u30c8\u3067\u3059\u3002 \u540c\u3058 $ j $ \u3092\u4f55\u56de\u9078\u3093\u3067\u3082\u3044\u3044\u3053\u3068\u306b\u6ce8\u610f\u3057\u3066\u304f\u3060\u3055\u3044\u3002\n\n### Sample Explanation 4\n\n\u64cd\u4f5c\u3092\u3059\u308b\u5fc5\u8981\u306f\u3042\u308a\u307e\u305b\u3093\u3002",
+    "translation": "\u7ed9\u4e00\u4e2a $1$ \u5230 $N$ \u7684\u6574\u6570\u6392\u5217\uff1a$p_1,p_2,\\ldots,p_N$.\n\n\u518d\u7ed9\u51fa $M$ \u5bf9\u6574\u6570\u5bf9 $(x_1,y_1),(x_2,y_2),\\ldots (x_M,y_M)$ \uff0c\u5176\u4e2d $\\forall i ,1\\leqslant x_i,y_i\\leqslant N$.\n\n\u6bcf\u5bf9\u6574\u6570\u5bf9\u5bf9\u5e94\u4e00\u4e2a\u64cd\u4f5c\uff0c\u7b2c $i$ \u5bf9\u6574\u6570\u5bf9\u5bf9\u5e94\u7740\u64cd\u4f5c\uff1a\u5c06\u6392\u5217\u4e2d\u7b2c $x_i$ \u4e2a\u6570\u548c\u7b2c $y_i$ \u4e2a\u6570\u4ea4\u6362\u3002\n\n\u73b0\u5728 AtCoDeer \u5e0c\u671b\u901a\u8fc7\u6267\u884c\u4efb\u610f\u6b21\u4ea4\u6362\u64cd\u4f5c\uff0c\u4f7f\u5f97 $p_i=i$ \u7684\u6570\u91cf\u5c3d\u53ef\u80fd\u591a\u3002\u6c42\u51fa\u6309\u4efb\u610f\u987a\u5e8f\u6267\u884c\u4efb\u610f\u6b21\u64cd\u4f5c\u540e\uff0c\u6700\u591a\u80fd\u4f7f\u591a\u5c11 $p_i=i$."
+}

@@ -1,0 +1,25 @@
+{
+    "description": "The flag of Berland is such rectangular field $ n\u00d7m $ that satisfies following conditions:\n\n- Flag consists of three colors which correspond to letters 'R', 'G' and 'B'.\n- Flag consists of three equal in width and height stripes, parralel to each other and to sides of the flag. Each stripe has exactly one color.\n- Each color should be used in exactly one stripe.\n\nYou are given a field $ n\u00d7m $ , consisting of characters 'R', 'G' and 'B'. Output \"YES\" (without quotes) if this field corresponds to correct flag of Berland. Otherwise, print \"NO\" (without quotes).",
+    "inputFormat": "The first line contains two integer numbers $ n $ and $ m $ ( $ 1<=n,m<=100 $ ) \u2014 the sizes of the field.\n\nEach of the following $ n $ lines consisting of $ m $ characters 'R', 'G' and 'B' \u2014 the description of the field.",
+    "outputFormat": "Print \"YES\" (without quotes) if the given field corresponds to correct flag of Berland . Otherwise, print \"NO\" (without quotes).",
+    "samples": [
+        [
+            "6 5\nRRRRR\nRRRRR\nBBBBB\nBBBBB\nGGGGG\nGGGGG\n",
+            "YES\n"
+        ],
+        [
+            "4 3\nBRG\nBRG\nBRG\nBRG\n",
+            "YES\n"
+        ],
+        [
+            "6 7\nRRRGGGG\nRRRGGGG\nRRRGGGG\nRRRBBBB\nRRRBBBB\nRRRBBBB\n",
+            "NO\n"
+        ],
+        [
+            "4 4\nRRRR\nRRRR\nBBBB\nGGGG\n",
+            "NO\n"
+        ]
+    ],
+    "hint": "The field in the third example doesn't have three parralel stripes.\n\nRows of the field in the fourth example are parralel to each other and to borders. But they have different heights \u2014 2, 1 and 1.",
+    "translation": "## \u9898\u76ee\u63cf\u8ff0\n\nBerland\u4e4b\u65d7\u662f\u6ee1\u8db3\u4ee5\u4e0b\u6761\u4ef6\u7684 $n \\times m$ \u77e9\u5f62\u533a\u57df\uff1a\n\n- \u65d7\u4e2d\u5305\u542b\u4e09\u79cd\u989c\u8272\uff0c\u76f8\u5e94\u5730\u4ee5\u5b57\u6bcd\u201cR\u201d, \u201cG\u201d\u548c\u201cB\u201d\u8868\u793a\u3002\n\n- \u65d7\u4e2d\u5305\u542b\u4e09\u4e2a\u201c\u957f\u6761\u201d\uff0c\u4ed6\u4eec\u7684\u957f\u5ea6\u548c\u5bbd\u5ea6\u76f8\u7b49\uff08\u957f\u67611\u7684\u957f\u5ea6\u7b49\u4e8e\u957f\u67612\u7684\u957f\u5ea6\uff0c\u4e5f\u7b49\u4e8e\u957f\u67613\u7684\u957f\u5ea6\uff0c\u5bbd\u5ea6\u7c7b\u4f3c\uff09\uff0c\u5e76\u4e14\u4e92\u76f8\u5e73\u884c\uff0c\u540c\u65f6\u8fd8\u5e73\u884c\u4e8e\u65d7\u5b50\u7684\u8fb9\u7f18\u3002\u6bcf\u4e2a\u201c\u957f\u6761\u201d\u4ec5\u6709\u4e00\u79cd\u989c\u8272\u3002\n\n- \u6bcf\u4e2a\u989c\u8272\u4ec5\u80fd\u5728\u4e00\u4e2a\u201c\u957f\u6761\u201d\u4e2d\u51fa\u73b0\u3002 \n\n\u73b0\u5728\u7ed9\u5b9a\u7531\u201cR\u201d, \u201cG\u201d\u548c\u201cB\u201d\u6784\u6210\u7684 $n \\times m$ \u77e9\u5f62\u533a\u57df\u3002\u8bf7\u5224\u65ad\u5b83\u662f\u5426\u662f\u4e00\u4e2a\u6b63\u786e\u7684Berland\u4e4b\u65d7\uff0c\u662f\u5219\u8f93\u51fa \"YES\"\uff0c\u5426\u5219\u8f93\u51fa\"NO\"\u3002\n\n## \u8f93\u5165\u8f93\u51fa\u683c\u5f0f\n\n**\u8f93\u5165\u683c\u5f0f\uff1a**\n\n\u7b2c\u4e00\u884c\u5305\u542b\u4e24\u4e2a\u6574\u6570 $n$ \u548c $m$ \uff08 $1 \\le n, m \\le 100 $ \uff09\u8868\u793a\u533a\u57df\u7684\u5927\u5c0f\u3002\n\n\u63a5\u4e0b\u6765\u7684 $n$ \u884c\u8868\u793a\u7ed9\u5b9a\u7684\u77e9\u5f62\u533a\u57df\u3002\n\n**\u8f93\u51fa\u683c\u5f0f\uff1a**\n\n\u5982\u679c\u7ed9\u5b9a\u7684\u533a\u57df\u662f\u4e00\u4e2a\u6b63\u786e\u7684Berland\u4e4b\u65d7\u5219\u8f93\u51fa\"YES\"\uff08\u4e0d\u542b\u5f15\u53f7\uff09\uff0c\u5426\u5219\u8f93\u51fa\"NO\"\uff08\u4e0d\u542b\u5f15\u53f7\uff09\u3002\n\n## \u8bf4\u660e\n\n\u7b2c\u4e09\u4e2a\u6837\u4f8b\u4e2d\u7684\u533a\u57df\u4e0d\u5305\u542b\u5e73\u884c\u7684\u201c\u957f\u6761\u201d\u3002\n\n\u7b2c\u56db\u4e2a\u6837\u4f8b\u4e2d\u867d\u7136\u201c\u957f\u6761\u201d\u95f4\u4e92\u76f8\u5e73\u884c\uff0c\u4e14\u90fd\u5e73\u884c\u4e8e\u8fb9\u7f18\uff0c\u4f46\u4ed6\u4eec\u9ad8\u5ea6\u4e0d\u540c\u2014\u20142\uff0c1\u548c1\u3002 "
+}

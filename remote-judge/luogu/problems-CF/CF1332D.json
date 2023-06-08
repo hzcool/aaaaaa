@@ -1,0 +1,17 @@
+{
+    "description": "Bob is playing a game named \"Walk on Matrix\".\n\nIn this game, player is given an $ n \\times m $ matrix $ A=(a_{i,j}) $ , i.e. the element in the $ i $ -th row in the $ j $ -th column is $ a_{i,j} $ . Initially, player is located at position $ (1,1) $ with score $ a_{1,1} $ .\n\nTo reach the goal, position $ (n,m) $ , player can move right or down, i.e. move from $ (x,y) $ to $ (x,y+1) $ or $ (x+1,y) $ , as long as player is still on the matrix.\n\nHowever, each move changes player's score to the [bitwise AND](https://en.wikipedia.org/wiki/Bitwise_operation#AND) of the current score and the value at the position he moves to.\n\nBob can't wait to find out the maximum score he can get using the tool he recently learnt \u2014 dynamic programming. Here is his algorithm for this problem.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1332D/f77be4abbc0e4a1768015d201a26d68f6c552a32.png)However, he suddenly realize that the algorithm above fails to output the maximum score for some matrix $ A $ . Thus, for any given non-negative integer $ k $ , he wants to find out an $ n \\times m $ matrix $ A=(a_{i,j}) $ such that\n\n- $ 1 \\le n,m \\le 500 $ (as Bob hates large matrix);\n- $ 0 \\le a_{i,j} \\le 3 \\cdot 10^5 $ for all $ 1 \\le i\\le n,1 \\le j\\le m $ (as Bob hates large numbers);\n- the difference between the maximum score he can get and the output of his algorithm is exactly $ k $ .\n\nIt can be shown that for any given integer $ k $ such that $ 0 \\le k \\le 10^5 $ , there exists a matrix satisfying the above constraints.\n\nPlease help him with it!",
+    "inputFormat": "The only line of the input contains one single integer $ k $ ( $ 0 \\le k \\le 10^5 $ ).",
+    "outputFormat": "Output two integers $ n $ , $ m $ ( $ 1 \\le n,m \\le 500 $ ) in the first line, representing the size of the matrix.\n\nThen output $ n $ lines with $ m $ integers in each line, $ a_{i,j} $ in the $ (i+1) $ -th row, $ j $ -th column.",
+    "samples": [
+        [
+            "0",
+            "1 1\n300000"
+        ],
+        [
+            "1",
+            "3 4\n7 3 3 1\n4 8 3 6\n7 7 7 3"
+        ]
+    ],
+    "hint": "In the first example, the maximum score Bob can achieve is $ 300000 $ , while the output of his algorithm is $ 300000 $ .\n\nIn the second example, the maximum score Bob can achieve is $ 7\\&3\\&3\\&3\\&7\\&3=3 $ , while the output of his algorithm is $ 2 $ .",
+    "translation": "\u6709\u8fd9\u4e48\u4e00\u4e2a\u95ee\u9898\uff1a\n\n> \u6709\u4e00\u4e2a $n \\times m$ \u7684\u77e9\u9635 $a_{n, m}$\uff0c\u77e9\u9635\u7684\u6bcf\u4e2a\u4f4d\u7f6e\u90fd\u6709\u4e00\u4e2a\u6570\uff0c\u8981\u6c42\u5bfb\u627e\u4e00\u4e2a\u6bcf\u6b21\u53ea\u80fd\u5411\u53f3\u6216\u5411\u4e0b\u8d70\u7684\u4ece $(1, 1)$ \u81f3 $(n, m)$ \u7684\u8def\u5f84\uff0c\u6700\u5927\u5316\u8def\u5f84\u4e0a\u7684\u6570\u7684\u6309\u4f4d\u4e0e\u4e4b\u548c\u3002\n>\n> $1 \\leq n, m \\leq 500$\uff0c$0 \\leq a_{i, j} \\leq 3 \\times 10^5$\u3002\n\n\u73b0\u5728\u7ed9\u51fa\u89e3\u51b3\u8be5\u95ee\u9898\u7684\u4e00\u4e2a**\u9519\u8bef** dp \u7b97\u6cd5\uff08\u89c1\u9898\u9762\u56fe\u7247\uff09\uff0c\u8bf7\u6784\u9020\u4e00\u7ec4\u6570\u636e\uff0chack \u6389\u8fd9\u4e2a\u7b97\u6cd5\uff0c\u4f7f\u5f97\u6b63\u786e\u7b54\u6848\u6bd4\u9519\u8bef\u7684\u8f93\u51fa**\u6070\u597d**\u5927 $k$\u3002\n\n$0 \\leq k \\leq 10^5$\u3002"
+}

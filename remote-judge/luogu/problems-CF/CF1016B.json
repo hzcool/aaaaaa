@@ -1,0 +1,21 @@
+{
+    "description": "You are given two strings $ s $ and $ t $ , both consisting only of lowercase Latin letters.\n\nThe substring $ s[l..r] $ is the string which is obtained by taking characters $ s_l, s_{l + 1}, \\dots, s_r $ without changing the order.\n\nEach of the occurrences of string $ a $ in a string $ b $ is a position $ i $ ( $ 1 \\le i \\le |b| - |a| + 1 $ ) such that $ b[i..i + |a| - 1] = a $ ( $ |a| $ is the length of string $ a $ ).\n\nYou are asked $ q $ queries: for the $ i $ -th query you are required to calculate the number of occurrences of string $ t $ in a substring $ s[l_i..r_i] $ .",
+    "inputFormat": "The first line contains three integer numbers $ n $ , $ m $ and $ q $ ( $ 1 \\le n, m \\le 10^3 $ , $ 1 \\le q \\le 10^5 $ ) \u2014 the length of string $ s $ , the length of string $ t $ and the number of queries, respectively.\n\nThe second line is a string $ s $ ( $ |s| = n $ ), consisting only of lowercase Latin letters.\n\nThe third line is a string $ t $ ( $ |t| = m $ ), consisting only of lowercase Latin letters.\n\nEach of the next $ q $ lines contains two integer numbers $ l_i $ and $ r_i $ ( $ 1 \\le l_i \\le r_i \\le n $ ) \u2014 the arguments for the $ i $ -th query.",
+    "outputFormat": "Print $ q $ lines \u2014 the $ i $ -th line should contain the answer to the $ i $ -th query, that is the number of occurrences of string $ t $ in a substring $ s[l_i..r_i] $ .",
+    "samples": [
+        [
+            "10 3 4\ncodeforces\nfor\n1 3\n3 10\n5 6\n5 7\n",
+            "0\n1\n0\n1\n"
+        ],
+        [
+            "15 2 3\nabacabadabacaba\nba\n1 15\n3 4\n2 14\n",
+            "4\n0\n3\n"
+        ],
+        [
+            "3 5 2\naaa\nbaaab\n1 3\n1 1\n",
+            "0\n0\n"
+        ]
+    ],
+    "hint": "In the first example the queries are substrings: \"cod\", \"deforces\", \"fo\" and \"for\", respectively.",
+    "translation": "\u6709\u957f\u5ea6\u4e3a$n$\u7684\u4e32$a$,\u957f\u5ea6\u4e3a$m$\u7684\u4e32$b$\uff0c\u5171$q$\u6b21\u8be2\u95ee\uff0c\u6bcf\u6b21\u8be2\u95ee$a$\u5728$l$\u5230$r$\u533a\u95f4\u4e2d\u6709\u591a\u5c11\u4e2a$b$\u3002"
+}

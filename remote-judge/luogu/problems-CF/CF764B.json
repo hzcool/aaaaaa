@@ -1,0 +1,17 @@
+{
+    "description": "Young Timofey has a birthday today! He got kit of $ n $ cubes as a birthday present from his parents. Every cube has a number $ a_{i} $ , which is written on it. Timofey put all the cubes in a row and went to unpack other presents.\n\nIn this time, Timofey's elder brother, Dima reordered the cubes using the following rule. Suppose the cubes are numbered from $ 1 $ to $ n $ in their order. Dima performs several steps, on step $ i $ he reverses the segment of cubes from $ i $ -th to $ (n-i+1) $ -th. He does this while $ i<=n-i+1 $ .\n\nAfter performing the operations Dima went away, being very proud of himself. When Timofey returned to his cubes, he understood that their order was changed. Help Timofey as fast as you can and save the holiday \u2014 restore the initial order of the cubes using information of their current location.",
+    "inputFormat": "The first line contains single integer $ n $ ( $ 1<=n<=2\u00b710^{5} $ ) \u2014 the number of cubes.\n\nThe second line contains $ n $ integers $ a_{1},a_{2},...,a_{n} $ ( $ -10^{9}<=a_{i}<=10^{9} $ ), where $ a_{i} $ is the number written on the $ i $ -th cube after Dima has changed their order.",
+    "outputFormat": "Print $ n $ integers, separated by spaces \u2014 the numbers written on the cubes in their initial order.\n\nIt can be shown that the answer is unique.",
+    "samples": [
+        [
+            "7\n4 3 7 6 9 1 2\n",
+            "2 3 9 6 7 1 4"
+        ],
+        [
+            "8\n6 1 4 2 5 6 9 2\n",
+            "2 1 6 2 5 4 9 6"
+        ]
+    ],
+    "hint": "Consider the first sample.\n\n1. At the begining row was \\[ $ 2 $ , $ 3 $ , $ 9 $ , $ 6 $ , $ 7 $ , $ 1 $ , $ 4 $ \\].\n2. After first operation row was \\[ $ 4 $ , $ 1 $ , $ 7 $ , $ 6 $ , $ 9 $ , $ 3 $ , $ 2 $ \\].\n3. After second operation row was \\[ $ 4 $ , $ 3 $ , $ 9 $ , $ 6 $ , $ 7 $ , $ 1 $ , $ 2 $ \\].\n4. After third operation row was \\[ $ 4 $ , $ 3 $ , $ 7 $ , $ 6 $ , $ 9 $ , $ 1 $ , $ 2 $ \\].\n5. At fourth operation we reverse just middle element, so nothing has changed. The final row is \\[ $ 4 $ , $ 3 $ , $ 7 $ , $ 6 $ , $ 9 $ , $ 1 $ , $ 2 $ \\]. So the answer for this case is row \\[ $ 2 $ , $ 3 $ , $ 9 $ , $ 6 $ , $ 7 $ , $ 1 $ , $ 4 $ \\].",
+    "translation": "\u5047\u5b9a\u4f60\u624b\u91cc\u539f\u672c\u6709\u4e00\u4e2a\u542b\u6709n\u4e2a\u6570\u5b57\u7684\u6570\u5217\uff0c\u4f60\u73b0\u5728\u8981\u5bf9\u5b83\u8fdb\u884c\u8fd9\u6837\u4e00\u79cd\u64cd\u4f5c\uff1a\n\n\u4ee4\u6b63\u6574\u6570i=1\uff0c\u53ea\u8981i<=n-i+1\uff0c\u5c31\u628a\u95ed\u533a\u95f4[i,n-i+1]\u6240\u6709\u7684\u6570\u5b57\u9006\u8f6c\uff0c\u5e76\u4e14\u8ba9i\u7684\u503c\u589e\u52a01\uff0c\u76f4\u5230\u4e0d\u6ee1\u8db3\u6761\u4ef6\u4e3a\u6b62\u3002\n\n\u5176\u4e2d\u201c\u9006\u8f6c\u201d\u7684\u4f8b\u5b50\u5982\u4e0b\uff1a\n\n\u5bf9\u4e8e\u6570\u52178 6 5 9\uff0c\u9006\u8f6c[2,4]\u540e\u6570\u5217\u5c06\u53d8\u4e3a8 9 5 6\n\n\u8f93\u5165\u6570\u636e\u4e3a\u64cd\u4f5c\u4e4b\u540e\u7684\u6570\u5217\uff0c\u4f60\u9700\u8981\u627e\u51fa\u539f\u6765\u7684\u6570\u5217\u3002\u8f93\u5165\u6570\u636e\u4e0d\u4fdd\u8bc1\u6570\u5217\u4e2d\u6ca1\u6709\u91cd\u590d\u5143\u7d20\u3002"
+}

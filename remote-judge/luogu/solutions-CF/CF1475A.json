@@ -1,0 +1,138 @@
+[
+    {
+        "content": "### Codeforces Round #697 (Div.3) A \u9898\u89e3\n\n### \u9898\u76ee\u5927\u610f\n\n\u5224\u65ad\u4e00\u4e2a\u6570\u80fd\u5426\u88ab\u4e00\u4e2a\u5927\u4e8e $1$ \u7684\u5947\u6570\u6574\u9664\u3002\n\n### \u505a\u6cd5\n\n\u5f88\u7b80\u5355\u3002\n\n\u5c06\u8fd9\u4e2a\u6570\u4e0d\u65ad\u9664\u4ee5 $2$\uff0c\u76f4\u5230\u5b83\u662f\u4e00\u4e2a\u5947\u6570\u3002\n\n\u5982\u679c\u5269\u4e0b\u6765\u7684\u8fd9\u4e2a\u5947\u6570\u5927\u4e8e $1$\uff0c\u8f93\u51fa `YES`\u3002\n\n\u5426\u5219\u8f93\u51fa `NO`\u3002\n\n### Code\n\n```cpp\n#include <cstdio>\n#include <iostream>\n#include <algorithm>\n#include <vector>\n#define int long long // long long\nint t;\n\nbool chaifen(int n) {\n\twhile (n % 2 == 0) { // \u5230n\u4e3a\u5947\u6570\u65f6\u505c\u6b62\n\t\tn /= 2;\n\t}\n\tif (n == 1) return false;\n\telse return true;\n}\n \nsigned main() {\n\tscanf(\"%lld\", &t);\n\twhile (t--) {\n\t\tint n;\n\t\tscanf(\"%lld\", &n);\n\t\tprintf(chaifen(n) ? \"YES\\n\" : \"NO\\n\");\n\t}\n\treturn 0;\n}\n\n```",
+        "postTime": 1611617363,
+        "uid": 357545,
+        "name": "CGDGAD",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF1475A \u3010Odd Divisor\u3011"
+    },
+    {
+        "content": "\u9898\u76ee\u5927\u610f\uff1a\u7ed9\u4f60\u4e00\u4e2a\u6570\uff0c\u6c42\u8be5\u6570\u662f\u5426\u6709\u5927\u4e8e $1$ \u7684\u5947\u56e0\u6570\u3002\n\n\u8ba9\u6211\u4eec\u5148\u6765\u89c2\u5bdf\u4e00\u4e0b\u6837\u4f8b\uff1a\n\n1. $n=2$  \u8f93\u51fa\uff1aYES\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/e4bo7t7e.png)\n\n2. $n=998244353$ \u8f93\u51fa\uff1aNO\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/3qis17l4.png)\n\n3. $n=1099511627776$ \u8f93\u51fa\uff1aYES\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/hdbh10qs.png)\n\n\u53ef\u4ee5\u89c2\u5bdf\u5230\u5982\u4e0b\u6027\u8d28\uff1a\n\u5f53\u4e00\u4e2a\u6570\u5728\u4e8c\u8fdb\u5236\u72b6\u6001\u4e0b\u65f6\uff0c\u6709\u4e14\u53ea\u6709\u4e00\u4e2a $1$ \uff0c\u90a3\u4e48\u8fd9\u4e2a\u6570\u5c31\u6ca1\u6709\u4e00\u4e2a\u5927\u4e8e $1$ \u7684\u5947\u56e0\u6570\uff0c\u56e0\u4e3a\u8fd9\u4e2a\u6570\u5168\u90e8\u7531\u56e0\u6570 $2$ \u7ec4\u6210\u3002\n\n\u6240\u4ee5\u53ef\u4ee5\u7528 $lowbit$ \u51fd\u6570\uff0c\u6c42\u51fa\u8be5\u6570\u4e8c\u8fdb\u5236\u8868\u8fbe\u5f0f\u4e2d\u6700\u4f4e\u4f4d\u7684 $1$ \u6240\u5bf9\u5e94\u7684\u503c\uff0c\u82e5\u6b64\u503c\u4e0e\u539f\u6570\u76f8\u7b49\uff0c\u5219\u6b64\u6570\u4e8c\u8fdb\u5236\u4e0b\u53ea\u6709\u4e00\u4e2a $1$ \u3002\u7531\u6b64\u53ef\u4ee5\u505a\u5230\u5224\u65ad\u7684\u590d\u6742\u5ea6 $O(1)$ \u3002\n\n\u4ee3\u7801\u5982\u4e0b\n\n```\n#include<bits/stdc++.h>\nusing namespace std;\n#define re retgister\ntypedef long long LL;\nLL n;\nint t;\nint main(){\n    scanf(\"%d\",&t);\n    while(t--){\n        scanf(\"%lld\",&n);\n        if(n-(n&(-n))==0)printf(\"NO\\n\");\n        else printf(\"YES\\n\");\n    }\n    return 0;\n}\n```",
+        "postTime": 1611629538,
+        "uid": 181566,
+        "name": "after_the_end",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF1475A \u3010Odd Divisor\u3011"
+    },
+    {
+        "content": "**\u9898\u610f\uff1a** \u7ed9\u5b9a\u4e00\u4e2a\u6b63\u6574\u6570 $n$\uff0c\u5224\u65ad\u5b83\u6709\u6ca1\u6709\u5947\u56e0\u5b50\u3002\n\n\u6211\u4eec\u8bbe $n=\\prod\\limits_{i=1}^kp_i^{\\alpha_i}$\uff0c\u5176\u4e2d $p_i$ \u4e3a\u4e92\u5f02\u7684\u8d28\u6570\uff0c$\\alpha_i\\in\\mathbb{Z^+}$\u3002\n\n\u5982\u679c $n$ \u6ca1\u6709\u5947\u56e0\u5b50\uff0c\u90a3\u4e48 $p_i$ \u4e3a\u5076\u6570\uff0c\u5373 $p_1=2,k=1$\uff0c\u6545 $n$ \u4e3a $2$ \u7684\u5e42\u3002\n\n\u56e0\u6b64\u95ee\u9898\u8f6c\u5316\u4e3a\u5224\u65ad $n$ \u662f\u5426\u662f $2$ \u7684\u5e42\uff0c\u5373\u5224\u65ad\u662f\u5426\u6709\u5982\u4e0b\u7b49\u5f0f\uff1a\n\n$$2^{\\left[\\log_{2}n\\right]}=n$$\n\n\u5176\u4e2d\uff0c$[x]$ \u8868\u793a\u4e0d\u8d85\u8fc7 $x$ \u7684\u6700\u5927\u6574\u6570\u3002\n\n**CODE\uff1a**\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint t;\nlong long n;\nint main(){\n    cin>>t;\n    while(t--){\n        scanf(\"%lld\",&n);\n        printf(\"%s\\n\",(pow(2,floor(log2(n)))==n)?\"NO\":\"YES\");\n    }\n}\n```\n",
+        "postTime": 1611631580,
+        "uid": 258325,
+        "name": "Scrutiny",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 CF1475A \u3010Odd Divisor\u3011"
+    },
+    {
+        "content": "# [A](https://codeforces.com/contest/1475/problem/A)\n\n### $\\mathcal{Translate}$\n\n\u7ed9\u5b9a\u4e00\u4e2a $n$\uff0c\u8be2\u95ee $n$ \u662f\u5426\u80fd\u88ab\u5927\u4e8e $1$ \u7684\u5947\u6570\u6574\u9664\uff0c\u82e5\u53ef\u4ee5\u8f93\u51fa $Yes$\uff0c\u5426\u5219\u8f93\u51fa $No$\u3002\n\n$2\\leq n\\leq 10^{14}$\n\n### $\\mathcal{Solution}$\n\n\u8003\u8651\u5bf9\u8fd9\u4e2a\u6570\u8fdb\u884c\u8d28\u56e0\u6570\u5206\u89e3\uff0c\u7531\u4e8e\u9664 $2$ \u4ee5\u5916\u6240\u6709\u8d28\u6570\u90fd\u662f\u5947\u6570\uff0c\u6240\u4ee5\u5982\u679c\u4e0d\u662f\u5206\u89e3\u540e\u53ea\u6709 $2$\uff0c\u90a3\u4e48\u4e00\u5b9a\u6709\u4e00\u4e2a\u5927\u4e8e $1$ \u7684\u5947\u6570\u56e0\u5b50\u3002\n\n\u6545\u5224\u65ad\u8fd9\u4e2a\u6570\u662f\u4e0d\u662f $2$ \u7684\u6b21\u5e42\u5373\u53ef\u3002\n\n### [$\\mathcal{Code}$](https://codeforces.com/contest/1475/submission/105833195)",
+        "postTime": 1611970434,
+        "uid": 223298,
+        "name": "do_while_true",
+        "ccfLevel": 8,
+        "title": "\u9898\u89e3 CF1475A \u3010Odd Divisor\u3011"
+    },
+    {
+        "content": "## \u524d\u8a00\n\u53c8\u662f\u4e00\u9053\u6570\u5b66\u9898\uff01\n\n~~\u770b\u5230\u6ca1\u6709 dalao \u7528 **Python** \uff0c\u849f\u84bb\u5c31\u53d1\u4e2a**Python**\u9898\u89e3\u5427\u3002~~\n\n## \u9898\u76ee\u5927\u610f\n\n\u5224\u65ad $n$ \u662f\u5426\u6709\u5927\u4e8e $1$ \u7684\u5947\u56e0\u6570\uff0c\u8be5\u64cd\u4f5c\u91cd\u590d $t$ \u6b21\u3002\n\n## \u601d\u8def\u5206\u6790\n\n\u8fd9\u9053\u9898\u7684\u91cd\u70b9\u5728\uff1a**\u5224\u65ad\u4e00\u4e2a\u6570\u662f\u5426\u6709\u5927\u4e8e $1$ \u7684\u5947\u56e0\u6570** \u3002\n\n## \u5206\u7c7b\u8ba8\u8bba\uff1a\n\n### $n=1$\n\u8089\u773c\u89c2\u5bdf\u53ef\u5f97\uff0c$1$ \u6ca1\u6709\u5927\u4e8e $1$ \u7684\u5947\u56e0\u6570\u3002\n\n### $n>1$\u4e14 $n$ \u662f\u5947\u6570\n\n\u8089\u773c\u89c2\u5bdf\u53ef\u5f97\uff0c**\u5b83\u672c\u8eab** \u5c31\u662f\u5927\u4e8e $1$ \u7684\u5947\u56e0\u6570\u3002\n\n### $n>1$\u4e14 $n$ \u662f\u5076\u6570\n\n\u82e5 $b$ \u662f\u4e00\u4e2a\u6b63\u6574\u6570\uff0c$2a$ \u4e00\u5b9a\u662f\u81ea\u7136\u6570\u4e2d\u7684\u4e00\u4e2a\u5076\u6570\u3002\u4f7f $n=2a$ \u73b0\u5728\u6c42 $2a$ \u662f\u5426\u6709\u5927\u4e8e $1$ \u7684\u5947\u56e0\u6570\u3002\u518d\u6b21\u8089\u773c\u89c2\u5bdf\uff0c\u53ef\u5f97\uff1a**\u73b0\u5728\u6c42 $2a$ \u662f\u5426\u6709\u5927\u4e8e $1$ \u7684\u5947\u56e0\u6570\u5176\u5b9e\u5c31\u662f\u6c42 $a$ \u662f\u5426\u6709\u5927\u4e8e $1$ \u7684\u5947\u56e0\u6570** \uff0c\u7406\u7531\u5f88\u7b80\u5355\uff1a $2$ \u662f\u5076\u6570\u3002\n\n\u7136\u540e\u5927\u5bb6\u5c31\u61c2\u4e86\uff0c**\u9012\u5f52** \uff0c\u518d\u6b21\u5224\u65ad $a$ \u3002\n\uff08~~\u867d\u7136\u6211\u4e5f\u4e0d\u662f\u5f88\u76f4\u63a5\u8fd9\u4e48\u5c31\u5199\u7684\uff09~~\u3002\n\u5982\u679c$n$ \u662f\u5947\u6570\uff0c\u6267\u884c\u4ee5\u4e0b\u4ee3\u7801\u540e\uff1a\n```python\nwhile n%2==0:\n\tn/=2\n\n```\n$n$ \u4e00\u5b9a\u662f $1$\u3002\u90a3\u4e48\u5c31\u53ef\u4ee5\u628a\u7b2c\u4e00\u79cd\u548c\u7b2c\u4e8c\u79cd\u60c5\u51b5\u5408\u5e76\u5230\u4e00\u8d77\u5199\u3002\u5982\u679c $n$ \u662f $1$ \uff0c\u5c31\u8bf4\u660e\u6ca1\u6709\u5927\u4e8e $1$ \u7684\u5947\u56e0\u6570\uff0c\u5426\u5219\u5c31\u662f\u6709\u3002\n\n## $\\texttt{AC Code}$\uff1a\n\n```python\nt=int(input())\nn=0\nwhile t!=0:\n    t-=1\n    n=int(input())\n    while n%2==0:\n        n/=2\n    if n==1:\n        print('NO')\n    else:\n        print('YES')\n\n```\n\n------------\n\n$\\texttt{The End by Yucheng}$",
+        "postTime": 1611896035,
+        "uid": 314280,
+        "name": "\u5f20\u8bed\u8bdaZYC",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 CF1475A \u3010Odd Divisor\u3011"
+    },
+    {
+        "content": "#### Description\n\n> \u6c42 $n$ \u662f\u5426\u6709\u5927\u4e8e $1$ \u7684\u5947\u6570\u56e0\u5b50\u3002\n\n#### Solution\n\n\u76f4\u63a5\u5efa\u7acb\u4e00\u4e2a while \u5faa\u73af\uff0c\u6bcf\u6b21\u9664 $2$\uff0c\u5982\u679c $n$ \u53d8\u4e3a\u5947\u6570\u4e86\u5c31\u9000\u51fa\u3002\n\n\u90a3\u4e48\u9000\u51fa\u5faa\u73af\u7684 $n$ \u5373\u4e3a $n$ \u7684\u6700\u5927\u5947\u6570\u56e0\u5b50\uff0c\u770b\u4ed6\u662f\u5426\u4e3a $1$ \u5373\u53ef\u3002\n\n#### Code\n\n```cpp\n#include <bits/stdc++.h>\n\nusing namespace std;\n\nint main () {\n\tint t;\n\tscanf(\"%d\", &t);\n\twhile (t--) {\n\t\tlong long n;\n\t\tscanf(\"%lld\", &n);\n\t\twhile (n % 2 == 0) n /= 2;\n\t\tif (n == 1) puts(\"NO\");\n\t\telse puts(\"YES\");\n\t}\n\treturn 0;\n}\n\n```",
+        "postTime": 1611623617,
+        "uid": 357851,
+        "name": "\u72db\u679d\u98ce\u6597",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1475A \u3010Odd Divisor\u3011"
+    },
+    {
+        "content": "## \u601d\u8def\n\u5982\u679c\u4e00\u4e2a\u6570$x$\u8981\u6709\u4e00\u4e2a\u5947\u7ea6\u6570\uff0c\u90a3\u4e48\u5b83\u4e00\u5b9a\u6709\u4e00\u4e2a\u5947\u8d28\u6570\u7ea6\u6570\u3002\u6211\u4eec\u53ef\u4ee5\u770b\u4e00\u4e0b\u5947\u6570\u548c\u5076\u6570\u76f8\u4e58\u662f\u53d1\u751f\u4ec0\u4e48\uff1a\n\n- \u5076\u6570$\u00d7$\u5076\u6570$=$\u5076\u6570\n- \u5076\u6570$\u00d7$\u5947\u6570$=$\u5076\u6570\n- \u5947\u6570$\u00d7$\u5076\u6570$=$\u5076\u6570\n- \u5947\u6570$\u00d7$\u5947\u6570$=$\u5947\u6570\n\n\u552f\u4e00\u7684\u4e00\u4e2a\u5076\u8d28\u6570\u662f$2$\uff0c\u6240\u4ee5\uff0c\u5982\u679c\u4e00\u4e2a\u6570\u6ca1\u6709\u5947\u8d28\u6570\uff0c\u90a3\u4e48\u5b83\u4e00\u5b9a\u662f2\u7684\u6574\u6570\u6b21\u5e42\u3002\u7528\u4ee3\u7801\u6765\u5b9e\u73b0\u7684\u8bdd\uff0c\u5c31\u53ef\u4ee5\u7528$n$\u4e00\u76f4\u53bb\u9664$2$\uff0c\u5982\u679c\u6700\u540e\u7ed3\u679c\u662f$1$\uff0c\u90a3\u4e48$n$\u5c31\u662f2\u7684\u6574\u6570\u6b21\u5e42\u3002\n\n## code\n```cpp\n#include <bits/stdc++.h>\n\nusing namespace std;\nusing ll = long long;\nusing ld = long double;\n\nvoid solve() {\n  ll n;\n  cin >> n;\n  if (n & (n - 1)) {\n    cout << \"YES\" << endl;\n  } else {\n    cout << \"NO\" << endl;\n  }\n}\n\nint main() {\n  int t;\n  cin >> t;\n  while (t--) {\n    solve();\n  }\n  return 0;\n}\n```",
+        "postTime": 1611616596,
+        "uid": 348831,
+        "name": "qinyihao",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1475A \u3010Odd Divisor\u3011"
+    },
+    {
+        "content": "# Translate\n\u7ed9\u4f60\u4e00\u7ec4\u6570\uff0c\u5224\u65ad\u8fd9\u7ec4\u6570\u662f\u5426\u5206\u522b\u6709\u5927\u4e8e1\u7684\u5947\u56e0\u6570\u3002\n# Solution\n\u6709\u5927\u4e8e 1 \u7684\u5947\u56e0\u6570\u7b49\u4ef7\u4e8e\u4e0d\u662f 2 \u7684\u4e58\u65b9\u6570\u3002\u6211\u5219\u8003\u8651\u628a\u6240\u6709\u7684 2 \u9664\u5b8c\uff0c\u9664\u5b8c\u4ee5\u540e\uff0c\u5982\u679c\u4e0d\u662f 1 \uff0c\u5c31\u610f\u5473\u7740\u8fd9\u4e2a\u6570\u6709\u5927\u4e8e 1 \u7684\u5947\u56e0\u6570\uff1b\u5982\u679c\u662f 1 \uff0c\u5c31\u610f\u5473\u7740\u6ca1\u6709\u5927\u4e8e 1 \u7684\u5947\u56e0\u6570\u3002\n# Code\n```cpp\n#include<bits/stdc++.h>//\u4e07\u80fd\u5934\nusing namespace std;\nlong long n,i,num,u;\nint main(){\n\tcin>>num;\n\tfor(u=0;u<num;u++){\n\t\tcin>>n; \n\t\tfor(i=0;i<2000;i++){//\u628a2\u9664\u5b8c\n\t\t    if(n%2==0){//\u5224\u65ad2\u9664\u5b8c\u4e86\u6ca1\u6709\n\t\t       n/=2;\n\t\t    }else{\n\t\t\t   break;\n\t\t    }\n\t    }\n\t    if(n!=1){\n\t    \tcout<<\"YES\"<<endl;\n\t    }else{\n\t\t    cout<<\"NO\"<<endl;\n\t    }\n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1612160268,
+        "uid": 275445,
+        "name": "\u6240\u6709\u4eba\u889b\u65f3",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 CF1475A \u3010Odd Divisor\u3011"
+    },
+    {
+        "content": "[\u9898\u76ee\u9875\u9762](https://www.luogu.com.cn/problem/CF1475A)\n\n[\u66f4\u597d\u7684\u9605\u8bfb\u4f53\u9a8c](https://www.luogu.com.cn/blog/yinjun2024/solution-cf1475a)\n\n\u5f53 $n = 2^x$ \u65f6\uff0c\u56e0\u5b50\u4e3a $1,2,4,\\dots,2^x$\uff0c\u9664\u53bb $1$ \u7684\u56e0\u5b50\u90fd\u662f\u5076\u6570\u3002\n\n\u6240\u4ee5\u5f53 $n = 2^x$ \u65f6\uff0c\u8f93\u51fa`NO`\uff0c\u5426\u5219\u8f93\u51fa`YES`\u3002\n\n\u4ee3\u78011\uff1a\n```cpp\n#include <bits/stdc++.h>\nint main() {\n    int t;\n    scanf(\"%d\", &t);\n    while (t--) {\n        long long n;\n        scanf(\"%lld\", &n);\n        while ((n & 1) == 0) n >>= 1;\n        if (n == 1) puts(\"NO\");\n        else puts(\"YES\");\n    }\n    return 0;\n}\n```\n\n\u4ee3\u78012\uff1a\n\n\u8fd0\u7528\u4e86\u6811\u72b6\u6570\u7ec4\u66fe\u7528\u8fc7\u7684 `lowbit`\u3002\n\n```cpp\n#include <bits/stdc++.h>\nint main() {\n    int t;\n    scanf(\"%d\", &t);\n    while (t--) {\n        long long n;\n        scanf(\"%lld\", &n);\n        if ((n & -n) == n) puts(\"NO\");\n        else puts(\"YES\");\n    }\n    return 0;\n}\n```",
+        "postTime": 1611734069,
+        "uid": 109114,
+        "name": "_l_l_",
+        "ccfLevel": 8,
+        "title": "\u3010\u9898\u89e3\u3011 CF1475A \u3010Odd Divisor\u3011"
+    },
+    {
+        "content": "### \u9898\u76ee\u5927\u610f\n\u5224\u65ad\u4e00\u4e2a\u6570\u80fd\u5426\u88ab\u4e00\u4e2a\u5927\u4e8e $1$ \u7684\u6570\u6574\u9664\u3002\n\n\u6211\u4eec\u6700\u5148\u60f3\u5230\u80fd\u4e00\u76f4\u9664\u4ee5 $2$\uff0c\u5982\u679c\u4f59\u6570\u4e3a $1$\uff0c\u90a3\u4e48\u8f93\u51fa `NO`\uff0c\u5426\u5219\u8f93\u51fa `YES`\u3002\n\n\u8fd8\u8981\u6ce8\u610f\u4e00\u70b9 $n$ \u7684\u8303\u56f4\u662f $10$ \u7684 $14$ \u6b21\u65b9\uff0cint \u7684\u8303\u56f4\u6700\u5927\u5927\u7ea6\u662f $10$ \u7684 $11$ \u6b21\u65b9\uff0c\u6240\u4ee5\u8981\u7528 long long\u3002\n### \u4ee3\u7801\n```\n#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n\tlong long t, n;\n\tcin >> t;\n\tfor (int i = 1; i <= t; i++) {\n\t\tcin >> n;\n\t\twhile (n % 2 == 0) {\n\t\t\tn /= 2;\n\t\t}\n\t\tif (n == 1) {\n\t\t\tcout << \"NO\" << endl;\n\t\t} else {\n\t\t\tcout << \"YES\" << endl;\n\t\t}\n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1611717669,
+        "uid": 250291,
+        "name": "yuchenren",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1475A \u3010Odd Divisor\u3011"
+    },
+    {
+        "content": "\u8fd8\u6ca1\u6709\u7ffb\u8bd1\u5462awa\n\n### \u9898\u76ee\u5927\u610f\n\n\u7ed9\u5b9a\u4e00\u4e2a\u6574\u6570 $n$\uff0c\u5224\u65ad $n$ \u662f\u5426\u80fd\u88ab\u5927\u4e8e $1$ \u7684\u5947\u6570\u6574\u9664\uff0c\u82e5\u80fd\uff0c\u8f93\u51faYES\uff0c\u5426\u5219\u8f93\u51faNO\n\n### \u89e3\u9898\u601d\u8def\n\n\u82e5 $n$ \u4e3a\u5076\u6570\uff0c\u4fbf\u4e0d\u65ad\u5bf9 $n$ \u9664\u4ee5 $2$\uff0c\u76f4\u5230 $n$ \u4e3a\u5947\u6570\u4e3a\u6b62\uff0c\u6700\u540e\u5224\u65ad\n\n\u82e5 $n$ \u672c\u8eab\u5c31\u4e3a\u5947\u6570\uff0c\u5219\u7531\u9898\u610f\uff0c\u53ef\u77e5 $n$ \u59cb\u7ec8\u662f\u5927\u4e8e $1$ \u7684\uff0c\u6240\u4ee5\u76f4\u63a5\u8f93\u51faYES\n\n\u4ee3\u7801\u6ca1\u4ec0\u4e48\u96be\u7684\uff0c\u5c31\u76f4\u63a5\u653e\u4e86\n\n\u6ce8\u610f\uff1a\u4e00\u5b9a\u8981\u8bb0\u5f97\u5f00 $long long$\n\n```cpp\n#include<bits/stdc++.h>\n#define ll long long\nusing namespace std;\nll t,n;\nint main(){\n\tscanf(\"%lld\",&t);\n\twhile(t--){\n\t\tscanf(\"%lld\",&n);\n\t\twhile(n%2==0) n>>=1;//\u7b49\u4ef7\u4e8en/=2\uff0c\u4e0d\u61c2\u4f4d\u8fd0\u7b97\u7684\u53ef\u4ee5\u53bb\u767e\u5ea6\u4e00\u4e0b\n\t\tif(n%2==1&&n>1) printf(\"YES\\n\");\n\t\telse printf(\"NO\\n\");\n\t}\n}\n```\n",
+        "postTime": 1611638256,
+        "uid": 209808,
+        "name": "\u94f6\u6cb3AI",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF1475A \u3010Odd Divisor\u3011"
+    },
+    {
+        "content": "~~\u600e\u4e48\u53ea\u6709\u4e24\u7bc7\u9898\u89e3\uff0c\u8fd9\u4e0d\u79d1\u5b66~~\n\n----\n\n\u53ef\u4ee5\u53d1\u73b0\uff0c\u9664\u4e86\u80fd\u4ee5 $2^n$ \u8868\u793a\u7684\u6574\u6570\u5916\uff0c\u5176\u4f59\u6574\u6570\u90fd\u53ef\u4ee5\u5206\u51fa\u4e00\u4e2a\u5947\u6570\u9664\u6570\uff08\u6216\u8005\u5176\u672c\u8eab\u5c31\u662f\uff09\n\n\u6bd4\u5982\uff1a$8=2 \\times 3$ \uff0c $84 = 2 \\times 2 \\times 3 \\times 7$\n\n\u8fd9\u662f\u56e0\u4e3a\u9664\u4e86 $2^n$ \u5916\u7684\u6570\u90fd\u53ef\u4ee5\u9664\u4ee5 $2^x$ \u540e\u5f97\u5230\u4e00\u4e2a\u4e0d\u4e3a $1$ \u7684\u5947\u6570\uff08 $1$ \u9664\u5916\uff09\n\n\u95ee\u9898\u8f6c\u6362\u6210\u4e86\u5224\u65ad\u4e00\u4e2a\u6570\u662f\u4e0d\u662f $2$ \u7684\u6574\u6570\u6b21\u65b9\n\n\u4ee3\u7801\uff08\u8bb0\u5f97\u5f00 `long long` \uff09\uff1a\n\n```cpp\n\n// Problem: CF1475A Odd Divisor\n// Contest: Luogu\n// URL: https://www.luogu.com.cn/problem/CF1475A\n// Memory Limit: 250 MB\n// Time Limit: 2000 ms\n// Powered by CP Editor (https://github.com/cpeditor/cpeditor)\n\n#include <bits/stdc++.h>\nusing namespace std;\nlong long n,f,T;\nint main()\n{\n\tcin>>T;\n\twhile(T--)\n\t{\n\t\tcin>>n;\n\t\tf=log2(n);\n\t\tif(n==pow(2,f))\n\t\t{\n\t\t\tcout<<\"NO\"<<endl;\n\t\t\tcontinue;\n\t\t}\n\t\tcout<<\"YES\"<<endl;\n\t}\n\treturn 0;\n}\n\n```",
+        "postTime": 1611635367,
+        "uid": 227728,
+        "name": "\u51b0\u7cd6\u9e3d\u5b50",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF1475A \u3010Odd Divisor\u3011"
+    },
+    {
+        "content": "\u6765\u4e00\u7bc7 Python \u9898\u89e3\u3002\n\n\u6b64\u9898\u8be2\u95ee\u4e00\u4e2a\u6b63\u6574\u6570 $n$ \u4e2d\u662f\u5426\u542b\u6709\u5927\u4e8e $1$ \u7684\u5947\u56e0\u6570\u3002\n\n\u5982\u679c\u5b58\u5728\u8fd9\u4e2a\u5947\u56e0\u6570\uff0c\u6211\u4eec\u5c06\u8fd9\u4e2a\u56e0\u6570\u8bbe\u4e3a $k$\u3002\n\n\u90a3\u4e48\u6211\u4eec\u7684 $n$ \u5c31\u53ef\u4ee5\u8868\u793a\u4e3a $n=k \\times 2^m$\uff0c\u5176\u4e2d $m$ \u4e3a\u81ea\u7136\u6570\u3002\n\n\u90a3\u4e48\u6211\u4eec\u5c31\u53ef\u4ee5\u5c06 $n$ \u4e0d\u65ad $\\div 2$\uff0c\u76f4\u5230 $n$ \u6210\u4e3a\u4e00\u4e2a\u5947\u6570\uff0c\u5373 $k$\u3002\u5224\u65ad $k$ \u662f\u5426\u4e3a $1$ \u5373\u53ef\u3002\u5982\u679c\u4e3a $1$\uff0c\u8f93\u51fa `NO`\uff1b\u5426\u5219\u8f93\u51fa `YES`\u3002\n\n\u4ee3\u7801\uff1a\n\n```python\nt=int(input()) # \u8f93\u5165\u6570\u636e\u7ec4\u6570\nfor test in range(t): # \u5faa\u73af t \u6b21\n    n=int(input()) # \u8f93\u5165 n\n    while n%2==0: n/=2; # \u4e0d\u65ad /2 \u76f4\u5230\u662f\u5947\u6570\n    if n==1: print(\"NO\") # \u4e0d\u6ee1\u8db3\u8981\u6c42\u8f93\u51fa NO\n    else: print(\"YES\") # \u6ee1\u8db3\u8981\u6c42\u8f93\u51fa YES\n```\n\n\u5728\u6587\u7ae0\u7684\u6700\u540e\uff0c\u5982\u679c\u5927\u5bb6\u5bf9 Python \u7684\u7528\u6cd5\u6709\u4ec0\u4e48\u95ee\u9898\uff0c\u6b22\u8fce\u6765\u5230\u6211\u7684\u535a\u6587 [Python \u5feb\u901f\u4e0a\u624b](https://www.luogu.com.cn/blog/HuayuLucas/python-kuai-su-shang-shou)\uff0c\u6211\u4eec\u4e00\u8d77\u63a2\u8ba8\u6709\u5173 Python \u7684\u77e5\u8bc6\u3002\n\n\u611f\u8c22\u5927\u5bb6\u7684\u9605\u8bfb\uff01",
+        "postTime": 1611624391,
+        "uid": 339632,
+        "name": "LucasXu80",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF1475A \u3010Odd Divisor\u3011"
+    },
+    {
+        "content": "\u9898\u610f\u662f\u5224\u65ad\u4e00\u4e2a\u6570\u662f\u5426\u80fd\u88ab\u5927\u4e8e $1$ \u7684\u6574\u6570\u6574\u9664\u3002\n\n\u90a3\u4e48\u6211\u4eec\u4e0d\u59a8\u60f3\u5230\uff0c\u6211\u4eec\u53ef\u4ee5\u4e00\u76f4\u8ba9\u8fd9\u4e2a\u6570\u9664\u4ee5 $2$\uff0c\u76f4\u5230\u4e0d\u80fd\u9664\u4e3a\u6b62\u3002\u90a3\u4e48\u5982\u679c\u5269\u4e0b\u7684\u6570\u662f $1$\uff0c\u663e\u7136\u4e0d\u7b26\u89c4\u5b9a\uff1b\u53cd\u4e4b\uff0c\u5219\u7b26\u5408\u3002\n\n\u8bb0\u5f97\u5f00 $\\text{long long}$\u3002\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nlong long t,n;\nint main()\n{\n\tcin>>t;\n\tfor(int T=1;T<=t;T++)\n\t{\n\t\tcin>>n;\n\t\twhile(n%2==0) n/=2;\n\t\tif(n==1) cout<<\"NO\"<<endl;\n\t\telse cout<<\"YES\"<<endl;\n\t}\n    return 0;\n}\n```\n",
+        "postTime": 1611624017,
+        "uid": 179871,
+        "name": "Lithium_Chestnut",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 CF1475A \u3010Odd Divisor\u3011"
+    },
+    {
+        "content": "## \u9898\u610f\uff1a\n\n\u5224\u65ad\u4e00\u4e2a\u6570\u80fd\u5426\u88ab\u4e00\u4e2a\u4e0d\u4e3a $1$ \u7684\u5947\u6570\u6574\u9664\u3002\n\n## \u601d\u8def\uff1a\n\n\u6570\u636e\u8f83\u5927\uff0c\u6240\u4ee5\u4e0d\u80fd\u4ece $2$ \u5230 $n$ \u8fdb\u884c\u679a\u4e3e\u3002\n\n\u6362\u4e00\u4e2a\u89d2\u5ea6\u601d\u8003\uff1a\n\n$n$ \u5982\u679c\u662f\u5076\u6570\uff0c\u5c31\u4e00\u76f4\u9664\u4ee5 $2$\uff0c\u76f4\u5230 $n$ \u4e3a\u5947\u6570\u3002\n\n\u5982\u679c\u6b64\u65f6 $n$ \u4e3a $1$\uff0c\u90a3\u5c31\u8bf4\u660e $n$ \u4e0d\u80fd\u6ee1\u8db3\u6761\u4ef6\u3002\n\n\u5426\u5219\u53ef\u4ee5\u6ee1\u8db3\u3002\n\n\u4ee3\u7801\u5c31\u5f88\u597d\u5199\u4e86\u3002\u6ce8\u610f\u8981\u5f00 $\\texttt{long long}$\u3002\n\n\u65f6\u95f4\u590d\u6742\u5ea6\u4e3a $O(Tlogn)$\u3002\n\n## $Code:$\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint T;\nlong long n;\nint main() {\n\tcin>>T;\n\twhile(T--) {\n\t\tscanf(\"%lld\",&n);\n\t\twhile(n % 2 == 0) n /= 2;\n\t\tif (n == 1) puts(\"NO\"); \n\t\telse puts(\"YES\");\n\t}\n\treturn 0;\n}\n```\n\n",
+        "postTime": 1611623596,
+        "uid": 351320,
+        "name": "RBI_GL",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1475A \u3010Odd Divisor\u3011"
+    },
+    {
+        "content": "> \u7ed9\u4f60\u4e00\u4e2a\u6570\uff0c\u95ee\u8fd9\u4e2a\u6570\u6709\u6ca1\u6709\u975e $1$ \u5947\u56e0\u6570\u3002\n\n\u6c34\u9898\uff0c\u56e0\u4e3a\u5076\u56e0\u5b50\u5fc5\u6709 $2$ \u8fd9\u4e2a\u56e0\u5b50\uff0c\u6211\u4eec\u628a\u6240\u6709\u7684 $2$ \u9664\u53bb\u518d\u5224\u65ad\u662f\u5426\u662f $1$ \u5373\u53ef\u3002\n\n~~\u6211\u8fd8\u628a\u9898\u76ee\u770b\u6210\u4e86\u6c42 $n$ \u662f\u5426\u4e3a\u5947\u6570~~ \u7f5a\u65f6\u602a\u5c31\u662f\u6211\n\n$\\text{Code}$\uff1a\n\n```cpp\n#define W(M) while(M--)\n\nint main() {\n\tint T; cin >> T;\n\tW(T) {\n\t\tll n; qread(n);\n\t\twhile(!(n % 2)) n /= 2;\n\t\tif(n == 1) puts(\"NO\");\n\t\telse puts(\"YES\");\n\t}\n \treturn 0;\n}\n```\n",
+        "postTime": 1611621515,
+        "uid": 242543,
+        "name": "BreezeEnder",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF1475A Odd Divisor"
+    },
+    {
+        "content": "\u7b80\u8981\u5199\u4e00\u4e0b\u3002\n___\n\u9996\u5148\u8981\u4f7f $n$ \u6ca1\u6709\u5927\u4e8e $1$ \u7684**\u5947**\u56e0\u6570\uff0c$n$ \u5fc5\u5b9a\u662f $2$ \u7684\u6b63\u6574\u6570\u6b21\u5e42\u3002\n\n\u4e3a\u4ec0\u4e48\u5462\uff1f\n\n\u82e5 $n=2^k\\times m$\uff0c\u82e5 $n$ \u4e0d\u662f $2$ \u7684\u6b63\u6574\u6570\u6b21\u5e42\uff0c\u5219 $m\\nmid1\\text{ and }m>1$\uff0c\u6545 $m$ \u662f $n$ \u7684\u4e00\u4e2a\u5927\u4e8e $1$ \u7684\u5947\u56e0\u6570\u3002\u5426\u5219\uff0c$m=1$\uff0c\u5219 $n$ \u6ca1\u6709\u5927\u4e8e $1$ \u7684\u5947\u56e0\u6570\u3002\n\n\u53ea\u8981\u5224\u65ad $n$ \u662f\u4e0d\u662f $2$ \u7684\u6b63\u6574\u6570\u6b21\u5e42\u5373\u53ef\u3002\n\n$\\mathcal Code:$\n\n```cpp\n#include <cstdio>\n\n#define int long long\nusing namespace std;\nint t, n;\nsigned main(){\n\tscanf(\"%lld\", &t);\n\twhile(t--){\n\t\tscanf(\"%lld\", &n);\n\t\twhile(!(n % 2)) n /= 2;\n\t\tputs(n == 1 ? \"NO\" : \"YES\");\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1612102983,
+        "uid": 224931,
+        "name": "CSP_Sept",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF1475A \u3010Odd Divisor\u3011"
+    }
+]

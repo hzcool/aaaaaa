@@ -1,0 +1,13 @@
+{
+    "description": "Alice has a lovely piece of cloth. It has the shape of a square with a side of length $ a $ centimeters. Bob also wants such piece of cloth. He would prefer a square with a side of length $ b $ centimeters (where $ b < a $ ). Alice wanted to make Bob happy, so she cut the needed square out of the corner of her piece and gave it to Bob. Now she is left with an ugly L shaped cloth (see pictures below).\n\nAlice would like to know whether the area of her cloth expressed in square centimeters is [prime.](https://en.wikipedia.org/wiki/Prime_number) Could you help her to determine it?",
+    "inputFormat": "The first line contains a number $ t $ ( $ 1 \\leq t \\leq 5 $ ) \u2014 the number of test cases.\n\nEach of the next $ t $ lines describes the $ i $ -th test case. It contains two integers $ a $ and $ b~(1 \\leq b < a \\leq 10^{11}) $ \u2014 the side length of Alice's square and the side length of the square that Bob wants.",
+    "outputFormat": "Print $ t $ lines, where the $ i $ -th line is the answer to the $ i $ -th test case. Print \"YES\" (without quotes) if the area of the remaining piece of cloth is prime, otherwise print \"NO\".\n\nYou can print each letter in an arbitrary case (upper or lower).",
+    "samples": [
+        [
+            "4\n6 5\n16 13\n61690850361 24777622630\n34 33\n",
+            "YES\nNO\nNO\nYES\n"
+        ]
+    ],
+    "hint": "The figure below depicts the first test case. The blue part corresponds to the piece which belongs to Bob, and the red part is the piece that Alice keeps for herself. The area of the red part is $ 6^2 - 5^2 = 36 - 25 = 11 $ , which is prime, so the answer is \"YES\".\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1033B/26aa17f955334a29eef8994b7c5af8ed29b66689.png)In the second case, the area is $ 16^2 - 13^2 = 87 $ , which is divisible by $ 3 $ .\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1033B/bb700dc40c3e1b73968059e8f9c3fba6a4d8a953.png)In the third case, the area of the remaining piece is $ 61690850361^2 - 24777622630^2 = 3191830435068605713421 $ . This number is not prime because $ 3191830435068605713421 = 36913227731 \\cdot 86468472991  $ .\n\nIn the last case, the area is $ 34^2 - 33^2 = 67 $ .",
+    "translation": "\u7ed9\u4f60\u4e00\u4e2a\u957f\u5ea6\u4e3aa\u7684\u6b63\u65b9\u5f62\uff0c\u5728\u5176\u4e2d\u88c1\u6389\u4e00\u4e2a\u957f\u5ea6\u4e3ab\u7684\u6b63\u65b9\u5f62\uff0c\u95ee\u5269\u4f59\u9762\u79ef\u662f\u5426\u662f\u8d28\u6570\u3002\u591a\u7ec4\u6570\u636e"
+}

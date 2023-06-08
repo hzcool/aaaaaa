@@ -1,0 +1,21 @@
+{
+    "description": "Is it rated?\n\nHere it is. The Ultimate Question of Competitive Programming, Codeforces, and Everything. And you are here to answer it.\n\nAnother Codeforces round has been conducted. No two participants have the same number of points. For each participant, from the top to the bottom of the standings, their rating before and after the round is known.\n\nIt's known that if at least one participant's rating has changed, then the round was rated for sure.\n\nIt's also known that if the round was rated and a participant with lower rating took a better place in the standings than a participant with higher rating, then at least one round participant's rating has changed.\n\nIn this problem, you should not make any other assumptions about the rating system.\n\nDetermine if the current round is rated, unrated, or it's impossible to determine whether it is rated of not.",
+    "inputFormat": "The first line contains a single integer $ n $ ( $ 2<=n<=1000 $ ) \u2014 the number of round participants.\n\nEach of the next $ n $ lines contains two integers $ a_{i} $ and $ b_{i} $ ( $ 1<=a_{i},b_{i}<=4126 $ ) \u2014 the rating of the $ i $ -th participant before and after the round, respectively. The participants are listed in order from the top to the bottom of the standings.",
+    "outputFormat": "If the round is rated for sure, print \"rated\". If the round is unrated for sure, print \"unrated\". If it's impossible to determine whether the round is rated or not, print \"maybe\".",
+    "samples": [
+        [
+            "6\n3060 3060\n2194 2194\n2876 2903\n2624 2624\n3007 2991\n2884 2884\n",
+            "rated\n"
+        ],
+        [
+            "4\n1500 1500\n1300 1300\n1200 1200\n1400 1400\n",
+            "unrated\n"
+        ],
+        [
+            "5\n3123 3123\n2777 2777\n2246 2246\n2246 2246\n1699 1699\n",
+            "maybe\n"
+        ]
+    ],
+    "hint": "In the first example, the ratings of the participants in the third and fifth places have changed, therefore, the round was rated.\n\nIn the second example, no one's rating has changed, but the participant in the second place has lower rating than the participant in the fourth place. Therefore, if the round was rated, someone's rating would've changed for sure.\n\nIn the third example, no one's rating has changed, and the participants took places in non-increasing order of their rating. Therefore, it's impossible to determine whether the round is rated or not.",
+    "translation": "\u4e00\u573aCodeforces\u7684\u6bd4\u8d5b,\u7ed9\u51fan\u540d\u9009\u624b\u6bd4\u8d5b\u4e4b\u524d\u548c\u4e4b\u540e\u7684rating,\u5224\u65ad\u672c\u573a\u6bd4\u8d5b\u662f\u5426\u662f\u8bc4\u7ea7\u7684.\u4f17\u6240\u5468\u77e5,\u5982\u679c\u4e00\u573a\u6bd4\u8d5b\u91cc\u6709\u9009\u624b\u7684\u5206\u6570\u53d1\u751f\u4e86\u53d8\u5316,\u5219\u8fd9\u573a\u6bd4\u8d5b\u662f\u8bc4\u7ea7\u7684;\u5982\u679c\u672c\u573a\u6bd4\u8d5b\u4e2drating\u8f83\u4f4e\u7684\u9009\u624b\u6392\u5728rating\u8f83\u9ad8\u7684\u9009\u624b\u524d\u9762\u4f46\u662frating\u6ca1\u6709\u53d8\u5316,\u5219\u8be5\u573a\u6bd4\u8d5b\u662f\u4e0d\u8bc4\u7ea7\u7684.\u5982\u679c\u672c\u573a\u6bd4\u8d5b\u662f\u8bc4\u7ea7\u7684,\u8f93\u51fa\"rated\";\u5982\u679c\u4e0d\u8bc4\u7ea7,\u8f93\u51fa\"unrated\";\u65e0\u6cd5\u5224\u65ad\u8f93\u51fa\"maybe\"."
+}

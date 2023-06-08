@@ -1,0 +1,18 @@
+[
+    {
+        "content": "## \u9898\u610f\n\u6c42 $n$ \u4e2a\u6570\u7684\u6700\u5927\u516c\u56e0\u6570\u3002\n## \u601d\u8def\n\u602a\u517d\u7684\u653b\u51fb\u65b9\u5f0f\u76f8\u4f3c\u4e8e\u6c42\u6700\u5927\u516c\u56e0\u6570\uff0c\u6240\u4ee5\u53ef\u4ee5\u7528\u8f97\u8f6c\u76f8\u9664\u6cd5\u6c42\u6700\u5927\u516c\u56e0\u6570\u907f\u514d\u91cd\u590d\u5faa\u73af\u3002\n\n\u8f97\u8f6c\u76f8\u9664\u6cd5\u5c31\u662f\u7528\u4e24\u4e2a\u6570\u8f6e\u6d41\u53d6\u6a21\u3002\u5f53\u4e00\u4e2a\u6570\u662f $0$ \u65f6\uff0c\u53e6\u4e00\u4e2a\u6570\u5c31\u662f\u539f\u5148\u4e24\u4e2a\u6570\u7684\u6700\u5927\u516c\u56e0\u6570\n\n\u591a\u4e2a\u6570\u7684\u6700\u5927\u516c\u56e0\u6570\u6ee1\u8db3\uff1a$\\gcd(a,b,c) = \\gcd(a,\\gcd(b,c))$\uff0c\u8bc1\u660e\u53ef\u4ee5\u53c2\u8003[\u8fd9\u7bc7\u9898\u89e3](https://www.luogu.com.cn/blog/SSL-XXY/solution-sp27561)\n\n## \u4ee3\u7801\n[AC](https://www.luogu.com.cn/record/89926139)\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint gcd(int a,int b) {\n\treturn b?gcd(b,a % b):a;//\u8f97\u8f6c\u76f8\u9664\u6cd5\n}\nint main() {\n\tint a,ans;\n\tcin>>a;\n\tfor(int i = 1;i <= a;i++) {\n\t\tint b;\n\t\tcin>>b;\n\t\tif(i == 1) ans = b;\n\t\telse ans = gcd(ans,b);\n\t}\n\tcout<<ans;\n}\n```\n",
+        "postTime": 1665804950,
+        "uid": 669924,
+        "name": "guozhetao",
+        "ccfLevel": 3,
+        "title": "AT_abc118_c\u9898\u89e3"
+    },
+    {
+        "content": "\u770b\u89c1\u4e00\u4e2a\u6ca1\u6709\u9898\u89e3\u7684\u6c34\u9898\uff0c\u8fdb\u6765\u5199\u4e00\u7bc7\u9898\u89e3\u3002\n\n## \u601d\u8def\n\n\u5b9e\u9645\u4e0a\u602a\u517d\u7684\u653b\u51fb\u65b9\u5f0f\u76f8\u4f3c\u4e8e\u6c42$gcd$\u7684\u8f97\u8f6c\u76f8\u9664\u6cd5\uff0c\u6240\u4ee5\u8fd9\u9053\u9898\u5c31\u662f\u8ba9\u6211\u4eec\u6c42\u8fd9\u4e9b\u6570\u4e2d\u7684\u6700\u5927\u516c\u56e0\u6570\u3002\u6211\u4eec\u53ef\u4ee5\u4f7f\u7528`__gcd`\u51fd\u6570\u3002\n\n\u7b80\u800c\u8a00\u4e4b\u5c31\u662f\u6bcf\u8f93\u5165\u4e00\u4e2a\u6570\uff0c\u5c31\u4e0e\u524d\u9762\u6240\u6709\u6570\u7684\u6700\u5927\u516c\u56e0\u6570\u505a$gcd$\u8fd0\u7b97\uff0c\u5e76\u8f93\u51fa\u6700\u540e\u7684\u7ed3\u679c\u3002\n\n## \u4e3b\u4f53\u4ee3\u7801\n\n```cpp\n\tint n;\n\tscanf(\"%d\",&n);\n\tint tmp;\n\tscanf(\"%d\",&tmp);\n\tfor(int i=1; i<n; i++)\n\t{\n\t\tint tmp1;\n\t\tscanf(\"%d\",&tmp1);\n\t\ttmp=__gcd(tmp,tmp1);\n\t}\n\tprintf(\"%d\\n\",tmp);\n```\n",
+        "postTime": 1609059464,
+        "uid": 231358,
+        "name": "gtl_caiji",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 AT4297 \u3010[ABC118C] Monsters Battle Royale\u3011"
+    }
+]

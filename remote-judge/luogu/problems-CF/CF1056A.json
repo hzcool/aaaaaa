@@ -1,0 +1,17 @@
+{
+    "description": "Arkady's morning seemed to be straight of his nightmare. He overslept through the whole morning and, still half-asleep, got into the tram that arrived the first. Some time after, leaving the tram, he realized that he was not sure about the line number of the tram he was in.\n\nDuring his ride, Arkady woke up several times and each time he saw the tram stopping at some stop. For each stop he knows which lines of tram stop there. Given this information, can you help Arkady determine what are the possible lines of the tram he was in?",
+    "inputFormat": "The first line contains a single integer $ n $ ( $ 2 \\le n \\le 100 $ ) \u2014 the number of stops Arkady saw.\n\nThe next $ n $ lines describe the stops. Each of them starts with a single integer $ r $ ( $ 1 \\le r \\le 100 $ ) \u2014 the number of tram lines that stop there. $ r $ distinct integers follow, each one between $ 1 $ and $ 100 $ , inclusive, \u2014 the line numbers. They can be in arbitrary order.\n\nIt is guaranteed that Arkady's information is consistent, i.e. there is at least one tram line that Arkady could take.",
+    "outputFormat": "Print all tram lines that Arkady could be in, in arbitrary order.",
+    "samples": [
+        [
+            "3\n3 1 4 6\n2 1 4\n5 10 5 6 4 1\n",
+            "1 4 \n"
+        ],
+        [
+            "5\n1 1\n10 10 9 8 7 100 5 4 3 99 1\n5 1 2 3 4 5\n5 4 1 3 2 5\n4 10 1 5 3\n",
+            "1 \n"
+        ]
+    ],
+    "hint": "Consider the first example. Arkady woke up three times. The first time he saw a stop with lines $ 1 $ , $ 4 $ , $ 6 $ . The second time he saw a stop with lines $ 1 $ , $ 4 $ . The third time he saw a stop with lines $ 10 $ , $ 5 $ , $ 6 $ , $ 4 $ and $ 1 $ . He can be in a tram of one of two lines: $ 1 $ or $ 4 $ .",
+    "translation": "### \u9898\u76ee\u63cf\u8ff0\n\nArkady\u534a\u68a6\u534a\u9192\u5750\u4e0a\u4e86\u4e00\u8d9f\u7535\u8f66\uff0c\u5728\u4ed6\u4e0b\u4e86\u7535\u8f66\u540e\uff0c\u53d1\u73b0\u4ed6\u4e0d\u77e5\u9053\u81ea\u5df1\u5750\u7684\u662f\u51e0\u53f7\u7535\u8f66\u3002\n\n\u5728\u4ed6\u7684\u65c5\u7a0b\u4e2d\uff0c\u4ed6\u9192\u4e86\u51e0\u6b21\uff0c\u6bcf\u6b21\u90fd\u770b\u5230\u7535\u8f66\u505c\u9760\u5728\u67d0\u4e2a\u7ad9\u70b9\uff0c\u5e76\u4e14\u4ed6\u77e5\u9053\u5728\u8fd9\u4e2a\u7ad9\u70b9\u505c\u9760\u7684\u7535\u8f66\u90fd\u6709\u54ea\u4e9b\u3002\n\n\u4ed6\u60f3\u8ba9\u4f60\u5e2e\u4ed6\u786e\u8ba4\u4ed6\u53ef\u80fd\u5750\u7684\u662f\u51e0\u53f7\u7535\u8f66\u3002\n\n### \u8f93\u5165\u683c\u5f0f:\n\n\u7b2c\u4e00\u884c\u4e00\u4e2a$n$\uff08$1\\le n\\le 100$\uff09\uff0c\u4ed6\u4e00\u5171\u770b\u5230\u505c\u9760\u4e86\u51e0\u6b21\u3002\n\n\u4ee5\u4e0b$n$\u884c\uff0c\u6bcf\u884c\u7b2c\u4e00\u4e2a\u6570$r$\uff08$1\\le r\\le 100$\uff09,\u8868\u793a\u5728\u8be5\u7ad9\u70b9\u505c\u9760\u7684\u7535\u8f66\u6709\u591a\u5c11\u4e2a\u3002\n\n\u63a5\u4e0b\u6765\u7684$r$\u4e2a\u6570\uff0c\u8868\u793a\u5728\u8be5\u7ad9\u70b9\u505c\u9760\u7684\u7535\u8f66\u7f16\u53f7\u3002\n\n\u7535\u8f66\u7f16\u53f7\u5728$1$\u5230$100$\u4e4b\u95f4\u3002\n\n### \u8f93\u51fa\u683c\u5f0f\n\n\u4ee5\u4efb\u610f\u987a\u5e8f\u8f93\u51fa\u4ed6\u6240\u6709\u53ef\u80fd\u4e58\u5750\u7684\u7535\u8f66\u7f16\u53f7\u3002"
+}

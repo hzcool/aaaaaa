@@ -1,0 +1,42 @@
+[
+    {
+        "content": "```\n#include<stdio.h>\nint main()\n{ \n    char a,b,t;\n    scanf(\"%c%c%c\",&a,&t,&b);//\u62ff\u4e00\u4e2at\u6765\u5403\u7a7a\u683c\uff08\u8bdd\u8bf4\u4e3a\u4ec0\u4e48%c %c\u4e0d\u884c\u5462\uff1f\uff09\n    if(a==b)//\u603b\u6709\u4eba\u4f1a\u628a==\u6253\u51fa=\u7136\u540e50...\n    printf(\"H\\n\");//\u8001\u5957\u8def\u56de\u8f66+\u5927\u5199\n    else\n    printf(\"D\\n\");\n    return 0;\n}\n```",
+        "postTime": 1536984537,
+        "uid": 47482,
+        "name": "\u4e0d\u5230\u524d10\u4e0d\u6539\u540d",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT2343 \u3010HonestOrDishonest\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u7528$ascii$\u7801\u6765\u505a\u4f1a~~\u886c\u6258\u51fa\u4f60\u7684\u667a\u5546~~\n\n------------\n\u505a\u6cd5\uff1a\u9996\u5148\uff0c\u6211\u4eec\u77e5\u9053\uff0c$D$\u7684$ascii$\u7801\u662f$68$\uff0c$H$\u7684$ascii$\u7801\u662f$68+4=72$\u3002\u6240\u4ee5\uff0c\u53ef\u4ee5\u7528[\u4e09\u76ee\u8fd0\u7b97\u7b26](https://baike.baidu.com/item/%E4%B8%89%E7%9B%AE%E8%BF%90%E7%AE%97%E7%AC%A6/6434591?fr=aladdin)$+ascii$\u7801\u505a\u3002\n\n------------\n\n\u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nchar a,b;\nint main(){\n    cin>>a>>b;\n    cout<<char(((a==b)?1:0)*4+68);\n    /*\n    1.\u56e0\u4e3a\u5728cout\u4e2d\uff0c\u4e09\u76ee\u8fd0\u7b97\u7b26\u53ea\u4f1a\u8fd4\u56de1\u548c0\uff0c\u65e0\u8bba\u4f60\u5192\u53f7\u5de6\u53f3\u586b\u7684\u662f\u4ec0\u4e48\u3002\n    2.\u5229\u75280\u7684\u4e58\u4efb\u4f55\u6570\u90fd\u5f970\u7684\u7279\u6027\uff0c\u5c06\u4e09\u76ee\u8fd0\u7b97\u7b26\u8fd4\u56de\u7684\u503c\u4e58\u4e0a4\u3002\n    3.\u7136\u540e\uff0c\u52a0\u4e0a68\uff0c\u56e0\u4e3a\u73b0\u5728((a==b)?1:0)*4\u8fd4\u56de\u7684\u503c\u53ea\u53ef\u80fd\u662f0\u62164\n    \u52a0\u4e0a68\u540e\uff0c\u5c31\u53d8\u6210\u4e86char('D')\u548cchar('H')\u7684\u503c\u4e86\u3002\n    4.\u518d\u6b21\u5229\u7528ascii\u7801\uff0c\u628a\u8fd9\u4e2a\u6570\u5b57\u518d\u8f6c\u56de\u5b57\u7b26\u3002\n    */\n    return 0;\n}\n```",
+        "postTime": 1541234674,
+        "uid": 58546,
+        "name": "CZQ_King",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 AT2343 \u3010HonestOrDishonest\u3011"
+    },
+    {
+        "content": "\t#include<cstdio>//\u5728\u6b64\u6559\u521d\u5b66\u8005\u4e00\u4e2a\u65b0\u51fd\u6570strcmp\u3002 \n\t#include<cstring>//strcmp\u5fc5\u7528\u5934\u6587\u4ef6\u3002 \n\tusing namespace std;\n\tchar a[100000],b[100000];\n\tint main(){\n\t\tscanf(\"%s%s\",&a,&b);\n\t\tif(strcmp(a,b)==0) printf(\"H\\n\");//strcmp(a,b)\uff0c\u82e5\u7ed3\u679c\u7b49\u4e8e0\u5219\u4e24\u6570\u76f8\u7b49\uff1b \u82e5\u7ed3\u679c\u5927\u4e8e0\u5219a\u5927\u4e8eb\uff1b\u82e5\u7ed3\u679c\u5c0f\u4e8e0\u5219a\u5c0f\u4e8eb\u3002 \n\t\telse printf(\"D\\n\");\n\t\treturn 0;\n\t}//\u5b8c\u7f8e\u7ed3\u675f\u3002 ",
+        "postTime": 1535856122,
+        "uid": 73697,
+        "name": "MaoHanKun",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT2343 \u3010HonestOrDishonest\u3011"
+    },
+    {
+        "content": "#### \u9898\u610f\uff1a\u8f93\u51652\u4e2a\u5b57\u7b26\uff0c\u5224\u65ad\u662f\u5426\u76f8\u540c\uff0c\u5219\u8f93\u51faH\uff0c\u53cd\u4e4b\u8f93\u51faD\u3002\n\npascal\u4ee3\u7801\u5982\u4e0b\uff1a\n```pascal\nvar\n    a,b:char;\nbegin\n    read(a,b,b);//\u7531\u4e8echar\u7279\u6b8a\uff0c\u8f93\u5165\u4e2d\u6709\u7a7a\u683c\uff0c\u7528\u7b2c\u4e00\u4e2ab\u8bfb\u5165\u8be5\u7a7a\u683c\n    if a=b then writeln('H') else writeln('D');\nend.\n```",
+        "postTime": 1525873933,
+        "uid": 62014,
+        "name": "Soyilieber",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 AT2343 \u3010HonestOrDishonest\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u5f88\u7b80\u5355\uff0c\u8f93\u5165\u4e24\u4e2a\u6570\uff0c\u5224\u65ad\u4e00\u4e0b\u76f8\u540c\u5c31\u53ef\u4ee5\u4e86~~\n```cpp\n#include <bits/stdc++.h>\n#include <cstdlib>\nusing namespace std;\nchar a,b;\nint main()\n{\n    cin>>a>>b;//\u8f93\u5165\n    if(a==b)//\u5224\u65ad\n    cout<<\"H\"<<endl;\n    else\n    cout<<\"D\"<<endl;\n    return 0;//\u7ed3\u675f~~~\n}\n```",
+        "postTime": 1524394817,
+        "uid": 42627,
+        "name": "youyou2007",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 AT2343 \u3010HonestOrDishonest\u3011"
+    }
+]

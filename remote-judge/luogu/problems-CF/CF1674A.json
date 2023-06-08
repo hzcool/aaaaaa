@@ -1,0 +1,13 @@
+{
+    "description": "You are given two integers $ x $ and $ y $ . You want to choose two strictly positive (greater than zero) integers $ a $ and $ b $ , and then apply the following operation to $ x $ exactly $ a $ times: replace $ x $ with $ b \\cdot x $ .\n\nYou want to find two positive integers $ a $ and $ b $ such that $ x $ becomes equal to $ y $ after this process. If there are multiple possible pairs, you can choose any of them. If there is no such pair, report it.\n\nFor example:\n\n- if $ x = 3 $ and $ y = 75 $ , you may choose $ a = 2 $ and $ b = 5 $ , so that $ x $ becomes equal to $ 3 \\cdot 5 \\cdot 5 = 75 $ ;\n- if $ x = 100 $ and $ y = 100 $ , you may choose $ a = 3 $ and $ b = 1 $ , so that $ x $ becomes equal to $ 100 \\cdot 1 \\cdot 1 \\cdot 1 = 100 $ ;\n- if $ x = 42 $ and $ y = 13 $ , there is no answer since you cannot decrease $ x $ with the given operations.",
+    "inputFormat": "The first line contains one integer $ t $ ( $ 1 \\le t \\le 10^4 $ ) \u2014 the number of test cases.\n\nEach test case consists of one line containing two integers $ x $ and $ y $ ( $ 1 \\le x, y \\le 100 $ ).",
+    "outputFormat": "If it is possible to choose a pair of positive integers $ a $ and $ b $ so that $ x $ becomes $ y $ after the aforementioned process, print these two integers. The integers you print should be not less than $ 1 $ and not greater than $ 10^9 $  (it can be shown that if the answer exists, there is a pair of integers $ a $ and $ b $ meeting these constraints). If there are multiple such pairs, print any of them.\n\nIf it is impossible to choose a pair of integers $ a $ and $ b $ so that $ x $ becomes $ y $ , print the integer $ 0 $ twice.",
+    "samples": [
+        [
+            "3\n3 75\n100 100\n42 13",
+            "2 5\n3 1\n0 0"
+        ]
+    ],
+    "hint": "",
+    "translation": "$t$ \u7ec4\u6570\u636e\uff0c\u7ed9\u51fa\u6574\u6570 $x,y$\uff0c\u627e\u4e00\u7ec4\u6b63\u6574\u6570 $a,b$ \u4f7f $x\\times b^a=y$\uff0c\u65e0\u89e3\u8f93\u51fa `0 0`\u3002\n\n$1\\le x,y\\le100,t\\le10^4$\u3002"
+}

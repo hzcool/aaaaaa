@@ -1,0 +1,17 @@
+{
+    "description": "You are given a tree with $ n $ weighted vertices labeled from $ 1 $ to $ n $ rooted at vertex $ 1 $ . The parent of vertex $ i $ is $ p_i $ and the weight of vertex $ i $ is $ a_i $ . For convenience, define $ p_1=0 $ .\n\nFor two vertices $ x $ and $ y $ of the same depth $ ^\\dagger $ , define $ f(x,y) $ as follows:\n\n- Initialize $ \\mathrm{ans}=0 $ .\n- While both $ x $ and $ y $ are not $ 0 $ : \n  - $ \\mathrm{ans}\\leftarrow \\mathrm{ans}+a_x\\cdot a_y $ ;\n  - $ x\\leftarrow p_x $ ;\n  - $ y\\leftarrow p_y $ .\n- $ f(x,y) $ is the value of $ \\mathrm{ans} $ .\n\nYou will process $ q $ queries. In the $ i $ -th query, you are given two integers $ x_i $ and $ y_i $ and you need to calculate $ f(x_i,y_i) $ .\n\n $ ^\\dagger $ The depth of vertex $ v $ is the number of edges on the unique simple path from the root of the tree to vertex $ v $ .",
+    "inputFormat": "The first line contains two integers $ n $ and $ q $ ( $ 2 \\le n \\le 10^5 $ ; $ 1 \\le q \\le 10^5 $ ).\n\nThe second line contains $ n $ integers $ a_1, a_2, \\ldots, a_n $ ( $ 1 \\le a_i \\le 10^5 $ ).\n\nThe third line contains $ n-1 $ integers $ p_2, \\ldots, p_n $ ( $ 1 \\le p_i < i $ ).\n\nEach of the next $ q $ lines contains two integers $ x_i $ and $ y_i $ ( $ 1\\le x_i,y_i\\le n $ ). It is guaranteed that $ x_i $ and $ y_i $ are of the same depth.",
+    "outputFormat": "Output $ q $ lines, the $ i $ -th line contains a single integer, the value of $ f(x_i,y_i) $ .",
+    "samples": [
+        [
+            "6 2\n1 5 2 3 1 1\n1 2 3 3 2\n4 5\n6 6",
+            "33\n27"
+        ],
+        [
+            "14 8\n3 2 5 3 1 4 2 2 2 5 5 5 2 4\n1 2 3 1 1 4 7 3 3 1 5 3 8\n4 4\n4 10\n13 10\n3 12\n13 9\n3 12\n9 10\n11 5",
+            "47\n53\n48\n36\n42\n36\n48\n14"
+        ]
+    ],
+    "hint": "Consider the first example:\n\nIn the first query, the answer is $ a_4\\cdot a_5+a_3\\cdot a_3+a_2\\cdot a_2+a_1\\cdot a_1=3+4+25+1=33 $ .\n\nIn the second query, the answer is $ a_6\\cdot a_6+a_2\\cdot a_2+a_1\\cdot a_1=1+25+1=27 $ .",
+    "translation": "\u7ed9\u5b9a\u4e00\u4e2a $n$ \u4e2a\u8282\u70b9\u7684\u6811\uff0c\u6bcf\u4e2a\u8282\u70b9\u90fd\u6709\u6743\u503c $a_i$\u3002\u5bf9\u4e8e\u7b2c $i(1<i\\le n)$ \u4e2a\u8282\u70b9\uff0c\u6709\u7236\u4eb2\u8282\u70b9 $p_i$\uff08\u89c4\u5b9a $p_1=0$\uff09\u3002\u73b0\u6709\u4e24\u4e2a\u76f8\u540c\u6df1\u5ea6\u7684\u8282\u70b9 $x,y$\uff0c\u89c4\u5b9a $f(x,y)=\\begin{cases}0&(x=y=0)\\\\f(p_x,p_y)+a_x\\cdot a_y&(x,y\\neq0)\\end{cases}$\uff0c\u6c42 $f(x,y)$\u3002\n\nTranslated by @[_JYqwq_](/user/400269)"
+}

@@ -1,0 +1,25 @@
+{
+    "description": "Vasya learns to type. He has an unusual keyboard at his disposal: it is rectangular and it has $ n $ rows of keys containing $ m $ keys in each row. Besides, the keys are of two types. Some of the keys have lowercase Latin letters on them and some of the keys work like the \"Shift\" key on standard keyboards, that is, they make lowercase letters uppercase.\n\nVasya can press one or two keys with one hand. However, he can only press two keys if the Euclidean distance between the centers of the keys does not exceed $ x $ . The keys are considered as squares with a side equal to 1. There are no empty spaces between neighbouring keys.\n\nVasya is a very lazy boy, that's why he tries to type with one hand as he eats chips with his other one. However, it is possible that some symbol can't be typed with one hand only, because the distance between it and the closest \"Shift\" key is strictly larger than $ x $ . In this case he will have to use his other hand. Having typed the symbol, Vasya returns other hand back to the chips.\n\nYou are given Vasya's keyboard and the text. Count the minimum number of times Vasya will have to use the other hand.",
+    "inputFormat": "The first line contains three integers $ n $ , $ m $ , $ x $ ( $ 1<=n,m<=30,1<=x<=50 $ ).\n\nNext $ n $ lines contain descriptions of all the keyboard keys. Each line contains the descriptions of exactly $ m $ keys, without spaces. The letter keys are marked with the corresponding lowercase letters. The \"Shift\" keys are marked with the \"S\" symbol.\n\nThen follow the length of the text $ q $ $ (1<=q<=5\u00b710^{5}) $ . The last line contains the text $ T $ , which consists of $ q $ symbols, which are uppercase and lowercase Latin letters.",
+    "outputFormat": "If Vasya can type the text, then print the minimum number of times he will have to use his other hand. Otherwise, print \"-1\" (without the quotes).",
+    "samples": [
+        [
+            "2 2 1\nab\ncd\n1\nA\n",
+            "-1\n"
+        ],
+        [
+            "2 2 1\nab\ncd\n1\ne\n",
+            "-1\n"
+        ],
+        [
+            "2 2 1\nab\ncS\n5\nabcBA\n",
+            "1\n"
+        ],
+        [
+            "3 9 4\nqwertyuio\nasdfghjkl\nSzxcvbnmS\n35\nTheQuIcKbRoWnFOXjummsovertHeLazYDOG\n",
+            "2\n"
+        ]
+    ],
+    "hint": "In the first sample the symbol \"A\" is impossible to print as there's no \"Shift\" key on the keyboard.\n\nIn the second sample the symbol \"e\" is impossible to print as there's no such key on the keyboard.\n\nIn the fourth sample the symbols \"T\", \"G\" are impossible to print with one hand. The other letters that are on the keyboard can be printed. Those symbols come up in the text twice, thus, the answer is 2.",
+    "translation": "\n\n\u4f60\u6709\u4e00\u4e2a\u957f\u65b9\u5f62\u7684\u952e\u76d8\uff0c\u5171n\u884c\uff0c\u6bcf\u884cn\u4e2a\u952e\u3002\u6bcf\u4e2a\u952e\u53ef\u4ee5\u6253\u51fa\u5c0f\u5199\u5b57\u6bcd\uff0c\u5728\u6309\u4e0bShift\u952e\u65f6\u4e5f\u53ef\u4ee5\u6253\u51fa\u5927\u5199\u5b57\u6bcd\u3002\u952e\u76d8\u4e0a\u6bcf\u4e2a\u952e\u662f\u4e00\u4e2a\u8fb9\u957f\u4e3a1\u7684\u6b63\u65b9\u5f62\uff0c\u76f8\u90bb\u7684\u952e\u4e4b\u95f4\u6ca1\u6709\u7a7a\u9699\u3002 \u4f60\u60f3\u7528\u4e00\u53ea\u624b\u5403\u8fa3\u6761\uff0c\u53e6\u4e00\u53ea\u624b\u7f16\u7a0b\uff0c\u6240\u4ee5\u4f60\u5f97\u5c1d\u8bd5\u53ea\u7528\u4e00\u53ea\u624b\u6253\u5b57\u3002\u4f46\u662f\u5f53\u6253\u5b57\u65f6\u6309\u5f97\u952e\u79bbShift\u952e\u592a\u8fdc\uff08\u6b27\u51e0\u91cc\u5f97\u8ddd\u79bb\u5927\u4e8ex\uff09\u65f6\uff0c\u4f60\u5c31\u4e0d\u5f97\u4e0d\u7528\u5230\u53e6\u4e00\u53ea\u624b\u3002 \u8bf7\u8ba1\u7b97\u51fa\u4f7f\u7528\u53e6\u4e00\u53ea\u624b\u7684\u6700\u5c0f\u6b21\u6570\u3002\n\u8f93\u5165\u8f93\u51fa\u683c\u5f0f\uff1a\n\u8f93\u5165\u683c\u5f0f\uff1a\n\n\u7b2c\u4e00\u884c\u5305\u542b\u4e00\u4e2a\u6574\u6570n,m,x\uff081<=n,m<=30,1<=x<=50)\u3002 \u63a5\u4e0b\u6765\u7684n\u884c\u5305\u542b\u952e\u76d8\u6392\u5217\u7684\u63cf\u8ff0\uff0c\u6bcf\u884c\u6709m\u4e2a\u5b57\u7b26\uff0c\u5b57\u7b26\u95f4\u6ca1\u6709\u7a7a\u683c\uff0c\u201cS\u201d\u4ee3\u8868Shift\u952e\u3002 \u63a5\u4e0b\u6765\u7684\u4e00\u4e2a\u6574\u6570\u4ee3\u8868\u6587\u672c\u957f\u5ea6q\uff081<=q<=5*10^5)\u3002\u63a5\u4e0b\u6765\u6709q\u4e2a\u5b57\u7b26\u4ee3\u8868\u6587\u672c\uff0c\u6587\u672c\u4e2d\u53ea\u6709\u5927\u5199\u548c\u5c0f\u5199\u5b57\u6bcd\uff0c\n\u8f93\u51fa\u683c\u5f0f\uff1a\n\n\u5982\u679c\u4f60\u80fd\u6253\u51fa\u8fd9\u4e00\u7bc7\u6587\u672c\uff0c\u90a3\u4e48\u8f93\u51fa\u53e6\u4e00\u53ea\u624b\u7684\u6700\u5c0f\u4f7f\u7528\u6b21\u6570\u3002\u5982\u679c\u65e0\u6cd5\u5168\u90e8\u6253\u51fa\uff08\u6bd4\u5982\u6587\u672c\u4e2d\u6709\u5927\u5199\u5b57\u6bcd\u4f46\u6ca1\u6709Shift\u952e\uff0c\u6216\u952e\u76d8\u4e0a\u6ca1\u6709\u8981\u6253\u7684\u952e\uff09\u65f6\uff0c\u5219\u8f93\u51fa-1\u3002\n\n\n\u611f\u8c22@handahao \u63d0\u4f9b\u7684\u7ffb\u8bd1"
+}

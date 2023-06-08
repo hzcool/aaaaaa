@@ -1,0 +1,17 @@
+{
+    "description": "In order to make the \"Sea Battle\" game more interesting, Boris decided to add a new ship type to it. The ship consists of two rectangles. The first rectangle has a width of $ w_1 $ and a height of $ h_1 $ , while the second rectangle has a width of $ w_2 $ and a height of $ h_2 $ , where $ w_1 \\ge w_2 $ . In this game, exactly one ship is used, made up of two rectangles. There are no other ships on the field.\n\nThe rectangles are placed on field in the following way:\n\n- the second rectangle is on top the first rectangle;\n- they are aligned to the left, i.e. their left sides are on the same line;\n- the rectangles are adjacent to each other without a gap.\n\nSee the pictures in the notes: the first rectangle is colored red, the second rectangle is colored blue.\n\nFormally, let's introduce a coordinate system. Then, the leftmost bottom cell of the first rectangle has coordinates $ (1, 1) $ , the rightmost top cell of the first rectangle has coordinates $ (w_1, h_1) $ , the leftmost bottom cell of the second rectangle has coordinates $ (1, h_1 + 1) $ and the rightmost top cell of the second rectangle has coordinates $ (w_2, h_1 + h_2) $ .\n\nAfter the ship is completely destroyed, all cells neighboring by side or a corner with the ship are marked. Of course, only cells, which don't belong to the ship are marked. On the pictures in the notes such cells are colored green.\n\nFind out how many cells should be marked after the ship is destroyed. The field of the game is infinite in any direction.",
+    "inputFormat": "Four lines contain integers $ w_1, h_1, w_2 $ and $ h_2 $ ( $ 1 \\leq w_1, h_1, w_2, h_2 \\leq 10^8 $ , $ w_1 \\ge w_2 $ ) \u2014 the width of the first rectangle, the height of the first rectangle, the width of the second rectangle and the height of the second rectangle. You can't rotate the rectangles.",
+    "outputFormat": "Print exactly one integer \u2014 the number of cells, which should be marked after the ship is destroyed.",
+    "samples": [
+        [
+            "2 1 2 1\n",
+            "12\n"
+        ],
+        [
+            "2 2 1 2\n",
+            "16\n"
+        ]
+    ],
+    "hint": "In the first example the field looks as follows (the first rectangle is red, the second rectangle is blue, green shows the marked squares):\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1131A/35d0b820f8e7eba0e5e8369fd92c0e9350366e7e.png)In the second example the field looks as:\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1131A/2150723de196480d9a580d678ee759b4b8652855.png)",
+    "translation": "\u7ed9\u51fa\u4e24\u4e2a\u77e9\u5f62\u7684\u5bbd\u548c\u9ad8$w1,h1,w2,h2$\uff0c\u4e14\u5df2\u77e5\uff1a\n\n* \u7b2c\u4e8c\u4e2a\u77e9\u5f62\u5728\u7b2c\u4e00\u4e2a\u77e9\u5f62\u7684\u4e0a\u9762\n* \u5b83\u4eec\u7684\u5de6\u7aef\u5bf9\u9f50\n* \u77e9\u5f62\u5f7c\u6b64\u76f8\u90bb\u800c\u6ca1\u6709\u95f4\u9699\n\n\u6c42\uff08\u516b\u4e2a\u65b9\u5411\uff09\u56f4\u7ed5\u8fd9\u4e24\u4e2a\u77e9\u5f62\u6240\u7ec4\u6210\u7684\u56fe\u5f62\u7684\u65b9\u683c\u6570 "
+}

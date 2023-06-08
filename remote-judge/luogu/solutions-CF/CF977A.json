@@ -1,0 +1,90 @@
+[
+    {
+        "content": "\u8fd9\u9898\u5f88\u7b80\u5355\u554a\u600e\u4e48\u6ca1\u4eba\u505a\uff1f\n\n\u76f4\u63a5\u6309\u9898\u76ee\u8bf4\u7684\u6a21\u62df\u5c31\u884c\u4e86\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include <cstdio>\nlong long n,k;\nint main(void){    \n    scanf (\"%d%d\",&n,&k);   \n    while (k--)if (n%10)n--;else n/=10;//\u6a21\u62df  \n    printf (\"%lld\",n);//\u8f93\u51fa\n}\n```",
+        "postTime": 1527326663,
+        "uid": 39863,
+        "name": "\u5f15\u9886\u5929\u4e0b",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF977A \u3010Wrong Subtraction\u3011"
+    },
+    {
+        "content": "### \u4e00\u9053\u6c34\u9898\uff0c\u4e8c\u8bdd\u4e0d\u8bf4\u4e0a\u4ee3\u7801:\n```cpp\n//666yuchen\n#include<iostream>\n#include<cstdio>\n#include<algorithm>\n#include<cmath>\n#include<cstring>\n#include<string>\n#include<cstdlib>//\u6587\u4ef6\u5934\n#define ss string\n#define ii int\nusing namespace std;\nss st;\nii n;//\u5b9a\u4e49\nint main()\n{\n  cin>>st>>n;//\u8f93\u5165\n  for(int i=1;i<=n;i++)\n  {\n  \tif(st[st.size()-1]=='0')st.erase(st.size()-1,1);\n      //\u4f9d\u7167\u9898\u76ee\u6240\u8bf4\uff0c\u8fd9\u4e2a\u6570\u6700\u540e\u4e00\u4f4d\u4e3a0\uff0c\u5219\u5220\u53bb\u6700\u540e\u4e00\u4f4d\u3002\n  \telse st[st.size()-1]--;\n      //\u4f9d\u7167\u9898\u76ee\u6240\u8bf4\uff0c\u8fd9\u4e2a\u6570\u6700\u540e\u4e00\u4f4d\u4e0d\u662f0\uff0c\u5219\u628a\u6700\u540e\u4e00\u4f4d\u4e0a\u7684\u6570-1\u3002\n  }\n  cout<<st;//\u8f93\u51fa\n  return 0;//\u7a0b\u5e8f\u62dc\u62dc\n}\n```\n### \u4e3a\u4e86\u8425\u9020\u7f8e\u597d\u7684\u6d1b\u8c37\uff0c\u8bf7\u4e0d\u8981\u6284\u88ad!!!",
+        "postTime": 1527338820,
+        "uid": 43317,
+        "name": "666yuchen",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF977A \u3010Wrong Subtraction\u3011"
+    },
+    {
+        "content": "\u6c34\u6c34\u7684\u4e00\u9053\u9898\uff08\u672c\u9898\u89e3\u9002\u5408\u840c\u65b0\u98df\u7528\uff0c\u5927\u4f6c\u52ff\u55b7\uff09\n\n\u672c\u9898\u8bb2\u4e86\u9898\u610f\uff0c\u975e\u5e38\u6e05\u695a\uff0c\u5728\u8fd9\u91cc\u672c\u4eba\u5c31\u4e0d\u505a\u7279\u6b8a\u8bf4\u660e\u4e86\n\n\u6211\u5206\u4e3a\u4e09\u90e8\u5206\u6765\u505a\u6b64\u9898\uff1a\n\n**\u4e00\u3001\u8f93\u5165\u90e8\u5206\uff0c\u8f93\u5165\u8ba1\u7b97\u6240\u9700\u503c\uff08~~\u5e9f\u8bdd\uff0c\u5404\u4f4d\u5927\u4f6c\u53ef\u4ee5\u65e0\u89c6~~\uff09**\n\n```\n\tcin>>n>>k;//\u8f93\u5165\u8ba1\u7b97\u6240\u9700\u503c \n```\n\n**\u4e8c\u3001\u904d\u5386\u8ba1\u7b97\u90e8\u5206\uff0c\u4ecek\u5f00\u59cb\u8ba1\u7b97**\n\n```\n\tfor(;k>0;k--)//\u4ecek\u52300\u5f00\u59cb\u904d\u5386 \n\t{\n\t\tif(n%10==0)//\u5982\u679c\u4e2a\u4f4d\u6570\u662f\u96f6 \n\t\t{\n\t\t\tn/=10;//\u539f\u6570\u9664\u4ee5\u5341 \n\t\t\tcontinue;//\u8df3\u8fc7\u672c\u5c42\u5faa\u73af\uff0c\u907f\u514d\u8d70\u4e0b\u6761\u8bed\u53e5 \n\t\t}\n\t\tn--;//\u5982\u679c\u4e0d\u4e3a\u96f6\uff0cn-1 \n\t}\n```\n\n**\u4e09\u3001\u8f93\u51fa\u90e8\u5206\uff0c\u8f93\u51fa\u6700\u540e\u5f97\u6570\uff08~~\u5e9f\u8bdd\uff0c\u5404\u4f4d\u5927\u4f6c\u53ef\u4ee5\u65e0\u89c6~~\uff09**\n\n```\n\tcout<<n<<endl;//\u8f93\u51fa\u6700\u540e\u7ed3\u679c \n```\n\n\u6700\u540e\u8d34\u4e0a\u672c\u4eba\u4ee3\u7801\n\n```\n#include<iostream>\nusing namespace std;\nint a,n,k;\nint main()\n{\n\tcin>>n>>k;//\u8f93\u5165\u8ba1\u7b97\u6240\u9700\u503c \n\tfor(;k>0;k--)//\u4ecek\u52300\u5f00\u59cb\u904d\u5386 \n\t{\n\t\tif(n%10==0)//\u5982\u679c\u4e2a\u4f4d\u6570\u662f\u96f6 \n\t\t{\n\t\t\tn/=10;//\u539f\u6570\u9664\u4ee5\u5341 \n\t\t\tcontinue;//\u8df3\u8fc7\u672c\u5c42\u5faa\u73af\uff0c\u907f\u514d\u8d70\u4e0b\u6761\u8bed\u53e5 \n\t\t}\n\t\tn--;//\u5982\u679c\u4e0d\u4e3a\u96f6\uff0cn-1 \n\t}\n\tcout<<n<<endl;//\u8f93\u51fa\u6700\u540e\u7ed3\u679c \n\treturn 0;\n}\n```\n",
+        "postTime": 1563526279,
+        "uid": 178034,
+        "name": "thename",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF977A \u3010Wrong Subtraction\u3011"
+    },
+    {
+        "content": "\u5927\u4f6c\u7684\u7ffb\u8bd1\n\n```\n\u5df2\u77e5\u4e00\u4e2a\u6570 $n$ \uff0c\u4f60\u8981\u5bf9\u5b83\u8fdb\u884c $k$ \u6b21\u64cd\u4f5c\u3002\u5bf9\u4e8e\u6bcf\u4e00\u6b21\u64cd\u4f5c\uff0c\u5982\u679c $n$ \u7684\u6700\u540e\u4e00\u4f4d\u6570\u5b57\u4e0d\u4e3a\u96f6\uff0c\u5219\u5c06\u5b83\u51cf1\uff0c\u5426\u5219\u5c06\u5b83\u9664\u4ee510\uff08\u5373\u5220\u9664\u6700\u540e\u4e00\u4f4d\u6570\u5b57\uff09\u3002\n\n\u7ed9\u51fa\u521d\u59cb\u65f6\u7684\u6570 $n$ \u548c\u64cd\u4f5c\u6b21\u6570 $k$ \uff0c\u6c42\u64cd\u4f5c $k$ \u6b21\u540e\u7684\u7ed3\u679c\u3002\n\n\u4fdd\u8bc1\u7ed3\u679c\u662f\u6b63\u6574\u6570\u3002\n```\n\u6a21\u62df\u6280\u672f\u54ea\u5bb6\u5f3a\uff1f\n\u4e2d\u56fd\u6d1b\u8c37\u627e\u79d1\u8fb0\n```\n#include <cstdio>\n#include <iostream>\n#include <cstdlib>\nusing namespace std;\nint main()\n{\nint n,k,i,j,t;\ncin>>n>>k;\nfor (i=1; i<=k; i++)//\u7528for\u6267\u884c\uff08\u697c\u4e0b\u7528\u4e86while\uff09\n{\nif (n%10!=0) n-=1;//\u6309\u7167\u9898\u610f\u6a21\u62df\u5373\u53ef\n  else n/=10;\n}\ncout<<n<<endl;//\u8f93\u51fa\n}\n```",
+        "postTime": 1527600899,
+        "uid": 56090,
+        "name": "RKcer21",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF977A \u3010Wrong Subtraction\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u5f88\u7b80\u5355\u7684\u554a\uff0c\u4e0d\u77e5\u9053\u4e00\u697c\u4e3a\u4ec0\u4e48\u5199\u7684\u90a3\u4e48\u590d\u6742qwq\n\n\u76f4\u63a5\u7528while\u5faa\u73af\u66b4\u529b\u6700\u540e\u8f93\u51fa\u5c31\u53ef\u4ee5\u4e86\n\nAC Code\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\ninline int read()\n{\n\tint x=0,w=0;\n\tchar ch=0;\n\tch=getchar();\n\twhile(isdigit(ch))\n\t{\n\t\tx=(x<<3)+(x<<1)+(ch^48);\n\t\tch=getchar();\n\t}\n\treturn x;\n}\ninline void write(int x)\n{\n\tif(x>9)write(x/10);\n\tputchar(x%10+'0');\n}    //\u5feb\u8bfb\u5feb\u5199\u662f\u672c\u849f\u84bb\u7684\u4e2a\u4eba\u4e60\u60ef\u3002\nint n,k;\nint main()\n{\n\tn=read(),k=read();\n\twhile(k--)\n\t{\n\t\tif(n%10)n--;\n\t\telse n/=10;\n\t}\n\tcout<<n<<endl;\n\treturn 0;\n}\n```",
+        "postTime": 1568380776,
+        "uid": 182930,
+        "name": "\u4e00\u6ef4\u5c0f\u6c34\u6ef4",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF977A \u3010Wrong Subtraction\u3011"
+    },
+    {
+        "content": "\u4e00\u7bc7**while**\u4e3a\u4e3b\u4f53\u7684**~~\uff08\u795e\u7287\uff09~~**\u53ef\u4ee5\u770b\u7684\u61c2\u5f97\u9898\u76ee\n       \n       \n# \u9898\u76ee\u601d\u8def\uff1a\n\u7528**while**\u5faa\u73af\uff0c\u6761\u4ef6\u662f\u8bb0\u5f55\u81ea\u5df1\u505a\u4e86\u51e0\u6b21\uff0c\u7136\u540e\u7528 **%10** \u7684\u65b9\u6cd5\uff0c\u627e\u51fa\u4e2a\u4f4d\uff0c\u7136\u540e\u5224\u65ad\u8fd9\u4e2a\u6570\u5b57\u662f\u5426**\u5927\u4e8e0**\uff0c\u5982\u679c**\u5927\u4e8e\u96f6**\u7684\u8bdd\u90a3\u4e48\u5c31\u5c06\u8fd9\u4e00\u4e2a\u6570**\u51cf\u53bb\u4e00**\uff0c\u5426\u5219\u5c31 **/10**\u3002\n\n**\u5e9f\u8bdd\u4e0d\u591a\u8bf4\uff0c\u4e0a\u4ee3\u7801\uff1a**\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,k,sum;\nint main()\n{\n\tcin>>n>>k;\n\twhile(sum<k)\n\t{\n\t    int ge=n%10; //\u627e\u4e2a\u4f4d\n\t\tif(ge>0)\n\t    {\n\t\t    sum++;\n\t\t    n--;\n\t\t    continue;   //\u505a\u5b8c\u4e00\u6b21\u5c31\u9000\u51fa\n\t\t}\n\t\tif(ge==0)\n\t\t{\n\t\t\tsum++;\n\t\t\tn/=10;\n\t\t\tcontinue;    //\u540c\u7406\n\t\t}\n\t}\n\tcout<<n;   //\u8f93\u51fa\n\treturn 0;\n}\n```\n\n",
+        "postTime": 1568263199,
+        "uid": 150354,
+        "name": "\u767e\u91cc\u4ea6\u5b88\u7ea6",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF977A \u3010Wrong Subtraction\u3011"
+    },
+    {
+        "content": "# \u4e00\u9053~~\u7b80\u5355\u6a21\u62df~~\uff08\u786e\u5b9e\u4e0d\u96be\uff09\n## \u8bb2\u89e3\u548c\u4ee3\u7801\u5982\u4e0b\n```cpp\n#include<iostream>\nusing namespace std;\nlong long n,k;\nint main()\n{\n\tcin>>n>>k;\n\tfor(int i=1;i<=k;i++)\n\t{\n\t\tif(n%10==0) n/=10;//\u53d6\u4f5910\u6c42\u6700\u540e\u4e00\u4f4d\n\t\telse n--;//\u53cd\u4e4bn-1\n\t}\n\tcout<<n;\n\treturn 0;\n}\n```\n## \u50cf\u8fd9\u79cd\u9898\u90fd\u662f\u57fa\u7840\u9898\uff0c\u8bf7\u52ff\u6284\u88ad\uff01",
+        "postTime": 1556188850,
+        "uid": 60159,
+        "name": "moqizhu2005",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF977A \u3010Wrong Subtraction\u3011"
+    },
+    {
+        "content": "### \u9898\u76ee\uff1a\u5df2\u77e5\u4e00\u4e2a\u6570 n \uff0c\u4f60\u8981\u5bf9\u5b83\u8fdb\u884c k\u6b21\u64cd\u4f5c\u3002\u5bf9\u4e8e\u6bcf\u4e00\u6b21\u64cd\u4f5c\uff0c\u5982\u679c n \u7684\u6700\u540e\u4e00\u4f4d\u6570\u5b57\u4e0d\u4e3a\u96f6\uff0c\u5219\u5c06\u5b83\u51cf1\uff0c\u5426\u5219\u5c06\u5b83\u9664\u4ee510\uff08\u5373\u5220\u9664\u6700\u540e\u4e00\u4f4d\u6570\u5b57\uff09\u3002\u7ed9\u51fa\u521d\u59cb\u65f6\u7684\u6570 n \u548c\u64cd\u4f5c\u6b21\u6570 k \uff0c\u6c42\u64cd\u4f5c k \u6b21\u540e\u7684\u7ed3\u679c\u3002\n #### \u8fd9\u4e48\u6dfc\u7684\u9898\u7adf\u7136\u6ca1\u6709p\u515a\u53d1\u9898\u89e3\uff0c\u6211\u8fd9\u4e2a\u5c0f\u849f\u84bb\u5fcd\u4e0d\u4f4f\u4e86\uff0c\u4ee5\u4e0b\u4e3a\u4ee3\u7801\uff08pascal\uff09\n ```pascal\nvar\n n,k,i:longint;\nbegin\n read(n,k);\n for i:=1 to k do //\u76f4\u63a5\u5faa\u73af\uff0c\u6709\u51e0\u6b21\u5faa\u73af\u51e0\u6b21\n  if n mod 10<>0 then n:=n-1//\u5224\u65ad\uff0cn\u7684\u672b\u5c3e\u5982\u679c\u4e0d\u662f0\uff0cn-1\n  else n:=n div 10;//\u4e0d\u7136n\u9664\u4ee5\uff08\u6574\u9664\uff0910\uff08\u5373\u5220\u9664\u6700\u540e\u4e00\u4f4d\uff09\n write(n);//\u8f93\u51fak\u8f6e\u4e4b\u540e\u7684n\nend.\n```\n### \u5171\u5efa\u6587\u660e\u6d1b\u8c37\uff0c\u8bf7\u52ffCtrl+C\uff01\n\n",
+        "postTime": 1538878622,
+        "uid": 98933,
+        "name": "Jinyeke",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF977A \u3010Wrong Subtraction\u3011"
+    },
+    {
+        "content": "~~\u8bdd\u8bf4\u4e3a\u4ec0\u4e48\u6ca1\u6709\u7528\u5b57\u7b26\u4e32\u7684~~\n\n#### \u4e3b\u8981\u601d\u8def\u662f\u8fd0\u7528\u7c7b\u4f3c\u6808\u7684\u601d\u7ef4\uff0c\u7528\u4e00\u4e2aint\u53d8\u91cf\uff0c\u4fdd\u5b58\u5b57\u7b26\u4e32\u7684\u6709\u6548\u8303\u56f4\uff0c\u5728\u6700\u540e\u4e00\u4f4d\u4e0a\u6309\u9898\u610f\u64cd\u4f5c\n\n\u8d34\u4ee3\u7801\uff1a\n```cpp\n#include <iostream>\nusing namespace std;\n\nint main(){\n\tstring s;\n\tint n;//\u9898\u76ee\u4e2d\u7684k\n\tcin>>s>>n;\n\tint sum=s.size()-1;//sum\u4e3a\u6709\u6548\u8303\u56f4\uff0c\u6ce8\u610f\u8981-1\n\tfor(int i=0;i<n;i++){\n\t\tif(s[sum]!='0') s[sum]=s[sum]-1;//\u4e0d\u4e3a\u96f6\uff0c\u51cf\u4e00\n\t\telse sum--;//\u4e3a\u96f6\uff0c\u53ea\u9700\u628a\u6709\u6548\u8303\u56f4--\n\t}\n\tfor(int i=0;i<=sum;i++) cout<<s[i];//\u8981\u6309\u987a\u5e8f\u8f93\u51fa\n\tcout<<endl;//\u8bb0\u5f97\u6362\u884c\n\treturn 0;\n}\n```",
+        "postTime": 1534158741,
+        "uid": 55206,
+        "name": "ComeOver\u00b7",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF977A \u3010Wrong Subtraction\u3011"
+    },
+    {
+        "content": "\u4e0a\u4ee3\u7801\uff1a\n\n```cpp\n#include <bits/stdc++.h>  //\u4e07\u80fd\u5934\u6587\u4ef6\nusing namespace std;\nint m10ain() {\n\tint n, k;  //\u5b9a\u4e49\u4e0e\u8bfb\u5165\n\tcin >> n >> k;\n\tfor (int i = 0; i < k; ++i)//\u5faa\u73af \n    {\n\t\tif (n % 10 == 0) n /= 10; //\u5982\u679c\u6210\u7acb\uff0cN=N\u966410\n\t\telse n--; //\u5426\u5219\uff0cn--\n\t}\n\tcout << n << endl; //\u8f93\u51fa\n\treturn 0;\n}\n```\n\n\n",
+        "postTime": 1532054029,
+        "uid": 23068,
+        "name": "Leo\u827e\u4f26",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF977A \u3010Wrong Subtraction\u3011"
+    },
+    {
+        "content": "\u56e0\u4e3a$k$\u4e0d\u5927\u4e8e50\uff0c\u53ea\u9700\u8981\u6a21\u62df\u5c31\u53ef\u4ee5\u4e86\u3002\n\n\u7528\u5faa\u73af\u6a21\u62df$k$\u6b21\u64cd\u4f5c\u3002\u6838\u5fc3\u4ee3\u7801\u5982\u4e0b\uff1a\n```\n\tif n mod 10=0 then n:=n div 10 //\u5982\u679c\u6700\u540e\u4e00\u4f4d\u6570\u5b57\u662f0\uff0c\u5c31\u5c06n\u9664\u4ee510\n    else n:=n-1; //\u5982\u679c\u6700\u540e\u4e00\u4f4d\u6570\u5b57\u4e0d\u662f0\uff0c\u5c31\u5c06n\u51cf1\n```\n\n---------------\n\n\u65f6\u95f4\u590d\u6742\u5ea6\uff1a$O(n)$\n\n\u7a7a\u95f4\u590d\u6742\u5ea6\uff1a$O(1)$\n\n---------------\n\n\u6700\u540e\u8d34\u4e0a\u5b8c\u6574\u4ee3\u7801\uff1a\n```pascal\nvar\n    n,k,i:longint;\nbegin\n    read(n,k);\n    for i:=1 to k do\n        if n mod 10=0 then n:=n div 10\n        else n:=n-1;\n    writeln(n);\nend.\n```",
+        "postTime": 1527304834,
+        "uid": 38785,
+        "name": "icyM3tra",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF977A \u3010Wrong Subtraction\u3011"
+    }
+]

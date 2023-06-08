@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u5176\u5b9e\u5c31\u662f\u4e8c\u7ef4\u524d\u7f00\u548c\u95ee\u9898\n___\n\u6211\u4eec\u679a\u4e3e\u4e00\u4e2a\u957f\u65b9\u5f62\uff0c\u7684$x1,y1;x2,y2$\n\n\u7136\u540e\u7528\u4e8c\u7ef4\u524d\u7f00\u548c\u6c42\u51fa\u8fd9\u4e2a\u957f\u65b9\u5f62\u5185\u767d\u5de7\u514b\u529b\u7684\u6d53\u5ea6\u548c\n\n\u7136\u540e\u518d\u7528\u4e8c\u7ef4\u524d\u7f00\u548c\u6c42\u51fa\u8fd9\u4e2a\u957f\u65b9\u5f62\u5185\u9ed1\u5de7\u514b\u529b\u7684\u6d53\u5ea6\u548c\n\n\u5982\u679c\u76f8\u7b49\u4e14\u6bd4\u539f\u6765\u7684\u7b54\u6848\u5927\n\n$ans=(x2-x1+1)*(y2-y1+1)$\n```\n#include<bits/stdc++.h>\nusing namespace std;\nlong long a,b,cb[105][105],cw[105][105],ans,o;\nvoid check(int x1,int x2,int x3,int x4)\n{\n\tif(cb[x3][x4]-cb[x1-1][x4]-cb[x3][x2-1]+cb[x1-1][x2-1]==cw[x3][x4]-cw[x1-1][x4]-cw[x3][x2-1]+cw[x1-1][x2-1])\n\t{\n\t\tans=max(ans,(x4-x2+1LL)*(x3-x1+1LL));\n\t}\n}\nint main()\n{\n\tcin>>a>>b;\n\tfor(int s=1;s<=a;s++)\n\t\tfor(int v=1;v<=b;v++)\n\t\t{\n\t\t\tcin>>o;\n\t\t\tcb[s][v]=cb[s][v-1]+cb[s-1][v]-cb[s-1][v-1];\n\t\t\tcw[s][v]=cw[s][v-1]+cw[s-1][v]-cw[s-1][v-1];\n\t\t\tif((s+v)%2)cw[s][v]+=o;\n\t\t\telse cb[s][v]+=o;\n\t\t}\n\t\t\t\n\tfor(int s=1;s<=a;s++)\n\t\tfor(int v=1;v<=b;v++)\n\t\t\tfor(int x=1;x<=a-s+1;x++)\n\t\t\t\tfor(int y=1;y<=b-v+1;y++)\n\t\t\t\t\tcheck(x,y,x+s-1,y+v-1);\n\tcout<<ans<<endl;\n}\n```",
+        "postTime": 1563549495,
+        "uid": 58543,
+        "name": "RioBlu",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 AT887 \u3010\u30c1\u30e7\u30b3\u30ec\u30fc\u30c8\u3011"
+    }
+]

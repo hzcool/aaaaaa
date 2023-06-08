@@ -1,0 +1,21 @@
+{
+    "description": "A string is called bracket sequence if it does not contain any characters other than \"(\" and \")\". A bracket sequence is called regular (shortly, RBS) if it is possible to obtain correct arithmetic expression by inserting characters \"+\" and \"1\" into this sequence. For example, \"\", \"(())\" and \"()()\" are RBS and \")(\" and \"(()\" are not.\n\nWe can see that each opening bracket in RBS is paired with some closing bracket, and, using this fact, we can define nesting depth of the RBS as maximum number of bracket pairs, such that the $ 2 $ -nd pair lies inside the $ 1 $ -st one, the $ 3 $ -rd one \u2014 inside the $ 2 $ -nd one and so on. For example, nesting depth of \"\" is $ 0 $ , \"()()()\" is $ 1 $ and \"()((())())\" is $ 3 $ .\n\nNow, you are given RBS $ s $ of even length $ n $ . You should color each bracket of $ s $ into one of two colors: red or blue. Bracket sequence $ r $ , consisting only of red brackets, should be RBS, and bracket sequence, consisting only of blue brackets $ b $ , should be RBS. Any of them can be empty. You are not allowed to reorder characters in $ s $ , $ r $ or $ b $ . No brackets can be left uncolored.\n\nAmong all possible variants you should choose one that minimizes maximum of $ r $ 's and $ b $ 's nesting depth. If there are multiple solutions you can print any of them.",
+    "inputFormat": "The first line contains an even integer $ n $ ( $ 2 \\le n \\le 2 \\cdot 10^5 $ ) \u2014 the length of RBS $ s $ .\n\nThe second line contains regular bracket sequence $ s $ ( $ |s| = n $ , $ s_i \\in \\{ $ \"(\", \")\" $ \\} $ ).",
+    "outputFormat": "Print single string $ t $ of length $ n $ consisting of \"0\"-s and \"1\"-s. If $ t_i $ is equal to 0 then character $ s_i $ belongs to RBS $ r $ , otherwise $ s_i $ belongs to $ b $ .",
+    "samples": [
+        [
+            "2\n()\n",
+            "11\n"
+        ],
+        [
+            "4\n(())\n",
+            "0101\n"
+        ],
+        [
+            "10\n((()())())\n",
+            "0110001111"
+        ]
+    ],
+    "hint": "In the first example one of optimal solutions is $ s =  $ \" $ \\color{blue}{()} $ \". $ r $ is empty and $ b =  $ \" $ () $ \". The answer is $ \\max(0, 1) = 1 $ .\n\nIn the second example it's optimal to make $ s =  $ \" $ \\color{red}{(}\\color{blue}{(}\\color{red}{)}\\color{blue}{)} $ \". $ r = b =  $ \" $ () $ \" and the answer is $ 1 $ .\n\nIn the third example we can make $ s =  $ \" $ \\color{red}{(}\\color{blue}{((}\\color{red}{)()}\\color{blue}{)())} $ \". $ r =  $ \" $ ()() $ \" and $ b =  $ \" $ (()()) $ \" and the answer is $ 2 $ .",
+    "translation": "\u5b9a\u4e49\u5408\u6cd5\u62ec\u53f7\u5e8f\u5217\u7684\u6df1\u5ea6\u4e3a\u5176\u5d4c\u5957\u7684\u6700\u5927\u5c42\u6570\u3002\n\n\u73b0\u5728\u7ed9\u51fa\u4e00\u4e2a\u5408\u6cd5\u62ec\u53f7\u5e8f\u5217\uff0c\u5bf9\u6bcf\u4e2a\u4f4d\u7f6e\u5206\u914d(\u7ea2/\u84dd)\u4e00\u79cd\u989c\u8272\uff0c\u4f7f\u5f97\u5c06\u4e24\u79cd\u989c\u8272\u7684\u5e8f\u5217\u5206\u522b\u63d0\u53d6\u540e\uff0c\u5747\u4e3a\u5408\u6cd5\u62ec\u53f7\u5e8f\u5217\uff0c\u4e14\u6df1\u5ea6\u8f83\u5927\u8005\u6df1\u5ea6\u6700\u5c0f\u3002"
+}

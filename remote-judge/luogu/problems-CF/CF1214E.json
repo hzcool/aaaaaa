@@ -1,0 +1,25 @@
+{
+    "description": "It's Petya's birthday party and his friends have presented him a brand new \"Electrician- $ n $ \" construction set, which they are sure he will enjoy as he always does with weird puzzles they give him.\n\nConstruction set \"Electrician- $ n $ \" consists of $ 2n - 1 $ wires and $ 2n $ light bulbs. Each bulb has its own unique index that is an integer from $ 1 $ to $ 2n $ , while all wires look the same and are indistinguishable. In order to complete this construction set one has to use each of the wires to connect two distinct bulbs. We define a chain in a completed construction set as a sequence of distinct bulbs of length at least two, such that every two consecutive bulbs in this sequence are directly connected by a wire. Completed construction set configuration is said to be correct if a resulting network of bulbs and wires has a tree structure, i.e. any two distinct bulbs are the endpoints of some chain.\n\nPetya was assembling different configurations for several days, and he noticed that sometimes some of the bulbs turn on. After a series of experiments he came up with a conclusion that bulbs indexed $ 2i $ and $ 2i - 1 $ turn on if the chain connecting them consists of exactly $ d_i $ wires. Moreover, the following important condition holds: the value of $ d_i $ is never greater than $ n $ .\n\nPetya did his best but was not able to find a configuration that makes all bulbs to turn on, so he seeks your assistance. Please, find out a configuration that makes all bulbs shine. It is guaranteed that such configuration always exists.",
+    "inputFormat": "The first line of the input contains a single integer $ n $ ( $ 1 \\leq n \\leq 100\\,000 $ ) \u2014 the parameter of a construction set that defines the number of bulbs and the number of wires.\n\nNext line contains $ n $ integers $ d_1, d_2, \\ldots, d_n $ ( $ 1 \\leq d_i \\leq n $ ), where $ d_i $ stands for the number of wires the chain between bulbs $ 2i $ and $ 2i - 1 $ should consist of.",
+    "outputFormat": "Print $ 2n - 1 $ lines. The $ i $ -th of them should contain two distinct integers $ a_i $ and $ b_i $ ( $ 1 \\leq a_i, b_i \\leq 2n $ , $ a_i \\ne b_i $ ) \u2014 indices of bulbs connected by a wire.\n\nIf there are several possible valid answer you can print any of them.",
+    "samples": [
+        [
+            "3\n2 2 2\n",
+            "1 6\n2 6\n3 5\n3 6\n4 5\n"
+        ],
+        [
+            "4\n2 2 2 1\n",
+            "1 6\n1 7\n2 6\n3 5\n3 6\n4 5\n7 8\n"
+        ],
+        [
+            "6\n2 2 2 2 2 2\n",
+            "1 3\n2 3\n3 5\n4 5\n5 7\n6 7\n7 12\n8 12\n9 11\n9 12\n10 11\n"
+        ],
+        [
+            "2\n1 1\n",
+            "1 2\n1 4\n3 4\n"
+        ]
+    ],
+    "hint": " ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1214E/653e46890165db1b6960166c1b7c5da6935781d3.png)  Answer for the first sample test.   ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1214E/1e668da580416d0a9428bdcff70010776ff6715e.png)  Answer for the second sample test.",
+    "translation": "## \u9898\u76ee\u63cf\u8ff0\n\n\u4f60\u9700\u8981\u6784\u9020\u51fa\u4e00\u4e2a\u8282\u70b9\u6570\u4e3a $2n$ \u7684\u4e00\u68f5\u6811. \u7ed9\u51fa $n$ \u4e2a\u8303\u56f4\u5728 $[1, n]$ \u7684\u6b63\u6574\u6570 $d_i$ . \u4f60\u6784\u9020\u51fa\u6765\u7684\u6811\u9700\u8981\u6ee1\u8db3: \u7b2c $2i - 1$ \u4e2a\u70b9\u4e0e\u7b2c $2i$ \u4e2a\u70b9\u5728\u6811\u4e0a\u7684\u8ddd\u79bb\u6070\u4e3a$d_i$.\n\n\u8fd9\u91cc\u5b9a\u4e49\u4e24\u4e2a\u70b9 $u$ , $v$ \u4e4b\u95f4\u7684\u8ddd\u79bb\u4e3a $u$ \u5230 $v$ \u8def\u5f84\u4e0a\u7684\u8fb9\u6570.\n\n\u5982\u679c\u6709\u591a\u79cd\u65b9\u6848, \u8f93\u51fa\u4efb\u610f\u4e00\u79cd\u5373\u53ef.\n\n## \u8f93\u5165\u683c\u5f0f\n\n\u7b2c\u4e00\u884c\u4e00\u4e2a\u6b63\u6574\u6570 $n$ , \u542b\u4e49\u5982\u9898\u76ee\u63cf\u8ff0\u6240\u8ff0.\n\n\u7b2c\u4e8c\u884c $n$ \u4e2a\u6b63\u6574\u6570 $d_i$ , \u542b\u4e49\u5982\u9898\u76ee\u63cf\u8ff0\u6240\u8ff0.\n\n## \u8f93\u51fa\u683c\u5f0f\n\n$2n-1$\u884c, \u6bcf\u884c\u4e24\u4e2a\u6b63\u6574\u6570 $u_i$ \u548c $v_i$ , \u8868\u793a\u4f60\u6784\u9020\u7684\u6811\u4e0a $u_i$ \u548c $v_i$ \u4e4b\u95f4\u8fde\u6709\u4e00\u6761\u8fb9.\n\n## \u6570\u636e\u8303\u56f4\n\n$1 \\leq d_i \\leq n \\leq 10^5$"
+}

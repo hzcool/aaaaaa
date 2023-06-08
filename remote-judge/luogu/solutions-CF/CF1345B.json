@@ -1,0 +1,50 @@
+[
+    {
+        "content": "\u505a\u6cd5\uff1a\u6253\u8868+\u8d2a\u5fc3+\u4e8c\u5206\u67e5\u627e\n\n\u505a\u6cd5\u663e\u7136\uff0c\u627e\u5230\u9700\u6c42\u91cf\u6bd4\u5f53\u524d\u724c\u6570\u5c0f\u7684\u6700\u5927\u7684\u5854\uff0c\u7136\u540e\u51cf\u53bb\u5b83\uff0c\u518d\u7ee7\u7eed\u627e\uff0c\u76f4\u5230\u627e\u4e0d\u5230\u4e3a\u6b62\u3002\n\n\u9996\u5148\u5229\u7528\u9012\u63a8\u5f0f\u6253\u8868\u5f97\u5230\u9ad8\u5ea6\u4e3a`h`\u7684\u5854\u6240\u9700\u8981\u7684\u724c\u6570`a[h]`\n\n- `a[i] = a[i-1]  + 3 * i - 1`\n- (\u5728\u9ad8\u5ea6\u4e3ai\u7684\u5854\u7684\u53f3\u4fa7\u589e\u52a0`i`\u4e2a\u4e09\u89d2\u5f62\uff0c\u51cf\u53bb\u6700\u4e0b\u9762\u7684\u90a3\u4e2a\u4e09\u89d2\u5f62\u4e0d\u7528\u5e95\u8fb9)\n\n\u7136\u540e\u518d\u4e0d\u65ad\u7528\u4e8c\u5206\u67e5\u627e\u6bd4\u5f53\u524d\u5c0f\u7684\u6700\u5927\u7684\u3002\n\n\n```cpp\nint T,a[30000],ans,m;\n\ninline ll find(ll x){\n    int l = 1, r = 27000;\n    while(l <= r){\n        m = (l + r) / 2;\n        if(a[m] == x) return m;\n        else if(a[m] < x) l = m + 1;\n        else r = m - 1;\n    }\n    if(a[m] == x) return m;\n    else if(a[m] < x) return m;\n    else return m = m-1;\n}\nint main(){\n    //std::ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);\n    //freopen(\"in.in\", \"r\", stdin);\n    cin >> T;\n    ll x;\n    a[1] = 2;\n    rep(i,1,27000) a[i] = a[i-1] + 3 * i -1;\n\n    while(T--){\n        ans = 0;\n        cin >> x;\n        while(find(x) > 0){\n            x -= a[m];\n            ++ans;\n        }\n        cout << ans << \"\\n\";\n    }\n\n    return 0;\n}\n\n```",
+        "postTime": 1588940370,
+        "uid": 123389,
+        "name": "Isshiki_Hugh",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 CF1345B \u3010Card Constructions\u3011"
+    },
+    {
+        "content": "\u7531 [OEIS A005449](https://oeis.org/A005449) \u5f97\u9ad8\u5ea6\u4e3a $n$ \u7528\u53bb $\\dfrac{n(3n + 1)}{2}$ \u4e2a\u5361\u7247\u3002\u56e0\u6b64\uff0c\u6bcf\u6b21\u4e8c\u5206\u6700\u5927\u53ef\u80fd\u7684\u5361\u7247\u6570\u5373\u53ef\u3002  \n\n\u4ee3\u7801\u5982\u4e0b\uff08[\u6a21\u677f](https://www.luogu.com.cn/blog/andyli/read-template)\uff09\uff1a  \n```cpp\nint main() {\n    int q;\n    io.read(q);\n    while (q--) {\n        int n;\n        io.read(n);\n        int cnt = 0;\n        while (n > 1) {\n            int l = 1, r = n;\n            while (l < r) {\n                int m = (l + r + 1) >> 1;\n                if (LL(m) * (3LL * m + 1) / 2 <= n)\n                    l = m;\n                else\n                    r = m - 1;\n            }\n            cnt++;\n            n -= LL(l) * (3LL * l + 1) / 2;\n        }\n        writeln(cnt);\n    }\n    return 0;\n}\n```",
+        "postTime": 1588939514,
+        "uid": 84282,
+        "name": "andyli",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF1345B \u3010Card Constructions\u3011"
+    },
+    {
+        "content": "\u9ad8\u5ea6\u4e3a $n$ \u7684\u5361\u7247\u5806\u4e00\u5b9a\u7528\u53bb $\\frac{n(3n+1)}{2}$ \u7684\u5361\u7247\u3002\n### \u4ee3\u7801\u5982\u4e0b\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nlong long t,n,h,s,k;\nint main()\n{\n\tcin>>t;\n\twhile(t--)\n\t{\n\t\tcin>>n;\n\t\ts=0,k=n;//\u521d\u59cb\u5316 \n\t\twhile(k>1)\n\t\t{\n\t\t\th=floor((sqrt(1+24*k)-1)/6);//\u4e0d\u9700\u8981\u4e8c\u5206,\u76f4\u63a5\u66f4\u65b0\u9ad8\u5ea6 \n\t\t\tk-=(h*(3*h+1))/2;//\u9012\u63a8\u5f0f \n\t\t\ts++;//\u7edf\u8ba1 \n\t\t}\n\t\tcout<<s<<endl;\n\t}\n\treturn 0;\n}\n```\n\u52a0\u4e86\u9632\u6284\u88ad\uff0c\u52ff\u6284\u8c22\u8c22\u3002",
+        "postTime": 1641553212,
+        "uid": 372498,
+        "name": "bbbzzx",
+        "ccfLevel": 0,
+        "title": "CF1345B Card Constructions \u9898\u89e3"
+    },
+    {
+        "content": "### \u9898\u76ee\n[CF1345B Card Constructions](https://www.luogu.com.cn/problem/CF1345B)\n\n### \u601d\u8def\n\u66b4\u529b\u3002\n\u6839\u636e\u4e0b\u9762\u7684\u4ee3\u7801\u53ef\u4ee5\u5f97\u5230\u9ad8\u5ea6\u4e3a $30000$ \u7684\u91d1\u5b57\u5854\u5c31\u5df2\u7ecf\u8d85\u8fc7\u4e86 $1000000000$\u3002\n```cpp\nh[1]=2;\nfor(int i=2;i<=30000;++i) {\n\th[i]=h[i-1]+(i-1)+2*(i);\n}\n```\n\u7136\u540e\u6d4b\u8bd5\u70b9\u6700\u591a $1000$ \u4e2a\uff0c\u590d\u6742\u5ea6\u53ef\u4ee5\u3002\n\n### Code\n```cpp\n#include<cstdio>\n#include<cstring>\n#include<string>\n#include<iostream>\n#include<algorithm>\n\ninline void read(int &T) {\n\tint x=0;bool f=0;char c=getchar();\n\twhile(c<'0'||c>'9'){if(c=='-')f=!f;c=getchar();}\n\twhile(c>='0'&&c<='9'){x=x*10+c-'0';c=getchar();}\n\tT=f?-x:x;\n}\n\nint t,h[30001];\n\nint main() {\n\th[1]=2;\n\tfor(int i=2;i<=30000;++i) {\n\t\th[i]=h[i-1]+(i-1)+2*(i);\n\t}\n\tread(t);\n\twhile(t--) {\n\t\tint ans=0,x;read(x);\n\t\tfor(int i=30000;i>=1;--i) {\n\t\t\tif(x>=h[i]) {\n\t\t\t\tans+=x/h[i];\n\t\t\t\tx-=x/h[i]*h[i];\n\t\t\t}\n\t\t}\n\t\tprintf(\"%d\\n\",ans);\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1588947941,
+        "uid": 142110,
+        "name": "yu__xuan",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1345B \u3010Card Constructions\u3011"
+    },
+    {
+        "content": "## \u9898\u89e3\u601d\u8def\uff1a\n\u6211\u4eec\u53d1\u73b0\uff1a\n\n\u5f53\u642d\u9ad8\u5ea6\u4e3a $1$ \u65f6\uff0c\u90a3\u4e48\u4ed6\u5c31\u53ea\u7528\u4e24\u4e2a\u724c\u3002\n\n\u5f53\u5854\u9ad8\u5ea6\u4e3a $i$ \u65f6\uff0c\u90a3\u4e48\u4ed6\u5c31\u662f\u628a\u7b2c $i - 1$ \u4e2a\u5c01\u53e3\u5728\u52a0\u4e0a $i$ \u4e2a\u5c16\uff0c\u5982\u56fe\uff1a\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/5uyrqi3g.png)\n\n\u5c31\u7684\u5230\u4e86\u4e00\u4e0b\u516c\u5f0f\uff1a\uff08$f_{i}$ \u4ee3\u8868\u9ad8\u4e3a $i$ \u7684\u91d1\u5b57\u5854\u7684\u724c\u7684\u6570\u91cf\uff09\n\n$\\left\\{\\begin{matrix}\nf_{1} = 2\\\\\nf_{i} = f_{i - 1} + i - 1 + 2 \\times i\n\\end{matrix}\\right.$\n\n\u7136\u540e\u6839\u636e\u9898\u610f\u4e8c\u5206\u6c42\u51fa\u7b2c\u4e00\u4e2a $\\le$ \u724c\u6570\u7684 $f$ \u503c\uff0c\u7136\u540e\u51cf\u53bb\u5c31\u53ef\u4ee5\u4e86\uff01\n \n## AC CODE:\n```cpp\n#include <iostream>\n#include <algorithm>\n#include <cstring>\n#include <cstdio>\nusing namespace std;\nint T;\nint cnt;\nint f[100010];\nvoid init () {\n\tf[1] = 2;\n\tfor (cnt = 2; f[cnt - 1] <= 1000000000; ++ cnt)\n\t\tf[cnt] = f[cnt - 1] + cnt - 1 + 2 * cnt;//\u9884\u5904\u7406\u642d\u5efai\u9ad8\u7684\u91d1\u5b57\u5854\u7684\u7eb8\u724c\u6570 \n}\nint main() {\n\tinit ();\n\t-- cnt;//\u56e0\u4e3a\u662f\u7b2c\u4e00\u4e2a>1000000000\u7684\u624d\u4f1a\u8df3\u51fa\uff0c\u6240\u4ee5\uff0ccnt\u8981-- \n\tscanf (\"%d\" , &T);\n\twhile (T --) {\n\t\tint n;\n\t\tscanf (\"%d\" , &n);\n\t\tint ans = 0;\n\t\tint mid = 0;\n\t\tdo {\n\t\t\tint l = 1 , r = cnt;\n\t\t\twhile (l <= r) {//\u4e8c\u5206\n\t\t\t\tmid = (l + r) >> 1;\n\t\t\t\tif (f[mid] == n) break;//\u627e\u5230\u4e86\u76f4\u63a5\u9000\u51fa \n\t\t\t\telse if(f[mid] < n) l = mid + 1;\n\t\t\t\telse r = mid - 1;\n\t\t\t}\n\t\t\tif (f[mid] > n) mid --;//\u82e5\u6bd4\u4ed6\u5927\u4e86\u5c31-- \n\t\t\tif (mid <= 0) break; //\u82e5mid\u5c0f\u4e8e\u7b49\u4e8e0\u5c31\u662f\u6ca1\u6709\u5c0f\u4e8e\u7b49\u4e8en\u7684\u4e86 \n\t\t\tn -= f[mid];//\u51cf\u53bb\u7528\u7684\u7eb8\u724c\u6570 \n\t\t\tans ++;//\u642d\u4e86\u4e00\u4e2a \n\t\t}while (true);\n\t\tprintf (\"%d\\n\" , ans);\n\t}\n\treturn 0;\n}\n```\n\u7801\u5b57\u4e0d\u6613\uff0c\u6c42\u8d5e\uff01",
+        "postTime": 1651754294,
+        "uid": 528430,
+        "name": "FiraCode",
+        "ccfLevel": 0,
+        "title": "CF1345B\u9898\u89e3"
+    },
+    {
+        "content": "\u5148\u66b4\u529b\u6c42\u51fa\u7ed9\u5b9a\u7684a\u6570\u7ec4(\u53e0i\u9ad8\u7684\u4e09\u89d2\u5f62\u8981\u7684\u4e2a\u6570)\u3002\u8ba9\u540e\u5bf9\u7ed9\u5b9a\u7684n\u4e00\u987f\u4e71\u6c42\u89e3\u5c31ok~~ \u4ee3\u7801\u5f88\u4e11 \u8bf7\u89c1\u8c05~~\n```cpp\n#include <iostream>\n#include <algorithm>\nusing namespace std;\nint t, n, a[10000010], z;\nint getnum(int n) {\n\tfor (int i = 1; ; i++) {\n\t\tif (a[i] > z) {\n\t\t\tz -= a[i - 1]; break;\n\t\t}\n\t}\n\treturn z;\n}\nint main(void) {\n\tcin >> t;\n\tint count = 5;\n\ta[1] = 2;\n\tfor (int i = 2; a[i - 1] <= 1000000001; i++) {\n\t\ta[i] += a[i - 1] + count; count += 3;\n\t}\n\twhile (t--) {\n\t\tcin >> z; int time = 0;\n\t\twhile (z >= 2) {\n\t\t\tz = getnum(z);\n\t\t\ttime++;\n\t\t}\n\t\tcout << time << endl;\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1589186815,
+        "uid": 301223,
+        "name": "\u6362\u4e2a\u601d\u8def",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1345B \u3010Card Constructions\u3011"
+    }
+]

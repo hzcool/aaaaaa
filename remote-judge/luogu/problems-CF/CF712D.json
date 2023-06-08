@@ -1,0 +1,21 @@
+{
+    "description": "Memory and his friend Lexa are competing to get higher score in one popular computer game. Memory starts with score $ a $ and Lexa starts with score $ b $ . In a single turn, both Memory and Lexa get some integer in the range $ [-k;k] $ (i.e. one integer among $ -k,-k+1,-k+2,...,-2,-1,0,1,2,...,k-1,k $ ) and add them to their current scores. The game has exactly $ t $ turns. Memory and Lexa, however, are not good at this game, so they both always get a random integer at their turn.\n\nMemory wonders how many possible games exist such that he ends with a strictly higher score than Lexa. Two games are considered to be different if in at least one turn at least one player gets different score. There are $ (2k+1)^{2t} $ games in total. Since the answer can be very large, you should print it modulo $ 10^{9}+7 $ . Please solve this problem for Memory.",
+    "inputFormat": "The first and only line of input contains the four integers $ a $ , $ b $ , $ k $ , and $ t $ ( $ 1<=a,b<=100 $ , $ 1<=k<=1000 $ , $ 1<=t<=100 $ ) \u2014 the amount Memory and Lexa start with, the number $ k $ , and the number of turns respectively.",
+    "outputFormat": "Print the number of possible games satisfying the conditions modulo $ 1000000007 $ ( $ 10^{9}+7 $ ) in one line.",
+    "samples": [
+        [
+            "1 2 2 1\n",
+            "6\n"
+        ],
+        [
+            "1 1 1 2\n",
+            "31\n"
+        ],
+        [
+            "2 12 3 1\n",
+            "0\n"
+        ]
+    ],
+    "hint": "In the first sample test, Memory starts with $ 1 $ and Lexa starts with $ 2 $ . If Lexa picks $ -2 $ , Memory can pick $ 0 $ , $ 1 $ , or $ 2 $ to win. If Lexa picks $ -1 $ , Memory can pick $ 1 $ or $ 2 $ to win. If Lexa picks $ 0 $ , Memory can pick $ 2 $ to win. If Lexa picks $ 1 $ or $ 2 $ , Memory cannot win. Thus, there are $ 3+2+1=6 $ possible games in which Memory wins.",
+    "translation": "AB\u4e24\u4eba\u73a9\u4e00\u4e2a\u6e38\u620f\uff0c\u4e24\u4eba\u73a9t\u8f6e\r\n\r\n\u6bcf\u4eba\u6bcf\u6b21\u968f\u673a\u4e14\u7b49\u6982\u7387\u4ece[-k,k]\u4e2d\u53d6\u4e00\u4e2a\u6570\u5b57\u52a0\u5230\u603b\u5f97\u5206\u4e2d \u5f97\u5206\u9ad8\u8005\u8d62\r\n\r\n\u5df2\u77e5A B\u521d\u59cb\u5206\u522b\u6709a b\u5206\uff0c\u95eeA\u53d6\u5f97\u80dc\u5229\u7684\u6982\u7387\u662f\u591a\u5c11\r\n\r\n\u4e3a\u4e86\u907f\u514d\u5c0f\u6570\u7cbe\u5ea6\u95ee\u9898\u7b54\u6848*(2k+1)^t mod 1000000007"
+}

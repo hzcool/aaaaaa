@@ -1,0 +1,13 @@
+{
+    "description": "You are given three positive integers $ a $ , $ b $ , $ c $ ( $ a < b < c $ ). You have to find three positive integers $ x $ , $ y $ , $ z $ such that:\n\n $ $$$x \\bmod y = a, $ $   $ $ y \\bmod z = b, $ $   $ $ z \\bmod x = c. $ $ </p><p>Here  $ p \\\\bmod q $  denotes the remainder from dividing  $ p $  by  $ q$$$. It is possible to show that for such constraints the answer always exists.",
+    "inputFormat": "The input consists of multiple test cases. The first line contains a single integer $ t $ ( $ 1 \\le t \\le 10\\,000 $ ) \u2014 the number of test cases. Description of the test cases follows.\n\nEach test case contains a single line with three integers $ a $ , $ b $ , $ c $ ( $ 1 \\le a < b < c \\le 10^8 $ ).",
+    "outputFormat": "For each test case output three positive integers $ x $ , $ y $ , $ z $ ( $ 1 \\le x, y, z \\le 10^{18} $ ) such that $ x \\bmod y = a $ , $ y \\bmod z = b $ , $ z \\bmod x = c $ .\n\nYou can output any correct answer.",
+    "samples": [
+        [
+            "4\n1 3 4\n127 234 421\n2 7 8\n59 94 388",
+            "12 11 4\n1063 234 1484\n25 23 8\n2221 94 2609"
+        ]
+    ],
+    "hint": "In the first test case:\n\n $ $$$x \\bmod y = 12 \\bmod 11 = 1; $ $ </p><p> $ $ y \\bmod z = 11 \\bmod 4 = 3; $ $ </p><p> $ $ z \\bmod x = 4 \\bmod 12 = 4. $ $$$",
+    "translation": "### \u9898\u76ee\u63cf\u8ff0\n\n\u7ed9\u5b9a\u4e09\u4e2a\u6574\u6570 $a,b,c$\uff0c\u6c42\u4e09\u4e2a\u6574\u6570 $x,y,z$\uff0c\u6ee1\u8db3\n\n$$x \\bmod{y} =a$$\n$$y \\bmod{z} =b$$\n$$z \\bmod{x} =c$$\n\n\u5bf9\u4e8e\u7ed9\u5b9a\u6570\u636e\uff0c\u4fdd\u8bc1\u7b54\u6848\u5b58\u5728\u3002\n\n### \u8f93\u5165\u683c\u5f0f\n\n**\u672c\u9898\u6709\u591a\u7ec4\u6570\u636e\u3002**\n\n\u7b2c\u4e00\u884c\uff1a\u4e00\u4e2a\u6574\u6570 $t$\uff0c\u8868\u793a\u6d4b\u8bd5\u6570\u636e\u7684\u7ec4\u6570\u3002\n\n\u7b2c $2$ \u884c\u81f3\u7b2c $t+1$ \u884c\uff1a\u6bcf\u884c\u4e09\u4e2a\u6574\u6570 $a,b,c$\uff0c\u542b\u4e49\u5982\u4e0a\u6587\u6240\u8ff0\u3002\n\n### \u8f93\u51fa\u683c\u5f0f\n\n\u5bf9\u4e8e\u6bcf\u7ec4\u6570\u636e\uff0c\u8f93\u51fa\u4e09\u4e2a\u6574\u6570 $x,y,z$ ($1 \\le x, y, z \\le 10^{18}$)\uff0c\u542b\u4e49\u4e3a\u4e0a\u6587\u6240\u8ff0\u3002\n\n\u5982\u679c\u6709\u591a\u7ec4\u7b54\u6848\uff0c\u8f93\u51fa\u4efb\u610f\u4e00\u7ec4\u5373\u53ef\u3002\n\n### \u6570\u636e\u8303\u56f4\n\n$1 \\le t \\le 10^4$\n\n$1 \\le a < b < c \\le 10^8$"
+}

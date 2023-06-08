@@ -1,0 +1,146 @@
+[
+    {
+        "content": "\u6211\u4e5f\u662f\u7b2c\u4e00\u6b21\u53d1\u9898\u89e3......\u9009\u4e86\u4e2a\u7b80\u5355\u7684\u9898\n\n\n------------**~~\u534e\u4e3d\u4e3d\u7684\u5206\u5272\u7ebf~~**------------\n\n1. \u5047\u8bbe\u725b\u7fa4\u6709n\u5934\u725b\n1. \u5047\u8bbe\u5206\u6210\u4e24\u90e8\u5206\u7684\u725b\u6570\u6070\u597d\u76f8\u5deek\n\n\u5373:\n\n\u725b\u591a\u7684\u90e8\u5206:(n+k)/2\u5934\n\n\u725b\u5c11\u7684\u90e8\u5206:(n-k)/2\u5934\n\n\u90a3\u4e48\u725b\u7fa4\u8981\u53ef\u5206,\u9700\u8981\u6ee1\u8db3:\n1.  (n-k)>0\t\t\t//\u6ca1\u725b\u5206\u4ec0\u4e48.....\n1. (n-k)\u4e3a\u5076\u6570//\u6ca1\u4e2a\u4e24\u53cc\u725b\u8fd8\u6562\u9664\u4e8c??\n\n\u7531\u6b64\u53ef\u5f97\u4ee3\u7801(\u9012\u5f52):\n\n```cpp\n#include<iostream>\nusing namespace std;\n\nint k;\nint f(int a){\t\t//\u8bf7\u522b\u5410\u69fd\u8fd9\u4e2a\u51fd\u6570\u540d-_-||\n\tif(a-k>0&&(a-k)%2==0)return f((a+k)/2)+f((a-k)/2);//\u7ec8\u4e8e\u6563\u4f19\u54af\n\telse return 1;\t//\u60f3\u5206\u624b!\u6ca1\u95e8\n}\n\nint main(){\n\tint n;\n    cin>>n>>k;\n\tcout<<f(n);\n    return 0;\n}\n```\n\n\t",
+        "postTime": 1527089350,
+        "uid": 102110,
+        "name": "HHH\u6062",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P2907 \u3010[USACO08OPEN]\u519c\u573a\u5468\u56f4\u7684\u9053\u8defRoads Around The Farm\u3011"
+    },
+    {
+        "content": "\u7b97\u6cd5\uff1a\u641c\u7d22\u2014\u2014>>\u6df1\u5ea6\u4f18\u5148\u641c\u7d22\uff08dfs\uff09\uff0c\u9012\u5f52\n\n\u7eaf\u6a21\u62df\uff0c\u5982\u679c\u8981\u5f00\u8bb0\u5fc6\u5316\u641c\u7d22\uff0c\u6570\u7ec4\u53ef\u80fd\u4f1a\u70b8\n\n\u4e2a\u4eba\u8ba4\u4e3a\u96be\u5ea6\u5e94\u8be5\u662f\u666e\u53ca-\uff08\u5165\u95e8\u9898\u600e\u4e48\u4f1a\u6d89\u53ca\u5230dfs\u548c\u9012\u5f52\uff1f\uff09\n\n\u4ee3\u7801\uff08c++\uff09\uff1a\n\n```cpp\n#include<bits/stdc++.h>\n#define ll long long\nusing namespace std;\n//\u4e0a\u8ff0\u5747\u4e0d\u89e3\u91ca\n\nll k,n;//\u8c28\u614e\u8d77\u89c1\n\nll dfs(int v){//\u4ee3\u8868\u6709v\u7fa4\u5976\u725b\u51fa\u73b0\u65f6\u7684\u6700\u7ec8\u7fa4\u6570\n\tif(v<=k) return 1;//\u5982\u679c\u5269\u4e0b\u7684\u5976\u725b\u6570\u5c0f\u4e8e\u8981\u5206\u7684\u6570\u91cf\uff0c\u5c31\u4e0d\u4f1a\u5206\u88c2\uff0c\u8fd4\u56de1\n    //\u4e0d\u80fd\u5199\u6210if(v<k) return 1\uff0c\u90a3\u6837\u5728v==k\u7684\u65f6\u5019\u4f1a\u6b7b\u9012\u5f52\n\tif((v-k)%2==0) return (dfs((v-k)/2)/*\u5c11\u7684\u90a3\u7fa4*/+dfs((v+k)/2/*\u591a\u7684\u90a3\u7fa4*/));//\u80fd\u5206\u88c2\u5c31\u7ee7\u7eed\u5206\u88c2\n\telse return 1;//\u4e0d\u80fd\u5206\u88c2\u5c31\u4fdd\u7559\n}\n\nint main(){\n\tscanf(\"%lld%lld\",&n,&k);//\u8f93\u5165\n\tprintf(\"%lld\",dfs(n));//\u8f93\u51fa\n\treturn 0;//\u53ef\u4e0d\u5199\uff0c\u4f46\u4e0d\u80fd\u5199\u4f5creturn 1\uff0c\u4f1aRE\n}\n```",
+        "postTime": 1518233656,
+        "uid": 27924,
+        "name": "xukuan",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P2907 \u3010[USACO08OPEN]\u519c\u573a\u5468\u56f4\u7684\u9053\u8defRoads Around The Farm\u3011"
+    },
+    {
+        "content": "\u8f83\u4e3a\u7b80\u5355\u7684\u9012\u5f52\n\n\n------------\n\u9996\u5148\uff0c\u6211\u4eec\u770b\u4e00\u4e0b\u521d\u59cb\u72b6\u6001\uff1a\u6570\u91cf\u4e3a$N$\u7684\u4e00\u7fa4\u5976\u725b\u3002\n\n\u7136\u540e\uff0c\u9898\u76ee\u8981\u6c42\u6211\u4eec\u505a\u4ec0\u4e48\u5462\uff1f\n\n\u662f\u8ba1\u7b97\u8fd9\u4e00\u7fa4\u5976\u725b\u6700\u7ec8\u4f1a\u5206\u88c2\u6210\u51e0\u7fa4\u5976\u725b\u3002\n\n\n------------\n\u95ee\u9898\u6765\u4e86\uff1a\u5982\u4f55\u7b97\u51fa\u6700\u7ec8\u5206\u88c2\u7684\u7ed3\u679c\u5462\uff1f\n\n\u7531\u9898\u76ee\u7ed9\u51fa\u7684\u5206\u88c2\u65b9\u5f0f\u6211\u4eec\u5f97\u51fa\uff0c\u5bf9\u4e8e\u4efb\u4f55\u4e00\u7fa4\u8d70\u5230\u4e09\u5c94\u8def\u53e3\u7684\u5976\u725b\uff0c\u53ea\u6709\u4e24\u79cd\u9009\u62e9\uff1a\u5206\u88c2\u6216\u4e0d\u5206\u88c2\n\n\u4e5f\u5c31\u662f**\u7fa4\u6570+1\u6216\u4e0d\u53d8**\n\n\n------------\n\u518d\u56de\u5230\u521d\u59cb\u72b6\u6001\uff1a\u5c31\u53ea\u6709\u4e00\u7fa4\u5976\u725b\n\n\u6a21\u62df\u4e00\u4e0b\u6574\u4e2a\u5206\u88c2\u7684\u8fc7\u7a0b\uff1a\n\n\u5224\u65ad\u80fd\u5426\u5206\u88c2\u2014\u2014\n\n\u80fd\u5206\u88c2\uff0c\u7b54\u6848+1\uff0c\u91cd\u590d\u8fd9\u4e00\u8fc7\u7a0b\uff0c\u5373\u7ee7\u7eed\u9012\u5f52\n\n\u4e0d\u80fd\u5206\u88c2\uff0c\u7ec8\u6b62\u9012\u5f52\uff0c\u8fd4\u56de\n\n\n------------\n\n\n\u4e0d\u96be\u770b\u51fa\uff1a\u5f53\u9012\u5f52\u7ed3\u675f\u65f6\uff0c**\u5206\u88c2\u7684\u6b21\u6570+1=\u6700\u7ec8\u5976\u725b\u7fa4\u6570**\n\n\u90a3\u6211\u4eec\u5224\u65ad\u8fd9\u4e00\u7fa4\u5976\u725b\u80fd\u5206\u88c2\u51e0\u6b21\u4e0d\u5c31\u53ef\u4ee5\u4e86\u5417\uff1f\n\n\n------------\n\u5982\u4f55\u5224\u65ad\u5462\uff1f\n\n\u8bbe$x,y$\u5206\u522b\u4e3a\u5206\u88c2\u540e\u4e24\u7fa4\u725b\u7684\u6570\u76ee\uff0c$a$\u4e3a\u5206\u88c2\u524d\u7684\u6570\u76ee\u3002\n\n\u5219$x,y$\u6ee1\u8db3$x+y=a$\uff0c$x-y=k$.\n\n\u4e24\u5f0f\u76f8\u52a0\u5f97$2x=a+k$\u3002\n\n\u7531\u4e8e$x,y$\u4e3a\u6b63\u6574\u6570\uff0c\u6240\u4ee5$a+k$\u662f\u5076\u6570\u4e140<$x,y$<$a$\uff1b\n\u4e0d\u6ee1\u8db3\u5c31\u65e0\u6cd5\u5206\u88c2\n\n\n------------\n\n### \u4ee3\u7801\u5982\u4e0b\uff1a\n```cpp\n#include<iostream>\nusing namespace std;\nint ans=1,n,k;\n//ans\u4e3a\u5206\u88c2\u6b21\u6570\uff0c\u7531\u4e8e\u6700\u7ec8\u7b54\u6848\u8fd8\u9700+1\uff0c\u6545\u521d\u59cb\u5316\u4e3a1\u76f4\u63a5\u8f93\u51fa\nvoid fl(int a){//a\u4e3a\u5f53\u524d\u725b\u7fa4\u6240\u542b\u725b\u7684\u6570\u76ee\n\tint x,y;//x\uff0cy\u4e3a\u5206\u88c2\u6210\u4e24\u7fa4\u4e4b\u540e\u7684\u6240\u542b\u725b\u7684\u6570\u76ee\n\tif((a+k)%2!=0){//\u9012\u5f52\u7ec8\u6b62\u6761\u4ef6\n\t\treturn;\n\t}\n\telse{\n\t\tx=(a+k)/2;\n\t\ty=a-x;\n\t\tif(x<=0||x>=a){\n        //\u4e00\u7fa4\u725b\u7684\u6570\u76ee\u4e0d\u53ef\u80fd\u4e3a\u975e\u6b63\u6570\uff0c\u66f4\u4e0d\u53ef\u80fd\u591a\u51fa\u6765\u51e0\u5934\n\t\t\treturn;\n\t\t}\n\t\tif(y<=0||y>=a){//\u540c\u4e0a\n\t\t\treturn;\n\t\t}\n\t\tans++;\n\t\tfl(x);//\u7ee7\u7eed\u9012\u5f52\n\t\tfl(y);\n\t}\n}\nint main(){\n\tcin>>n>>k;\n\tfl(n);\n\tcout<<ans;\n\treturn 0;\n}\n\n```\n\n------------\n\n### The End",
+        "postTime": 1573713746,
+        "uid": 238408,
+        "name": "vectorwyx",
+        "ccfLevel": 8,
+        "title": "\u9898\u89e3 P2907\u519c\u573a\u5468\u56f4\u7684\u9053\u8def"
+    },
+    {
+        "content": "\u7528\u961f\u5217\u505a\u7684\uff0c\u611f\u89c9\u8ddfdfs\u76f8\u6bd4\u4e0d\u8fc7\u662f\u6362\u4e86\u4e00\u79cd\u6570\u636e\u7ed3\u6784\u3002\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nqueue<int>dl;\n//\u5b9a\u4e49\u961f\u5217\nint main(){\n\tint n,k;\n\tunsigned int s=0;\n\tcin>>n>>k;\n\tdl.push(n);\n\twhile(!dl.empty()){\n    //\u53ea\u8981\u961f\u5217\u91cc\u6709\u5976\u725b\u7fa4\u5c31\u7ee7\u7eed\u641c\u7d22\n\t\tint x=dl.front();dl.pop();\n        //\u51fa\u961f\n\t\tif(x<=0)continue;\n        //\u5982\u679c\u8fd9\u7fa4\u5976\u725b\u4e3a\u8d1f\uff0c\u8bf4\u660e\u4e0d\u5408\u6cd5\uff0c\u8df3\u8fc7\n\t\tint y=(x+k)/2;\n        //\u8ba1\u7b97\u5206\u6cd5\n\t\tif(x==y){\n\t\t\ts++;continue;\n            //\u5982\u679c\u76f8\u7b49\u5c31\u53ef\u4ee5\u505c\u4e86\n\t\t}\n\t\tif(y*2-k==x){\n\t\t\tdl.push(y);dl.push(x-y);\n            //\u8fdb\u5165\u961f\u5217\n\t\t}\n\t\telse {\n\t\t\ts++;\n            //\u5206\u4e0d\u4e86\u4e86\u5219\u589e\u52a0\u7b54\u6848\n\t\t}\n\t}\n\tprintf(\"%d\\n\",s);\n    //\u8f93\u51fa\n    return 0;\n}\n```",
+        "postTime": 1550310094,
+        "uid": 128365,
+        "name": "\u7a7a\u6c14\u6811",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P2907 \u3010[USACO08OPEN]\u519c\u573a\u5468\u56f4\u7684\u9053\u8defRoads Around The Farm\u3011"
+    },
+    {
+        "content": "\u5206\u6790\u9898\u610f\uff0c\u53ea\u8981\u5206\u540e\u4e24\u7fa4\u5976\u725b\u7684\u5dee\u4e3ak  \u8fd9\u7fa4\u5976\u725b\u5c31\u53ef\u4ee5\u5206\n\n\u5047\u8bbe**\u603b\u6570q**\u80fd\u88ab\u5206\u4e3a\u4e24\u90e8\u5206\uff0c**\u76f8\u5dee\u4e3ak**\uff0c\u90a3\u4e48\u8bbe\u5176\u4e2d\u4e00\u90e8\u5206\u4e3ax\uff0c\u5219\u8fd9\u4e24\u7fa4\u5976\u725b\u53ef\u5206\u522b\u8868\u793a\u4e3a\n\n### x1=x \n### x2=x+k\n### ->   x+k + x=q \n# -->      x=(q-k)/2\n\n\u6709\u4e3a\u4e86\u6ee1\u8db3\u5b9e\u9645\u6761\u4ef6\uff0c**x1\uff0cx2\u90fd\u8981\u4e3a\u6574\u6570**\uff08\u4e0d\u53ef\u80fd\u6709\u534a\u53ea\u5976\u725b\u5427\u3002\u3002\u3002\uff09\n\u8fd9\u4fbf\u662f\u4e3b\u8981\u601d\u8def\u3002\u3002\n\n\u5728\u6b64\u9644\u4e0a\u4ee3\u7801\uff1a\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint num=1;\nint n,k;\nvoid apart(int q)\n{\n    if(q-k<=0)//\u8fd9\u65f6\u5c31\u4e0d\u80fd\u518d\u5206\u4e86\uff0c\u56e0\u800c\u8981\u8fd4\u56de\n        return;\n    \n    //\u6069\u3002\u3002\u89c1\u4e0a\u65b9\u7684\u8bf4\u660e\n    //\u5982\u679c((q-k)/2)==((q-k)/2.0)\uff0c\u5373\u8fd9\u4e2a\u6570\u662f\u6574\u6570\uff0c\u4e5f\u5c31\u662f\u8bf4\uff0c-----((q-k)/2)\u6709\u6574\u6570\u89e3\uff01\uff01\uff01\n    if(((q-k)/2)==((q-k)/2.0))\n    {\n        num++;//\u5976\u725b\u591a\u5206\u4e86\u4e00\u5217\n        apart((q-k)/2);\n        apart(k+(q-k)/2);//\u518d\u5206\u522b\u9012\u5f52x1\u548cx2\n    }\n}\nint main()\n{\n    cin>>n>>k;\n    apart(n);\n    cout<<num;//\u76f4\u63a5\u8f93\u51fa\u7ed3\u679c~~~\n}\n```",
+        "postTime": 1513941574,
+        "uid": 65436,
+        "name": "n0000000000o",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P2907 \u3010[USACO08OPEN]\u519c\u573a\u5468\u56f4\u7684\u9053\u8defRoads Around The Farm\u3011"
+    },
+    {
+        "content": "\u641c\u7d22\u601d\u8def\u5949\u4e0a\uff1a\n\n\u6211\u4eec\u901a\u8fc7\u6df1\u5ea6\u4f18\u5148\u641c\u7d22\u6765\u6c42\u89e3\u6b64\u95ee\u9898\u3002\n\n\u56e0\u4e3a\u91cd\u590d\u8ba1\u7b97\u540c\u4e00\u4e2a\u6570\u7684\u60c5\u51b5\u5c11\u4e4b\u53c8\u5c11\uff0c\u975e\u5e38\u7f55\u89c1\uff0c\u6240\u4ee5\u6211\u4eec\u53ef\u4ee5\u4e0d\u8fdb\u884c\u8bb0\u5fc6\u5316\u3002\n\n\u5bf9\u4e8e\u6bcf\u4e2a\u4e09\u53c9\u8def\u53e3\u4e0a\u7684\u725b\u7fa4\uff0c\u6211\u4eec\u5224\u65ad\u4ed6\u4eec\u662f\u5426\u53ef\u4ee5\u5206\u4e3a\u4e24\u7ec4\u5934\u6570\u76f8\u5dee\u4e3ak\u7684\u5976\u725b\uff0c\u4f46\u662f\u6570\u91cf\u6b63\u597d\u4e3ak\u6216\u5c0f\u4e8ek\u7684\u60c5\u51b5\u9700\u8981\u7279\u6b8a\u5224\u65ad\uff0c\u6b64\u65f6\u76f4\u63a5\u7ed3\u675fdfs\u8fc7\u7a0b\uff0c\u5426\u5219\u4f1a\u5361\u6b7b\u3002\n\n\u901a\u8fc7\u4e3b\u5b9a\u7406\uff0c\u6211\u4eec\u53ef\u4ee5\u8f7b\u6613\u5f97\u51fa\u8fd9\u4e2a\u7b97\u6cd5\u7684\u65f6\u95f4\u590d\u6742\u5ea6\u4e3aO(log N)\n\n\u8fd9\u91cc\u4ecb\u7ecd\u4e00\u4e0b\u4f4d\u8fd0\u7b97\u7684\u57fa\u7840\u77e5\u8bc6\uff1a\n\nx&1\uff0c\u5982\u679c\u4e3a1\u5219x\u4e3a\u5947\u6570\uff0c\u5426\u5219x\u4e3a\u5076\u6570\n\nx>>1\uff0c\u76f8\u5f53\u4e8e\u8fdb\u884cx/2\u64cd\u4f5c\n\n\u6211\u4eec\u53ef\u4ee5\u8bbe\u8ba1\u51fa\u5982\u4e0b\u4ee3\u7801\uff1a\n\n```cpp\n#include<cstdio>\n#include<cstring>\n#include<algorithm>\nusing namespace std;\nint n,k,ans;\nvoid dfs(int x)\n{\n    if(x<=k||(x-k)&1){ans++;return;}//\u5982\u679c\u4e0d\u7b26\u5408\u6761\u4ef6\uff0c\u5219\u8ba1\u6570\u5668+1\uff08\u8fd9\u4e5f\u662f\u4e00\u7fa4\u5976\u725b\uff09\uff0c\u7ed3\u675fdfs\u8fc7\u7a0b\n    dfs((x-k)>>1);//\u5bf9\u8f83\u5c11\u7684\u90a3\u4e00\u7fa4\u5976\u725b\u6267\u884cdfs\u8fc7\u7a0b\n    dfs((x+k)>>1); //\u8fd9\u662f\u8f83\u591a\u7684\u4e00\u7fa4\u5976\u725b\n}\nint main()\n{\n    scanf(\"%d%d\",&n,&k);\n    dfs(n);\n    printf(\"%d\\n\",ans);\n    return 0;\n}\n```",
+        "postTime": 1509180396,
+        "uid": 43486,
+        "name": "hsfzLZH1",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 P2907 \u3010[USACO08OPEN]\u519c\u573a\u5468\u56f4\u7684\u9053\u8defRoads Around The Farm\u3011"
+    },
+    {
+        "content": "# C\u8bed\u8a00\u7248@_@\n\n\u521a\u4e0a\u6d1b\u8c37\u6ca1\u51e0\u6b21\u7684\u849f\u84bb\u52a0C\u8bed\u8a00\u5c0f\u767d\u6765\u4e00\u53d1\u9898\u89e3~\n\u8868\u793a\u9898\u89e3\u91cc\u5168\u662fC++\u7684\u9898\u89e3\uff0c\u90a3\u6211\u6765\u4e00\u4e2aC\u5427\u3002    \n\u7b97\u6cd5\u521a\u5f00\u59cb\u5b66\uff0c\u6ca1\u5b66\u8fc7\u5927\u4f6c\u4eec\u7528\u5230\u7684\u6df1\u5ea6\u641c\u7d22\uff0c\u5c31\u662f\u4e00\u4e2a\u6734\u7d20\u7684\u9012\u5f52\uff0c\u5c31\u9171 \u2192_\u2192AC\u4ee3\u7801\u5982\u4e0b  \n\uff08\u6ce8\uff1a\u8ba1\u7b97\u601d\u8def\u5176\u5b9e\u548c\u4e0a\u9762\u7684\u5927\u4f6c\u4eec\u5dee\u4e0d\u591a\uff0c\u5c31\u662f\u5217\u65b9\u7a0b\nx + x + k = n\uff09\n\n```c\n#include <stdio.h>\nint count =1;   //\u7528\u5168\u5c40\u53d8\u91cf\u8ba1\u6570\u5206\u88c2\u6b21\u6570\u66f4\u65b9\u4fbf~\nint fen(int n,int k)\n{\n\tint n1,n2;\n\tif(n>k && (n+k) % 2 == 0)\n\t{\n\t\tcount++;\n\t\tn1=(n-k) / 2;n2=n-n1;\n\t\t\n\t\t\n\t\tfen(n1, k);\n\t\tfen(n2, k);\n\t}\n\t\n\treturn count;\n}\nint main(void)\n{\n\tint n,k,count;\n\tscanf(\"%d%d\", &n, &k);\n\t\n\tcount = fen(n,k);\n\tprintf(\"%d\", count);\n\t\n\treturn 0;\n}\n```\n",
+        "postTime": 1574563071,
+        "uid": 282604,
+        "name": "himitsu",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P2907 \u3010[USACO08OPEN]\u519c\u573a\u5468\u56f4\u7684\u9053\u8defRoads Around The Farm\u3011"
+    },
+    {
+        "content": "~~\u521a\u624d\u624d\u53d1\u4e86\u4e00\u7bc7c\u7684\uff0c\u73b0\u5728\u6765\u53d1\u4e00\u7bc7Pascal\u7684\uff0c\uff0c\u597d\u50cf\u6ca1\u4eba\u53d1\u5427\uff01\uff01~~\n\n\u53c8\u65f6\u5019\u505a\u9898\u76ee\u8981\u591a\u52a8\u52a8\u7b14\uff0c\u6a21\u4eff\u4e00\u4e0b\uff0c\u5c31\u51fa\u6765\u4e86\uff1b\n\n\u8fd9\u9053\u9898\u662f\u4e00\u9053\u7b80\u5355\u7684\u641c\u7d22\u9898\uff0c\u4e0d\u590d\u6742\uff1b\uff1b\n\n\u4e0a**\u4ee3\u7801\uff1a**\n```pascal\nvar\n x,k,n,ans:longint;\n procedure dfs(x:longint);\nbegin\n  if (x<k+2)or((x+k)mod 2=1) then \n   begin     \n    inc(ans);\n   end\n  else \n begin\n   dfs((x-k)>>1);\n   dfs(((x-k)>>1)+k);\n   end;\nend;\nbegin\n  read(n,k);\n dfs(n);\nwriteln(ans);\nend.\n\n```",
+        "postTime": 1535542650,
+        "uid": 53011,
+        "name": "dl__hh6",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P2907 \u3010[USACO08OPEN]\u519c\u573a\u5468\u56f4\u7684\u9053\u8defRoads Around The Farm\u3011"
+    },
+    {
+        "content": "\u4e1d\u6beb\u6ca1\u6709\u4ec0\u4e48\u96be\u5ea6\u7684\u641c\u7d22\u9898\n\n\n\n\n\n\n```cpp\n#include <cstdio>\nint tot = 0,n,k;\nvoid dfs(int n){\n    if( n < 2+k || (n+k)&1 ){ tot++; return ; }\n    dfs( (n+k)/2 );\n    dfs( (n-k)/2 );\n}\nint main(int argc, char const *argv[]){\n    scanf(\"%d %d\",&n,&k);\n    dfs(n);\n    printf(\"%d\\n\",tot);\n    return 0;\n}\n```",
+        "postTime": 1473560539,
+        "uid": 17170,
+        "name": "Deny_\u5c0f\u7530",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P2907 \u3010[USACO08OPEN]\u519c\u573a\u5468\u56f4\u7684\u9053\u8defRoads Around The Farm\u3011"
+    },
+    {
+        "content": "[\u535a\u5ba2\u4f20\u9001\u95e8](https://www.luogu.com.cn/blog/linguosheng/)\n\n------------\n\u8fd9\u9898\u8303\u56f4\u4e0d\u5927\uff0c\u7528\u66b4\u529bdfs\u5373\u53ef\u3002\u4e0d\u8fc7\uff0c\u6211\u4e3a\u4e86~~\u800d\u5e05~~\u63d0\u9ad8\u6548\u7387\uff0c\u7528\u4e86\u4e00\u90e8\u5206\u6bd4\u52a0\u51cf\u4e58\u9664\u4e0e\u53d6\u6a21\u66f4\u5feb\u7684\u4f4d\u8fd0\u7b97\u3002\n\n------------\nAC\u4ee3\u7801\u5982\u4e0b\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,k,ans;\nvoid dfs(int sum){\n\tif(sum<=k||(sum-k)&1){\n\t\tans++;\n\t\treturn;\n\t}\n\tdfs((sum+k)>>1);\n\tdfs((sum-k)>>1);\n}\nint main()\n{\n\tscanf(\"%d%d\",&n,&k);\n\tdfs(n);\n\tprintf(\"%d\\n\",ans);\n\treturn 0;\n}\n```\n",
+        "postTime": 1576906341,
+        "uid": 261370,
+        "name": "Andy_Lin",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P2907 \u3010[USACO08OPEN]\u519c\u573a\u5468\u56f4\u7684\u9053\u8defRoads Around The Farm\u3011"
+    },
+    {
+        "content": "\u6b64\u9898\u4e00\u770b\u5c31\u662fdfs\n\n\u8ba9\u6211\u4eec\u6765\u5206\u6790\u4e00\u4e0b\u6837\u4f8b\n\n\u770b\u56fe\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/pn8o6j9b.png)\n\n\u5f88\u660e\u663e\u7b54\u6848\u662f3\n\n\u63a5\u4e0b\u6765\u8bb2dfs\n\n```\nvoid dfs(long long cow)\n{\n\tif((cow + k) / 2 >= cow || (cow + k) % 2 != 0)//\u8fd9\u91cc\u6211\u7684\u5224\u5b9a\u65b9\u6cd5\u4e0ejulao\u90fd\u4e0d\u4e00\u6837\n\t{\n\t\tans++;//\u5982\u679c\u5230\u5934\u4e86\u5c31\u7d2f\u52a0\u7b54\u6848\n\t\treturn ;\n\t}\n\tdfs((cow + k) / 2);//\u7528\u548c\u5dee\u95ee\u9898\u6c42\u51fa\u5206\u51fa\u76842\u7fa4\u725b\n\tdfs((cow - k) / 2);\n} \n```\n\nAC code\uff1a\n\n```\n#include <bits/stdc++.h>\nusing namespace std;\n\nlong long n ,k ,ans;\n\ninline long long read()//\u5feb\u8bfb\n{\n\tlong long x = 0;\n\tchar c = getchar();\n\twhile(!isdigit(c))\n\t{\n\t\tc = getchar();\n\t}\n\twhile(isdigit(c))\n\t{\n\t\tx = (x << 1) + (x << 3) + (c ^ 48);\n\t\tc = getchar();\n\t}\n\treturn x;\n}\n\nvoid dfs(long long cow)\n{\n\tif((cow + k) / 2 >= cow || (cow + k) % 2 != 0)\n\t{\n\t\tans++;\n\t\treturn ;\n\t}\n\tdfs((cow + k) / 2);\n\tdfs((cow - k) / 2);\n} \n\nint main()\n{\n\tn = read(); k = read();//\u8f93\u5165\n\tdfs(n);//dfs\n\tcout << ans;//\u8f93\u51fa\n\t\n\treturn 0;//\u597d\u4e60\u60ef\n}\n```\n",
+        "postTime": 1573284043,
+        "uid": 113900,
+        "name": "jbc392",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P2907 \u3010[USACO08OPEN]\u519c\u573a\u5468\u56f4\u7684\u9053\u8defRoads Around The Farm\u3011"
+    },
+    {
+        "content": "### \u6765\u53d1\u4e00\u7bc7\u961f\u5217\u7684\u9898\u89e3\n\u770b\u4e86\u51e0\u7bc7\u90fd\u662f\u7528\u7684\u9012\u5f52,\u4f46\u662f\u6211\u7528\u7684\u662f\u961f\u5217\n\n\u6bcf\u6b21\u628a\u961f\u5934\u53d6\u51fa\uff0c\u5982\u679c\u7b26\u5408\u8981\u6c42\uff0c\u4fbf\u5206\u6210\u5dee\u4e3ak\uff0c\u548c\u4e3ax\u7684\u4e24\u5806\uff0c\n\n##### \u53ef\u4ee5\u5229\u7528\u548c\u5dee\u95ee\u9898\u7684\u65b9\u6cd5\uff0c\u5373\u5206\u4e3a(x+k)/2\u548c(x-k)/2\u3002\n\n\u90a3\u4ec0\u4e48\u60c5\u51b5\u53ef\u4ee5\u4e0d\u7528\u5206\u5462\uff1f\n\n1.x<=k\u65f6\n\n2.x\u4e0d\u80fd\u5206\u4e3a\u4e24\u5806\u65f6\uff0c\u5373(x+k)\u4e0d\u4e3a2\u7684\u500d\u6570\n\n------------\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint ans;\nqueue<int> q;//\u5b9a\u4e49\u961f\u5217\nint main(){\n\tint n,k;\n\tcin>>n>>k;q.push(n);//\u5c06n\u5165\u961f\n\twhile(!q.empty()){\n\t\tint x=q.front();//\u53d6\u51fa\u961f\u5934\n\t\tq.pop();//\u5f39\u51fa\u961f\u5934\n\t\tif(x>(k+1)&&!((x+k)%2)){//\u5982\u7b26\u5408\u8981\u6c42\n\t\t\tq.push((x-k)/2);\n\t\t\tq.push((x+k)/2);//\u5206\u4e3a\u4e24\u5806\n\t\t}else{//\u5982\u4e0d\u80fd\u518d\u5206,\u5373\u725b\u7fa4\u505c\u4e0b\u5403\u8349\n\t\t\tans++;//\u7d2f\u52a0\u7b54\u6848\n\t\t}\n\t}cout<<ans;\n\treturn 0;\n}\n```\n\n\n------------\n\u8c22\u8c22\u6b23\u8d4f!",
+        "postTime": 1573283838,
+        "uid": 258196,
+        "name": "CNF_Acceptance",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 P2907 \u3010[USACO08OPEN]\u519c\u573a\u5468\u56f4\u7684\u9053\u8defRoads Around The Farm\u3011"
+    },
+    {
+        "content": "\u5176\u5b9e\uff0c\u4e00\u5f00\u59cb\u6211\u770b\u8fd9\u9053\u9898\u7684\u6570\u636e\u8303\u56f4\uff0c\u4ee5\u4e3a\u4e0d\u80fd\u6a21\u62df\u4e4b\u7c7b\u7684\uff0c\u6bd5\u7adf\u6700\u5927\u6570\u91cf\u6709\u5341\u4ebf\uff0c\u53ef\u662f\u540e\u6765\u89c9\u5f97\u9664\u4e86\u6df1\u641c\uff0c\u60f3\u4e0d\u51fa\u522b\u7684\u529e\u6cd5\u4e86\u3002\u5c31\u7d22\u5f15\u8bd5\u4e00\u4e0b\uff0c\u771f\u7684\u53ef\u4ee5\u4e86\u3002\n\n\u9898\u76ee\u5927\u6982\u5c31\u662f\uff1a\n\u4e00\u7fa4\u725b\u4e0d\u65ad\u5206\u88c2\uff0c\u6211\u4eec\u5c31\u7edf\u8ba1\u90a3\u4e9b\u4e0d\u80fd\u518d\u7ee7\u7eed\u5206\u88c2\u7684\u60c5\u51b5\u3002\n\n\u7528\u9012\u5f52\uff08\u6df1\u641c\uff09\uff0c\u5c31\u6709\u70b9\u50cf\u4e0d\u65ad\u6a21\u62df\u725b\u7fa4\u7684\u5206\u88c2\u60c5\u51b5\u3002\n\n\u4e0a\u4ee3\u7801\uff1a\n```cpp\n#include<iostream>\nusing namespace std;\nlong long sum=0,n,k;\nvoid dfs(long long a)\n{\n\tif(a<2+k)   //\u725b\u7684\u6570\u91cf\u4f4e\u4e8e\u6700\u5c0f\u53ef\u5206\u88c2\u6570\u91cf\n\t{\n\t\tsum++; return;  //\u7edf\u8ba1\u7559\u4e0b\u6765\u5403\u8349\u7684\u5976\u725b \n\t}\n\tif((a-k)%2!=0)  //\u6bd4\u5982n==7,k==2,\u6392\u9664\u4e0d\u80fd\u5206\u88c2\u7684\u60c5\u51b5 \n\t{\n\t\tsum++; return;\n\t}\n\tlong long t=(a-k)/2+k;   //\u6570\u91cf\u591ak\u7684\u4e00\u7fa4\u725b \n\tdfs(t);  //\u7ee7\u7eed\u9012\u5f52\u5f80\u4e24\u4e2a\u8def\u53e3\u8d70\u7684\u725b \n\tdfs(a-t); \n\treturn;\n}\nint main()\n{         \n\tcin>>n>>k;\n\tdfs(n);  //\u6df1\u641c \n\tcout<<sum;\n    return 0;\n}\n```\n",
+        "postTime": 1552660044,
+        "uid": 142650,
+        "name": "Z\u5148\u68ee",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P2907 \u3010[USACO08OPEN]\u519c\u573a\u5468\u56f4\u7684\u9053\u8defRoads Around The Farm\u3011"
+    },
+    {
+        "content": "\u4e00\u5f00\u59cb\u6211\u8fd8\u4ee5\u4e3a\u662f\u7ed3\u8bba\u9898\u3002\n\n\u63a8\u4e86\u534a\u5929\u53d1\u73b0\u6839\u672c\u4e0d\u662f\u3002\n\n\u7136\u540e\u5c31\u60f3\u5230\u4e86\u9012\u5f52\u3002\n\n\u6ca1\u9519\u66b4\u529b\u6a21\u62df\u9012\u5f52\u51fa\u7ed3\u679c\u3002\n\n\u771f\u7684\u6ca1\u5565\u597d\u89e3\u91ca\u7684\u554a\u3002\n\n\u80fd\u5206\u5c31\u5206\uff0c\u4e0d\u80fd\u5206\u5c31\u4e0d\u5206\u505c\u4e0b\u6765\u3002\n\n\u4e0a\u4ee3\u7801:\n```cpp\n#include<cstdio>\nusing namespace std;\nint k,ans;\nvoid fen(int x)//\u5206\u88c2\n{\n    if(x<=k||(x-k)%2!=0)//\u4e0d\u80fd\u5206\n    {\n        ans++;\n        return;\n    }\n    fen((x-k)/2);//\u5c11\u7684\u90a3\u7fa4\n    fen((x+k)/2);//\u591a\u7684\u90a3\u7fa4\n}\nint main()\n{\n    int n;\n    ans=0;\n    scanf(\"%d%d\",&n,&k);\n    fen(n);\n    printf(\"%d\",ans);\n    return 0;\n}\n```",
+        "postTime": 1544241969,
+        "uid": 98954,
+        "name": "\u4e0d\u5b58\u5728\u4e4b\u4eba",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P2907 \u3010[USACO08OPEN]\u519c\u573a\u5468\u56f4\u7684\u9053\u8defRoads Around The Farm\u3011"
+    },
+    {
+        "content": "\u55ef\uff0c\u5927\u5bb6\u90fd\u7528DFS\u505a\u7684\uff0c\u90a3\u6211\u5c31\u732e\u4e0a\u4e00\u679a\u961f\u5217\u505a\u7684\u5427\n```c++\n#include <iostream>\nusing namespace std;\nint main(){\n\tint group[1000000];//\u5b58\u50a8\u6bcf\u7ec4\u7684\u5976\u725b\u6570\u91cf\n\tint head=0,tail=1,n=1;//\u5934\u6307\u9488\u3001\u5c3e\u6307\u9488\u548c\u5976\u725b\u7ec4\u6570\n\tdouble k,tmp;\n    //\u7b2c\u4e00\u7ec4\u6070\u597d\u6709n\u5934\u5976\u725b\n\tcin>>group[0]>>k;\n\twhile(head<tail){\n\t\ttmp=group[head];\n        //\u5206\u88c2\u6210\u4e24\u7ec4\uff0c\u4e00\u7ec4\u4fdd\u7559\u5728head\u91cc\uff0c\u4e00\u7ec4\u5b58\u5230tail\u91cc\uff08\u8282\u7701\u7a7a\u95f4\uff09\n\t\tgroup[head]=tmp/2-k/2;\n\t\tgroup[tail]=tmp/2+k/2;\n        //\u5224\u65ad\u52a0\u8d77\u6765\u662f\u5426\u662f\u539f\u6765\u7684\u5927\u5c0f\uff0c\u662f\u5426\u76f8\u5deek\uff0c\u4e14\u4e0d\u80fd\u51fa\u73b0\u8d1f\u7ec4\n\t\tif(group[tail]>0//\u4e0d\u80fd\u7528\u4e0d\u7b49\u4e8e\uff0c\u8840\u7684\u6559\u8bad\n\t\t&& group[head]>0//\u76f8\u4fe1\u6211\uff0c\u4e00\u5b9a\u8981\u7528\u5927\u4e8e\uff01\uff01\uff01\n\t\t&& group[tail]+group[head]==tmp\n\t\t&& group[tail]-group[head]==k){\n            //\u5982\u679c\u7b26\u5408\u6761\u4ef6\uff0c\u5219\u591a\u4e00\u7ec4\uff0c\u540c\u65f6head\u6307\u9488\u4e0d\u53d8\n\t\t\ttail++;\n\t\t\tn++;\n\t\t}else{\n            //\u5426\u5219head\u5b89\u9759\u5730\u5403\u8349\uff0chead\u6307\u9488\u540e\u79fb\n\t\t\thead++;\n\t\t}\n\t}\n\tcout<<n;\n\treturn 0;\n}\n\n```",
+        "postTime": 1543454769,
+        "uid": 153382,
+        "name": "su226",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 P2907 \u3010[USACO08OPEN]\u519c\u573a\u5468\u56f4\u7684\u9053\u8defRoads Around The Farm\u3011"
+    },
+    {
+        "content": "\u8fd9\u4e2a\u9898\u6211\u770b\u597d\u591a\u5927\u4f6c\u90fd\u62ffdfs\u505a\u7684\uff0c\u6211\u521a\u770b\u8fd9\u4e2a\u9898\u7684\u65f6\u5019\u5c31\u628a\u8fd9\u4e2a\u6570\u636e\u8303\u56f4\u9ad8\u4f30\u4e86\uff0c\u4ee5\u4e3a\u66b4\u641c\u4f1aTLE\uff0c\u5c31\u5413\u5f97\u7528\u4e86\u4e2a\u8bb0\u5fc6\u5316\u3002\u5c31\u662f\u9012\u5f52N\uff0c\u663e\u7136\u8981\u5206\u7fa4\u7684\u8bdd\u662f\u8981\u5206\u6210\uff08N-k\uff09/2\u548c\uff08N+k\uff09/2\u7684\u7fa4\uff0c\u6240\u4ee5N\u5982\u679c\u80fd\u5206\u7684\u8bdd\u5fc5\u987b\u6ee1\u8db3\u6761\u4ef6N>k\u4e14N-k\u4e3a\u5076\u6570\uff0c\u5426\u5219\u5c31\u6210\u4e3a\u4e00\u4e2a\u5b89\u9759\u7684\u7fa4\uff0c\u8fd4\u56de1\u3002\u80fd\u5206\u7684\u8bdd\u5c31\u63a5\u7740\u9012\u5f52\u4e0b\u53bb\uff0c\u800c\u4e14\u8fd4\u56de\u7684\u65f6\u5019\u628a\u7ed3\u679c\u4fdd\u5b58\u5728\u4e00\u4e2amap\u91cc\u7528\u6765\u8bb0\u5fc6\u5316\u641c\u7d22\uff0c\u4e0b\u6b21\u518d\u641c\u5230\u8fd9\u4e2aN\u7684\u65f6\u5019\u76f4\u63a5\u8bfb\u53d6map\u4e2d\u7684\u7ed3\u679c\u3002\n\n\u4ee3\u7801\u5982\u4e0b\uff1a\n\n```cpp\n#include<iostream>\n#include<cstdio>\n#include<map>\nusing namespace std;\nint tot=0;\nint k;\nmap<int,int> mp;\nint dfs(int n){\n    int a=mp[n];\n    if(a>0){\n        return(a);\n    }\n    if(n-k>0){\n        if((n-k)%2==0){\n            int res=dfs((n-k)/2)+dfs((n+k)/2);\n            mp[n]=res;\n            return(res);\n        }\n        else{\n            mp[n]=1;\n            return(1);\n        }\n    }\n    else{\n        mp[n]=1;\n        return(1);\n    }\n}\nint main(){\n    int n;\n    cin>>n;\n    cin>>k;\n    cout<<dfs(n)<<endl;\n    return(0);\n}\n```",
+        "postTime": 1512631575,
+        "uid": 56917,
+        "name": "\u989c\u4f1f\u4e1a_C_Asm",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P2907 \u3010[USACO08OPEN]\u519c\u573a\u5468\u56f4\u7684\u9053\u8defRoads Around The Farm\u3011"
+    },
+    {
+        "content": "\u4e3a\u4ec0\u4e48\u6211\u611f\u89c9\u8fd9\u9898\u5b8c\u5168\u4e0d\u50cf\u5165\u95e8\u96be\u5ea6\u7684\u9898\u554a\u3002\u3002\n\n\u6211\u7684\u601d\u8def\u662f\u8fd9\u6837\u7684\n\n\u5bf9\u4e8e\u6bcf\u4e00\u4e2an,k\n\n\u89e3\u4e00\u4e2a\u65b9\u7a0b\u7ec4\u4f7f\u5f97\n\n$x-y=k$\n\n$x+y=n$\n\n\u7136\u540e\u5bf9\u4e8e\u5f97\u5230\u7684x,y\u5206\u522b\u8fdb\u884c\u7c7b\u4f3c\u7684\u64cd\u4f5c\n\n\u770b\u8d77\u6765\u633a\u7b80\u5355\uff0c\n\n\u4f46\u662f\u6211\u88ab\u7cbe\u5ea6\u5361\u4e86QWQ\u3002\u3002\u3002\u3002\n\n\n```cpp\n#include<iostream>\n#include<cstdio>\n#include<cstring>\n#include<cmath>\n#include<stdlib.h>\n#include<ctime>\nusing namespace std;\nconst int MAXN=0x7fffff;\nconst int INF=50;\ninline int read()\n{\n    char c=getchar();int f=1,x=0;\n    while(c<'0'||c>'9')    {if(c=='-')    f=-1;c=getchar();}\n    while(c>='0'&&c<='9')    x=x*10+c-48,c=getchar();return x*f;\n}\nint ans=0;\nvoid dfs(int n,int k)\n{\n    double p=(double)(n+k)/2;\n    double q=(double)n-(n+k)/2;\n    int o=(n+k)/2;\n    double l=p-(double)o;\n    if(l!=0||p>=n&&q<=0||q>=n&&p<=0)\n    {\n        ans++;\n        return ;\n    }\n    dfs(p,k);dfs(q,k);\n}\nint main()\n{\n    int n=read(),k=read();\n    dfs(n,k);\n    printf(\"%d\",ans);\n    return 0;\n}\n```",
+        "postTime": 1509017264,
+        "uid": 36984,
+        "name": "attack",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P2907 \u3010[USACO08OPEN]\u519c\u573a\u5468\u56f4\u7684\u9053\u8defRoads Around The Farm\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u641e\u4e0d\u5b9a\u7684\u540c\u5b66\uff0c\u627e\u51e0\u7ec4\u6570\u753b\u56fe\u8bd5\u8bd5\n\n\u5176\u5b9e\u5c31\u662f\u4e00\u822c\u7684\u641c\u7d22\uff0c\u6ca1\u6709\u4ec0\u4e48\u590d\u6742\u7684\n\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nlong long ans,sum;\nlong long n,k;\nvoid dfs(int x)\n{\n    if(x-k<=0) {\n    sum++;return;//\u8fd9\u6761\u8def\u8d70\u5230\u5934\u4e86\uff0c\u7ed3\u679c++\n    }\n    if((x+k)%2==0)\n    {\n    dfs((x+k)/2);\n    dfs(x-(x+k)/2);//\u7ee7\u7eed\u8d70\uff0c\u5206\u4e24\u534a\u9012\u5f52\n    }\n    else sum++;\n}\nint main()\n{\n    cin>>n>>k;\n    dfs(n);\n    cout<<sum;\n}\n```",
+        "postTime": 1508303237,
+        "uid": 49699,
+        "name": "xfydemx",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 P2907 \u3010[USACO08OPEN]\u519c\u573a\u5468\u56f4\u7684\u9053\u8defRoads Around The Farm\u3011"
+    }
+]

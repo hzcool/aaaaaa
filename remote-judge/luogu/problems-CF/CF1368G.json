@@ -1,0 +1,21 @@
+{
+    "description": "Bill likes to play with dominoes. He took an $ n \\times m $ board divided into equal square cells, and covered it with dominoes. Each domino covers two adjacent cells of the board either horizontally or vertically, and each cell is covered exactly once with a half of one domino (that is, there are no uncovered cells, and no two dominoes cover the same cell twice).\n\nAfter that Bill decided to play with the covered board and share some photos of it on social media. First, he removes exactly one domino from the board, freeing two of the cells. Next, he moves dominoes around. A domino can only be moved along the line parallel to its longer side. A move in the chosen direction is possible if the next cell in this direction is currently free. Bill doesn't want to lose track of what the original tiling looks like, so he makes sure that at any point each domino shares at least one cell with its original position.\n\nAfter removing a domino and making several (possibly, zero) moves Bill takes a photo of the board and posts it. However, with the amount of filters Bill is using, domino borders are not visible, so only the two free cells of the board can be identified. When the photo is posted, Bill reverts the board to its original state and starts the process again.\n\nBill wants to post as many photos as possible, but he will not post any photo twice. How many distinct photos can he take? Recall that photos are different if the pairs of free cells in the photos are different.",
+    "inputFormat": "The first line contains two positive integers $ n $ and $ m $ ( $ nm \\leq 2 \\cdot 10^5 $ ) \u2014 height and width of the board respectively.\n\nThe next $ n $ lines describe the tiling of the board, row by row from top to bottom. Each of these lines contains $ m $ characters, describing the cells in the corresponding row left to right. Each character is one of U, D, L, or R, meaning that the cell is covered with a top, bottom, left, or right half of a domino respectively.\n\nIt is guaranteed that the described tiling is valid, that is, each half-domino has a counterpart in the relevant location. In particular, since tiling is possible, the number of cells in the board is even.",
+    "outputFormat": "Print a single integer \u2014 the number of distinct photos Bill can take.",
+    "samples": [
+        [
+            "2 4\nUUUU\nDDDD",
+            "4"
+        ],
+        [
+            "2 3\nULR\nDLR",
+            "6"
+        ],
+        [
+            "6 6\nULRUUU\nDUUDDD\nUDDLRU\nDLRLRD\nULRULR\nDLRDLR",
+            "133"
+        ]
+    ],
+    "hint": "In the first sample case, no moves are possible after removing any domino, thus there are four distinct photos.\n\nIn the second sample case, four photos are possible after removing the leftmost domino by independently moving/not moving the remaining two dominoes. Two more different photos are obtained by removing one of the dominoes on the right.",
+    "translation": "\u6709\u4e00\u4e2a $n\\times m$ \u7684\u68cb\u76d8\uff0c\u88ab $1\\times2$ \u7684\u9aa8\u724c\u8986\u76d6\uff0c\u4fdd\u8bc1 $2\\mid nm$\u3002\n\n\u73b0\u5728\u4f60\u9700\u8981\u6267\u884c\u4ee5\u4e0b\u64cd\u4f5c\uff1a\n1. \u79fb\u53bb\u6070\u597d\u4e00\u5f20\u9aa8\u724c\u3002\n2. \u5c06\u4e00\u5f20\u9aa8\u724c\u6cbf\u7740\u5176\u957f\u8fb9\u8fdb\u884c\u79fb\u52a8\u3002\u4f60\u53ef\u4ee5\u8fdb\u884c\u8fd9\u4e00\u6b65\u4efb\u610f\u6b21\u3002\n3. \u4f60\u9700\u8981\u4fdd\u8bc1\u5728\u4efb\u610f\u65f6\u523b\uff0c\u6bcf\u5f20\u9aa8\u724c\u7684\u4f4d\u7f6e\u4e0e\u5176\u521d\u59cb\u4f4d\u7f6e\u81f3\u5c11\u6709\u4e00\u4e2a\u516c\u5171\u683c\u5b50\u3002\n\n\u6c42\u4f60\u53ef\u4ee5\u5f97\u5230\u7684\u6240\u6709\u53ef\u80fd\u7684\u5c40\u9762\u7684\u6570\u91cf\u3002\n\n\u4e24\u79cd\u5c40\u9762\u4e0d\u540c\uff0c\u5f53\u4e14\u4ec5\u5f53\u67d0\u4e2a\u4f4d\u7f6e\u5728\u5176\u4e2d\u4e00\u8005\u4e2d\u88ab\u9aa8\u724c\u8986\u76d6\uff0c\u800c\u5728\u53e6\u4e00\u8005\u4e2d\u6ca1\u6709\u3002\n\n$nm\\le2\\times10^5$\u3002\n\n\u8f93\u5165\u683c\u5f0f\u4e3a\uff1a\u8f93\u5165\u4e00\u5f20\u5927\u5c0f\u4e3a $n\\times m$ \u7684\u77e9\u9635\uff0c\u4f4d\u7f6e $(i,j)$ \u4e3a `L`/`R`/`U`/`D` \u8868\u793a\u5176\u88ab\u4e00\u5f20\u9aa8\u724c\u7684 \u5de6/\u53f3/\u4e0a/\u4e0b \u7aef\u8986\u76d6\u3002"
+}

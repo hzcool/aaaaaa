@@ -1,0 +1,25 @@
+{
+    "description": "Daenerys Targaryen has an army consisting of $ k $ groups of soldiers, the $ i $ -th group contains $ a_{i} $ soldiers. She wants to bring her army to the other side of the sea to get the Iron Throne. She has recently bought an airplane to carry her army through the sea. The airplane has $ n $ rows, each of them has $ 8 $ seats. We call two seats neighbor, if they are in the same row and in seats $ {1,2} $ , $ {3,4} $ , $ {4,5} $ , $ {5,6} $ or $ {7,8} $ .\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF839B/a5775ca3d2acbe5eb291ff1539c245d1482a78a7.png)A row in the airplaneDaenerys Targaryen wants to place her army in the plane so that there are no two soldiers from different groups sitting on neighboring seats.\n\nYour task is to determine if there is a possible arranging of her army in the airplane such that the condition above is satisfied.",
+    "inputFormat": "The first line contains two integers $ n $ and $ k $ ( $ 1<=n<=10000 $ , $ 1<=k<=100 $ ) \u2014 the number of rows and the number of groups of soldiers, respectively.\n\nThe second line contains $ k $ integers $ a_{1},a_{2},a_{3},...,a_{k} $ ( $ 1<=a_{i}<=10000 $ ), where $ a_{i} $ denotes the number of soldiers in the $ i $ -th group.\n\nIt is guaranteed that $ a_{1}+a_{2}+...+a_{k}<=8\u00b7n $ .",
+    "outputFormat": "If we can place the soldiers in the airplane print \"YES\" (without quotes). Otherwise print \"NO\" (without quotes).\n\nYou can choose the case (lower or upper) for each letter arbitrary.",
+    "samples": [
+        [
+            "2 2\n5 8\n",
+            "YES\n"
+        ],
+        [
+            "1 2\n7 1\n",
+            "NO\n"
+        ],
+        [
+            "1 2\n4 4\n",
+            "YES\n"
+        ],
+        [
+            "1 4\n2 2 1 2\n",
+            "YES\n"
+        ]
+    ],
+    "hint": "In the first sample, Daenerys can place the soldiers like in the figure below:\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF839B/4f29f17cd8b262dbbb92c8d293341e1fb0bc27b8.png)In the second sample, there is no way to place the soldiers in the plane since the second group soldier will always have a seat neighboring to someone from the first group.\n\nIn the third example Daenerys can place the first group on seats $ (1,2,7,8) $ , and the second group an all the remaining seats.\n\nIn the fourth example she can place the first two groups on seats $ (1,2) $ and $ (7,8) $ , the third group on seats $ (3) $ , and the fourth group on seats $ (5,6) $ .",
+    "translation": "\u73b0\u5728\u6709 $K$ \u4e2a\u961f\uff0c\u98de\u673a\u6709 $N$ \u6392\u5ea7\u4f4d\uff0c\u6bcf\u6392\u80fd\u5750 $8$ \u4e2a\u4eba\uff0c\u4e0d\u540c\u961f\u4f0d\u7684\u4eba\u4e0d\u80fd\u5750\u76f8\u90bb\u7684\u4f4d\u7f6e\u3002\n\n\u76f8\u90bb\u60c5\u51b5\u6709 $5$ \u79cd $(1, 2), (3, 4), (4, 5), (5, 6), (7, 8)$\u3002\u8bf7\u95ee\u8fd9 $n$ \u6392\u5ea7\u4f4d\u662f\u5426\u591f\u5750\u3002\n\n\uff08$K$ \u4e2a\u961f\u7684\u603b\u4eba\u6570\u5c0f\u4e8e $8 \\cdot N$\uff09\n\n**\u3010\u8f93\u5165\u683c\u5f0f\u3011**\n\n\u6bcf\u7ec4\u6570\u636e\u5171\u4e24\u884c\u3002\n\n\u7b2c\u4e00\u884c\u5305\u542b\u4e24\u4e2a\u6570 $N,K$ \u5206\u522b\u8868\u793a\u98de\u673a\u6709 $N$ \u6392\u5ea7\u4f4d\uff0c\u6709 $K$ \u4e2a\u961f\u4f0d\uff08$1\u2009\\le n \\le\u200910000$\uff0c$1\u2009\\le k \\le\u2009100$\uff09\u3002\n\n\u7b2c\u4e8c\u884c \u6709 $k$ \u4e2a\u6570\u5b57\uff0c$a[1], \\ldots, a[k]$\uff0c\u5176\u4e2d $a[i]$ \u8868\u793a\u7b2c $i$ \u4e2a\u961f\u4f0d\u6709 $a[i]$ \u4eba\u3002\n\n\u5176\u4e2d $a[1]+a[2]+ \\cdots +a[K] \\le 8 \\cdot N$\uff1b\n\n**\u3010\u8f93\u51fa\u683c\u5f0f\u3011**\n\n\u5982\u679c\u8fd9 $n$ \u6392\u5ea7\u4f4d\u591f\u5750\uff0c\u8f93\u51fa `YES`\uff0c\u5426\u5219\u8f93\u51fa `NO`\u3002"
+}

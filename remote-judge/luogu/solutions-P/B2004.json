@@ -1,0 +1,50 @@
+[
+    {
+        "content": "[\u9898\u76ee\u94fe\u63a5\uff1aB2004 \u5bf9\u9f50\u8f93\u51fa](https://www.luogu.com.cn/problem/B2004)\n\n# C++ \u9898\u89e3\n\n\u672c\u9898\u4e3b\u8981\u8003\u5bdf\u8f93\u51fa\u6d41\u7684\u63a7\u5236\u3002\n\n\u5934\u6587\u4ef6 `<iomanip>` \u4e2d\u63d0\u4f9b\u4e86\u8bb8\u591a\u7528\u4e8e\u63a7\u5236\u8f93\u51fa\u6d41\u7684\u51fd\u6570\uff0c\u5728\u4f7f\u7528\u4ee5\u4e0b\u5185\u5bb9\u4ecb\u7ecd\u7684\u51fd\u6570\u524d\uff0c\u9700\u8981\u5305\u542b `<iomanip>` \u5934\u6587\u4ef6\u3002\n\n## setw() \u51fd\u6570\n\n`setw()` \u51fd\u6570\u53ef\u4ee5\u63a7\u5236\u8f93\u51fa\u6d41\u7684**\u4e0b\u4e00\u4e2a**\u8f93\u51fa\u5185\u5bb9\u7684\u573a\u5bbd\u3002\n\n\u4ee5\u4e0b\u662f\u4e00\u4e2a\u4f7f\u7528\u7684\u4f8b\u5b50\u3002\n\n\u5f53\u8fd0\u884c\u4ee5\u4e0b\u8bed\u53e5\u65f6\uff1a\n\n```cpp\nint a=114514;\ncout<<a;\n```\n\n\u8f93\u51fa\u7ed3\u679c\u5c06\u4e3a\uff1a\n\n```plain\n114514\n```\n\n\u5f53\u5305\u542b\u4e86\u5934\u6587\u4ef6`<iomanip>`\uff0c\u5e76\u8fd0\u884c\u4ee5\u4e0b\u8bed\u53e5\u65f6\uff1a\n\n```cpp\nint a=114514;\ncout<<setw(10)<<114514;  //\u8bbe\u7f6e\u573a\u5bbd\u4e3a10\n```\n\n\u8f93\u51fa\u7ed3\u679c\u5c06\u4e3a\uff1a\n\n```plain\n    114514\n```\n\n\u53ef\u89c1\uff0c\u5f53**\u4e0b\u4e00\u4e2a**\u8f93\u51fa\u7684\u5185\u5bb9\u7684\u5bbd\u5ea6\u4e0d\u8db3 `setw()` \u51fd\u6570\u4e2d\u8bbe\u7f6e\u7684\u53c2\u6570\u65f6\uff0c\u8f93\u51fa\u6d41\u5c06\u81ea\u52a8\u5728\u8fd9\u4e2a\u8f93\u51fa\u5185\u5bb9\u7684**\u524d\u9762**\u6dfb\u52a0\u5b57\u7b26\uff08\u9ed8\u8ba4\u4e3a\u7a7a\u683c\uff09\u6765\u8865\u9f50\u5bbd\u5ea6\u3002\n\n\u5f53\u4e0b\u4e00\u4e2a\u8f93\u51fa\u7684\u5185\u5bb9\u8d85\u8fc7 `setw()` \u51fd\u6570\u4e2d\u8bbe\u7f6e\u7684\u53c2\u6570\u65f6\uff0c\u5c06\u4e0d\u4f1a\u4ea7\u751f\u4efb\u4f55\u6548\u679c\uff0c\u4f8b\u5982\uff1a\n\n```cpp\nint a=114514;\ncout<<setw(1)<<a;\n```\n\n\u8f93\u51fa\u7ed3\u679c\u5c06\u4e3a\uff1a\n\n```plain\n114514\n```\n\n**\u9700\u8981\u7279\u522b\u6ce8\u610f\uff0c `setw()` \u51fd\u6570\u53ea\u4f1a\u5bf9\u4e0b\u4e00\u4e2a\u8f93\u51fa\u5185\u5bb9\u6709\u6548\uff0c\u5bf9\u4e8e\u591a\u4e2a\u8f93\u51fa\u5185\u5bb9\uff0c\u9700\u8981\u91cd\u65b0\u8bbe\u7f6e\uff0c\u4f8b\u5982\uff1a**\n\n```cpp\nint a=114,b=514;\ncout<<setw(10)<<a<<\" \"<<b;\n```\n\n\u8f93\u51fa\u7ed3\u679c\u5c06\u4e3a\uff1a\n\n```plain\n       114 514\n```\n\n\u6b63\u786e\u7684\u4f7f\u7528\u65b9\u6cd5\u4e3a\uff1a\n\n```cpp\nint a=114,b=514;\ncout<<setw(10)<<a<<\" \"setw(10)<<b;\n```\n\n\u8f93\u51fa\u7ed3\u679c\u5c06\u4e3a\uff1a\n\n```plain\n       114        514\n```\n\n## setfill() \u51fd\u6570\n\n\u4f60\u8fd8\u53ef\u4ee5\u4f7f\u7528 `setfill()` \u51fd\u6570\u66f4\u6539\u8865\u9f50\u5bbd\u5ea6\u65f6\u4f7f\u7528\u7684\u5b57\u7b26\uff0c\u4f8b\u5982\uff1a\n\n```cpp\nint a=114514;\ncout<<setfill('*')<<setw(10)<<a;  //\u5c06\u8865\u9f50\u5bbd\u5ea6\u65f6\u4f7f\u7528\u7684\u5b57\u7b26\u8bbe\u7f6e\u4e3a'*'\n```\n\n\u8f93\u51fa\u7ed3\u679c\u5c06\u4e3a\uff1a\n\n```plain\n****114514\n```\n\n`setfill()` \u51fd\u6570\u5c06\u5bf9**\u8bbe\u7f6e\u4e4b\u540e**\u8f93\u51fa\u6d41\u7684\u6240\u6709\u5185\u5bb9\u6709\u6548\uff0c\u4f8b\u5982\uff1a\n\n```cpp\nint a=114,b=514;\ncout<<setfill('*')<<setw(10)<<a<<\" \"<<setw(10)<<b;\n```\n\n\u8f93\u51fa\u7ed3\u679c\u5c06\u4e3a\uff1a\n\n```plain\n*******114 *******514\n```\n\n\u53c8\u4f8b\u5982\uff1a\n\n```cpp\nint a=114,b=514;\ncout<<setw(10)<<a<<\" \"<<setfill('*')<<setw(10)<<b;\n```\n\n\u8f93\u51fa\u7ed3\u679c\u5c06\u4e3a\uff1a\n\n```plain\n       114 *******514\n```\n\n## \u672c\u9898\u5b8c\u6574AC\u4ee3\u7801\n\n```cpp\n#include <iostream>\n#include <iomanip>\nusing namespace std;\nint a,b,c;\nint main()\n{\n\tcin>>a>>b>>c;\n\tcout<<setw(8)<<a<<\" \"<<setw(8)<<b<<\" \"<<setw(8)<<c<<endl;\n\treturn 0;\n}\n```\n\n",
+        "postTime": 1625297915,
+        "uid": 386876,
+        "name": "BurningEnderDragon",
+        "ccfLevel": 6,
+        "title": "B2004 \u5bf9\u9f50\u8f93\u51fa \u9898\u89e3"
+    },
+    {
+        "content": "### \u9898\u610f\uff1a\n\u8bfb\u5165\u4e09\u4e2a\u6574\u6570,\u6309\u6bcf\u4e2a\u6574\u6570\u5360 $8$ \u4e2a\u5b57\u7b26\u7684\u5bbd\u5ea6,\u4ece\u53f3\u5bf9\u9f50\u8f93\u51fa\u8fd9\u4e09\u4e2a\u6574\u6570\u3002\n\n## \u4ee3\u7801\uff1a\n```cpp\n\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n    int a,b,c;\n    cin>>a>>b>>c;//\u8f93\u5165\u4e09\u4e2a\u6574\u6570a,b,c\u3002\n    printf(\"%8d %8d %8d\",a,b,c);//\u8f93\u51fa\u53608\u4e2a\u5b57\u7b26\u7684\u5bbd\u5ea6\n    return 0;\n}\n\n```",
+        "postTime": 1625281720,
+        "uid": 506921,
+        "name": "Moon_Lighter",
+        "ccfLevel": 0,
+        "title": "B2004\u9898\u89e3"
+    },
+    {
+        "content": "### 1 \u601d\u8def\n\n\u4f7f\u7528 `printf` \u51fd\u6570\u91cc\u90a3\u4e2a\u53f3\u5bf9\u9f50\u7684\u683c\u5f0f\u7b26\u5c31\u884c\u4e86\u3002\n\n\u4e3e\u4f8b\uff1a\n\n\u5982\u679c\u4f60\u60f3\u8f93\u51fa\u4e00\u4e2a `long long` \u6574\u6570\uff0c\u53ef\u4ee5\u8fd9\u6837\u5199\uff1a`printf(\"%lld\",a);`\n\n\u5982\u679c\u4f60\u60f3\u8981\u53f3\u5bf9\u9f50\uff0c\u5360 $3$ \u4e2a\u5b57\u7b26\u5bbd\u5ea6\uff0c\u53ef\u4ee5\u8fd9\u6837\u5199\uff1a`printf(\"%3lld\",a);`\n\n\u5982\u679c\u4f60\u60f3\u8981\u5de6\u5bf9\u9f50\uff0c\u5728\u90a3\u4e2a\u6570\u5b57\u524d\u52a0\u4e00\u4e2a `-` \u5373\u53ef\u3002\u5982\uff1a\n\n`printf(\"%-3lld\",a);`\n\n~~\u683c\u5f0f\u7b26\u5927\u6cd5\u597d\uff01~~\n\n### 2 \u4ee3\u7801\u4e0e\u8bb0\u5f55\n\n```cpp\n#include<cstdio>\nusing namespace std;\nlong long a,b,c;\nint main(){\n\tscanf(\"%lld%lld%lld\",&a,&b,&c);\n\tprintf(\"%8lld %8lld %8lld\",a,b,c);\n\treturn 0;\n}\n```\n\n[\u8bb0\u5f55\u4f20\u9001\u95e8](https://www.luogu.com.cn/record/52332635)\n\nBy **dengziyue**",
+        "postTime": 1625298419,
+        "uid": 387840,
+        "name": "happy_dengziyue",
+        "ccfLevel": 6,
+        "title": "B2004\u9898\u89e3"
+    },
+    {
+        "content": "\u5176\u5b9e\u8fd9\u662f\u5bf9\u6211\u4eec\u683c\u5f0f\u8f93\u51fa\u7684\u6d4b\u8bd5\uff0c\u5199```%8d```\u5c31\u53ef\u4ee5\u4e86\u3002\n\n\u4ee3\u7801:\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n\tint a,b,c;\n\tcin>>a>>b>>c;\n\tprintf(\"%8d %8d %8d\",a,b,c);\n\treturn 0;\n}\n```",
+        "postTime": 1625281132,
+        "uid": 357311,
+        "name": "little_cindy",
+        "ccfLevel": 6,
+        "title": "B2004 \u5bf9\u9f50\u8f93\u51fa \u9898\u89e3"
+    },
+    {
+        "content": "update: \u52a0\u4e86\u5bf9 ```printf(\"%8d\")```\u3001```printf(\"%8s\")``` \u7684\u89e3\u91ca\u3002\n\n\u6839\u636e\u9898\u610f\u6a21\u62df\u5373\u53ef\u3002\n\n- ```printf(\"%8d\", i)``` \u53ef\u4ee5\u8f93\u51fa\u6574\u6570 ```i```\uff0c\u8ba9\u5b83\u5360\u81f3\u5c11 $8$ \u4e2a\u5b57\u7b26\u7684\u5bbd\u5ea6\uff08\u5373\u573a\u5bbd\u4e3a $8$\uff09\uff1a\u5982\u679c ```i``` \u4e0d\u591f $8$ \u4f4d\u5219\u8865\u7a7a\u683c\u4f7f\u5b83\u53f3\u5bf9\u9f50\u6ee1 $8$ \u4f4d\uff0c\u5982\u679c ```i``` \u7684\u8f93\u51fa\u7684\u4f4d\u6570 ${\\ge}\\ 8$ \u5219\u8f93\u51fa\u6574\u4e2a ```i```\uff0c\u8fd9\u6b63\u662f\u9898\u76ee\u6240\u8981\u6c42\u7684\u3002\n- \u540c\u7406\uff0c```printf(\"%8s\", s)``` \u53ef\u4ee5\u8f93\u51fa\u5b57\u7b26\u4e32 ```s```\uff0c\u4f7f ```s``` \u5728 $8$ \u573a\u5bbd\u4e2d\u53f3\u5bf9\u9f50\uff0c\u5982\u679c ```s``` \u591a\u4e8e $8$ \u4f4d\u5219\u4f1a\u8f93\u51fa\u6574\u4e2a\u5b57\u7b26\u4e32 ```s```\u3002\n- \u5982\u679c\u4f60\u60f3\u5de6\u5bf9\u9f50\u600e\u4e48\u529e\u5462\uff1f\u53ea\u8981\u5728 ```8``` \u524d\u52a0\u4e0a ```-``` \u5373\u53ef\u3002\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main()\n{\n   char a[100], b[100], c[100]; // \u7528\u5b57\u7b26\u4e32\n   scanf(\"%s%s%s\", a, b, c); // \u8bfb\u5165\uff08\u4e0d\u8981\u52a0 &\uff01\uff09\n   printf(\"%8s %8s %8s\", a, b, c); // \u6839\u636e\u9898\u610f\u8f93\u51fa\n   return 0;\n}\n```\n\u53ef\u4ee5\u53bb[\u672c\u7ad9](http://ybt.ssoier.cn:8088/index.php)\u6d4b\uff0c\u53ef\u4ee5\u8fc7\u7684\u3002\n\n\u867d\u7136\u9898\u9762\u5199 $0<a,b,c<10^{18}$\uff0c\u4f46\u7528 ```int``` \u4e5f\u53ef\u4ee5\u3002",
+        "postTime": 1625285640,
+        "uid": 404961,
+        "name": "baiABC",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3\u3010B2004 \u5bf9\u9f50\u8f93\u51fa\u3011"
+    },
+    {
+        "content": "### \u4e00\u3001\u601d\u8def\n\n\u53ef\u4ee5\u4f7f\u7528 `printf` \u51fd\u6570\u7684 `%<width><type>` \u683c\u5f0f\u8bbe\uff0c\u5176\u4e2d `<width>` \u4ee3\u8868\u8f93\u51fa\u5bbd\u5ea6\uff08\u53ef\u4ee5\u4e0d\u5199\uff09\uff0c`<type>` \u4ee3\u8868\u8f93\u51fa\u7c7b\u578b\u3002\n\n\u8fd9\u91cc\u7ed9\u51fa\u51e0\u4e2a\uff1a\n\n|\u7c7b\u578b|\u7c7b\u578b\u4ee3\u53f7|\n| -----------: | -----------: |\n|`int`|`d`|\n|`long long`|`lld`|\n|`char` \u5b57\u7b26|`c`|\n\n\u672c\u9898\u6309\u7167\u9898\u610f\u4f7f\u7528 `%8lld` \u8f93\u51fa\u5373\u53ef\uff0c\u6ce8\u610f\u9700\u8981\u4f7f\u7528 `long long`\u3002\n\n### \u4e8c\u3001\u5b8c\u6574\u4ee3\u7801\n\n```cpp\n#include<cstdio>\nusing namespace std;\nlong long a,b,c;\nint main()\n{\n    scanf(\"%lld%lld%lld\",&a,&b,&c);//\u8f93\u5165\u3002\n    printf(\"%8lld %8lld %8lld\",a,b,c);//\u8f93\u51fa\u3002\n    return 0;//\u5b8c\u7ed3\u6492\u82b1\uff01\n}\n\n```",
+        "postTime": 1625286193,
+        "uid": 387836,
+        "name": "dengzijun",
+        "ccfLevel": 5,
+        "title": "B2004\u9898\u89e3"
+    }
+]

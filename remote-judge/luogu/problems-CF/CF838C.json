@@ -1,0 +1,13 @@
+{
+    "description": "Alice and Bob are playing a game with a string of characters, with Alice going first. The string consists $ n $ characters, each of which is one of the first $ k $ letters of the alphabet. On a player\u2019s turn, they can either arbitrarily permute the characters in the words, or delete exactly one character in the word (if there is at least one character). In addition, their resulting word cannot have appeared before throughout the entire game. The player unable to make a valid move loses the game.\n\nGiven $ n,k,p $ , find the number of words with exactly $ n $ characters consisting of the first $ k $ letters of the alphabet such that Alice will win if both Alice and Bob play optimally. Return this number modulo the prime number $ p $ .",
+    "inputFormat": "The first line of input will contain three integers $ n,k,p $ ( $ 1<=n<=250000 $ , $ 1<=k<=26 $ , $ 10^{8}<=p<=10^{9}+100 $ , $ p $ will be prime).",
+    "outputFormat": "Print a single integer, the number of winning words for Alice, modulo $ p $ .",
+    "samples": [
+        [
+            "4 2 100000007\n",
+            "14\n"
+        ]
+    ],
+    "hint": "There are 14 strings that that Alice can win with. For example, some strings are \"bbaa\" and \"baaa\". Alice will lose on strings like \"aaaa\" or \"bbbb\".",
+    "translation": "### \u9898\u610f\n\n\u4e24\u4eba\u8f6e\u6d41\u64cd\u4f5c\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u7531\u5b57\u6bcd\u8868\u4e2d\u524d $k$ \u4e2a\u5b57\u7b26\u7ec4\u6210\u7684\u5b57\u7b26\u4e32\u3002\u6bcf\u6b21\u5c06\u5b57\u7b26\u4e32\u91cd\u65b0\u6392\u5217\u6216\u5220\u53bb\u4e00\u4e2a\u5b57\u7b26\uff0c\u5e76\u4e0d\u80fd\u548c\u4e4b\u524d\u7684\u5b57\u7b26\u4e32\u76f8\u540c\u3002\u4e0d\u80fd\u64cd\u4f5c\u8005\u5931\u8d25\u3002\n\n\u95ee\u6709\u591a\u5c11\u79cd\u5b57\u7b26\u4e32\u53ef\u4ee5\u4f7f\u5f97\u5148\u624b\u5fc5\u80dc\uff0c\u5bf9\u8d28\u6570 $p$ \u53d6\u6a21\u3002\n\n### \u6570\u636e\u8303\u56f4\n\n $1 \\leqslant n \\leqslant 250000$ \uff0c $1 \\leqslant k \\leqslant 26$ \uff0c $10^8 \\leqslant p \\leqslant 10^9+100$ \uff0c\u4e14 $p$ \u4e3a\u8d28\u6570\u3002"
+}

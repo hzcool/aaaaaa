@@ -1,0 +1,17 @@
+{
+    "description": "Steve Rogers is fascinated with new vibranium shields S.H.I.E.L.D gave him. They're all uncolored. There are $ n $ shields in total, the $ i $ -th shield is located at point $ (x_{i},y_{i}) $ of the coordinate plane. It's possible that two or more shields share the same location.\n\nSteve wants to paint all these shields. He paints each shield in either red or blue. Painting a shield in red costs $ r $ dollars while painting it in blue costs $ b $ dollars.\n\nAdditionally, there are $ m $ constraints Steve wants to be satisfied. The $ i $ -th constraint is provided by three integers $ t_{i} $ , $ l_{i} $ and $ d_{i} $ :\n\n- If $ t_{i}=1 $ , then the absolute difference between the number of red and blue shields on line $ x=l_{i} $ should not exceed $ d_{i} $ .\n- If $ t_{i}=2 $ , then the absolute difference between the number of red and blue shields on line $ y=l_{i} $ should not exceed $ d_{i} $ .\n\nSteve gave you the task of finding the painting that satisfies all the condition and the total cost is minimum.",
+    "inputFormat": "The first line of the input contains two integers $ n $ and $ m $ ( $ 1<=n,m<=100000 $ ) \u2014 the number of shields and the number of constraints respectively.\n\nThe second line contains two integers $ r $ and $ b $ ( $ 1<=r,b<=10^{9} $ ).\n\nThe next $ n $ lines contain the shields coordinates. The $ i $ -th of these lines contains two integers $ x_{i} $ and $ y_{i} $ ( $ 1<=x_{i},y_{i}<=10^{9} $ ).\n\nThe next $ m $ lines contain the constrains. The $ j $ -th of these lines contains three integers $ t_{j} $ , $ l_{j} $ and $ d_{j} $ ( $ 1<=t_{j}<=2,1<=l_{j}<=10^{9},0<=d_{j}<=n $ ).",
+    "outputFormat": "If satisfying all the constraints is impossible print -1 in first and only line of the output.\n\nOtherwise, print the minimum total cost in the first line of output. In the second line print a string of length $ n $ consisting of letters 'r' and 'b' only. The $ i $ -th character should be 'r' if the $ i $ -th shield should be painted red in the optimal answer and 'b' if it should be painted blue. The cost of painting shields in these colors should be equal the minimum cost you printed on the first line.\n\nIf there exist more than one optimal solution, print any of them.",
+    "samples": [
+        [
+            "5 6\n8 3\n2 10\n1 5\n9 10\n9 10\n2 8\n1 9 1\n1 2 1\n2 10 3\n2 10 2\n1 1 1\n2 5 2\n",
+            "25\nrbrbb\n"
+        ],
+        [
+            "4 4\n7 3\n10 3\n9 8\n10 3\n2 8\n2 8 0\n2 8 0\n1 2 0\n1 9 0\n",
+            "-1\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u5e73\u9762\u4e0a\u6709 $n$ \u4e2a\u70b9\uff0c\u7b2c $i$ \u4e2a\u70b9\u7684\u5750\u6807\u4e3a $(x_i, y_i)$\u3002\n\n\u6bcf\u4e2a\u70b9\u90fd\u8981\u88ab\u6d82\u8272\uff0c\u6d82\u6210\u7ea2\u8272\u9700\u8981 $r$ \u5143\uff0c\u6d82\u6210\u84dd\u8272\u9700\u8981 $b$ \u5143\u3002\n\n\u53e6\u5916\u6709 $m$ \u4e2a\u9650\u5236\uff0c\u6bcf\u4e2a\u9650\u5236\u6709\u4e24\u79cd\u53ef\u80fd\uff1a\n\n`1 l d` \u8868\u793a\u5728\u76f4\u7ebf $x = l$ \u4e0a\uff0c\u6d82\u6210\u4e24\u79cd\u989c\u8272\u7684\u70b9\u7684\u6570\u91cf\u4e4b\u5dee\u4e0d\u8d85\u8fc7 $d$\u3002\n\n`2 l d` \u8868\u793a\u5728\u76f4\u7ebf $y = l$ \u4e0a\uff0c\u6d82\u6210\u4e24\u79cd\u989c\u8272\u7684\u70b9\u7684\u6570\u91cf\u4e4b\u5dee\u4e0d\u8d85\u8fc7 $d$\u3002\n\n\u8981\u6c42\u6784\u9020\u51fa\u4e00\u79cd\u6d82\u8272\u65b9\u6848\u4f7f\u5f97\u6ee1\u8db3\u6240\u6709\u9650\u5236\u4e14\u603b\u82b1\u8d39\u6700\u5c11\uff0c\u6216\u5224\u65ad\u65e0\u6cd5\u6784\u9020\u3002\n\n$n,m \\le 10^5$\u3002"
+}

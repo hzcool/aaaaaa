@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u7b80\u5355\u9898\u3002\u8fd9\u548b $2900$\u3002\n\n\u4e0d\u96be\u53d1\u73b0 $n$ \u6ca1\u7528\uff0c\u4e14\u6240\u6709 $a_i$ \u53ef\u4ee5\u6309 $a_i\\bmod m$ \u5206\u7c7b\u3002\n\n\u5206\u7c7b\u5b8c\u4e86\u5c31\u4f1a\u53d1\u73b0\u603b\u5171\u53ea\u6709 $m$ \u79cd\uff0c\u76ee\u6807\u8ba9\u8fd9 $m$ \u79cd\u4efb\u610f\u7ec4\u5408\u548c\u4e0d\u4e3a $0$\u3002\n\n\u8003\u8651\u5230\u8fd9\u79cd\u60c5\u51b5\u4e0b\u6700\u591a\u53ea\u80fd\u9009 $7$ \u79cd\uff0c\u590d\u6742\u5ea6\u53ef\u4ee5\u505a\u5230 $\\binom{120}{7}$\uff0c\u4f46\u662f\u8fc7\u4e0d\u53bb\u3002\n\n\u4e0d\u96be\u53d1\u73b0\u6bcf\u4e2a\u4e1c\u897f\u8981\u4e48\u52a0\u8981\u4e48\u51cf\uff0c\u6545\u53ef\u4ee5\u7f29\u5230 $\\frac{m}{2}$\uff0c\u8fd9\u65f6\u5019\u6700\u591a\u9009 $6$ \u79cd\uff0c\u53ef\u4ee5\u901a\u8fc7\u3002\n\n\u6211\u662f\u76f4\u63a5\u5199\u7684 dfs \u526a\u679d\uff0c\u5b9e\u9645\u590d\u6742\u5ea6\u662f\u5c0f\u4e8e $\\binom{60}{6}$ \u7684\u3002\n\n```cpp\n#include <bits/stdc++.h>\n#define int long long\n#define double long double\n#define mid ((l+r)>>1)\nusing namespace std;\nconst int mod=1e9+7;\nint ans=0,m;\nint cntt[61],tp;\nbitset<120> mv;\nbitset<120> sft(bitset<120> bs,int pos){\n\treturn (bs>>pos)|(bs<<(m-pos));\n}\nint cnt=0,maxv;\nvoid dfs(int now,bitset<120> bs,int tot,int num){\n\t(ans+=tot)%=mod;\n\tcnt++;\n\tmaxv=max(maxv,num);\n\tif(now==tp+1){\n\t\treturn ;\n\t}\n\tfor(int i=now;i<=tp;i++){\n\t\tif(!bs[i]){\n\t\t\tbitset<120> nw=bs;\n\t\t\tif(!nw[i]) nw[i]=1;\n\t\t\tif(!nw[m-i]) nw[m-i]=1;\n\t\t\tdfs(i+1,(nw|sft(bs,i)|sft(bs,m-i))&mv,tot*cntt[i]%mod,num+1);\n\t\t}\n\t}\n}\nbitset<120> ept;\nsigned main(){\n\tint n,t; cin>>n>>m>>t;\n\ttp=min(m,60ll);\n\tfor(int i=1;i<=t;i++){\n\t\tint a; cin>>a;\n\t\tcntt[min(a%m,m-a%m)]++;\n\t}\n\tfor(int i=0;i<m;i++) mv.set(i);\n\tdfs(1,ept,1,0);\n\tcout<<ans;\n\treturn 0;\n}\n```",
+        "postTime": 1681314980,
+        "uid": 116664,
+        "name": "Daniel_lele",
+        "ccfLevel": 8,
+        "title": "CF217D \u9898\u89e3"
+    }
+]

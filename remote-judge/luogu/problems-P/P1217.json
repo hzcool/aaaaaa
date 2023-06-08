@@ -1,0 +1,12 @@
+{
+    "description": "\u56e0\u4e3a $151$ \u65e2\u662f\u4e00\u4e2a\u8d28\u6570\u53c8\u662f\u4e00\u4e2a\u56de\u6587\u6570\uff08\u4ece\u5de6\u5230\u53f3\u548c\u4ece\u53f3\u5230\u5de6\u662f\u770b\u4e00\u6837\u7684\uff09\uff0c\u6240\u4ee5 $151$ \u662f\u56de\u6587\u8d28\u6570\u3002\n\n\u5199\u4e00\u4e2a\u7a0b\u5e8f\u6765\u627e\u51fa\u8303\u56f4 $[a,b] (5 \\le a < b \\le 100,000,000)$\uff08\u4e00\u4ebf\uff09\u95f4\u7684\u6240\u6709\u56de\u6587\u8d28\u6570\u3002",
+    "inputFormat": "\u7b2c\u4e00\u884c\u8f93\u5165\u4e24\u4e2a\u6b63\u6574\u6570 $a$ \u548c $b$\u3002",
+    "outputFormat": "\u8f93\u51fa\u4e00\u4e2a\u56de\u6587\u8d28\u6570\u7684\u5217\u8868\uff0c\u4e00\u884c\u4e00\u4e2a\u3002\n",
+    "samples": [
+        [
+            "5 500\n",
+            "5\n7\n11\n101\n131\n151\n181\n191\n313\n353\n373\n383\n"
+        ]
+    ],
+    "hint": "Hint 1: Generate the palindromes and see if they are prime.\n\n\u63d0\u793a 1: \u627e\u51fa\u6240\u6709\u7684\u56de\u6587\u6570\u518d\u5224\u65ad\u5b83\u4eec\u662f\u4e0d\u662f\u8d28\u6570\uff08\u7d20\u6570\uff09.\n\n\nHint 2: Generate palindromes by combining digits properly. You might need more than one of the loops like below.\n\n\u63d0\u793a 2: \u8981\u4ea7\u751f\u6b63\u786e\u7684\u56de\u6587\u6570\uff0c\u4f60\u53ef\u80fd\u9700\u8981\u51e0\u4e2a\u50cf\u4e0b\u9762\u8fd9\u6837\u7684\u5faa\u73af\u3002\n\n\n\u9898\u76ee\u7ffb\u8bd1\u6765\u81eaNOCOW\u3002\n\nUSACO Training Section 1.5\n\n\n\u4ea7\u751f\u957f\u5ea6\u4e3a $5$ \u7684\u56de\u6587\u6570\uff1a\n\n```cpp\nfor (d1 = 1; d1 <= 9; d1+=2) {    // \u53ea\u6709\u5947\u6570\u624d\u4f1a\u662f\u7d20\u6570\n     for (d2 = 0; d2 <= 9; d2++) {\n         for (d3 = 0; d3 <= 9; d3++) {\n           palindrome = 10000*d1 + 1000*d2 +100*d3 + 10*d2 + d1;//(\u5904\u7406\u56de\u6587\u6570...)\n         }\n     }\n }\n\n```"
+}

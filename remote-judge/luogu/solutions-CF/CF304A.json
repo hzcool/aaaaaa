@@ -1,0 +1,26 @@
+[
+    {
+        "content": "\u5faa\u73af\u5224\u65ad,\u65f6\u95f4\u590d\u6742\u5ea6O(n^2)\n\ncode of c++:\n\n```cpp\n#include<cstdio>\n#include<cmath>\nusing namespace std;\nint main()\n{\n\tint n,m,i,j,sum=0,b,c,p;//b\u4e3a\u76f4\u89d2\u8fb9\uff0cc\u4e3a\u659c\u8fb9\n\tdouble a;//sqrt\u51fd\u6570\u8fd4\u56de\u503c\u4e3a\u5b9e\u578b\n\tscanf(\"%d\",&n);\n\tfor(c=1;c<=n;c++)\n\tfor(b=1;b<c;b++)\n\t{\n\t\tp=c*c-b*b;a=sqrt(p);\n        if(a==int(a)&&(a<=b))//\u5224\u6574\u6570+\u53bb\u91cd((a,b)\u4e0e(b,a)\u4e3a\u540c\u4e00\u79cd\n\t\tsum++;\n\t}\n\tprintf(\"%d\",sum);\n\treturn 0;\n}\n```",
+        "postTime": 1538911636,
+        "uid": 53264,
+        "name": "zhangyuxing",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF304A \u3010Pythagorean Theorem II\u3011"
+    },
+    {
+        "content": "\u76f4\u63a5\u66b4\u529b\u904d\u5386\u5373\u53ef\uff0c\u4f46\u662f\u7531\u4e8e\u6d89\u53ca\u5230\u5c0f\u6570\u8fd0\u7b97\uff0c\u6240\u4ee5\u7ec6\u8282\u8f83\u591a\u3002\n\n\u603b\u4f53\u601d\u8def\uff1a\n- \u4ece$1$\u5230$n$\u904d\u5386$c$\u3002\n- \u4ece$1$\u5230$c-1$\uff08**\u6ce8\u610f\u8fd9\u91cc\u662f$c-1$!**\uff09\u904d\u5386$b$\u3002\n- \u8bbe**\u5c0f\u6570**\u53d8\u91cf$a$\uff0c\u5e76\u4e14\u901a\u8fc7\u4e00\u822c\u65b9\u6cd5\u5f97\u51fa$a$\uff08$a=\\sqrt{c^2-b^2}$\uff09\u3002\n- \u5982\u679c\u8fd9\u4e2a$a=[a]$**\u5e76\u4e14$a\\le b$\uff08\u53bb\u91cd\uff09**\uff08$[a]=a$\u5411\u4e0b\u53d6\u6574\uff09\uff0c\u90a3\u4e48\u8bf4\u660e\u5408\u6cd5\uff0c\u65b9\u6848$+1$\u3002\n\n```cpp\n#include<bits/stdc++.h>\n#define ns \"-1\"\n#define fs(i,x,y,z) for(ll i=x;i<=y;i+=z)\n#define ft(i,x,y,z) for(ll i=x;i>=y;i+=z)\n#define ll long long\n#define ull unsigned long long\n#define db double\n#define ms(a,b) memset(a,b,sizeof(a))\n#define sz(a) sizeof(a)\nusing namespace std;\nconst int rw[]={-1,0,1,0,-1,1,-1,1},cl[]={0,1,0,-1,-1,1,1,-1};\nconst int N=100001,inf=0x7f7f7f7f;\nint n,ans;\nint main(){\n\tios::sync_with_stdio(false);\n\tcin.tie(0);\n\tcout.tie(0);\n\tcin>>n;\n\tfs(c,1,n,1){\n\t\tfs(b,1,c-1,1){\n\t\t\tint q=c*c-b*b;//\u8fd9\u91cc\u5982\u679c\u4e0d\u8fd9\u6837\u8fc7\u4e0d\u4e86\u6837\u4f8b\n\t\t\tdb a=sqrt(q);\n\t\t\tif(a==int(a)&&a<=b) ans++;\n\t\t}\n\t}\n\tcout<<ans;\n\treturn 0;\n}\n\n```",
+        "postTime": 1585638167,
+        "uid": 126471,
+        "name": "inoichi_lim",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF304A \u3010Pythagorean Theorem II\u3011"
+    },
+    {
+        "content": "\u770b\u4e86\u9898\u89e3\u540e\u653e\u5fc3\u4e86\uff0c\u9a6c\u4e0a$O(n^2)$\n\n\u4e3a\u4e86\u7f8e\u5316\u4e11\u964b\u7684if\uff0c\u7a9d\u52a0\u4e86\u4e00\u5806\u7a7a\u683c\n\n## \u6ce8\uff1a\u4ee3\u7801\u4e2dc\u662f\u6307$c^2$\uff0c\u9898\u5e72\u4e2da, b, c\u5728\u672c\u9898\u89e3\u4e2d\u5747\u4e3aA, B, C\n\n\u601d\u8def\uff1aA\u4ece1\u5230n\uff0cB\u4ecea\u5230n \u679a\u4e3e\n\n$C^2 = A^2 + B^2$\n\n```\nint( sqrt( double( c ) ) ) * int( sqrt( double( c ) ) )\n```\n\u5e73\u65b9\u6839c\u5e76\u5411\u4e0b\u53d6\u6574\n\n\u5982\u679c$A^2 + B^2 = C^2$\uff0c\u90a3\u4e48\u8fd9\u4e2a\u8fd0\u7b97\u662f\u7b49\u4e8e$C^2$\u7684\uff0c\u5426\u5219\u4f1a\u5411\u4e0b\u53d6\u6574\uff0c\u4ea7\u751f\u8bef\u5dee\n\n~~\u7136\u800c\u8fd8\u662f\u5f88\u4e11~~\n```\n#include <bits/stdc++.h>\nusing namespace std;\nint main(){\n\tint n;\n\tcin >> n;\n\tint cnt = 0;\n    //a\uff0cb\u5faa\u73af\n\tfor(int a = 1; a <= n; a++){\n\t\tfor(int b = a; b <= n; b++){\n\t\t\tint c = a*a + b*b;//c\n//\t\t\tcerr << a << \" \" << b << \" \" << c << \" \" << int(sqrt(double(c))) << \" \" << (int(sqrt(double(c)))*int(sqrt(double(c))) == c )<< \" \" << (int(sqrt(double(c)))*int(sqrt(double(c))) <= n) << endl;     /////\u8bf7\u5ffd\u7565\u8fd9\u6bb5\u4e11\u964b\u65e0\u6bd4\u7684cerr\uff0c\u6211\u56e0\u4e3a\u5b83T\u4e86\u4e00\u6b21\n\t\t\tif( int( sqrt( double( c ) ) ) * int( sqrt( double( c ) ) ) == c /*\u8fd9\u5c31\u662fa^2 + b^2 == c^2*/ && int( sqrt( double( c ) ) ) * int( sqrt( double( c ) ) ) <= n * n /*\u4e0d\u8d85\u8fc7n*n*/ ){//\u8fd9\u4e2aif\u548c\u53e6\u4e00\u7bc7\u9898\u89e3\u76f8\u6bd4\u7701\u4e86\u4e00\u4e2a\u53d8\u91cf\uff0c\u7136\u9e45\u5341\u5206\u4e11\u964b\n\t\t\t\tcnt++;\n\t\t\t}\n\t\t}\n\t} \n\tprintf(\"%d\", cnt);//\u7a9d\u6765\u4e2aprintf\u76ae\u4e00\u4e0b\n\treturn 0;\n}\n\n```",
+        "postTime": 1560168101,
+        "uid": 120766,
+        "name": "Arvin2018",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF304A \u3010Pythagorean Theorem II\u3011"
+    }
+]

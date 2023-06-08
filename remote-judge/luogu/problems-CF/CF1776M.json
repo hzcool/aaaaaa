@@ -1,0 +1,17 @@
+{
+    "description": "The \"Parmigiana di melanzane\" is a typical Italian dish. Alessandro and Bianca have very different tastes when it comes to it: Alessandro loves to eat Parmigiana with seafood, but Bianca thinks it is an atrocity! To decide which ingredients to include in the dish they prepare, they play the following game.\n\nThere are $ n $ possible ingredients, labeled from $ 1 $ to $ n $ . The higher the label, the closer the ingredient is to being seafood. The ingredients are connected by $ n - 1 $ edges, in such a way as to form a tree. Alessandro and Bianca take turns, with Alessandro going first. They alternately choose a terminal ingredient $ x $ , that is an ingredient currently connected to at most one other ingredient, and remove it from the tree. If the terminal ingredient $ x $ was chosen by Alessandro, it goes in the recipe; if it was chosen by Bianca, it is discarded.\n\nThe taste of the Parmigiana is measured as the maximum label of an ingredient in the recipe. Alessandro wants to maximize the taste, while Bianca wants to minimize the taste. If both play optimally, what is the taste of the Parmigiana?",
+    "inputFormat": "The first line contains an integer $ n $ ( $ 2\\le n \\le 100\\,000 $ ) \u2014 the number of ingredients.\n\nEach of the following $ n-1 $ lines contain two integers $ u_i $ and $ v_i $ ( $ 1 \\le u_i, v_i \\le n $ , $ u_i \\ne v_i $ ) \u2014 the ingredients that the $ i $ -th edge connects.\n\nIt is guaranteed that the edges form a tree (i.e., any pair of ingredients is connected by the edges, possibly indirectly).",
+    "outputFormat": "Print the value of the taste if both Alessandro and Bianca play optimally.",
+    "samples": [
+        [
+            "4\n1 2\n1 3\n1 4",
+            "4"
+        ],
+        [
+            "5\n1 5\n5 3\n3 4\n4 2",
+            "3"
+        ]
+    ],
+    "hint": "In the first sample, Alessandro can choose terminal ingredient $ 4 $ in the first turn. This ingredient is added to the recipe. Since $ 4 $ is the maximum label of an ingredient, the taste is $ 4 $ regardless of the choices that follow.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1776M/96bad947ed4d3b8bf55db712a7b8f56e59f006f5.png)In the second sample, Bianca can make sure that neither ingredient $ 4 $ nor $ 5 $ are included in the recipe, in which case Alessandro can include $ 3 $ . Thus, the taste is $ 3 $ .\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1776M/3f6ff43288b8e77a8a4ea1312fff9cb34ab05654.png)",
+    "translation": "\u7ed9\u5b9a\u4e00\u68f5 $n$ \u4e2a\u8282\u70b9\u7684\u6811 $(2 \\leq n \\leq 100000)$\uff0c\u7b2c $i$ \u4e2a\u8282\u70b9\u4e0a\u5199\u7740\u6570\u5b57 $i$\u3002\n\nAlessandro \u548c Bianca \u8f6e\u6d41\u8fdb\u884c\u64cd\u4f5c\uff0c\u6bcf\u4e00\u6b21\u53ef\u4ee5\u9009\u62e9\u4e00\u4e2a\u5ea6\u6570\u5c0f\u4e8e\u7b49\u4e8e $1$ \u7684\u8282\u70b9\u53d6\u8d70\uff0c\u5176\u4e2d Alessandro \u5148\u624b\u3002\n\nAlessandro \u60f3\u8981\u4f7f\u5176\u53d6\u8d70\u7684\u6240\u6709\u6570\u5b57\u7684\u6700\u5927\u503c\u5c3d\u91cf\u5927\uff0c\u800c Bianca \u60f3\u8981\u8fd9\u4e2a\u503c\u5c3d\u91cf\u5c0f\u3002\n\n\u5728\u4e24\u8005\u90fd\u53d6\u6700\u4f18\u7b56\u7565\u7684\u60c5\u51b5\u4e0b\uff0c\u8f93\u51fa\u8fd9\u4e2a\u503c\u3002\n\n\u7ffb\u8bd1by @\u5357\u9633\u5218\u5b50\u9aa5"
+}

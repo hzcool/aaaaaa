@@ -1,0 +1,21 @@
+{
+    "description": "There are $ n $ problems prepared for the next Codeforces round. They are arranged in ascending order by their difficulty, and no two problems have the same difficulty. Moreover, there are $ m $ pairs of similar problems. Authors want to split problems between two division according to the following rules:\n\n- Problemset of each division should be non-empty.\n- Each problem should be used in exactly one division (yes, it is unusual requirement).\n- Each problem used in division 1 should be harder than any problem used in division 2.\n- If two problems are similar, they should be used in different divisions.\n\nYour goal is count the number of ways to split problem between two divisions and satisfy all the rules. Two ways to split problems are considered to be different if there is at least one problem that belongs to division 1 in one of them and to division 2 in the other.\n\nNote, that the relation of similarity is not transitive. That is, if problem $ i $ is similar to problem $ j $ and problem $ j $ is similar to problem $ k $ , it doesn't follow that $ i $ is similar to $ k $ .",
+    "inputFormat": "The first line of the input contains two integers $ n $ and $ m $ ( $ 2<=n<=100000 $ , $ 0<=m<=100000 $ ) \u2014 the number of problems prepared for the round and the number of pairs of similar problems, respectively.\n\nEach of the following $ m $ lines contains a pair of similar problems $ u_{i} $ and $ v_{i} $ ( $ 1<=u_{i},v_{i}<=n,u_{i}\u2260v_{i} $ ). It's guaranteed, that no pair of problems meets twice in the input.",
+    "outputFormat": "Print one integer \u2014 the number of ways to split problems in two divisions.",
+    "samples": [
+        [
+            "5 2\n1 4\n5 2\n",
+            "2\n"
+        ],
+        [
+            "3 3\n1 2\n2 3\n1 3\n",
+            "0\n"
+        ],
+        [
+            "3 2\n3 1\n3 2\n",
+            "1\n"
+        ]
+    ],
+    "hint": "In the first sample, problems $ 1 $ and $ 2 $ should be used in division 2, while problems $ 4 $ and $ 5 $ in division 1. Problem $ 3 $ may be used either in division 1 or in division 2.\n\nIn the second sample, all pairs of problems are similar and there is no way to split problem between two divisions without breaking any rules.\n\nThird sample reminds you that the similarity relation is not transitive. Problem $ 3 $ is similar to both $ 1 $ and $ 2 $ , but $ 1 $ is not similar to $ 2 $ , so they may be used together.",
+    "translation": "$n$ \u4e2a\u95ee\u9898\uff0c$m$ \u5bf9\u9898\u76ee\u76f8\u4f3c\uff0c\u7ed9\u51fa $m$ \u5bf9\u76f8\u4f3c\u7684\u9898\u7684\u7f16\u53f7\uff1b\n\n$n$ \u4e2a\u95ee\u9898\u7684\u96be\u5ea6\u503c\u5c31\u4e3a\u4ed6\u4eec\u7684\u7f16\u53f7\uff0c\u73b0\u5728\u8981\u5c06\u8fd9 $n$ \u4e2a\u95ee\u9898\u6309\u8981\u6c42\u653e\u5230\u4e24\u4e2a\u9898\u5e93\u91cc\uff08div1\uff0cdiv2\uff09\n\n\u8981\u6c42\uff1adiv1\u4e2d\u7684\u9898\u76ee\u96be\u5ea6\u8981\u6bd4div2\u4e2d\u7684\u6bcf\u4e2a\u9898\u7684\u96be\u5ea6\u90fd\u5927\uff0c\u76f8\u4f3c\u7684\u9898\u4e0d\u80fd\u653e\u5230\u540c\u4e00\u4e2a\u9898\u5e93\u4e2d\u3002\n\n\u73b0\u5728\u95ee\u6709\u51e0\u79cd\u653e\u6cd5\u3002\n\n\n\u73b0\u5728\u95ee\u6709\u51e0\u79cd\u653e\u6cd5\u3002"
+}

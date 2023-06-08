@@ -1,0 +1,17 @@
+{
+    "description": "Karafs is some kind of vegetable in shape of an $ 1\u00d7h $ rectangle. Tavaspolis people love Karafs and they use Karafs in almost any kind of food. Tavas, himself, is crazy about Karafs.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF535C/f71511a4daca20688928b2fd7edbe32cc3d94a45.png)Each Karafs has a positive integer height. Tavas has an infinite 1-based sequence of Karafses. The height of the $ i $ -th Karafs is $ s_{i}=A+(i-1)\u00d7B $ .\n\nFor a given $ m $ , let's define an $ m $ -bite operation as decreasing the height of at most $ m $ distinct not eaten Karafses by 1. Karafs is considered as eaten when its height becomes zero.\n\nNow SaDDas asks you $ n $ queries. In each query he gives you numbers $ l $ , $ t $ and $ m $ and you should find the largest number $ r $ such that $ l<=r $ and sequence $ s_{l},s_{l+1},...,s_{r} $ can be eaten by performing $ m $ -bite no more than $ t $ times or print -1 if there is no such number $ r $ .",
+    "inputFormat": "The first line of input contains three integers $ A $ , $ B $ and $ n $ ( $ 1<=A,B<=10^{6} $ , $ 1<=n<=10^{5} $ ).\n\nNext $ n $ lines contain information about queries. $ i $ -th line contains integers $ l,t,m $ ( $ 1<=l,t,m<=10^{6} $ ) for $ i $ -th query.",
+    "outputFormat": "For each query, print its answer in a single line.",
+    "samples": [
+        [
+            "2 1 4\n1 5 3\n3 3 10\n7 10 2\n6 4 8\n",
+            "4\n-1\n8\n-1\n"
+        ],
+        [
+            "1 5 2\n1 5 10\n2 7 4\n",
+            "1\n2\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u95ee\u9898\u63cf\u8ff0\r\n\u6709\u65e0\u9650\u4e2a\u98df\u54c1\u6392\u6210\u4e00\u6392\uff0c\u5176\u4e2d\u7b2c i \u4e2a\u98df\u54c1\u7684\u4f53\u79ef si \u4e3a A + ( i - 1 ) * B \u3002 \u6bcf\u4e00\u6b21\uff0c\u4f60\u6700\u591a\u53ef\u4ee5\u540c\u65f6\u5403 M \u4e2a\u98df\u54c1\uff0c\u5e76\u4f7f\u8fd9 M \u4e2a\u98df\u54c1\u7684\u4f53\u79ef\u90fd\u51cf\u5c11 1 \uff0c\u4f53\u79ef\u4e3a 0 \u8868\u793a\u8be5\u98df\u54c1\u88ab\u5403\u6389\u3002\r\n\r\n\u73b0\u5728\u6709 n \u4e2a\u8be2\u95ee\uff0c\u6bcf\u4e2a\u8be2\u95ee\u5305\u542b\u4e09\u4e2a\u6574\u6570 L \uff0c T \uff0c M \uff0c\u8868\u793a\u4ece\u7b2c L \u4e2a\u98df\u54c1\u5f00\u59cb\u5f80\u53f3\u8fb9\u5403\uff0c\u6bcf\u6b21\u6700\u591a\u5403 M \u4e2a\u98df\u54c1\uff08 \u53ef\u4ee5\u662f\u4e0d\u8fde\u7eed\u7684 M \u4e2a\uff09\uff0c\u6700\u591a\u5403 T \u6b21\uff0c\u6c42\u4e00\u4e2a\u6700\u5927\u7684R ( L \u2264 R ) \uff0c\u4f7f\u5f97\u7b2c L \u4e2a\u5230\u7b2c R \u4e2a\u98df\u54c1\u90fd\u88ab\u5403\u6389\uff08\u5fc5\u987b\u662f\u8fde\u7eed\u7684\uff09\u3002\r\n\r\n\u8f93\u5165\u8f93\u51fa\u683c\u5f0f\r\n\u8f93\u5165\u683c\u5f0f\r\n\u7b2c\u4e00\u884c\uff0c\u4e09\u4e2a\u6574\u6570\uff0cA \uff0c B \uff0c n ( 1 \u2264 A\uff0cB \u2264 10^6 \uff0c 1 \u2264 n \u2264 10^5 )\r\n\r\n\u63a5\u4e0b\u6765 n \u884c\uff0c\u6bcf\u884c\u8868\u793a\u4e00\u4e2a\u8be2\u95ee\uff0c\u5305\u542b\u4e09\u4e2a\u6574\u6570 L \uff0c T \uff0c M ( 1 \u2264 L \uff0c T \uff0c M \u2264 10^6 )\r\n\r\n\u8f93\u51fa\u683c\u5f0f\r\n\u8f93\u51fa\u5171 n \u884c\uff0c\u6bcf\u884c\u4e00\u4e2a\u6574\u6570\uff0c\u4f9d\u6b21\u8868\u793a\u6bcf\u4e2a\u8be2\u95ee\u7684 R \uff0c\u65e0\u89e3\u5219\u8f93\u51fa \u22121 \u3002\r\n\u7ffb\u8bd1\u7531 @\u70bc\u91d1\u6cd5\u7237biu \u63d0\u4f9b"
+}

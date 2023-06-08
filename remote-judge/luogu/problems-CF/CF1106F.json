@@ -1,0 +1,33 @@
+{
+    "description": "Lunar New Year is approaching, and Bob received a gift from his friend recently \u2014 a recursive sequence! He loves this sequence very much and wants to play with it.\n\nLet $ f_1, f_2, \\ldots, f_i, \\ldots $ be an infinite sequence of positive integers. Bob knows that for $ i > k $ , $ f_i $ can be obtained by the following recursive equation:\n\n $ $$$f_i = \\left(f_{i - 1} ^ {b_1} \\cdot f_{i - 2} ^ {b_2} \\cdot \\cdots \\cdot f_{i - k} ^ {b_k}\\right) \\bmod p, $ $ </p><p>which in short is</p><p> $ $ f_i = \\left(\\prod_{j = 1}^{k} f_{i - j}^{b_j}\\right) \\bmod p, $ $ </p><p>where  $ p = 998\\\\,244\\\\,353 $  (a widely-used prime),  $ b\\_1, b\\_2, \\\\ldots, b\\_k $  are known integer constants, and  $ x \\\\bmod y $  denotes the remainder of  $ x $  divided by  $ y $ .</p><p>Bob lost the values of  $ f\\_1, f\\_2, \\\\ldots, f\\_k $ , which is extremely troublesome \u2013 these are the basis of the sequence! Luckily, Bob remembers the first  $ k - 1 $  elements of the sequence:  $ f\\_1 = f\\_2 = \\\\ldots = f\\_{k - 1} = 1 $  and the  $ n $ -th element:  $ f\\_n = m $ . Please find any possible value of  $ f\\_k$$$. If no solution exists, just tell Bob that it is impossible to recover his favorite sequence, regardless of Bob's sadness.",
+    "inputFormat": "The first line contains a positive integer $ k $ ( $ 1 \\leq k \\leq 100 $ ), denoting the length of the sequence $ b_1, b_2, \\ldots, b_k $ .\n\nThe second line contains $ k $ positive integers $ b_1, b_2, \\ldots, b_k $ ( $ 1 \\leq b_i < p $ ).\n\nThe third line contains two positive integers $ n $ and $ m $ ( $ k < n \\leq 10^9 $ , $ 1 \\leq m < p $ ), which implies $ f_n = m $ .",
+    "outputFormat": "Output a possible value of $ f_k $ , where $ f_k $ is a positive integer satisfying $ 1 \\leq f_k < p $ . If there are multiple answers, print any of them. If no such $ f_k $ makes $ f_n = m $ , output $ -1 $ instead.\n\nIt is easy to show that if there are some possible values of $ f_k $ , there must be at least one satisfying $ 1 \\leq f_k < p $ .",
+    "samples": [
+        [
+            "3\n2 3 5\n4 16\n",
+            "4\n"
+        ],
+        [
+            "5\n4 7 1 5 6\n7 14187219\n",
+            "6\n"
+        ],
+        [
+            "8\n2 3 5 6 1 7 9 10\n23333 1\n",
+            "1\n"
+        ],
+        [
+            "1\n2\n88888 66666\n",
+            "-1\n"
+        ],
+        [
+            "3\n998244352 998244352 998244352\n4 2\n",
+            "-1\n"
+        ],
+        [
+            "10\n283 463 213 777 346 201 463 283 102 999\n2333333 6263423\n",
+            "382480067\n"
+        ]
+    ],
+    "hint": "In the first sample, we have $ f_4 = f_3^2 \\cdot f_2^3 \\cdot f_1^5 $ . Therefore, applying $ f_3 = 4 $ , we have $ f_4 = 16 $ . Note that there can be multiple answers.\n\nIn the third sample, applying $ f_7 = 1 $ makes $ f_{23333} = 1 $ .\n\nIn the fourth sample, no such $ f_1 $ makes $ f_{88888} = 66666 $ . Therefore, we output $ -1 $ instead.",
+    "translation": "\u6709\u4e00\u4e32 $n$ \u4e2a\u6570\u7684\u6570\u5217\uff0c\u7ed9\u4f60 $b_1\\sim b_k$\u3002\u5f53 $i>k$ \u65f6\uff1a\n\n$$f_i=(\\prod\\limits_{j=1}^kf_{i-j}^{b_j})\\bmod{998244353}$$\n\n\u5df2\u77e5 $f_1=f_2=\\cdots=f_{k-1}=1,f_n=m$\uff0c\u95ee $f_k$ \u53ef\u80fd\u662f\u591a\u5c11\u3002\n\n$k \\leq 100$\uff0c$n \\leq 10^9$\u3002"
+}

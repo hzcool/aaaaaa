@@ -1,0 +1,26 @@
+[
+    {
+        "content": "> \u7ed9\u5b9a\u6d6e\u70b9\u6570 $a$\uff0c\u6c42 $|a|$\n\n\u89e3\u6b64\u9898\u6709\u4e24\u79cd\u65b9\u6cd5\uff1a\n1. \u7edd\u5bf9\u503c\u7684\u5b9a\u4e49\u5f0f\uff1a\n\t$$|a|=\\begin{cases}a&&(a>0)\\\\0&&(a=0)\\\\-a&&(a<0)\\end{cases}$$\n    ```cpp\n    double a;\n    cin>>a;\n    if(a<0) a=-a;\n    printf(\"%.2lf\\n\",a);\n    ```\n\t\u4e5f\u53ef\u4ee5\u7b80\u5316\u5982\u4e0b\uff1a\n    ```cpp\n    double a;\n    cin>>a;\n    printf(\"%.2lf\\n\",(a<0)?-a:a); //?: \u662f\u4e09\u76ee\u8fd0\u7b97\u7b26\n    ```\n    \n2. \u76f4\u63a5\u4f7f\u7528\u5e93\u51fd\u6570 `fabs()`\uff1a\n\t```cpp\n    #include <bits/stdc++.h>\n\tusing namespace std;\n\tint main(void) {\n\t    double a;\n\t    cin>>a;\n\t    printf(\"%.2lf\\n\",fabs(a));\n\t    return 0;\n\t}\n    ```",
+        "postTime": 1625365271,
+        "uid": 372299,
+        "name": "\u8d85\u7ea7\u739b\u4e3d\u738b\u5b50",
+        "ccfLevel": 5,
+        "title": "\u6d6e\u70b9\u6570\u7edd\u5bf9\u503c - B2036"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u53ea\u8981\u7528 ```std::abs``` \u6216 ```fabs``` \u5373\u53ef\u3002\n\u6ce8\u610f\u4fdd\u7559\u4e24\u4f4d\u5c0f\u6570\uff01\n### \u4ee3\u7801\uff1a\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main()\n{\n    double f; // float \u4e5f\u53ef\u4ee5\n    cin >> f;\n    cout << fixed << setprecision(2) << abs(f); // \u4fdd\u7559\u4e24\u4f4d\u5c0f\u6570\n    /* \u5982\u679c\u7528 <cmath> \u4e2d\u7684 abs \u4f1a\u5f15\u53d1\u9519\u8bef\u3002\n      \u5c31\u662f\u8bf4\u8981\u52a0 using namespace std; */\n    return 0;\n}\n```",
+        "postTime": 1625289558,
+        "uid": 404961,
+        "name": "baiABC",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3\u3010B2036 \u8f93\u51fa\u7edd\u5bf9\u503c\u3011"
+    },
+    {
+        "content": "> \u6c42 $|x|$\uff0c\u5176\u4e2d $x$ \u4e3a\u5b9e\u6570\uff0c\u4fdd\u7559\u4e24\u4f4d\u5c0f\u6570\u3002\n\n\u6c42\u6574\u6570\u7684\u7edd\u5bf9\u503c\u53ef\u4ee5\u7528 C++ \u5e93\u4e2d\u7684 $\\rm abs$ \u51fd\u6570\uff0c\u800c\u6c42\u5b9e\u6570\u7684\u7edd\u5bf9\u503c\u53ef\u4ee5\u7528 $\\rm fabs$ \u51fd\u6570\u3002\n\n\u800c\u4fdd\u7559\u4e24\u4f4d\u5c0f\u6570\u53ef\u4ee5\u4f7f\u7528 $\\texttt{\\%.2lf}$ \u6765\u8fdb\u884c\u8f93\u51fa\uff0c\u5177\u4f53\u8be6\u89c1\u4ee3\u7801\u3002\n\n\u53c2\u8003\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\n\nusing namespace std;\n\nsigned main()\n{\n\tdouble a;\n\tscanf(\"%lf\", &a);\n\tprintf(\"%.2lf\", fabs(a));\n\treturn 0;\n}\n```",
+        "postTime": 1625292546,
+        "uid": 183609,
+        "name": "hhoppitree",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 B2036 \u3010\u8f93\u51fa\u7edd\u5bf9\u503c\u3011"
+    }
+]

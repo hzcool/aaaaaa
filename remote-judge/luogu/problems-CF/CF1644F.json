@@ -1,0 +1,33 @@
+{
+    "description": "For an array of integers $ a $ , let's define $ |a| $ as the number of elements in it.\n\nLet's denote two functions:\n\n- $ F(a, k) $ is a function that takes an array of integers $ a $ and a positive integer $ k $ . The result of this function is the array containing $ |a| $ first elements of the array that you get by replacing each element of $ a $ with exactly $ k $ copies of that element.For example, $ F([2, 2, 1, 3, 5, 6, 8], 2) $ is calculated as follows: first, you replace each element of the array with $ 2 $ copies of it, so you obtain $ [2, 2, 2, 2, 1, 1, 3, 3, 5, 5, 6, 6, 8, 8] $ . Then, you take the first $ 7 $ elements of the array you obtained, so the result of the function is $ [2, 2, 2, 2, 1, 1, 3] $ .\n- $ G(a, x, y) $ is a function that takes an array of integers $ a $ and two different integers $ x $ and $ y $ . The result of this function is the array $ a $ with every element equal to $ x $ replaced by $ y $ , and every element equal to $ y $ replaced by $ x $ .For example, $ G([1, 1, 2, 3, 5], 3, 1) = [3, 3, 2, 1, 5] $ .\n\nAn array $ a $ is a parent of the array $ b $ if:\n\n- either there exists a positive integer $ k $ such that $ F(a, k) = b $ ;\n- or there exist two different integers $ x $ and $ y $ such that $ G(a, x, y) = b $ .\n\nAn array $ a $ is an ancestor of the array $ b $ if there exists a finite sequence of arrays $ c_0, c_1, \\dots, c_m $ ( $ m \\ge 0 $ ) such that $ c_0 $ is $ a $ , $ c_m $ is $ b $ , and for every $ i \\in [1, m] $ , $ c_{i-1} $ is a parent of $ c_i $ .\n\nAnd now, the problem itself.\n\nYou are given two integers $ n $ and $ k $ . Your goal is to construct a sequence of arrays $ s_1, s_2, \\dots, s_m $ in such a way that:\n\n- every array $ s_i $ contains exactly $ n $ elements, and all elements are integers from $ 1 $ to $ k $ ;\n- for every array $ a $ consisting of exactly $ n $ integers from $ 1 $ to $ k $ , the sequence contains at least one array $ s_i $ such that $ s_i $ is an ancestor of $ a $ .\n\nPrint the minimum number of arrays in such sequence.",
+    "inputFormat": "The only line contains two integers $ n $ and $ k $ ( $ 1 \\le n, k \\le 2 \\cdot 10^5 $ ).",
+    "outputFormat": "Print one integer \u2014 the minimum number of elements in a sequence of arrays meeting the constraints. Since the answer can be large, output it modulo $ 998244353 $ .",
+    "samples": [
+        [
+            "3 2",
+            "2"
+        ],
+        [
+            "4 10",
+            "12"
+        ],
+        [
+            "13 37",
+            "27643508"
+        ],
+        [
+            "1337 42",
+            "211887828"
+        ],
+        [
+            "198756 123456",
+            "159489391"
+        ],
+        [
+            "123456 198756",
+            "460526614"
+        ]
+    ],
+    "hint": "Let's analyze the first example.\n\nOne of the possible answers for the first example is the sequence $ [[2, 1, 2], [1, 2, 2]] $ . Every array of size $ 3 $ consisting of elements from $ 1 $ to $ 2 $ has an ancestor in this sequence:\n\n- for the array $ [1, 1, 1] $ , the ancestor is $ [1, 2, 2] $ : $ F([1, 2, 2], 13) = [1, 1, 1] $ ;\n- for the array $ [1, 1, 2] $ , the ancestor is $ [1, 2, 2] $ : $ F([1, 2, 2], 2) = [1, 1, 2] $ ;\n- for the array $ [1, 2, 1] $ , the ancestor is $ [2, 1, 2] $ : $ G([2, 1, 2], 1, 2) = [1, 2, 1] $ ;\n- for the array $ [1, 2, 2] $ , the ancestor is $ [1, 2, 2] $ ;\n- for the array $ [2, 1, 1] $ , the ancestor is $ [1, 2, 2] $ : $ G([1, 2, 2], 1, 2) = [2, 1, 1] $ ;\n- for the array $ [2, 1, 2] $ , the ancestor is $ [2, 1, 2] $ ;\n- for the array $ [2, 2, 1] $ , the ancestor is $ [2, 1, 2] $ : $ F([2, 1, 2], 2) = [2, 2, 1] $ ;\n- for the array $ [2, 2, 2] $ , the ancestor is $ [1, 2, 2] $ : $ G(F([1, 2, 2], 4), 1, 2) = G([1, 1, 1], 1, 2) = [2, 2, 2] $ .",
+    "translation": "\u6709\u4e24\u79cd\u5bf9\u4e8e\u6570\u7ec4\u7684\u53d8\u6362\uff1a\n\n- $F(a,k)$ \u4e3a\u5c06\u6570\u7ec4 $a$ \u7684\u6bcf\u4e00\u4e2a\u6570\u66ff\u6362\u6210 $k$ \u4e2a\u8be5\u6570\u540e\u53d6\u524d $|a|$ \u4e2a\u6570\u7684\u6570\u7ec4\uff0c\u4f8b\u5982 $a = [2,2,1,3,5,6,8]$ \uff0c\u6bcf\u4e2a\u6570\u66ff\u6362\u6210 $2$ \u4e2a\u8be5\u6570\u4e3a $[2,2,2,2,1,1,3,3,5,5,6,6,8,8]$ \uff0c\u6240\u4ee5 $F(a,2)=[2,2,2,2,1,1,3]$\u3002\n\n- $G(a,x,y)$ \u4e3a\u5c06\u6570\u7ec4 $a$ \u4e2d\u6bcf\u4e00\u4e2a $x$ \u66ff\u6362\u6210 $y$\uff0c\u6bcf\u4e00\u4e2a $y$ \u66ff\u6362\u6210 $x$\uff0c\u4f8b\u5982$G([1,1,2,3,5],3,1)=[3,3,2,1,5]$\u3002\n\n\u73b0\u8981\u6c42\u6784\u9020\u51fa $m$ \u4e2a\u6570\u7ec4\uff0c\u5176\u4e2d\u6bcf\u4e2a\u6570\u7ec4\u90fd\u6709 $n$ \u4e2a\u6570\uff0c\u6bcf\u4e2a\u6570\u4e3a\u4e0d\u8d85\u8fc7 $k$ \u7684\u6b63\u6574\u6570\u3002\u540c\u65f6\u5bf9\u4e8e\u6240\u6709\u542b $n$ \u4e2a\u6570\u4e14\u6bcf\u4e2a\u6570\u4e3a\u4e0d\u8d85\u8fc7 $k$ \u7684\u6b63\u6574\u6570\u7684\u6570\u7ec4\uff0c\u4f60\u8981\u6ee1\u8db3\u5728\u8fd9 $m$ \u4e2a\u6570\u7ec4\u4e2d\u81f3\u5c11\u5b58\u5728\u4e00\u4e2a\u6570\u7ec4\u5728\u7684\u7ecf\u8fc7\u4efb\u610f\u591a\u6b21\u4e0a\u8ff0\u4e24\u4e2a\u51fd\u6570\u7684\u53d8\u6362\u540e\u80fd\u5f97\u5230\u5b83\u3002\n\n\u4f60\u53ea\u9700\u8981\u6c42\u51fa\u6240\u6709\u6784\u9020\u65b9\u6848\u4e2d\u6700\u5c0f\u7684 $m$ \u662f\u591a\u5c11\uff0c\u7b54\u6848\u5bf9 $998244353$ \u53d6\u6a21\u3002"
+}

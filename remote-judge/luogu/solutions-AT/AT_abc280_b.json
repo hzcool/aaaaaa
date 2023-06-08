@@ -1,0 +1,34 @@
+[
+    {
+        "content": "\u8003\u8651\u5bf9\u4e8e $i \\in[2,n]$ \u6709 $\\sum_{j=1}^{j=i} A_j = S_i$\uff0c$\\sum_{j=1}^{j=i-1} A_j = S_{i-1}$\u3002\r\n\r\n\u4e24\u5f0f\u76f8\u51cf\uff0c\u6709 $A_i = S_i - S_{i-1}$ \uff08$i \\in [2,n]$\uff09\u3002\r\n\r\n\u5bf9\u4e8e $A_1 = S_1$\u3002\r\n\r\n\u6784\u9020\u5b8c\u6210\uff0c\u8fd9\u4e2a\u53eb\u505a ${S}$ \u7684\u5dee\u5206\u6570\u7ec4\u3002",
+        "postTime": 1670284383,
+        "uid": 520748,
+        "name": "_ChiFAN_",
+        "ccfLevel": 4,
+        "title": "AT_abc280_B \u9898\u89e3"
+    },
+    {
+        "content": "\u9898\u76ee\u5927\u610f\uff1a\u7ed9\u4f60\u4e00\u4e2a $n$\uff0c\u8f93\u5165 $n$ \u4e2a\u6570\uff0c\u7b2c $i$ \u4e2a\u6570\u4ee3\u8868\u7b2c $1$ \u5230\u7b2c $i$ \u4e2a\u7684\u6570\u7684\u548c\u3002\u8fd9\u4e2a\u5176\u5b9e\u5c31\u662f\u4e00\u4e2a\u524d\u7f00\u548c\uff0c\u6240\u4ee5\u7b2c $i$ \u4e2a\u6570\u7b49\u4e8e $1$ \u5230 $i$ \u7684\u524d\u7f00\u548c\u51cf\u53bb $1$ \u5230 $i-1$ \u7684\u524d\u7f00\u548c\uff0c\u5f0f\u5b50\u4e3a $a[i]-a[i-1]$\uff0c\u53ef\u4ee5\u5b9e\u73b0\u8fb9\u8f93\u5165\u53d8\u8f93\u51fa\uff0c\u4e0b\u9762\u662f\u5b8c\u6574\u4ee3\u7801\uff1a\r\n\r\n```cpp\r\n#include<bits/stdc++.h>\r\n#define ll long long\r\nusing namespace std;\r\nconst int N=1e7+10,NN=1e4+10;\r\nll n,m,k,x,y,u,v,w,cnt=0,ans=0,t=0,l,r,len,T;\r\nll mini=INT_MAX,maxi=0;\r\nstring s,s1,s2;\r\nll dp[NN][NN],a[N];\r\n\r\nint main(){\r\n\tcin>>n;\r\n\tfor(int i=1;i<=n;i++){\r\n\t\tcin>>a[i];\r\n\t\tcout<<a[i]-a[i-1]<<\" \";\r\n\t}\r\n\treturn 0;\r\n}\r\n\r\n```\r\n",
+        "postTime": 1670294288,
+        "uid": 654958,
+        "name": "Light_az",
+        "ccfLevel": 0,
+        "title": "AT_abc280_b\u9898\u89e3"
+    },
+    {
+        "content": "### AT_abc280_b \u9898\u89e3\r\n\r\n#### \u601d\u8def\u5206\u6790\r\n\r\n\u4e00\u9053\u524d\u7f00\u548c\u539f\u7406\u9898\u3002\r\n\r\n\u6839\u636e\u5b9a\u4e49\uff0c$S_n = a_1+a_2+\\ldots+a_n$\uff0c$S_{n-1}=a_1+a_2+\\ldots+a_{n-1}$\u3002\u4e8e\u662f\u4fbf\u5f97\u5230$S_n-S_{n-1}=a_n$\u3002\r\n\r\n\u6839\u636e\u6b64\u516c\u5f0f\u8ba1\u7b97\u5373\u53ef\u3002\r\n\r\n#### \u5173\u952e\u4ee3\u7801\r\n\r\n```cpp\r\nfor(int i = 1;i <= n;i++)\r\n{\r\n    cout << a[i] - a[i - 1] << \" \";\r\n}\r\n```\r\n\r\n",
+        "postTime": 1670292509,
+        "uid": 430133,
+        "name": "liangbob",
+        "ccfLevel": 4,
+        "title": "\u3010\u9898\u89e3\u3011AT_abc280_b \u9898\u89e3"
+    },
+    {
+        "content": "# \u9898\u610f\r\n\r\n\u7ed9\u5b9a\u6570\u7ec4 $S$\uff0c\u8bf7\u6c42\u51fa\u4e00\u4e2a\u6570\u7ec4 $A$\uff0c\u4f7f\u5f97 $S_k=\\sum^k_{i=1}A_i$\u3002\r\n\r\n# Solution:\r\n\r\n\u9898\u76ee\u7ed9\u5b9a\u7684\u6570\u7ec4 $S$ \u5b9e\u8d28\u4e0a\u662f\u6570\u7ec4 $A$ \u7684\u524d\u7f00\u548c\uff0c\u56e0\u4e3a\u5dee\u5206\u662f\u524d\u7f00\u548c\u7684\u9006\u8fd0\u7b97\uff0c\u6240\u4ee5\u6211\u4eec\u5bf9 $S$ \u8fdb\u884c\u5dee\u5206\u5373\u53ef\u3002**\u6ce8\u610f**\uff0c\u5dee\u5206\u5fc5\u987b\u4ece\u540e\u5411\u524d\u904d\u5386\u5dee\u5206\u3002\r\n\r\n# Code:\r\n\r\n```cpp\r\n#include<iostream>\r\nint s[11];\r\nint main() {\r\n    std::ios::sync_with_stdio(false);\r\n    int n;\r\n    std::cin >> n;\r\n    for (int i = 1; i <= n; i++)\r\n        std::cin >> s[i];\r\n    for (int i = n; i; i--)\r\n        s[i] -= s[i - 1];\r\n    for (int i = 1; i <= n; i++)\r\n        std::cout << s[i] << \" \";\r\n    return 0;\r\n}\r\n```",
+        "postTime": 1670293174,
+        "uid": 610557,
+        "name": "shinzanmono",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3"
+    }
+]

@@ -1,0 +1,29 @@
+{
+    "description": "Consider a tournament with $ n $ participants. The rating of the $ i $ -th participant is $ a_i $ .\n\nThe tournament will be organized as follows. First of all, organizers will assign each participant an index from $ 1 $ to $ n $ . All indices will be unique. Let $ p_i $ be the participant who gets the index $ i $ .\n\nThen, $ n-1 $ games will be held. In the first game, participants $ p_1 $ and $ p_2 $ will play. In the second game, the winner of the first game will play against $ p_3 $ . In the third game, the winner of the second game will play against $ p_4 $ , and so on \u2014 in the last game, the winner of the $ (n-2) $ -th game will play against $ p_n $ .\n\nMonocarp wants to predict the results of all $ n-1 $ games (of course, he will do the prediction only after the indices of the participants are assigned). He knows for sure that, when two participants with ratings $ x $ and $ y $ play, and $ |x - y| > k $ , the participant with the higher rating wins. But if $ |x - y| \\le k $ , any of the two participants may win.\n\nAmong all $ n! $ ways to assign the indices to participants, calculate the number of ways to do this so that Monocarp can predict the results of all $ n-1 $ games. Since the answer can be large, print it modulo $ 998244353 $ .",
+    "inputFormat": "The first line contains two integers $ n $ and $ k $ ( $ 2 \\le n \\le 10^6 $ ; $ 0 \\le k \\le 10^9 $ ).\n\nThe second line contains $ n $ integers $ a_1, a_2, \\dots, a_n $ ( $ 0 \\le a_1 \\le a_2 \\le \\dots \\le a_n \\le 10^9 $ ).",
+    "outputFormat": "Print one integer \u2014 the number of ways to assign the indices to the participants so that Monocarp can predict the results of all $ n-1 $ games.",
+    "samples": [
+        [
+            "4 3\n7 12 17 21",
+            "24"
+        ],
+        [
+            "3 7\n4 9 28",
+            "4"
+        ],
+        [
+            "4 1\n1 2 3 4",
+            "0"
+        ],
+        [
+            "4 1\n1 2 2 4",
+            "12"
+        ],
+        [
+            "16 30\n8 12 15 27 39 44 49 50 51 53 58 58 59 67 68 100",
+            "527461297"
+        ]
+    ],
+    "hint": "In the first example, a match with any pair of players can be predicted by Monocarp, so all $ 24 $ ways to assign indices should be counted.\n\nIn the second example, suitable ways are $ [1, 3, 2] $ , $ [2, 3, 1] $ , $ [3, 1, 2 $ \\] and $ [3, 2, 1] $ .",
+    "translation": "\u6709 $n$ \u4e2a\u4eba\uff0c\u6bcf\u4e2a\u4eba\u6709\u80fd\u529b\u503c $a_i$\u3002\u89c4\u5b9a\u4e00\u4e2a\u6bd4\u8d5b\u987a\u5e8f $p_1,p_2,\\dots,p_n$\uff0c\u7b2c\u4e00\u573a $p_1,p_2$ \u6bd4\uff0c\u80dc\u8005\u4e0e $p_3$ \u6bd4\uff0c\u80dc\u8005\u4e0e $p_4$ \u6bd4\u2026\u2026\uff0c\u5171\u8fdb\u884c $n-1$ \u8f6e\u6bd4\u8d5b\u51b3\u51fa\u6700\u7ec8\u80dc\u8005\u3002\u82e5\u80fd\u529b\u503c\u4e3a $x,y$ \u7684\u4e24\u4e2a\u4eba\u6bd4\u8d5b\uff0c\u82e5 $|x-y|>k$ \u5219\u80fd\u529b\u503c\u9ad8\u8005\u80dc\uff1b\u5426\u5219\u4e24\u4eba\u90fd\u6709\u53ef\u80fd\u80dc\u51fa\u3002\u8bf7\u8ba1\u6570\u6bd4\u8d5b\u987a\u5e8f\u7684\u65b9\u6848\u6570\uff0c\u4f7f\u5f97\u4efb\u610f\u4e00\u6b21\u6bd4\u8d5b\u90fd\u6709\u552f\u4e00\u80dc\u8005\u3002\n\ntranslated by cszyf"
+}

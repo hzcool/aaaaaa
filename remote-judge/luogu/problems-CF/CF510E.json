@@ -1,0 +1,25 @@
+{
+    "description": "Fox Ciel is participating in a party in Prime Kingdom. There are $ n $ foxes there (include Fox Ciel). The i-th fox is $ a_{i} $ years old.\n\nThey will have dinner around some round tables. You want to distribute foxes such that:\n\n1. Each fox is sitting at some table.\n2. Each table has at least 3 foxes sitting around it.\n3. The sum of ages of any two adjacent foxes around each table should be a prime number.\n\nIf $ k $ foxes $ f_{1} $ , $ f_{2} $ , ..., $ f_{k} $ are sitting around table in clockwise order, then for $ 1<=i<=k-1 $ : $ f_{i} $ and $ f_{i+1} $ are adjacent, and $ f_{1} $ and $ f_{k} $ are also adjacent.\n\nIf it is possible to distribute the foxes in the desired manner, find out a way to do that.",
+    "inputFormat": "The first line contains single integer $ n $ ( $ 3<=n<=200 $ ): the number of foxes in this party.\n\nThe second line contains $ n $ integers $ a_{i} $ ( $ 2<=a_{i}<=10^{4} $ ).",
+    "outputFormat": "If it is impossible to do this, output \"Impossible\".\n\nOtherwise, in the first line output an integer $ m $ (![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF510E/a1986aeeeaea5a7933c3720a16d2cdd466e4edfe.png)): the number of tables.\n\nThen output $ m $ lines, each line should start with an integer $ k $ -=\u2013 the number of foxes around that table, and then $ k $ numbers \u2014 indices of fox sitting around that table in clockwise order.\n\nIf there are several possible arrangements, output any of them.",
+    "samples": [
+        [
+            "4\n3 4 8 9\n",
+            "1\n4 1 2 4 3\n"
+        ],
+        [
+            "5\n2 2 2 2 2\n",
+            "Impossible\n"
+        ],
+        [
+            "12\n2 3 4 5 6 7 8 9 10 11 12 13\n",
+            "1\n12 1 2 3 6 5 12 9 8 7 10 11 4\n"
+        ],
+        [
+            "24\n2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25\n",
+            "3\n6 1 2 3 6 5 4\n10 7 8 9 12 15 14 13 16 11 10\n8 17 18 23 22 19 20 21 24\n"
+        ]
+    ],
+    "hint": "In example 1, they can sit around one table, their ages are: 3-8-9-4, adjacent sums are: 11, 17, 13 and 7, all those integers are primes.\n\nIn example 2, it is not possible: the sum of 2+2 = 4 is not a prime number.",
+    "translation": "# \u9898\u76ee\u63cf\u8ff0\n\n\u5c0f\u72d0\u72f8Ciel\u53c2\u52a0\u4e86\u4e00\u4e2a\u6d3e\u5bf9\uff0c\u52a0\u4e0a\u4ed6\u81ea\u5df1\u8fd9\u4e2a\u6d3e\u5bf9\u91cc\u603b\u5171\u6709$n$\u53ea\u72d0\u72f8\uff0c\u6bcf\u53ea\u72d0\u72f8\u6709\u4e00\u4e2a\u5e74\u9f84$a_i$\u3002\n\n\u5b83\u4eec\u60f3\u8981\u5728\u51e0\u5f20\u5706\u684c\u65c1\u5403\u665a\u996d\uff0c\u4f60\u9700\u8981\u5e2e\u5fd9\u5206\u914d\u5ea7\u4f4d\uff0c\u4f7f\u5f97\u6ee1\u8db3\u4ee5\u4e0b\u8981\u6c42\uff1a\n\n1. \u6bcf\u53ea\u72d0\u72f8\u90fd\u5728\u5176\u4e2d\n2. \u6bcf\u5f20\u684c\u5b50\u8fb9\u81f3\u5c11\u67093\u53ea\u72d0\u72f8\n3. \u4efb\u610f\u4e24\u53ea\u76f8\u90bb\u7684\u72d0\u72f8\u7684\u5e74\u9f84\u4e4b\u548c\u4e3a\u8d28\u6570\uff08\u5706\u684c\u4e0a\u6bcf\u53ea\u72d0\u72f8\u90fd\u67092\u53ea\u76f8\u90bb\u7684\u72d0\u72f8\uff09\n\n# \u8f93\u5165\u683c\u5f0f\n\n\u7b2c\u4e00\u884c\u4e00\u4e2a\u6b63\u6574\u6570$n(3 \\le n \\le 200)$\uff0c\u8868\u793a\u72d0\u72f8\u4e2a\u6570\u3002\n\n\u7b2c\u4e8c\u884c$n$\u4e2a\u6b63\u6574\u6570$a_i(2 \\le a_i \\le 10^4)$\uff0c\u8868\u793a\u6bcf\u53ea\u72d0\u72f8\u7684\u5e74\u9f84\u3002\n\n# \u8f93\u51fa\u683c\u5f0f\n\n\u5982\u679c\u4e0d\u53ef\u80fd\u6709\u6ee1\u8db3\u8981\u6c42\u7684\u5206\u914d\u65b9\u5f0f\uff0c\u8f93\u51fa\"Impossible\"\u3002\n\n\u5426\u5219\uff0c\u7b2c\u4e00\u884c\u8f93\u51fa\u4e00\u4e2a\u6b63\u6574\u6570$m$\u8868\u793a\u684c\u6570\u3002\n\n\u7136\u540e\u8f93\u51fa$m$\u884c\uff0c\u6bcf\u884c\u5148\u4e00\u4e2a\u6574\u6570$k$\u8868\u793a\u8fd9\u684c\u7684\u72d0\u72f8\u6570\uff0c\u7136\u540e$k$\u4e2a\u6b63\u6574\u6570\u8868\u793a\u8fd9\u684c\u7684\u72d0\u72f8\u7f16\u53f7\uff08\u6309\u7167\u987a\u5e8f\u8f93\u51fa\uff0c\u4f46\u4ece\u54ea\u4e2a\u7f16\u53f7\u5f00\u59cb\u6ca1\u6709\u5173\u7cfb\uff09\u3002\n\n\u5982\u679c\u6709\u591a\u7ec4\u89e3\uff0c\u8f93\u51fa\u4efb\u610f\u4e00\u7ec4\u3002\n\n# \u6837\u4f8b\u89e3\u91ca\n\n\u6837\u4f8b\u4e00\uff1a\u53ea\u9700\u8981\u4e00\u684c\uff0c\u987a\u5e8f\u4e3a$3-8-9-4$\uff0c\u76f8\u90bb\u7684\u548c\u5206\u522b\u662f$11,17,13,7$\uff0c\u5168\u90fd\u662f\u8d28\u6570\u3002\n\n\u6837\u4f8b\u4e8c\uff1a\u4e0d\u53ef\u80fd\uff0c$2+2=4$\u4e0d\u662f\u8d28\u6570\u3002"
+}

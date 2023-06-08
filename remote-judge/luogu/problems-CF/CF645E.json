@@ -1,0 +1,17 @@
+{
+    "description": "After getting kicked out of her reporting job for not knowing the alphabet, Bessie has decided to attend school at the Fillet and Eggs Eater Academy. She has been making good progress with her studies and now knows the first $ k $ English letters.\n\nEach morning, Bessie travels to school along a sidewalk consisting of $ m+n $ tiles. In order to help Bessie review, Mr. Moozing has labeled each of the first $ m $ sidewalk tiles with one of the first $ k $ lowercase English letters, spelling out a string $ t $ . Mr. Moozing, impressed by Bessie's extensive knowledge of farm animals, plans to let her finish labeling the last $ n $ tiles of the sidewalk by herself.\n\nConsider the resulting string $ s $ ( $ |s|=m+n $ ) consisting of letters labeled on tiles in order from home to school. For any sequence of indices $ p_{1}<p_{2}<...<p_{q} $ we can define subsequence of the string $ s $ as string $ s_{p1}s_{p2}...\\ s_{pq} $ . Two subsequences are considered to be distinct if they differ as strings. Bessie wants to label the remaining part of the sidewalk such that the number of distinct subsequences of tiles is maximum possible. However, since Bessie hasn't even finished learning the alphabet, she needs your help!\n\nNote that empty subsequence also counts.",
+    "inputFormat": "The first line of the input contains two integers $ n $ and $ k $ ( $ 0<=n<=1000000 $ , $ 1<=k<=26 $ ).\n\nThe second line contains a string $ t $ ( $ |t|=m,1<=m<=1000000 $ ) consisting of only first $ k $ lowercase English letters.",
+    "outputFormat": "Determine the maximum number of distinct subsequences Bessie can form after labeling the last $ n $ sidewalk tiles each with one of the first $ k $ lowercase English letters. Since this number can be rather large, you should print it modulo $ 10^{9}+7 $ .\n\nPlease note, that you are not asked to maximize the remainder modulo $ 10^{9}+7 $ ! The goal is to maximize the initial value and then print the remainder.",
+    "samples": [
+        [
+            "1 3\nac\n",
+            "8\n"
+        ],
+        [
+            "0 2\naaba\n",
+            "10\n"
+        ]
+    ],
+    "hint": "In the first sample, the optimal labeling gives $ 8 $ different subsequences: \"\" (the empty string), \"a\", \"c\", \"b\", \"ac\", \"ab\", \"cb\", and \"acb\".\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF645E/9a7e922a3340c3ac5614145c3650ab330142ea1a.png)In the second sample, the entire sidewalk is already labeled. The are $ 10 $ possible different subsequences: \"\" (the empty string), \"a\", \"b\", \"aa\", \"ab\", \"ba\", \"aaa\", \"aab\", \"aba\", and \"aaba\". Note that some strings, including \"aa\", can be obtained with multiple sequences of tiles, but are only counted once.",
+    "translation": "\u73b0\u5728\u6709\u4e00\u4e2an+m\u4f4d\u7684\u5b57\u7b26\u4e32\uff08\u4ec5\u7531\u524dk\u4e2a\u5c0f\u5199\u5b57\u6bcd\u7ec4\u6210\uff09\uff0c\u524dm\u4f4d\u5df2\u7ecf\u586b\u597d\uff0c\u9700\u8981\u4f60\u53bb\u586b\u5269\u4e0b\u7684n\u4f4d\uff0c\u4f7f\u5f97\u6700\u540e\u7684\u4e32\u7684\u4e0d\u540c\u7684\u5b50\u5e8f\u5217\u6570\u91cf\u5c3d\u91cf\u591a\u3002\n\n\u4e24\u4e2a\u5b50\u5e8f\u5217\u88ab\u8ba4\u4e3a\u4e0d\u540c\uff0c\u5f53\u4e14\u4ec5\u5f53\u5b83\u4eec\u7ec4\u6210\u7684\u5b57\u7b26\u4e32\u4e0d\u76f8\u540c\u3002\n\n\u8f93\u51fa\u6700\u591a\u7684\u4e0d\u540c\u5b50\u5e8f\u5217\u6570\u91cfmod 1e9+7\u7684\u503c\u3002\n\nTranslated by @vanilla "
+}

@@ -1,0 +1,34 @@
+[
+    {
+        "content": "## \u601d\u8def\n\u6211\u4eec\u5728\u8f93\u5165 $n$ \u4e2a\u6570\u540e\u4ece\u5927\u5230\u5c0f\u6392\u5e8f\uff0c\u7136\u540e\u5728 $4^n\u00d74^n$ \u4e2d\u627e\u5230\u6210\u7acb\u7684\u7d2f\u52a0\u5373\u53ef\u3002\n\n## CODE\n```cpp\n#include<bits/stdc++.h>\n#define int long long\n\nusing namespace std;\n\nint a[10000000];\n\nbool cmp(int x,int y)\n{\n    return x>y;\n}\n\nint n;\nint ans;\n\nsigned main()\n{\n    scanf(\"%lld\",&n);\n    \n    for(int i=1;i<=n;i++)\n\t{\n        scanf(\"%lld\",&a[i]);\n    }\n    \n    sort(a+1,a+n+1,cmp);\n    \n    for(int i=0;pow(4,i)<=n+1;i++)\n\t{\n        for(int j=1;j<=pow(4,i);j++)\n        {\n            ans+=a[j];\n        }\n    }\n    \n    printf(\"%I64d\\n\",ans);\n    \n    return 0;\n}\n```\n",
+        "postTime": 1666875095,
+        "uid": 734533,
+        "name": "cq_zry",
+        "ccfLevel": 0,
+        "title": "CF313C Ilya and Matrix \u9898\u89e3"
+    },
+    {
+        "content": "## \u601d\u8def\uff1a\n  \u8f93\u5165 n \u4e2a\u6570\u540e\u4ece\u5927\u5230\u5c0f\u6392\u5e8f\uff08\u5b9a\u4e49 cmp\uff09\uff0c\u6700\u540e\u5728 $4^n\\times 4^n$ \u4e2d\u627e\u6210\u7acb\u7684\u7d2f\u8ba1\uff0c\u6700\u540e\u4ee5 printf \u8f93\u51fa\u3002\n\n$pow(x,y)$\uff1a$x^y$\u3002\n# code\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint a[2000005];\nbool cmp(int x,int y){\n    return x>y;\n}//\u4ece\u5927\u5230\u5c0f\u6392\u5e8f\nlong long pow(int a,int b){\n\tint ans=1;\n\tfor(int i=1;i<=b;i++) ans*=a;\n\treturn ans;\n}//n\u7684x\u6b21\u65b9\nint main(){\n    int n;\n    scanf(\"%d\",&n);\t//\u5fc5\u987b\uff0c\u4e0d\u7136TLE\n    for(int i=1;i<=n;i++){\n        scanf(\"%d\",&a[i]);//\u8f93\u5165\n    }\n    sort(a+1,a+n+1,cmp);//\u6392\u5e8f\n    long long ans=0;//\u6700\u540e\u7b54\u6848\n    for(int i=0;pow(4,i)<=n+1;i++){\n        for(int j=1;j<=pow(4,i);j++)\n            ans+=a[j];\n    }\n    printf(\"%I64d\\n\",ans);//\u9898\u76ee\u8bf4\u4e86\"%I64d\"\u8f93\u51fa\n    return 0;\n}\n```\n\n",
+        "postTime": 1639656274,
+        "uid": 508593,
+        "name": "DLDZD",
+        "ccfLevel": 0,
+        "title": "CF313C Ilya and Matrix"
+    },
+    {
+        "content": "### \u601d\u8def\n\n\u6211\u4eec\u5148\u6765\u627e\u4e00\u4e0b\u201c\u7f8e\u4e3d\u503c\u201d\u5230\u5e95\u662f\u4ec0\u4e48\u3002\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/hdf3dn0t.png)\n\n\u6211\u4eec\u53d1\u73b0\uff0c\u201c\u7f8e\u4e3d\u503c\u201d\u5176\u5b9e\u5c31\u662f\u6d82\u4e86\u989c\u8272\u7684\u503c\u3002\n\n\u5176\u4e2d\uff0c\u7ea2\u8272\u4e3a\u6574\u4e2a\u77e9\u9635\u7684\u6700\u5927\u503c\uff0c\u56e0\u6b64\u5f53\u9012\u5f52\u4e0b\u53bb\u7684\u65f6\u5019\u5b83\u4f9d\u65e7\u662f\u90e8\u5206\u77e9\u9635\u6700\u5927\u503c\u3002\n\n\u56e0\u6b64\uff0c\u6211\u4eec\u53ef\u4ee5\u8003\u8651\u8d2a\u5fc3\u3002\n\n\u56e0\u4e3a\u7ea2\u8272\u4ece\u59cb\u81f3\u7ec8\u90fd\u4f1a\u51fa\u73b0\uff0c\u56e0\u6b64\u5b83\u5f97\u662f\u6570\u7ec4\u4e2d\u7684\u6700\u5927\u503c\uff0c\u8fd9\u6837\u201c\u7f8e\u4e3d\u503c\u201d\u624d\u4f1a\u6700\u5927\u3002\n\n\u540c\u7406\uff0c\u7eff\u8272\u51fa\u73b0\u4e86\u4e24\u6b21\uff0c\u56e0\u6b64\u5b83\u5e94\u8be5\u662f\u6b21\u5927\u503c\u3002\u5176\u4ed6\u4ee5\u6b64\u7c7b\u63a8\u3002\n\n### \u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\n#define int long long//\u672c\u9898\u8981\u5f00 long long\nusing namespace std;\nint n,a[2000001],ans;\nint qpow(int a,int b){//\u5feb\u901f\u5e42\n\tint ans = 1;\n\twhile(b){\n\t\tif(b & 1)ans = ans * a;\n\t\ta = a * a,b >>= 1;\n\t}\n\treturn ans;\n}\nsigned main(){\n\tios::sync_with_stdio(false);\n\tcin.tie(0);\n\tcout.tie(0);\n\tcin >> n;\n\tfor(int i = 1;i <= n;i++)cin >> a[i];\n\tsort(a + 1,a + n + 1,greater<int>());//\u5c06\u6570\u7ec4\u4ece\u5927\u5230\u5c0f\u6392\u5e8f\n\tfor(int i = 0;qpow(4,i) <= n + 1;i++){\n\t\tfor(int j = 1;j <= qpow(4,i);j++){\n\t\t\tans += a[j];//\u8d2a\u5fc3\n\t\t}\n\t}\n\tcout << ans;\n}\n```",
+        "postTime": 1682824180,
+        "uid": 857323,
+        "name": "linxuanrui",
+        "ccfLevel": 0,
+        "title": "CF3313C\u9898\u89e3"
+    },
+    {
+        "content": "## \u9898\u76ee\u5927\u610f\n\n\u7ed9\u4e00\u4e2a $m\\times m$ \u7684\u77e9\u9635 $a$\uff0c$m$ \u4e3a $2^i$\uff08$i\\in Z$\uff09,\u8bbe\u5b83\u7684\u7f8e\u4e3d\u503c\u4e3a\u77e9\u9635\u6700\u5927\u5143\u7d20\u503c\u52a0\u56db\u4e2a $\\frac m 2\\times \\frac m 2$ \u7684\u77e9\u9635\u7684\u7f8e\u4e3d\u503c\u4e4b\u548c\uff08\u65e0\u6cd5\u5206\u62c6\u5219\u7ed3\u675f\u9012\u5f52\uff09\uff0c\u7ed9\u5b9a $m\\times m$ \u7684\u503c\u4ee5\u53ca\u6bcf\u4e2a\u5143\u7d20\u7684\u503c\uff0c\u6c42\u80fd\u53d6\u5230\u7684\u6700\u5927\u7f8e\u4e3d\u503c\u3002\n\n## \u5206\u6790\n\n\u53ef\u4ee5\u53d1\u73b0\uff0c\u6240\u8c13\u7684\u201c\u7f8e\u4e3d\u503c\u201d\u5c31\u662f\u5927\u77e9\u9635\u7684\u6700\u5927\u503c+\u5176\u526f\u77e9\u9635\u7684\u6700\u5927\u503c\u4e4b\u548c+\u5176\u526f\u526f\u77e9\u9635\u6700\u5927\u503c\u4e4b\u548c+\u2026\u2026\u7b80\u5355\u6765\u8bf4\uff0c\u5c31\u662f $i$ \u4e2a\u201c\u6700\u5927\u503c\u201d\u4e4b\u548c\u3002\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/jy1kpk2p.png)\n\n\u663e\u7136\uff0c\u524d\u4e00\u6b21\u9009\u4e2d\u7684\u503c\uff0c\u4e0b\u4e00\u6b21\u8fd8\u4f1a\u88ab\u9009\uff0c\u6240\u4ee5\u8d8a\u524d\u9762\u7684\u503c\u6240\u5360\u7684\u6743\u503c\u5c31\u8d8a\u9ad8\u3002\u800c\u60f3\u8981\u53d6\u5230\u6700\u5927\u503c\uff0c\u6743\u503c\u9ad8\u7684\u5c31\u8981\u9009\u8f83\u5927\u7684\u503c\uff0c\u6743\u503c\u4e00\u6837\u65e0\u6240\u8c13\u3002\u5bf9\u4e8e\u6bcf\u4e00\u6b21\uff0c\u6700\u597d\u7684\u65b9\u6cd5\u5c31\u662f\u53d6\u6700\u5927\u7684\u524d\u51e0\u4e2a\uff0c\u800c\u56e0\u4e3a\u53d6\u7684\u503c\u7684\u6570\u91cf\u5728\u9012\u589e\uff0c\u6240\u4ee5\u524d\u9762\u53d6\u7684\u540e\u9762\u5fc5\u5b9a\u4e5f\u80fd\u53d6\u5230\uff0c\u6070\u597d\u6ee1\u8db3\u6761\u4ef6\u3002\n\n\u6240\u4ee5\uff0c\u6bcf\u4e00\u6b21\u90fd\u8981\u53d6\u5230\u6700\u5927\uff0c\u6240\u4ee5\u53ea\u8981\u628a\u6570\u7ec4\u6392\u5e8f\u518d\u7edf\u8ba1\u5c31\u597d\u4e86QwQ\u3002\n\n## Code\n```\n#include<bits/stdc++.h>\n#define int long long//\u5341\u5e74OI\u4e00\u573a\u7a7a\uff0c\u4e0d\u5f00long long\u89c1\u7956\u5b97\nusing namespace std;\nconst int maxn=10000001;\nint n,ans,a[maxn];\nsigned main(){\n\tscanf(\"%lld\",&n);\n\tfor(int i=1;i<=n;i++) scanf(\"%lld\",&a[i]);\n\tsort(a+1,a+n+1,greater<int>());//\u4ece\u5927\u5230\u5c0f\u6392\u5217\uff0c\u4e0d\u4f1a\u53ef\u4ee5\u7528cmp\n\tfor(int i=0;pow(4,i)<=n+1;i++)//\u679a\u4e3e\u6bcf\u4e00\u6b21\u7d2f\u52a0\n\t for(int j=1;j<=pow(4,i);j++)//\u76f4\u63a5pow\u4e0d\u9999\u5417qwq\n\t  ans+=a[j];\n\tprintf(\"%lld\\n\",ans);\n\treturn 0;//\u4f18\u96c5\u7684\u7ed3\u675f\n}\n\n```\n\u753b\u56fe\u4e0d\u6613\uff0c\u7ed9\u4e2a\u8d5e\u5427\uff01",
+        "postTime": 1671203390,
+        "uid": 310639,
+        "name": "yingkeqian9217",
+        "ccfLevel": 5,
+        "title": "CF313C"
+    }
+]

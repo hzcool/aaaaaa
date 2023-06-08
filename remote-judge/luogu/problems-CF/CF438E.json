@@ -1,0 +1,21 @@
+{
+    "description": "Our child likes computer science very much, especially he likes binary trees.\n\nConsider the sequence of $ n $ distinct positive integers: $ c_{1},c_{2},...,c_{n} $ . The child calls a vertex-weighted rooted binary tree good if and only if for every vertex $ v $ , the weight of $ v $ is in the set $ {c_{1},c_{2},...,c_{n}} $ . Also our child thinks that the weight of a vertex-weighted tree is the sum of all vertices' weights.\n\nGiven an integer $ m $ , can you for all $ s $ $ (1<=s<=m) $ calculate the number of good vertex-weighted rooted binary trees with weight $ s $ ? Please, check the samples for better understanding what trees are considered different.\n\nWe only want to know the answer modulo $ 998244353 $ ( $ 7\u00d717\u00d72^{23}+1 $ , a prime number).",
+    "inputFormat": "The first line contains two integers $ n,m $ $ (1<=n<=10^{5};\u00a01<=m<=10^{5}) $ . The second line contains $ n $ space-separated pairwise distinct integers $ c_{1},c_{2},...,c_{n} $ . $ (1<=c_{i}<=10^{5}) $ .",
+    "outputFormat": "Print $ m $ lines, each line containing a single integer. The $ i $ -th line must contain the number of good vertex-weighted rooted binary trees whose weight exactly equal to $ i $ . Print the answers modulo $ 998244353 $ ( $ 7\u00d717\u00d72^{23}+1 $ , a prime number).",
+    "samples": [
+        [
+            "2 3\n1 2\n",
+            "1\n3\n9\n"
+        ],
+        [
+            "3 10\n9 4 3\n",
+            "0\n0\n1\n1\n0\n2\n4\n2\n6\n15\n"
+        ],
+        [
+            "5 10\n13 10 6 4 15\n",
+            "0\n0\n0\n1\n0\n1\n0\n2\n0\n5\n"
+        ]
+    ],
+    "hint": "In the first example, there are $ 9 $ good vertex-weighted rooted binary trees whose weight exactly equal to $ 3 $ :\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF438E/eac2c310aa15e844747811a6717476e6a022e10e.png)",
+    "translation": "\u6211\u4eec\u7684\u5c0f\u670b\u53cb\u5f88\u559c\u6b22\u8ba1\u7b97\u673a\u79d1\u5b66\uff0c\u800c\u4e14\u5c24\u5176\u559c\u6b22\u4e8c\u53c9\u6811\u3002 \u8003\u8651\u4e00\u4e2a\u542b\u6709 $n$ \u4e2a\u4e92\u5f02\u6b63\u6574\u6570\u7684\u5e8f\u5217 $c_1,c_2\\cdots,c_n$\u3002\u5982\u679c\u4e00\u68f5\u5e26\u70b9\u6743\u7684\u6709\u6839\u4e8c\u53c9\u6811\u6ee1\u8db3\u5176\u6240\u6709\u9876\u70b9\u7684\u6743\u503c\u90fd\u5728\u96c6\u5408  $\\{c_1,c_2,\\cdots,c_n\\}$ \u4e2d\uff0c\u6211\u4eec\u7684\u5c0f\u670b\u53cb\u5c31\u4f1a\u5c06\u5176\u79f0\u4f5c\u795e\u7287\u7684\u3002\n\n\u5e76\u4e14\u4ed6\u8ba4\u4e3a\uff0c\u4e00\u68f5\u5e26\u70b9\u6743\u7684\u6811\u7684\u6743\u503c\uff0c\u662f\u5176\u6240\u6709\u9876\u70b9\u6743\u503c\u7684\u603b\u548c\u3002\n\n\u7ed9\u51fa\u4e00\u4e2a\u6574\u6570 $m$\uff0c\u4f60\u80fd\u5bf9\u4e8e\u4efb\u610f\u7684 $1\\leq s\\leq m$ \u8ba1\u7b97\u51fa\u6743\u503c\u4e3a $s$ \u7684\u795e\u7287\u4e8c\u53c9\u6811\u7684\u4e2a\u6570\u5417\uff1f\u8bf7\u53c2\u7167\u6837\u4f8b\u4ee5\u66f4\u597d\u7684\u7406\u89e3\u4ec0\u4e48\u6837\u7684\u4e24\u68f5\u4e8c\u53c9\u6811\u4f1a\u88ab\u89c6\u4e3a\u4e0d\u540c\u7684\u3002 \u6211\u4eec\u53ea\u9700\u8981\u77e5\u9053\u7b54\u6848\u5173\u4e8e $998244353$ \u53d6\u6a21\u540e\u7684\u503c\u3002\n\n\u8f93\u5165\u7b2c\u4e00\u884c\u6709 $2$ \u4e2a\u6574\u6570  $n,m$ $(1\\leq n,m\\leq 10^5)$\u3002 \u7b2c\u4e8c\u884c\u6709 $n$ \u4e2a\u7528\u7a7a\u683c\u9694\u5f00\u7684\u4e92\u5f02\u7684\u6574\u6570  $c_1,c_2\\cdots,c_n$ $(1\\le c_i\\le10^5)$\u3002\n\n\u8f93\u51fa $m$ \u884c\uff0c\u6bcf\u884c\u6709\u4e00\u4e2a\u6574\u6570\u3002\u7b2c $i$ \u884c\u5e94\u5f53\u542b\u6709\u6743\u503c\u6070\u4e3a $i$ \u7684\u795e\u7287\u4e8c\u53c9\u6811\u7684\u603b\u6570\u3002\u8bf7\u8f93\u51fa\u7b54\u6848\u5173\u4e8e $998244353$ \u53d6\u6a21\u7684\u7ed3\u679c\u3002"
+}

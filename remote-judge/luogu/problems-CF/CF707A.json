@@ -1,0 +1,21 @@
+{
+    "description": "Small, but very brave, mouse Brain was not accepted to summer school of young villains. He was upset and decided to postpone his plans of taking over the world, but to become a photographer instead.\n\nAs you may know, the coolest photos are on the film (because you can specify the hashtag #film for such).\n\nBrain took a lot of colourful pictures on colored and black-and-white film. Then he developed and translated it into a digital form. But now, color and black-and-white photos are in one folder, and to sort them, one needs to spend more than one hour!\n\nAs soon as Brain is a photographer not programmer now, he asks you to help him determine for a single photo whether it is colored or black-and-white.\n\nPhoto can be represented as a matrix sized $ n\u00d7m $ , and each element of the matrix stores a symbol indicating corresponding pixel color. There are only $ 6 $ colors:\n\n- 'C' (cyan)\n- 'M' (magenta)\n- 'Y' (yellow)\n- 'W' (white)\n- 'G' (grey)\n- 'B' (black)\n\nThe photo is considered black-and-white if it has only white, black and grey pixels in it. If there are any of cyan, magenta or yellow pixels in the photo then it is considered colored.",
+    "inputFormat": "The first line of the input contains two integers $ n $ and $ m $ ( $ 1<=n,m<=100 $ ) \u2014 the number of photo pixel matrix rows and columns respectively.\n\nThen $ n $ lines describing matrix rows follow. Each of them contains $ m $ space-separated characters describing colors of pixels in a row. Each character in the line is one of the 'C', 'M', 'Y', 'W', 'G' or 'B'.",
+    "outputFormat": "Print the \"#Black&White\" (without quotes), if the photo is black-and-white and \"#Color\" (without quotes), if it is colored, in the only line.",
+    "samples": [
+        [
+            "2 2\nC M\nY Y\n",
+            "#Color"
+        ],
+        [
+            "3 2\nW W\nW W\nB B\n",
+            "#Black&amp;White"
+        ],
+        [
+            "1 1\nW\n",
+            "#Black&amp;White"
+        ]
+    ],
+    "hint": "",
+    "translation": "## \u9898\u76ee\u63cf\u8ff0\nBrain\uff0c\u4e00\u4f4d\u60f3\u8981\u7edf\u6cbb\u4e16\u754c\u7684\u90aa\u6076\u8001\u9f20\uff0c\u56e0\u4e3a\u54c1\u884c\u4e0d\u7aef\u6b63\u88ab\u62d2\u7edd\u4e0a\u6d1b\u8c37\u7684\u6691\u5047\u8bfe\u7a0b\uff01\u8fd9\u4ee4\u4ed6\u5341\u5206\u4f24\u5fc3\u3002\n\nBrain\u5728\u6cae\u4e27\u4e2d\u53ea\u80fd\u51b3\u5b9a\u5148\u5f53\u4e00\u540d\u6444\u5f71\u5e08\u51d1\u5408\u7740\u5ea6\u5ea6\u65e5\u5b50\u3002\n\nBrain\u73b0\u5728\u5728\u7535\u5f71\u6444\u5f71\u68da\u91cc\u5de5\u4f5c\uff0c\u7535\u5f71\u6709\u65f6\u5019\u62cd\u9ed1\u767d\u7684\u7535\u5f71\uff0c\u6709\u65f6\u5019\u62cd\u5f69\u8272\u7684\u7535\u5f71\u3002\n\nBrain\u5df2\u7ecf\u62cd\u4e86\u8bb8\u591a\u5f20\u7167\u7247\u4e86\u3002\n\n\u7531\u4e8e\u4ed6\u6ca1\u6709\u4e0a\u6d1b\u8c37\u7684\u6691\u5047\u8bfe\u7a0b\uff0c\u73b0\u5728\u4ed6\u53ea\u80fd\u53e6\u8bf7\u9ad8\u660e\u2014\u2014\u60a8\u6765\u7f16\u7a0b\u5e2e\u4ed6\u5b8c\u6210\u4e00\u9879\u8270\u5de8\u7684\u4efb\u52a1\uff1a\n\n## \u8f93\u5165\u8f93\u51fa\u683c\u5f0f\n### \u8f93\u5165\u683c\u5f0f:\n\u6bcf\u6b21Brain\u4f1a\u7ed9\u4f60\u4e00\u5f20\u7167\u7247\u3002\u7167\u7247\u5c31\u662f\u4e00\u4e2a\u77e9\u9635\u3002\n\n\u7b2c\u4e00\u884c\u662f\u7167\u7247\u7684\u5927\u5c0f $n$\u3001 $m$ \u4ee3\u8868\u6bcf\u5217\u6bcf\u884c\u5206\u522b\u6709\u591a\u5c11\u50cf\u7d20\u3002($1 \\leqslant n, \\ m   \\leqslant 100$)\n\n\u63a5\u4e0b\u6765\u7684 $n$ \u884c\u662f\u7167\u7247\u7684\u5185\u5bb9\uff0c\u7531\u8fd9\u51e0\u4e2a\u5b57\u6bcd\u7ec4\u6210\uff1a\n- C (\u9752\u8272)\n- M (\u6a58\u7ea2\u8272)\n- Y (\u9ec4\u8272)\n- W (\u767d\u8272)\n- G (\u7070\u8272)\n- B (\u9ed1\u8272)\n\n### \u8f93\u51fa\u683c\u5f0f\n\u5982\u679c\u8be5\u7167\u7247\u542b\u6709\u9664\u4e86\u9ed1\u767d\u7070\u4ee5\u5916\u7684\u4efb\u610f\u989c\u8272\uff0c\u5219\u8f93\u51fa\uff1a#Color\n\n\u5982\u679c\u8be5\u7167\u7247\u53ea\u542b\u6709\u9ed1\u767d\u7070\u6216\u5176\u4e2d\u7684\u4efb\u610f\u989c\u8272\uff0c\u5219\u8f93\u51fa\uff1a#Black&White\n\n\n## \u63d0\u793a\n\u6837\u4f8b\u7684\u6700\u540e\u4e24\u4e2a\u6709\u95ee\u9898\uff0c\u5e94\u8be5\u90fd\u8f93\u51fa#Black&White\n"
+}

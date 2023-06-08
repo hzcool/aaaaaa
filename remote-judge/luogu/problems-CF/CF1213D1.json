@@ -1,0 +1,21 @@
+{
+    "description": "The only difference between easy and hard versions is the number of elements in the array.\n\nYou are given an array $ a $ consisting of $ n $ integers. In one move you can choose any $ a_i $ and divide it by $ 2 $ rounding down (in other words, in one move you can set $ a_i := \\lfloor\\frac{a_i}{2}\\rfloor $ ).\n\nYou can perform such an operation any (possibly, zero) number of times with any $ a_i $ .\n\nYour task is to calculate the minimum possible number of operations required to obtain at least $ k $ equal numbers in the array.\n\nDon't forget that it is possible to have $ a_i = 0 $ after some operations, thus the answer always exists.",
+    "inputFormat": "The first line of the input contains two integers $ n $ and $ k $ ( $ 1 \\le k \\le n \\le 50 $ ) \u2014 the number of elements in the array and the number of equal numbers required.\n\nThe second line of the input contains $ n $ integers $ a_1, a_2, \\dots, a_n $ ( $ 1 \\le a_i \\le 2 \\cdot 10^5 $ ), where $ a_i $ is the $ i $ -th element of $ a $ .",
+    "outputFormat": "Print one integer \u2014 the minimum possible number of operations required to obtain at least $ k $ equal numbers in the array.",
+    "samples": [
+        [
+            "5 3\n1 2 2 4 5\n",
+            "1\n"
+        ],
+        [
+            "5 3\n1 2 3 4 5\n",
+            "2\n"
+        ],
+        [
+            "5 3\n1 2 3 3 3\n",
+            "0\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "## \u9898\u76ee\u63cf\u8ff0\n\u7b80\u5355\u7248\u548c\u56f0\u96be\u7248\u4e4b\u95f4\u7684\u552f\u4e00\u533a\u522b\u5728\u4e8e\u6570\u7ec4\u5143\u7d20\u7684\u6570\u91cf\u3002\n\n\u7ed9\u5b9a\u4e00\u4e2a\u6570\u7ec4$a$\uff0c\u5305\u542b$n$\u4e2a\u6574\u6570\u3002\u6bcf\u6b21\u64cd\u4f5c\u4f60\u53ef\u4ee5\u9009\u62e9\u4efb\u4e00$a_i$\u5e76\u4e14\u5c06\u5176\u9664$2$\u5411\u4e0b\u53d6\u6574\uff08\u4e5f\u5c31\u662f\u8bf4\uff0c\u6bcf\u6b21\u64cd\u4f5c\u4e2d\u4f60\u53ef\u4ee5\u4f7f$a_i:=\\lfloor \\frac{a_i}{2} \\rfloor$\uff09\u3002\n\n\u4f60\u53ef\u4ee5\u5bf9\u4efb\u4f55$a_i$\u8fdb\u884c\u4efb\u610f\u6b21\uff08\u53ef\u4ee5\u662f\u96f6\u6b21\uff09\u64cd\u4f5c\u3002\n\n\u4f60\u7684\u4efb\u52a1\u662f\u8ba1\u7b97\u6700\u5c0f\u7684\u64cd\u4f5c\u6b21\u6570\u4f7f\u5f97\u81f3\u5c11$k$\u4e2a\u6570\u7ec4\u4e2d\u7684\u6570\u5b57\u76f8\u7b49\u3002\n\n\u522b\u5fd8\u4e86\u5728\u51e0\u6b21\u64cd\u4f5c\u540e\u53ef\u80fd\u4f1a\u6709$a_i=0$\u7684\u60c5\u51b5\u51fa\u73b0\uff0c\u56e0\u6b64\u7b54\u6848\u59cb\u7ec8\u5b58\u5728\u3002\n## \u8f93\u5165\u683c\u5f0f\n\u8f93\u5165\u7684\u7b2c\u4e00\u884c\u5305\u542b\u4e24\u4e2a\u6574\u6570$n$\u548c$k$\uff08$1\\le k\\le n\\le 50$\uff09\u2014\u2014\u6570\u7ec4\u4e2d\u7684\u5143\u7d20\u4e2a\u6570\u548c\u9700\u8981\u76f8\u7b49\u7684\u6570\u5b57\u4e2a\u6570\u3002\n\n\u8f93\u5165\u7684\u7b2c\u4e8c\u884c\u5305\u542b$n$\u4e2a\u6574\u6570$a_i,a_2,\\cdots , a_n$\uff08$1\\le a_i\\le 2 \\cdot 10^5$\uff09\uff0c\u5176\u4e2d$a_i$\u4e3a$a$\u4e2d\u7684\u7b2c$i$\u4e2a\u5143\u7d20\u3002\n## \u8f93\u51fa\u683c\u5f0f\n\u8f93\u51fa\u4e00\u4e2a\u6574\u6570\u2014\u2014\u4f7f\u5f97\u6570\u7ec4\u4e2d\u6709$k$\u4e2a\u76f8\u7b49\u7684\u6570\u7684\u6700\u5c0f\u64cd\u4f5c\u6b21\u6570\u3002"
+}

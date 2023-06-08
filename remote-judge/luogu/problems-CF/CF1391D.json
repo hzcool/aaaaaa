@@ -1,0 +1,17 @@
+{
+    "description": "A binary matrix is called good if every even length square sub-matrix has an odd number of ones.\n\nGiven a binary matrix $ a $ consisting of $ n $ rows and $ m $ columns, determine the minimum number of cells you need to change to make it good, or report that there is no way to make it good at all.\n\nAll the terms above have their usual meanings \u2014 refer to the Notes section for their formal definitions.",
+    "inputFormat": "The first line of input contains two integers $ n $ and $ m $ ( $ 1 \\leq n \\leq m \\leq 10^6 $ and $ n\\cdot m \\leq 10^6 $ ) \u2014 the number of rows and columns in $ a $ , respectively.\n\nThe following $ n $ lines each contain $ m $ characters, each of which is one of 0 and 1. If the $ j $ -th character on the $ i $ -th line is 1, then $ a_{i,j} = 1 $ . Similarly, if the $ j $ -th character on the $ i $ -th line is 0, then $ a_{i,j} = 0 $ .",
+    "outputFormat": "Output the minimum number of cells you need to change to make $ a $ good, or output $ -1 $ if it's not possible at all.",
+    "samples": [
+        [
+            "3 3\n101\n001\n110",
+            "2"
+        ],
+        [
+            "7 15\n000100001010010\n100111010110001\n101101111100100\n010000111111010\n111010010100001\n000011001111101\n111111011010011",
+            "-1"
+        ]
+    ],
+    "hint": "In the first case, changing $ a_{1,1} $ to $ 0 $ and $ a_{2,2} $ to $ 1 $ is enough.\n\nYou can verify that there is no way to make the matrix in the second case good.\n\nSome definitions \u2014\n\n- A binary matrix is one in which every element is either $ 1 $ or $ 0 $ .\n- A sub-matrix is described by $ 4 $ parameters \u2014 $ r_1 $ , $ r_2 $ , $ c_1 $ , and $ c_2 $ ; here, $ 1 \\leq r_1 \\leq         r_2 \\leq n $ and $ 1 \\leq c_1 \\leq c_2 \\leq m $ .\n- This sub-matrix contains all elements $ a_{i,j} $ that satisfy both $ r_1 \\leq i \\leq r_2 $ and $ c_1 \\leq j \\leq         c_2 $ .\n- A sub-matrix is, further, called an even length square if $ r_2-r_1 = c_2-c_1 $ and $ r_2-r_1+1 $ is divisible by $ 2 $ .",
+    "translation": "\u7ed9\u51fa\u4e00\u4e2a $n \\times m$ \u7684 $01$ \u77e9\u9635\uff0c\u5982\u679c\u6bcf\u4e2a\u957f\u5bbd\u90fd\u4e3a\u5076\u6570\u7684\u6b63\u65b9\u5f62\u5b50\u77e9\u9635\u5185 $1$ \u7684\u4e2a\u6570\u90fd\u4e3a\u5947\u6570\uff0c\u5219\u8fd9\u662f\u4e00\u4e2a\u201c\u597d\u7684\u201d\u77e9\u9635\u3002\u5982\u679c\u80fd\u628a\u77e9\u9635\u6539\u6210\u201c\u597d\u7684\u201d\uff0c\u95ee\u6700\u5c11\u6539\u591a\u5c11\u4e2a\u6570\u3002\u5982\u679c\u4e0d\u80fd\uff0c\u8f93\u51fa $-1$\u3002"
+}

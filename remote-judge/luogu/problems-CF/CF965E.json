@@ -1,0 +1,21 @@
+{
+    "description": "Arkady's code contains $ n $ variables. Each variable has a unique name consisting of lowercase English letters only. One day Arkady decided to shorten his code.\n\nHe wants to replace each variable name with its non-empty prefix so that these new names are still unique (however, a new name of some variable can coincide with some old name of another or same variable). Among such possibilities he wants to find the way with the smallest possible total length of the new names.\n\nA string $ a $ is a prefix of a string $ b $ if you can delete some (possibly none) characters from the end of $ b $ and obtain $ a $ .\n\nPlease find this minimum possible total length of new names.",
+    "inputFormat": "The first line contains a single integer $ n $ ( $ 1 \\le n \\le 10^5 $ ) \u2014 the number of variables.\n\nThe next $ n $ lines contain variable names, one per line. Each name is non-empty and contains only lowercase English letters. The total length of these strings is not greater than $ 10^5 $ . The variable names are distinct.",
+    "outputFormat": "Print a single integer \u2014 the minimum possible total length of new variable names.",
+    "samples": [
+        [
+            "3\ncodeforces\ncodehorses\ncode\n",
+            "6\n"
+        ],
+        [
+            "5\nabba\nabb\nab\naa\naacada\n",
+            "11\n"
+        ],
+        [
+            "3\ntelegram\ndigital\nresistance\n",
+            "3\n"
+        ]
+    ],
+    "hint": "In the first example one of the best options is to shorten the names in the given order as \"cod\", \"co\", \"c\".\n\nIn the second example we can shorten the last name to \"aac\" and the first name to \"a\" without changing the other names.",
+    "translation": "\u6709n\u4e2a\u4e0d\u540c\u7684\u5b57\u7b26\u4e32\uff0c\u4f60\u53ef\u4ee5\u628a\u6bcf\u4e00\u4e2a\u5b57\u7b26\u4e32\u53d8\u4e3a\u5b83\u7684\u975e\u7a7a\u524d\u7f00\uff08\u5b57\u7b26\u4e32\u672c\u8eab\u4e5f\u7b97\u4e00\u4e2a\u524d\u7f00\uff09\uff0c\u8981\u6c42\u53d8\u5316\u540e\u7684\u5b57\u7b26\u4e32\u4f9d\u65e7\u4e92\u4e0d\u76f8\u540c\uff08\u4f46\u53ef\u4ee5\u4e0e\u539f\u6765\u7684\u5b57\u7b26\u4e32\u76f8\u540c\uff09\uff0c\u6c42\u53d8\u6362\u540e\u7684\u5b57\u7b26\u4e32\u7684\u6700\u5c0f\u603b\u957f\u5ea6\u3002\r\n\r\n1\u2264n\u226410^5 , n\u4e2a\u5b57\u7b26\u4e32\u603b\u957f\u5ea6\u4e0d\u5927\u4e8e10^5\uff0c\u6bcf\u4e2a\u5b57\u7b26\u4e32\u975e\u7a7a\u4e14\u4ec5\u5305\u542b\u5c0f\u5199\u5b57\u6bcd\u3002"
+}

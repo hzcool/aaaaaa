@@ -1,0 +1,17 @@
+{
+    "description": "When Igor K. was a freshman, his professor strictly urged him, as well as all other freshmen, to solve programming Olympiads. One day a problem called \"Flags\" from a website called Timmy's Online Judge caught his attention. In the problem one had to find the number of three-colored flags that would satisfy the condition... actually, it doesn't matter. Igor K. quickly found the formula and got the so passionately desired Accepted.\n\nHowever, the professor wasn't very much impressed. He decided that the problem represented on Timmy's Online Judge was very dull and simple: it only had three possible colors of flag stripes and only two limitations. He suggested a complicated task to Igor K. and the fellow failed to solve it. Of course, we won't tell anybody that the professor couldn't solve it as well.\n\nAnd how about you? Can you solve the problem?\n\nThe flags consist of one or several parallel stripes of similar width. The stripes can be one of the following colors: white, black, red or yellow. You should find the number of different flags with the number of stripes from $ L $ to $ R $ , if:\n\n- a flag cannot have adjacent stripes of one color;\n- a flag cannot have adjacent white and yellow stripes;\n- a flag cannot have adjacent red and black stripes;\n- a flag cannot have the combination of black, white and red stripes following one after another in this or reverse order;\n- symmetrical flags (as, for example, a WB and a BW flag, where W and B stand for the white and black colors) are considered the same.",
+    "inputFormat": "The only line contains two integers $ L $ and $ R $ ( $ 1<=L<=R<=10^{9} $ ). They are the lower and upper borders of the number of stripes on the flag.",
+    "outputFormat": "Print a single number \u2014 the number of different flags that would satisfy the condition of the problem and would have from $ L $ to $ R $ stripes, modulo $ 1000000007 $ .",
+    "samples": [
+        [
+            "3 4\n",
+            "23"
+        ],
+        [
+            "5 6\n",
+            "64"
+        ]
+    ],
+    "hint": "In the first test the following flags exist (they are listed in the lexicographical order, the letters B, R, W, Y stand for Black, Red, White and Yellow correspondingly):\n\n3 stripes: BWB, BYB, BYR, RWR, RYR, WBW, WBY, WRW, WRY, YBY, YRY (overall 11 flags).\n\n4 stripes: BWBW, BWBY, BYBW, BYBY, BYRW, BYRY, RWRW, RWRY, RYBW, RYBY, RYRW, RYRY (12 flags).\n\nThat's why the answer to test 1 is equal to $ 11+12=23 $ .",
+    "translation": "\u95ee\u53ea\u7531 R\u3001B\u3001W\u3001Y \u7ec4\u6210\u7684\u957f\u5ea6\u4ecb\u4e8e $[L,R]$ \u4e14\u6ee1\u8db3\u4ee5\u4e0b\u56db\u4e2a\u6761\u4ef6\u7684\u5b57\u7b26\u4e32\u6570\u91cf\u3002\n\n1. \u76f8\u90bb\u4e24\u4e2a\u5b57\u7b26\u4e0d\u540c\u3002\n\n2. W \u548c Y \u4e0d\u80fd\u76f8\u90bb\uff0cR \u548c B \u4e0d\u80fd\u76f8\u90bb\u3002\n\n3. \u4e0d\u80fd\u51fa\u73b0\u8fde\u7eed\u4e09\u4e2a\u5b57\u7b26\u662f B\u3001W\u3001R \u7684\u4e00\u4e2a\u6392\u5217\u3002\n\n4. \u4e24\u4e2a\u5b57\u7b26\u4e32\u4e92\u4e3a\u53cd\u5e8f\u89c6\u505a\u540c\u4e00\u4e2a\u3002\n\n\u8f93\u51fa\u7ed3\u679c\u6a21 $10^9+7$\u3002"
+}

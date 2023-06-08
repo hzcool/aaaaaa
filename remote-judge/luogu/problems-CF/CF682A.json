@@ -1,0 +1,33 @@
+{
+    "description": "After finishing eating her bun, Alyona came up with two integers $ n $ and $ m $ . She decided to write down two columns of integers \u2014 the first column containing integers from $ 1 $ to $ n $ and the second containing integers from $ 1 $ to $ m $ . Now the girl wants to count how many pairs of integers she can choose, one from the first column and the other from the second column, such that their sum is divisible by $ 5 $ .\n\nFormally, Alyona wants to count the number of pairs of integers $ (x,y) $ such that $ 1<=x<=n $ , $ 1<=y<=m $ and ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF682A/bb850c8c10ee7a9c00e5b1ff3da7605a7415f98c.png) equals $ 0 $ .\n\nAs usual, Alyona has some troubles and asks you to help.",
+    "inputFormat": "The only line of the input contains two integers $ n $ and $ m $ ( $ 1<=n,m<=1000000 $ ).",
+    "outputFormat": "Print the only integer \u2014 the number of pairs of integers $ (x,y) $ such that $ 1<=x<=n $ , $ 1<=y<=m $ and $ (x+y) $ is divisible by $ 5 $ .",
+    "samples": [
+        [
+            "6 12\n",
+            "14\n"
+        ],
+        [
+            "11 14\n",
+            "31\n"
+        ],
+        [
+            "1 5\n",
+            "1\n"
+        ],
+        [
+            "3 8\n",
+            "5\n"
+        ],
+        [
+            "5 7\n",
+            "7\n"
+        ],
+        [
+            "21 21\n",
+            "88\n"
+        ]
+    ],
+    "hint": "Following pairs are suitable in the first sample case:\n\n- for $ x=1 $ fits $ y $ equal to $ 4 $ or $ 9 $ ;\n- for $ x=2 $ fits $ y $ equal to $ 3 $ or $ 8 $ ;\n- for $ x=3 $ fits $ y $ equal to $ 2 $ , $ 7 $ or $ 12 $ ;\n- for $ x=4 $ fits $ y $ equal to $ 1 $ , $ 6 $ or $ 11 $ ;\n- for $ x=5 $ fits $ y $ equal to $ 5 $ or $ 10 $ ;\n- for $ x=6 $ fits $ y $ equal to $ 4 $ or $ 9 $ .\n\nOnly the pair $ (1,4) $ is suitable in the third sample case.",
+    "translation": "\u7ed9\u5b9a\u4e24\u4e2a\u6570n, m\uff081 <= n,m <= 10000001<=n,m<=1000000\uff09\u3002\u5206\u522b\u4ece1~n\uff0c 1~m\u4e2d\u9009\u62e9\u4e24\u4e2a\u6570\uff0c\u4f7f\u5b83\u4eec\u7684\u548c\u4e3a5\u7684\u500d\u6570\uff0c\u6c42\u8fd9\u6837\u7684\u6570\u5bf9\u5171\u6709\u591a\u5c11(a+b, b+a\u89c6\u4e3a\u4e0d\u540c\u7684\u6570\u5bf9\uff09\u3002\n```\n\u6837\u4f8b1\u89e3\u91ca\uff1a\n\u8f93\u5165\uff1a6 12\n1 2 3 4 5 6\n1 2 3 4 5 6 7 8 9 10 11 12\n\u80fd\u88ab5\u6574\u9664\u7684\u5206\u522b\u6709\n1+4, 1+9\n2+3, 2+8\n3+2, 3+7\uff0c 3+12\n4+1, 4+6\uff0c 4+11\n5+5, 5+10\n6+4, 6+9\n\u517114\u5bf9\n```"
+}

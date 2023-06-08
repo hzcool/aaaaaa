@@ -1,0 +1,21 @@
+{
+    "description": "Donghyun's new social network service (SNS) contains $ n $ users numbered $ 1, 2, \\ldots, n $ . Internally, their network is a tree graph, so there are $ n-1 $ direct connections between each user. Each user can reach every other users by using some sequence of direct connections. From now on, we will denote this primary network as $ T_1 $ .\n\nTo prevent a possible server breakdown, Donghyun created a backup network $ T_2 $ , which also connects the same $ n $ users via a tree graph. If a system breaks down, exactly one edge $ e \\in T_1 $ becomes unusable. In this case, Donghyun will protect the edge $ e $ by picking another edge $ f \\in T_2 $ , and add it to the existing network. This new edge should make the network be connected again.\n\nDonghyun wants to assign a replacement edge $ f \\in T_2 $ for as many edges $ e \\in T_1 $ as possible. However, since the backup network $ T_2 $ is fragile, $ f \\in T_2 $ can be assigned as the replacement edge for at most one edge in $ T_1 $ . With this restriction, Donghyun wants to protect as many edges in $ T_1 $ as possible.\n\nFormally, let $ E(T) $ be an edge set of the tree $ T $ . We consider a bipartite graph with two parts $ E(T_1) $ and $ E(T_2) $ . For $ e \\in E(T_1), f \\in E(T_2) $ , there is an edge connecting $ \\{e, f\\} $ if and only if graph $ T_1 - \\{e\\} + \\{f\\} $ is a tree. You should find a maximum matching in this bipartite graph.",
+    "inputFormat": "The first line contains an integer $ n $ ( $ 2 \\le n \\le 250\\,000 $ ), the number of users.\n\nIn the next $ n-1 $ lines, two integers $ a_i $ , $ b_i $ ( $ 1 \\le a_i, b_i \\le n $ ) are given. Those two numbers denote the indices of the vertices connected by the corresponding edge in $ T_1 $ .\n\nIn the next $ n-1 $ lines, two integers $ c_i $ , $ d_i $ ( $ 1 \\le c_i, d_i \\le n $ ) are given. Those two numbers denote the indices of the vertices connected by the corresponding edge in $ T_2 $ .\n\nIt is guaranteed that both edge sets form a tree of size $ n $ .",
+    "outputFormat": "In the first line, print the number $ m $ ( $ 0 \\leq m < n $ ), the maximum number of edges that can be protected.\n\nIn the next $ m $ lines, print four integers $ a_i, b_i, c_i, d_i $ . Those four numbers denote that the edge $ (a_i, b_i) $ in $ T_1 $ is will be replaced with an edge $ (c_i, d_i) $ in $ T_2 $ .\n\nAll printed edges should belong to their respective network, and they should link to distinct edges in their respective network. If one removes an edge $ (a_i, b_i) $ from $ T_1 $ and adds edge $ (c_i, d_i) $ from $ T_2 $ , the network should remain connected. The order of printing the edges or the order of vertices in each edge does not matter.\n\nIf there are several solutions, you can print any.",
+    "samples": [
+        [
+            "4\n1 2\n2 3\n4 3\n1 3\n2 4\n1 4",
+            "3\n3 2 4 2\n2 1 1 3\n4 3 1 4"
+        ],
+        [
+            "5\n1 2\n2 4\n3 4\n4 5\n1 2\n1 3\n1 4\n1 5",
+            "4\n2 1 1 2\n3 4 1 3\n4 2 1 4\n5 4 1 5"
+        ],
+        [
+            "9\n7 9\n2 8\n2 1\n7 5\n4 7\n2 4\n9 6\n3 9\n1 8\n4 8\n2 9\n9 5\n7 6\n1 3\n4 6\n5 3",
+            "8\n4 2 9 2\n9 7 6 7\n5 7 5 9\n6 9 4 6\n8 2 8 4\n3 9 3 5\n2 1 1 8\n7 4 1 3"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9\u5b9a\u4e24\u68f5\u5927\u5c0f\u4e3a $n(n\\le 2.5\\times 10^5)$ \u7684\u6811$T_1,T_2$\u3002\n\n\u82e5\u4f60\u5220\u53bb$T_1$\u4e0a\u7684\u4e00\u6761\u8fb9 $i$ \u540e\uff0c\u53ef\u4ee5\u9009\u62e9$T_2$\u4e0a\u7684\u4e00\u6761\u8fb9 $j$ \u8fde\u63a5\u4e0a\u6765\u800c\u5f62\u6210\u6811\uff0c\u5219\u79f0 $(i,j)$ \u662f\u5339\u914d\u7684\u3002\n\n\u5bf9\u4e8e\u6811 $T_1$ \u7684\u4e00\u6761\u8fb9\uff0c\u4f60\u9700\u8981\u4e3a\u5176\u6807\u8bb0\u4e00\u4e2a\u6570\u5b57/\u4e0d\u6807\u8bb0\uff0c\u4f60\u6807\u8bb0\u7684\u6570\u5b57\u4e0d\u80fd\u76f8\u540c\uff0c\u4f60\u6807\u8bb0\u7684\u6570\u5b57 $x$ \u4e0e\u6b64\u8fb9\u6240\u6784\u6210\u7684\u4e8c\u5143\u7ec4 $(i,x)$ \u662f\u5339\u914d\u7684\u65f6\u5019\uff0c\u4f60\u624d\u80fd\u4ee5\u6570\u5b57 $x$ \u6807\u8bb0\u5176\u3002\n\n\u6c42\u4f60\u6700\u591a\u80fd\u6807\u8bb0\u591a\u5c11\u6761\u8fb9\u3002"
+}

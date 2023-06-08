@@ -1,0 +1,106 @@
+[
+    {
+        "content": "## \u8c28\u4ee5\u6b64\u7bc7\u611f\u8c22Acc\u5927\u4f6c\u5e26\u6211\u5165\u95e8\u7b80\u5355\u6982\u7387\uff01\n\n## Solution:\n\n### \u524d\u7f6e\uff1a\u5168\u6982\u7387\u516c\u5f0f\n\n\u5728\u6982\u7387\u7a7a\u95f4 $(\\Omega,F,P)$ \u4e2d\uff0c\u82e5\u4e00\u7ec4\u4e8b\u4ef6 $A1,...An$ \u4e24\u4e24\u4e0d\u76f8\n\u5bb9\u4e14\u548c\u4e3a$\\Omega$\uff0c\u5219\u5bf9\u4efb\u610f\u4e8b\u4ef6 $B$ \u90fd\u6709\n\n$$P(B) = \\sum_{i=1}^{n}P(A_i)P(B|A_i)$$\n\n\u90a3\u4e48\u5bf9\u4e8e\u8fd9\u9053\u9898\u6765\u8bf4\u83b7\u80dc\u7684\u6982\u7387\u63a8\u5bfc\u5982\u4e0b\uff1a\n\n\u8bbe $p=\\frac{a}{b}$ , $q=\\frac{c}{d}$ ,\u83b7\u80dc\u7684\u6982\u7387 $ans$ \u5373\u4e3a\uff1a\n\n$$ans=p+(1-p)(1-q)p+[(1-p)(1-q)]^2p+[(1-p)(1-q)]^3p+...$$\n\n\u8bbe $(1-p)(1-q)=x$ ,\u63d0\u51fa $p$ \u5219\u6709\uff1a\n\n$$ans=p(1+x+x^2+x^3+...)$$\n\n\u5bf9\u4e8e \n$$1+x+x^2+x^3+...$$\n\n\u8003\u8651\u7b49\u6bd4\u6570\u5217\u6c42\u548c\u5219\u6709\uff1a\n\n$$\\frac{1-x^n}{1-x}$$\n\n\u53c8\u56e0\u4e3a $x<1$ ,\u5219 $n$ \u8d8b\u4e8e\u65e0\u7a77\u5927\u65f6 $x^n$ \u8d8b\u8fd1\u4e8e $0$ \uff0c\n\u5219\u539f\u5f0f\u5316\u4e3a\uff1a\n\n$$\\frac{1}{1-x}$$\n\n$$ans=\\frac{p}{1-x}$$\n\n### Code:\n\n```cpp\n#include <cstdio>\n#include <iostream>\n#include <cstring>\n#include <cmath>\n#include <algorithm>\n#include <cstdlib>\n#define inf 0x3f3f3f3f\nusing namespace std;\n\nint main() {\n\tdouble a,b,c,d;\n\tscanf(\"%lf%lf%lf%lf\",&a,&b,&c,&d);\n\tprintf(\"%.12lf\",(double)(a/b)/(double)(1-(1-a/b)*(1-c/d)));\n\treturn 0;\n}\n```\n\n\n",
+        "postTime": 1620379939,
+        "uid": 366980,
+        "name": "\u5230\u5e95\u51e0\u53ea\u9c7c\u5462",
+        "ccfLevel": 0,
+        "title": "CF312B Archer"
+    },
+    {
+        "content": "\u8bbe$f$\u8868\u793a\u5c0f$R$\u5c04\u4e2d\u5bf9\u65b9\u7684\u6982\u7387\n\n\u5219$$\\huge f=\\frac{a}{b}+(1-\\frac{a}{b})(1-\\frac{c}{d})f$$\n\n\u5316\u7b80\u5f97$$\\huge f=\\frac{\\frac{a}{b}}{1-(1-\\frac{a}{b})(1-\\frac{c}{d})}$$\n\n``` cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n\tdouble a, b, c, d; cin >> a >> b >> c >> d;\t \n\tdouble ans = 0;\n\tans = (a / b) / (1 - (1 - a / b) * (1 - c / d)); \n\tprintf(\"%.12lf\\n\", ans);\n}\n```",
+        "postTime": 1537609156,
+        "uid": 47111,
+        "name": "nekko",
+        "ccfLevel": 9,
+        "title": "\u9898\u89e3 CF312B \u3010Archer\u3011"
+    },
+    {
+        "content": "\u4e24\u4e2a\u5f13\u7bad\u624b A \u548c B\uff0c\u547d\u4e2d\u7684\u6982\u7387\u5206\u522b\u662f $\\dfrac{a}{b}$ \u548c $\\dfrac{c}{d}$\uff0cA \u5148\u5c04\u3002\u8c01\u5148\u5c04\u4e2d\u5bf9\u65b9\u5c31\u8d62\uff0c\u95ee A \u8d62\u7684\u6982\u7387\u3002\n\n\u7531\u4e8e\u5bf9\u7cbe\u5ea6\u7684\u8981\u6c42\u6bd4\u8f83\u5c0f\uff0c\u6211\u4eec\u53ef\u4ee5\u679a\u4e3e\u5728\u7b2c\u51e0\u56de\u5408 A \u83b7\u80dc\u3002\u5bf9\u4e8e\u7b2c $i$ \u56de\u5408\uff0c\u60f3\u8981\u8fdb\u884c\u7684\u8fd9\u91cc\uff0c\u8981\u6c42\u524d $i-1$ \u4e2a\u56de\u5408\u4e24\u4eba\u5168\u90e8\u5c04\u7a7a\uff0c\u6982\u7387\u4e3a $(1-\\dfrac{a}{b})^{i-1}\\times(1-\\dfrac{c}{d})^{i-1}$\u3002\u7136\u540e A \u547d\u4e2d\u4e86\uff0c\u6982\u7387\u4e3a $\\dfrac{a}{b}$\u3002\u6240\u4ee5\u4e58\u8d77\u6765\u5c31\u662f $(1-\\dfrac{a}{b})^{i-1}\\times(1-\\dfrac{c}{d})^{i-1}\\times\\dfrac{a}{b}$\u3002\u7136\u540e\u5bf9\u4e8e $\\forall i\\in[1,1000000]$ \u7b97\u51fa\u6765\u7d2f\u52a0\u5c31\u884c\u4e86\uff08\u5230 1000000 \u7684\u539f\u56e0\u662f\u5230\u600e\u4e48\u5927\u8fc7\u540e\u7b97\u51fa\u6765\u7684\u7ed3\u679c\u8fdc\u5c0f\u4e8e $10^{-6}$ \u4e86\uff0c\u4e0d\u4f1a\u6709\u4ec0\u4e48\u5f71\u54cd\uff09\u3002\n\n\u4ee3\u7801\uff1a\n```cpp\n  #include<bits/stdc++.h>\n  using namespace std;\n  int a,b,c,d;\n  double p,q,x,ans;\n  signed main()\n  {\n      scanf(\"%d%d%d%d\",&a,&b,&c,&d);\n      p=1.0*a/b;\n      q=1.0*c/d;\n      int k=1e6;\n      x=1;\n      while(k--){\n          ans+=x*p;\n          x*=(1-p)*(1-q);//\u7d2f\u4e58\n      }\n      printf(\"%.10lf\",ans);\n      return 0;\n  }\n```",
+        "postTime": 1660610717,
+        "uid": 428358,
+        "name": "cqbztzl",
+        "ccfLevel": 5,
+        "title": "CF321B\u9898\u89e3"
+    },
+    {
+        "content": "\u5bb9\u6613\u7b97\u51fa\u8fd9\u4eba\u7b2c\u4e00\u6b21\u80dc\u5229\u7684\u6982\u7387\uff0c\u7b2c\u4e8c\u6b21\u7684\uff0c\u7b2c\u4e09\u6b21\u7684\u2026\u2026\n\n\u597d\u50cf\u53ef\u4ee5\u65e0\u9650\u4e58\u4e0b\u53bb\n\n\u4f46\u662f\u8fd9\u9898\u7cbe\u5ea6\u5361\u5230$1e-6$\n\n\u4e0d\u59a8\u8bbe\u4e00\u4e2a$eps$\uff0c\u5f53\u8fd9\u6b21\u80dc\u7387\u5c0f\u4e8e$eps$\u65f6\uff0c\u5c31$break$\u6389\uff0c\u53cd\u6b63\u5b83\u5df2\u7ecf\u4e0d\u5f71\u54cd\u7b54\u6848\u4e86\n\n\u6211\u8bbe\u7684\u662f$eps=1e-12$\n\n```\n#include<iostream>\n#include<cstdio>\nusing namespace std;\nconst double eps=1e-12;\nint a,b,c,d;\ndouble ans,g[2];\nint main()\n{\n    scanf(\"%d%d%d%d\",&a,&b,&c,&d);\n    g[0]=1.0*a/b,g[1]=1.0*(d-c)/d;\n    double tmp=1;\n    while(tmp>eps)\n    {\n        ans+=tmp*g[0];\n        tmp*=(1-g[0])*g[1];\n    }\n    printf(\"%.12lf\\n\",ans);\n    return 0;\n}\n```",
+        "postTime": 1537501904,
+        "uid": 57045,
+        "name": "communist",
+        "ccfLevel": 7,
+        "title": "CF312B \u3010Archer\u3011"
+    },
+    {
+        "content": "[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/CF312B)\n\n### \u601d\u8def\n\n~~\u76f4\u63a5\u66b4\u529b\u3002~~\n\n\u6211\u4eec\u4e00\u6b21\u4e00\u6b21\u770b\u3002\n\n\u9996\u5148\u662f\u7b2c\u4e00\u6b21\u5b83\u5c31\u5c04\u4e2d\u4e86\uff0c\u6982\u7387\u4e3a $\\dfrac{a}{b}$\u3002\n\n\u7136\u540e\u770b\u7b2c\u4e09\u6b21\u5982\u679c\u4ed6\u5c04\u4e2d\u4e86\uff0c\u9996\u5148\u8981\u4fdd\u8bc1\u7b2c\u4e09\u6b21\u4ee5\u524d\u90fd\u6ca1\u6709\u5c04\u4e2d\uff0c\u7136\u540e\u8ba9\u7b2c\u4e09\u6b21\u5c04\u4e2d\uff0c\u5c31\u662f $\\dfrac{b-a}{b}\\times \\dfrac{d-c}{d} \\times \\dfrac{a}{b}$\u3002\n\n\u4ee5\u6b64\u7c7b\u63a8\uff0c\u53ea\u9700\u8981\u4fdd\u8bc1\u5728\u7b2c $2\\times n+1 $ \u6b21\u65f6\uff0c\u7b97\u51fa\u6765\u7684\u6982\u7387\u65f6\u5927\u4e8e $10^{-6}$ \u5c31\u7b97\u53ef\u884c\u65b9\u6848\uff0c\u5426\u5219\u5c31\u6ca1\u6709\u5fc5\u8981\u5728\u7b97\u4e0b\u53bb\u4e86\u3002\uff08\u7cbe\u5ea6\uff09\n\n\u6240\u4ee5\u6211\u4eec\u53ef\u4ee5\u76f4\u63a5\u5b9a\u4e49\u4e00\u4e2a $n=10^6$ \u7684\u5e38\u6570\u6765\u65b9\u4fbf\u6211\u4eec\u5b9e\u73b0\u3002\n\n### \u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n\tdouble a,b,c,d;\n\tdouble ans=0,now=1;\n\tcin>>a>>b>>c>>d;\n\tfor(int i=1;i<=int(1e6);++i)\n\t{\n\t\tnow=now*a/b;\n\t\tans+=now;\n\t\tnow=now*(b-a)/a*(d-c)/d;\n\t}\n\tprintf(\"%.7lf\",ans);\n}\n```",
+        "postTime": 1660652500,
+        "uid": 428690,
+        "name": "Zhy_never_giveup_jtl",
+        "ccfLevel": 0,
+        "title": "CF312B Archer \u9898\u89e3"
+    },
+    {
+        "content": "\u9996\u5148\uff0c\u5bf9\u4e8e\u5c0f R\uff0c\u5982\u679c\u4ed6\u7b2c $i$ \u6b21\u5c04\u4e2d\uff0c\u90a3\u4e48\u524d $i-1$ \u6b21\u4e24\u4eba\u90fd\u672a\u5c04\u4e2d\uff0c\u90a3\u4e48\u6211\u4eec\u53ef\u4ee5\u5f97\u5230\uff1a\n\n\u5bf9\u4e8e\u7b2c $i$ \u6b21\u5c04\u4e2d\uff0c\u5176\u6982\u7387\u4e3a $(1-\\dfrac{a}{b})^{i-1}(1-\\dfrac{c}{d})^{i-1}\\dfrac{a}{b}$\u3002\n\n\u6211\u4eec\u53ef\u4ee5\u679a\u4e3e\u4e00\u5b9a\u7684\u6b21\u6570\uff0c\u6bd4\u5982 $10^4$ \u6b21\uff0c\u90a3\u4e48\u7b54\u6848\u5c31\u662f $\\sum\\limits_{i=1}^{10000}(1-\\dfrac{a}{b})^{i-1}(1-\\dfrac{c}{d})^{i-1}\\dfrac{a}{b}$\u3002",
+        "postTime": 1660576920,
+        "uid": 556362,
+        "name": "UnnamedOrNamed",
+        "ccfLevel": 5,
+        "title": "CF312B Archer \u9898\u89e3"
+    },
+    {
+        "content": "\u8fd9\u662f\u4e00\u7bc7 **Python** \u9898\u89e3\uff0c\u6587\u672b\u4e5f\u4f1a\u9644\u4e0a C++ \u4ee3\u7801\u3002\n\n\u6211\u4eec\u5148\u4e00\u8d77\u6765\u63a8\u4e00\u63a8\u516c\u5f0f\u3002\n\n\u8bbe\u5c0f R \u7b2c $i$ \u6b21\u5c04\u7bad\u540e\u5c04\u4e2d\u76ee\u6807\u4e14\u83b7\u80dc\u7684\u6982\u7387\u4e3a $S_i$\uff0c\u5219\u5c0f R \u83b7\u80dc\u7684\u6982\u7387\u4e3a $\\sum_{i=1}^{+\\infty}S_i$\u3002\n\n\u5176\u4e2d\uff0c$S_1$ \u4e3a\u5c0f R \u7b2c\u4e00\u6b21\u5c31\u5c04\u4e2d\u7684\u6982\u7387\uff0c\u5373 $\\frac{a}{b}$\uff1b\n\n$S_2$ \u4e3a\u5c0f R \u7b2c\u4e00\u6b21\u6ca1\u6709\u5c04\u4e2d\uff0c\u4e14 Zanoes \u7b2c\u4e00\u6b21\u6ca1\u6709\u5c04\u4e2d\uff0c\u4e14\u5c0f R \u7b2c\u4e8c\u6b21\u5c04\u4e2d\u7684\u6982\u7387\uff0c\u5373 $\\frac{b-a}{b} \\times \\frac{d-c}{d} \\times \\frac{a}{b}$\uff1b\uff08$\\frac{b-a}{b}$ \u4e3a\u5c0f R \u7b2c\u6ca1\u6709\u5c04\u4e2d\u7684\u6982\u7387\uff0c$\\frac{d-c}{d}$ \u4e3a Zanoes \u6ca1\u5c04\u4e2d\u7684\u6982\u7387\uff0c$\\frac{a}{b}$ \u4e3a\u5c0f R \u5c04\u4e2d\u7684\u6982\u7387\u3002\uff09\n\n$S_3$ \u4e3a\u5c0f R \u7b2c\u4e00\u6b21\u6ca1\u6709\u5c04\u4e2d\uff0c\u4e14 Zanoes \u7b2c\u4e00\u6b21\u6ca1\u6709\u5c04\u4e2d\uff0c\u4e14\u5c0f R \u7b2c\u4e8c\u6b21\u6ca1\u6709\u5c04\u4e2d\uff0c\u4e14 Zanoes \u7b2c\u4e8c\u6b21\u6ca1\u6709\u5c04\u4e2d\uff0c\u4e14\u5c0f R \u7b2c\u4e09\u6b21\u5c04\u4e2d\u7684\u6982\u7387\uff0c\u5373 $\\frac{b-a}{b} \\times \\frac{d-c}{d} \\times \\frac{b-a}{b} \\times \\frac{d-c}{d} \\times \\frac{a}{b}$\uff1b\n\n\u2026\u2026\n\n\u5bb9\u6613\u53d1\u73b0\uff0c\u8fd9\u5c31\u662f\u4e00\u4e2a\u9996\u9879\u4e3a $\\frac{a}{b}$\uff0c\u516c\u6bd4\u4e3a $\\frac{b-a}{b} \\times \\frac{d-c}{d}$ \u7684\u65e0\u9650\u7b49\u6bd4\u6570\u5217\u3002\u56e0\u4e3a $| \\frac{b-a}{b} \\times \\frac{d-c}{d} |<1$\uff08\u8bc1\u660e\u8fc7\u7a0b\u5728[\u8fd9\u91cc](https://www.luogu.com.cn/paste/jipzdnwo)\uff09\uff0c\u6240\u4ee5\u8fd9\u8fd8\u662f\u4e00\u4e2a**\u65e0\u9650\u9012\u7f29\u7b49\u6bd4\u6570\u5217**\u3002\n\n\u6839\u636e[\u65e0\u9650\u9012\u7f29\u7b49\u6bd4\u6570\u5217\u6c42\u548c\u516c\u5f0f](https://baike.baidu.com/item/%E6%97%A0%E7%A9%B7%E9%80%92%E9%99%8D%E7%AD%89%E6%AF%94%E6%95%B0%E5%88%97%E6%B1%82%E5%92%8C%E5%85%AC%E5%BC%8F/5601350?fr=aladdin)\uff0c\u6211\u4eec\u53ef\u4ee5\u5f97\u51fa $\\sum_{i=1}^{+\\infty}S_i=\\frac{\\frac{a}{b}}{1-\\frac{b-a}{b} \\times \\frac{d-c}{d}}$\uff0c\u8fd9\u5c31\u662f\u5c0f R \u83b7\u80dc\u7684\u6982\u7387\u3002\n\n\u4ee3\u7801\u5982\u4e0b\uff1a\n\nPython\n\n```python\na,b,c,d=map(int,input().split())\nprint(\"%.8f\" % ((a/b)/(1-((b-a)/b)*((d-c)/d))))\n```\n\nC++\n\n```cpp\n#include<iostream>\n#include<iomanip>\nusing namespace std;\nint a,b,c,d;\nint main(){\n\tcin>>a>>b>>c>>d;\n\tcout<<fixed<<setprecision(8)<<((double)a/b)/(1.0-(((double)b-a)/b)*(((double)d-c)/d));\n    return 0;\n}\n```",
+        "postTime": 1642300446,
+        "uid": 511907,
+        "name": "\u4e00\u53ea\u5927\u9f99\u732b",
+        "ccfLevel": 5,
+        "title": "CF312B \u9898\u89e3"
+    },
+    {
+        "content": "\u8fd9\u662f\u672c\u849f\u84bb\u7684\u7b2c $4$ \u7bc7\u9898\u89e3\u3002\n### \u601d\u8def\uff1a\n\u6982\u7387 + \u63a8\u516c\u5f0f\u3002\n\n\u6211\u4eec\u5047\u8bbe\u4e00\u56de\u5408\u4e2d \u5c0fR \u4e0e Zanoes \u5747\u5c04\u7bad\u4e00\u6b21\u3002\n\n\u8bbe\u5c04\u4e2d\u7684\u6982\u7387\u4e3a $ans$\u3002\n\n\u5c0fR \u5148\u5c04\uff1a\n\n$1.$ \u5c04\u4e2d\u4e86\uff1a\n\n\u6982\u7387\u4e3a $\\frac{a}{b}$\u3002\n\n$2.$ \u6ca1\u5c04\u4e2d\uff1a\n\n\u8fd9\u4e00\u5206\u652f\u6982\u7387\u4e3a Zanoes \u672c\u56de\u5408\u6ca1\u5c04\u4e2d\u7684\u6982\u7387 $\u00d7$ \u5c0fR \u672c\u56de\u5408\u6ca1\u5c04\u4e2d\u7684\u6982\u7387 $\u00d7$ $ans$\uff0c\n\n\u5373 $(1-\\frac{a}{b})(1-\\frac{c}{d})ans$\u3002\n\n\u2234 $ans=(1-\\frac{a}{b})(1-\\frac{c}{d})ans+\\frac{a}{b}$\n\n\u2234 $(1-(1-\\frac{a}{b})(1-\\frac{c}{d}))ans=\\frac{a}{b}$\n\n\u2234 $ans=\\frac{\\frac{a}{b}}{1-(1-\\frac{a}{b})(1-\\frac{c}{d})}$\n\n\u5b8c\u7ed3\u6492\u82b1\uff01\n### \u4ee3\u7801\uff1a\n```cpp\n#include<cstdio>\nusing namespace std;\ndouble a, b, c, d, tmp1, tmp2;\nint main()\n{\n\tscanf(\"%lf%lf%lf%lf\", &a, &b, &c, &d);\n\ttmp1 = a / b, tmp2 = c / d;\n\tprintf(\"%.8lf\\n\", tmp1 / (1 - (1 - tmp1) * (1 - tmp2))); //\u6ce8\u610f\u7cbe\u5ea6\n\t\n\treturn 0;\n}\n```\n[AC](https://www.luogu.com.cn/record/48490492)\uff1aNice\uff01\n\n\u6c42\u8fc7+\u6c42\u8d5eQwQ",
+        "postTime": 1616813978,
+        "uid": 476150,
+        "name": "Mysterious_Mini",
+        "ccfLevel": 0,
+        "title": "CF312B \u3010Archer\u3011\u9898\u89e3"
+    },
+    {
+        "content": "### \u9898\u76ee\u601d\u8def\uff1a\u9012\u63a8\u6c42\u671f\u671b\n**\u4e0d\u59a8\u8bbe$f$\u4e3a\u5c04\u4e2d\u654c\u65b9\u7684\u6982\u7387**  \n\u6211\u4eec\u6a21\u62df\u4e00\u4e0b\u5c0fR\u7684\u60c5\u51b5  \n1. \u5c04\u4e2d\uff1a\u6982\u7387\u4e3a$\\frac{a}{b}$ \n2. \u5c04\u4e0d\u4e2d\uff1a\u6982\u7387\u4e3a$1-\\frac{a}{b}$\uff0c\u6b64\u65f6\u4ea4\u7ed9\u5bf9\u624b\u5c04\u7bad\uff0c\u6709$1-\\frac{c}{d}$\u7684\u6982\u7387\u5c04\u4e0d\u4e2d\uff0c\u91cd\u65b0\u4ea4\u8fd8\u7ed9\u5c0fR\u5c04\u7bad\uff0c\u6b64\u65f6\u6982\u7387\u4e3a$(1-\\frac{a}{b})(1-\\frac{c}{d})f$   \n\n\u6613\u77e5 $f=\\frac{a}{b}+(1-\\frac{a}{b})(1-\\frac{c}{d})f$  \n\u5373 $f=\\frac{\\frac{a}{b}}{1-(1-\\frac{a}{b})(1-\\frac{c}{d})}$\n\n### Code:\n```cpp\n#include<cstdio>\nusing namespace std;\n  \nint main()\n{\n\tdouble a, b, c, d;\n  \tscanf(\"%lf %lf %lf %lf\", &a, &b, &c, &d);\n  \tprintf(\"%.12lf\", (a / b) / (1 - (1 - a / b) * (1 - c / d)));\n\n\treturn 0;\n}\n```\n",
+        "postTime": 1616748540,
+        "uid": 384035,
+        "name": "Mysterious_Cat",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF312B \u3010Archer\u3011"
+    },
+    {
+        "content": "\u5c0fR\u8981\u60f3\u80dc\u5229\uff0c\u90a3\u4e48\u8981\u4e48\u5c04\u4e2d\u5bf9\u624b\uff0c\u8981\u4e48\u4e24\u4eba\u90fd\u6ca1\u5c04\u4e2d\uff0c\u7136\u540e\u5f00\u59cb\u4e0b\u4e00\u8f6e\u5c04\u51fb\uff0c**\u4e14\u4e0b\u4e00\u8f6e\u80dc\u5229\u7684\u6982\u7387\u548c\u8fd9\u4e00\u8f6e\u7684\u76f8\u7b49\u3002**\n\n$\\dfrac{a}{b}$ \u8868\u793a\u5c0fR\u5c04\u4e2d\u5bf9\u624b\u7684\u6982\u7387\uff0c $(1-\\dfrac{a}{b})\\times(1-\\dfrac{c}{d})\\times P$ \u8868\u793a\u4e24\u4eba\u90fd\u6ca1\u5c04\u4e2d\u76ee\u6807\uff0c\u4e4b\u540e\u5c0fR\u80dc\u5229\u7684\u6982\u7387\u3002\n\n\u8bbe $P$ \u4e3a\u5c0fR\u80dc\u5229\u7684\u6982\u7387\uff0c\u5219\u6709\uff1a\n$$P=\\dfrac{a}{b}+(1-\\dfrac{a}{b})\\times(1-\\dfrac{c}{d})\\times P$$\n\u5316\u7b80\u5f97\uff1a\n$$P=\\dfrac{ad}{ad+bc+ac}$$\n```cpp\n#include <iostream>\nusing namespace std;\nint main()\n{\n\tdouble a,b,c,d;\n\tcin >> a >> b >> c >> d;\n\tcout << (a * d) / (a * d + b * c - a * c);\n\treturn 0;\n}\n```",
+        "postTime": 1616473954,
+        "uid": 299432,
+        "name": "lsw1",
+        "ccfLevel": 0,
+        "title": "solution-cf312b"
+    },
+    {
+        "content": "### [\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/CF312B)\n## \u9898\u610f\n\u5c0fR$Zanoes$ \u8fdb\u884c\u5bf9\u51b3\u3002\u4ed6\u4eec\u8f6e\u6d41\u5c1d\u8bd5\u7740\u5c04\u4e2d\u76ee\u6807\uff0c\u5c0fR\u5148\u5c04\u3002\u5c0fR\u6709$\\frac{a}{b}$\u7684\u6982\u7387\u8d62 , $Zanoes$ \u6709  $\\frac{c}{d}$ \u7684\u6982\u7387\u8d62\uff0c\u95ee\u5c0fR\u6709\u591a\u5c11\u6982\u7387\u8d62\u3002\n## \u601d\u8def\n\u8bbe\u7b2c n \u8f6e\uff08\u7b2c n \u8f6e\u65f6\u5230\u5c0fR\u5c04\u51fb\uff09\u65f6\u5c0fR\u7684\u83b7\u80dc\u6982\u7387\u4e3a $f_n$ \uff0c\u53ef\u6c42\u5f97 $f_n$ = $f_{n-2}$ \uff08\u5c0fR\u7684\u4e0a\u4e00\u8f6e\u83b7\u80dc\u6982\u7387\uff09$\\times (1-\\frac{a}{b})$ (\u5c0fR\u6ca1\u83b7\u80dc) $\\times (1-\\frac{c}{d})$\uff08\u5bf9\u624b\u4e5f\u6ca1\u83b7\u80dc\uff09 $+\\frac{a}{b}$\uff08\u8fd9\u8f6e\u83b7\u80dc\u7684\u6982\u7387\uff09\uff0c\u6240\u4ee5\u53ef\u4ee5\u4e0d\u65ad\u7b97\u4e0b\u53bb\u76f4\u5230\u6ee1\u8db3\u7cbe\u5ea6\u6761\u4ef6\u3002\n## \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nconst double jd=1e-8;//\u7cbe\u5ea6\u8981\u6c42\nint a,b,c,d;double ans,g1,g2;\nint main()\n{\n    cin>>a>>b>>c>>d;\n    g1=1.0*a/b,g2=1.0*(d-c)/d;\n    double tmp=1;\n    while(tmp>jd)\n        ans+=tmp*g1,tmp*=(1-g1)*g2;//\u5f53\u6ca1\u6ee1\u8db3\u7cbe\u5ea6\u6761\u4ef6\u65f6\u5c31\u4e0d\u65ad\u8ba1\u7b97\u4e0b\u53bb\n    cout<<fixed<<setprecision(8)<<ans;//\u4fdd\u7559\u516b\u4f4d\u5c0f\u6570\u8f93\u51fa\n    return 0;\n}\n```\n\n\n\u5b8c\u7ed3\u6492\u82b1~\n\n\u8c22\u8c22 qwq",
+        "postTime": 1605506034,
+        "uid": 318266,
+        "name": "lxgw",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 CF312B \u3010Archer\u3011"
+    },
+    {
+        "content": "# [\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/CF312B)\n## \u601d\u8def\uff1a\n\u4e0d\u59a8\u8bbe $r$ \u8868\u793a\u5c0fR\u5c04\u4e2d\u5bf9\u65b9\u7684\u6982\u7387\n\n\u5219$ r=\\frac{a}{b}+(1-\\frac{a}{b})(1-\\frac{c}{d})r $\n\n\u5316\u7b80\u5f97$ r=\\frac{\\frac{a}{b}}{1-(1-\\frac{a}{b})(1-\\frac{c}{d})} $\n\n## \u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\ndouble a,b,c,d,r;\nint main(){\n\tcin>>a>>b>>c>>d;\n\tr=(a/b)/(1-(1-a/b)*(1-c/d)); //\u6839\u636e\u516c\u5f0f\u7b97\u80dc\u7387\n\tprintf(\"%.12lf\\n\",r);//\u6839\u636e\u9898\u76ee\u8f93\u51fa\n}\n```\n \u62dc\u62dc qwq\n",
+        "postTime": 1604101387,
+        "uid": 363408,
+        "name": "qhztz",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF312B \u3010Archer\u3011"
+    },
+    {
+        "content": "## $Problems$\n\u5c0f $R$ \u548c $Zanoes$ \u90fd\u662f\u5f13\u7bad\u624b\u3002\u5c0f $R$ \u51c6\u5907\u4e0e $Zanoes$ \u4e3e\u884c\u4e00\u573a\u5c04\u7bad\u6bd4\u8d5b\uff0c\u5c0f $R$ \u7b2c\u4e00\u4e2a\u5c04\u7bad\uff0c\u7136\u540e\u4e24\u4eba\u8f6e\u6d41\u8fdb\u884c\u5c04\u7bad\uff0c\u5c0f $R$ \u6295\u4e2d\u9776\u5b50\u7684\u6982\u7387\u4e3a $\\frac{a}{\\ b}$ \uff0c $Zanoes$ \u6295\u4e2d\u9776\u5b50\u7684\u6982\u7387\u4e3a $\\frac{c}{\\ d}$ \uff0c\u8c01\u7b2c\u4e00\u4e2a\u6295\u4e2d\u9776\u5b50\u8c01\u5c31\u83b7\u80dc\uff0c\u6c42 \u5c0f $R$ \u8d62\u5f97\u6bd4\u8d5b\u7684\u6982\u7387\u3002\n## $Answer$\n\u6211\u4eec\u5176\u5b9e\u4e0d\u96be\u53d1\u73b0\uff0c\u8fd9\u9053\u9898\u5176\u5b9e\u662f\u4e00\u9053\u7b49\u6bd4\u6570\u5217\u7684\u9898\u3002\u3002\u3002\n\n\u8bbe\u4e00\u4e2a\u7b49\u6bd4\u6570\u5217\u7684\u9996\u9879\u662f $a_1$ ,\u516c\u6bd4\u662f $q$ \uff0c\u6570\u5217\u524d $n$ \u9879\u548c\u662f $S_n$\u3002\n\n\u5f53\u516c\u6bd4\u4e0d\u4e3a $1$ \u65f6$S_n=a_1+a_1q^1+a_1q^2+...+a_1q^{n-1}$\n\n\u5c06\u8fd9\u4e2a\u5f0f\u5b50\u4e24\u8fb9\u540c\u65f6\u4e58\u4ee5\u516c\u6bd4 $q$ \uff0c\u5f97$S_nq=a_1q^1+a_1q^2+...+a_1q^{n-1}+a_1q^n$\n\n\n\u4e24\u5f0f\u76f8\u51cf\uff0c\u5f97 $Sn(1-q)=a_1-a_1q^n$\n\n\u6240\u4ee5\uff0c\u5f53\u516c\u6bd4\u4e0d\u4e3a $1$ \u65f6\uff0c\u7b49\u6bd4\u6570\u5217\u7684\u6c42\u548c\u516c\u5f0f\u4e3a $Sn=\\frac{[a_1(1-q^n)]}{1-q}$\n\n\u5bf9\u4e8e\u4e00\u4e2a\u65e0\u7a77\u9012\u964d\u6570\u5217\uff0c\u6570\u5217\u7684\u516c\u6bd4\u5c0f\u4e8e $1$ ,\u5f53\u4e0a\u5f0f\u5f97 $n$ \u8d8b\u5411\u4e8e\u6b63\u65e0\u7a77\u5927\u65f6\uff0c\u5206\u5b50\u62ec\u53f7\u4e2d\u7684\u503c\u8d8b\u8fd1\u4e8e $1$ \uff0c\u53d6\u6781\u9650\u5373\u5f97**\u65e0\u7a77\u9012\u51cf\u6570\u5217\u6c42\u548c\u516c\u5f0f**$S=\\frac{a_1}{1-q}$\n## $Code$\n```pascal\nvar\n    a,b,c,d:double;\nbegin\n    readln(a,b,c,d);\n    writeln(a/b/(1-(1-a/b)*(1-c/d)):0:12);\nend.\n```",
+        "postTime": 1599571162,
+        "uid": 173220,
+        "name": "Nozebry",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF312B \u3010Archer\u3011"
+    }
+]

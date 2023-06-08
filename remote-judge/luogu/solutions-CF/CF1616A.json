@@ -1,0 +1,42 @@
+[
+    {
+        "content": "[\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/CF1616A)\n## \u9898\u76ee\u5927\u610f\n\u7ed9\u5b9a $n$ \u4e2a\u6574\u6570\uff0c\u60a8\u53ef\u4ee5\u9009\u62e9\u7ed9\u5b9a\u6570\u5b57\u7684\u4efb\u4f55\u5b50\u96c6\u5e76\u5c06\u8fd9\u4e9b\u6570\u5b57\u53d8\u4e3a\u4ed6\u4eec\u7684\u76f8\u53cd\u6570\u3002\u6c42\u4fee\u6539\u540e\u6570\u7ec4\u4e2d\u4e0d\u540c\u503c\u7684\u6700\u5927\u6570\u91cf\u3002\n## \u601d\u8def\n+ \u56e0\u4e3a $0$ \u7684\u76f8\u53cd\u6570\u662f\u5b83\u672c\u8eab\uff0c\u6240\u4ee5 $0$ \u5bf9\u7b54\u6848\u7684\u8d21\u732e\u503c\u662f $1$\u3002\n* \u5176\u5b83\u6570\u7684\u7edd\u5bf9\u503c\u5982\u679c\u53ea\u6709\u4e00\u4e2a\u6570\uff0c\u5bf9\u7b54\u6848\u7684\u8d21\u732e\u503c\u662f $1$\n+ \u5176\u5b83\u6570\u7684\u7edd\u5bf9\u503c\u5982\u679c\u6709\u4e24\u4e2a\u53ca\u4ee5\u4e0a\u7684\u76f8\u540c\u7684\u6570\uff0c\u56e0\u4e3a\u76f8\u53cd\u6570\u4e0d\u662f\u672c\u8eab\uff0c\u6240\u4ee5\u5bf9\u7b54\u6848\u7684\u8d21\u732e\u503c\u662f $2$\u3002 \n\n\u53ef\u4ee5\u5f00\u4e00\u4e2a\u6876\u6765\u8bb0\u5f55\u8fd9\u4e2a\u6570\u7684\u7edd\u5bf9\u503c\u51fa\u73b0\u4e86\u591a\u5c11\u6b21\u3002\n## CODE\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n, a[105], k, ans, t;\nint main(){\n    cin >> t;\n    while(t--){\n        memset(a, 0, sizeof(a));//\u5c06\u6876\u6e05\u7a7a\n        ans = 0;//\u7b54\u6848\u6e05\u7a7a\n        cin >> n;\n        while(n--){\n            cin >> k;\n            a[abs(k)]++;//\u7edd\u5bf9\u503c\u51fa\u73b0\u7684\u6b21\u6570\u52a0\u4e00\n        }\n        ans += a[0] >= 1;\n        for(int i = 1; i <= 100; i++){\n            if(a[i] >= 2){//\u6709\u4e24\u4e2a\u53ca\u4ee5\u4e0a\u7684\u76f8\u540c\u7684\u6570\n                ans += 2;\n            }else if(a[i] == 1){\n                ans++;//\u53ea\u6709\u4e00\u4e2a\u6570\n            }\n        }\n        cout << ans << endl;\n    }\n    \n    return 0;\n}\n```",
+        "postTime": 1642753983,
+        "uid": 444534,
+        "name": "\u54c8\u58eb\u5947\u61a8\u61a8",
+        "ccfLevel": 5,
+        "title": "CF1616A Integer Diversity \u9898\u89e3"
+    },
+    {
+        "content": "[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/CF1616A)\n\n\u8981\u6c42\u6700\u591a\u6709\u591a\u5c11\u4e2a\u4e0d\u76f8\u540c\uff0c\u6211\u4eec\u53ef\u4ee5\u53cd\u8fc7\u6765\u7b97\uff1a\u6700\u5c11\u6709\u591a\u5c11\u76f8\u540c\uff1f\u6700\u540e\u7528 $n$ \u51cf\u53bb\u5c31\u884c\u3002\n \n\u7136\u540e\u7528\u6876\u7684\u601d\u60f3\uff1a\n\n\u5bf9\u4e8e\u6bcf\u4e2a\u6570\u4e2d\u7684 $x$\uff0c\u6bcf\u6b21\u628a $x$ \u7684\u7edd\u5bf9\u503c\u5b58\u4e0b\u6765\uff0c\u7136\u540e\u5224\u65ad\uff1a\n\n1. \u82e5\u6876 $m_x$ \u91cc\u9762\u5df2\u7ecf\u88c5\u4e86\u4e00\u6b63\u4e00\u8d1f\uff0c\u90a3\u4e48\u6839\u636e\u62bd\u5c49\u539f\u7406\uff0c\u4e00\u5b9a\u6709\u76f8\u540c\u7684\uff0c\u90a3\u4e48\u5c31\u628a\u8ba1\u6570\u5668\u52a0\u4e00\uff1b\u5426\u5219\u653e\u5165\u6876\u4e2d\u3002\n\n2. $0$ \u7684\u76f8\u53cd\u6570\u8fd8\u662f $0$\uff0c\u6240\u4ee5\u5f53 $m_0$ \u88c5\u4e86 $1$ \u4e2a\u65f6\uff0c\u8ba1\u6570\u5668\u5c31\u8981\u52a0\u4e00\uff1b\u5426\u5219\u653e\u5165\u6876\u4e2d\u3002 \n\n--------------------------------------------\n\n\u4ee3\u7801\uff1a\n```cpp\n#include <iostream>\n#include <map> \nusing namespace std;\nint t,n,a[110],m[110];\nint main(){\n    cin>>t;\n    while(t--){\n        int ans=0;\n        for(int i=0;i<=100;i++)m[i]=0;\n        cin>>n;\n        for(int i=1;i<=n;i++){\n            int x;\n            cin>>x;\n            if(x<0)x*=-1; //\u624b\u52a8\u53d6\u7edd\u5bf9\u503c\n            if((x!=0&&m[x]>=2)||(x==0&&m[x]>= 1))ans++; \n            else m[x]++;\n        }\n        cout<<n-ans<<endl;\n    }\n    return 0;\n}\n```",
+        "postTime": 1642336654,
+        "uid": 314625,
+        "name": "\u4fe1\u606f\u5411\u9633\u82b1\u6728",
+        "ccfLevel": 4,
+        "title": "CF1616A Integer Diversity \u9898\u89e3"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u4e3b\u8981\u662f\u7528\u5230\u4e86\u6876\u7684\u601d\u60f3\uff0c\u800c\u4e14\u8fd8\u8981\u5f04\u6e05\u695a\u9898\u610f \u3002\n\n1. \u9996\u5148\u8fd9\u9053\u9898\u6bcf\u4e2a\u6570\u90fd\u53ef\u4ee5\u6709\u6b63\u4e0e\u8d1f\u4e24\u79cd\u5f62\u6001\uff0c\u6240\u4ee5\u591a\u4e2a\u76f8\u540c\u7684\u6570\u53ea\u80fd\u6709\u4e24\u79cd\u5f62\u6001 \u3002\n\n1. \u8981\u6ce8\u610f\u4e0d\u7ba1\u591a\u5c11 0 \u90fd\u53ea\u6709\u4e00\u79cd\u5f62\u6001 \u3002\n\n1. \u6c42\u7edd\u5bf9\u503c\u51fd\u6570\u662f **abs** \u3002\n\n1. \u662f\u591a\u7ec4\u6570\u636e\uff0c\u6ce8\u610f\u6e05\u7a7a\u6570\u7ec4\u548c\u6570\u7ec4\u5f52\u96f6 \u3002\n\n\u6ce8\u610f\u529b\u8fd9\u4e9b\uff0c\u601d\u8def\u4e3a\u8fb9\u8f93\u5165\u8fb9\u5224\u65ad\uff0c\u7136\u540e\u8981\u8f93\u51fa\u65f6\u518d\u626b\u63cf\u72b6\u6001\u6570\u7ec4\u4e00\u904d \u3002\n\n\u6700\u540e\u9644\u4e0a\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>//\u5934\u6587\u4ef6\nusing namespace std;\nint a[105],b[205];//b\u4e3a\u72b6\u6001\u6570\u7ec4\nint main()\n{\n\tint n,t,ans;\n\tcin>>t;//t\u7ec4\u6570\u636e\n\twhile(t--)\n\t{\n\t\tmemset(a,0,sizeof(a));\n\t\tmemset(b,0,sizeof(b));//\u6e05\u7a7a\n\t\tcin>>n;//n\u4e2a\u6570\n\t\tans=0;\n\t\tfor(int i=1;i<=n;i++)//\u8f93\u5165\n\t\t{\n\t\t\tscanf(\"%d\",&a[i]);\n\t\t\ta[i]=abs(a[i]); \n\t\t\tif(a[i]!=0)//\u5224\u65ad\n\t\t\t{\n\t\t\t\tif(b[a[i]]<2)\n\t\t\t\t\tb[a[i]]++;\n\t\t\t}\n\t\t\telse b[0]=1;\n\t\t}\n\t\tfor(int i=0;i<=100;i++)//\u626b\u63cf\n\t\t\tans+=b[i];//\u7d2f\u52a0\n\t\tprintf(\"%d\\n\",ans);//\u8f93\u51fa\u7b54\u6848\n\t}\n\treturn 0;//\u517b\u6210\u597d\u4e60\u60ef\n}\n\n```\n",
+        "postTime": 1642311528,
+        "uid": 557669,
+        "name": "20100202w",
+        "ccfLevel": 3,
+        "title": "CF1616A\u9898\u89e3"
+    },
+    {
+        "content": "### \u9898\u610f\u7b80\u8ff0\n\u6c42\u51fa\u4fee\u6539\u540e\u6570\u7ec4\u4e2d\u4e0d\u540c\u503c\u7684\u6700\u5927\u6570\u91cf\u3002\n\n\u3010\u4fee\u6539\u3011\u6307\u5c06\u6570\u7ec4\u4e2d\u4e00\u4e2a\u6570\u4fee\u6539\u4e3a\u5b83\u7684\u76f8\u53cd\u6570\u3002\n\n### \u95ee\u9898\u89e3\u51b3\n\u5f00\u4e00\u4e2a\u6876 $p$ \uff0c$p_i$ \u8bb0\u5f55\u7edd\u5bf9\u503c\u662f $i$ \u7684\u6570\u6709\u591a\u5c11\u4e2a\u3002\u6700\u540e\u7edf\u8ba1\u3002\u89c1\u4ee3\u7801\u3002\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint p[110];\nint main(){\n\tint t,n,a,sum;\n\tcin>>t;\n\twhile(t--){\n\t\tmemset(p,0,sizeof(p));\n\t\tsum=0;\n\t\tcin>>n;\n\t\tfor(int i=1;i<=n;i++){\n\t\t\tcin>>a;\n\t\t\ta=abs(a); \n\t\t\tif((a!=0&&p[a]<=1)||(a==0&&p[a]==0)){\n\t\t\t\tp[a]++;  //\u5b58\u5165\u6876\uff0c\u6ce8\u610f0\u8981\u7279\u5224\n\t\t\t}\n\t\t\telse{\n\t\t\t\tsum++;  //\u4e00\u6837\u7684\u6570\u7684\u4e2a\u6570\n\t\t\t}\n\t\t}\n\t\tcout<<n-sum<<endl;\n\t}\n} \n```\n~~\u7ba1\u7406\u5458\u6c42\u8fc7~~",
+        "postTime": 1641191799,
+        "uid": 393934,
+        "name": "zhicheng",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF1616A Integer Diversity"
+    },
+    {
+        "content": "## \u9898\u610f\n\n\u53ef\u4ee5\u5c06\u6570\u5217\u4e2d\u7684\u6570\u53d8\u4e3a\u5176\u7684\u76f8\u53cd\u6570\uff0c\u6c42\u6570\u5217\u4e2d\u4e0d\u540c\u7684\u6570\u7684\u4e2a\u6570\u6700\u591a\u80fd\u662f\u591a\u5c11\u3002\n\n## \u9898\u89e3\n\n\u6570\u5217\u4e2d\u6240\u6709\u7edd\u5bf9\u503c\u76f8\u540c\u7684\u6570\uff08\u8bbe\u5176\u503c\u4e3a $x$\uff09\u90fd\u53ea\u80fd\u53d8\u6210 $x$ \u6216 $-x$\uff0c\u6240\u4ee5\u8d21\u732e\u6700\u591a\u4e3a $2$\uff0c\u82e5 $x=0$ \u5219\u8d21\u732e\u6700\u591a\u4e3a $1$\uff0c\u56e0\u4e3a $0=-0$\u3002\u8bbe $s_i$ \u8868\u793a\u7edd\u5bf9\u503c\u4e3a $i$ \u7684\u6570\u7684\u4e2a\u6570\uff0c\u7b54\u6848\u5373\u4e3a $\\min(s_0,1)+\\sum_{i=1}^{100}\\min(s_i,2)$\u3002",
+        "postTime": 1640921667,
+        "uid": 99908,
+        "name": "ArrogHie",
+        "ccfLevel": 8,
+        "title": "\u9898\u89e3CF1616A\u3010Integer Diversity\u3011"
+    }
+]

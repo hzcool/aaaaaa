@@ -1,0 +1,21 @@
+{
+    "description": "'Jeopardy!' is an intellectual game where players answer questions and earn points. Company Q conducts a simplified 'Jeopardy!' tournament among the best IT companies. By a lucky coincidence, the old rivals made it to the finals: company R1 and company R2.\n\nThe finals will have $ n $ questions, $ m $ of them are auction questions and $ n-m $ of them are regular questions. Each question has a price. The price of the $ i $ -th question is $ a_{i} $ points. During the game the players chose the questions. At that, if the question is an auction, then the player who chose it can change the price if the number of his current points is strictly larger than the price of the question. The new price of the question cannot be less than the original price and cannot be greater than the current number of points of the player who chose the question. The correct answer brings the player the points equal to the price of the question. The wrong answer to the question reduces the number of the player's points by the value of the question price.\n\nThe game will go as follows. First, the R2 company selects a question, then the questions are chosen by the one who answered the previous question correctly. If no one answered the question, then the person who chose last chooses again.\n\nAll R2 employees support their team. They want to calculate what maximum possible number of points the R2 team can get if luck is on their side during the whole game (they will always be the first to correctly answer questions). Perhaps you are not going to be surprised, but this problem was again entrusted for you to solve.",
+    "inputFormat": "The first line contains two space-separated integers $ n $ and $ m $ $ (1<=n,m<=100;\u00a0m<=min(n,30)) $ \u2014 the total number of questions and the number of auction questions, correspondingly. The second line contains $ n $ space-separated integers $ a_{1},a_{2},...,a_{n} $ $ (1<=a_{i}<=10^{7}) $ \u2014 the prices of the questions. The third line contains $ m $ distinct integers $ b_{i} $ $ (1<=b_{i}<=n) $ \u2014 the numbers of auction questions. Assume that the questions are numbered from $ 1 $ to $ n $ .",
+    "outputFormat": "In the single line, print the answer to the problem \u2014 the maximum points the R2 company can get if it plays optimally well. It is guaranteed that the answer fits into the integer 64-bit signed type.",
+    "samples": [
+        [
+            "4 1\n1 3 7 5\n3\n",
+            "18\n"
+        ],
+        [
+            "3 2\n10 3 8\n2 3\n",
+            "40\n"
+        ],
+        [
+            "2 2\n100 200\n1 2\n",
+            "400\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u9898\u610f\u7b80\u8ff0\n\n\u201cJeopardy\uff01\u201d\u7684\u51b3\u8d5b\u5c06\u6709n\u95ee\u9898\uff0c\u6bcf\u4e2a\u95ee\u9898\u90fd\u6709\u5bf9\u5e94\u7684\u5f97\u5206ai\uff0c\u5176\u4e2d\u6709m\u4e2a\u95ee\u9898\u53ef\u4ee5\u9009\u62e9\u4e0d\u5f97\u5206\uff0c\u800c\u5c06\u73b0\u6709\u603b\u5f97\u5206\u7ffb\u500d\u3002\u4f60\u53ef\u4ee5\u5b89\u6392\u5173\u5361\u7684\u901a\u8fc7\u987a\u5e8f\u548c\u7b56\u7565\uff0c\u6c42\u6700\u5927\u5f97\u5206\u3002\n\n\u8f93\u5165\u8f93\u51fa\u683c\u5f0f\n\n\u8f93\u5165\u683c\u5f0f\uff1a\n\n\u7b2c\u4e00\u884c\u5305\u542b\u4e24\u4e2a\u6574\u6570\u3002n\u548cm(1<=n\uff0cm<=100\uff1bm<=min(n\uff0c30))\u5206\u522b\u4ee3\u8868\u95ee\u9898\u603b\u6570\u548c\u53ef\u7ffb\u500d\u95ee\u9898\u603b\u6570\u3002\u7b2c\u4e8c\u884c\u5305\u542bn\u4e2a\u6574\u6570a1,a2,...,an(1<=ai<=1e7)\u4ee3\u8868\u6bcf\u4e2a\u95ee\u9898\u7684\u4ef7\u503c\uff1b\u7b2c\u4e09\u884c\u5305\u542bm\u4e2a\u6574\u6570b1,b2,...,bm(1<=bi<=n)\u4ee3\u8868\u53ef\u7ffb\u500d\u95ee\u9898\u7684\u7f16\u53f7\u3002\u95ee\u9898\u7f16\u53f7\u662f\u4ece1\u5230n\u3002\n\n\u8f93\u51fa\u683c\u5f0f\uff1a\n\n\u4e00\u884c\u4e00\u4e2a\u6570\u5b57\uff0c\u8868\u793a\u901a\u8fc7\u6240\u6709\u5173\u5361\u6700\u5927\u5f97\u5206\u3002\u4fdd\u8bc1\u8be5\u7b54\u6848\u572864\u4f4d\u5e26\u7b26\u53f7\u6574\u578b\u8303\u56f4\u5185\u3002\n\n\u611f\u8c22@Peter_Matthew \u63d0\u4f9b\u7684\u7ffb\u8bd1"
+}

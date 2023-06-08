@@ -1,0 +1,17 @@
+{
+    "description": "Pari wants to buy an expensive chocolate from Arya. She has $ n $ coins, the value of the $ i $ -th coin is $ c_{i} $ . The price of the chocolate is $ k $ , so Pari will take a subset of her coins with sum equal to $ k $ and give it to Arya.\n\nLooking at her coins, a question came to her mind: after giving the coins to Arya, what values does Arya can make with them? She is jealous and she doesn't want Arya to make a lot of values. So she wants to know all the values $ x $ , such that Arya will be able to make $ x $ using some subset of coins with the sum $ k $ .\n\nFormally, Pari wants to know the values $ x $ such that there exists a subset of coins with the sum $ k $ such that some subset of this subset has the sum $ x $ , i.e. there is exists some way to pay for the chocolate, such that Arya will be able to make the sum $ x $ using these coins.",
+    "inputFormat": "The first line contains two integers $ n $ and $ k $ ( $ 1<=n,k<=500 $ ) \u2014 the number of coins and the price of the chocolate, respectively.\n\nNext line will contain $ n $ integers $ c_{1},c_{2},...,c_{n} $ ( $ 1<=c_{i}<=500 $ ) \u2014 the values of Pari's coins.\n\nIt's guaranteed that one can make value $ k $ using these coins.",
+    "outputFormat": "First line of the output must contain a single integer $ q $ \u2014 the number of suitable values $ x $ . Then print $ q $ integers in ascending order \u2014 the values that Arya can make for some subset of coins of Pari that pays for the chocolate.",
+    "samples": [
+        [
+            "6 18\n5 6 1 10 12 2\n",
+            "16\n0 1 2 3 5 6 7 8 10 11 12 13 15 16 17 18 \n"
+        ],
+        [
+            "3 50\n25 25 50\n",
+            "3\n0 25 50 \n"
+        ]
+    ],
+    "hint": "",
+    "translation": "##### \u9898\u76ee\u63cf\u8ff0\n\nPari\u60f3\u5411Arya\u4e70\u4e00\u5757\u6602\u8d35\u7684\u5de7\u514b\u529b\u3002\u5979\u6709n\u4e2a\u786c\u5e01\uff0c\u7b2ci\u4e2a\u786c\u5e01\u7684\u4ef7\u503c\u662fci\u3002\u5de7\u514b\u529b\u7684\u4ef7\u683c\u662fk\uff0c\u6240\u4ee5Pari\u9700\u8981\u628a\u603b\u4ef7\u503c\u4e3ak\u7684\u786c\u5e01\u7ed9Arya\u3002\u73b0\u5728Pari\u60f3\u8981\u77e5\u9053\u6240\u6709\u7684\u503cx\uff0c\u4f7f\u5f97\u5b58\u5728\u603b\u548c\u4e3ak\u7684\u786c\u5e01\uff0c\u5176\u4e2d\u67d0\u4e9b\u786c\u5e01\u7684\u603b\u4ef7\u503c\u4e3ax\u3002\n\n#### \u8f93\u5165\u8f93\u51fa\u683c\u5f0f\n\n###### \u8f93\u5165\u683c\u5f0f\n\n\u7b2c\u4e00\u884c\u5305\u542b\u4e24\u4e2a\u6574\u6570n\u548ck\uff081<=n\uff0ck<=500\uff09\uff0c\u5206\u522b\u4e3a\u786c\u5e01\u6570\u91cf\u548c\u5de7\u514b\u529b\u4ef7\u683c\u3002\n\n\u7b2c\u4e8c\u884c\u5305\u542bn\u4e2a\u6574\u6570c1\uff0cc2\uff0c...\uff0ccn\uff081<=ci<=500\uff09\uff0c\u8868\u793a\u6bcf\u4e2a\u786c\u5e01\u7684\u4ef7\u503c\u3002\n\n\u4fdd\u8bc1\u5b58\u5728\u67d0\u4e9b\u786c\u5e01\u7684\u603b\u4ef7\u503c\u4e3ak\u3002\n\n###### \u8f93\u51fa\u683c\u5f0f\n\n\u8f93\u51fa\u7684\u7b2c\u4e00\u884c\u5305\u542b\u4e00\u4e2a\u6574\u6570q\uff0c\u8868\u793ax\u7684\u4e2a\u6570\u3002\u7136\u540e\u6309\u5347\u5e8f\u8f93\u51fa\u6574\u6570x\uff0c\u76f8\u90bb\u4e24\u6570\u7528\u7a7a\u683c\u9694\u5f00\u3002"
+}

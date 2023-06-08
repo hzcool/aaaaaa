@@ -1,0 +1,21 @@
+{
+    "description": "Zeyad wants to commit $ n $ crimes in Egypt and not be punished at the end. There are several types of crimes. For example, bribery is a crime but is not considered such when repeated twice. Therefore, bribery is not considered a crime when repeated an even number of times. Speeding is a crime, but is not considered such when repeated a number of times which is a multiple of five.\n\nMore specifically, $ c $ conditions on crime repetitions are known. Each condition describes the crime type $ t_{i} $ and its multiplicity $ m_{i} $ . If the number of times Zeyad committed the crime $ t_{i} $ is a multiple of $ m_{i} $ , Zeyad will not be punished for crime $ t_{i} $ . Some crimes may be listed more than once. In this case fulfilling at least one condition for this crime is enough to not be punished for it. Of course, if for certain crime the number of times Zeyad committed it is zero, he is innocent with respect to this crime.\n\nNow Zeyad is interested in a number of ways he can commit exactly $ n $ crimes without any punishment.\n\nThe order of commiting the crimes matters. More formally, two ways, sequences $ w1 $ and $ w2 $ , of committing $ n $ crimes are equal if $ w1_{i}=w2_{i} $ , for all $ 1<=i<=n $ .",
+    "inputFormat": "The first line contains two integers $ n $ and $ c $ ( $ 0<=n<=10^{18},0<=c<=1000 $ ) \u2014 the number of crimes Zeyad would like to commit and the number of conditions he is aware of.\n\nThen the definitions for $ c $ conditions follow. There are $ 26 $ types of crimes. Each crime definition consists of crime type \u2014 a capital Latin letter \u2014 and its multiplicity.\n\nThe multiplicity of each crime is a positive integer number and the product of all multiplicities does not exceed $ 123 $ . Some conditions may be repeated in the input more than once.\n\nCrime of multiplicity $ 1 $ is not yielding any punishment regardless of the number of times it was committed. The strictness of the law is compensated by the fact that it's non-mandatory.\n\nObviously, if some crime is not listed in the set of conditions, then Zeyad will not consider it, as committing it would unavoidably lead to the punishment.\n\nPlease, do not use the %lld specificator to read or write 64-bit integers in \u0421++. It is preferred to use the cin stream (you may also use the %I64d specificator).",
+    "outputFormat": "Output the number of different ways Zeyad can commit exactly $ n $ crimes with no punishment modulo $ 12345 $ .",
+    "samples": [
+        [
+            "5 2\nA 1\nB 2\n",
+            "16\n"
+        ],
+        [
+            "6 3\nA 1\nB 2\nC 3\n",
+            "113\n"
+        ],
+        [
+            "8 3\nA 2\nA 3\nB 2\n",
+            "128\n"
+        ]
+    ],
+    "hint": "In the first test case, the 16 ways are: AAAAA, AAABB, AABAB, AABBA, ABAAB, ABABA, ABBAA, BAAAB, BAABA, BABAA, BBAAA, ABBBB, BABBB, BBABB, BBBAB, BBBBA.",
+    "translation": "\u6709\u4e00\u79cd\u957f\u5ea6\u4e3a  $n$ \u7684\u5b57\u7b26\u4e32\uff0c\u7ed9\u5b9a  $m$ \u79cd\u9650\u5236\uff0c\u5373\u5b57\u7b26 $c$ \u51fa\u73b0\u7684\u6b21\u6570\u4e3a  $cnt$ \u7684\u500d\u6570\uff0c\u82e5\u4e00\u4e2a\u5b57\u7b26\u6709\u591a\u79cd\u9650\u5236\uff0c\u5219\u6ee1\u8db3\u4efb\u610f\u4e00\u4e2a\u5373\u53ef\uff0c\u6c42\u8fd9\u79cd\u5b57\u7b26\u4e32\u6709\u591a\u5c11\u4e2a\uff0c\u6240\u6709\u7684  $cnt$ \u76f8\u4e58\u5c0f\u4e8e\u7b49\u4e8e  $123$\uff0c\u7b54\u6848\u5bf9  $12345$ \u53d6\u6a21\u3002\n\n\u6570\u636e\u8303\u56f4\uff1a $0\\leq n\\leq 10^{18},0\\leq c\\leq 1000$\u3002"
+}

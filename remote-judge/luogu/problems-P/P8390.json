@@ -1,0 +1,20 @@
+{
+    "description": "**\u8bd1\u81ea [COI 2021](https://hsin.hr/coci/archive/2020_2021/) T4\u300c[MalnaRISC](https://hsin.hr/coci/archive/2020_2021/olympiad_tasks.pdf)\u300d**\n\n\u60a8\u9700\u8981\u4f7f\u7528 MalnaRISC \u8fd9\u4e00\u795e\u5947\u7684\u5904\u7406\u5668\u6765\u89e3\u51b3\u77e5\u540d\u95ee\u9898\u2014\u2014\u6392\u5e8f\uff01\n\nMalnaRISC \u4ec5\u652f\u6301\u4e00\u79cd\u547d\u4ee4 `CMPSWP` $R_i$ $R_j$\uff0c\u5176\u542b\u4e49\u4e3a\uff0c\u6bd4\u8f83 $R_i$ \u4e0e $R_j$ \u7684\u5927\u5c0f\uff0c\u82e5 $R_i>R_j$\uff0c\u4ea4\u6362\u4ed6\u4eec\u3002\n\nMalnaRISC \u6700\u5389\u5bb3\u7684\u662f\uff0c\u4ed6\u53ef\u4ee5\u540c\u65f6\u8fd0\u884c\u591a\u4e2a\u4e0d\u540c\u7684\u5199\u5728\u4e00\u884c\u7684\u7a0b\u5e8f\uff0c\u53ea\u8981\u4ed6\u4eec\u4e92\u4e0d\u51b2\u7a81\uff0c\u4e5f\u5c31\u662f\u8bf4\uff0c`CMPSWP` \u6240\u63a5\u53c2\u6570\u5fc5\u987b\u4ec5\u5728\u540c\u4e00\u884c\u4f7f\u7528\u4e00\u6b21\u3002\n\n\u73b0\u5728\uff0c\u8bf7\u5199\u4e00\u4e2a\u5904\u7406\u957f\u5ea6\u4e3a $N$ \u7684\u5e8f\u5217\u7684\u6392\u5e8f\u95ee\u9898\uff08\u6309\u5355\u8c03\u4e0d\u964d\u7684\u987a\u5e8f\uff09\u7684 MalnaRISC \u7a0b\u5e8f\uff0c\u6211\u4eec\u5c06\u6839\u636e\u60a8\u7684\u7a0b\u5e8f\u957f\u5ea6\u8fdb\u884c\u8bc4\u5206\u3002",
+    "inputFormat": "\u4ec5\u4e00\u884c\u4e00\u4e2a\u6574\u6570 $N$\u3002",
+    "outputFormat": "\u7b2c\u4e00\u884c\u4e3a\u4e00\u4e2a\u6574\u6570 $t$\uff0c\u8868\u793a\u60a8\u7684\u4ee3\u7801\u957f\u5ea6\u3002\n\n\u63a5\u4e0b\u6765 $t$ \u884c\uff0c\u6bcf\u884c\u8868\u793a\u60a8\u7684\u4e00\u884c\u4ee3\u7801\u3002\n",
+    "samples": [
+        [
+            "2",
+            "1\nCMPSWP R1 R2\n"
+        ],
+        [
+            "3",
+            "3\nCMPSWP R1 R2\nCMPSWP R1 R3\nCMPSWP R2 R3\n"
+        ],
+        [
+            "4",
+            "4\nCMPSWP R1 R3\nCMPSWP R2 R4\nCMPSWP R1 R2 CMPSWP R3 R4\nCMPSWP R2 R3"
+        ]
+    ],
+    "hint": "| Subtask |  $N$  | $t_1$  | $t_2$ | $t_3$ | \u5206\u6570 |\n| :-----: | :---: | :----: | :---: | :---: | :--: |\n|   $1$   |  $8$  |  $28$  | $12$  |  $6$  | $10$ |\n|   $2$   | $13$  |  $78$  | $22$  | $10$  | $10 $ |\n|   $3$   | $16$  | $120$  | $28$  | $10$  | $10$ |\n|   $4$   | $32$  | $496$  | $60$  | $15$  | $10 $ |\n|   $5$   | $53$  | $1378$ | $102$ | $21$  | $10$ |\n|   $6$   | $64$  | $2016$ | $124$ | $21$  | $10 $ |\n|   $7$   | $73$  | $2628$ | $142$ | $28$  | $10$ |\n|   $8$   | $82$  | $3321$ | $160$ | $28$  | $10 $ |\n|   $9$   | $91$  | $4095$ | $178$ | $29$  | $10$ |\n|  $10$   | $100$ | $4950$ | $196$ | $30$  | $10 $ |\n\n\u5982\u679c\u60a8\u7684\u6b63\u786e\u4ee3\u7801\u662f $t$ \u884c\uff0c\u90a3\u4e48\u60a8\u5c06\u83b7\u5f97\u8fd9\u4e2a\u5206\u6570\u56db\u820d\u4e94\u5165\u540e\u7684\u7ed3\u679c\uff1a\n$$\n\\text{score}(t)=\n\\begin{cases}\n0 & t>t_1\\\\\n1+\\frac{2}{t-t_2} & t_1\\ge t>t_2\\\\\n3+\\frac{7(t_2-t+1)}{t_2-t_3} & t_2\\ge t>t_3\\\\\n10 & t_3\\ge t\n\\end{cases}\n$$"
+}

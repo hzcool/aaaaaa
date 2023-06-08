@@ -10,30 +10,45 @@
     </div>
         <form id="form" action="<%= syzoj.utils.makeUrl(['user', edited_user.id, 'edit']) %>" method="post" onsubmit="return check()">
     <div class="ui form">
-    <div class="field">
-        <label for="username">用户名</label>
-        <input type="text" id="username" name="username" value="<%= edited_user.username %>"<% if (!user.allowedManage) { %> readonly <% } %> >
-    </div>
+      <div class="field">
+          <label for="username">用户名</label>
+          <input type="text" id="username" name="username" value="<%= edited_user.username %>"<% if (!user.allowedManage) { %> readonly <% } %> >
+      </div>
 
-    <% if(is_admin){ %>
-    <div class="field">
-        <label for="nickname">姓名</label>
-        <input type="text" id="nickname" name="nickname" value="<%= edited_user.nickname %>"<% if (!user.allowedManage) { %> readonly <% } %> />
-    </div>
+      <% if(is_admin){ %>
+      <div class="field">
+          <label for="nickname">姓名</label>
+          <input type="text" id="nickname" name="nickname" value="<%= edited_user.nickname %>"<% if (!user.allowedManage) { %> readonly <% } %> />
+      </div>
 
-    <div class="field">
-        <label for="group_id">分组（年份+组别，联赛到省选为A，省选到国赛为B，国赛之后到联赛为C，加0表示div2，如22B0表示省选到国赛的div2组）</label>
-        <input type="text" id="group_id" name="group_id" value="<%= edited_user.group_id %>" />
-    </div>
-    <div class="field">
-        <label for="start_time">开始时间</label>
-        <input type="text" id="start_time" name="start_time" value="<%= syzoj.utils.formatDate(edited_user.start_time || edited_user.register_time) %>" />
-    </div>
-    <div class="field">
-        <label for="end_time">结束时间</label>
-        <input type="text" id="end_time" name="end_time" value="<%= edited_user.end_time ? syzoj.utils.formatDate(edited_user.end_time) : '2038-01-01 00:00:00' %>" />
-    </div>
-    <% } %>
+      <div class="field">
+          <label for="group_id">分组（年份+组别，联赛到省选为A，省选到国赛为B，国赛之后到联赛为C，加0表示div2，如22B0表示省选到国赛的div2组）</label>
+          <input type="text" id="group_id" name="group_id" value="<%= edited_user.group_id %>" />
+      </div>
+      <div class="field">
+          <label for="start_time">开始时间</label>
+          <input type="text" id="start_time" name="start_time" value="<%= syzoj.utils.formatDate(edited_user.start_time || edited_user.register_time) %>" />
+      </div>
+      <div class="field">
+          <label for="end_time">结束时间</label>
+          <input type="text" id="end_time" name="end_time" value="<%= edited_user.end_time ? syzoj.utils.formatDate(edited_user.end_time) : '2038-01-01 00:00:00' %>" />
+      </div>
+      <% } %>
+
+      <div class="field">
+        <label> OJ 账号（如有多个用逗号隔开）</label>
+        <div class="three fields">
+          <div class="field">
+            <input type="text" placeholder="洛谷 UID" name="luogu_account" id="luogu_account" value="<%= edited_user.luogu_account %>" />
+          </div>
+          <div class="field">
+            <input type="text" placeholder="Codeforces 用户名" name="codeforces_account" id="codeforces_account" value="<%= edited_user.codeforces_account %>" />
+          </div>
+          <div class="field">
+            <input type="text" placeholder="AtCoder 用户名" name="atcoder_account" id="atcoder_account" value="<%= edited_user.atcoder_account %>" />
+          </div>
+        </div>
+      </div>
 
       <div class="field">
             <label for="sex">性别</label>

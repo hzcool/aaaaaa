@@ -1,0 +1,17 @@
+{
+    "description": "Jeff got $ 2n $ real numbers $ a_{1},a_{2},...,a_{2n} $ as a birthday present. The boy hates non-integer numbers, so he decided to slightly \"adjust\" the numbers he's got. Namely, Jeff consecutively executes $ n $ operations, each of them goes as follows:\n\n- choose indexes $ i $ and $ j $ $ (i\u2260j) $ that haven't been chosen yet;\n- round element $ a_{i} $ to the nearest integer that isn't more than $ a_{i} $ (assign to $ a_{i} $ : $ \u230a\\ a_{i}\u00a0\u230b $ );\n- round element $ a_{j} $ to the nearest integer that isn't less than $ a_{j} $ (assign to $ a_{j} $ : $ \u2308\\ a_{j}\u00a0\u2309 $ ).\n\nNevertheless, Jeff doesn't want to hurt the feelings of the person who gave him the sequence. That's why the boy wants to perform the operations so as to make the absolute value of the difference between the sum of elements before performing the operations and the sum of elements after performing the operations as small as possible. Help Jeff find the minimum absolute value of the difference.",
+    "inputFormat": "The first line contains integer $ n $ $ (1<=n<=2000) $ . The next line contains $ 2n $ real numbers $ a_{1} $ , $ a_{2} $ , $ ... $ , $ a_{2n} $ $ (0<=a_{i}<=10000) $ , given with exactly three digits after the decimal point. The numbers are separated by spaces.",
+    "outputFormat": "In a single line print a single real number \u2014 the required difference with exactly three digits after the decimal point.",
+    "samples": [
+        [
+            "3\n0.000 0.500 0.750 1.000 2.000 3.000\n",
+            "0.250\n"
+        ],
+        [
+            "3\n4469.000 6526.000 4864.000 9356.383 7490.000 995.896\n",
+            "0.279\n"
+        ]
+    ],
+    "hint": "In the first test case you need to perform the operations as follows: $ (i=1,j=4) $ , $ (i=2,j=3) $ , $ (i=5,j=6) $ . In this case, the difference will equal $ |(0+0.5+0.75+1+2+3)-(0+0+1+1+2+3)|=0.25 $ .",
+    "translation": "\n\n\u9898\u610f:\n\n\u4f60\u6709\u4e00\u4e2a\u957f\u5ea6\u4e3a2n\u7684\u5e8f\u5217,\u5c06\u5176\u4e2d\u7684n\u4e2a\u6570\u5411\u4e0b\u53d6\u6574,n\u4e2a\u6570\u5411\u4e0a\u53d6\u6574,\u6c42|\u539f\u5e8f\u5217\u7684\u548c - \u53d6\u6574\u540e\u5e8f\u5217\u7684\u548c|\u7684\u6700\u5c0f\u503c.\n\n\u8f93\u5165\u683c\u5f0f:\n\n\u7b2c\u4e00\u884c\u4e00\u4e2an.\n\u7b2c\u4e8c\u884c2n\u4e2a\u4e09\u4f4d\u5c0f\u6570x.\n\n\u8f93\u51fa\u683c\u5f0f:\n\n|ans|\u7684\u6700\u5c0f\u503c(\u4fdd\u7559\u4e09\u4f4d\u5c0f\u6570).\n\n\u6570\u636e\u8303\u56f4:\n\nx:[0,10000]\nn:[1,2000]\n\n\u6ce8\u610f:\n\nNone.\n\n\u611f\u8c22@\u5c18\u67d3\u68a6 \u63d0\u4f9b\u7684\u7ffb\u8bd1"
+}

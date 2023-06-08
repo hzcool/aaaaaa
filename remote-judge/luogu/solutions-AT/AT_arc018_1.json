@@ -1,0 +1,58 @@
+[
+    {
+        "content": "\u8fd9\u9898\u8fd9\u4e48\u6c34\u4e3a\u4ec0\u4e48\u6ca1\u4eba\u53d1\u9898\u89e3\uff0c\n\n\u5b83\u8ba9\u6211\u4eec\u53cd\u63a8\u90a3\u5c31\u53cd\u63a8\u5427\uff0c\u5f00\u59cb\u6211\u7b97\u51fa\u6765\u90fd\u662f\u9519\u7684\u662f\u540e\u9762\u624d\u770b\u5230\u6709\u4e00\u4e2a\u5e73\u65b9\n\n\u4e24\u8fb9\u540c\u4e58weight\u5f97\n\n![](https://cdn.luogu.com.cn/upload/pic/18359.png)\n\n\u63a5\u4e0b\u6765\u7528double\u7b97(\u5e94\u8be5\u4e0d\u9700\u8981\u4ec0\u4e48\u89e3\u91ca\u5427)\n\n```\n#include<iostream>\nusing namespace std;\n\ndouble a,b;\n\nint main(){\n    cin>>a>>b;\n    cout<<(double)((a*0.01)*(a*0.01)*b)<<endl;\n    return 0;\n}\n```\n",
+        "postTime": 1525101432,
+        "uid": 39654,
+        "name": "LW_h_FP",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT811 \u3010BMI\u3011"
+    },
+    {
+        "content": "Hi\uff0c\u6c34AT\u9898\u7684\u8da3\u5473\u7684\u5403\u53c8\u6765\u4e86\n\n\u4e0d\u591a\u5e9f\u8bdd\u8ba9\u6211\u4eec\u76f4\u63a5\u5f00\u59cb\u5206\u6790\n\n### \u601d\u8def\uff1a\n\n\u539f\u516c\u5f0f\uff1a\n\n$BMI=\\frac{Weight }{H e i g h t^{2}}\\left[k g / m^{2}\\right]$\n\n\u4e24\u8fb9\u540c\u4e58\u8eab\u9ad8\u7684\u5e73\u65b9\n\n$BMI\u00d7Height^{2}=\\frac{Weight }{H e i g h t^{2}}\u00d7Height^{2}$\n\n\u5373\n\n$BMI\u00d7Height^{2}={Weight }$\n\n\u6240\u4ee5\uff0c\u4f53\u91cd=\u8eab\u9ad8\u7684\u5e73\u65b9*BMI\n\n\u6709\u8fd9\u4e2a\u516c\u5f0f\uff0c\u6211\u4eec\u5c31\u53ef\u4ee5\u8f7b\u677e\u6c42\u51fa\u7b54\u6848\u4e86\n\n**\u6ce8\u610f\uff0c\u8eab\u9ad8\u8981\u4ee5\u7c73\u4e3a\u5355\u4f4d\uff0c\u6240\u4ee5\u9700\u8981\u9664\u4ee5100\u4ee5\u793a\u5c0a\u656c**\n\nOK\u601d\u8def\u8bb2\u5b8c\u4e86\uff0c\u7f16\u7801\u53bb\u5427\n\n\n\n------------\n\u61c2\uff0c\u61c2\uff0c\u4e0d\u5c31\u662f\u8981\u4ee3\u7801\u5417\uff0cAC\u4ee3\u7801\u5728\u8fd9\u91cc\uff0c\u53ef\u4ee5\u501f\u9274\uff0c\u4e0d\u8981\u76f4\u63a5\u6284\uff0c\u611f\u8c22\u914d\u5408\n\n```cpp\n#include<iostream>\n#include<cstdio>\nusing namespace std;\nint main()\n{\n    double height,bmi;\n    cin>>height>>bmi;\n    double meterhight=height/100;\n    printf(\"%0.3lf\\n\",(bmi*(meterhight*meterhight)));\n    return 0;\n}\n```\n",
+        "postTime": 1570334741,
+        "uid": 10161,
+        "name": "\u8da3\u5473\u7684\u5403",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT811 \u3010BMI\u3011"
+    },
+    {
+        "content": "[\u4ecb\u7ecd\u4e0bBMI](https://baike.baidu.com/item/%E4%BD%93%E8%B4%A8%E6%8C%87%E6%95%B0)\uff08\u6765\u81ea\u5ea6\u5a18\uff09\n\n\u9898\u76ee\u7ed9\u51fa\u7684\u516c\u5f0f:\n$BMI$=$ \\frac{W}{H^{2}} $\n\n\u6c42W\u6240\u4ee5\u628aW\u653e\u5728\u7b49\u53f7\u4e00\u8fb9:$W=BMI \\times H^2$\n\n\u4ee3\u7801\u5982\u4e0b\n```cpp\n#include<bits/stdc++.h>//\u4e07\u80fd\u5934\u6587\u4ef6\nusing namespace std;\nint main(){\n    double bmi ,h;//double\u6d6e\u70b9\u578b\n    cin>> h >> bmi;\n    h/=100;//\u8f6c\u6362\u5355\u4f4d\uff0c\u8f93\u5165\u662f\u7c73\uff0c\u8f93\u51fa\u662f\u5398\u7c73\n    cout<< fixed << setprecision(3) << bmi * pow(h,2) << endl;\n    //\u4fdd\u7559\u4e09\u4f4d\u5c0f\u6570\u5e76\u6709\u540e\u7f000\n    return 0;\n}\n\n```\n\n~~\u53d1\u9898\u89e3\u7684\u90fd\u662f\u7ea2\u540d\u5927\u4f6c\u592a\u53ef\u6015\u4e86QAQ~~",
+        "postTime": 1550476981,
+        "uid": 106718,
+        "name": "\u52a0\u5dde\u6e05\u5149\u5149",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 AT811 \u3010BMI\u3011"
+    },
+    {
+        "content": "\u6700\u7b805\u884c\u4ee3\u7801\n\n\u4e00\u9053\u6570\u5b66\u9898\u3002\u3002\u3002\n\n\u7531\u9898\u610f\u77e5\n\n### Weight=BMI\u2217\uff08Height \u7684\u5e73\u65b9\uff09\n\u5012\u63a8\n\n \u7531\u9898\u610f\u77e5\uff0c\u6211\u4eec\u77e5\u9053\u795e\u5947\u7684BIM\u503c\u662f\u7531\u8eab\u9ad8\u7684\u5e73\u65b9\u5206\u4e4b\u4f53\u91cd\u5f97\u5230\u7684\n \u6240\u4ee5\u6839\u636e\u8fd9\u4e2a\u516c\u5f0f\n\n\u4ee3\u7801\u5c31\u663e\u800c\u6613\u89c1\u4e86\n\n\u4e0d\u8bf4\u4e86\u4e0a\u4ee3\u7801\n```c\n#include<stdio.h>\ndouble a,b;\nint main(){\n    scanf(\"%lf %lf\",&a,&b); printf(\"%.3lf\\n\",(double)((a*0.01)*(a*0.01)*b));\n}\n```\n### \u6ce8\u610f \uff01\u5728\u8f93\u51fa\u7684\u65f6\u5019\u4e00\u5b9a\u8981\u8f6c\u6210double\u7c7b\u578b\u7684\n### \u8fd8\u6709\u5c9b\u56fd\u9898\u4e00\u5b9a\u8981\u6362\u884c\n~~\uff08\u7b2c\u4e00\u6b21\u5168wa\u5c31\u662f\u56e0\u4e3a\u8fd9\u4e2a233 \uff09~~",
+        "postTime": 1547123276,
+        "uid": 79806,
+        "name": "zoobidubi",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 AT811 \u3010BMI\u3011"
+    },
+    {
+        "content": "### AT811 \u9898\u89e3\n\u9898\u76ee\u610f\u601d\u662f\u7ed9\u51fa\u8eab\u9ad8\u548c$BMI$\u503c\uff0c\u7136\u540e\u6c42\u4f53\u91cd\u3002\n\n\u7531\u516c\u5f0f\n\n## $BMI=\\frac{Weight}{Height^2}$\n\n\u53ef\u77e5\n\n## $Weight=BMI*Height^2$\n\n\u6240\u4ee5\u5c31\u53ef\u4ee5\u6c42\u5566\uff01\n\n**\u6ce8\u610f:\u8f93\u5165\u7684\u8eab\u9ad8\u5355\u4f4d\u662f$cm$\uff0c\u9700\u8f6c\u5316\u6210$m$\u8fdb\u884c\u8fd0\u7b97\u3002**\n\n\u4e0b\u9762\u662f\u4e0d\u89e3\u91ca\u7684\u4ee3\u7801:\n\n```cpp\n#include<cstdio>            //\u4e0d\u89e3\u91ca\u7684\u5934\u6587\u4ef6\n#include<cmath>\nusing namespace std;\nfloat w,h,b;                //\u6b64\u5904\u7528float\u5b58\u6d6e\u70b9\u6570\nint main(){\n    scanf(\"%f%f\",&h,&b);\n    h/=100.0;               //\u5355\u4f4d\u8f6c\u5316\u6210m\n    printf(\"%.3f\\n\",b*h*h); //AT\u7684\u9898\u76ee\u4e0d\u8981\u5fd8\u4e86\u6362\u884c\u54e6\n    return 0;\n}\n```",
+        "postTime": 1526812487,
+        "uid": 79017,
+        "name": "\u82b1\u91cc\u5fc3\u7231",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT811 \u3010BMI\u3011"
+    },
+    {
+        "content": "~~\u9898\u89e3\u5c11\uff0c\u849f\u84bb\u6765\u51d1\u6570\u5566~~\n\n\u9898\u76ee\u5728\u4e00\u5806\u65e5\u6587\u8fc7\u540e\uff0c\u76f4\u63a5\u5c31\u7ed9\u4e86\u6211\u4eec\u516c\u5f0f\uff1a\n\nBMI=Weight/(Height*Height)\n\n\u6362\u8fc7\u6765\u5c31\u662f:BMI*Height*height=Weight\n\n\u8fd8\u6709\u5c31\u662f\u5b83\u81ea\u5df1\u63d0\u9192\u6211\u4eec\u7684\u5316\u5355\u4f4d\uff08160cm = 1.6m \u3067\u3042\u308b\u3053\u3068\u306b\u6ce8\u610f\u305b\u3088\u3002\uff09\n\n### code:\n```\n#include<bits/stdc++.h>\nusing namespace std;\ndouble a,b;\nint main()\n{\n    cin>>a>>b;\n    a/=100;//\u5316\u5355\u4f4d\n    a*=a;//\u5148\u628a2\u6b21\u65b9\u7b97\u597d\n    printf(\"%.3lf\\n\",b*a);//\u4fdd\u7559\u4e09\u4f4d\u5c0f\u6570\u8f93\u51fa\n    return 0;\n}\n```\n\u770b\u5b8c\u4e86\uff0c\u7406\u89e3\u4e86\uff0c\u4f46\u522b\u6284//",
+        "postTime": 1572606406,
+        "uid": 142326,
+        "name": "cyy\u7b49\u4e8e288___why",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT811 \u3010BMI\u3011"
+    },
+    {
+        "content": "### \u5176\u5b9e\u8fd9\u4e00\u9898\u5728\u9898\u76ee\u5c31\u7ed9\u4e86\u6211\u4eec\u516c\u5f0f\uff1a\n\n![](https://cdn.luogu.org/upload/vjudge_pic/AT811/e70cf4f921a6764ac71953f030ac105645be6c90.png)\n\n### \u8c03\u6574\u4e00\u4e0b\u5c31\u6210\u4e86\uff1a\n\n------------\n## BMI=Weight\u00f7Height\u00b2\n### \u5373\n------------\n## BMI\u00d7Height\u00b2=Weight\n\n~~\u662f\u4e0d\u662f\u5f88\u7b80\u5355~~\n\n\u4e0a\u4ee3\u7801\uff1a\n```cpp\n#include<iostreams>\nusing namespace std;\ndouble Height,BMI;\nint main()\n{\n    cin>>Height>>BMI;\n    cout<<(double)((Height*0.01)*(Height*0.01)*BMI);\n    return 0;\n}\n```\n\u5df2\u52a8\u624b\u811a\uff0c\u52ff\u6284",
+        "postTime": 1571721059,
+        "uid": 161414,
+        "name": "stry",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT811 \u3010BMI\u3011"
+    }
+]

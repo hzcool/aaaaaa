@@ -1,0 +1,13 @@
+{
+    "description": "We have a secret array. You don't know this array and you have to restore it. However, you know some facts about this array:\n\n- The array consists of $ n $ distinct positive (greater than $ 0 $ ) integers.\n- The array contains two elements $ x $ and $ y $ (these elements are known for you) such that $ x < y $ .\n- If you sort the array in increasing order (such that $ a_1 < a_2 < \\ldots < a_n $ ), differences between all adjacent (consecutive) elements are equal (i.e. $ a_2 - a_1 = a_3 - a_2 = \\ldots = a_n - a_{n-1}) $ .\n\nIt can be proven that such an array always exists under the constraints given below.\n\nAmong all possible arrays that satisfy the given conditions, we ask you to restore one which has the minimum possible maximum element. In other words, you have to minimize $ \\max(a_1, a_2, \\dots, a_n) $ .\n\nYou have to answer $ t $ independent test cases.",
+    "inputFormat": "The first line of the input contains one integer $ t $ ( $ 1 \\le t \\le 100 $ ) \u2014 the number of test cases. Then $ t $ test cases follow.\n\nThe only line of the test case contains three integers $ n $ , $ x $ and $ y $ ( $ 2 \\le n \\le 50 $ ; $ 1 \\le x < y \\le 50 $ ) \u2014 the length of the array and two elements that are present in the array, respectively.",
+    "outputFormat": "For each test case, print the answer: $ n $ integers $ a_1, a_2, \\dots, a_n $ ( $ 1 \\le a_i \\le 10^9 $ ), where $ a_i $ is the $ i $ -th element of the required array. If there are several answers, you can print any (it also means that the order of elements doesn't matter).\n\nIt can be proven that such an array always exists under the given constraints.",
+    "samples": [
+        [
+            "5\n2 1 49\n5 20 50\n6 20 50\n5 3 8\n9 13 22",
+            "1 49 \n20 40 30 50 10\n26 32 20 38 44 50 \n8 23 18 13 3 \n1 10 13 4 19 22 25 16 7"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9\u5b9a  $n,x,y$\uff0c\u8bf7\u6784\u9020\u51fa\u4e00\u4e2a\u5e8f\u5217  $a_1,a_2,\\cdots,a_n$\uff0c\u4f7f  $x,y \\in \\{a_i\\}$\uff0c\u4e14**\u6392\u5e8f\u540e**  $a_2-a_1=a_3-a_2=\\cdots=a_n-a_{n-1}$\uff0c\u5e76\u4e14\u4f7f  $\\max_{i=1}^n a_i$ \u6700\u5c0f\u3002\u8bf7\u6c42\u51fa\u8fd9\u4e2a\u5e8f\u5217\u3002"
+}

@@ -1,0 +1,17 @@
+{
+    "description": "You are given a tree consisting of $ n $ vertices. A tree is a connected undirected graph with $ n-1 $ edges. Each vertex $ v $ of this tree has a color assigned to it ( $ a_v = 1 $ if the vertex $ v $ is white and $ 0 $ if the vertex $ v $ is black).\n\nYou have to solve the following problem for each vertex $ v $ : what is the maximum difference between the number of white and the number of black vertices you can obtain if you choose some subtree of the given tree that contains the vertex $ v $ ? The subtree of the tree is the connected subgraph of the given tree. More formally, if you choose the subtree that contains $ cnt_w $ white vertices and $ cnt_b $ black vertices, you have to maximize $ cnt_w - cnt_b $ .",
+    "inputFormat": "The first line of the input contains one integer $ n $ ( $ 2 \\le n \\le 2 \\cdot 10^5 $ ) \u2014 the number of vertices in the tree.\n\nThe second line of the input contains $ n $ integers $ a_1, a_2, \\dots, a_n $ ( $ 0 \\le a_i \\le 1 $ ), where $ a_i $ is the color of the $ i $ -th vertex.\n\nEach of the next $ n-1 $ lines describes an edge of the tree. Edge $ i $ is denoted by two integers $ u_i $ and $ v_i $ , the labels of vertices it connects $ (1 \\le u_i, v_i \\le n, u_i \\ne v_i $ ).\n\nIt is guaranteed that the given edges form a tree.",
+    "outputFormat": "Print $ n $ integers $ res_1, res_2, \\dots, res_n $ , where $ res_i $ is the maximum possible difference between the number of white and black vertices in some subtree that contains the vertex $ i $ .",
+    "samples": [
+        [
+            "9\n0 1 1 1 0 0 0 0 1\n1 2\n1 3\n3 4\n3 5\n2 6\n4 7\n6 8\n5 9",
+            "2 2 2 2 2 1 1 0 2"
+        ],
+        [
+            "4\n0 0 1 0\n1 2\n1 3\n1 4",
+            "0 -1 1 -1"
+        ]
+    ],
+    "hint": "The first example is shown below:\n\n![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1324F/e1f60f9681db9f4f9199c7a23c4eb447ad36532b.png)\n\nThe black vertices have bold borders.\n\nIn the second example, the best subtree for vertices $ 2, 3 $ and $ 4 $ are vertices $ 2, 3 $ and $ 4 $ correspondingly. And the best subtree for the vertex $ 1 $ is the subtree consisting of vertices $ 1 $ and $ 3 $ .",
+    "translation": "- \u7ed9\u5b9a\u4e00\u68f5 $n$ \u4e2a\u8282\u70b9\u65e0\u6839\u6811\uff0c\u6bcf\u4e2a\u8282\u70b9 $u$ \u6709\u4e00\u4e2a\u989c\u8272 $a_u$\uff0c\u82e5 $a_u$ \u4e3a $0$ \u5219 $u$ \u662f\u9ed1\u70b9\uff0c\u82e5 $a_u$ \u4e3a $1$ \u5219 $u$ \u662f\u767d\u70b9\u3002\n- \u5bf9\u4e8e\u6bcf\u4e2a\u8282\u70b9 $u$\uff0c\u9009\u51fa\u4e00\u4e2a**\u5305\u542b** $u$ \u7684\u8fde\u901a\u5b50\u56fe\uff0c\u8bbe\u5b50\u56fe\u4e2d\u767d\u70b9\u4e2a\u6570\u4e3a $cnt_1$\uff0c\u9ed1\u70b9\u4e2a\u6570\u4e3a $cnt_2$\uff0c\u8bf7\u6700\u5927\u5316 $cnt_1 - cnt_2$\u3002\u5e76\u8f93\u51fa\u8fd9\u4e2a\u503c\u3002\n- $1 \\leq n \\leq 2 \\times 10^5$\uff0c$0 \\leq a_u \\leq 1$\u3002"
+}

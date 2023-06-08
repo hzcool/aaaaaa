@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u9898\u610f\uff1a\n\n\u6709 $n$ \u6b21\u65c5\u884c\u8ba1\u5212\uff0c\u4e00\u6b21\u5355\u7a0b\u65c5\u884c\u7684\u8f66\u8d39\u4e3a $a$\uff0c\u4ee3\u8868\u4ece\u4e0b\u8f66\u7684\u5730\u65b9\u4e0a\u8f66\u518d\u5230\u53e6\u4e00\u4e2a\u5730\u70b9\u7684\u82b1\u8d39\u4e3a $b$\uff0c\n\n\u6709\u7279\u4ef7\u5238 $k$ \u5f20\u4ef7\u683c\u4e3a $f$ \u7684\u7279\u4ef7\u5238\u3002\u7279\u4ef7\u5238\u53ef\u4ee5\u4f7f\u4e00\u6761 $a\u2194b$ \u8def\u7ebf\u53d8\u6210\u514d\u8d39\u7684\uff0c\u7ed9\u4e00\u4e2a\u65c5\u6e38\u8def\u7ebf\u3002\u6c42\u6700\u5c0f\u7684\u82b1\u8d39\u3002 \n\n---\n\n\u6309\u7167\u9898\u610f\u6a21\u62df\u6bcf\u4e00\u6761\u8def\u7ebf\u4e0a\u7684\u82b1\u8d39\uff0c\u7136\u540e\u6392\u5e8f\uff0c\u4f18\u5148\u5bf9\u82b1\u8d39\u591a\u7684\u8def\u7ebf\u4f7f\u7528\u7279\u4ef7\u5238\u3002\n\n\u9898\u76ee\u4e2d\u7ed9\u7684\u4f7f\u7ad9\u70b9\u7684\u540d\u5b57\uff0c\u53ef\u4ee5\u76f4\u63a5\u7528 `string` \u5b58\u7136\u540e\u4e22\u5230 `map ` \u91cc\u5c31\u597d\u4e86\u3002\n\n---\n\n\u6838\u5fc3\u4ee3\u7801\uff1a\n\n```cpp\nint n,a,b,k,f,ans=0,x;\nstring s[333][2];vector<int>v;\nbool cmp(int x,int y){return x>y;}\nmap<string,int>mp;map<string,int>::iterator it;\nvoid add(int x,string s1,string s2){\n    if (s1>s2) swap(s1,s2);\n    s1+=s2;mp[s1]+=x;ans+=x;\n}\nint main(){\n    cin>>n>>a>>b>>k>>f;\n    for (int i=1;i<=n;i++){\n        cin>>s[i][0]>>s[i][1];\n        if (i==1||s[i][0]!=s[i-1][1])add(a,s[i][0],s[i][1]);\n        else add(b,s[i][0],s[i][1]);\n    }\n    for (it=mp.begin();it!=mp.end();it++){\n        x=it->second;\n        if (x>f) v.push_back(x-f);\n    }\n    sort(v.begin(),v.end(),cmp);\n    for (int i=0;i<min(k,(int)v.size());i++)ans-=v[i];\n    cout<<ans;\n}\n```\n\n\n",
+        "postTime": 1613575954,
+        "uid": 288460,
+        "name": "xzggzh1",
+        "ccfLevel": 0,
+        "title": "\u83dc\u903c\u53ea\u914d\u7ed9\u6c34\u9898\u5199\u9898\u89e3 \u4e4b CF847K"
+    }
+]

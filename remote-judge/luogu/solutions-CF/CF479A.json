@@ -1,0 +1,50 @@
+[
+    {
+        "content": "\u8fd9\u9053\u9898\u76ee\u601d\u7ef4\u96be\u5ea6\u548c\u6570\u636e\u90fd\u4e0d\u5927\uff0c\u53ef\u4ee5\u76f4\u63a5\u6253`\u66b4\u529b`\uff08~~\u66b4\u529b\u65e0\u654c~~\uff09\n\n\u8fd9\u9053\u9898\u4e00\u5171\u6709\u516d\u79cd\u60c5\u51b5\uff0c\u5206\u522b\u662f\uff1a\n\n>a+b+c\n\n>a+b*c\n\n>a*b+c\n\n>(a+b)*c\n\n>a*(b+c)\n\n>a*b*c\n\n\u56e0\u6b64\u53ea\u8981\u628a\u516d\u79cd\u65b9\u6848\u5217\u4e3e\u51fa\u6765\u5c31\u597d\u4e86\u5440\uff01\n\n\u4ee3\u7801\u5440\uff1a\n```cpp\n#include<iostream>\nusing namespace std;\nint a[10];\nint main(){\n    int x,y,z,sum=0;\n    cin>>x>>y>>z;//\u8f93\u5165\n    a[1]=x+y+z;\n    a[2]=x+y*z;\n    a[3]=(x+y)*z;\n    a[4]=x*y+z;\n    a[5]=x*y*z;\n    a[6]=x*(y+z);//\u516d\u79cd\u60c5\u51b5\u679a\u4e3e\n    for(int i=1;i<=6;i++) sum=max(a[i],sum);\u53d6\u6700\u5927\u503c\n    cout<<sum;//\u8f93\u51fa\n    return 0;\n}\n```\n~~\u7ed3\u675f\u4e86\uff1f\u597d\u5427\uff0c\u6c42\u7ba1\u7406\u5458\u901a\u8fc7\u5440~~\n",
+        "postTime": 1568297843,
+        "uid": 214148,
+        "name": "_Camille_",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF479A \u3010Expression\u3011"
+    },
+    {
+        "content": "\u7531\u4e8e\u8fd9\u9053\u9898\u8fd9\u4e48\u6c34\uff0c\u4f46\u662f\u9600\u4f53\u63a5\u7684\u4eba\u8fd9\u4e48\u5c11\uff0c\u6240\u4ee5\u6211\u5192\u4e2a\u6ce1\u3002\u3002\u3002\n\n\u8fd9\u9053\u9898\u4e00\u5171\u53ea\u67096\u79cd\u60c5\u51b5\uff0c\u5982\u4e0b\uff1a\n\na+b+c\n\na+b*c\n\na*b+c\n\n(a+b)*c\n\na*(b+c)\n\na*b*c\n\n\u8f93\u51fa\u5176\u4e2d\u6700\u5c0f\u7684\u5c31\u53ef\u4ee5\u5566\uff01\uff01\uff01\n\n\u4ee5\u4e0b\u662f\u4ee3\u7801\uff1a\n\n```\n#include<bits/stdc++.h>\n\nusing namespace std;\n\nint main()\n{\n\tint a, b, c;\n\tscanf(\"%d%d%d\", &a, &b, &c);\n\tprintf(\"%d\", max(max(max(a+b+c, a+b*c), a*b*c), max(max(a*b+c, (a+b)*c), a*(b+c))));\n\treturn 0;\n}\n```\n",
+        "postTime": 1566889744,
+        "uid": 120885,
+        "name": "\u5f00\u5fc3\u7684\u732a",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF479A \u3010Expression\u3011"
+    },
+    {
+        "content": "\u8fd9\u9898\u662f\u771f\u7684\u6c34\u554a\u3002\n\n\u53ef\u4ee5\u76f4\u63a5\u679a\u4e3e\uff0c\u53cd\u6b63\u8fd9\u4e09\u4e2a\u7b26\u53f7\u968f\u4fbf\u653e\u4f4d\u7f6e(\u5e26\u62ec\u53f7\uff01)\u4e5f\u53ea\u6709$P_{3}^{3}=6$\u79cd\u60c5\u51b5\u554a\u3002\n\n\u6240\u4ee5\u76f4\u63a5\u66b4\u529b\uff0c\u518d\u7528\u4e2a\u6253\u64c2\u53f0\u6c42\u516d\u4e2a\u7b54\u6848\u7684\u6700\u5927\u503c\u5c31\u597d\u4e86\u3002\n~~\u5c3d\u7ba1\u5927\u591a\u6570\u60c5\u51b5\u4e0b\u80af\u5b9a\u662f\u4e09\u6570\u4e58\u79ef\u6700\u5927\u4e86\u3002~~\n\n\u7136\u540e\u5c31\u6ca1\u6709\u7136\u540e\u4e86\u3002\n\n\u653e\u4ee3\u7801:\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n\tint a[4],i,sum[10],ma/*ma\u662f\u8fed\u4ee3\u5668,\u4e5f\u662f\u64c2\u4e3b\uff0c\u5f85\u4f1a\u513f\u5faa\u73af\u6c42\u6700\u5927\u503c\u7684\u8fc7\u7a0b\u5c31\u76f8\u5f53\u4e8e\u6253\u64c2\u53f0*/;\n\tfor(i=1;i<=3;++i)\n\t\tcin>>a[i];\n\tma=a[1];\n\tsum[1]=a[1]+a[2]+a[3];\n\tsum[2]=a[1]+a[2]*a[3];\n\tsum[3]=(a[1]+a[2])*a[3];\n\tsum[4]=a[1]*a[2]+a[3];\n\tsum[5]=a[1]*a[2]*a[3];\n\tsum[6]=a[1]*(a[2]+a[3]);\n\tfor(i=2;i<=6;++i)\n\t\tif(ma<sum[i])ma=sum[i];\n\t/*\u6b64\u90e8\u5206\u8fd8\u6709\u4e00\u79cd\u5199\u6cd5:\n\t\tint ma=0\u6216\u8005-1e9;\n\t\tfor(i=1;i<=6;++i)\n\t\t\tif(ma<sum[i])ma=sum[i];\n\t\t\u8fd9\u4e2a\u5c31\u7528\u5230\u4e86\u6700\u5927\u503c\u6700\u5c0f\u306e\u4ec0\u4e48\u4e1c\u897f\n\t*/\n\tcout<<ma;\n}\n```\n\n",
+        "postTime": 1585377916,
+        "uid": 267783,
+        "name": "yyy\u7231\u7f16\u7a0b",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF479A \u3010Expression\u3011"
+    },
+    {
+        "content": "~~\u95f2\u8bdd\u4e0d\u591a\u8bf4~~\n\n\u76f4\u63a5\u4e0aAC\u4ee3\u7801,\u6211\u7528\u7684\u662f\u51fd\u6570~~~\n```cpp\n#include<bits/stdc++.h>\n#define TP int\n#define Max 8\nusing namespace std;\ninline TP read(){\n    char c=getchar();\n    TP x=0;\n    bool f=0;\n    while(!isdigit(c))f^=!(c^45),c=getchar();\n    while(isdigit(c))x=(x<<1)+(x<<3)+(c^48),c=getchar();\n    if(f)x=-x;return x;\n}\nint a=read(),b=read(),c=read();\nint qw1(int a,int b,int c){\n\treturn a*b*c;\n}\nint qw2(int a,int b,int c){\n\treturn a+b+c;\n}\nint qw3(int a,int b,int c){\n\treturn (a+b)*c;\n}\nint qw4(int a,int b,int c){\n\treturn a*(b+c);\n}\nint qw5(int a,int b,int c){\n\treturn a+b*c;\n}\nint qw6(int a,int b,int c){\n\treturn a*b+c;\n}\nint main(){\n    int ans=max(qw1(a,b,c),max(qw2(a,b,c),max(qw3(a,b,c),max(qw4(a,b,c),max(qw5(a,b,c),qw6(a,b,c))))));\n    cout<<ans;\n    return 0;\n}\n```",
+        "postTime": 1553780041,
+        "uid": 191132,
+        "name": "GusyNight",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF479A \u3010Expression\u3011"
+    },
+    {
+        "content": "\u4e00\u5171\u516d\u79cd\u60c5\u51b5\uff0c\u6253\u51fa\u6765\u5c31\u597d\u4e86\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n    int x,y,z,maxn=-1;\n    int a[6];\n    cin>>x>>y>>z;\n    a[0]=x+y+z;\n    a[1]=x+y*z;\n    a[2]=(x+y)*z;\n    a[3]=x*y+z;\n    a[4]=x*y*z;\n    a[5]=x*(y+z);\n    for(int i=0;i<=5;++i)\n     maxn=max(a[i],maxn);\n    cout<<maxn;\n    return 0;\n}\n```\n",
+        "postTime": 1552217445,
+        "uid": 43165,
+        "name": "\u6c22\u6c27\u81ea\u7531\u57fa",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF479A \u3010Expression\u3011"
+    },
+    {
+        "content": "### $a$\u3001$b$\u3001$c$\u80fd\u6784\u6210\u4ee5\u4e0b\u5f0f\u5b50\uff1a\n\n$a+b+c$\n\n$a\u00d7b\u00d7c$\n\n$a+b\u00d7c$\n\n$a\u00d7b+c$\n\n$(a+b)\u00d7c$\n\n$a\u00d7(b+c)$\n\n### \u53ef\u4ee5\u770b\u51fa\u6784\u6210\u7684\u7b97\u5f0f\u5f88\u5c11\uff0c\u6240\u4ee5\u9010\u4e2a\u8ba1\u7b97\u5e76\u53d6\u6700\u5927\u503c\u5c31\u53ef\u4ee5\u4e86QAQ\n\n------------\n\n\u4ee5\u4e0b\u662f\u6211\u7684\u4ee3\u7801\uff1a\n\n```\nvar\n\ta,b,c,s:longint;\nfunction max(x,y:longint):longint; //\u8ba1\u7b97\u4e24\u4e2a\u6570\u4e2d\u7684\u8f83\u5927\u503c\nbegin\n\tif x>y then exit(x) else exit(y);\nend;\nbegin\n\tread(a,b,c);\n\ts:=max(a*b*c,a+b+c);\n\ts:=max(s,(a+b)*c);\n\ts:=max(s,a*(b+c));\n\ts:=max(s,a+b*c);\n\ts:=max(s,a*b+c);\n\twriteln(s);\nend.\n```",
+        "postTime": 1535981506,
+        "uid": 38785,
+        "name": "icyM3tra",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF479A \u3010Expression\u3011"
+    }
+]

@@ -3,7 +3,7 @@ const OrderBy = {
     PID: 0,
     Difficulty: 1,
     TotalAccepted: 2,
-    TotalSubmit: 3,
+    SolutionCount: 3,
 };
 
 const get_sort_func = (orderBy, asc) => {
@@ -17,9 +17,9 @@ const get_sort_func = (orderBy, asc) => {
         return (x, y) => {
             return asc ? (x.totalAccepted - y.totalAccepted) :  (y.totalAccepted - x.totalAccepted)
         }
-    } else if(orderBy === OrderBy.TotalSubmit) {
+    } else if(orderBy === OrderBy.SolutionCount) {
         return (x, y) => {
-            return asc ? (x.totalSubmit - y.totalSubmit) : (y.totalSubmit - x.totalSubmit)
+            return asc ? (x.solutionCount - y.solutionCount) : (y.solutionCount - x.solutionCount)
         }
     }
     return (x, y) => {
@@ -31,6 +31,8 @@ class LuoguHelper{
     constructor(type) {
         this.tags = require("./tags.json")
         this.problems = require(`./problems-${type}.json`)
+        this.statementPath = `./problems-${type}`
+        this.solutionsPath = `./solutions-${type}`
     }
 
     contains(t1, t2) {
@@ -75,6 +77,24 @@ class LuoguHelper{
         return {
             total: res.length,
             problems: res.slice((page - 1) * page_size, page * page_size),
+        }
+    }
+
+    getSolutions(pid) {
+        try {
+            let solutions = require(`${this.solutionsPath}/${pid}.json`);
+            return solutions;
+        } catch (e) {
+            return [];
+        }
+    }
+
+    getStatement(pid) {
+        try {
+            let statement = require(`${this.statementPath}/${pid}.json`);
+            return statement;
+        } catch (e) {
+            return {};
         }
     }
 }

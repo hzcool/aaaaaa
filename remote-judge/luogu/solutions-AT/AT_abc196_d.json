@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u89c2\u5bdf\u5230 $ H,W $ \u90fd\u5f88\u5c0f\uff0c\u6240\u4ee5\u53ef\u4ee5\u8003\u8651\u66b4\u529b\u641c\u7d22\u3002\n\n\u5f00\u4e00\u4e2a\u6570\u7ec4 $ used_{i,j} $ \u8868\u793a\u7b2c $ i $ \u884c\u7b2c $ j $ \u5217\u5f53\u524d\u662f\u5426\u88ab\u4f7f\u7528\u8fc7\uff0c$ dfs(i,j,a,b) $ \u8868\u793a\u5f53\u524d\u5750\u6807\uff0c\u8fd8\u6709 $ a $ \u4e2a $ A $ \u4ee5\u53ca $ b $ \u4e2a $ B $\uff0c\u7136\u540e\u5bf9\u6240\u6709\u5408\u6cd5\u60c5\u51b5\u8f6c\u79fb\u5373\u53ef\u3002\n\n\u53ef\u4ee5\u731c\u60f3\u5408\u6cd5\u7684\u65b9\u6848\u4e0d\u4f1a\u5f88\u591a\uff0c\u53ef\u4ee5\u901a\u8fc7\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#import <bits/stdc++.h>\nusing namespace std;\nint H,W;\nbool used[16][16];\nlong long dfs(int i,int j,int a,int b)\n{\n    if(a<0||b<0)\n    return 0;\n    if(j==W)\n    j=0,i++;\n    if(i==H)\n    return 1;\n    if(used[i][j])\n    return dfs(i,j+1,a,b);\n    long long res=0;\n    used[i][j]=1;\n    res+=dfs(i,j+1,a,b-1);\n    if(j+1<W && !used[i][j+1])\n    {\n        used[i][j+1]=1;\n        res+=dfs(i,j+1,a-1,b);\n        used[i][j+1]=0;\n    }\n    if(i+1<H && !used[i+1][j])\n    {\n        used[i+1][j]=1;\n        res+=dfs(i,j+1,a-1,b);\n        used[i+1][j]=0;\n    }\n    used[i][j]=0;\n    return res;\n}\nint main() \n{\n    cin>>H>>W;\n    int a,b;\n    cin>>a>>b;\n    cout<< dfs(0,0,a,b);\n}\n```\n",
+        "postTime": 1671452548,
+        "uid": 714821,
+        "name": "loser_seele",
+        "ccfLevel": 4,
+        "title": "ABC196D\u9898\u89e3"
+    }
+]

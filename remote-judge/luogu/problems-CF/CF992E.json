@@ -1,0 +1,21 @@
+{
+    "description": "Nastya likes reading and even spends whole days in a library sometimes. Today she found a chronicle of Byteland in the library, and it stated that there lived shamans long time ago. It is known that at every moment there was exactly one shaman in Byteland, and there were $ n $ shamans in total enumerated with integers from $ 1 $ to $ n $ in the order they lived. Also, each shaman had a magic power which can now be expressed as an integer.\n\nThe chronicle includes a list of powers of the $ n $ shamans. Also, some shamans can be king-shamans, if they gathered all the power of their predecessors, i.e. their power is exactly the sum of powers of all previous shamans. Nastya is interested in whether there was at least one king-shaman in Byteland.\n\nUnfortunately many of the powers are unreadable in the list, so Nastya is doing the following:\n\n- Initially she supposes some power for each shaman.\n- After that she changes the power of some shaman $ q $ times (the shamans can differ) and after that wants to check if there is at least one king-shaman in the list. If yes, she wants to know the index of any king-shaman.\n\nUnfortunately the list is too large and Nastya wants you to help her.",
+    "inputFormat": "The first line contains two integers $ n $ and $ q $ ( $ 1<=n,q<=2\u00b710^{5} $ ).\n\nThe second line contains $ n $ integers $ a_{1},...,a_{n} $ ( $ 0<=a_{i}<=10^{9} $ ), where $ a_{i} $ is the magic power of the $ i $ -th shaman.\n\nAfter that $ q $ lines follow, the $ i $ -th of them contains two integers $ p_{i} $ and $ x_{i} $ ( $ 1<=p_{i}<=n $ , $ 0<=x_{i}<=10^{9} $ ) that mean that the new power of the $ p_{i} $ -th shaman is $ x_{i} $ .",
+    "outputFormat": "Print $ q $ lines, the $ i $ -th of them should contain $ -1 $ , if after the $ i $ -th change there are no shaman-kings, and otherwise a single integer $ j $ , where $ j $ is an index of some king-shaman after the $ i $ -th change.\n\nIf there are multiple king-shamans after each change, print the index of any of them.",
+    "samples": [
+        [
+            "2 1\n1 3\n1 2\n",
+            "-1\n"
+        ],
+        [
+            "3 4\n2 2 3\n1 1\n1 2\n2 4\n3 6\n",
+            "3\n2\n-1\n3\n"
+        ],
+        [
+            "10 7\n0 3 1 4 6 2 7 8 10 1\n2 5\n1 3\n9 36\n4 10\n4 9\n1 2\n1 0\n",
+            "1\n-1\n9\n-1\n4\n-1\n1\n"
+        ]
+    ],
+    "hint": "In the first example powers of shamans after the first change are equal to $ (2,3) $ . The answer equals $ -1 $ , because the sum of powers of shamans before the first shaman is equal to $ 0 $ , and before the second is equal to $ 2 $ .\n\nIn the second example after the first change the powers are equal to $ (1,2,3) $ . The answer is equal to $ 3 $ , because the power of the third shaman is equal to $ 3 $ , and the sum of powers of the first and the second shaman is also $ 1+2=3 $ . After the second change the powers become equal to $ (2,2,3) $ , where the answer equals $ 2 $ . After the third change the powers become equal to $ (2,4,3) $ , where the answer equals $ -1 $ . After the fourth change the powers become equal to $ (2,4,6) $ , where the answer equals $ 3 $ .",
+    "translation": "\u7ed9\u5b9a\u4e00\u4e2a\u5e8f\u5217 $a_i$ \uff0c\u8bb0\u5176\u524d\u7f00\u548c\u5e8f\u5217\u4e3a $s_i$ \uff0c\u6709 $q$ \u4e2a\u8be2\u95ee\uff0c\u6bcf\u6b21\u5355\u70b9\u4fee\u6539\uff0c\u8be2\u95ee\u662f\u5426\u5b58\u5728\u4e00\u4e2a $i$ \u6ee1\u8db3 $a_i=s_{i-1}$ \uff0c\u6709\u591a\u89e3\u8f93\u51fa\u4efb\u610f\u4e00\u4e2a\uff0c\u65e0\u89e3\u8f93\u51fa $-1$ \u3002\n\n\u611f\u8c22@litble \u63d0\u4f9b\u7ffb\u8bd1"
+}

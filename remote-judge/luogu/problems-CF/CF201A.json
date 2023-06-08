@@ -1,0 +1,17 @@
+{
+    "description": "Consider some square matrix $ A $ with side $ n $ consisting of zeros and ones. There are $ n $ rows numbered from $ 1 $ to $ n $ from top to bottom and $ n $ columns numbered from $ 1 $ to $ n $ from left to right in this matrix. We'll denote the element of the matrix which is located at the intersection of the $ i $ -row and the $ j $ -th column as $ A_{i,j} $ .\n\nLet's call matrix $ A $ clear if no two cells containing ones have a common side.\n\nLet's call matrix $ A $ symmetrical if it matches the matrices formed from it by a horizontal and/or a vertical reflection. Formally, for each pair $ (i,j) $ $ (1<=i,j<=n) $ both of the following conditions must be met: $ A_{i,j}=A_{n-i+1,j} $ and $ A_{i,j}=A_{i,n-j+1} $ .\n\nLet's define the sharpness of matrix $ A $ as the number of ones in it.\n\nGiven integer $ x $ , your task is to find the smallest positive integer $ n $ such that there exists a clear symmetrical matrix $ A $ with side $ n $ and sharpness $ x $ .",
+    "inputFormat": "The only line contains a single integer $ x $ ( $ 1<=x<=100 $ ) \u2014 the required sharpness of the matrix.",
+    "outputFormat": "Print a single number \u2014 the sought value of $ n $ .",
+    "samples": [
+        [
+            "4\n",
+            "3\n"
+        ],
+        [
+            "9\n",
+            "5\n"
+        ]
+    ],
+    "hint": "The figure below shows the matrices that correspond to the samples:\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF201A/4a353f15397909088e2fcb0cff23c93ecb30c822.png)",
+    "translation": "\u3010\u95ee\u9898\u63cf\u8ff0\u3011\n\u7ed9\u4f60\u4e00\u4e2a\u6574\u6570 x\uff0c\u8868\u793a\u6709 x \u4e2a 1\uff0c\u73b0\u5728\u4f60\u8981\u521b\u9020\u4e00\u4e2a n \u00d7 n \u7684\u77e9\u9635\uff0c\u628a\u8fd9 x \u4e2a 1 \u586b\u5230\u77e9\u9635\u91cc\uff0c\u6bcf\u4e24\u4e2a 1 \u4e4b\u95f4\u4e0d\u80fd\u76f8\u90bb\uff0c\u4e14\u6784\u6210\u7684\u77e9\u9635\u5173\u4e8e\u6a2a\u65b9\u5411\u548c\u7eb5\u65b9\u5411\u5bf9\u79f0\uff0c\u95ee\u6240\u9700\u77e9\u9635\u6700\u77ed\u8fb9\u957f\u4e3a\u591a\u5c11\u3002\n\n\u3010\u8f93\u5165\u63cf\u8ff0\u3011\n\n\u8f93\u5165\u4e00\u4e2a\u6574\u6570 x\uff0c\u8868\u793a\u77e9\u9635\u4e2d 1 \u7684\u4e2a\u6570\u3002\n\n\u3010\u8f93\u51fa\u63cf\u8ff0\u3011\n\n\u8f93\u51fa\u77e9\u9635\u7684\u6700\u5c0f\u8fb9\u957f\u3002\n\n 1<= x <=100"
+}

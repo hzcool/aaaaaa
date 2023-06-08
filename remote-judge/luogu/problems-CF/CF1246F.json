@@ -1,0 +1,17 @@
+{
+    "description": "There is a string $ s $ of lowercase English letters. A cursor is positioned on one of the characters. The cursor can be moved with the following operation: choose a letter $ c $ and a direction (left or right). The cursor is then moved to the closest occurence of $ c $ in the chosen direction. If there is no letter $ c $ in that direction, the cursor stays in place. For example, if $ s = \\mathtt{abaab} $ with the cursor on the second character ( $ \\mathtt{a[b]aab} $ ), then:\n\n- moving to the closest letter $ \\mathtt{a} $ to the left places the cursor on the first character ( $ \\mathtt{[a]baab} $ );\n- moving to the closest letter $ \\mathtt{a} $ to the right places the cursor the third character ( $ \\mathtt{ab[a]ab} $ );\n- moving to the closest letter $ \\mathtt{b} $ to the right places the cursor on the fifth character ( $ \\mathtt{abaa[b]} $ );\n- any other operation leaves the cursor in place.\n\nLet $ \\mathrm{dist}(i, j) $ be the smallest number of operations needed to move the cursor from the $ i $ -th character to the $ j $ -th character. Compute $ \\displaystyle \\sum_{i = 1}^n \\sum_{j = 1}^n \\mathrm{dist}(i, j) $ .",
+    "inputFormat": "The only line contains a non-empty string $ s $ of at most $ 10^5 $ lowercase English letters.",
+    "outputFormat": "Print a single integer $ \\displaystyle \\sum_{i = 1}^n \\sum_{j = 1}^n \\mathrm{dist}(i, j) $ .",
+    "samples": [
+        [
+            "abcde\n",
+            "20\n"
+        ],
+        [
+            "abacaba\n",
+            "58\n"
+        ]
+    ],
+    "hint": "In the first sample case, $ \\mathrm{dist}(i, j) = 0 $ for any pair $ i = j $ , and $ 1 $ for all other pairs.",
+    "translation": "\u7ed9\u5b9a\u4e00\u4e2a\u957f\u5ea6\u4e3a $n(n\\leqslant 10^5)$ \u7684\u7531\u5c0f\u5199\u5b57\u6bcd\u7ec4\u6210\u7684\u5b57\u7b26\u4e32  $s$ \u3002\n\n\u5f53\u5149\u6807\u5728 $x$ \u4f4d\u7f6e\u65f6\uff0c\u4e00\u6b21\u5408\u6cd5\u7684\u64cd\u4f5c\u5b9a\u4e49\u4e3a\u9009\u53d6 $(c,0/1)$ \u5206\u522b\u8868\u793a\u4e00\u4e2a\u5b57\u7b26\u548c\u65b9\u5411(\u5de6/\u53f3)\uff0c\u6267\u884c\u8be5\u64cd\u4f5c\u4f1a\u4f7f\u5149\u6807\u79fb\u52a8\u5230 $x$ \u5bf9\u5e94\u65b9\u5411\u7684 $c$ \u5b57\u7b26\u7684\u6700\u63a5\u8fd1\u7684\u7684\u51fa\u73b0\u4f4d\u7f6e(\u8981\u6c42\u5fc5\u987b\u5b58\u5728)\u3002\n\n\u6b64\u5916\u5b9a\u4e49 $\\mathrm{dist(i,j)}$ \u4e3a\u5149\u6807\u521d\u59cb\u5728 $i$ \uff0c\u4f7f\u5149\u6807\u79fb\u52a8\u5230 $j$ \u7684\u6700\u5c0f\u64cd\u4f5c\u6b21\u6570\u3002\n\n\u6c42 $\\displaystyle \\sum _{i=1}^n \\sum _{j=1}^n \\mathrm{dist(i,j)}$\u3002"
+}

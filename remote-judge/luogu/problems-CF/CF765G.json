@@ -1,0 +1,21 @@
+{
+    "description": "If you have gone that far, you'll probably skip unnecessary legends anyway...\n\nYou are given a binary string ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF765G/6f5e6f7df69128977b79b7463c73fb36b053692e.png) and an integer ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF765G/751b745076fc47afb357605550109735f432dc0d.png). Find the number of integers $ k $ , $ 0<=k&lt;N $ , such that for all $ i=0 $ , $ 1 $ , ..., $ m-1 $\n\n![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF765G/c12a5d894fc1147c0baa00e3bc64f9ecad04c6da.png) Print the answer modulo $ 10^{9}+7 $ .",
+    "inputFormat": "In the first line of input there is a string $ s $ consisting of $ 0 $ 's and $ 1 $ 's ( $ 1<=|s|<=40 $ ).\n\nIn the next line of input there is an integer $ n $ ( $ 1<=n<=5\u00b710^{5} $ ).\n\nEach of the next $ n $ lines contains two space-separated integers $ p_{i} $ , $ \u03b1_{i} $ ( $ 1<=p_{i},\u03b1_{i}<=10^{9} $ , $ p_{i} $ is prime). All $ p_{i} $ are distinct.",
+    "outputFormat": "A single integer \u2014 the answer to the problem.",
+    "samples": [
+        [
+            "1\n2\n2 1\n3 1\n",
+            "2\n"
+        ],
+        [
+            "01\n2\n3 2\n5 1\n",
+            "15\n"
+        ],
+        [
+            "1011\n1\n3 1000000000\n",
+            "411979884\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9\u5b9a $N$ \u7684\u56e0\u5f0f\u5206\u89e3\u5f62\u5f0f $\\prod_{i=1}^np_i^{\\alpha_i}$ \u548c\u4e00\u4e2a\u957f\u4e3a $m$ \u7684\u5b57\u7b26\u4e32 $s$\u3002\r\n\r\n\u6c42 $k$ \u7684\u4e2a\u6570\uff0c\u4f7f\u5f97 $0\\leq k<N$ \u4e14\r\n\r\n$$\\gcd(k+i,N)=1 \\text{  if and only if  }s_i=1$$\r\n\r\n\u6a21 $10^9+7$\u3002\r\n\r\n$m \\leq 40$\uff0c$n\\leq 5\\times 10^5$\uff0c$p_i, \\alpha_i \\leq 10^9$\u3002"
+}

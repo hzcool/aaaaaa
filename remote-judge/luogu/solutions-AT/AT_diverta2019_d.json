@@ -1,0 +1,26 @@
+[
+    {
+        "content": "## \u9898\u76ee\u5927\u610f\n\n\u7ed9\u5b9a\u6b63\u6574\u6570 $n$\uff0c\u8ba1\u7b97\uff1a\n\n$$\\sum_{m\\in\\Bbb{N^+}}\\left[\\left\\lfloor\\frac{n}{m}\\right\\rfloor=(n\\bmod m)\\right]m$$\n\n## \u9898\u89e3\n\n\u5bb9\u6613\u53d1\u73b0\uff0c\n\n$$\\begin{aligned}\n&&\\left\\lfloor\\frac{n}{m}\\right\\rfloor&=(n\\bmod m)\\cr\n\\iff&& \\left\\lfloor\\frac{n}{m}\\right\\rfloor&=n-m\\left\\lfloor\\frac{n}{m}\\right\\rfloor \\cr\n\\iff &&n&=(m+1)\\left\\lfloor\\frac{n}{m}\\right\\rfloor \\cr\n\\end{aligned}$$\n\n\u4e8e\u662f\u6709\uff0c\n\n$$(m+1) \\mid n$$\n\n\u6240\u4ee5\u6211\u4eec\u679a\u4e3e $n$ \u7684\u56e0\u5b50\uff0c\u53ef\u4ee5\u5f97\u5230\u6240\u6709**\u53ef\u80fd**\u5408\u6cd5\u7684 $m$\u3002\u7136\u540e\u5224\u65ad\u4e00\u4e0b\u662f\u5426\u7b26\u5408\u9898\u76ee\u7ed9\u51fa\u7684\u6761\u4ef6\u5c31\u884c\u4e86\u3002\u53c8\u56e0\u4e3a\u5bf9\u4e8e\u6bcf\u4e2a\u5927\u4e8e $\\sqrt n$ \u7684\u56e0\u5b50\uff0c\u7528 $n$ \u9664\u4ee5\u5b83\u7684\u7ed3\u679c\u5fc5\u7136\u5c0f\u4e8e $\\sqrt n$\uff0c\u56e0\u6b64\u6211\u4eec\u53ea\u8981\u679a\u4e3e $[1,\\lfloor\\sqrt n\\rfloor]$ \u5f53\u4e2d $n$ \u7684\u56e0\u5b50\u5c31\u80fd\u5f97\u5230 $n$ \u6240\u6709\u7684\u56e0\u5b50\u3002\n\n\u65f6\u95f4\u590d\u6742\u5ea6\u4e3a $\\mathcal O(\\sqrt n)$\uff0c\u53ef\u4ee5\u901a\u8fc7\u672c\u9898\u3002\n\n## \u53c2\u8003\u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\n#define up(l,r,i) for(int i=l,END##i=r;i<=END##i;++i)\n#define dn(r,l,i) for(int i=r,END##i=l;i>=END##i;--i)\nusing namespace std;\ntypedef long long i64;\nconst int INF =2147483647;\ni64 n,x,ans;\nint main(){\n    scanf(\"%lld\",&n);\n    if(n==1) puts(\"0\"),exit(0);\n    for(x=1;1ll*x*x<n;++x) if(n%x==0){\n        if(x!=1&&n%(  x-1)==n/(  x-1)) ans+=  x-1;\n        if(      n%(n/x-1)==n/(n/x-1)) ans+=n/x-1;\n    }\n    if(n%x==0&&n%(x-1)==n/(x-1)) ans+=x-1; \n    printf(\"%lld\\n\",ans);\n    return 0;\n}\n```",
+        "postTime": 1628686689,
+        "uid": 330759,
+        "name": "\u56e7\u4ed9",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT5040 \u3010DivRem Number\u3011"
+    },
+    {
+        "content": "\u5c0f\u5b66\u6570\u5b66\u6709\u4e00\u4e2a\u5173\u7cfb\u5f0f\uff1a$n=\\lfloor\\dfrac nm \\rfloor \\times m + n \\bmod m = \\lfloor\\dfrac nm \\rfloor \\times(m+1)$  \n\u4e8e\u662f \"favorite\" \u6570\u4e00\u5b9a\u662f $n$ \u7684\u56e0\u6570 $-1$\uff0c\u53ea\u9700\u8981\u5224\u65ad\u4e00\u4e0b\u5373\u53ef\u3002  \n```python\ndef read(): return list(map(int, input().strip().split()))\n\ndef all_factors(n):\n    small, large = [], []\n    for i in range(1, int(n**0.5) + 1, 2 if n & 1 else 1):\n        if not n % i:\n            small.append(i)\n            large.append(n // i)\n    if small[-1] == large[-1]:\n        large.pop()\n    large.reverse()\n    small.extend(large)\n    return small\n\nans = 0\nn = int(input())\nfor j in all_factors(n)[1:]: // \u9664\u96f6\u9519\u8bef\n    i=j-1\n    if n//i == n%i:\n        ans+=i\nprint(ans)\n```\n\n",
+        "postTime": 1656811788,
+        "uid": 360265,
+        "name": "lhx1048576",
+        "ccfLevel": 6,
+        "title": "\u7b80\u5355\u9898\u3002"
+    },
+    {
+        "content": "[DivRem Number](https://www.luogu.com.cn/problem/AT_diverta2019_d)\n\n### \u9898\u610f\n\n\u7ed9\u5b9a $n$\uff0c\u6c42\u6240\u6709 $m$ \u6ee1\u8db3 $\\left\\lfloor\\dfrac{n}{m}\\right\\rfloor=(n\\bmod m)$ \u7684\u548c\u3002\n\n### \u601d\u8def\n\n\u7531 $\\left\\lfloor\\dfrac{n}{m}\\right\\rfloor=(n\\bmod m)$ \u53ef\u5f97 $\\left\\lfloor\\dfrac{n}{m}\\right\\rfloor=n-m\\left\\lfloor\\dfrac{n}{m}\\right\\rfloor$\uff0c\u53c8\u53ef\u5f97 $n=(m+1)\\left\\lfloor\\dfrac{n}{m}\\right\\rfloor$\u3002\n\n\u6545\u5f53\u4e0a\u8ff0\u5f0f\u6210\u7acb\u65f6\u6709 $(m+1)$ \u6574\u9664 $n$\u3002\n\n\u8003\u8651\u679a\u4e3e $n$ \u7684\u56e0\u6570\uff0c\u5373\u53ef\u5f97\u5230\u6240\u6709\u53ef\u80fd\u7b26\u5408\u6761\u4ef6\u7684 $m$\u3002\n\n\u53c8\u8003\u8651\u5230\u679a\u4e3e\u5927\u4e8e\u7b49\u4e8e $\\sqrt{n}$ \u7684\u56e0\u6570\u53ef\u80fd\u4f1a\u8d85\u65f6\uff0c\u4f46\u5bf9\u4e8e\u6bcf\u4e00\u4e2a\u8fd9\u6837\u7684\u56e0\u6570 $x$\uff0c\u663e\u7136\u6709 $\\dfrac{n}{x}<\\sqrt{n}$\uff0c\u6545\u53ea\u9700\u8981\u679a\u4e3e\u5728 $1$ \u81f3 $\\sqrt{n}$ \u8303\u56f4\u5185\u7684\u56e0\u5b50\u5373\u53ef\u3002\n\n```cpp\nlong long x;\nfor(x=1;x*x<n;x++)\n\tif(n%x==0){\n        if(x!=1&&n%(x-1)==n/(x-1))\n\t\t\tans+=x-1;\n        if(n%(n/x-1)==n/(n/x-1))\n\t\t\tans+=n/x-1;\n\t}\nif(n%x==0&&n%(x-1)==n/(x-1))\n\tans+=x-1; \n```\n\n\n\u8fd9\u6837\u7684\u505a\u6cd5\u662f $O(\\sqrt{n})$ \u7684\uff0c$n$ \u6700\u5927\u65f6\u8fd0\u7b97\u91cf\u5728 $10^6$ \u5de6\u53f3\uff0c\u53ef\u4ee5\u901a\u8fc7\u6b64\u9898\u3002\n\n",
+        "postTime": 1669796145,
+        "uid": 600442,
+        "name": "Lucas_Long",
+        "ccfLevel": 0,
+        "title": "DivRem Number \u9898\u89e3"
+    }
+]

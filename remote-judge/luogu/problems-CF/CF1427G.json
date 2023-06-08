@@ -1,0 +1,25 @@
+{
+    "description": "You have to paint with shades of grey the tiles of an $ n\\times n $ wall. The wall has $ n $ rows of tiles, each with $ n $ tiles.\n\nThe tiles on the boundary of the wall (i.e., on the first row, last row, first column and last column) are already painted and you shall not change their color. All the other tiles are not painted. Some of the tiles are broken, you shall not paint those tiles. It is guaranteed that the tiles on the boundary are not broken.\n\nYou shall paint all the non-broken tiles that are not already painted. When you paint a tile you can choose from $ 10^9 $ shades of grey, indexed from $ 1 $ to $ 10^9 $ . You can paint multiple tiles with the same shade. Formally, painting the wall is equivalent to assigning a shade (an integer between $ 1 $ and $ 10^9 $ ) to each non-broken tile that is not already painted.\n\nThe contrast between two tiles is the absolute value of the difference between the shades of the two tiles. The total contrast of the wall is the sum of the contrast of all the pairs of adjacent non-broken tiles (two tiles are adjacent if they share a side).\n\nCompute the minimum possible total contrast of the wall.",
+    "inputFormat": "The first line contains $ n $ ( $ 3\\le n\\le 200 $ ) \u2013 the number of rows and columns.\n\nThen $ n $ lines, each containing $ n $ integers, follow. The $ i $ -th of these lines describe the $ i $ -th row of tiles. It contains the $ n $ integers $ a_{ij} $ ( $ -1\\le a_{ij} \\le 10^9) $ . The value of $ a_{ij} $ described the tile on the $ i $ -th row and $ j $ -th column:\n\n- If $ a_{ij}=0 $ , then the tile is not painted and shall be painted.\n- If $ a_{ij}=-1 $ , then the tile is broken and shall not be painted.\n- If $ 1\\le a_{ij}\\le 10^9 $ , then the tile is already painted with the shade $ a_{ij} $ .\n\n It is guaranteed that the tiles on the boundary are already painted, the tiles not on the boundary are not already painted, and the tiles on the boundary are not broken.",
+    "outputFormat": "Print a single integer \u2013 the minimum possible total contrast of the wall.",
+    "samples": [
+        [
+            "3\n1 7 6\n4 0 6\n1 1 1",
+            "26"
+        ],
+        [
+            "3\n10 100 1\n1 -1 100\n10 10 10",
+            "396"
+        ],
+        [
+            "5\n6 6 5 4 4\n6 0 0 0 4\n7 0 0 0 3\n8 0 0 0 2\n8 8 1 2 2",
+            "34"
+        ],
+        [
+            "7\n315055237 841510063 581663979 148389224 405375301 243686840 882512379\n683199716 -1 -1 0 0 0 346177625\n496442279 0 0 0 0 0 815993623\n223938231 0 0 -1 0 0 16170511\n44132173 0 -1 0 0 0 130735659\n212201259 0 0 -1 0 0 166102576\n123213235 506794677 467013743 410119347 791447348 80193382 142887538",
+            "10129482893"
+        ]
+    ],
+    "hint": "Explanation of the first testcase: The initial configuration of the tiles is (tiles to paint are denoted by ?):\n\n ```\n<pre class=\"verbatim\"><br></br>1 7 6<br></br>4 ? 6<br></br>1 1 1<br></br>\n```\n\n  A possible way to paint the tile achieving the minimum possible contrast of $ 26 $ is:  ```\n<pre class=\"verbatim\"><br></br>1 7 6<br></br>4 5 6<br></br>1 1 1<br></br>\n```\n\nExplanation of the second testcase: Since all tiles are either painted or broken, there is nothing to do. The total contrast is $ 396 $ .\n\nExplanation of the third testcase: The initial configuration of the tiles is (tiles to paint are denoted by ?):\n\n ```\n<pre class=\"verbatim\"><br></br>6 6 5 4 4<br></br>6 ? ? ? 4<br></br>7 ? ? ? 3<br></br>8 ? ? ? 2<br></br>8 8 1 2 2<br></br>\n```\n\n  A possible way to paint the tiles achieving the minimum possible contrast of $ 34 $ is:  ```\n<pre class=\"verbatim\"><br></br>6 6 5 4 4<br></br>6 6 5 4 4<br></br>7 7 5 3 3<br></br>8 8 2 2 2<br></br>8 8 1 2 2<br></br>\n```",
+    "translation": "\u7ed9\u5b9a\u4e00\u4e2a $n \\times n$ \u7684\u68cb\u76d8\uff0c\u5176\u8fb9\u754c\u4e0a\u6240\u6709\u4f4d\u7f6e\u5747\u586b\u597d\u4e86\u6570\u5b57\uff0c\u4f60\u9700\u8981\u5728\u5269\u4f59 $(n - 2) \\times (n - 2)$ \u4e2a\u4f4d\u7f6e\u4e0a\u586b\u6570\uff0c\u90e8\u5206\u4f4d\u7f6e\u5df2\u7ecf\u201c\u7834\u635f\u201d\uff0c\u5728\u8f93\u5165\u65f6\u7528 $-1$ \u63cf\u8ff0\uff0c\u6b64\u5904\u65e0\u6cd5\u586b\u6570\u3002\n\n\u5bf9\u4e8e\u4e00\u79cd\u586b\u6570\u65b9\u6848\uff0c\u5b9a\u4e49\u4e00\u5bf9\u76f8\u90bb\uff08\u56db\u8fde\u901a\uff09\u7684\u5747\u4e0d\u4e3a\u201c\u7834\u635f\u201d\u7684\u683c\u5b50\u7684\u8d21\u732e\u4e3a\u5176\u586b\u5165\u7684\u6570\u5b57\u7684\u5dee\u503c\u7684\u7edd\u5bf9\u503c\uff0c\u5b9a\u4e49\u6b64\u586b\u6570\u65b9\u6848\u7684\u6743\u503c\u4e3a\u5404\u4e2a\u76f8\u90bb\u7684\u683c\u5b50\u7684\u8d21\u732e\u4e4b\u548c\u3002\n\n\u4f60\u9700\u8981\u6700\u5c0f\u5316\u6743\u503c\uff0c\u8f93\u51fa\u53ef\u4ee5\u5f97\u5230\u7684\u6700\u5c0f\u6743\u503c\u3002\n\n\u4fdd\u8bc1 $3 \\le n \\le 200$\uff0c$-1 \\le a_{i, j} \\le {10}^9$\u3002\n\n- \u4fdd\u8bc1\u8fb9\u754c\u4e0a\u7684\u65b9\u683c\u5747\u672a\u201c\u7834\u635f\u201d\u3002"
+}

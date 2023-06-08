@@ -1,0 +1,21 @@
+{
+    "description": "King of Berland Berl IV has recently died. Hail Berl V! As a sign of the highest achievements of the deceased king the new king decided to build a mausoleum with Berl IV's body on the main square of the capital.\n\nThe mausoleum will be constructed from $ 2n $ blocks, each of them has the shape of a cuboid. Each block has the bottom base of a $ 1\u00d71 $ meter square. Among the blocks, exactly two of them have the height of one meter, exactly two have the height of two meters, ..., exactly two have the height of $ n $ meters.\n\nThe blocks are arranged in a row without spacing one after the other. Of course, not every arrangement of blocks has the form of a mausoleum. In order to make the given arrangement in the form of the mausoleum, it is necessary that when you pass along the mausoleum, from one end to the other, the heights of the blocks first were non-decreasing (i.e., increasing or remained the same), and then \u2014 non-increasing (decrease or remained unchanged). It is possible that any of these two areas will be omitted. For example, the following sequences of block height meet this requirement:\n\n- $ [1,2,2,3,4,4,3,1] $ ;\n- $ [1,1] $ ;\n- $ [2,2,1,1] $ ;\n- $ [1,2,3,3,2,1] $ .\n\nSuddenly, $ k $ more requirements appeared. Each of the requirements has the form: \" $ h[x_{i}] $ sign $ _{i} $ $ h[y_{i}] $ \", where $ h[t] $ is the height of the $ t $ -th block, and a sign $ _{i} $ is one of the five possible signs: '=' (equals), '<' (less than), '>' (more than), '<=' (less than or equals), '>=' (more than or equals). Thus, each of the $ k $ additional requirements is given by a pair of indexes $ x_{i} $ , $ y_{i} $ ( $ 1<=x_{i},y_{i}<=2n $ ) and sign sign $ _{i} $ .\n\nFind the number of possible ways to rearrange the blocks so that both the requirement about the shape of the mausoleum (see paragraph 3) and the $ k $ additional requirements were met.",
+    "inputFormat": "The first line of the input contains integers $ n $ and $ k $ ( $ 1<=n<=35 $ , $ 0<=k<=100 $ ) \u2014 the number of pairs of blocks and the number of additional requirements.\n\nNext $ k $ lines contain listed additional requirements, one per line in the format \" $ x_{i} $ sign $ _{i} $ $ y_{i} $ \" ( $ 1<=x_{i},y_{i}<=2n $ ), and the sign is on of the list of the five possible signs.",
+    "outputFormat": "Print the sought number of ways.",
+    "samples": [
+        [
+            "3 0\n",
+            "9\n"
+        ],
+        [
+            "3 1\n2 > 3\n",
+            "1\n"
+        ],
+        [
+            "4 1\n3 = 6\n",
+            "3\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u73b0\u67091\uff5en\u7684\u6574\u6570\u54042\u4e2a\uff0c\u4f60\u9700\u8981\u7528\u5b83\u4eec\u6784\u9020\u4e00\u4e2a\u957f\u4e3a2n\u7684\u5e8f\u5217A\uff0c\u6ee1\u8db3\uff1a\u5b58\u5728\u4e00\u4e2a\u4f4d\u7f6ei\uff0c\u4f7f\u5f97A[1]<=A[2]<=\u2026<=A[i]\u4e14A[i]>=A[i+1]>=\u2026>=A[2n]\u3002\u9664\u6b64\u4e4b\u5916\uff0c\u8fd8\u9700\u8981\u6ee1\u8db3m\u4e2a\u9650\u5236\uff1ai op j \uff0c\u5176\u4e2dop\u662f>,<,=,>=,<=\u4e4b\u4e2d\u7684\u4e00\u4e2a\uff0c\u4ee3\u8868A[i]\u4e0eA[j]\u9700\u8981\u6ee1\u8db3op\u8fd9\u4e2a\u9650\u5236\u3002\u6c42\u6ee1\u8db3\u6240\u6709\u6761\u4ef6\u7684\u5e8f\u5217\u603b\u6570\u3002"
+}

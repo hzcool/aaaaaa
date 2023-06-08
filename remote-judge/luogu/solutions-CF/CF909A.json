@@ -1,0 +1,66 @@
+[
+    {
+        "content": "\u6211\u4eec\u8003\u8651\u8d2a\u5fc3\u3002\n\n\u6211\u4eec\u9996\u5148\u5148\u8f93\u51fa\u7b2c\u4e00\u4e2a\u4e32\u7684\u7b2c\u4e00\u4e2a\u5b57\u7b26\uff0c\u56e0\u4e3a\u8981\u6c42\u975e\u7a7a\u3002\n\u6211\u4eec\u6ce8\u610f\u5230\u65e0\u8bba\u5982\u4f55\uff0c\u7b2c\u4e8c\u4e2a\u4e32\u53ea\u9700\u8981\u4e00\u4e2a\u5b57\u7b26\u5373\u53ef\uff0c\u56e0\u4e3a\u957f\u5ea6\u77ed\u7684\u4e32\u5b57\u5178\u5e8f\u5c0f\u3002\u5982\u679c\u52a0\u4e0a\u7b2c\u4e8c\u4e2a\u5b57\u7b26\u4e00\u5b9a\u4f1a\u4f7f\u5b57\u5178\u5e8f\u66f4\u5927\u3002\n\n\u4f8b\u5982\uff1a`xxxxp`\u5b57\u5178\u5e8f\u6bd4`xxxx`\u5927\u3002\u65e0\u8bba`xxxx`\u540e\u9762\u52a0\u4e0a\u4ec0\u4e48\u5b57\u7b26\uff0c\u5b57\u5178\u5e8f\u90fd\u6bd4\u539f\u4e32\u5927\u3002\n\n\u7136\u540e\u6211\u4eec\u6bcf\u6b21\u5224\u65ad\uff0c\u5982\u679c\u7b2c\u4e00\u4e2a\u4e32\u4e2d\u7684\u5269\u4f59\u7684\u5f53\u524d\u5b57\u7b26\u4ecd\u7136\u6bd4\u7b2c\u4e8c\u4e2a\u4e32\u7684\u9996\u5b57\u7b26\u5c0f\uff0c\u90a3\u4e48\u603b\u5b57\u5178\u5e8f\u80af\u5b9a\u4e5f\u6bd4\u76f4\u63a5\u52a0\u4e0a\u540e\u4e00\u4e2a\u4e32\u7684\u957f\u5ea6\u5c0f\u3002\n\u5f53\u6211\u4eec\u53d1\u73b0\u4e00\u4e2a\u4e32\u4e2d\u5b57\u7b26\u5b57\u5178\u5e8f$\\ge$\u7b2c\u4e8c\u4e2a\u4e32\u7684\u9996\u5b57\u7b26\uff0c\u90a3\u4e48\u6211\u4eec\u76f4\u63a5\u8f93\u51fa\u7b2c\u4e8c\u4e2a\u4e32\u9996\u5b57\u7b26\uff0c\u7136\u540e\u7ed3\u675f\u7a0b\u5e8f\u5373\u53ef\u3002\n\n\u4ee3\u7801\uff1a\n```cpp\n#include<cstdio>\n#include<cstring>\nchar ch1[20],ch2[20];int n;\n\nint main()\n{\n\tscanf(\"%s%s\",ch1,ch2);\n\tn=strlen(ch1);\n\tputchar(ch1[0]);\n\tfor(int i=1;i<n;i++)\n\t{\n\t\tif(ch1[i]<ch2[0])\n\t\t\tputchar(ch1[i]);\n\t\telse\n\t\t\tbreak;\n\t}\n\tputchar(ch2[0]);\n\treturn 0;\n}\n```",
+        "postTime": 1517989585,
+        "uid": 23398,
+        "name": "frankchenfu",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF909A \u3010Generate Login\u3011"
+    },
+    {
+        "content": "### \u51b2\u51fb\u6700\u77ed\u4ee3\u7801\n\n\u601d\u8def\uff1a\u6240\u8c13\u5b57\u5178\u5e8f\u5c31\u662f\u9010\u4e2a\u6bd4\u5bf9\u5b57\u7b26\uff0c\u51fa\u73b0\u5b57\u7b26\u4e0d\u540c\u65f6\u5b57\u7b26ASCLL\u5927\u7684\u5bf9\u5e94\u7684\u5b57\u7b26\u4e32\u5927\u3002\u4f8b\u5982\"743nlbcd\"\u548c\"743nlkcd\"\u4e2d\uff0c\u6bd4\u5bf9\u81f3b\u548ck\u65f6\u53d1\u73b0b\u66f4\u5c0f\uff0c\u90a3\u4e48\u7b2c\u4e00\u4e2a\u4e32\u66f4\u5c0f\u3002\n\n\u90a3\u4e48\u601d\u8def\u5c31\u7b80\u5355\u4e86\uff1a\u56e0\u4e3a\u4e24\u4e2a\u4e32\u7684\u5f00\u5934\u5fc5\u987b\u8f93\u51fa\uff0c\u800c\u7b2c\u4e00\u4e2a\u4e32\u7684\u5f00\u5934\u5fc5\u987b\u653e\u7b2c\u4e00\u4e2a\u8f93\u5165\uff0c\u4ee5\u540e\u5219\u53ea\u9700\u626b\u4e321\uff0c\u627e\u5230\u5c0f\u4e8e\u7b2c\u4e8c\u4e2a\u4e32\u9996\u5b57\u7b26\u7684\u5b57\u7b26\u5c31\u8f93\u51fa\u3002\u6ce8\u610f\u82e5\u5927\u4e8e\u5c31\u9700\u9000\u51fa\u3002\n\n\u8d34\u51fa\u4ee3\u7801\uff1a\n\n```\n#include <bits/stdc++.h>\nusing namespace std;\nint i;\nstring s,s2;\nint main(){\n\tcin>>s>>s2;\n\tcout<<s[0]\uff1b//\u5148\u5c06\u9996\u5b57\u7b26\u8f93\u51fa\n\tfor(i=1;i<s.size();i++) if(s[i]<s2[0]) cout<<s[i]; else break;//\u626b\u4e00\u904d\u4e32\u4e00\uff0c\u53d1\u73b0\u7b26\u5408\u5c31\u8f93\u51fa\u3002\n\tcout<<s2[0];//\u6700\u540e\u8f93\u51fa\u5373\u53ef\n\treturn 0;\n}\n```\n# \u73cd\u7231\u751f\u547d\uff0c\u8bf7\u52ff\u6284\u88ad\n\n\u4ee3\u7801\u91cc\u6709\u79d8\u5bc6\u6284\u4e86\u6709\u60ca\u559c\u54e6~\n\n\u6c42\u901a\u8fc7qwq.....\n",
+        "postTime": 1571057472,
+        "uid": 127520,
+        "name": "\u6587\u00b7\u548c",
+        "ccfLevel": 5,
+        "title": "CF909A\u9898\u89e3"
+    },
+    {
+        "content": "\u7531\u4e8e\u6570\u636e\u5c0f\uff0c\u679a\u4e3e\u6240\u6709\u53ef\u80fd\u5b50\u4e32\u5373\u53ef\u3002\u8be6\u89c1\u4ee3\u7801\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include <bits/stdc++.h>\n#define maxn 10001\nusing namespace std;\nstring s,ss;\nint k[26];\nint a[26];\nint main()\n{\n    cin>>s>>ss;\n    int x=s.length(),y=ss.length();\n    string s1=\"zzzzzzzzzzzz\";\n    string s2;\n    for(int i=0;i<x;i++)//\u679a\u4e3e\u5b50\u4e32\n    {\n        for(int j=0;j<y;j++)\n        {\n            s2=s.substr(0,i+1)+ss.substr(0,j+1);//\u628a\u4e24\u4e2a\u5b57\u7b26\u4e32\u679a\u4e3e\u7684\u90e8\u5206\u62fc\u5728\u4e00\u8d77\n            s1=min(s1,s2);//\u6bd4\u8f83\u5b57\u5178\u5e8f\u6700\u5c0f\u7684\n        }\n    }\n    cout<<s1<<endl;\n    return 0;\n}\n```",
+        "postTime": 1517276119,
+        "uid": 40198,
+        "name": "FP\u00b7\u8377\u5170\u732a",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF909A \u3010Generate Login\u3011"
+    },
+    {
+        "content": "\u8981\u9009\u51fa\u6700\u5c0f\u7684\u5b57\u5178\u5e8f\u5b57\u7b26\u4e32\uff0c\u80af\u5b9a\u5148\u8003\u8651\u8d2a\u5fc3\u5566\uff0c\u6211\u4eec\u5148\u521b\u5efa\u4e00\u4e2a\nStringBuilder\u7c7b\uff0c\u6dfb\u52a0\u7b2c\u4e00\u4e2a\u5b57\u7b26\u4e32\u4e3a\u540d\u7684\u9996\u5b57\u7b26\uff08~~\u56e0\u4e3a\u5916\u56fd\u4eba\u90fd\u662f\u540d\u5728\u524d\u59d3\u5728\u540e~~\uff09\n\n\u7136\u540e\u901a\u8fc7\u679a\u4e3e\uff0c\u9010\u4e00\u6bd4\u8f83\u4e24\u8fb9\u524d\u7f00\u7684\u5b57\u5178\u5e8f\u5927\u5c0f\uff0c\u4e5f\u5c31\u662fASCII\u7684\u503c\uff0c\u6709\u4e00\u79cd\u7279\u6b8a\u60c5\u51b5\u5c31\u50cf\u6837\u4f8b2\u90a3\u6837\u5f53\u6240\u6709\u7684\u540d\u90fd\u8f93\u51fa\u4e4b\u540e\uff0c\u8f93\u51fa\u59d3\u7684\u7b2c\u4e00\u4e2a\u5b57\u7b26\n\n```java\nimport java.util.Scanner;\n\n/**\n * Created on 09:09  08/02/2020\n * Description:\n *\n * @author Weleness\n */\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n\n        String name = sc.next();\n        String xin = sc.next();\n\n        StringBuilder sb = new StringBuilder(name.charAt(0) + \"\");\n        boolean flag = true; // \u4f5c\u4e3a\u7ed3\u675f\u6807\u8bb0\n        int i = 1; // \u540d\u7684\u7d22\u5f15\n        int j = 0; // \u59d3\u7684\u7d22\u5f15\n        while (flag) {\n            if (i < name.length() && j < xin.length()) { // \u4fdd\u8bc1\u4e0d\u8d8a\u754c\u7684\u60c5\u51b5\u4e0b\n                if (name.charAt(i) < xin.charAt(j)) { // \u5982\u679c\u540d\u7684\u5b57\u7b26\u7684ASCII\u7684\u503c\u5c0f\u4e8e\u59d3\u7684\n                    sb.append(name.charAt(i));//\u6dfb\u52a0\u8fdbbuilder\u91cc\n                    i++; // \u5f80\u540e\u67e5\u627e\n                }else {\n                    sb.append(xin.charAt(j)); // \u5426\u5219\u6dfb\u52a0\u59d3\u7684\uff0c\u6b64\u65f6\u5df2\u7ecf\u4e0d\u7b26\u5408\u540d\u5728\u524d\u59d3\u5728\u540e\u7684\u6761\u4ef6\u4e86\uff0c\u53ef\u4ee5\u9000\u51fa\u4e86\n                    j++;\n                    flag = false;\n                }\n            }else if(i == name.length()){ // \u6240\u6709\u7684\u59d3\u7684\u524d\u7f00\u5b57\u7b26\u90fd\u4e0d\u7b26\u5408\uff0c\u6dfb\u52a0\u7b2c\u4e00\u4e2a\uff0c\u9000\u51fa\n                sb.append(xin.charAt(j)); \n                flag = false;\n            }\n        }\n        System.out.println(sb.toString()); // \u8f93\u51fa\n    }\n}\n\n```\n",
+        "postTime": 1581128146,
+        "uid": 294026,
+        "name": "Kafka1",
+        "ccfLevel": 0,
+        "title": "\u5077\u5077\u53d1\u4e00\u4e0bjava\u9898\u89e3"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u662f\u4e00\u9053\u66b4\u529b\u9898\u3002   \n\u8fd9\u9053\u9898\u53ea\u9700\u8981\u679a\u4e3e\u6bcf\u4e00\u4e2a\u4e32\u5c31\u884c\u4e86\u3002   \n\u9644\u4e0a\u4ee3\u7801\uff1a   \n```cpp\n#include<bits/stdc++.h>   //\u4e07\u80fd\u5934\uff0c\u8d2a\u7b80\u5355\n#include<stdio.h>    //\u4e07\u80fd\u59342\uff0c\u4ee5\u9632\u4e07\u4e00\nusing namespace std;   \nstring str1,str2,str=\"zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz\";    //\u5b9a\u4e49\uff0cstr1\u4e0estr2\u662f\u8f93\u5165\u7528\uff0cstr3\u662f\u6bd4\u8f83\u7528\u3002\u56e0\u4e3astr3\u662f\u8981\u7528\u6765\u6bd4\u6700\u5c0f\u7684\uff0c\u6240\u4ee5str3\u4e00\u5b9a\u8981\u5c3d\u91cf\u5927\u3002\nint main(){\n\tios::sync_with_stdio(false);   //cin\uff0ccout\u5feb\u8bfb\u5feb\u8f93\u3002\u7528scanf\u548cprintf\u7684\u670b\u53cb\u5c31\u4e0d\u8981\u7528\u4e86\uff0c\u4f1aRE\n\tcin>>str1>>str2;   //\u8bfb\u5165\u4e24\u4e2a\u5b57\u7b26\u4e32\n\tfor(int i=0;i<str1.size();i++)   //\u679a\u4e3e\uff0c\u7b2c\u4e00\u91cd\u5faa\u73af\uff0c\u4ee3\u8868str1\t\t\n    \t\tfor(int j=0;j<str2.size();j++)  //\u679a\u4e3e\uff0c\u7b2c\u4e8c\u91cd\u5faa\u73af\uff0c\u4ee3\u8868str2\n\t\t\tstr=min(str,str1.substr(0,i+1)+str2.substr(0,j+1));  //\u66b4\u529b\u679a\u4e3e\u51fa\u5947\u8ff9\uff0c\u679a\u4e3e\u6bcf\u4e00\u4e2a\u524d\u7f00\n\tcout<<str;   //\u8f93\u51fa\n    return 0;   //\u7ed3\u675f\n}\n```\n",
+        "postTime": 1582532405,
+        "uid": 266798,
+        "name": "\u5317\u96ea2009",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF909A \u3010Generate Login\u3011"
+    },
+    {
+        "content": "//\u4ec0\u4e48\u66b4\u529b\u679a\u4e3e\u6240\u6709\u53ef\u80fd\u6027\uff0c\u5f88\u660e\u663es2\u5b57\u5178\u5e8f\u6700\u77ed\u662f\u662f\u53ea\u9009\u7b2c\u4e00\u4e2a\u5b57\u6bcd\uff0c\u800c\u5728s1\u9009\u62e9\u4e2d\uff0c\u9009\u5b8c\u7b2c\u4e00\u4e2a\u5b57\u6bcd\uff0c\u7136\u540e\u5411\u540e\u4f9d\u6b21\u641c\u7d22\uff0c\u82e5\u5c0f\u4e8es2\u5f00\u5934\u5b57\u6bcd\uff08\u4e5f\u5c31\u662f\u52a0\u4e0a\u540e\u4f7f\u5b57\u5178\u5e8f\u66f4\u5c0f\u5c31\u9009\uff0c\u5426\u5219\u9000\u51fa\uff09\n```\n#include<stdio.h>\n#include<string.h>\nchar srx[20],sry[20];\nint i;\nint main()\n{\n    scanf(\"%s%s\",srx,sry);\n    printf(\"%c\",srx[0]);\n    for(i=1;i<strlen(srx);i++)//\u53cb\u60c5\u63d0\u793a\uff0c\u4ece1\u5f00\u59cb\uff080\u8f93\u51fa\u8fc7\u4e86\uff09\n    {if(srx[i]<sry[0])//s1\u4e2d\u662f\u5426\u9009\u62e9\n    printf(\"%c\",srx[i]);\n    else\n    break;}//\u975e\u7a7a\u524d\u7f00\u548c\uff01\u4e0d\u80fd\u6253continue\uff01\n    printf(\"%c\",sry[0]);//s2\u4e2d\u9009\u7684\u6570\n    return 0;\n}\n```",
+        "postTime": 1541420717,
+        "uid": 47482,
+        "name": "\u4e0d\u5230\u524d10\u4e0d\u6539\u540d",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF909A \u3010Generate Login\u3011"
+    },
+    {
+        "content": "# \u975e\u559c\u52ff\u55b7~\n```cpp\n#include<bits/stdc++.h>//\u4e07\u80fd\u5934 \nusing namespace std;\nint main()\n{\n\tstring s1,s2,s=\"~~~~AC\u4e4b\u795e\u5609\u9a8f\u6700\u5e05~~~~\";//string~AC\u4e4b\u795e\u5609\u9a8f\u6700\u5e05 \n\tcin>>s1>>s2;//\u8f93\u5165 \n\tfor(int i=0;i<s1.size();i++)//for \n\t    for(int j=0;j<s2.size();j++)//for*2 \n\t    {\n\t    \ts=min(s,s1.substr(0,i+1)+s2.substr(0,j+1));//substr\u51fd\u6570 \uff1a\u53d6\u5b57\u7b26\u4e32\u7684\u5b50\u4e32\u3002\u5f53i+len\u8d85\u8fc7\u539f\u5b57\u7b26\u4e32\u7684\u957f\u5ea6\uff0c\u53ea\u53d6\u5269\u4e0b\u7684\u5b57\u7b26 \n\t\t}\n\t\tcout<<s;//\u8f93\u51fa \n    return 0;\n}\n\n```",
+        "postTime": 1528626123,
+        "uid": 81668,
+        "name": "Hola_chen",
+        "ccfLevel": 3,
+        "title": "\u9898\u89e3 CF909A \u3010Generate Login\u3011"
+    },
+    {
+        "content": "\u66b4\u529b\u5904\u7406\uff0c\u5b57\u7b26\u4e32\u957f\u5ea6\u4e0d\u957f\uff0c\u5373\u53ef\u7528$O(nm)$($n$\u8868\u793a\u7b2c\u4e00\u4e2a\u5355\u8bcd\u7684\u957f\u5ea6\uff0c$m$\u8868\u793a\u7b2c\u4e8c\u4e2a\u5355\u8bcd\u7684\u957f\u5ea6)\u3002\u8bb0\u5f55\u6700\u5c0f\u7684\u5373\u53ef\u3002\n\n```pascal\nvar\n  s,s2,s3,min:string;\n  i,j,x:longint;\nbegin\n  min:='zzzzzzzzzzzzzzzzzzzzzzzz';//\u7ed9min\u521d\u503c\uff0cz\u8d8a\u591a\u8d8a\u597d\uff0c\u4e0d\u8fc7\u4e5f\u591f\u4e86\n  readln(s);\n  x:=pos(' ',s);//\u67e5\u627e\u7a7a\u683c\u51fa\u73b0\u7684\u4f4d\u7f6e\n  s2:=copy(s,x+1,length(s)-x+1);//\u590d\u5236\u7b2c\u4e8c\u4e2a\u5b57\u7b26\u4e32\n  delete(s,x,length(s)-x+1);//\u4ece\u4e00\u957f\u4e32\u5b57\u7b26\u4e2d\u5220\u53bb\u6ca1\u6709\u7528\u7684\u4fe1\u606f\n  for i:=1 to length(s) do//\u66b4\u529b\u679a\u4e3e\n  for j:=1 to length(s2) do\n  begin\n    s3:=copy(s,1,i)+copy(s2,1,j);//\u590d\u5236\u4e24\u4e2a\u5b57\u7b26\u4e32\u9700\u8981\u7684\uff0c\u518d\u5408\u5e76\n    if s3<min then min:=s3;//\u5224\u65ad\n  end;\n  writeln(min);\nend.\n```\n\n$copy$\uff0c$pos$\uff0c$delete$\u51fd\u6570\u5343\u4e07\u4e0d\u80fd\u6253\u9519\uff0c\u5426\u5219\u8c03\u8bd5\u90fd\u4e0d\u6b62\u9053\u54ea\u91cc\u9519\u4e86\u3002",
+        "postTime": 1517996260,
+        "uid": 13745,
+        "name": "kanloner",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF909A \u3010Generate Login\u3011"
+    }
+]

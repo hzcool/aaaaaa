@@ -1,0 +1,21 @@
+{
+    "description": "Over time, Alexey's mail box got littered with too many letters. Some of them are read, while others are unread.\n\nAlexey's mail program can either show a list of all letters or show the content of a single letter. As soon as the program shows the content of an unread letter, it becomes read letter (if the program shows the content of a read letter nothing happens). In one click he can do any of the following operations:\n\n- Move from the list of letters to the content of any single letter.\n- Return to the list of letters from single letter viewing mode.\n- In single letter viewing mode, move to the next or to the previous letter in the list. You cannot move from the first letter to the previous one or from the last letter to the next one.\n\nThe program cannot delete the letters from the list or rearrange them.\n\nAlexey wants to read all the unread letters and go watch football. Now he is viewing the list of all letters and for each letter he can see if it is read or unread. What minimum number of operations does Alexey need to perform to read all unread letters?",
+    "inputFormat": "The first line contains a single integer $ n $ ( $ 1<=n<=1000 $ ) \u2014 the number of letters in the mailbox.\n\nThe second line contains $ n $ space-separated integers (zeros and ones) \u2014 the state of the letter list. The $ i $ -th number equals either $ 1 $ , if the $ i $ -th number is unread, or $ 0 $ , if the $ i $ -th letter is read.",
+    "outputFormat": "Print a single number \u2014 the minimum number of operations needed to make all the letters read.",
+    "samples": [
+        [
+            "5\n0 1 0 1 0\n",
+            "3\n"
+        ],
+        [
+            "5\n1 1 0 0 1\n",
+            "4\n"
+        ],
+        [
+            "2\n0 0\n",
+            "0\n"
+        ]
+    ],
+    "hint": "In the first sample Alexey needs three operations to cope with the task: open the second letter, move to the third one, move to the fourth one.\n\nIn the second sample the action plan: open the first letter, move to the second letter, return to the list, open the fifth letter.\n\nIn the third sample all letters are already read.",
+    "translation": "Alexey \u6709 $n$ \u4e2a\u7535\u5b50\u90ae\u4ef6\uff0c\u7535\u5b50\u90ae\u4ef6\u5206\u4e3a\u5df2\u8bfb\u548c\u672a\u8bfb\uff0c\u5df2\u8bfb\u7684\u7535\u5b50\u90ae\u4ef6\u6807\u4e3a $0$\uff0c\u672a\u8bfb\u7684\u6807\u4e3a $1$\u3002\u73b0\u5728\u4ed6\u6709\u4ee5\u4e0b\u4e09\u79cd\u64cd\u4f5c\uff1a\n\n1. \u8bfb\u5b8c\u90ae\u4ef6\u540e\u56de\u5230\u90ae\u4ef6\u5217\u8868\n2. \u56de\u5230\u5217\u8868\u540e\u9009\u53d6\u4efb\u610f\u4e00\u4e2a\u672a\u8bfb\u90ae\u4ef6\u8bfb\n3. \u8bfb\u5b8c\u4e00\u4e2a\u90ae\u4ef6\u4e4b\u540e\u8bfb\u8fd9\u4e2a\u90ae\u4ef6\u7684\u4e0b\u4e00\u4e2a\u6216\u8005\u4e0a\u4e00\u4e2a\u90ae\u4ef6\n\n\n\u95ee\u4ed6\u6700\u5c11\u591a\u5c11\u6b21\u64cd\u4f5c\u80fd\u8bfb\u5b8c\u6240\u6709\u90ae\u4ef6"
+}

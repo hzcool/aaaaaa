@@ -1,0 +1,13 @@
+{
+    "description": "The marmots need to prepare $ k $ problems for HC $ ^{2} $ over $ n $ days. Each problem, once prepared, also has to be printed.\n\nThe preparation of a problem on day $ i $ (at most one per day) costs $ a_{i} $ CHF, and the printing of a problem on day $ i $ (also at most one per day) costs $ b_{i} $ CHF. Of course, a problem cannot be printed before it has been prepared (but doing both on the same day is fine).\n\nWhat is the minimum cost of preparation and printing?",
+    "inputFormat": "The first line of input contains two space-separated integers $ n $ and $ k $ ( $ 1<=k<=n<=2200 $ ). The second line contains $ n $ space-separated integers $ a_{1},...,a_{n} $ (![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF802N/e4754a7339522010b5528b1716cf92621f902f03.png)) \u2014 the preparation costs. The third line contains $ n $ space-separated integers $ b_{1},...,b_{n} $ (![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF802N/a8ea7f0bb23797e6537e2f5e7c007f9d7fcd2a0d.png)) \u2014 the printing costs.",
+    "outputFormat": "Output the minimum cost of preparation and printing $ k $ problems \u2014 that is, the minimum possible sum $ a_{i1}+a_{i2}+...+a_{ik}+b_{j1}+b_{j2}+...+b_{jk} $ , where $ 1<=i_{1}&lt;i_{2}&lt;...&lt;i_{k}<=n $ , $ 1<=j_{1}&lt;j_{2}&lt;...&lt;j_{k}<=n $ and $ i_{1}<=j_{1} $ , $ i_{2}<=j_{2} $ , ..., $ i_{k}<=j_{k} $ .",
+    "samples": [
+        [
+            "8 4\n3 8 7 9 9 4 6 8\n2 5 9 4 3 8 9 1\n",
+            "32"
+        ]
+    ],
+    "hint": "In the sample testcase, one optimum solution is to prepare the first problem on day $ 1 $ and print it on day $ 1 $ , prepare the second problem on day $ 2 $ and print it on day $ 4 $ , prepare the third problem on day $ 3 $ and print it on day $ 5 $ , and prepare the fourth problem on day $ 6 $ and print it on day $ 8 $ .",
+    "translation": "\u7ed9\u5b9a\u4e24\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u5e8f\u5217 $a_1, a_2, \\ldots, a_n$ \u548c $b_1, b_2, \\ldots b_n$\u3002\u8981\u6c42\u9009\u51fa $i_1, i_2, \\ldots, i_k$ \u548c $j_1, j_2, \\ldots, j_k$\uff0c\u6ee1\u8db3\n\n* $1< i_1< i_2<\\ldots< i_k$\uff0c$1< j_1< j_2<\\ldots< j_k$\u3002\n\n* $i_p\\leq j_p$\uff08$1\\leq p \\leq k$\uff09\u3002\n\n\u6700\u5c0f\u5316 $\\sum_{p=1}^k a_{i_p}+b_{j_p}$ \u7684\u503c\u3002"
+}

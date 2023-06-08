@@ -1,0 +1,66 @@
+[
+    {
+        "content": "$\\tt{Difficulty:900}$\n\n\u5bf9\u4e8e\u6bcf\u4e00\u5217\u961f\u4f0d\uff0c\u6211\u4eec\u90fd\u8981\u7b97\u51fa\u4ed6\u4eec\u7684\u65f6\u95f4\u3002\n\n\u65f6\u95f4\u5206\u4e3a\u626b\u63cf\u548c\u4ed8\u6b3e\uff0c\u5bf9\u4e8e\u6bcf\u4e00\u4e2a\u987e\u5ba2\u90fd\u8981\u6c42\u3002\n\n\u6700\u540e\u6211\u4eec\u9009\u62e9\u4e00\u4e2a\u65f6\u95f4\u6700\u77ed\u7684\u5c31\u884c\u4e86\u3002\n\n\u4ee3\u7801\u5982\u4e0b\uff1a\n\n```cpp\n#include<cstdio>\nint n,f[105],ans=1000000000;\nint main()\n{\n\tscanf(\"%d\",&n);\n\tfor (int i=1;i<=n;i++) scanf(\"%d\",&f[i]);\n\tfor (int i=1;i<=n;i++)\n\t{\n\t\tint s=0;\n\t\twhile (f[i]--){int x;scanf(\"%d\",&x);s=s+x*5+15;}\n\t\tif (s<ans) ans=s;\n\t}\n\tprintf(\"%d\\n\",ans); \n}\n```",
+        "postTime": 1625986498,
+        "uid": 36957,
+        "name": "RainFestival",
+        "ccfLevel": 0,
+        "title": "qaq"
+    },
+    {
+        "content": "\u6a21\u62df\u9898\u3002\n\n\u7b97\u51fa\u6bcf\u961f\u65f6\u95f4\u6c42\u51fa\u6700\u5c0f\u503c\u3002\n\n\u4ee3\u7801\uff1a\n```cpp\n#include <bits/stdc++.h>\n\nusing namespace std;\n\nint read() {  // \u5feb\u8bfb \n    int x = 0, k = 1;\n    char c = getchar();\n    while (c < '0' || c > '9') {\n        if (c == '-') k = -1;\n        c = getchar();\n    }\n    while (c >= '0' && c <= '9') {\n        x = x * 10 + c - '0';\n        c = getchar();\n    }\n    return x * k;\n}\n\nint a[105];\n\nint main() {\n    int n = read(), minn = 1 << 30;\n\tfor (int i = 1; i <= n; i++)\n\t\ta[i] = read();\n\tfor (int i = 1; i <= n; i++) {\n\t\tint s = a[i] * 15;\n\t\t// \u6bcf\u4e2a\u4eba\u90fd\u8981 15 \u79d2 \n\t\tfor (int j = 1; j <= a[i]; j++) {\n\t\t\tint x = read();\n\t\t\ts += x * 5;  // \u6bcf\u4e2a\u7269\u54c1 5 \u79d2 \n\t\t}\n\t\tif (s < minn) minn = s;  // \u6700\u5c0f\u503c \n\t}\n\tprintf(\"%d\", minn);  // \u5b8c\u7ed3 \n}\n```",
+        "postTime": 1655037842,
+        "uid": 447492,
+        "name": "\u5c0f\u5c0f\u849f\u5f31",
+        "ccfLevel": 0,
+        "title": "CF408A Line to Cashier"
+    },
+    {
+        "content": "\n\u8865\u4e00\u4e0b\u8f93\u5165\u683c\u5f0f\uff08\u7eaf\u624b\u6253\uff09\uff1a\n\n\u7b2c\u4e00\u884c\u4e00\u4e2a\u6574\u6570 $n (1 \\le n \\le 100)$\uff0c\u8868\u793a\u6536\u94f6\u5458\u7684\u961f\u5217\u6570\u91cf\uff1b\n\n\u7b2c\u4e8c\u884c\u6709 $n$ \u4e2a\u6574\u6570\uff1a$k_1,k_2,\\dots,k_n(1 \\le k_i \\le100)$\uff0c$k_i$ \u8868\u793a\u7b2c $i$ \u4e2a\u961f\u5217\u7684\u987e\u5ba2\u6570\u91cf\uff1b\n\n\u7b2c $3$ \u81f3\u7b2c $n+2$ \u884c\uff1a\u5bf9\u4e8e\u7b2c $i$ \u884c\uff0c\u6bcf\u884c\u6709 $k_i$ \u4e2a\u6574\u6570\uff1a$m_{i,1},m_{i,2},\\dots,m_{i,k_i}$\u3002$m_{i,j}$\u8868\u793a\u7b2c $i$ \u4e2a\u961f\u5217\u7684\u7b2c $j$ \u4f4d\u987e\u5ba2\u7684\u5546\u54c1\u6570\u91cf\u3002\n\n### \u9898\u89e3\u90e8\u5206\n\n\u5bf9\u4e8e\u7b2c $i$ \u4e2a\u961f\u5217\u7684\u7b2c $j$ \u4f4d\u987e\u5ba2\uff0c\u4f1a\u7528\u65f6 $m_{i,j}\\times 5+15$ \u79d2\u3002\n\n\u7b97\u51fa\u6bcf\u4e2a\u961f\u5217\u7684\u7528\u65f6\u603b\u548c\uff0c\u518d\u53d6\u6700\u5c0f\u503c\u5373\u53ef\u5f97\u5230\u7b54\u6848\u3002\n\n```cpp\n#include<iostream>\n#include<algortihm>\nusing namespace std;\nint k[105];\nint main()\n{\n\tios::snyc_with_stdio(false);\n\tint n,ans=2147483647;\n\tcin>>n;\n\tfor(int i=1;i<=n;i++)\n\t\tcin>>k[i]\uff1b \n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tint ti=0,m;\n\t\tfor(int j=1;j<=k[i];j++)//\u6c42\u5f53\u524d\u961f\u5217\u7684\u7528\u65f6\u603b\u548c\n\t\t{\n\t\t\tcin>>m;\n\t\t\tti+=m*5+15;\n\t\t}\n\t\tans=min(ti,ans);//\u53d6\u6700\u5c0f\u503c\n\t}\n\tcout<<ans;\n \treturn 0;\n}\n\n```",
+        "postTime": 1629981013,
+        "uid": 277757,
+        "name": "hanyuchen2019",
+        "ccfLevel": 4,
+        "title": "CF408A"
+    },
+    {
+        "content": "\u8fd9\u9898\u5c31\u662f\u4e00\u9053\u7b80\u5355\u7684\u6a21\u62df\u554a\uff0c\u4f9d\u6b21\u679a\u4e3e\u4e2a\u4e2a\u961f\u5217\uff0c\u770b\u770b\u90a3\u4e2a\u961f\u5217\u82b1\u5f97\u65f6\u95f4\u6700\u5c11\u3002\n\n\u7528\u4e00\u4e2a $cnt$ \u7edf\u8ba1\u65f6\u95f4\uff0c$cnt$ \u6bcf\u6b21\u66f4\u65b0\u90fd\u8981\u52a0\u4e0a\u65f6\u95f4\uff0c\u56e0\u4e3a\u4ed6\u95ee\u7684\u6240\u7528\u65f6\u95f4\u7684\u6700\u5c11\u503c\uff0c\u6bcf\u6b21\u7edf\u8ba1\u7684\u662f\u65f6\u95f4\uff0c\u65f6\u95f4\u5c31\u662f $k$ \u4e58\u4e94\u518d\u52a0\u5341\u4e94\uff0c$k$ \u5c31\u662f\u8f93\u5165\u7684\u6570\uff0c$cnt$ \u628a\u6bcf\u4e2a\u65f6\u95f4\u52a0\u8d77\u6765\u3002\u6700\u540e\u5c31\u662f\u8981\u6c42\u6c42\u51fa $ans$ \u6700\u5c0f\u503c\uff0c\u53ca $ans=\\min(ans,cnt)$\uff0c\u6ce8\u610f\uff0c$ans$ \u521d\u59cb\u503c\u8981\u5927\u3002\n\n\u6a21\u62df\u7684\u5173\u952e\u5c31\u662f\u8981\u8ddf\u7740\u9898\u610f\u6765\uff0c\u9898\u76ee\u8981\u4f60\u5e72\u4ec0\u4e48\u4f60\u5c31\u8981\u987a\u7740\u4ed6\u7684\u505a\uff0c\u8fd9\u9053\u9898\u7684\u786e\u6ca1\u5565\u53ef\u8bf4\u7684\uff0c\u7b97\u51fa\u961f\u5217\u6240\u7528\u7684\u603b\u65f6\u95f4\uff0c\u4ed6\u4eec\u7684\u6700\u5c0f\u503c\u5c31\u7b54\u6848\uff0c\u5b9e\u73b0\u8fc7\u7a0b\u4e5f\u975e\u5e38\u7b80\u5355\u3002\n\n\u6700\u7ec8\u4ee3\u7801\uff1a\n\n```c\n#include<bits/stdc++.h>\nusing namespace std;\nint n,a[110],k,cnt,ans = 1000000000;\nint main(){\n    cin>>n;\n    for(int i = 1;i <= n;i++) cin>>a[i];\n    for(int i = 1;i <= n;i++){\n        for(int j = 1;j <= k[i];j++){\n            cin>>k;\n            cnt += (k * 5 + 15);\n        }\n        cnt = min(cnt,ans);\n        cnt = 0;\n    }\n    cout<<ans;\n}\n```\n",
+        "postTime": 1658632559,
+        "uid": 744562,
+        "name": "Aya_tt",
+        "ccfLevel": 0,
+        "title": "CF408A Line to Cashier"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u662f\u4e00\u9053\u7b80\u5355\u7684\u6a21\u62df\u9898\u3002\n\n\u6839\u636e\u9898\u610f\u8fdb\u884c\u6a21\u62df\u5373\u53ef\uff0c\u627e\u5230\u6700\u5c0f\u7684\u503c\u66f4\u65b0\uff0c\u6700\u540e\u8f93\u51fa\u6700\u5c0f\u7684\u503c\u3002\n\n\u4e0b\u9762\u662f\u4ee3\u7801\uff1a\n\n```cpp\n#include<stdio.h>\n#include<algorithm> \nconst int N=1e2;\nint k[N+5],m[N+5][N+5];//\u5982\u9898\u6240\u793a\u3002\n\nvoid in(int &x){//\u5feb\u8bfb\u3002\n\tchar c=getchar(),f=1;\n\twhile((c<'0'||c>'9')&&c!='-') c=getchar();\n\tif(c=='-'){\n\t   f=-1,\n\t   c=getchar();\n\t}\n\tfor(x=0;c>='0'&&c<='9';c=getchar()) x=x*10+c-'0';\n\tx*=f;\n}\n\nvoid out(int x){//\u5feb\u8f93\u3002\n\tif(x){\n\t\tout(x/10);\n\t\tputchar('0'+x%10);\n\t}\n}\n\nint main(){\n\tint n;\n\tin(n);\n\tfor(int i=1;i<=n;i++) in(k[i]);\n\tfor(int i=1;i<=n;i++) for(int j=1;j<=k[i];j++) in(m[i][j]);\n\tint mn=1<<30;//\u5148\u628a\u6700\u5c0f\u503c\u653e\u5230\u6700\u5927\u3002\n\tfor(int i=1;i<=n;i++){\n\t\tint sum=0;\n\t\tfor(int j=1;j<=k[i];j++){\n\t\t\tsum+=15;//\u6bcf\u4e00\u6b21\u90fd\u8981\u52a015\u3002\n\t\t\tsum+=m[i][j]*5;//\u6bcf\u4e00\u4e2a\u987e\u5ba2\u8981\u7528\u7684\u65f6\u95f4\u3002\n\t\t}\n\t\tmn=std::min(mn,sum);//\u66f4\u65b0\u6700\u5c0f\u503c\u3002\n\t}\n\tprintf(\"%d\\n\",mn);\n\treturn 0;\n}\n```\n",
+        "postTime": 1655040895,
+        "uid": 667808,
+        "name": "HarryKane",
+        "ccfLevel": 0,
+        "title": "CF408A Line to Cashier-\u9898\u89e3"
+    },
+    {
+        "content": "\u770b\u5230\u9898\u89e3\u533a\u6709\u4e9b\u5355\u8c03\uff0c\u6240\u4ee5\u8fd9\u91cc\u7ed9\u51fa\u4e00\u79cd\u7528\u4f18\u5148\u961f\u5217\u6765\u5b8c\u6210\u7684\u89e3\u9898\u601d\u8def\u3002\n\n## **\u9898\u76ee\u601d\u8def\uff1a**\n------------\n\u6211\u4eec\u53ef\u4ee5\u53d1\u73b0\uff0c\u6bcf\u4f4d\u987e\u5ba2\u6240\u7528\u65f6\u95f4\u662f\u5176\u5546\u54c1\u6570\u91cf\u7684 5 \u500d\u52a0 15 \u79d2\u3002\u5373\u82e5\u67d0\u4f4d\u987e\u5ba2\u4e70\u4e86 $n$ \u4ef6\u5546\u54c1\uff0c\u90a3\u4e48\u5176\u6240\u7528\u65f6\u95f4\u4e3a $5n+15$ \u79d2\u3002\u6211\u4eec\u5c06\u6bcf\u4e2a\u961f\u5217\u4e2d\u6240\u6709\u987e\u5ba2\u6240\u7528\u65f6\u95f4\u7684\u603b\u548c\u7b97\u51fa\u6765\uff0c\u5e76\u4e14\u5c06\u5176\u52a0\u5165\u5c0f\u6839\u5806\u5f53\u4e2d\u3002\u8fd9\u6837\uff0c\u5f53\u6240\u6709\u961f\u5217\u90fd\u8ba1\u7b97\u5b8c\u6bd5\u65f6\uff0c\u6700\u77ed\u65f6\u95f4\u5c31\u662f\u4f18\u5148\u961f\u5217\u7684\u7b2c\u4e00\u4e2a\u5143\u7d20\u3002\n\n## **Code\uff1a**\n------------\n```cpp\n#include<iostream>\n#include<queue>\nusing namespace std;\nint n,k[105],m,sum;\npriority_queue<int,vector<int>,greater<int> >q;//\u5c0f\u6839\u5806\nint main(){\n\tcin>>n;\n\tfor(int i=1;i<=n;i++)cin>>k[i];\n\tfor(int i=1;i<=n;i++){\n\t\tsum=0;\n\t\tfor(int j=1;j<=k[i];j++){\n\t\t\tcin>>m;\n\t\t\tsum+=m*5+15;\n\t\t}q.push(sum);//\u5c06\u8be5\u961f\u5217\u7528\u7684\u65f6\u95f4\u6dfb\u52a0\u5230\u4f18\u5148\u961f\u5217\u4e2d\n\t}printf(\"%d\",q.top());//\u76f4\u63a5\u8f93\u51fa\u5806\u9876\u5143\u7d20\u5373\u53ef\n\treturn 0;\n}\n```\n",
+        "postTime": 1645081450,
+        "uid": 525898,
+        "name": "Firstly",
+        "ccfLevel": 5,
+        "title": "CF408A\tLine to Cashier"
+    },
+    {
+        "content": "\u6700\u65b0\u4fee\u6539\uff1a\u6539\u4e86\u4e00\u70b9\u5c0f\u7455\u75b5\n\n~~\u53c8\u6765\u6c34\u9898\u89e3\u55bd~~\n\n\u5927\u81f4\u9898\u610f\u662f\u8fd9\u6837\u7684\uff1a\n\n\u8d85\u5e02\u6536\u94f6\u53f0\u6709 $n$ \u4e2a\u6536\u94f6\u5458\uff0c\u6bcf\u4f4d\u6536\u94f6\u5458\u90fd\u6709 $k_i$ \u4e2a\u4eba\uff0c\u6bcf\u4e2a\u4eba\u7ed3\u8d26\u65f6\uff0c\u9700\u8981\u82b1\u8d39\u7684\u65f6\u95f4\u662f\u624b\u91cc\u7684\u7269\u54c1\u6570\u7684 $5$ \u500d\u52a0\u4e0a $15$ \u79d2\u949f\u3002\u6c42\u54ea\u4e00\u6761\u7528\u65f6\u6700\u77ed\u3002\n\n\u8fd9\u9053\u9898\u4e4d\u4e00\u770b\u6570\u636e\u8303\u56f4\uff0c$( 1\\le n\\le 100 )$,$( 1\\le k_{i}\\le 100)$,$( 1\\le m_{i,j}\\le 100 )$ \u76f4\u63a5\u66b4\u529b\u641c\u4e00\u904d\u5c31\u80fd\u8fc7\uff0c\u5f88\u660e\u663e\uff0c\u8fd9\u9053\u9898~~\u592a\u6c34\u4e86~~\u662f\u4e00\u9053\u6bd4\u8f83\u7b80\u5355\u7684\u6570\u5b66\u9898\u3002\n\n\u63a5\u4e0b\u6765\u4e0a\u4ee3\u7801\uff1a\n\n```cpp\n#include <iostream>\nusing namespace std;\nint main(){\n    int n;\n    cin >>n;\n    int a[105];\n    for(int i=0;i<n;i++){\n        cin >>a[i];\n    }\n    int mi=0x7f7f7f7f;//\u7528\u6765\u5b58\u7b54\u6848\n    for(int i=0;i<n;i++){\n        int sum=0;\n        for(int j=0;j<a[i];j++){\n            int s;\n            cin >>s;\n            sum+=s*5;\n            sum+=15;//\u8ba1\u7b97\u6bcf\u4f4d\u987e\u5ba2\u6240\u7528\u65f6\u95f4\n        }\n        mi=min(mi,sum);//\u4e0e\u6700\u77ed\u65f6\u95f4\u8fdb\u884c\u6bd4\u8f83\n    }\n    cout<<mi<<endl;//\u8f93\u51fa\n}\n```\n\n~~\u53c8\u6c34\u5b8c\u4e86\u4e00\u7bc7\u9898\u89e3~~",
+        "postTime": 1645003165,
+        "uid": 557823,
+        "name": "fox_nice",
+        "ccfLevel": 0,
+        "title": "CF408A"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u4e0d\u96be\uff0c\u9898\u9762\u4e5f\u8bf4\u5f97\u6bd4\u8f83\u6e05\u6670\uff08\n\n\u601d\u8def\u4e5f\u5f88\u597d\u7406\u89e3\uff0c\u5c31\u5927\u6a21\u62df\u5c31\u53ef\u4ee5\u4e86\uff08\n\n\u6ce8\u610f\u5230 $ans$ \u6700\u5927\u4e3a $100^3 = 10^6$ \uff0c\u6240\u4ee5\u4e0d\u7528\u5f00 $\\text{long long}$ \u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,m[105][105],ans=2147483647;//ans\u521d\u59cb\u5316\u4e3aINF,m[i][0]\u8868\u793a\u9898\u76ee\u4e2d\u7684k[i] \nint main(){\n\tios::sync_with_stdio(0);\n\tcin.tie(0);\n\tcout.tie(0);\n\tcin>>n;\n\tfor(int i=1;i<=n;i++)\n\t\tcin>>m[i][0];\n\tfor(int i=1;i<=n;i++)\n\t\tfor(int j=1;j<=m[i][0];j++)\n\t\t\tcin>>m[i][j];//\u4ee5\u4e0a\u4e3a\u8f93\u5165 \n\tfor(int i=1,subans=0;i<=n;i++,subans=0){\n\t\tfor(int j=1;j<=m[i][0];j++)\n\t\t\tsubans+=(m[i][j]*5+15);//\u52a0\u4e0a\u6bcf\u4e00\u4e2a\u4eba\u6240\u9700\u7684\u65f6\u95f4 \n\t\tans=min(ans,subans);//\u7edf\u8ba1\u6700\u5c0f\u503c \n\t}\n\tcout<<ans;\n\treturn 0;\n}\n```",
+        "postTime": 1636795790,
+        "uid": 475112,
+        "name": "_MarSser020_",
+        "ccfLevel": 7,
+        "title": "CF408A Line to Cashier \u9898\u89e3"
+    }
+]

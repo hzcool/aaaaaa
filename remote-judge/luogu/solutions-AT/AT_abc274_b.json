@@ -1,0 +1,42 @@
+[
+    {
+        "content": "## \u9898\u76ee\u4f20\u9001\u95e8\uff1a\n[\u6d1b\u8c37](https://www.luogu.com.cn/problem/AT_abc274_b)\n\n[AT](https://atcoder.jp/contests/abc274/tasks/abc274_b)\n\n## \u5f3a\u8c03\u95ee\u9898\uff1a\n\n\u6211\u7684\u4ee3\u7801\u662f\u6bd4\u8d5b\u7684\u65f6\u5019\u6253\u7684\u3002\u8fd9\u9053\u9898\u662f\u4e00\u4e2a\u5224\u65ad\u5b57\u7b26\u4e32\u7684\u95ee\u9898\uff0c\u5728\u5b58\u5b57\u7b26\u7684\u65f6\u5019\uff0c\u6ce8\u610f\u60f3\u6362\u884c\u7c7b\u4f3c\u7684\u6324\u5360\u6389\u6b63\u5e38\u5b57\u7b26\u7684\u7a7a\u95f4\u3002\u56e0\u4e3a\u6362\u884c\u4e5f\u662f\u5b57\u7b26\u3002\u5efa\u8bae\u5927\u5bb6\u5f00\u4e00\u4e2a `string` \u7684\u4e8c\u7ef4\u6570\u7ec4\u3002\n\n## \u9898\u610f\uff1a\n\n\u7ed9\u4f60\u4e00\u4e2a\u5b57\u7b26\u77e9\u9635\uff0c\u6c42\u51fa\u6bcf\u4e00\u5217 `#` \u7684\u4e2a\u6570\u3002\n\n## \u9898\u89e3\uff1a\n\n\u8fd9\u4e2a\u9898\u5c31\u662f\u4e2a\u5165\u95e8\u9898\u76ee\uff0c\u975e\u5e38\u7b80\u5355\uff0c\u8003\u5bdf\u5b57\u7b26\u7684\u5b58\u50a8\u548c\u8c03\u7528\u3002\u6211\u4eec\u53ea\u9700\u8981\u5f00\u4e00\u4e2a `string` \u7684\u4e8c\u7ef4\u6570\u7ec4\uff0c\u6700\u540e\u5148\u679a\u4e3e\u5217\uff0c\u518d\u679a\u4e3e\u884c\uff0c\u5c31\u53ef\u4ee5\u7edf\u8ba1\u6bcf\u4e00\u5217\u7684\u7b54\u6848\u4e86\u3002\u5f00\u4e00\u4e2a `ans` \u7edf\u8ba1\u7b54\u6848\u3002**\u6ce8\u610f\uff1a** `j` \u53d8\u6210\u4e86\u884c\u6570\uff0c\u679a\u4e3e\u7684\u65f6\u5019\u8981\u5199\u6210 `mp[j][i];` \u6765\u770b\u4e00\u4e0b\u4ee3\u7801\uff1a\n\n## \u4ee3\u7801\uff1a\n\n```cpp\n\n#include <bits/stdc++.h>\n\n\nusing namespace std;\n\ninline int read () {\n\tint w = 0, f = 1; char ch = getchar ();\n\twhile (ch < '0' || ch > '9') {if (ch == '-') f = -1; ch = getchar ();}\n\twhile (ch >= '0' && ch <= '9') {w = (w << 3) + (w << 1) + ch - '0'; ch = getchar ();}\n\treturn w * f;\n}\n\nint h, w;\nstring mp[1005];\nint main () {\n\th = read (), w = read ();\n\tfor (int i = 0; i < h; i++) {\n\t\tcin >> mp[i];\n\t}\n\tfor (int i = 0; i < w; i++) {\n\t\tint ans = 0;\n\t\tfor (int j = 0; j < h; j++) {\n\t\t\tif (mp[j][i] == '#') {\n\t\t\t\tans++;\n\t\t\t}\n\t\t}\n\t\tcout << ans << \" \";\n\t}\n\treturn 0;\n}\n\n```\n\u5b8c\u7ed3\u6492\u82b1\u3002",
+        "postTime": 1666480799,
+        "uid": 753810,
+        "name": "Cheese_int",
+        "ccfLevel": 4,
+        "title": "ABC274B\u9898\u89e3"
+    },
+    {
+        "content": "### \u6a21\u62df\n\n\u8fd9\u9053\u9898\u96be\u70b9\u5728\u4e8e\u9898\u76ee\u7ffb\u8bd1\uff0c\u597d\u5427\uff0c\u8fd9\u9053\u9898\u662f\u8f93\u5165\u4e00\u4e2a $n*m$ \u7684\u77e9\u9635\uff0c\u6570\u4e00\u4e0b\u6bcf\u4e00\u5217\u6709\u591a\u5c11\u4e2a\u4e95\u53f7\uff0c\u6700\u540e\u8f93\u51fa\uff0c\u8fd9\u9053\u9898\u96be\u5ea6\u5e94\u8be5\u662f\u7ea2\uff0c\u6240\u4ee5\u6211\u4eec\u76f4\u63a5\u770b\u4ee3\u7801\u3002\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,m;\nchar a[10005][10005];\nint main(){\n\tcin>>n>>m;\n\tfor(int i=1;i<=n;i++)\n\t\tfor(int j=1;j<=m;j++)\n\t\t\tcin>>a[i][j];\n\tfor(int j=1;j<=m;j++){//\u6570\u6bcf\u4e00\u5217\u7684#\u6570 \n\t\tint ans=0;//\u6e05\u7a7a\u4e0a\u4e00\u6b21\u7b54\u6848 \n\t\tfor(int i=1;i<=n;i++){//\u679a\u4e3e \n\t\t\tif(a[i][j]=='#')//\u627e\u5230\u4e86\u5c06\u7b54\u6848\u52a0\u4e00 \n\t\t\t\tans++;\n\t\t}\n\t\tcout<<ans<<\" \";//\u8f93\u51fa \n\t} \n\treturn 0;//\u5b8c\u7f8e\u7ed3\u675f \n}\n\n```",
+        "postTime": 1666483646,
+        "uid": 654958,
+        "name": "Light_az",
+        "ccfLevel": 0,
+        "title": "AT_abc274_b \u9898\u89e3"
+    },
+    {
+        "content": "\u8003\u8651\u5f00 $W$ \u4e2a\u6876\uff0c\u6bcf\u6b21\u8bfb\u5165 $c_{(i,j)}$ \u65f6\u662f ```#``` \u53f7\u5219 $tot_j+1$\uff0c\u6700\u540e\u4f9d\u6b21\u8f93\u51fa $tot_{1 \\sim W}$ \u5373\u53ef\u3002\n\n\u4ee3\u7801\uff1a\n```cpp\n#include<iostream>\nusing namespace std;\nint H,W;\nint tot[1015];\nint main(){\n\tcin>>H>>W;\n\tfor(int i=1;i<=H;i++){\n\t\tfor(int j=1;j<=W;j++){\n\t\t\tchar ch;cin>>ch;\n\t\t\tif(ch=='#')tot[j]++;\n\t\t}\n\t}\n\tfor(int i=1;i<=W;i++)cout<<tot[i]<<' ';\n\treturn 0;\n}\n```",
+        "postTime": 1666495045,
+        "uid": 593613,
+        "name": "olegekei",
+        "ccfLevel": 7,
+        "title": "[ABC274B] Line Sensor"
+    },
+    {
+        "content": "### - \u9898\u610f\n\u8f93\u5165\u4e00\u4e2a $w$ \u884c $h$ \u5217\u7684\u5b57\u7b26\u77e9\u9635\uff0c\u5b57\u7b26\u53ea\u6709 `#` \u548c `.` \u4e24\u79cd\uff0c\u6c42\u6bcf\u4e00\u5217\u6709\u591a\u5c11\u4e2a `#` \u3002\n\n### - \u601d\u8def\n\u76f4\u63a5\u7528\u6570\u7ec4\u5b58\u6574\u4e2a\u77e9\u9635\uff0c\u518d\u4e00\u5217\u4e00\u5217\u7d2f\u8ba1 `#` \u7684\u6570\u91cf\u5373\u53ef\u3002\n\n### - \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nchar a[1234][5678];\nint main(){\n\tint w,h;\n\tcin>>w>>h;\n\tfor(int i=1;i<=w;i++) {\n\t\tfor(int j=1;j<=h;j++) {\n\t\t\tcin>>a[i][j]; \\\\\u8f93\u5165\n\t\t}\n\t}\n\tfor(int i=1;i<=h;i++) {\n\t\tint c=0; \\\\\u8ba1\u6570\n\t\tfor(int j=1;j<=w;j++) {\n\t\t\tif(a[j][i]=='#') c++; \\\\i\u8868\u793a\u884c\uff0cj\u8868\u793a\u5217\n\t\t}\n\t\tcout<<c<<\" \";\n\t}\n\treturn 0;\n} \n```\n",
+        "postTime": 1666486708,
+        "uid": 373274,
+        "name": "\u6668\u00b7\u66e6",
+        "ccfLevel": 5,
+        "title": "[ABC274B] \u306e \u9898\u89e3"
+    },
+    {
+        "content": "[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/AT_abc274_b)\n\n[\u66f4\u597d\u7684\u9605\u8bfb\u4f53\u9a8c\uff1f](https://www.luogu.com.cn/blog/73-54-16/solution-at-line-sensor)\n\n\n### \u601d\u8def\uff1a\n\n- $1 \\leq$ \u884c\u6570\u548c\u5217\u6570 $\\leq 1000$\uff0c\u53ef\u4ee5\u76f4\u63a5\u66b4\u529b\u3002\n\n- \u5148\u8f93\u5165\u8981\u6c42\u5224\u65ad\u7684\u5b57\u7b26\u77e9\u5f62\uff0c**\u5b57\u7b26\u4e4b\u95f4\u6ca1\u6709\u7a7a\u683c**\u3002\n\n- \u7136\u540e\u518d\u8bb0\u5f55\u6bcf\u4e00\u5217\u4e0a\u6709\u591a\u5c11\u4e2a `#`\uff0c\u8f93\u51fa\u6570\u91cf\uff0c\u4e24\u4e2a\u6570\u5b57\u4e4b\u95f4\u4e00\u4e2a\u7a7a\u683c\u9694\u5f00\u3002\n\n- **AT \u7684\u9898\u6700\u540e\u8981\u6709\u6362\u884c**\u3002\n\n### \u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint h,w;\nchar c[1005][1005];//\u6ce8\u610f\u6570\u636e\u8303\u56f4\nint main()\n{\n\tcin>>h>>w;//h \u884c w \u5217\n\tfor(int i=1;i<=h;i++)\n\t{\n\t\tfor(int j=1;j<=w;j++)\n\t\t{\n\t\t\tcin>>c[i][j];\n\t\t}\n\t}\n\tfor(int i=1;i<=w;i++)//\u679a\u4e3e\u6bcf\u4e00\u5217\n\t{\n\t\tint ans=0;//\u521d\u59cb\u503c\u4e3a 0\n\t\tfor(int j=1;j<=h;j++)//\u679a\u4e3e\u8fd9\u4e00\u5217\u4e2d\u7684\u6bcf\u4e00\u884c\n\t\t{\n\t\t\t//\u6ce8\u610f\u5199\u6cd5 \uff01 \uff01 \uff01 \uff01\n\t\t\tif(c[j][i]=='#')  ans++;//\u8ba1\u6570\n\t\t}\n\t\tcout<<ans<<\" \";\n\t}\n\tcout<<endl;//AT \u7684\u9898\u9700\u8981\u6362\u884c\n\treturn 0;\n}\n```",
+        "postTime": 1666484459,
+        "uid": 735416,
+        "name": "wangyixuan20090401",
+        "ccfLevel": 4,
+        "title": "AT\u2014[ABC274B] Line Sensor"
+    }
+]

@@ -1,0 +1,66 @@
+[
+    {
+        "content": "## \u5b57\u7b26\u4e32\u57fa\u7840\u3002\n\n### \u89e3\u9898\u6b65\u9aa4\uff1a\n1.  \u5b9a\u4e49\u4e00\u4e2a\u5b57\u7b26\u4e32\u3002 \n1.  \u8f93\u5165**\u591a\u4e2a**\u5b57\u7b26\u4e32\u3002\n1.  \u5b57\u7b26\u4e32**\u5012\u5e8f**\u8f93\u51fa\u3002\n\n- \u5bf9\u4e8e**\u8f93\u5165**\u5b57\u7b26\u4e32\uff0c\u53ef\u4ee5\u91c7\u7528\u4ee5\u4e0b\u7684\u5f62\u5f0f\uff0c\u66f4\u52a0\u65b9\u4fbf\u5730\u8bfb\u5165**\u591a\u4e2a\u5b57\u7b26\u4e32**\uff1a\n```cpp\nwhile(cin>>s)\n```\n\n- \u5bf9\u4e8e\u8f93\u51fa\u6709\u51e0\u4e2a\u70b9\u9700\u8981\u6ce8\u610f\uff1a\n\n1. \u901a\u8fc7\u4ee5\u4e0b\u51fd\u6570\u83b7\u53d6**\u5b57\u7b26\u4e32\u957f\u5ea6**\uff1a\n```cpp\ns.size()\n```\n2. \u5b57\u7b26\u4e32\u4e0b\u6807\u4ece\uff1a**\u957f\u5ea6 $ - 1$ \u5f00\u59cb**\uff0c**\u5230 $0$** \u904d\u5386\u3002\n\n3. **\u8bb0\u5f97\u6362\u884c**\u3002\n\n---\n### \u4ee3\u7801\u3002\n```cpp\n#include<bits/stdc++.h>\n#define ll long long\nusing namespace std;\nint main(){\n\tstring s;//\u5b9a\u4e49\u5b57\u7b26\u4e32\u3002\n\twhile(cin>>s){//\u8f93\u5165\u5b57\u7b26\u4e32\u3002\n\t\tfor(int i=s.size()-1;i>=0;i--){//\u5faa\u73af\u8f93\u51fa\u3002\n\t\t\tcout<<s[i];\n\t\t}\n\t\tcout<<endl;//\u6362\u884c\u3002\n\t}\n\treturn 0;\n}\n\n```\n\n",
+        "postTime": 1625401910,
+        "uid": 247220,
+        "name": "StarryWander",
+        "ccfLevel": 4,
+        "title": "B2122 \u5355\u8bcd\u7ffb\u8f6c"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u76ee\u662f\u8003\u5b57\u7b26\u4e32\u7684\u64cd\u4f5c\u3002\n- - -\n#### \u58f0\u660e\u4e00\u4e2a\u5b57\u7b26\u4e32\uff1a\n- ```char s_c[k]```\uff1a\u53ef\u4ee5\u58f0\u660e\u4e00\u4e2a\u6700\u5927\u957f\u5ea6\u4e3a $k-1$ \u7684 C \u5b57\u7b26\u4e32\u3002\u5176\u4e2d ```k``` \u662f\u5e38\u91cf\u8868\u8fbe\u5f0f\u3002\u53ea\u6709\u7ed3\u5c3e\u662f ```'\\0'```\uff08\u7a7a\u5b57\u7b26\uff09\u65f6\u624d\u53ef\u4ee5\u7528\u4f5c\u5b57\u7b26\u4e32\uff0c\u5426\u5219\u5c31\u662f\u666e\u901a\u7684\u5b57\u7b26\u6570\u7ec4\u3002\n- ```string s_cpp```\uff1a\u8fd9\u662f C++ \u5b57\u7b26\u4e32\uff0c\u5728 ```<string>```\u5934\u6587\u4ef6\u4e2d\uff08\u6216\u8005\u76f4\u63a5\u7528\u4e07\u80fd\u5934\u6587\u4ef6 ```<bits/stdc++.h>```\uff09\u3002\n\n#### \u8bfb\u5165\uff1a\n\u672c\u9898\u8bfb\u5355\u8bcd\u6700\u597d\u7528  ```scanf(\"%s\", s_c)``` \u6216 ```cin >> s_cpp```\u3002\n#### \u8f93\u51fa\uff1a\n\u7528 ```puts(s_c)```\uff08\u4f1a\u8f93\u6362\u884c\uff09 \u6216 ```cout << s_cpp << endl```\u3002\n### \u793a\u4f8b\u4ee3\u7801\uff1a\n#### C++\uff1a\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main()\n{\n   string s;\n   while(cin >> s) // \u4e00\u76f4\u8bfb\u5165\u5355\u8bcd\u76f4\u5230\u6587\u4ef6\u672b\u5c3e\n   {\n      reverse(s.begin(), s.end()); // STL \u5927\u6cd5\u597d\uff01\n      cout << s << endl;\n   }\n   return 0;\n}\n```\n#### C\uff1a\n\u8fd9\u91cc\u7528\u5230\u4e86 strlen \u51fd\u6570\uff0c\u7528\u6765\u6c42\u5b57\u7b26\u4e32\u957f\u5ea6\u3002\u5b83\u5728 ```<string.h>``` \u5934\u6587\u4ef6\u4e2d\u3002\n```c\n#include <stdio.h>\n#include <string.h> // \u7528\u4e86 strlen\nint main()\n{\n   char s[101]; // \u6ce8\u610f\u6570\u636e\u8303\u56f4\uff01\u8981\u7ed9\u7a7a\u5b57\u7b26\u7559\u4e0b\u4f4d\u7f6e\uff08\u8bf4\u4e0d\u5b9a\u6574\u4e2a\u53e5\u5b50\u5c31\u4e00\u4e2a\u5355\u8bcd\u5462\uff09\n   while(~scanf(\"%s\", s)) // \u4e0d\u52a0 &!\n   { // \u591a\u7ec4\u6570\u636e\u8bfb\u5165\u56fa\u5b9a\u683c\u5f0f\n      for(int i = strlen(s)-1; i >= 0; --i)\n         putchar(s[i]); // \u8f93\u51fa\u5b57\u7b26\n    /* \u5176\u5b9e\u4e0d\u7528\u771f\u6b63\u7ffb\u8f6c\uff0c\u5012\u7740\u8f93\u51fa\u5c31\u53ef\u4ee5\u4e86 */\n      putchar('\\n');\n   }\n   return 0;\n}\n```",
+        "postTime": 1625281929,
+        "uid": 404961,
+        "name": "baiABC",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3\u3010B2122 \u5355\u8bcd\u7ffb\u8f6c\u3011"
+    },
+    {
+        "content": "\u5bf9\u4e8e\u9898\u76ee\uff0c\u6211\u4eec\u53ef\u4ee5\u77e5\u9053\u8f93\u5165\u7684\u5b57\u7b26\u4e32\u662f\u4e0d\u5b9a\u7684\uff0c\u90a3\u4e48\u6211\u4eec\u53ef\u4ee5\u7528 `while(cin>>s)` \u6765\u5b9e\u73b0\u3002\u8fd9\u53e5\u8bdd\u7684\u610f\u601d\u662f\uff1a\u5728\u83b7\u53d6 `Ctrl+Z` \u65f6\u4e00\u76f4\u8f93\u5165\u5b57\u7b26\u4e32 $s$\uff08\u8bc4\u6d4b\u673a\u4f1a\u81ea\u52a8\u8f93\u5165 `Ctrl+Z`\uff09\u3002  \n\u63a5\u4e0b\u6765\uff0c\u662f\u672c\u9898\u7684\u5173\u952e\u3002  \n\u5bf9\u4e8e\u7ffb\u8f6c\u5b57\u7b26\u4e32\uff0c\u6211\u4eec\u53ef\u4ee5\u4f7f\u7528\u4e00\u4e2a STL \u5b57\u7b26\u4e32\u51fd\u6570\u2014\u2014`reverse()`\u3002\u8fd9\u4e2a\u51fd\u6570\u6211\u5728\u5176\u4ed6\u9898\u89e3\u4e2d\u8bf4\u8fc7\uff0c\u8fd9\u91cc\u518d\u8be6\u7ec6\u8bf4\u4e00\u904d\u3002  \n\u8fd9\u4e2a\u51fd\u6570\u6709\u4e24\u4e2a\u53c2\u6570\uff1a`begin` \u548c `end`\uff0c\u8868\u793a\u5f00\u59cb\u548c\u7ed3\u675f\u3002\u5982\u5b57\u7b26\u4e32 $s$ \u4e3a `Luogu`\uff0c\u90a3\u5bf9\u4e8e\u4e00\u4e0b\u51e0\u4e2a\u4ee3\u7801\u5c31\u6709\u4e0d\u540c\u7684\u7ed3\u679c\uff1a\n\n- `reverse(s.begin(),s.end());`\uff0c\u7ed3\u679c\u4e3a `ugouL`\uff1b\n- `reverse(s.begin()+1,s.end());`\uff0c\u7ed3\u679c\u4e3a `Lugou`\uff1b\n- `reverse(s.begin(),s.end()-2);`\uff0c\u7ed3\u679c\u4e3a `ouLgu`\uff1b\n- \u2026\u2026\n\nAC \u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n\nint main()\n{\n\tstring s;\n   \twhile(cin>>s)\n   \t{\n     \treverse(s.begin(),s.end());\n    \tcout<<s<<endl;\n   \t}\n\treturn 0;\n}\n```",
+        "postTime": 1626404033,
+        "uid": 400269,
+        "name": "_JYqwq_",
+        "ccfLevel": 0,
+        "title": "B2122 \u5355\u8bcd\u7ffb\u8f6c\u3000\u9898\u89e3"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u76ee\u8981\u6211\u4eec\u5c06\u6240\u6709\u8f93\u5165\u7684\u4e32\u5168\u90e8\u7ffb\u8f6c\u3002\n\n\u600e\u6837\u7ffb\u8f6c\u5462\uff1f\n\n\u6211\u4eec\u53ef\u4ee5\u5c06\u4ece\u524d\u5f80\u540e\u6570\u7684\u7b2c $i$ \u4e2a\u548c\u4ece\u540e\u5f80\u524d\u6570\u7684\u7b2c $i$ \u4e2a\u4ea4\u6362\u3002\n\n\u6bd4\u5982\u8bf4 $olleh$ \u7ffb\u8f6c\u65f6\uff0c $h$ \u548c $o$ \u4ea4\u6362\uff0c $e$ \u548c $l$ \u4ea4\u6362\u3002\u4e8e\u662f\u539f\u4e32\u5c31\u53d8\u6210\u4e86 $hello$ \u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nchar a[105];\nvoid reverse()\n{\n\tfor (int i = 0; i < strlen(a) / 2; i++)\n\t\tswap(a[i], a[strlen(a) - i - 1]);\n\tfor (int i = 0; i < strlen(a); i++)\n\t\tprintf(\"%c\", a[i]);\n\tputs(\"\");\n}\nsigned main()\n{\n\twhile (cin >> a)\n\t\treverse();\n\treturn 0;\n}\n```",
+        "postTime": 1626319946,
+        "uid": 236414,
+        "name": "zmza",
+        "ccfLevel": 0,
+        "title": "B2122 \u5355\u8bcd\u7ffb\u8f6c \u9898\u89e3"
+    },
+    {
+        "content": "\u8fd9\u9898\u6211\u5199\u4e86\u4e00\u4e2a\u51fd\u6570\uff0c\n\n\u8fd9\u4e2a\u51fd\u6570\u7684\u610f\u601d\u5c31\u662f\u53cd\u8f6c\u4e00\u4e2a\u5b57\u7b26\u4e32\u3002\n\n\u8fd8\u6709\u4e00\u4e2a\u5de7\u5999\u7684\u5730\u65b9\uff1a\n\n\u7528 cin \u6765\u8f93\u5165\u5b57\u7b26\u4e32\uff0c\u9047\u5230\u7a7a\u683c\u7b49\u5b57\u7b26\u5c31\u4f1a\u505c\u4e0b\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nchar s[101];\nvoid fanzhuan(int end){\n\tfor(int i = end;i >= 1;i--){\n\t\tcout << s[i];\n\t}\n\tcout << endl;\n}\nint main(){\n\tint k = 0;\n\twhile(cin >> s){\n\t\tfanzhuan(s.size());\n\t}\n\treturn 0;\n}\n\n```\n\n",
+        "postTime": 1626057355,
+        "uid": 355501,
+        "name": "zjr027",
+        "ccfLevel": 6,
+        "title": "B2122\u9898\u89e3"
+    },
+    {
+        "content": "### \u9898\u76ee\u63cf\u8ff0\u3002\n\n\u8f93\u5165\u51e0\u4e2a\u5355\u8bcd\uff0c\u628a\u5b83\u4eec\u7ffb\u8f6c\u540e\u8f93\u51fa\u3002\n\n### \u4ee3\u7801\u3002\n\n\u9898\u76ee\u662f\u7b80\u5355\u5730\uff0c\u4f46\u5bf9\u4e8e\u4ee3\u7801\u6765\u8bf4\uff0c\u6709\u4e9b\u5c0f\u70b9\u3002\n\n- \u8f93\u5165\u65f6\u3002\n\n```cpp\nwhile(cin>>a)\n```\n\n\u8fd9\u6837\u53ef\u4ee5\u4ee5\u7a7a\u683c\u4e3a\u4e00\u4e2a\u5355\u4f4d\uff0c\u6765\u5bf9\u6bcf\u4e2a\u5b57\u7b26\u4e32\u8fdb\u884c\u5212\u5206\u3002\n\n- \u5728\u7ffb\u8f6c\u65f6\u3002\n\n```cpp\nfor(int i=a.length()-1;i>=0;i--)\n\tcout<<a[i];\n```\n\u6ce8\u610f\uff1ai \u4e00\u5f00\u59cb\u8981\u4e3a ```a.lenghth()-1```\uff0c\u5728 $i=0$ \u65f6\u7ed3\u675f,\u56e0\u4e3a\u8f93\u5165\u662f\u4ece\u4e0b\u6807\u4e3a\u96f6\u5f00\u59cb\u8f93\u5165\u3002\n\n\u5982\u679c\u8981\u6539\u53d8\uff0c\u53ef\u4ee5\u7528 ```cin>>a+1```\u6216```scanf(\"%s\",a+1)```\u6765\u6539\u53d8\u521d\u59cb\u4e0b\u6807\u7684\u4f4d\u7f6e\u3002\n\n- \u522b\u5fd8\u4e86\u6362\u884c\u3002\n\n\u63a5\u4e0b\u6765\u5c31\u662f\u4ee3\u7801\u4e86\u3002\n\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n\tstring a;\n\twhile(cin>>a){\n\t\tfor(int i=a.length()-1;i>=0;i--)\n\t\t\tcout<<a[i];\n\t\tcout<<endl;\n\t}\t\n\treturn 0;\n}\n\n```\n",
+        "postTime": 1625923040,
+        "uid": 162084,
+        "name": "thomas_zjl",
+        "ccfLevel": 4,
+        "title": "B2122"
+    },
+    {
+        "content": "\u5728 C++ STL \u91cc\u9762\u6709\u4e00\u4e2a `reverse` \u7684\u51fd\u6570\u3002\n\n\u4f7f\u7528\u65b9\u6cd5\u5982\u4e0b\uff1a\n\n`reverse(_begin,_end);//_begin \u662f\u6570\u7ec4\u6216\u5b57\u7b26\u4e32\u5f00\u5934\uff0c_end \u540c\u7406`\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nstring word;\nsigned main(){\n\twhile(cin>>word){//\u8bfb\u5165\n\t\treverse(word.begin(),word.end());//\u53cd\u8f6c\n\t\tcout<<word<<'\\n';//\u8f93\u51fa\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1625391330,
+        "uid": 142548,
+        "name": "int32",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 B2122 \u5355\u8bcd\u53cd\u8f6c"
+    },
+    {
+        "content": "### \u9898\u610f\n\u7ed9\u5b9a\u4e00\u7cfb\u5217\u5b57\u7b26\u4e32\uff0c\u5206\u522b\u5c06\u6bcf\u4e2a\u5b57\u7b26\u4e32\u7ffb\u8f6c\u540e\u8f93\u51fa\u3002\n\n\n### \u4ecb\u7ecd\u4e00\u4e2a\u6709\u7528\u7684\u51fd\u6570\uff1a\n```reverse```\u51fd\u6570\uff1a\u5c5e\u4e8eC++\u6807\u51c6\u5e93\uff0c\u5c06\u7ed9\u5b9a\u5b57\u7b26\u4e32\u8fdb\u884c\u7ffb\u8f6c\u3002\n\n\u4f7f\u7528\u65b9\u6cd5\uff1a\u4e24\u4e2a\u53c2\u6570\uff0c\u7b2c\u4e00\u4e2a\u53c2\u6570\u8868\u793a\u7ffb\u8f6c\u6bb5\u7684\u8d77\u59cb\u4f4d\u7f6e\uff0c\u7b2c\u4e8c\u4e2a\u8868\u793a\u7ed3\u675f\u4f4d\u7f6e\u3002\u901a\u5e38\u4f7f\u7528 \n```reverse(s.begin(), s.end())```\n\u7684\u65b9\u6cd5\u8c03\u7528\u3002\n\n### \u4ee3\u7801\u5982\u4e0b\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n    string s;\n    while(cin >> s){\n        reverse(s.begin(), s.end());\n        cout << s << endl;\n    }\n    \n    return 0;\n}\n```",
+        "postTime": 1625378289,
+        "uid": 414953,
+        "name": "ZhaiOverflow",
+        "ccfLevel": 3,
+        "title": "B2122 \u9898\u89e3"
+    }
+]

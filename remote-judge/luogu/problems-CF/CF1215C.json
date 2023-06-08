@@ -1,0 +1,21 @@
+{
+    "description": "Monocarp has got two strings $ s $ and $ t $ having equal length. Both strings consist of lowercase Latin letters \"a\" and \"b\".\n\nMonocarp wants to make these two strings $ s $ and $ t $ equal to each other. He can do the following operation any number of times: choose an index $ pos_1 $ in the string $ s $ , choose an index $ pos_2 $ in the string $ t $ , and swap $ s_{pos_1} $ with $ t_{pos_2} $ .\n\nYou have to determine the minimum number of operations Monocarp has to perform to make $ s $ and $ t $ equal, and print any optimal sequence of operations \u2014 or say that it is impossible to make these strings equal.",
+    "inputFormat": "The first line contains one integer $ n $ $ (1 \\le n \\le 2 \\cdot 10^{5}) $ \u2014 the length of $ s $ and $ t $ .\n\nThe second line contains one string $ s $ consisting of $ n $ characters \"a\" and \"b\".\n\nThe third line contains one string $ t $ consisting of $ n $ characters \"a\" and \"b\".",
+    "outputFormat": "If it is impossible to make these strings equal, print $ -1 $ .\n\nOtherwise, in the first line print $ k $ \u2014 the minimum number of operations required to make the strings equal. In each of the next $ k $ lines print two integers \u2014 the index in the string $ s $ and the index in the string $ t $ that should be used in the corresponding swap operation.",
+    "samples": [
+        [
+            "4\nabab\naabb\n",
+            "2\n3 3\n3 2\n"
+        ],
+        [
+            "1\na\nb\n",
+            "-1\n"
+        ],
+        [
+            "8\nbabbaabb\nabababaa\n",
+            "3\n2 6\n1 3\n7 8\n"
+        ]
+    ],
+    "hint": "In the first example two operations are enough. For example, you can swap the third letter in $ s $ with the third letter in $ t $ . Then $ s =  $ \"abbb\", $ t =  $ \"aaab\". Then swap the third letter in $ s $ and the second letter in $ t $ . Then both $ s $ and $ t $ are equal to \"abab\".\n\nIn the second example it's impossible to make two strings equal.",
+    "translation": "### \u9898\u76ee\u63cf\u8ff0\n\n``Monocarp``\u6709\u4e24\u4e2a\u957f\u5ea6\u76f8\u7b49\u7684\uff0c\u91cc\u9762\u53ea\u6709\u5b57\u6bcd``a``\u548c``b``\u7684\u5b57\u7b26\u4e32$s,t$\u3002\n\n``Monocarp``\u60f3\u8981\u4f7f\u8fd9\u4e24\u4e2a\u5b57\u7b26\u4e32\u76f8\u7b49\u3002\u4ed6\u53ef\u4ee5\u6267\u884c\u4ee5\u4e0b\u64cd\u4f5c\u4efb\u610f\u6b21\uff1a\u6307\u5b9a\u4e24\u4e2a\u4e0b\u6807$pos1,pos2$\uff0c\u4ea4\u6362$s_{pos1}$\u548c$t_{pos2}$\u3002\n\n\u4f60\u9700\u8981\u786e\u5b9a``Monocarp``\u4f7f\u8fd9\u4e24\u4e2a\u4e32\u53d8\u5f97\u76f8\u7b49\u6240\u9700\u8981\u7684\u6700\u5c0f\u64cd\u4f5c\u6b21\u6570\uff0c\u5e76\u4e14\u8f93\u51fa\u4efb\u610f\u4e00\u4e2a\u8fd9\u6837\u7684\u6b65\u6570\u6700\u5c11\u7684\u64cd\u4f5c\u5e8f\u5217\u3002\u6216\u8005\u8bf4\u8fd9\u4e24\u4e2a\u4e32\u4e0d\u53ef\u80fd\u53d8\u5f97\u76f8\u7b49\u3002\n\n### \u8f93\u5165\u683c\u5f0f\n\n\u7b2c\u4e00\u884c\u662f\u4e00\u4e2a\u6574\u6570$n(1\\le n\\le 2*10^5)$\u8868\u793a$s,t$\u7684\u957f\u5ea6\u3002\n\n\u7b2c\u4e8c\u884c\u4e00\u4e2a\u53ea\u5305\u542b\u5b57\u6bcd``a,b``\u7684\u957f\u5ea6\u4e3a$n$\u7684\u5b57\u7b26\u4e32$s$\u3002\n\n\u7b2c\u4e09\u884c\u4e00\u4e2a\u53ea\u5305\u542b\u5b57\u6bcd``a,b``\u7684\u957f\u5ea6\u4e3a$n$\u7684\u5b57\u7b26\u4e32$t$\u3002\n\n### \u8f93\u51fa\u683c\u5f0f\n\n\u5982\u679c\u4e0d\u53ef\u80fd\u4f7f\u8fd9\u4e24\u4e2a\u4e32\u76f8\u7b49\uff0c\u8f93\u51fa``-1``\u3002\n\n\u5426\u5219\uff0c\u7b2c\u4e00\u884c\u8f93\u51fa\u6700\u5c0f\u64cd\u4f5c\u6b65\u6570$k$\uff0c\u7136\u540e\u518d\u8f93\u51fa$k$\u884c\uff0c\u6bcf\u884c\u4e24\u4e2a\u6574\u6570\uff0c\u8868\u793a\u4f60\u5728\u8fd9\u4e00\u6b21\u8fdb\u884c\u64cd\u4f5c\u65f6\u6240\u6307\u5b9a\u7684$pos1$\u548c$pos2$\u3002\n\n### \u8bf4\u660e/\u63d0\u793a\n\n\u5728\u7b2c\u4e00\u4e2a\u6837\u4f8b\u4e2d\uff0c\u4f60\u53ef\u4ee5\u4ea4\u6362$s$\u7684\u7b2c\u4e09\u4e2a\u5b57\u6bcd\uff0c\u5728\u4ea4\u6362$t$\u7684\u7b2c\u4e09\u4e2a\u5b57\u6bcd\u3002\u4e8e\u662f$s$\u53d8\u4e3a``abbb``\uff0c$t$\u53d8\u4e3a``aaab``\u3002\u518d\u4ea4\u6362$s$\u7684\u7b2c\u4e09\u4e2a\u5b57\u6bcd\u548c$t$\u7684\u7b2c\u4e8c\u4e2a\u5b57\u6bcd\u5373\u53ef\u8fbe\u6210\u76ee\u6807\uff0c\u4f7f\u5f97$s,t$\u90fd\u53d8\u6210``abab``\u3002\n\n\u7b2c\u4e8c\u4e2a\u6837\u4f8b\u4e2d\uff0c\u663e\u7136\u4e0d\u8bba\u600e\u4e48\u4ea4\u6362$s,t$\u90fd\u4e0d\u53ef\u80fd\u76f8\u7b49\u3002"
+}

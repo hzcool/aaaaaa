@@ -1,0 +1,21 @@
+{
+    "description": "Alice and Bob love playing one-dimensional battle ships. They play on the field in the form of a line consisting of $ n $ square cells (that is, on a $ 1\u00d7n $ table).\n\nAt the beginning of the game Alice puts $ k $ ships on the field without telling their positions to Bob. Each ship looks as a $ 1\u00d7a $ rectangle (that is, it occupies a sequence of $ a $ consecutive squares of the field). The ships cannot intersect and even touch each other.\n\nAfter that Bob makes a sequence of \"shots\". He names cells of the field and Alice either says that the cell is empty (\"miss\"), or that the cell belongs to some ship (\"hit\").\n\nBut here's the problem! Alice like to cheat. May be that is why she responds to each Bob's move with a \"miss\".\n\nHelp Bob catch Alice cheating \u2014 find Bob's first move, such that after it you can be sure that Alice cheated.",
+    "inputFormat": "The first line of the input contains three integers: $ n $ , $ k $ and $ a $ ( $ 1<=n,k,a<=2\u00b710^{5} $ ) \u2014 the size of the field, the number of the ships and the size of each ship. It is guaranteed that the $ n $ , $ k $ and $ a $ are such that you can put $ k $ ships of size $ a $ on the field, so that no two ships intersect or touch each other.\n\nThe second line contains integer $ m $ ( $ 1<=m<=n $ ) \u2014 the number of Bob's moves.\n\nThe third line contains $ m $ distinct integers $ x_{1},x_{2},...,x_{m} $ , where $ x_{i} $ is the number of the cell where Bob made the $ i $ -th shot. The cells are numbered from left to right from $ 1 $ to $ n $ .",
+    "outputFormat": "Print a single integer \u2014 the number of such Bob's first move, after which you can be sure that Alice lied. Bob's moves are numbered from $ 1 $ to $ m $ in the order the were made. If the sought move doesn't exist, then print \"-1\".",
+    "samples": [
+        [
+            "11 3 3\n5\n4 8 6 1 11\n",
+            "3\n"
+        ],
+        [
+            "5 1 3\n2\n1 5\n",
+            "-1\n"
+        ],
+        [
+            "5 1 3\n1\n3\n",
+            "1\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "## \u9898\u76ee\u63cf\u8ff0\r\nAlice\u548cBob\u559c\u6b22\u5728$1\\times n$\u7684\u8868\u683c\u4e2d\u73a9\u6218\u8230\u6e38\u620f\u3002\u6e38\u620f\u5f00\u59cb\u65f6\uff0cAlice\u6709$k$\u8258\u6218\u8230\uff0c\u6bcf\u8258\u6218\u8230\u957f\u5ea6\u4e3a$a$\uff0c\u5979\u9700\u8981\u628a\u8fd9\u4e9b\u6218\u8230\u4e0d\u91cd\u53e0\u4e14\u4e0d\u76f8\u90bb\u5730\u653e\u5728\u683c\u5b50\u4e2d\uff08\u4e0d\u5141\u8bb8\u6709\u4e24\u8258\u6218\u8230\u7684\u683c\u5b50\u5b58\u5728\u516c\u5171\u8fb9\uff09\u3002\u4f46\u5979\u5e76\u4e0d\u4f1a\u544a\u8bc9Bob\u5979\u653e\u7684\u4f4d\u7f6e\u3002\r\n\r\n\u63a5\u4e0b\u6765\uff0cBob\u4f1a\u7528$m$\u9897\u70ae\u5f39\u5c1d\u8bd5\u6253\u4e2dAlice\u7684\u6218\u8230\uff0c\u6bcf\u9897\u70ae\u5f39\u4f1a\u9009\u62e9\u4e00\u4e2a\u683c\u5b50\u6253\u51fb\u3002\u4f46\u7531\u4e8eAlice\u559c\u6b22\u4f5c\u5f0a\uff0c\u6240\u4ee5\u5979\u4e0d\u4f1a\u544a\u8bc9Bob\u4ec0\u4e48\u65f6\u5019\u51fb\u4e2d\u4e86\u6218\u8230\u3002\u8bf7\u4f60\u5e2e\u52a9Bob\u5224\u65ad\uff0c\u5728\u7b2c\u51e0\u6b21\u53d1\u5c04\u70ae\u5f39\u540e\uff0cAlice\u4e00\u5b9a\u4f1a\u6709\u4e00\u8258\u6218\u8230\u88ab\u51fb\u4e2d\u3002\r\n## \u8f93\u5165\u8f93\u51fa\u683c\u5f0f\r\n### \u8f93\u5165\u683c\u5f0f\uff1a\r\n\u7b2c\u4e00\u884c\u4e09\u4e2a\u6574\u6570$n,k,a$\uff0c\u5206\u522b\u8868\u793a\u8868\u683c\u957f\u5ea6\uff0cAlice\u7684\u6218\u8230\u6570\uff0c\u548c\u6bcf\u8258\u6218\u8230\u7684\u957f\u5ea6\u3002\r\n\r\n\u63a5\u4e0b\u6765\u4e00\u884c\u8f93\u5165\u4e00\u4e2a\u6574\u6570$m$\uff0c\u8868\u793aBob\u7684\u70ae\u5f39\u6570\u91cf\u3002\r\n\r\n\u540e\u9762$m$\u884c\uff0c\u6bcf\u884c\u4e00\u4e2a\u6574\u6570$x_i$\uff0c\u8868\u793a\u7b2c$i$\u6b21\u9009\u62e9\u6253\u51fb\u7684\u683c\u5b50\u3002\r\n\r\n### \u8f93\u51fa\u683c\u5f0f\uff1a\r\n\u4e00\u884c\u4e00\u4e2a\u6574\u6570$ans$\uff0c\u8868\u793a\u5728\u7b2c$ans$\u6b21\u6253\u51fb\u8fc7\u540e\uff0cAlice\u4e00\u5b9a\u4f1a\u53d7\u5230\u6253\u51fb\u3002\u5982\u679c\u4e0d\u5b58\u5728\u8fd9\u6837\u7684$ans$\uff0c\u5219\u8f93\u51fa$-1$\u3002\r\n\r\n## \u6570\u636e\u8303\u56f4\r\n$1 \\leq n,k,a \\leq 2 \\cdot 10^5$\r\n\r\n$m,x_i \\leq n$\r\n"
+}

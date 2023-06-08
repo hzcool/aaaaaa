@@ -1,0 +1,18 @@
+[
+    {
+        "content": "[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/AT_pakencamp_2018_day2_a)\n\n## \u9898\u610f\u7b80\u8ff0\n\n- \u7ed9\u5b9a\u4e00\u4e2a\u6570 $N$\u3002\n- \u6709\u4e00\u4e2a\u4eba\u8981\u4ece $1$ \u6570\u5230 $N$\uff0c\u4f46\u4ed6\u4f1a\u628a $123$ \u8fd9\u4e2a\u6570\u8df3\u8fc7\u53bb\uff0c\u8bf7\u95ee\u4ed6\u6570\u4e86\u51e0\u4e2a\u6570\u3002\n- $1 \\le N \\le 1000$ \u4e14 $n \\ne 123$\u3002\n\n## \u9898\u76ee\u5206\u6790\n\n### \u505a\u6cd5 1\n\n\u5176\u5b9e\u5c31\u662f\u6c42 $1$ \u5230 $N$ \u9664\u4e86 $123$ \u6709\u51e0\u4e2a\u6570\u3002\u5206\u60c5\u51b5\u8ba8\u8bba\u5373\u53ef\u3002\n\n\u5982\u679c $N < 123$\uff0c\u90a3\u4e48\u4e5f\u5c31\u662f $1$ \u5230 $N$ \u4e2d\u6ca1\u6709 $123$\uff0c\u76f4\u63a5\u8f93\u51fa $N$\u3002  \n\u5982\u679c $N > 123$\uff0c\u90a3\u4e48\u4e5f\u5c31\u662f $1$ \u5230 $N$ \u4e2d\u5305\u542b $123$\uff0c\u9700\u8981\u8f93\u51fa $N - 1$\u3002\n\n\uff08\u9898\u76ee\u4fdd\u8bc1\u4e86\u4e0d\u5b58\u5728 $N = 123$ \u7684\u60c5\u51b5\uff0c\u6240\u4ee5\u65e0\u9700\u8ba8\u8bba\u3002\uff09\n\n### \u505a\u6cd5 2\n\n\u6a21\u62df\u4e00\u4e0b\u6570\u6570\u7684\u8fc7\u7a0b\u5373\u53ef\uff1a\n- \u5982\u679c\u5f53\u524d\u7684\u6570\u662f $123$\uff0c\u90a3\u4e48\u5c31\u8df3\u8fc7\u3002\n- \u5426\u5219\u7d2f\u8ba1\u4e00\u4e0b\u8fd9\u662f\u7b2c\u51e0\u4e2a\u6570\u3002\n\n## \u4ee3\u7801\n\n### \u505a\u6cd5 1\n\n```cpp\n#include <cstdio>\n\nusing namespace std;\n\nint main() {\n    int n;\n    scanf(\"%d\",&n);\n    if(n < 123) printf(\"%d\",n); // \u6570\u4e0d\u5230 123\uff0c\u6240\u4ee5\u8f93\u51fa n \u5c31\u884c\u3002\n    else printf(\"%d\",n - 1); // 123 \u88ab\u8df3\u8fc7\uff0c\u6240\u4ee5\u8f93\u51fa n - 1 \u5373\u53ef\u3002\n    return 0;\n}\n```\n\n### \u505a\u6cd5 2\n\n```cpp\n#include <cstdio>\n\nusing namespace std;\n\nint main() {\n    int n;\n    scanf(\"%d\",&n);\n    int cnt = 0; // \u8fd9\u4e2a\u53d8\u91cf\u7528\u6765\u8ba1\u6570\u3002\n    for(int i = 1;i <= n;i++) { // \u4ece 1 \u6570\u5230 n\u3002\n        if(i == 123) continue; // \u6570\u5230 123 \u4e86\uff0c\u8df3\u8fc7\u3002\n        cnt++; // \u7d2f\u8ba1\u4e00\u4e0b\u3002\n    }\n    printf(\"%d\",cnt); // \u522b\u5fd8\u8bb0\u8f93\u51fa\u3002\n    return 0;\n}\n```",
+        "postTime": 1669602483,
+        "uid": 526673,
+        "name": "hjl2011",
+        "ccfLevel": 0,
+        "title": "AT_pakencamp_2018_day2_a \u9898\u89e3"
+    },
+    {
+        "content": "\u5f88\u5165\u95e8\u7684\u4e00\u9053\u9898\u3002\n\n\u9898\u76ee\u4e2d\u8bf4\u9ad8\u6865\u541b\u4f1a\u8df3\u8fc7 $123$ \u8fd9\u4e2a\u6570\uff0c\u90a3\u4e48\u5982\u679c $n < 123$ \uff0c\u6240\u6709\u7684\u6570\u90fd\u4f1a\u88ab\u6570\u4e00\u904d\uff0c\u56e0\u6b64\u7b54\u6848\u5c31\u662f $n$ \u3002\n\n\u5982\u679c $n \\ge 123$ \uff0c\u90a3\u4e48\u5c31\u4f1a\u5c11\u6570 $123$ \u8fd9\u4e2a\u6570\uff0c\u7b54\u6848\u4e3a $n-1$ \u3002\n\n[AC](https://www.luogu.com.cn/record/96491155) code:\n\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint n;\nint main()\n{\n    ios::sync_with_stdio(false);\n    cin>>n;\n    if(n<123)cout<<n;\n    else cout<<n-1;\n    return 0;\n}\n```\n",
+        "postTime": 1670120608,
+        "uid": 608535,
+        "name": "Fengziao",
+        "ccfLevel": 0,
+        "title": "ATpakencamp2018day2a"
+    }
+]

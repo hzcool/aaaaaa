@@ -1,0 +1,16 @@
+{
+    "description": "Doctor prescribed medicine to his patient. The medicine is represented by pills. Each pill consists of a shell and healing powder. The shell consists of two halves; each half has one of four colors \u2014 blue, red, white or yellow.\n\nThe doctor wants to put $ 28 $ pills in a rectangular box $ 7\u00d78 $ in size. Besides, each pill occupies exactly two neighboring cells and any cell contains exactly one half of a pill. Thus, the result is a four colored picture $ 7\u00d78 $ in size.\n\nThe doctor thinks that a patient will recover sooner if the picture made by the pills will be special. Unfortunately, putting the pills in the box so as to get the required picture is not a very easy task. That's why doctor asks you to help.\n\nDoctor has some amount of pills of each of $ 10 $ painting types. They all contain the same medicine, that's why it doesn't matter which $ 28 $ of them will be stored inside the box.\n\nPlace the pills in the box so that the required picture was formed. If it is impossible to place the pills in the required manner, then place them so that the number of matching colors in all $ 56 $ cells in the final arrangement and the doctor's picture were maximum.",
+    "inputFormat": "First $ 7 $ lines contain the doctor's picture. Each line contains $ 8 $ characters, each character can be \"B\", \"R\", \"W\" and \"Y\" that stands for blue, red, white and yellow colors correspondingly.\n\nNext four lines contain $ 10 $ numbers that stand for, correspondingly, the number of pills painted:\n\n\"BY\" \"BW\" \"BR\" \"BB\"\n\n\"RY\" \"RW\" \"RR\"\n\n\"WY\" \"WW\"\n\n\"YY\"\n\nThose numbers lie within range from $ 0 $ to $ 28 $ inclusively. It is guaranteed that the total number of pills in no less than $ 28 $ .",
+    "outputFormat": "Print on the first line the maximal number cells for which the colors match.\n\nThen print $ 13 $ lines each containing $ 15 $ characters \u2014 the pills' position in the optimal arrangement. The intersections of odd lines and odd columns should contain characters \"B\", \"R\", \"W\" and \"Y\". All other positions should contain characters \".\", \"-\" and \"|\". Use \"-\" and \"|\" to show which halves belong to one pill. See the samples for more clarification.\n\nIf there are several possible solutions, print any of them.",
+    "samples": [
+        [
+            "WWWBBWWW\nWWWBBWWW\nYYWBBWWW\nYYWBBWRR\nYYWBBWRR\nYYWBBWRR\nYYWBBWRR\n0 0 0 8\n0 1 5\n1 10\n5\n",
+            "53\nW.W.W.B.B.W.W.W\n|.|.|.|.|.|.|.|\nW.W.W.B.B.W.W.W\n...............\nY.Y.W.B.B.W.W-W\n|.|.|.|.|.|....\nY.Y.W.B.B.W.R.R\n............|.|\nY.Y.W.B.B.R.R.R\n|.|.|.|.|.|....\nY.Y.W.B.B.W.R.R\n............|.|\nY-Y.B-B.B-B.R.R\n"
+        ],
+        [
+            "WWWWWWWW\nWBYWRBBY\nBRYRBWYY\nWWBRYWBB\nBWWRWBYW\nRBWRBWYY\nWWWWWWWW\n0 0 0 1\n0 0 1\n0 1\n25\n",
+            "15\nW.Y.Y-Y.Y-Y.Y-Y\n|.|............\nW.Y.Y.Y.Y.B-B.Y\n....|.|.|.....|\nY-Y.Y.Y.Y.Y-Y.Y\n...............\nY.Y.Y.R.Y.Y.Y-Y\n|.|.|.|.|.|....\nY.Y.Y.R.Y.Y.Y.Y\n............|.|\nY-Y.Y.Y-Y.Y.Y.Y\n....|.....|....\nY-Y.Y.Y-Y.Y.Y-Y\n"
+        ]
+    ],
+    "hint": ""
+}

@@ -1,0 +1,17 @@
+{
+    "description": "It's Christmas time! PolandBall and his friends will be giving themselves gifts. There are $ n $ Balls overall. Each Ball has someone for whom he should bring a present according to some permutation $ p $ , $ p_{i}\u2260i $ for all $ i $ .\n\nUnfortunately, Balls are quite clumsy. We know earlier that exactly $ k $ of them will forget to bring their gift. A Ball number $ i $ will get his present if the following two constraints will hold:\n\n1. Ball number $ i $ will bring the present he should give.\n2. Ball $ x $ such that $ p_{x}=i $ will bring his present.\n\nWhat is minimum and maximum possible number of kids who will not get their present if exactly $ k $ Balls will forget theirs?",
+    "inputFormat": "The first line of input contains two integers $ n $ and $ k $ ( $ 2<=n<=10^{6} $ , $ 0<=k<=n $ ), representing the number of Balls and the number of Balls who will forget to bring their presents.\n\nThe second line contains the permutation $ p $ of integers from $ 1 $ to $ n $ , where $ p_{i} $ is the index of Ball who should get a gift from the $ i $ -th Ball. For all $ i $ , $ p_{i}\u2260i $ holds.",
+    "outputFormat": "You should output two values \u2014 minimum and maximum possible number of Balls who will not get their presents, in that order.",
+    "samples": [
+        [
+            "5 2\n3 4 1 5 2\n",
+            "2 4"
+        ],
+        [
+            "10 1\n2 3 4 5 6 7 8 9 10 1\n",
+            "2 2"
+        ]
+    ],
+    "hint": "In the first sample, if the third and the first balls will forget to bring their presents, they will be th only balls not getting a present. Thus the minimum answer is $ 2 $ . However, if the first ans the second balls will forget to bring their presents, then only the fifth ball will get a present. So, the maximum answer is $ 4 $ .",
+    "translation": "\u5723\u8bde\u8282\u5230\u4e86\uff0c\u6709 $n$ \u4e2a\u4eba\u8981\u4e92\u76f8\u9001\u793c\u7269\u3002\u6709\u4e00\u4e2a\u6392\u5217 $p$\uff0c\u7b2c $i$ \u4e2a\u4eba\u5e94\u8be5\u628a\u793c\u7269\u9001\u7ed9\u7b2c $p_i$ \u4e2a\u4eba\uff08$p_i \\ne i$\uff09\u3002\n\n\u6709 $k$ \u4e2a\u4eba\u662f\u62d6\u62c9\u673a\uff0c\u5979\u4eec\u4f1a\u5fd8\u8bb0\u5e26\u793c\u7269\uff0c\u4f46\u662f\u6211\u4eec\u4e0d\u77e5\u9053\u8fd9\u4e9b\u4eba\u662f\u8c01\u3002\u4e00\u4e2a\u4eba\u80fd\u6536\u5230\u793c\u7269\uff0c\u5f53\u4e14\u4ec5\u5f53\u5979\u5e26\u4e86\u793c\u7269\uff0c\u5e76\u4e14\u5e94\u8be5\u9001\u7ed9\u5979\u793c\u7269\u7684\u4eba\u4e5f\u5e26\u4e86\u793c\u7269\u3002\n\n\u7ed9\u5b9a $p, k$\uff0c\u5bf9\u4e8e\u6240\u6709 $k$ \u4e2a\u4eba\u6ca1\u5e26\u793c\u7269\u7684\u60c5\u51b5\uff0c\u6c42\u6700\u5c11\u3001\u6700\u591a\u6709\u591a\u5c11\u4eba**\u4e0d**\u80fd\u6536\u5230\u793c\u7269\u3002"
+}

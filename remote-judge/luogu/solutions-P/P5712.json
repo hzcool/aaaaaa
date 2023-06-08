@@ -1,0 +1,26 @@
+[
+    {
+        "content": "**[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/P5712)**\n\n\n**\u601d\u8def**\n\n1. \u4ed4\u7ec6\u8bfb\u9898\u540e\uff0c\u6211\u4eec\u53ef\u4ee5\u53d1\u73b0\uff0c\u8f93\u51fa\u53ef\u4ee5\u5206\u6210$2$\u79cd\u60c5\u51b5\uff0c`apple`\u52a0`s`\u4e0e`apple`\u4e0d\u52a0`s`\uff0c\u6240\u4ee5\u6211\u4eec\u53ef\u4ee5\u4f7f\u7528`if/else`\u6765\u5b9e\u73b0\u3002\n\n2. \u63a5\u7740\uff0c\u6211\u4eec\u8bfb\u5165`n`\u3002\n```cpp\n\tint n;\n\tcin>>n;\n```\n\n3. \u8fdb\u884c\u5224\u65ad\uff0c\u662f\u5426\u9700\u8981\u52a0`s`\n```cpp\n\tif(n==1 || n==0) cout<<\"Today, I ate \"<<n<<\" apple.\";\n\telse cout<<\"Today, I ate \"<<n<<\" apples.\";\n```\n\n**\u53c2\u8003\u4ee3\u7801**\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main()\n{\n\tint n;\n\tcin>>n;\n\tif(n==1 || n==0) cout<<\"Today, I ate \"<<n<<\" apple.\";\n\telse cout<<\"Today, I ate \"<<n<<\" apples.\";\n\treturn 0;\n}\n```",
+        "postTime": 1580823643,
+        "uid": 219791,
+        "name": "tZERO\u3061\u3083\u3093",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P5712 \u3010\u3010\u6df1\u57fa3.\u4f8b4\u3011Apples\u3011"
+    },
+    {
+        "content": "\u8fd9\u662f\u4e2a\u7b80\u5355\u7684\u6478\u4f60\u9898\n\n\u7ed9\u5b9a\u4e00\u4e2a $x$\n\n\u5982\u679c $x$ \u4e3a $1$ \u6216\u8005 $0$\n\n\u90a3\u4e48 $apple$ \u5c31\u6ca1\u6709 $s$\n\n\u5426\u5219\u5c31\u8981\u52a0\u4e0a\u4e00\u4e2a $s$\n\n\u8fd9\u6837\u4ee3\u7801\u5c31\u51fa\u6765\u4e86\n\n```cpp\n#include <iostream>\n#include <cstdio>\n#include <cstring>\n#include <algorithm>\n\nusing namespace std;\n\nint n;\nint main()\n{\n\tcin>>n;\n\tif(n<=1)printf(\"Today, I ate %d apple.\",n);\n\t//\u5224\u65ad n==1 \u6216\u8005 n==0 \n\telse printf(\"Today, I ate %d apples.\",n);\n\t//\u5426\u5219\u5c31\u52a0 s\n\t//\u53ef\u4ee5\u7b80\u5199\u6210\u8fd9\u6837\n\t//(n<=1)?(printf(\"Today, I ate %d apple.\",n)):(printf(\"Today, I ate %d apples.\",n));\n\treturn 0;\n} \n```\n\n$qwq$",
+        "postTime": 1580823182,
+        "uid": 133509,
+        "name": "KazamiHina",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P5712 \u3010\u3010\u6df1\u57fa3.\u4f8b4\u3011Apples\u3011"
+    },
+    {
+        "content": "### \u8fd9\u9898\u6709$2$\u79cd\u60c5\u51b5 ~~\uff08\u5e9f\u8bdd\uff09~~\n- \u7b2c\u4e00\u79cd\uff1a\u5403\u4e86$0$\u6216$1$\u4e2a\u82f9\u679c\uff0c\u8f93\u51fa\u201c`Today, I ate 1\u62160 apple.`\u201d\n- \u7b2c\u4e8c\u79cd\uff1a\u5403\u4e86\u5927\u4e8e$1$\u4e2a\u82f9\u679c\uff0c\u8f93\u51fa\u201c`Today, I ate n apples.`\u201d\uff08$n$\u662f\u4eca\u5929\u5403\u7684\u82f9\u679c\u6570\uff09\n\n\u5206\u7c7b\u8ba8\u8bba\u5373\u53ef\u3002\n\n$code$\uff1a\n```cpp\n#include<bits/stdc++.h>\n#define ns \"-1\"\n#define fs(i,x,y,z) for(ll i=x;i<=y;i+=z)\n#define ft(i,x,y,z) for(ll i=x;i>=y;i+=z)\n#define ll long long\n#define ull unsigned long long\n#define db double\n#define ms(a,b) memset(a,b,sizeof(a))\n#define sz(a) sizeof(a)\nusing namespace std;\nconst int rw[]={-1,0,1,0,-1,1,-1,1},cl[]={0,1,0,-1,-1,1,1,-1};\nconst int N=100001,inf=0x7f7f7f7f;\nint n;\nint main(){\n\tios::sync_with_stdio(false);\n\tcin.tie(0);\n\tcout.tie(0);\n\tcin>>n;\n\tif(n<2) cout<<\"Today, I ate \"<<n<<\" apple.\";\n\telse cout<<\"Today, I ate \"<<n<<\" apples.\";\n\treturn 0;\n}\n```",
+        "postTime": 1580868609,
+        "uid": 126471,
+        "name": "inoichi_lim",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P5712 \u3010\u3010\u6df1\u57fa3.\u4f8b4\u3011Apples\u3011"
+    }
+]

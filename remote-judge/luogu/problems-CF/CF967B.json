@@ -1,0 +1,21 @@
+{
+    "description": "Arkady wants to water his only flower. Unfortunately, he has a very poor watering system that was designed for $ n $ flowers and so it looks like a pipe with $ n $ holes. Arkady can only use the water that flows from the first hole.\n\nArkady can block some of the holes, and then pour $ A $ liters of water into the pipe. After that, the water will flow out from the non-blocked holes proportionally to their sizes $ s_1, s_2, \\ldots, s_n $ . In other words, if the sum of sizes of non-blocked holes is $ S $ , and the $ i $ -th hole is not blocked, $ \\frac{s_i \\cdot A}{S} $ liters of water will flow out of it.\n\nWhat is the minimum number of holes Arkady should block to make at least $ B $ liters of water flow out of the first hole?",
+    "inputFormat": "The first line contains three integers $ n $ , $ A $ , $ B $ ( $ 1 \\le n \\le 100\\,000 $ , $ 1 \\le B \\le A \\le 10^4 $ ) \u2014 the number of holes, the volume of water Arkady will pour into the system, and the volume he wants to get out of the first hole.\n\nThe second line contains $ n $ integers $ s_1, s_2, \\ldots, s_n $ ( $ 1 \\le s_i \\le 10^4 $ ) \u2014 the sizes of the holes.",
+    "outputFormat": "Print a single integer \u2014 the number of holes Arkady should block.",
+    "samples": [
+        [
+            "4 10 3\n2 2 2 2\n",
+            "1\n"
+        ],
+        [
+            "4 80 20\n3 2 1 4\n",
+            "0\n"
+        ],
+        [
+            "5 10 10\n1000 1 1 1 1\n",
+            "4\n"
+        ]
+    ],
+    "hint": "In the first example Arkady should block at least one hole. After that, $ \\frac{10 \\cdot 2}{6} \\approx 3.333 $ liters of water will flow out of the first hole, and that suits Arkady.\n\nIn the second example even without blocking any hole, $ \\frac{80 \\cdot 3}{10} = 24 $ liters will flow out of the first hole, that is not less than $ 20 $ .\n\nIn the third example Arkady has to block all holes except the first to make all water flow out of the first hole.",
+    "translation": "\u6709n\u4e2a\u6d1e\uff0c\u6bcf\u4e2a\u6d1e\u6709\u4e00\u4e2as\u503c\uff0c\u8bb0\u6ca1\u6709\u88ab\u5835\u4e0a\u7684\u6d1e\u603b\u7684s\u503c\u4e3asum\uff0c\u95ee\u4f60\u81f3\u5c11\u586b\u51e0\u4e2a\u6d1e\u80fd\u4f7fa*s1/sum>=b"
+}

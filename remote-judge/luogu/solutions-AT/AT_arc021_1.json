@@ -1,0 +1,50 @@
+[
+    {
+        "content": "### ~~\u8fd9\u9898\u662f$\\color{red}\\text{\u5165\u95e8}$\u9898\u5427~~\n\n\u89e3\u9898\u601d\u8def\uff1b\n\n1.\u5b9a\u4e49\u4e00\u4e2a\u4e8c\u7ef4\u6570\u7ec4\uff08\u5c3d\u91cf\u5b9a\u5927\u4e00\u70b9\uff09\n\n2.\u8bfb\u5165\uff08\u60a8\u73a9\u8fc72048\u5417\uff1f\u73a9\u8fc7\u7684\u8bdd\u5e94\u8be5\u77e5\u9053\u662f\u4e00\u4e2a4\u5bab\u683c\uff09\n\n3.\u8fb9\u8bfb\u5165\u8fb9\u5224\u65ad\u8fd9\u4e2a\u6570\u7684\u9644\u8fd1\u6709\u6ca1\u6709\u8ddf\u5b83\u76f8\u540c\u7684\u6570\uff0c\u5982\u679c\u6709\u7684\u8bdd\u5c31\u8f93\u51fa\"CONTINUE\"\n\n4.\u5982\u679c\u5168\u90e8\u8f93\u5165\u5b8c\u4e5f\u6ca1\u6709\u627e\u5230\uff0c\u8f93\u51fa\"GAMEOVER\"\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint a[110][110];\nint main()\n{\n    for(int i=1;i<=4;i++)\n        for(int j=1;j<=4;j++)\n        {\n            cin>>a[i][j];\n            if(a[i-1][j]==a[i][j]||a[i+1][j]==a[i][j]||a[i][j-1]==a[i][j]||a[i][j+1]==a[i][j])\n            {\n                cout<<\"CONTINUE\"<<endl; \n                return 0;\n            }\n        }\n    cout<<\"GAMEOVER\"<<endl;\n    return 0;\n}\n```\n\u8bc4\u4e2a\u8bba\u518d\u8d70\u5427QAQ",
+        "postTime": 1575001436,
+        "uid": 161414,
+        "name": "stry",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT870 \u3010DEAD END\u3011"
+    },
+    {
+        "content": "#      ~~\u672c\u849f\u84bb\u53c8\u6765\u53d1\u9898\u89e3\u4e86.. ~~\n\n\u601d\u8def\uff1a\n\u8fd9\u4e00\u9053\u9898\u6211\u5c31\u662f\u4e0d\u660e\u767d\uff0c\u4e3a\u4ec0\u4e48\u5176\u4ed6\u7684\u9898\u89e3\u90fd\u8981\u5224\u65ad\u4e0a\u4e0b\u5de6\u53f3\u6216\u8005\u90fd\u8981\u8f93\u5165\u5b8c\u518d\u5224\u65ad\u3002\n\u6240\u4ee5\u6211\u5c31\u6709\u4e86\u4e00\u79cd\u66f4\u597d\u7684\u65b9\u6cd5\uff1a\u8fb9\u8f93\u5165\u8fb9\u505a\uff0c\u56e0\u4e3a\u8f93\u5165\u65f6\u540e\u9762\u8fd8\u6ca1\u6709\u8bb0\u5f55\u5230\uff0c\u6240\u4ee5\u5c31\u53ef\u4ee5\u76f4\u63a5\u5224\u65ad\u5b83\u7684\u524d\u9762\u548c\u4e0a\u9762\u662f\u5426\u76f8\u7b49\uff0c\u5982\u679c\u91cd\u590d\u5c31\u76f4\u63a5\u8f93\u51fa\u5c31\u53ef\u4ee5\u4e86\u3002\n\u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint a[105][105];\nint main()\n{\n\tfor(int i=1;i<=4;i++)\n\t    for(int j=1;j<=4;j++)\n\t    {\n\t    \tcin>>a[i][j]; //\u8fb9\u8f93\u5165\u8fb9\u505a\n\t    \tif(a[i-1][j]==a[i][j] || a[i][j-1]==a[i][j]) //\u5224\u65ad\u5b83\u7684\u524d\u9762\u548c\u540e\u9762\u662f\u5426\u76f8\u7b49\n\t    \t{\n\t    \t\tcout<<\"CONTINUE\"<<endl; //\u8f93\u51fa\n\t    \t\treturn 0;\n\t    \t}\n\t    }\n\tcout<<\"GAMEOVER\"<<endl; //\u5426\u5219\u8f93\u51fa\n\treturn 0;\n}\n```\n",
+        "postTime": 1555908930,
+        "uid": 150354,
+        "name": "\u767e\u91cc\u4ea6\u5b88\u7ea6",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT870 \u3010DEAD END\u3011"
+    },
+    {
+        "content": "\n```\n\u8fd9\u9053\u9898\u5f97\u5199\u660e\u786e\u601d\u8def\uff0c\u5176\u5b9e\u5c31\u662f\u8f93\u5165\u4e2a4*4\u7684\u65b9\u9635\uff0c\u5bfb\u627e\u662f\u5426\u6709\u4e24\u4e2a\u6570\u76f8\u90bb\u5e76\u76f8\u7b49\uff08\u76f8\u90bb\u77e5\u9053\u662f\u5de6\u53f3\u76f8\u90bb\u6216\u4e0a\u4e0b\u76f8\u90bb\uff09\u3002\n\n\u63a5\u4e0b\u6765\u770b\u770b\u6211\u7684\u7a0b\u5e8f\u5427\u2193\n\n```\n\n```\nvar\n i,j:longint;\n p:boolean;\n a:array[0..5,0..5] of longint;//\u56e0\u4e3a\u662f4*4\uff0c\u6240\u4ee5\u53ef\u4ee5\u5b9a\u7684\u5c0f\u4e9b\nbegin\n for i:=1 to 4 do\n  for j:=1 to 4 do\n   read(a[i,j]);//\u8f93\u51654*4\u65b9\u9635\n for i:=1 to 4 do\n  begin\n   for j:=1 to 4 do\n    begin\n     if a[i,j]=a[i,j+1] then p:=true;//\u5224\u65ad\u662f\u5426\u6709\u5de6\u53f3\u5143\u7d20\u76f8\u7b49\n     if a[i,j]=a[i-1,j] then p:=true;//\u5224\u65ad\u662f\u5426\u6709\u4e0a\u4e0b\u5143\u7d20\u76f8\u7b49\n    end;\n   if p then break;\n  end;\n if p then writeln('CONTINUE')\n  else writeln('GAMEOVER');//\u8f93\u51fa\u76f8\u5e94\u6307\u4ee4\nend.\n\n```",
+        "postTime": 1538627981,
+        "uid": 117229,
+        "name": "wuyutong111",
+        "ccfLevel": 0,
+        "title": "AT870 DEAD END"
+    },
+    {
+        "content": "\u8d85\u66b4\u529b\u7684\u5224\u65ad$+$\u6253\u8868\n\n------------\n\u505a\u6cd5\uff1a\u5148\u628a\u6240\u6709\u60c5\u51b5\u7684\u8868\u6253\u51fa\u6765\uff0c\u7136\u540e\u4e00\u4e2a$if$\u5b8c\u4e8b\u3002\n\n------------\n\n\u5148\u628a\u8868\u6253\u51fa\u6765\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n\tfreopen(\"1.txt\",\"w\",stdout);\n\tfor(int i=0;i<4;i++){\n\t\tfor(int j=0;j<4;j++){\n\t\t\tif(j!=3){\n\t\t\t\tcout<<\"a[\"<<i<<\"][\"<<j<<\"]!=\";\n\t\t\t\tcout<<\"a[\"<<i<<\"][\"<<j+1<<\"]\";\n\t\t\t\tif(i!=3||j!=2)cout<<\"&&\";\n\t\t\t}\n\t\t\tif(i!=3){\n\t\t\t\tcout<<\"a[\"<<i<<\"][\"<<j<<\"]!=\";\n\t\t\t\tcout<<\"a[\"<<i+1<<\"][\"<<j<<\"]&&\";\n\t\t\t}\n\t\t}\n\t}\n\treturn 0;\n}\n```\n\u7136\u540e\u628a\u8868\u7c98\u8d34\u5230\u8fd9\u91cc\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint a[4][4];\nint main(){\n\tfor(int i=0;i<4;i++)\n\t\tfor(int j=0;j<4;j++)\n\t\t\tcin>>a[i][j];//\u9010\u4e2a\u8f93\u5165\n\tif(/*\u590d\u5236\u5230\u8fd9\u91cc*/)\n\tcout<<\"GAMEOVER\\n\";//\u5982\u679c\u90fd\u4e0d\u7b26\u5408\n\telse cout<<\"CONTINUE\\n\";//\u5426\u5219\n    /*\u61d2\u5f97\u6253endl\u4e86*/\n\treturn 0;\n}\n```",
+        "postTime": 1540603044,
+        "uid": 58546,
+        "name": "CZQ_King",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 AT870 \u3010DEAD END\u3011"
+    },
+    {
+        "content": "\u5f88\u7b80\u5355\u7684\u4e00\u9898\u4e8c\u7ef4\u6570\u7ec4\u7684\u9898\u76ee\u5566\n\n\u95f2\u8bdd\u4e0d\u591a\u8bf4\n\n\u9644\u4e0a\u4ee3\u7801\u3002\u3002\u3002\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint a[11][11];\nint main()\n{\n    for(int i=1;i<=4;i++)\n        for(int j=1;j<=4;j++)\n            cin>>a[i][j];//\u7b80\u5355\u7684\u8bfb\u5165\u4e0d\u89e3\u91ca\uff08printf\u4e5f\u662f\u53ef\u4ee5\u7684\uff09\n    for(int i=1;i<=4;i++)\n    {\n    \tfor(int j=1;j<=4;j++)\n    \t{\n    \t\tif(a[i][j+1]==a[i][j]||a[i][j-1]==a[i][j]||a[i-1][j]==a[i][j]||a[i+1][j]==a[i][j])//\u5224\u65ad\u662f\u5426\u8fb9\u4e0a\u662f\u5426\u6709\u80fd\u591f\u6d88\u7684\n    \t\t{\n    \t\t    cout<<\"CONTINUE\";//\u5982\u679c\u6709\u4e00\u4e2a\u7684\u8bdd\u5c31\u76f4\u63a5\u8f93\u51fa\u5e76\u7ed3\u675f\u7a0b\u5e8f\n\t\t\t\treturn 0;\t\n\t\t\t}    \n\t\t}\n\t}\n    cout<<\"GAMEOVER\";//\u5982\u679c\u90fd\u6ca1\u6709\u80fd\u6d88\u7684\u5c31\u6e38\u620f\u7ed3\u675f\n\treturn 0;//\u597d\u4e60\u60ef\u3002\u3002\u3002\n}\n\n```",
+        "postTime": 1537188363,
+        "uid": 79806,
+        "name": "zoobidubi",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 AT870 \u3010DEAD END\u3011"
+    },
+    {
+        "content": "\u56e0\u4e3a\u9898\u76ee\u8bf4\u4e86\u4e0d\u4f1a\u51fa\u73b0\u7a7a\u7684\u5730\u65b9\uff0c\u6240\u4ee5\u53ea\u8981\u5224\u65ad\u662f\u5426\u6709\u4e24\u4e2a\u4e00\u6837\u7684\u6570\u5b58\u5728\u76f8\u90bb\u7684\u60c5\u51b5\n\n\u5b58\u5728\uff0c\u8f93\u51fa\"CONTINUE\"\uff0c\u5426\u5219\u8f93\u51fa\"GAMEOVER\"\n```\n#include<string>\n#include<iostream>\nusing namespace std;\nlong long block[7][7];\nint main()\n{\n    for(int s=1;s<=4;s++)\n    {\n    \tfor(int v=1;v<=4;v++)\n\t\t{\n\t\t\tcin>>block[s][v];\n\t\t}\n\t}\n\tfor(int s=1;s<=4;s++)\n    {\n    \tfor(int v=1;v<=4;v++)\n\t\t{\n\t\t\tif(block[s][v]==block[s][v-1]||block[s][v]==block[s][v+1]||block[s][v]==block[s+1][v]||block[s][v]==block[s-1][v])//\u662f\u5426\u76f8\u90bb\n\t\t\t{\n\t\t\t\tcout<<\"CONTINUE\"<<endl;//\u76f8\u90bb\n\t\t\t\treturn 0;\n\t\t\t}\n\t\t}\n\t}\n\tcout<<\"GAMEOVER\"<<endl;\n    return 0;\n}\n```",
+        "postTime": 1537068966,
+        "uid": 58543,
+        "name": "RioBlu",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 AT870 \u3010DEAD END\u3011"
+    }
+]

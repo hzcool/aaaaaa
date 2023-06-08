@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u7531\u4e8e $n$ \u548c $m$ \u7684\u8303\u56f4\u8f83\u5c0f\uff0c\u6240\u4ee5\u53ef\u4ee5\u8003\u8651\u66b4\u529b\u679a\u4e3e\u3002\n\n\u679a\u4e3e $i$ , $j$ , $k$ \u4e09\u4e2a\u5b57\u7b26\u4e32\uff0c\u5f3a\u5236\u5728 $i$ \u4e2d\u9009\u6570\u5b57\uff0c$j$ \u4e2d\u9009\u5b57\u6bcd\uff0c$k$ \u4e2d\u9009\u7b26\u53f7\u3002\n\n\u63a5\u4e0b\u6765\u7684\u95ee\u9898\u5c31\u662f\u9009\u62e9\u5b57\u7b26\u4e32\u4e2d\u7684\u54ea\u4e2a\u5b57\u7b26\u6700\u4f18\uff0c\u90a3\u5c31\u76f4\u63a5\u626b\u4e00\u904d\u5b57\u7b26\u4e32\uff0c\u5728\u6240\u6709\u53ef\u9009\u7684\u5b57\u7b26\u4e2d\u53d6\u6700\u5c0f\u503c\u5c31\u884c\u4e86\u3002\n\n\u65f6\u95f4\u590d\u6742\u5ea6 $O(n^3m)$\u3002\n\n\u6838\u5fc3\u4ee3\u7801\uff1a\n\n```cpp\nconst int N=101+10;\nint n,m,ans=inf;\nchar a[N][N];\nsigned main()\n{\n\tcin>>n>>m;\n\tfor(ri int i=1;i<=n;++i)\n\t\tfor(ri int j=1;j<=m;++j)\n\t\t\tcin>>a[i][j];\n\tfor(ri int i=1;i<=n;++i)\n\t\tfor(ri int j=1;j<=n;++j)\n\t\t\tif(i!=j) for(ri int k=1;k<=n;++k)//\u679a\u4e3e\u5b57\u7b26\u4e32\n\t\t\t\tif(i!=j&&j!=k)\n\t\t\t\t{\n\t\t\t\t\tri int res=inf,sum=0;\n\t\t\t\t\tfor(ri int l=1;l<=m;++l)\n\t\t\t\t\t\tif(a[i][l]>='0'&&a[i][l]<='9') res=min(res,min(l-1,m-l+1));//\u6ce8\u610f\u5b57\u7b26\u4e32\u662f\u73af\u5f62\u7684\n\t\t\t\t\tsum+=res;res=inf;\n\t\t\t\t\tfor(ri int l=1;l<=m;++l)\n\t\t\t\t\t\tif(a[j][l]>='a'&&a[j][l]<='z') res=min(res,min(l-1,m-l+1));\n\t\t\t\t\tsum+=res;res=inf;\n\t\t\t\t\tfor(ri int l=1;l<=m;++l)\n\t\t\t\t\t\tif(a[k][l]=='#'||a[k][l]=='*'||a[k][l]=='&') res=min(res,min(l-1,m-l+1));\n\t\t\t\t\tsum+=res;ans=min(ans,sum);\n\t\t\t\t}\n\tcout<<ans;\n\treturn 0;\n}\n```",
+        "postTime": 1627786932,
+        "uid": 329672,
+        "name": "Ninelife_Cat",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF761C \u3010Dasha and Password\u3011"
+    }
+]

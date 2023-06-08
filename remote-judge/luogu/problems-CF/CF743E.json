@@ -1,0 +1,21 @@
+{
+    "description": "Vladik was bored on his way home and decided to play the following game. He took $ n $ cards and put them in a row in front of himself. Every card has a positive integer number not exceeding $ 8 $ written on it. He decided to find the longest subsequence of cards which satisfies the following conditions:\n\n- the number of occurrences of each number from $ 1 $ to $ 8 $ in the subsequence doesn't differ by more then $ 1 $ from the number of occurrences of any other number. Formally, if there are $ c_{k} $ cards with number $ k $ on them in the subsequence, than for all pairs of integers ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF743E/0c6cc5f621659ae2ddf5ab0dac10dd28e326ec14.png) the condition $ |c_{i}-c_{j}|<=1 $ must hold.\n- if there is at least one card with number $ x $ on it in the subsequence, then all cards with number $ x $ in this subsequence must form a continuous segment in it (but not necessarily a continuous segment in the original sequence). For example, the subsequence $ [1,1,2,2] $ satisfies this condition while the subsequence $ [1,2,2,1] $ doesn't. Note that $ [1,1,2,2] $ doesn't satisfy the first condition.\n\nPlease help Vladik to find the length of the longest subsequence that satisfies both conditions.",
+    "inputFormat": "The first line contains single integer $ n $ ( $ 1<=n<=1000 $ ) \u2014 the number of cards in Vladik's sequence.\n\nThe second line contains the sequence of $ n $ positive integers not exceeding $ 8 $ \u2014 the description of Vladik's sequence.",
+    "outputFormat": "Print single integer \u2014 the length of the longest subsequence of Vladik's sequence that satisfies both conditions.",
+    "samples": [
+        [
+            "3\n1 1 1\n",
+            "1"
+        ],
+        [
+            "8\n8 7 6 5 4 3 2 1\n",
+            "8"
+        ],
+        [
+            "24\n1 8 1 2 8 2 3 8 3 4 8 4 5 8 5 6 8 6 7 8 7 8 8 8\n",
+            "17"
+        ]
+    ],
+    "hint": "In the first sample all the numbers written on the cards are equal, so you can't take more than one card, otherwise you'll violate the first condition.",
+    "translation": "# \u7ffb\u8bd1\uff1a\n\n\u9898\u610f\uff1a\u7ed9\u5b9a\u5e8f\u5217A\uff0cA\u4e2d\u5747\u5143\u7d20\u4e3a$[1,8]$\u4e2d\u7684\u6574\u6570\uff0c\u6c42\u4e00\u4e2aA\u7684\u6700\u957f\u5b50\u5e8f\u5217\u4e14\u6ee1\u8db3\u4ee5\u4e0b2\u4e2a\u6761\u4ef6\uff0c\n\n1. $[1,8]$\u4e2d\u6bcf2\u4e2a\u6574\u6570\u7684\u51fa\u73b0\u6b21\u6570\u4e4b\u5dee\u4e0d\u8d85\u8fc71\n\n2. \u6bcf\u79cd\u6570\u5b57\u7684\u5168\u90e8\u5143\u7d20\u5fc5\u987b\u8fde\u7eed\uff0c\n\u5373222333\u662f\u5408\u6cd5\u7684\uff0c223322\u4e0d\u5408\u6cd5\n\nn<=1000,(2s)"
+}

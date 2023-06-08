@@ -1,0 +1,25 @@
+{
+    "description": "When new students come to the Specialized Educational and Scientific Centre (SESC) they need to start many things from the beginning. Sometimes the teachers say (not always unfairly) that we cannot even count. So our teachers decided to teach us arithmetics from the start. And what is the best way to teach students add and subtract? \u2014 That's right, using counting sticks! An here's our new task:\n\nAn expression of counting sticks is an expression of type:\n\n\\[ $ A $ sticks\\]\\[sign +\\]\\[ $ B $ sticks\\]\\[sign =\\]\\[ $ C $ sticks\\] $ (1<=A,B,C) $ . Sign + consists of two crossed sticks: one vertical and one horizontal. Sign = consists of two horizontal sticks. The expression is arithmetically correct if $ A+B=C $ .\n\nWe've got an expression that looks like $ A+B=C $ given by counting sticks. Our task is to shift at most one stick (or we can shift nothing) so that the expression became arithmetically correct. Note that we cannot remove the sticks from the expression, also we cannot shift the sticks from the signs + and =.\n\nWe really aren't fabulous at arithmetics. Can you help us?",
+    "inputFormat": "The single line contains the initial expression. It is guaranteed that the expression looks like $ A+B=C $ , where $ 1<=A,B,C<=100 $ .",
+    "outputFormat": "If there isn't a way to shift the stick so the expression becomes correct, print on a single line \"Impossible\" (without the quotes). If there is a way, print the resulting expression. Follow the format of the output from the test samples. Don't print extra space characters.\n\nIf there are multiple correct answers, print any of them. For clarifications, you are recommended to see the test samples.",
+    "samples": [
+        [
+            "||+|=|||||\n",
+            "|||+|=||||\n"
+        ],
+        [
+            "|||||+||=||\n",
+            "Impossible\n"
+        ],
+        [
+            "|+|=||||||\n",
+            "Impossible\n"
+        ],
+        [
+            "||||+||=||||||\n",
+            "||||+||=||||||\n"
+        ]
+    ],
+    "hint": "In the first sample we can shift stick from the third group of sticks to the first one.\n\nIn the second sample we cannot shift vertical stick from + sign to the second group of sticks. So we cannot make a - sign.\n\nThere is no answer in the third sample because we cannot remove sticks from the expression.\n\nIn the forth sample the initial expression is already arithmetically correct and that is why we don't have to shift sticks.",
+    "translation": "\u7ed9\u5b9a\u4e00\u4e2a\u7531\u706b\u67f4\u68d2\u7ec4\u6210\u7684\u7b49\u5f0f\uff0c\u683c\u5f0f\u4f1a\u662f\u8fd9\u6837\uff1a\n\t\n    |||+||=|||||\n\u4e0d\u8fc7\uff0c\u8fd9\u4e2a\u7b49\u5f0f\u4e0d\u4e00\u5b9a\u6210\u7acb\uff0c\u6240\u4ee5\u4f60\u9700\u8981\u628a\u7b49\u53f7\u5de6\u8fb9\u79fb\u4e00\u6839\u706b\u67f4\u68d2\u5230\u53f3\u8fb9\uff0c\u6216\u8005\u4ece\u7b49\u53f7\u53f3\u8fb9\u79fb\u4e00\u6839\u706b\u67f4\u68d2\u5230\u5de6\u8fb9\n\n\u5982\u679c\u539f\u6765\u7684\u7b49\u5f0f\u53ef\u4ee5\u6210\u7acb\u6216\u79fb\u52a8\u4e00\u6839\u540e\u53ef\u4ee5\u6210\u7acb\uff0c\u8bf7\u8f93\u51fa\u6210\u7acb\u7684\u7b49\u5f0f\n\n\u5426\u5219\u8f93\u51fa\"Impossible\"\uff08\u4e0d\u5e26\u5f15\u53f7\uff09"
+}

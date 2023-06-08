@@ -1,0 +1,10 @@
+[
+    {
+        "content": "#### $\\mathcal Description:$\n\n$\\quad\\bullet$ \u7ed9\u5b9a $n,m$ \u548c $n$ \u4e2a\u6b63\u6574\u6570 $a$\u3002\n\n$\\quad\\bullet$ \u8981\u6c42\u627e\u5230 $n$ \u4e2a\u6b63\u6574\u6570 $b$\uff0c\u4f7f\u5f97 $\\sum\\limits_{i=1}^npopcount(b_i)a_i$ \u6700\u5927\u5316\u3002\n\n$\\quad\\bullet$ \u5176\u4e2d $0 \\leq b_1 <b_2 < \\cdot\\cdot\\cdot <b_m \\leq m$\u3002\n\n#### $\\mathcal Solution:$\n\n$\\quad\\bullet$ \u521a\u5f00\u59cb\u60f3\u4e86\u4e2a\u8d2a\u5fc3\uff0c\u7ed3\u679c\u663e\u7136\u5047\u4e86\u3002\n\n$\\quad\\bullet$ \u8003\u8651\u52a8\u6001\u89c4\u5212\uff0c\u8bbe $f_{i,l,r}$ \u4ee3\u8868\u5904\u7406\u533a\u95f4 $[l,r]$ \uff0c\u6240\u6709 $[l,r]$ \u7684 $b$ \u6570\u5b57\u5728 $[0,2^i)$ \u65f6\u7684\u6700\u5927\u503c\u3002\u8bbe  $s_i$ \u4ee3\u8868\u524d $i$ \u4e2a $a$ \u6570\u5b57\u7684\u524d\u7f00\u548c\u3002\u53ef\u4ee5\u5f97\u5230\u8f6c\u79fb\uff1a\n\n$$\nf_{i,l,r} = \\max\\{f_{i-1,l,k}+f_{i-1,k+1,r}+s_r-s_k\\}\n$$\n\n$\\quad\\bullet$ \u8fd9\u4e2a\u90e8\u5206\u7684\u65f6\u95f4\u590d\u6742\u5ea6\u4e3a $\\mathcal O(n^3)$\u3002\n\n$\\quad\\bullet$ \u8003\u8651\u6c42\u89e3\u95ee\u9898\uff0c\u8bbe $g_{dep,l,r}$ \u4ee3\u8868\u533a\u95f4 $[l,r]$ \u7684\u7b54\u6848\uff0c\u5176\u4e2d $[l,r]$ \u4f4d\u7f6e\u7684\u6570\u5b57 $b$ \u7684\u4e8c\u8fdb\u5236\u4f4d\u7684 $dep+1$ \u5373\u4ee5\u4e0a\u4f4d\u5df2\u7ecf\u8ba1\u7b97\u5b8c\u6bd5\uff0c\u5e76\u4e14\u5361\u7740 $m$ \u8fd9\u4e2a\u4e0a\u754c\u3002\u8fd8\u662f\u53ef\u4ee5\u5f97\u5230\u8f6c\u79fb\u3002\n\n$$\ng_{dep,l,r} = \\begin{cases}g_{dep-1,l,r}\\quad if \\quad (*)\\quad  \\\\ \\max\\{f_{dep-1,l,k}+g_{dep-1,k+1,r}+s_r-s_{k}\\}\\end{cases}\n$$\n\n$\\quad\\bullet$ \u5176\u4e2d $(*)$ \u4ee3\u8868 $m$ \u7684\u7b2c $dep$ \u4f4d\u4e8c\u8fdb\u5236\u4e0d\u4e3a $1$\u3002\n\n$\\quad\\bullet$ \u6309\u7167\u8fd9\u4e2a\u65b9\u6cd5\u8ba1\u7b97\u5373\u53ef\u3002",
+        "postTime": 1606177820,
+        "uid": 206488,
+        "name": "\u849f\u84bbtyy",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P5985 \u3010[PA2019]Muzyka pop\u3011"
+    }
+]

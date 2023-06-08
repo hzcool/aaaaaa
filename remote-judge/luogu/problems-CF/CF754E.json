@@ -1,0 +1,21 @@
+{
+    "description": "Dasha is fond of challenging puzzles: Rubik's Cube $ 3\u00d73\u00d73 $ , $ 4\u00d74\u00d74 $ , $ 5\u00d75\u00d75 $ and so on. This time she has a cyclic table of size $ n\u00d7m $ , and each cell of the table contains a lowercase English letter. Each cell has coordinates $ (i,j) $ ( $ 0<=i&lt;n $ , $ 0<=j&lt;m $ ). The table is cyclic means that to the right of cell $ (i,j) $ there is the cell ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF754E/a5d005af310d530b73654f2e5c374c68f16d2ee4.png), and to the down there is the cell ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF754E/1a381522c9ac4a424562398196989e9e4585022e.png).\n\nDasha has a pattern as well. A pattern is a non-cyclic table of size $ r\u00d7c $ . Each cell is either a lowercase English letter or a question mark. Each cell has coordinates $ (i,j) $ ( $ 0<=i&lt;r $ , $ 0<=j&lt;c $ ).\n\nThe goal of the puzzle is to find all the appearance positions of the pattern in the cyclic table.\n\nWe say that the cell $ (i,j) $ of cyclic table is an appearance position, if for every pair $ (x,y) $ such that $ 0<=x&lt;r $ and $ 0<=y&lt;c $ one of the following conditions holds:\n\n- There is a question mark in the cell $ (x,y) $ of the pattern, or\n- The cell ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF754E/54ce001d702da711f4c8fe98e24e25993cb660d2.png) of the cyclic table equals to the cell $ (x,y) $ of the pattern.\n\nDasha solved this puzzle in no time, as well as all the others she ever tried. Can you solve it?.",
+    "inputFormat": "The first line contains two integers $ n $ and $ m $ ( $ 1<=n,m<=400 $ ) \u2014 the cyclic table sizes.\n\nEach of the next $ n $ lines contains a string of $ m $ lowercase English characters \u2014 the description of the cyclic table.\n\nThe next line contains two integers $ r $ and $ c $ ( $ 1<=r,c<=400 $ ) \u2014 the sizes of the pattern.\n\nEach of the next $ r $ lines contains a string of $ c $ lowercase English letter and/or characters '?' \u2014 the description of the pattern.",
+    "outputFormat": "Print $ n $ lines. Each of the $ n $ lines should contain $ m $ characters. Each of the characters should equal '0' or '1'.\n\nThe $ j $ -th character of the $ i $ -th ( $ 0 $ -indexed) line should be equal to '1', in case the cell $ (i,j) $ is an appearance position, otherwise it should be equal to '0'.",
+    "samples": [
+        [
+            "5 7\nqcezchs\nhhedywq\nwikywqy\nqckrqzt\nbqexcxz\n3 2\n??\nyw\n?q\n",
+            "0000100\n0001001\n0000000\n0000000\n0000000\n"
+        ],
+        [
+            "10 10\nfwtoayylhw\nyyaryyjawr\nywrdzwhscy\nhnsyyxiphn\nbnjwzyyjvo\nkkjgseenwn\ngvmiflpcsy\nlxvkwrobwu\nwyybbcocyy\nyysijsvqry\n2 2\n??\nyy\n",
+            "1000100000\n0000000001\n0001000000\n0000010000\n0000000000\n0000000000\n0000000000\n0100000010\n1000000001\n0000010000\n"
+        ],
+        [
+            "8 6\nibrgxl\nxqdcsg\nokbcgi\ntvpetc\nxgxxig\nigghzo\nlmlaza\ngpswzv\n1 4\ngx??\n",
+            "000100\n000001\n000000\n000000\n010001\n000000\n000000\n000000\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9\u51fa\u4e00\u4e2a\u5b57\u6bcd\u9635 $A$\uff0c\u518d\u7ed9\u51fa\u4e00\u4e2a\u90e8\u5206\u5b57\u6bcd\u6ca1\u6709\u786e\u5b9a\u7684\u8be2\u95ee\u9635 $B$\uff0c\u6c42\u51fa\u5de6\u4e0a\u89d2\u4e3a\u4f4d\u7f6e $(i,j)$ \u65f6\u80fd\u5426\u5339\u914d $(A[(i+x) \\text{mod } n][(i+y) \\text{mod }m]=B[i][j])$\uff0c\u8f93\u51fa $01$ \u77e9\u9635\u8868\u793a\u7b54\u6848\u3002"
+}

@@ -1,0 +1,34 @@
+[
+    {
+        "content": "[\u6d1b\u8c37 \u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/AT_joi2022_yo1a_b) | [AtCoder \u4f20\u9001\u95e8](https://atcoder.jp/contests/joi2022yo1a/tasks/joi2022_yo1a_b)\r\n\r\n[\u66f4\u597d\u7684\u9605\u8bfb\u4f53\u9a8c](https://www.luogu.com.cn/blog/sunrize/solution-at-joi2022-yo1a-b)\r\n\r\n\u9898\u76ee\u5927\u610f\uff1a\r\n\r\n- \u8f93\u5165\u4e09\u4e2a\u6570 $x, y, z$\uff0c\u5982\u679c $x + y \\le z$ \u5219\u8f93\u51fa $1$\uff0c\u5426\u5219\u8f93\u51fa $0$\u3002\r\n\r\n- $1 \\le x, y, z \\le 100$\r\n\r\n---\r\n\r\n### \u5206\u6790\r\n\r\n\u7b80\u5355\u9898\uff0c\u5224\u65ad\u4e00\u4e0b\u5373\u53ef\u3002\r\n\r\n**\u6ce8\u610f\uff1aAtCoder \u7684\u9898\u4e00\u5b9a\u8981\u6362\u884c\uff0c\u5426\u5219\u7206\u96f6\u3002**\r\n\r\n---\r\n\r\n\u590d\u6742\u5ea6 $O(1)$\uff0c\u4ee3\u7801 $2$ \u884c\u3002\r\n\r\n```cpp\r\n#include <bits/stdc++.h>\r\nint main() { int x, y, z; std :: cin >> x >> y >> z; std :: cout << (x + y <= z ? 1 : 0) << std :: endl; return 0; }\r\n```",
+        "postTime": 1668083269,
+        "uid": 502658,
+        "name": "Sunrize",
+        "ccfLevel": 0,
+        "title": "[AT_joi2022_yo1a_b] \u79fb\u52d5 \u9898\u89e3"
+    },
+    {
+        "content": "\u4e00\u5230\u5f88\u7b80\u5355\u7684\u9898\uff0c\u65e0\u9700\u8bb2\u89e3\uff0c\u76f4\u63a5\u5224\u65ad\u4e00\u4e0b $a + b$ \u662f\u5426\u5c0f\u4e8e\u7b49\u4e8e $c$ \u5c31\u884c\u4e86\u3002\r\n\r\n\u53c2\u8003\u4ee3\u7801\uff1a\r\n\r\n$\\texttt{Python}$\r\n\r\n```python\r\na = int(input())\r\nb = int(input())\r\nc = int(input())\r\n\r\nif a + b <= c:\r\n    print(1)\r\nelse:\r\n    print(0)\r\n```\r\n\r\n$\\texttt{Bach}$\r\n\r\n```\r\nread a\r\nread b\r\nread c\r\n\r\nif [[ $[a + b] -le $c ]]\r\nthen\r\n\techo 1\r\nelse\r\n\techo 0\r\nfi\r\n```\r\n\r\n$\\texttt{C ++}$\r\n\r\n```cpp\r\n#include <iostream>\r\nusing namespace std;\r\nint main () {\r\n    int a, b, c;\r\n    cin >> a >> b >> c;\r\n    if (a + b <= c) cout << 1;\r\n    else cout << 0;\r\n    cout << endl;\r\n    return 0;\r\n}\r\n```",
+        "postTime": 1668081484,
+        "uid": 462047,
+        "name": "jimmyfj",
+        "ccfLevel": 0,
+        "title": "AT_joi2022_yo1a_b"
+    },
+    {
+        "content": "[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/AT_joi2022_yo1a_b)\n\n## \u9898\u76ee\u5927\u610f\n\n\u7ed9\u51fa\u4e09\u4e2a\u6570 $X,Y,Z$\uff0c\u5982\u679c $X+Y \\le Z$\uff0c\u8f93\u51fa $1$\uff0c\u5426\u5219\u8f93\u51fa $0$\u3002\n\n## \u601d\u8def\n\n\u76f4\u63a5\u5224\u65ad\u52a0\u8f93\u51fa\u3002\n\n## \u4ee3\u7801\n\n```cpp\n#include <iostream>\nusing namespace std;\nint main(){\n\tint x,y,z;\n\tcin>>x>>y>>z;\n\tcout<<(x+y<=z);//\u5224\u65ad\u52a0\u8f93\u51fa\n\treturn 0;\n}\n```\n",
+        "postTime": 1667443207,
+        "uid": 673815,
+        "name": "Marshall001",
+        "ccfLevel": 5,
+        "title": "AT_joi2022_yo1a_b \u9898\u89e3"
+    },
+    {
+        "content": "## \u9898\u76ee\u5927\u610f\n\n\u8f93\u5165 $x$ \u3001 $y$ \u3001 $z$ \uff0c\u5982\u679c $x+y \\leq z$ \u8f93\u51fa $1$ \uff0c\u5426\u5219\u8f93\u51fa $0$ \u3002\n\n## \u89e3\u9898\u601d\u8def\n\n\u6bd4\u8f83 $x+y$ \u4e0e $z$ \u7684\u5927\u5c0f\u5c31\u884c\u3002\n\n## \u4ee3\u7801\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nint main () {\n    int x,y,z;\n    cin>> x>> y>> z;\n    if (x+y<=z) cout<< 1;\n    else cout<< 0;\n    return 0;\n}\n```",
+        "postTime": 1666774275,
+        "uid": 556851,
+        "name": "_SOVIET_",
+        "ccfLevel": 4,
+        "title": "AT_joi2022_yo1a_b\u9898\u89e3"
+    }
+]

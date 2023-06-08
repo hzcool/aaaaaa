@@ -1,0 +1,29 @@
+{
+    "description": "Gildong has bought a famous painting software cfpaint. The working screen of cfpaint is square-shaped consisting of $ n $ rows and $ n $ columns of square cells. The rows are numbered from $ 1 $ to $ n $ , from top to bottom, and the columns are numbered from $ 1 $ to $ n $ , from left to right. The position of a cell at row $ r $ and column $ c $ is represented as $ (r, c) $ . There are only two colors for the cells in cfpaint \u2014 black and white.\n\nThere is a tool named eraser in cfpaint. The eraser has an integer size $ k $ ( $ 1 \\le k \\le n $ ). To use the eraser, Gildong needs to click on a cell $ (i, j) $ where $ 1 \\le i, j \\le n - k + 1 $ . When a cell $ (i, j) $ is clicked, all of the cells $ (i', j') $ where $ i \\le i' \\le i + k - 1 $ and $ j \\le j' \\le j + k - 1 $ become white. In other words, a square with side equal to $ k $ cells and top left corner at $ (i, j) $ is colored white.\n\nA white line is a row or a column without any black cells.\n\nGildong has worked with cfpaint for some time, so some of the cells (possibly zero or all) are currently black. He wants to know the maximum number of white lines after using the eraser exactly once. Help Gildong find the answer to his question.",
+    "inputFormat": "The first line contains two integers $ n $ and $ k $ ( $ 1 \\le k \\le n \\le 2000 $ ) \u2014 the number of rows and columns, and the size of the eraser.\n\nThe next $ n $ lines contain $ n $ characters each without spaces. The $ j $ -th character in the $ i $ -th line represents the cell at $ (i,j) $ . Each character is given as either 'B' representing a black cell, or 'W' representing a white cell.",
+    "outputFormat": "Print one integer: the maximum number of white lines after using the eraser exactly once.",
+    "samples": [
+        [
+            "4 2\nBWWW\nWBBW\nWBBW\nWWWB\n",
+            "4\n"
+        ],
+        [
+            "3 1\nBWB\nWWB\nBWB\n",
+            "2\n"
+        ],
+        [
+            "5 3\nBWBBB\nBWBBB\nBBBBB\nBBBBB\nWBBBW\n",
+            "2\n"
+        ],
+        [
+            "2 2\nBW\nWB\n",
+            "4\n"
+        ],
+        [
+            "2 1\nWW\nWW\n",
+            "4\n"
+        ]
+    ],
+    "hint": "In the first example, Gildong can click the cell $ (2, 2) $ , then the working screen becomes:\n\n```\n<pre class=\"verbatim\">BWWW<br></br>WWWW<br></br>WWWW<br></br>WWWB<br></br>\n```\n\nThen there are four white lines \u2014 the $ 2 $ -nd and $ 3 $ -rd row, and the $ 2 $ -nd and $ 3 $ -rd column.\n\nIn the second example, clicking the cell $ (2, 3) $ makes the $ 2 $ -nd row a white line.\n\nIn the third example, both the $ 2 $ -nd column and $ 5 $ -th row become white lines by clicking the cell $ (3, 2) $ .",
+    "translation": "\u7ed9\u4f60\u4e24\u4e2a\u6574\u6570**n**\u548c**k**(1\u2264k\u2264n\u22642000),\n\u8868\u793a\u6709\u4e00\u4e2an * n\u7684\u6b63\u65b9\u5f62\u753b\u5e03\u4e0a\u53ea\u6709\u9ed1\u70b9(B)\u548c\u767d\u70b9(W)\u3002\n\u7528\u4e00\u5757k * k\u7684\u6a61\u76ae\u64e6\u53ef\u4ee5\u628a\u753b\u5e03\u4e0a\u4e00\u4e2ak * k\u7684\u533a\u57df\u5168\u90e8\u53d8\u6210\u767d\u8272\uff0c\u5373\u628a\u9ed1\u8272\u7684\u90e8\u5206\u64e6\u9664\u3002\n**\u767d\u7ebf**\u5b9a\u4e49\u4e3a\u4e00\u884c\u6216\u4e00\u5217\u5168\u90fd\u662f\u767d\u8272(\u6ca1\u6709\u4e00\u5757\u662f\u9ed1\u8272)\u7684\u7ebf\u3002\n\u95ee**\u53ea\u64e6\u4e00\u6b21**\u753b\u5e03\u4e0a\u6700\u591a\u6709\u591a\u5c11\u6761**\u767d\u7ebf**\u3002\n\u2014\u2014pxy1118\u7ffb\u8bd1"
+}

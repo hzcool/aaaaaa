@@ -5,7 +5,7 @@ import Model from "./common";
 
 @TypeORM.Entity()
 export default class ProblemNote extends Model {
-    static cache = false;
+    static cache = true;
 
     @TypeORM.PrimaryColumn({ type: "integer" })
     problem_id: number;

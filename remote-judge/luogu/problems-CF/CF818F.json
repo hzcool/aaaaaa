@@ -1,0 +1,13 @@
+{
+    "description": "Ivan is developing his own computer game. Now he tries to create some levels for his game. But firstly for each level he needs to draw a graph representing the structure of the level.\n\nIvan decided that there should be exactly $ n_{i} $ vertices in the graph representing level $ i $ , and the edges have to be bidirectional. When constructing the graph, Ivan is interested in special edges called bridges. An edge between two vertices $ u $ and $ v $ is called a bridge if this edge belongs to every path between $ u $ and $ v $ (and these vertices will belong to different connected components if we delete this edge). For each level Ivan wants to construct a graph where at least half of the edges are bridges. He also wants to maximize the number of edges in each constructed graph.\n\nSo the task Ivan gave you is: given $ q $ numbers $ n_{1},n_{2},...,n_{q} $ , for each $ i $ tell the maximum number of edges in a graph with $ n_{i} $ vertices, if at least half of the edges are bridges. Note that the graphs cannot contain multiple edges or self-loops.",
+    "inputFormat": "The first line of input file contains a positive integer $ q $ ( $ 1<=q<=100000 $ ) \u2014 the number of graphs Ivan needs to construct.\n\nThen $ q $ lines follow, $ i $ -th line contains one positive integer $ n_{i} $ ( $ 1<=n_{i}<=2\u00b710^{9} $ ) \u2014 the number of vertices in $ i $ -th graph.\n\nNote that in hacks you have to use $ q=1 $ .",
+    "outputFormat": "Output $ q $ numbers, $ i $ -th of them must be equal to the maximum number of edges in $ i $ -th graph.",
+    "samples": [
+        [
+            "3\n3\n4\n6\n",
+            "2\n3\n6\n"
+        ]
+    ],
+    "hint": "In the first example it is possible to construct these graphs:\n\n1. $ 1-2 $ , $ 1-3 $ ;\n2. $ 1-2 $ , $ 1-3 $ , $ 2-4 $ ;\n3. $ 1-2 $ , $ 1-3 $ , $ 2-3 $ , $ 1-4 $ , $ 2-5 $ , $ 3-6 $ .",
+    "translation": "\u5bf9\u4e8e $n$ \u4e2a\u70b9 $m $ \u6761\u8fb9\u7684\u7b80\u5355\u65e0\u5411\u56fe\uff0c\u5982\u679c\u6709\u81f3\u5c11 $ \\lceil\\frac{m}{2}\\rceil$ \u6761\u8fb9\u662f\u6865\uff0c\u5219\u8fd9\u4e2a\u56fe\u662f \u201c\u7edd\u5999\u7684\u201d \u3002$q \\ \\ (q\\le 10^5)$ \u6b21\u8be2\u95ee\uff0c\u6c42\u51fa $x \\ \\ (x\\le 2\\times 10^9)$ \u4e2a\u70b9\u7684 \u201c\u7edd\u5999\u7684\u201d \u56fe\u4e2d\uff0c\u6700\u591a\u6709\u591a\u5c11\u6761\u8fb9\u3002"
+}

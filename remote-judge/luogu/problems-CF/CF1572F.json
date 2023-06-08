@@ -1,0 +1,17 @@
+{
+    "description": "There are $ n $ cities in a row numbered from $ 1 $ to $ n $ .\n\nThe cities will be building broadcasting stations. The station in the $ i $ -th city has height $ h_i $ and range $ w_i $ . It can broadcast information to city $ j $ if the following constraints are met:\n\n- $ i \\le j \\le w_i $ , and\n- for each $ k $ such that $ i < k \\le j $ , the following condition holds: $ h_k < h_i $ .\n\n In other words, the station in city $ i $ can broadcast information to city $ j $ if $ j \\ge i $ , $ j $ is in the range of $ i $ -th station, and $ i $ is strictly highest on the range from $ i $ to $ j $ (including city $ j $ ).At the beginning, for every city $ i $ , $ h_i = 0 $ and $ w_i = i $ .\n\nThen $ q $ events will take place. During $ i $ -th event one of the following will happen:\n\n- City $ c_i $ will rebuild its station so that its height will be strictly highest among all stations and $ w_{c_i} $ will be set to $ g_i $ .\n- Let $ b_j $ be the number of stations that can broadcast information to city $ j $ . Print the sum of $ b_j $ over all $ j $ satisfying $ l_i \\le j \\le r_i $ .\n\nYour task is to react to all events and print answers to all queries.",
+    "inputFormat": "The first line contains two integers $ n $ and $ q $ ( $ 1 \\le n, q \\le 2\\cdot10^5 $ ) \u2014 number of cities and number of events.\n\nThen $ q $ lines follow. The $ i $ -th line begins with an integer $ p_i $ ( $ p_i = 1 $ or $ p_i = 2 $ ).\n\nIf $ p_i = 1 $ a station will be rebuilt. Then two integers $ c_i $ and $ g_i $ ( $ 1 \\le c_i \\le g_i \\le n $ ) follow \u2014 the city in which the station is rebuilt and its new broadcasting range.\n\nIf $ p_i = 2 $ you are given a query. Then two integers $ l_i $ and $ r_i $ ( $ 1 \\le l_i \\le r_i \\le n $ ) follow \u2014 the range of cities in the query.",
+    "outputFormat": "For each query, print in a single line the sum of $ b_j $ over the given interval.",
+    "samples": [
+        [
+            "1 3\n2 1 1\n1 1 1\n2 1 1",
+            "1\n1"
+        ],
+        [
+            "5 10\n1 3 4\n2 3 5\n1 1 5\n2 1 5\n1 4 5\n2 2 4\n1 2 3\n2 1 3\n1 5 5\n2 2 5",
+            "4\n10\n5\n4\n5"
+        ]
+    ],
+    "hint": "In the first test case, only station $ 1 $ reaches city $ 1 $ before and after it is rebuilt.\n\nIn the second test case, after each rebuild, the array $ b $ looks as follows:\n\n1. $ [1, 1, 1, 2, 1] $ ;\n2. $ [1, 2, 2, 3, 2] $ ;\n3. $ [1, 2, 2, 1, 2] $ ;\n4. $ [1, 1, 2, 1, 2] $ ;\n5. $ [1, 1, 2, 1, 1] $ .",
+    "translation": "\u6709 $n$ \u4e2a\u5e7f\u64ad\u7ad9\uff0c\u7b2c $i$ \u4e2a\u5e7f\u64ad\u7ad9\u9ad8\u5ea6\u4e3a $h_i$\uff0c\u8303\u56f4\u4e3a $w_i$\u3002\u521d\u59cb $h_i=0,w_i=i$\u3002\u5e7f\u64ad\u7ad9 $i$ \u80fd\u5411\u5e7f\u64ad\u7ad9 $j$ \u4f20\u9012\u6d88\u606f\uff0c\u5f53\u4e14\u4ec5\u5f53 $i\\le j\\le w_i$\uff0c\u4e14 $h_i>\\max\\limits_{k=i+1}^jh_k$\u3002\u5b9a\u4e49 $b_i$ \u8868\u793a\u80fd\u5411 $i$ \u4f20\u64ad\u6d88\u606f\u7684\u5e7f\u64ad\u7ad9\u6570\u91cf\u3002  \n\u63a5\u4e0b\u6765\u6709 $q$ \u6b21\u64cd\u4f5c\uff0c\u5206\u4e3a\u4ee5\u4e0b\u4e24\u79cd\u7c7b\u578b\uff1a\n- \u7ed9\u51fa $i,g$\uff0c\u628a $h_i$ \u53d8\u6210\u6240\u6709\u5e7f\u64ad\u7ad9\u4e2d\u4e25\u683c\u6700\u9ad8\u7684\uff0c\u5e76\u4e14 $w_i\\gets g$\u3002\n- \u7ed9\u51fa $l,r$\uff0c\u67e5\u8be2 $\\sum_{i=l}^rb_i$\u3002\n\n$1\\le n,q\\le2\\times10^5$\u3002"
+}

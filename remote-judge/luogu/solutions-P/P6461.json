@@ -1,0 +1,50 @@
+[
+    {
+        "content": "~~\u6c34\u9898\uff0c\u6c34\u9898\u89e3~~\n\n## 0.\u524d\u8a00\n\n\u8fdb[\u535a\u5ba2](https://www.luogu.com.cn/blog/Rolling-blog1424/)\u770b\u6548\u679c\u66f4\u597d\u5466\uff01\n\n\u8ba9\u6211\u4eec\u8fdb\u5165\u6b63\u9898\uff1a\n\n## 1.\u9898\u76ee\u5927\u610f\n\n\u521d\u59cb\u6709\u4e09\u4e2a\u676f\u5b50\uff0c\u7b2c\u4e00\u4e2a\u676f\u5b50\u91cc\u6709\u4e00\u4e2a\u7403\uff0c\u5e76\u4e14\u6709\u4e00\u4e2a\u53ea\u542b$A,B,C$\u7684\u5b57\u7b26\u4e32\uff0c\u5176\u4e2d$A$\u4ee3\u8868\u4ea4\u6362\u7b2c$1$\u548c\u7b2c$2$\u4e2a\u676f\u5b50;$B$\u4ee3\u8868\u4ea4\u6362\u7b2c$2$\u548c\u7b2c$3$\u4e2a\u676f\u5b50;$C$\u4ee3\u8868\u4ea4\u6362\u7b2c$3$\u548c\u7b2c$1$\u4e2a\u676f\u5b50\u3002\n\n## 2.\u7b97\u6cd5\u5206\u6790\n\n\u5176\u5b9e\u8fd9\u9898\u666e\u901a\u7684\u6a21\u62df\u5c31\u53ef\u4ee5\u505a$\\dots$\n\n\u4f9d\u6b21\u67e5\u770b\u5b57\u7b26\u4e32\u91cc\u6bcf\u4e2a\u5b57\u7b26\uff0c\u5e76\u4f9d\u7167\u9898\u610f\u6240\u63cf\u8ff0\u7684\u8fdb\u884c\u4ea4\u6362\u5c31\u597d\u5566\uff01\n\n## 3.$Code$\n\n~~\u52ff\u55b7\u9a6c\u8702~~\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nstring s;bool ans[3]={1,0,0};//\u4e09\u4e2a\u676f\u5b50 \nint main(){\n\tcin>>s;\n\tfor(int i=0;i<s.size();i++){\n\t\tif(s[i]=='A') swap(ans[0],ans[1]);\n\t\tif(s[i]=='B') swap(ans[1],ans[2]);\n\t\tif(s[i]=='C') swap(ans[2],ans[0]);\n\t}\n\tfor(int i=0;i<3;i++)\n\t\tif(ans[i]==1) printf(\"%d\",i+1);//\u6570\u7ec4\u4e0b\u6807\u4f1a-1\uff0c\u73b0\u5728\u52a0\u56de\u6765 \n\treturn 0;\n//}\u7981\u6b62\u6284\u88ad\uff01\uff01\n\n```\n~~\u6563\u82b1~~\n\n## 4.\u540e\u8bb0\n\n~~\u8fd9\u9898\u6709\u70b9\u6c34\uff0c\u6211\u4e5f\u4e0d\u6c42\u8d5e\u4e86~~\n\n~~\u6700\u540e\u7684\u6700\u540e\uff0c\u7ba1\u7406\u5927\u5927\u6c42\u8fc7\u3002~~\n\n~~\u5176\u5b9e\u662f\u4e00\u70b9\u91cd\u8981\u7684\u8bdd\u90fd\u6ca1\u8bf4~~",
+        "postTime": 1587609956,
+        "uid": 278629,
+        "name": "Rubidium_Chloride",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 P6461 \u3010[COCI2006-2007#5] TRIK\u3011"
+    },
+    {
+        "content": "\u5b9a\u4e49\u4e00\u4e2a\u6570\u7ec4\uff0ca[1]\u6bcf\u6b21\u8bfb\u5165\u4e00\u4e2achar x\uff0c\u5982\u679c\u662fA\u5c31swap(a[1],a[2])\uff0c\u5982\u679c\u662fB\u5c31swap(a[2],a[3])\uff0c\u5982\u679c\u662fC\u5c31swap(a[1],a[3])\u3002\u6700\u540e\u4ece1\u641c\u52303\uff0c\u5982\u679c\u503c\u4e3a1\u5c31\u8f93\u51fa\u3002\n\n\u4ee3\u7801\u5982\u4e0b\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint a[4]={0,1};//\u628aa[1]\u7684\u503c\u8d4b\u503c\u4e3a1 \nint main()\n{\n\tfor(char x;x!='\\n';)//\u5f53x\u4e0d\u662f\u6362\u884c\u7684\u65f6\u5019\u8fd0\u884c \n\t{\n\t\tx=getchar();//\u8bfb\u5165\u4e00\u4e2a\u5b57\u7b26 \n\t\tif(x=='A')swap(a[1],a[2]); \n\t\tif(x=='B')swap(a[2],a[3]);\n\t\tif(x=='C')swap(a[1],a[3]);\n\t}\n\tfor(int i=1;i<=3;i++)\n\t    if(a[i])cout<<i;//\u5982\u679c\u554aa[i]==1\u5c31\u8f93\u51fai\n\t \n\treturn 0;\n}\n```\n",
+        "postTime": 1587601360,
+        "uid": 306049,
+        "name": "Utilokasteinn",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 P6461 \u3010[COCI2006-2007#5] TRIK\u3011"
+    },
+    {
+        "content": "## \u601d\u8def\uff1a\n\u4e00\u5f00\u59cb\u7403\u5728\u6700\u5de6\u8fb9\u7684\u676f\u5b50\u91cc\uff0c\u90a3\u4e2a\u676f\u5b50\u7f6e\u4e3a$1$\u3002\u5176\u4ed6\u7f6e\u4e3a$0$\u3002\n\n\u7136\u540e\u53ef\u4ee5\u6309\u7167\u9898\u76ee\u91cc\u9762\u7684$ABC$\u4ea4\u6362\u5b83\u4eec\u7684\u503c\uff0c\u6a21\u62df\u6709\u7403\u7684\u676f\u5b50\u5230\u54ea\u4e86\u3002\n## \u4ee3\u7801\uff1a\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main()\n{\n\tstring str;//\u662f\u8f93\u5165\u7684\u5b57\u7b26\u4e32\n\tint a=1,b=0,c=0;//\u4e00\u5f00\u59cb\u7403\u5728\u5de6\u8fb9\n\tcin>>str;//\u8f93\u5165\u5b57\u7b26\u4e32\n\tfor(int i=0;i<str.size();i++)//\u5faa\u73af\n\t{\n\t\tif(str[i]=='A')\n\t\t{\n\t\t\tswap(a,b);//\u6309\u7167\u9898\u76ee\u8981\u6c42\u4ea4\u6362\u5de6\u8fb9\u548c\u4e2d\u95f4\u7684\u676f\u5b50\u3002\n\t\t}\n\t\telse if(str[i]=='B')\n\t\t{\n\t\t\tswap(b,c);//\u6309\u7167\u9898\u76ee\u8981\u6c42\u4ea4\u6362\u4e2d\u95f4\u548c\u53f3\u8fb9\u7684\u676f\u5b50\u3002\n\t\t}\n\t\telse if(str[i]=='C')\n\t\t{\n\t\t\tswap(a,c);//\u6309\u7167\u9898\u76ee\u8981\u6c42\u4ea4\u6362\u5de6\u8fb9\u548c\u53f3\u8fb9\u7684\u676f\u5b50\u3002\n\t\t}\n\t}\n\tif(a==1)//\u5982\u679c\u6709\u676f\u5b50\u7684\u7403\u5728\u5de6\u8fb9\n\t{\n\t\tcout<<1;//\u8f93\u51fa1\n\t}\n\telse if(b==1)//\u5982\u679c\u6709\u676f\u5b50\u7684\u7403\u5728\u4e2d\u95f4\n\t{\n\t\tcout<<2;//\u8f93\u51fa2\n\t}\n\telse//\u5982\u679c\u6709\u676f\u5b50\u7684\u7403\u5728\u53f3\u8fb9\n\t{\n\t\tcout<<3;//\u8f93\u51fa3\n\t}\n   \treturn 0;//\u522b\u5fd8\u4e86\n}\n\n```\n",
+        "postTime": 1587603183,
+        "uid": 218427,
+        "name": "wuyonghuming",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 P6461 \u3010[COCI2006-2007#5] TRIK\u3011"
+    },
+    {
+        "content": "[P6461 [COCI2006-2007#5] TRIK](https://www.luogu.com.cn/problem/P6461)\n\n\u8fd9\u9053\u9898\u5c31\u662f\u4e00\u9053\u7b80\u5355\u7684\u7eaf\u6a21\u62df\u3002\u9996\u5148\u6211\u4eec\u5b9a\u4e49\u4e00\u4e2a\u6570\u7ec4 $\\text{s}$ \u6a21\u62df\u8fd9\u4e2a\u8fc7\u7a0b\uff0c$\\text{cups}$ \u6a21\u62df\u4e09\u4e2a\u676f\u5b50\uff0c$\\text{cups}$ \u7684\u521d\u59cb\u5316\u4e3a $\\text{cups}[1]=true$ \uff0c\u5176\u4ed6\u90fd\u4e3a $false$ \u3002\n\n\u7136\u540e\u679a\u4e3e $\\text{s}$ \uff0c\u5bf9\u4e8e\u6bcf\u4e2a $\\text{s}[i]$ \uff0c\u5206\u4e09\u79cd\u60c5\u51b5\uff1a\n\n- `A` \uff1a$\\text{swap}(\\text{cups}[1],\\text{cups}[2]);$\n- `B` \uff1a$\\text{swap}(\\text{cups}[2],\\text{cups}[3]);$\n- `C` \uff1a$\\text{swap}(\\text{cups}[1],\\text{cups}[3]);$\n\n\u6700\u540e\u518d\u770b $\\text{cups}$ \u7684\u7b2c\u51e0\u4e2a\u662f $true$ \uff0c\u8f93\u51fa\u8fd9\u4e2a\u4e0b\u6807\u5373\u53ef\u3002\u6240\u4ee5\u8fd9\u9053\u9898\u53ea\u9700\u8981\u4e09\u4e2a\u51fd\u6570\uff0c\u4e24\u4e2a\u6570\u7ec4\u548c\u4e00\u4e2a\u679a\u4e3e\u7684\u8fc7\u7a0b\u5373\u53ef\uff0c\u4ee3\u7801\u91cf 543 B\uff0c\u7528\u65f6 18 ms\uff0c[AC \u8bb0\u5f55](https://www.luogu.com.cn/record/33044095)\u3002\n\nCode\uff1a\n\n```cpp\n#include <bits/stdc++.h>\n\nusing namespace std;\n\nchar s[10086];\n\nbool cups[10086];\n\nvoid A () {\n\tswap(cups[1], cups[2]);\n}\n\nvoid B () {\n\tswap(cups[2], cups[3]);\n}\n\nvoid C () {\n\tswap(cups[1], cups[3]);\n}\n\nint main () {\n\tcups[1] = true;\n\tscanf(\"%s\", s);\n\tint str = strlen(s);\n\tfor (int i = 0; i < str; i++)\n\t\tswitch (s[i]) {\n\t\t\tcase 'A': A(); break;\n\t\t\tcase 'B': B(); break;\n\t\t\tcase 'C': C(); break;\n\t\t}\n\tif (cups[1] == true) printf(\"1\");\n\telse if (cups[2] == true) printf(\"2\");\n\telse printf(\"3\");\n\treturn 0;\n}\n```\n\n\u5c3d\u91cf\u522b\u6284\uff0c\u81ea\u5df1\u601d\u8003\u6700\u91cd\u8981\u3002",
+        "postTime": 1587622097,
+        "uid": 114914,
+        "name": "\u4e00\u53ea\u4e66\u866b\u4ed4",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 P6461 \u3010[COCI2006-2007#5] TRIK\u3011"
+    },
+    {
+        "content": "\u6c34\u9898\u4e00\u9053\u3002\n\n\u6309\u9898\u610f\u6a21\u62df\u5373\u53ef\uff0c\u5728\u8fd9\u91cc\u7ed9\u5927\u5bb6\u4ecb\u7ecd\u4e00\u4e2aswap\uff08algorithm\u5e93\uff09\u51fd\u6570\uff0c$swap(a,b)$\u8868\u793a\u628a$a$\u8d4b\u503c\u4e3a$b$\uff0c\u628a$b$\u8d4b\u503c\u4e3a$a$\u3002\u901a\u8fc7\u8fd9\u4e2a\u51fd\u6570\u53ef\u4ee5\u51cf\u5c0f\u7801\u91cf\u3002\n\n\u56e0\u4e3a\u662f\u6309\u9898\u610f\u6a21\u62df\uff0c\u6240\u4ee5\u5c31\u4e0d\u591a\u8bb2\u4e86\uff0c\u5982\u679c\u8fd8\u6709\u4e0d\u660e\u767d\u7684\u5730\u65b9\u53ef\u4ee5\u770b\u6211\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\n using namespace std;\n long long a=1,b,c;//\u8bbe\u5b9a\u521d\u59cb\u72b6\u6001\n string s;\n int main(){\n \tcin>>s;//\u8f93\u5165\u7ed9\u5b9a\u5b57\u7b26\u4e32\n \tfor(int i=0;i<s.size();i++){\n                //\u5206\u7c7b\u8ba8\u8bba\n \t\tif(s[i]=='A') swap(a,b);\n \t\tif(s[i]=='B') swap(b,c);\n \t\tif(s[i]=='C') swap(a,c);\n\t }\n         //\u770b\u6700\u7ec8\u5728\u54ea\u4e2a\u676f\u5b50\u91cc\n\t if(a==1) cout<<\"1\";\n\t if(b==1) cout<<\"2\";\n\t if(c==1) cout<<\"3\";\n }\n```\n",
+        "postTime": 1587602470,
+        "uid": 223797,
+        "name": "Remake_",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 P6461 \u3010[COCI2006-2007#5] TRIK\u3011"
+    },
+    {
+        "content": "\u9898\u76ee\u4e2d\u7ed9\u51fa\u4e86$3$\u4e2a\u676f\u5b50\u3002\u521d\u59cb\u662f\u5728\u7b2c\u4e00\u4e2a\u676f\u5b50\u4e2d\u6709\u7403\uff0c\u6240\u4ee5\u4e0d\u59a8\u8bbe\u7f6e\u4e00\u4e2a\u6570\u7ec4\uff0c\u5c06\u7b2c\u4e00\u4e2a\u4e0b\u6807\u8bbe\u4e3a\u771f\uff0c\u5176\u4ed6\u7684\u4e3a\u5047\u3002\u7136\u540e\u53ef\u4ee5\u8c03\u7528\u7cfb\u7edf[$swap$](http://www.cplusplus.com/reference/algorithm/swap/)\u51fd\u6570\u6216\u8005\u624b\u5199\u4e00\u4e2a\u3002\u6700\u540e\u8f93\u51fa\u503c\u4e3a\u771f\u7684\u6570\u7ec4\u4e0b\u6807\u5373\u53ef\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include<cstdio>\nbool cup[]={0,1,0,0};//\u5b9a\u4e49\u5c0f\u7403\u6570\u7ec4\nchar s[51];//\u5b9a\u4e49\u5b57\u7b26\u6570\u7ec4\nvoid swap(bool &x,bool &y)//swap\u51fd\u6570\uff0c\u5fc5\u987b\u53d6\u5f15\u7528\n{\n    bool t=x;\n    x=y;\n    y=t;\n}\nint main()\n{\n    while(char ch=getchar())//\u4e0d\u505c\u8bfb\u5165\u5355\u4e2a\u5b57\u7b26\n    {\n        if(ch=='\\n')break;//\u9047\u5230\u6362\u884c\u5c31\u505c\u6b62\n        switch(ch)//switch\u7ed3\u6784\n        {\n            case 'A':\n            {\n                swap(cup[1],cup[2]);//\u8c03\u7528swap\u51fd\u6570\n                break;//\u5fc5\u4e0d\u53ef\u5c11\uff01\n            }\n            case 'B':\n            {\n                swap(cup[2],cup[3]);\n                break;\n            }\n            case 'C':swap(cup[1],cup[3]);\n        }\n    }\n    for(int i=1;i<4;i++)if(cup[i])putchar(i+'0');//putchar\u66f4\u5feb\u4e00\u4e9b\uff0c\u7b49\u540c\u4e8e\u8f93\u51fai\u5bf9\u5e94\u7684\u5b57\u7b26\n}\n```",
+        "postTime": 1587724057,
+        "uid": 137367,
+        "name": "hensier",
+        "ccfLevel": 6,
+        "title": "P6461 [COCI2006-2007#5] TRIK \u9898\u89e3"
+    }
+]

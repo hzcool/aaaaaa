@@ -1,0 +1,10 @@
+[
+    {
+        "content": "### \u9898\u610f\uff1a\n\n\u7ed9\u4e09\u4e2a\u5b9e\u6570 $x,y,z$\u3002\u6c42\u51fa\u503c\u6700\u5927\u7684 $a_i$\uff0c\u8f93\u51fa $i$ \u5bf9\u5e94\u7684\u5b57\u7b26\u4e32\u3002\n\n### \u601d\u8def\uff1a\n\n\u5148\u5c06 $12$ \u4e2a\u5b57\u7b26\u4e32\u6253\u8868\uff0c\u8bfb\u5165 $x,y,z$ \u540e\uff0c\u7b97\u51fa $a_0$ \u5230 $a_{11}$ \u7684\u503c\uff0c\u627e\u51fa\u5176\u4e2d\u7684\u6700\u5c0f\u503c\uff0c\u6700\u540e\u8f93\u51fa\u5bf9\u5e94\u7684\u5b57\u7b26\u4e32\u5373\u53ef\u3002\n\n### $Code$\uff1a\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nlong double x,y,z;\nlong double a[12];\nint ans=0;\nconst char s[12][10]= { //12\u4e2a\u5b57\u7b26\u4e32 \n\t\"x^y^z\",\n\t\"x^z^y\",\n\t\"(x^y)^z\",\n\t\"(x^z)^y\",\n\t\"y^x^z\",\n\t\"y^z^x\",\n\t\"(y^x)^z\",\n\t\"(y^z)^x\",\n\t\"z^x^y\",\n\t\"z^y^x\",\n\t\"(z^x)^y\",\n\t\"(z^y)^x\"\n};\nint main() {\n\tcin>>x>>y>>z;\n\ta[0]=pow(y,z)*log(x); //\u8ba1\u7b97\u6240\u6709a[i]\u7684\u503c \n\ta[1]=pow(z,y)*log(x);\n\ta[2]=a[3]=y*z*log(x);\n\ta[4]=pow(x,z)*log(y);\n\ta[5]=pow(z,x)*log(y);\n\ta[6]=a[7]=x*z*log(y);\n\ta[8]=pow(x,y)*log(z);\n\ta[9]=pow(y,x)*log(z);\n\ta[10]=a[11]=x*y*log(z);\n\tfor(int i=1; i<=11; i++) { //\u6c42\u51fa\u6700\u5927\u503ca[i]\u7684\u4e0b\u6807 \n\t\tif(a[i]>a[ans]) ans=i;\n\t}\t\n\tprintf(\"%s\\n\",s[ans]);\n\treturn 0;\n}\n```",
+        "postTime": 1606225668,
+        "uid": 351320,
+        "name": "RBI_GL",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF621D \u3010Rat Kwesh and Cheese\u3011"
+    }
+]

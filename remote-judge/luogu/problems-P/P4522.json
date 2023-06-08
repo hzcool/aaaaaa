@@ -1,0 +1,21 @@
+{
+    "description": "As we all very well know, goats and sheep have been fighting for years about the fields\nthey\u2019re grazing. After many fierce fights, the goat leader and the sheep leader decided to\nmeet to try to find a peaceful solution to their problem. After many hours of discussion, they\nagreed that they will play a game for each field and that the winner will get to graze that field.\n\nThe game is played such that a total of N animals (that can be goats or sheep) form a circle\n(the exact order of goats and sheep is an agreement between their leaders). After animal i (1\n\u2264 i \u2264 N-1), the game is continued by animal i+1, and after animal N, the game is continued by\nanimal 1. The animal starting the game can say any positive integer from the interval [1, K],\nbut only if that number is not greater than M. If the animal that started the game said the\nnumber j, then the next animal can say a number in interval [j+1, j+K], but only if that number\nis not greater than M. In other words, each animal can say a number that is greater by\nminimally 1, and maximally by K than the number said by the animal before, but only if the\nnew number is not greater than M. If an animal must say number M, its team (goats or\nsheep) loses.\n\nIf both the goats and the sheep are playing optimally, for each i (1 \u2264 i \u2264 N), determine who\nwill win the field if the game is started by the $i^{th}$ animal.\n",
+    "inputFormat": "The first line of input contains N, M and K (1 \u2264 N, M, K \u2264 5000), the numbers from the task.\nThe following line contains N numbers, 0 if the $i^{th}$  animal is a sheep, and 1 if it\u2019s a goat.",
+    "outputFormat": "Output N space-separated numbers. For each animal i (1 \u2264 i \u2264 N) output 0 if the sheep will\nwin the field, and 1 if the goats will win, if the $i^{th}$   animal is starting the game.\n",
+    "samples": [
+        [
+            "2 9 2\n0 1",
+            "0 1"
+        ],
+        [
+            "6 499 5\n1 0 0 1 1 0",
+            "0 1 1 1 1 0"
+        ],
+        [
+            "10 100 10\n0 0 0 1 1 1 1 0 1 1",
+            "1 1 1 1 1 1 1 1 1 1"
+        ]
+    ],
+    "hint": "In test cases worth a total of 60% of points, it will hold 1 \u2264 N, M, K \u2264 500.\n\n**Clarification of the first test case:**\n\nWhen a sheep is playing first, it can play like this:\n\nThe sheep starts with number 2, after which the goat can say 3 or 4. In both cases, the sheep can say\n5, after which the goat can say either 6 or 7. In both cases, the sheep can say 8, after which the goat\ndoesn\u2019t have any other choice but 9 and thus losing the game and the field.",
+    "translation": "\u7ed9n\u4e2a\u4eba\u6bcf\u4e2a\u4eba\u6709\u4e2a\u56e2\u961f\uff080\u62161\uff09\uff0c\u6bcf\u4e2a\u4eba\u53ef\u4ee5\u62a5\u4e00\u4e2a\u6570\uff0c\u7b2c\u4e00\u4e2a\u4eba\u7684\u8303\u56f4\u4e3a[1,k]\uff0c\u4e0a\u4e00\u4e2a\u4eba\u62a5\u7684\u6570x\u4e0b\u4e00\u4e2a\u4eba\u4e3a[x+1,x+1+k]\uff0c\u62a5\u6570\u8d85\u8fc7m\u7684\u4eba\u8f93\uff0c1-n\u6309\u987a\u5e8f\u62a5\u6570\uff0cn\u7684\u4e0b\u4e00\u4e2a\u4e3a1\u76f4\u5230\u6e38\u620f\u7ed3\u675f\u3002\u6bcf\u4e2a\u4eba\u90fd\u4f1a\u9009\u62e9\u6700\u4f18\u7b56\u7565\uff0c\u95ee\u4ee5\u6bcf\u4e2a\u4eba\u4e3a\u8d77\u59cb\u70b9\u73a9\u8fd9\u4e2a\u6e38\u620f\uff0c\u90a3\u4e2a\u56e2\u961f\u4f1a\u8d62\u3002\n\n\u7531 @Unknown_Error\u00a0 \u63d0\u4f9b\u7ffb\u8bd1"
+}

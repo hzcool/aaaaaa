@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u9898\u610f\uff1a\t\u6709\u4e00\u5217\u8f66\uff0c\u8981\u884c\u4f7fn\u4e2a\u533a\u95f4\uff0c\u7b2ci\u4e2a\u533a\u95f4\u6709ti\u79d2\uff0c\u9650\u901fvi\uff0c\u5f00\u59cb\u548c\u7ed3\u675f\u65f6\u901f\u5ea6\u5fc5\u987b\u662f0\uff0c\u52a0\u901f\u5ea6\u7684\u7edd\u5bf9\u503c\u4e0d\u80fd\u8d85\u8fc7(1m/s)/s\u3002\u95ee\u6700\u591a\u80fd\u8d70\u591a\u8fdc\u3002\n\n\u6211\u4eec\u4ece\u7b80\u5355\u7684\u60c5\u51b5\u5f00\u59cb\u8003\u8651\u3002\u5148\u5047\u8bbe\u53ea\u6709\u4e00\u4e2a\u9650\u5236\u6761\u4ef6\uff0c\u4e3a\u5728l~r\u5185\u6700\u5febv\uff0c\u5219\u6700\u5927\u901f\u5ea6S\u5173\u4e8e\u65f6\u95f4t\u7684\u51fd\u6570\u5982\u4e0b\uff1a\n\n- S=v+l-t (0<=t<=l)\n- S=v     (l<t<r)\n- S=v+t-r (r<=t<=T)\n\n\u73b0\u5728\u6211\u4eec\u52a0\u8fdb\u53bb\u6240\u6709\u9650\u5236\u6761\u4ef6\u3002\u540c\u65f6\uff0c\u628a\u521d\u59cb\u548c\u7ed3\u675f\u4e3a0\u5f53\u6210\u9650\u5236\u6761\u4ef6\u52a0\u5165\u3002\u8fd9\u6837\u53ef\u4ee5\u5728O(NT)\u65f6\u95f4\u786e\u5b9a\u6240\u6709\u533a\u95f4\u7684\u6700\u5927\u503c\u3002\u7136\u540e\u5f53\u6210\u68af\u5f62\u6c42\u9762\u79ef\u5373\u53ef\u3002\n\n```cpp\n#include<iostream>\n#include<algorithm>\nusing namespace std;\n\nint t[200],v[200],l[200],r[200],pt[200],d[50000];\n\t\nint main()\n{\n\tint n;\n\tcin>>n;\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tcin>>t[i];\n\t\tt[i]*=2;\n\t\tpt[i]=pt[i-1]+t[i];\n\t}\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tcin>>v[i];\n\t\tv[i]*=2;\n\t\tl[i]=min(l[i-1],v[i]-pt[i]);\n\t}\n\tr[n]=0;\n\tfor(int i=n-1;i>=0;i--)\n\t\tr[i]=min(r[i+1], v[i+1]-(pt[n]-pt[i]));\n\tfor(int i=1;i<=n;i++)\n\t\tfor(int j=pt[i-1];j<=pt[i];j++)\n\t\t{\n\t\t\td[j]=min(l[i-1]+j, r[i]+(pt[n]-j));\n\t\t\td[j]=min(d[j], v[i]);\n\t\t}\n\tdouble ans=0;\n\tfor(int i=0;i<pt[n];i++)\n\t\tans+=d[i]+d[i+1];\n\tprintf(\"%.15f\\n\",ans/8.0);\n}\n```",
+        "postTime": 1558835317,
+        "uid": 27950,
+        "name": "fly20040720",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 AT3601 \u3010AtCoder Express\u3011"
+    }
+]

@@ -1,0 +1,33 @@
+{
+    "description": "Lee is used to finish his stories in a stylish way, this time he barely failed it, but Ice Bear came and helped him. Lee is so grateful for it, so he decided to show Ice Bear his new game called \"Critic\"...\n\nThe game is a one versus one game. It has $ t $ rounds, each round has two integers $ s_i $ and $ e_i $ (which are determined and are known before the game begins, $ s_i $ and $ e_i $ may differ from round to round). The integer $ s_i $ is written on the board at the beginning of the corresponding round.\n\nThe players will take turns. Each player will erase the number on the board (let's say it was $ a $ ) and will choose to write either $ 2 \\cdot a $ or $ a + 1 $ instead. Whoever writes a number strictly greater than $ e_i $ loses that round and the other one wins that round.\n\nNow Lee wants to play \"Critic\" against Ice Bear, for each round he has chosen the round's $ s_i $ and $ e_i $ in advance. Lee will start the first round, the loser of each round will start the next round.\n\nThe winner of the last round is the winner of the game, and the loser of the last round is the loser of the game.\n\nDetermine if Lee can be the winner independent of Ice Bear's moves or not. Also, determine if Lee can be the loser independent of Ice Bear's moves or not.",
+    "inputFormat": "The first line contains the integer $ t $ ( $ 1 \\le t \\le       10^5 $ ) \u2014 the number of rounds the game has.\n\nThen $ t $ lines follow, each contains two integers $ s_i $ and $ e_i $ ( $ 1 \\le s_i \\le e_i \\le 10^{18} $ ) \u2014 the $ i $ -th round's information.\n\nThe rounds are played in the same order as given in input, $ s_i $ and $ e_i $ for all rounds are known to everyone before the game starts.",
+    "outputFormat": "Print two integers.\n\nThe first one should be 1 if Lee can be the winner independent of Ice Bear's moves, and 0 otherwise.\n\nThe second one should be 1 if Lee can be the loser independent of Ice Bear's moves, and 0 otherwise.",
+    "samples": [
+        [
+            "3\n5 8\n1 4\n3 10",
+            "1 1"
+        ],
+        [
+            "4\n1 2\n2 3\n3 4\n4 5",
+            "0 0"
+        ],
+        [
+            "1\n1 1",
+            "0 1"
+        ],
+        [
+            "2\n1 9\n4 5",
+            "0 0"
+        ],
+        [
+            "2\n1 2\n2 8",
+            "1 0"
+        ],
+        [
+            "6\n216986951114298167 235031205335543871\n148302405431848579 455670351549314242\n506251128322958430 575521452907339082\n1 768614336404564650\n189336074809158272 622104412002885672\n588320087414024192 662540324268197150",
+            "1 0"
+        ]
+    ],
+    "hint": "Remember, whoever writes an integer greater than $ e_i $ loses.",
+    "translation": "### \u9898\u76ee\u63cf\u8ff0\n\n\uff08\u4ee5\u4e0b\u5185\u5bb9\u5e76\u975e\u9010\u5b57\u7ffb\u8bd1\uff0c\u4f46\u5e76\u4e0d\u5f71\u54cd\u505a\u9898\uff09\n\nLee \u4e60\u60ef\u4e8e\u7528\u4e00\u79cd\u65b0\u5947\u7684\u65b9\u5f0f\u7ed3\u675f\u4ed6\u7684\u6545\u4e8b\uff0c\u6bd4\u5982\u548c Ice Bear \u73a9\u4e00\u4e2a\u53eb\u505a Critic \u7684\u6e38\u620f\u3002\n\n\u6e38\u620f\u89c4\u5219\u662f\u8fd9\u6837\u7684\uff1a\u8fd9\u662f\u4e00\u4e2a 1V1 \u7684\u6e38\u620f\uff0c\u6709\u4e14\u4ec5\u6709 $t$ \u8f6e\u3002\u5bf9\u4e8e\u6bcf\u4e00\u8f6e\uff0c\u6709\u4e14\u4ec5\u6709\u4e24\u4e2a\u53cc\u65b9\u5747\u5df2\u77e5\u7684\uff0c\u4e0d\u4f1a\u66f4\u6539\u7684\u6574\u6570 $s_i$ , $e_i$ \u3002\u5176\u4e2d $s_i$ \u88ab\u5199\u5728\u4e86\u9ed1\u677f\u4e0a\u3002\n\n\u73b0\u5728\uff0c\u4e24\u540d\u73a9\u5bb6\u540c\u65f6\u4e0a\u573a\uff0c\u6709\u4e24\u79cd\u64cd\u4f5c\uff0c\u4ed6/\u5b83\u53ea\u80fd\u5e76\u4e14\u5fc5\u987b\u9009\u62e9\u4e00\u79cd\u64cd\u4f5c\uff1a\n\n* \u5c06\u9ed1\u677f\u4e0a\u7684\u6570 $a$ \u6539\u5199\u4e3a $a+1$\n\n* \u5c06\u9ed1\u677f\u4e0a\u7684\u6570 $a$ \u6539\u5199\u4e3a $2 \\times a$\n\n\u6700\u7ec8\uff0c\u5199\u4e0a\u7684 $a$ \u5927\u4e8e\u8fd9\u4e00\u8f6e\u7684 $e_i$ \u7684\u4eba\u8f93\u6389\u8be5\u8f6e\u6bd4\u8d5b\u3002\u6bcf\u4e00\u8f6e\u7684\u5931\u8d25\u8005\u5c31\u662f\u4e0b\u4e00\u8f6e\u7684\u8d77\u59cb\u8005\uff08\u9996\u5148\u4e0a\u53bb\u5199\u6570\u7684\u4eba\uff09\u3002\u6574\u573a\u6bd4\u8d5b\u7684\u8f93\u8d62\u53d6\u51b3\u4e8e\u6700\u540e\u4e00\u8f6e\u7684\u8f93\u8d62\u3002\n\n\u6c42\u51fa\uff0c\u5982\u679c Lee \u662f\u7b2c\u4e00\u8f6e\u6bd4\u8d5b\u7684\u8d77\u59cb\u8005\uff0c\u4ed6\u662f\u5426\u6709\u5fc5\u8d62\uff0c\u5fc5\u8f93\u7b56\u7565\u3002\n\n### \u8f93\u5165\u683c\u5f0f\n\n\u7b2c\u4e00\u884c\u4e00\u4e2a\u6574\u6570$t $\uff0c\u8868\u793a\u6574\u573a\u6bd4\u8d5b\u6709\u51e0\u8f6e\u3002\n\n\u4e0b\u9762$t $\u884c\uff0c\u6bcf\u884c\u4e24\u4e2a\u6574\u6570$s_i,e_i$,\u4e2d\u95f4\u7528\u7a7a\u683c\u9694\u5f00\uff0c\u7b2c$i+1$\u884c\u662f\u7b2c$i$ \u573a\u6bd4\u8d5b\u7684\u4fe1\u606f\u3002\n\n### \u8f93\u51fa\u683c\u5f0f\n\n\u4e00\u884c\u4e24\u4e2a\u6574\u6570\uff0c\u4e2d\u95f4\u7528\u7a7a\u683c\u9694\u5f00\uff0c\u8868\u793aLee\u662f\uff081\uff09\u5426\uff080\uff09\u6709\u5fc5\u8d62\uff0c\u5fc5\u8f93\u7b56\u7565\u3002"
+}

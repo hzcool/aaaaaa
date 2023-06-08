@@ -1,0 +1,21 @@
+{
+    "description": "Let's define a function $ f(p) $ on a permutation $ p $ as follows. Let $ g_i $ be the [greatest common divisor (GCD)](https://en.wikipedia.org/wiki/Greatest_common_divisor) of elements $ p_1 $ , $ p_2 $ , ..., $ p_i $ (in other words, it is the GCD of the prefix of length $ i $ ). Then $ f(p) $ is the number of distinct elements among $ g_1 $ , $ g_2 $ , ..., $ g_n $ .\n\nLet $ f_{max}(n) $ be the maximum value of $ f(p) $ among all permutations $ p $ of integers $ 1 $ , $ 2 $ , ..., $ n $ .\n\nGiven an integers $ n $ , count the number of permutations $ p $ of integers $ 1 $ , $ 2 $ , ..., $ n $ , such that $ f(p) $ is equal to $ f_{max}(n) $ . Since the answer may be large, print the remainder of its division by $ 1000\\,000\\,007 = 10^9 + 7 $ .",
+    "inputFormat": "The only line contains the integer $ n $ ( $ 2 \\le n \\le 10^6 $ ) \u2014 the length of the permutations.",
+    "outputFormat": "The only line should contain your answer modulo $ 10^9+7 $ .",
+    "samples": [
+        [
+            "2\n",
+            "1"
+        ],
+        [
+            "3\n",
+            "4"
+        ],
+        [
+            "6\n",
+            "120"
+        ]
+    ],
+    "hint": "Consider the second example: these are the permutations of length $ 3 $ :\n\n- $ [1,2,3] $ , $ f(p)=1 $ .\n- $ [1,3,2] $ , $ f(p)=1 $ .\n- $ [2,1,3] $ , $ f(p)=2 $ .\n- $ [2,3,1] $ , $ f(p)=2 $ .\n- $ [3,1,2] $ , $ f(p)=2 $ .\n- $ [3,2,1] $ , $ f(p)=2 $ .\n\nThe maximum value $ f_{max}(3) = 2 $ , and there are $ 4 $ permutations $ p $ such that $ f(p)=2 $ .",
+    "translation": "$p$ \u662f\u4e00\u4e2a\u6392\u5217\uff0c\u5b9a\u4e49 $f(p)$ \uff1a \u8bbe $g_i$ \u4e3a $p_1, p_2, \\cdots, p_i$ \u7684\u6700\u5927\u516c\u56e0\u6570\uff08\u5373\u524d\u7f00\u6700\u5927\u516c\u56e0\u6570\uff09\uff0c\u5219 $f(p)$ \u4e3a $g_1,g_2,\\cdots,g_n$ \u4e2d\u4e0d\u540c\u7684\u6570\u7684\u4e2a\u6570\u3002\n\n\u8bbe $f_{max}(n)$ \u4e3a $1,2,\\cdots,n$ \u7684\u6240\u6709\u6392\u5217 $p$ \u4e2d $f(p)$ \u7684\u6700\u5927\u503c\uff0c\u4f60\u9700\u8981\u6c42\u6709\u591a\u5c11 $1,2,\\cdots,n$ \u7684\u6392\u5217 $p$ \u6ee1\u8db3 $f(p)=f_{max}(n)$\uff0c\u7b54\u6848\u5bf9 $10^9+7$ \u53d6\u6a21\u3002\n\n"
+}

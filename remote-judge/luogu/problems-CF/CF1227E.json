@@ -1,0 +1,21 @@
+{
+    "description": "The Berland Forest can be represented as an infinite cell plane. Every cell contains a tree. That is, contained before the recent events.\n\nA destructive fire raged through the Forest, and several trees were damaged by it. Precisely speaking, you have a $ n \\times m $ rectangle map which represents the damaged part of the Forest. The damaged trees were marked as \"X\" while the remaining ones were marked as \".\". You are sure that all burnt trees are shown on the map. All the trees outside the map are undamaged.\n\nThe firemen quickly extinguished the fire, and now they are investigating the cause of it. The main version is that there was an arson: at some moment of time (let's consider it as $ 0 $ ) some trees were set on fire. At the beginning of minute $ 0 $ , only the trees that were set on fire initially were burning. At the end of each minute, the fire spread from every burning tree to each of $ 8 $ neighboring trees. At the beginning of minute $ T $ , the fire was extinguished.\n\nThe firemen want to find the arsonists as quickly as possible. The problem is, they know neither the value of $ T $ (how long the fire has been raging) nor the coordinates of the trees that were initially set on fire. They want you to find the maximum value of $ T $ (to know how far could the arsonists escape) and a possible set of trees that could be initially set on fire.\n\nNote that you'd like to maximize value $ T $ but the set of trees can be arbitrary.",
+    "inputFormat": "The first line contains two integer $ n $ and $ m $ ( $ 1 \\le n, m \\le 10^6 $ , $ 1 \\le n \\cdot m \\le 10^6 $ ) \u2014 the sizes of the map.\n\nNext $ n $ lines contain the map. The $ i $ -th line corresponds to the $ i $ -th row of the map and contains $ m $ -character string. The $ j $ -th character of the $ i $ -th string is \"X\" if the corresponding tree is burnt and \".\" otherwise.\n\nIt's guaranteed that the map contains at least one \"X\".",
+    "outputFormat": "In the first line print the single integer $ T $ \u2014 the maximum time the Forest was on fire. In the next $ n $ lines print the certificate: the map ( $ n \\times m $ rectangle) where the trees that were set on fire are marked as \"X\" and all other trees are marked as \".\".",
+    "samples": [
+        [
+            "3 6\nXXXXXX\nXXXXXX\nXXXXXX\n",
+            "1\n......\n.X.XX.\n......\n"
+        ],
+        [
+            "10 10\n.XXXXXX...\n.XXXXXX...\n.XXXXXX...\n.XXXXXX...\n.XXXXXXXX.\n...XXXXXX.\n...XXXXXX.\n...XXXXXX.\n...XXXXXX.\n..........\n",
+            "2\n..........\n..........\n...XX.....\n..........\n..........\n..........\n.....XX...\n..........\n..........\n..........\n"
+        ],
+        [
+            "4 5\nX....\n..XXX\n..XXX\n..XXX\n",
+            "0\nX....\n..XXX\n..XXX\n..XXX\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u5728\u4e00\u4e2a\u65e0\u9650\u5927\u7684\u77e9\u9635\u4e2d\uff0c\u6bcf\u4e2a\u4f4d\u7f6e\u662f\u4e00\u68f5\u6811\u3002\u5728\u4e00\u4e2a $n \\times m$ \u7684\u5b50\u77e9\u9635\u4e2d\uff0c\u53d1\u751f\u4e86\u4e00\u573a\u706b\u707e\uff0c\u4e00\u4e9b\u6811\u88ab\u6467\u6bc1\u4e86\u3002\u88ab\u6467\u6bc1\u7684\u6811\u7528\u5b57\u7b26 `X` \u8868\u793a\uff0c\u672a\u88ab\u6467\u6bc1\u7684\u6811\u7528\u5b57\u7b26 `.` \u8868\u793a\u3002\u5b50\u77e9\u9635\u5916\u7684\u6811\u90fd\u6ca1\u6709\u88ab\u6467\u6bc1\u3002\r\n\r\n- \u5728 $0$ \u65f6\u523b\uff0c\u6709\u4e9b\u6811\u662f\u81ea\u53d1\u7740\u706b\u7684\u3002\r\n- \u63a5\u4e0b\u6765\u7684\u6bcf\u4e00\u5206\u949f\u5185\uff0c\u6bcf\u4e00\u68f5\u7740\u706b\uff08\u4e5f\u5373\uff0c\u88ab\u6467\u6bc1\uff09\u7684\u6811\uff0c\u4f1a\u4f7f\u5f97\u5b83\u5468\u56f4\u7684 $8$ \u4e2a\u76f8\u90bb\u7684\u6811\u7740\u706b\u3002\r\n- \u5728\u7b2c $T$ \u5206\u949f\u521d\uff0c\u706b\u707e\u505c\u6b62\u3002\r\n\r\n\u73b0\u5728\u7ed9\u5b9a\u6700\u540e\u88ab\u6467\u6bc1\u7684\u6811\uff0c\u6c42\u6700\u5927\u53ef\u80fd\u7684 $T$\uff0c\u5e76\u6c42\u51fa\u4efb\u610f\u4e00\u79cd\u6ee1\u8db3\u7684\u3001\u81ea\u53d1\u7740\u706b\u7684\u6811\u7684\u96c6\u5408\u3002\r\n"
+}

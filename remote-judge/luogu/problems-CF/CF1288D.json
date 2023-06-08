@@ -1,0 +1,13 @@
+{
+    "description": "You are given $ n $ arrays $ a_1 $ , $ a_2 $ , ..., $ a_n $ ; each array consists of exactly $ m $ integers. We denote the $ y $ -th element of the $ x $ -th array as $ a_{x, y} $ .\n\nYou have to choose two arrays $ a_i $ and $ a_j $ ( $ 1 \\le i, j \\le n $ , it is possible that $ i = j $ ). After that, you will obtain a new array $ b $ consisting of $ m $ integers, such that for every $ k \\in [1, m] $ $ b_k = \\max(a_{i, k}, a_{j, k}) $ .\n\nYour goal is to choose $ i $ and $ j $ so that the value of $ \\min \\limits_{k = 1}^{m} b_k $ is maximum possible.",
+    "inputFormat": "The first line contains two integers $ n $ and $ m $ ( $ 1 \\le n \\le 3 \\cdot 10^5 $ , $ 1 \\le m \\le 8 $ ) \u2014 the number of arrays and the number of elements in each array, respectively.\n\nThen $ n $ lines follow, the $ x $ -th line contains the array $ a_x $ represented by $ m $ integers $ a_{x, 1} $ , $ a_{x, 2} $ , ..., $ a_{x, m} $ ( $ 0 \\le a_{x, y} \\le 10^9 $ ).",
+    "outputFormat": "Print two integers $ i $ and $ j $ ( $ 1 \\le i, j \\le n $ , it is possible that $ i = j $ ) \u2014 the indices of the two arrays you have to choose so that the value of $ \\min \\limits_{k = 1}^{m} b_k $ is maximum possible. If there are multiple answers, print any of them.",
+    "samples": [
+        [
+            "6 5\n5 0 3 1 2\n1 8 9 1 3\n1 2 3 4 5\n9 1 0 3 7\n2 3 0 6 3\n6 4 1 7 0",
+            "1 5"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9\u51fa\u4e00\u4e2a $n$ \u884c $m$ \u5217\u7684\u6570\u5b57\u77e9\u9635 $a$\uff0c\u627e\u51fa\u4e24\u884c $x, y$\uff0c\u4ee4 $b_j = \\max(a_{x, j}, a_{y, j})$\uff0c\u8bd5\u4f7f\u5f97 $\\min\\limits_{1 \\le j \\le m}b_j$ \u6700\u5927\uff0c\u8f93\u51fa\u9009\u62e9\u7684 $x, y$\uff0c\u53ef\u4ee5\u76f8\u540c\u3002"
+}

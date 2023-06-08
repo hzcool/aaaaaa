@@ -1,0 +1,21 @@
+{
+    "description": "It can be shown that any positive integer $ x $ can be uniquely represented as $ x=1+2+4+...+2^{k-1}+r $ , where $ k $ and $ r $ are integers, $ k>=0 $ , $ 0&lt;r<=2^{k} $ . Let's call that representation prairie partition of $ x $ .\n\nFor example, the prairie partitions of $ 12 $ , $ 17 $ , $ 7 $ and $ 1 $ are:\n\n $ 12=1+2+4+5 $ , $ 17=1+2+4+8+2 $ ,\n\n $ 7=1+2+4 $ ,\n\n $ 1=1 $ .\n\nAlice took a sequence of positive integers (possibly with repeating elements), replaced every element with the sequence of summands in its prairie partition, arranged the resulting numbers in non-decreasing order and gave them to Borys. Now Borys wonders how many elements Alice's original sequence could contain. Find all possible options!",
+    "inputFormat": "The first line contains a single integer $ n $ ( $ 1<=n<=10^{5} $ ) \u2014 the number of numbers given from Alice to Borys.\n\nThe second line contains $ n $ integers $ a_{1},a_{2},...,a_{n} $ ( $ 1<=a_{i}<=10^{12} $ ; $ a_{1}<=a_{2}<=...<=a_{n} $ ) \u2014 the numbers given from Alice to Borys.",
+    "outputFormat": "Output, in increasing order, all possible values of $ m $ such that there exists a sequence of positive integers of length $ m $ such that if you replace every element with the summands in its prairie partition and arrange the resulting numbers in non-decreasing order, you will get the sequence given in the input.\n\nIf there are no such values of $ m $ , output a single integer -1.",
+    "samples": [
+        [
+            "8\n1 1 2 2 3 4 5 8\n",
+            "2 \n"
+        ],
+        [
+            "6\n1 1 1 2 2 2\n",
+            "2 3 \n"
+        ],
+        [
+            "5\n1 2 4 4 4\n",
+            "-1\n"
+        ]
+    ],
+    "hint": "In the first example, Alice could get the input sequence from $ [6,20] $ as the original sequence.\n\nIn the second example, Alice's original sequence could be either $ [4,5] $ or $ [3,3,3] $ .",
+    "translation": "\u5bf9\u4e8e\u6bcf\u4e2a\u6b63\u6574\u6570 $n$\uff0c\u53ef\u4ee5\u5c06\u5176\u5206\u4e3a $1+2+4+8+16+\\cdots+2^k+r$\u3002\n\n\u5982 $17=1+2+4+8+2,7=1+2+4$\u3002\n\n\u7ed9\u4f60 $n$ \u4e2a\u9012\u589e\u7684\u6570\u6784\u6210\u7684\u4e32 $a$\uff0c\u8fd9\u4e32\u6570\u662f\u7531\u51e0\u4e2a\u6570\u7684\u62c6\u5206\u653e\u5728\u4e00\u8d77\u6784\u6210\u7684\u3002\n\n\u5982 $6,20$ \u7684\u4e32\u4e3a $1,1,2,2,3,4,5,8\n$\u3002\n\n\u95ee\u8fd9\u4e2a\u4e32\u662f\u7531\u51e0\u4e2a\u6570\u6784\u6210\u7684\u3002\u8f93\u51fa\u6240\u6709\u65b9\u6848\uff0c\u65e0\u89e3\u8f93\u51fa $-1$\u3002\n\n$1\\le n\\le 10^5,1\\le a_i\\le 10^{12}$"
+}

@@ -1,0 +1,13 @@
+{
+    "description": "You're given a tree with $ n $ vertices. The color of the $ i $ -th vertex is $ h_{i} $ .\n\nThe value of the tree is defined as $ \\sum\\limits_{h_{i} = h_{j}, 1 \\le i < j \\le n}{dis(i,j)} $ , where $ dis(i,j) $ is the number of edges on the shortest path between $ i $ and $ j $ .\n\nThe color of each vertex is lost, you only remember that $ h_{i} $ can be any integer from $ [l_{i}, r_{i}] $ (inclusive). You want to calculate the sum of values of all trees meeting these conditions modulo $ 10^9 + 7 $ (the set of edges is fixed, but each color is unknown, so there are $ \\prod\\limits_{i = 1}^{n} (r_{i} - l_{i} + 1) $ different trees).",
+    "inputFormat": "The first line contains one integer $ n $ ( $ 2 \\le n \\le 10^5 $ ) \u2014 the number of vertices.\n\nThen $ n $ lines follow, each line contains two integers $ l_i $ and $ r_i $ ( $ 1 \\le l_i \\le r_i \\le 10^5 $ ) denoting the range of possible colors of vertex $ i $ .\n\nThen $ n - 1 $ lines follow, each containing two integers $ u $ and $ v $ ( $ 1 \\le u, v \\le n $ , $ u \\ne v $ ) denoting an edge of the tree. It is guaranteed that these edges form a tree.",
+    "outputFormat": "Print one integer \u2014 the sum of values of all possible trees, taken modulo $ 10^9 + 7 $ .",
+    "samples": [
+        [
+            "4\n1 1\n1 2\n1 1\n1 2\n1 2\n1 3\n3 4\n",
+            "22\n"
+        ]
+    ],
+    "hint": "In the first example there are four different ways to color the tree (so, there are four different trees):\n\n- a tree with vertices colored as follows: $ \\lbrace 1,1,1,1 \\rbrace $ . The value of this tree is $ dis(1,2)+dis(1,3)+dis(1,4)+dis(2,3)+dis(2,4)+dis(3,4) = 10 $ ;\n- a tree with vertices colored as follows: $ \\lbrace 1,2,1,1 \\rbrace $ . The value of this tree is $ dis(1,3)+dis(1,4)+dis(3,4)=4 $ ;\n- a tree with vertices colored as follows: $ \\lbrace 1,1,1,2 \\rbrace $ . The value of this tree is $ dis(1,2)+dis(1,3)+dis(2,3)=4 $ ;\n- a tree with vertices colored as follows: $ \\lbrace 1,2,1,2 \\rbrace $ . The value of this tree is $ dis(1,3)+dis(2,4)=4 $ .\n\nOverall the sum of all values is $ 10+4+4+4=22 $ .",
+    "translation": "\u7ed9\u5b9a\u4e00\u68f5\u6811\uff0c\u6bcf\u4e2a\u8282\u70b9\u6709\u4e00\u4e2a\u989c\u8272$h$\uff0c$h_i$\u4e3a$[L_i,R_i]$\u5185\u7684\u4e00\u4e2a\u6574\u6570\u3002\n\n\u73b0\u5728\uff0c\u5bf9\u4e8e\u6240\u6709$\\prod (R_i-L_i+1)$\u79cd\u4e0d\u540c\u7684\u67d3\u8272\u65b9\u6848\uff0c\u6c42\u51fa\u4e0b\u5217\u5f0f\u5b50\u4e4b\u548c\uff1a\n\n$$\\sum_{h_i=h_j,1\\leq i<j\\leq n}dis(i,j)$$\n\n$n\\leq 10^5,1\\leq L_i\\leq R_i\\leq 10^5$\uff0c\u7b54\u6848\u5bf91e9+7\u53d6\u6a21\u3002\n"
+}

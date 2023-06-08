@@ -1,0 +1,42 @@
+[
+    {
+        "content": "## \u9898\u76ee\u5927\u610f\n\n- \u7ed9\u5b9a $n$ \u4e2a\u95ed\u533a\u95f4 $[l_i, r_i]$\u3002\n- \u6bcf\u6b21\u64cd\u4f5c\u4f60\u53ef\u4ee5\u5c06\u7b2c $i$ \u4e2a\u533a\u95f4\u6269\u5c55\uff0c\u5373\u5c06 $l_i-1$ \u6216 $r_i+1$\u3002\n- \u6c42\u4f7f\u6240\u6709\u533a\u95f4\u5305\u542b\u7684\u6574\u6570\u6570\u91cf\u4e4b\u548c\u88ab $k$ \u6574\u9664\u7684\u6700\u5c0f\u64cd\u4f5c\u6b21\u6570\u3002\n\n## \u601d\u8def\n\n\u6211\u4eec\u5c06\u6240\u6709\u533a\u95f4\u7684\u957f\u5ea6\u52a0\u8d77\u6765\uff0c\u7528 $sum$ \u8ba1\u6570\uff0c\u7b2c $i$ \u4e2a\u533a\u95f4\u7684\u957f\u5ea6\u662f $r_i-l_i+1$\u3002\n\n\u6700\u540e\u8f93\u51fa\u4e00\u4e2a\u6700\u5c0f\u7684\u6bd4 $sum$ \u5927\u7684\u80fd\u88ab $k$ \u6574\u9664\u7684\u6570\u4e0e $sum$ \u7684\u5dee\u503c\u5c31\u884c\u4e86\u3002\n\n~~\u8bf4\u5b9e\u8bdd\u6211\u89c9\u5f97\u80af\u5b9a\u662f\u4e00\u9053\u7ea2\u9898\u3002~~\n\n## \u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\ntypedef long long ll;\nint N,K,L,R,Sum;\nint main(){\n    //freopen(\".in\",\"r\",stdin);//\u6587\u4ef6\u64cd\u4f5c\u6a21\u677f\n    //freopen(\".out\",\"w\",stdout);\n    cin>>N>>K;\n    while(N--){\n        scanf(\"%d%d\",&L,&R);//\u5934\u7aef\u70b9\u548c\u5c3e\u7aef\u70b9\n        Sum+=(R-L+1);//\u5c06\u6bcf\u4e2a\u533a\u95f4\u7684\u957f\u5ea6\u6c42\u548c\n    }\n    int Num=(Sum+K-1)/K*K;\n    //\u8fd9\u91ccNum\u662f\u6700\u5c0f\u7684\u6bd4sum\u5927\u7684\u80fd\u88abk\u6574\u9664\u7684\u6570\n    cout<<Num-Sum;//\u8f93\u51fa\u5dee\u503c\n    //fclose(stdin);\n    //fclose(stdout);\n    return 0;\n}\n```\n",
+        "postTime": 1667201844,
+        "uid": 751051,
+        "name": "Back_Stuff",
+        "ccfLevel": 0,
+        "title": "CF289A \u9898\u89e3"
+    },
+    {
+        "content": "\u6211\u4eec\u5b9a\u4e49\u5f53\u524d\u7684\n\n$$a = \\sum_{i = 1}^n(r_i - l_i + 1).$$\n\n\u8003\u8651\u6bcf\u6b21\u64cd\u4f5c\u90fd\u4f1a\u4f7f $a \\leftarrow a + 1$\uff0c\u6545\u7b54\u6848\u5373\u4e3a $\\min\\limits_{d \\geqslant a \\land k | d}d - a$\u3002\n\n\u8fd9\u65f6\u8003\u8651 $a \\leftarrow a \\pm k$ \u5bf9\u7b54\u6848\u6ca1\u6709\u5f71\u54cd\uff0c\u6545\u53ef\u4ee5\u5c06 $a \\leftarrow a \\bmod k$\uff0c\u7136\u540e\u7b54\u6848\u5373\u4e3a $(k - a) \\bmod k$\u3002\n\n```cpp\n# define _CRT_SECURE_NO_WARNINGS\n# include <cstdio>\n\nnamespace Main {\n\tnamespace Sourse {\n\t\ttypedef long signed int ld;\n\t\ttypedef long unsigned int lu;\n\t}\n\tusing namespace Sourse;\n\tstatic lu n, k;\n\tstatic lu ans;\n\tstatic inline const void main() {\n\t\tscanf(\"%lu%lu\", &n, &k);\n\t\tfor (register lu i(0); i < n; ++i)\n\t\t{ static ld l, r; scanf(\"%ld%ld\", &l, &r); ans = (ans + (r - l + 1)) % k; }\n\t\tprintf(\"%lu\\n\", (k - ans) % k);\n\t}\n}\n\nsigned int main() { Main::main(); return 0; }\n```",
+        "postTime": 1599284552,
+        "uid": 236807,
+        "name": "Mitama",
+        "ccfLevel": 9,
+        "title": "[Solution] CF289A"
+    },
+    {
+        "content": "# CF289A\u9898\u89e3\n\n> ~~\u51e0\u53e5\u95f2\u8bdd~~\n\n\u6211\u662f CYZ\uff0c\u8fd9\u671f\u5e26\u4f60\u770b\u9898\u89e3\u3002\n\n## \u9898\u76ee\u5927\u610f\n\n- \u7ed9\u5b9a $n$ \u4e2a\u95ed\u533a\u95f4 $[l_i, r_i]$\uff1b\n- \u6bcf\u6b21\u64cd\u4f5c\u4f60\u53ef\u4ee5\u5c06\u4efb\u610f\u4e00\u4e2a\u533a\u95f4 $[l, r]$ \u6269\u5c55\uff0c\u5373\u53d8\u4e3a $[l - 1, r]$ \u6216 $[l, r + 1]$\uff1b\n- \u6c42\u4f7f\u6240\u6709\u533a\u95f4\u5305\u542b\u7684\u6574\u6570\u6570\u91cf\u4e4b\u548c\u88ab $k$ \u6574\u9664\u7684\u6700\u5c0f\u64cd\u4f5c\u6b21\u6570\u3002\n\n## \u9898\u76ee\u5206\u6790\n\n\u5b9a\u4e49\u4e00\u4e2a $s$\uff0c\u5c06\u6bcf\u4e00\u6bb5\u7684\u533a\u95f4\u957f\u5ea6\u7d2f\u52a0\u8d77\u6765\u3002\u5bf9\u4e8e\u603b\u957f\u5ea6\u80fd\u591f\u6574\u9664 $k$\uff0c\u6211\u4eec\u9700\u8981\u627e\u5230\u7b2c\u4e00\u4e2a\u5927\u4e8e $s$ \u7684 $k$ \u500d\u7684\u6570\uff0c\u53ef\u4ee5\u901a\u8fc7\u4e00\u5c42\u66b4\u529b\u3002\n\n\u4f46\u662f\u5faa\u73af\u5bb9\u6613\u4e0d\u7b80\u6d01\uff0c\u6240\u4ee5\u6211\u4eec\u53ef\u4ee5\u5c06 $k$ \u51cf\u53bb $s \\bmod k$\uff0c\u6211\u4eec\u5c31\u5f97\u5230\u4e86\u7b2c\u4e00\u4e2a\u5927\u4e8e $s$ \u7684 $k$ \u500d\u7684\u6570\u3002\u7136\u800c\u5f53 $s$ \u672c\u6765\u5c31\u662f $k$ \u7684\u500d\u6570\u65f6\uff0c\u6211\u4eec\u5f97\u5230\u7684\u662f $k$\uff0c\u6240\u4ee5\u6211\u4eec\u9700\u8981\u628a\u8fd9\u4e2a\u6570 $\\bmod k$\u3002\n\n## Code:\n\n```cpp\n#include <iostream>\n\nint n,m;\n\nint main(){\n\tscanf(\"%d%d\",&n,&m);\n\t\n\tint l,r;\n\tint s=0;\n\t\n\twhile(n--){\n\t\tscanf(\"%d%d\",&l,&r);\n\t\t\n\t\ts+=r-l+1; //\u533a\u95f4\u957f\u5ea6\u662fr-l+1\n\t}\n\t\n\tprintf(\"%d\",(m-s%m)%m);\n\t\n\treturn 0;\n} \n```\n\n[AC \u8bb0\u5f55](https://www.luogu.com.cn/record/111071215)",
+        "postTime": 1684833532,
+        "uid": 845691,
+        "name": "cyz_czy",
+        "ccfLevel": 0,
+        "title": "CF289A"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u7edd\u5bf9\u662f\u7ea2\u9898\u3002\n\n\u6211\u4eec\u53ef\u4ee5\u5148\u7edf\u8ba1\u6240\u6709\u7ebf\u6bb5\u7684\u957f\u5ea6\u4e4b\u548c $sum$\uff0c\u6bcf\u4e00\u6761\u7ebf\u6bb5\u7684\u957f\u5ea6\u548c\u662f $r-l+1$\u3002\n\n\u4e8e\u662f\u6211\u4eec\u53ef\u4ee5\u60f3\u4e00\u4e0b\u4e24\u4e2a\u6269\u5c55\u64cd\u4f5c\u7684\u89c4\u5f8b\uff1a\n\n\u5c06 $r+1$ \u6216\u8005\u5c06 $l-1$\uff0c\u6211\u4eec\u53ef\u4ee5\u53d1\u73b0\uff0c\u90fd\u4f1a\u4f7f\u5f97\u8fd9\u6761\u7ebf\u6bb5\u7684\u957f\u5ea6 $+1$\u3002\n\n\u6240\u4ee5\u6211\u4eec\u5c31\u627e\u6700\u5c0f\u7684 $x$\uff0c\u4f7f\u5f97 $k | sum+x$\uff0c\u8fd9\u4e2a $x$ \u4e5f\u6b63\u597d\u5c31\u662f\u64cd\u4f5c\u6570\u3002\n\n\u4e8e\u662f\u6211\u4eec\u53ef\u4ee5~~\u4f18\u96c5\u5730~~\u5199\u51fa\u4e00\u4e2a\u66b4\u529b\u4ee3\u7801\uff0c\u7531\u4e8e\u672c\u9898\u6570\u636e\u7565\u6c34\uff0c\u4e8e\u662f\u4e0b\u9762\u7684\u7a0b\u5e8f\u662f\u53ef\u4ee5AC\u7684\u3002\n\n```cpp\n#include <bits/stdc++.h>\n\nusing namespace std;\n\nint main()\n{\n    int ans = 0;\n    int n, k, l, r;\n    cin >> n >> k;\n    for (int i = 0; i < n; i++)\n    {\n        cin >> l >> r;\n        ans += r - l + 1;\n    }\n    int x = 0;\n    while ((ans + x) % k != 0)\n        x++;\n    cout << x << endl;\n    return 0;\n}\n```\n\n\u4e0d\u8fc7\u6211\u4eec\u53ef\u4ee5\u6539\u8fdb\u4e00\u4e0b\u3002\n\n\u6211\u4eec\u53ea\u9053\u6700\u5c0f\u503c\u5c31\u662f\u628a $sum\\mod k$ \u8865\u4e0a\uff0c\u989d\u597d\u50cf\u4e0d\u80fd\u66f4\u6e05\u695a\u4e86\n\n\u5c31\u662f\uff1a\n\n```cpp\n(ans - ans % k) % k // \u6700\u5916\u9762\u7684%k\u662f\u4e3a\u4e86\u4fdd\u9669\n```",
+        "postTime": 1661133600,
+        "uid": 285414,
+        "name": "Swiftie_wyc22",
+        "ccfLevel": 5,
+        "title": "CF289A\u9898\u89e3"
+    },
+    {
+        "content": "## \u3010\u9898\u610f\u3011\n\u7ed9\u4f60$n$\u6bb5\u533a\u95f4\uff0c\u8fd9$n$\u6bb5\u533a\u95f4\u4e92\u4e0d\u76f8\u4ea4\u3002\u4f60\u53ea\u80fd\u5411\u5de6\u6269\u5c55\u5de6\u7aef\u70b9\uff0c\u6216\u8005\u5411\u53f3\u6269\u5c55\u53f3\u7aef\u70b9\uff0c\u6c42\u6700\u5c11\u6269\u5c55\u7684\u6b65\u6570\u8ba9\u533a\u95f4\u8986\u76d6\u603b\u957f\u5ea6\u80fd\u591f\u6574\u9664$k$\u3002\n## \u3010\u601d\u8def\u3011\n\u8bbe$ans$\u4e3a$n$\u6bb5\u533a\u95f4\u603b\u957f\u5ea6\uff0c\u6bcf\u6b21\u8f93\u5165\u4e00\u6bb5\u533a\u95f4\u7684\u5de6\u7aef\u70b9$l$\u548c\u53f3\u7aef\u70b9$r$\uff0c\u5219\u8fd9\u6bb5\u533a\u95f4\u7684\u957f\u5ea6$di$\u4e3a$r-l+1$\uff0c$ans=\\sum\\limits_{i=1}^ndi$\u3002\n\n\u8981\u4f7f\u533a\u95f4\u7684\u603b\u957f\u5ea6\u80fd\u591f\u6574\u9664$k$\uff0c\u9700\u8981\u627e\u5230$k$\u7684\u500d\u6570\u4e2d\u7b2c\u4e00\u4e2a\u5927\u4e8e\u7b49\u4e8e$ans$\u7684\u6570\uff0c\u53ef\u4ee5\u901a\u8fc7\u66b4\u529b\u6765\u5bfb\u627e\u3002\n\n\u4e3a\u4e86\u505a\u5230\u66f4\u7b80\u4fbf\uff0c\u53ef\u4ee5\u53cd\u5411\u601d\u8003\u3002$ans\\bmod k$\u53ef\u4ee5\u76f4\u63a5\u5f97\u5230$ans$\u51cf\u53bb$k$\u7684\u500d\u6570\u7684\u6700\u5c0f\u975e\u8d1f\u503c\uff0c\u5373\u4e3a$k-ans\\bmod k$\u3002\u5f53$ans$\u53ef\u4ee5\u6574\u9664$k$\u65f6\uff0c\u8fd9\u4e00\u6b65\u5f97\u5230\u7684\u503c\u4ecd\u4e3a$k$\uff0c\u6240\u4ee5\u8fd8\u8981\u518d\u4e00\u6b21\u5bf9$k$\u8fdb\u884c\u53d6\u4f59\u3002\n## \u3010\u4ee3\u7801\u3011\n```cpp\n#include <cstdio>\nint n,k,ans;\nint main()\n{\n\tscanf(\"%d%d\",&n,&k);\n\tfor(int i=1,l,r;i<=n;i++) scanf(\"%d%d\",&l,&r),ans+=r-l+1;\n\tprintf(\"%d\",(k-ans%k)%k);\n\treturn 0;\n}\n```",
+        "postTime": 1584606525,
+        "uid": 225965,
+        "name": "ztxtjz",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF289A \u3010Polo the Penguin and Segments \u3011"
+    }
+]

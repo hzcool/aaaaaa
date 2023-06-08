@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u4e00\u5806\u4eba\u7528 map \u548c set \u6c34\u8fc7\u8fd9\u9053\u9898\u3002  \n~~\u4e0d\u64c5\u957f\u5bb9\u5668\u7684\u6211\uff0c\u53ea\u597d\u7528 DP? \u4e86\u3002~~  \n\u8003\u8651\u4ece\u7b2c\u4e00\u4e2a\u9898\u76ee\u5f00\u59cb\u52a0\u5165\u5206\u6570\uff0c\u5faa\u73af\u5230\u6700\u5927\u5206\u6570($1000$)\u5224\u65ad\u80fd\u5426\u5728\u5148\u524d\u7684\u57fa\u7840\u4e0a\u901a\u8fc7\u8fd9\u6b21\u6bd4\u8d5b\u7684\u6ee1\u5206\u6216\u96f6\u5206\u6765\u5f97\u5230\u603b\u6210\u7ee9\u3002  \n\u53c2\u8003\u7a0b\u5e8f\uff1a  \n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nbool f[11][2001];\nint k[11]={25,39,51,76,163,111,136,128,133,138};\nint main(){\n\tmemset(f,false,sizeof(f));\n\tf[0][0]=true;\n\tfor(int i=0;i<=9;i++)\n\t    for(int j=0;j<=1000;j++){\n\t    \tf[i+1][j+k[i]]+=f[i][j];//\u5982\u679cf[i][j]\u53ef\u4ee5\u5b9e\u73b0\uff0c\u90a3\u4e48\u518d\u53d6\u4e00\u4e2a\u6bd4\u8d5b\u5206\u6570\u3002 \n\t        if(i==6)  f[i+1][j+58]+=f[i][j];//\u8fd8\u670958\u5206\u7684\u60c5\u51b5 \n\t        f[i+1][j]+=f[i][j];//0\u5206\u7684\u60c5\u51b5 \n\t    }\n\tfor(int i=0;i<=1000;i++)\tif(f[10][i])printf(\"%d\\n\",i);\n}\n```\n",
+        "postTime": 1622117134,
+        "uid": 437885,
+        "name": "xps0606",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3\u2014\u2014AT1317"
+    }
+]

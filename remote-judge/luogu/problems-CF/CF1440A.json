@@ -1,0 +1,13 @@
+{
+    "description": "You are given four integers $ n $ , $ c_0 $ , $ c_1 $ and $ h $ and a binary string $ s $ of length $ n $ .\n\nA binary string is a string consisting of characters $ 0 $ and $ 1 $ .\n\nYou can change any character of the string $ s $ (the string should be still binary after the change). You should pay $ h $ coins for each change.\n\nAfter some changes (possibly zero) you want to buy the string. To buy the string you should buy all its characters. To buy the character $ 0 $ you should pay $ c_0 $ coins, to buy the character $ 1 $ you should pay $ c_1 $ coins.\n\nFind the minimum number of coins needed to buy the string.",
+    "inputFormat": "The first line contains a single integer $ t $ ( $ 1 \\leq t \\leq 10 $ ) \u2014 the number of test cases. Next $ 2t $ lines contain descriptions of test cases.\n\nThe first line of the description of each test case contains four integers $ n $ , $ c_{0} $ , $ c_{1} $ , $ h $ ( $ 1 \\leq n, c_{0}, c_{1}, h \\leq 1000 $ ).\n\nThe second line of the description of each test case contains the binary string $ s $ of length $ n $ .",
+    "outputFormat": "For each test case print a single integer \u2014 the minimum number of coins needed to buy the string.",
+    "samples": [
+        [
+            "6\n3 1 1 1\n100\n5 10 100 1\n01010\n5 10 1 1\n11111\n5 1 10 1\n11111\n12 2 1 10\n101110110101\n2 100 1 10\n00",
+            "3\n52\n5\n10\n16\n22"
+        ]
+    ],
+    "hint": "In the first test case, you can buy all characters and pay $ 3 $ coins, because both characters $ 0 $ and $ 1 $ costs $ 1 $ coin.\n\nIn the second test case, you can firstly change $ 2 $ -nd and $ 4 $ -th symbols of the string from $ 1 $ to $ 0 $ and pay $ 2 $ coins for that. Your string will be $ 00000 $ . After that, you can buy the string and pay $ 5 \\cdot 10 = 50 $ coins for that. The total number of coins paid will be $ 2 + 50 = 52 $ .",
+    "translation": "\u7ed9\u51fa\u56db\u4e2a\u6574\u6570 $n,c_0,c_1$ \u548c $h$ \uff0c\u4ee5\u53ca\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u5b57\u7b26\u4e32 $s$ \uff0c\u4e14 $s$ \u4ec5\u7531 $0$ \u548c $1$ \u7ec4\u6210\u3002\u4f60\u53ef\u4ee5\u6bcf\u6b21\u4ee5 $h$ \u7684\u82b1\u8d39\u4fee\u6539\u5b57\u7b26\u4e32\u4e2d\u7684\u4e00\u4e2a\u5b57\u7b26\u3002\u5728\u7ecf\u8fc7\u4e00\u4e9b\u4fee\u6539\u540e\uff0c\u4f60\u9700\u8981\u4e70\u4e0b\u8fd9\u4e2a\u5b57\u7b26\u4e32\uff0c\u5176\u4e2d\u5b57\u7b26 $0$ \u9700\u8981\u82b1\u8d39 $c_0$ \uff0c\u5b57\u7b26 $1$ \u9700\u8981\u82b1\u8d39 $c_1$ \u3002\u6c42\u6700\u5c0f\u82b1\u8d39\u3002"
+}

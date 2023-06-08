@@ -1,0 +1,17 @@
+{
+    "description": "A monster is attacking the Cyberland!\n\nMaster Yang, a braver, is going to beat the monster. Yang and the monster each have 3 attributes: hitpoints ( $ HP $ ), offensive power ( $ ATK $ ) and defensive power ( $ DEF $ ).\n\nDuring the battle, every second the monster's HP decrease by $ max(0,ATK_{Y}-DEF_{M}) $ , while Yang's HP decreases by $ max(0,ATK_{M}-DEF_{Y}) $ , where index $ Y $ denotes Master Yang and index $ M $ denotes monster. Both decreases happen simultaneously Once monster's $ HP<=0 $ and the same time Master Yang's $ HP>0 $ , Master Yang wins.\n\nMaster Yang can buy attributes from the magic shop of Cyberland: $ h $ bitcoins per $ HP $ , $ a $ bitcoins per $ ATK $ , and $ d $ bitcoins per $ DEF $ .\n\nNow Master Yang wants to know the minimum number of bitcoins he can spend in order to win.",
+    "inputFormat": "A monster is attacking the Cyberland!\n\nMaster Yang, a braver, is going to beat the monster. Yang and the monster each have 3 attributes: hitpoints ( $ HP $ ), offensive power ( $ ATK $ ) and defensive power ( $ DEF $ ).\n\nDuring the battle, every second the monster's HP decrease by $ max(0,ATK_{Y}-DEF_{M}) $ , while Yang's HP decreases by $ max(0,ATK_{M}-DEF_{Y}) $ , where index $ Y $ denotes Master Yang and index $ M $ denotes monster. Both decreases happen simultaneously Once monster's $ HP<=0 $ and the same time Master Yang's $ HP>0 $ , Master Yang wins.\n\nMaster Yang can buy attributes from the magic shop of Cyberland: $ h $ bitcoins per $ HP $ , $ a $ bitcoins per $ ATK $ , and $ d $ bitcoins per $ DEF $ .\n\nNow Master Yang wants to know the minimum number of bitcoins he can spend in order to win.",
+    "outputFormat": "The only output line should contain an integer, denoting the minimum bitcoins Master Yang should spend in order to win.",
+    "samples": [
+        [
+            "1 2 1\n1 100 1\n1 100 100\n",
+            "99\n"
+        ],
+        [
+            "100 100 100\n1 1 1\n1 1 1\n",
+            "0\n"
+        ]
+    ],
+    "hint": "For the first sample, prices for $ ATK $ and $ DEF $ are extremely high. Master Yang can buy $ 99 $ HP, then he can beat the monster with $ 1 $ HP left.\n\nFor the second sample, Master Yang is strong enough to beat the monster, so he doesn't need to buy anything.",
+    "translation": "\u4e00\u4e2a\u602a\u7269\u6b63\u5728\u653b\u51fbCyberland\uff01\n#\n\u6768\u5e08\u5085\uff0c\u4e00\u4e2a\u52c7\u6562\u7684\u4eba\uff0c\u8981\u6253\u8d25\u602a\u7269\u3002\u6768\u5e08\u5085\u548c\u602a\u7269\u5404\u67093\u4e2a\u5c5e\u6027\uff1a\u751f\u547d\u503c\uff08HP\uff09\uff0c\u653b\u51fb\u529b\uff08ATK\uff09\u548c\u9632\u5fa1\u529b\uff08DEF\uff09\u3002\n#\n\u5728\u6218\u6597\u4e2d\uff0c\u602a\u7269\u7684HP\u6bcf\u79d2\u51cf\u5c11$max( 0,ATK_Y\u2212DEF_M )$,\u6768\u5e08\u5085\u7684HP\u6bcf\u79d2\u51cf\u5c11$max( 0,ATK_M\u2212DEF_Y )$\u3002\n\n\u5982\u679c\u5728\u67d0\u4e2a\u65f6\u523b\u6768\u5e08\u5085\u7684$HP>0$\u4e14\u602a\u7269\u7684$HP\\le0 $,\u6768\u5e08\u5085\u83b7\u80dc\u3002\n#\n\u6768\u5e08\u5085\u53ef\u4ee5\u4ece\u9b54\u6cd5\u5546\u5e97\u8d2d\u4e70\u5c5e\u6027\uff0c\u6bcf1\u70b9HP\u8981h\u6bd4\u7279\u5e01\uff0c\u6bcf1\u70b9ATK\u8981a\u6bd4\u7279\u5e01\uff0c\u4ee5\u53ca\u6bcf1\u70b9DEF\u8981d\u6bd4\u7279\u5e01\u3002\n\n\u95ee\u6768\u5e08\u5085\u81f3\u5c11\u82b1\u591a\u5c11\u6bd4\u7279\u5e01\u624d\u80fd\u6218\u80dc\u602a\u517d\u3002"
+}

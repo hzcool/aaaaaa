@@ -1,0 +1,21 @@
+{
+    "description": "[problemUrl]: https://atcoder.jp/contests/arc125/tasks/arc125_d\n\n\u9577\u3055 $ N $ \u306e\u6574\u6570\u5217 $ A_1,A_2,\\cdots,A_N $ \u304c\u4e0e\u3048\u3089\u308c\u307e\u3059\uff0e\n\n$ A $ \u306e\u975e\u7a7a\u306a\u90e8\u5206\u5217 $ s $ \u3067\u3042\u3063\u3066\uff0c\u4ee5\u4e0b\u306e\u6761\u4ef6\u3092\u6e80\u305f\u3059\u3082\u306e\u306e\u500b\u6570\u3092 $ 998244353 $ \u3067\u5272\u3063\u305f\u4f59\u308a\u3092\u6c42\u3081\u3066\u304f\u3060\u3055\u3044\uff0e\n\n- $ A $ \u304b\u3089 $ s $ \u3092\u53d6\u308a\u51fa\u3059\u65b9\u6cd5\u304c\u4e00\u610f\u3067\u3042\u308b\uff0e \u3064\u307e\u308a\uff0c$ s=(s_1,s_2,\\cdots,s_k) $ \u3068\u3057\u305f\u6642\uff0c$ A_{idx(i)}=s_i $ ($ 1\\ \\leq\\ i\\ \\leq\\ k $)\u3092\u6e80\u305f\u3059\u6dfb\u5b57\u306e\u5217 $ 1\\ \\leq\\ idx(1)\\ <\\ idx(2)\\ <\\ \\cdots\\ <\\ idx(k)\\ \\leq\\ N $ \u304c\u3061\u3087\u3046\u3069\u4e00\u3064\u5b58\u5728\u3059\u308b\uff0e",
+    "inputFormat": "\u5165\u529b\u306f\u4ee5\u4e0b\u306e\u5f62\u5f0f\u3067\u6a19\u6e96\u5165\u529b\u304b\u3089\u4e0e\u3048\u3089\u308c\u308b\uff0e\n\n> $ N $ $ A_1 $ $ A_2 $ $ \\cdots $ $ A_N $",
+    "outputFormat": "\u7b54\u3048\u3092\u51fa\u529b\u305b\u3088\uff0e",
+    "samples": [
+        [
+            "3\r\n1 2 1",
+            "5"
+        ],
+        [
+            "4\r\n4 2 1 3",
+            "15"
+        ],
+        [
+            "12\r\n1 2 3 6 9 2 3 3 9 6 1 6",
+            "1178"
+        ]
+    ],
+    "hint": "### \u5236\u7d04\n\n- $ 1\\ \\leq\\ N\\ \\leq\\ 2\\ \\times\\ 10^5 $\n- $ 1\\ \\leq\\ A_i\\ \\leq\\ N $\n- \u5165\u529b\u3055\u308c\u308b\u5024\u306f\u3059\u3079\u3066\u6574\u6570\u3067\u3042\u308b\n\n### Sample Explanation 1\n\n\u4ee5\u4e0b\u306e $ 5 $ \u3064\u306e\u90e8\u5206\u5217\u304c\u6761\u4ef6\u3092\u6e80\u305f\u3057\u307e\u3059\uff0e - $ (1,1) $ - $ (1,2) $ - $ (1,2,1) $ - $ (2) $ - $ (2,1) $ \u90e8\u5206\u5217 $ (1) $ \u306f\u53d6\u308a\u51fa\u3059\u65b9\u6cd5\u304c $ 2 $ \u901a\u308a\u3042\u308b\u306e\u3067\u6761\u4ef6\u3092\u6e80\u305f\u3057\u307e\u305b\u3093\uff0e",
+    "translation": "\u7ed9\u5b9a\u957f\u4e3a $n(n\\le 2\\times 10^5)$ \u7684\u6570\u5217 $a$\uff0c\u4fdd\u8bc1 $1\\le a_i\\le n$\uff0c\u6c42\u8fd9\u4e2a\u6570\u5217\u7684\u975e\u7a7a\u3001\u4ec5\u51fa\u73b0\u4e00\u6b21\u7684\u5b50\u5e8f\u5217\u7684\u4e2a\u6570 $\\bmod 998244353$\u3002\n\n\u4ee4\u6784\u6210\u5b50\u5e8f\u5217 $S$ \u65f6\u9009\u53d6\u7684\u4e0b\u6807\u4e3a $s_1,\\cdots,s_{k_1}$\uff0c\u6784\u6210\u5b50\u5e8f\u5217 $T$ \u65f6\u6240\u9009\u53d6\u7684\u4e0b\u6807\u4e3a $t_1,\\cdots,t_{k_2}$\uff0c\u5219\u5728\n\n$$\\begin{cases}k_1=k_2\\\\\\forall i\\in[1,k_1],S_i=T_i\\\\\\exists i\\in[1,k_1],s_i\\ne t_i\\end{cases}$$\n\n\u65f6\uff0c\u8ba4\u4e3a $S$ \u5728 $a$ \u4e2d\u51fa\u73b0\u4e86\u4e0d\u6b62\u4e00\u6b21\u3002"
+}

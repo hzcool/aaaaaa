@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u6570\u636e\u8303\u56f4\u5c31\u662f\u660e\u793a\u5e73\u65b9\u590d\u6742\u5ea6 .\n\n\u9996\u5148\u6839\u636e\u5b57\u5178\u5e8f\u5b9a\u4e49\u5de6\u7aef\u70b9\u5fc5\u7136\u662f\u6700\u5de6\u7684 $\\tt p$\uff0c\u8fd9\u6837\u7ffb\u8f6c\u8fc7\u53bb\u4e4b\u540e\u5982\u679c\u53f3\u8fb9\u6709 $\\tt p$ \u8fd9\u4e2a\u5c31\u53ef\u4ee5\u53d8\u6210 $\\tt d$\uff0c\u5426\u5219\u5fc5\u7136\u4e0d\u4f18 .\n\n\u4e8e\u662f\u679a\u4e3e\u53f3\u7aef\u70b9\u66b4\u529b\u5224\u5373\u53ef\uff0c\u65f6\u95f4\u590d\u6742\u5ea6 $\\Theta(n^2\\log n)$\uff0c\u7528\u57fa\u6570\u6392\u5e8f\u53ef\u4ee5\u4f18\u5316\u5230 $\\Theta(n^2)$ .\n\n*\u4e0d\u8981\u5c1d\u8bd5\u7ebf\u6027\u627e\u53f3\u7aef\u70b9\uff0c\u4f1a\u53d8\u5f97\u4e0d\u5e78*\n\n```cpp\nint n;\nstring s;\nint main()\n{\n\tscanf(\"%d\", &n);\n\tcin >> s; s = \"$\" + s;\n\tint l = -1;\n\tfor (int i=1; i<=n; i++)\n\t\tif (s[i] == 'p'){l = i; break;}\n\tif (!~l){cout << s.substr(1) << endl; return 0;}\n\tset<string> S;\n\tfor (int r=l; r<=n; r++)\n\t{\n\t\tstring now(s);\n\t\treverse(now.begin()+l, now.begin()+1+r);\n\t\tfor (int i=l; i<=r; i++) now[i] = (now[i] == 'd') ? 'p' : 'd';\n\t\tS.insert(now);\n\t}\n\tcout << S.begin() -> substr(1) << endl;\n\treturn 0;\n}\n\n```",
+        "postTime": 1668419435,
+        "uid": 227514,
+        "name": "jijidawang",
+        "ccfLevel": 0,
+        "title": "ARC148B"
+    }
+]

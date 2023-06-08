@@ -1,0 +1,17 @@
+{
+    "description": "A tree is a connected undirected graph with $ n-1 $ edges, where $ n $ denotes the number of vertices. Vertices are numbered $ 1 $ through $ n $ .\n\nLimak is a little polar bear. His bear family prepares a New Year tree every year. One year ago their tree was more awesome than usually. Thus, they decided to prepare the same tree in the next year. Limak was responsible for remembering that tree.\n\nIt would be hard to remember a whole tree. Limak decided to describe it in his notebook instead. He took a pen and wrote $ n-1 $ lines, each with two integers \u2014 indices of two vertices connected by an edge.\n\nNow, the New Year is just around the corner and Limak is asked to reconstruct that tree. Of course, there is a problem. He was a very little bear a year ago, and he didn't know digits and the alphabet, so he just replaced each digit with a question mark \u2014 the only character he knew. That means, for any vertex index in his notes he knows only the number of digits in it. At least he knows there were no leading zeroes.\n\nLimak doesn't want to disappoint everyone. Please, take his notes and reconstruct a New Year tree. Find any tree matching Limak's records and print its edges in any order. It's also possible that Limak made a mistake and there is no suitable tree \u2013 in this case print \"-1\" (without the quotes).",
+    "inputFormat": "The first line contains a single integer $n$ ( $ 2 \\le n \\le 200000 $ ) \u2014 the number of vertices.\n\nEach of the next $ n-1 $ lines contains two space-separated non-empty strings, both consisting of questions marks only. No string has more characters than the number of digits in $ n $ .",
+    "outputFormat": "If there is no tree matching Limak's records, print the only line with \"-1\" (without the quotes).\n\nOtherwise, describe any tree matching Limak's notes. Print $ n-1 $ lines, each with two space-separated integers \u2013 indices of vertices connected by an edge. You can print edges in any order.",
+    "samples": [
+        [
+            "12\n? ?\n? ?\n? ?\n? ??\n?? ?\n?? ??\n? ??\n? ?\n? ?\n? ?\n? ?\n",
+            "3 1\n1 6\n9 1\n2 10\n1 7\n8 1\n1 4\n1 10\n5 1\n10 11\n12 1\n"
+        ],
+        [
+            "12\n?? ??\n? ?\n? ?\n? ??\n?? ?\n?? ??\n? ??\n? ?\n? ?\n?? ??\n? ?\n",
+            "-1\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u6709\u4e00\u68f5 $n$ \u4e2a\u8282\u70b9\u7684\u6811\uff0c\u8282\u70b9\u7f16\u53f7\u4e3a $1 \\sim n$\u3002\n\n\u8bb0\u5f55\u8fd9\u68f5\u6811\u7684\u65b9\u5f0f\u662f\u8bb0\u5f55\u4e0b\u6bcf\u6761\u8fb9\u8fde\u63a5\u7684\u4e24\u70b9\u7684\u7f16\u53f7\u3002\n\n\u73b0\u5728\uff0c\u4f60\u4e0d\u77e5\u9053\u8fd9\u4e9b\u7f16\u53f7\u5177\u4f53\u662f\u591a\u5c11\uff0c\u4f60\u53ea\u77e5\u9053\u5b83\u4eec\u5728\u5341\u8fdb\u5236\u4e0b\u7684\u4f4d\u6570\u3002\n\n\u8bf7\u4f60\u6784\u9020\u51fa\u4e00\u68f5\u6ee1\u8db3\u8981\u6c42\u7684\u6811\uff0c\u6216\u5224\u65ad\u6ca1\u6709\u6ee1\u8db3\u8981\u6c42\u7684\u6811\u3002\n\n$n \\le 2 \\times 10^5$\u3002"
+}

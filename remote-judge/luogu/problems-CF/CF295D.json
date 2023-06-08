@@ -1,0 +1,21 @@
+{
+    "description": "Greg has a pad. The pad's screen is an $ n\u00d7m $ rectangle, each cell can be either black or white. We'll consider the pad rows to be numbered with integers from 1 to $ n $ from top to bottom. Similarly, the pad's columns are numbered with integers from 1 to $ m $ from left to right.\n\nGreg thinks that the pad's screen displays a cave if the following conditions hold:\n\n- There is a segment $ [l,r] $ $ (1<=l<=r<=n) $ , such that each of the rows $ l,l+1,...,r $ has exactly two black cells and all other rows have only white cells.\n- There is a row number $ t $ $ (l<=t<=r) $ , such that for all pairs of rows with numbers $ i $ and $ j $ $ (l<=i<=j<=t) $ the set of columns between the black cells in row $ i $ (with the columns where is these black cells) is the subset of the set of columns between the black cells in row $ j $ (with the columns where is these black cells). Similarly, for all pairs of rows with numbers $ i $ and $ j $ $ (t<=i<=j<=r) $ the set of columns between the black cells in row $ j $ (with the columns where is these black cells) is the subset of the set of columns between the black cells in row $ i $ (with the columns where is these black cells).\n\nGreg wondered, how many ways there are to paint a cave on his pad. Two ways can be considered distinct if there is a cell that has distinct colors on the two pictures.\n\nHelp Greg.",
+    "inputFormat": "The first line contains two integers $ n $ , $ m $ \u2014 the pad's screen size $ (1<=n,m<=2000) $ .",
+    "outputFormat": "In the single line print the remainder after dividing the answer to the problem by $ 1000000007 $ $ (10^{9}+7) $ .",
+    "samples": [
+        [
+            "1 1\n",
+            "0\n"
+        ],
+        [
+            "4 4\n",
+            "485\n"
+        ],
+        [
+            "3 5\n",
+            "451\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "### \u9898\u76ee\u63cf\u8ff0\r\n\r\nGreg\u6709\u4e00\u4e2a8868\uff0c\u5176\u5c4f\u5e55\u4e3a\u4e00$n \\times m$\u7684\u77e9\u5f62\uff0c\u6bcf\u4e2a\u50cf\u7d20\u53ef\u4ee5\u662f\u9ed1\u8272\u6216\u767d\u8272\u3002\u6211\u4eec\u8003\u8651\u5c068868\u7684\u884c\u4ece\u4e0a\u5230\u4e0b\u7f16\u53f7\u4e3a1\u5230$n$\u3002\u7c7b\u4f3c\u5730\uff0c8868\u7684\u5217\u4ece\u5de6\u5230\u53f3\u7f16\u53f7\u4e3a1\u5230$m$\r\n\r\nGreg\u8ba4\u4e3a8868\u663e\u793a\u4e00\u4e2a\u6d1e\u65f6\uff0c\u5f53\u4e14\u4ec5\u5f53\u4ee5\u4e0b\u60c5\u51b5\uff1a\r\n\r\n- $\\exist$\u533a\u95f4$[l,r](1 \\leq l \\leq r \\leq n)$\uff0c\u4f7f\u5f97\u6bcf\u4e00\u884c\u6070\u6709\u4e24\u4e2a\u9ed1\u8272\u50cf\u7d20\uff0c\u800c\u6240\u6709\u5176\u4ed6\u884c\u53ea\u6709\u767d\u8272\u50cf\u7d20\r\n- $\\exist$\u884c$t(l \\leq t \\leq r)$\uff0c\u4f7f\u5f97\u5bf9\u4e8e$\\forall(i,j)(l \\leq i \\leq j \\leq t)$\uff0c\u7b2c$i$\u884c\u4e2d\u9ed1\u8272\u5355\u5143\u683c\u4e4b\u95f4\u5217\u7684\u96c6\u5408$S_1$\uff0c\u4e0e\u7b2c$j$\u884c\u4e2d\u9ed1\u8272\u5355\u5143\u683c\u4e4b\u95f4\u5217\u7684\u96c6\u5408$S_2$\uff0c\u6ee1\u8db3$S_1 \\subseteq S_2$\uff0c\u540c\u6837\u5bf9\u4e8e$\\forall (i,j)(t \\leq i \\leq j \\leq r)$\uff0c\u7b2c$i$\u884c\u4e2d\u9ed1\u8272\u5355\u5143\u683c\u4e4b\u95f4\u5217\u7684\u96c6\u5408$S_1$\uff0c\u4e0e\u7b2c$j$\u884c\u4e2d\u9ed1\u8272\u5355\u5143\u683c\u4e4b\u95f4\u5217\u7684\u96c6\u5408$S_2$\uff0c\u6ee1\u8db3$S_2 \\subseteq S_1$\uff0c\r\n\r\nGreg\u60f3\u77e5\u9053\uff0c\u6709\u591a\u5c11\u79cd\u65b9\u6848\u80fd\u8ba9\u4ed6\u76848868\u663e\u793a\u4e00\u4e2a\u6d1e\u3002\u5f53\u4e14\u4ec5\u5f53\u4e24\u4e2a\u5c4f\u5e55\u5b58\u5728\u4e00\u4e2a\u4f4d\u7f6e\u50cf\u7d20\u989c\u8272\u4e0d\u540c\uff0c\u4e24\u79cd\u65b9\u6848\u4e0d\u540c\r\n\r\n\u5e2e\u5e2eGreg\u5427\r\n\r\n### \u8f93\u5165\u8f93\u51fa\u683c\u5f0f\r\n\r\n#### \u8f93\u5165\u683c\u5f0f\uff1a\r\n\r\n\u7b2c\u4e00\u884c\u4e24\u4e2a\u6574\u6570$n$\uff0c$m$\u8868\u793a8868\u7684\u5206\u8fa8\u7387$(1 \\leq n,m \\leq 2000)$\r\n\r\n#### \u8f93\u51fa\u683c\u5f0f\uff1a\r\n\r\n\u4e00\u884c\uff0c\u7b54\u6848\u5728\u6a21$1e9+7$\u610f\u4e49\u4e0b\u7684\u6570\u503c"
+}

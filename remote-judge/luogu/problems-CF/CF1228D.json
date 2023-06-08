@@ -1,0 +1,17 @@
+{
+    "description": "You have a simple undirected graph consisting of $ n $ vertices and $ m $ edges. The graph doesn't contain self-loops, there is at most one edge between a pair of vertices. The given graph can be disconnected.\n\nLet's make a definition.\n\nLet $ v_1 $ and $ v_2 $ be two some nonempty subsets of vertices that do not intersect. Let $ f(v_{1}, v_{2}) $ be true if and only if all the conditions are satisfied:\n\n1. There are no edges with both endpoints in vertex set $ v_1 $ .\n2. There are no edges with both endpoints in vertex set $ v_2 $ .\n3. For every two vertices $ x $ and $ y $ such that $ x $ is in $ v_1 $ and $ y $ is in $ v_2 $ , there is an edge between $ x $ and $ y $ .\n\nCreate three vertex sets ( $ v_{1} $ , $ v_{2} $ , $ v_{3} $ ) which satisfy the conditions below;\n\n1. All vertex sets should not be empty.\n2. Each vertex should be assigned to only one vertex set.\n3. $ f(v_{1}, v_{2}) $ , $ f(v_{2}, v_{3}) $ , $ f(v_{3}, v_{1}) $ are all true.\n\nIs it possible to create such three vertex sets? If it's possible, print matching vertex set for each vertex.",
+    "inputFormat": "The first line contains two integers $ n $ and $ m $ ( $ 3 \\le n \\le 10^{5} $ , $ 0 \\le m \\le \\text{min}(3 \\cdot 10^{5}, \\frac{n(n-1)}{2}) $ ) \u2014 the number of vertices and edges in the graph.\n\nThe $ i $ -th of the next $ m $ lines contains two integers $ a_{i} $ and $ b_{i} $ ( $ 1 \\le a_{i} \\lt b_{i} \\le n $ ) \u2014 it means there is an edge between $ a_{i} $ and $ b_{i} $ . The graph doesn't contain self-loops, there is at most one edge between a pair of vertices. The given graph can be disconnected.",
+    "outputFormat": "If the answer exists, print $ n $ integers. $ i $ -th integer means the vertex set number (from $ 1 $ to $ 3 $ ) of $ i $ -th vertex. Otherwise, print $ -1 $ .\n\nIf there are multiple answers, print any.",
+    "samples": [
+        [
+            "6 11\n1 2\n1 3\n1 4\n1 5\n1 6\n2 4\n2 5\n2 6\n3 4\n3 5\n3 6\n",
+            "1 2 2 3 3 3 "
+        ],
+        [
+            "4 6\n1 2\n1 3\n1 4\n2 3\n2 4\n3 4\n",
+            "-1\n"
+        ]
+    ],
+    "hint": "In the first example, if $ v_{1} = \\{ 1 \\} $ , $ v_{2} = \\{ 2, 3 \\} $ , and $ v_{3} = \\{ 4, 5, 6 \\} $ then vertex sets will satisfy all conditions. But you can assign vertices to vertex sets in a different way; Other answers like \"2 3 3 1 1 1\" will be accepted as well.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1228D/c2c365eaf8464b0509392f3446fceb5e5d58fe78.png)In the second example, it's impossible to make such vertex sets.",
+    "translation": "\u6709\u4e00\u4e2a $n$ \u4e2a\u70b9 $m$ \u6761\u8fb9\u7684\u65e0\u5411\u56fe\uff0c\u6bcf\u4e00\u5bf9\u9876\u70b9\u4e2d\u6700\u591a\u6709\u4e00\u6761\u8fb9\u3002\n\n\u8bbe $v_1,v_2$ \u662f\u4e24\u4e2a\u4e0d\u76f8\u4ea4\u7684\u975e\u7a7a\u5b50\u96c6\uff0c\u5f53\u6ee1\u8db3\u4e0b\u5217\u6761\u4ef6\u65f6\uff0c$f(v_1,v_2)$ \u7684\u503c\u4e3a\u771f\uff1a\n\n- $v_1$ \u4e2d\u7684\u70b9\u4e4b\u95f4\u4e0d\u5b58\u5728\u8fb9\u3002\n\n- $v_2$ \u4e2d\u7684\u70b9\u4e4b\u95f4\u4e0d\u5b58\u5728\u8fb9\u3002\n\n- \u5bf9\u4e8e $\\forall x\\in v_1$\uff0c$\\forall y\\in v_2$\uff0c$x$ \u548c $y$ \u4e4b\u95f4\u6709\u8fb9\u3002\n\n\u95ee\u662f\u5426\u5b58\u5728\u4e09\u4e2a\u70b9\u96c6 $v_1,v_2,v_3$\uff0c\u4f7f\u5f97 $f(v_1,v_2)$\uff0c$f(v_2,v_3)$ \u548c $f(v_1,v_3)$ \u7684\u503c\u5747\u4e3a\u771f\u3002\n\n\u5982\u679c\u662f\uff0c\u8f93\u51fa\u6bcf\u4e00\u4e2a\u70b9\u6240\u5728\u7684\u70b9\u96c6\uff1b\u5426\u5219\u8f93\u51fa `-1`\u3002"
+}

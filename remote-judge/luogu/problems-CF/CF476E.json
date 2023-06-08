@@ -1,0 +1,17 @@
+{
+    "description": "Dreamoon has a string $ s $ and a pattern string $ p $ . He first removes exactly $ x $ characters from $ s $ obtaining string $ s' $ as a result. Then he calculates ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF476E/81b6d86ab2cb04034a026215b06d672e2f595edc.png) that is defined as the maximal number of non-overlapping substrings equal to $ p $ that can be found in $ s' $ . He wants to make this number as big as possible.\n\nMore formally, let's define ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF476E/b8557967a7876b982ddaa2da51ccccbb228e8594.png) as maximum value of ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF476E/81b6d86ab2cb04034a026215b06d672e2f595edc.png) over all $ s' $ that can be obtained by removing exactly $ x $ characters from $ s $ . Dreamoon wants to know ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF476E/b8557967a7876b982ddaa2da51ccccbb228e8594.png) for all $ x $ from $ 0 $ to $ |s| $ where $ |s| $ denotes the length of string $ s $ .",
+    "inputFormat": "The first line of the input contains the string $ s $ ( $ 1<=|s|<=2000 $ ).\n\nThe second line of the input contains the string $ p $ ( $ 1<=|p|<=500 $ ).\n\nBoth strings will only consist of lower case English letters.",
+    "outputFormat": "Print $ |s|+1 $ space-separated integers in a single line representing the ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF476E/b8557967a7876b982ddaa2da51ccccbb228e8594.png) for all $ x $ from $ 0 $ to $ |s| $ .",
+    "samples": [
+        [
+            "aaaaa\naa\n",
+            "2 2 1 1 0 0\n"
+        ],
+        [
+            "axbaxxb\nab\n",
+            "0 1 1 2 1 1 0 0\n"
+        ]
+    ],
+    "hint": "For the first sample, the corresponding optimal values of $ s' $ after removal $ 0 $ through $ |s|=5 $ characters from $ s $ are {\"aaaaa\", \"aaaa\", \"aaa\", \"aa\", \"a\", \"\"}.\n\nFor the second sample, possible corresponding optimal values of $ s' $ are {\"axbaxxb\", \"abaxxb\", \"axbab\", \"abab\", \"aba\", \"ab\", \"a\", \"\"}.",
+    "translation": "## \u9898\u76ee\u63cf\u8ff0\uff1a\r\n\r\nDreamoon \u6709\u4e00\u4e2a\u5b57\u7b26\u4e32 $s$ \u548c\u4e00\u4e2a\u6a21\u5f0f\u4e32 $p$\uff0c\u4ed6\u4f1a\u5148\u4ece $s$ \u4e2d\u5220\u9664\u6070\u597d $x$ \u4e2a\u5b57\u7b26\u6765\u4ea7\u751f\u4e00\u4e2a\u65b0\u7684\u5b57\u7b26\u4e32 $s'$\u3002\u7136\u540e\u4ed6\u4f1a\u8ba1\u7b97 $occ(s',p)$\uff0c\u5373\u4ece $s'$ \u4e2d\u80fd\u627e\u5230\u7684\u7b49\u4e8e $p$ \u7684\u4e0d\u76f8\u4ea4\u7684\u5b50\u4e32\u6570\u91cf\u7684\u6700\u5927\u503c\u3002\u4ed6\u60f3\u8ba9 $occ(s',p)$ \u7684\u503c\u5c3d\u53ef\u80fd\u5927\u3002\r\n\r\n\u66f4\u5f62\u5f0f\u5730\u8bf4\uff0c\u8ba9\u6211\u4eec\u7528 $ans(x)$ \u8868\u793a\u6240\u6709\u53ef\u4ee5\u4ece $s$ \u4e2d\u5220\u53bb\u6070\u597d $x$ \u4e2a\u5b57\u7b26\u5f97\u5230\u7684 $s'$ \u4e2d $occ(s',p)$ \u7684\u6700\u5927\u503c\u3002Dreamoon \u60f3\u8981\u77e5\u9053\u5bf9\u4e8e\u6240\u6709\u7684 $x$ $(0 \\leq x \\leq |s|)$\uff0c$ans(x)$ \u7684\u503c\u3002\r\n\r\n## \u8f93\u5165\u683c\u5f0f\uff1a\r\n\r\n\u7b2c\u4e00\u3001\u4e8c\u884c\u5206\u522b\u8f93\u5165\u4e00\u4e2a\u5b57\u7b26\u4e32\uff1a$s$\uff0c$p$\u3002$(1 \\leq |s| \\leq 2000,1 \\leq |p| \\leq 500)$\uff0c\u4e24\u4e32\u53ea\u5305\u542b\u5c0f\u5199\u82f1\u6587\u5b57\u6bcd\u3002\r\n\r\n## \u8f93\u51fa\u683c\u5f0f\uff1a\r\n\r\n\u4e00\u884c\uff0c$(|s|+1)$ \u4e2a\u6570\uff0c\u5206\u522b\u4ee3\u8868 $ans(0),ans(1),\\dots,ans(|s|)$\u3002"
+}

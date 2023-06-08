@@ -1,0 +1,21 @@
+{
+    "description": "zscoder has a deck of $ n+m $ custom-made cards, which consists of $ n $ cards labelled from $ 1 $ to $ n $ and $ m $ jokers. Since zscoder is lonely, he wants to play a game with himself using those cards.\n\nInitially, the deck is shuffled uniformly randomly and placed on the table. zscoder has a set $ S $ which is initially empty.\n\nEvery second, zscoder draws the top card from the deck.\n\n- If the card has a number $ x $ written on it, zscoder removes the card and adds $ x $ to the set $ S $ .\n- If the card drawn is a joker, zscoder places all the cards back into the deck and reshuffles (uniformly randomly) the $ n+m $ cards to form a new deck (hence the new deck now contains all cards from $ 1 $ to $ n $ and the $ m $ jokers). Then, if $ S $ currently contains all the elements from $ 1 $ to $ n $ , the game ends. Shuffling the deck doesn't take time at all.\n\nWhat is the expected number of seconds before the game ends? We can show that the answer can be written in the form $ \\frac{P}{Q} $ where $ P, Q $ are relatively prime integers and $ Q \\neq 0 \\bmod 998244353 $ . Output the value of $ (P       \\cdot Q^{-1}) $ modulo $ 998244353 $ .",
+    "inputFormat": "The only line of the input contains two integers $ n $ and $ m $ ( $ 1 \\le n, m \\le 2 \\cdot 10^{6} $ ).",
+    "outputFormat": "Output a single integer, the value of $ (P \\cdot Q^{-1}) $ modulo $ 998244353 $ .",
+    "samples": [
+        [
+            "2 1",
+            "5"
+        ],
+        [
+            "3 2",
+            "332748127"
+        ],
+        [
+            "14 9",
+            "969862773"
+        ]
+    ],
+    "hint": "For the first sample, it can be proven that the expected time before the game ends is $ 5 $ seconds.\n\nFor the second sample, it can be proven that the expected time before the game ends is $ \\frac{28}{3} $ seconds.",
+    "translation": "\u6709 $n+m$ \u5f20\u724c\uff0c\u5176\u4e2d\u524d $n$ \u5f20\u724c\u4e0a\u5206\u522b\u6807\u7740 $1,2,\\cdots,n$ \u7684\u6570\u5b57\uff0c\u540e $m$ \u5f20\u724c\u662f\u9b3c\u724c\u3002\u73b0\u5728\u6211\u4eec\u6253\u4e71\u8fd9\u4e9b\u724c\uff0c\u7136\u540e\u5f00\u59cb\u62bd\u724c\u6e38\u620f\uff0c\u6bcf\u4e00\u8f6e\u4f60\u53ef\u4ee5\u62bd\u4e00\u5f20\u724c\uff1a\n\n- \u5982\u679c\u62bd\u5230\u4e86\u4e00\u5f20\u6807\u6709\u6570\u5b57 $x$ \u7684\u724c\uff0c\u5c31\u79fb\u9664\u8fd9\u5f20\u724c\uff0c\u5e76\u5c06 $x$ \u52a0\u5165\u4e00\u4e2a\u96c6\u5408 $S$ \uff1b\n- \u5982\u679c\u62bd\u5230\u4e86\u9b3c\u724c\uff0c\u5c31\u628a\u79fb\u9664\u7684\u724c\u91cd\u65b0\u52a0\u5165\u724c\u5806\uff0c\u518d\u6b21\u6253\u4e71\u6240\u6709\u724c\u7684\u987a\u5e8f\uff0c\u91cd\u65b0\u5f00\u59cb\u62bd\u724c\u3002\u5982\u679c\u4f60\u62bd\u5230\u4e86\u9b3c\u724c\uff0c\u5e76\u4e14\u96c6\u5408 $S$ \u5df2\u7ecf\u5305\u62ec\u4e86 $[1,n]$ \u4e2d\u5168\u90e8 $n$ \u4e2a\u6570\uff0c\u90a3\u4e48\u62bd\u724c\u6e38\u620f\u7ed3\u675f\u3002\n\n\u8be2\u95ee\u62bd\u724c\u6e38\u620f\u7ed3\u675f\u7684\u671f\u671b\u8f6e\u6570\u3002"
+}

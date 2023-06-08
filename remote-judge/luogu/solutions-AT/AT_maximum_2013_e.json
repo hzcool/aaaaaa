@@ -1,0 +1,10 @@
+[
+    {
+        "content": "## \u5206\u6790\n\n\u8fd9\u9053\u9898\u6211\u60f3\u5230\u4e86\u4e00\u4e2a\u505a\u6cd5\u3002\n\n\u7ef4\u62a4\u4e24\u4e2a\u548c $s_1,s_2$\uff0c\u5f53\u8f93\u5165\u7684\u5b57\u7b26 $rarity_i$ \u4e0d\u4e3a `N` \u4e14 $card\\_name_i$ \u4e2d\u542b\u6709 `Alicia`\uff0c\u5c31\u5c06 $s_1$ \u52a0\u4e0a $rate_i$\u3002\n\n$s_2$ \u76f4\u63a5\u7ef4\u62a4\u6240\u6709 $rate_i$ \u7684\u548c\u5373\u53ef\u3002\n\n\u6700\u540e\u53ea\u9700\u8981\u8ba1\u7b97 $T-\\frac{T}{10} \\times \\frac{s_1}{s_2}$ \u5373\u53ef\u3002\u8bb0\u5f97\u8981\u4fdd\u75599\u4f4d\u5c0f\u6570\uff01\n\n## \u4ee3\u7801\n\n\u5148\u7ed9\u51fa\u5224\u65ad\u4e00\u4e2a\u5b57\u7b26\u4e32 $b$ \u662f\u5426\u5728\u5b57\u7b26\u4e32 $a$ \u4e2d\u7684\u4ee3\u7801\uff1a\n\n```cpp\nbool find(string a,const string b){\n\treturn a.find(b)!=string::npos;\n}\n```\n\n\u7136\u540e\u518d\u7ed9\u51fa\u6574\u9053\u9898\u7684AC\u4ee3\u7801\uff1a\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nint n,t,s1,s2;\n\nbool find(string a,const string b){\n\treturn a.find(b)!=string::npos;\n}\n\nint main(){\n\tcin>>n>>t;\n\tfor(int i=1;i<=n;i++){\n\t\tstring s;char c;int r;\n\t\tcin>>s>>c>>r;\n\t\tif(c!='N' && find(s,\"Alicia\")){\n\t\t\ts1+=r;\n\t\t}\n\t\ts2+=r;\n\t}\n\tdouble result=(t-t/10)*double(s1)/double(s2);\n\tprintf(\"%.9f\",result);\n\treturn result-result;\n}\n```",
+        "postTime": 1645236316,
+        "uid": 413065,
+        "name": "xiezheyuan",
+        "ccfLevel": 5,
+        "title": "AT715 Alicia's Rare card Challenge"
+    }
+]

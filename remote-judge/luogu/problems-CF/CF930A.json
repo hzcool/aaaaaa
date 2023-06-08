@@ -1,0 +1,21 @@
+{
+    "description": "In Arcady's garden there grows a peculiar apple-tree that fruits one time per year. Its peculiarity can be explained in following way: there are $ n $ inflorescences, numbered from $ 1 $ to $ n $ . Inflorescence number $ 1 $ is situated near base of tree and any other inflorescence with number $ i $ ( $ i&gt;1 $ ) is situated at the top of branch, which bottom is $ p_{i} $ -th inflorescence and $ p_{i}&lt;i $ .\n\nOnce tree starts fruiting, there appears exactly one apple in each inflorescence. The same moment as apples appear, they start to roll down along branches to the very base of tree. Each second all apples, except ones in first inflorescence simultaneously roll down one branch closer to tree base, e.g. apple in $ a $ -th inflorescence gets to $ p_{a} $ -th inflorescence. Apples that end up in first inflorescence are gathered by Arcady in exactly the same moment. Second peculiarity of this tree is that once two apples are in same inflorescence they annihilate. This happens with each pair of apples, e.g. if there are $ 5 $ apples in same inflorescence in same time, only one will not be annihilated and if there are $ 8 $ apples, all apples will be annihilated. Thus, there can be no more than one apple in each inflorescence in each moment of time.\n\nHelp Arcady with counting number of apples he will be able to collect from first inflorescence during one harvest.",
+    "inputFormat": "First line of input contains single integer number $ n $ ( $ 2<=n<=100000 $ ) \u2014 number of inflorescences.\n\nSecond line of input contains sequence of $ n-1 $ integer numbers $ p_{2},p_{3},...,p_{n} $ ( $ 1<=p_{i}&lt;i $ ), where $ p_{i} $ is number of inflorescence into which the apple from $ i $ -th inflorescence rolls down.",
+    "outputFormat": "Single line of output should contain one integer number: amount of apples that Arcady will be able to collect from first inflorescence during one harvest.",
+    "samples": [
+        [
+            "3\n1 1\n",
+            "1\n"
+        ],
+        [
+            "5\n1 2 2 2\n",
+            "3\n"
+        ],
+        [
+            "18\n1 1 1 4 4 3 2 2 2 10 8 9 9 9 10 10 4\n",
+            "4\n"
+        ]
+    ],
+    "hint": "In first example Arcady will be able to collect only one apple, initially situated in $ 1 $ st inflorescence. In next second apples from $ 2 $ nd and $ 3 $ rd inflorescences will roll down and annihilate, and Arcady won't be able to collect them.\n\nIn the second example Arcady will be able to collect 3 apples. First one is one initially situated in first inflorescence. In a second apple from $ 2 $ nd inflorescence will roll down to $ 1 $ st (Arcady will collect it) and apples from $ 3 $ rd, $ 4 $ th, $ 5 $ th inflorescences will roll down to $ 2 $ nd. Two of them will annihilate and one not annihilated will roll down from $ 2 $ -nd inflorescence to $ 1 $ st one in the next second and Arcady will collect it.",
+    "translation": "\u4ece\u524d\u6709\u4e00\u53ea\u540d\u4e3a NaCly_Fish \u7684\u795e\u9c7c\uff0c\u5979\u6709\u4e00\u68f5\u82f9\u679c\u6811\u3002\r\n\r\n\u6709\u4e00\u5929\u82f9\u679c\u719f\u4e86\uff0c\u6bcf\u4e2a\u70b9\u90fd\u6709\u4e00\u4e2a\u82f9\u679c\u3002\u795e\u9c7c\u7528\u9b54\u6cd5\u8ba9\u82f9\u679c\u4ece\u6811\u4e0a\u6389\u4e86\u4e0b\u6765\u3002\r\n\r\n\u6bcf\u4e00\u79d2\uff0c\u4e0d\u5728\u6839\u4e0a\u7684\u82f9\u679c\u4f1a\u6389\u5230\u5b83\u7684\u7236\u8282\u70b9\u4e0a\u3002\u5728\u6839\u4e0a\u7684\u82f9\u679c\u4f1a\u88ab\u795e\u9c7c\u5403\u6389\u3002\r\n\r\n\u5982\u679c\u67d0\u4e00\u4e2a\u70b9\u4e0a\u6709\u4e0d\u5c0f\u4e8e $2$ \u4e2a\u82f9\u679c\uff0c\u90a3\u4e48\u5b83\u4eec\u4f1a\u4e24\u4e24\u62b5\u6d88\u3002\u5373\uff1a$x$ \u4e2a\u82f9\u679c\u4f1a\u53d8\u6210 $x \\bmod 2$ \u4e2a\u3002\r\n\r\n\u795e\u9c7c NaCly_Fish \u60f3\u77e5\u9053\uff0c\u5979\u80fd\u5403\u5230\u51e0\u4e2a\u82f9\u679c\u3002"
+}

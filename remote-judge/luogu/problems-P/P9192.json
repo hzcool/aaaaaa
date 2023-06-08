@@ -1,0 +1,13 @@
+{
+    "description": "Pareidolia is the phenomenon where your eyes tend to see familiar patterns in images where none really exist -- for example seeing a face in a cloud. As you might imagine, with Farmer John's constant proximity to cows, he often sees cow-related patterns in everyday objects. For example, if he looks at the string `bqessiyexbesszieb`, Farmer John's eyes ignore some of the letters and all he sees is `bessiebessie`.\n\nGiven a string $s$, let $B(s)$ represent the maximum number of repeated copies of `bessie` one can form by deleting zero or more of the characters from $s$. In the example above, $B(bqessiyexbesszieb)=2$. Furthermore, given a string $t$, let $A(t)$ represent the sum of $B(s)$ over all contiguous substrings $s$ of $t$.\n\nFarmer John has a string t of length at most $2\\times10^5$ consisting only of characters a-z. Please compute A(t), and how A(t) would change after $U (1\\le U\\le2\\times10^5)$ updates, each changing a character of t. Updates are cumulative.",
+    "inputFormat": "The first line of input contains $t$.\n\nThe next line contains $U$, followed by $U$ lines each containing a position $p$ $(1\\le p\\le N)$ and a character $c$ in the range a-z, meaning that the pth character of $t$ is changed to $c$.",
+    "outputFormat": "Output $U+1$ lines, the total number of bessies that can be made across all substrings of $t$ before any updates and after each update.",
+    "samples": [
+        [
+            "bessiebessie\n3\n3 l\n7 s\n3 s",
+            "14\n7\n1\n7"
+        ]
+    ],
+    "hint": "Before any updates, twelve substrings contain exactly $1$ `bessie` and $1$ string contains exactly $2$ `bessie`s, so the total number of bessies is $12\u22c51+1\u22c52=14$.\n\nAfter one update, $t$ is `belsiebessie`. Seven substrings contain exactly one `bessie`.\n\nAfter two updates, $t$ is `belsiesessie`. Only the entire string contains `bessie`.\n\n\nInput $2$: $|t|,U\\le300$;\n\nInputs $3-5$: $U\\le10$;\n\nInputs $6-13$: $|t|,U\\le10^5$;\n\nInputs $14-21$: No additional constraints.",
+    "translation": "\u7ed9\u5b9a\u4e00\u4e2a\u5b57\u7b26\u4e32 $t$\u3002\n\n\u5b9a\u4e49 $B(s)$ \u8868\u793a $s$ \u8fd9\u4e2a\u5b57\u7b26\u4e32\u4e2d\u5220\u9664\u4e00\u4e9b\u5b57\u7b26\u540e\u6700\u591a\u80fd\u627e\u51fa\u591a\u5c11\u4e2a ```bessie```\u3002\n\n\u5b9a\u4e49 $A(t)$ \u8868\u793a\u5bf9\u4e8e $t$ \u4e2d\u7684\u6bcf\u4e2a\u5b50\u4e32 $s$\uff0c\u6c42 $B(s)$ \u7684\u548c\u3002\n\n\u5148\u8f93\u51fa\u4e00\u5f00\u59cb\u7684 $A(t)$\u3002\u63a5\u4e0b\u6765\u6709 $q$ \u6b21\u4fee\u6539\uff0c\u6bcf\u6b21\u628a $t$ \u4e2d\u7b2c $p$ \u4e2a\u5b57\u7b26\u6539\u6210 $c$\uff0c\u8981\u6c42\u8f93\u51fa\u6bcf\u6b21\u4fee\u6539\u5b8c\u7684 $A(t)$\u3002"
+}

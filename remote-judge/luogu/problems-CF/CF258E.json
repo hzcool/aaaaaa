@@ -1,0 +1,17 @@
+{
+    "description": "The Little Elephant loves trees very much, he especially loves root trees.\n\nHe's got a tree consisting of $ n $ nodes (the nodes are numbered from 1 to $ n $ ), with root at node number $ 1 $ . Each node of the tree contains some list of numbers which initially is empty.\n\nThe Little Elephant wants to apply $ m $ operations. On the $ i $ -th operation $ (1<=i<=m) $ he first adds number $ i $ to lists of all nodes of a subtree with the root in node number $ a_{i} $ , and then he adds number $ i $ to lists of all nodes of the subtree with root in node $ b_{i} $ .\n\nAfter applying all operations the Little Elephant wants to count for each node $ i $ number $ c_{i} $ \u2014 the number of integers $ j $ $ (1<=j<=n;\u00a0j\u2260i) $ , such that the lists of the $ i $ -th and the $ j $ -th nodes contain at least one common number.\n\nHelp the Little Elephant, count numbers $ c_{i} $ for him.",
+    "inputFormat": "The first line contains two integers $ n $ and $ m $ $ (1<=n,m<=10^{5}) $ \u2014 the number of the tree nodes and the number of operations.\n\nEach of the following $ n-1 $ lines contains two space-separated integers, $ u_{i} $ and $ v_{i} $ $ (1<=u_{i},v_{i}<=n,u_{i}\u2260v_{i}) $ , that mean that there is an edge between nodes number $ u_{i} $ and $ v_{i} $ .\n\nEach of the following $ m $ lines contains two space-separated integers, $ a_{i} $ and $ b_{i} $ $ (1<=a_{i},b_{i}<=n,a_{i}\u2260b_{i}) $ , that stand for the indexes of the nodes in the $ i $ -th operation.\n\nIt is guaranteed that the given graph is an undirected tree.",
+    "outputFormat": "In a single line print $ n $ space-separated integers \u2014 $ c_{1},c_{2},...,c_{n} $ .",
+    "samples": [
+        [
+            "5 1\n1 2\n1 3\n3 5\n3 4\n2 3\n",
+            "0 3 3 3 3 "
+        ],
+        [
+            "11 3\n1 2\n2 3\n2 4\n1 5\n5 6\n5 7\n5 8\n6 9\n8 10\n8 11\n2 9\n3 6\n2 8\n",
+            "0 6 7 6 0 2 0 5 4 5 5 "
+        ]
+    ],
+    "hint": "",
+    "translation": "# \u9898\u76ee\u63cf\u8ff0\n\n\u5c0f\u8c61\u5bf9\u4e00\u68f5\u6839\u8282\u70b9\u7f16\u53f7\u4e3a$1$\uff0c\u8282\u70b9\u6570\u4e3a$n$\u7684\u6709\u6839\u6811\u8fdb\u884c$m$\u6b21\u64cd\u4f5c\u3002\n\n\u8fd9\u68f5\u6811\u6bcf\u4e2a\u8282\u70b9\u90fd\u6709\u4e00\u4e2a\u96c6\u5408\u3002\n\n\u7b2c$i$\u6b21\u64cd\u4f5c\u7ed9\u51fa$a_i$\u548c$b_i$\uff0c\u628a$i$\u8fd9\u4e2a\u6570\u5b57\u653e\u5165$a_i$\u548c$b_i$\u8fd9\u4e24\u4e2a\u70b9\u4e3a\u6839\u7684\u5b50\u6811\u91cc\u7684\u6240\u6709\u96c6\u5408\u4e2d\u3002\uff08\u5305\u62ec$a_i$\u548c$b_i$\uff09\n\n\u5728\u64cd\u4f5c\u5b8c\u540e\uff0c\u8f93\u51fa$c_i$\uff0c$c_i$\u8868\u793a\u6709\u591a\u5c11\u4e2a\u7ed3\u70b9\uff08\u4e0d\u5305\u62ec$i$\uff09\u7684\u96c6\u5408\u81f3\u5c11\u4e0e$i$\u7ed3\u70b9\u7684\u96c6\u5408\u6709\u4e00\u4e2a\u516c\u5171\u6570\u5b57\u3002\n\n# \u8f93\u5165\u683c\u5f0f\n\u7b2c\u4e00\u884c\u4e00\u4e2a$ n,m(1 \\le n,m \\le 10^5) $\uff0c\u8868\u793a\u7ed3\u70b9\u6570\u548c\u64cd\u4f5c\u6570\u3002\n\n\u63a5\u4e0b\u6765$n-1$\u884c\uff0c\u4e24\u4e2a\u6570$u_i$\u548c$v_i$\uff0c\u8868\u793a$u_i$\u5230$v_i$\u6709\u4e00\u6761\u8fb9\u3002\n\n\u63a5\u4e0b\u6765$m$\u884c\uff0c\u7b2c$i$\u884c\u4e24\u4e2a\u6570$a_i$\u548c$b_i$\u8868\u793a\u5bf9\u8fd9\u4e24\u4e2a\u70b9\u4e3a\u6839\u8282\u70b9\u7684\u5b50\u6811\u8fdb\u884c\u64cd\u4f5c\u3002\n# \u8f93\u51fa\u683c\u5f0f\n\u8f93\u51fa\u4e00\u884c\uff0c$n$\u4e2a\u6570\uff0c$c_1,c_2,c_3......c_n$"
+}

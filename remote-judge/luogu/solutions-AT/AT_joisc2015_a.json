@@ -1,0 +1,18 @@
+[
+    {
+        "content": "```\nT1\u590d\u5236&\u7c98\u8d342\u9898\u89e3\n\u7b97\u6cd5\u4e00\uff1a\n\u76f4\u63a5\u6a21\u62df\u6bcf\u4e00\u6b21\u7684\u64cd\u4f5c\uff1b\n\u5c06\u8981\u7c98\u8d34\u7684\u90a3\u4e00\u6bb5\u4e34\u65f6\u6254\u5230\u4e00\u4e2a\u6570\u7ec4\u91cc\uff0c\u7136\u540e\u5c06\u63d2\u5165\u7684\u4f4d\u7f6e\u540e\u9762\u7684\u5b57\u7b26\u4e32\u53f3\u79fb\uff0c\u5728\u5c06\u7c98\u8d34\u7684\u90e8\u5206\u590d\u5236\u8fdb\u53bb\u5c31\u597d\u4e86\uff1b\n\u6bcf\u6b21\u64cd\u4f5c\u662fO(len)=O(m)\u7684\uff0c\u5171\u64cd\u4f5cn\u6b21\uff0c\u65f6\u95f4\u590d\u6742\u5ea6O(nm)\uff1b\n\u6ce8\u610f\u6570\u7ec4\u8d8a\u754c\u95ee\u9898\uff0c\u53ef\u4ee5\u62ff\u523040\u5206\uff1b\n\u7b97\u6cd5\u4e8c\uff1a\n\u6ce8\u610f\u5230\u9898\u4e2d\u6240\u7ed9\u7684K\u975e\u5e38\u5c0f\uff0c\u6240\u4ee5\u6211\u4eec\u8bbe\u72b6\u6001f[i][j]\u8868\u793a\uff0c\u6700\u540e\u5728\u7b2cj\u4f4d\u7f6e\u4e0a\u7684\u5143\u7d20\u5728\u7b2ci\u6b21\u64cd\u4f5c\u4e4b\u540e\u5728f[i][j]\u4f4d\u7f6e\u4e0a\uff1b\n\u8fb9\u754c\u4e3af[n][j]=j\uff0c\u7136\u540e\u5012\u7740\u9012\u63a8\u56de\u53bb\uff1b\n\u6bcf\u6b21\u64cd\u4f5c\u6709\u53ef\u80fd\u662f\u4e0d\u53d8\uff0c\u4ece\u67d0\u5904\u7c98\u8d34\u8fc7\u6765\uff0c\u6216\u8005\u662f\u5411\u53f3\u5e73\u79fb\uff1b\n\u8ba8\u8bba\u4e00\u4e0b\u8f6c\u79fb\u5373\u53ef\uff0c\u6700\u540e\u5f97\u5230\u4e86f[0][j]\u8f93\u51fa\u5373\u662f\u7b54\u6848\uff1b\n\u65f6\u95f4\u590d\u6742\u5ea6O(nK)\uff0c\u7531\u4e8e\u7b2c\u4e00\u7ef4\u53ef\u4ee5\u6eda\u52a8\uff0c\u6240\u4ee5\u7a7a\u95f4\u590d\u6742\u5ea6O(m)\uff1b\n```",
+        "postTime": 1524963050,
+        "uid": 50092,
+        "name": "da32s1da",
+        "ccfLevel": 8,
+        "title": "\u9898\u89e3 AT1249 \u3010\u30b3\u30d4\u30fc&\u30da\u30fc\u30b9\u30c8 2\u3011"
+    },
+    {
+        "content": "\u8fd9\u9898\u8fd8\u6ca1\u6709\u4ee3\u7801\n\n\u6240\u4ee5\u6211\u5c31\u53ea\u653e\u4ee3\u7801\u4e86\n\n```cpp\n#include<bits/stdc++.h>\n\nusing namespace std;\n\nint K;\n/**\n * \u4ece1<=M<=1e9\u53ef\u4ee5\u770b\u51fa\u4e0eM\u65e0\u5173. \n */\nint tmp;\nstring S;\nint N;\nint *A, *B, *C;\nstring ans;\nint main()\n{\n\tios_base::sync_with_stdio(false);\n\tcin >> K >> tmp >> S >> N;\n\tA = new int[N]();\n\tB = new int[N]();\n\tC = new int[N]();\n\tfor(int i = 0; i != N; i++)\n\t{\n\t\tcin >> A[i] >> B[i] >> C[i];\n\t}\n\tfor(int k = 0; k != K; k++)\n\t{\n\t\ttmp = k;\n\t\t/**\n\t\t * \u627e\u5230k\u5728\u539f\u4e32\u4e2d\u662f\u7b2c\u51e0\u4e2a. \n\t\t * \u5012\u7740\u626b, \u8fd8\u539f\u4fee\u6539\u7684\u8fc7\u7a0b. \n\t\t * \u7136\u540e\u5012\u63a8. \n\t\t */\n\t\tfor(int i = N - 1; i != -1; i--)\n\t\t{\n\t\t\t/**\n\t\t\t * \u56e0\u4e3a\u53ea\u6709\u6dfb\u52a0, \u6ca1\u6709\u5220\u9664. \n\t\t\t * \u6240\u4ee5k\u5728\u539f\u4e32\u4e2d\u662f\u6bd4\u6b64\u65f6\u7684C[i]\u9760\u540e. \n\t\t\t */\n\t\t\tif(tmp < C[i])\n\t\t\t{\n\t\t\t\tcontinue;\n\t\t\t}\n\t\t\t/**\n\t\t\t * \u5982\u679c\u5728\u6dfb\u52a0\u7684\u4e32\u4e4b\u4e2d. \n\t\t\t */\n\t\t\tif(tmp < C[i] + B[i] - A[i])\n\t\t\t{\n\t\t\t\ttmp += A[i] - C[i];\n\t\t\t}\n\t\t\t/**\n\t\t\t * \u5426\u5219\u51cf\u53bb\u6dfb\u52a0\u7684\u4e32\u7684\u957f\u5ea6\n\t\t\t */\n\t\t\telse\n\t\t\t{\n\t\t\t\ttmp -= B[i] - A[i];\n\t\t\t}\n\t\t}\n\t\tcout << S[tmp];\n\t}\n\tdelete []A;\n\tdelete []B;\n\tdelete []C;\n\tcout << endl;\n\treturn 0;\n}\n```\n",
+        "postTime": 1566636935,
+        "uid": 160969,
+        "name": "ALLTOZERO",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT1249 \u3010\u30b3\u30d4\u30fc&\u30da\u30fc\u30b9\u30c8 2\u3011"
+    }
+]

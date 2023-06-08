@@ -1,0 +1,42 @@
+[
+    {
+        "content": "### \u7b80\u5355\u7684\u66b4\u529b\u679a\u4e3e\n\u8fd9\u9898\u6211\u4e5f\u662f\u7528\u4e86\u66b4\u529b\uff0c\u679a\u4e3e\u6bcf\u4e24\u4e2a\u58eb\u5175\u7684\u8eab\u9ad8\u5dee,\u6ee1\u8db3\u5c31+2\uff0c\u6bd4\u8f83\u8282\u7701\u65f6\u95f4\uff0c\u65f6\u95f4\u590d\u6742\u5ea6O(n^2/2)\n\n**\u4e0aAC\u4ee3\u7801**\n```\n#include<iostream>\n#include<cstdio>\nusing namespace std;\nint a[1001],n,d,ans;//\u6309\u9898\u610f\u53d8\u91cf\u5f00\u8fd9\u4e48\u5927\u5c31\u591f\u4e86\nint main(){\n    scanf(\"%d%d\",&n,&d);//\u4e2a\u4eba\u5efa\u8bae\u7528scanf\u548cprintf\u6bd4\u8f83\u597d\n    for(int i=1;i<=n;i++) scanf(\"%d\",&a[i]);\n    for(int i=2;i<=n;i++)           \n        for(int j=1;j<i;j++) //\u904d\u5386\uff0c\u52a0\u5165\u7b80\u5355\u7684\u526a\u679d\n            if(a[i]-a[j]<=d&&a[i]-a[j]>=-d) ans+=2;//\u5982\u679c\u8eab\u9ad8\u5dee\u5c0f\u4e8ed\u5c31\u6ee1\u8db3\uff0c\u800c\u4e14\u4e00\u6b21\u52a02\uff0c\u7701\u65f6\u95f4\n    printf(\"%d\\n\",ans);//\u6362\u884c\uff0c\u597d\u4e60\u60ef\n    return 0;\n}\n```\n\u7b80\u77ed\u6613\u61c2\n\n\u672c\u849f\u84bb\u7684\u7b2c\u4e00\u7bc7\u9898\u89e3\uff0c\u795e\u725b\u4eec\u52ff\u55b7",
+        "postTime": 1563969656,
+        "uid": 185301,
+        "name": "YZ_hang",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF32A \u3010Reconnaissance\u3011"
+    },
+    {
+        "content": "\u4e00\u770b\u5230\u4e86\u6c42\u65b9\u6848\u6570\uff0c\u9a6c\u4e0a\u60f3\u5230\u4e86~~\u679a\u4e3e~~ $dfs$\n\n\u6df1\u641c\u601d\u8def\uff1a$dfs(t)$  ($t$\u4e3a\u9009\u4e86\u51e0\u4e2a\u4eba) \n\n- 1 \u5982\u679c\u5df2\u7ecf\u9009\u53d6\u4e86\u4e24\u4e2a\u6570\uff0c$ans$++\u5e76$return$\n\n- 2 \u679a\u4e3e$1\\sim n$ \u5982\u679c\u7b2c$a_{i}$\u4e2a\u4eba\u6ca1\u88ab\u9009\u8fc7\u4e14\u4e0e\u524d\u4e00\u4e2a\u4eba\u8eab\u9ad8\u5dee\u7684\u7edd\u5bf9\u503c\u4e0d\u8d85\u8fc7$d$\uff0c\u5219\u6807\u8bb0\u4e3a\u5df2\u9009\u5e76$dfs(t+1)$\n\n## Code\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,d,a[1010],ans,s[1010];//s\u7528\u6765\u5b58\u524d\u4e00\u4e2a\u4eba\u7684\u8eab\u9ad8\nbool p[1010];//p\u7528\u6765\u6807\u8bb0\u5df2\u9009\u8fc7\u7684\u4eba\nvoid dfs(int t)\n{\n    if(t>2)\n    {\n        ans++;\n        return;\n    }\n    for(int i=1; i<=n; i++)\n    {\n        s[0]=a[i];//s[0]\u9700\u8981\u8bbe\u6210a[i]\uff0c\u8fd9\u6837\u7b2c\u4e00\u4e2a\u4eba\u624d\u80fd\u9009\n        if(abs(a[i]-s[t-1])<=d&&!p[i])\n        {\n            p[i]=1;\n            s[t]=a[i];//\u8bb0\u5f55\u524d\u4e00\u4e2a\u4eba\u7684\u8eab\u9ad8\n            dfs(t+1);\n            p[i]=0;//\u56de\u6eaf\n        }\n    }\n}\nint main()\n{\n    scanf(\"%d%d\",&n,&d);\n    for(int i=1; i<=n; i++)\n    {\n        scanf(\"%d\",&a[i]);\n    }\n    dfs(1);\n    printf(\"%d\",ans);\n    return 0;\n}\n\n```\n",
+        "postTime": 1551712695,
+        "uid": 110649,
+        "name": "WKAHPM",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF32A \u3010Reconnaissance\u3011"
+    },
+    {
+        "content": "###### \u697c\u4e0b\u7684\u9898\u89e3\u597d\u50cf\u662f\u7eaf\u66b4\u529b\n\n###### ~~\u641e\u5f97\u6211\u4e0d\u662f\u66b4\u529b\u4e00\u6837~~\n\n\u4f46\u4e0d\u5f97\u4e0d\u8bf4\uff0c\u6211\u7684\u66b4\u529b\u662f\u6709\u526a\u679d\u7684\n\nCODE:\n\n\n```cpp\n#include<iostream>\n#include<cmath>\nusing namespace std;\nint a[1005];\nint main()\n{\n    int n,d,ans=0; cin>>n>>d;  //\u8bfb\u5165\n    for (int i=1;i<=n;i++) cin>>a[i];\n    for (int i=2;i<=n;i++)\n    for (int j=1;j<i;j++) //\u8fd9\u91cc\u5c31\u662f\u526a\u679d\n    //\u65f6\u95f4\u590d\u6742\u5ea6\u964d\u4f4e\u5230\u4e86O((n/2)^2)\n    if (abs(a[i]-a[j])<=d) ans+=2; //\u4e00\u6b21\u904d\u5386\u5c31\u627e\u4e24\u4e2a\uff0c\u6240\u4ee5\u7701\u65f6\u95f4\n    cout<<ans; //\u7ed3\u675f\u4e86\n    return 0;\n}~~~\n```\n",
+        "postTime": 1542522367,
+        "uid": 69525,
+        "name": "shuntian",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF32A \u3010Reconnaissance\u3011"
+    },
+    {
+        "content": "#### \u66b4\u529b\u51fa\u5947\u8ff9\n\u601d\u8def\uff1a_\u66b4\u529b_\n\n\u5177\u4f53\u770b\u4ee3\u7801\n\n```\n#include<iostream>\n#include<cstdio>\nusing namespace std;\nint a[1001],n,d,ans;\n//\u53d8\u91cf\u5982\u9898 \nint main()\n{\n    cin>>n>>d;\n    for(int i=1;i<=n;i++)cin>>a[i];\n    //\u8f93\u5165 \n    for(int i=2;i<=n;i++)           \n        for(int j=1;j<i;j++)//\u66b4\u529b\u641c\u7d22,\u53ea\u9700\u8981\u641c\u7d22\u5230i \n            if(a[i]-a[j]<=d&&a[i]-a[j]>=-d)ans+=2;\n\t\t\t//\u5224\u65ad\u4e24\u6570\u662f\u5426\u6ee1\u8db3\u6761\u4ef6,\u56e0\u4e3a\u4e0d\u540c\u7684\u987a\u5e8f\u88ab\u89c6\u4f5c\u4e24\u79cd\u65b9\u6848,\u4e14\u7a0b\u5e8f\u4fdd\u8bc1\u4e0d\u4f1a\u91cd\u590d,\u6240\u4ee5\u4e00\u6b21\u52a02(\u56e0\u4e3a\u4e00\u4e2a\u9876\u4fe9) \n    cout<<ans;\n    //\u8f93\u51fa\u6700\u540e\u7b54\u6848 \n    return 0;\n}\n```\n",
+        "postTime": 1565839839,
+        "uid": 129235,
+        "name": "Higashikata_Jousuke",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF32A \u3010Reconnaissance\u3011"
+    },
+    {
+        "content": "\u9996\u5148\u6ce8\u610f\u5230\u6211\u4eecn\u7684\u8303\u56f4\u57281000\u4e4b\u5185\uff0c\u6240\u4ee5\u8bf4\u6211\u4eec\u7528O\uff08n^2\uff09\u7684\u7b97\u6cd5\u662f\u4e0d\u4f1a\u8d85\u65f6\u7684\uff0c\u90a3\u4e48\u6211\u4eec\u53ef\u4ee5\u4ece1~n\u679a\u4e3ei\uff0cj\uff1b\u5982\u679c\u8bf4i\u4e0d\u7b49\u4e8ej\u5e76\u4e14a[i]\u4e0ea[j]\u7684\u5dee\u5c0f\u4e8e\u7b49\u4e8ed\uff0c\u90a3\u4e48\u8fd9\u4e00\u6b21\u7684\u9009\u62e9\u5c31\u662f\u7b26\u5408\u6761\u4ef6\u7684\uff0c\u4e8e\u662f\u603b\u7b54\u6848++\u3002\u7136\u540e\u8f93\u51fa\u603b\u7b54\u6848\u5373\u53ef\n\n\u6700\u540e\u8bf4\u4e00\u4e2a\u672c\u9898\u4e2d\u53ef\u4e0d\u6ce8\u610f\uff0c\u4f46\u505a\u5176\u4ed6\u7684\u9898\u9700\u8981\u6ce8\u610f\u4e00\u4e0b\u7684\u7ec6\u8282\uff0c\u5c31\u662f\u672c\u9898\u603b\u65b9\u6848\u6570\u6700\u591a\u662fn*(n-1)/2\uff0c\u8fd9\u4e2a\u65b9\u6848\u6570\u5373\u4f7f\u5728n=1000\u65f6\u4e5f\u4e0d\u4f1a\u8d85\u8fc7int\u7684\u8303\u56f4\uff0c\u6545\u53ef\u4ee5\u7528int\u3002\n\n\u5949\u4e0a\u4ee3\u7801\uff1a\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint n,m,s=0,a[1001];//s\u4e3a\u603b\u65b9\u6848\u6570\nint main()\n{\n\tcin>>n>>m;//\u4e60\u60ef\uff0cd\u6539\u4f5cm\n\tfor(int i=1;i<=n;i++)\n\tcin>>a[i];//\u8bfb\u5165\n\tfor(int i=1;i<=n;i++)\n\tfor(int j=1;j<=n;j++)\n\tif(i-j&&abs(a[i]-a[j])<=m) s++;//\u5982\u679c\u8bf4i\u4e0d\u7b49\u4e8ej\n    //\u5373\u4e0d\u662f\u540c\u4e00\u4e2a\u4eba\uff0c\u90a3\u4e48\u5982\u679c\u5dee\u7684\u7edd\u5bf9\u503c\u5c0f\u4e8e\u7b49\u4e8ed\uff0c\u5c31+1\n\tcout<<s;//\u8f93\u51fa\u7b54\u6848\n\treturn 0;\n}\n```",
+        "postTime": 1518344211,
+        "uid": 33376,
+        "name": "\u65cb\u98ce\u732a\u76ae",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF32A \u3010Reconnaissance\u3011"
+    }
+]

@@ -1,0 +1,33 @@
+{
+    "description": "When registering in a social network, users are allowed to create their own convenient login to make it easier to share contacts, print it on business cards, etc.\n\nLogin is an arbitrary sequence of lower and uppercase latin letters, digits and underline symbols (\u00ab\\_\u00bb). However, in order to decrease the number of frauds and user-inattention related issues, it is prohibited to register a login if it is similar with an already existing login. More precisely, two logins $ s $ and $ t $ are considered similar if we can transform $ s $ to $ t $ via a sequence of operations of the following types:\n\n- transform lowercase letters to uppercase and vice versa;\n- change letter \u00abO\u00bb (uppercase latin letter) to digit \u00ab0\u00bb and vice versa;\n- change digit \u00ab1\u00bb (one) to any letter among \u00abl\u00bb (lowercase latin \u00abL\u00bb), \u00abI\u00bb (uppercase latin \u00abi\u00bb) and vice versa, or change one of these letters to other.\n\nFor example, logins \u00abCodeforces\u00bb and \u00abcodef0rces\u00bb as well as \u00abOO0OOO00O0OOO0O00OOO0OO\\_lol\u00bb and \u00abOO0OOO0O00OOO0O00OO0OOO\\_1oI\u00bb are considered similar whereas \u00abCodeforces\u00bb and \u00abCode\\_forces\u00bb are not.\n\nYou're given a list of existing logins with no two similar amonst and a newly created user login. Check whether this new login is similar with any of the existing ones.",
+    "inputFormat": "The first line contains a non-empty string $ s $ consisting of lower and uppercase latin letters, digits and underline symbols (\u00ab\\_\u00bb) with length not exceeding $ 50 $ \u2014 the login itself.\n\nThe second line contains a single integer $ n $ ( $ 1<=n<=1000 $ ) \u2014 the number of existing logins.\n\nThe next $ n $ lines describe the existing logins, following the same constraints as the user login (refer to the first line of the input). It's guaranteed that no two existing logins are similar.",
+    "outputFormat": "Print \u00abYes\u00bb (without quotes), if user can register via this login, i.e. none of the existing logins is similar with it.\n\nOtherwise print \u00abNo\u00bb (without quotes).",
+    "samples": [
+        [
+            "1_wat\n2\n2_wat\nwat_1\n",
+            "Yes\n"
+        ],
+        [
+            "000\n3\n00\nooA\noOo\n",
+            "No\n"
+        ],
+        [
+            "_i_\n3\n__i_\n_1_\nI\n",
+            "No\n"
+        ],
+        [
+            "La0\n3\n2a0\nLa1\n1a0\n",
+            "No\n"
+        ],
+        [
+            "abc\n1\naBc\n",
+            "No\n"
+        ],
+        [
+            "0Lil\n2\nLIL0\n0Ril\n",
+            "Yes\n"
+        ]
+    ],
+    "hint": "In the second sample case the user wants to create a login consisting of three zeros. It's impossible due to collision with the third among the existing.\n\nIn the third sample case the new login is similar with the second one.",
+    "translation": "**\u9898\u76ee\u63cf\u8ff0\uff1a**\n\u767b\u5f55\u540d\u662f\u7531\u5c0f\u5199\u548c\u5927\u5199\u62c9\u4e01\u5b57\u6bcd\u3001\u6570\u5b57\u548c\u4e0b\u5212\u7ebf\u7b26\u53f7\u201c_\u201d\u7ec4\u6210\u7684\u4efb\u610f\u5e8f\u5217\u3002\n\u5982\u679c\u767b\u5f55\u540d\u4e0e\u5df2\u7ecf\u5b58\u5728\u7684\u767b\u5f55\u540d\u7c7b\u4f3c\uff0c\u5219\u7981\u6b62\u6ce8\u518c\u3002\n\u5982\u679c\u6211\u4eec\u53ef\u4ee5\u901a\u8fc7\u4ee5\u4e0b\u7c7b\u578b\u7684\u64cd\u4f5c\u7ec4\u6210\u7684\u5e8f\u5217\u5c06S\u8f6c\u5316\u6210T\uff0c\u5219\u8ba4\u4e3aS,T\u662f\u7c7b\u4f3c\u7684\u3002\n- \u5c06\u5c0f\u5199\u5b57\u6bcd\u8f6c\u6362\u4e3a\u5927\u5199\u5b57\u6bcd\uff0c\u5c06\u5927\u5199\u5b57\u6bcd\u8f6c\u6362\u4e3a\u5c0f\u5199\u5b57\u6bcd\n- \u5c06\u5b57\u6bcd\u201cO\u201d\u66f4\u6539\u4e3a\u6570\u5b57\u201c0\u201d,\u5c06\u6570\u5b57\u201c0\u201d\u66f4\u6539\u4e3a\u5b57\u6bcd\u201cO\u201d\n- \"1\"\"l\"\"L\"\u76f8\u4e92\u8f6c\u5316\n\u4f8b\u5982\uff0c\n\u767b\u5f55\u540d\u00abcodeforces\u00bb\u548c\u00abcodefwrces\u00bb\uff0c\n\u00aboo0oo00oo0oo0oo0oo_lol\u00bb\u548c\u00aboo0oo0oo0oo0oo0oo0oo0oo0oo_1oo\u00bb\u662f\u7c7b\u4f3c\u7684\uff0c\n\u800c\u00abcodeforces\u00bb\u548c\u00abcode_forces\u00bb\u5219\u4e0d\u662f\u3002\n\u7ed9\u4f60\u4e00\u4e2a\u767b\u5f55\u540d\u7684\u5217\u8868,\u5176\u4e2d\u6ca1\u6709\u4e24\u4e2a\u7c7b\u4f3c\u7684\u767b\u5f55\u540d\u3002\n\u68c0\u67e5\u65b0\u767b\u5f55\u540d\u662f\u5426\u548c\u5df2\u6709\u767b\u5f55\u540d\u7c7b\u4f3c\u3002\n\n------------\n**\u8f93\u5165\u683c\u5f0f\uff1a**\n\u7b2c\u4e00\u884c\u5305\u62ec\u4e00\u4e2a\u975e\u7a7a\u5b57\u7b26\u4e32s\uff08\u65b0\u767b\u5f55\u540d\uff09,\u7531\u5c0f\u5199\u548c\u5927\u5199\u62c9\u4e01\u5b57\u6bcd\u3001\u6570\u5b57\u548c\u4e0b\u5212\u7ebf\u7b26\u53f7_\u7ec4\u6210\uff0c\u957f\u5ea6\u4e0d\u8d85\u8fc750\u3002\n\u7b2c\u4e8c\u884c\u662f\u4e00\u4e2a\u6574\u6570n\uff0c1<=n<=1000\u2014\u2014\u5df2\u6709\u767b\u5f55\u540d\u7684\u6570\u76ee\n\u63a5\u4e0b\u6765\u6709n\u884c\uff0c\u6bcf\u884c\u4e00\u4e2a\u5df2\u6709\u767b\u5f55\u540d\u3002\n\u4fdd\u8bc1\u6ca1\u6709\u4e24\u4e2a\u5df2\u6709\u7684\u767b\u5f55\u662f\u7c7b\u4f3c\u7684\n\n------------\n**\u8f93\u51fa\u683c\u5f0f\uff1a**\n\u5982\u679c\u767b\u5f55\u540d\u5408\u6cd5\uff08\u4e0d\u4e0e\u5df2\u6709\u767b\u5f55\u540d\u7c7b\u4f3c\uff09\uff0c\u8f93\u51faYes\u3002\n\u5426\u5219\u8f93\u51faNo"
+}

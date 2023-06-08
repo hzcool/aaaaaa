@@ -1,0 +1,21 @@
+{
+    "description": "You have $ a $ nuts and lots of boxes. The boxes have a wonderful feature: if you put $ x $ $ (x>=0) $ divisors (the spacial bars that can divide a box) to it, you get a box, divided into $ x+1 $ sections.\n\nYou are minimalist. Therefore, on the one hand, you are against dividing some box into more than $ k $ sections. On the other hand, you are against putting more than $ v $ nuts into some section of the box. What is the minimum number of boxes you have to use if you want to put all the nuts in boxes, and you have $ b $ divisors?\n\nPlease note that you need to minimize the number of used boxes, not sections. You do not have to minimize the number of used divisors.",
+    "inputFormat": "The first line contains four space-separated integers $ k $ , $ a $ , $ b $ , $ v $ ( $ 2<=k<=1000 $ ; $ 1<=a,b,v<=1000 $ ) \u2014 the maximum number of sections in the box, the number of nuts, the number of divisors and the capacity of each section of the box.",
+    "outputFormat": "Print a single integer \u2014 the answer to the problem.",
+    "samples": [
+        [
+            "3 10 3 3\n",
+            "2\n"
+        ],
+        [
+            "3 10 1 3\n",
+            "3\n"
+        ],
+        [
+            "100 100 1 1000\n",
+            "1\n"
+        ]
+    ],
+    "hint": "In the first sample you can act like this:\n\n- Put two divisors to the first box. Now the first box has three sections and we can put three nuts into each section. Overall, the first box will have nine nuts.\n- Do not put any divisors into the second box. Thus, the second box has one section for the last nut.\n\nIn the end we've put all the ten nuts into boxes.\n\nThe second sample is different as we have exactly one divisor and we put it to the first box. The next two boxes will have one section each.",
+    "translation": "\u4f60\u6709\u4efb\u610f\u591a\u4e2a\u7bb1\u5b50\u548c $a$ \u4e2a\u575a\u679c\uff0c$b$ \u4e2a\u9694\u677f\uff0c$x$ \u4e2a\u9694\u677f\u53ef\u4ee5\u5c06\u7bb1\u5b50\u5206\u6210 $x+1$ \u4e2a\u533a\u95f4\uff0c\u6bcf\u4e2a\u76d2\u5b50\u4e0d\u80fd\u88ab\u5206\u6210\u8d85\u8fc7 $k$ \u4e2a\u533a\u95f4\uff0c\u6bcf\u4e2a\u533a\u95f4\u6700\u591a\u53ea\u80fd\u653e $v$ \u4e2a\u575a\u679c\u3002  \n\u7ed9\u5b9a $k,a,b,v$\uff0c\u95ee\u88c5\u4e0b\u6240\u6709\u575a\u679c\u9700\u8981\u591a\u5c11\u4e2a\u7bb1\u5b50\u3002"
+}

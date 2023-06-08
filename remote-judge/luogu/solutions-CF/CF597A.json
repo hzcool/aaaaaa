@@ -1,0 +1,66 @@
+[
+    {
+        "content": "[\u9898\u9762](https://www.luogu.com.cn/problem/CF597A)\n\n\u8fd9\u662f\u4e00\u9053\u7b80\u5355\u7684\u6570\u5b66\u9898\u3002\u8ba9\u6211\u4eec\u770b\u770b\u66b4\u529b\uff1a\n```cpp\n  #include<bits/stdc++.h>\n  using namespace std;\n  long long int a,b,k,ans;\n  int main{\n      cin>>k>>a>>b;\n      for(int i=a;i<=b;i++){\n          if(i%k==0)ans++;\n      }\n      cout<<ans;\n  }\n```\n\n\u5f53\u7136\uff0c\u8fd9\u6837\u662f\u4e0d\u884c\u7684\u3002~~\uff08\u4e0d\u8fc7\u53ef\u4ee5\u5f97\u5230 TLE \u7684\u597d\u6210\u7ee9\uff09~~\n\n\u6211\u4eec\u8bbe $l$ \u662f\u5927\u4e8e\u7b49\u4e8e $a$ \u7684\u6700\u5c0f\u7684 $k$ \u7684\u500d\u6570\uff0c$r$ \u662f\u5c0f\u4e8e\u7b49\u4e8e $b$ \u7684\u6700\u5927\u7684 $k$ \u7684\u500d\u6570\u3002\n\n\u4e0d\u96be\u53d1\u73b0\uff0c\u533a\u95f4 $[a,b]$ \u4e2d $k$ \u7684\u500d\u6570\u7684\u4e2a\u6570\u662f\u7b49\u540c\u4e8e\u533a\u95f4 $[l,r]$ \u7684\u3002\n\n\u8bbe $l=xk,r=yk(x,y\\in Z)$\uff0c\u56e0\u4e3a $l\\le r$\uff0c\u6240\u4ee5 $x\\le y$\u3002\u7b54\u6848\u5c31\u662f\uff1a\n$$y-x+1$$\n\n\u4ee3\u7801\uff1a\n```cpp\n  #include<bits/stdc++.h>\n  using namespace std;\n  long long int k,a,b;//\u4e0d\u5f00long long\u89c1\u7956\u5b97\n  int main()\n  {\n      cin>>k>>a>>b;\n      k=abs(k);//\u6b63\u8d1f\u65e0\u5f71\u54cd\uff0c\u53d6\u6b63\u597d\u7b97\u4e00\u70b9\n      long long int l=a+(a>0?k-abs(a%k):abs(a%k)),//|a%k|\u5728a\u4e3a\u6b63\u6570\u65f6\u662fa-(l-k)\uff1ba\u4e3a\u8d1f\u6570\u65f6\u662fl-a\n      r=b-(b>0?abs(b%k):-abs(b%k)+k);//r\u540c\u7406\n      if(l-a==k)l=a;\n      if(b-r==k)r=b;//\u5982\u679ca\u3001b\u521a\u597d\u662fk\u7684\u500d\u6570\uff0c\u90a3\u4e48l\u3001r\u4f1a\u5411\u5185k\uff0c\u8981\u7279\u5224\u4e00\u4e0b\n      cout<<r/k-l/k+1;\u8f93\u51fa\n      return 0;\n  }\n```",
+        "postTime": 1643007837,
+        "uid": 428358,
+        "name": "cqbztzl",
+        "ccfLevel": 5,
+        "title": "CF597A\u9898\u89e3"
+    },
+    {
+        "content": "\u4e3a\u4ec0\u4e48\u8fd9\u4e2aA\u9898\u80fd\u8bc4\u5230\u7eff\u9898???\n\n\u7531\u4e8e x/k,\u53ef\u4ee5\u8868\u793a (0,x] (x>0) \u6216 [x,0) (x<0) \u8fd9\u4e2a\u533a\u95f4\u5185\u6709\u591a\u5c11\u4e2ak\u7684\u500d\u6570\n\n\u4e0d\u61c2\u7684\u7ffb\u7ffb\u5c0f\u5b66\u6570\u5b66\u4e66\n\n\u6240\u4ee5\u6211\u4eec\u53ea\u8981\u8ba1\u7b97 b/k-a/k \u5c31\u53ef\u4ee5\u4e86,\u7136\u540e\u6211\u4eec\u9700\u8981\u7279\u5224\u4e00\u4e9b\u4e1c\u897f\n\na,b \u5747\u5c0f\u4e8e 0 \u65f6,\u6839\u636e\u4e0a\u9762\u90a3\u4e2a\u8303\u56f4\u7684\u539f\u7406,\u82e5 b \u521a\u597d\u662f k \u7684\u500d\u6570\u65f6,b/k \u5e76\u4e0d\u4f1a\u5c06 b \u5305\u542b\u8fdb\u53bb,\u6240\u4ee5\u6211\u4eec\u5c06 b+1 \u6765\u5305\u542b b\n\na,b \u5747\u5927\u4e8e 0 \u65f6,\u540c\u6837\u7684\u9053\u7406,\u6211\u4eec\u8981\u5bf9 a-1 \u6765\u5305\u542b a\n\na,b \u4e00\u6b63\u4e00\u8d1f\u65f6,\u53ef\u4ee5\u53d1\u73b0 0 \u4e5f\u662f k \u7684\u500d\u6570,\u4f46\u4ed6\u5e76\u4e0d\u4f1a\u88ab\u8ba1\u7b97\u8fdb\u53bb,\u6240\u4ee5\u6211\u4eec +1 \u6765\u5305\u542b0 \n\n\u4e0b\u9762\u662f AC \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\n#define ll long long\nusing namespace std;\nint main()\n{\n\tll k,a,b;\n\tcin >> k >> a >> b;\n\tll ans;\n\tif(b<0)\n\t\tans = (b+1)/k-a/k;\n\telse if(a>0)\n\t\tans = b/k-(a-1)/k;\n\telse\n\t\tans = b/k-a/k+1;\n\tcout << ans;\n}\n```\n",
+        "postTime": 1581089218,
+        "uid": 287610,
+        "name": "\u6d41\u7eea",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF597A \u3010Divisibility\u3011"
+    },
+    {
+        "content": "\u867d\u7136\u662f\u4e00\u9053\u7b80\u5355\u7684\u6570\u5b66\u9898\uff0c\u4f46\u662f\u7ec6\u8282\u5f88\u591a\u3002\n\n\u8fd9\u662f\u4e00\u4e2a\u533a\u95f4\u95ee\u9898\uff0c\u6839\u636e\u533a\u95f4\u7684\u6027\u8d28\uff0c\u6ee1\u8db3 $a < b$ \u4e14 $a$ \u4e0e $b$ \u90fd\u80fd\u53d6\u5230\u3002\u9664\u6cd5\u7684\u8fd0\u7b97\u5b9e\u5219\u5c31\u662f\u8ba1\u7b97 $a$ \u4e2d\u6709\u591a\u5c11 $k$ \u7684\u500d\u6570\u3002\u53ea\u9700\u5206\u7c7b\u8ba8\u8bba\u5373\u53ef\u5f97\u51fa\u7b54\u6848\u3002\n\n- $a > 0$ \uff0c\u6574\u4e2a\u533a\u95f4\u5728\u6b63\u6570\u8303\u56f4\u3002\u90a3\u4e48 $b$ $/$ $k$ $-$ $a$ $/$ $k$ \u5c31\u662f\u7b54\u6848\uff0c\u4f46\u7531\u4e8e\u533a\u95f4\u4e24\u8fb9\u53ef\u53d6\u5230\uff0c\u6240\u4ee5 $a$ \u7684\u60c5\u51b5\u4e0d\u80fd\u51cf\u53bb\uff0c\u6700\u7ec8\u7b54\u6848\u662f $b$ $/$ $k$ $-$ $a - 1 $ $/$ $k$\n- $b < 0$ \uff0c\u6574\u4e2a\u533a\u95f4\u5728\u8d1f\u6570\u8303\u56f4\uff0c\u4e0e\u6b63\u6570\u540c\u7406\uff0c\u4e0d\u540c\u7684\u662f\u6b64\u65f6 $b$ \u7684\u60c5\u51b5\u4e0d\u80fd\u51cf\u53bb\uff0c\u4e14\u8d1f\u6570\u9700\u8981\u53d8\u53f7\uff0c\u6240\u4ee5\u7b54\u6848\u4e3a $-a$ $/$ $k$ $+$ $b + 1 $ $/$ $k$\n- \u533a\u95f4\u8de8\u8d8a $0$ \uff0c\u7531\u4e8e\u4e24\u6570\u76f8\u51cf\u65f6 $0$ \u7684\u60c5\u51b5\u4e0d\u4f1a\u8ba1\u5165\uff0c\u4e14 $0$ \u4e5f\u662f $k$ \u7684\u500d\u6570\uff0c\u6240\u4ee5\u7b54\u6848\u8981 $+ 1$\n## \u4ee3\u7801\u5982\u4e0b\n```cpp\n#include<bits/stdc++.h>\n#define ll long long\nusing namespace std;\nint main(){\n\tll k,a,b,ans;\n\tcin>>k>>a>>b;\n\tif(a>0)ans=b/k-(a-1)/k;\n\telse if(b<0)ans=-a/k+(b+1)/k;\n\telse ans=b/k-a/k+1;\n\tcout<<ans;\n}\n```\n## \u8c22\u8c22\u89c2\u8d4f",
+        "postTime": 1605877997,
+        "uid": 237004,
+        "name": "xxzjbd",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF597A \u3010Divisibility\u3011"
+    },
+    {
+        "content": "\u5176\u5b9e\u8fd9\u9053\u9898\u591a\u627e\u89c4\u5f8b\u5c31\u884c\u4e86\n\n\u628al,r\u7f29\u653e\u4e3a\u80fd\u88abk\u6574\u9664\u7684\u6570\uff0c\u8f93\u51fa\u5b83\u4eec\u7684\u5dee\u9664\u4ee5k\u52a01\u5373\u53ef\n\n\u4ee3\u7801\uff1a\n```\nvar a,b,c,k:int64;\nfunction cx(a:real):longint;\nbegin\n  if a<0 then exit(trunc(a)-1) else exit(trunc(a));\nend;\nbegin\n  read(k,a,b);\n  if (a mod k)<>0 then a:=(cx(a/k)+1)*k;\n  if (b mod k)<>0 then b:=(cx(b/k))*k;\n  c:=trunc((b-a)/k)+1;\n   if a<=b then write(c) else write('0');\nend.\n```",
+        "postTime": 1544605221,
+        "uid": 71491,
+        "name": "shenmadongdong",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF597A \u3010Divisibility\u3011"
+    },
+    {
+        "content": "[\u9898\u9762](https://www.luogu.com.cn/problem/CF597A)\n\n### Solution.\n\n\u6211\u4eec\u53ef\u4ee5\u76f4\u89c2\u5730\u53d1\u73b0 $[a,b]$ \u4e4b\u95f4\u80fd\u88ab $k$ \u6574\u9664\u7684\u4e2a\u6570\u53ef\u4ee5\u7b49\u4ef7\u4e8e $[a,b]$ \u4e2d\u7b2c\u4e00\u4e2a\u80fd\u88ab $k$ \u6574\u9664\u7684\u6570\u51cf\u53bb\u6700\u540e\u4e00\u4e2a\u80fd\u88ab $k$ \u6574\u9664\u7684\u6570\u7684\u5dee\u9664 $k$ \u52a0 $1$\u3002\n\n\u6211\u4eec\u8bbe $x\\in[a,b]$ \u662f\u7b2c\u4e00\u4e2a\u80fd\u88ab $k$ \u6574\u9664\u7684\u6570\u5b57\u3002\n\n\u90a3\u4e48 $\\forall x_0\\in[a,b] =px$ , \u6240\u4ee5\u80fd\u88ab $k$ \u6574\u9664\u7684\u6570\u5b57\u5e8f\u5217\u5373\u4e3a\uff1a\n$$\nx,2x,3x,...,px\n$$\n\u6240\u4ee5\u80fd\u88ab $k$ \u6574\u9664\u7684\u6570\u5b57\u5c31\u6709 $p$ \u4e2a\u3002\n\n\u6211\u4eec\u53c8\u8bbe $x=rk$ \u3002\n\n\u6240\u4ee5\u539f\u5e8f\u5217\u53c8\u53ef\u4ee5\u8868\u793a\u4e3a\uff1a\n$$\nrk,2rk,3rk,...,prk\n$$\n\u56e0\u4e3a\u662f\u7b49\u5dee\u6570\u5217\uff0c\u516c\u5dee\u4e3a $k$\n\n\u6240\u4ee5\u9879\u6570 $p=\\frac{prk-rk}{k}+1$\n\n(\u5f97\u8bc1)\n\n\u6c42\u7b2c\u4e00\u4e2a\u80fd\u88ab $k$ \u6574\u9664\u7684\u6570\u7528\u9664\u6cd5\u5c31\u884c\u4e86\u3002\n\n### Code.\n\n```cpp\n\n#include <bits/stdc++.h>\n#define int long long\n#define rep(i, l, r) for (int i = l; i <= r; i++)\n#define dep(i, r, l) for (int i = r; i >= l; i--)\nusing namespace std;\nconst int inf = 1e9, mod = 1e8;\ntemplate <typename T>\nvoid read (T &x) {\n    x = 0; T f = 1;\n    char ch = getchar ();\n    while (ch < '0' || ch > '9') {\n        if (ch == '-') f = -1;\n        ch = getchar ();\n    }\n    while (ch >= '0' && ch <= '9') {\n        x = (x << 3) + (x << 1) + ch - '0';\n        ch = getchar ();\n    }\n    x *= f;\n}\nchar For_Print[25];\ntemplate <typename T>\nvoid write (T x) {\n    if (x == 0) { putchar ('0'); return; }\n    if (x < 0) { putchar ('-'); x = -x; }\n    int poi = 0;\n    while (x) {\n        For_Print[++poi] = x % 10 + '0';\n        x /= 10;\n    }\n    while (poi) putchar (For_Print[poi--]);\n}\ntemplate <typename T>\nvoid print (T x, char ch) {\n    write (x); putchar (ch);\n}\nint k, a, b;\nsigned main() {\n\tread(k), read(a), read(b);\n\tint t;\n\tif (a % k == 0) t = a;\n\telse {\n\t\tint x = a / k;\n     \t//\u4fdd\u9669\u8d77\u89c1\u4e09\u4e2a\u90fd\u627e\u4e00\u904d\n\t\tif (k * (x - 1) > a) t = k * (x - 1);\n\t\telse if (k * x > a) t = k * x;\n\t\telse t = k * (x + 1);\n\t}\n\tif (t <= b) write((b - t) / k + 1);\n\telse write(0);\n\treturn 0;\n}\n\n```\n\n",
+        "postTime": 1643008247,
+        "uid": 384530,
+        "name": "cqbzjyh",
+        "ccfLevel": 5,
+        "title": "CF597A"
+    },
+    {
+        "content": "$O(1)$ \u7684\u987a\u5e8f\u7ed3\u6784\u9898\u3002\n\n\u9996\u5148\uff0c\u6211\u4eec\u5206\u4e24\u79cd\u60c5\u51b5\u8ba8\u8bba\uff1a$a$ \u548c $b$ \u5728\u6570\u8f74\u540c\u4fa7\u5f02\u4fa7\u3002\n\n\u5982\u679c\u4e3a\u540c\u4fa7\uff0c\u90a3\u4e48\uff0c\u6211\u4eec\u53ea\u9700\u8981\u628a\u4e24\u8fb9\u7684\u8d21\u732e\u52a0\u8d77\u6765\u5373\u53ef\uff0c\u7b54\u6848\u4e3a `b/k-a/k+1`\u3002\n\n\u5982\u679c\u5728\u5f02\u4fa7\uff0c\u90a3\u4e48\u6211\u4eec\u53ea\u9700\u8981\u628a\u8d21\u732e\u503c\u51cf\u53bb\u5373\u53ef\uff0c\u5982\u679c\u90fd\u662f\u8d1f\u6570\uff0c\u90a3\u4e48\u5c31\u662f `a/l-(b+k-1)/k+1`\uff1b\u5982\u679c\u90fd\u662f\u6b63\u6570\uff0c\u90a3\u4e48\u5c31\u662f `b/l-(a+k-1)/k+1`\u3002\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n\tlong long k,a,b,ans;\n\tcin>>k>>a>>b;\n\tk=abs(k);\n\tif((a<0&&b<0)||(a>0&&b>0)){\n\t\ta=abs(a),b=abs(b);\n\t\tif(a>b)\n\t\t\tswap(a,b);\n\t\tans=b/k-(a+k-1)/k+1;//a \u662f\u5411\u4e0a\u53d6\u6574\n\t} else\n\t\tans=b/k-a/k+1;\n\tcout<<ans<<endl;\n\treturn 0;\n}\n```",
+        "postTime": 1643007015,
+        "uid": 556362,
+        "name": "UnnamedOrNamed",
+        "ccfLevel": 5,
+        "title": "CF597A Divisibility \u9898\u89e3"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u6211\u7684\u601d\u8def\u662f\uff1a\n\n\u5982\u679c\u4e00\u5f00\u59cb $a$ \u548c $b$ \u90fd\u5c0f\u4e8e $0$\uff0c\u90a3\u4e48\u4ea4\u6362\u5b83\u4eec\u7684\u7edd\u5bf9\u503c\uff08\u8981\u4fdd\u8bc1 $a < b$\uff09\n\n\n\u4e4b\u540e\uff0c\u5982\u679c $a$ \u548c $b$ \u90fd\u5927\u4e8e $0$\uff0c\u5219\u76f4\u63a5\u8f93\u51fa $b\\,/\\,k\\,-\\,(a-1)\\,/\\,k$\uff08$n\\,/\\,k$ \u8868\u793a $[1,n]$ \u4e2d $k$ \u7684\u500d\u6570\u7684\u4e2a\u6570\uff09\uff1b\u5426\u5219\u8f93\u51fa $[1,b]$ \u4e2d $k$ \u7684\u500d\u6570\u7684\u4e2a\u6570 $+$ $[a,-1]$ \u4e2d $k$ \u7684\u500d\u6570\u7684\u4e2a\u6570 $+$ $1$\uff08\u8fd9\u91cc\u518d $+1$ \u662f\u56e0\u4e3a $0$ \u662f\u4efb\u4f55\u6570\u7684\u500d\u6570\uff09\u3002\n\n**\u6ce8\u610f\u5f00 $long$ $long$\u3002**\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\ntypedef long long ll;\n\nint main()\n{\n    ll k, a, b;\n    scanf(\"%lld%lld%lld\", &k, &a, &b);\n    if (a < 0 && b < 0)\n    {\n        ll t = abs(a);\n        a = abs(b);\n        b = t;\n    }\n    if (a > 0 && b > 0) printf(\"%lld\", b / k - (a - 1) / k);\n    else printf(\"%lld\", b / k + abs(a) / k + 1);\n    return 0;\n}\n```\n",
+        "postTime": 1610459483,
+        "uid": 275273,
+        "name": "zltqwq",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF597A \u3010Divisibility\u3011"
+    },
+    {
+        "content": "CF597A \u3010Divisibility\u3011\n\n### \u9898\u610f\u5206\u6790\n\n\u5bfb\u627e\u5728\u533a\u95f4$[a,b]$\u4e2d\u53ef\u4ee5\u88ab$k$\u6574\u9664\u7684\u6570\u5b57\u4e2a\u6570\u3002\n\n\u96be\u70b9\u5c31\u662f\u8fd9\u91cc\u4f1a\u6709\u8d1f\u6570\u51fa\u73b0\u3002\n\n\u82e3\u4f6c\u95e8\u90fd\u8bf4\u662f~~\u6076\u8bc4~~\u7b80\u5355\u6570\u8bba\uff0c\u53ef\u6211\u5374\u4ea4\u4e86\u5341\u6b21\u624d\u8fc7\uff0c\u4f69\u670d\u9020\u6570\u636e\u8005\u7684\u5168\u9762\uff01\n\n### $SOLUTION$\n\n$a>=0$&&$b>=0$ $ans=calc(abs(b))-calc(abs(a-1))$\n\n$a<=0$&&$b>=0$ $ans=calc(b)+calc(a)+1$\n\n$a<=0$&&$b<=0$ $ans=calc(abs(a))-calc(abs(b+1))$\n\n\u6ce8\u610f\u4e8b\u9879\uff1a\n\n$0$\u4e0d\u8981\u5fd8\u8bb0\u7b97\n\n### $CODE$\n\n```cpp\n#include<bits/stdc++.h>\n#define ll long long\n\nusing namespace std;\n\nll k,a,b,ans;\n\nll calc(ll x){\n\treturn x/k;\n}\nint main(){\n\tscanf(\"%lld%lld%lld\",&k,&a,&b);\n\tif(a<0&&b<0)\n\t\tans=calc(b+1)-calc(a);\n\telse if(a>0&&b>0)\n\t\tans=calc(b)-calc(a-1);\n\telse\n\t\tans=calc(b)-calc(a)+1;\n\tprintf(\"%lld\",ans);\n    return 0;\n}\n\n```\n\n$wtrl$",
+        "postTime": 1610191333,
+        "uid": 368225,
+        "name": "WinterRain208",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF597A \u3010Divisibility\u3011"
+    }
+]

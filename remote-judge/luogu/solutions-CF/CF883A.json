@@ -1,0 +1,10 @@
+[
+    {
+        "content": "**\u9898\u610f**\uff1a\u6709\u4e00\u6247\u81ea\u52a8\u95e8, \u82e5 $t$ \u65f6\u6709\u4eba\u6765, \u5e76\u4e14\u95e8\u662f\u5173\u7684, \u81ea\u52a8\u95e8\u4f1a\u6301\u7eed\u6253\u5f00 $d$ \u65f6\u95f4, $t$ \u5230 $t+d$ \u65f6\u6765\u7684\u4eba\u90fd\u53ef\u4ee5\u8fdb\u5165, \u73b0\u5728\u6709 $n$ \u4e2a\u96c7\u5458, \u5206\u522b\u5728$a_1,a_2,...,a_n$ \u65f6\u523b\u6765, $m$ \u4e2a\u5ba2\u6237, \u5206\u522b\u5728 $t_1,t_2,...,t_m$ \u65f6\u523b\u6765, \u6c42\u81ea\u52a8\u95e8\u6253\u5f00\u7684\u6b21\u6570\u3002   \n**\u601d\u8def**\uff1a\u679a\u4e3e $m$ \u4e2a\u5ba2\u6237, \u5f53\u4e00\u4e2a\u5ba2\u6237 $i$ \u6765\u7684\u65f6\u5019, \u5148\u5904\u7406 $t_i$ \u4e4b\u524d\u672a\u5904\u7406\u7684\u96c7\u5458\u5373\u53ef\u3002   \n\u4e3a\u4e86\u9632\u6b62\u6700\u540e\u8fd8\u6709\u672a\u5904\u7406\u7684\u96c7\u5458, \u53ef\u4ee5\u6dfb\u52a0\u4e00\u4e2a\u5ba2\u6237, \u8ba9\u4ed6\u65f6\u95f4\u7b49\u4e8e $n \\ast a$ , \u663e\u7136\u4e0d\u5f71\u54cd\u7b54\u6848\u3002   \n\n\u53c2\u8003\u4ee3\u7801:   \n```\n#include <bits/stdc++.h>\nusing namespace std;\nlong long n, m, a, d, t[100001];\nint main() {\n\tscanf(\"%lld%lld%lld%lld\", &n, &m, &a, &d);\n\tfor(int i=1;i<=m;i++) scanf(\"%lld\", t+i);\n\tint now = 0, ans = 0, cur = 1;\n\tt[++m] = n*a;\n\tfor(int i=m;i>=a;i--) if (t[i]<t[i-1]) swap(t[i],t[i-1]);\n\tfor(int i=1;i<=m;i++) {\n\t\tif (cur<=n&&cur*a<t[i]) {\n\t\t\tnow = cur*a;\n\t\t\tlong long r = d/a+1, tot = (t[i]-now)/a+1;\n\t\t\tlong long q = tot/r;\n\t\t\tif (q) {\n\t\t\t\tans += q;\n\t\t\t\tnow += (q-1)*r*a+d;\n\t\t\t\ttot -= q*r;\n\t\t\t\tcur = now/a+1;\n\t\t\t}\n\t\t\tif (tot) {\n\t\t\t\t++ans;\n\t\t\t\tnow = cur*a+d;\n\t\t\t\tcur = now/a+1;\n\t\t\t}\n\t\t}\n\t\tif (now>=t[i]) continue;\n\t\tnow = t[i]+d;\n\t\tcur = now/a+1;\n\t\t++ans;\n\t}\n\tprintf(\"%lld\\n\", ans);\n}\n```",
+        "postTime": 1625379481,
+        "uid": 307862,
+        "name": "BADFIVE",
+        "ccfLevel": 0,
+        "title": "CF883A Automatic Door"
+    }
+]

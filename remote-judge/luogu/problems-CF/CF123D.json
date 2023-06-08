@@ -1,0 +1,21 @@
+{
+    "description": "You are given a string $ s $ . Each pair of numbers $ l $ and $ r $ that fulfill the condition $ 1<=l<=r<=|s| $ , correspond to a substring of the string $ s $ , starting in the position $ l $ and ending in the position $ r $ (inclusive).\n\nLet's define the function of two strings $ F(x,y) $ like this. We'll find a list of such pairs of numbers for which the corresponding substrings of string $ x $ are equal to string $ y $ . Let's sort this list of pairs according to the pair's first number's increasing. The value of function $ F(x,y) $ equals the number of non-empty continuous sequences in the list.\n\nFor example: $ F(babbabbababbab,babb)=6 $ . The list of pairs is as follows:\n\n $ (1,4),(4,7),(9,12) $\n\nIts continuous sequences are:\n\n- $ (1,4) $\n- $ (4,7) $\n- $ (9,12) $\n- $ (1,4),(4,7) $\n- $ (4,7),(9,12) $\n- $ (1,4),(4,7),(9,12) $\n\nYour task is to calculate for the given string $ s $ the sum $ F(s,x) $ for all $ x $ , that $ x $ belongs to the set of all substrings of a string $ s $ .",
+    "inputFormat": "The only line contains the given string $ s $ , consisting only of small Latin letters ( $ 1<=|s|<=10^{5} $ ).",
+    "outputFormat": "Print the single number \u2014 the sought sum.\n\nPlease do not use the %lld specificator to read or write 64-bit integers in \u0421++. It is preferred to use the cin, cout streams or the %I64d specificator.",
+    "samples": [
+        [
+            "aaaa\n",
+            "20\n"
+        ],
+        [
+            "abcdef\n",
+            "21\n"
+        ],
+        [
+            "abacabadabacaba\n",
+            "188\n"
+        ]
+    ],
+    "hint": "In the first sample the function values at $ x $ equal to \"a\", \"aa\", \"aaa\" and \"aaaa\" equal 10, 6, 3 and 1 correspondingly.\n\nIn the second sample for any satisfying $ x $ the function value is 1.",
+    "translation": "\u7ed9\u51fa\u5b57\u7b26\u4e32 $s$\uff0c\u5b9a\u4e49\u5b50\u4e32 $a$ \u5728 $s$ \u4e2d\u7684\u51fa\u73b0\u6b21\u6570\u4e3a $cnt(a)$\uff0c\u6c42 $\\sum \\frac{cnt(a)(cnt(a)+1)}{2}$\u3002"
+}

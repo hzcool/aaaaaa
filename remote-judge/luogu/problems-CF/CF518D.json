@@ -1,0 +1,21 @@
+{
+    "description": "Ilya got tired of sports programming, left university and got a job in the subway. He was given the task to determine the escalator load factor.\n\nLet's assume that $ n $ people stand in the queue for the escalator. At each second one of the two following possibilities takes place: either the first person in the queue enters the escalator with probability $ p $ , or the first person in the queue doesn't move with probability $ (1-p) $ , paralyzed by his fear of escalators and making the whole queue wait behind him.\n\nFormally speaking, the $ i $ -th person in the queue cannot enter the escalator until people with indices from $ 1 $ to $ i-1 $ inclusive enter it. In one second only one person can enter the escalator. The escalator is infinite, so if a person enters it, he never leaves it, that is he will be standing on the escalator at any following second. Ilya needs to count the expected value of the number of people standing on the escalator after $ t $ seconds.\n\nYour task is to help him solve this complicated task.",
+    "inputFormat": "The first line of the input contains three numbers $ n,p,t $ ( $ 1<=n,t<=2000 $ , $ 0<=p<=1 $ ). Numbers $ n $ and $ t $ are integers, number $ p $ is real, given with exactly two digits after the decimal point.",
+    "outputFormat": "Print a single real number \u2014 the expected number of people who will be standing on the escalator after $ t $ seconds. The absolute or relative error mustn't exceed $ 10^{-6} $ .",
+    "samples": [
+        [
+            "1 0.50 1\n",
+            "0.5\n"
+        ],
+        [
+            "1 0.50 4\n",
+            "0.9375\n"
+        ],
+        [
+            "4 0.20 2\n",
+            "0.4\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u6709$n$ \u4e2a\u4eba\u6392\u6210\u4e00\u5217$,$ \u6bcf\u79d2\u4e2d\u961f\u4f0d\u6700\u524d\u9762\u7684\u4eba$p$ \u7684\u6982\u7387\u8d70\u4e0a\u7535\u68af$($ \u4e00\u65e6\u8d70\u4e0a\u5c31\u4e0d\u4f1a\u4e0b\u7535\u68af$),$ \u6216\u8005\u6709$1-p$ \u7684\u6982\u7387\u4e0d\u52a8\n\n\u95ee\u4f60$T$ \u79d2\u8fc7\u540e$,$ \u5728\u7535\u68af\u4e0a\u7684\u4eba\u7684\u6570\u91cf\u7684\u671f\u671b$.$ \n\n\u611f\u8c22@Kelin \u63d0\u4f9b\u7684\u7ffb\u8bd1"
+}

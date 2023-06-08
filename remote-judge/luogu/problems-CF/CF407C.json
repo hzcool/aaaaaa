@@ -1,0 +1,17 @@
+{
+    "description": "You've got an array consisting of $ n $ integers: $ a[1],a[2],...,a[n] $ . Moreover, there are $ m $ queries, each query can be described by three integers $ l_{i},r_{i},k_{i} $ . Query $ l_{i},r_{i},k_{i} $ means that we should add ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF407C/7483b5d05694b4cb36893b9ef3b5ea6eca980e53.png) to each element $ a[j] $ , where $ l_{i}<=j<=r_{i} $ .\n\nRecord ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF407C/e80c4b14815086b581d3057ceea9005fcac2476e.png) means the binomial coefficient, or the number of combinations from $ y $ elements into groups of $ x $ elements.\n\nYou need to fulfil consecutively all queries and then print the final array.",
+    "inputFormat": "The first line contains integers $ n $ , $ m $ ( $ 1<=n,m<=10^{5} $ ).\n\nThe second line contains $ n $ integers $ a[1],a[2],...,a[n] $ ( $ 0<=a_{i}<=10^{9} $ ) \u2014 the initial array.\n\nNext $ m $ lines contain queries in the format $ l_{i},r_{i},k_{i} $ \u2014 to all elements of the segment $ l_{i}...\\ r_{i} $ add number ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF407C/7483b5d05694b4cb36893b9ef3b5ea6eca980e53.png) ( $ 1<=l_{i}<=r_{i}<=n $ ; $ 0<=k<=100 $ ).",
+    "outputFormat": "Print $ n $ integers: the $ i $ -th number is the value of element $ a[i] $ after all the queries. As the values can be rather large, print them modulo $ 1000000007 $ $ (10^{9}+7) $ .",
+    "samples": [
+        [
+            "5 1\n0 0 0 0 0\n1 5 0\n",
+            "1 1 1 1 1\n"
+        ],
+        [
+            "10 2\n1 2 3 4 5 0 0 0 0 0\n1 6 1\n6 10 2\n",
+            "2 4 6 8 10 7 3 6 10 15\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9\u51fa$n$\u4e2a\u6570\uff0c\u6709$m$\u4e2a\u64cd\u4f5c.\r\n\r\n\u6bcf\u4e2a\u64cd\u4f5c\u662f\u5c06$[L,R]$\u4e4b\u95f4\u7684\u6570\u52a0\u4e0a$C(j-L+k,k)$\uff0c$L<=j<=R$.\r\n\r\n\u6700\u540e\u8f93\u51fa\u8fd9$n$\u4e2a\u6570\u7684\u503c\u3002"
+}

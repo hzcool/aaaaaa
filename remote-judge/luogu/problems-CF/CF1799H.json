@@ -1,0 +1,28 @@
+{
+    "description": "You are given a tree with $ n $ vertices.\n\nA hero $ k $ times do the following operation:\n\n- Choose some edge.\n- Remove it.\n- Take one of the two remaining parts and delete it.\n- Write the number of vertices in the remaining part.\n\nYou are given an initial tree and the a sequence of written numbers. Find the number of ways to make operations such that the written numbers are equal to the given numbers. Due to the answer can be big, find it by modulo $ 998\\,244\\,353 $ . Two ways are considered different, if on some operation edge or remaining part are selected differently.",
+    "inputFormat": "The first line contains a single integer $ n $ ( $ 2 \\leq n \\leq 5000 $ ) \u2014 the number of vertices.\n\nEach of the next $ n-1 $ lines contains two integers $ s $ , $ f $ ( $ 1 \\leq s, f \\leq n $ , $ s \\neq f $ ) \u2014 description of edge $ (s, f) $ .\n\nNext line contains a single integer $ k $ ( $ 1 \\leq k \\leq \\min{(6, n - 1)} $ ) \u2014 the number of operations.\n\nNext line contains $ k $ integers $ s_1, s_2, \\ldots, s_k $ ( $ n > s_1 > s_2 > \\ldots > s_k \\geq 1 $ ) \u2014 written numbers.",
+    "outputFormat": "Print a single integer \u2014 the answer to the problem by modulo $ 998\\,244\\,353 $ .",
+    "samples": [
+        [
+            "3\n1 2\n2 3\n2\n2 1",
+            "4"
+        ],
+        [
+            "7\n2 1\n3 2\n4 1\n5 3\n6 4\n7 4\n2\n4 2",
+            "2"
+        ],
+        [
+            "7\n1 2\n1 3\n1 4\n2 5\n3 6\n4 7\n1\n2",
+            "3"
+        ],
+        [
+            "7\n1 2\n1 3\n1 4\n2 5\n3 6\n4 7\n4\n6 5 2 1",
+            "24"
+        ],
+        [
+            "8\n1 2\n2 3\n3 4\n3 5\n3 6\n3 7\n3 8\n2\n7 4",
+            "0"
+        ]
+    ],
+    "hint": "In the first test there are four possible ways to make operations:\n\n- Remove the edge $ (1, 2) $ and delete vertex $ 1 $ . Remove the edge $ (2, 3) $ and delete vertex $ 2 $ .\n- Remove the edge $ (1, 2) $ and delete vertex $ 1 $ . Remove the edge $ (3, 2) $ and delete vertex $ 3 $ .\n- Remove the edge $ (3, 2) $ and delete vertex $ 3 $ . Remove the edge $ (1, 2) $ and delete vertex $ 1 $ .\n- Remove the edge $ (3, 2) $ and delete vertex $ 3 $ . Remove the edge $ (2, 1) $ and delete vertex $ 2 $ .\n\nIn the second test there are two possible ways to make operations:\n\n- Remove the edge $ (4, 1) $ and delete the part with vertex $ 4 $ . Remove the edge $ (2, 3) $ and delete the part with vertex $ 2 $ .\n- Remove the edge $ (4, 1) $ and delete the part with vertex $ 4 $ . Remove the edge $ (3, 2) $ and delete the part with vertex $ 3 $ ."
+}

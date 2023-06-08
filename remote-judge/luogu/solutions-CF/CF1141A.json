@@ -1,0 +1,50 @@
+[
+    {
+        "content": "\u5165\u95e8\u96be\u5ea6\u7684\u4e00\u9053\u9898\uff0c\u9898\u610f\u4e5f\u5f88\u76f4\u767d\uff0c\u6bd5\u7adf\u662fdiv3\u7684A\u554a\u3002\u3002\u3002\n\n---\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint a,b;\nint main(){\n\tscanf(\"%d%d\",&a,&b);\n\tif(b%a!=0){\n\t\tprintf(\"-1\"); //\u5047\u5982\u540e\u8005\u65e0\u6cd5\u9664\u5c3d\u524d\u8005\uff0c\u90a3\u4e48\u600e\u6837\u4e58\u90fd\u4e0d\u53ef\u80fd\u5b9e\u73b0\uff0c\u76f4\u63a5\u8f93-1\n\t\treturn 0;\n\t}\n\tb/=a; //\uff08\u7701\u70b9\u5185\u5b58\uff09\u9664\u5f97\u4e24\u8005\u76f8\u5dee\u7684\u500d\u6570\n\ta=0;\n    /*\u4e0b\u9762\u7c7b\u4f3c\u5206\u89e3\u8d28\u56e0\u6570*/\n\twhile(b%2==0) b/=2,a++; //\u9664\u53bbb\u56e0\u6570\u4e2d\u6240\u6709\u76842\n\twhile(b%3==0) b/=3,a++; //\u9664\u53bbb\u56e0\u6570\u4e2d\u6240\u6709\u76843\n\tif(b!=1) a=-1; //\u5982\u679cb\u4e0d\u4e3a1\u90a3\u4e48\u8bf4\u660eb\u4e00\u5f00\u59cb\u5c31\u542b\u6709\u4e0d\u4e3a2\u62163\u7684\u56e0\u6570\uff0c\u8fbe\u4e0d\u5230\uff0c\u76f4\u63a5\u8f93-1\n\tprintf(\"%d\",a);\n}\n```\n",
+        "postTime": 1553319839,
+        "uid": 65735,
+        "name": "yuzhechuan",
+        "ccfLevel": 8,
+        "title": "\u9898\u89e3 CF1141A \u3010Game 23\u3011"
+    },
+    {
+        "content": ">[\u66f4\u597d\u7684\u9605\u8bfb\u4f53\u9a8c](https://www.cnblogs.com/qf-breeze/p/10564133.html)\n~~~\n\t\u8fd9\u4e2a\u662fdiv3\u7684\u7b2c\u4e00\u9898 \u4e5f\u662f\u6700\u7b80\u5355\u7684\u4e00\u9053\u9898\u76ee\u3002\u3002\u3002\u5168\u573a\u5207\u7684\u9898\u3002\n~~~\n>\u8fd9\u9898\u5f88\u7b80\u5355\u554a \u53ef\u4ee5\u7528$DFS$\u6765\u6253\n>\u6bd5\u7adf\u662f $2^x*3^y=m \u8f93\u51fax+y\u554a$\n>\u8fd9\u662f\u6700\u7b80\u5355\u7684\u505a\u6cd5\n~~~\n#include <bits/stdc++.h>\nusing namespace std;\ntypedef long long LL ;\ninline LL In() { LL res(0),f(1); register char c ;\n    while(isspace(c=getchar())) ; c == '-'? f = -1 , c = getchar() : f = 1 ;\n    while(res = (res << 1) + (res << 3) + (c & 15) , isdigit(c=getchar())) ; return res * f ;\n}\nint n , m ;\nint ans = 0x7f7f7f7f;\ninline void dfs(int x,int step) {//x\u662f\u5f53\u524d\u6570\u503c  step\u662f\u6b65\u6570\n    if(x > m) return ;\n    if(x == m) {//\u7b26\u5408\u6761\u4ef6\n        cout << step << endl ;//\u8f93\u51fa\n        exit(0);//\u8fd9\u4e2a\u540creturn 0; \u4e0d\u8fc7\u9002\u7528\u4e8e\u51fd\u6570\u4e2d\n    }\n    dfs(x<<1,step+1) , dfs(x*3,step+1) ;\n}\nsigned main () {\n    n = In() , m = In() ;\n    dfs(n,0) ;\n    if(ans == 0x7f7f7f7f) cout << -1 << endl ;\n    return 0 ;\n}\n~~~",
+        "postTime": 1553055614,
+        "uid": 96580,
+        "name": "SXNhdW5veWE",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF1141A \u3010Game 23\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u53ef\u4ee5\u7528$dfs$\u8fc7\u3002\u6bcf\u4e00\u6b21\u8fdb\u884c\u51fd\u6570\u64cd\u4f5c\uff0c\u5c31\u628a\u53c2\u6570$k$\u4e58$2$\u3001\u4e58$3$\u8fdb\u884c\u9012\u5f52\u3002\u518d\u8bbe\u7f6e\u4e00\u4e2a$step$\u53c2\u6570\uff0c\u6bcf\u6b21\u52a0$1$\u3002\u53ea\u8981$k>m$\u5c31\u9000\u51fa\uff0c\u5982\u679c$k=m$\u76f4\u63a5\u8f93\u51fa$step$\uff0c\u5e76\u9000\u51fa$\\red{\\text{\u6574\u4e2a\u7a0b\u5e8f}}$\uff0c\u6ce8\u610f\u4e0d\u662f\u51fd\u6570\u3002\n\n\u6211\u4eec\u4e3a\u4e86\u5728\u51fd\u6570\u4e2d\u4fbf\u4e8e\u9000\u51fa\u6574\u4e2a\u51fd\u6570\uff0c\u53ef\u4ee5\u4f7f\u7528$exit(0)$\uff0c\u8fd9\u4e2a\u51fd\u6570\u5728$cstdlib$\u5e93\u4e2d\u3002\n\n$AC$\u4ee3\u7801\uff1a\n\n```cpp\n#include<cstdio>\n#include<cstdlib>\nint n,m;\nvoid dfs(int k,int step)\n{\n    if(k>m)return;//k>m\u5c31\u8df3\u51fa\u51fd\u6570\n    if(k==m)\n    {\n        printf(\"%d\",step);\n        exit(0);//k=m\u5c31\u7ed3\u675f\u7a0b\u5e8f\n    }\n    dfs(k*2,step+1);\n    dfs(k*3,step+1);//\u884d\u751f\n}\nint main()\n{\n    scanf(\"%d%d\",&n,&m);//\u8f93\u5165\n    dfs(n,0);//\u521d\u59cb\u7684step=0\uff0c\u4e00\u5f00\u59cbk=n\n    printf(\"-1\");//dfs\u5b8c\u4e86\u4ee5\u540e\u8f93\u51fa-1\n}\n```",
+        "postTime": 1583719220,
+        "uid": 137367,
+        "name": "hensier",
+        "ccfLevel": 6,
+        "title": "CF1141A Game 23 \u9898\u89e3"
+    },
+    {
+        "content": "~~\u8fd9\u4e2a\u5e94\u8be5\u662f\u4f60\u5495\u6700\u6c34\u7684\u9ec4\u9898\u5427qaq~~\n\n\u76f4\u63a5\u641c\u5c31\u597d\u4e86\n\n\u5982\u679c\u641c\u5230\u4e86\u5c31\u4e0e\u73b0\u5728\u7684\u7b54\u6848\u6bd4\u8f83\u5927\u5c0f\n\n\u5982\u679c\u5df2\u7ecf \u5927\u4e8em\u4e86 \u6216\u8005 \u6bd4\u73b0\u5728\u7528\u7684\u6b65\u6570\u591a\u4e86 \u5c31\u9000\u51fa\n\n```cpp\n#include <iostream>\n#include <cstdio>\n#include <cstring>\n#include <algorithm>\n\nusing namespace std;\nint a,b,ans=0x7fffffff;//ans\u8981\u521d\u59cb\u5316\u7684\u5f88\u5927\n\ninline void dfs(int x,int step)\n{\n\tif(x>b||step>ans)return;//\u5982\u679c\u73b0\u5728\u7684x\u5df2\u7ecf\u6bd4m\u5927\u4e86 \u6216\u8005 \u73b0\u5728\u7528\u7684\u6b65\u6570\u5df2\u7ecf\u6bd4ans\u5927\u4e86 \u5c31\u76f4\u63a5\u9000\u51fa\u4e0d\u7528\u641c\u4e86\n\tif(x==b)ans=min(ans,step);//\u6253\u64c2\u53f0\u6bd4\u5927\u5c0f\n\tdfs(x*2,step+1);//\u9012\u5f52\u4e582\u7684\u60c5\u51b5\n\tdfs(x*3,step+1);//\u9012\u5f52\u4e583\u7684\u60c5\u51b5\n}\n\nint main()\n{\n\tcin>>a>>b;//\u8f93\u5165\u4e0d\u591a\u8bf4\n\tdfs(a,0);//\u9012\u5f52\n\tif(ans==0x7fffffff)cout<<-1;//\u5982\u679cans\u6ca1\u6709\u6539\u53d8\u8fc7\u5219\u65e0\u89e3\u8f93\u51fa-1\n\telse cout<<ans;\n\treturn 0;\n}\n```\n",
+        "postTime": 1571052214,
+        "uid": 133509,
+        "name": "KazamiHina",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1141A \u3010Game 23\u3011"
+    },
+    {
+        "content": "\u672c\u6587\u540c\u6b65\u53d1\u8868\u4e8e[\u6211\u7684\u535a\u5ba2](https://zhy12138.github.io/2019/03/24/CF-1141-div3/)\n\n\u4f5c\u4e3a\u4e00\u9053A\u9898\uff0c\u5b83\u7684\u96be\u5ea6\u4e0d\u5927\uff0c\u4e5f\u6ca1\u4ec0\u4e48\u8981\u6ce8\u610f\u7684\u7ec6\u8282\n\n\u65e0\u89e3\u7684\u4e24\u79cd\u60c5\u51b5\uff1a\n\n- m\u4e0d\u4e3an\u7684\u500d\u6570\n\n- $\\frac{m}{n}$\u96642\u548c3\u4ee5\u5916\u6709\u522b\u7684\u56e0\u5b50\n\n\u5177\u4f53\u505a\u6cd5\u5c31\u628a$\\frac{m}{n}$\u4e2d\u76842\u548c3\u5265\u79bb\uff0c\u7136\u540e\u770b\u662f\u5426\u4e3a1\u5c31\u884c\u4e86\n\n\u6b21\u6570\u53ef\u4ee5\u5728\u5265\u79bb2\u548c3\u7684\u540c\u65f6\u8fdb\u884c\u8ba1\u7b97\n\n\u4ee3\u7801\u5982\u4e0b\n```cpp\n#include<iostream>\n#include<cstdlib>\n#include<cstdio>\n#include<cmath>\n#include<iomanip>\n#include<cstring>\n#include<algorithm>\n#include<ctime>\n#define ll long long\nusing namespace std;\ninline int read()\n{\n    int kkk=0,x=1;\n    char c=getchar();\n    while((c<'0' || c>'9') && c!='-')\n        c=getchar();\n    if(c=='-')\n        c=getchar(),x=-1;\n    while(c>='0' && c<='9')\n        kkk=(kkk<<3)+(kkk<<1)+(c-'0'),c=getchar();\n    return kkk*x;\n}\nint n,m;\nint main()\n{\n    n=read(),m=read();\n    if(m%n!=0)\n    {\n        puts(\"-1\");\n        return 0;\n    }\n    int t=m/n,ans=0;\n    while(t%2==0)\n        t/=2,++ans;\n    while(t%3==0)\n        t/=3,++ans;\n    if(t==1)\n        printf(\"%d\\n\",ans);\n    else\n        puts(\"-1\");\n    return 0;\n}\n```",
+        "postTime": 1553413750,
+        "uid": 36933,
+        "name": "zhy12138",
+        "ccfLevel": 9,
+        "title": "CF1141A Game 23"
+    },
+    {
+        "content": "> \u9898\u610f\uff1a\u7ed9\u5b9a\u4e24\u4e2a\u6574\u6570n\uff0cm\uff0c\u73b0\u5728\u4f60\u8981\u8fdb\u884c\u82e5\u5e72\u6b21\u64cd\u4f5c\uff0c\u6bcf\u6b21\u64cd\u4f5c\u73c2\u4ee5\u628an\u4e58\u4e0a2\u62163\uff0c\u6c42\u80fd\u5426\u901a\u8fc7\u4e00\u5b9a\u6570\u91cf\u6b21\u7684\u64cd\u4f5c\uff0c\u628an\u53d8\u6210m\uff0c\u82e5\u80fd\u5219\u8f93\u51fa\u64cd\u4f5c\u6b21\u6570\uff0c\u82e5\u4e0d\u80fd\u5219\u8f93\u51fa-1\u3002\n\n\u89e3\u6cd5\uff1a\u7eaf\u6a21\u62df\u3002\n\n\u5148\u5224\u65adm\u662f\u5426\u80fd\u6574\u9664n\uff0c\u4e0d\u80fd\u7684\u8bdd\u76f4\u63a5\u8f93\u51fa-1\uff0c\u5426\u5219\u628a\u5546\u4e0d\u65ad\u5f97\u9664\u4ee52\u548c3\uff0c\u76f4\u5230\u90fd\u9664\u4e0d\u5c3d\u4e3a\u6b62\u3002\u6b64\u65f6\u82e5\u5546\u662f1\u5219\u8f93\u51fa\u64cd\u4f5c\u6b21\u6570\uff0c\u5426\u5219\u8f93\u51fa-1\u3002\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n#define rep(i,x,y) for (i=x;i<=y;i++)\ntypedef long long ll;\nconst long long INF=214748347;\n\nint main()\n{\n\tll n,m;\n\tcin>>n>>m;\n\tdouble shang;\n\tshang=m*1.0/n;\n\tif (shang!=int(shang))//\u5224\u65adm\u662f\u5426\u4e3an\u7684\u6574\u6570\u500d\n\t{\n\t\tcout<<\"-1\"<<endl;\n\t\treturn 0;\n\t}\n\telse\n\t{\n\t\tll t;\n\t\tt=m/n;\n\t\tll ans;\n\t\tans=0;\n\t\twhile (t%3==0)\n\t\t{\n\t\t\tt/=3;\n\t\t\tans++; \n\t\t}\n\t\twhile (t%2==0)\n\t\t{\n\t\t\tt/=2;\n\t\t\tans++;\n\t\t}\n\t\tif (t!=1)\n\t\t{\n\t\t\tcout<<\"-1\"<<endl;\n\t\t\treturn 0;\n\t\t}\n\t\telse\n\t\t{\n\t\t\tcout<<ans<<endl;\n\t\t\treturn 0;\n\t\t}\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1553085478,
+        "uid": 40198,
+        "name": "FP\u00b7\u8377\u5170\u732a",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF1141A \u3010Game 23\u3011"
+    }
+]

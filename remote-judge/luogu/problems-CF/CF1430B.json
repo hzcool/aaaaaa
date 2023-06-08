@@ -1,0 +1,13 @@
+{
+    "description": "You have $ n $ barrels lined up in a row, numbered from left to right from one. Initially, the $ i $ -th barrel contains $ a_i $ liters of water.\n\nYou can pour water from one barrel to another. In one act of pouring, you can choose two different barrels $ x $ and $ y $ (the $ x $ -th barrel shouldn't be empty) and pour any possible amount of water from barrel $ x $ to barrel $ y $ (possibly, all water). You may assume that barrels have infinite capacity, so you can pour any amount of water in each of them.\n\nCalculate the maximum possible difference between the maximum and the minimum amount of water in the barrels, if you can pour water at most $ k $ times.\n\nSome examples:\n\n- if you have four barrels, each containing $ 5 $ liters of water, and $ k = 1 $ , you may pour $ 5 $ liters from the second barrel into the fourth, so the amounts of water in the barrels are $ [5, 0, 5, 10] $ , and the difference between the maximum and the minimum is $ 10 $ ;\n- if all barrels are empty, you can't make any operation, so the difference between the maximum and the minimum amount is still $ 0 $ .",
+    "inputFormat": "The first line contains one integer $ t $ ( $ 1 \\le t \\le 1000 $ ) \u2014 the number of test cases.\n\nThe first line of each test case contains two integers $ n $ and $ k $ ( $ 1 \\le k < n \\le 2 \\cdot 10^5 $ ) \u2014 the number of barrels and the number of pourings you can make.\n\nThe second line contains $ n $ integers $ a_1, a_2, \\dots, a_n $ ( $ 0 \\le a_i \\le 10^{9} $ ), where $ a_i $ is the initial amount of water the $ i $ -th barrel has.\n\nIt's guaranteed that the total sum of $ n $ over test cases doesn't exceed $ 2 \\cdot 10^5 $ .",
+    "outputFormat": "For each test case, print the maximum possible difference between the maximum and the minimum amount of water in the barrels, if you can pour water at most $ k $ times.",
+    "samples": [
+        [
+            "2\n4 1\n5 5 5 5\n3 2\n0 0 0",
+            "10\n0"
+        ]
+    ],
+    "hint": "",
+    "translation": "$T$ \u6b21\u8be2\u95ee\uff0c\u5bf9\u4e8e\u6bcf\u4e00\u6b21\u8be2\u95ee\uff1a\n\n\u6709 $n$ \u4e2a\u6c34\u6876\uff0c\u7b2c $i$ \u4e2a\u6c34\u6876\u6709 $a_i$ \u5355\u4f4d\u7684\u6c34\uff0c\u6709 $k$ \u6b21\u673a\u4f1a\u628a\u4e00\u4e2a\u6876\u91cc\u7684\u6c34\u5012\u5728\u53e6\u4e00\u4e2a\u6876\u91cc\uff08\u4efb\u610f\u5355\u4f4d\uff0c\u53ef\u4ee5\u4e0d\u6267\u884c\u5b8c\uff09\uff0c\u8be2\u95ee\u6700\u540e\u6700\u5927\u6c34\u6876\u6c34\u91cf\u548c\u6700\u5c0f\u6c34\u6876\u6c34\u91cf\u7684\u5dee\u7684\u6700\u5927\u503c\u3002\n\n$1\\leq k < n\\leq 2\\cdot10^5,0\\leq a_i \\leq10^9$"
+}

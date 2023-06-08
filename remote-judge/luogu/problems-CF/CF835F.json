@@ -1,0 +1,17 @@
+{
+    "description": "In the Kingdom K., there are $ n $ towns numbered with integers from $ 1 $ to $ n $ . The towns are connected by $ n $ bi-directional roads numbered with integers from $ 1 $ to $ n $ . The $ i $ -th road connects the towns $ u_{i} $ and $ v_{i} $ and its length is $ l_{i} $ . There is no more than one road between two towns. Also, there are no roads that connect the towns with itself.\n\nLet's call the inconvenience of the roads the maximum of the shortest distances between all pairs of towns.\n\nBecause of lack of money, it was decided to close down one of the roads so that after its removal it is still possible to reach any town from any other. You have to find the minimum possible inconvenience of the roads after closing down one of the roads.",
+    "inputFormat": "The first line contains the integer $ n $ ( $ 3<=n<=2\u00b710^{5} $ ) \u2014 the number of towns and roads.\n\nThe next $ n $ lines contain the roads description. The $ i $ -th from these lines contains three integers $ u_{i} $ , $ v_{i} $ , $ l_{i} $ ( $ 1<=u_{i},v_{i}<=n $ , $ 1<=l_{i}<=10^{9} $ ) \u2014 the numbers of towns connected by the $ i $ -th road and the length of the $ i $ -th road. No road connects a town to itself, no two roads connect the same towns.\n\nIt's guaranteed that it's always possible to close down one of the roads so that all the towns are still reachable from each other.",
+    "outputFormat": "Print a single integer \u2014 the minimum possible inconvenience of the roads after the refusal from one of the roads.",
+    "samples": [
+        [
+            "3\n1 2 4\n2 3 5\n1 3 1\n",
+            "5\n"
+        ],
+        [
+            "5\n2 3 7\n3 1 9\n4 1 8\n3 5 4\n4 5 5\n",
+            "18\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "**\u9898\u76ee\u63cf\u8ff0**\n\n\u738b\u56fd\u6709$n$\u5ea7\u57ce\u5e02\u4e0e$n$\u6761\u6709\u957f\u5ea6\u7684\u8857\u9053\uff0c\u4fdd\u8bc1\u6240\u6709\u57ce\u5e02\u76f4\u63a5\u6216\u95f4\u63a5\u8054\u901a\uff0c\u6211\u4eec\u5b9a\u4e49\u738b\u56fd\u7684\u76f4\u5f84\u4e3a\u6240\u6709\u70b9\u5bf9\u6700\u77ed\u8ddd\u79bb\u4e2d\u7684\u6700\u5927\u503c\uff0c\u73b0\u56e0\u8d22\u653f\u5371\u673a\u9700\u62c6\u9664\u4e00\u6761\u9053\u8def\u5e76\u540c\u65f6\u8981\u6c42\u6240\u6709\u57ce\u5e02\u4ecd\u7136\u8054\u901a\uff0c\u6c42\u6240\u6709\u62c6\u9664\u65b9\u6848\u4e2d\u738b\u56fd\u76f4\u5f84\u7684\u6700\u5c0f\u503c\n\n**\u8f93\u5165\u683c\u5f0f**\n\n\u7b2c\u4e00\u884c\u4e00\u4e2a\u6574\u6570$n$\uff0c\u63a5\u4e0b\u6765$n$\u884c\u6bcf\u884c\u4e09\u4e2a\u6574\u6570$u,v,w$\u8868\u793a\u57ce\u5e02$u,v$\u4e4b\u95f4\u6709\u4e00\u6761\u957f\u5ea6\u4e3a$w$\u7684\u9053\u8def\n\n**\u8f93\u51fa\u683c\u5f0f**\n\n\u4e00\u884c\u4e00\u4e2a\u7b54\u6848\uff0c\u8868\u793a\u6240\u6709\u65b9\u6848\u4e2d\u76f4\u5f84\u6700\u5c0f\u503c"
+}

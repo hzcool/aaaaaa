@@ -1,0 +1,17 @@
+{
+    "description": "You are fishing with polar bears Alice and Bob. While waiting for the fish to bite, the polar bears get bored. They come up with a game. First Alice and Bob each writes a 01-string (strings that only contain character \"0\" and \"1\") $ a $ and $ b $ . Then you try to turn $ a $ into $ b $ using two types of operations:\n\n- Write $ parity(a) $ to the end of $ a $ . For example, ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF297A/ffa9ba2c96c1525e244bb8f0304768bf297c672a.png).\n- Remove the first character of $ a $ . For example, ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF297A/2a7b23121f5c760f7810c0db14858af4bcbe6719.png). You cannot perform this operation if $ a $ is empty.\n\nYou can use as many operations as you want. The problem is, is it possible to turn $ a $ into $ b $ ?\n\nThe $ parity $ of a 01-string is $ 1 $ if there is an odd number of \"1\"s in the string, and $ 0 $ otherwise.",
+    "inputFormat": "The first line contains the string $ a $ and the second line contains the string $ b $ $ (1<=|a|,|b|<=1000) $ . Both strings contain only the characters \"0\" and \"1\". Here $ |x| $ denotes the length of the string $ x $ .",
+    "outputFormat": "Print \"YES\" (without quotes) if it is possible to turn $ a $ into $ b $ , and \"NO\" (without quotes) otherwise.",
+    "samples": [
+        [
+            "01011\n0110\n",
+            "YES\n"
+        ],
+        [
+            "0011\n1110\n",
+            "NO\n"
+        ]
+    ],
+    "hint": "In the first sample, the steps are as follows: $ 01011\u21921011\u2192011\u21920110 $",
+    "translation": "\u4f60\u548c\u5317\u6781\u718a Alice \u548c\u5317\u6781\u718a Bob \u4e00\u8d77\u9493\u9c7c\u3002\u4ed6\u4eec\u7b49\u9c7c\u4e0a\u94a9\u7b49\u5f97\u5f88\u65e0\u804a\uff0c\u4e8e\u662f\u60f3\u5230\u4e86\u4e00\u4e2a\u6e38\u620f\u6765\u6d88\u78e8\u65f6\u95f4\u3002\u9996\u5148\uff0cAlice \u548c Bob \u5206\u522b\u5199\u4e0b\u4e00\u4e2a 01 \u4e32\uff08\u53ea\u5305\u542b\u201d0\u201d\u548c\u201c1\u201d\u7684\u5b57\u7b26\u4e32\uff09$a$ \u548c $b$\uff0c\u7136\u540e\u4f60\u53ef\u4ee5\u901a\u8fc7\u4e24\u79cd\u64cd\u4f5c\u5c1d\u8bd5\u5c06 $a$ \u53d8\u6210 $b$\uff1a\r\n\r\n- \u5c06 $parity(a)$ \u6dfb\u52a0\u5230 $a$ \u7684\u672b\u5c3e\u3002\u4f8b\u5982\uff1a$1010 \\rightarrow 10100$\u3002\r\n\r\n- \u5220\u9664 $a$ \u7684\u7b2c\u4e00\u4e2a\u5b57\u7b26\u3002\u4f8b\u5982\uff1a$1001 \\rightarrow 001$\u3002\u82e5 $a$ \u4e3a\u7a7a\u4e32\u5219\u65e0\u6cd5\u8fdb\u884c\u6b64\u64cd\u4f5c\u3002\r\n\r\n\u4f60\u53ef\u4ee5\u8fdb\u884c\u4efb\u610f\u591a\u6b21\u64cd\u4f5c\u3002\u73b0\u5728\u8bf7\u4f60\u6c42\u51fa\u662f\u5426\u80fd\u5c06 $a$ \u53d8\u4e3a $b$\u3002\r\n\r\n\u5982\u679c\u4e00\u4e2a 01 \u4e32\u4e2d\u6709\u5947\u6570\u4e2a $1$\uff0c\u90a3\u4e48\u8fd9\u4e2a 01 \u4e32\u7684 $parity$ \u503c\u662f $1$\uff0c\u5426\u5219\u662f $0$\u3002\r\n\r\n## \u8f93\u5165\u8f93\u51fa\u683c\u5f0f\r\n\r\n### \u8f93\u5165\u683c\u5f0f\r\n\r\n\u7b2c\u4e00\u884c\u4e3a 01 \u4e32 $a$\uff0c\u7b2c\u4e8c\u884c\u4e3a 01 \u4e32 $b$\uff08$1 \\le |a|, |b| \\le 1000$\uff09\u3002\u5176\u4e2d $|x|$ \u8868\u793a\u4e32 $x$ \u7684\u957f\u5ea6\u3002\r\n\r\n### \u8f93\u51fa\u683c\u5f0f\r\n\r\n\u5982\u679c\u53ef\u80fd\u5c06 $a$ \u53d8\u4e3a $b$ \u5219\u8f93\u51fa `YES`\uff0c\u5426\u5219\u8f93\u51fa `NO`\u3002"
+}

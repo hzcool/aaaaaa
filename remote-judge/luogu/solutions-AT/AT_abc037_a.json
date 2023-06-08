@@ -1,0 +1,34 @@
+[
+    {
+        "content": "\u9898\u610f\uff1a\n\u4f60\u5230\u9992\u5934\u5e97\u6765\u4e86\u3002\u8fd9\u91cc\u6709\u767d\u8272\u548c\u7eff\u8272\u4e24\u79cd\u9992\u5934\u5356\uff0c\u4fdd\u8bc1\u6bcf\u79cd\u9992\u5934\u90fd\u53ef\u4ee5\u4e70\u5230\u4efb\u610f\u4e2a\u3002\u767d\u8272\u7684\u9992\u5934\u662f\u4e00\u4e2aA\u65e5\u5143\uff0c\u7eff\u8272\u7684\u9992\u5934\u4e00\u4e2aB\u65e5\u5143\u3002\n\u4f60\u6709C\u65e5\u5143\u3002\u56e0\u4e3a\u4f60\u60f3\u5403\u5f88\u591a\u4e1c\u897f\uff0c\u6240\u4ee5\u4e0d\u4ecb\u610f\u79cd\u7c7b\uff0c\u5c3d\u91cf\u4e70\u5f88\u591a\u4e2a\u9992\u5934\u3002\u4e24\u79cd\u9992\u5934\u7684\u6570\u91cf\u4e0d\u540c\uff0c\u53ea\u4e70\u4e00\u79cd\u7684\u79cd\u7c7b\u4e5f\u6ca1\u5173\u7cfb\u3002\u6700\u591a\u80fd\u4e70\u5230\u51e0\u4e2a\u9992\u5934\u5462\uff1f\n\n\u4fdd\u9669\u7684\u7b97\u6cd5\uff0c\u679a\u4e3e\u767d\u9992\u5934\u3001\u7eff\u9992\u5934\u6570\u91cf\u7684\u60c5\u51b5\uff0c\u6c42\u51fa\u6700\u5927\u503c\u3002\n```cpp\n#include<iostream>\nusing namespace std;\nint main()\n{\n    int a,b,c,maxn=0;//maxn\u8868\u793a\u6700\u591a\u53ef\u4e70\u7684\u9992\u5934\u6570\n    cin>>a>>b>>c;\n    for(int i=0;i<=c/a;i++)//\u767d\u9992\u5934\u6700\u591a\u4e70c/a\u4e2a\n        for(int j=0;j<=c/b;j++)//\u7eff\u9992\u5934\u6700\u591a\u4e70c/b\u4e2a\n            if (i*a+j*b<=c && i+j>maxn)//\u5224\u65ad\u4ef7\u683c\u662f\u5426\u5728c\u5143\u4ee5\u5185\uff0c\u4e70\u7684\u4e2a\u6570\u662f\u5426\u5927\u4e8e\u5f53\u524d\u7684maxn\n                maxn=i+j;//\u6ee1\u8db3\u5219\u66f4\u65b0\n    cout<<maxn<<endl;//\u6ce8\u610f\u6362\u884c\uff01\n    return 0;\n}\n```",
+        "postTime": 1531398438,
+        "uid": 83001,
+        "name": "\u6d77\u6ee8WA\u58f0",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT1892 \u3010\u9945\u982d\u3011"
+    },
+    {
+        "content": "[\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/AT_abc037_a)   \n\u8fd9\u9898\u5176\u5b9e\u975e\u5e38\u7b80\u5355\uff0c\u5c31\u662f\u8ba1\u7b97 $c\\div\\operatorname{min}(a,b)$\u3002    \n\u4e3a\u4ec0\u4e48\u662f\u8fd9\u6837\u5462\uff1f   \n\u56e0\u4e3a $a$ \u548c $b$ \u4e0d\u662f\u76f8\u7b49\u5c31\u662f\u6709\u4e00\u4e2a\u6700\u5927\u7684\uff0c\u6240\u4ee5\u6211\u4eec\u9664\u4ee5\u6700\u5c0f\u7684\u90a3\u4e2a\u5c31\u53ef\u4ee5\u5f97\u51fa\u7ed3\u679c\u3002\nCODE\uff1a   \n```cpp\n#include <iostream>\nusing namespace std;\nint a,b,c;\nint main(void){\n\tcin>>a>>b>>c;\n\tcout<<c/min(a,b)<<endl;\n}\n```\n",
+        "postTime": 1666401845,
+        "uid": 592238,
+        "name": "__dest__ruct__or__",
+        "ccfLevel": 0,
+        "title": "[ABC037A] \u9945\u982d \u9898\u89e3"
+    },
+    {
+        "content": "\u9898\u610f \uff1a \u8bfb\u51653\u4e2a\u6570a,b,c\u3002\u8f93\u51fac/a\u4e0ec/b\u4e2d\u8f83\u5927\u7684\u3002\n\n\u4e0a\u4ee3\u7801\n\n```\n#include <bits/stdc++.h>//\u4e07\u80fd\u6587\u4ef6\u5934\nusing namespace std;\nint main(){\n    int a,b,c;//\u5b9a\u4e493\u4e2a\u6570\n    cin>>a>>b>>c;//\u8f93\u5165\n    if(c/a > c/b) cout<<c/a<<endl;\n    //\u5224\u65ad\uff0c\u5982\u679cc/a \u5927\u4e8e c/b \u8f93\u51fac/a\n    else cout<<c/b<<endl;//\u5426\u5219\u8f93\u51fac/b\n}\n```\n\n\u4e00\u4e2a\u7b80\u5355\u5224\u65ad\u641e\u5b9a\uff0c\u800c\u662f\u86ee~~water~~",
+        "postTime": 1531387716,
+        "uid": 39603,
+        "name": "Messi\u674e",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT1892 \u3010\u9945\u982d\u3011"
+    },
+    {
+        "content": "## \u672c\u9898\u771f$water$(\u51e0\u4e4e\u6bcf\u9053AT\u9898\u5f00\u5934\u5fc5\u8bf4\u7684)\n### \u7528$int$\u89e3\u51b3\u5c31\u884c,\u4e00\u884c\u8f93\u5165,\u4e00\u884c\u8f93\u51fa,\u7528$max(a,b)$\u51fd\u6570\n```cpp\n#include<bits/stdc++.h>//\u5934\u6587\u4ef6\nusing namespace std;\nint a,b,c;//\u4e0d\u591a\u8bf4\nint main(){\n    cin>>a>>b>>c;//\u4e5f\u4e0d\u591a\u8bf4\n    cout<<max(c/a,c/b)<<endl;//max\u5224\u65adc/a\u5927\u8fd8\u662fc/b\u5927\n    return 0;//\u5b8c\u7f8e\u7ed3\u675f\n}\n```",
+        "postTime": 1529739521,
+        "uid": 58546,
+        "name": "CZQ_King",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 AT1892 \u3010\u9945\u982d\u3011"
+    }
+]

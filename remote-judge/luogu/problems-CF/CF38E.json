@@ -1,0 +1,17 @@
+{
+    "description": "On a number axis directed from the left rightwards, $ n $ marbles with coordinates $ x_{1},x_{2},...,x_{n} $ are situated. Let's assume that the sizes of the marbles are infinitely small, that is in this task each of them is assumed to be a material point. You can stick pins in some of them and the cost of sticking in the marble number $ i $ is equal to $ c_{i} $ , number $ c_{i} $ may be negative. After you choose and stick the pins you need, the marbles will start to roll left according to the rule: if a marble has a pin stuck in it, then the marble doesn't move, otherwise the marble rolls all the way up to the next marble which has a pin stuck in it and stops moving there. If there is no pinned marble on the left to the given unpinned one, it is concluded that the marble rolls to the left to infinity and you will pay an infinitely large fine for it. If no marble rolled infinitely to the left, then the fine will consist of two summands:\n\n- the sum of the costs of stuck pins;\n- the sum of the lengths of the paths of each of the marbles, that is the sum of absolute values of differences between their initial and final positions.\n\nYour task is to choose and pin some marbles in the way that will make the fine for you to pay as little as possible.",
+    "inputFormat": "The first input line contains an integer $ n $ ( $ 1<=n<=3000 $ ) which is the number of marbles. The next $ n $ lines contain the descriptions of the marbles in pairs of integers $ x_{i} $ , $ c_{i} $ ( $ -10^{9}<=x_{i},c_{i}<=10^{9} $ ). The numbers are space-separated. Each description is given on a separate line. No two marbles have identical initial positions.",
+    "outputFormat": "Output the single number \u2014 the least fine you will have to pay.",
+    "samples": [
+        [
+            "3\n2 3\n3 4\n1 2\n",
+            "5\n"
+        ],
+        [
+            "4\n1 7\n3 1\n5 10\n6 1\n",
+            "11\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9\u4f60 $n(n<=3000)$ \u4e2a\u5f39\u73e0\uff0c\u5b83\u4eec\u4f4d\u4e8e\u6570\u8f74\u4e0a\u3002\u7ed9\u4f60\u5f39\u73e0\u7684\u5750\u6807 $x_i$ \u5728\u5f39\u73e0 $i$ \u4e0a\u9762\u82b1\u8d39 $C_i$ \u7684\u94b1 \u53ef\u4ee5\u4f7f\u5f39\u73e0\u5728\u539f\u5730\u4e0d\u52a8$($ -$109<=x_i,C_i<=109)$\uff0c\u6e38\u620f\u5f00\u59cb\u65f6\uff0c\u6240\u6709\u7684\u5f39\u73e0\u5411\u5de6\u6eda\u52a8\uff0c\u76f4\u5230\u78b0\u5230\u5b9a\u5728\u539f\u5730\u4e0d\u52a8\u7684\u5f39\u73e0\uff0c\u5176\u82b1\u8d39\u662f\u5176\u6eda\u52a8\u7684\u8ddd\u79bb\u3002\u603b\u82b1\u8d39=\u5f00\u59cb\u524d\u7684\u82b1\u8d39+\u5f39\u73e0\u6eda\u52a8\u7684\u82b1\u8d39\uff0c\u95ee\u6700\u5c0f\u7684\u82b1\u8d39\u662f\u591a\u5c11\u3002\n\nBy @[Dimly_dust](https://www.luogu.com.cn/user/316896)"
+}

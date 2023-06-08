@@ -1,0 +1,17 @@
+{
+    "description": "A group of $ n $ schoolboys decided to ride bikes. As nobody of them has a bike, the boys need to rent them.\n\nThe renting site offered them $ m $ bikes. The renting price is different for different bikes, renting the $ j $ -th bike costs $ p_{j} $ rubles.\n\nIn total, the boys' shared budget is $ a $ rubles. Besides, each of them has his own personal money, the $ i $ -th boy has $ b_{i} $ personal rubles. The shared budget can be spent on any schoolchildren arbitrarily, but each boy's personal money can be spent on renting only this boy's bike.\n\nEach boy can rent at most one bike, one cannot give his bike to somebody else.\n\nWhat maximum number of schoolboys will be able to ride bikes? What minimum sum of personal money will they have to spend in total to let as many schoolchildren ride bikes as possible?",
+    "inputFormat": "The first line of the input contains three integers $ n $ , $ m $ and $ a $ ( $ 1<=n,m<=10^{5} $ ; $ 0<=a<=10^{9} $ ). The second line contains the sequence of integers $ b_{1},b_{2},...,b_{n} $ ( $ 1<=b_{i}<=10^{4} $ ), where $ b_{i} $ is the amount of the $ i $ -th boy's personal money. The third line contains the sequence of integers $ p_{1},p_{2},...,p_{m} $ ( $ 1<=p_{j}<=10^{9} $ ), where $ p_{j} $ is the price for renting the $ j $ -th bike.",
+    "outputFormat": "Print two integers $ r $ and $ s $ , where $ r $ is the maximum number of schoolboys that can rent a bike and $ s $ is the minimum total personal money needed to rent $ r $ bikes. If the schoolchildren cannot rent any bikes, then $ r=s=0 $ .",
+    "samples": [
+        [
+            "2 2 10\n5 5\n7 6\n",
+            "2 3\n"
+        ],
+        [
+            "4 5 2\n8 1 1 2\n6 3 7 5 2\n",
+            "3 8\n"
+        ]
+    ],
+    "hint": "In the first sample both schoolchildren can rent a bike. For instance, they can split the shared budget in half (5 rubles each). In this case one of them will have to pay 1 ruble from the personal money and the other one will have to pay 2 rubles from the personal money. In total, they spend 3 rubles of their personal money. This way of distribution of money minimizes the amount of spent personal money.",
+    "translation": "\u4e00\u7ec4n\u4e2a\u5b66\u751f\u8981\u79df\u8f66\uff0c\u4e00\u5171\u6709m\u8f86\u8f66\uff0c\u6bcf\u8f86\u4ef7\u683c\u4e0d\u540c\uff0c\u4e3ap[1],p[2]\u2026\u2026p[m]\u5362\u5e03\u3002\u4ed6\u4eec\u6709a\u5362\u5e03\u5171\u6709\u7684\u94b1\uff0c\u6bcf\u4eba\u8fd8\u6709b[1],b[2]\u2026\u2026b[n]\u5362\u5e03\u81ea\u5df1\u7684\u94b1\u3002\u81ea\u5df1\u7684\u94b1\u53ea\u80fd\u81ea\u5df1\u7528\uff0c\u5171\u6709\u7684\u94b1\u53ef\u4ee5\u5206\u7ed9\u4efb\u4f55\u4eba\u7528\uff0c\u4e14\u4e00\u4e2a\u4eba\u53ea\u80fd\u79df\u4e00\u8f86\u8f66\u3002\u6c42\u51fa\u6700\u591a\u80fd\u6709\u591a\u5c11\u4eba\u79df\u5230\u8f66\uff0c\u4ee5\u53ca\u5404\u4eba\u81ea\u5df1\u7684\u94b1\u603b\u548c\u6700\u5c0f\u591a\u5c11\uff08\u5728\u6700\u591a\u4eba\u79df\u5230\u8f66\u7684\u524d\u63d0\u4e0b\uff09\n\u7b2c\u4e00\u884c\u8f93\u5165n,m,a\uff0c\u7b2c\u4e8c\u884c\u8f93\u5165b[1],b[2]\u2026\u2026b[n]\uff0c\u7b2c\u4e09\u884c\u8f93\u5165p[1],p[2]\u2026\u2026p[m]\u3002\n\u8f93\u51fa\u4e24\u4e2a\u6570\uff1a\u6700\u591a\u80fd\u6709\u591a\u5c11\u4eba\u79df\u5230\u8f66\uff0c\u4ee5\u53ca\u5404\u4eba\u81ea\u5df1\u7684\u94b1\u603b\u548c\u6700\u5c0f\u591a\u5c11\uff08\u5728\u6700\u591a\u4eba\u79df\u5230\u8f66\u7684\u524d\u63d0\u4e0b\uff09 \n\n\u7ffb\u8bd1\u63d0\u4f9b\u8005\uff1a\u6c38\u6052\u4e4b\u5149"
+}

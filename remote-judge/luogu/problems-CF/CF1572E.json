@@ -1,0 +1,17 @@
+{
+    "description": "You are given a strictly convex polygon with $ n $ vertices.\n\nYou will make $ k $ cuts that meet the following conditions:\n\n- each cut is a segment that connects two different nonadjacent vertices;\n- two cuts can intersect only at vertices of the polygon.\n\nYour task is to maximize the area of the smallest region that will be formed by the polygon and those $ k $ cuts.",
+    "inputFormat": "The first line contains two integers $ n $ , $ k $ ( $ 3 \\le n \\le 200 $ , $ 0 \\le k \\le n-3 $ ).\n\nThe following $ n $ lines describe vertices of the polygon in anticlockwise direction. The $ i $ -th line contains two integers $ x_i $ , $ y_i $ ( $ |x_i|, |y_i| \\le 10^8 $ ) \u2014 the coordinates of the $ i $ -th vertex.\n\nIt is guaranteed that the polygon is convex and that no two adjacent sides are parallel.",
+    "outputFormat": "Print one integer: the maximum possible area of the smallest region after making $ k $ cuts multiplied by $ 2 $ .",
+    "samples": [
+        [
+            "8 4\n-2 -4\n2 -2\n4 2\n1 5\n0 5\n-4 4\n-5 0\n-5 -1",
+            "11"
+        ],
+        [
+            "6 3\n2 -2\n2 -1\n1 2\n0 2\n-2 1\n-1 0",
+            "3"
+        ]
+    ],
+    "hint": "In the first example, it's optimal to make cuts between the following pairs of vertices:\n\n- $ (-2, -4) $ and $ (4, 2) $ ,\n- $ (-2, -4) $ and $ (1, 5) $ ,\n- $ (-5, -1) $ and $ (1, 5) $ ,\n- $ (-5, 0) $ and $ (0, 5) $ .\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1572E/e740792c149dc4455929bafcc195e8018550a738.png) Points $ (-5, -1) $ , $ (1, 5) $ , $ (0, 5) $ , $ (-5, 0) $ determine the smallest region with double area of $ 11 $ . In the second example, it's optimal to make cuts between the following pairs of vertices:\n\n- $ (2, -1) $ and $ (0, 2) $ ,\n- $ (2, -1) $ and $ (1, 0) $ ,\n- $ (-1, 0) $ and $ (0, 2) $ .\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1572E/f31e2ad8a9a887fb6783481aaad616734ad1e831.png) Points $ (2, -2) $ , $ (2, -1) $ , $ (-1, 0) $ determine one of the smallest regions with double area of $ 3 $ .",
+    "translation": "**\u9898\u76ee\u63cf\u8ff0**\uff1a\n\n\u7ed9\u5b9a\u4e00\u4e2a\u51f8 $n$ \u8fb9\u5f62\uff0c\u5c06\u8fd9\u4e2a $n$ \u8fb9\u5f62\u6cbf\u9876\u70b9\u8fde\u7ebf\u5206\u5272 $k$ \u6b21\uff0c\u6bcf\u6761\u5206\u5272\u7ebf\u4e0d\u80fd\u76f8\u4ea4\uff0c\u5f97\u5230 $k+1$ \u4e2a\u5c0f\u591a\u8fb9\u5f62\u3002\u95ee\u5206\u5272\u51fa\u7684\u591a\u8fb9\u5f62\u9762\u79ef\u6700\u5c0f\u503c\u6700\u5927\u662f\u591a\u5c11\u3002\n\n**\u8f93\u5165\u683c\u5f0f**\uff1a\n\n\u7b2c\u4e00\u884c\u8f93\u5165\u4e24\u4e2a\u6570 $n$,$k$\u3002\n\n\u4e4b\u540e $n$ \u884c\u6bcf\u884c\u4e24\u4e2a\u6574\u6570 $x_i$,$y_i$\uff0c\u9006\u65f6\u9488\u7ed9\u51fa $n$ \u8fb9\u5f62\u9876\u70b9\u7684\u5750\u6807\u3002\n\n**\u8f93\u51fa\u683c\u5f0f**\uff1a\n\n\u8f93\u51fa\u4e00\u884c\u8868\u793a\u7b54\u6848**\u7684\u4e24\u500d**\u3002\u53ef\u4ee5\u8bc1\u660e\u8fd9\u662f\u4e2a\u6574\u6570\u3002"
+}

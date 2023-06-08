@@ -1,0 +1,29 @@
+{
+    "description": "Berland shop sells $ n $ kinds of juices. Each juice has its price $ c_i $ . Each juice includes some set of vitamins in it. There are three types of vitamins: vitamin \"A\", vitamin \"B\" and vitamin \"C\". Each juice can contain one, two or all three types of vitamins in it.\n\nPetya knows that he needs all three types of vitamins to stay healthy. What is the minimum total price of juices that Petya has to buy to obtain all three vitamins? Petya obtains some vitamin if he buys at least one juice containing it and drinks it.",
+    "inputFormat": "The first line contains a single integer $ n $ $ (1 \\le n \\le 1\\,000) $ \u2014 the number of juices.\n\nEach of the next $ n $ lines contains an integer $ c_i $ $ (1 \\le c_i \\le 100\\,000) $ and a string $ s_i $ \u2014 the price of the $ i $ -th juice and the vitamins it contains. String $ s_i $ contains from $ 1 $ to $ 3 $ characters, and the only possible characters are \"A\", \"B\" and \"C\". It is guaranteed that each letter appears no more than once in each string $ s_i $ . The order of letters in strings $ s_i $ is arbitrary.",
+    "outputFormat": "Print -1 if there is no way to obtain all three vitamins. Otherwise print the minimum total price of juices that Petya has to buy to obtain all three vitamins.",
+    "samples": [
+        [
+            "4\n5 C\n6 B\n16 BAC\n4 A\n",
+            "15\n"
+        ],
+        [
+            "2\n10 AB\n15 BA\n",
+            "-1\n"
+        ],
+        [
+            "5\n10 A\n9 BC\n11 CA\n4 A\n5 B\n",
+            "13\n"
+        ],
+        [
+            "6\n100 A\n355 BCA\n150 BC\n160 AC\n180 B\n190 CA\n",
+            "250\n"
+        ],
+        [
+            "2\n5 BA\n11 CB\n",
+            "16\n"
+        ]
+    ],
+    "hint": "In the first example Petya buys the first, the second and the fourth juice. He spends $ 5 + 6 + 4 = 15 $ and obtains all three vitamins. He can also buy just the third juice and obtain three vitamins, but its cost is $ 16 $ , which isn't optimal.\n\nIn the second example Petya can't obtain all three vitamins, as no juice contains vitamin \"C\".",
+    "translation": "\u6570\u636e\u6709$n$\u7ec4\u6570,\u6bcf\u7ec4\u6570\u6709\u4e00\u4e2a\u4ef7\u503c$c_i$\u548c\u4e00\u4e2a\u5b57\u7b26\u4e32S,\u5b57\u7b26\u4e32S\u4e2d\u5305\u542b3\u4e2a\u5b57\u6bcdA,B,C\uff0c\u95ee\u96c6\u9f50ABC\u4e09\u4e2a\u5b57\u6bcd\u7684\u6700\u5c0f\u4ef7\u503c\uff08\u4e00\u4e2a\u5b57\u6bcd\u53ef\u4ee5\u6709\u591a\u4e2a\uff09"
+}

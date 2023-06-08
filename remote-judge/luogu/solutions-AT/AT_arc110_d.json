@@ -1,0 +1,26 @@
+[
+    {
+        "content": "~~\u7ec4\u5408\u610f\u4e49\u5929\u5730\u706d\uff0c\u4ee3\u6570\u63a8\u5bfc\u4fdd\u5e73\u5b89\uff01~~\n\n\u9996\u5148 $M\\gets M-\\sum A_i$\n\n\u5373\u6c42 $\\sum_{i=0}^m[x^i]\\prod_{j=1}^N\\frac{1}{(1-x)^{A_j+1}}$\n\n$$[x^k]\\prod_{j=1}^N\\frac{1}{(1-x)^{A_j+1}}=[x^k]\\frac 1{(1-x)^{\\sum A_i + N}}=\\binom{\\sum A_i + N-1+k}{\\sum A_i + N-1}$$\n\n\u4e0a\u6307\u6807\u6c42\u4e00\u4e0b\u5c31\u662f\uff1a\n\n$$\\binom{\\sum A_i+N+M}{\\sum A_i +N}=\\frac{(\\sum A_i+N+M)^{\\underline{\\sum A_i +N}}}{(\\sum A_i +N)!}$$\n\n$\\mathcal O(n^2) $ \u8ba1\u7b97\u5373\u53ef\u3002",
+        "postTime": 1679484160,
+        "uid": 177837,
+        "name": "violin_wyl",
+        "ccfLevel": 6,
+        "title": "[ARC110D] Binomial Coefficient is Fun"
+    },
+    {
+        "content": "\u5bf9\u4e8e\u8ba1\u6570\u9898\uff0c\u6211\u4eec\u53ef\u4ee5\u9009\u62e9\u7ec4\u5408\u610f\u4e49\u3002\n\n\u6211\u4eec\u53ef\u4ee5\u53d1\u73b0\uff0c\u6bcf\u4e00\u9879\u7684 $\\tbinom{b_i}{a_i}$ \u8f6c\u5316\u4e3a $\\tbinom{a_i+d_i}{a_i}$\uff0c\u4e5f\u5c31\u662f\u5411 $a_i$ \u4e2a\u7403\u4e2d\u63d2\u5165 $d_i$ \u4e2a\u7403\u7684\u65b9\u6848\u6570\u3002\n\n\u56e0\u6b64\u6211\u4eec\u6784\u9020\u4e00\u4e2a\u5e8f\u5217\uff1a\n\n\u6321\u677f\uff0c$a_1$ \u4e2a\u9ed1\u7403\uff0c\u6321\u677f\uff0c$a_2$ \u4e2a\u9ed1\u7403\uff0c\u6321\u677f.....\uff0c$a_n$ \u4e2a\u9ed1\u7403\n\n\u6211\u4eec\u53ef\u4ee5\u53d1\u73b0\uff0c\u73b0\u5728\u5728\u8fd9\u4e2a\u5e8f\u5217\u4e2d\u63d2\u5165 $m-\\sum a_i$ \u4e2a\u7403\u7684\u65b9\u6848\u6570\uff0c\u7b49\u4ef7\u4e8e\u539f\u95ee\u9898\u6240\u6c42\uff01\n\n\u56e0\u4e3a\u6700\u7ec8\u5728\u7b2c $i$ \u4e2a\u6321\u677f\u540e\u7684\u7403\u603b\u6570\u6070\u597d\u5bf9\u5e94\u4e00\u4e2a\u539f\u5148\u5408\u6cd5\u7684\u5e8f\u5217 $b_i$\uff0c\u6743\u503c\u6b63\u597d\u7b49\u4e8e\u653e\u5230\u8fd9\u79cd\u72b6\u6001\u7684\u65b9\u6848\u6570 $\\prod_{i=1}^n \\tbinom{b_i}{a_i}$\u3002\n\n\u6240\u4ee5\u7b54\u6848\u5373\u4e3a$\\tbinom{m+n}{\\sum a+n}$\uff0c\u66b4\u529b\u6c42\u5373\u53ef\uff0c\u590d\u6742\u5ea6\u4e3a $O({\\sum a+n})$\u3002\n\n _[\u4ee3\u7801](https://www.luogu.com.cn/paste/rk0y8y3b)_ \n",
+        "postTime": 1669170427,
+        "uid": 211538,
+        "name": "Math_rad_round",
+        "ccfLevel": 7,
+        "title": "ARC110D Binomial Coefficient is Fun \u9898\u89e3"
+    },
+    {
+        "content": "\u8003\u8651\u7ec4\u5408\u6570\u7684\u610f\u4e49\uff0c\u6211\u4eec\u628a\u539f\u95ee\u9898\u7b49\u4ef7\u4e3a\uff1a\n\n\u6709 $n$ \u7ec4\u7403\uff0c\u6bcf\u7ec4\u6709 $a_i$ \u4e2a\u9ed1\u7403\uff0c\u73b0\u5728\u8981\u63d2\u5165\u82e5\u5e72\u4e2a\u767d\u7403\uff0c\u767d\u7403\u7684\u6570\u91cf\u4e0d\u8d85\u8fc7\uff1a\n\n$m - \\sum a_i$ \u7684\u603b\u65b9\u6848\u6570\u3002\n\n\u5229\u7528\u63d2\u677f\u6cd5\uff0c\u6240\u6c42\u5373\u4e3a\uff1a\n\n$\\sum_{i=0}^{i\\leq m-sum(a)} \\binom{n-1+sum(a)+i}{i}=\\binom{n+m}{m-sum(a)}=\\binom{n+m}{n+sum(a)}$\n\n\u7531\u4e8e $n+sum(a)$ \u6bd4\u8f83\u5c0f\uff0c\u8ba1\u7b97\u65f6\u53ef\u4ee5\u9009\u62e9\u7528 $n+m$ \u7684 $n+sum(a)$ \u6b21\u4e0b\u964d\u5e42\u9664\u4ee5  $n+sum(a)$ \u7684\u9636\u4e58\u8fdb\u884c\u8ba1\u7b97\u3002",
+        "postTime": 1678251949,
+        "uid": 265610,
+        "name": "Mikazuki_Munechika",
+        "ccfLevel": 4,
+        "title": "AT_arc110_d\u9898\u89e3"
+    }
+]

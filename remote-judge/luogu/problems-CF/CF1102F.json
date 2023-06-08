@@ -1,0 +1,21 @@
+{
+    "description": "You are given a matrix $ a $ , consisting of $ n $ rows and $ m $ columns. Each cell contains an integer in it.\n\nYou can change the order of rows arbitrarily (including leaving the initial order), but you can't change the order of cells in a row. After you pick some order of rows, you traverse the whole matrix the following way: firstly visit all cells of the first column from the top row to the bottom one, then the same for the second column and so on. During the traversal you write down the sequence of the numbers on the cells in the same order you visited them. Let that sequence be $ s_1, s_2, \\dots, s_{nm} $ .\n\nThe traversal is $ k $ -acceptable if for all $ i $ ( $ 1 \\le i \\le nm - 1 $ ) $ |s_i - s_{i + 1}| \\ge k $ .\n\nFind the maximum integer $ k $ such that there exists some order of rows of matrix $ a $ that it produces a $ k $ -acceptable traversal.",
+    "inputFormat": "The first line contains two integers $ n $ and $ m $ ( $ 1 \\le n \\le 16 $ , $ 1 \\le m \\le 10^4 $ , $ 2 \\le nm $ ) \u2014 the number of rows and the number of columns, respectively.\n\nEach of the next $ n $ lines contains $ m $ integers ( $ 1 \\le a_{i, j} \\le 10^9 $ ) \u2014 the description of the matrix.",
+    "outputFormat": "Print a single integer $ k $ \u2014 the maximum number such that there exists some order of rows of matrix $ a $ that it produces an $ k $ -acceptable traversal.",
+    "samples": [
+        [
+            "4 2\n9 9\n10 8\n5 3\n4 3\n",
+            "5\n"
+        ],
+        [
+            "2 4\n1 2 3 4\n10 3 7 3\n",
+            "0\n"
+        ],
+        [
+            "6 1\n3\n6\n2\n5\n1\n4\n",
+            "3\n"
+        ]
+    ],
+    "hint": "In the first example you can rearrange rows as following to get the $ 5 $ -acceptable traversal:\n\n```\n<br></br>5 3<br></br>10 8<br></br>4 3<br></br>9 9<br></br>\n```\n\nThen the sequence $ s $ will be $ [5, 10, 4, 9, 3, 8, 3, 9] $ . Each pair of neighbouring elements have at least $ k = 5 $ difference between them.\n\nIn the second example the maximum $ k = 0 $ , any order is $ 0 $ -acceptable.\n\nIn the third example the given order is already $ 3 $ -acceptable, you can leave it as it is.",
+    "translation": "\u7ed9\u51fa\u4e00\u4e2a\u77e9\u9635$a$\uff0c\u7531$n$\u884c\u548c$m$\u5217\u7ec4\u6210\u3002\u6bcf\u4e2a\u5355\u5143\u683c\u4e2d\u90fd\u5305\u542b\u4e00\u4e2a\u6574\u6570\u3002  \r\n\u4f60\u53ef\u4ee5\u4efb\u610f\u66f4\u6539\u884c\u7684\u987a\u5e8f(\u5305\u62ec\u4fdd\u7559\u521d\u59cb\u987a\u5e8f)\uff0c\u4f46\u4e0d\u80fd\u66f4\u6539\u884c\u4e2d\u5355\u5143\u683c\u7684\u987a\u5e8f\u3002\u5728\u9009\u62e9\u4e86\u4e00\u4e9b\u884c\u7684\u987a\u5e8f\u540e\uff0c\u4f60\u901a\u8fc7\u4ee5\u4e0b\u65b9\u5f0f\u904d\u5386\u6574\u4e2a\u77e9\u9635\uff1a\u9996\u5148\u8bbf\u95ee\u4ece\u4e0a\u4e00\u884c\u5230\u4e0b\u4e00\u884c\u7684\u7b2c\u4e00\u5217\u7684\u6240\u6709\u5355\u5143\u683c\uff0c\u7136\u540e\u8bbf\u95ee\u7b2c\u4e8c\u5217\u7684\u6240\u6709\u5355\u5143\u683c\uff0c\u4f9d\u6b64\u7c7b\u63a8\u3002\u5728\u904d\u5386\u8fc7\u7a0b\u4e2d\uff0c\u4f60\u53ef\u4ee5\u6309\u7167\u8bbf\u95ee\u5b83\u4eec\u7684\u987a\u5e8f\u8bb0\u4e0b\u5355\u5143\u683c\u4e0a\u7684\u6570\u5b57\u5e8f\u5217\u3002\u5047\u8bbe\u8be5\u5e8f\u5217\u4e3a$S_1$\uff0c$S_2$\uff0c\u2026\u2026\uff0c$S_i$\uff0c\u2026\u2026\uff0c$S_{NM}$\u3002    \r\n\u5982\u679c\u6240\u6709|$s_i$\u2212$s_{i+1}$|\u2265$k$\uff081\u2264$i$\u2264$nm$\u22121\uff09\uff0c\u5219\u904d\u5386$k$\u662f\u53ef\u4ee5\u88ab\u63a5\u53d7\u7684\u3002  \r\n\u8bf7\u4f60\u6c42\u6700\u5927\u6574\u6570$k$\uff0c\u4f7f\u5f97\u5b58\u5728\u77e9\u9635$a$\u7684\u67d0\u4e00\u884c\u7684\u987a\u5e8f\u4e2d\uff0c$k$\u904d\u5386\u53ef\u4ee5\u88ab\u63a5\u53d7\u7684\u3002"
+}

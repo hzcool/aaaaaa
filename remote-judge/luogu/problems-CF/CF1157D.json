@@ -1,0 +1,25 @@
+{
+    "description": "Polycarp has to solve exactly $ n $ problems to improve his programming skill before an important programming competition. But this competition will be held very soon, most precisely, it will start in $ k $ days. It means that Polycarp has exactly $ k $ days for training!\n\nPolycarp doesn't want to procrastinate, so he wants to solve at least one problem during each of $ k $ days. He also doesn't want to overwork, so if he solves $ x $ problems during some day, he should solve no more than $ 2x $ problems during the next day. And, at last, he wants to improve his skill, so if he solves $ x $ problems during some day, he should solve at least $ x+1 $ problem during the next day.\n\nMore formally: let $ [a_1, a_2, \\dots, a_k] $ be the array of numbers of problems solved by Polycarp. The $ i $ -th element of this array is the number of problems Polycarp solves during the $ i $ -th day of his training. Then the following conditions must be satisfied:\n\n- sum of all $ a_i $ for $ i $ from $ 1 $ to $ k $ should be $ n $ ;\n- $ a_i $ should be greater than zero for each $ i $ from $ 1 $ to $ k $ ;\n- the condition $ a_i < a_{i + 1} \\le 2 a_i $ should be satisfied for each $ i $ from $ 1 $ to $ k-1 $ .\n\nYour problem is to find any array $ a $ of length $ k $ satisfying the conditions above or say that it is impossible to do it.",
+    "inputFormat": "The first line of the input contains two integers $ n $ and $ k $ ( $ 1 \\le n \\le 10^9, 1 \\le k \\le 10^5 $ ) \u2014 the number of problems Polycarp wants to solve and the number of days Polycarp wants to train.",
+    "outputFormat": "If it is impossible to find any array $ a $ of length $ k $ satisfying Polycarp's rules of training, print \"NO\" in the first line.\n\nOtherwise print \"YES\" in the first line, then print $ k $ integers $ a_1, a_2, \\dots, a_k $ in the second line, where $ a_i $ should be the number of problems Polycarp should solve during the $ i $ -th day. If there are multiple answers, you can print any.",
+    "samples": [
+        [
+            "26 6\n",
+            "YES\n1 2 4 5 6 8 \n"
+        ],
+        [
+            "8 3\n",
+            "NO\n"
+        ],
+        [
+            "1 1\n",
+            "YES\n1 \n"
+        ],
+        [
+            "9 4\n",
+            "NO\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9\u51fa\u4e24\u4e2a\u6574\u6570 $n$\u3001$k$ \u4f60\u9700\u8981\u6784\u9020\u51fa\u4e00\u4e2a\u6709 $k$ \u9879\u7684\u6570\u5217 $A$ \u6ee1\u8db3\u4ee5\u4e0b\u6761\u4ef6\uff1a\n- \u5bf9\u4e8e\u4efb\u610f\u7684 $i\\in [1,k]$\uff0c\u6709 $A_i>0$\uff1b\n- \u5bf9\u4e8e\u4efb\u610f\u7684 $i\\in (1,k]$\uff0c\u6709$A_{i-1}<A_i\\le2A_{i-1}$\uff1b\n- $\\sum\\limits_{i=1}^kA_i=n$\u3002\n\n\u4e0d\u4fdd\u8bc1\u6709\u89e3\uff0c\u65e0\u89e3\u65f6\u8f93\u51fa `NO`\u3002   \n\u6709\u89e3\u65f6\u8f93\u51fa\u4e00\u884c `YES`\uff0c\u4e4b\u540e\u4e00\u884c\u8f93\u51fa\u6570\u5217 $A$\u3002"
+}

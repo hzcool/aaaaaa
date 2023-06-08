@@ -1,0 +1,18 @@
+[
+    {
+        "content": "### \u8f93\u5165\r\n\r\n\u53ef\u4ee5\u4f7f\u7528 getline \u8bfb\u5165\u4e00\u6574\u884c\u540e\u6162\u6162\u5904\u7406\uff0c\u4e5f\u53ef\u4ee5\u7528 cin \u5206\u5355\u8bcd\u8bfb\u5165\u3002\r\n\r\n```\r\nwhile(cin >> s[++n])\r\n```\r\n\r\n\u4e0b\u9762\u7684\u8bb2\u89e3\u57fa\u4e8e cin \u5206\u5355\u8bcd\u8bfb\u5165\u3002\r\n\r\n### \u5355\u8bcd\u7684\u5904\u7406\r\n\r\n\u5355\u8bcd\u53ef\u4ee5\u5206\u4e3a\u4ee5\u4e0b\u51e0\u79cd\uff1a\r\n\r\n- \u5c0f\u5199\u5355\u8bcd\r\n\r\n- \u5927\u5199\u5355\u8bcd\r\n\r\n- \u6570\u5b57\r\n\r\n\u6211\u4eec\u5bf9\u4e09\u79cd\u5b57\u7b26\u4e32\u5206\u522b\u5904\u7406\uff0c\u5982\u679c\u662f\u5c0f\u5199\u5355\u8bcd\uff0c\u5219\u53d8\u4e3a\u5927\u5199\u5e76\u6b63\u5e8f\u8f93\u51fa\uff1b\u5982\u679c\u662f\u5927\u5199\u5355\u8bcd\uff0c\u5219\u53d8\u4e3a\u5c0f\u5199\u5e76\u6b63\u5e8f\u8f93\u51fa\uff1b\u5982\u679c\u662f\u6570\u5b57\uff0c\u5219\u5012\u5e8f\u8f93\u51fa\u3002\r\n\r\n---\r\n\r\n```cpp\r\n#include<bits/stdc++.h>\r\nusing namespace std;\r\n\r\nint n;\r\nstring s[1007];\r\n\r\nint main() {\r\n\twhile(cin >> s[++n]); --n;\r\n\tfor(int i = n; i >= 1; i--) {\r\n\t\tfor(int j = 0; j < (int)s[i].size(); j++) {\r\n\t\t\tif(s[i][j] >= 'a' && s[i][j] <= 'z') s[i][j] -= 'a' - 'A';\r\n\t\t\telse if(s[i][j] >= 'A' && s[i][j] <= 'Z') s[i][j] -= 'A' - 'a'; \r\n\t\t}\r\n\t\tif(s[i][0] >= '0' && s[i][0] <= '9')\r\n\t\t\tfor(int j = (int)s[i].size() - 1; j >= 0; j--) cout << s[i][j];\r\n\t\telse cout << s[i];\r\n\t\tif(i != 1) cout << \" \";\r\n\t}\r\n}\r\n```",
+        "postTime": 1660650120,
+        "uid": 28910,
+        "name": "\u89c8\u904d\u5343\u79cb",
+        "ccfLevel": 6,
+        "title": "B3640 \u53e5\u5b50\u53cd\u8f6c"
+    },
+    {
+        "content": "\u5927\u81f4\u5b9e\u73b0\u662f\u9996\u5148\u8bfb\u5165\u6bcf\u4e2a\u8bcd\uff0c\u7136\u540e\u5012\u8f6c\u8f93\u51fa\u8fd9\u4e9b\u8bcd\u7684\u5904\u7406\u7ed3\u679c\u3002\r\n\r\n\r\n\r\n```python\r\nimport string\r\n\r\ndef trans(x):\r\n    if x[0] in string.ascii_uppercase:\r\n        return x.lower()\r\n    elif x[0] in string.ascii_lowercase:\r\n        return x.upper()\r\n    return x[::-1]\r\n\r\nwords = input().split()[::-1]\r\nprint(' '.join(map(trans, words)))\r\n```",
+        "postTime": 1659951490,
+        "uid": 15289,
+        "name": "\u962e\u884c\u6b62",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3\uff1a\u53e5\u5b50\u53cd\u8f6c"
+    }
+]

@@ -1,0 +1,21 @@
+{
+    "description": "There are $ n $ walruses standing in a queue in an airport. They are numbered starting from the queue's tail: the $ 1 $ -st walrus stands at the end of the queue and the $ n $ -th walrus stands at the beginning of the queue. The $ i $ -th walrus has the age equal to $ a_{i} $ .\n\nThe $ i $ -th walrus becomes displeased if there's a younger walrus standing in front of him, that is, if exists such $ j $ ( $ i<j $ ), that $ a_{i}>a_{j} $ . The displeasure of the $ i $ -th walrus is equal to the number of walruses between him and the furthest walrus ahead of him, which is younger than the $ i $ -th one. That is, the further that young walrus stands from him, the stronger the displeasure is.\n\nThe airport manager asked you to count for each of $ n $ walruses in the queue his displeasure.",
+    "inputFormat": "The first line contains an integer $ n $ ( $ 2<=n<=10^{5} $ ) \u2014 the number of walruses in the queue. The second line contains integers $ a_{i} $ ( $ 1<=a_{i}<=10^{9} $ ).\n\nNote that some walruses can have the same age but for the displeasure to emerge the walrus that is closer to the head of the queue needs to be strictly younger than the other one.",
+    "outputFormat": "Print $ n $ numbers: if the $ i $ -th walrus is pleased with everything, print \"-1\" (without the quotes). Otherwise, print the $ i $ -th walrus's displeasure: the number of other walruses that stand between him and the furthest from him younger walrus.",
+    "samples": [
+        [
+            "6\n10 8 5 3 50 45\n",
+            "2 1 0 -1 0 -1 "
+        ],
+        [
+            "7\n10 4 6 3 2 8 15\n",
+            "4 2 1 0 -1 -1 -1 "
+        ],
+        [
+            "5\n10 3 1 10 11\n",
+            "1 0 -1 -1 -1 "
+        ]
+    ],
+    "hint": "",
+    "translation": "\n- \u7ed9\u5b9a $n$ \u4e2a\u6b63\u6574\u6570 $a_{1 \\dots n}$\u3002\n\n- \u9700\u8981\u8f93\u51fa\u4e00\u884c $n$ \u4e2a\u6570\uff0c\u8bbe\u6b64\u65f6\u6b63\u5728\u5904\u7406\u7b2c $i$ \u4e2a\u6570\uff1a\n    - \u8bbe $a_j<a_i$ \u4e14 $j >i$\u3002\n    - \u5728\u6ee1\u8db3\u7b2c\u4e00\u6761\u7684\u57fa\u7840\u4e0a\u4f7f $j-i-1$ \u5c3d\u53ef\u80fd\u5927\uff0c\u6b64\u65f6 $j-i-1$ \u5373\u4e3a\u7b54\u6848\u3002\n- $2 \\leq n \\leq 10^5,a_i \\leq 10^9$\uff0c\u5982\u679c\u5bf9\u4e8e\u67d0\u4e2a $i$\uff0c\u6ca1\u6709\u4efb\u4f55\u4e00\u4e2a $j$ \u6ee1\u8db3 $a_j<a_i$ \u4e14 $j>i$\uff0c\u8f93\u51fa `-1` \u3002"
+}

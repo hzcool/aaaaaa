@@ -1,0 +1,17 @@
+{
+    "description": "Boris really likes numbers and even owns a small shop selling interesting numbers. He has $ n $ decimal numbers $ B_{i} $ . Cost of the number in his shop is equal to the sum of costs of its digits. You are given the values $ c_{d} $ , where $ c_{d} $ is the cost of the digit $ d $ . Of course, Boris is interested in that numbers he owns have the maximum cost possible.\n\nRecently Boris got hold of the magical artifact $ A $ , which can allow him to increase the cost of his collection. Artifact is a string, consisting of digits and '?' symbols. To use the artifact, Boris must replace all '?' with digits to get a decimal number without leading zeros (it is also not allowed to get number 0). After that, the resulting number is added to all numbers $ B_{i} $ in Boris' collection. He uses the artifact exactly once.\n\nWhat is the maximum cost of the collection Boris can achieve after using the artifact?",
+    "inputFormat": "First line contains artifact $ A $ , consisting of digits '0'\u2013'9' and '?' symbols ( $ 1<=|A|<=1000 $ ). Next line contains $ n $ \u2014 the amount of numbers in Boris' collection ( $ 1<=n<=1000 $ ). Next $ n $ lines contain integers $ B_{i} $ ( $ 1<=B_{i}&lt;10^{1000} $ ). $ A $ doesn't start with '0'.\n\nLast line contains ten integers \u2014 costs of digits $ c_{0},c_{1},...,c_{9} $ ( $ 0<=c_{i}<=1000 $ ).",
+    "outputFormat": "Output one integer \u2014 the maximum possible cost of the collection after using the artifact.",
+    "samples": [
+        [
+            "42\n3\n89\n1\n958\n0 0 1 1 2 2 3 3 4 4\n",
+            "4\n"
+        ],
+        [
+            "?5?\n4\n2203\n5229\n276\n6243\n2 1 6 1 1 2 5 2 2 3\n",
+            "62\n"
+        ]
+    ],
+    "hint": "In the second sample input, the optimal way is to compose the number 453. After adding this number, Boris will have numbers 2656, 5682, 729 and 6696. The total cost of all digits in them is equal to $ 18+15+11+18=62 $ .",
+    "translation": "\u6709\u4e00\u4e2a\u5f85\u5b9a\u7684\u6570\u5b57 $A$\uff0c\u7528\u5b57\u7b26\u4e32\u8868\u793a\uff0c\u5305\u62ec\u4e86 `?,0~9`\uff0c\u5c06\u6240\u6709 `?` \u66ff\u6362\u6210\u6570\u5b57 `0~9` \u540e\u5f62\u6210\u4e00\u4e2a\u6570\u3002\u4e0d\u80fd\u6709\u524d\u5bfc\u96f6\uff0c\u4e5f\u4e0d\u80fd\u4e3a $0$\u3002\n\n\u7136\u540e\u53c8\u7ed9\u5b9a\u4e00\u4e2a\u957f\u4e3a $n$ \u7684\u6570\u5217 $\\{B\\}$\uff0c\u7b2c $i$ \u4e2a\u7528 $B_i$ \u6765\u8868\u793a\u3002$|A|\\le 1000,1\\le B_i\\le 10^{1000}$\u3002\n\n\u4e00\u4e2a\u6570\u5b57\u7684\u4ef7\u503c\u662f\u5176\u5404\u4f4d\u6570\u7801\u4ef7\u503c\u76f8\u52a0\uff0c`0~9` \u7684\u4ef7\u503c\u5206\u522b\u662f $c_0,\\dots,c_9$\u3002\u4e00\u4e2a\u6570\u5217\u7684\u4ef7\u503c\u662f\u6240\u6709\u6570\u5b57\u7684\u4ef7\u503c\u4e4b\u548c\u3002\n\n\u5bf9\u4e8e\u6240\u6709\u53ef\u80fd\u7684 $A$\uff0c\u8bf7\u6c42\u51fa\u5e8f\u5217 $\\{B\\}$ \u4e2d\u6bcf\u4e2a\u5143\u7d20\u52a0\u4e0a $A$ \u4e4b\u540e\u5f97\u5230\u7684\u5e8f\u5217\u7684\u6700\u5927\u4ef7\u503c\u3002\n\ntransla by [_MoonPie_](https://www.luogu.com.cn/user/95246)"
+}

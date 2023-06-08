@@ -1,0 +1,24 @@
+{
+    "description": "[problemUrl]: https://atcoder.jp/contests/tenka1-2014-qualb/tasks/tenka1_2014_qualB_d\n\n",
+    "inputFormat": "> $ N $ $ A_1 $ $ A_2 $ : $ A_N $ $ H $ $ W $ $ B_{1,1} $ $ B_{1,2} $ ... $ B_{1,W} $ $ B_{2,1} $ $ B_{2,2} $ ... $ B_{2,W} $ : $ B_{H,1} $ $ B_{H,2} $ ... $ B_{H,W} $\n\n- 1\u884c\u76ee\u3067\u306f\u3001\u4f7f\u7528\u3067\u304d\u308b\u30da\u30f3\u30ad\u306e\u6570\u3092\u8868\u3059\u6574\u6570 $ N $ ($ 1\\ \\leq{}\\ N\\ \\leq{}\\ 17 $) \u304c\u4e0e\u3048\u3089\u308c\u308b\u3002\n- 2\u884c\u76ee\u304b\u3089 $ N $ \u884c\u3067\u306f\u3001\u5404\u30da\u30f3\u30ad\u306e\u6fc3\u3055\u3092\u8868\u3059\u6574\u6570 $ A_i $ ($ 0\\ \\leq{}\\ A_i\\ \\leq{}\\ 255 $) \u304c\u4e0e\u3048\u3089\u308c\u308b\u3002\n- $ N+2 $ \u884c\u76ee\u3067\u306f\u3001\u8a2d\u8a08\u56f3\u306e\u9ad8\u3055\u3092\u8868\u3059\u6574\u6570 $ H $ ($ 1\\ \\leq{}\\ H\\ \\leq{}\\ 200 $) \u3068\u3001\u8a2d\u8a08\u56f3\u306e\u5e45\u3092\u8868\u3059\u6574\u6570 $ W $ ($ 1\\ \\leq{}\\ W\\ \\leq{}\\ 200 $) \u304c\u4e0e\u3048\u3089\u308c\u308b\u3002\n- $ N+3 $ \u884c\u76ee\u304b\u3089 $ H $ \u884c\u306f\u8a2d\u8a08\u56f3\u306e\u60c5\u5831\u304c\u4e0e\u3048\u3089\u308c\u308b\u3002\u305d\u306e\u3046\u3061\u306e $ y $ ($ 1\\ \\leq{}\\ y\\ \\leq{}\\ H $) \u884c\u76ee\u306b\u306f\u3001\u5404\u30de\u30b9\u306e\u756a\u53f7\u304c\u30b9\u30da\u30fc\u30b9\u533a\u5207\u308a\u3067 $ W $ \u500b\u4e0e\u3048\u3089\u308c\u308b\u3002$ y $ \u884c\u76ee\u306e\u5de6\u5074\u304b\u3089 $ x $ ($ 1\\ \\leq{}\\ x\\ \\leq{}\\ W $)\u756a\u76ee\u306b\u3001\u8a2d\u8a08\u56f3\u306e\u4e0a\u304b\u3089 $ y $ \u30de\u30b9\u3001\u5de6\u304b\u3089 $ x $ \u30de\u30b9\u306e\u4f4d\u7f6e\u306e\u30de\u30b9\u76ee\u306e\u756a\u53f7\u3001\u6574\u6570 $ B_{y,x} $ ($ 0\\ \\leq{}\\ B_{y,x}\\ \\leq{}\\ N\\ -\\ 1 $) \u304c\u4e0e\u3048\u3089\u308c\u308b\u3002",
+    "outputFormat": "\u4e0e\u3048\u3089\u308c\u305f\u30da\u30f3\u30ad\u3067\u8a2d\u8a08\u56f3\u3069\u304a\u308a\u306b\u5857\u308b\u3053\u3068\u304c\u53ef\u80fd\u306a\u30891\u3001\u4e0d\u53ef\u80fd\u306a\u30890\u30921\u884c\u3067\u51fa\u529b\u305b\u3088\u3002\u51fa\u529b\u306e\u672b\u5c3e\u306b\u306f\u6539\u884c\u3092\u3044\u308c\u308b\u3053\u3068\u3002",
+    "samples": [
+        [
+            "5\r\n4\r\n0\r\n4\r\n10\r\n4\r\n2 3\r\n3 1 3\r\n0 2 0",
+            null
+        ],
+        [
+            "5\r\n4\r\n0\r\n4\r\n10\r\n4\r\n2 4\r\n3 1 2 3\r\n0 1 2 0",
+            null
+        ],
+        [
+            "2\r\n1\r\n2\r\n2 2\r\n0 1\r\n1 0",
+            null
+        ],
+        [
+            "5\r\n1\r\n1\r\n66\r\n30\r\n1\r\n5 5\r\n3 4 4 4 2\r\n3 4 4 0 0\r\n3 4 4 0 0\r\n3 3 1 0 0\r\n3 3 1 1 2",
+            null
+        ]
+    ],
+    "hint": "### \u90e8\u5206\u70b9\n\n- $ 1\\ \\leq{}\\ N\\ \\leq{}\\ 5 $ \u304b\u3064 $ 1\\ \\leq{}\\ H,\\ W\\ \\leq{}\\ 5 $\u306e\u3059\u3079\u3066\u306e\u30c6\u30b9\u30c8\u30b1\u30fc\u30b9\u306b\u6b63\u89e3\u3057\u305f\u5834\u5408\u3001\u90e8\u5206\u70b9\u3068\u3057\u306635\u70b9\u3092\u4e0e\u3048\u308b\n- $ 1\\ \\leq{}\\ N\\ \\leq{}\\ 9 $ \u306e\u3059\u3079\u3066\u306e\u30c6\u30b9\u30c8\u30b1\u30fc\u30b9\u306b\u6b63\u89e3\u3057\u305f\u5834\u5408\u3001\u90e8\u5206\u70b9\u3068\u3057\u3066\u3055\u3089\u306b40\u70b9\u3092\u4e0e\u3048\u308b\n\n### Sample Explanation 1\n\n\\### \u51fa\u529b\u4f8b1 ```\n\n```\n<pre class=\"prettyprint linenums\">1\n```\n\n\u4e0e\u3048\u3089\u308c\u305f\u30da\u30f3\u30ad\u3092\u4e0a\u304b\u3089\u9806\u306bA, B, C, D, E\u3068\u3059\u308b\u3068\u4ee5\u4e0b\u306e\u9806\u756a\u3067\u5857\u308a\u308f\u3051\u308b\u3053\u3068\u304c\u53ef\u80fd\u3067\u3059\u3002\n\n ```\nBBB\nBBB\n```\n\n ```\nBBB\nAAA\n```\n\n ```\nBCB\nAAA\n```\n\n ```\nBCB\nADA\n```\n\n\u4eca\u56de\u306e\u5857\u308a\u65b9\u3067\u306fE\u306f\u4f7f\u7528\u3057\u307e\u305b\u3093\u3067\u3057\u305f\u3002<h3>Sample Explanation 2</h3><p>### \u51fa\u529b\u4f8b2\n\n ```\n</p><pre class=\"prettyprint linenums\">0\n```\n\n\u4e0e\u3048\u3089\u308c\u305f\u30da\u30f3\u30ad\u3067\u5857\u308b\u3053\u3068\u306f\u3067\u304d\u307e\u305b\u3093\u3002<h3>Sample Explanation 3</h3><p>### \u51fa\u529b\u4f8b3\n\n ```\n</p><pre class=\"prettyprint linenums\">0\n```\n\n\u4e0e\u3048\u3089\u308c\u305f\u30da\u30f3\u30ad\u3067\u5857\u308b\u3053\u3068\u306f\u3067\u304d\u307e\u305b\u3093\u3002<h3>Sample Explanation 4</h3><p>### \u51fa\u529b\u4f8b4\n\n ```\n</p><pre class=\"prettyprint linenums\">1\n```\n\n\u4e0e\u3048\u3089\u308c\u305f\u30da\u30f3\u30ad\u3092\u4e0a\u304b\u3089\u9806\u306bA, B, C, D, E\u3068\u3059\u308b\u3068\u4ee5\u4e0b\u306e\u9806\u756a\u3067\u5857\u308a\u308f\u3051\u308b\u3053\u3068\u304c\u53ef\u80fd\u3067\u3059\u3002\n\n ```\nA A # # #\nA A # # #\nA A # # #\nA A # # #\nA A # # #\n```\n\n ```\nA A B B #\nA A B B #\nA A B B #\nA A B B #\nA A B B #\n```\n\n ```\nA A B B E\nA A B B E\nA A B B E\nA A B B E\nA A B B E\n```\n\n ```\nA D D D E\nA D D D E\nA D D D E\nA A B B E\nA A B B E\n```\n\n ```\nA D D D E\nA D D C C\nA D D C C\nA A B C C\nA A B B E\n```\n```"
+}

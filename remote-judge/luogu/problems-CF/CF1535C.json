@@ -1,0 +1,13 @@
+{
+    "description": "You are given a string $ s $ consisting of the characters 0, 1, and ?.\n\nLet's call a string unstable if it consists of the characters 0 and 1 and any two adjacent characters are different (i. e. it has the form 010101... or 101010...).\n\nLet's call a string beautiful if it consists of the characters 0, 1, and ?, and you can replace the characters ? to 0 or 1 (for each character, the choice is independent), so that the string becomes unstable.\n\nFor example, the strings 0??10, 0, and ??? are beautiful, and the strings 00 and ?1??1 are not.\n\nCalculate the number of beautiful contiguous substrings of the string $ s $ .",
+    "inputFormat": "The first line contains a single integer $ t $ ( $ 1 \\le t \\le 10^4 $ ) \u2014 number of test cases.\n\nThe first and only line of each test case contains the string $ s $ ( $ 1 \\le |s| \\le 2 \\cdot 10^5 $ ) consisting of characters 0, 1, and ?.\n\nIt is guaranteed that the sum of the string lengths over all test cases does not exceed $ 2 \\cdot 10^5 $ .",
+    "outputFormat": "For each test case, output a single integer \u2014 the number of beautiful substrings of the string $ s $ .",
+    "samples": [
+        [
+            "3\n0?10\n???\n?10??1100",
+            "8\n6\n25"
+        ]
+    ],
+    "hint": "",
+    "translation": "$t$ \u7ec4\u8be2\u95ee\uff0c\u6bcf\u6b21\u7ed9\u5b9a\u4e00\u4e2a\u4ec5\u5305\u542b\u5b57\u7b26 `1` \u6216 `0` \u6216 `?` \u5b57\u7b26\u4e32 $s$\u3002\u5b9a\u4e49\u4e00\u4e2a\u5b50\u4e32\u662f**\u4e0d\u7a33\u5b9a\u7684**\u5f53\u4e14\u4ec5\u5f53\u5b50\u4e32\u4e2d\u4efb\u610f\u76f8\u90bb\u4e24\u6570\u5747\u4e0d\u76f8\u540c\uff0c\u5982 $101010\\cdots$ \u6216 $010101\\cdots$\u3002\n\n\u6211\u4eec\u79f0\u4e00\u4e2a\u5b50\u4e32\u662f**\u597d\u770b\u7684**\u5f53\u4e14\u4ec5\u5f53\u6211\u4eec\u53ef\u4ee5\u5c06\u5176\u4e2d\u7684 `?` \u6362\u4e3a `1` \u6216 `0` \u5176\u4e2d\u4e00\u79cd\u4f7f\u5f97\u8fd9\u4e2a\u5b50\u4e32\u662f**\u4e0d\u7a33\u5b9a\u7684**\u3002\n\n\u6c42\u5b57\u7b26\u4e32\u4e2d**\u597d\u770b\u7684**\u5b50\u4e32\u4e2a\u6570\u4e4b\u548c\u3002\n\n$1\\leq t\\leq 10^4$\uff0c$1 \\leq\\left\\vert s\\right\\vert\\leq2\\times10^5$\uff0c$\\sum \\left\\vert s\\right\\vert\\leq2\\times10^5$\u3002\n\ntranslated by LinkZelda"
+}

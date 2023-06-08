@@ -1,0 +1,42 @@
+[
+    {
+        "content": "\n## \u9898\u89e3\uff1a\n\n[\u535a\u5ba2\u98df\u7528\u53e3\u5473\u66f4\u4f73](https://www.cnblogs.com/fusiwei/p/11796097.html)\n\n#### \u9898\u76ee\u5927\u610f\uff1a\n\n\u4f60\u73b0\u5728\u6709$a$\u5757\u9762\u503c\u4e3a$n$\u7684\u94b1\u5e01\u548c$b$\u5757\u9762\u503c\u4e3a$1$\u7684\u94b1\u5e01\u3002\u73b0\u5728\u7ed9\u4f60\u4e00\u4e2a\u76ee\u6807\u4ef7\u683c$S$\uff0c\u95ee\u4f60\u662f\u5426\u80fd\u591f\u7528\u624b\u4e2d\u7684\u94b1\u5e01\u51d1\u51fa\u6765\u60f3\u8981\u7684\u4ef7\u683c\u3002\n\n#### \u89e3\u6790\uff1a\n\n\u7b80\u5355\u7684\u6a21\u62df\u3002\u53ef\u4ee5\u53d1\u73b0\uff0c\u56e0\u4e3a\u6709\u4e00\u5757\u94b1\u7684\u51d1\u6570\uff0c\u6240\u4ee5\u53ea\u8981\u6211\u4eec\u51d1\u51fa\u6765\u7684$n$\u9762\u503c\u7684\u94b1\u7684\u603b\u4ef7\u503c\u6bd4$S$\u5c0f\uff0c\u800c\u4e14\u5c0f\u7684\u90a3\u90e8\u5206\u53ef\u4ee5\u7528\u4e00\u5757\u94b1\u7684\u8865\u9f50\uff08\u5373\u6570\u91cf\u8db3\u591f\uff09\uff0c\u90a3\u4e48\u5c31\u663e\u7136\u53ef\u4ee5\u51d1\u51fa\u5408\u6cd5\u7684\u94b1\u6570\u3002\n\n\u90a3\u6211\u4eec\u5982\u4f55\u77e5\u9053\u6bd4$S$\u5c0f\u7684$n$\u9762\u503c\u7684\u94b1\u6709\u591a\u5c11\u5462\uff1f\n\n\u9664\u6cd5\u554a\u3002$\\lfloor s/n\\rfloor$\u3002\n\n\u6ce8\u610f\uff0c\u8fd9\u91cc\u8fd8\u9700\u8981\u548c$a$\u6bd4\u4e00\u4e0b\u5927\u5c0f\uff0c\u56e0\u4e3a\u6709\u53ef\u80fd$\\lfloor s/n\\rfloor>a$\uff0c\u8fd9\u79cd\u60c5\u51b5\u662f\u4e0d\u5408\u6cd5\u7684\u3002\n\n\u6700\u540e\u5224\u4e00\u4e0b\u8fd9\u4e2a\u4e1c\u897f\u52a0\u4e0a$b$\u80fd\u4e0d\u80fd\u6bd4$S$\u5927\uff0c\u5927\u7684\u8bdd\u5c31\u5408\u6cd5\uff0c\u5426\u5219\u5c31\u975e\u6cd5\u3002\n\n\u81f3\u4e8e\u8f93\u51fa\uff0c\u8fd8\u662f\u5efa\u8bae\u5927\u5bb6\u653e\u6807\u51c6\u8f93\u51fa$YES$\u548c$NO$\u3002\u517b\u6210\u597d\u4e60\u60ef\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include<cstdio>\n#include<algorithm>\nusing namespace std;\nint T;\nint a,b,n,s;\nint main() \n{\n    scanf(\"%d\",&T);\n    while(T--) \n    {\n        scanf(\"%d%d%d%d\",&a,&b,&n,&s);\n        int num=s/n;\n        num=min(num,a);\n        if(num*n+b>=s) \n        {\n            printf(\"YES\\n\");\n            continue;\n        }\n        else \n        {\n            printf(\"NO\\n\");\n            continue;\n        }\n    }\n    return 0;\n}\n```\n\n",
+        "postTime": 1572908577,
+        "uid": 175131,
+        "name": "\u5085\u601d\u7ef4666",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1256A \u3010Payment Without Change\u3011"
+    },
+    {
+        "content": "\u539f\u672c\u60f3\u95f2\u6687\u4e4b\u4f59\u5237\u4e00\u4e2a\uff0c\u7ed3\u679c\u8fd9\u4e2a\u9898\u4ee3\u7801\u592a\u77ed\u4e86\uff0c\u5fcd\u4e0d\u4f4f\u5206\u4eab\u4e00\u4e0b\n\n# \u6838\u5fc3\u601d\u60f3\uff1a\u6a21\u62df\n\n### ~~\u91cd\u8981\u601d\u60f3\uff1a\u591a\u4e70\u70b9\u4e1c\u897f~~\n\n\u601d\u8def\uff08\u89e3\u6cd5\uff09\u89c1\u4ee3\u7801\n\n\n\u4ee3\u7801\u5982\u4e0b\uff1a\n\n```cpp\n#include<iostream>//\u4e0d\u8981\u6389\u4ee5\u8f7b\u5fc3 \n#include<cstdio>\nusing namespace std;\nint n,s,a,b;\nint main(){\n\tint q;\n\tscanf(\"%d\",&q);\n\tfor(int e=1;e<=q;e++){\n\t\tscanf(\"%d%d%d%d\",&a,&b,&n,&s);\n\t\tint minn=min(s/n,a);//\u53ef\u80fd\u94b1\u4e0d\u591f\uff0c\u53d6\u4e00\u4e2a\u5c0f\u7684 \n\t\tif((s-minn*n)<=b) printf(\"YES\\n\");//\u5269\u4e0b\u76841\u5143\u591f\u4e0d\u591f \n\t\telse printf(\"NO\\n\");\n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1601630012,
+        "uid": 236980,
+        "name": "\u738b\u70b8\u62c6\u5f00\u6253",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 CF1256A \u3010Payment Without Change\u3011"
+    },
+    {
+        "content": "\u5206\u4e24\u79cd\u60c5\u51b5\u5206\u6790\uff1a  \n1. $a'$\u679a\u4ef7\u503c\u4e3a$n$\u7684\u786c\u5e01\u4e0e$b'$\u679a1\u5143\u786c\u5e01($b'<n$)  \n\t\u82e5$a'\\leq a$\u4e14$b'\\leq b$\uff0c\u5219\u6ee1\u8db3\u9898\u610f\u3002  \n    \n2. $a'$\u679a\u4ef7\u503c\u4e3a$n$\u7684\u786c\u5e01\u4e0e$b'$\u679a1\u5143\u786c\u5e01($a'>a$)  \n\t\u82e5$b' \\leq b$\uff0c\u5219\u6ee1\u8db3\u9898\u610f\u3002\n\n\u4e3b\u8981\u4ee3\u7801\u5982\u4e0b\uff1a  \n```cpp\nint main()\n{\n    int q;\n    io.read(q);\n    while (q--) {\n        int a, b, n, S;\n        io.read(a, b, n, S);\n        if (S / n <= a) // #1\n            writeln((S % n) <= b ? \"YES\" : \"NO\");\n        else  // #2\n            writeln((S - n * a) <= b ? \"YES\" : \"NO\");\n    }\n    return 0;\n}\n\n```",
+        "postTime": 1573028568,
+        "uid": 84282,
+        "name": "andyli",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF1256A \u3010Payment Without Change\u3011"
+    },
+    {
+        "content": "\u663e\u7136\u6211\u4eec\u8981\u5c3d\u53ef\u80fd\u4f7f\u7528\u9762\u503c $n$ \u7684\u786c\u5e01\uff0c\u7136\u540e\u4e0d\u591f\u7684\u7528\u9762\u503c\u4e3a $1$ \u7684\u786c\u5e01\u51d1\u3002\n\n\u90a3\u4e48\uff0c\u6211\u4eec\u5c31\u9700\u8981 $\\lfloor\\frac{s}{n}\\rfloor$ \u4e2a\u9762\u503c $n$ \u7684\u786c\u5e01\uff0c\u4e0d\u8fc7\u56e0\u4e3a\u4e00\u5171\u5c31 $a$ \u5f20\uff0c\u6240\u4ee5\u7528\u9762\u503c $n$ \u6700\u591a\u53ef\u4ee5\u6491 $\\min(\\lfloor\\frac{s}{n}\\rfloor,a)\\cdot n$ \u5757\u94b1\u3002\n\n\u90a3\u4e48\u63a5\u4e0b\u6765\u6240\u6709\u7684\u94b1\u62ff $1$ \u6765\u51d1\u5373\u53ef\u3002\u4ee3\u7801\u5f88\u597d\u5199\u3002\n\n```cpp\n#include<iostream>\nusing namespace std;\nint main(){\n\tint t;\n\tcin>>t;\n\twhile(t--){\n\t\tint a,b,n,s;\n\t\tcin>>a>>b>>n>>s;\n\t\tif(min(s/n,a)*n+b>=s)\n\t\t\tcout<<\"YES\";\n\t\telse\n\t\t\tcout<<\"NO\";\n\t\tcout<<endl;\n\t}\n}\n```",
+        "postTime": 1620215705,
+        "uid": 317899,
+        "name": "oimaster",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1256A \u3010Payment Without Change\u3011"
+    },
+    {
+        "content": "OI\u751f\u6daf\u6253\u7684\u7b2c\u4e00\u573aCF\u6bd4\u8d5b\uff0c\u5199\u7bc7\u9898\u89e3\u7eaa\u5ff5\u4e00\u4e0b\u5427\n\n\n\u672c\u6587\u540c\u6b65\u53d1\u8868\u5728[\u6211\u7684blog](https://www.cnblogs.com/TEoS/p/11797694.html)\u3002\n\n------------\n\u53ef\u4ee5\u60f3\u5230\u5148\u5c3d\u91cf\u7528\u9762\u503c\u4e3a1\u7684\u786c\u5e01\u6765\u51d1\uff0c\u7136\u540e\u518d\u7528\u9762\u503c\u4e3an\u7684\u786c\u5e01\u6765\u8865\u8db3\u3002\u5148\u7b97\u51fa\u7528\u4e0a\u6240\u6709\u9762\u503c\u4e3a1\u7684\u786c\u5e01\u8fd8\u5dee\u591a\u5c11\u94b1\uff0c\u7136\u540e\u5224\u65ad\u7528\u9762\u503c\u4e3an\u7684\u786c\u5e01\u591f\u4e0d\u591f\u8865\u8db3\u5c31\u53ef\u4ee5\u4e86\u3002\u8ba1\u7b97\u9700\u8981\u9762\u503c\u4e3an\u7684\u786c\u5e01\u7684\u6570\u91cf\u7684\u65f6\u5019\uff0c\u6ce8\u610f\u662f\u5426\u9700\u8981\u52a01\u7684\u5224\u65ad\u3002\u8fd8\u6709\u4e00\u4e2a\u9700\u8981\u6ce8\u610f\u7684\u70b9\uff0c\u6709\u53ef\u80fd\u7528\u9762\u503c\u4e3a1\u7684\u786c\u5e01\u5c31\u591f\u4e86\uff0c\u5373$b>=s$\uff0c\u6709\u53ef\u80fd\u4f1a\u51fa\u73b0\u6ca1\u6709\u7279\u5224\u8fd9\u4e2a\u60c5\u51b5\u5bfc\u81f4 Wrong answer on test 2 \u7684\u60c5\u51b5\u3002\n\n```cpp\n#include<iostream>\n#include<cstdio>\n#define ll long long\nusing namespace std;\nll t,a,b,n,s;\nint main()\n{\n\tcin>>t;\n\twhile(t--)\n\t{\n\t\tcin>>a>>b>>n>>s;\n\t\tif(((s-b)%n==0 && a>=(s-b)/n)||((s-b)%n!=0 && a>=(s-b)/n+1 && ((s-b)/n+1)*n<=s)|| b>=s)//\u5206\u522b\u5224\u65ad\u80fd\u6574\u9664\uff0c\u4e0d\u80fd\u6574\u9664\u548c\u76f4\u63a5\u51d1\u591f\u7684\u60c5\u51b5\n\t\t\tputs(\"YES\");\n\t\telse\n\t\t\tputs(\"NO\");\n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1572928147,
+        "uid": 91534,
+        "name": "TEoS",
+        "ccfLevel": 6,
+        "title": "CF1256A Payment Without Change"
+    }
+]

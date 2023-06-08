@@ -1,0 +1,42 @@
+[
+    {
+        "content": "[\u539f\u9898\u94fe\u63a5](https://codeforces.ml/problemset/problem/1491/B)  \n[\u6d1b\u8c37\u94fe\u63a5](https://www.luogu.com.cn/problem/CF1491B)\n\n\u672c\u9898\u5206\u4e3a\u4e09\u79cd\u60c5\u51b5\uff1a\n1. \u8fd9 $n$ \u4e2a\u969c\u788d\u7269\u6ca1\u6709\u7ec4\u6210\u4e00\u5835\u5899\uff1a\u4e5f\u5c31\u662f\u8bf4\u5982\u679c $\\max\\limits_{i=2}^n\\{|a_i-a_{i-1}|\\}>1$\uff0c\u90a3\u4e48\u5219\u4e0d\u9700\u8981\u82b1\u8d39\u4efb\u4f55\u8d39\u7528\uff0c\u56e0\u4e3a\u53ef\u4ee5\u76f4\u63a5\u7ed5\u8fc7\u969c\u788d\u7269\u3002\n2. \u8fd9 $n$ \u4e2a\u969c\u788d\u7269\u7ec4\u6210\u4e86\u4e00\u5835\u666e\u901a\u7684\u5899\uff1a\u4e5f\u5c31\u662f $\\max\\limits_{i=2}^n\\{|a_i-a_{i-1}|\\}=1$\u3002\u90a3\u4e48\uff0c\u6211\u4eec\u6709\u4e24\u79cd\u9009\u62e9\uff1a\u6a2a\u5411\u632a\u52a8\u4e00\u4e2a\u969c\u788d\u7269\uff0c\u4f7f\u5176\u8f6c\u5316\u4e3a\u60c5\u51b5 $1$\uff1b\u6216\u8005\u7eb5\u5411\u632a\u52a8\u4e00\u4e2a\u969c\u788d\u7269\uff0c\u4f7f\u5f97\u67d0\u4e00\u884c\u6ca1\u6709\u969c\u788d\u7269\u3002\u90a3\u4e48\uff0c\u6240\u9700\u8981\u7684\u8d39\u7528\u5c31\u662f $\\min(u,v)$\n3. \u8fd9 $n$ \u4e2a\u969c\u788d\u7269\u7ec4\u6210\u4e86\u4e00\u5835\u5b8c\u7f8e\u7684\u5899\uff1a\u4e5f\u5c31\u662f\u6240\u6709\u7684 $a_i$ \u90fd\u76f8\u7b49\u3002\u90a3\u4e48\uff0c\u6211\u4eec\u53ea\u9700\u8981\u6a2a\u5411\u632a\u52a8\u4efb\u610f\u4e00\u4e2a\u969c\u788d\u7269\uff0c\u5c31\u628a\u95ee\u9898\u8f6c\u5316\u4e3a\u4e86\u60c5\u51b5 $2$\uff0c\u6240\u4ee5\u60c5\u51b5\u4e09\u7684\u6240\u9700\u8d39\u7528\u5c31\u662f $v+\\min(u,v)$\u3002\n\n```cpp\n#include<cstdio>\n#include<iostream>\n#include<algorithm>\n#include<cstring>\nusing namespace std;\nconst int Maxn=110;\nint n,u,v;\nint a[Maxn];\ninline int read()\n{\n    int s=0,w=1;\n    char ch=getchar();\n    while(ch<'0'||ch>'9'){if(ch=='-')w=-1;ch=getchar();}\n    while(ch>='0' && ch<='9')s=(s<<3)+(s<<1)+(ch^48),ch=getchar();\n    return s*w;\n}\nbool check1()\n{\n    for(int i=2;i<=n;++i)\n    if(abs(a[i]-a[i-1])>1)return 1;\n    return 0;\n}\nbool check2()\n{\n    for(int i=2;i<=n;++i)\n    if(a[i]!=a[i-1])return 1;\n    return 0;\n}\nint main()\n{\n    // freopen(\"in.txt\",\"r\",stdin);\n    int T=read();\n    while(T--)\n    {\n        n=read(),u=read(),v=read();\n        for(int i=1;i<=n;++i)\n        a[i]=read();\n        if(check1())puts(\"0\");\n        else if(check2())printf(\"%d\\n\",min(u,v));\n        else printf(\"%d\\n\",v+min(u,v));\n    }\n    return 0;\n}\n```",
+        "postTime": 1614583863,
+        "uid": 120362,
+        "name": "Priori_Incantatem",
+        "ccfLevel": 7,
+        "title": "CF1491B Minimal Cost \u9898\u89e3"
+    },
+    {
+        "content": "\u663e\u7136\uff0c\u6211\u4eec\u8bb0\u5f55\u4e0b\u6765\u4e24\u4e24\u4e4b\u95f4\u7eb5\u5750\u6807\u4e4b\u5dee\u7684\u7edd\u5bf9\u503c $res$ \u3002           \n\n- $2 \\leq res$ \u65f6\uff0c\u6211\u4eec\u5df2\u7ecf\u5b58\u5728\u5408\u6cd5\u8def\u5f84\uff1b             \n\n- $res = 1$ \u65f6\uff0c\u6211\u4eec\u53ea\u8981\u8003\u8651\u63a8\u4e00\u6b21\u4e0a\u4e0b/\u5de6\u53f3\uff1b            \n\n- $res = 0$ \u65f6\uff0c\u6211\u4eec\u8003\u8651\u63a8\u4e24\u6b21\uff0c\u4e14\u4e0d\u80fd\u4e24\u6b21\u90fd\u4e0a\u4e0b\u63a8\uff1b           \n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nconst int Len = 1e6 + 5;\nint n,m,a[Len],u,v,Y = 1e6 + 1;\nint calc()\n{\n\tint res = 0;\n\tfor(int i = 2 ; i <= n ; i ++) res = max(res , abs(a[i] - a[i - 1]));\n\tif(!res) return min(v * 2 , v + u);\n\tif(res == 1) return min(u , v);\n\treturn 0;\n}\nint main()\n{\n\tint t;scanf(\"%d\",&t);\n\twhile(t --)\n\t{\n\t\tscanf(\"%d %d %d\",&n,&u,&v);\n\t\tfor(int i = 1 ; i <= n ; i ++) scanf(\"%d\",&a[i]);\n\t\tprintf(\"%d\\n\",calc());\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1620884272,
+        "uid": 132533,
+        "name": "Hakuoro",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1491B Minimal Cost"
+    },
+    {
+        "content": "\u601d\u8def\uff1a\n1. \u5982\u679c\u969c\u788d\u7269\u4e4b\u95f4\u6709\u7f3a\u53e3\uff0c\u4e5f\u5c31\u662f\u8bf4\u6709 $|a_{i+1}-a_i|>1$ \uff0c\u90a3\u4e48\u76f4\u63a5\u8f93\u51fa `0` \u5373\u53ef\u3002\n1. \u5982\u679c\u969c\u788d\u7269\u5df2\u7ecf\u5f62\u6210\u4e86\u5899\uff0c\u800c\u4e14\u8fd9\u4e2a\u5899\u662f\u6709\u7a81\u51fa\u6765\u7684\u90e8\u5206\u7684\uff0c\u4e0d\u662f\u7b14\u76f4\u5411\u4e0b\u7684\uff08\u5404\u4f4d\u60f3\u8c61\u4e00\u4e0b\uff09\uff0c\u4e5f\u5c31\u662f\u8bf4 \uff1a\u5bf9\u4e8e\u4efb\u610f\u7684 $i$\uff0c\u90fd\u6709 $|a_{i+1}-a_i|<=1$ \u4e14\u81f3\u5c11\u6709\u4e00\u4e2a $i$ \uff0c\u53ef\u4ee5\u6ee1\u8db3 $|a_{i+1}-a_i|=1$ \u3002\u90a3\u4e48\u6b64\u65f6\u5e94\u8be5\u9009\u62e9\u4efb\u610f\u4e00\u4e2a\u7a81\u51fa\u7684\u90e8\u5206\uff0c\u5c06\u8fd9\u4e2a\u969c\u788d\u7269\u968f\u610f\u79fb\u52a8\uff08\u4e0d\u80fd\u79fb\u5230\u969c\u788d\u7269\u4e0a\uff09\uff0c\u6240\u4ee5\u5e94\u8f93\u51fa $\\min(u,v)$ \u3002\n1. \u8fd8\u6709\u4e00\u79cd\u662f\u6700\u7279\u6b8a\u7684\uff0c\u969c\u788d\u7269\u5f62\u6210\u4e00\u5835\u7b14\u76f4\u5411\u4e0b\u7684\u5899\uff0c\u4e5f\u5c31\u662f\u8bf4\uff1a\u5bf9\u4e8e\u4efb\u610f\u7684 $i$ \uff0c\u90fd\u6ee1\u8db3 $a_{i+1}=a_i$ \u3002\u90a3\u4e48\u6b64\u65f6\u5e94\u5c06\u4efb\u610f\u4e00\u4e2a\u5730\u65b9\u5411\u5de6\u6216\u5411\u53f3\u5e73\u79fb\uff0c\u7136\u540e\u518d\u968f\u610f\u79fb\u52a8\uff08\u4e0d\u80fd\u79fb\u56de\u53bb\uff09\uff0c\u6240\u4ee5\u5e94\u8f93\u51fa $v+\\min(u,v)$ \u3002\n\n\u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint t,n,u,v,a[105];\nint main() {\n\tcin>>t;\n\twhile(t--) {\n\t\tcin>>n>>u>>v;\n\t\tfor(int i=1;i<=n;i++)cin>>a[i];\n\t\tbool flag=true;\n\t\tfor(int i=2;i<=n;i++)\n\t\t\tif(a[i]!=a[i-1])flag=false;\n\t\tif(flag)cout<<v+min(u,v)<<endl;\n\t\telse {\n\t\t\tbool flag=true;\n\t\t\tfor(int i=2;i<=n;i++)\n\t\t\t\tif(abs(a[i]-a[i-1])>1)flag=false;\n\t\t\tif(flag)cout<<min(u,v)<<endl;\n            else cout<<0<<endl;\n\t\t}\n\t}\n}\n```\n",
+        "postTime": 1615729643,
+        "uid": 57779,
+        "name": "LRL65",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF1491B\u3010Minimal Cost\u3011"
+    },
+    {
+        "content": "\u6b64\u9898\u7684\u601d\u8def\u4e2a\u4eba\u89c9\u5f97\u6bd4\u8f83\u597d\u7406\u89e3\uff0c\u662f\u5728 $B$ \u9898\u4e2d\u6bd4\u8f83\u7b80\u5355\u7684\u4e00\u7c7b\u3002\n\n\u6b64\u9898\u7684\u601d\u8def\u5c31\u662f\u5206\u7c7b\u8ba8\u8bba\uff0c\u7b2c\u4e00\u7c7b\u4e3a\uff1a\n\n\u969c\u788d\u6392\u6210\u6574\u9f50\u7684\u4e00\u5217\uff0c\u8bf4\u660e\u5fc5\u987b\u5f97\u5c06\u4efb\u610f\u4e00\u4e2a\u5de6\u53f3\u5e73\u79fb\u4e00\u6b21\u540e\u518d\u9009\u62e9\u4e0a\u4e0b\u8fd8\u662f\u5de6\u53f3\uff08\u8fd9\u4e2a\u65f6\u5019\u9009\u62e9\u6700\u5c0f\u503c\u5c31\u884c\u4e86\uff09\u3002\u6240\u4ee5\u7b2c\u4e00\u7c7b\u7684\u516c\u5f0f\u4e3a\uff1a\n\n### $v + min(u, v) $\n\n\u7b2c\u4e8c\u7c7b\u5c31\u662f\u4efb\u610f\u4e24\u4e2a\u76f8\u90bb\u969c\u788d\u76f8\u5dee\u7684\u7edd\u5bf9\u503c\u4e0d\u5927\u4e8e $1$\uff0c\u6b64\u7c7b\u7684\u5c31\u5fc5\u987b\u5f97\u4e0a\u4e0b\u6216\u5de6\u53f3\u79fb\u52a8\u4e00\u683c\uff0c\u4e5f\u5c31\u662f\uff1a\n\n### $min(u, v)$\n\n\u7b2c\u4e09\u7c7b\u5c31\u662f\u4f46\u51e1\u6709\u4e24\u4e2a\u76f8\u90bb\u969c\u788d\u76f8\u5dee\u7684\u7edd\u5bf9\u503c\u5927\u4e8e\u7b49\u4e8e $2$ \u65f6\uff0c\u5c31\u4e00\u5b9a\u80fd\u4e00\u53e3\u6c14\u8d70\u5230\u7ec8\u70b9\uff0c\u4e5f\u5c31\u662f $0$\u3002\n\n\u7531\u4e8e\u6b64\u9898\u592a\u6c34\u4e86\uff0c\u5c31\u4e0d\u653e\u4ee3\u7801\u4e86\u3002\u5269\u4e0b\u7684\u5c31\u662f\u5224\u65ad\u662f\u7b2c\u51e0\u79cd\u60c5\u51b5\u8fa3\uff01\u8fd9\u4e5f\u975e\u5e38\u597d\u5224\u65ad\u554a\uff0c\u6bcf\u4e2a\u66b4\u529b\u679a\u4e3e\u4e5f\u662f\u53ef\u4ee5\u7a33\u8fc7\u7684\u3002",
+        "postTime": 1614862059,
+        "uid": 402269,
+        "name": "szkzyc",
+        "ccfLevel": 5,
+        "title": "CF1491B[Minimal Cost]\u9898\u89e3"
+    },
+    {
+        "content": "\u8fd9\u91cc\u662f\u5b98\u65b9\u9898\u89e3\u3002\n\n\u5206\u7c7b\u8ba8\u8bba\uff1a\n\n\u5982\u679c\u6240\u6709 $a_i$ \u5747\u76f8\u540c\uff0c\u7b54\u6848\u4e3a $v+\\min(u,v)$ \u3002\n\n\u5982\u679c\u5b58\u5728 $|a_i-a_{i+1}| > 1$ \uff0c\u7b54\u6848\u4e3a $0$ \u3002\n\n\u5426\u5219\uff0c\u7b54\u6848\u4e3a $\\min(u,v)$ \u3002",
+        "postTime": 1614611091,
+        "uid": 68030,
+        "name": "serverkiller",
+        "ccfLevel": 0,
+        "title": "CF1491B Minimal Cost"
+    }
+]

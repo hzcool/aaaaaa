@@ -1,0 +1,21 @@
+{
+    "description": "Archeologists have found a secret pass in the dungeon of one of the pyramids of Cycleland. To enter the treasury they have to open an unusual lock on the door. The lock consists of $ n $ words, each consisting of some hieroglyphs. The wall near the lock has a round switch. Each rotation of this switch changes the hieroglyphs according to some rules. The instruction nearby says that the door will open only if words written on the lock would be sorted in lexicographical order (the definition of lexicographical comparison in given in notes section).\n\nThe rule that changes hieroglyphs is the following. One clockwise rotation of the round switch replaces each hieroglyph with the next hieroglyph in alphabet, i.e. hieroglyph $ x $ ( $ 1<=x<=c-1 $ ) is replaced with hieroglyph $ (x+1) $ , and hieroglyph $ c $ is replaced with hieroglyph $ 1 $ .\n\nHelp archeologist determine, how many clockwise rotations they should perform in order to open the door, or determine that this is impossible, i.e. no cyclic shift of the alphabet will make the sequence of words sorted lexicographically.",
+    "inputFormat": "The first line of the input contains two integers $ n $ and $ c $ ( $ 2<=n<=500000 $ , $ 1<=c<=10^{6} $ ) \u2014 the number of words, written on the lock, and the number of different hieroglyphs.\n\nEach of the following $ n $ lines contains the description of one word. The $ i $ -th of these lines starts with integer $ l_{i} $ ( $ 1<=l_{i}<=500000 $ ), that denotes the length of the $ i $ -th word, followed by $ l_{i} $ integers $ w_{i,1} $ , $ w_{i,2} $ , ..., $ w_{i,li} $ ( $ 1<=w_{i,j}<=c $ ) \u2014 the indices of hieroglyphs that make up the $ i $ -th word. Hieroglyph with index $ 1 $ is the smallest in the alphabet and with index $ c $ \u2014 the biggest.\n\nIt's guaranteed, that the total length of all words doesn't exceed $ 10^{6} $ .",
+    "outputFormat": "If it is possible to open the door by rotating the round switch, print integer $ x $ ( $ 0<=x<=c-1 $ ) that defines the required number of clockwise rotations. If there are several valid $ x $ , print any of them.\n\nIf it is impossible to open the door by this method, print $ -1 $ .",
+    "samples": [
+        [
+            "4 3\n2 3 2\n1 1\n3 2 3 1\n4 2 3 1 2\n",
+            "1\n"
+        ],
+        [
+            "2 5\n2 4 2\n2 4 2\n",
+            "0\n"
+        ],
+        [
+            "4 4\n1 2\n1 3\n1 4\n1 2\n",
+            "-1\n"
+        ]
+    ],
+    "hint": "Word $ a_{1},a_{2},...,a_{m} $ of length $ m $ is lexicographically not greater than word $ b_{1},b_{2},...,b_{k} $ of length $ k $ , if one of two conditions hold:\n\n- at first position $ i $ , such that $ a_{i}\u2260b_{i} $ , the character $ a_{i} $ goes earlier in the alphabet than character $ b_{i} $ , i.e. $ a $ has smaller character in the first position where they differ;\n- if there is no such position $ i $ and $ m<=k $ , i.e. the first word is a prefix of the second or two words are equal.\n\nThe sequence of words is said to be sorted in lexicographical order if each word (except the last one) is lexicographically not greater than the next word.\n\nIn the first sample, after the round switch is rotated $ 1 $ position clockwise the words look as follows:\n\n`<br></br>1 3<br></br>2<br></br>3 1 2<br></br>3 1 2 3<br></br>`In the second sample, words are already sorted in lexicographical order.\n\nIn the last sample, one can check that no shift of the alphabet will work.",
+    "translation": "\u6709n\u4e2a\u6570\u5217\uff0c\u6bcf\u4e2a\u6570\u5217\u957f\u5ea6\u53ef\u80fd\u4e0d\u4e00\u6837\uff0c\u540c\u65f6\u6709\u4e00\u4e2ac\uff0c\u4f60\u6709\u4e00\u79cd\u64cd\u4f5c\uff0c\u8ba9\u8fd9n\u4e2a\u6570\u5217\u4e2d\u6240\u6709\u5c0f\u4e8ec\u7684\u6570\u90fd\u52a01\uff0c\u6240\u6709\u7b49\u4e8ec\u7684\u6570\u53d8\u62100.\u95ee\u4f60\u6700\u5c11\u53ef\u4ee5\u64cd\u4f5c\u51e0\u6b21\u53ef\u4ee5\u8ba9\u8fd9n\u4e2a\u6570\u5217\u6ee1\u8db3\u5b57\u5178\u5e8f"
+}

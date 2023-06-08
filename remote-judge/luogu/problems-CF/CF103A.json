@@ -1,0 +1,21 @@
+{
+    "description": "The average miner Vaganych took refresher courses. As soon as a miner completes the courses, he should take exams. The hardest one is a computer test called \"Testing Pants for Sadness\".\n\nThe test consists of $ n $ questions; the questions are to be answered strictly in the order in which they are given, from question $ 1 $ to question $ n $ . Question $ i $ contains $ a_{i} $ answer variants, exactly one of them is correct.\n\nA click is regarded as selecting any answer in any question. The goal is to select the correct answer for each of the $ n $ questions. If Vaganych selects a wrong answer for some question, then all selected answers become unselected and the test starts from the very beginning, from question $ 1 $ again. But Vaganych remembers everything. The order of answers for each question and the order of questions remain unchanged, as well as the question and answers themselves.\n\nVaganych is very smart and his memory is superb, yet he is unbelievably unlucky and knows nothing whatsoever about the test's theme. How many clicks will he have to perform in the worst case?",
+    "inputFormat": "The first line contains a positive integer $ n $ ( $ 1<=n<=100 $ ). It is the number of questions in the test. The second line contains space-separated $ n $ positive integers $ a_{i} $ ( $ 1<=a_{i}<=10^{9} $ ), the number of answer variants to question $ i $ .",
+    "outputFormat": "Print a single number \u2014 the minimal number of clicks needed to pass the test it the worst-case scenario.\n\nPlease do not use the %lld specificator to read or write 64-bit integers in \u0421++. It is preferred to use the cin, cout streams or the %I64d specificator.",
+    "samples": [
+        [
+            "2\n1 1\n",
+            "2"
+        ],
+        [
+            "2\n2 2\n",
+            "5"
+        ],
+        [
+            "1\n10\n",
+            "10"
+        ]
+    ],
+    "hint": "Note to the second sample. In the worst-case scenario you will need five clicks:\n\n- the first click selects the first variant to the first question, this answer turns out to be wrong.\n- the second click selects the second variant to the first question, it proves correct and we move on to the second question;\n- the third click selects the first variant to the second question, it is wrong and we go back to question 1;\n- the fourth click selects the second variant to the first question, it proves as correct as it was and we move on to the second question;\n- the fifth click selects the second variant to the second question, it proves correct, the test is finished.",
+    "translation": "\u6709\u4e2a\u4eba\u8981\u505a$n$ \u9053\u9009\u62e9\u9898\uff0c\u5fc5\u987b\u6309$1\\sim n$ \u7684\u987a\u5e8f\u7b54\u9898\uff0c\u7b2c$i$ \u9898\u6709$a_i$ \u4e2a\u9009\u9879\u3002\u4e0d\u5e78\u7684\u662f\uff0c\u8fd9\u4e9b\u9898\u8fd9\u4e2a\u4eba\u4e00\u9053\u4e5f\u4e0d\u4f1a\uff0c\u53ea\u80fd\u731c\u9009\u9879\uff0c\u4f46\u662f\u4ed6\u7684\u8bb0\u5fc6\u975e\u5e38\u597d\uff0c\u53ef\u4ee5\u8bb0\u4f4f\u6240\u6709\u9898\u66fe\u7ecf\u7684\u6b63\u786e\u9009\u9879\u3002\u5f53\u4ed6\u505a\u9519\u4e00\u9053\u9898\u65f6\uff0c\u4ed6\u5c31\u5fc5\u987b\u4ece$1$ \u91cd\u65b0\u5f00\u59cb\u9009\uff0c\u5047\u8bbe\u9898\u76ee\u7684\u6b63\u786e\u9009\u9879\u4e0d\u4f1a\u53d8\uff0c\u5728\u6700\u574f\u7684\u60c5\u51b5\u4e0b\uff0c\u82e5\u8981\u505a\u5bf9\u6240\u6709\u9898\uff0c\u4ed6\u4e00\u5171\u9009\u4e86\u591a\u5c11\u6b21\u9009\u9879\uff1f\n\n$1\\leq n\\leq 100,1\\leq a_i \\leq 10^9$ \n\n\u4f60\u82e5\u8981\u7528C++\u7684\u8d85\u957f\u6574\u5f62\u8bf7\u7528%I64d\n\n\u611f\u8c22@Khassar \u63d0\u4f9b\u7684\u7ffb\u8bd1"
+}

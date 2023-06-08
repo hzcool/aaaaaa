@@ -1,0 +1,17 @@
+{
+    "description": "Olya wants to buy a custom wardrobe. It should have $ n $ boxes with heights $ a_{1},a_{2},...,a_{n} $ , stacked one on another in some order. In other words, we can represent each box as a vertical segment of length $ a_{i} $ , and all these segments should form a single segment from $ 0 $ to ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF924E/5093cd7c115b544583c5d55ccc379a13fe72e866.png) without any overlaps.\n\nSome of the boxes are important (in this case $ b_{i}=1 $ ), others are not (then $ b_{i}=0 $ ). Olya defines the convenience of the wardrobe as the number of important boxes such that their bottom edge is located between the heights $ l $ and $ r $ , inclusive.\n\nYou are given information about heights of the boxes and their importance. Compute the maximum possible convenience of the wardrobe if you can reorder the boxes arbitrarily.",
+    "inputFormat": "The first line contains three integers $ n $ , $ l $ and $ r $ ( $ 1<=n<=10000 $ , $ 0<=l<=r<=10000 $ ) \u2014 the number of boxes, the lowest and the highest heights for a bottom edge of an important box to be counted in convenience.\n\nThe second line contains $ n $ integers $ a_{1},a_{2},...,a_{n} $ ( $ 1<=a_{i}<=10000 $ ) \u2014 the heights of the boxes. It is guaranteed that the sum of height of all boxes (i. e. the height of the wardrobe) does not exceed $ 10000 $ : Olya is not very tall and will not be able to reach any higher.\n\nThe second line contains $ n $ integers $ b_{1},b_{2},...,b_{n} $ ( $ 0<=b_{i}<=1 $ ), where $ b_{i} $ equals $ 1 $ if the $ i $ -th box is important, and $ 0 $ otherwise.",
+    "outputFormat": "Print a single integer \u2014 the maximum possible convenience of the wardrobe.",
+    "samples": [
+        [
+            "5 3 6\n3 2 5 1 2\n1 1 0 1 0\n",
+            "2\n"
+        ],
+        [
+            "2 2 5\n3 6\n1 1\n",
+            "1\n"
+        ]
+    ],
+    "hint": "In the first example you can, for example, first put an unimportant box of height $ 2 $ , then put an important boxes of sizes $ 1 $ , $ 3 $ and $ 2 $ , in this order, and then the remaining unimportant boxes. The convenience is equal to $ 2 $ , because the bottom edges of important boxes of sizes $ 3 $ and $ 2 $ fall into the range $ [3,6] $ .\n\nIn the second example you have to put the short box under the tall box.",
+    "translation": "\u6709$n(n\\le 10^4)$\u4e2a\u7bb1\u5b50\uff0c\u6bcf\u4e2a\u7bb1\u5b50\u6709\u4e00\u4e2a\u9ad8\u5ea6$h_i(\\sum h_i\\le 10^4)$\uff0c\u4e00\u4e9b\u7bb1\u5b50\u662f\u91cd\u8981\u7684\u3002\u73b0\u5728\u8981\u628a\u6240\u6709\u7bb1\u5b50\u53e0\u653e\u5728\u4e00\u8d77\u3002\u95ee\u6700\u591a\u6709\u591a\u5c11\u4e2a\u91cd\u8981\u7684\u7bb1\u5b50\u5e95\u90e8\u7684\u9ad8\u5ea6\u4f4d\u4e8e$[l,r]$\u3002"
+}

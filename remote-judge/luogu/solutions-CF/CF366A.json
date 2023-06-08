@@ -1,0 +1,34 @@
+[
+    {
+        "content": "\u9898\u610f\u7ffb\u8bd1\n\n\u7ed9\u4f60 $4$ \u884c\uff0c\u6bcf\u884c $4$ \u4e2a\u6570\uff0c\u5206\u522b\u4e3a $a$\uff0c$b$\uff0c$c$\uff0c$d$\u3002\u95ee\u662f\u5426\u5b58\u5728\u4e00\u7ec4  $\\min(a,b) \\le x ; \\min(c,d) \\le y;min(a,b) \\le x;min(c,d) \\le y$ \u4e14 $x+y=n$\u3002\n\n\u601d\u8def\n\n\u56e0\u4e3a $x$ \u5927\u4e8e\u7b49\u4e8e $\\min(a,b)$\uff0c$y$ \u5927\u4e8e\u7b49\u4e8e $\\min(c,d)$\uff0c\u6240\u4ee5\u53ea\u8981 $\\min(a,b)+\\min(c,d)$ \u5c0f\u4e8e\u7b49\u4e8e $n$ \u5c31\u884c\u4e86\u3002\n\nAC Code\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nlong long n,a,b,c,d;\nint main()\n{\n\tscanf(\"%lld\",&n);\n\tfor(long long i=1;i<=4;i++){\n\t\tscanf(\"%lld %lld %lld %lld\",&a,&b,&c,&d);\n\t\tlong long x=min(a,b),y=min(c,d);\n\t\tif(x+y<=n){\n\t\t\tprintf(\"%lld %lld %lld\\n\",i,x,n-x);\n\t\t\treturn 0;\n\t\t}\n\t}\n\tprintf(\"-1\");\n\treturn 0;\n}\n```\n",
+        "postTime": 1666932062,
+        "uid": 657755,
+        "name": "syhnumber1",
+        "ccfLevel": 0,
+        "title": "CF366A\u9898\u89e3"
+    },
+    {
+        "content": "\u9898\u610f\uff1a\n=\n\u7ed9\u4f60 4 \u884c\u6570\uff0c\u6bcf\u884c\u6709 4 \u4e2a\u6570\uff0c\u8bb0\u4e3a $a$\uff0c$b$\uff0c$c$\uff0c$b$\u3002\n\n$x \\geq \\min(a,b)$\uff0c$y \\geq \\min(c,d)$ \u95ee\u7684\u548c\u662f\u5426\u80fd\u7b49\u4e8e $n$\u3002\n\n\u601d\u8def\uff1a\n=\n\u56e0\u4e3a $x$ \u548c $y$ \u7684\u503c\u53ea\u53ef\u80fd\u5927\u4e8e\u6216\u7b49\u4e8e $\\min(a,b)$ \u548c $\\min(c,d)$ \u7684\u503c\uff0c\u90a3\u4e48\u53ea\u8981 $\\min(a,b)$ \u548c $\\min(c,d)$ \u7684\u548c\u5c0f\u4e8e\u6216\u7b49\u4e8e $n$ \u7684\u503c\uff0c\u90a3\u4e48 $x$ \u548c $y$ \u7684\u503c\u5c31\u4e00\u5b9a\u80fd\u7b49\u4e8e $n$\u3002\n\n\n\u6700\u540e\u8d34\u4e0a\u4ee3\u7801\uff1a\n\n```\n#include <bits/stdc++.h>\n#define int long long\n\nusing namespace std;\n\nint n, x1, x2, x3, x4;\n\nsigned main () {\n\tcin >> n;\n\tfor (int i = 1 ; i <= 4 ; i++) {\n\t\tcin >> x1 >> x2 >> x3 >> x4;\n\t\tint l1 = min (x1, x2), l2 = min (x3, x4);\n\t\tif (l1 + l2 <= n) {\n\t\t\tcout << i << ' ' << n - l2 << ' ' << l2;\n\t\t\treturn 0;\n\t\t}\n\t}\n\tcout << -1;\n\treturn 0;\n}\n```",
+        "postTime": 1666340490,
+        "uid": 381189,
+        "name": "xiezihanAKIOI",
+        "ccfLevel": 3,
+        "title": "tj"
+    },
+    {
+        "content": "## \u9898\u610f\n\u7ed9\u4f60 $4$ \u884c\uff0c\u6bcf\u884c $4$ \u4e2a\u6570\uff0c\u5206\u522b\u4e3a $a,b,c,d$\u3002\u95ee\u662f\u5426\u5b58\u5728\u4efb\u610f\u4e00\u7ec4 $\\min(a,b) \\le x ; \\min(c,d) \\le y$ \u4e14 $x + y = n $\u3002\n## \u601d\u8def\n\u5bf9\u4e8e\u6bcf\u4e00\u4e2a $x$ \u548c $y$\uff0c\u90fd\u4fdd\u8bc1\u8981 $\\min(a,b) \\le x ; \\min(c,d) \\le y$\u3002\u6240\u4ee5\u6211\u4eec\u53ef\u4ee5\u5bf9 $x$ \u548c $y$ \u90fd\u53d6\u6700\u5c0f\u503c\uff0c\u5224\u65ad\u662f\u5426\u6210\u7acb\uff0c\u5982\u679c\u6210\u7acb\uff0c\u90a3\u4e48\u5c31\u8f93\u51fa\u5f53\u524d\u7684\u5e8f\u53f7\u3001\u6700\u5c0f\u7684 $x$ \u548c $n-x$\uff0c\u6700\u540e\u7ed3\u675f\u7a0b\u5e8f\u5373\u53ef\u3002\u4e0d\u7136\u5c31\u8f93\u51fa\u8d1f\u4e00\uff0c\u5e94\u4e3a\u8fd9\u5df2\u7ecf\u662f\u6700\u5c0f\u503c\uff0c\u4e24\u6570\u76f8\u52a0\u7684\u548c\u53ea\u4f1a\u66f4\u5927\uff0c\u800c\u4e0d\u4f1a\u53d8\u5c0f\u3002\u90a3\u4e48\u8fd9\u9053\u9898\u5c31\u5f15\u5203\u800c\u89e3\u4e86\u3002\n## Code\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,i,a,b,c,d,x,y;\nint main(){\n\tscanf(\"%d\",&n);\n\tfor (i=1;i<=4;i++){\n\t\tscanf(\"%d%d%d%d\",&a,&b,&c,&d);//\u56db\u4e2a\u6570\n\t\tx=min(a,b);//x \u7684\u4e0b\u9650\n\t\ty=min(c,d);//y \u7684\u4e0b\u9650\n\t\tif (x+y<=n){//\u662f\u5426\u6210\u7acb\n\t\t\tprintf(\"%d %d %d\\n\",i,x,n-x);//\u8f93\u51fa\n\t\t\treturn 0;//\u7ed3\u675f\u7a0b\u5e8f\n\t\t}\n\t}\n\tprintf(\"-1\");//\u4e0d\u53ef\u4ee5\u6210\u7acb\n\treturn 0;\n}\n\n```\n",
+        "postTime": 1627391894,
+        "uid": 315398,
+        "name": "\u5c0f\u6768\u5c0f\u5c0f\u6768",
+        "ccfLevel": 5,
+        "title": "CF366A Dima and Guards"
+    },
+    {
+        "content": "\u770b\u4e86\u534a\u5929\u673a\u7ffb\u624d\u770b\u61c2\u9898\u2026\u2026\n\n\u628a\u90a3\u53c8\u81ed\u53c8\u957f\u7684\u9898\u76ee\u7ffb\u8bd1\u6210\u4eba\u8bdd\u5c31\u662f\uff1a\n\n\u6709\u4e00\u4e2a\u6b63\u6574\u6570 $n$ \u548c $4$ \u7ec4\u6b63\u6574\u6570 $a,b,c,d$\uff0c\u6c42\u662f\u5426\u6709\u4e00\u7ec4\u6570\u636e\u6ee1\u8db3\n\n$$x+y=n$$\n\n\u5176\u4e2d $x\\geq \\min(a,b), \\ y\\geq \\min(c,d)$\u3002\n\n\u5982\u679c\u5b58\u5728\u8fd9\u6837\u7684 $x$ \u548c $y$\uff0c\u5219\u8f93\u51fa\u8fd9\u4e00\u7ec4\u7684\u7f16\u53f7\u4ee5\u53ca $x$ \u548c $y$\u3002\u5426\u5219\u8f93\u51fa $-1$\u3002\n\n\u770b\u61c2\u9898\u610f\u4e4b\u540e\u5c31\u80fd\u8f7b\u677e\u5207\u6389\u8fd9\u9898\u5566\u3002\n\n\u6838\u5fc3\u4ee3\u7801\uff1a\n\n```cpp\n\tn=read();//\u5feb\u8bfb\u5c31\u4e0d\u653e\u4e86\n\tfor(int i=1;i<=4;++i)\n\t{\n\t\ta=read();b=read();c=read();d=read();\n\t\tif(min(a,b)+min(c,d)<=n) \n        \t\treturn cout<<i<<\" \"<<min(a,b)<<\" \"<<n-min(a,b),0;\n\t}\n\tcout<<-1;",
+        "postTime": 1619678693,
+        "uid": 329672,
+        "name": "Ninelife_Cat",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 CF366A \u3010Dima and Guards\u3011"
+    }
+]

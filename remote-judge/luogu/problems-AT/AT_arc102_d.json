@@ -1,0 +1,25 @@
+{
+    "description": "[problemUrl]: https://atcoder.jp/contests/arc102/tasks/arc102_d\n\n$ 1,2,...,N $ \u306e\u4e26\u3073\u66ff\u3048 $ p_1,p_2,...,p_N $ \u304c\u4e0e\u3048\u3089\u308c\u307e\u3059\u3002\u4ee5\u4e0b\u306e\u64cd\u4f5c\u3092\u597d\u304d\u306a\u3060\u3051\u7e70\u308a\u8fd4\u3057\u3066\u3059\u3079\u3066\u306e $ i $ \u306b\u5bfe\u3057\u3066 $ p_i=i $ \u3068\u306a\u308b\u3088\u3046\u306b\u3067\u304d\u308b\u304b\u5224\u5b9a\u3057\u3066\u304f\u3060\u3055\u3044\u3002\n\n- $ p_{i-1}\\ >\\ p_{i}\\ >\\ p_{i+1} $ \u306a\u308b $ 3 $ \u9805\u7d44 ($ 2\\leq\\ i\\leq\\ N-1 $) \u3092\u9078\u3073\u3001\u3053\u306e $ 3 $ \u9805\u3092\u9006\u9806\u306b\u4e26\u3073\u66ff\u3048\u308b\u3002",
+    "inputFormat": "\u5165\u529b\u306f\u4ee5\u4e0b\u306e\u5f62\u5f0f\u3067\u6a19\u6e96\u5165\u529b\u304b\u3089\u4e0e\u3048\u3089\u308c\u308b\u3002\n\n> $ N $ $ p_1 $ $ : $ $ p_N $",
+    "outputFormat": "\u64cd\u4f5c\u3092\u7e70\u308a\u8fd4\u3057\u3066\u3059\u3079\u3066\u306e $ i $ \u306b\u5bfe\u3057\u3066 $ p_i=i $ \u3068\u306a\u308b\u3088\u3046\u306b\u3067\u304d\u308b\u5834\u5408\u306f `Yes` \u3092\u3001\u305d\u3046\u3067\u306a\u3044\u5834\u5408\u306f `No` \u3092\u51fa\u529b\u305b\u3088\u3002",
+    "samples": [
+        [
+            "5\r\n5\r\n2\r\n1\r\n4\r\n3",
+            "Yes"
+        ],
+        [
+            "4\r\n3\r\n2\r\n4\r\n1",
+            "No"
+        ],
+        [
+            "7\r\n3\r\n2\r\n1\r\n6\r\n5\r\n4\r\n7",
+            "Yes"
+        ],
+        [
+            "6\r\n5\r\n3\r\n4\r\n1\r\n2\r\n6",
+            "No"
+        ]
+    ],
+    "hint": "### \u5236\u7d04\n\n- $ 3\\ \\leq\\ N\\ \\leq\\ 3\\ \u00d7\\ 10^5 $\n- $ p_1,p_2,...,p_N $ \u306f $ 1,2,...,N $ \u306e\u4e26\u3073\u66ff\u3048\u3067\u3042\u308b\n\n### Sample Explanation 1\n\n\u4ee5\u4e0b\u306e\u64cd\u4f5c\u3067\u3059\u3079\u3066\u306e $ i $ \u306b\u5bfe\u3057\u3066 $ p_i=i $ \u3068\u306a\u308b\u3088\u3046\u306b\u3067\u304d\u307e\u3059\u3002 - $ p_1,p_2,p_3 $ \u3092\u9006\u9806\u306b\u4e26\u3073\u66ff\u3048\u308b\u3002\u5217 $ p $ \u306f $ 1,2,5,4,3 $ \u3068\u306a\u308b\u3002 - $ p_3,p_4,p_5 $ \u3092\u9006\u9806\u306b\u4e26\u3073\u66ff\u3048\u308b\u3002\u5217 $ p $ \u306f $ 1,2,3,4,5 $ \u3068\u306a\u308b\u3002",
+    "translation": "\u7ed9\u5b9a\u957f\u5ea6\u4e3a $n~(\\leq 3*10^5)$ \u7684\u6392\u5217 $p$, \u53ef\u4ee5\u8fdb\u884c\u65e0\u9650\u6b21\u64cd\u4f5c, \u95ee\u6700\u7ec8\u80fd\u5426\u5c06\u5176\u6392\u6210\u5347\u5e8f. \u5176\u4e2d, \u4e00\u6b21\u64cd\u4f5c\u5b9a\u4e49\u4e3a:\n+ \u9009\u62e9 $i$ \u4f7f\u5f97 $ 2 \\leq i \\leq n-1$ \u4e14 $p_{i-1}>p_i>p_{i+1}$. \u4ea4\u6362 $p_{i-1},p_{i+1}$."
+}

@@ -1,0 +1,17 @@
+{
+    "description": "There is a system of $ n $ vessels arranged one above the other as shown in the figure below. Assume that the vessels are numbered from 1 to $ n $ , in the order from the highest to the lowest, the volume of the $ i $ -th vessel is $ a_{i} $ liters.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF371D/f198564e53bb2ea5c99e17b823930a432879118f.png)Initially, all the vessels are empty. In some vessels water is poured. All the water that overflows from the $ i $ -th vessel goes to the $ (i+1) $ -th one. The liquid that overflows from the $ n $ -th vessel spills on the floor.\n\nYour task is to simulate pouring water into the vessels. To do this, you will need to handle two types of queries:\n\n1. Add $ x_{i} $ liters of water to the $ p_{i} $ -th vessel;\n2. Print the number of liters of water in the $ k_{i} $ -th vessel.\n\nWhen you reply to the second request you can assume that all the water poured up to this point, has already overflown between the vessels.",
+    "inputFormat": "The first line contains integer $ n $ \u2014 the number of vessels ( $ 1<=n<=2\u00b710^{5} $ ). The second line contains $ n $ integers $ a_{1},a_{2},...,a_{n} $ \u2014 the vessels' capacities ( $ 1<=a_{i}<=10^{9} $ ). The vessels' capacities do not necessarily increase from the top vessels to the bottom ones (see the second sample). The third line contains integer $ m $ \u2014 the number of queries ( $ 1<=m<=2\u00b710^{5} $ ). Each of the next $ m $ lines contains the description of one query. The query of the first type is represented as \" $ 1\u00a0p_{i}\u00a0x_{i} $ \", the query of the second type is represented as \" $ 2\u00a0k_{i} $ \" ( $ 1<=p_{i}<=n $ , $ 1<=x_{i}<=10^{9} $ , $ 1<=k_{i}<=n $ ).",
+    "outputFormat": "For each query, print on a single line the number of liters of water in the corresponding vessel.",
+    "samples": [
+        [
+            "2\n5 10\n6\n1 1 4\n2 1\n1 2 5\n1 1 4\n2 1\n2 2\n",
+            "4\n5\n8\n"
+        ],
+        [
+            "3\n5 10 8\n6\n1 1 12\n2 2\n1 1 6\n1 3 2\n2 2\n2 3\n",
+            "7\n10\n5\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u6709$n$\u4e2a\u53ef\u7231\u7684\u6c99\u6f0f\uff0c\u7b2c$i$\u4e2a\u6c99\u6f0f\u7684\u5bb9\u91cf\u4e3a$a_i$\u3002\u7ed9\u5b9a$m$\u6b21\u64cd\u4f5c\u6216\u8be2\u95ee\uff1a\n\n\u2460$1\\ u\\ x$: \u5728\u7b2c$u$\u4e2a\u6c99\u6f0f\u4e2d\u52a0\u5bb9\u91cf\u4e3a$x$\u7684\u6c34\uff1b\n\n\u2461$2\\ u$: \u67e5\u8be2\u5728\u7b2c$u$\u4e2a\u6c99\u6f0f\u4e2d\u6709\u591a\u5c11\u5355\u4f4d\u7684\u6c34\u3002\n\n\u6ce8\u610f\uff0c\u5982\u679c\u7b2c$i$\u4e2a\u6c99\u6f0f\u6ea2\u51fa\u4e86\uff0c**\u90a3\u4e48\u6ea2\u51fa\u7684\u90a3\u4e00\u90e8\u5206\u6c34\u4f1a\u6d41\u5230\u7b2c$i+1$\u4e2a\u6c99\u6f0f**\uff1b\u7279\u522b\u7684\uff0c\u4ece\u6700\u540e\u4e00\u5c42\u7684\u6c99\u6f0f\u6f0f\u4e0b\u6765\u7684\u6c34\u4f1a\u6d41\u5230\u5730\u677f\u4e0a\u3002"
+}

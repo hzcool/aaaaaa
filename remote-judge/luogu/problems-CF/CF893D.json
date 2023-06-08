@@ -1,0 +1,21 @@
+{
+    "description": "Recenlty Luba got a credit card and started to use it. Let's consider $ n $ consecutive days Luba uses the card.\n\nShe starts with $ 0 $ money on her account.\n\nIn the evening of $ i $ -th day a transaction $ a_{i} $ occurs. If $ a_{i}&gt;0 $ , then $ a_{i} $ bourles are deposited to Luba's account. If $ a_{i}&lt;0 $ , then $ a_{i} $ bourles are withdrawn. And if $ a_{i}=0 $ , then the amount of money on Luba's account is checked.\n\nIn the morning of any of $ n $ days Luba can go to the bank and deposit any positive integer amount of burles to her account. But there is a limitation: the amount of money on the account can never exceed $ d $ .\n\nIt can happen that the amount of money goes greater than $ d $ by some transaction in the evening. In this case answer will be \u00ab-1\u00bb.\n\nLuba must not exceed this limit, and also she wants that every day her account is checked (the days when $ a_{i}=0 $ ) the amount of money on her account is non-negative. It takes a lot of time to go to the bank, so Luba wants to know the minimum number of days she needs to deposit some money to her account (if it is possible to meet all the requirements). Help her!",
+    "inputFormat": "The first line contains two integers $ n $ , $ d $ ( $ 1<=n<=10^{5} $ , $ 1<=d<=10^{9} $ ) \u2014the number of days and the money limitation.\n\nThe second line contains $ n $ integer numbers $ a_{1},a_{2},...\\ a_{n} $ ( $ -10^{4}<=a_{i}<=10^{4} $ ), where $ a_{i} $ represents the transaction in $ i $ -th day.",
+    "outputFormat": "Print -1 if Luba cannot deposit the money to her account in such a way that the requirements are met. Otherwise print the minimum number of days Luba has to deposit money.",
+    "samples": [
+        [
+            "5 10\n-1 5 0 -5 3\n",
+            "0\n"
+        ],
+        [
+            "3 4\n-10 0 20\n",
+            "-1\n"
+        ],
+        [
+            "5 10\n-5 0 10 -11 0\n",
+            "2\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "Recenlty Luba\u6709\u4e00\u5f20\u4fe1\u7528\u5361\u53ef\u7528\uff0c\u4e00\u5f00\u59cb\u91d1\u989d\u4e3a0\uff0c\u6bcf\u5929\u65e9\u4e0a\u53ef\u4ee5\u53bb\u5145\u4efb\u610f\u6570\u91cf\u7684\u94b1\u3002\u5230\u4e86\u665a\u4e0a\uff0c\u94f6\u884c\u4f1a\u5bf9\u4fe1\u7528\u5361\u8fdb\u884c\u4e00\u6b21\u64cd\u4f5c\uff0c\u64cd\u4f5c\u6709\u4e09\u79cd\u64cd\u4f5c\u3002\n1.\u5982\u679ca[i]>0\uff0c\u94f6\u884c\u4f1a\u7ed9\u5361\u5145\u5165a[i]\u5143\u3002\n2.\u5982\u679ca[i]<0  \u94f6\u884c\u4ece\u5361\u4e2d\u6263\u9664a[i]\u5143\u3002\n3.\u5982\u679ca[i]=0  \u94f6\u884c\u4f1a\u67e5\u8be2\u5361\u91cc\u7684\u91d1\u989d\u3002\n\u6709\u4e24\u6761\u89c4\u5219\uff0c\u5982\u679c\u8fdd\u80cc\u4fe1\u7528\u5361\u5c31\u4f1a\u88ab\u51bb\u7ed3\u3002\n1.\u4fe1\u7528\u5361\u91cc\u7684\u91d1\u989d\u4e0d\u80fd\u5927\u4e8ed\u3002\n2.\u5f53\u94f6\u884c\u67e5\u8be2\u5361\u91cc\u7684\u91d1\u989d\u65f6\uff0c\u91d1\u989d\u4e0d\u80fd\u4e3a\u8d1f\u3002\nRecenlty Luba\u60f3\u77e5\u9053\u6700\u5c11\u53bb\u5145\u591a\u5c11\u6b21\u94b1\uff0c\u53ef\u4ee5\u4f7f\u5979\u5728\u63a5\u4e0b\u6765\u7684n\u5929\u91cc\u4fe1\u7528\u5361\u4e0d\u88ab\u51bb\u7ed3\u3002\n\n\u611f\u8c22@zykykyk \u63d0\u4f9b\u7684\u7ffb\u8bd1"
+}

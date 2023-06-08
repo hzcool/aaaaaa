@@ -1,0 +1,21 @@
+{
+    "description": "Vova promised himself that he would never play computer games... But recently Firestorm \u2014 a well-known game developing company \u2014 published their newest game, World of Farcraft, and it became really popular. Of course, Vova started playing it.\n\nNow he tries to solve a quest. The task is to come to a settlement named Overcity and spread a rumor in it.\n\nVova knows that there are $ n $ characters in Overcity. Some characters are friends to each other, and they share information they got. Also Vova knows that he can bribe each character so he or she starts spreading the rumor; $ i $ -th character wants $ c_{i} $ gold in exchange for spreading the rumor. When a character hears the rumor, he tells it to all his friends, and they start spreading the rumor to their friends (for free), and so on.\n\nThe quest is finished when all $ n $ characters know the rumor. What is the minimum amount of gold Vova needs to spend in order to finish the quest?\n\nTake a look at the notes if you think you haven't understood the problem completely.",
+    "inputFormat": "The first line contains two integer numbers $ n $ and $ m $ ( $ 1<=n<=10^{5},0<=m<=10^{5} $ ) \u2014 the number of characters in Overcity and the number of pairs of friends.\n\nThe second line contains $ n $ integer numbers $ c_{i} $ ( $ 0<=c_{i}<=10^{9} $ ) \u2014 the amount of gold $ i $ -th character asks to start spreading the rumor.\n\nThen $ m $ lines follow, each containing a pair of numbers ( $ x_{i},y_{i} $ ) which represent that characters $ x_{i} $ and $ y_{i} $ are friends ( $ 1<=x_{i},y_{i}<=n $ , $ x_{i}\u2260y_{i} $ ). It is guaranteed that each pair is listed at most once.",
+    "outputFormat": "Print one number \u2014 the minimum amount of gold Vova has to spend in order to finish the quest.",
+    "samples": [
+        [
+            "5 2\n2 5 3 4 8\n1 4\n4 5\n",
+            "10\n"
+        ],
+        [
+            "10 0\n1 2 3 4 5 6 7 8 9 10\n",
+            "55\n"
+        ],
+        [
+            "10 5\n1 6 2 7 3 8 4 9 5 10\n1 2\n3 4\n5 6\n7 8\n9 10\n",
+            "15\n"
+        ]
+    ],
+    "hint": "In the first example the best decision is to bribe the first character (he will spread the rumor to fourth character, and the fourth one will spread it to fifth). Also Vova has to bribe the second and the third characters, so they know the rumor.\n\nIn the second example Vova has to bribe everyone.\n\nIn the third example the optimal decision is to bribe the first, the third, the fifth, the seventh and the ninth characters.",
+    "translation": "\u6709n\u4e2a\u4eba\uff0c\u5176\u4e2d\u6709m\u5bf9\u670b\u53cb\uff0c\u73b0\u5728\u4f60\u6709\u4e00\u4e2a\u79d8\u5bc6\u4f60\u60f3\u544a\u8bc9\u6240\u6709\u4eba\uff0c\u7b2ci\u4e2a\u4eba\u613f\u610f\u51fa\u4ef7a[i]\u4e70\u4f60\u7684\u79d8\u5bc6\uff0c\u83b7\u5f97\u79d8\u5bc6\u7684\u4eba\u4f1a\u514d\u8d39\u544a\u8bc9\u5b83\u7684\u6240\u6709\u670b\u53cb\uff08\u4ed6\u670b\u53cb\u7684\u670b\u53cb\u4e5f\u4f1a\u514d\u8d39\u77e5\u9053\uff09\uff0c\u73b0\u5728\u4ed6\u4eec\u60f3\u51fa\u6700\u5c11\u7684\u4ef7\u94b1\u4e70\u79d8\u5bc6\uff0c\u90a3\u4e48\u4f60\u6700\u5c11\u80fd\u5f97\u5230\u591a\u5c11\u94b1\uff1f"
+}

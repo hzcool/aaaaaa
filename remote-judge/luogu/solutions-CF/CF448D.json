@@ -1,0 +1,34 @@
+[
+    {
+        "content": "# \u672c\u849f\u84bb\u7b2c\u4e00\u6b21\u53d1\u9898\u89e3\n### \u5148\u628a\u9898\u610f\u7ffb\u8bd1\u4e00\u4e0b\uff1a\u7ed9\u5b9a\u4e24\u4e2a\u6570\u7ec4 (a\u548cb)\uff0ca\u6709n\u4e2a\u5143\u7d20\uff0cb\u6709m\u4e2a\u5143\u7d20\uff0c\u6709\u53e6\u4e00\u4e2a\u6570\u7ec4 (c)\uff0c\u957f\u5ea6\u4e3anm\uff0c\u5143\u7d20\u662fa\u548cb\u4e2d\u6240\u6709\u5143\u7d20\u7684\u4e58\u79ef\uff08\u53ef\u91cd\u590d\uff09\uff0c\u6c42c\u6570\u7ec4\u7684\u7684k\u5927\u6570\n#### \u8fd9\u9898\u663e\u7136\u53ef\u4ee5\u66b4\u529b\uff08\u62ff\u4e0d\u5230\u5168\u5206\uff09\n**\u53ef\u4ee5\u8003\u8651\u66f4\u9ad8\u6548\u7b97\u6cd5,\u56e0\u4e3a\u662f\u4e00\u5f20$n*m$\u7684\u8868\uff0c\u6240\u4ee5\u7684\u5230\u4e58\u79ef\u662f\u6309\u5927\u5c0f\u4f9d\u6b21\u653e\u5165\u8868\u4e2d\u7684\uff0c\u6bcf\u4e00\u4e2a\u8868\u4e2d\u7684\u503c\uff0c\u90fd\u80af\u5b9a\u80fd\u88ab\u884c\u6570\u6574\u9664\uff0c\u5546\u5219\u662f\u5217\u6570\uff0c\u800c\u5217\u6570\u5c0f\u4e8e\u7b49\u4e8e\u8fd9\u4e2a\u5546\u7684\u503c\u90fd\u5c0f\u4e8e\u7b49\u4e8e\u6b64\u6570**\n\n| 1 | 2 | 2 |\n| -----------: | -----------: | -----------: |\n| 3| 4| $n*m=6$ |\n**\u6240\u4ee5\u6ee1\u8db3\u5355\u8c03\u6027\uff0c\u540c\u65f6\u7b54\u6848\u5728\u4e00\u4e2a\u533a\u95f4\u5185\uff0c\u53ef\u7528\u4e8c\u5206\u7b54\u6848\u6c42\u89e3**\n# \u9644\u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nlong long n,m,k;\nbool check(long long x)\n{\n\tlong long sum=0;\n\tfor(int i=1;i<=n;i++){\n\t\tsum+=min(m,x/i);//\u8bb0\u5f55\u6b64\u65f6\u7b54\u6848\u524d\u9762\u6bcf\u884c\u6709\u51e0\u4e2a\u6570\u5c0f\u4e8e\u7b49\u4e8e\u5b83\uff08\u4f46\u4e0d\u80fd\u8d85\u8fc7\u6700\u5927\u5217\u6570\uff09\uff0c\u81ea\u5df1\u7528\u8868\u6a21\u62df\uff0c\n\t}\n\treturn sum>=k;\n}\nint main()\n{\n    scanf(\"%lld %lld %lld\",&n,&m,&k);\n    long long pow=n*m;\n    long long l=1,r=pow;\n    while(l<r){\n\t\tlong long mid=(l+r)>>1;\n\t\tif(check(mid))r=mid;\n\t\telse l=mid+1;\n    }\n    printf(\"%lld\",l);\n}\n```\n",
+        "postTime": 1533705181,
+        "uid": 58017,
+        "name": "Mxfg",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 CF448D \u3010Multiplication Table\u3011"
+    },
+    {
+        "content": "### \u9898\u76ee\n\n[CF448D Multiplication Table](https://www.luogu.org/problem/CF448D)\n\n### \u601d\u8def\n\n\u4e8c\u5206\u7b54\u6848\u3002\u8fd9\u4e2a\u77e9\u9635\u7684\u6bcf\u4e00\u6392\u90fd\u662f\u9012\u589e\u7684\uff0c\u6240\u4ee5\u4e8c\u5206$ans$\uff0c\u53bb\u8ba1\u7b97\u6709\u591a\u5c11\u4e2a\u6570\u7b49\u4e8e$ans$\uff0c\u6709\u591a\u5c11\u4e2a\u6570\u5c0f\u4e8e$ans$\uff0c\u5982\u679c\u5c0f\u4e8e$ans$\u7684\u6570\u4e0d\u591a\u4e8e$k-1$\u4e2a\u5e76\u4e14\u5c0f\u4e8e\u7b49\u4e8e$ans$\u7684\u6570\u4e0d\u5c11\u4e8e$k$\u4e2a\uff0c\u90a3\u4e48\u5f53\u524d$ans$\u5c31\u662f\u7b54\u6848\u3002\n\nQ\uff1a\u5982\u4f55\u8ba1\u7b97\u5c0f\u4e8e$ans$\u7684\u6570\u7684\u4e2a\u6570\uff1f\n\nA\uff1a\n\n$$\\sum_{i=1}^{n}min(\\lfloor \\frac{ans-1}{i} \\rfloor,m)$$\n\nQ\uff1a\u5982\u4f55\u8ba1\u7b97\u7b49\u4e8e$ans$\u7684\u6570\u7684\u4e2a\u6570\uff1f\n\nA\uff1a\u5f53$i|ans$\u5e76\u4e14$ans/i$\u5c0f\u4e8e$m$\u65f6\u4e2a\u6570\u52a0\u4e00\u3002\n\n###$Code$\n```cpp\n#include<iostream>\n#include<cstring>\n#include<string>\n#include<algorithm>\n#include<cstdio>\n#define ll long long\nusing namespace std;\nll n,m,k;\ninline void read(ll &T){\n\tll x=0;bool f=0;char c=getchar();\n\twhile(c<'0'||c>'9'){if(c=='-')f=!f;c=getchar();}\n\twhile(c>='0'&&c<='9'){x=x*10+c-'0';c=getchar();}\n\tT=f?-x:x;\n}\ninline void write(ll x){\n\tif(x<0) putchar('-'),write(-x);\n\telse{\n\t\tif(x/10) write(x/10);\n\t\tputchar(x%10+'0');\n\t}\n}\n\nint main(){\n\tread(n),read(m),read(k);\n\tll l=1,r=n*m;\n\twhile(l<=r){\n\t\tll mid=(l+r)>>1,sum=0,tmp=0;\n\t\tfor(int i=1;i<=n;++i){\n\t\t\tsum+=min((mid-1)/i,m);\n\t\t\tif(mid%i==0&&mid/i<=m) tmp++;\n\t\t}\n\t\tif(sum<=k-1&&sum+tmp>=k){\n\t\t\twrite(mid);\n\t\t\treturn 0;\n\t\t}\n\t\tif(sum+tmp<=k-1) l=mid+1;\n\t\telse r=mid-1;\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1567563225,
+        "uid": 142110,
+        "name": "yu__xuan",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF448D \u3010Multiplication Table\u3011"
+    },
+    {
+        "content": "## \u672c\u4eba\u7684\u7b2c\u4e00\u7bc7\u9898\u89e3\n\n\u6b64\u9898\u4f7f\u7528two-pointers\u7b97\u6cd5+\u4e8c\u5206\u7b54\u6848\n\n\u4e8c\u5206\u7b54\u6848(ans \u2208 [1,nm])\n\u5b9a\u4e49st\u6307\u9488,ed\u6307\u9488(\u4e0d\u662fc++\u4e2d\u7684int *)\n\nst -> 1\n\ned -> m\n\ncnt = 0\n\n\u53ea\u8981st * ed > mid,ed--\n\n\u82e5st * ed <= mid,st++,cnt += ed(\u8868\u793a\u6bd4mid\u5c0f\u7684\u6570\u6709\u591a\u5c11\u4e2a)\n\n\u8fd4\u56de cnt >= k\u5373\u53ef\n\n## \u4ee3\u7801\n\n```cpp\n#include<iostream>\ntypedef long long ll; \n\nusing namespace std;\n\nll n,m,k,l,r,mid;\nll check(ll g)\n{\n    ll st = 1,ed = m,cnt = 0;\n    while(st <= n && ed >= 1)\n    {\n        if(st * ed > g)\n            ed--;\n        else\n        {\n            cnt += ed;\n            st++;\n        }\n    }\n    //cout << g << ' ' << cnt + 1 << endl;\n    return cnt >= k;\n}\n\nint main()\n{\n    cin >> n >> m >> k;\n    l = 1,r = n * m;\n    while(l < r)\n    {\n        mid = (l + r) / 2;\n        if(check(mid)) \n            r = mid;\n        else\n            l = mid + 1;\n    }\n    cout << l << endl;\n}\n```\n\n\n",
+        "postTime": 1534983508,
+        "uid": 78625,
+        "name": "pengrui",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF448D \u3010Multiplication Table\u3011"
+    },
+    {
+        "content": "\u849f\u84bb\u5199\u9898\u89e3\u5566\uff01\uff01\uff01\n\n\n\u8fd9\u662f\u672c\u849f\u84bb\u7b2c\u4e00\u6b21\u5199\u9898\u89e3(\u2299o\u2299)\u2026 \n\n\u8bdd\u4e0d\u591a\u8bf4\uff0c\u5148\u5f00\u59cb\u8bb2\u601d\u8def \u9996\u5148\uff0c\u6839\u636e\u6570\u636e\u5f88\u5927\uff0c\u6211\u7b2c\u4e00\u4e2a\u60f3\u5230\u7684\u601d\u8def\u5c31\u662f\uff1a\u4e8c\u5206\u3002 \u6211\u4eec\u53ef\u4ee5\u4e8c\u5206\u51fa\u7b54\u6848\uff0c\u6bcf\u6b21\u518d\u7528\u4e00\u4e2a\u51fd\u6570\u68c0\u67e5\u4e00\u4e0b\u7b54\u6848\u5bf9\u4e0d\u5bf9\u3002\n\n\u6709\u6b20\u7f3a\u7684\u5730\u65b9\u8fd8\u8bf7\u5927\u4f6c\u4eec\u591a\u591a\u6307\u6559\u54e6!(\u2299o\u2299)\u2026\n\n\u4ee3\u7801\u89c1\u4e0b->\n\n```\n#include<bits/stdc++.h>\ntypedef long long ll;\nusing namespace std;\nll n,m,k;\nbool check(long long x){\n\tll sum=0;\n\tfor(int i=1;i<=n;i++)sum+=min(m,x/i);\n\treturn sum<k;\n}\nint main(){\n\tcin>>n>>m>>k;\n\tll l=1,r=n*m+1;\n\twhile(l<r){\n\t\tll mid=(l+r)/2;\n\t\tif(check(mid))l=mid+1;\n\t\telse r=mid;\n\t}\n\tcout<<l<<endl;\n\treturn 0;\n}\n```\n",
+        "postTime": 1582018386,
+        "uid": 194902,
+        "name": "iiawaKL",
+        "ccfLevel": 0,
+        "title": "CF448D-solution"
+    }
+]

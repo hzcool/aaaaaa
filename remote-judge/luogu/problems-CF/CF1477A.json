@@ -1,0 +1,13 @@
+{
+    "description": "$ n $ distinct integers $ x_1,x_2,\\ldots,x_n $ are written on the board. Nezzar can perform the following operation multiple times.\n\n- Select two integers $ x,y $ (not necessarily distinct) on the board, and write down $ 2x-y $ . Note that you don't remove selected numbers.\n\nNow, Nezzar wonders if it is possible to have his favorite number $ k $ on the board after applying above operation multiple times.",
+    "inputFormat": "The first line contains a single integer $ t $ ( $ 1 \\le t \\le 10^5 $ ) \u2014 the number of test cases.\n\nThe first line of each test case contains two integers $ n,k $ ( $ 2 \\le n \\le 2 \\cdot 10^5 $ , $ -10^{18} \\le k \\le 10^{18} $ ).\n\nThe second line of each test case contains $ n $ distinct integers $ x_1,x_2,\\ldots,x_n $ ( $ -10^{18} \\le x_i \\le 10^{18} $ ).\n\nIt is guaranteed that the sum of $ n $ for all test cases does not exceed $ 2 \\cdot 10^5 $ .",
+    "outputFormat": "For each test case, print \"YES\" on a single line if it is possible to have $ k $ on the board. Otherwise, print \"NO\".\n\nYou can print each letter in any case (upper or lower).",
+    "samples": [
+        [
+            "6\n2 1\n1 2\n3 0\n2 3 7\n2 -1\n31415926 27182818\n2 1000000000000000000\n1 1000000000000000000\n2 -1000000000000000000\n-1000000000000000000 123\n6 80\n-5 -20 13 -14 -2 -11",
+            "YES\nYES\nNO\nYES\nYES\nNO"
+        ]
+    ],
+    "hint": "In the first test case, the number $ 1 $ is already on the board.\n\nIn the second test case, Nezzar could perform the following operations to write down $ k=0 $ on the board:\n\n- Select $ x=3 $ and $ y=2 $ and write down $ 4 $ on the board.\n- Select $ x=4 $ and $ y=7 $ and write down $ 1 $ on the board.\n- Select $ x=1 $ and $ y=2 $ and write down $ 0 $ on the board.\n\nIn the third test case, it is impossible to have the number $ k = -1 $ on the board.",
+    "translation": "\u539f\u672c\u9ed1\u677f\u4e0a\u5199\u7740 $n$ \u4e2a\u6570\uff0c\u5148\u5728\u6bcf\u6b21\u64cd\u4f5c\u53ef\u4ee5\u9009\u53d6\u5176\u4e2d\u4e24\u4e2a\u6570\uff08\u53ef\u4ee5\u76f8\u540c\uff09 $x,y$ ,\u5e76\u5199\u4e0a $2x-y$ \u800c\u9009\u53d6\u7684\u6570\u4e0d\u4f1a\u6d88\u5931\u3002\n\n\u95ee\u6700\u7ec8\u80fd\u5426\u5728\u9ed1\u677f\u4e0a\u5199\u4e0b $k$ \u3002"
+}

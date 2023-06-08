@@ -1,0 +1,17 @@
+{
+    "description": "Chiyuu has a bracket sequence $ ^\\dagger $ $ s $ of length $ n $ . Let $ k $ be the minimum number of characters that Chiyuu has to remove from $ s $ to make $ s $ balanced $ ^\\ddagger $ .\n\nNow, Koxia wants you to count the number of ways to remove $ k $ characters from $ s $ so that $ s $ becomes balanced, modulo $ 998\\,244\\,353 $ .\n\nNote that two ways of removing characters are considered distinct if and only if the set of indices removed is different.\n\n $ ^\\dagger $ A bracket sequence is a string containing only the characters \"(\" and \")\".\n\n $ ^\\ddagger $ A bracket sequence is called balanced if one can turn it into a valid math expression by adding characters + and 1. For example, sequences (())(), (), (()(())) and the empty string are balanced, while )(, ((), and (()))( are not.",
+    "inputFormat": "The first line of input contains a string $ s $ ( $ 1 \\leq |s| \\leq 5 \\cdot {10}^5 $ ) \u2014 the bracket sequence.\n\nIt is guaranteed that $ s $ only contains the characters \"(\" and \")\".",
+    "outputFormat": "Output a single integer \u2014 the number of ways to remove $ k $ characters from $ s $ so that $ s $ becomes balanced, modulo $ 998\\,244\\,353 $ .",
+    "samples": [
+        [
+            "())(()",
+            "4"
+        ],
+        [
+            "(",
+            "1"
+        ]
+    ],
+    "hint": "In the first test case, it can be proved that the minimum number of characters that Chiyuu has to remove is $ 2 $ . There are $ 4 $ ways to remove $ 2 $ characters to make $ s $ balanced as follows. Deleted characters are noted as red.\n\n- $ \\texttt{(} \\color{Red}{\\texttt{)}} \\texttt{)} \\color{Red}{\\texttt{(}} \\texttt{(} \\texttt{)} $ ,\n- $ \\texttt{(} \\texttt{)} \\color{Red}{\\texttt{)}} \\color{Red}{\\texttt{(}} \\texttt{(} \\texttt{)} $ ,\n- $ \\texttt{(} \\color{Red}{\\texttt{)}} \\texttt{)} \\texttt{(} \\color{Red}{\\texttt{(}} \\texttt{)} $ ,\n- $ \\texttt{(} \\texttt{)} \\color{Red}{\\texttt{)}} \\texttt{(} \\color{Red}{\\texttt{(}} \\texttt{)} $ .\n\nIn the second test case, the only way to make $ s $ balanced is by deleting the only character to get an empty bracket sequence, which is considered balanced.",
+    "translation": "\u7ed9\u5b9a\u4e00\u4e2a\u62ec\u53f7\u5e8f\u5217 $s$\uff0c\u4f60\u9700\u8981\u5220\u9664 **\u5c3d\u53ef\u80fd\u5c11** \u7684\u5b57\u7b26\u4f7f\u5f97\u64cd\u4f5c\u5b8c\u7684\u5e8f\u5217\u662f\u4e2a\u5408\u6cd5\u62ec\u53f7\u5e8f\u5217\u3002\n\n\u8bf7\u6c42\u51fa\u6240\u6709\u6700\u4f18\u5220\u9664\u65b9\u6848\u7684\u6570\u91cf\u3002$1\\le |s|\\le 5\\times 10^5$\uff0c\u7b54\u6848\u5bf9 998244353 \u53d6\u6a21\u3002\n\n\u4e24\u79cd\u65b9\u6848\u4e0d\u540c\u5f53\u4e14\u4ec5\u5f53\u5b58\u5728\u4e00\u4e2a\u4f4d\u7f6e\u5728\u4e24\u79cd\u65b9\u6848\u4e2d\u4e00\u4e2a\u88ab\u5220\u9664\u800c\u53e6\u4e00\u4e2a\u6ca1\u6709\u3002"
+}

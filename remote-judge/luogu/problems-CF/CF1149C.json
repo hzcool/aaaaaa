@@ -1,0 +1,17 @@
+{
+    "description": "Owl Pacino has always been into trees \u2014 unweighted rooted trees in particular. He loves determining the diameter of every tree he sees \u2014 that is, the maximum length of any simple path in the tree.\n\nOwl Pacino's owl friends decided to present him the Tree Generator\u2122 \u2014 a powerful machine creating rooted trees from their descriptions. An $ n $ -vertex rooted tree can be described by a bracket sequence of length $ 2(n - 1) $ in the following way: find any walk starting and finishing in the root that traverses each edge exactly twice \u2014 once down the tree, and later up the tree. Then follow the path and write down \"(\" (an opening parenthesis) if an edge is followed down the tree, and \")\" (a closing parenthesis) otherwise.\n\nThe following figure shows sample rooted trees and their descriptions:\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1149C/a9818ec6abf351ce6c6a0eaa115c2729c37577f5.png)Owl wrote down the description of an $ n $ -vertex rooted tree. Then, he rewrote the description $ q $ times. However, each time he wrote a new description, he picked two different characters in the description he wrote the last time, swapped them and wrote down the resulting string. He always made sure that each written string was the description of a rooted tree.\n\nPacino then used Tree Generator\u2122 for each description he wrote down. What is the diameter of each constructed tree?",
+    "inputFormat": "The first line of the input contains two integers $ n, q $ ( $ 3 \\le n \\le 100\\,000 $ , $ 1 \\le q \\le 100\\,000 $ ) \u2014 the number of vertices in the tree and the number of changes to the tree description. The following line contains a description of the initial tree \u2014 a string of length $ 2(n-1) $ consisting of opening and closing parentheses.\n\nEach of the following $ q $ lines describes a single change to the description and contains two space-separated integers $ a_i, b_i $ ( $ 2 \\leq a_i, b_i \\leq 2n-3 $ ) which identify the indices of two brackets to be swapped. You can assume that the description will change after each query, and that after each change a tree can be constructed from the description.",
+    "outputFormat": "Output $ q + 1 $ integers \u2014 the diameter of each constructed tree, in the order their descriptions have been written down.",
+    "samples": [
+        [
+            "5 5\n(((())))\n4 5\n3 4\n5 6\n3 6\n2 5\n",
+            "4\n3\n3\n2\n4\n4\n"
+        ],
+        [
+            "6 4\n(((())()))\n6 7\n5 4\n6 4\n7 4\n",
+            "4\n4\n4\n5\n3\n"
+        ]
+    ],
+    "hint": "The following figure shows each constructed tree and its description in the first example test:\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF1149C/285660de836d4f0c8cc3430ffe028ede0245c7ef.png)",
+    "translation": "$n$\u4e2a\u70b9\uff0c$m$\u4e2a\u8be2\u95ee\u3002\n\n\u7ed9\u4f60\u4e00\u68f5\u6811\u7684\u62ec\u53f7\u5e8f\u5217\uff0c\u8f93\u51fa\u5b83\u7684\u76f4\u5f84\u3002\n\n\u6709$m$\u6b21\u8be2\u95ee\uff0c\u6bcf\u6b21\u8be2\u95ee\u8868\u793a\u4ea4\u6362\u4e24\u4e2a\u62ec\u53f7\uff0c\u8f93\u51fa\u4ea4\u6362\u4e24\u4e2a\u62ec\u53f7\u540e\u7684\u76f4\u5f84\uff08\u4fdd\u8bc1\u6bcf\u6b21\u64cd\u4f5c\u540e\u90fd\u4e3a\u4e00\u68f5\u6811\uff09\n\n\u8f93\u51fa\u5171$m+1$\u884c\u3002\n\n$3 \\le n \\le 100\\,000,1 \\le q \\le 100\\,000$ "
+}

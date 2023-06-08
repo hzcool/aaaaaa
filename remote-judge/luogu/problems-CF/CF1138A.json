@@ -1,0 +1,21 @@
+{
+    "description": "Arkady invited Anna for a dinner to a sushi restaurant. The restaurant is a bit unusual: it offers $ n $ pieces of sushi aligned in a row, and a customer has to choose a continuous subsegment of these sushi to buy.\n\nThe pieces of sushi are of two types: either with tuna or with eel. Let's denote the type of the $ i $ -th from the left sushi as $ t_i $ , where $ t_i = 1 $ means it is with tuna, and $ t_i = 2 $ means it is with eel.\n\nArkady does not like tuna, Anna does not like eel. Arkady wants to choose such a continuous subsegment of sushi that it has equal number of sushi of each type and each half of the subsegment has only sushi of one type. For example, subsegment $ [2, 2, 2, 1, 1, 1] $ is valid, but subsegment $ [1, 2, 1, 2, 1, 2] $ is not, because both halves contain both types of sushi.\n\nFind the length of the longest continuous subsegment of sushi Arkady can buy.",
+    "inputFormat": "The first line contains a single integer $ n $ ( $ 2 \\le n \\le 100\\,000 $ ) \u2014 the number of pieces of sushi.\n\nThe second line contains $ n $ integers $ t_1 $ , $ t_2 $ , ..., $ t_n $ ( $ t_i = 1 $ , denoting a sushi with tuna or $ t_i = 2 $ , denoting a sushi with eel), representing the types of sushi from left to right.\n\nIt is guaranteed that there is at least one piece of sushi of each type. Note that it means that there is at least one valid continuous segment.",
+    "outputFormat": "Print a single integer \u2014 the maximum length of a valid continuous segment.",
+    "samples": [
+        [
+            "7\n2 2 2 1 1 2 2\n",
+            "4\n"
+        ],
+        [
+            "6\n1 2 1 2 1 2\n",
+            "2\n"
+        ],
+        [
+            "9\n2 2 1 1 1 2 2 2 2\n",
+            "6\n"
+        ]
+    ],
+    "hint": "In the first example Arkady can choose the subsegment $ [2, 2, 1, 1] $ or the subsegment $ [1, 1, 2, 2] $ with length $ 4 $ .\n\nIn the second example there is no way but to choose one of the subsegments $ [2, 1] $ or $ [1, 2] $ with length $ 2 $ .\n\nIn the third example Arkady's best choice is the subsegment $ [1, 1, 1, 2, 2, 2] $ .",
+    "translation": "**\u9898\u610f\uff1a** \u7ed9\u4e00\u957f\u5ea6\u4e3a$n$\u7684\u5e8f\u5217$\\{t\\}$\uff0c\u5e76\u4fdd\u8bc1$t_i=1$\u6216$2$.\r\n\r\n\u4e00\u5b50\u4e32\u5408\u6cd5\u5f53\u4e14\u4ec5\u5f53\uff1a\uff08\u8bbe\u5176\u957f\u5ea6\u4e3a$k$\uff0c$k$\u5076\u6570\uff09\r\n\r\n$[1,\\frac{k}{2}]$\u90e8\u5206\u7684\u5b50\u4e32\u53ea\u5305\u542b\u4e00\u79cd\u6570\uff0c$[\\frac{k}{2}+1,k]$\u90e8\u5206\u7684\u5b50\u4e32\u53ea\u5305\u542b\u4e00\u79cd\u6570\uff0c\u800c\u4e14\u4e24\u90e8\u5206\u6570\u4e0d\u540c\u3002\u4f8b\u5982$[2,2,2,1,1,1]$\u662f\u5408\u6cd5\u7684\uff0c$[1,2,1,2,1,2]$\u4e0d\u5408\u6cd5\u3002\r\n\r\n\u8bf7\u5bfb\u627e\u4e00\u6700\u957f\u7684\u5408\u6cd5\u5b50\u4e32\u3002\r\n\r\n**\u8f93\u5165\uff1a** \u7b2c\u4e00\u884c\u4e00\u6574\u6570$2\\le n\\le 100000$,\u7b2c\u4e8c\u884c$n$\u4e2a\u6574\u6570\u63cf\u8ff0\u5e8f\u5217\u3002\r\n\r\n**\u8f93\u51fa\uff1a** \u4e00\u4e2a\u6574\u6570\u8868\u793a\u6700\u957f\u5408\u6cd5\u5b50\u4e32\u957f\u5ea6\u3002\r\n\r\n**\u6837\u4f8b1\u89e3\u91ca\uff1a** $[2,2,1,1]$\u548c$[1,1,2,2]$\u90fd\u662f\u5408\u6cd5\u7684\u6700\u957f\u5b50\u4e32\u3002\u6545ans=4."
+}

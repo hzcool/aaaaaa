@@ -1,0 +1,21 @@
+{
+    "description": "Vasya had an array of $ n $ integers, each element of the array was from $ 1 $ to $ n $ . He chose $ m $ pairs of different positions and wrote them down to a sheet of paper. Then Vasya compared the elements at these positions, and wrote down the results of the comparisons to another sheet of paper. For each pair he wrote either \"greater\", \"less\", or \"equal\".\n\nAfter several years, he has found the first sheet of paper, but he couldn't find the second one. Also he doesn't remember the array he had. In particular, he doesn't remember if the array had equal elements. He has told this sad story to his informatics teacher Dr Helen.\n\nShe told him that it could be the case that even if Vasya finds his second sheet, he would still not be able to find out whether the array had two equal elements.\n\nNow Vasya wants to find two arrays of integers, each of length $ n $ . All elements of the first array must be distinct, and there must be two equal elements in the second array. For each pair of positions Vasya wrote at the first sheet of paper, the result of the comparison must be the same for the corresponding elements of the first array, and the corresponding elements of the second array.\n\nHelp Vasya find two such arrays of length $ n $ , or find out that there are no such arrays for his sets of pairs.",
+    "inputFormat": "The first line of input contains two integers $ n $ , $ m $ \u2014 the number of elements in the array and number of comparisons made by Vasya ( $ 1 \\le n \\le 100\\,000 $ , $ 0 \\le m \\le 100\\,000 $ ).\n\nEach of the following $ m $ lines contains two integers $ a_i $ , $ b_i $ \u2014 the positions of the $ i $ -th comparison ( $ 1 \\le a_i, b_i \\le n $ ; $ a_i \\ne b_i $ ). It's guaranteed that any unordered pair is given in the input at most once.",
+    "outputFormat": "The first line of output must contain \"YES\" if there exist two arrays, such that the results of comparisons would be the same, and all numbers in the first one are distinct, and the second one contains two equal numbers. Otherwise it must contain \"NO\".\n\nIf the arrays exist, the second line must contain the array of distinct integers, the third line must contain the array, that contains at least one pair of equal elements. Elements of the arrays must be integers from $ 1 $ to $ n $ .",
+    "samples": [
+        [
+            "1 0\n",
+            "NO\n"
+        ],
+        [
+            "3 1\n1 2\n",
+            "YES\n1 3 2 \n1 3 1 \n"
+        ],
+        [
+            "4 3\n1 2\n1 3\n2 4\n",
+            "YES\n1 3 4 2 \n1 3 4 1 \n"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u7ed9\u5b9a $n,m$\uff0c $m$ \u4e2a\u65e0\u5e8f\u5bf9 $(a,b)$ \u4ee3\u8868\u4f4d\u7f6e $a$ \u4e0a\u7684\u6570\u5b57\u548c\u4f4d\u7f6e $b$ \u4e0a\u7684\u6570\u5b57\u8fdb\u884c\u6bd4\u8f83\u3002\u4e14\u8fd9 $m$ \u4e2a\u65e0\u5e8f\u5bf9\u65e0\u91cd\u590d\u3002\r\n\r\n\u5bfb\u627e\u4e24\u4e2a\u5e8f\u5217\uff0c\u7b2c\u4e00\u4e2a\u5e8f\u5217\u7531 $1$\u223c$n$ \u7ec4\u6210\uff0c\u5143\u7d20\u4e92\u4e0d\u76f8\u540c\u4e14\u552f\u4e00\u3002\u7b2c\u4e8c\u4e2a\u5e8f\u5217\uff0c\u8981\u6ee1\u8db3\u548c\u7b2c\u4e00\u4e2a\u5e8f\u5217\u5bf9\u4e8e $m$ \u4e2a\u6bd4\u8f83\u7684\u7ed3\u679c\u76f8\u540c\uff0c\u4e14\u67d0\u4e00\u4e2a\u6570\u5b57\u8981\u51fa\u73b0\u4e24\u6b21\uff0c\u5176\u4f59\u5219\u7686\u5c5e\u4e8e $[1,n]$ \u4e14\u4e92\u4e0d\u76f8\u540c\u4e14\u552f\u4e00\u3002"
+}

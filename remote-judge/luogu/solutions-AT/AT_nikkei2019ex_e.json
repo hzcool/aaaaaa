@@ -1,0 +1,18 @@
+[
+    {
+        "content": "\u5565\u73a9\u610f\uff0c\u8bc8\u9a97\u9898\u8fd8\u80fd\u8fd9\u4e48\u8bc8\u9a97\u3002\n\n$f(X)$ \u5c31\u662f\u89d2\u8c37\u731c\u60f3\uff08\u51b0\u96f9\u731c\u60f3\uff09\u6240\u9700\u7684\u6b65\u6570\u3002\u6839\u636e\u89d2\u8c37\u731c\u60f3\uff0c\u5b9a\u4e49\u51fd\u6570 $g$\uff1a\n\n$$\ng(X)=\n\\begin{cases}\n\\frac{X}{2},&2\\mid X\\\\\n3X+1,&2\\nmid X\n\\end{cases}\n$$\n\n\u5219\u663e\u7136\u6709 $f(g(X))=f(X)-1$\u3002\u6837\u4f8b\u4e8c\u5df2\u7ecf\u7ed9\u51fa\u4e86 $f(X)=1000$ \u7684\u89e3 $X=1789997546303$\uff0c\u800c $P$ \u7684\u8303\u56f4\u662f $[0,1000]$\uff0c\u6839\u636e\u4e0a\u9762\u7684\u7ed3\u8bba\u9012\u63a8\u5373\u53ef\u6c42\u51fa $f(X)=P$ \u7684\u89e3\u3002\n\n```cpp\n//By: OIer rui_er\n#include <bits/stdc++.h>\n#define rep(x,y,z) for(ll x=(y);x<=(z);x++)\n#define per(x,y,z) for(ll x=(y);x>=(z);x--)\n#define debug(format...) fprintf(stderr, format)\n#define fileIO(s) do{freopen(s\".in\",\"r\",stdin);freopen(s\".out\",\"w\",stdout);}while(false)\nusing namespace std;\ntypedef long long ll;\n\nmt19937 rnd(std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::system_clock::now().time_since_epoch()).count());\nll randint(ll L, ll R) {\n    uniform_int_distribution<ll> dist(L, R);\n    return dist(rnd);\n}\n\ntemplate<typename T> void chkmin(T& x, T y) {if(x > y) x = y;}\ntemplate<typename T> void chkmax(T& x, T y) {if(x < y) x = y;}\n\nconst ll N = 1e3+5;\n\nll n, ans[N];\n\nint main() {\n    ans[1000] = 1789997546303LL;\n    per(i, 999, 0) {\n        if(ans[i+1] & 1) ans[i] = 3 * ans[i+1] + 1;\n        else ans[i] = ans[i+1] / 2;\n    }\n    scanf(\"%lld\", &n);\n    printf(\"%lld\\n\", ans[n]);\n    return 0;\n}\n```",
+        "postTime": 1685457495,
+        "uid": 122461,
+        "name": "rui_er",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 AT_nikkei2019ex_e\u3010\u30b3\u30e9\u30c3\u30c4\u554f\u984c\u3011"
+    },
+    {
+        "content": "# \u539f\u9898\u94fe\u63a5\n\n[AT_nikkei2019ex_e \u30b3\u30e9\u30c3\u30c4\u554f\u984c](https://www.luogu.com.cn/problem/AT_nikkei2019ex_e)\n\n# \u89e3\u9898\u601d\u8def\n\n1. \u8bbe $p=f(x)$\uff0c\u5219\u6709\uff1a\n\n$$p-1=\\begin{cases}f(3x+1)&x\\bmod2=1\\\\f(\\dfrac{x}{2})&\\text{else}\\end{cases}$$\n\n2. \u6d4b\u8bd5\u6837\u4f8b\u4e8c\u7ed9\u51fa\u4e86 $f(x)=1000$ \u7684\u89e3 $x=1789997546303$\uff0c\u6839\u636e\u4e0a\u8ff0\u7ed3\u8bba\u5f80\u524d\u9012\u63a8\u5373\u53ef\u3002\n\n# \u6ee1\u5206\u4ee3\u7801\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nlong long p;\nlong long a[1005]={0};\nint main()\n{\n\tcin>>p;\n\ta[1000]=1789997546303;\n\tfor(int i=999;i>=p;i--)\n\t{\n\t\tif(a[i+1]%2==1)\n\t\t{\n\t\t\ta[i]=a[i+1]*3+1;\n\t\t}\n\t\telse\n\t\t{\n\t\t\ta[i]=a[i+1]/2;\n\t\t}\n\t}\n\tcout<<a[p]<<endl;\n\treturn 0;\n}\n```",
+        "postTime": 1685538628,
+        "uid": 455474,
+        "name": "lailai0916",
+        "ccfLevel": 5,
+        "title": "AT_nikkei2019ex_e \u30b3\u30e9\u30c3\u30c4\u554f\u984c \u9898\u89e3"
+    }
+]

@@ -1,0 +1,66 @@
+[
+    {
+        "content": "~~\u6c34\u9898\u554a~~\uff01\u7ffb\u8bd1\u7ffb\u5f97\u5f88\u6e05\u695a\uff1a\u8f93\u5165n\u4e2a\u6570\uff0c\u82e5\u5176\u4e3a\u5076\u6570\u5219\u51cf1\uff0c\u5426\u5219\u4e0d\u53d8\u3002\u6309\u7167\u4ed6\u8bf4\u7684\u505a\uff0c\u6bcf\u8f93\u5165\u4e00\u4e2a\u5c31\u5224\u65ad\u5e76\u8f93\u51fa\u3002\u4e00\u4e2a\u53d8\u91cf\u5c31\u591f\u4e86\u3002\n\n\u770b\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>//\u4e07\u80fd\u5934\u6587\u4ef6\nusing namespace std;\nint a;\nint main()\n{\n\tcin>>a;\n\twhile(cin>>a)//while\u8f93\u5165\u6700\u540e\u522b\u5fd8c^z\n\t{\n\t\tif(a%2==0)//\u5982\u679c\u662f\u5076\u6570\n\t\t\tcout<<a-1<<\" \";//\u5c31\u51cf\u4e00\n\t\telse//\u5982\u679c\u662f\u5947\u6570\n\t\t\tcout<<a<<\" \";//\u5c31\u4e0d\u53d8\n\t}\n\tcout<<endl;\n\treturn 0;//\u7ed3\u675f\n}\n```\n\n\u6309\u7167\u9898\u76ee\u8981\u6c42\u505a\u5c31A\u4e86\uff01",
+        "postTime": 1570951582,
+        "uid": 163342,
+        "name": "piggymichael",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF1006A \u3010Adjacent Replacements\u3011"
+    },
+    {
+        "content": "\u6b63\u5982\u9898\u76ee\u6240\u8a00\uff1a\u8f93\u5165n\u4e2a\u6570\uff0c\u82e5\u5176\u4e3a\u5076\u6570\u5219\u51cf1\uff0c\u5426\u5219\u4e0d\u53d8\u3002\n```\n#include <bits/stdc++.h>\nusing namespace std;\nint main()\n{\n    int n,q;\n    cin>>n;\n    for(int i=1;i<=n;i++)\n    {\n        cin>>q;\n        if(q&1) cout<<q<<\" \";\n        else cout<<q-1<<\" \";\n    }\n    return 0;\n}\n```",
+        "postTime": 1544317802,
+        "uid": 132923,
+        "name": "Reminisce",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1006A \u3010Adjacent Replacements\u3011"
+    },
+    {
+        "content": "### \u6c34\uff01\n\n### \u7b2c\u4e00\u6b65 \u9898\u76ee\u89e3\u6790\n\n\u9898\u76ee\u7684\u610f\u601d\u662f\u5206\u4e3a\u4e24\u4e2a\u60c5\u51b5\uff1a\uff08\u5047\u8bbe $k$ \u4e3a $a_{i}$\uff09\n\n| $k$ | \u8f93\u51fa |\n| :----------: | :----------: |\n| \u5355\u6570 | $k$ |\n| \u53cc\u6570 | $k-1$ |\n\n\u90a3\u4e48\u5c31\u5f88\u5bb9\u6613\u4e86\u3002\u56e0\u4e3a\u6211\u4eec\u5df2\u7ecf\u628a\u9898\u76ee\u91cd\u70b9\u89e3\u6790\u5b8c\u6bd5\u4e86\u3002\n\n\u4e0b\u9762\u6838\u5fc3\uff1a\n\n```\nint n;\ncin>>n;\nfor(int i=1;i<=n;i++){\n\tint k;\n   cin>>k;\n\tif(k&1) printf(\"%d \",k);\n   else printf(\"%d \",k-1);\n}\n```\n\n\u518d\u538b\u884c\u53ef\u4ee5\u538b\u4e3a\uff1a\n```\nint n=read();//\u4e0b\u9762\u8bb2\u89e3\nfor(int i=1;i<=n;i++){\n\tint k=read();\n\tprintf(\"%d \",(k&1)?k:k-1);//\u4e09\u76ee\u8fd0\u7b97\u5728\u4e0b\u9762\n\uff5d\n```\n\nk&1\u8bf7\u79fb\u6b65[\u8fd9\u91cc](https://blog.csdn.net/qq_42391248/article/details/84790152)\n\n## \u7b2c\u4e8c\u6b65 \u51fd\u6570\u89e3\u8bfb\n\n##### \u5148\u4ecb\u7ecd\u4e00\u4e2a\u4e09\u76ee\u8fd0\u7b97\u7b26\uff1a\n\n\u683c\u5f0f\u4e3a\n```\n\u5224\u65ad\u6761\u4ef6\uff1f\u6267\u884c1\uff1a\u6267\u884c2\n```\n\u5f53\u5224\u65ad\u6761\u4ef6\u6210\u7acb\u65f6\u4f1a\u6267\u884c \u6267\u884c\u4e00\uff0c\u5426\u5219\u6267\u884c \u6267\u884c2\u3002\n\n##### \u4e0b\u9762\u4ecb\u7ecd\u4e00\u4e2a\u5feb\u901f\u8bfb\u5165\uff1a\n\n\u5bf9\u6bd4\u6a21\u5f0f\uff1a\n\n1\u3001\u666e\u901a\u8bfb\u5165\uff1a\n\n```\nint a;\ncin>>a;\n```\n\u8fd9\u6837\u7684\u8bfb\u5165\u7406\u89e3\u7b80\u5355\uff0c\u9002\u5408\u521d\u5b66\u8005\uff0c\u4f46\u662f\u975e\u5e38\u6162\u3002\n\n2\u3001scanf\n\n```\nint a;\nscanf(\"%d\",&a);\n```\n\u8fd9\u6837\u7684\u8bfb\u5165\u5c31\u6bd4\u8f83\u5feb\u4e86\uff0c\u4e5f\u8f83\u597d\u7406\u89e3\uff0c\u5728\u9898\u76ee\u4e0d\u5361\u65f6\u95f4\u7684\u60c5\u51b5\u4e0b\u53ef\u4ee5\u901a\u8fc7\u5927\u90e8\u5206\u9898\u3002\n\n3\u3001\u521d\u7ea7\u5feb\u8bfb\n```\ninline int read(){\n    int x=0,f=1;\n    char ch=getchar();\n    while(ch<'0'||ch>'9'){\n        if(ch=='-')\n            f=-1;\n        ch=getchar();\n    }\n    while(ch>='0'&&ch<='9'){\n        x=x*10+ch-'0';\n        ch=getchar();\n    }\n    return x*f;\n}\n```\n\n\u8fd9\u4e2a\u5df2\u7ecf\u5f88\u5feb\u4e86\uff0c\u4f46\u662f\u8fd8\u53ef\u4ee5\u66f4\u5feb\uff1a\n\n4\u3001\u5feb\u901f\u8bfb\u5165\uff1a\n```\ninline int read(){\n    int x=0,f=1;\n    char ch=getchar();\n    while(ch<'0'||ch>'9'){\n        if(ch=='-')\n            f=-1;\n        ch=getchar();\n    }\n    while(ch>='0'&&ch<='9'){\n        x=(x<<1)+(x<<3)+(ch^48);//\u8fd9\u91cc\u662f\u91cd\u70b9\n        ch=getchar();\n    }\n    return x*f;\n}\n```\n\n`x<<1`\u5c31\u662f2\u8fdb\u5236\u7684 $x$ \u5411\u5de6\u79fb\u52a8\u4e00\u4f4d\uff0c\u6b63\u597d\u662f x $\\times$ 2\u3002\u800c`x<<k`\u5c31\u662f2\u8fdb\u5236\u7684 $x$ \u5411\u5de6\u79fb\u52a8 $k$\u4f4d\uff0c\u6b63\u597d\u662f x $\\times 2 ^ k$\u3002\n\n\u6700\u540e\u653e\u4e0a\u4ee3\u7801\uff1a\n\n\n------------\n```\n#include<bits/stdc++.h>//\u4e07\u80fd\u5934\nusing namespace std;\ninline int read(){//inline\u52a0\u901f\n\tint ans=0,flag=1;\n\tchar ch=getchar();\n\twhile((ch>'9'||ch<'0')&&ch!='-') ch=getchar();\n\tif(ch=='-') flag=-1,ch=getchar();\n\twhile(ch>='0'&&ch<='9'){\n\t\tans=(ans<<1)+(ans<<3)+(ch^'0');\n\t\tch=getchar();\n\t}\n\treturn ans*flag;\n}\nint n;\nint main(){\n\tn=read();\n\tfor(int i=1;i<=n;i++){\n\t\tint k=read();\n\t\tprintf(\"%d \",(k&1)?k:k-1);//\u4e09\u76ee\n\t} \n\treturn 0;\n}\n```\n\u89c9\u5f97\u6709\u5e2e\u52a9\u7684\uff0c\u522b\u5fd8\u4e86\u70b9\u8d5e\u8c22\u8c22\u554a\uff01\n\n[\u6211\u7684\u4e3b\u9875](https://www.luogu.com.cn/user/172370)\u548c[\u535a\u5ba2](https://www.luogu.com.cn/blog/fzj2007/)\n",
+        "postTime": 1582699950,
+        "uid": 172370,
+        "name": "fzj2007",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1006A \u3010Adjacent Replacements\u3011"
+    },
+    {
+        "content": "\u849f\u84bb\u53d1\u73b0\u8fd9\u9053\u7092\u9e21\u5927\u6c34\u9898\u5c45\u7136\u6ca1\u6709P\u515a\u7684\u9898\u89e3\n\n#### \u4f5c\u4e3aP\u515a\u7684\u84bb\u4e2d\u84bb\u5c31\u6765\u53d1\u4e00\u7bc7\u5427\n\n\u4ee3\u7801\uff1a\n ```pascal\nvar\n  i,n:longint;\n  a:array[1..1001] of longint;\nbegin\n read(n);\n  for i:=1 to n do\n   begin\n    read(a[i]); //\u8bdd\u8bf4\u8fd9\u6837\u8bfb\u5165\u6211\u4e3a\u4ec0\u4e48\u8fd8\u8981\u5f00\u6570\u7ec4qwq\n     if a[i] mod 2=0 then writeln(a[i]-1)\n      else writeln(a[i]); //\u5982\u679c\u662f\u5076\u6570\u5c31\u8f93\u51fa\u6b21\u5076\u6570\u51cf1\uff0c\u4e0d\u7136\u76f4\u63a5\u8f93\u51fa\u6b64\u6570\n   end;\nend.\n```\n\u6b64\u4e3a\u4f18\u5316\u8fc7\u7684\u4ee3\u7801\uff1a\n```pascal\nvar\n  i,n,t:longint;\nbegin\n read(n);\n  for i:=1 to n do\n   begin\n    read(t);\n     if odd(t) then writeln(t)\n      else writeln(t-1);//\u6ce8\u610f\uff0codd\u662f\u5224\u65ad\u5947\u6570\uff0c\u6240\u4ee5\u548c\u4e0a\u9762\u53cd\u4e00\u53cd\n   end;\nend.\n```\n",
+        "postTime": 1558861877,
+        "uid": 108361,
+        "name": "TCZN",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1006A \u3010Adjacent Replacements\u3011"
+    },
+    {
+        "content": "```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n  int n,a[10005];//n\u8868\u793a\u6709\u51e0\u4e2a\u6570\uff0ca_i\u6765\u5b58\u50a8\u6bcf\u4e00\u4e2a\u6570\n  cin>>n;\n  for(int i=1;i<=n;i++)\n  cin>>a[i];//\u6b63\u5e38\u4e0d\u8fc7\u7684\u8bfb\u5165\n  for(int i=1;i<=n;i++)\n  {\n     if(a[i]%2==0)//\u5224\u65ad\u662f\u5426\u662f\u5076\u6570\n\t a[i]=a[i]-1;//\u6309\u7167\u9898\u610f\u51cf\u53bb1\n  }\n  for(int i=1;i<=n;i++)//\u7528\u4e00\u4e2a\u5faa\u73af\u628a\u6bcf\u4e00\u4e2a\u503c\u90fd\u8f93\u51fa\u6765\n  cout<<a[i]<<\" \";\n  return 0;\n}\n```",
+        "postTime": 1547905543,
+        "uid": 172612,
+        "name": "\u7c73\u5947\u5947\u7c73",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1006A \u3010Adjacent Replacements\u3011"
+    },
+    {
+        "content": "CF 1006A Adjacent Replacements \u9898\u89e3\uff1a\n\n\u672c\u9898\u4e3a\u4e00\u9053\u6570\u8bba\u9898\uff0c\u5982\u679c\u8fd9\u4e2a\u6570\u662f\u5947\u6570\uff0c\u53ef\u5c06\u5176\u8868\u793a\u4e3a2k+1(k\u4e3a\u6574\u6570)\uff0c\u5219\u57282k+1\u65f6\u53d8\u4e3a2k+2\uff0c\u57282k+2\u65f6\u53c8\u53d8\u56de2k+1\uff0c\u6545\u5947\u6570\u7684\u503c\u4e0d\u53d8\uff1b\u5982\u679c\u8fd9\u4e2a\u6570\u662f\u5076\u6570\uff0c\u53ef\u5c06\u5176\u8868\u793a\u4e3a2k(k\u4e3a\u6574\u6570)\uff0c\u5219\u57282k\u65f6\u53d8\u4e3a2k-1\uff0c\u6545\u5076\u6570\u7684\u503c\u51cf1.\n\u8fd9\u6837\u672c\u9898\u5c31\u89e3\u51b3\u4e86\uff0c\u4e0b\u9762\u8d34\u4ee3\u7801\uff1a\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint a[1005], n;\nint main() {\n    scanf(\"%d\", &n);\n    for (int i = 1; i <= n; i++)\n        scanf(\"%d\", &a[i]);\n    for (int i = 1; i <= n; i++)\n        if (a[i] % 2 == 0)\n            a[i]--;\n    for (int i = 1; i < n; i++)\n        printf(\"%d \", a[i]);\n    printf(\"%d\\n\", a[n]);\n    return 0;\n}\n```",
+        "postTime": 1531809953,
+        "uid": 112381,
+        "name": "wlzhouzhuan",
+        "ccfLevel": 9,
+        "title": "\u9898\u89e3 CF1006A \u3010Adjacent Replacements\u3011"
+    },
+    {
+        "content": "#   CF1006A Adjacent Replacements \u9898\u89e3\n\n~~\u592a\u6c34\u4e86~~\n\n\u6211\u4eec\u53ef\u4ee5\u8fb9\u8f93\u5165\u8fb9\u8f93\u51fa~\n\n```cpp\n#include<bits/stdc++.h>//\u4e07\u80fd\u5934\u6587\u4ef6\nusing namespace std;//using\u4e0d\u591a\u8bf4\nint main()\n{\n    int n;//\u8f93\u5165\u6709\u591a\u5c11\u4e2a\u6570\u5b57\n    cin>>n;//\u540c\u4e0a\n    for(int i=1;i<=n;i++)//\u5faa\u73af\u8f93\u5165\n    {\n        int a;//\u5b9a\u4e49\n        cin>>a;//\u8f93\u5165\n        if(a%2==0) cout<<a-1<<' ';//\u5982\u679c\u662f\u5076\u6570\uff0c\u8f93\u51fa\u7684\u65f6\u5019-1\n        else cout<<a<<' ';//\u5176\u4ed6\u65f6\u5019\u76f4\u63a5\u8f93\u51fa\n    }\n    return 0;//\u534e\u4e3d\u7ed3\u675f\n}\n```\n\n\u5b66\u4f1a\u4e86\u5417\uff1f\n\n[Thomas_ \u7684\u535a\u5ba2](https://zyy-txws-noip.blog.luogu.org/)\n\n\u539f\u521b\uff0c\u4fb5\u6743\u5fc5\u7a76",
+        "postTime": 1580392956,
+        "uid": 250679,
+        "name": "Thomas_",
+        "ccfLevel": 0,
+        "title": "CF1006A Adjacent Replacements \u9898\u89e3"
+    },
+    {
+        "content": "```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n\tint n;\n\tcin>>n;\n\t\n\tint a[n+1];\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tcin>>a[i];\n\t\tif(a[i]%2==0)\n\t\t{\n\t\t\ta[i]-=1;//\u5947\u6570\u4e0d\u53d8\uff0c\u5076\u6570\u52a0\u4e00\n\t\t}\n\t}\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tcout<<a[i]<<' ';\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1531805367,
+        "uid": 56043,
+        "name": "MKLK",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF1006A \u3010Adjacent Replacements\u3011"
+    }
+]

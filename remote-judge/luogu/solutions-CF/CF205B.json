@@ -1,0 +1,90 @@
+[
+    {
+        "content": "~~\u8fd9\u662f\u4e00\u9053\u5b66\u4e86\u5faa\u73af\u7684\u5c31\u4f1a\u505a\u7684\u6c34\u9898~~\n# \u601d\u8def\n1. \u8f93\u5165\n2. \u5224\u65ad\u524d\u4e00\u4e2a\u6570\u662f\u5426\u6bd4\u5f53\u524d\u7684\u6570\u5927\n3. \u662f\uff1a\u52a0\uff08\u524d\u4e00\u4e2a\u6570 - \u540e\u4e00\u4e2a\u6570\uff09\n# code\n         \n```cpp\n#include <bits/stdc++.h>\n\nusing namespace std;\n\nlong long n,ans;//\u5341\u5e74oi\u4e00\u573a\u7a7a\uff0c\u4e0d\u5f00long long\u89c1\u7956\u5b97\nlong long arr[200005];\n\nint main(){\n\tcin >> n;//\u8f93\u5165\n\tfor (long long i = 1;i <= n;i++) cin >> arr[i];//\u8f93\u5165\n\tfor (long long i = 2;i <= n;i++){//\u4ece2\u5f00\u59cb\u5faa\u73af\uff0c\n\t\tif (arr[i - 1] > arr[i]){//\u5224\u65ad\n  \t\t\tans += arr[i - 1] - arr[i];//\u52a0\n  \t\t}\n\t}\n\tcout << ans;//\u8f93\u51fa\n\treturn 0;//\u7ed3\u675f\n}\n```",
+        "postTime": 1643351866,
+        "uid": 383395,
+        "name": "WaterSun",
+        "ccfLevel": 5,
+        "title": "[\u9898\u89e3]CF205B Little Elephant and Sorting"
+    },
+    {
+        "content": "\u9898\u76ee\u5927\u610f\uff1a\n\n\u7ed9\u5b9a\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u6570\u7ec4\uff0c\u6bcf\u6b21\u53ef\u4ee5\u4efb\u9009 $l$ \u548c $r$ \uff0c\u5c06 $l$ \uff0c $r$ \u533a\u95f4\u6bcf\u4e2a\u6570\n\n\u52a0\u4e00\u3002\u95ee\u6700\u5c11\u64cd\u4f5c\u51e0\u6b21\u624d\u80fd\u4f7f\u5e8f\u5217\u53d8\u4e3a\u4e0d\u964d\u5e8f\u3002\n\n\u9898\u89e3\uff1a\n\n\u663e\u7136\u5bf9\u4e8e\u8fde\u7eed\u4e24\u4e2a\u6570 $x$ \u548c $y$ \uff0c $x$ \u5728\u524d \uff0c $y$ \u5728\u540e\uff0c \u53ea\u6709 $x$ \u5927\u4e8e $y$ \uff0c\u6211\u4eec\n\n\u624d\u8fdb\u884c\u64cd\u4f5c\uff0c\u64cd\u4f5c\u6b21\u6570\u4e3a $x$ \u548c $y$ \u7684\u5dee\u503c\u3002\u56e0\u6b64\u6211\u4eec\u4ece\u524d\u5f80\u540e\u626b\u63cf\u6574\u4e2a\u5e8f\u5217\uff0c\n\n\u5bf9\u6bcf\u4e2a\u6ee1\u8db3\u4e0a\u8ff0\u8981\u6c42\u7684\u6570\u8fdb\u884c\u64cd\u4f5c\u3002\u5c06\u5dee\u503c\u7d2f\u52a0\u5373\u4e3a\u7b54\u6848\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n#define int long long\nint n,m,k,p,q,ans,sum,tot,cnt,a[100002];\nsigned main()\n{\n\tcin>>n;\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tcin>>a[i];\n\t}\n\tfor(int i=1;i<=n-1;i++)\n\t{\n\t\tif(a[i]>a[i+1])\n\t\t{\n\t\t\tans+=a[i]-a[i+1];\n\t\t}\n\t}\n\tcout<<ans;\n\treturn 0;\n}\n```\n",
+        "postTime": 1617792369,
+        "uid": 503899,
+        "name": "_byta",
+        "ccfLevel": 0,
+        "title": "CF205B Little Elephant and Sorting"
+    },
+    {
+        "content": "\u6211\u4e5f\u4e0d\u77e5\u9053\u600e\u4e48\uff0c\u83ab\u540d\u5176\u5999\u5c31 AC \u4e86\u3002\n### \u9898\u610f\uff1a\n\u7ed9\u4f60 $n$ \u4e2a\u6570\uff0c\u5b9a\u4e49\u4e00\u6b21\u64cd\u4f5c\uff1a\u4efb\u9009\u4e00\u4e2a\u533a\u95f4 $+1$ \uff0c\u76ee\u7684\u662f\u8ba9\u540e\u4e00\u4e2a\u6570\u4e0d\u80fd\u5c0f\u4e8e\u524d\u4e00\u4e2a\u6570\uff08\u4e0d\u4e0b\u964d\u5b50\u5e8f\u5217\uff09\uff0c\u7136\u540e\u6700\u5c0f\u64cd\u4f5c\u6570\u662f\u591a\u5c11\uff1f\n### \u601d\u8def\uff1a\n\u770b\u6837\u4f8b\uff1a\n\u201c3 1 2 3\u201d \u4e0e \u201c3 3 2 1\u201d\u53ef\u4ee5\u53d1\u73b0\u53ea\u8981 $a_i$ \u5c0f\u4e8e $a_{i-1}$ \u7d2f\u52a0\u5668\u5c31\u52a0\u4ed6\u4eec\u7684\u5dee\uff08\u540e\u9762\u6837\u4f8b\u53ef\u4ee5\u7528\u6765\u8bc1\u660e\uff09\u3002\n\n## \u53ef\u5f97\u4ee3\u7801\uff1a\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint a[100001];\nlong long ans; \nint main(){\n\tint n;\n\tcin>>n;\n\tfor(int i=1;i<=n;i++){\n\t\tcin>>a[i];//\u8f93\u5165n\u4e2a\u6570\n\t}\n\tfor(int i=2;i<=n;i++){//\u4ece2\u5f00\u59cb\u4e0d\u7136\u8d8a\u754c\n\t\tif(a[i]<a[i-1]){\n\t\t\tans+=a[i-1]-a[i];//\u52a0\u4e0a\n\t\t}\n\t}\n\tcout<<ans<<\"\\n\";//\"\\n\"\u53ef\u4ee5\u5728\u53cc\u5f15\u53f7\u4e2d\n\treturn 0;\n}\n```\n\n",
+        "postTime": 1641099147,
+        "uid": 508593,
+        "name": "DLDZD",
+        "ccfLevel": 0,
+        "title": "CF205B"
+    },
+    {
+        "content": "\u4e00\u9053\u6c34\u9898\n\n\u601d\u8def:\n\n\u82e5\u4e00\u4e2a\u6570\u6bd4\u524d\u4e00\u4e2a\u6570\u5c0f,\u8ba1\u6570\u5668\u5c31\u52a0\u4e0a\u5b83\u4eec\u4e24\u4e2a\u7684\u5dee\n\n\u7136\u540e\u5c31\u505a\u5b8c\u4e86(~~\u662f\u4e0d\u662f\u5f88\u7b80\u5355~~)\n\n\u6ce8\u610f\u8981\u5f00long long\n\n\u4e0a\u4ee3\u7801\n```cpp\n#include<iostream>\nusing namespace std;\nlong long a[100001];\nint main()\n{\n    long long n,i,s=0;\n    cin>>n;\n    for(i=1;i<=n;i++)\n        cin>>a[i];\n    for(i=2;i<=n;i++)\n        if(a[i]<a[i-1])//\u5982\u679c\u6bd4\u524d\u4e00\u4e2a\u5c0f\n            s+=a[i-1]-a[i];//\u52a0\u4e0a\u4e24\u6570\u4e4b\u5dee\n    cout<<s;//\u8f93\u51fa\n    return 0;//\u5b8c\u7f8e\u7ed3\u675f\n}\n```\n# \u8bf7\u52ff\u6284\u88ad",
+        "postTime": 1563549011,
+        "uid": 54922,
+        "name": "codemap",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF205B \u3010Little Elephant and Sorting\u3011"
+    },
+    {
+        "content": "**\u8fd9\u662f\u4e00\u9053\u5f88\u7b80\u5355\u7684\u66b4\u529b\u679a\u4e3e**\n\n### \u601d\u8def\n\n\u679a\u4e3e\u6bcf\u4e24\u4e2a\u6570\uff0c\u82e5\u4e00\u4e2a\u6570\u6bd4\u524d\u4e00\u4e2a\u6570\u5c0f,\u8ba1\u6570\u5668\u5c31\u52a0\u4e0a\u5b83\u4eec\u4e24\u4e2a\u7684\u5dee\u5373\u53ef\u3002\n\nTip : \u5341\u5e74 OI \u4e00\u573a\u7a7a \uff0c \u4e0d\u5f00 LongLong \u89c1\u7956\u5b97 !\n\n### \u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n#define int long long\nint n,ans,a[100005];\nsigned main(){\n    cin>>n;\n    for(int i=1;i<=n;i++) cin>>a[i];\n    for(int i=1;i<=n-1;i++)\n        if(a[i]>a[i+1]) ans+=a[i]-a[i+1];\n    cout<<ans;\n    return 0;\n}\n```\n\n\n",
+        "postTime": 1643263771,
+        "uid": 507201,
+        "name": "\u8fdd\u89c4\u7528\u6237\u540dgAGt8$%z",
+        "ccfLevel": 0,
+        "title": "CF205B \u9898\u89e3"
+    },
+    {
+        "content": "### 1.\u9898\u76ee\u601d\u8def\n\n\u66b4\u529b\u67e5\u627e\u4e00\u904d $a$ \u6570\u7ec4\uff0c\u5bfb\u627e $a_i > a_{i+1} $ \u7684\u60c5\u51b5\uff0c\u6b64\u65f6\uff0c\u8981\u6ee1\u8db3\u4e0d\u964d\u5e8f\u5217\u7684\u8981\u6c42\uff0c\u5fc5\u987b\u5c06 $a_{i+1}$ \u540e\u9762\u7684\u6240\u6709\u6570\u52a0\u4e0a $a_i-a_{i+1}+1$ \uff0c\u8fd9\u6837\u624d\u80fd\u6ee1\u8db3\u4e0d\u964d\u5e8f\u5217\u4e14\u5dee\u503c\u4e0d\u53d8\u3002\u4fdd\u8bc1\u6b64\u65b9\u6cd5\u4e3a\u6700\u4f18\u89e3\u3002\n\n### 2.\u9898\u76ee\u4ee3\u7801\n\n```c++\n#include<bits/stdc++.h>\nusing namespace std;\n#define int long long\nconst int N = 1e5+5; \nint n,ans,a[N];\nsigned main(){\n    cin>>n;\n    for(int i=1;i<=n;i++)\n        cin>>a[i];\n    for(int i=1;i<=n-1;i++)\n        if(a[i]>a[i+1])\n            ans+=a[i]-a[i+1];\n    cout<<ans;\n    return 0;\n}\n```",
+        "postTime": 1643263457,
+        "uid": 229366,
+        "name": "Fast_IO",
+        "ccfLevel": 4,
+        "title": "CF205B"
+    },
+    {
+        "content": "## \u9898\u610f\n\n\u7ed9\u51fa\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u6570\u7ec4 $a$\uff0c\u5e76\u5b9a\u4e49\u4e00\u6b21\u64cd\u4f5c\u4e3a\uff1a\u4efb\u9009\u4ece $l$ \u5230 $r$ \u7684\u4e00\u4e2a\u533a\u95f4\uff0c\u8ba9\u533a\u95f4\u5185\uff08\u4e5f\u5c31\u662f $a_l$ \u5230 $a_r$\uff09\u7684\u6bcf\u4e00\u4e2a\u6570 $+1$\u3002\u95ee**\u6700\u5c11**\u51e0\u6b21\u64cd\u4f5c\u80fd\u8ba9\u540e\u4e00\u4e2a\u6570\uff08$a_i$\uff09\u4e0d\u5c0f\u4e8e\u524d\u4e00\u4e2a\u6570\uff08$a_{i-1}$\uff09\u3002\n\n## \u601d\u8def\n\n\u6211\u4eec\u628a\u6570\u7ec4 $a$ \u4ece\u524d\u5f80\u540e\u626b\u63cf\u4e00\u904d\u3002\u82e5 $a_{i-1} < a_i$\uff0c\u53ea\u9700\u8ba9\u7d2f\u52a0\u5668\u52a0\u4e0a\u524d\u540e\u4e24\u9879\u7684\u5dee\uff08$ a_{i-1} - a_i$\uff09\u5373\u53ef\u3002\u56e0\u4e3a\u5f53 $a_i$ \u8fdb\u884c\u591a\u6b21\u201c$+1$\u201d\u540e\uff0c$a_i$ \u540e\u9762\u7684\u6570\u90fd\u8981\u8fdb\u884c\u76f8\u540c\u6b21\u6570\u7684\u201c$+1$\u201d\uff0c\u800c\u540e\u9762\u7684\u6570\u4efb\u610f\u524d\u540e\u4e24\u9879\u7684\u5dee\u90fd\u4e0d\u4f1a\u53d1\u751f\u6539\u53d8\uff0c\u4e5f\u5c31\u662f\u201c**\u540c\u589e\u540c\u51cf\u5dee\u4e0d\u53d8\u539f\u7406**\u201d\u3002\n\n## $AC\\ Code$\n\n### \u6ce8\u610f\n\n- $a_i$ \u6700\u5927\u4e3a $10^9$\uff0c\u7528 int \u5bb9\u6613\u5b58\u4e0d\u4e0b\uff0c\u6240\u4ee5\u8981\u5f00 long long\u3002\n\n- \u626b\u63cf\u6570\u7ec4\u5e94\u8be5\u4ece\u7b2c\u4e8c\u4e2a\u6570\u5f00\u59cb\n\n```cpp\n#include<iostream>\n#define int long long//\u4e0d\u5f00long long\u89c1\u7956\u5b97\nusing namespace std;\nint n,a[100005],ans=0; \nsigned main(){\n    cin>>n;//\u8f93\u5165n\n    for(int i=1;i<=n;i++)cin>>a[i];//\u8f93\u5165\u6570\u7ec4\n    for(int i=2;i<=n;i++)//\u4ece\u7b2c\u4e8c\u4e2a\u6570\u5f00\u59cb\n        if(a[i]<a[i-1])//\u5224\u65ad\u662f\u5426\u5c0f\u4e8e\u524d\u4e00\u4e2a\u6570\n            ans=ans+a[i-1]-a[i];//\u662f\u5219\u7d2f\u52a0\u4e24\u4e2a\u6570\u7684\u5dee\n    cout<<ans;\n    return 0;\n}\n\n```\n",
+        "postTime": 1643253082,
+        "uid": 572482,
+        "name": "__Interstellar__",
+        "ccfLevel": 4,
+        "title": "CF205B \u9898\u89e3"
+    },
+    {
+        "content": "### [\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/CF205B)\n\n------------\n### \u9898\u610f\uff1a\n\u7ed9\u5b9a $n$ \u4e2a\u6570\uff0c\u6bcf\u6b21\u4efb\u9009\u4e00\u4e2a\u533a\u95f4\uff0c\u5c06\u533a\u95f4\u5185\u7684\u6bcf\u4e2a\u6570 $+1$\uff0c\u95ee\u6700\u5c11\u64cd\u4f5c\u51e0\u6b21\u624d\u80fd\u4f7f\u5f97\u539f\u5e8f\u5217\u53d8\u6210\u4e00\u4e2a\u4e0d\u4e0b\u964d\u5b50\u5e8f\u5217\uff1f\n\n------------\n### \u601d\u8def\uff1a\n\u4e0d\u4e0b\u964d\u5b50\u5e8f\u5217\u5c31\u662f\u5e8f\u5217\u4e2d\u540e\u4e00\u4e2a\u6570\u4e0d\u80fd\u5c0f\u4e8e\u524d\u4e00\u4e2a\u6570\u3002\n\n\u53ef\u4ee5\u4ece\u524d\u5f80\u540e\u904d\u5386\u6574\u4e2a\u5e8f\u5217\uff0c\u5982\u679c\u524d\u4e00\u4e2a\u6570\u5927\u4e8e\u540e\u4e00\u4e2a\u6570\uff0c\u5219\u64cd\u4f5c\u6b21\u6570\u5c31\u662f**\u4e24\u4e2a\u6570\u7684\u5dee\u503c**\u3002\u6700\u540e\u628a\u6240\u6709\u64cd\u4f5c\u6b21\u6570\u7d2f\u52a0\u5c31\u80fd\u5f97\u51fa\u7b54\u6848\u3002\n\n------------\n### \u6ce8\u610f\uff1a\n\u8fd9\u9053\u9898\u4e00\u5b9a\u5f00 long long\uff01\u5426\u5219\u5c31\u4f1a[\u9519\u8bef](https://www.luogu.com.cn/record/68084663)\u3002\n\n------------\n### code\uff1a\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nlong long n;\nlong long a[100005],cnt; \nint main(){\n\tcin>>n;\n\tfor(long long i=1;i<=n;i++)\tcin>>a[i];\n\tfor(long long i=1;i<n;i++){\n\t\tif(a[i]>a[i+1])\n\t\t\tcnt+=a[i]-a[i+1];\n\t}\n\tcout<<cnt<<endl;\n\treturn 0;\n}\n\n\n```\n\n",
+        "postTime": 1643250038,
+        "uid": 486799,
+        "name": "Queue_Hao",
+        "ccfLevel": 0,
+        "title": "CF205B \u9898\u89e3"
+    },
+    {
+        "content": "## \u601d\u8def\uff1a\n\u76f4\u63a5\u7b97\u4e24\u9879\u4e4b\u95f4\u7684\u5dee\u4e4b\u548c\uff08\u524d\u4e00\u9879\u5927\u4e8e\u540e\u4e00\u9879\u65f6\uff09\u5373\u53ef\u3002\n\n\u63a8\u5bfc\uff1a\u56e0\u4e3a\u6bcf\u6b21\u53ef\u4ee5\u5c06\u4e00\u4e2a _\u533a\u95f4_ \u540c\u65f6 $+1$\uff0c\u6240\u4ee5\u8003\u8651\u6700\u4f18\u60c5\u51b5\uff0c\u5982\u679c $a_i > a_{i+1}$\uff0c\u5219\u5c06 $a_{i+1}$ \u5230 $a_n$ \u5168\u90e8 $+1$\u3002\n\n\u63a8\u51fa\u8fd9\u4e2a\u6211\u4eec\u5c31\u53ef\u4ee5\u6109\u5feb\u7684\u5199\u4ee3\u7801\u4e86\u3002\n## AC CODE:\n```cpp\n#include<cstdio>\n#include<iostream>\nusing namespace std;\nint main(){\n\tint n;\n\tcin>>n;\n\tint a[100005];\n\tfor(int i=1;i<=n;i++)\tcin>>a[i];\n\tlong long ans=0;\n\tfor(int i=2;i<=n;i++){\n\t\tif(a[i]<a[i-1])\tans+=a[i-1]-a[i];\n\t}\n\tcout<<ans<<endl;\n   \treturn 0;\n}\n```",
+        "postTime": 1643242463,
+        "uid": 326779,
+        "name": "ThomasSTH_rdfz",
+        "ccfLevel": 5,
+        "title": "CF205B"
+    },
+    {
+        "content": "### \u9898\u76ee\u5927\u610f\n\n\u7ed9\u5b9a\u4e00\u4e2a\u6570\u7ec4 $a$\uff0c\u6bcf\u6b21\u4efb\u9009\u4e00\u4e2a\u533a\u95f4\u52a0 $1$\u3002\u6c42\u6700\u5c11\u51e0\u6b21\u624d\u80fd\u628a\u539f\u6570\u7ec4 $a$ \u53d8\u6210\u4e0d\u964d\u5e8f\u5217\u3002\n\n### \u601d\u8def\u5206\u6790\n\n\u641c\u7d22\u4e00\u904d $a$ \u6570\u7ec4\uff0c\u5982\u679c\u6211\u4eec\u53d1\u73b0 $a_i>a_{i+1}$\uff0c\u90a3\u4e48\uff0c\u6211\u4eec\u6709\u5fc5\u8981\u5c06 $a_i$ \u53ca\u5176\u540e\u9762\u7684\u5143\u7d20\u90fd\u52a0 $1$\u3002\u56e0\u4e3a\u6211\u4eec\u4e0d\u77e5\u9053\u540e\u9762\u7684\u5143\u7d20\u90fd\u662f\u5565\uff0c\u6240\u4ee5\u6211\u4eec\u9700\u8981\u5c06\u4ed6\u4eec\u90fd\u52a0 $1$\uff0c\u4fdd\u8bc1\u4ed6\u4eec\u7684\u5dee\u503c\u4e0d\u53d8\u3002\u6240\u4ee5\u7b54\u6848\u5c31\u9700\u8981\u52a0\u4e0a $a_i-a_{i-1}$\u3002\u6700\u540e\u6211\u4eec\u8f93\u51fa\u7b54\u6848\u5c31\u884c\u3002\n\n\n**\u6ce8\u610f\u4e00\u5b9a\u8981\u5f00```long long```\uff01**\n\n### code\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nlong long n,ans,a[100002];\nint main()\n{\n\tcin>>n;\n\tfor(long long i=1;i<=n;i++)\n\t\tcin>>a[i];\n\tfor(long long i=1;i<=n-1;i++)\n\t\tif(a[i]>a[i+1])\n\t\t\tans+=a[i]-a[i+1];\n\tcout<<ans;\n\treturn 0;\n}\n```\nps:\u6d1b\u8c37\u6709\u70b9\u6162\uff0c\u5728[CF\u4e0aA\u4e86](https://codeforces.com/contest/205/submission/144112212)\u3002",
+        "postTime": 1643240986,
+        "uid": 327444,
+        "name": "Tothetime_tolife",
+        "ccfLevel": 0,
+        "title": "CF205B"
+    },
+    {
+        "content": "# \u601d\u8def\n\u901a\u8fc7\u8bfb\u9898\u53ef\u4ee5\u53d1\u73b0\uff1a\u8f93\u51fa\u7684\u7b54\u6848\u4e00\u5b9a\u662f\u6bcf\u9879\u5c0f\u4e8e\u7b49\u4e8e\u4ed6\u7684\u524d\u4e00\u9879\u65f6\u4ed6\u4eec\u7684\u5dee\u503c\u4e4b\u548c\u3002\u8bc1\u660e\u5982\u4e0b\uff1a\n\n\u5f53\u6211\u4eec\u9047\u5230 $a_{i-1}>a_i>a_{i+1}\\le a_{i+2}$ \u65f6\uff0c\u5f88\u660e\u663e\u5982\u679c\u5c06 $a_i$ \u548c $a_{i+1}$ \u4e00\u8d77\u52a0\u4e0a $a_i-a_{i-1}$\uff0c\u53ef\u80fd\u4f1a\u5bfc\u81f4 $a_{i+1}>a_{i+2}$\u3002\u4e3a\u4e86\u907f\u514d\u8fd9\u79cd\u60c5\u51b5\uff0c\u6211\u4eec\u5c31\u53ea\u80fd\u8003\u8651\u5355\u72ec\u7ed9 $a_i$ \u52a0\u4e0a $a_i-a_{i-1}$\u3002\u4e8e\u662f\u5f97\u51fa\u6700\u4f18\u65b9\u6848\uff1a\u6bcf\u6b21\u9047\u5230\u4e0d\u7b26\u5408\u4e0d\u4e0b\u964d\u5b50\u5e8f\u5217\u65f6\u5c31\u5c06\u7b54\u6848\u52a0\u4e0a\u4e24\u9879\u4e4b\u5dee\u5c31\u884c\u4e86\u3002\n# \u4ee3\u7801\n\u633a\u597d\u5199\u7684\uff0c\u8fd9\u91cc\u5c31\u4e0d\u653e\u51fa\u6765\u4e86\u3002\n\n**\u6ce8\u610f**\uff1a\u8981\u5f00 $\\texttt{long long}$",
+        "postTime": 1642738586,
+        "uid": 461375,
+        "name": "_easy_",
+        "ccfLevel": 0,
+        "title": "CF205B"
+    }
+]

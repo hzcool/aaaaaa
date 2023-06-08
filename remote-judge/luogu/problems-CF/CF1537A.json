@@ -1,0 +1,13 @@
+{
+    "description": "An array $ b $ of length $ k $ is called good if its arithmetic mean is equal to $ 1 $ . More formally, if $ $$$\\frac{b_1 + \\cdots + b_k}{k}=1. $ $ </p><p>Note that the value  $ \\\\frac{b\\_1+\\\\cdots+b\\_k}{k} $  is not rounded up or down. For example, the array  $ \\[1,1,1,2\\] $  has an arithmetic mean of  $ 1.25 $ , which is not equal to  $ 1 $ .</p><p>You are given an integer array  $ a $  of length  $ n$$$. In an operation, you can append a non-negative integer to the end of the array. What's the minimum number of operations required to make the array good?\n\nWe have a proof that it is always possible with finitely many operations.",
+    "inputFormat": "The first line contains a single integer $ t $ ( $ 1 \\leq t \\leq 1000 $ ) \u2014 the number of test cases. Then $ t $ test cases follow.\n\nThe first line of each test case contains a single integer $ n $ ( $ 1 \\leq n \\leq 50 $ ) \u2014 the length of the initial array $ a $ .\n\nThe second line of each test case contains $ n $ integers $ a_1,\\ldots,a_n $ ( $ -10^4\\leq a_i \\leq 10^4 $ ), the elements of the array.",
+    "outputFormat": "For each test case, output a single integer \u2014 the minimum number of non-negative integers you have to append to the array so that the arithmetic mean of the array will be exactly $ 1 $ .",
+    "samples": [
+        [
+            "4\n3\n1 1 1\n2\n1 2\n4\n8 4 6 2\n1\n-2",
+            "0\n1\n16\n1"
+        ]
+    ],
+    "hint": "In the first test case, we don't need to add any element because the arithmetic mean of the array is already $ 1 $ , so the answer is $ 0 $ .\n\nIn the second test case, the arithmetic mean is not $ 1 $ initially so we need to add at least one more number. If we add $ 0 $ then the arithmetic mean of the whole array becomes $ 1 $ , so the answer is $ 1 $ .\n\nIn the third test case, the minimum number of elements that need to be added is $ 16 $ since only non-negative integers can be added.\n\nIn the fourth test case, we can add a single integer $ 4 $ . The arithmetic mean becomes $ \\frac{-2+4}{2} $ which is equal to $ 1 $ .",
+    "translation": "\u82e5\u957f\u5ea6\u4e3a $k$ \u7684\u5e8f\u5217 $b$ \u7684\u5e73\u5747\u503c\u4e3a $1$\uff0c\u6211\u4eec\u8ba4\u4e3a\u8fd9\u4e2a\u5e8f\u5217\u662f\u597d\u7684\u3002\n\n\u73b0\u5728\u7ed9\u4f60\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u5e8f\u5217 $a$\u3002\u6bcf\u6b21\u64cd\u4f5c\u65f6\uff0c\u4f60\u53ef\u4ee5\u5c06\u4e00\u4e2a\u975e\u8d1f\u6574\u6570\u8ffd\u52a0\u5230\u5e8f\u5217\u672b\u5c3e\u3002\n\n\u82e5\u8981\u4f7f\u539f\u5e8f\u5217\u53d8\u597d\uff0c\u6c42\u6700\u5c0f\u64cd\u4f5c\u6b21\u6570\u3002\n\n\u53ef\u4ee5\u8bc1\u660e\u5b58\u5728\u6709\u9650\u6b65\u6570\u4f7f\u5e8f\u5217\u53d8\u597d\u3002"
+}

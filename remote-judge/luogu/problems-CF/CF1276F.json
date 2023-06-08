@@ -1,0 +1,13 @@
+{
+    "description": "Consider a string $ s $ of $ n $ lowercase English letters. Let $ t_i $ be the string obtained by replacing the $ i $ -th character of $ s $ with an asterisk character \\*. For example, when $ s = \\mathtt{abc} $ , we have $ t_1 = \\tt{*bc} $ , $ t_2 = \\tt{a*c} $ , and $ t_3 = \\tt{ab*} $ .\n\nGiven a string $ s $ , count the number of distinct strings of lowercase English letters and asterisks that occur as a substring of at least one string in the set $ \\{s, t_1, \\ldots, t_n \\} $ . The empty string should be counted.\n\nNote that \\*'s are just characters and do not play any special role as in, for example, regex matching.",
+    "inputFormat": "The only line contains a string $ s $ of $ n $ lowercase English letters ( $ 1 \\leq n \\leq 10^5 $ ).",
+    "outputFormat": "Print a single integer \u2014 the number of distinct strings of $ s, t_1, \\ldots, t_n $ .",
+    "samples": [
+        [
+            "abc\n",
+            "15\n"
+        ]
+    ],
+    "hint": "For the sample case, the distinct substrings are (empty string), a, b, c, \\*, ab, a\\*, bc, b\\*, \\*b, \\*c, abc, ab\\*, a\\*c, \\*bc.",
+    "translation": "### \u9898\u76ee\u63cf\u8ff0\n\n\u7ed9\u5b9a\u4e00\u4e2a\u5b57\u7b26\u96c6\u4e3a\u5c0f\u5199\u5b57\u6bcd\u7684\u957f\u5ea6\u4e3a $n$ \u7684\u5b57\u7b26\u4e32 $s$\uff0c\u8bbe $t_i$ \u8868\u793a\u5c06 $s$ \u4e2d\u7684\u7b2c $i$ \u4e2a\u5b57\u7b26\u66ff\u6362\u4e3a\u7279\u6b8a\u5b57\u7b26 $\\text{*}$ \u65f6\u5f97\u5230\u7684\u5b57\u7b26\u4e32\uff0c\u6bd4\u5982\u5f53 $s=\\text{abc}$ \u65f6\uff0c$t_1=\\text{*bc}$\uff0c$t_2 = \\text{a*c}$\uff0c$t_3 = \\text{ab*}$\u3002\n\n\u6c42\u5b57\u7b26\u4e32\u96c6\u5408 $\\{s,t_1,t_2,t_3,...,t_n\\}$ \u4e2d\u672c\u8d28\u4e0d\u540c\u7684\u5b50\u4e32\u4e2a\u6570\uff08\u9700\u8981\u8ba1\u7b97\u7a7a\u4e32\uff09\u3002\n\n\u6ce8\u610f $\\text{*}$ \u4ec5\u8868\u793a\u4e00\u4e2a\u5b57\u7b26\uff0c\u4e0d\u8868\u793a\u5176\u4ed6\u542b\u4e49\uff08\u5982\u901a\u914d\u7b26\uff09\u3002\n\n### \u8f93\u5165\u683c\u5f0f\n\n\u4e00\u884c\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$\uff08$1 \\le n \\le {10}^5$\uff09\u7684\u5b57\u7b26\u4e32 $s$\u3002\n\n### \u8f93\u51fa\u683c\u5f0f\n\n\u4e00\u884c\u4e00\u4e2a\u6574\u6570\u8868\u793a\u672c\u8d28\u4e0d\u540c\u7684\u5b50\u4e32\u4e2a\u6570\u3002"
+}

@@ -1,0 +1,13 @@
+{
+    "description": "You are given four integers $ a $ , $ b $ , $ x $ and $ y $ . Initially, $ a \\ge x $ and $ b \\ge y $ . You can do the following operation no more than $ n $ times:\n\n- Choose either $ a $ or $ b $ and decrease it by one. However, as a result of this operation, value of $ a $ cannot become less than $ x $ , and value of $ b $ cannot become less than $ y $ .\n\nYour task is to find the minimum possible product of $ a $ and $ b $ ( $ a \\cdot b $ ) you can achieve by applying the given operation no more than $ n $ times.\n\nYou have to answer $ t $ independent test cases.",
+    "inputFormat": "The first line of the input contains one integer $ t $ ( $ 1 \\le t \\le 2 \\cdot 10^4 $ ) \u2014 the number of test cases. Then $ t $ test cases follow.\n\nThe only line of the test case contains five integers $ a $ , $ b $ , $ x $ , $ y $ and $ n $ ( $ 1 \\le a, b, x, y, n \\le 10^9 $ ). Additional constraint on the input: $ a \\ge x $ and $ b \\ge y $ always holds.",
+    "outputFormat": "For each test case, print one integer: the minimum possible product of $ a $ and $ b $ ( $ a \\cdot b $ ) you can achieve by applying the given operation no more than $ n $ times.",
+    "samples": [
+        [
+            "7\n10 10 8 5 3\n12 8 8 7 2\n12343 43 4543 39 123212\n1000000000 1000000000 1 1 1\n1000000000 1000000000 1 1 1000000000\n10 11 2 1 5\n10 11 9 1 10",
+            "70\n77\n177177\n999999999000000000\n999999999\n55\n10"
+        ]
+    ],
+    "hint": "In the first test case of the example, you need to decrease $ b $ three times and obtain $ 10 \\cdot 7 = 70 $ .\n\nIn the second test case of the example, you need to decrease $ a $ one time, $ b $ one time and obtain $ 11 \\cdot 7 = 77 $ .\n\nIn the sixth test case of the example, you need to decrease $ a $ five times and obtain $ 5 \\cdot 11 = 55 $ .\n\nIn the seventh test case of the example, you need to decrease $ b $ ten times and obtain $ 10 \\cdot 1 = 10 $ .",
+    "translation": "\u7ed9\u5b9a$a,b,x,y,n$\uff0c\u4f60\u53ef\u4ee5\u8fdb\u884c\u81f3\u591a$n$\u6b21\u64cd\u4f5c\uff0c\u6bcf\u6b21\u64cd\u4f5c\u628a$a$\u6216$b$\u51cf\u4e00\uff0c\u4f46\u5fc5\u987b\u4fdd\u8bc1$a\u2265x$\u4e0e$b\u2265y$\u59cb\u7ec8\u6210\u7acb\uff0c\u6c42$ab$\u7684\u6700\u5c0f\u503c\u3002"
+}

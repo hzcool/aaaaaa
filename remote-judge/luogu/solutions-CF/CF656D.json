@@ -1,0 +1,98 @@
+[
+    {
+        "content": "**\u611f\u89c9\u8fd9\u4e2a\u9898\u7684\u96be\u5ea6\u5728\u5f00\u73a9\u7b11**\n\n\u96be\u5ea6\u5e94\u8be5\u4e0d\u4e9a\u4e8e[000001](https://www.luogu.org/problem/show?pid=CF409F)\u8fd9\u4e2a\u611a\u4eba\u8282\u9898\uff08\u660e\u5929\u5c31\u662f\u611a\u4eba\u8282\u4e86\uff09\n\n\u8fd9\u662f\u4e00\u4e2a\u6570\u5b66\u9898\uff0c\u8981\u6c42\u4e00\u4e2a\u6570$a(\\leq1,000,000)$\u8f6c\u5316\u4e3a\u51768\u8fdb\u5236\u6570\uff0c\u95ee\u5176\u4e2d\u76841\u6709\u591a\u5c11\n\n\u6b63\u5982\u8f6c\u4e3a\u4e8c\u8fdb\u5236\u4e00\u6837\uff0c\u8f6c\u4e3a\u516b\u8fdb\u5236\u53ef\u4ee5\u7528\u77ed\u9664\u6cd5\uff0c\u6211\u4eec\u6765\u770b\u6837\u4f8b\u7684129\u77ed\u96648\u7684\u7ed3\u679c\n\n$1\\backslash\\underline{129}$\n\n$0\\backslash\\underline{16}$\n\n$2\\backslash\\underline{2}$\n\n\u6240\u4ee5129\u7684\u516b\u8fdb\u5236\u6570\u662f201\n\n\u6240\u4ee5\u5728\u505a\u7b2c\u4e00\u6b21\u5faa\u73af\u65f6\uff0c$a$ $mod$ $8$\u7684\u7ed3\u679c\u5c31\u662f\u7b2c\u4e00\u4f4d\u7684\u6570\uff0c\u53ea\u9700\u8981\u5224\u65ad\u8fd9\u4e2a\u6570\u662f\u4e0d\u662f$1$\u5373\u53ef\u3002\n## Code:\n```cpp\n#include<cstdio>\nint main()\n{\n    int a,sum=0;\n    scanf(\"%d\",&a);\n    while(a)\n    {\n        if(a%8==1)\n            sum++;\n        a/=8;\n    }\n    printf(\"%d\\n\",sum);\n    return 0;\n}\n\n```",
+        "postTime": 1522487937,
+        "uid": 63539,
+        "name": "wjyyy",
+        "ccfLevel": 9,
+        "title": "\u9898\u89e3 CF656D \u3010Rosetta Problem\u3011"
+    },
+    {
+        "content": "## CF\u9898\u76ee\uff1a\n\n\u6211\u4eec\u5148\u6765\u5206\u6790\u4e00\u4e0b\u9898\u76ee\uff0c\u5176\u5b9e\u7ffb\u8bd1\u6210\u4e2d\u6587\u5c31\u662f\u6c42\u516b\u8fdb\u5236\u4e0b\u76841\u7684\u4e2a\u6570\u3002\n\n\u8fd9\u9053\u9898\u76ee\u6709\u4e24\u4e2a\u7a81\u7834\u53e3\uff1a\n\n\u4e00\u662f\uff1a\n\n\u6309\u7167\u9898\u76ee\u8981\u6c42\uff0c\u5c06\u8f93\u8fdb\u6765\u7684\u6570\u5b57\u8f6c\u5316\u6210\u516b\u8fdb\u5236\uff0c\u518d\u65701\u7684\u4e2a\u6570\n\n------------\n\n\u4f46\u662f\u7ed9\u8fd8\u6709\u4e00\u79cd\u66f4\u4e3a\u7b80\u5355\u7684\u529e\u6cd5\uff1a\n\n\u76f4\u63a5\u4e00\u4f4d\u4e00\u4f4d\u5224\u65ad\uff0c\u5728\u8f6c\u7684\u8fc7\u7a0b\u4e2d\u89e3\u51b3\u3002\n\n\u4e0a\u4ee3\u7801\uff1a\n\n```\n\n#include<bits/stdc++.h>//\u4e07\u80fd\u5934\n\nusing namespace std;\n\nint main()\n\n{\n\n    int n,s=0;//s\u7528\u6765\u7edf\u8ba11\u7684\u6570\u91cf\n\n    cin>>n;\n\n    while(n>0)//\u7528while\u5faa\u73af\u8fb9\u8f6c\u8fb9\u627e1\n\n    {\n\n        if((n-1)%8==0) s++;//\u5982\u679cn-1\u662f8\u7684\u500d\u6570\uff0c\u5373n\u8fd9\u4e00\u4f4d\u8f6c\u62108\u8fdb\u5236\u4e3a1\n\n        n/=8;//n\u8981\u53d8\u5316\n\n    }\n\n    cout<<s;\n\n    return 0;//\u517b\u6210\u597d\u4e60\u60ef\uff0c\u4e0d\u52a0\u5f88\u5bb9\u6613\u8d85\u65f6\n\n}\n\n```\n\n\u8fd9\u79cd\u65b9\u6cd5\u662f\u77ed\u9664\u6cd5\u3002\n\n\u987a\u4fbf\u7b80\u5355\u63d0\u4e00\u4e0b\u7b2c\u4e00\u79cd\u7684\u601d\u8def\uff1a\u5c06\u9664\u4ee58\u7684\u4f59\u6570\u5012\u653e\u5728\u6570\u7ec4\u91cc\u9762\uff0c\u518d\u5faa\u73af\u5224\u65ad\uff0c\u90fd\u5dee\u4e0d\u591a\uff0c\u4f46\u662f\u6211\u4e2a\u4eba\u89c9\u5f97\u7b2c\u4e8c\u79cd\u7b80\u5355\u4e00\u4e9b\u3002\n\n\u8bf7\u52ff\u6284\u9898\u89e3\uff0c\u9898\u89e3\u662f\u7528\u6765\u53c2\u8003\u7684\uff0c\u5e76\u4e0d\u662f\u7528\u6765\u6284\u7684\uff0c\u8981\u4e0d\u7136\u68d5\u540d\u4e24\u884c\u6cea\u554a",
+        "postTime": 1570422851,
+        "uid": 121771,
+        "name": "\u5c0f\u9c8dbob",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF656D \u3010Rosetta Problem\u3011"
+    },
+    {
+        "content": "2016\u5e74CF\u611a\u4eba\u8282\u9898~\n\n[\u539f\u9898](https://www.luogu.org/problemnew/show/CF656D)\n\n\u6ca1\u6709\u4eba\u60f3\u5230\u7528\u9012\u5f52\u5199\u5417\uff1f\n\n\u6211\u89c9\u5f97\u9012\u5f52\u53ef\u4ee5\u66f4\u52a0\u7b80\u4fbf\uff0c~~\u51fd\u6570\u53ea\u97002\u884c~~\n\n```cpp\n#include<iostream>\nusing namespace std;\n\n/*\u9012\u5f52\uff1a\u7a0b\u5e8f\u8c03\u7528\u81ea\u8eab\u7684\u7f16\u7a0b\u6280\u5de7\u79f0\u4e3a\u9012\u5f52*/\n\nint sum(int n)//\u9012\u5f52\u5f0f\u6c42\u7b54\u6848\u7684\u51fd\u6570 \n{\n\tif(n==0)return 0;\t\t//\u9012\u5f52\u8fb9\u754c \n\treturn (n%8==1)+sum(n/8);//\u7ee7\u7eed\u4e0b\u4e00\u5c42\u9012\u5f52 \n}/*\u5c31\u662f\u8fd9\u4e48\u7b80\u77ed*/\nint n;\nint main()\n{\n\tios::sync_with_stdio(0);//cin\u4f18\u5316 \n\tcin>>n;\n\tcout<<sum(n);\n\treturn 0;\n}\n```",
+        "postTime": 1545626222,
+        "uid": 151935,
+        "name": "Rainbow_qwq",
+        "ccfLevel": 0,
+        "title": "2016CF\u611a\u4eba\u8282D\u9898 \u3010Rosetta Problem\u3011"
+    },
+    {
+        "content": "\u6ca1\u4eba\u60f3\u5230printf\u6709\u4e00\u4e2a\u53c2\u6570%o\u662f\u4ee5\u516b\u8fdb\u5236\u8f93\u51fa\u4e00\u4e2a\u6574\u6570\uff0c\u6709\u4e00\u4e2a\u5144\u5f1fsprintf\u80fd\u5411\u5b57\u7b26\u4e32\u4e2d\u8f93\u51fa\u5417\uff1f\n\n\u62ff\u5230a\u7684\u516b\u8fdb\u5236\u4ee5\u540e\uff0c\u5c31\u53ef\u4ee5\u6309\u7167\u9898\u610f\u6570\u5b83\u6709\u51e0\u4e2a1\u4e86\u3002\n\n```cpp\n#include<cstdio>\nint a,ans=0;char s[10];\nint main(){\n\tscanf(\"%d\",&a);\n\tsprintf(s,\"%o\",a);// \u628aa\u4ee5\u516b\u8fdb\u5236\u8f93\u51fa\u5230s\u4e2d\uff0c\u5b57\u7b26\u4e32\u7684\u4e0b\u6807\u4ece0\u5f00\u59cb\u3002\n\t                  // sprintf\u4f1a\u5728\u8f93\u51fa\u5185\u5bb9\u540e\u81ea\u52a8\u6dfb\u52a0\u4e00\u4e2a'\\0'\u6765\u8868\u793a\u5b57\u7b26\u4e32\u7ed3\u675f\uff0c\u6240\u4ee5\u4e0b\u9762for\u91cc\u7684\u6761\u4ef6\u53ef\u4ee5\u8fd9\u6837\u5199\uff08\u7b49\u4ef7\u4e8es[i]!='\\0'\uff09\n\tfor(int i=0;s[i];++i)\n\t  if(s[i]=='1') ++ans;\n\tprintf(\"%d\\n\",ans);\n\treturn 0;\n}\n```\n\n\u62d3\u5c55\uff1aprintf\u7684\u53c2\u6570\u4e2d\uff0c%d\u4ee5\u5341\u8fdb\u5236\u8f93\u51fa\uff0c%o\u4ee5\u516b\u8fdb\u5236\u8f93\u51fa\uff0c%x\u4ee5\u5341\u516d\u8fdb\u5236\u8f93\u51fa\u3002%o\u548c%x\u53ef\u4ee5\u5199\u6210%#o\u548c%#x\u6765\u8f93\u51fa\u516b\u8fdb\u5236\u524d\u7f000\u548c\u5341\u516d\u8fdb\u5236\u524d\u7f000x\u3002%x\u7684x\u82e5\u5c0f\u5199\u5219\u8f93\u51fa\u7684\u5b57\u6bcd\u4e3a\u5c0f\u5199\uff0c\u53cd\u4e4b\u5219\u5927\u5199\u3002\u4f8b\uff1a\n```cpp\nprintf(\"%o\",11);   // \u8f93\u51fa\uff1a13\nprintf(\"%#o\",11);  // \u8f93\u51fa\uff1a013\nprintf(\"%x\",11);   // \u8f93\u51fa\uff1ab\nprintf(\"%X\",11);   // \u8f93\u51fa\uff1aB\nprintf(\"%#x\",11);  // \u8f93\u51fa\uff1a0xb\nprintf(\"%#X\",11);  // \u8f93\u51fa\uff1a0XB\n```\n\u77ed\u9664\u6cd5\u5f53\u7136\u9002\u7528\u8303\u56f4\u66f4\u5e7f\u6cdb\uff08\u4efb\u4f55\u8fdb\u5236\uff09\uff0c\u4f46\u5bf9\u4e8e\u5341\u516d\u8fdb\u5236\uff0c\u663e\u7136printf\u66f4\u65b9\u4fbf\u3002",
+        "postTime": 1555416656,
+        "uid": 32195,
+        "name": "nonanalyzer",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF656D \u3010Rosetta Problem\u3011"
+    },
+    {
+        "content": "\u53c8\u662f\u4e00\u9053CF\u6c34\u9898  \n\u8fd9\u6b21\u53c8\u662f\u62ff\u51fa\u4e00\u4e2a\u516b\u8fdb\u5236\u6765\u5413\u552c\u4eba\u7684  \n\u5e9f\u8bdd\u4e0d\u591a\u8bf4\uff0c\u8be6\u60c5\u89c1\u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n    int n,s;\n    s=0;\n    cin>>n;//\u8f93\u5165\n    while(n)\n    {\n        if(n%8==1)//\u91cd\u70b9\u662f\u8fd9\u91cc\uff0c\u89c1\u540e\u9762\u89e3\u6790\n            s++;\n        n/=8;\n    }\n    cout<<s;\n}\n```\n\u4e3a\u4ec0\u4e48\u5341\u8fdb\u5236\u8f6c\u516b\u8fdb\u5236\u60f3\u8981\u6c42\u4e00\uff0c\u76f4\u63a5\u5c06\u5341\u8fdb\u5236mod8\u5462  \n\u56e0\u4e3a\u8f6c\u6362\u8fc7\u7a0b\u5c31\u662f\u5c06\u4e00\u4e2a\u6570\u4e00\u76f4mod8    \n\u4f8b\u5982407\uff0c\u516b\u8fdb\u5236\u4e3a57  \n\u5148\u96648\uff0c\u5f9750\u4f597  \n50\u53d65\uff0c\u5f9757\uff0c\u6240\u4ee5\u8fd9\u91cc\u662f\u6ca1\u67091\u5b58\u5728\u7684  \n\u76f8\u53cd\u5c0657 \u8f6c\u4e3a\u5341\u8fdb\u5236\uff0c\n7*\uff088\u7684\u96f6\u6b21\u65b9\uff09+50*8\u53ef\u5f97\u7b54\u6848  \n\u5e0c\u671b\u5927\u5bb6\u65e9\u65e5Ac  \n\u8c22\u8c22\u4e86\n\n\n",
+        "postTime": 1555122477,
+        "uid": 114352,
+        "name": "sky5168",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF656D \u3010Rosetta Problem\u3011"
+    },
+    {
+        "content": "~~\u5410\u69fd\u4e00\u4e0b\uff1a\u8fd9\u9898\u8fd8\u662f\u7d2b\u9898\u5417~~\n\n\u8fd9\u9898\u6211\u4eec\u53ef\u4ee5\u7528\u77ed\u9664\u6cd5\u6a21\u62df\u5341\u8fdb\u5236\u8f6c\u516b\u8fdb\u5236\u7684\u8fc7\u7a0b\uff1a\u6bcf\u6b21\u6c42\u51fan%8\u7684\u4f59\u6570\uff0c\u5982\u679c\u662f1,ans++,\u7136\u540en/=8\u3002\n\nCode(\u8bf7\u52ff\u6284\u88ad)\n\n```cpp\n#include<cstdio>\nusing namespace std;\nint n,ans;\nvoid work(int x)\n{\n    while(x)\n    {\n        int k=x%8;\n        if(k==1)ans++;\n        x/=8;\n    }//\u77ed\u9664\u6cd5\n}\nint main()\n{\n    scanf(\"%d\",&n);\n    work(n);\n    printf(\"%d\\n\",ans);\n    return 0;\n}\n```",
+        "postTime": 1554716997,
+        "uid": 122641,
+        "name": "GIFBMP",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF656D \u3010Rosetta Problem\u3011"
+    },
+    {
+        "content": "\u672c\u9898\u7684\u9898\u5e72\u7531\u56db\u79cdBT\u8bed\u8a00(BrainF**k\u3001Malbolge\u3001Piet\u3001Befunge)\u7ec4\u6210\uff0c\u60a8\u9700\u8981\u627e\u4e00\u4e2a\u80fd\u591f\u89e3\u6790\u8fd9\u56db\u79cd\u8bed\u8a00\u7684\u5728\u7ebfIDE\u8fd0\u884c\u5b83\u4eec:\n\n[BrainF**k](https://ideone.com/)\n\n[Malbolge](http://www.malbolge.doleczek.pl/)\n\n[Piet](http://www.rapapaing.com/blog/?page_id=6)\n\n[Befunge](http://www.quirkster.com/iano/js/befunge.html)\n\n\u6700\u540e\u5c31\u53ef\u4ee5\u77e5\u9053\u9898\u76ee\u4e86:\n\n### Print number of ones in base 8 notation of A\n\n### \u8f93\u5165\u4e00\u4e2a\u6570A\uff0c\u5224\u65ad\u5b83\u8f6c\u6362\u6210\u516b\u8fdb\u5236\u6709\u51e0\u4e2a1\u3002\n\n[\u53c2\u8003\u8d44\u6599](https://post.icpc-camp.org/d/392-codeforces-656d-rosetta-problem)\n\n\u6240\u4ee5\u5c31\u6709\u4ee3\u7801\u4e86:\n```\n#include <iostream>\n#include <iomanip>\n#include <cmath>\n#include <string>\n#include <cstring>\nusing namespace std; //\u5934\u6587\u4ef6\u548c\u547d\u540d\u7a7a\u95f4\nstring strReverse(string strOrigin){ //\u5b57\u7b26\u4e32\u53cd\u8f6c\u51fd\u6570\n\tif (strOrigin.length() == 0){\n\t\treturn \"\";\n\t}\n\tlong long i;\n\tstring ans;\n\tfor (i = strOrigin.length() - 1; i >= 0; --i) ans += strOrigin[i];\n\treturn ans;\n}\nstring ToRadix(long long iOrig, int iRadixTarget){ //\u5c06\u4e00\u4e2a\u5341\u8fdb\u5236\u6570\u8f6c\u5316\u4e3a2~36\u8fdb\u5236(\u7531iRadixTarget\u6307\u5b9a\u76ee\u6807\u8fdb\u5236)\u4e0b\u7684\u5b57\u7b26\u4e32\u7684\u51fd\u6570\n\tif (iRadixTarget == 10)\n\t\treturn to_string(iOrig);\n\tif (iRadixTarget <= 1 || iRadixTarget > 36)\n\t\treturn \"\";\n\tstring ans(\"\");\n\tlong long i, iTemp;\n\tchar arrSeed[26] = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };\n\ti = iOrig%iRadixTarget;\n\tiTemp = iOrig / iRadixTarget;\n\twhile (iTemp != 0){\n\t\tif (i < 10)\n\t\t\tans += to_string(i);\n\t\telse\n\t\t\tans += arrSeed[i - 10];\n\t\ti = iTemp%iRadixTarget;\n\t\tiTemp = iTemp / iRadixTarget;\n\t}\n\tif (i < 10)\n\t\tans += to_string(i);\n\telse\n\t\tans += arrSeed[i - 10];\n\treturn strReverse(ans);\n}\nint main(){\n\tios::sync_with_stdio(false); //\u4e00\u5b9a\u610f\u4e49\u4e0a\u7684\u8f93\u5165\u8f93\u51fa\u52a0\u901f\n\tlong long iNum,i,nOne=0; //iNum-\u5341\u8fdb\u5236\u6570\uff0ci-\u5faa\u73af\u53d8\u91cf\uff0cnOne-1\u7684\u4e2a\u6570\n\tstring sOct; //\u516b\u8fdb\u5236\u6570\n\tcin >> iNum; //\u8bfb\u5165\n\tsOct = ToRadix(iNum, 8); //\u8f6c\u6362\u6210\u516b\u8fdb\u5236\n\tfor (i = 0; i <= sOct.length() - 1; ++i){ //\u4ece\u5934\u5230\u5c3e\u626b\u4e00\u904d\n\t\tif (sOct[i] == '1') //\u5982\u679c\u53d1\u73b01\n\t\t\t++nOne; //\u8ba1\u6570\u5668\u52a01\n\t}\n\tcout << nOne; //\u8f93\u51fa1\u7684\u4e2a\u6570\n\treturn 0; //\u544a\u8f9e\n}\n```",
+        "postTime": 1517631267,
+        "uid": 74038,
+        "name": "PC_DOS",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF656D \u3010Rosetta Problem\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u5173\u952e\u5728\u4e8e\u8fdb\u5236\u8f6c\u6362\uff0c\u8981\u5c06\u5341\u8fdb\u5236\u8f6c\u6210\u516b\u8fdb\u5236\u3002   \n\u65e2\u7136\u662f\u8fdb\u5236\u8f6c\u6362\uff0c\u90a3\u4e48\u5c31\u8981\u63d0\u5230\u77ed\u9664\u6cd5\u3002\u7528\u77ed\u9664\u6cd5\u5c31\u53ef\u4ee5\u5c0610\u8fdb\u5236\u6570\u8f6c\u62108\u8fdb\u5236\u6570\u3002   \n\u90a3\u4e48\u95ee\u9898\u6765\u4e86\uff0c\u7528c++\u5982\u4f55\u5199\u51fa\u77ed\u9664\u6cd5\u5462\uff1f   \n\u2014\u2014\u5176\u5b9e\u7528while\u5faa\u73af\u5c31\u53ef\u4ee5\u4e86 \n```cpp\nwhile(s>0){     //\u5f00\u59cb\u77ed\u9664\uff0c\u76f4\u5230\u6570\u4e3a0\n\tx++;    //\u4ee3\u66ffi\n\ta[x]=s%n;    //\u6c42\u4f59\u6570\n\ts=s/n;    //\u6574\u9664\n}\n```   \n\u7136\u540e\uff0c\u6211\u4eec\u53ea\u8981\u5224\u65ad\u5728a\u6570\u7ec4\u4e2d\u6709\u591a\u5c11\u4e2a1\u5c31\u884c\u4e86\u3002   \n\u8d34\u4e0a\u4ee3\u7801\uff1a   \n```cpp\n#include<bits/stdc++.h>    //\u4e07\u80fd\u5934\n#include<stdio.h>\nusing namespace std;\nint s,n=8,x,a[1000000+5],ans;   //\u5b9a\u4e49\nint main(){\n\tios::sync_with_stdio(false);  //cin,cout\u5feb\u8bfb\u5feb\u8f93\n\tcin>>s;    //\u8f93\u5165\u5341\u8fdb\u5236\u6570\n\twhile(s>0){   //\u5f00\u59cb\u77ed\u9664\n\t\tx++;   //\u4ee3\u66ffi\n\t\ta[x]=s%n;   //\u6c42\u4f59\u6570\n\t\ts=s/n;   //\u6574\u9664\uff0c\u51c6\u5907\u4e0b\u4e00\u6b21\n\t}\n\tfor(int i=x;i>=1;i--){    //\u5224\u65ad\n\t\tif(a[i]==1) ans++;   //\u5224\u65ad\u662f\u5426\u7b49\u4e8e1\n\t}\n\tcout<<ans;   //\u8f93\u51fa\n\treturn 0;   //\u4ee5\u4e00\u4e2a\u534e\u4e3d\u7684return 0;\u7ed3\u675f\n}\n```\n",
+        "postTime": 1582529277,
+        "uid": 266798,
+        "name": "\u5317\u96ea2009",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF656D \u3010Rosetta Problem\u3011"
+    },
+    {
+        "content": "    \u8fd9\u662f\u4e00\u4e2a\u6570\u5b66\u9898\uff0c\u8981\u6c42\u4e00\u4e2a\u6570a(\u22641,000,000)\u8f6c\u5316\u4e3a\u51768\u8fdb\u5236\u6570\uff0c\u95ee\u5176\u4e2d\u76841\u6709\u591a\u5c11\n    \u6b63\u5982\u8f6c\u4e3a\u4e8c\u8fdb\u5236\u4e00\u6837\uff0c\u8f6c\u4e3a\u516b\u8fdb\u5236\u53ef\u4ee5\u7528\u77ed\u9664\u6cd5\n    \u6240\u4ee5\u5728\u505a\u7b2c\u4e00\u6b21\u5faa\u73af\u65f6\uff0camod8\u7684\u7ed3\u679c\u5c31\u662f\u7b2c\u4e00\u4f4d\u7684\u6570\uff0c\u53ea\u9700\u8981\u5224\u65ad\u8fd9\u4e2a\u6570\u662f\u4e0d\u662f11\u5373\u53ef\n    \u4ee3\u7801:\n\n------------\n\n    #include<bits/stdc++.h>\n    using namespace std;\n    int main()\n    {\n        int a,sum=0;\n        cin>>a;\n        while(a!=0)\n        {\n            if(a%8==1)sum++;\n            a/=8;\n        }\n        cout<<sum;\n        return 0;\n    }",
+        "postTime": 1550318789,
+        "uid": 90946,
+        "name": "wzm2007",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF656D \u3010Rosetta Problem\u3011"
+    },
+    {
+        "content": "## \u4e00\u79cd\u7b80\u5355\u4e00\u70b9\u7684\u89e3\u6cd5\n## \u8fd9\u9053\u9898\u4e0d\u9700\u8981\u5c06\u8fdb\u5236\u8f6c\u6362\u7684\u7ed3\u679c\u5b58\u8d77\u6765,\u53ea\u9700\u8981\u5224\u65ad%8\u662f\u5426\u4e3a1\u5373\u53ef\n\ncode:~~\u4e0d\u50cf\u662f\u7d2b\u9898~~\n```\n#include<bits/stdc++.h>\n#define reg register\n#define ll long long\nusing namespace std;\nll n,ans;//long long\u66f4\u4fdd\u9669\nint main()\n{\n\tscanf(\"%lld\",&n);\n\twhile(n!=0)\n\t{\n\t\tif(n%8==1)ans++;\n\t\tn/=8;\n\t}//\u5f00\u59cb\u8f6c\u6362\u4e86\n\tprintf(\"%lld\",ans);//\u8f93\u51fa\u591a\u5c11\u4e2a1\n\treturn 0;\n}\n```\nPs:[\u8fdb\u5236\u8f6c\u6362\u7684\u539f\u7406](https://www.jb51.net/article/23650.htm)",
+        "postTime": 1543115994,
+        "uid": 48993,
+        "name": "liuyifan",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF656D \u3010Rosetta Problem\u3011"
+    },
+    {
+        "content": "    \u8fd9\u9053\u9898\u7684\u4e3b\u8981\u601d\u8def\u5c31\u662f\uff1a\n  \n        1.\u628a\u8fd9\u4e2a\u6570\u76848\u8fdb\u5236\u8f6c\u8fc7\u6765\uff08\u9012\u5f52\u6bd4\u8f83\u597d\u505a\uff09\n   \n        2.\u4e00\u8fb9\u6362\u4e00\u8fb9\u627e1\u7684\u4e2a\u6570\n        \n        3.\u8f93\u51fa\n \n    var\n      n,i,k:longint;\n    procedure main(x:longint);//\u5b9a\u4e49\u4e00\u4e2a\u8fc7\u7a0bmain\uff0c\u7528\u6765\u8f6c\u53168\u8fdb\u5236\uff0c\u5e76\u4e14\u7edf\u8ba11\u7684\u4e2a\u6570\n     begin\n       if x=0 then exit;//\u8fb9\u754c\u6761\u4ef6\n       main(x div 8);//\u9012\u5f52\u8c03\u7528\n       if x mod 8=1 then inc(k);//\u5982\u679c\u7b49\u4e8e1\uff0c\u7d2f\u52a0\n     end;\n     begin\n       read(n);\n       main(n);\n       writeln(k);//\u8f93\u51fak\n     end.\n",
+        "postTime": 1534043842,
+        "uid": 92485,
+        "name": "DreamShadow",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF656D \u3010Rosetta Problem\u3011"
+    },
+    {
+        "content": "\u7ecf\u8fc7\u5927\u4f6c\u7684\u7ffb\u8bd1\uff0c\u9898\u610f\u5f88\u7b80\u5355\u4e86\u3002\n\n\u5728\u8fd9\u91cc\u4ecb\u7ecd\u4e00\u4e0b\u5bf92\u7684\u5e42\u53d6\u6a21\n\n\u4f7f\u7528\uff1an&(k-1)\n\na++\u7b49\u4ef7\u4e8ea=-~a\n\na--\u7b49\u4ef7\u4e8ea=~-a\n```\n#include<iostream>\nusing namespace std;\nint a,b;\nint main(){\n    cin>>a;\n    while(a){\n        if(!(~-(a&7))) b=-~b;\n        a/=8;\n    }\n    cout<<b;\n}\n```",
+        "postTime": 1522486658,
+        "uid": 50092,
+        "name": "da32s1da",
+        "ccfLevel": 8,
+        "title": "\u9898\u89e3 CF656D \u3010Rosetta Problem\u3011"
+    }
+]

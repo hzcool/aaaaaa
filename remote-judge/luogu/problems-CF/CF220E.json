@@ -1,0 +1,17 @@
+{
+    "description": "The Little Elephant has array $ a $ , consisting of $ n $ positive integers, indexed from 1 to $ n $ . Let's denote the number with index $ i $ as $ a_{i} $ .\n\nThe Little Elephant wants to count, how many pairs of integers $ l $ and $ r $ are there, such that $ 1<=l&lt;r<=n $ and sequence $ b=a_{1}a_{2}...\\ a_{l}a_{r}a_{r+1}...\\ a_{n} $ has no more than $ k $ inversions.\n\nAn inversion in sequence $ b $ is a pair of elements of the sequence $ b $ , that change their relative order after a stable sorting of the sequence. In other words, an inversion is a pair of integers $ i $ and $ j $ , such that $ 1<=i&lt;j<=|b| $ and $ b_{i}&gt;b_{j} $ , where $ |b| $ is the length of sequence $ b $ , and $ b_{j} $ is its $ j $ -th element.\n\nHelp the Little Elephant and count the number of the described pairs.",
+    "inputFormat": "The first line contains two integers $ n $ and $ k $ $ (2<=n<=10^{5},0<=k<=10^{18}) $ \u2014 the size of array $ a $ and the maximum allowed number of inversions respectively. The next line contains $ n $ positive integers, separated by single spaces, $ a_{1},a_{2},...,a_{n} $ $ (1<=a_{i}<=10^{9}) $ \u2014 elements of array $ a $ .\n\nPlease, do not use the %lld specifier to read or write 64-bit integers in \u0421++. It is preferred to use cin, cout streams or the %I64d specifier.",
+    "outputFormat": "In a single line print a single number \u2014 the answer to the problem.",
+    "samples": [
+        [
+            "3 1\n1 3 2\n",
+            "3\n"
+        ],
+        [
+            "5 2\n1 3 2 1 7\n",
+            "6\n"
+        ]
+    ],
+    "hint": "",
+    "translation": "## \u9898\u610f\u7ffb\u8bd1\r\n\u7ed9\u4f60\u4e00\u4e2a\u957f\u5ea6\u4e3a n \u7684\u5e8f\u5217 A[1], A[2], \u2026, A[n].\r\n\u95ee\u4f60\u6709\u591a\u5c11\u7ec4 (l, r) \uff081 <= l < r <= n) \u6ee1\u8db3\r\nA[1], A[2], \u2026, A[l], A[r], A[r+1], ..., A[n] \u7684\u9006\u5e8f\u5bf9\u4e2a\u6570\u4e0d\u8d85\u8fc7 k\u3002\r\n## **\u8f93\u5165\u683c\u5f0f**\r\n\u7b2c\u4e00\u884c\u4e24\u4e2a\u6574\u6570 n\uff0ck (2<=n<=10^5,0<=k<=10^18)\u3002\u4e0b\u4e00\u884c\u4e3a\u4e00\u4e2a\u957f\u5ea6\u4e3a n \u7684\u5e8f\u5217 A[1], A[2], \u2026, A[n]\u3002\r\n## \u8f93\u51fa\u683c\u5f0f\r\n\u5728\u4e00\u884c\u4e2d\u8f93\u51fa\u95ee\u9898\u7684\u7b54\u6848\u3002"
+}

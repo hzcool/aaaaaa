@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u672c\u9898\u662f\u4e00\u4e2a\u627e\u89c4\u5f8b\u7684\u9898\n\n\u7ed9\u7684\u4e24\u4e2a\u70b9\u7684\u8d77\u59cb\u5750\u6807\uff0c\u53ef\u4ee5\u8f6c\u5316\u4e3a\u8ddd\u79bb\uff0c\u5c06\u534a\u5f84\u5927\u7684\u5f52r1,\u53e6\u4e00\u4e2a\u7ed9r2\u3002\n\n\u672c\u9898\u534a\u5f84\u8f83\u5927\u5e94\u8be5\u7528\u957f\u6574\u5f62\uff0c\u6211\u7684\u4ee3\u7801\u591a\u8ba8\u8bba\u4e86\u4e00\u79cdx=y\u7684\u60c5\u51b5\u3002\n\n\u6211\u7684\u5206\u7c7b\u4f9d\u636e\u7684\u662f\u4ee5\u5185\u5207\u5916\u5207\n```\n#include<iostream>\n#include<string.h> \n#include<math.h>\nusing namespace std;\nint main()\n{\n\tlong long int r1,r2,a1,a2,k;\n\tcin>>r1>>a1>>r2>>a2;\n\tk=abs(a1-a2);\n\tif(r2>r1)\n\t{\n\t\ta1=r1;\n\t\tr1=r2;\n\t\tr2=a1;\n\t}\n\tif(k==0)\n\tcout<<r1+1;\n\telse if(r1+r2<=k)\n\tcout<<r1+r2+1;\n\telse if(r1<=k&&k<r1+r2)\n\tcout<<k+1+(r1+r2-k)*(r1+r2-k+1);\n\telse if(r2<=k&&k<r1&&r1<=k+r2)\n\tcout<<r1+1+2*r2*r2-(r2-r1+k)*(r2-r1+k-1);\n\telse if(r2<=k&&k<r1&&r1>k+r2)\n\tcout<<r1+1+2*r2*r2 ;\n\telse if(r2>k&&r1>=k+r2)\n\tcout<<2*r2*r2-2*(r2-k)*(r2-k)+r1-r2+k+1;\n\telse if(r2>k&&r1<k+r2)\n\tcout<<2*r2*r2-2*(r2-k)*(r2-k)+r1-r2+k+1-(r2+k-r1)*(r2+k-r1-1);\n } \n```\n",
+        "postTime": 1581675560,
+        "uid": 253051,
+        "name": "huoyuxi",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF40C \u3010Berland Square\u3011"
+    }
+]

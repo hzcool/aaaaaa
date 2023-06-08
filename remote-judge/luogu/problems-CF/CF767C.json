@@ -1,0 +1,17 @@
+{
+    "description": "Once at New Year Dima had a dream in which he was presented a fairy garland. A garland is a set of lamps, some pairs of which are connected by wires. Dima remembered that each two lamps in the garland were connected directly or indirectly via some wires. Furthermore, the number of wires was exactly one less than the number of lamps.\n\nThere was something unusual about the garland. Each lamp had its own brightness which depended on the temperature of the lamp. Temperatures could be positive, negative or zero. Dima has two friends, so he decided to share the garland with them. He wants to cut two different wires so that the garland breaks up into three parts. Each part of the garland should shine equally, i. e. the sums of lamps' temperatures should be equal in each of the parts. Of course, each of the parts should be non-empty, i. e. each part should contain at least one lamp.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF767C/c2b0d1858f505d34921dc11648298e7a84c2f7b5.png)Help Dima to find a suitable way to cut the garland, or determine that this is impossible.\n\nWhile examining the garland, Dima lifted it up holding by one of the lamps. Thus, each of the lamps, except the one he is holding by, is now hanging on some wire. So, you should print two lamp ids as the answer which denote that Dima should cut the wires these lamps are hanging on. Of course, the lamp Dima is holding the garland by can't be included in the answer.",
+    "inputFormat": "The first line contains single integer $ n $ ( $ 3<=n<=10^{6} $ ) \u2014 the number of lamps in the garland.\n\nThen $ n $ lines follow. The $ i $ -th of them contain the information about the $ i $ -th lamp: the number lamp $ a_{i} $ , it is hanging on (and $ 0 $ , if is there is no such lamp), and its temperature $ t_{i} $ ( $ -100<=t_{i}<=100 $ ). The lamps are numbered from $ 1 $ to $ n $ .",
+    "outputFormat": "If there is no solution, print -1.\n\nOtherwise print two integers \u2014 the indexes of the lamps which mean Dima should cut the wires they are hanging on. If there are multiple answers, print any of them.",
+    "samples": [
+        [
+            "6\n2 4\n0 5\n4 2\n2 1\n1 1\n4 2\n",
+            "1 4\n"
+        ],
+        [
+            "6\n2 4\n0 6\n4 2\n2 1\n1 1\n4 2\n",
+            "-1\n"
+        ]
+    ],
+    "hint": "The garland and cuts scheme for the first example:\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF767C/578d2b3356505b1b3987876ed70f57ef1ae0c5b0.png)",
+    "translation": "$n$\u4e2a\u8282\u70b9\u7684\u6811\n\n\u7b2c$i$\u4e2a\u8282\u70b9\u6743\u503c\u4e3a$a_i$. $n<=10^6$ \n\n$-100<=a_i<=100$ \n\n\u95ee\u662f\u5426\u80fd\u591f\u5220\u9664\u6389\u4e24\u6761\u8fb9,\u4f7f\u5f97\u8be5\u6811\u5206\u6210\u4e09\u4e2a\u4e0d\u4e3a\u7a7a,\u5e76\u4e14\u6bcf\u90e8\u5206\u6743\u503c\u4e4b\u548c\u76f8\u7b49.\n\n\u65e0\u89e3\u8f93\u51fa$-1$ \u5426\u5219\u8f93\u51fa\u8981\u5220\u9664\u8fb9($u->v$)\u7684$v$\u8282\u70b9\u5e8f\u53f7."
+}

@@ -1,0 +1,17 @@
+{
+    "description": "In Berland the opposition is going to arrange mass walking on the boulevard. The boulevard consists of $ n $ tiles that are lain in a row and are numbered from $ 1 $ to $ n $ from right to left. The opposition should start walking on the tile number $ 1 $ and the finish on the tile number $ n $ . During the walk it is allowed to move from right to left between adjacent tiles in a row, and jump over a tile. More formally, if you are standing on the tile number $ i $ $ (i&lt;n-1) $ , you can reach the tiles number $ i+1 $ or the tile number $ i+2 $ from it (if you stand on the tile number $ n-1 $ , you can only reach tile number $ n $ ). We can assume that all the opposition movements occur instantaneously.\n\nIn order to thwart an opposition rally, the Berland bloody regime organized the rain. The tiles on the boulevard are of poor quality and they are rapidly destroyed in the rain. We know that the $ i $ -th tile is destroyed after $ a_{i} $ days of rain (on day $ a_{i} $ tile isn't destroyed yet, and on day $ a_{i}+1 $ it is already destroyed). Of course, no one is allowed to walk on the destroyed tiles! So the walk of the opposition is considered thwarted, if either the tile number $ 1 $ is broken, or the tile number $ n $ is broken, or it is impossible to reach the tile number $ n $ from the tile number $ 1 $ if we can walk on undestroyed tiles.\n\nThe opposition wants to gather more supporters for their walk. Therefore, the more time they have to pack, the better. Help the opposition to calculate how much time they still have and tell us for how many days the walk from the tile number $ 1 $ to the tile number $ n $ will be possible.",
+    "inputFormat": "The first line contains integer $ n $ ( $ 1<=n<=10^{3} $ ) \u2014 the boulevard's length in tiles.\n\nThe second line contains $ n $ space-separated integers $ a_{i} $ \u2014 the number of days after which the $ i $ -th tile gets destroyed ( $ 1<=a_{i}<=10^{3} $ ).",
+    "outputFormat": "Print a single number \u2014 the sought number of days.",
+    "samples": [
+        [
+            "4\n10 3 5 10\n",
+            "5\n"
+        ],
+        [
+            "5\n10 2 8 3 5\n",
+            "5\n"
+        ]
+    ],
+    "hint": "In the first sample the second tile gets destroyed after day three, and the only path left is $ 1\u21923\u21924 $ . After day five there is a two-tile gap between the first and the last tile, you can't jump over it.\n\nIn the second sample path $ 1\u21923\u21925 $ is available up to day five, inclusive. On day six the last tile is destroyed and the walk is thwarted.",
+    "translation": "\u6709\u4e00\u6761\u4ece $1$ \u5230 $n$ \u7684\u8def\uff0c\u7b2c $i$ \u5757\u74e6\u7247\u4f1a\u5728\u7b2c $a_i$ \u5929\u7ed3\u675f\u65f6\u635f\u574f\u3002\n\n\u4f60\u53ef\u4ee5\u8df3\u4e00\u683c\u8005\u8df3\u4e24\u683c\uff0c\u51c6\u786e\u5730\u8bf4\uff0c\u5982\u679c\u4f60\u5728\u7b2c $i$ \u683c\u74e6\u7247$(i<n \u2212 1)$\uff0c\u4f60\u53ef\u4ee5\u5230\u8fbe $i+1$ \u683c\u6216 $i+2$ \u683c\u3002\n\n\u7279\u522b\u5730\uff0c\u5982\u679c\u4f60\u5728 $n\u22121$ \u683c\uff0c\u90a3\u4e48\u4f60\u53ea\u53ef\u4ee5\u8df3\u4e00\u683c\u3002\n\n\u6c42\u6700\u665a\u7684\u53ef\u4ee5\u4ece $1$ \u5230\u8fbe $n$ \u7684\u5929\u6570\u3002"
+}

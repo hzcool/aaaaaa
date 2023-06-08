@@ -1,0 +1,17 @@
+{
+    "description": "You are given an integer $ m $ , and a list of $ n $ distinct integers between $ 0 $ and $ m-1 $ .\n\nYou would like to construct a sequence satisfying the properties:\n\n- Each element is an integer between $ 0 $ and $ m-1 $ , inclusive.\n- All prefix products of the sequence modulo $ m $ are distinct.\n- No prefix product modulo $ m $ appears as an element of the input list.\n- The length of the sequence is maximized.\n\nConstruct any sequence satisfying the properties above.",
+    "inputFormat": "The first line of input contains two integers $ n $ and $ m $ ( $ 0<=n&lt;m<=200000 $ ) \u2014 the number of forbidden prefix products and the modulus.\n\nIf $ n $ is non-zero, the next line of input contains $ n $ distinct integers between $ 0 $ and $ m-1 $ , the forbidden prefix products. If $ n $ is zero, this line doesn't exist.",
+    "outputFormat": "On the first line, print the number $ k $ , denoting the length of your sequence.\n\nOn the second line, print $ k $ space separated integers, denoting your sequence.",
+    "samples": [
+        [
+            "0 5\n",
+            "5\n1 2 4 3 0\n"
+        ],
+        [
+            "3 10\n2 9 1\n",
+            "6\n3 9 2 9 8 0\n"
+        ]
+    ],
+    "hint": "For the first case, the prefix products of this sequence modulo $ m $ are $ [1,2,3,4,0] $ .\n\nFor the second case, the prefix products of this sequence modulo $ m $ are $ [3,7,4,6,8,0] $ .",
+    "translation": "### \u9898\u76ee\u63cf\u8ff0\n\n\u7ed9\u51fa\u4e24\u4e2a\u6574\u6570 $n, m$\uff0c\u5728\u7ed9\u51fa\u4e00\u4e2a\u5927\u5c0f\u4e3a $n$ \u7684\u96c6\u5408 $B$\uff0c\u4e14 $\\forall y \\in B$ \u6709 $0 \\leq y < m$\u3002\u73b0\u8981\u6c42\u6784\u9020\u4e00\u4e2a\u5e8f\u5217 $A$\uff0c\u6ee1\u8db3\u4ee5\u4e0b\u6761\u4ef6\uff1a\n\n- $\\forall x \\in A$ \u6709 $0 \\leq x < m$\u3002\n- $\\forall i, j, 1 \\leq i, j \\leq |A|$\uff0c \u6709 $\\prod \\limits _{k = 1}^{i}A_k \\not\\equiv \\prod \\limits _{k = 1}^{j}A_k \\pmod m$\n- $\\forall i, y, 1 \\leq i \\leq |A|, y \\in B$\uff0c \u6709 $\\prod \\limits _{k = 1}^{i}A_k \\not\\equiv y \\pmod m$\n\n\u5728\u5e8f\u5217 $A$ \u5408\u6cd5\u7684\u6761\u4ef6\u4e0b\u6ee1\u8db3\u957f\u5ea6\u6700\u5927\u5316\uff0c\u5e76\u7ed9\u51fa\u4e00\u79cd\u6784\u9020\u65b9\u6848\u3002\n\n### \u8f93\u5165\u683c\u5f0f\n\n\u7b2c\u4e00\u884c\u4e24\u4e2a\u6574\u6570 $n, m$\u3002\n\n\u7b2c\u4e8c\u884c\uff08\u82e5 $n = 0$ \u5219\u6ca1\u6709\uff09\u8f93\u5165 $n$ \u4e2a\u6574\u6570\uff0c\u8868\u793a\u96c6\u5408 $B$\u3002\n\n### \u8f93\u51fa\u683c\u5f0f\n\n\u7b2c\u4e00\u884c\u4e00\u4e2a\u6574\u6570\uff0c\u8868\u793a\u5e8f\u5217 $A$ \u7684\u6700\u5927\u957f\u5ea6 $|A|$\u3002\n\n\u7b2c\u4e8c\u884c $|A|$ \u4e2a\u6574\u6570\uff0c\u8868\u793a\u5e8f\u5217 $A$\u3002\n\n### \u6570\u636e\u8303\u56f4\n\n$0 \\leq n, m \\leq 2 \\times 10^5$\u3002"
+}

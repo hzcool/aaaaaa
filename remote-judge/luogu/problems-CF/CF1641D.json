@@ -1,0 +1,17 @@
+{
+    "description": "Sam changed his school and on the first biology lesson he got a very interesting task about genes.\n\nYou are given $ n $ arrays, the $ i $ -th of them contains $ m $ different integers \u2014 $ a_{i,1}, a_{i,2},\\ldots,a_{i,m} $ . Also you are given an array of integers $ w $ of length $ n $ .\n\nFind the minimum value of $ w_i + w_j $ among all pairs of integers $ (i, j) $ ( $ 1 \\le i, j \\le n $ ), such that the numbers $ a_{i,1}, a_{i,2},\\ldots,a_{i,m}, a_{j,1}, a_{j,2},\\ldots,a_{j,m} $ are distinct.",
+    "inputFormat": "The first line contains two integers $ n $ , $ m $ ( $ 2 \\leq n \\leq 10^5 $ , $ 1 \\le m \\le 5 $ ).\n\nThe $ i $ -th of the next $ n $ lines starts with $ m $ distinct integers $ a_{i,1}, a_{i,2}, \\ldots, a_{i,m} $ and then $ w_i $ follows ( $ 1\\leq a_{i,j} \\leq 10^9 $ , $ 1 \\leq w_{i} \\leq 10^9 $ ).",
+    "outputFormat": "Print a single number \u2014 the answer to the problem.\n\nIf there are no suitable pairs $ (i, j) $ , print $ -1 $ .",
+    "samples": [
+        [
+            "4 2\n1 2 5\n4 3 1\n2 3 2\n4 5 3",
+            "5"
+        ],
+        [
+            "4 3\n1 2 3 5\n2 3 4 2\n3 4 5 3\n1 3 10 10",
+            "-1"
+        ]
+    ],
+    "hint": "In the first test the minimum value is $ 5 = w_3 + w_4 $ , because numbers $ \\{2, 3, 4, 5\\} $ are distinct.\n\nIn the second test case, there are no suitable pair $ (i, j) $ .",
+    "translation": "\u7ed9\u5b9a $n$ \u4e2a\u5e8f\u5217\uff0c\u6bcf\u4e2a\u5e8f\u5217\u4e2d\u5305\u542b $m$ \u4e2a\u4e92\u4e0d\u76f8\u540c\u7684\u6570 $a_{i,1},a_{i,2},\\ldots,a_{i,m}$ \u548c\u4e00\u4e2a\u6743\u503c $w_i$\u3002\n\n\u4f60\u9700\u8981\u627e\u5230\u5176\u4e2d\u7684\u4e24\u4e2a\u5e8f\u5217 $i$ \u548c $j$\uff0c\u4f7f\u5f97 $a_{i,1},a_{i,2},\\ldots,a_{i,m},a_{j,1},a_{j,2},\\ldots,a_{j,m}$ \u8fd9 $2 m$ \u4e2a\u6570\u4e92\u4e0d\u76f8\u540c\uff0c\u4e14 $w_i+w_j$ \u6700\u5c0f\u3002\n\n\u5982\u679c\u65e0\u89e3\uff0c\u8f93\u51fa $-1$\u3002"
+}

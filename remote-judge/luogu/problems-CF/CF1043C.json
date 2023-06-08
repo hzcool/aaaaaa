@@ -1,0 +1,17 @@
+{
+    "description": "IA has so many colorful magnets on her fridge! Exactly one letter is written on each magnet, 'a' or 'b'. She loves to play with them, placing all magnets in a row. However, the girl is quickly bored and usually thinks how to make her entertainment more interesting.\n\nToday, when IA looked at the fridge, she noticed that the word formed by magnets is really messy. \"It would look much better when I'll swap some of them!\" \u2014 thought the girl \u2014 \"but how to do it?\". After a while, she got an idea. IA will look at all prefixes with lengths from $ 1 $ to the length of the word and for each prefix she will either reverse this prefix or leave it as it is. She will consider the prefixes in the fixed order: from the shortest to the largest. She wants to get the lexicographically smallest possible word after she considers all prefixes. Can you help her, telling which prefixes should be chosen for reversing?\n\nA string $ a $ is lexicographically smaller than a string $ b $ if and only if one of the following holds:\n\n- $ a $ is a prefix of $ b $ , but $ a \\ne b $ ;\n- in the first position where $ a $ and $ b $ differ, the string $ a $ has a letter that appears earlier in the alphabet than the corresponding letter in $ b $ .",
+    "inputFormat": "The first and the only line contains a string $ s $ ( $ 1 \\le |s| \\le 1000 $ ), describing the initial string formed by magnets. The string $ s $ consists only of characters 'a' and 'b'.",
+    "outputFormat": "Output exactly $ |s| $ integers. If IA should reverse the $ i $ -th prefix (that is, the substring from $ 1 $ to $ i $ ), the $ i $ -th integer should be equal to $ 1 $ , and it should be equal to $ 0 $ otherwise.\n\nIf there are multiple possible sequences leading to the optimal answer, print any of them.",
+    "samples": [
+        [
+            "bbab\n",
+            "0 1 1 0\n"
+        ],
+        [
+            "aaaaa\n",
+            "1 0 0 0 1\n"
+        ]
+    ],
+    "hint": "In the first example, IA can reverse the second and the third prefix and get a string \"abbb\". She cannot get better result, since it is also lexicographically smallest string obtainable by permuting characters of the initial string.\n\nIn the second example, she can reverse any subset of prefixes \u2014 all letters are 'a'.",
+    "translation": "\u8fd9\u9898\u5927\u610f\u5c31\u662f\u7ed9\u4f60\u4e00\u4e2a\u5b57\u7b26\u4e32s\uff08\u53ea\u7531a\u548cb\u7ec4\u6210\uff09\uff0c\u4f60\u6bcf\u6b21\u53ef\u4ee5\u5c06\u8fd9\u4e2a\u5b57\u7b26\u4e32\u7684\u4efb\u610f\u524d\u7f00\u7ffb\u8f6c\uff0c\u8ba9\u4f60\u6c42\u5f97\u5230\u5b57\u5178\u5e8f\u6700\u5c0f\u7684\u5b57\u7b26\u4e32\u7684\u4efb\u610f\u4e00\u79cd\u64cd\u4f5c\u3002"
+}

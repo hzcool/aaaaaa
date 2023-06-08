@@ -1,0 +1,50 @@
+[
+    {
+        "content": "### \u7531\u4e8e\u6211\u6bd4\u4e0b\u9762\u7684\u5927\u4f6c\u83dc\u591a\u4e86\uff0c\u6240\u4ee5\u4ece\u7f51\u4e0a\u627e\u4e86\u03c0\u7684\u503c\n~~\u65b0\u9ad8\u4e00\u7684\u849f\u84bb\u745f\u745f\u53d1\u6296qwq~~\n```cpp\n#include<bits/stdc++.h>\n#define pai 3.14159265358979323846264338327//\u7f51\u4e0a\u627e\u7684\u03c0\nusing namespace std;\nint a[1005];\nint main()\n{\n\tstd::ios::sync_with_stdio(false);\n\tint n,sum=0;\n\tcin>>n;\n\tdouble mj=0;//\u9762\u79ef\n\tfor(int i=1;i<=n;i++)\n\t\tcin>>a[i];\n\tsort(a+1,a+n+1);//\u6392\u4e2a\u5e8f(\u4e0d\u6392\u5e8f\u7684\u8981\u4e48\u662f\u5927\u4f6c\uff0c\u8981\u4e48\u662f\u6ca1\u770b\u6837\u4f8b\u4e8c\uff0c\u8fd8\u6709\u5c31\u662f\u6211\u592a\u83dc\u4e86\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tif(i%2!=0) sum+=a[i]*a[i];//\u7531\u4e8e\u6700\u5916\u5c42\u5fc5\u662f\u7ea2\u7684(\u8be6\u89c1\u7ffb\u8bd1)\uff0c\u6240\u4ee5\u5947\u6570\u5c42\u90fd\u662f\u7ea2\u7684\n\t\telse sum-=a[i]*a[i];//\u5076\u6570\u5c42\u662f\u4ec0\u4e48\u989c\u8272\u76f8\u5fc5\u5927\u5bb6\u90fd\u77e5\u9053\u4e86\n\t}\n\tmj=sum*pai;//\u7b97\u9762\u79ef\n\tprintf(\"%.11f\\n\",abs(mj));//\u8f93\u51fa\uff01(\u9b3c\u755c\u6570\u636e\u8981\u7528abs\n\treturn 0;\n}\n\n```",
+        "postTime": 1537534976,
+        "uid": 91783,
+        "name": "\u8be5\u8d77\u4ec0\u4e48\u540d\u5b57",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT1402 \u3010N\u91cd\u4e38\u3011"
+    },
+    {
+        "content": "```\n#include<bits/stdc++.h>\nusing namespace std;\nint R[1010];//\u534a\u5f84 \nint n;\nconst double PI=acos(-1.0);//\u6b63\u786e\u7684PI\u7684\u6c42\u6cd5\uff0c\u4e0d\u77e5\u9053\u7684\u7ae5\u978b\u53ef\u4ee5\u8865\u4e00\u4e0b\u9ad8\u4e2d\u4e09\u89d2\u51fd\u6570 \ndouble sum=0.0;//\u521d\u59cb\u5316 \nint main()\n{\n\tcin>>n;\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tscanf(\"%d\",&R[i]);\t\t\n\t}\t\n\tsort(R+1,R+n+1);//\u6392\u4e00\u904d\u5e8f\uff08STL\u5927\u6cd5\u597d\uff09 \n\tfor(int i=0;i<=n;i+=2)\n\t{\n\t\tsum-=R[i]*R[i];//\u5c06\u5076\u73af\u51cf\u6389\uff08\u767d\uff09 \n\t}\n\tfor(int i=1;i<=n;i+=2)\n\t{\n\t\tsum+=R[i]*R[i];//\u5c06\u5947\u73af\u52a0\u4e0a \uff08\u7ea2\uff09 \n\t}\n\tsum*=PI;//\u7b97\u9762\u79ef \n\tprintf(\"%.10lf\\n\",abs(sum));//\u4e4b\u6240\u4ee5\u8981\u52a0abs\uff0c\u662f\u56e0\u4e3a\u9898\u7684\u539f\u56e0\uff08\u5751\u6b7b\u4e86\uff09 \n\treturn QWQ;\n} \n```",
+        "postTime": 1534243566,
+        "uid": 77131,
+        "name": "nth_element",
+        "ccfLevel": 5,
+        "title": "AT1402\u9898\u89e3"
+    },
+    {
+        "content": "\u6211\u770b\u4e09\u4f4ddalao\u7684\u9898\u89e3\u6709\u4e9b\u5730\u65b9\u4e0d\u662f\u5f88\u6e05\u695a\uff0c\u65b9\u6cd5\u5dee\u4e0d\u591a\uff0c\u6765\u6c34\u4e00\u53d1\u9898\u89e3\uff1a\n```cpp\n#include<bits/stdc++.h>\n#define M_PI 3.14159265358979323846//\u5b8f\u5b9a\u4e49\uff0c\u5b9a\u4e49\u03c0\u503c\uff0c\u4f46\u597d\u50cfc++ cmath\u5934\u6587\u4ef6\u6709M_PI\u7684\u5b9a\u4e49\nusing namespace std;\nint n,r[1005];\ndouble S;//\u8bb0\u5f55\u9762\u79ef\nint main(){\n\tscanf(\"%d\",&n);\n\tfor(int i=1;i<=n;i++)scanf(\"%d\",&r[i]);\n\tsort(r+1,r+n+1);//\u9898\u610f\u4e0d\u662f\u5f88\u6e05\u695a\uff0c\u8f93\u5165\u662f\u4e0d\u6309\u987a\u5e8f\u7684\uff0c\u8f93\u5165\u7684\u662f\u6bcf\u4e2a\u5706\u7684R\uff0c\u800c\u4e0d\u662f\u4e24\u5706\u4e4b\u95f4\u7684\u5bbd\uff1b\u5c31\u8fd9\u91cc\u6211\u8c03\u4e86\u597d\u4e45QWQ\n\tfor(int i=1;i<=n;i++)\n\t\tif(i%2==1)S+=r[i]*r[i];//\u52a0\u4e0a\u5947\uff08\u7ea2\uff09\u73afR\n\t\telse if(i%2==0)S-=r[i]*r[i];//\u51cf\u53bb\u5076\uff08\u767d\uff09\u73afR\n\tprintf(\"%.10lf\\n\",fabs(S*M_PI));//\u8f93\u51fa\u8bb0\u5f97\u4e58\u03c0\n   return 0;\n}\n```\n\u8fd9\u91cc\u6700\u540e\u4e00\u4e2afor\u7684\u539f\u7406\u53ef\u4ee5\u901a\u8fc7\u4e58\u6cd5\u5206\u914d\u5f8b\u6765\u63a8\u5f97\u5230\uff0c\u63d0\u53d6\u51fa\u03c0\u3002\u3002\u3002",
+        "postTime": 1566628634,
+        "uid": 185082,
+        "name": "xuzhexi",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT1402 \u3010N\u91cd\u4e38\u3011"
+    },
+    {
+        "content": "\u5148\u5f97\u4ece\u5c0f\u5230\u5927\u6392\u5e8f\uff0c\u6392\u5e8f\u540e\u5f88\u663e\u7136\uff0c\u7ea2\u73af\u5728\u5947\u6570\u5c42\uff0c\u767d\u73af\u5728\u5076\u6570\u5c42\u3002(\u4e14\u6700\u5916\u5c42\u662f\u7ea2\u73af)\n\n\u518d\u5229\u7528\u5706\u73af\u9762\u79ef\u516c\u5f0f$(S=\u03c0*(R^2-r^2))$\u7b97\u51fa\u6bcf\u4e2a\u7ea2\u73af\u9762\u79ef(\u6392\u5e8f\u540e\u7684\u6bcf\u4e2a\u5947\u6570\u5c42\u534a\u5f84\u7684\u5e73\u65b9$-$\u5076\u6570\u5c42\u534a\u5f84\u7684\u5e73\u65b9)$*\u03c0$,\u518d\u7531\u4e58\u6cd5\u5206\u914d\u5f8b\u63a8\u5bfc\u5f97\u603b\u9762\u79ef$=$(\u6240\u6709\u7684\u5947\u6570\u5c42\u534a\u5f84\u7684\u5e73\u65b9\u7684\u548c$-$\u6240\u6709\u7684\u5076\u6570\u5c42\u534a\u5f84\u7684\u5e73\u65b9\u7684\u548c)$*\u03c0$\n\n\u4e0a\u4ee3\u7801($c++$)\n\n```cpp\n\n#include<bits/stdc++.h>\nusing namespace std;\nint a[1005];\nint main()\n{\n\tint n,m=0;//\u6700\u540e\u7528m*\u03c0\n\tcin>>n;\n\tfor(int i=1;i<=n;i++)\n\t\tcin>>a[i];\n\tsort(a+1,a+n+1);\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tif(i%2!=0)\n\t\t\tm=m+a[i]*a[i];//\u5947\u73af\u52a0\n\t\telse\n\t\t\tm=m-a[i]*a[i];//\u5076\u73af\u51cf\n\t}\n\tprintf(\"%.11f\\n\",abs(m*1.0*3.14159265358979323846264338327));//\u7b97\u9762\u79ef\u8981\u7528abs\u51fd\u6570(\u6700\u540e\u90a3\u4e00\u5806\u662f\u03c0)\n\treturn 0;\n}\n```\n\n$AT$\u8981\u6362\u884c\u54df",
+        "postTime": 1590675003,
+        "uid": 263011,
+        "name": "chenkeqi1",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT1402 \u3010N\u91cd\u4e38\u3011"
+    },
+    {
+        "content": "\u7531\u4e8e\u6211\u4e0d\u77e5\u9053\u03c0\uff0c\u6240\u4ee5\u501f\u7528\u4e86\u697c\u4e0b\u7684\u03c0\n\n\u8fd9\u9053\u9898\u4e0d\u96be\uff0c\u4f46\u662f\u56e0\u4e3a\u4ed6\u662f$AT$\u7cfb\u5217\uff0c\u5fc5\u7136\u5f88\u6076\u5fc3\uff0c\u4e0b\u9762\u6211\u5148\u8bf4\u601d\u8def\u518d\u8bf4\u5751\u70b9\u3002\n\n\u601d\u8def\u5c31\u662f\u5947\u6570\u73af\u51cf\u53bb\u5076\u6570\u73af\uff0c\u6700\u540e\u5728\u7edd\u5bf9\u503c\u5c31\u884c\u4e86\n\n\u7cbe\u534e\u662f\u5751\u70b9\uff1a\n\n1.\u8f93\u5165\u4e0d\u662f\u4e3a\u4f60\u6392\u597d\u5e8f\u7684\uff0c\u4f60\u9700\u8981\u7528sort\n\n2.double\u7edd\u5bf9\u503c\u8981\u7528fabs\uff0c\u80cc\u8fc7\u5c31\u884c\u4e86\n\n3.\u9762\u79ef\u662f$a[i]*a[i]$\uff0c\u4e0d\u662f$i*i$\n\n4.\u03c0\u4e00\u5b9a\u8981\u5f00\u5927\uff0c\u8bef\u5dee\u5f88\u6076\u5fc3\n\n5.\u03c0\u8981\u4e58\u6cd5\u5206\u914d\u5f8b\uff0c\u4e0d\u7136\u66f4\u6076\u5fc3\n\n6.printf\u8f93\u51fa\u8981\u7528\"lf\"\uff0c\u4e0d\u7528\"llf\"\n\n7.\u6700\u540e\u8f93\u51fa\u8981\u6362\u884c\n\n\u4e0b\u9762\u662f\u4ee3\u7801\n\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint n,a[1001],ans; \nint main()\n{\n\tcin>>n;\n\tfor(int i=1;i<=n;i++)\n\t\tcin>>a[i];\n\tsort(a+1,a+n+1);//\u8f93\u5165\u4ece0\u5f00\u59cb\u4e0d\u52a01\uff0c\u4ece\u4e00\u5f00\u59cb\u52a01\n\tfor(int i=1;i<=n;i++){\n\t\tif(i%2==0){//\u628a0\u5199\u62101\u4e5f\u884c\uff0c\u53cd\u6b63\u662f\u53bb\u7edd\u5bf9\u503c\n\t\t\tint p=a[i]*a[i];\n\t\t\tans+=p;\n\t\t\tcontinue;\n\t\t}\n\t\tint p=a[i]*a[i];\n\t\tans-=p;\n\t}\n\tdouble ans1;\n    ans1=ans*3.14159265358979323846264338327;//\u4e58\u03c0\n\tprintf(\"%.15lf\\n\",fabs(ans1));\n\treturn 0;\n}\n\n\n```\n\n\u8c22\u8c22\u5927\u5bb6\n",
+        "postTime": 1586601517,
+        "uid": 253738,
+        "name": "\u542c\u53d6MLE\u58f0\u4e00\u7247",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 AT1402 \u3010N\u91cd\u4e38\u3011"
+    },
+    {
+        "content": "[\u8bf7\u5728\u535a\u5ba2\u4e2d\u67e5\u770b](https://www.luogu.com.cn/blog/lza/solution-at1402)\n\n# \u9898\u89e3 AT1402 \u3010N\u91cd\u4e38\u3011\n\u8fd9\u662f\u4e00\u9053\u6570\u5b66\u9898\uff0c\u6709\u4e00\u4e2a\u73af\uff0c\u4e00\u73af\u5957\u4e00\u73af\uff0c\u8ba9\u4f60\u6c42\u7ea2\u8272\u73af\u7684\u9762\u79ef\u3002\n## \u516c\u5f0f\u63a8\u5bfc\n\u82e5$n \\equiv1(mod 2)$\u539f\u5f0f=\n$$r_{n}^2\\pi-[(r_{2}^2-r_1^2)\\pi+(r_{4}^2-r_{3}^2)\\pi+...+(r_{2k}^2-r_{2k-1}^2)\\pi+...(r_{n-1}^2-r_{n-2}^{2})\\pi]$$\n$$=r_{n}^2\\pi-r_{2}^2\\pi+r_{1}^2\\pi-r_{4}^2\\pi+r_{3}^2\\pi-...-r_{n-1}^2\\pi+r_{n-2}^2\\pi$$\n$$(r_{1}^2\\pi+r_{3}^2\\pi+...+r_{2k+1}^2\\pi+...+r_{n}\\pi)-(r_{2}\\pi+r_{4}\\pi+...+r_{2k}^2\\pi+...+r_{n-1}^2\\pi)$$\n$$\n=\\sum_{i=1}^{\\frac{n+1}{2}}{r_{2i-1}^2}\\pi+\\sum_{i=1}^{\\frac{n-1}{2}}{r_{2i}^2\\pi}\n$$\n\n\u82e5$n \\equiv0(mod2)$\u539f\u5f0f=\n$$r_{1}^2\\pi+(r_{3}^2\\pi-r_{2}^2\\pi)+(r_5^2\\pi-r_{4}^{2}\\pi)+...+(r_{2k+1}^2\\pi-r_{2k}^2\\pi)+...+(r_{n-1}^2\\pi-r_{n-2}^2\\pi)$$\n$$=(r_{1}^2\\pi+r_{3}^2\\pi+...+r_{2k+1}+...+r_{n-1}^2\\pi)-(r_{2}^2\\pi+r_{4}^2\\pi+...+r_{2k}^2\\pi+...+r_{n}^2\\pi)$$\n$$=\\sum_{i=1}^{\\frac{n}{2}}{r_{2i-1}^2\\pi}+\\sum_{i=1}^{\\frac{n}{2}}{r_{2i}^2\\pi}$$\n$$=|\\sum_{i=1}^{\\frac{n}{2}}{r_{2i-1}^2\\pi}+\\sum_{i=1}^{\\frac{n}{2}}{r_{2i}^2\\pi}|$$\n\n\u6240\u4ee5\uff0c\u516c\u5f0f\u4e3a\uff08\u5947\u6570\u5e73\u65b9-\u5076\u6570\u5e73\u65b9)$\\pi$\n\n## \u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\n#define PI acos(-1.0)//\u5b9a\u4e49\u5e38\u91cfPI\nusing namespace std;\nint n;\ndouble sum;\nint x[1005];\nint main()\n{\n\tscanf(\"%d\",&n);\n\tfor(int i=1;i<=n;i++){\n\t\tscanf(\"%d\",&x[i]);\n\t}\n\tsort(x+1,x+1+n);//\u4e0d\u8981\u5fd8\u4e86\u6392\u5e8f\uff0c\u56e0\u4e3a\u534a\u5f84\u4e0d\u4e00\u5b9a\u4ece\u5c0f\u5230\u5927\n\tfor(int i=1;i<=n;i++){\n\t\tif(i%2==1)sum-=x[i]*x[i];//\u5224\u65ad\n\t\telse sum+=x[i]*x[i];\t\t\n\t}\n\tcout<<fixed<<setprecision(10)<<abs(PI*sum)<<endl;//\u8f93\u51fa\n    return 0;\n}\n```\n\n\u6c42\u901a\u8fc7\n\n# The end",
+        "postTime": 1583246835,
+        "uid": 176843,
+        "name": "Scarab",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT1402 \u3010N\u91cd\u4e38\u3011"
+    }
+]

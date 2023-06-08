@@ -1,0 +1,17 @@
+{
+    "description": "This is the easy version of the problem. The only difference is that in this version there are no \"remove\" queries.\n\nInitially you have a set containing one element \u2014 $ 0 $ . You need to handle $ q $ queries of the following types:\n\n- + $ x $ \u2014 add the integer $ x $ to the set. It is guaranteed that this integer is not contained in the set;\n- ? $ k $ \u2014 find the $ k\\text{-mex} $ of the set.\n\nIn our problem, we define the $ k\\text{-mex} $ of a set of integers as the smallest non-negative integer $ x $ that is divisible by $ k $ and which is not contained in the set.",
+    "inputFormat": "The first line contains an integer $ q $ ( $ 1 \\leq q \\leq 2 \\cdot 10^5 $ ) \u2014 the number of queries.\n\nThe following $ q $ lines describe the queries.\n\nAn addition query of integer $ x $ is given in the format + $ x $ ( $ 1 \\leq x \\leq 10^{18} $ ). It is guaranteed that $ x $ was not contained in the set.\n\nA search query of $ k\\text{-mex} $ is given in the format ? $ k $ ( $ 1 \\leq k \\leq 10^{18} $ ).\n\nIt is guaranteed that there will be at least one query of type ?.",
+    "outputFormat": "For each query of type ? output a single integer \u2014 the $ k\\text{-mex} $ of the set.",
+    "samples": [
+        [
+            "15\n+ 1\n+ 2\n? 1\n+ 4\n? 2\n+ 6\n? 3\n+ 7\n+ 8\n? 1\n? 2\n+ 5\n? 1\n+ 1000000000000000000\n? 1000000000000000000",
+            "3\n6\n3\n3\n10\n3\n2000000000000000000"
+        ],
+        [
+            "6\n+ 100\n? 100\n+ 200\n? 100\n+ 50\n? 50",
+            "200\n300\n150"
+        ]
+    ],
+    "hint": "In the first example:\n\nAfter the first and second queries, the set will contain elements $ \\{0, 1, 2\\} $ . The smallest non-negative number that is divisible by $ 1 $ and is not contained in the set is $ 3 $ .\n\nAfter the fourth query, the set will contain the elements $ \\{0, 1, 2, 4\\} $ . The smallest non-negative number that is divisible by $ 2 $ and is not contained in the set is $ 6 $ .\n\nIn the second example:\n\n- Initially, the set contains only the element $ \\{0\\} $ .\n- After adding an integer $ 100 $ the set contains elements $ \\{0, 100\\} $ .\n- $ 100\\text{-mex} $ of the set is $ 200 $ .\n- After adding an integer $ 200 $ the set contains elements $ \\{0, 100, 200\\} $ .\n- $ 100\\text{-mex} $ of the set is $ 300 $ .\n- After adding an integer $ 50 $ the set contains elements $ \\{0, 50, 100, 200\\} $ .\n- $ 50\\text{-mex} $ of the set is $ 150 $ .",
+    "translation": "\u6709\u4e00\u4e2a\u6574\u6570\u96c6\u5408\uff0c\u521d\u59cb\u53ea\u6709\u4e00\u4e2a\u5143\u7d20 $0$\uff0c\u6709\u4e24\u79cd\u64cd\u4f5c\uff0c\u5206\u522b\u5f62\u5982 `+ x` \u548c `? k`\u3002\u7b2c\u4e00\u79cd\u64cd\u4f5c\u7684\u542b\u4e49\u662f\u5728\u96c6\u5408\u4e2d\u52a0\u5165\u4e00\u4e2a\u5143\u7d20 $x$\uff0c\u7b2c\u4e8c\u79cd\u662f\u5e0c\u671b\u627e\u51fa\u6700\u5c0f\u7684\u6574\u6570 $t$\uff0c\u4f7f\u5f97 $t\\times k$ \u4e0d\u5728\u96c6\u5408\u5185\u3002"
+}

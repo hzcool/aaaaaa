@@ -1,0 +1,21 @@
+{
+    "description": "$ 2^n $ teams participate in a playoff tournament. The tournament consists of $ 2^n - 1 $ games. They are held as follows: in the first phase of the tournament, the teams are split into pairs: team $ 1 $ plays against team $ 2 $ , team $ 3 $ plays against team $ 4 $ , and so on (so, $ 2^{n-1} $ games are played in that phase). When a team loses a game, it is eliminated, and each game results in elimination of one team (there are no ties). After that, only $ 2^{n-1} $ teams remain. If only one team remains, it is declared the champion; otherwise, the second phase begins, where $ 2^{n-2} $ games are played: in the first one of them, the winner of the game \" $ 1 $ vs $ 2 $ \" plays against the winner of the game \" $ 3 $ vs $ 4 $ \", then the winner of the game \" $ 5 $ vs $ 6 $ \" plays against the winner of the game \" $ 7 $ vs $ 8 $ \", and so on. This process repeats until only one team remains.\n\nThe skill level of the $ i $ -th team is $ p_i $ , where $ p $ is a permutation of integers $ 1 $ , $ 2 $ , ..., $ 2^n $ (a permutation is an array where each element from $ 1 $ to $ 2^n $ occurs exactly once).\n\nYou are given a string $ s $ which consists of $ n $ characters. These characters denote the results of games in each phase of the tournament as follows:\n\n- if $ s_i $ is equal to 0, then during the $ i $ -th phase (the phase with $ 2^{n-i} $ games), in each match, the team with the lower skill level wins;\n- if $ s_i $ is equal to 1, then during the $ i $ -th phase (the phase with $ 2^{n-i} $ games), in each match, the team with the higher skill level wins.\n\nLet's say that an integer $ x $ is winning if it is possible to find a permutation $ p $ such that the team with skill $ x $ wins the tournament. Find all winning integers.",
+    "inputFormat": "The first line contains one integer $ n $ ( $ 1 \\le n \\le 18 $ ).\n\nThe second line contains the string $ s $ of length $ n $ consisting of the characters 0 and/or 1.",
+    "outputFormat": "Print all the winning integers $ x $ in ascending order.",
+    "samples": [
+        [
+            "3\n101",
+            "4 5 6 7"
+        ],
+        [
+            "1\n1",
+            "2"
+        ],
+        [
+            "2\n01",
+            "2 3"
+        ]
+    ],
+    "hint": "",
+    "translation": "\u6709 $2^n$ \u4e2a\u961f\u4f0d\u8981\u901a\u8fc7 $n$ \u8f6e\u6bd4\u8d5b\u51b3\u51fa\u80dc\u8d1f\uff0c\u603b\u5171\u6709 $2^n-1$ \u6b21\u4e24\u4e24\u5bf9\u51b3\u3002\u89c4\u5219\u5982\u4e0b\uff1a\n\n\u5728\u7b2c $1$ \u8f6e\u6bd4\u8d5b\u4e2d\uff0c\u7b2c $1$ \u961f\u548c\u7b2c $2$ \u961f\u5bf9\u51b3\uff0c\u7b2c $3$ \u961f\u548c\u7b2c $4$ \u961f\u5bf9\u51b3\uff0c\u4ee5\u6b64\u7c7b\u63a8\uff0c\u7b2c $2^n-1$ \u961f\u548c\u7b2c $2^n$ \u961f\u5bf9\u51b3\u3002\u6bcf\u573a\u5bf9\u51b3\u6ca1\u6709\u5e73\u5c40\uff0c\u8f93\u7684\u961f\u4f0d\u5c31\u76f4\u63a5\u6dd8\u6c70\u3002\u6240\u4ee5\u8fd9\u8f6e\u6bd4\u8d5b\u540e\u53ea\u5269\u4e0b $2^{n-1}$ \u4e2a\u961f\u4f0d\u3002\n\n\u5728\u7b2c $2$ \u8f6e\u6bd4\u8d5b\u4e2d\uff0c\u6211\u4eec\u5c06\u7b2c $1$ \u8f6e\u5269\u4e0b\u7684\u961f\u4f0d\u7f16\u53f7\u4e3a $1,2,\\dots ,2^{n-1}$\uff0c\u7ee7\u7eed\u50cf\u7b2c $1$ \u8f6e\u90a3\u6837\u4e24\u4e24\u5bf9\u51b3\u3002\u6240\u4ee5\u8fd9\u8f6e\u6bd4\u8d5b\u540e\u53ea\u5269\u4e0b $2^{n-2}$ \u4e2a\u961f\u4f0d\u3002\n\n\u4ee5\u6b64\u7c7b\u63a8\uff0c\u76f4\u5230\u7b2c $n$ \u8f6e\u6bd4\u8d5b\uff0c\u53ea\u5269\u4e0b $1$ \u4e2a\u961f\u4f0d\uff0c\u6bd4\u8d5b\u7ed3\u675f\u3002\n\n\u6211\u4eec\u8bbe\u7b2c $i$ \u4e2a\u961f\u4f0d\u7684\u6280\u5de7\u503c\u4e3a $p_i$\uff0c\u5176\u4e2d $p$ \u662f\u4e00\u4e2a $1\\sim 2^n$ \u7684\u6392\u5217\u3002\n\n\u7ed9\u5b9a\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684 01 \u4e32 $s$\uff0c\u542b\u4e49\u5982\u4e0b\uff1a\n\n1. \u82e5 $s_i=0$\uff0c\u5219\u5728\u7b2c $i$ \u8f6e\u6bd4\u8d5b\u4e2d\uff0c\u6280\u5de7\u503c\u4f4e\u7684\u961f\u4f0d\u83b7\u80dc\u3002\n\n2. \u82e5 $s_i=1$\uff0c\u5219\u5728\u7b2c $i$ \u8f6e\u6bd4\u8d5b\u4e2d\uff0c\u6280\u5de7\u503c\u9ad8\u7684\u961f\u4f0d\u83b7\u80dc\u3002\n\n\u4f60\u8981\u627e\u5230\u6240\u6709\u7684\u6574\u6570 $x\\in[1,2^n]$\uff0c\u4f7f\u5f97\u5b58\u5728\u4e00\u4e2a\u6392\u5217 $p$\uff0c\u8ba9\u6280\u5de7\u503c\u4e3a $x$ \u7684\u961f\u4f0d\u83b7\u80dc\u3002"
+}

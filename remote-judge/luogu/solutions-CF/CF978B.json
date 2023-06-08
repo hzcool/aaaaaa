@@ -1,0 +1,50 @@
+[
+    {
+        "content": "\u4ece\u5de6\u81f3\u53f3\u626b\u63cf\u4e00\u6b21\u5b57\u7b26\u4e32\uff0c\u7edf\u8ba1\u4e00\u4e0b\u8fde\u7eed\u51fa\u73b0\u7684x\u7684\u6b21\u6570\uff0c\u6309\u9898\u610f\u5904\u7406\u5373\u53ef\u3002\n\n```cpp\n#include <stdio.h>\nchar s[105];\nint main()\n{\n int n;\n scanf(\"%d\",&n);\n scanf(\"%s\",s);\n int ans=0,numx=0;\n for(int i=0;i<n;i++)\n {\n  if(s[i]=='x')numx++;\n  else\n  {\n   if(numx>=3)ans+=numx-2;\n   numx=0;\n  }\n }\n if(numx>=3)ans+=numx-2;\n printf(\"%d\",ans);\n return 0;\n}\n```",
+        "postTime": 1526296951,
+        "uid": 22030,
+        "name": "StudyingFather",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF978B \u3010File Name\u3011"
+    },
+    {
+        "content": "STL\u5927\u6cd5\u597d\n___\n\u601d\u8def\uff1a\n\n1.\u6211\u4eec\u5c31\u4e0d\u65ad\u7684\u5bfb\u627e\u6709\u6ca1\u6709\"xxx\"\n\n2.\u5982\u679c\u6709\uff0c\u5c31\u5220\u6389\u5176\u4e2d\u4e00\u4f4d\uff0c\u91cd\u590d\u6267\u884c1\n\n3.\u6ca1\u6709\u5219\u8f93\u51fa\u7b54\u6848\n```\n#include<bits/stdc++.h>\nusing namespace std;\nstring n;\nlong long ans,a;\nint main()\n{\n\tcin>>a>>n;\n\twhile(n.find(\"xxx\")!=-1)//\u6709\u7684\u8bdd\u8fd4\u56de\u7b2c\u4e00\u4f4d\u7684\u4f4d\u7f6e(\u4ece0\u5f00\u59cb)\uff0c\u6ca1\u6709\u8fd4\u56de-1\n\t{\n\t\tn.erase(n.find(\"xxx\"),1);//\u4ece\u90a3\u4e2a\u4f4d\u7f6e\uff08n.find(\"xxx\")\uff09\uff0c\u5220\u6389\u4e00\u4e2a\n\t\tans++;\n\t}\n\tcout<<ans<<endl;//\u8f93\u51fa\n}\n```",
+        "postTime": 1552135125,
+        "uid": 58543,
+        "name": "RioBlu",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 CF978B \u3010File Name\u3011"
+    },
+    {
+        "content": "\u5148\u8f93\u5165\u957f\u5ea6\u548c\u5b57\u7b26\u4e32\uff0c\u518d\u626b\u63cf\u4e00\u904d\uff0c\u627e\u5230\u8fde\u7eed\u51fa\u73b0\u7684'x'\uff0c\u8bb0\u5f55\u5373\u53ef\n\nc++\u4ee3\u7801\uff1a\n\n```\n#include<bits/stdc++.h>\nusing namespace std;\n\nint sum,len,ans;//sum\u7528\u6765\u8bb0\u5f55\u8fde\u7eed\u51fa\u73b0\u5b57\u7b26\u7684\u957f\u5ea6 \nchar ch,s[105];\n\nint main()\n{\n\tcin>>len>>s;\n\tch=s[0];//ch\u662f\u5f53\u524d\u5b57\u7b26\u7684\u957f\u5ea6 \n\tfor (int i=0;i<len;i++)\n\t\tif (ch==s[i]&&ch=='x')//\u5982\u679c\u662f'x'\u800c\u4e14\u51fa\u73b0\u7684\u6b21\u6570>=3,ans++ \n\t\t{\n\t\t\tsum++;\n\t\t\tif (sum>=3)\n\t\t\t\tans++;\n\t\t}\n\t\telse\n\t\t{\n\t\t\tch=s[i];\n\t\t\tsum=1;\n\t\t}\n\tcout<<ans;\n\treturn 0;\n}\n```",
+        "postTime": 1545024215,
+        "uid": 141179,
+        "name": "pigstd",
+        "ccfLevel": 9,
+        "title": "\u9898\u89e3 CF978B \u3010File Name\u3011"
+    },
+    {
+        "content": "### \u9898\u610f\u7b80\u8ff0\uff1a\n\n\u7ed9\u5b9a\u4e00\u4e2a\u5b57\u7b26\u4e32\u4e3a s\uff0c\u95ee\u5728\u8fd9\u4e2a\u5b57\u7b26\u4e32\u4e2d\u6700\u5c11\u5220\u53bb\u51e0\u4e2a\u5b57\u7b26\u624d\u80fd\u4f7f\u5b57\u7b26\u4e32\u4e2d\u4e0d\u542b\u6709 \u201cxxx\u201d\uff0c\u6ce8\u610f\uff0c\u4fdd\u8bc1\u8f93\u5165\u4e3a\u5c0f\u5199\u3002\n\n### \u65b9\u6cd5\uff1a\n\n\u5c31\u662f\u6211\u4eec\u5f97\u5148\u628a\u8fd9\u4e2a\u5b57\u7b26\u4e32\u4ece\u5de6\u5230\u53f3\u904d\u5386\u4e00\u904d\uff0c\u5982\u679c\u53d1\u73b0\u4e86\u2018x\u2019\uff0c\u90a3\u5c31\u4ece\u5f53\u524d\u4f4d\u7f6e i + 1 \u7684\u5730\u65b9\u7ee7\u7eed\u904d\u5386\u76f4\u5230\u5b57\u7b26\u4e0d\u4e3a\u2018x\u2019\u65f6\uff0c\u627e\u5230\u8fde\u7eed\u7684 x \u7684\u4e2a\u6570 t\uff0c\u7136\u540e\u5c06\u8fd9\u4e32 x \u53d8\u6210 \u4e24\u4e2a x\uff0c\u5373\u4f7f\u7b54\u6848\u589e\u52a0 max(t - 2,0) \u5c31\u53ef\u4ee5\u4e86\uff0c\u540c\u65f6\u4e5f\u80fd\u907f\u514d\u8d1f\u6570\u3002\n\n\u6240\u4ee5\u63a5\u4e0b\u6765\u5c31\u770b\u4ee3\u7801\u5427\uff1a\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nstring s;\nint n,t,ans; \nint main()\n{\n\tcin >> n >> s;\n\tfor (int i = 0; i < n; i++)\n\t\t{\n\t\t\tif (s[i] == 'x')//\u5982\u679c\u627e\u5230\u4e86x\n\t\t\t\t{\n\t\t\t\t\tfor (int j = i + 1; j <= n; j++)\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\tif (s[j] != s[i]) {i = j,ans += max(t - 1,0),t = 0; break;}//\u56e0\u4e3a\u6700\u5f00\u59cb\u7684x\u6ca1\u7b97\u4e0a\uff0c\u6240\u4ee5\u53ea\u8981t - 1\u5c31\u884c\u4e86\uff1b\n                            \t\t\t\t//i = j\u76f8\u5f53\u4e8e\u4ea4\u66ff\uff0c\u4ece\u5f53\u524d\u904d\u5386\u5230\u7684\u975ex\u5b57\u7b26\u7ee7\u7eed\u904d\u5386\uff0c\u5f53\u7136\uff0c\u6539\u6210j\u52a0\u4e00\u4e5f\u884c\u3002\n\t\t\t\t\t\t\t\telse t++;//\u66f4\u65b0x\u7684\u4e2a\u6570\u3002\n\t\t\t\t\t\t}\n\t\t\t\t}\n\t\t}\n\tcout << ans;//\u8f93\u51fa\u7b54\u6848\u3002\n\treturn 0;//AC\uff01\n}\n```\n\n\u5e0c\u671b\u5bf9\u5927\u5bb6\u6709\u6240\u5e2e\u52a9\uff01",
+        "postTime": 1593941208,
+        "uid": 241915,
+        "name": "Level_Down",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 CF978B \u3010File Name\u3011"
+    },
+    {
+        "content": "\u53c8\u662f\u4e00\u9053\u5b57\u7b26\u4e32\u6c34\u9898\u3002\n\n\u5728C++\u7684 `<string>` \u4e2d\uff0c\u6709\u8fd9\u6837\u4e24\u4e2a\u51fd\u6570\uff1a\n- `find`\n- `erase`\n\n\u4f5c\u7528\u5982\u4e0b\uff1a\n- `find`\uff1a\u5728\u4e00\u4e2a\u5b57\u7b26\u4e32\u4e2d\u5bfb\u627e\u53e6\u4e00\u4e2a\u5b57\u7b26\u4e32\uff0c\u5982\u679c\u627e\u4e0d\u5230\uff0c\u8fd4\u56de `string::npos`\u3002\n\n  \u7528\u6cd5\uff1a`a.find(b);` \u6216 `a.find(\"luogu\");`\n\n- `erase`\uff1a\u4ece\u67d0\u4e00\u4f4d\u5f00\u59cb\u5220\u9664\u6307\u5b9a\u4f4d\u6570\u3002\n  \n  \u7528\u6cd5\uff1a`a.erase(x, n); //\u5220\u9664\u4ece\u4e0b\u6807 x \u5f00\u59cb\u7684 n \u4f4d\u5b57\u7b26`\n  \n\u6709\u4e86\u4e0a\u9762\u8fd9\u4e24\u4e2a\u51fd\u6570\uff0c\u5c31\u80fd\u8f7b\u677eAC\u4e86\u3002\n\n```cpp\n#include <iostream>//\u5934\u6587\u4ef6 \n#include <string>//\u5fc5\u987b\u7528<string>\u5e93 \nusing namespace std;\nint n, cnt;//\u5b9a\u4e49\uff0c\u5728\u4e3b\u51fd\u6570\u5916\u5b9a\u4e49\u7684\u53d8\u91cf\u81ea\u52a8\u521d\u59cb\u5316\u4e3a0 \nstring s;//\u5b9a\u4e49 \nint main(void) { //\u4e3b\u51fd\u6570 \n\tcin >> n >> s;//\u8f93\u5165 \n\twhile (s.find(\"xxx\") != string::npos) { //\u56e0\u4e3a\u53ef\u80fd\u5305\u542b\u591a\u4e2a\"xxx\"\uff0c\u6240\u4ee5\u8981\u7528while \n\t\ts.erase(s.find(\"xxx\"), 1);//\u4ece\u627e\u5230\"xxx\"\u7684\u4f4d\u7f6e\u5220\u9664\u4e00\u4f4d \n\t\tcnt++;//\u5220\u9664\u4e00\u4f4d\uff0c\u7b54\u6848\u52a0\u4e00 \n\t}\n    cout << cnt << endl;//\u8f93\u51fa\n    return 0;//\u7ed3\u675f \n}\n```",
+        "postTime": 1585398027,
+        "uid": 205301,
+        "name": "Tazuaki",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 CF978B \u3010File Name\u3011"
+    },
+    {
+        "content": "#  CF978B File Name \u9898\u89e3\n\n\u6211\u4eec\u770b\u4e0b\u91cd\u70b9\uff0c\u7406\u89e3\u9898\u76ee\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/l3rk5fio.png)\n\n- \u8fd9\u91cc\u8bf4\u660e\u4e86\u9898\u76ee\u4e2d\u7684\u610f\u601d\uff0c\u53ea\u8981\u628a `x` \u5220\u9664\u5230 $3$ \u4e2a\u4e00\u4e0b\u5c31\u53ef\u4ee5\n\n\u4e8e\u662f\u6211\u4eec\u7684\u601d\u8def\u5c31\u662f\uff1a\n\n- \u5148\u679a\u4e3e\uff0c\u679a\u4e3e\u4e00\u4e0b\u6709\u591a\u5c11\u4e2a `x`\n- \u5728\u679a\u4e3e\u7684\u540c\u65f6\uff0c\u770b\u4e00\u4e0b `x` \u662f\u5426\u662f $3$ \u4e2a\u4ee5\u4e0a\uff08\u53ef\u4ee5\u4f7f\u7528\u8ba1\u6570\u5668\uff09\uff0c\u8ba1\u7b97\u4e4b\u540e\uff0c\u5982\u679c\u9700\u8981\u5220\u9664\uff0c\u518d\u8ba1\u6570\n- **\u203b\uff1a\u5728\u4e2d\u9014\u5982\u679c\u6709\u5176\u4ed6\u7684\u5b57\u7b26\uff0c\u90a3\u4e48\u6839\u636e\u9898\u610f\uff0c\u6211\u4eec\u4e4b\u524d\u7684 `x` \u7684\u4e2a\u6570\u662f\u4e0d\u7b97\u7684\uff0c\u56e0\u6b64\u9700\u8981\u7f6e\u96f6**\n- \u8f93\u51fa\u5373\u53ef\n\n\u6211\u4eec\u53ef\u4ee5\u5199\u4e00\u4e0b\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>//\u4e07\u80fd\u5934\u6587\u4ef6\u2764\nusing namespace std;//using \u4e0d\u591a\u8bf4\nint main()\n{\n    int n,sum=0,tmp=0;//\u5b9a\u4e49\n    cin>>n;//\u8f93\u5165\n    char ch[1000];//\u5b9a\u4e49\n    cin>>ch;//\u8f93\u5165\n    for(int i=0;i<n;i++)//\u679a\u4e3e\u6574\u4e2a\u5b57\u7b26\u4e32\n    {\n        if(ch[i]=='x') //\u5982\u679c\u7b49\u4e8e x\n        {\n            sum++;//x \u7684\u4e2a\u6570++\n            if(sum>=3) tmp++;//\u5982\u679c\u4e2a\u6570\u8d85\u8fc7\u4e09\uff0c\u90a3\u4e48\u8981\u5220\u53bb\u7684\u6570\u91cf++\n        }\n        if(ch[i]!='x') sum=0;//\u7f6e\u96f6\n    }\n    cout<<tmp;//\u8f93\u51fa\u6700\u540e\u7ed3\u679c\n    return 0;//\u534e\u4e3d\u7ed3\u675f\n}\n```\n\n\u5b66\u4f1a\u4e86\u5417\uff1f\n\n[Thomas_ \u7684\u535a\u5ba2](https://zyy-txws-noip.blog.luogu.org/)\n\n\u539f\u521b\uff0c\u4fb5\u6743\u5fc5\u7a76",
+        "postTime": 1580116484,
+        "uid": 250679,
+        "name": "Thomas_",
+        "ccfLevel": 0,
+        "title": "CF978B File Name \u9898\u89e3"
+    }
+]

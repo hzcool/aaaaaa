@@ -1,0 +1,13 @@
+{
+    "description": "You are given three integers $ a $ , $ b $ , and $ d $ . Your task is to find any integer $ x $ which satisfies all of the following conditions, or determine that no such integers exist:\n\n- $ 0 \\le x \\lt 2^{60} $ ;\n- $ a|x $ is divisible by $ d $ ;\n- $ b|x $ is divisible by $ d $ .\n\nHere, $ | $ denotes the [bitwise OR operation](https://en.wikipedia.org/wiki/Bitwise_operation#OR).",
+    "inputFormat": "Each test contains multiple test cases. The first line of input contains one integer $ t $ ( $ 1 \\le t \\le 10^4 $ ) \u2014 the number of test cases.\n\nEach test case consists of one line, containing three integers $ a $ , $ b $ , and $ d $ ( $ 1 \\le a,b,d \\lt 2^{30} $ ).",
+    "outputFormat": "For each test case print one integer. If there exists an integer $ x $ which satisfies all of the conditions from the statement, print $ x $ . Otherwise, print $ -1 $ .\n\nIf there are multiple solutions, you may print any of them.",
+    "samples": [
+        [
+            "8\n12 39 5\n6 8 14\n100 200 200\n3 4 6\n2 2 2\n18 27 3\n420 666 69\n987654321 123456789 999999999",
+            "18\n14\n-1\n-1\n0\n11\n25599\n184470016815529983"
+        ]
+    ],
+    "hint": "In the first test case, $ x=18 $ is one of the possible solutions, since $ 39|18=55 $ and $ 12|18=30 $ , both of which are multiples of $ d=5 $ .\n\nIn the second test case, $ x=14 $ is one of the possible solutions, since $ 8|14=6|14=14 $ , which is a multiple of $ d=14 $ .\n\nIn the third and fourth test cases, we can show that there are no solutions.",
+    "translation": "\u7ed9\u5b9a\u6b63\u6574\u6570 $a,b,d$\uff0c\u6c42\u4e00\u4e2a\u6574\u6570 $x(0 \\le x \\lt 2^{60}) $ \u4f7f\u5f97 $d\\mid(a\\operatorname{or}x)$ \u4e14 $d\\mid(b\\operatorname{or}x)$\uff0c\u5176\u4e2d $\\operatorname{or}$ \u8868\u793a\u6309\u4f4d\u6216\u8fd0\u7b97\u3002"
+}

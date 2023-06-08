@@ -1,0 +1,17 @@
+{
+    "description": "You have a grid with $ n $ rows and $ n $ columns. Each cell is either empty (denoted by '.') or blocked (denoted by 'X').\n\nTwo empty cells are directly connected if they share a side. Two cells $ (r_{1},c_{1}) $ (located in the row $ r_{1} $ and column $ c_{1} $ ) and $ (r_{2},c_{2}) $ are connected if there exists a sequence of empty cells that starts with $ (r_{1},c_{1}) $ , finishes with $ (r_{2},c_{2}) $ , and any two consecutive cells in this sequence are directly connected. A connected component is a set of empty cells such that any two cells in the component are connected, and there is no cell in this set that is connected to some cell not in this set.\n\nYour friend Limak is a big grizzly bear. He is able to destroy any obstacles in some range. More precisely, you can choose a square of size $ k\u00d7k $ in the grid and Limak will transform all blocked cells there to empty ones. However, you can ask Limak to help only once.\n\nThe chosen square must be completely inside the grid. It's possible that Limak won't change anything because all cells are empty anyway.\n\nYou like big connected components. After Limak helps you, what is the maximum possible size of the biggest connected component in the grid?",
+    "inputFormat": "The first line of the input contains two integers $ n $ and $ k $ ( $ 1<=k<=n<=500 $ ) \u2014 the size of the grid and Limak's range, respectively.\n\nEach of the next $ n $ lines contains a string with $ n $ characters, denoting the $ i $ -th row of the grid. Each character is '.' or 'X', denoting an empty cell or a blocked one, respectively.",
+    "outputFormat": "Print the maximum possible size (the number of cells) of the biggest connected component, after using Limak's help.",
+    "samples": [
+        [
+            "5 2\n..XXX\nXX.XX\nX.XXX\nX...X\nXXXX.\n",
+            "10\n"
+        ],
+        [
+            "5 3\n.....\n.XXX.\n.XXX.\n.XXX.\n.....\n",
+            "25\n"
+        ]
+    ],
+    "hint": "In the first sample, you can choose a square of size $ 2\u00d72 $ . It's optimal to choose a square in the red frame on the left drawing below. Then, you will get a connected component with $ 10 $ cells, marked blue in the right drawing.\n\n ![](https://cdn.luogu.com.cn/upload/vjudge_pic/CF679C/73f9f2e0fd56d2fb7f7f3062a32953f02d9af103.png)",
+    "translation": "\u7ed9\u5b9a\u4e00\u4e2an\u884cn\u5217\u7684\u77e9\u9635\uff0c\u6bcf\u4e2a\u683c\u5b50\u91cc\u662f\u7a7a\u7684\u6216\u8005\u662f\u5c01\u95ed\u7684\u3002\u5f53\u76f8\u90bb\u7684\u683c\u5b50\u90fd\u662f\u7a7a\u7684\uff0c\u8fd9\u4e24\u4e2a\u683c\u5b50\u5c31\u662f\u8054\u901a\u7684\uff0c\u591a\u4e2a\u8fde\u901a\u683c\u5b50\u7ec4\u6210\u4e00\u4e2a\u8fde\u901a\u5feb\u3002\r\n\r\n\u73b0\u5728\u4f60\u6709\u4e00\u4e2ak\u00d7k\u7684\u6846\uff0c\u4f7f\u7528\u8fd9\u4e2a\u6846\u53ef\u4ee5\u5c06\u5305\u542b\u7684\u5c01\u95ed\u683c\u5b50\u53d8\u6210\u662f\u7a7a\u7684\u3002\u4f7f\u7528\u6846\u7684\u65f6\u5019\uff0c\u6574\u4e2a\u6846\u5fc5\u987b\u5168\u90e8\u5728\u77e9\u9635\u5185\u3002\r\n\r\n\u8bf7\u95ee\u8fd9\u4e2a\u77e9\u9635\u7684\u6700\u5927\u8fde\u901a\u5757\u5305\u542b\u7684\u683c\u5b50\u7684\u6570\u91cf\u3002"
+}

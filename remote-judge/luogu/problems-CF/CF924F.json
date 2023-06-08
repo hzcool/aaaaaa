@@ -1,0 +1,17 @@
+{
+    "description": "We call a positive integer $ x $ a $ k $ -beautiful integer if and only if it is possible to split the multiset of its digits in the decimal representation into two subsets such that the difference between the sum of digits in one subset and the sum of digits in the other subset is less than or equal to $ k $ . Each digit should belong to exactly one subset after the split.\n\nThere are $ n $ queries for you. Each query is described with three integers $ l $ , $ r $ and $ k $ , which mean that you are asked how many integers $ x $ between $ l $ and $ r $ (inclusive) are $ k $ -beautiful.",
+    "inputFormat": "The first line contains a single integer $ n $ ( $ 1<=n<=5\u00b710^{4} $ ), indicating the number of queries.\n\nEach of the next $ n $ lines describes a query, containing three integers $ l $ , $ r $ and $ k $ ( $ 1<=l<=r<=10^{18} $ , $ 0<=k<=9 $ ).",
+    "outputFormat": "For each query print a single number \u2014 the answer to the query.",
+    "samples": [
+        [
+            "10\n1 100 0\n1 100 1\n1 100 2\n1 100 3\n1 100 4\n1 100 5\n1 100 6\n1 100 7\n1 100 8\n1 100 9\n",
+            "9\n28\n44\n58\n70\n80\n88\n94\n98\n100\n"
+        ],
+        [
+            "10\n1 1000 0\n1 1000 1\n1 1000 2\n1 1000 3\n1 1000 4\n1 1000 5\n1 1000 6\n1 1000 7\n1 1000 8\n1 1000 9\n",
+            "135\n380\n573\n721\n830\n906\n955\n983\n996\n1000\n"
+        ]
+    ],
+    "hint": "If $ 1<=x<=9 $ , integer $ x $ is $ k $ -beautiful if and only if $ x<=k $ .\n\nIf $ 10<=x<=99 $ , integer $ x=10a+b $ is $ k $ -beautiful if and only if $ |a-b|<=k $ , where $ a $ and $ b $ are integers between $ 0 $ and $ 9 $ , inclusive.\n\n $ 100 $ is $ k $ -beautiful if and only if $ k>=1 $ .",
+    "translation": "\u5b9a\u4e49 $f(n)$ \u8868\u793a\u5c06\u5341\u8fdb\u5236\u6570 $n$ \u6240\u6709\u6570\u7801\u4e4b\u95f4\u586b\u5165\u52a0\u53f7\u6216\u8005\u51cf\u53f7\uff0c\u6700\u7ec8\u5f97\u5230\u7684\u503c\u7684\u7edd\u5bf9\u503c\u6700\u5c0f\u503c\u3002  \n$T$ \u7ec4\u8be2\u95ee\uff0c\u7ed9\u5b9a $l, r, k$\uff0c\u6c42\u6ee1\u8db3 $l \\le m \\le r$ \u4e14 $f(m) \\le k$ \u7684 $m$ \u7684\u4e2a\u6570\u3002  \n\u7b54\u6848\u5bf9 $1e9 + 7$ \u53d6\u6a21\u3002  \n\u6570\u636e\u8303\u56f4\uff1a$1 \\le T \\le 5e4, 1 \\le l \\le r \\le 1e18, 1 \\le k \\le 9$\u3002"
+}

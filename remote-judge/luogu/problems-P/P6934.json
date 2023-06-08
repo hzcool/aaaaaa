@@ -1,0 +1,21 @@
+{
+    "description": "\n\n![](https://onlinejudgeimages.s3-ap-northeast-1.amazonaws.com/problem/14638/1.png)\n\nPixels in a digital picture can be represented with three integers in the range $0$ to $255$ that indicate the intensity of the red, green, and blue colors. To compress an image or to create an artistic effect, many photo-editing tools include a `posterize` operation which works as follows. Each color channel is examined separately; this problem focuses only on the red channel. Rather than allow all integers from $0$ to $255$ for the red channel, a posterized image allows at most $k$ integers from this range. Each pixel's original red intensity is replaced with the nearest of the allowed integers. The photo-editing tool selects a set of $k$ integers that minimizes the sum of the squared errors introduced across all pixels in the original image. If there are $n$ pixels that have original red values $r_{1},$ . . . , $r_{n},$ and $k$ allowed integers $v_{1},$ . . . , $v_{k},$ the sum of squared errors is defined as\n\n$\\(\\su_m_{i=1}^{n}{\\mi_n_{1 \\le j \\le k}{(r_i - v_j)^2}}\\).$\n\nYour task is to compute the minimum achievable sum of squared errors, given parameter $k$ and a description of the red intensities of an image's pixels.\n\n",
+    "inputFormat": "\n\nThe first line of the input contains two integers $d (1 \\le d \\le 256)$ , the number of distinct red values that occur in the original image, and $k (1 \\le k \\le d)$ , the number of distinct red values allowed in the posterized image. The remaining $d$ lines indicate the number of pixels of the image having various red values. Each such line contains two integers $r (0 \\le r \\le 255)$ and $p (1 \\le p \\le 2^{26}),$ where $r$ is a red intensity value and $p$ is the number of pixels having red intensity $r$ . Those $d$ lines are given in increasing order of red value.\n\n",
+    "outputFormat": "\n\nDisplay the sum of the squared errors for an optimally chosen set of $k$ allowed integer values.\n\n",
+    "samples": [
+        [
+            "2 1\n50 20000\n150 10000\n",
+            "66670000\n"
+        ],
+        [
+            "2 2\n50 20000\n150 10000\n",
+            "0\n"
+        ],
+        [
+            "4 2\n0 30000\n25 30000\n50 30000\n255 30000\n",
+            "37500000\n"
+        ]
+    ],
+    "hint": "Time limit: 2 s, Memory limit: 512 MB. \n\n",
+    "translation": "\u7ed9\u5b9a $d$ \u7c7b\u5143\u7d20\uff0c\u7b2c $i$ \u7c7b\u5143\u7d20\u7684\u53d6\u503c\u4e3a $r_i$\uff0c\u4e14\u6709 $p_i$ \u4e2a\uff0c\u6309\u7167\u8fd9\u4e9b\u4fe1\u606f\u53ef\u4ee5\u5c06\u8fd9\u4e9b\u5143\u7d20\u6392\u5217\u5728\u4e00\u4e2a\u957f\u5ea6\u4e3a $n=\\sum p_i$ \u7684\u5e8f\u5217\u91cc\uff0c\u73b0\u5728\u4f60\u8981\u505a\u7684\u662f\u89c4\u5212\u4e00\u4e2a\u957f\u5ea6\u4e3a $k$ \u7684\u5e8f\u5217 $v_i$\uff0c\u4f7f\u5f97\u6309\u7167\u5982\u4e0b\u5b9a\u4e49\u7684\u5e8f\u5217\u8bef\u5dee\u6700\u5c0f\uff1a\r\n\r\n$$\\sum\\limits_{i=1}^n \\min\\limits_{1 \\le j \\le k}(r_i-v_j)^2$$\r\n\r\n\u6c42\u6700\u5c0f\u5e8f\u5217\u8bef\u5dee\u3002\r\n\r\n$1 \\le k \\le d \\le 256$\uff0c$0 \\le r \\le 255$\uff0c$1 \\le p \\le 2^{26}$\u3002\r\n\r\n\u7ffb\u8bd1\u8005\uff1a\u4e00\u53ea\u4e66\u866b\u4ed4"
+}

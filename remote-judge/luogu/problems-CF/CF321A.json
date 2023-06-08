@@ -1,0 +1,25 @@
+{
+    "description": "Fox Ciel has a robot on a 2D plane. Initially it is located in (0, 0). Fox Ciel code a command to it. The command was represented by string $ s $ . Each character of $ s $ is one move operation. There are four move operations at all:\n\n- 'U': go up, (x, y) $ \u2192 $ (x, y+1);\n- 'D': go down, (x, y) $ \u2192 $ (x, y-1);\n- 'L': go left, (x, y) $ \u2192 $ (x-1, y);\n- 'R': go right, (x, y) $ \u2192 $ (x+1, y).\n\nThe robot will do the operations in $ s $ from left to right, and repeat it infinite times. Help Fox Ciel to determine if after some steps the robot will located in $ (a,b) $ .",
+    "inputFormat": "The first line contains two integers $ a $ and $ b $ , ( $ -10^{9}<=a,b<=10^{9} $ ). The second line contains a string $ s $ ( $ 1<=|s|<=100 $ , $ s $ only contains characters 'U', 'D', 'L', 'R') \u2014 the command.",
+    "outputFormat": "Print \"Yes\" if the robot will be located at $ (a,b) $ , and \"No\" otherwise.",
+    "samples": [
+        [
+            "2 2\nRU\n",
+            "Yes\n"
+        ],
+        [
+            "1 2\nRU\n",
+            "No\n"
+        ],
+        [
+            "-1 1000000000\nLRRLU\n",
+            "Yes\n"
+        ],
+        [
+            "0 0\nD\n",
+            "Yes\n"
+        ]
+    ],
+    "hint": "In the first and second test case, command string is \"RU\", so the robot will go right, then go up, then right, and then up and so on.\n\nThe locations of its moves are (0, 0) $ \u2192 $ (1, 0) $ \u2192 $ (1, 1) $ \u2192 $ (2, 1) $ \u2192 $ (2, 2) $ \u2192 $ $ ... $\n\nSo it can reach (2, 2) but not (1, 2).",
+    "translation": "- \u4f60\u73b0\u5728\u5728\u4e00\u4e2a\u8ff7\u5bab\u7684 $(0,0)$ \u5904\uff0c\u7ed9\u5b9a\u4e00\u4e2a\u5305\u542b $\\texttt{U,D,L,R}$ \u7684\u64cd\u4f5c\u5e8f\u5217 $s$\uff0c\u5176\u4e2d $\\texttt{U}$ \u8868\u793a\u5411\u4e0a\u8d70\u4e00\u683c\uff0c$\\texttt{D}$ \u8868\u793a\u5411\u4e0b\u8d70\u4e00\u683c\uff0c$\\texttt{L}$ \u8868\u793a\u5411\u5de6\u8d70\u4e00\u683c\uff0c$\\texttt{R}$ \u8868\u793a\u5411\u53f3\u8d70\u4e00\u683c\u3002\u4f60\u5c06\u4f1a\u6309\u7167 $s$ \u4ece\u5de6\u5f80\u53f3\u7684\u64cd\u4f5c\u79fb\u52a8\uff0c\u5e76\u4e14\u91cd\u590d\u82e5\u5e72\u6b21\u3002\u95ee\u4f60\u662f\u5426\u80fd\u591f\u5230\u8fbe $(a,b)$ \u5904\u3002\r\n- $-10^9\\leqslant a,b\\leqslant 10^9$\u3002"
+}

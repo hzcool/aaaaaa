@@ -1,0 +1,17 @@
+{
+    "description": "Petya loves lucky numbers. Everybody knows that lucky numbers are positive integers whose decimal representation contains only the lucky digits 4 and 7. For example, numbers 47, 744, 4 are lucky and 5, 17, 467 are not.\n\nPetya has $ n $ number segments $ [l_{1};\u00a0r_{1}] $ , $ [l_{2};\u00a0r_{2}] $ , ..., $ [l_{n};\u00a0r_{n}] $ . During one move Petya can take any segment (let it be segment number $ i $ ) and replace it with segment $ [l_{i}+1;\u00a0r_{i}+1] $ or $ [l_{i}-1;\u00a0r_{i}-1] $ . In other words, during one move Petya can shift any segment to the left or to the right by a unit distance. Petya calls a number full if it belongs to each segment. That is, number $ x $ is full if for any $ i $ $ (1<=i<=n) $ the condition $ l_{i}<=x<=r_{i} $ is fulfilled.\n\nPetya makes no more than $ k $ moves. After that he counts the quantity of full lucky numbers. Find the maximal quantity that he can get.",
+    "inputFormat": "The first line contains two integers $ n $ and $ k $ ( $ 1<=n<=10^{5} $ , $ 1<=k<=10^{18}) $ \u2014 the number of segments and the maximum number of moves. Next $ n $ lines contain pairs of integers $ l_{i} $ and $ r_{i} $ $ (1<=l_{i}<=r_{i}<=10^{18}) $ .\n\nPlease do not use the %lld specificator to read or write 64-bit integers in \u0421++. It is preferred to use the %I64d specificator.",
+    "outputFormat": "Print on the single line the single number \u2014 the answer to the problem.",
+    "samples": [
+        [
+            "4 7\n1 4\n6 9\n4 7\n3 5\n",
+            "1\n"
+        ],
+        [
+            "2 7\n40 45\n47 74\n",
+            "2\n"
+        ]
+    ],
+    "hint": "In the first sample Petya shifts the second segment by two units to the left (it turns into $ [4;\u00a07] $ ), after that number $ 4 $ becomes full.\n\nIn the second sample Petya shifts the first segment by two units to the right (it turns into $ [42;\u00a047] $ ), and shifts the second segment by three units to the left (it turns into $ [44;\u00a071] $ ), after that numbers $ 44 $ and $ 47 $ become full.",
+    "translation": "### \u9898\u76ee\u5927\u610f\uff1a\n\u5982\u679c\u4e00\u4e2a\u6570\u5728\u5341\u8fdb\u5236\u4e0b\u4ec5\u542b\u6570\u5b57 $4$ \u548c $7$\uff0c\u90a3\u4e48\u4ed6\u5c31\u662f\u5e78\u8fd0\u7684\u3002\u7ed9\u4f60 $n$ \u4e2a\u533a\u95f4\uff0c\u4e00\u6b21\u64cd\u4f5c\u53ef\u4ee5\u5c06\u5176\u4e2d\u4e00\u4e2a\u533a\u95f4\u7684\u5de6\u53f3\u7aef\u70b9\u5747\u53f3\u79fb\u6216\u5de6\u79fb $1$\uff0c\u4f60\u53ef\u4ee5\u64cd\u4f5c\u81f3\u591a $k$ \u6b21\u3002\u6c42\u64cd\u4f5c\u5b8c\u540e\uff0c\u6240\u6709\u533a\u95f4\u7684\u4ea4\u4e2d\u6700\u591a\u5305\u542b\u591a\u5c11\u4e2a\u5e78\u8fd0\u7684\u6570\u3002  \n\u6570\u636e\uff1a$n\\leq 10^5,k\\leq 10^{18},1\\leq l_i\\leq r_i\\leq 10^{18}$\u3002"
+}

@@ -1,0 +1,17 @@
+{
+    "description": "You are given a rectangular field of $ n\u00d7m $ cells. Each cell is either empty or impassable (contains an obstacle). Empty cells are marked with '.', impassable cells are marked with '\\*'. Let's call two empty cells adjacent if they share a side.\n\nLet's call a connected component any non-extendible set of cells such that any two of them are connected by the path of adjacent cells. It is a typical well-known definition of a connected component.\n\nFor each impassable cell $ (x,y) $ imagine that it is an empty cell (all other cells remain unchanged) and find the size (the number of cells) of the connected component which contains $ (x,y) $ . You should do it for each impassable cell independently.\n\nThe answer should be printed as a matrix with $ n $ rows and $ m $ columns. The $ j $ -th symbol of the $ i $ -th row should be \".\" if the cell is empty at the start. Otherwise the $ j $ -th symbol of the $ i $ -th row should contain the only digit \u2014- the answer modulo $ 10 $ . The matrix should be printed without any spaces.\n\nTo make your output faster it is recommended to build the output as an array of $ n $ strings having length $ m $ and print it as a sequence of lines. It will be much faster than writing character-by-character.\n\nAs input/output can reach huge size it is recommended to use fast input/output methods: for example, prefer to use scanf/printf instead of cin/cout in C++, prefer to use BufferedReader/PrintWriter instead of Scanner/System.out in Java.",
+    "inputFormat": "The first line contains two integers $ n,m $ ( $ 1<=n,m<=1000 $ ) \u2014 the number of rows and columns in the field.\n\nEach of the next $ n $ lines contains $ m $ symbols: \".\" for empty cells, \"\\*\" for impassable cells.",
+    "outputFormat": "Print the answer as a matrix as described above. See the examples to precise the format of the output.",
+    "samples": [
+        [
+            "3 3\n*.*\n.*.\n*.*\n",
+            "3.3\n.5.\n3.3\n"
+        ],
+        [
+            "4 5\n**..*\n..***\n.*.*.\n*.*.*\n",
+            "46..3\n..732\n.6.4.\n5.4.3\n"
+        ]
+    ],
+    "hint": "In first example, if we imagine that the central cell is empty then it will be included to component of size $ 5 $ (cross). If any of the corner cell will be empty then it will be included to component of size $ 3 $ (corner).",
+    "translation": "\u7ed9\u4f60\u4e00\u5f20\u56fe\uff0c\u2018*\u2019\u8868\u793a\u5899\uff0c\u2018.\u2019\u8868\u793a\u7a7a\u5730\uff0c\u95ee\u6bcf\u4e2a'*'\u5468\u56f4\u7684\u8054\u901a\u5feb\u4e2d\u2018.\u2019\u7684\u6570\u91cf\u548c mod 10\uff0c\u5c5e\u4e8e\u540c\u4e00\u4e2a\u8054\u901a\u5feb\u7684\u53ea\u8ba1\u7b97\u4e00\u6b21\u3002"
+}

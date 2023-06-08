@@ -1,0 +1,21 @@
+{
+    "description": "As technologies develop, manufacturers are making the process of unlocking a phone as user-friendly as possible. To unlock its new phone, Arkady's pet dog Mu-mu has to bark the password once. The phone represents a password as a string of two lowercase English letters.\n\nMu-mu's enemy Kashtanka wants to unlock Mu-mu's phone to steal some sensible information, but it can only bark $ n $ distinct words, each of which can be represented as a string of two lowercase English letters. Kashtanka wants to bark several words (not necessarily distinct) one after another to pronounce a string containing the password as a substring. Tell if it's possible to unlock the phone in this way, or not.",
+    "inputFormat": "The first line contains two lowercase English letters \u2014 the password on the phone.\n\nThe second line contains single integer $ n $ ( $ 1<=n<=100 $ ) \u2014 the number of words Kashtanka knows.\n\nThe next $ n $ lines contain two lowercase English letters each, representing the words Kashtanka knows. The words are guaranteed to be distinct.",
+    "outputFormat": "Print \"YES\" if Kashtanka can bark several words in a line forming a string containing the password, and \"NO\" otherwise.\n\nYou can print each letter in arbitrary case (upper or lower).",
+    "samples": [
+        [
+            "ya\n4\nah\noy\nto\nha\n",
+            "YES\n"
+        ],
+        [
+            "hp\n2\nht\ntp\n",
+            "NO\n"
+        ],
+        [
+            "ah\n1\nha\n",
+            "YES\n"
+        ]
+    ],
+    "hint": "In the first example the password is \"ya\", and Kashtanka can bark \"oy\" and then \"ah\", and then \"ha\" to form the string \"oyahha\" which contains the password. So, the answer is \"YES\".\n\nIn the second example Kashtanka can't produce a string containing password as a substring. Note that it can bark \"ht\" and then \"tp\" producing \"http\", but it doesn't contain the password \"hp\" as a substring.\n\nIn the third example the string \"hahahaha\" contains \"ah\" as a substring.",
+    "translation": "- \u7ed9\u5b9a\u4e00\u4e2a\u957f\u5ea6\u4e3a  $2$ \u7684\u5b57\u7b26\u4e32  $s$\uff0c\u4ee5\u53ca  $n$ \u4e2a\u957f\u5ea6\u4e3a  $2$ \u7684\u5b57\u7b26\u4e32  $t_1,t_2,t_3,...,t_n$\uff0c\u95ee\u4f60\u662f\u5426\u80fd\u591f\u901a\u8fc7\u5c06\u8fd9  $n$ \u4e2a\u5b57\u7b26\u4e32\u4e2d\u7684\u4efb\u610f\u4e00\u4e9b\u5b57\u7b26\u4e32\uff08**\u53ef\u4ee5\u5c06\u4e00\u4e2a\u5b57\u7b26\u4e32\u4f7f\u7528\u591a\u6b21**\uff09\u62fc\u63a5\u6210\u4e00\u4e2a\u5927\u5b57\u7b26\u4e32  $a$\uff0c\u4f7f\u5f97  $s$ \u662f  $a$ \u7684\u5b50\u4e32\u3002\n-  $1\\leqslant n\\leqslant 100$\u3002"
+}
