@@ -1,0 +1,50 @@
+[
+    {
+        "content": "## \u89e3\u6cd5\uff1a\n\n\u89c2\u5bdf\u5230\u672c\u9898\u4e2d $N$,$D$ \u90fd\u4e0d\u8d85\u8fc7 $10$\uff0c\u6545\u8003\u8651\u66b4\u529b\u3002\n\n\u679a\u4e3e $i,j$\uff0c\u8ba1\u7b97\uff1a $(X_{i,1}-X_{j,1})^2+(X_{i,2}-X_{j,2})^2+\u2026+(X_{i,D}-X_{j,D})^2$\u3002\n\n\u518d\u5224\u65ad\u8be5\u6570\u662f\u5426\u4e3a\u5e73\u65b9\u6570\u5373\u53ef\u3002\n\ncode:\n\n```cpp\n#include <bits/stdc++.h>\n\nsigned main(void) {\n\tint N,D,ans=0,x[12][12];\n\tscanf(\"%d %d\",&N,&D);\n\tfor(int i=1;i<=N;i++) {\n\t\tfor(int j=1;j<=D;j++) {\n\t\t\tscanf(\"%d\",&x[i][j]); \n\t\t}\n\t}\n\tfor(int i=1;i<=N;i++) {\n\t\tfor(int j=i+1;j<=N;j++) {\n\t\t\tint sum=0;\n\t\t\tbool flag=0;\n\t\t\tfor(int k=1;k<=D;k++) {\n\t\t\t\tsum+=(x[i][k]-x[j][k])*(x[i][k]-x[j][k]);\n\t\t\t}\n\t\t\tfor(int i=1;i*i<=sum;i++) {\n\t\t\t\tif(i*i==sum) {\n\t\t\t\t\tflag=1;\n\t\t\t\t}\n\t\t\t}\n\t\t\tif(flag) {\n\t\t\t\tans++;\n\t\t\t}\n\t\t}\n\t}\n\tprintf(\"%d\",ans);\n    return 0;\n}\n```\n",
+        "postTime": 1642413980,
+        "uid": 366807,
+        "name": "lgvc",
+        "ccfLevel": 5,
+        "title": "AT4763 [ABC133B] Good Distance \u9898\u89e3"
+    },
+    {
+        "content": "## \u601d\u8def\uff1a\n\u6570\u636e\u4e0d\u5927\uff0c\u53ef\u4ee5\u76f4\u63a5\u679a\u4e3e\u3002\n\n\u7b97\u6cd5\uff1a\u5bf9\u4e8e\u6bcf\u4e2a $i,j$\uff0c\u8ba1\u7b97\uff1a$(X_{i,1}-X_{j,1})^2+(X_{i,2}-X_{j,2})^2+\u2026+(X_{i,D}-X_{j,D})^2$\u3002\n\n\u5224\u65ad\u8fd9\u4e2a\u6570\u662f\u5426\u4e3a\u5e73\u65b9\u6570\u5373\u53ef\u3002\n\n\u53ef\u4ee5\u5f00\u59cb\u6109\u5feb\u7684\u5199\u4ee3\u7801\u4e86\u3002\n## AC CODE\n```cpp\n#include<iostream>\n#include<cstdio>\n#include<cmath>\nusing namespace std;\nint a[15][15],cnt;\nint main()\n{\n\tint n,d;\n\tscanf(\"%d%d\",&n,&d);\n\tfor(int i=1;i<=n;i++)   for(int j=1;j<=d;j++)   cin>>a[i][j];\n\tfor(int i=1;i<n;i++){\n\t    for(int j=i+1;j<=n;j++){\n\t\t\tint ans=0;\n\t\t\tfor(int k=1;k<=d;k++)\n\t\t\t\tans+=(a[i][k]-a[j][k])*(a[i][k]-a[j][k]);\n\t\t\tif(int(sqrt(ans))*int(sqrt(ans))==ans)\n\t\t\t\tcnt++;\n\t\t}\n\t}\n\tprintf(\"%d\",cnt);\n\treturn 0;\n}\n```",
+        "postTime": 1643284067,
+        "uid": 326779,
+        "name": "ThomasSTH_rdfz",
+        "ccfLevel": 5,
+        "title": "AT4763"
+    },
+    {
+        "content": "### \u9898\u76ee\u5927\u610f\n\n$D$ \u7ef4\u4e2d\u6709 $n$ \u4e2a\u70b9\uff0c\u6c42\u4e24\u70b9\u4e4b\u95f4\u8ddd\u79bb\u4e3a\u6574\u6570\u7684\u5bf9\u6570\u3002\n\n### \u601d\u8def\u5206\u6790\n\n\u6570\u636e\u4e0d\u5927\uff0c\u8003\u8651\u679a\u4e3e\u3002\n\n\u679a\u4e3e\u4e24\u4e2a\u70b9\uff0c\u8ba1\u7b97\u8ddd\u79bb\u65f6\u53ea\u9700\u5224\u65ad\u662f\u5426\u4e3a\u6574\u6570\u5373\u53ef\u3002\n\n\u600e\u4e48\u5224\u65ad\u5462\uff1f\n\n\u89c2\u5bdf\u5f0f\u5b50\uff0c\u53d1\u73b0\u53ea\u6709\u6839\u53f7\u624d\u4f1a\u4ea7\u751f\u5c0f\u6570\uff0c\u6240\u4ee5\u6211\u4eec\u53ef\u4ee5\u5148\u8ba1\u7b97 $(y_1-z_1)^2+(y_2-z_2)^2+...+(y_D-z_D)^2$ \uff0c\u7136\u540e\u5224\u65ad\u662f\u5426\u4e3a\u5e73\u65b9\u6570\u5373\u53ef\u3002\n\n### \u5751\u70b9\n\n\u7b2c\u4e8c\u5c42\u5faa\u73af\u7684 $j$ \u4e00\u5b9a\u8981\u5728 $i+1$ \u5f00\u59cb\uff0c\u4e0d\u7136 $i,j$ \u7b97\u4e00\u904d\uff0c $j,i$ \u53c8\u7b97\u4e86\u4e00\u904d\uff0c\u4f1a\u4ea7\u751f\u91cd\u590d\u3002\n\n\u5e73\u65b9\u6570\u5224\u65ad\u65f6\u8bb0\u5f97\u52a0\u4e0a```int(sqrt(ans))*int(sqrt(ans))==ans```\uff0c\u5982\u679c\u53ea\u662f```sqrt(ans)*sqrt(ans)==ans```\u5c31\u4f1a\u4ea7\u751f\u9519\u8bef\u3002\n\n### code\n\n```cpp\n#include<iostream>\n#include<cmath>\nusing namespace std;\nint a[15][15],cnt;\nint main()\n{\n\tint n,d;\n\tcin>>n>>d;\n\tfor(int i=1;i<=n;i++)\n\t\tfor(int j=1;j<=d;j++)\n\t\t\tcin>>a[i][j];\n\tfor(int i=1;i<=n;i++)\n\t\tfor(int j=i+1;j<=n;j++)\n\t\t{\n\t\t\tint ans=0;\n\t\t\tfor(int k=1;k<=d;k++)\n\t\t\t\tans+=(a[i][k]-a[j][k])*(a[i][k]-a[j][k]);\n\t\t\t//cout<<i<<\" \"<<j<<\" \"<<ans<<endl;\n\t\t\tif(int(sqrt(ans))*int(sqrt(ans))==ans)\n\t\t\t\tcnt++;\t\n\t\t}\n\tcout<<cnt;\n\treturn 0;\n}\n```",
+        "postTime": 1642470843,
+        "uid": 327444,
+        "name": "Tothetime_tolife",
+        "ccfLevel": 0,
+        "title": "AT4763"
+    },
+    {
+        "content": "\u4e00\u9053\u975e\u5e38\u9002\u5408\u7528\u6765\u653e\u677e\u5fc3\u60c5\u7684\u9898\u3002\n\n\u9996\u5148\u6211\u4eec\u6765\u770b\u6570\u636e\u8303\u56f4,$ n\\le 10 $,$ d\\le10 $,\u7136\u540e\u6211\u4eec\u5c31\u53ef\u4ee5\u66b4\u529b\u679a\u4e3e\u4e86\u3002\n\n\u8fc7\u7a0b\uff1a\u6211\u4eec\u53ef\u4ee5\u8bbe $ dis_{i,j} $ \u8868\u793a\u70b9 $ i $ \u4e0e\u70b9 $ j $ \u4e4b\u95f4\u7684\u8ddd\u79bb\uff0c\u90a3\u4e48 $ dis_{i,j}=\\sqrt{\\left(y_1-z_1\\right)+\\left(y_2-z_2\\right)+\\cdots+\\left(y_D-z_D\\right)} $,\u6240\u4ee5\u8bf4 $ dis_{i,j}^2=\\left(y_1-z_1\\right)+\\left(y_2-z_2\\right)+\\cdots+\\left(y_D-z_D\\right) $\u3002\n\n\u6240\u4ee5\uff0c\u5982\u679c\u4e24\u4e2a\u6570\u4e4b\u95f4\u7684\u8ddd\u79bb\u662f\u6574\u6570\uff0c\u90a3\u4e48\u5c31\u5fc5\u7136\u6709 $ \\left\\lfloor\\sqrt{dis_{i,j}}\\right\\rfloor^2=dis_{i,j} $\u3002\n\n\u6240\u4ee5\u6211\u4eec\u66b4\u529b\u679a\u4e3e\u4e00\u4e0b\u5c31\u53ef\u4ee5\u7ed3\u675f\u672c\u9898\u3002\n\nAC\u4ee3\u7801\uff1a\n```\n#include<cstdio>\n#include<cmath>\nusing namespace std;\nint a[11][11];\nint n,d;\nint ans;\nint main() {\n\tscanf(\"%d%d\",&n,&d);\n\tfor(int i=1; i<=n; i++)\n\t\tfor(int j=1; j<=d; j++)\n\t\t\tscanf(\"%d\",a[i]+j);\n\tfor(int i=1; i<=n; i++)\n\t\tfor(int j=i+1; j<=n; j++) {\n\t\t\tint num=0;\n\t\t\tfor(int k=1; k<=d; k++)\n\t\t\t\tnum+=((a[i][k]-a[j][k])*(a[i][k]-a[j][k]));\n\t\t\tif((int)sqrt(num)*(int)sqrt(num)==num)\n\t\t\t\tans++;\n\t\t}\n\tprintf(\"%d\",ans);\n\treturn 0;\n}\n```\n\u611f\u8c22\u89c2\u770b\uff01",
+        "postTime": 1619239936,
+        "uid": 400201,
+        "name": "Wuyanru",
+        "ccfLevel": 7,
+        "title": "AT4763 [ABC133B] Good Distance"
+    },
+    {
+        "content": "### solution\n\n\u770b\u5230\u6570\u636e\u540e\u66b4\u529b\u5373\u53ef\uff0c\u66b4\u529b\u6a21\u62df\uff0c\u7b97\u51fa\u6bcf\u4e2a\u70b9\u7684\u8ddd\u79bb\uff0c\u7136\u540e\u5224\u65ad\u82e5\u4e3a\u6574\u6570\u5c31\u8bb0\u5f55\u5373\u53ef\u3002\n\n\n\n### code\n\n```cpp\n#include <iostream>\n#include <cstdio>\n#include <algorithm>\n#include <cstring>\n#include <cmath>\n#include <string>\n#define int long long\nusing namespace std;\nconst int NR = 15;\nint n, d, ans;\nint x[NR][NR];\nint sqr(int a) {\n\treturn a * a;\n}\nsigned main() {\n\tcin >> n >> d;\n\tfor (int i = 1; i <= n; i++)\n\t\tfor (int j = 1; j <= d; j++)\n\t\t\tcin >> x[i][j];\n\tfor (int i = 1; i <= n; i++)\n\t\tfor (int j = i + 1; j <= n; j++) {\n\t\t\tdouble dd = 0;\n\t\t\tfor (int k = 1; k <= d; k++)\n\t\t\t\tdd += sqr(x[i][k] - x[j][k]);\n\t\t\tdd = sqrt(dd);\n\t\t\tif (dd == (int)dd) ans++;\n\t\t}\n\tcout << ans << endl;\n\treturn 0;\n}\n```\n\n",
+        "postTime": 1611905905,
+        "uid": 128369,
+        "name": "AgrumeStly",
+        "ccfLevel": 0,
+        "title": "[AT4763][ABC133B] Good Distance"
+    },
+    {
+        "content": "\u4e0d\u6127\u662fABC\u7684B\u9898\uff0c\u53ea\u7528\u6839\u636e\u9898\u610f\u6a21\u62df\u679a\u4e3e\u5373\u53ef\u5566\n\n\u53e6\u5916\u8865\u5145\u4e00\u4e0b\u6570\u636e\u8303\u56f4:\n- $2 \\leq N \\leq 10$\n- $2 \\leq D \\leq 10$\n- $-20 \\leq X_{ij} \\leq 20$\n\n```cpp\n#include<bits/stdc++.h>\n#define int ll\nusing namespace std;\ntypedef long long ll;\nint w[20][20];\nsigned main(void)\n{\n\tios::sync_with_stdio(false);\n\tcin.tie(0);\n\tint n, d, cnt = 0;              // \u8ba1\u6570\u5668\u8bb0\u5f97\u6e050~ \n\tcin>>n>>d;\n\tfor(int i = 0; i < n; i++)\n\t\tfor(int j = 0; j < d; j++)\n\t\t\tcin>>w[i][j];\n\tfor(int i = 0; i < n; i++)\n\t\tfor(int j = i+1; j < n; j++)  // \u53cc\u91cd\u5faa\u73af\u679a\u4e3e\u5bf9\u6570 \u6ce8\u610f i < j \n\t\t{\n\t\t\tint dist = 0;             // \u8ddd\u79bb\u4e5f\u8981\u6e050~ \n\t\t\tfor(int k = 0; k < d; k++) dist += (w[i][k]-w[j][k])*(w[i][k]-w[j][k]);\n\t\t\tif (sqrt(dist) == (int)sqrt(dist)) cnt++;  // \u5224\u65ad\u8ddd\u79bb\u662f\u5426\u4e3a\u6574\u6570~\n\t\t}\n\tcout<<cnt<<endl;\n\treturn ~~(0-0); // \u5b8c\u7ed3\u6492\u82b1~\n}\n```\n",
+        "postTime": 1586061099,
+        "uid": 195066,
+        "name": "Loxilante",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT4763 \u3010[ABC133B] Good Distance\u3011"
+    }
+]

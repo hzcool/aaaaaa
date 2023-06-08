@@ -1,0 +1,10 @@
+[
+    {
+        "content": "[\u643a\u5e2f\u96fb\u8a71\u306e\u8cfc\u5165 \u306e \u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/AT_past202104_c)\n\n\u6211\u4eec\u53ef\u4ee5\u6309\u7167\u9898\u610f\u6a21\u62df\u3002\n\n\u9898\u76ee\u8981\u6c42\u6700\u591a\u6709\u591a\u5c11\u7ec4 $i$\uff0c\u6ee1\u8db3 $a_{i,j}=b_l$ \u7684 $(j,l)$ \u6709 $q$ \u7ec4\u7ea7\u4ee5\u4e0a\u3002\n\n\u6211\u4eec\u77e5\u9053 STL \u7684\u52a8\u6001\u6570\u7ec4 `vector` \u652f\u6301\u67e5\u627e\u4e00\u4e2a\u6570\u662f\u5426\u5b58\u5728\u4e8e\u5176\u4e2d\u3002\n\n\u90a3\u4e48\u6211\u4eec\u5c31\u53ef\u4ee5\u7528\u5b83\u6765\u6a21\u62df $a_{i,j}$ \u662f\u5426\u5b58\u5728\u4e8e $b$\u3002\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nconst int N=55;\nint n,m,k,p,q,ans;\nsigned main() {\n\tcin>>n>>m;\n\tvector<vector<int> > a(n,vector<int>());\n\tfor(int i=0;i<n;++i) {\n\t\tcin>>k;\n\t\ta[i].resize(k);\n\t\tfor(int j=0;j<k;++j)\tcin>>a[i][j];\n\t}\n\tcin>>p>>q;\n\tvector<int> b(p);\n\tfor(int i=0;i<p;++i)\tcin>>b[i];\n\tfor(int i=0;i<n;++i) {\n\t\tint r=0;\n\t\tfor(int j:a[i])\tr+=(find(b.begin(),b.end(),j)!=b.end());\n\t\tans+=(r>=q);\n\t}\n\tcout<<ans;\n\treturn 0;\n}\n```",
+        "postTime": 1680516740,
+        "uid": 688783,
+        "name": "NM_ljy",
+        "ccfLevel": 0,
+        "title": "\u643a\u5e2f\u96fb\u8a71\u306e\u8cfc\u5165"
+    }
+]

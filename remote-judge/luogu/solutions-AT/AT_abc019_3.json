@@ -1,0 +1,58 @@
+[
+    {
+        "content": "\u9898\u76ee\u4e2d\u8bf4\u8981\u53bb\u91cd\uff0c\u7528 `set`\u3002\u5b83\u6709\u81ea\u5df1\u53bb\u91cd\u7684\u529f\u80fd\u3002    \n```cpp\n#include<iostream>\n#include<set>\nusing namespace std;\nset<int>s;\nint n;\nint f;\nint main(){\n    cin>>n;\n    for(int i=1;i<=n;++i){\n        cin>>f;\n        while(f%2==0){ // \u628a\u56e0\u5b50 2 \u5220\u6389\n            f/=2;\n        }\n        s.insert(f); // \u52a0\u5165\u5bb9\u5668\n    }\n    cout<<s.size()<<endl; // \u8f93\u51fa\u5927\u5c0f\n}\n```",
+        "postTime": 1650341463,
+        "uid": 525687,
+        "name": "Wang1006",
+        "ccfLevel": 0,
+        "title": "AT1203 \u9898\u89e3"
+    },
+    {
+        "content": "## Solution\n\n\u548c\u697c\u4e0b\u5404\u4f4d\u7528 `set` \u548c `map` \u7684\u5927\u4f6c\u601d\u8def\u7565\u6709\u4e0d\u540c\uff0c\u4e5f\u8bb8\u66f4\u597d\u7406\u89e3\u5427\u3002\n\n\u7531\u4e8e\u653e\u5165 $2x$ \u548c \u653e\u5165 $x$ \u7684\u8f93\u51fa\u7ed3\u679c\u662f\u4e00\u6837\u7684\uff0c\u6240\u4ee5\u6211\u4eec\u53ef\u4ee5\u5c06\u8f93\u5165\u7684\u6570\u505a\u5904\u7406\uff0c\u5c06\u91cc\u9762 $2$ \u7684\u56e0\u5b50\u53bb\u6389\u3002\n\n\u8fd9\u91cc\u53ef\u4ee5\u4f7f\u7528 $\\operatorname{lowbit}$ \u3002\n\n\u63a5\u7740\u6392\u5e8f\uff0c\u5229\u7528 STL \u7684 `unique` \u53bb\u91cd\u3002\n\n\u53bb\u91cd\u540e\u7684\u5143\u7d20\u4e2a\u6570\u5373\u4e3a\u6240\u6c42\u7684\u7b54\u6848\u3002\n\n## AC Code\n\n```cpp\n\n#include <bits/stdc++.h>\nusing namespace std;\nconst int N = 1e5 + 5;\nvector<int> a;\nint n;\nint main()\n{\n    cin >> n;\n    for (int i = 1; i <= n; i ++){\n        int x;\n        scanf(\"%d\", &x);\n        a.push_back(x / (x & -x));\n    }\n    sort(a.begin(), a.end());\n    vector<int>::iterator it = unique (a.begin(), a.end());\n    cout << it - a.begin() << endl;\n    return 0;\n}\n```",
+        "postTime": 1666233047,
+        "uid": 486677,
+        "name": "haimo_qwq",
+        "ccfLevel": 5,
+        "title": "AT_abc_019_3"
+    },
+    {
+        "content": "[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/AT_abc019_3)\n\n## \u601d\u8def\n\n\u8fd9\u9053\u9898\u76ee\u7684\u610f\u601d\u5dee\u4e0d\u591a\u5c31\u662f\uff0c\u628a\u6bcf\u4e2a\u6570\u4e0d\u65ad\u5730\u9664\u4ee5 $2$ \u76f4\u5230\u5b83\u662f\u5947\u6570\uff0c\u4e22\u8fdb\u76d2\u5b50\u91cc\u6240\u5f97\u5230\u7684\u6570\u90fd\u76f8\u7b49\u3002\u6211\u4eec\u53ef\u4ee5\u6839\u636e\u8fd9\u4e00\u7279\u70b9\u6765\u5c06\u6bcf\u4e00\u4e2a\u6570\u90fd\u9664\u4ee5 $2$ \u4f7f\u5176\u53d8\u6210\u5947\u6570,\u518d\u5c06\u5176\u53bb\u91cd\u3002\n\n\u4ec0\u4e48\u529e\u6cd5\u53ef\u4ee5\u5feb\u901f\u5730\u53bb\u91cd\uff1f\u7528 `set`\u3002\u6bcf\u4e00\u6b21\u5c06\u8fd9\u4e2a\u5947\u6570\u4e22\u8fdb `set` \u4e2d\uff0c\u6700\u540e\u8f93\u51fa `set` \u7684\u5927\u5c0f\u5373\u53ef\u3002\n\n## code\n\n```cpp\n#include<bits/stdc++.h>\n#define int long long//\u8bb0\u5f97\u5f00long long\nusing namespace std;\nset<int>s;\nsigned main(){\n\tint n,a;\n\tcin>>n;\n\tfor(int i=1;i<=n;i++){\n\t\tcin>>a;\n\t\twhile(a%2==0)a/=2;\n\t\ts.insert(a);\n\t}\n\tcout<<s.size()<<'\\n';//AT \\n\u5df2\u6210\u5e38\u6001\n}\n```",
+        "postTime": 1666188664,
+        "uid": 557463,
+        "name": "yinpeichu2021",
+        "ccfLevel": 5,
+        "title": "AT_abc019_3 \u9ad8\u6a4b\u304f\u3093\u3068\u9b54\u6cd5\u306e\u7bb1 \u9898\u89e3"
+    },
+    {
+        "content": "### \u9898\u76ee\u5927\u610f\uff1a\n\u7b2c\u4e00\u884c\u8f93\u5165\u4e00\u4e2a $n$\uff0c\u63a5\u4e0b\u6765 $1$ \u884c $n$ \u4e2a\u6570\u5b57 $x$\uff0c\u5220\u9664\u6240\u6709 $2x$ \u7684\u6570\uff0c\u8f93\u51fa\u5269\u4f59\u6570\u5b57\u7684\u4e2a\u6570\u3002\n\n### \u9898\u76ee\u5206\u6790\uff1a\n`set` \u6709\u5347\u5e8f\u548c\u53bb\u91cd\u529f\u80fd\uff0c\u6211\u4eec\u5148\u7528 `set` \u628a $n$ \u4e2a\u6570\u5b57\u5b58\u8d77\u6765\uff0c\u7136\u540e\u5229\u7528\u8fed\u4ee3\u5668\u5220\u9664\u5f53\u524d\u6570\u5b57 $x$ \u7684\u500d\u6570 $2x$\uff0c\u6700\u540e\u8f93\u51fa `set` \u7684\u957f\u5ea6\u3002\n\n### \u5177\u4f53\u4ee3\u7801\uff1a\n```cpp\n#include <iostream>\n#include <set>\n//\u9700\u8981\u7684\u5934\u6587\u4ef6 \nusing namespace std;\nint n, x;\nset<int> s;\n//\u5b9a\u4e49\u65b9\u6cd5 \nint main(){\n\tcin>>n;\n\tfor(int i=1;i<=n;i++){\n\t\tcin>>x;\n\t\ts.insert(x);\n\t\t//\u63d2\u5165 \n\t}\n\tfor(set<int>::iterator it=s.begin();it!=s.end();it++){\n\t\t//\u8fed\u4ee3\u5668 \n\t\tint a=(*it)*2;\n\t\t//2x \n\t\tif(s.count(a)){\n\t\t\t//\u5982\u679c\u540c\u65f6\u51fa\u73b0\u4e86x\u548c2x \n\t\t\ts.erase(a);\n\t\t\t//\u5220\u9664\u4e00\u4e2a \n\t\t}\n\t}\n\tcout<<s.size();\n\t//\u8f93\u51fa\u957f\u5ea6 \n\treturn 0;\n}\n```",
+        "postTime": 1666049290,
+        "uid": 583681,
+        "name": "sto_yyrdxh_orz",
+        "ccfLevel": 0,
+        "title": "AT1203 \u9898\u89e3"
+    },
+    {
+        "content": "\u770b\u5230\u9898\u76ee\u5148\u662f\u4e00\u4e2a\u66b4\u529b\u601d\u60f3\uff1a\u53ef\u4ee5\u5728\u6bcf\u6b21\u8ba1\u5165\u4e00\u4e2a $a$ \u65f6\u5bf9\u524d\u9762\u6240\u6709\u6570\u8fdb\u884c\u4e00\u6b21\u7edf\u8ba1\u5224\u65ad\u662f\u5426\u6709\u91cd\u3002   \nAC Code:\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n\nint s[100009];\nsigned main(){\n\tint n,k=1; cin>>n;\n\twhile(n--){\n\t\tint a,t=0; cin>>a;\n\t\tfor(;a%2==0;a/=2);//\u5bf9\u6570\u5b57\u8fdb\u884c\u64cd\u4f5c\n\t\tfor(int i=1;i<=k;++i)if(s[i]==a){t=1;break;}//\u67e5\u91cd\n        if(!t)s[k++]=a;\n\t}\n\tint ans=0;\n\tcout<<k-1; putchar('\\n');\n}\n```    \n\u4f46\u8fd9\u6837\u867d\u7136\u53ef\u4ee5 AC\uff0c\u4f46\u65f6\u95f4\u590d\u6742\u5ea6\u6bd4\u8f83\u9ad8\uff0c\u6240\u4ee5\u6211\u4eec\u53ef\u4ee5\u5229\u7528\u4e00\u4e0b c++ \u7684 **STL** \u5e93\u4e2d\u7684 **map**\u3002    \nAC Code:\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n\nmap<int,bool> s;\nsigned main(){\n\tint n,k=1; cin>>n;\n\twhile(n--){\n\t\tint a,t=0; cin>>a;\n\t\tfor(;a%2==0;a/=2);\n        s[a]=1;//\u76f4\u63a5\u6807\u8bb0\u5143\u7d20\u6240\u5728\u4f4d\u7f6e\u56e0\u4e3a\u662fmap\u6240\u4ee5\u6ca1\u5fc5\u8981\u518d\u91cd\u65b0\u7edf\u8ba1\n\t}\n\tcout<<s.size();//map\u7684\u81ea\u5e26\u529f\u80fd\uff0csize()\u53ef\u4ee5\u67e5\u8be2\u5143\u7d20\u4e2a\u6570\n    putchar('\\n');\n}\n```     \n\n",
+        "postTime": 1650185220,
+        "uid": 643561,
+        "name": "Mizuki_official",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3at1203"
+    },
+    {
+        "content": "## \u9898\u76ee\u7b80\u8ff0\uff1a\n\n\u7ed9\u5b9a $n$ \u4e2a\u6574\u6570\uff0c\u5df2\u77e5\u51fd\u6570 $f(x)$ \u6ee1\u8db3\u5bf9\u4e8e $x\\in Z $ \uff0c $f(x)=f(2x)$ \uff0c\u8fd9 $n$ \u4e2a\u6574\u6570\u81f3\u591a\u6709\u591a\u5c11\u4e2a\u4e0d\u540c\u7684\u51fd\u6570\u8fd4\u56de\u503c\u3002\n\n## \u9898\u76ee\u5206\u6790\n\n\u82e5 $x_1,x_2\\in Z , f(x_1)=f(x_2)$ \u5f53 $x_1$=$2^y\\times x_2$ \u5fc5\u7136\u6210\u7acb\uff0c\u5176\u4e2d $y\\in Z$ \u3002\n\n\u53c8\u56e0\u4e3a\u95ee\u6700\u5927\u503c\uff0c\u5bf9\u4e8e\u53ef\u4ee5\u4e0d\u540c\u7684\u503c\u8ba9\u4ed6\u7684\u51fd\u6570\u8fd4\u56de\u503c\u4e5f\u4e0d\u540c\u5373\u53ef\uff0c\u53c8\u5bf9\u4e8e $x=2^x\\times y$ \uff0c $f(x)=f(y)$ \u5e72\u8106\u62ff\u5230\u4e00\u4e2a\u6570\u5c31\u628a\u4ed6\u7684\u8d28\u56e0\u6570 $2$ \u5168\u90e8\u629b\u5f03\uff0c\u5269\u4e0b\u7684\u4e1c\u897f\u76f4\u63a5\u7528\u6570\u7ec4\u8bb0\u5f55\u662f\u5426\u51fa\u73b0\u8fc7\u5373\u53ef\u3002\n\nQ \uff1a \u54ea\u6765\u90a3\u4e48\u5927\u7684\u6570\u7ec4 \u3002\n\nA \uff1a \u7528 map \u3002\n\n## $Code$\n\n```cpp\n#include<iostream>\n#include<cstdio> \n#include<map>\nusing namespace std;\nmap <int,bool> q;\nint n,a;\nint main(){\n\tcin>>n;\n\twhile(n--){\n\t\tcin>>a;\n\t\twhile(a%2==0)\n\t\t\ta/=2;\n\t\tq[a]=true;\n\t}\n\tcout<<q.size()<<endl;\n\treturn 0;\n}\n```\n",
+        "postTime": 1621983097,
+        "uid": 248400,
+        "name": "Inaba_Meguru",
+        "ccfLevel": 7,
+        "title": "AT1203 \u9ad8\u6a4b\u304f\u3093\u3068\u9b54\u6cd5\u306e\u7bb1 \u9898\u89e3"
+    },
+    {
+        "content": "\u8fd9\u662f\u672c\u849f\u84bb\u7684\u7b2c $40$ \u7bc7\u9898\u89e3\uff0cAT1203\u3002\n\n### \u9898\u76ee\u5927\u610f\n\n\u6709 $n$ \u4e2a\u4e0d\u540c\u7684\u6570\uff0c\u7ed9\u5b9a\u4e00\u4e2a\u51fd\u6570 $f(x)$\uff0c\u89c4\u5b9a $f(x)=f(2x)$\u3002\u6c42\u8fd9 $n$ \u4e2a\u6570\u4e2d\u901a\u8fc7\u51fd\u6570\u8ba1\u7b97\u4e00\u6b21\u540e\u6700\u591a\u4f1a\u51fa\u73b0\u591a\u5c11\u4e2a\u4e0d\u540c\u7684\u6574\u6570\u3002\n\n\u8003\u8651\u4e00\u79cd\u5b57\u5178\u601d\u60f3\u3002\u8f93\u5165\u4e00\u4e2a\u6570\uff0c\u5f53\u5176\u4e3a $2$ \u7684\u500d\u6570\u65f6\u4e0d\u65ad\u9664\u4ee5 $2$\uff0c\u518d\u5c06\u5176\u52a0\u5165\u96c6\u5408\u4e2d\u3002\u6211\u4eec\u77e5\u9053 `set` \u7684 `insert(p)` \u51fd\u6570\u63d2\u5165\u540e\u4f1a\u81ea\u52a8\u5224\u65ad\u662f\u5426\u51fa\u73b0\u8fc7\uff0c\u51fa\u73b0\u8fc7\u5176\u5b9e\u662f\u6211\u4eec\u770b\u6765\u6ca1\u6709\u52a0\u5165\u5230\u5bb9\u5668\u4e2d\u7684\u3002\u6240\u4ee5\u6211\u4eec\u53ef\u4ee5\u5229\u7528\u8fd9\u4e2a\u601d\u60f3\u5b8c\u7f8e\u8fdb\u884c\u53bb\u91cd\u3002\u6700\u540e\u8f93\u51fa\u96c6\u5408\u7684\u5927\u5c0f\u5c31\u662f\u603b\u4e0d\u540c\u6574\u6570\u7684\u4e2a\u6570\u3002\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nint n;\nset <int> a;\nint cnt=0;\n\nint main(){\n    cin>>n;\n    for (int i=1; i<=n; i++){\n        int p;\n        cin>>p;\n        while (!(p%2)) p/=2; // \u5c06\u5176\u8f6c\u6362\u4e3a\u201c\u6700\u7b80\u201d\u5f62\u6001\n        a.insert(p); // \u63d2\u5165\n    }\n    cout<<a.size()<<endl; // \u8f93\u51fa\u96c6\u5408\u5927\u5c0f\u5373\u53ef\n    return 0;\n}\n```",
+        "postTime": 1666011099,
+        "uid": 341353,
+        "name": "_6872_",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 #40 AT1203\u3010\u9ad8\u6a4b\u304f\u3093\u3068\u9b54\u6cd5\u306e\u7bb1\u3011"
+    }
+]

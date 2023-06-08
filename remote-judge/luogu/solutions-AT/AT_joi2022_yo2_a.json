@@ -1,0 +1,50 @@
+[
+    {
+        "content": "# \u9898\u610f\n\u6709 $Q$ \u4e2a\u5b57\u7b26\u4e32\uff0c\u82e5\u4e0d\u4e3a $\\texttt{READ}$\uff0c\u65b0\u589e\u4e00\u672c\u540d\u4e3a\u8fd9\u4e2a\u5b57\u7b26\u4e32\u7684\u4e66\u653e\u5728\u4e0a\u4e00\u672c\u4e66\u4e0a\u9762\uff08\u82e5\u6ca1\u6709\u4e0a\u4e00\u672c\u4e66\u5c31\u76f4\u63a5\u653e\u4e0b\uff09\uff1b\u5426\u5219\u53d6\u51fa\u6700\u4e0a\u9762\u7684\u4e00\u672c\u4e66\uff0c\u8f93\u51fa\u5b83\u7684\u540d\u5b57\u3002\n# \u601d\u8def\n\u6b64\u9898\u53ef\u4ee5\u7528\u6808\u6a21\u62df\uff0c\u56e0\u4e3a\u6808\u662f\u4e00\u4e2a\u5148\u8fdb\u540e\u51fa\u7684\u5bb9\u5668\uff0c\u975e\u5e38\u7b26\u5408\u9898\u76ee\u3002\u5f53\u8f93\u5165\u4e3a $\\texttt{READ}$ \u65f6\uff0c\u6211\u4eec\u5c31\u5c06\u6808\u9876\u5f39\u51fa\uff0c\u5e76\u8f93\u51fa\u6808\u9876\uff0c\u5426\u5219\u5c31\u5c06\u8fd9\u672c\u4e66\u538b\u5165\u6808\u3002\n# \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint q;\nstring s;\nstack<string>a;//\u521b\u5efa\u4e00\u4e2a\u5b57\u7b26\u4e32\u7684\u6808\nint main(){\n    cin>>q;\n    while(q--){\n        cin>>s;\n        if(s==\"READ\"){\n            cout<<a.top()<<endl;//\u8f93\u51fa\u6808\u9876\n            a.pop(); //\u5f39\u51fa\u6808\u9876\n        }\n        else a.push(s);//\u5c06\u5b57\u7b26\u4e32\u538b\u5165\u6808\n    }\n    return 0;\n}\n```",
+        "postTime": 1671683125,
+        "uid": 652816,
+        "name": "saixingzhe",
+        "ccfLevel": 0,
+        "title": "AT_joi2022_yo2_a \u9898\u89e3"
+    },
+    {
+        "content": "### \u9898\u610f\n\n\u6709 $Q$ \u4e2a\u5b57\u7b26\u4e32\uff0c\u82e5\u4e0d\u4e3a $\\texttt{READ}$\uff0c\u65b0\u589e\u4e00\u672c\u540d\u4e3a\u8fd9\u4e2a\u5b57\u7b26\u4e32\u7684\u4e66\u653e\u5728\u4e0a\u4e00\u672c\u4e66\u4e0a\u9762\uff08\u82e5\u6ca1\u6709\u4e0a\u4e00\u672c\u4e66\u5c31\u76f4\u63a5\u653e\u4e0b\uff09\uff1b\u5426\u5219\u53d6\u51fa\u6700\u4e0a\u9762\u7684\u4e00\u672c\u4e66\uff0c\u8f93\u51fa\u5b83\u7684\u540d\u5b57\u3002$(2\\leq Q\\leq 2\\times10^5)$\n\n### \u9898\u89e3\n\n\u8fd9\u9053\u9898\u53ef\u4ee5\u76f4\u63a5\u7528\u6808\u6a21\u62df\u3002\u8f93\u5165\u4e0d\u4e3a $\\texttt{READ}$\uff0c\u5c31\u5c06\u4e66\u538b\u5165\u6808\uff1b\u5426\u5219\u8f93\u51fa\u6808\u9876\u5143\u7d20\u5e76\u5f39\u51fa\u3002C++ \u53ef\u4ee5\u7528 $\\text{STL}$ \u4e2d\u7684 $\\texttt{stack}$\uff0c\u8282\u7701\u4e0d\u5c11\u4ee3\u7801\u3002\n\n$\\textbf{Code:}$\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint q; //\u4ee3\u8868\u9898\u76ee\u4e2d\u7684 Q\nstring x;\nstack<string>s; //\u521b\u5efa\u4e00\u4e2a\u7c7b\u578b\u4e3a\u5b57\u7b26\u4e32\u7684\u6808\nint main()\n{\n    cin>>q;\n    while(q--)\n    {\n        cin>>x; //\u6b64\u5904\u6570\u636e\u8303\u56f4 2*10^5 \u4e0d\u4f1a\u8d85\u65f6\n        if(x==\"READ\") //\u82e5\u4e3a READ \u8f93\u51fa\u6808\u9876\n        {\n            cout<<s.top()<<endl; //\u8bb0\u5f97\u6362\u884c\n            s.pop(); //\u5f39\u51fa\n        }\n        else s.push(x);\n    }\n    return 0;\n}\n```\n\n$$\\sim\\sim\\textbf{END}\\sim\\sim$$",
+        "postTime": 1669000916,
+        "uid": 682739,
+        "name": "nr0728",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 \u56fe\u4e66\u9986 2"
+    },
+    {
+        "content": "[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/AT_joi2022_yo2_a)\n\n\u96be\u5ea6\u5927\u6982\u5728\u666e\u53ca-\u3002\n\n**\u9898\u76ee\u5927\u610f\uff1a**\n\n\u6709 $Q$ \u4e2a\u5b57\u7b26\u4e32\uff0c\u82e5\u4e0d\u4e3a $\\texttt{READ}$\uff0c\u65b0\u589e\u4e00\u672c\u540d\u4e3a\u8fd9\u4e2a\u5b57\u7b26\u4e32\u7684\u4e66\u653e\u5728\u4e0a\u4e00\u672c\u4e66\u4e0a\u9762\uff08\u82e5\u6ca1\u6709\u4e0a\u4e00\u672c\u4e66\u5c31\u76f4\u63a5\u653e\u4e0b\uff09\uff1b\u5426\u5219\u53d6\u51fa\u6700\u4e0a\u9762\u7684\u4e00\u672c\u4e66\uff0c\u8f93\u51fa\u5b83\u7684\u540d\u5b57\u3002$(2\\leq Q\\leq 2\\times10^5)$\n\n**\u601d\u8def\uff1a**\n\n\u4f7f\u7528\u6808\u73b0\u8fdb\u540e\u51fa\uff0c\u540e\u8fdb\u5148\u51fa\u7684\u7279\u70b9\u6765\u505a\u3002\u5982\u679c\u9047\u5230 $\\texttt{READ}$\uff0c\u5219\u8f93\u51fa\u6808\u9876\uff0c\u968f\u540e\u5f39\u51fa\u6808\u5373\u53ef\u3002\n\n**\u6ce8\u610f**\uff1a\u6211\u4eec\u5e94\u5f53\u5148\u5224\u65ad\u662f\u5426\u4e3a $\\texttt{READ}$\uff0c\u8fd9\u6837\u80fd\u591f\u4fdd\u8bc1\u4e0d\u4f7f $\\texttt{READ}$ \u5165\u6808\uff0c\u65b9\u4fbf\u64cd\u4f5c\uff0c\u4ee3\u7801\u7b80\u5355\u3002\n\n**AC \u4ee3\u7801\uff1a**\n\n```\n#include<bits/stdc++.h>\nusing namespace std;\nstack<string>st;//\u521b\u5efa\u6808\nint main()\n{\n   int q;\n   cin>>q;\n   for(int i=1;i<=q;i++)\n   {\n     string s;\n     cin>>s;//\u5faa\u73af\u65f6\u8bfb\u5165\n     if(s==\"READ\")//\u5224\u65ad\u662f\u5426\u4e3a\"READ\"\n     {\n        cout<<st.top()<<endl;//\u8f93\u51fa\u5f53\u524d\u6808\u9876\n        st.pop();//\u5f39\u51fa\u6808\u9876\uff0c\u9632\u6b62\u91cd\u590d\n     }\n     else\n     {\n        st.push(s);//\u5426\u5219\u5c06\u5b57\u7b26\u4e32s\u5165\u6808\n     }\n   }\n   return 0;\n}\n```\n\n\n\n\u5efa\u8baeAC\u6b64\u9898\u540e\u505a\u4e9b[\u6808\u7684\u7ec3\u4e60](https://www.luogu.com.cn/problem/list?tag=287&page=1)\u3002\n",
+        "postTime": 1672997908,
+        "uid": 750764,
+        "name": "Leaves_xw",
+        "ccfLevel": 0,
+        "title": "AT_joi2022_yo2_a\u9898\u89e3"
+    },
+    {
+        "content": "### \u9898\u610f\n\u6709 $Q$ \u4e2a\u5b57\u7b26\u4e32\uff0c\u82e5\u4e0d\u4e3a $\\texttt{READ}$\uff0c\u65b0\u589e\u4e00\u672c\u540d\u4e3a\u8fd9\u4e2a\u5b57\u7b26\u4e32\u7684\u4e66\u653e\u5728\u4e0a\u4e00\u672c\u4e66\u4e0a\u9762\uff08\u82e5\u6ca1\u6709\u4e0a\u4e00\u672c\u4e66\u5c31\u76f4\u63a5\u653e\u4e0b\uff09\uff1b\u5426\u5219\u53d6\u51fa\u6700\u4e0a\u9762\u7684\u4e00\u672c\u4e66\uff0c\u8f93\u51fa\u5b83\u7684\u540d\u5b57\u3002\n\n### \u5206\u6790\n\u8fd9\u9898\u65e2\u8bf4\u4e86\u8981\u653e\u4e66\uff0c\u53c8\u8981\u53d6\u4e66\uff0c\u7528\u666e\u901a\u7684\u6a21\u62df\u975e\u5e38\u96be\u5199\u3002\u6240\u4ee5\u6211\u4eec\u5c31\u53ef\u4ee5\u7528 $\\texttt{C++}$ `STL` \u5e93\u91cc\u7684 `stack` \u6808\u51fd\u6570\u6765\u5199\u3002\u6bcf\u6b21\u8f93\u5165\u7684\u5b57\u7b26\u4e32\uff0c\u5982\u679c\u4e0d\u4e3a $\\texttt{READ}$\uff0c\u5c31\u628a\u5b83\u538b\u5165\u6808\u91cc\uff0c\u5426\u5219\u5c31\u8f93\u51fa\u6808\u9876\u7684\u5143\u7d20\u5c31\u884c\u4e86\u3002\u56e0\u4e3a\u90fd\u662f\u6309\u6b21\u5e8f\u538b\u5165\u6808\u5185\u7684\uff0c\u6240\u4ee5\u8d8a\u540e\u653e\u7684\u8d8a\u65e9\u51fa\u6765\u3002\u6700\u540e\u8f93\u51fa\u6808\u9876\u4e4b\u540e\u8bb0\u5f97\u8981\u628a\u6808\u9876\u5f39\u51fa\u3002\n\n\n------------\n\n### \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nstack<string>stk;\nint main()\n{\n\tint q;\n    cin>>q;\n    while(q--)\n\t{\n\t\tstring s;\n        cin>>s;\n        if(s==\"READ\")\n\t\t{\n            cout<<stk.top()<<endl;\n            stk.pop();\n        }\n        else \n\t\t{\n\t\t\tstk.push(s);\n\t\t}\n    }\n    return 0;\n}\n```\n",
+        "postTime": 1672985982,
+        "uid": 706859,
+        "name": "maomao233",
+        "ccfLevel": 0,
+        "title": "AT_joi2022_yo2_a \u9898\u89e3"
+    },
+    {
+        "content": "# \u5199\u5728\u524d\u9762\n\n\u5efa\u8bae\u8bc4\u5206\uff1a\u666e\u53ca-\n\n\u5efa\u8bae\u6807\u7b7e\uff1a\u7ebf\u6027\u6570\u636e\u7ed3\u6784\u3001\u6808\n\n# \u5206\u6790\n\n- \u76f4\u63a5\u7528 $\\text{STL}$ \u4e2d\u5c01\u88c5\u597d\u7684  $\\texttt{stack}$ \u6a21\u62df\u5373\u53ef\u3002\n\n- \u6bcf\u6b21\u8bfb\u5165\u4e00\u4e2a\u5b57\u7b26\u4e32 $S$ \uff0c\u82e5 $S$ \u4e3a `READ` \uff0c\u8f93\u51fa\u6808\u9876\u5143\u7d20\uff0c\u7136\u540e\u6808\u9876\u5143\u7d20\u51fa\u6808\uff0c\u5426\u5219\u5c06 $S$ \u5165\u6808\u3002\n\n# \u4ee3\u7801\n\n```\n#include<bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    stack<string> s;\n    int q;\n    cin >> q;\n    for(int i = 1; i <= q; i++){\n        string ss;\n        cin >> ss;\n        if(ss == \"READ\"){\n            cout << s.top() << endl;\n            // \u6ce8\u610f\u8fd9\u91cc\u7684\u987a\u5e8f\n            s.pop();\n        }else s.push(ss);\n    }\n    return 0;\n}\n```\n",
+        "postTime": 1671674128,
+        "uid": 663295,
+        "name": "ruruo",
+        "ccfLevel": 0,
+        "title": "AT_joi2022_yo2_a \u9898\u89e3"
+    },
+    {
+        "content": "## \u5206\u6790\n\n\u6a21\u62df\u9898\uff01\uff01\uff01\n\n\u76f4\u63a5\u7528\u6808\u3002\n\n\u5148\u6765\u8ba4\u8bc6\u4e00\u4e0b\u6808\u5427\uff01\n\n```cpp\nstack<\u6570\u636e\u7c7b\u578b> s//\u5b9a\u4e49\ns.empty()//\u5224\u65ad\u6808\u662f\u5426\u4e3a\u7a7a\ns.push(\u53d8\u91cf)//\u5c06\u53d8\u91cf\u538b\u5165\u6808\ns.top()//\u8fd4\u56de\u6808\u9876\ns.pop()//\u5f39\u51fa\u6808\u9876\n```\n\n****\n\n\u63a5\u4e0b\u6765\u5c31\u662f\u5177\u4f53\u505a\u6cd5\uff1a\n\n1. \u5f53 $Q$ \u4e3a $\\texttt {READ}$ \u65f6\uff0c\u8f93\u51fa\u6808\u9876\u5e76\u5f39\u51fa\u3002\n\n    ### code:\n\n    ```cpp\n    if(Q==\"READ\")\n        cout<<s.top()<<'\\n',s.pop();\n    ```\n\n2. \u5f53 $Q$ \u662f\u5176\u4ed6\u5b57\u7b26\u4e32\u65f6\uff0c\u5c06 $Q$ \u8981\u5165\u6808\u9876\n\n    ### code:\n\n    ```cpp\n    else\n        s.push(Q);\n    ```\n\n---\n\n## \u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint t;\nstring Q;\nstack<string> s;\nint main()\n{\n    cin>>t;\n    while(t--)\n    {\n        cin>>Q;\n        if(Q==\"READ\")\n            cout<<s.top()<<'\\n',s.pop();\n        else s.push(Q);\n    }\n    return 0;\n}\n```",
+        "postTime": 1676287318,
+        "uid": 581316,
+        "name": "pyy1",
+        "ccfLevel": 0,
+        "title": "AT_joi2022_yo2_a \u56f3\u66f8\u9928 2 (Library 2) \u9898\u89e3"
+    }
+]

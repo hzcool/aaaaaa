@@ -1,0 +1,18 @@
+[
+    {
+        "content": "\u6ca1\u6709\u770b\u7ffb\u8bd1\uff0c\u53ea\u770b\u6837\u4f8b\u5c31\u79d2\u61c2\u7684\u9898;\n\n\n\u505a\u6cd5:\n\n\u7ed9\u4e00\u4e2an\n\n\u8f93\u5165\u5b57\u7b26\u4e32s\n\nif(\u5b57\u7b26\u4e32\u957f\u5ea6<=n)\n\n\u8f93\u51fa\u5b57\u7b26\u4e32;\n\nelse \n\nfor(int i=0;i<n;i++)//\u8f93\u51fa\u524dn\u4e2a\u5b57\u7b26;\n\ncout<<s[i];\n\n\n------------\n\n~~\u5bf9\u4e8e\u65b0\u624b\u6765\u8bf4\u53ef\u4ee5\u7ec3\u4e60\u4e00\u4e0b\u4e0b\u6807\u7684\u8fd0\u7528\u5427~~\n```cpp\n#include<iostream>\nusing namespace std;\nint main()\n{\n\tint n;\n\tcin>>n;\n\tstring s;\n\tcin>>s;\n\tint l=s.size();\n\tif(l<=n)cout<<s;\n\telse\n\tfor(int i=0;i<n;i++)cout<<s[i];\n    return 0;\n}\n```",
+        "postTime": 1526537889,
+        "uid": 73360,
+        "name": "HuangBo",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT2308 \u3010\u5165\u529b\u30d5\u30a9\u30fc\u30e0\u3011"
+    },
+    {
+        "content": "[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/AT_njpc2017_a)\n\n[\u66f4\u597d\u7684\u9605\u8bfb\u4f53\u9a8c\uff1f](https://www.luogu.com.cn/blog/73-54-16/solution-at-njpc2017-a)\n\n### \u505a\u6cd5\uff1a\n\n- \u53ef\u4ee5**\u8fb9\u8f93\u5165\u8fb9\u5224\u65ad**\u3002\n\n- \u7a0b\u5e8f\u5728\u8bfb\u5165\u5b57\u7b26\u65f6\uff0c\u662f\u4e00\u4e2a\u4e00\u4e2a\u8bfb\u5165\u7684\uff0c\u4f9d\u7167\u8fd9\u4e2a\u6027\u8d28\u53ef\u4ee5\u8bfb\u4e00\u4e2a\u5c31\u5224\u65ad\u4e00\u4e2a\uff0c\u7701\u53bb\u5b58\u50a8\u5b57\u7b26\u7684\u9ebb\u70e6\u3002\n\n- \u6bcf\u8bfb\u5165\u4e00\u4e2a\u5b57\u7b26\uff0c$L$ \u5c31\u51cf $1$\uff0c\u5f53 $L$ \u4e3a $0$ \u65f6\u5c31\u53ef\u4ee5\u8df3\u51fa\u5faa\u73af\uff08\u6ce8\u610f\u8df3\u51fa\u65f6\u673a\uff09\u3002\n\n- `cin` \u8bfb\u5165\u5931\u8d25\u8fd4\u56de\u503c\u4e3a $0$\u3002\n\n- AT \u7684\u9898\u6700\u540e\u8981\u6709\u6362\u884c\uff08\u73b0\u5728\u597d\u50cf\u4e0d\u52a0\u4e5f\u884c\uff09\u3002\n\n### \u65e0\u6ce8\u91ca\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n\tchar c;\n\tint l;\n\tcin>>l;\n\twhile(cin>>c)\n\t{\n\t\tif(l<=0)  break;\n\t\tl--;\n\t\tcout<<c;\n\t}\n\tcout<<endl;\n\treturn 0;\n}\n```\n\n### \u6709\u6ce8\u91ca\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n\tchar c;\n\tint l;\n\tcin>>l;//\u8981\u6c42\u957f\u5ea6 \n\twhile(cin>>c)\n\t{\n\t\t//\u53ea\u6709\u4e00\u884c\u5b57\u7b26\uff0c\u53ef\u4ee5\u7528 cin \u8bfb \n\t\t//cin \u8bfb\u5165\u5931\u8d25\u8fd4\u56de\u503c\u4e3a 0 \n\t\t//\u8fd8\u53ef\u4ee5\u8fc7\u6ee4\u884c\u672b\u56de\u8f66 \n\t\t//getchar() \u4e0d\u884c\uff0c\u9700\u8981\u7279\u5224 \n\t\tif(l<=0)  break;\n\t\t//\u5982\u679c\u957f\u5ea6\u591f\u4e86\uff0c\u5c31\u8df3\u51fa \n\t\tl--;//\u957f\u5ea6\u51cf\u4e00 \n\t\tcout<<c;//\u8f93\u51fa\u5b57\u7b26 \n\t}\n\tcout<<endl;//AT \u7684\u9898\u6700\u540e\u8981\u6709\u6362\u884c\n\treturn 0;\n}\n```",
+        "postTime": 1666525406,
+        "uid": 735416,
+        "name": "wangyixuan20090401",
+        "ccfLevel": 4,
+        "title": "AT\u2014\u5165\u529b\u30d5\u30a9\u30fc\u30e0 \u9898\u89e3"
+    }
+]

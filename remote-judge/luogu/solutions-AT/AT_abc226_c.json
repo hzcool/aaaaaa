@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u9898\u610f\uff1a\u7ed9\u51fa\u82e5\u5e72\u9879\u4efb\u52a1\uff0c\u6bcf\u9879\u4efb\u52a1\u6709\u524d\u7f6e\u4efb\u52a1\u548c\u6267\u884c\u65f6\u95f4\uff0c\u53ea\u6709\u6267\u884c\u5b8c\u5168\u90e8\u524d\u7f6e\u4efb\u52a1\u624d\u80fd\u505a\u8fd9\u4e2a\u4efb\u52a1\uff0c\u6c42\u6267\u884c $ N $ \u7684\u6700\u77ed\u7528\u65f6\u3002\n\n\u9996\u5148\u6309\u9898\u610f\u5efa\u56fe\uff0c\u7136\u540e\u8d2a\u5fc3\u627e\u5230\u5f53\u524d\u6ca1\u6709\u4efb\u4f55\u524d\u7f6e\u4efb\u52a1\u7684\u4efb\u52a1\u76f4\u63a5\u6267\u884c\uff0c\u4e4b\u540e\u66f4\u65b0\u524d\u7f6e\u4efb\u52a1\u5217\u8868\u5373\u53ef\u3002\n\n\u56e0\u4e3a\u9898\u76ee\u4fdd\u8bc1\u4e86\u6bcf\u4e2a\u4efb\u52a1\u7684\u524d\u7f6e\u4efb\u52a1\u90fd\u662f\u4e4b\u524d\u7684\u4efb\u52a1\uff0c\u6240\u4ee5\u8003\u8651\u53cd\u5411\u5efa\u56fe\u4e4b\u540e\u4ece $ N $ \u5f00\u59cb\u8fdb\u884c\u62d3\u6251\u6392\u5e8f\uff0c\u6700\u540e\u7d2f\u52a0\u7b54\u6848\u5373\u53ef\u3002\n\n\u65f6\u95f4\u590d\u6742\u5ea6\u4e3a $ \\mathcal{O}(m) $\uff0c\u5176\u4e2d $ m \\leq 5 \\times 10^5 $ \u4e3a\u603b\u8fb9\u6570\uff0c\u53ef\u4ee5\u901a\u8fc7\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n#define int long long\nint va[200020],learn[200020];\nint ans=0;\nvector<int>fa[200020];\nvoid dfs(int n)\n{\nfor(int i=0;i<fa[n].size();i++)\nif(!learn[fa[n][i]])\n{\nans+=va[fa[n][i]];\nlearn[fa[n][i]]=1;\ndfs(fa[n][i]);\n}\n}\nsigned main()\n{\nios::sync_with_stdio(0);\nint n;\ncin>>n;\nfor(int i=1;i<=n;i++)\n{\ncin>>va[i];\nint l;\ncin>>l;\nfor(int j=1;j<=l;j++)\n{\nint tmp;\ncin>>tmp;\nfa[i].push_back(tmp);\n}\n}\nans=va[n];\ndfs(n);\ncout<<ans;\n}\n```\n",
+        "postTime": 1666362371,
+        "uid": 714821,
+        "name": "loser_seele",
+        "ccfLevel": 4,
+        "title": "ABC226C\u9898\u89e3"
+    }
+]

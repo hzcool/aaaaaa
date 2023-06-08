@@ -1,0 +1,18 @@
+[
+    {
+        "content": "**\u54c7\uff0c\u597d\u6c34\uff01\uff08\u4f26\u6566\u96fe**  \n\u8fd9\u9053\u9898\u6a21\u62df\u4e00\u4e0b\u5c31\u53ef\u4ee5\u4e86\uff0c\u5177\u4f53\u4ee3\u7801\u89e3\u91ca\u3002  \n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n//\u538b\u884c\u662f\u964b\u4e60\uff01\n    int n,m,l,r,ansl=0,ansr=214748364;//\u521d\u503c\u4fdd\u8bc1l,r\u4e0d\u8d8a\u754c\u5373\u53ef\u3002\n    cin>>n>>m;\n    int a[n+1];//\u53ef\u4ee5\u5f00\u5927\uff0c\u4e60\u60ef\u800c\u5df2\u3002\n    memset(a,0,sizeof a);\n    for(int i=0;i<m;i++)\n    {\n    \tcin>>l>>r;\n    \tif(l>ansl)//\u5de6\u53f3\u4e24\u4e2a\u503c\uff0c\u56fa\u5b9a\u8303\u56f4\uff0c\u6839\u636e\u6bcf\u4e00\u6b21l,r\u53d8\u5316\u3002\n    \tansl=l;\n    \tif(r<ansr)\n    \tansr=r;\n    }\n    if(ansr>=ansl)\n    cout<<ansr-ansl+1<<endl;//+1\u662f\u91cd\u70b9\uff0c\u95ed\u533a\u95f4\uff01\uff01\uff01\n    else \n    cout<<0<<endl;//\u907f\u514d\u8d1f\u6570\u3002\n    //\u5341\u5e74AT\u4e00\u573a\u7a7a\uff0c\u4e0d\u52a0\u6362\u884c\u89c1\u7956\u5b97\uff01\n    return 0;\n}\n```\n",
+        "postTime": 1603810317,
+        "uid": 305895,
+        "name": "SJQ_LOSER",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT4723 \u3010[ABC127C] Prison\u3011"
+    },
+    {
+        "content": "\u6811\u72b6\u6570\u7ec4\u88f8\u9898\u3002\n\n------------\n\u6211\u4e00\u5f00\u59cb\u7684\u601d\u8def\u662f\uff1a\u7b2c$i$\u6b21\uff0c\u66b4\u529b\u5c06$l_i$\u5230$r_i$\u52a0\u4e0a$1$\uff08\u8fd9\u4e9bID\u5361\u53ef\u901a\u8fc7\u8fd9\u6247\u95e8\uff09\u3002\u6700\u540e\u518d\u770b\u6bcf\u4e00\u5f20ID\u5361\uff0c\u662f\u5426$m$\u6761\u95e8\u90fd\u6253\u5f97\u5f00\u3002\u4f46\u8fd9\u5f88\u660e\u663e\u4f1aT\u98de\u3002\n\n------------\n\u8fdb\u4e00\u6b65\u5206\u6790\uff0c\u53d1\u73b0\u8fd9\u662f\u4e00\u4e2a\u533a\u95f4\u4fee\u6539\uff0c\u5355\u70b9\u67e5\u8be2\u7684\u6570\u5217\u3002\u76f4\u63a5\u7528\u5dee\u5206\u7684\u6811\u72b6\u6570\u7ec4\u5373\u53ef\u3002\uff08\u4e0d\u4f1a\u7684\u53ef\u4ee5\u505a\u4e00\u4e0b[P3368](https://www.luogu.com.cn/problem/P3368)\uff09\n\n------------\n\u7136\u540e\u5c31\u8f7b\u677eAC\u5566\uff01\n\n------------\n\u4ee3\u7801\u5982\u4e0b\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,m,tree[100001],ans;\ninline int lowbit(int x){\n    return x&(-x);\n}\ninline void add(int x,int y){\n    for(;x<=n;x+=lowbit(x))tree[x]+=y;\n}\ninline int ask(int x){\n    int ans=0;\n    for(;x;x-=lowbit(x))ans+=tree[x];\n    return ans;\n}\nint main(){\n    scanf(\"%d%d\",&n,&m);\n    for(int i=1;i<=m;++i){\n        int l,r;\n        scanf(\"%d%d\",&l,&r);\n        add(l,1),add(r+1,-1);\n    }\n    for(int i=1;i<=n;i++){\n        if(ask(i)==m)ans++;\n    }\n    printf(\"%d\\n\",ans);\n    return 0;\n}\n```\n----------------\n\u65f6\u95f4\u590d\u6742\u5ea6\uff1a$O((n+m)\\log n)$\uff0c\u662f\u53ef\u4ee5\u63a5\u53d7\u7684\u3002",
+        "postTime": 1583309799,
+        "uid": 261370,
+        "name": "Andy_Lin",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT4723 \u3010[ABC127C] Prison\u3011"
+    }
+]

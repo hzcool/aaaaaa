@@ -1,0 +1,26 @@
+[
+    {
+        "content": "\u6211\u4eec\u5047\u8bbe\u8f93\u5165\u7684\u4e09\u4f4d\u6570\u662f$N$\uff0c$N$\u7684\u767e\u4f4d\u662f$a$\uff0c\u5341\u4f4d\u662f$b$\uff0c\u4e2a\u4f4d\u662f$c$\uff0c\n\n\u5219$a=\\dfrac{N-N\\quad mod\\quad 100}{100}$\uff0c\n\n$b=\\dfrac{N\\quad mod\\quad100-N\\quad mod\\quad10}{10}$\n\n$c=N\\quad mod \\quad 10$\n\n\u56e0\u6b64\u6211\u4eec\u7b97\u51fa\u8f93\u5165\u7684\u6570\u7684\u4e2a\u4f4d\u3001\u5341\u4f4d\u3001\u767e\u4f4d\u540e\u5224\u65ad\u662f\u5426\u81f3\u5c11\u6709\u4e00\u4e2a\u662f$7$\uff0c\u82e5\u662f\u5219\u8f93\u51fa```Yes```\uff0c\u5426\u5219\u8f93\u51fa```No```\u3002\n\n\n### CODE:\n\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint a;\nint main(){\n    cin>>a;\n    if(((a-a%100)/100!=7)&&((a%100-a%10)/10!=7)&&((a%10)!=7)){\n        cout<<\"No\";\n    }\n    else{\n        cout<<\"Yes\";\n    }\n\treturn 0;\n}\n\n```\n\n~~\u8981\u6284\u9898\u89e3\u8bf7\u7406\u89e3\u540e\u518d\u6284\u3002~~",
+        "postTime": 1587560295,
+        "uid": 258325,
+        "name": "Scrutiny",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 AT5228 \u3010[ABC162A] Lucky 7\u3011"
+    },
+    {
+        "content": "**AT5228 [ABC162A] Lucky 7** \n\n\u9898\u9762\u4e2d\u5df2\u7ecf\u4fdd\u8bc1 $s$ \u7684\u957f\u5ea6\u4e3a $3$\uff0c\u4e5f\u5c31\u662f\u8bf4\uff0c\u6211\u4eec\u53ea\u9700\u8981\u628a $s_0$\uff0c$s_1$\uff0c$s_2$ \u5168\u90e8\u5224\u65ad\u4e00\u904d\uff0c\u53ea\u8981\u6709\u4e00\u4e2a\u662f $7$\uff0c\u5219\u8f93\u51fa `Yes`\uff0c\u5426\u5219\u8f93\u51fa `No`\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main()\n{\n    string s;\n    cin >> s;\n    if(s[0] == '7' || s[1] == '7' || s[2] == '7')\n        cout << \"Yes\";\n    else \n        cout << \"No\";\n    return 0;\n}\n```",
+        "postTime": 1587359637,
+        "uid": 219791,
+        "name": "tZERO\u3061\u3083\u3093",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT5228 \u3010[ABC162A] Lucky 7\u3011"
+    },
+    {
+        "content": "# Lucky 7\n\n\u9898\u76ee\u5927\u610f:\n\n\u7ed9\u4f60\u4e00\u4e2a\u6b63\u6574\u6570$n$\uff0c\u5982\u679c$n$\u7684\u67d0\u4e00\u4f4d\u4e0a\u662f$7$\u5c31\u8f93\u51fa$Yes$\uff0c\u5426\u5219\u8f93\u51fa$No$\u3002\n\n\u8fd9\u9053\u9898\u5176\u5b9e\u53ef\u4ee5\u628a$n$\u5f53\u4f5c\u5b57\u7b26\u4e32\u8f93\u5165\uff0c\u7136\u540e\u904d\u5386\u6bcf\u4e00\u4f4d\u5373\u53ef\u3002\n\n\u63a5\u4e0b\u6765\u770b\u770b\u5b9e\u73b0:\n\n### Code:\n\n```cpp\n#include <bits/stdc++.h>\n#define REP(i, a, b) for (long long i = a; i <= b; ++i)\nusing namespace std;\n\nstring s;\n\ninline void work(){\n\tcin >> s;\n\tREP(i, 0, s.size() - 1)\t//\u6ce8\u610f:\u5b57\u7b26\u4e32\u7684\u4e0b\u6807\u662f\u4ece0\u5f00\u59cb\u7684 \n\t\tif (s[i] == '7'){\t//\u5982\u679c\u8fd9\u4e00\u4f4d\u662f7 \n\t\t\tputs(\"Yes\");\t//\u5219\u8f93\u51faYes \n\t\t\texit(0);\t\t//\u7b49\u540c\u4e8ereturn 0 \n\t\t}\n\tputs(\"No\");\t\t\t\t//\u5426\u5219\u8f93\u51faNo \n}\n\nint main(){\n\twork();\n\treturn 0;\n}\n```\n\n",
+        "postTime": 1587169366,
+        "uid": 124527,
+        "name": "leoair",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT5228 \u3010[ABC162A] Lucky 7\u3011"
+    }
+]

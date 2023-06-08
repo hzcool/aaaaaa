@@ -1,0 +1,50 @@
+[
+    {
+        "content": "\u4e00\u9053\u6c34\u9898\uff0c\u53ea\u9700\u8981\u4ece\u6700\u5de6\u627e\u51faA\u7684\u4f4d\u7f6e\uff0c\u518d\u4ece\u6700\u53f3\u627e\u51faZ\u7684\u4f4d\u7f6e\n\u518d\u8f93\u51faz-a+1\n```\n#include<iostream>\n#include<cstring>\nusing namespace std;\n\nstring a;\n\nint main(){\n    int left,right;\n    cin>>a;\n    for(int i=0;i<a.length();i++)\n        if(a[i]=='A'){\n            left=i;\n            break;\n        }\n    for(int i=a.length()-1;i>=0;i--)\n        if(a[i]=='Z'){\n            right=i;\n            break;\n        }\n    cout<<right-left+1<<endl;\n    return 0; \n} \n```",
+        "postTime": 1520933367,
+        "uid": 39654,
+        "name": "LW_h_FP",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT2297 \u3010A to Z String\u3011"
+    },
+    {
+        "content": "\u9898\u610f\u5df2\u7ecf\u8868\u8fbe\u7684\u975e\u5e38\u6e05\u695a\u4e86\uff0c\u627e\u51fa\u7b2c\u4e00\u4e2aA\u548c\u6700\u540e\u4e00\u4e2aZ\u3002\u6240\u4ee5\u6211\u4eec\u5c31\u6309\u7167\u9898\u76ee\u8bf4\u7684\u7167\u505a\u5c31\u884c\u4e86\u3002\n\n\u601d\u8def\uff0c\u7528\u4e24\u4e2a\u53d8\u91cf\u6765\u50a8\u5b58A\u548cZ\u7684\u4f4d\u7f6e(\u8bb0\u4e3aa\u548cb\u5427).\n - \u5148\u4ece\u524d\u5f80\u540e\u904d\u5386\u4e00\u8fb9,\u53ea\u8981\u627e\u5230\u4e00\u4e2aZ,b\u5c31\u8d4b\u503c\u4e3a\u5f53\u524d\u7684Z\u7684\u5750\u6807\uff0c\u8fd9\u6837\u53ef\u4ee5\u786e\u4fdd\u627e\u5230\u7684\u662f\u6700\u540e\u4e00\u4e2aZ.\n - \u518d\u4ece\u540e\u5f80\u524d\u904d\u5386\u4e00\u8fb9,\u53ea\u8981\u627e\u5230\u4e00\u4e2aA,a\u5c31\u8d4b\u503c\u4e3a\u5f53\u524d\u7684A\u7684\u5750\u6807,\u8fd9\u6837\u4e5f\u53ef\u4ee5\u786e\u4fdd\u627e\u5230\u4e86\u7b2c\u4e00\u4e2aA.\n \n\u6700\u540e\uff0c\u5b66\u8fc7\u5c0f\u5b66\u5965\u6570\u7684\u4f60\u5e94\u8be5\u77e5\u9053\u8fd9\u9898\u7684\u7b54\u6848\u5c31\u662fb-a+1\n \n\u5f53\u7136\u5176\u5b9e\u4f60\u7528repeat(\u6216while)\u4e5f\u53ef\u4ee5,\u524d\u540e\u5404\u627e\u4e00\u904d\uff0c\u627e\u5230\u540e\u76f4\u63a5\u505c\uff0c\u8fd9\u91cc\u5c31\u4e0d\u8be6\u7ec6\u8bf4\u660e\u4e86\n\n#### \u4e0a\u4ee3\u7801\uff1a\n\n------------\n```\nprogram hrn;\n var\n  s:string;\n  l,a,b,i:longint;  //l\u4ee3\u8868\u5b57\u7b26\u4e32\u957f\u5ea6,a\u548cb\u4e0a\u9762\u5df2\u7ecf\u89e3\u91ca\u8fc7\u4e86\n begin\n  read(s); \n  l:=length(s);   //\u8bfb\u5165\uff0c\u8ba1\u7b97\u957f\u5ea6\n  for i:=1 to l do if s[i]='Z'then b:=i;  //\u627e\u6700\u540e\u4e00\u4e2aZ\n  for i:=l downto 1 do if s[i]='A'then a:=i;  //\u627e\u7b2c\u4e00\u4e2aA\n  writeln(b-a+1);  //\u8f93\u51fa\n end.\n```",
+        "postTime": 1520734821,
+        "uid": 45176,
+        "name": "FCBM71",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT2297 \u3010A to Z String\u3011"
+    },
+    {
+        "content": "```c\n#include<iostream>\n#include<cstdio>\n#include<cstring>\nusing namespace std;\nint main()\n{\n    string a;\n    cin>>a;\n    int l,r;\n    for(int i=0;i<a.size();i++)\n    {\n        if(a[i]=='A')  //\u4ece\u5de6\u5411\u53f3\u627e\n        {\n            l=i;\n            break;\n        } \t\t\n    } \n    for(int i=a.size()-1;i>=0;i--)\n    {\n        if(a[i]=='Z')  //\u4ece\u53f3\u5411\u5de6\u627e\n        {\n            r=i;\n            break;\n        }\n    }\n    cout<<r-l+1<<endl;\t//\u52a0\u4e0a\u7aef\u5934\u76841\n    return 0;\n}\n```",
+        "postTime": 1521297481,
+        "uid": 74486,
+        "name": "_newbie_",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT2297 \u3010A to Z String\u3011"
+    },
+    {
+        "content": "//\u8fd9\u8bdd\u5fc5\u987b\u8bf4\uff1a\u524d\u9762\u67d0\u4f4d\u7684\u9898\u89e3\u8bef\u5bfc\u4e86\u6211\uff01\n\n//\u6b64\u9898\u8bb0\u5f97\u627e\u5230\u6700\u524d\u4e00\u4e2aA,\u6700\u540e\u4e00\u4e2aZ,\u6ce8\u610f,\u627e\u5230\u4e86\u4ee5\u540e\u7acb\u523b\u9000\u51fa\uff01\uff08\u5426\u5219\u4e0d\u662f\u6700\u540e\u4e00\u4e2a\uff09\n\n\u4e0a\u4ee3\u7801\n\n\n------------\n```pascal\nvar a:array[1..200000] of char;\ni,j,k,l:longint;\nbegin\nwhile not eoln do//\u5224\u65ad\u662f\u5426\u6362\u884c\n  begin\n  k:=k+1;//\u65b0\u7684\u8bfb\u5165\u65b9\u6cd5\n  read(a[k]);\n  \n  end;//\u670920\u4e07\u4f4d\uff0c\u5b57\u7b26\u4e32\u5b58\u4e0d\u4e0b\uff0c\u6240\u4ee5\u7528\u5b57\u7b26\u6570\u7ec4\uff1b\n\n\n\nfor i:=1 to k do if a[i]='A' then begin j:=i; break; end;//\u9000\u51fa;\nfor i:=k downto 1 do if a[i]='Z' then begin k:=i;break;end;\nwriteln(k-j+1);//\u56e0\u4e3a\u901a\u8fc7\u6837\u4f8b\u65f6\u95f4\uff0c\u9700\u8981+1\n\nend.\n```\n",
+        "postTime": 1520950912,
+        "uid": 66263,
+        "name": "Jack_cjj",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 AT2297 \u3010A to Z String\u3011"
+    },
+    {
+        "content": "# \u9898\u89e3 AT2297 \u3010A to Z String\u3011\n------------\n\u6309\u7167\u9898\u610f\uff0c\u627e\u5230\u7b2c\u4e00\u4e2a`A`\u548c\u6700\u540e\u4e00\u4e2a`Z`\u5373\u53ef\n\ncode:\n```cpp\n#include<cstdio>\n#include<cstring>\nchar c[210000];\nint flag_b=-0x3f3f3f3f;//\u5f00\u59cb\u6807\u5fd7 \nint flag_e;//\u7ed3\u675f\u6807\u5fd7 \nint main() {\n    scanf(\"%s\", c);//\u8bfb\u5165\u5b57\u7b26\u4e32 \n    for(int i=0; i<strlen(c); i++){\n        if(c[i]=='A'&&flag_b==-0x3f3f3f3f) flag_b=i;//\u6807\u51fa\u7b2c\u4e00\u4e2aA\u7684\u4f4d\u7f6e \n        if(c[i]=='Z') flag_e=i;//\u6807\u51fa\u6700\u540e\u4e00\u4e2aZ\u7684\u4f4d\u7f6e \n    }\n    printf(\"%d\", flag_e-flag_b+1);//\u8f93\u51fa\u7ed3\u679c \n    return 0;\n}\n```",
+        "postTime": 1520927030,
+        "uid": 58502,
+        "name": "char32_t",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT2297 \u3010A to Z String\u3011"
+    },
+    {
+        "content": "\u770b\u4e86\u4e0b\u6570\u636e\u89c4\u6a21\uff0c\u90a3\u4e2as\u7684\u7edd\u5bf9\u503c\u662f\u4ec0\u4e48\u9b3c\uff0c\u4e8e\u662f\u628a\u6570\u636e\u5f00\u5927\uff0c\u4e5f\u4e0d\u6562\u7528\u5b57\u7b26\u4e32\uff0c\u4e0d\u6562\u7528ansistring\uff0c\u6240\u4ee5\u5f00char\u3002\n\n\u7b2c\u4e00\u6b21\u770b\u5230\u8fd9\u9898\uff0c\u8ba4\u4e3a\u662f\u4ece\u7b2c\u4e00\u4e2aA\u5230\u7b2c\u4e00\u4e2aZ\u4e2d\u7684\u5b57\u6bcd\u603b\u6570\uff08\u5305\u62ec\u4e00\u5934\u4e00\u5c3e\uff09\uff0c\u4e8e\u662f\u5199\u4e86\n\n------------\n\n```\nvar\n    ans:longint;\n    ch:char;\n    cancount:boolean;\nbegin\n    while not eof do\n        begin\n            read(ch);\n            if ch='A' then cancount:=true;\n            if ch='Z' then begin writeln(ans+1); halt; end;\n            if cancount then inc(ans);\n        end;\nend.\n```\n\n------------\n\u53d1\u73b0\u662f\u5047\u7684\u3002\u6837\u4f8b\u90fd\u8fc7\u4e0d\u4e86\uff0c\u540e\u6765\u4ed4\u7ec6\u53d1\u73b0\uff0c\u662f\u5de6\u6570\u7b2c\u4e00\u4e2aA\u5230\u53f3\u6570\u7b2c\u4e00\u4e2aZ\u4e2d\u7684\u5b57\u6bcd\u603b\u6570\uff08\u5305\u62ec\u4e00\u5934\u4e00\u5c3e\uff09\uff0c\u6240\u4ee5\u6539\u8fdb\u4e86\n\n------------\n```pascal\nvar\n    i,j,n:longint;\n    ch:array[1..200000]of char;\nbegin\n    while not eoln do//\u6362\u884c\u65f6\u505c\u6b62\u8bfb\u5165\n        begin\n            inc(n);\n            read(ch[n]);\n        end;\n    for i:=1 to n do if ch[i]='A' then break;\n    for j:=n downto 1 do if ch[j]='Z' then break;\n    writeln(j-i+1);\nend.\n```",
+        "postTime": 1521288000,
+        "uid": 62014,
+        "name": "Soyilieber",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 AT2297 \u3010A to Z String\u3011"
+    }
+]

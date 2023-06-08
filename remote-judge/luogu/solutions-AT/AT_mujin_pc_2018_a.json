@@ -1,0 +1,18 @@
+[
+    {
+        "content": "# \u5199\u5728\u524d\u9762\n\n\u5efa\u8bae\u8bc4\u5206\uff1a\u5165\u95e8\n\n# \u9898\u610f\n\n\u7ed9\u4f60\u4e00\u4e2a\u5b57\u7b26\u4e32 $S$ \uff0c\u8ba9\u4f60\u5224\u65ad $S$ \u7684\u524d\u4e94\u4e2a\u5b57\u7b26\u662f\u4e0d\u662f `MUJIN` \u3002\n\n# \u5206\u6790\n\n- \u8981\u7279\u5224\uff0c\u5982\u679c $S$ \u7684\u957f\u5ea6 $\\leq 4$ \uff0c\u90a3\u4e00\u5b9a\u4e0d\u7b26\u5408\u8981\u6c42\u3002\n\n- \u5982\u679c $S$ \u7684\u957f\u5ea6 $\\geq 5$ \uff0c\u76f4\u63a5\u4e00\u4e2a\u5b57\u7b26\u4e00\u4e2a\u5b57\u7b26\u5224\u65ad\u5373\u53ef\u3002\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    string s;\n    cin >> s;\n    if(s.size() <= 4){\n        cout << \"No\\n\";\n        return 0;\n    }\n    if(s[0] == 'M' && s[1] == 'U' && s[2] == 'J' && s[3] == 'I' && s[4] == 'N'){\n        cout << \"Yes\\n\";\n    }else cout << \"No\\n\";\n    return 0;\n}\n```\n",
+        "postTime": 1671497359,
+        "uid": 663295,
+        "name": "ruruo",
+        "ccfLevel": 0,
+        "title": "AT_mujin_pc_2018_a\u9898\u89e3"
+    },
+    {
+        "content": "## Description:\n\n[$\\text{\\color{red}\u9898\u76ee\u4f20\u9001\u95e8}$](https://www.luogu.com.cn/problem/AT_mujin_pc_2018_a)\n\n[$\\text{\\color{orange}\u5728\u4ed6\u7684\u535a\u5ba2\u98df\u7528}$](https://www.luogu.com.cn/blog/666someonebk999/solution-at-mujin-pc-2018-a)\n\n\u7ffb\u8bd1\uff1a\u7ed9\u5b9a\u4e00\u4e2a\u5b57\u7b26\u4e32 $S$\uff0c\u5982\u679c\u5b57\u7b26\u4e32\u7684\u524d $5$ \u4e2a\u5b57\u7b26\u662f $\\text{MUJIN}$\uff0c\u5219\u8f93\u51fa `Yes`\uff0c\u53cd\u4e4b\uff0c\u8f93\u51fa `No`\u3002\n\n\n\u5e0c\u671b\u7ba1\u7406\u5927\u5927\u987a\u4fbf\u5ba1\u6838\u4e00\u4e0b\u7ffb\u8bd1\uff0c\u8c22\u8c22\u3002\n## Solution:\n\n\u5165\u95e8\u5b57\u7b26\u4e32\u9898\uff0c\u6211\u4eec\u53ea\u9700\u8981\u5b58\u50a8\u5b57\u7b26\u4e32 $S$\uff0c\u7684\u524d\u4e94\u4e2a\u5b57\u7b26\u7136\u540e\u518d\u548c $\\text{MUJIN}$ \u5224\u65ad\u5c31\u884c\u3002\n\n\u5f53\u7136\uff0c\u5982\u679c\u5b57\u7b26\u4e32\u7684\u957f\u5ea6\u5c0f\u4e8e $5$\uff0c\u90a3\u4e48\u5f88\u660e\u663e\u5c31\u4e0d\u7b26\u5408\u9898\u610f\uff0c\u8f93\u51fa `No`\u3002\n\n## AC Code\uff08\u675c\u7edd\u6284\u88ad\uff09:\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n\tstring a;\n\tcin>>a;\n\tif(a.length()<5)cout<<\"No\"<<endl;  //\u5982\u679c\u5b57\u7b26\u4e32\u957f\u5ea6\u5c0f\u4e8e5 \n\telse \n\t{\n\t\tstring s=\"\";  //\u7528\u6765\u5b58\u524d5\u4e2a\u5b57\u7b26 \n\t\tfor(int i=0;i<5;i++)\n\t\t\ts+=a[i];\n\t\tif(s==\"MUJIN\")cout<<\"Yes\"<<endl;\n\t\telse cout<<\"No\"<<endl;\n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1672372953,
+        "uid": 658085,
+        "name": "____someone____",
+        "ccfLevel": 0,
+        "title": "AT_mujin_pc_2018_a  \u30b3\u30f3\u30c6\u30b9\u30c8\u540d"
+    }
+]

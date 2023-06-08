@@ -1,0 +1,26 @@
+[
+    {
+        "content": "## \u9898\u76ee\u7ffb\u8bd1\n\u8f93\u5165\u4e00\u4e2a $n\\times m$ \u7531 `#` \u548c `.` \u7ec4\u6210\u7684\u77e9\u9635\uff0c\u8ba9\u4f60\u6c42\u51fa\u8fd9\u4e2a\u77e9\u9635\u91cc\u6709\u591a\u5c11\u4e2a `#`\u3002\n\n## \u9898\u76ee\u505a\u6cd5\n\u505a\u6cd5 $1$\uff1a\n\n\u8f93\u5165 $n\\times m$ \u7684\u6570\u7ec4\uff0c\u7528\u5faa\u73af\u904d\u5386\u5e76\u5224\u65ad\u6570\u7ec4\u7684\u67d0\u4e00\u4f4d\u662f\u5426\u4e3a `#`\uff0c\u5982\u679c\u662f\uff0c\u8ba1\u6570\u5668 $+1$\uff0c\u6700\u540e\u8f93\u51fa\u8ba1\u6570\u5668\u5373\u53ef\u3002\n\n\u4ee3\u7801\u5982\u4e0b\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n\nint main(){\n\tint n,m,ans=0;\n\tchar a[100][100];\n\tcin>>n>>m;\n\tfor(int i=0;i<n;i++){\n\t\tfor(int j=0;j<m;j++){\n\t \t\tcin>>a[i][j];//\u8f93\u5165\n\t\t\tif(a[i][j]=='#')ans++;//\u5224\u65ad\n\t\t}\n\t}\n\tcout<<ans;\n\treturn 0;\n}\n```\n\n\u505a\u6cd5 $2$\uff1a\n\n\u5faa\u73af\u8f93\u5165 $n\\times m$ \u4e2a\u5b57\u7b26\uff0c\u6bcf\u6b21\u5faa\u73af\u5224\u65ad\u8fd9\u4e2a\u5b57\u7b26\u662f\u5426\u4e3a `#`\u3002\u5982\u679c\u662f\uff0c\u8ba1\u6570\u5668 $+1$\uff0c\u6700\u540e\u8f93\u51fa\u8ba1\u6570\u5668\u5373\u53ef\u3002\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n\nint main(){\n\tint n,m,ans=0;\n\tchar t;\n\tcin>>n>>m;\n\tfor(int i=0;i<n*m;i++){\n\t\tcin>>t;//\u8f93\u5165\n\t\tif(t=='#')ans++;//\u5224\u65ad\n\t}\n\tcout<<ans;\n\treturn 0;\n}\n```",
+        "postTime": 1670070191,
+        "uid": 592684,
+        "name": "Jasoncwx",
+        "ccfLevel": 0,
+        "title": "AT_abc280_a \u9898\u89e3"
+    },
+    {
+        "content": "# \u9898\u610f\uff1a\n\u7ed9\u5b9a\u4e00\u4e2a $H$ \u884c $W$ \u5217\u7684\u5b57\u7b26\u77e9\u9635\uff0c\u6c42\u77e9\u9635\u4e2d `#` \u7684\u4e2a\u6570\u3002\n \n# \u505a\u6cd5\uff1a\n\n\u76f4\u63a5\u66b4\u529b\u5faa\u73af\u7edf\u8ba1 `#` \u7684\u4e2a\u6570\u5373\u53ef\u3002\n\n# Code\n```cpp\n#include<iostream>\n#include<string>\nint main() {\n    std::ios::sync_with_stdio(false);\n    int n, m, ans = 0;\n    std::cin >> n >> m;\n    std::string s;\n    for (int i = 1; i <= n; i++) {\n        std::cin >> s;\n        for (int j = 0; j < s.length(); j++)\n            if (s[j] == '#') ans++;\n    }\n    std::cout << ans;\n    return 0;\n}\n```\n",
+        "postTime": 1670291781,
+        "uid": 610557,
+        "name": "shinzanmono",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3"
+    },
+    {
+        "content": "[$\\color{orangered}\\text{\u9898\u76ee\u4f20\u9001\u95e8}$](https://www.luogu.com.cn/problem/AT_abc280_a)\n\n[$\\color{orangered}\\text{\u5728cnblogs\u4e2d\u9605\u8bfb}$](https://www.cnblogs.com/PineappleSummer/p/ABC280.html#a---pawn-on-a-grid)\n## \u9898\u610f\n\u7ed9\u51fa\u4e00\u4e2a $H$ \u884c $W$ \u5217\u7684\u5b57\u7b26\u77e9\u9635\uff0c\u8f93\u51fa\u5176\u4e2d`#`\u7684\u4e2a\u6570\u3002\n\n## \u5206\u6790\n\u4f9d\u9898\u610f\u6a21\u62df\u5373\u53ef\u3002\u904d\u5386\u6bcf\u4e2a\u5b57\u7b26\uff0c\u5982\u679c\u662f`#`\uff0c$ans$ \u5c31 $+1$\uff0c\u6700\u540e\u8f93\u51fa $ans$\u3002\n\n## \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint h,w,ans=0;\nint main()\n{\n\tcin>>h>>w;\n\tfor(int i=1;i<=h;i++)\n\t{\n\t\tfor(int j=1;j<=w;j++)\n\t\t{\n\t\t\tchar c;\n\t\t\tcin>>c;\n\t\t\tif(c=='#') ans++;\n\t\t}\n\t}\n\tcout<<ans<<endl;\n        return 0;\n}\n```",
+        "postTime": 1670279939,
+        "uid": 880187,
+        "name": "PineappleSummer",
+        "ccfLevel": 0,
+        "title": "[ABC280A] Pawn on a Grid \u9898\u89e3"
+    }
+]

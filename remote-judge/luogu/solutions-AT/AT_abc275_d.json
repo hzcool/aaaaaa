@@ -1,0 +1,90 @@
+[
+    {
+        "content": "## \u601d\u8def\n\n\u6309\u9898\u610f\uff0c\u6211\u4eec\u53ef\u4ee5\u5199\u51fa $f$ \u51fd\u6570\uff1a\n\n```cpp\nlong long f(long long x){\n    if(x==0ll) return 1ll;\n    return f(x/2)+f(x/3);\n}\n```\n\n\u4f46\u8fd9\u6837\u590d\u6742\u5ea6\u4e0d\u8db3\u4ee5\u901a\u8fc7\u3002\n\n\u6211\u4eec\u53d1\u73b0\u8fd9\u9897\u641c\u7d22\u6811\u6709\u5f88\u591a\u91cd\u5408\u7684\u5730\u65b9\uff0c\u53ef\u4ee5\u4f7f\u7528 ```std::map``` \u8bb0\u5fc6\u5316\uff1a\u628a\u6bcf\u6b21 $f$ \u51fd\u6570\u7684\u503c\u5b58\u4e0b\u6765\uff0c\u8c03\u7528\u65f6\uff0c\u5982\u679c\u5f53\u524d\u7684 $x$ \u5df2\u7ecf\u5728 ```map``` \u91cc\u9762\u6709\u503c\uff0c\u5c31\u4e0d\u7528\u518d\u6b21\u9012\u5f52\uff0c\u76f4\u63a5\u8fd4\u56de\u5373\u53ef\u3002\n\n## \u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\n#define int long long\nstd::map<int,int> mp;\nint f(int x){\n  if(!x) return 1;//\u8fb9\u754c\n  if(mp[x]) return mp[x];//\u5982\u679c\u6709\u503c\u5c31\u8fd4\u56de\n  int ans=f(x/2)+f(x/3);\n  mp[x]=ans;//\u8bb0\u5fc6\u5316\n  return ans;\n}\nsigned main(){\n  int n;\n  std::cin>>n;\n  std::cout<<f(n);\n}\n```",
+        "postTime": 1667695695,
+        "uid": 527598,
+        "name": "FReQuenter",
+        "ccfLevel": 0,
+        "title": "[ABC275D] Yet Another Recursive Function \u9898\u89e3"
+    },
+    {
+        "content": "\u9898\u76ee\u5f88\u7b80\u5355\uff0c\u51fd\u6570\u5982\u4e0b\uff1a\n```cpp\ninline ll f(ll n){//ll\u4e3along long\n\tif(n==0)return 1;\n\treturn f(n/2)+f(n/3);\t\n}\n```\n\u4f46\u662f\u80af\u5b9a\u4e0d\u80fd\u8fc7\uff0c\u56e0\u4e3a $n$ \u6700\u5927\u53ef\u4ee5\u53d6\u5230 $10^{18}$\u3002\n\n\u4e8e\u662f\uff0c\u6211\u4eec\u5c31\u53ef\u4ee5\u7528\u5230\u5bb9\u5668 map \u8fdb\u884c\u8bb0\u5fc6\u5316\uff0c\u7528 map \u628a\u503c\u5b58\u4e0b\u6765\uff0c\u6211\u4eec\u8bbe\u5173\u952e\u5b57\u4e3a $a$\uff0c\u63a5\u4e0b\u6765\u6709\u4e09\u79cd\u60c5\u51b5\uff1a\u7b2c\u4e00\u79cd\uff0c$n$ \u4e3a $0$\uff0c\u8fd4\u56de $1$\uff1b\u7b2c\u4e8c\u79cd\uff0c$n$ \u5728 $a$ \u4e2d\u5df2\u7ecf\u6709\u503c\uff0c\u8fd4\u56de\uff1b\u7b2c\u4e09\u79cd\uff0c\u6b63\u5e38\u60c5\u51b5\uff0c\u5373 $n$ \u4e0d\u4e3a $0$ \u4e14 $n$ \u5728 $a$ \u4e2d\u6ca1\u6709\u503c\uff0c\u9012\u5f52\u5e76\u8fd4\u56de\u3002\u65f6\u95f4\u590d\u6742\u5ea6 $\\text O(\\log^2n)$\u3002\n```cpp\n//\u5341\u5e74OI\u4e00\u573a\u7a7a\uff0c \u4e0d\u5f00long long\u89c1\u7956\u5b97\u3002\u88ab\u5fd8\u4e86\u5f00long long\uff01\uff01\uff01 \n#include<bits/stdc++.h>\n#define ll long long\nusing namespace std;\nll n;\nmap<ll,ll> a;\ninline ll f(ll n){\n\tif(n==0)return a[0]=1;//n\u4e3a0 \n    if(a[n])return a[n];//n\u5728a\u4e2d\u5df2\u7ecf\u6709\u503c \n\treturn a[n]=f(n/2)+f(n/3);//\u6b63\u5e38\u60c5\u51b5 \n}\nint main(){\n\tios::sync_with_stdio(0);\n\tcin.tie(0);\n\tcout.tie(0);\n\tcin>>n;\n\tcout<<f(n);\n\treturn 0;\n}\n```",
+        "postTime": 1675853578,
+        "uid": 368111,
+        "name": "_Haoomff_",
+        "ccfLevel": 0,
+        "title": "AT_abc275_d [ABC275D] Yet Another Recursive Function \u9898\u89e3"
+    },
+    {
+        "content": "\u672c\u9898\u53ef\u4ee5\u4f7f\u7528\u8bb0\u5fc6\u5316\u641c\u7d22\u3002\n\n\u7528\u4e00\u4e2a `std::map` \u6765\u5b58\u50a8 $f(i)$ \u7684\u503c\u3002\n\n\u5177\u4f53\u5730\uff0c\u6309\u7167\u9898\u76ee\u8981\u6c42\uff0c$f(i)=f\\left(\\left\\lfloor\\frac{i}{2}\\right\\rfloor\\right)+f\\left(\\left\\lfloor\\frac{i}{3}\\right\\rfloor\\right)$\uff0c\u6bcf\u8ba1\u7b97\u5230\u4e00\u4e2a\u7b54\u6848\uff0c\u5c31\u5c06\u5b83\u5b58\u5165 `map` \u4e2d\u3002\u4e0b\u6b21\u518d\u6c42\u89e3\u5230\u540c\u6837\u7684\u76f4\u63a5\u8fd4\u56de `map` \u4e2d\u5b58\u50a8\u7684\u5143\u7d20\u5373\u53ef\u3002\n\n\u65f6\u95f4\u590d\u6742\u5ea6 $O(\\log^2 N)$\uff0c\u53ef\u4ee5\u8f7b\u6613\u5730\u901a\u8fc7\u672c\u9898\u3002\n\n\u653e\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\n#define int long long\nusing namespace std;\nmap<int,int> m; // \u5b58\u50a8\u7b54\u6848\u7684 map\nint f(int n){\n    if(m[n])return m[n]; // \u5b58\u50a8\u8fc7\u7b54\u6848\n    if(!n)return m[0]=1; // \u9012\u5f52\u8fb9\u754c\n    return m[n]=f(n>>1ll)+f(n/3);\n}\nmain(){\n    int n; cin>>n;\n    cout<<f(n)<<endl;\n    return 0;\n}\n```",
+        "postTime": 1667383740,
+        "uid": 556366,
+        "name": "zyc212303",
+        "ccfLevel": 5,
+        "title": "[ABC275D] Yet Another Recursive Function \u9898\u89e3"
+    },
+    {
+        "content": "\u8003\u8651\u66b4\u529b\u7684\u74f6\u9888\u5728\u54ea\u91cc\u3002\n\n$f(n)$ \u4f1a\u7531 $2\\times n\\le i<4\\times n$ \u7684\u6570\u8bbf\u95ee\uff0c\u800c\u8fd9\u5c31\u662f\u65f6\u95f4\u7684\u74f6\u9888\u3002\n\n\u53d1\u73b0 $f(x)$ \u7684\u503c\u6052\u5b9a\uff0c\u6240\u4ee5\u53ef\u4ee5\u8bb0\u5f55\u4e0b\u6765\u907f\u514d\u591a\u6b21\u8bbf\u95ee\uff0c\u8fd9\u5c31\u662f\u8bb0\u5fc6\u5316\u3002\n\n\u53d1\u73b0\u8bbf\u95ee\u6b21\u6570\u662f $\\log^2 n$ \u7ea7\u522b\u7684\uff0c\u5219\u603b\u590d\u6742\u5ea6\u5927\u6982\u662f $O(\\log^2 n\\log n)$ \u8fd9\u6837\u7684\u3002\n\n```cpp \n#include <map>\n#include <stdio.h>\nstd::map<long long,long long> q;\nlong long f(long long x)\n{\n\tif(!x) return 1;\n\tif(q[x]) return q[x];\n\telse\n\t\treturn q[x]=f(x/2)+f(x/3);\n}\nint main()\n{\n    long long n;\n    scanf(\"%lld\",&n);\n    printf(\"%lld\",f(n));\n}\n```",
+        "postTime": 1680436774,
+        "uid": 575994,
+        "name": "Etinorally",
+        "ccfLevel": 5,
+        "title": "[ABC275D] Yet Another Recursive Function"
+    },
+    {
+        "content": "[\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/AT_abc275_d)     \n\u5f88\u7b80\u5355\u7684\u4e00\u9053 dfs\u3002          \n\u9996\u5148\uff0c\u6211\u4eec\u5f88\u5bb9\u6613\u6a21\u62df\u51fa\u9898\u9762\u7ed9\u7684 $f$ \u51fd\u6570\uff1a       \n```cpp\ninline ll dfs(ll x){\n\tif(x==0){\n\t\treturn 1;\n\t}\n\treturn dfs(x/2)+dfs(x/3);\n}\n```\n\u4f46\u662f\uff0c\u8fd9\u4efd\u4ee3\u7801\u660e\u663e\u4f1a TLE\u3002       \n\u4e3a\u4ec0\u4e48\u5462\uff1f     \n\u56e0\u4e3a\uff0c\u5728 $n=36$ \u7684\u65f6\u5019\uff0c$6$ \u4f1a\u88ab\u91cd\u590d\u8ba1\u7b97\u51e0\u6b21\uff0c\u5728 $n$ \u66f4\u5927\u7684\u65f6\u5019\uff0c\u4f1a\u88ab\u91cd\u590d\u8ba1\u7b97\u7684\u6b21\u6570\u5c31\u4f1a\u66f4\u591a\u3002     \n\u4f46\u662f $f(n)$ \u503c\u6c38\u8fdc\u4e0d\u4f1a\u53d8\uff0c\u6240\u4ee5\u6211\u4eec\u5f15\u5165\u8bb0\u5fc6\u5316\u3002        \n\u8fd9\u91cc\u7528 unordered_map\uff0c\u901f\u5ea6\u5feb\u4e14\u53ef\u4ee5\u5b58\u4efb\u610f\u7684\u503c\u3002      \n[CODE](https://www.luogu.com.cn/paste/p2gbdra9)",
+        "postTime": 1680434316,
+        "uid": 592238,
+        "name": "__dest__ruct__or__",
+        "ccfLevel": 0,
+        "title": "AT_abc275_d [ABC275D] Yet Another Recursive Function \u9898\u89e3"
+    },
+    {
+        "content": "\u5728 Python \u8bed\u8a00\u4e2d\u53ef\u4ee5\u4f7f\u7528 `functools` \u4e2d\u7684 `lru_cache` \u8fdb\u884c\u8bb0\u5fc6\u5316\u52a0\u901f\u3002\n```python\nfrom functools import lru_cache\n@lru_cache\ndef f(n):\n    return n == 0 and 1 or f(n // 2) + f(n // 3)\nprint(f(int(input())))\n```",
+        "postTime": 1675701657,
+        "uid": 84282,
+        "name": "andyli",
+        "ccfLevel": 7,
+        "title": "AT_abc275_d [ABC275D] Yet Another Recursive Function \u9898\u89e3"
+    },
+    {
+        "content": "## Solution\n\n\u770b\u9898\u89e3\u5927\u4f6c\u4eec\u90fd\u662f\u7528\u8bb0\u5fc6\u5316\u8fc7\u7684\uff0c\u8fd9\u91cc\u63d0\u4f9b\u4e00\u4e2a\u66b4\u529b\u505a\u6cd5\u3002\n\n\u6ce8\u610f\u5230\u9898\u76ee\u6570\u636e\u8303\u56f4\u4e3a $10^{18}$\uff0c\u76f4\u63a5\u66b4\u529b\u80af\u5b9a\u4f1a\u8d85\u65f6\uff0c\u5728\u672c\u5730\u6d4b\u8bd5\u53d1\u73b0\u66b4\u529b\u53ef\u4ee5\u901a\u8fc7\u5927\u7ea6 $10^{10}$ \u7684\u6570\u636e\uff0c\u4e8e\u662f\u6211\u4eec\u7ebf\u6027\u9012\u63a8\u6c42\u89e3 $1 \\sim 10^8$ \u65f6\u7684\u51fd\u6570\uff0c\u518d\u66b4\u529b\u8ba1\u7b97\u5269\u4f59\u7684\u90e8\u5206\uff0c\u5c31\u53ef\u4ee5\u6210\u529f\u5728\u5141\u8bb8\u65f6\u95f4\u5185\u5361\u8fc7\u3002\n\n## Code\n\n```cpp\n#include <iostream>\nusing namespace std;\n\nlong long a[100000100];\n\nlong long f(long long x)\n{\n    if (x <= 100000000) return a[x];\n    return f(x / 2) + f(x / 3);\n}\n\nint main()\n{\n    long long x;\n    a[0] = 1;\n    for (int i = 1; i <= 100000000; i++) {\n        a[i] = a[i / 2] + a[i / 3];\n    }\n    cin >> x;\n    cout << f(x);\n}\n```",
+        "postTime": 1668328061,
+        "uid": 577948,
+        "name": "Laffey",
+        "ccfLevel": 6,
+        "title": "[ABC275D] Yet Another Recursive Function"
+    },
+    {
+        "content": "\u505a\u6cd5\u5c31\u662f\u8bb0\u5fc6\u5316\u641c\u7d22\uff0c\u4e0d\u8bf4\u4e86\uff0c\u8fd9\u91cc\u7ed9\u4e00\u4efd\u590d\u6742\u5ea6\u7684\u8bc1\u660e\u3002\n\n\u5148\u8003\u8651\u66b4\u529b\uff0c\u641c\u7d22\u6811\u7684\u5f62\u6001\u662f\u4e00\u9897\u4e8c\u53c9\u6811\uff0c\u6811\u7684\u6df1\u5ea6 $k$ \u4ecb\u4e8e $\\log_3^n\\sim \\log n$ \u4e4b\u95f4\uff0c\u5171\u6709\u7ea6 $2^k$ \u4e2a\u8282\u70b9\u3002\u8003\u8651\u6700\u4f18\u7684\u60c5\u51b5\uff0c$k=\\log_3^{10^{18}}=38$\uff0c$2^{38}$ \u7684\u590d\u6742\u5ea6\u4e5f\u80af\u5b9a\u4f1a\u8d85\u65f6\u3002\n\n\u518d\u8003\u8651\u8bb0\u5fc6\u5316\uff0c\u6240\u6709\u53ef\u80fd\u641c\u5230\u7684\u8282\u70b9\u90fd\u662f\u5f62\u5982 $\\lfloor \\dfrac{n}{2^p3^q}\\rfloor$ \u7684\u5f62\u5f0f\uff0c$p,q$ \u90fd\u662f $\\log$ \u7ea7\u522b\u7684\uff0c\u6240\u4ee5\u603b\u7684\u72b6\u6001\u6570\u53ea\u6709 $\\log^2$ \u79cd\uff0c\u590d\u6742\u5ea6 $\\mathcal O(\\log^2 n)$\uff0c\u8fd9\u91cc\u628a $map$ \u5f53\u4f5c\u5e38\u6570\u770b\u4e86\u3002",
+        "postTime": 1668320845,
+        "uid": 451328,
+        "name": "lnwhl",
+        "ccfLevel": 6,
+        "title": "\u3010\u9898\u89e3\u3011[ABC275D] Yet Another Recursive Function"
+    },
+    {
+        "content": "# ABC_275D \u9898\u89e3\n\n\u5bf9 $10^{18}$ \u6253\u8868\u53ef\u770b\u51fa\u9012\u5f52\u7ea7\u522b\u662f $O(\\log N)$ \u7684\uff0c\u4e8e\u662f\u8bb0\u5fc6\u5316\u5373\u53ef\uff0c\u4f7f\u7528 `unordered_map` \u5145\u5f53\u8bb0\u5fc6\u5316\u6570\u7ec4\u3002\n\n`unordered_map`  \u5bf9\u5e94\u54c8\u5e0c\u8868\uff0c\u54c8\u5e0c\u8868\u7684\u7279\u70b9\u5c31\u662f\u67e5\u627e\u6548\u7387\u9ad8\uff0c\u65f6\u95f4\u590d\u6742\u5ea6\u4e3a\u5e38\u6570\u7ea7\u522b $O(1)$\u3002\n\n\u6545\u603b\u65f6\u95f4\u590d\u6742\u5ea6 $O(\\log N)$ \n\n```\n#include<bits/stdc++.h>\n#define ll long long\nusing namespace std;\nunordered_map<ll,ll> mp;\nll f(int x)\n{\n\tif(x==0) return 1;\n\tif(mp[x]) return mp[x];\n\treturn mp[x] = f(x/2)+f(x/3);\n}\nint main()\n{\n\tll n; cin>>n;\n\tcout<<f(n);\n\treturn 0;\n}\n\n```\n\n",
+        "postTime": 1667793205,
+        "uid": 566396,
+        "name": "Magic_World",
+        "ccfLevel": 0,
+        "title": "ABC_275D \u9898\u89e3"
+    },
+    {
+        "content": "\u4f9d\u636e\u9898\u76ee\u4e2d\u7ed9\u5b9a\u7684\u9012\u5f52\u51fd\u6570\uff0c\u8ba1\u7b97\u5373\u53ef\u3002\n\n\u6ce8\u610f\u5230\u6570\u636e\u8303\u56f4\u8f83\u5927\uff0c\u4f7f\u7528 $\\rm{map}$ \u8bb0\u5f55\u5168\u90e8\u7684 $f(x)$\u3002\n\n\u6bcf\u4e00\u6b21\u8bb0\u5fc6\u5316\u7684\u65f6\u95f4\u53d6\u51b3\u4e8e $\\rm{map}$ \u7684 $\\mathcal{O}(\\log n)$\uff0c \u8ba1\u7b97\u7684\u6b21\u6570\u7ea6\u4e3a $\\mathcal{\\log n}$\uff0c\u6545\u6700\u7ec8\u7684\u65f6\u95f4\u590d\u6742\u5ea6\u4e3a $\\mathcal{O}(\\log^2 n)$\u3002\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nlong long n;\nmap<long long,long long>mem;\nint calc(long long x)\n{\n    if(x==0)\n        return 1;\n    if(!mem[x])\t//\u5982\u679cmem\u6570\u7ec4\u672a\u8d4b\u503c\n        mem[x]=calc(x/2)+calc(x/3);\n    return mem[x];\n}\nint main()\n{\n    cin>>n;\n    cout<<calc(n)<<endl;\t//\u901a\u8fc7calc\u51fd\u6570\u8ba1\u7b97\n    return 0;\n}\n```\n",
+        "postTime": 1667529416,
+        "uid": 270854,
+        "name": "\u4e8c\u53c9\u82f9\u679c\u6811",
+        "ccfLevel": 5,
+        "title": "AT_abc275_d [ABC275D] Yet Another Recursive Function \u9898\u89e3"
+    },
+    {
+        "content": "### \u9898\u76ee\u5206\u6790\n\n\u8fd9\u9053\u9898\u9898\u610f\u5f88\u7b80\u5355\uff0c\u4e0d\u518d\u8d58\u8ff0\u3002\u5f88\u5bb9\u6613\u60f3\u5230\u8fdb\u884c\u4e00\u4e2a\u641c\u7d22\uff0c\u6211\u4eec\u4f7f\u7528 dfs \u6765\u5bf9\u5f53\u524d\u7684\u6570 $x$ \u8fdb\u884c\u6df1\u5ea6\u4f18\u5148\u641c\u7d22\uff0c\u5f53 $x$ \u4e3a\u96f6\u65f6\uff0c\u8fd4\u56de $1$\u3002\u5426\u5219\u8fd4\u56de $dfs(\\frac{x}{2})+dfs(\\frac{x}{3})$\u3002\n\n#### \u641c\u7d22\u5173\u952e\u4ee3\u7801\n\n```\nint DL(int x){\n\tif(!x) return 1;\n\treturn DL(x/2)+DL(x/3);\n}\n```\n\u4f46\u662f\u76f4\u63a5\u641c\u7d22\u7684\u8bdd\u663e\u7136\u4f1a\u8d85\u65f6\uff0c\u8fd9\u662f\u6211\u4eec\u53ef\u4ee5\u4f7f\u7528\u8bb0\u5fc6\u5316\u641c\u7d22\u6765\u907f\u514d\u91cd\u590d\u7684\u65e0\u7528\u529f\uff0c\u8282\u7701\u76f8\u5f53\u4e00\u90e8\u5206\u65f6\u95f4\u3002\n\n#### \u8bb0\u5fc6\u5316\u641c\u7d22\u5173\u952e\u4ee3\u7801\n\n```\nint DL(int x){\n\tif(p[x]) return p[x];\n\telse return p[x]=DL(x/2)+DL(x/3);\n}\n```\n\n\n### code\n\n```\n#include <iostream>\n#include <algorithm>\n#include <cstring>\n#include <map>\n#define int long long\nusing namespace std;\nint n;\nmap<int,int>p;\nint DL(int x){\n\tif(p[x]) return p[x];//\u5982\u679c\u5df2\u7ecf\u88ab\u8bb0\u5f55\u8fc7\u5c31\u4e0d\u518d\u91cd\u590d\u641c\u7d22\n\telse return p[x]=DL(x/2)+DL(x/3);//\u6ca1\u88ab\u8bb0\u5f55\u5c31\u8fdb\u884c\u8bb0\u5f55\n}\nsigned main(){\n\tscanf(\"%lld\",&n);\n\tp[0]=1;//\u8d4b\u521d\u503c\n\tprintf(\"%lld\",DL(n));\n\treturn 0;\n}\n```\nps\uff1a\u5f88\u4e45\u6ca1\u89c1\u8fc7\u8fd9\u4e48\u6c34\u7684 d \u9898\u4e86\u3002",
+        "postTime": 1668178530,
+        "uid": 190931,
+        "name": "cannotdp",
+        "ccfLevel": 4,
+        "title": "[ABC275D] Yet Another Recursive Function"
+    }
+]

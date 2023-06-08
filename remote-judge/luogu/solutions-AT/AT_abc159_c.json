@@ -1,0 +1,26 @@
+[
+    {
+        "content": "\u7ed9\u5b9a $L$ \uff0c\u8981\u6c42\u4e00\u4e2a\u7acb\u65b9\u4f53\u7684\u957f\u5bbd\u9ad8\u7684\u548c\u4e3a $L$ \uff0c\u8f93\u51fa\u4f53\u79ef\u6700\u5927\u503c\u3002\n\n\u4e24\u4e2a\u76f8\u8fd1\u7684\u6570\u4e58\u79ef\u4f1a\u66f4\u5927\uff0c\u6240\u4ee5\u4e09\u4e2a\u6700\u76f8\u8fd1\u76f8\u8fd1\u7684\u6570\u4e58\u79ef\u5fc5\u7136\u6700\u5927\u3002\n\n\u6240\u4ee5\u7acb\u65b9\u4f53\u7684\u8fb9\u957f\u5373\u4e3a $\\frac{L}{3.0}$ \uff08\u9664\u4ee5 $3.0$ \u53ef\u7b97\u51fadouble\u7684\u7ed3\u679c\uff09\u3002\u4f53\u79ef\u4e3a $\\frac{L^3}{27.0}$\u3002\n\n```cpp\n#include <bits/stdc++.h>\n\nusing namespace std;\n\nint n, tot, ans;\n\nstring s;\n\nint main() {\n\tint t;\n\tcin >> t;\n\tprintf(\"%.6lf\", (double)(t * t * t/27.0));\n\treturn 0;\n}\n```",
+        "postTime": 1585126450,
+        "uid": 18673,
+        "name": "ctq1999",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 AT5296 \u3010[ABC159C] Maximum Volume\u3011"
+    },
+    {
+        "content": "# Maximum Volume\n\n\u9898\u76ee\u5927\u610f\uff1a\n\n\u7ed9\u4f60\u4e00\u4e2a\u7acb\u65b9\u4f53\u7684\u4e09\u6761\u76f8\u90bb\u7684\u68f1\u957f\u603b\u548c $L$ \uff0c\u6c42\u8be5\u7acb\u65b9\u4f53\u7684\u4f53\u79ef\u6700\u5927\u4e3a\u591a\u5c11\uff08\u68f1\u957f\u4e0d\u4e00\u5b9a\u4e3a\u6574\u6570\uff09\uff08\u7b54\u6848\u4fdd\u7559 $12$ \u4f4d\u5c0f\u6570\uff09\u3002\n\n\u8bf4\u767d\u4e86\u5c31\u662f\u5df2\u77e5 $a + b + c = L$ \uff0c\u8981\u6c42 $a \\times b \\times c$ \u7684\u6700\u5927\u503c\uff0c\u4f46 $a$ \u3001 $b$ \u3001 $c$ \u4e0d\u4e00\u5b9a\u662f\u6574\u6570\u4e14\u5b83\u4eec\u5927\u4e8e $0$\u3002\n\n\u7531\u9898\u610f\u5f97\uff1a$a > 0$ \u3001 $b > 0$ \u3001 $c > 0$ \uff0c\u5219 $ans = a \\times b \\times c$ \u3002\u7531\u5747\u503c\u4e0d\u7b49\u5f0f\u5f97\u5230 $a \\times b \\le (a^2 + b^2) / 2$ \uff0c\u6240\u4ee5 $ans \\le (a^2 + b^2) \\times c / 2$ \u3002\u56e0\u6b64\u5f53 $ans$ \u6700\u5927\u65f6\uff0c\u6ee1\u8db3 $a \\times b \\times c = (a^2 + b^2) \\times c / 2$ \u3002\u56e0\u4e3a $c > 0$ \uff0c\u6240\u4ee5 $a \\times b = (a^2 + b^2) / 2$ \uff0c\u89e3\u5f97 $a = b$\u3002\u540c\u7406\u53ef\u5f97\uff0c\u5f53 $ans$ \u6700\u5927\u65f6\uff0c$b = c$ \u3002\u6240\u4ee5\u5f53 $ans$ \u6700\u5927\u65f6\uff0c $a = b = c = \\frac{L}{3}$ \uff0c\u5373 $ans_{max} = (\\frac{L}{3})^3$\u3002\n\n\u6240\u4ee5\uff0c\u4ee3\u7801\u5c31\u53d8\u5f97\u975e\u5e38\u7b80\u5355\u4e86\uff1a\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nint main(){\n    double l;\n    scanf(\"%lf\", &l);\n    printf(\"%.12f\\n\", l/3*l/3*l/3); //\u8fd9\u91cc\u5c31\u4e0d\u591a\u89e3\u91ca\u4e86\uff0c\u8bb0\u5f97\u4fdd\u755912\u4f4d\u5c0f\u6570\n    return 0;\n}\n```\n\n\u7136\u800c\u4e8b\u5b9e\u4e0a\uff0c\u672c\u9898\u53ea\u9700\u7b80\u5355\u5730\u6253\u4e00\u4e0b\u8868\u5c31\u53ef\u4ee5\u77e5\u9053\u8fd9\u663e\u800c\u6613\u89c1\u7684\u7b54\u6848 o(T\u30d8To)\u3002\n",
+        "postTime": 1585091351,
+        "uid": 274260,
+        "name": "litluo",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT5296 \u3010[ABC159C] Maximum Volume\u3011"
+    },
+    {
+        "content": "# Maximum Volume\n\n\u9898\u76ee\u5927\u610f:\u6709\u4e00\u4e2a\u6b63\u65b9\u4f53\uff0c\u73b0\u5728\u7ed9\u4f60\u76f8\u90bb\u4e09\u6761\u68f1\u7684\u957f\u5ea6\u548c$L$\uff0c\u8ba9\u4f60\u6c42\u8fd9\u4e2a\u6b63\u65b9\u4f53\u7684\u6700\u5927\u4f53\u79ef\u3002\n\n\u8fd9\u9053\u9898\u5176\u5b9e\u53ea\u9700\u8981\u77e5\u9053\u6b63\u65b9\u4f53\u7684\u6027\u8d28\u5373\u53ef\uff0c[\u4e0d\u61c2\u8bf7\u70b9\u8fd9\u513f](https://www.zybang.com/question/f39ed762a136a3eef4e3db0ee2c703bf.html)\u3002\u6839\u636e\u8fd9\u4e2a\u6027\u8d28\uff0c$L$\u5176\u5b9e\u5c31\u662f$3$\u500d\u7684\u68f1\u957f\uff0c\u4e5f\u5c31\u662f\u53ea\u8981\u8f93\u51fa${(L\\div 3)}^3$\u5373\u53ef\u3002\n\n\u63a5\u4e0b\u6765\u770b\u770b\u5b9e\u73b0:\n### Code:\n```cpp\n#include <bits/stdc++.h>\n#define ll long long\nusing namespace std;\n\nll L;\n\ninline ll read(){\n    ll s = 0, w = 1;\n    char ch = getchar();\n    for (; ch < '0' || ch > '9'; ch = getchar()) w *= ch == '-' ? -1 : 1;\n    for (; ch >= '0' && ch <= '9'; ch = getchar()) s = s * 10 + ch - '0';\n    return s * w;\n}\n\ninline void work(){\n    L = read();                             //\u8f93\u5165\u603b\u957f\u5ea6L\n    printf(\"%.12f\\n\", pow(L * 1.0 / 3, 3)); //\u89c1\u5206\u6790\n}\n\nint main(){\n    work();\n    return 0;\n}",
+        "postTime": 1585094082,
+        "uid": 124527,
+        "name": "leoair",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT5296 \u3010[ABC159C] Maximum Volume\u3011"
+    }
+]

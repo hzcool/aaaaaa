@@ -1,0 +1,18 @@
+[
+    {
+        "content": "# [\u9192\u76ee\u7684\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/AT_past202012_c)\n\n## \u9898\u76ee\u63cf\u8ff0\n\n\u7ed9\u5b9a\u4e00\u4e2a\u5341\u8fdb\u5236\u6570 $n$\uff0c\u5c06 $n$ \u8f6c\u6362\u6210 $36$ \u8fdb\u5236\u6570\u3002\n\n## \u6c42\u89e3\u8fc7\u7a0b\n\n\u8fd9\u91cc\uff0c\u6211\u4eec\u8981\u53cd\u590d\u9664\u4ee5 $36$\uff0c\u76f4\u5230\u5546\u4e3a $0$\uff0c\u518d\u5c06\u6240\u6709\u7684\u4f59\u6570\u5012\u5e8f\u5b58\u50a8\u3002\n\n\u56e0\u4e3a\u8fd9\u91cc\u6d89\u53ca\u5230\u5b57\u6bcd\uff0c\u6240\u4ee5\u6211\u4eec\u8981\u7528\u5b57\u7b26\u4e32\u6765\u5b58\u653e\u7ed3\u679c\u3002\n\n## \u6b63\u89e3\u4ee3\u7801\n\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n\tstring s=\"\";\n\tlong long n;\n\tcin>>n;\n\tif(n==0){\n\t\tcout<<0<<endl;\n\t\treturn 0;\n\t}\n\twhile(n>0){\n\t\tchar c;\n\t\tint x=n%36;\n\t\tif(x<=9){\n\t\t\tc=(char)((int)('0')+x);\n\t\t}\n\t\telse{\n\t\t\tc=(char)((int)('A')+x-10);\n\t\t}\n\t\ts=c+s;\n\t\tn/=36;\n\t}\n\tcout<<s<<endl;\n\treturn 0;\n} \n```\n",
+        "postTime": 1668766727,
+        "uid": 678115,
+        "name": "OI_Super_GZM",
+        "ccfLevel": 0,
+        "title": "AT_past202012_c \u4e09\u5341\u516d\u9032\u6cd5"
+    },
+    {
+        "content": "\u8fd9\u9898\u5148\u7279\u5224 $n$ \u662f\u4e0d\u662f $0$\uff0c\u7136\u540e\u8fdb\u884c\u8fdb\u5236\u8f6c\u6362\u3002\u5982\u679c $n \\bmod 36<10$\uff0c\u5c31\u76f4\u63a5\u628a $n \\bmod 36+48$ \uff08\u76f4\u63a5\u52a0\u4e0a ASCII \u503c\uff09\u5b58\u5165\u5b57\u7b26\u4e32 $s$\uff1b\u5426\u5219\u5c31\u52a0\u4e0a $55$ \u518d\u5b58\u5165 $s$\u3002\u6700\u540e**\u5012\u5e8f\u8f93\u51fa** $s_i$\u3002\n\n**_AC code_**\n\n```cpp\n#include<bits/stdc++.h>//\u517b\u6210\u597d\u4e60\u60ef\nusing namespace std;\nint n,m,x;\nstring s;\nint main(){\n    cin>>n;\n    if(n==0) cout<<0<<\"\\n\";//\u7279\u5224\n    else{\n    \twhile(n!=0){\n\t    \tm=n%36;\n\t    \tif(m<10) s+=m+48;//\u61d2\u5f97\u5f3a\u5236\u7c7b\u578b\u8f6c\u6362\n\t    \telse s+=m+55;\n\t    \tn/=36;\n\t    }\n\t    for(int i=s.size()-1;i>=0;i--) cout<<s[i]<<\"\\n\";//\u5012\u5e8f\u8f93\u51fa\n    }\n    return 0;//\u5b8c\u7f8e\u7ed3\u675f\n}\n```\n",
+        "postTime": 1668748248,
+        "uid": 686445,
+        "name": "NOI_AK_dreeeam",
+        "ccfLevel": 0,
+        "title": "AT_past202012_c \u4e09\u5341\u516d\u9032\u6cd5 \u9898\u89e3"
+    }
+]

@@ -1,0 +1,58 @@
+[
+    {
+        "content": "\u4e0d\u59a8\u8bbe $a \\le b$\u3002\n\n\u8003\u8651\u4e24\u79cd\u60c5\u51b5\uff1a\n\n1.  \u4e24\u4e2a\u77e9\u5f62\u5df2\u7ecf\u8fde\u63a5\u3002\n\n\u7b54\u6848\u4e3a $0$\u3002\n\n2.  \u4e24\u4e2a\u77e9\u5f62\u5c1a\u672a\u8fde\u63a5\u3002\n\n\u7b54\u6848\u4e3a $b-a-W$\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include <bits/stdc++.h>\nint A,B,W;\nsigned main(void) {\n\tscanf(\"%d %d %d\",&W,&A,&B);\n\tif(A>B) std::swap(A,B);\n\tprintf(\"%d\",std::max(B-A-W,0));\n    return 0;\n}\n```\n",
+        "postTime": 1644141042,
+        "uid": 366807,
+        "name": "lgvc",
+        "ccfLevel": 5,
+        "title": "AT2344 [ABC056B] NarrowRectanglesEasy \u9898\u89e3"
+    },
+    {
+        "content": "[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/AT2344)\n\n# \u601d\u8def\n\u9996\u5148\uff0c\u7b80\u5316\u56fe\u50cf\n\n\u628a\u4e24\u4e2a\u77e9\u5f62\u5f53\u505a\u4e00\u4e2a\u7ebf\u6bb5\uff0c\u653e\u5728\u6570\u8f74\u4e0a\uff0c\u5c31\u6210\u4e86\u8fd9\u6837\n![\u56fe](https://cdn.luogu.com.cn/upload/image_hosting/zw62g4m7.png)\n\u90a3\u7b2c\u4e8c\u4e2a\u77e9\u9635\u8fde\u63a5\u5230\u7b2c\u4e00\u4e2a\u77e9\u9635\u4e0a\u7684\u6700\u5c0f\u6a2a\u5411\u8ddd\u79bb\uff0c\u4e0d\u5c31\u662f $abs(b-a-w)$ \u5417\uff1f\uff1f\uff1f\n\n\u4f46\u662f\u9700\u8981\u8003\u8651 $a$ \u56fe\u5f62\u5728 $b$ \u56fe\u5f62\u7684\u53f3\u4fa7\u7684\u60c5\u51b5\uff0c\u5982\u56fe\uff1a\n![\u56fe](https://cdn.luogu.com.cn/upload/image_hosting/gw7ygnjh.png)\n\n\u6700\u540e\u5c31\u662f\u7279\u5224\uff1a\n\n\u5f53\u70b9 $a$ \u5728\u70b9 $b$ \u4e0e\u70b9 $b+w$ \u4e2d\u95f4\u65f6\uff0c\u7b2c\u4e8c\u4e2a\u77e9\u9635\u4e0e\u7b2c\u4e00\u4e2a\u77e9\u9635\u7684\u6700\u5c0f\u6a2a\u5411\u8ddd\u79bb\u5c31\u662f $0$ \u5566\uff01\n\n![\u56fe](https://cdn.luogu.com.cn/upload/image_hosting/pg0tt6ik.png)\n\n\n\u6700\u671f\u5f85\u7684\u65f6\u523b\uff1a\u4e0a\u4ee3\u7801\uff01\n```cpp\n#include<bits/stdc++.h>//\u5934\u6587\u4ef6\nusing namespace std;\nint main(){\n\tint w,a,b;\n\tcin>>w>>a>>b;//\u8f93\u5165\n\tif(a>b)swap(a,b);//\u4ea4\u6362\u4e24\u4e2a\u56fe\u5f62\n\tint q=b-a-w;//\u8ddd\u79bb\n\tif(q>=0)cout<<q<<endl;//\u6709\u8ddd\u79bb\n\telse cout<<0<<endl;//\u65e0\u8ddd\u79bb\n\treturn 0;\n}\n```\n\n\u672c\u4eba\u7684\u7b2c\u4e00\u7bc7\u9898\u89e3\uff0c\u70b9\u4e2a\u8d5e\u5457",
+        "postTime": 1642561737,
+        "uid": 373355,
+        "name": "alex_liu",
+        "ccfLevel": 0,
+        "title": "NarrowRectanglesEasy"
+    },
+    {
+        "content": "**[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/AT2344)**\n\n------------\n### \u9898\u610f\uff1a\n\u7ed9\u51fa\u4e24\u4e2a\u957f\u3001\u5bbd\u5206\u522b\u4e3a $1$ \u548c $w$ \u7684\u77e9\u5f62\uff0c\u5b83\u4eec\u5230\u539f\u70b9\u7684\u8ddd\u79bb\u5206\u522b\u4e3a $a$ \u548c $b$\uff0c\u5c06\u8fd9\u4e24\u4e2a\u77e9\u5f62\u6c34\u5e73\u79fb\u52a8\uff0c\u5408\u6210\u4e00\u4e2a\u957f\u65b9\u5f62\uff0c\u6c42\u79fb\u52a8\u7684\u6700\u5c0f\u8ddd\u79bb\u3002\n\n------------\n### \u601d\u8def\uff1a\n\u6839\u636e\u9898\u76ee\u6240\u7ed9\u51fa\u7684\u56fe\u5f97\u77e5\uff1a\n- \u8fd9\u4e24\u4e2a\u77e9\u9635\u7684\u6c34\u5e73\u6700\u77ed\u8ddd\u79bb\u4e3a\uff1a$b-(a+W)$\u3002\n![](https://cdn.luogu.com.cn/upload/image_hosting/j3zae1za.png)\n\n- \u5316\u7b80\u540e\u5f97\uff1a$b-a-W$\u3002\n- \u9898\u76ee\u4e2d\u5e76\u6ca1\u6709\u7ed9\u5b9a $b$ \u662f\u5927\u4e8e $a$ \u7684\uff0c\u800c\u6211\u4eec\u9ed8\u8ba4\u7684\u662f $b>a$\uff0c\u6240\u4ee5\u5728\u4e00\u5f00\u59cb\u5c31\u8981\u5224\u65ad $a$ \u548c $b$ \u7684\u5927\u5c0f\u5173\u7cfb\u3002\n- \u6700\u540e\u8981\u8003\u8651\u7279\u5224\uff0c\u5982\u679c\u4e24\u4e2a\u77e9\u9635\u5df2\u7ecf\u8fde\u63a5\uff0c\u7b54\u6848\u5c31\u662f $0$\u3002\n\n------------\n### code\uff1a\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nlong long w,a,b; \n\nint main(){\n\tcin>>w>>a>>b;\n\tif(a>b){\n\t\tswap(a,b);\n\t}\n\tint sum=b-a-w;\n\tif(sum<0)\tsum=0;\n\tcout<<sum<<endl;\n\treturn 0;\n}\n\n\n```\n",
+        "postTime": 1647574869,
+        "uid": 486799,
+        "name": "Queue_Hao",
+        "ccfLevel": 0,
+        "title": "AT2344 \u9898\u89e3"
+    },
+    {
+        "content": "### \u9898\u76ee\u7684\u4e00\u70b9\u5c0f\u95ee\u9898\n\n\u6837\u4f8b $2$ \u7684\u8f93\u51fa\u5e94\u4e3a $0$\u3002\n\n\u5728\u505a\u7684\u65f6\u5019\u8981\u6ce8\u610f\u3002\n\n## \u89e3\u9898\n\n![](https://cdn.luogu.com.cn/upload/vjudge_pic/AT2344/68a8078bba22e318c7b5c2dbb4f781f4c60ac220.png)\n\n\u7531\u56fe\u53ef\u77e5\uff0c\u4e24\u4e2a\u77e9\u9635\u7684\u6700\u77ed\u76f4\u7ebf\u8ddd\u79bb\u4e3a\uff1a`b-(a+w)=b-a-w`\u3002\n\n\u6ce8\uff1a\u56e0\u4e3a $a$,$b$ \u7684\u4f4d\u7f6e\u4e0d\u786e\u5b9a\uff0c\u5728\u8ba1\u7b97\u7684\u65f6\u5019\u8981\u7528\u7edd\u5bf9\u503c\u3002\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nlong long w,a,b;\nint main(){\n\tcin>>w>>a>>b;\n\tint ans=abs(b-a)-w;\n\tif(ans>=0) cout<<ans;\n\telse cout<<0<<endl;\n}\n```",
+        "postTime": 1647389938,
+        "uid": 559502,
+        "name": "TsH_GD",
+        "ccfLevel": 4,
+        "title": "AT2344"
+    },
+    {
+        "content": "# AT2344 [ABC056B] NarrowRectanglesEasy \u9898\u89e3\n[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/AT2344)\n## \u9898\u76ee\u5206\u6790\n\u901a\u8fc7\u89c2\u5bdf\u9898\u76ee\u91cc\u7684\u56fe\u53ef\u4ee5\u53d1\u73b0\uff0c\u201c\u5c06\u7b2c\u4e8c\u4e2a\u77e9\u9635\u8fde\u63a5\u5230\u7b2c\u4e00\u4e2a\u77e9\u9635\u4e0a\u7684\u6700\u5c0f\u6a2a\u5411\u8ddd\u79bb\u201d\u5373\u4e3a\u70b9 $a$ \u548c $b$ \u4e4b\u95f4\u7684\u8ddd\u79bb\u51cf $w$\u3002\n\n\u4e0d\u8fc7\u6211\u4eec\u4f1a\u53d1\u73b0\uff0c\u6709\u53ef\u80fd\u4e00\u5f00\u59cb\u7684\u65f6\u5019\u4e24\u4e2a\u957f\u65b9\u5f62\u5c31\u662f\u8fde\u5728\u4e00\u8d77\u7684\u3002\u6240\u4ee5\u5982\u679c\u70b9 $a$ \u548c $b$ \u4e4b\u95f4\u7684\u8ddd\u79bb\u662f $x$\uff0c\u90a3\u4e48\u8f93\u51fa\u7684\u5c31\u662f $\\max(x-w,0)$\u3002\n## \u4ee3\u7801\u5b9e\u73b0\n```cpp\n#include<algorithm>\n#include<cstdio>\n#include<cmath>\nusing namespace std;\nint a,b,w;\nint main(){\n\tscanf(\"%d%d%d\",&w,&a,&b);\n\tprintf(\"%d\\n\",max(abs(b-a)-w,0));\n\treturn 0;\n}\n```",
+        "postTime": 1640504599,
+        "uid": 324350,
+        "name": "xiaomuyun",
+        "ccfLevel": 5,
+        "title": "AT2344 [ABC056B] NarrowRectanglesEasy \u9898\u89e3"
+    },
+    {
+        "content": "\u9898\u76ee\uff1a[AT2344](https://www.luogu.com.cn/problem/AT2344)\n### \u539f\u56fe\uff1a\n![before](https://cdn.luogu.com.cn/upload/image_hosting/0yojkymn.png)\n- \u8981\u8fde\u63a5\u4e24\u4e2a\u77e9\u5f62\uff1a\n\t- \u7eb5\u5750\u6807\uff1a\n\t\t- \u56fa\u5b9a\uff0c\u4e0d\u7528\u8003\u8651\u3002\n\t- \u6a2a\u5750\u6807\uff1a\n\t\t- \u8ba9\u5de6\u8fb9\u77e9\u5f62\u7684\u53f3\u7aef\u70b9 $a+w$ \u4e0e\u53f3\u8fb9\u77e9\u5f62\u7684\u5de6\u7aef\u70b9 $b$ \u91cd\u5408\u3002\n### \u79fb\u52a8\u540e\u7684\u56fe\uff1a\n![after](https://cdn.luogu.com.cn/upload/image_hosting/1e4ich98.png)\n- \u53ef\u4ee5\u53d1\u73b0\uff0c\u79fb\u52a8\u7684\u8ddd\u79bb\u5c31\u662f $b-(a+w)$\u3002\n- \u5982\u679c\u672c\u6765\u5c31\u8fde\u63a5\uff0c\u5373 $(a+w) \\geq b$\uff0c\u5c31\u8f93\u51fa```0```\u3002\n- \u5f53 $(a+w) \\geq b$ \u65f6, $b-(a+w) \\leq 0$\uff0c\u56e0\u6b64\u4e0d\u7528\u5224\u65ad\uff0c\u76f4\u63a5\u8f93\u51fa $max(0,b-(a+w))$ \u5373\u53ef\u3002\n- \u9898\u76ee\u4e2d\u5e76\u6ca1\u6709\u8bf4 $a \\leq b$ \uff0c\u4e3a\u4e86\u65b9\u4fbf\uff0c\u6211\u4eec\u9ed8\u8ba4 $a$ \u5728 $b$ \u7684\u5de6\u4fa7\uff0c\u5373\u5f53 $a > b$ \u65f6\u4ea4\u6362 $a$ \u4e0e $b$\u3002\n\n------------\n\n## Code:\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint w,a,b;\nsigned main()\n{\n\tcin>>w>>a>>b;\n\tif(a>b) //a\u5728b\u7684\u53f3\u4fa7\u3002\n\t\tswap(a,b);\n\tcout<<max(0,b-(a+w))<<endl; //AT\u7684\u9898\u6587\u672b\u8bb0\u5f97\u6362\u884c\u3002\n\treturn 0;\n}\n```",
+        "postTime": 1626077611,
+        "uid": 437788,
+        "name": "aqx_AK_xyf",
+        "ccfLevel": 5,
+        "title": "AT2344 [ABC056B] NarrowRectanglesEasy"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u53c8\u6ca1\u7ffb\u8bd1orz \n\n\u4e8e\u662f\u4e4e\u6211\u53ea\u80fd\u5f53\u4e00\u628a\u7ffb\u8bd1\u4e86!\n\n[\u539f\u9898\u6233\u6211](https://atcoder.jp/contests/abc056/tasks/abc056_b)\n\n~~\u5c0f\u670b\u53cb\u4f60\u662f\u5426\u6709\u5f88\u591a\u95ee\u53f7~~\u6211\u6765\u89e3\u91ca\u4e00\u4e0b\u9898\u610f.\n\n\u7ed9\u5b9a\u4e24\u4e2a\u957f\u65b9\u5f62 \u7ea2\u7ea2\u548c\u7eff\u7eff\u4ee5\u53ca\u4e00\u4e2a\u5750\u6807\u7cfb \u7ea2\u7ea2\u7684\u9ad8\u662f$[0,1]$,\u7eff\u7eff\u7684\u9ad8\u662f$[1,2]$.\u7ea2\u7ea2\u7684\u5bbd\u662f$[a,a+w]$,\u7eff\u7eff\u7684\u5bbd\u662f$[b,b+w]$.\u7136\u540e\u5462\u5c06\u7ea2\u7ea2\u548c\u7eff\u7eff\u79fb\u5230\u6c34\u5e73\u4f4d\u7f6e\u5408\u6210\u4e00\u4e2a\u957f\u65b9\u5f62,\u6c42\u5408\u6210\u957f\u65b9\u5f62\u9700\u8981\u79fb\u52a8\u7684\u6700\u5c0f\u8ddd\u79bb ~~\u90a3\u9ad8\u7684\u5750\u6807\u6709\u5565\u7528?~~ \n\n\u7136\u540e\u5c31\u771f\u7684\u6ca1\u5565\u53ef\u8bf4\u4e86(\u611f\u89c9\u7ea2\u9898\u96be\u5ea6) \u5177\u4f53\u770b\u4ee3\u7801\u5427\n\n```\n#include <bits/stdc++.h>\n#define ll long long\nusing namespace std;\n\nint a, b, w, ans;//\u5b9a\u4e49\n\nint main()\n{\n\tint ans;\n\tcin >> w >> a >> b;//\u8f93\u5165\n\tif(b + w <a)\n\t\tans = a - b - w;//b\u5728a\u524d\u9762 \u7684\u60c5\u51b5\n\tif(a + w < b)\n\t\tans = b - a - w;//a\u5728b\u524d\u9762\u7684\u60c5\u51b5\n\tcout << ans << endl;//\u5982\u679ca\u548cb\u6709\u91cd\u53e0\u90e8\u5206\u90a3\u4e48\u76f4\u63a5\u8f93\u51fa0\u5c31\u5b8c\u4e86\n    return 0;\n}",
+        "postTime": 1585383249,
+        "uid": 200060,
+        "name": "Magia",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 AT2344 \u3010[ABC056B] NarrowRectanglesEasy\u3011"
+    }
+]

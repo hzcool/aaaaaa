@@ -1,0 +1,66 @@
+[
+    {
+        "content": "# \u601d\u8def\n\u8fd9\u9053\u9898\u6211\u6ca1\u6709\u91c7\u7528\u666e\u901a\u7684\u6253\u64c2\u53f0\u662f\u6392\u5e8f\u6765\u505a\uff0c\u800c\u662f\u7528\u4e86\u4e00\u79cd\u6211\u6700\u5148\u80fd\u591f\u60f3\u5230\u7684\u65b9\u6cd5\u2014\u2014\u7ed3\u6784\u4f53\u3002\u7136\u540e\u81ea\u5b9a\u4e49\u6bd4\u8f83\u51fd\u6570\u5bf9\u7ed3\u6784\u4f53\u8fdb\u884c\u4e00\u4e0b\u6392\u5e8f\u3002\u5176\u5b9e\u8fd9\u9053\u9898\u5df2\u7ecf\u7b97\u4e00\u4e2a\u7b80\u5355\u8d2a\u5fc3\u4e86\uff0c\u6211\u4eec\u8981\u6839\u636e\u6210\u672c\u8fdb\u884c\u4ece\u5c0f\u5230\u5927\u7684\u6392\u5e8f\uff0c\u8fd9\u5c31\u662f\u672c\u9898\u7684\u8d2a\u5fc3\u7b56\u7565\u3002\u800c\u6211\u4eec\u8981\u6ce8\u610f\u7684\u662f\uff0c\u65f6\u95f4\u5fc5\u987b\u5c0f\u4e8e\u6216\u7b49\u4e8e\u89c4\u5b9a\u7684\u662f\u8303\u56f4\u4e4b\u5185\uff0c\u5426\u5219\u6211\u4eec\u8981\u8f93\u51fa ```TLE``` \u4ece\u800c\u6765\u8868\u793a\u8d85\u65f6\u3002\u56e0\u6b64\u5c31\u6709\u4e86\u4ee5\u4e0b\u4ee3\u7801\u3002\n# \u4ee3\u7801\n```cpp\n#include<iostream>\n#include<algorithm>//\u6392\u5e8f\u51fd\u6570sort\u6240\u9700\u8981\u7684\u5934\u6587\u4ef6\nusing namespace std;\nstruct node{//\u5b9a\u4e49\u7ed3\u6784\u4f53\n    int cost,time;\n};\nnode a[100001];\nbool cmp(node a,node b){\n    return a.cost<b.cost;//\u6309\u7167\u6240\u9700\u6210\u672c\u4ece\u5c0f\u5230\u5927\u8fdb\u884c\u6392\u5e8f\n}\nint main(){\n    int n,t;\n    cin >> n >> t;\n    for(int i=0;i<n;i++){\n        cin >> a[i].cost >> a[i].time;\n    }\n    sort(a,a+n,cmp);//\u6392\u5e8f\n    for(int i=0;i<n;i++){\n        if(a[i].time<=t){//\u6ce8\u610f\u662f\u5c0f\u4e8e\u7b49\u4e8e\n            cout << a[i].cost << endl;\n            return 0;//\u8f93\u51fa\u4e4b\u540e\u5faa\u73af\u5c31\u53ef\u4ee5\u7ed3\u675f\u5566\n        }\n    }\n    cout << \"TLE\" << endl;//\u5982\u679c\u627e\u4e86\u4e00\u904d\u8fd8\u6ca1\u6709\u627e\u5230\uff0c\u5c31\u8f93\u51fa\u8d85\u65f6\n    return 0;\n}\n\n```\n\n",
+        "postTime": 1617463686,
+        "uid": 384529,
+        "name": "JoseTony",
+        "ccfLevel": 4,
+        "title": "AT4254\u9898\u89e3"
+    },
+    {
+        "content": "## \u601d\u8def\n\u5bfb\u627e\u4e00\u4e2a\u6700\u5c11\u7684\u56de\u5bb6\u7684\u6210\u672c\uff0c\u4e5f\u5c31\u662f\u627e\u4e00\u4e2a\u6700\u5c0f\u7684 $c$ \u3002\n\u5982\u679c\u56de\u5230\u5bb6\u7684\u65f6\u95f4\u5927\u4e8e\u4e86\u65f6\u95f4 $T$ \u90a3\u4e48\u5c31\u7565\u8fc7\u8fd9\u4e2a\u8def\u7ebf\u3002\n\u5982\u679c\u8bf4\u8fd9\u4e2a\u6700\u5c0f\u503c\u548c\u5f00\u59cb\u5b9a\u4e49\u7684\u503c\u4e00\u6837\uff0c\u8bf4\u660e\u8fd9\u51e0\u6761\u8def\u7ebf\u7684\u65f6\u95f4\u90fd\u5927\u4e8e\u4e86\u65f6\u95f4 $T$ \uff0c\u5c31\u8f93\u51fa $TLE$ \u3002\u5982\u679c\u6ca1\u6709\u7684\u8bdd\uff0c\u5c31\u76f4\u63a5\u8f93\u51fa\u6700\u5c0f\u503c\u5373\u53ef\u3002\n\n$AC$ \u4ee3\u7801 \uff1a\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint n,t[100],c[100],T,m = 1e9;//m\u9700\u8981\u8db3\u591f\u5927\nint main()\n{\n\tcin >> n >> T;\n\tfor(int i = 0;i < n;i++)\n\t{\n\t\tcin >> c[i] >> t[i];\n\t\tif(t[i] > T) continue;//\u5982\u679c\u5927\u4e8e\u7684\u8bdd\uff0c\u5c31\u8df3\u8fc7\n\t\tm = min(c[i],m);//\u627e\u6700\u5c0f\u7684\u503c\n\t} \n\tif(m == 1e9) cout << \"TLE\";//m\u7684\u503c\u4ecd\u7b49\u4e8e\u5f00\u59cb\u5b9a\u4e49\u7684\u503c\u7684\u8bdd\uff0c\u8f93\u51faTLE\n\telse cout << m;//\u5426\u5219\u8f93\u51fa\u6700\u5c0f\u7684\u503cm\n\tcout << endl;//\u522b\u5fd8\u6362\u884c\n\treturn 0; \n}\n```\n",
+        "postTime": 1616329937,
+        "uid": 384736,
+        "name": "\u5965\u65af\u5361\u5c0f\u51b0\u4eba",
+        "ccfLevel": 4,
+        "title": "AT4254\u9898\u89e3"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u6211\u7b2c\u4e00\u773c\u60f3\u5230\u7684\u5c31\u662f\u6392\u5e8f\u3002\n\n\u5148\u6392\u5e8f\u4ed6\u4eec\u6bcf\u4e00\u6761\u8def\u7ebf\u6240\u9700\u7684\u4ef7\u503c\u3002\n\n\u5728\u901a\u8fc7\u4e0e $T$ \u8fdb\u884c\u5bf9\u6bd4\uff0c\u5c31\u53ef\u4ee5\u5199\u51fa\u4ee3\u7801\u3002\n\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n\tint N,T;\n\tscanf(\"%d%d\",&N,&T);\n\tint a[1001],t[1001];\n\tfor(int i=1;i<=N;i++)\n\t\tscanf(\"%d%d\",a+i,t+i);\n\tfor(int i=N;i>0;i--){\n\t\tfor(int j=1;j<i;j++){\n\t\t\tif(a[j]>a[j+1]){\n\t\t\t\tswap(a[j],a[j+1]);\n\t\t\t\tswap(t[j],t[j+1]);\n\t\t\t}\n\t\t}\n\t}\n   //\u4e0a\u9762\u662f\u5192\u6ce1\u6392\u5e8f\uff0c\u6211\u5c06a\u6570\u7ec4\u8fdb\u884c\u4ece\u5c0f\u5230\u5927\u6392\u5e8f\u3002\n\tfor(int i=1;i<=N;i++){\n\t\tif(t[i]<=T){//\u5982\u679ct[i]\u5c0f\u4e8e\u7b49\u4e8et,\u8f93\u51faa[i]\u5373\u6700\u5c0f\u8d39\u7528\u3002\n\t\t\tprintf(\"%d\",a[i]);\n\t\t\treturn 0; \n\t\t}\n\t} \n\tprintf(\"TLE\");//\u5982\u679c\u4e0a\u9762\u6ca1\u6709\u4e00\u4e2a\u7b26\u5408\u8981\u6c42\uff0c\u8f93\u51faTLE\u3002\n\treturn 0;\n} \n```\n",
+        "postTime": 1610113887,
+        "uid": 162084,
+        "name": "thomas_zjl",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 AT4254 \u3010[ABC112B] Time Limit Exceeded\u3011"
+    },
+    {
+        "content": "### \u601d\u8def\n\u53ea\u8981\u8f93\u5165\u7684 $c_{i}$ \u8981\u6bd4 $T$ \u5c0f\uff0c\u90a3\u4e48\u53d8\u91cf $minn$ \u5c31\u7b49\u4e8e $t_{i}$ \u548c $minn$ \u4e2d\u5c0f\u7684\u90a3\u4e2a\u6700\u540e\u8f93\u51fa\u4e00\u4e0b $minn$ \u3002\n\n### \u4ee3\u7801\n```cpp\n#include <iostream>\n#include <climits>\n#include <cstdio>\nusing namespace std;\ninline int read()//\u5feb\u8bfb\n{\n\tint x=0,f=1;char ch=getchar();\n\twhile (!isdigit(ch)){if (ch=='-') f=-1;ch=getchar();}\n\twhile (isdigit(ch)){x=x*10+ch-48;ch=getchar();}\n\treturn x*f;\n}\nint main(){\n\tbool flag=0;\n\tint n=read(),t=read(),minn=INT_MAX,xv;\n\tfor(int i=1;i<=n;++i){\n\t\tint ti=read(),ci=read();\n\t\tif(ci<=t)\n\t\t\tminn=min(minn,ti),flag=1;\n\t}\n\tif(!flag)\n\t\tprintf(\"TLE\");\n\telse\n\t\tprintf(\"%d\",minn);\n\treturn 0;\n} ",
+        "postTime": 1617178037,
+        "uid": 304524,
+        "name": "\u5d14\u5316\u535a",
+        "ccfLevel": 5,
+        "title": "AT4254\u9898\u89e3"
+    },
+    {
+        "content": "## \u601d\u8def\n\n\u6392\u5e8f\u3002\n\n\u5c06\u6bcf\u6761\u8def\u5f84\u6309\u7167\u65f6\u95f4\u4ece\u5c0f\u5230\u5927\u6392\u5e8f\uff0c\u7136\u540e\u904d\u5386\u6240\u6709\u8def\u5f84\uff0c\u5982\u679c\u8be5\u8def\u5f84\u6240\u7528\u65f6\u95f4\u5927\u4e8e $t$ \u5219\u76f4\u63a5\u9000\u51fa\uff0c\u5426\u5219\u53d6\u8d39\u7528\u7684\u6700\u5c0f\u503c\u3002\n\n\u5982\u679c\u6ca1\u6709\u8def\u5f84\u7684\u5230\u8fbe\u65f6\u95f4 $\\le t$\uff0c\u5219\u8f93\u51fa `TLE`\uff0c\u5426\u5219\u8f93\u51fa\u8d39\u7528\u6700\u5c0f\u503c\u3002\n\n## \u4ee3\u7801\n\n```cpp\n#include <bits/stdc++.h>\n#define min(a, b) ((a) < (b) ? (a) : (b))\nusing namespace std;\n\nstruct path {\n    int c, t;\n} a[105];\nint n, t, ans = INT_MAX;\n\nbool cmp(path a, path b) {\n    return a.t < b.t;\n}\n\nint main() {\n    scanf(\"%d%d\", &n, &t);\n    for (int i = 0; i < n; ++i) {\n        scanf(\"%d%d\", &a[i].c, &a[i].t);\n    }\n    sort(a, a + n, cmp);\n    for (int i = 0; i < n; ++i) {\n        if (a[i].t > t) {\n            break;\n        }\n        ans = min(ans, a[i].c);\n    }\n    if (ans == INT_MAX) {\n        puts(\"TLE\");\n        return 0;\n    }\n    printf(\"%d\\n\", ans);\n    return 0;\n}\n```\n",
+        "postTime": 1614766726,
+        "uid": 485611,
+        "name": "Iron_Heart",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT4254 \u3010AT4254 [ABC112B] Time Limit Exceeded\u3011"
+    },
+    {
+        "content": "[\u9898\u76ee](https://www.luogu.com.cn/problem/AT4254)\n\n\u770b\u8fc7\u9898\u9762\u4e4b\u540e\uff0c\u6700\u5bb9\u6613\u60f3\u5230\u7684\u5c31\u662f\u6392\u5e8f\u4e86\u3002\u6392\u5e8f\u6210\u672c\uff0c\u7136\u540e\u6bd4\u8f83\u65f6\u95f4\uff0c\u53ea\u8981\u4e0d\u8d85\u8fc7\u5c31\u8f93\u51fa\u6210\u672c\uff0c\u5982\u679c\u904d\u5386\u6240\u6709\u90fd\u8d85\u8fc7\u4e86\u9650\u5b9a\u65f6\u95f4\uff0c\u5c31\u8f93\u51fa TLE \u3002\n\n\u8fd9\u91cc\u6211\u7528\u4e86\u7ed3\u6784\u4f53\u6765\u505a\uff0c\u6392\u5e8f sort +\u624b\u5199 cmp \u3002\n\nAC\u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>//\u4e07\u80fd\u5934\n#define ll long long\nusing namespace std;\nstruct gohome{\n\tint t;\n\tint m;\n}p[1000000];\nll a,c;\nbool cmp(gohome a,gohome b){\n\treturn a.m<b.m;//\u6392\u5e8f\u6210\u672c\n}\nint main(){\n\tcin>>a>>c;\n\tfor(int i=0;i<a;i++){\n\t\tcin>>p[i].m>>p[i].t;\n\t}\n\tsort(p,p+a,cmp);\n\tfor(int i=0;i<a;i++){\n\t\tif(p[i].t<=c){//\u5224\u65ad\u65f6\u95f4\u662f\u5426\u8d85\u65f6\n\t\t\tcout<<p[i].m;\n\t\t\treturn 0;//\u6761\u4ef6OK\u5c31\u7ed3\u675f\u7a0b\u5e8f\n\t\t}\n\t}\n\tcout<<\"TLE\";\n\treturn 0;\n}\n```\n\n\n\n",
+        "postTime": 1614507203,
+        "uid": 341801,
+        "name": "MStar",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 AT4254 \u3010[ABC112B] Time Limit Exceeded\u3011"
+    },
+    {
+        "content": "### 0x01 \u601d\u8def\n\u5b9a\u4e49\u53d8\u91cf $Ans$ \uff0c\u5c06\u5b83\u521d\u59cb\u5316\u4e3a `INT_MAX` \u3002  \n\u53ea\u8981\u628a\u6240\u6709\u8f93\u5165\u7684 $c_i,t_i$ \u505a\u4ee5\u4e0b\u5904\u7406\u5373\u53ef\uff1a\n- \u82e5 $t_i > T$ \uff0c\u4e0d\u66f4\u65b0\u7b54\u6848\uff1b\n- \u5426\u5219\uff0c\u82e5 $c_i > Ans$ \uff0c\u4e5f\u4e0d\u66f4\u65b0\u7b54\u6848\uff1b\n- \u5426\u5219\uff0c$Ans \\gets c_i$ \u3002\n\n\u77e5\u8bc6\u94fe\u63a5  \n`INT_MAX`\u4e3a`climits`\u4e2d\u7684\u4e00\u4e2a\u5b8f\uff0c\u503c\u4e3a $2147483647$ \u6216 $(\\mathrm{7fffffff})_{16}$\n\n------------\n### 0x02 \u4ee3\u7801\n```cpp\n#include <cstdio>\n#include <climits> \n#define fo(i_,j_,k_) for(int i_=j_;i_<=k_;++i_)\n#define rtn return\n\nint Qread(void)\n{\n\tint x = 0;\n\tchar c = getchar();\n\twhile(c < '0' || c > '9')c = getchar();\n\twhile(c >= '0' && c <= '9')x = x * 10 + c - '0',c = getchar();\n\trtn x;\n}\nint main()\n{\n\tint n = 0,MaxTime = 0,ans = INT_MAX;\n\tn=Qread(),MaxTime = Qread();\n\tfo(i,1,n)\n\t{\n\t\tint Cost = 0,Time = 0;\n\t\tCost = Qread(),Time = Qread();\n\t\tif(Time <= MaxTime && Cost < ans)\n\t\t\tans = Cost;\n\t}\n\tif(ans == INT_MAX)puts(\"TLE\");\n\telse printf(\"%d\\n\",ans);\n\trtn 0;\n}\n```\n[AC Link](https://www.luogu.com.cn/record/44727175)   \n2021/1/8 \u6682\u65f6\u6700\u4f18\u89e3",
+        "postTime": 1610081905,
+        "uid": 366338,
+        "name": "fjy666",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT4254 \u3010[ABC112B] Time Limit Exceeded\u3011"
+    },
+    {
+        "content": "# Time Limit Exceeded\n\n\u9898\u76ee\u5927\u610f:\u6709$n$\u6761\u8def\uff0c\u7b2c$i$\u6761\u8def\u9700\u8981\u82b1\u8d39$c_i$\u7684\u4ee3\u4ef7\uff0c\u9700\u8981\u82b1$t_i$\u7684\u65f6\u95f4\u3002\u8981\u6c42\u65f6\u95f4\u5728\u4e0d\u8d85\u8fc7$T$\u7684\u60c5\u51b5\u4e0b\u82b1\u8d39\u6700\u5c0f\uff0c\u5982\u679c\u65e0\u89e3\u5219\u8f93\u51fa$TLE$\u3002\n\n\u8fd9\u9898\u5176\u5b9e\u53ef\u4ee5\u4e00\u8fb9\u8f93\u5165\u4e00\u8fb9\u66f4\u65b0\u7b54\u6848\u3002\u7531\u4e8e$1\\leq c_i\\leq 1000$\uff0c\u6240\u4ee5\u628a$ans$\u521d\u59cb\u5316\u4e3a$1001$\uff0c\u5982\u679c\u6700\u540e$ans=1001$\uff0c\u5c31\u8868\u660e\u65e0\u89e3\uff0c\u76f4\u63a5\u8f93\u51fa$TLE$\u3002\u53cd\u4e4b\u5219\u8f93\u51fa$ans$\u3002\n\n\u63a5\u4e0b\u6765\u770b\u770b\u5b9e\u73b0:\n\n### Code:\n\n```cpp\n#include <bits/stdc++.h>\n#define REP(i, a, b) for (long long i = a; i <= b; ++i)\n#define ll long long\n#define N 110\nusing namespace std;\n\nll n, t, ans = 1001;\n\ninline ll read(){\t\t\t\t\t\t\t\t\t\t\t//\u5feb\u8bfb \n\tll s = 0, w = 1;\n\tchar ch = getchar();\n\twhile (ch < '0' || ch > '9'){\n\t\tif (ch == '-') w *= -1;\n\t\tch = getchar();\n\t}\n\twhile (ch >= '0' && ch <= '9'){\n\t\ts = s * 10 + ch - '0';\n\t\tch = getchar();\n\t}\n\treturn s * w;\n}\n\ninline void work(){\n\tn = read(), t = read();\t\t\t\t\t\t\t\t\t//\u6709n\u6761\u7ebf\u8def\u548ct\u4e2a\u65f6\u95f4 \n\tREP(i, 1, n){\n\t\tll x = read(), y = read();\t\t\t\t\t\t\t//\u8f93\u5165\u8d39\u7528\u548c\u65f6\u95f4 \n\t\tif (y <= t) ans = min(ans, x);\t\t\t\t\t\t//\u53d6\u6700\u5c0f\u503c \n\t}\n\tif (ans == 1001) puts(\"TLE\");\t\t\t\t\t\t\t//\u7279\u5224,\u8f93\u51faTLE \n\telse printf(\"%lld\\n\", ans);\t\t\t\t\t\t\t\t//\u8f93\u51fa\u7b54\u6848 \n}\n\nint main(){\n\twork();\n\treturn 0;\n}\n```\n\n",
+        "postTime": 1583324566,
+        "uid": 124527,
+        "name": "leoair",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT4254 \u3010[ABC112B] Time Limit Exceeded\u3011"
+    }
+]

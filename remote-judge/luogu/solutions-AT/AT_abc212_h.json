@@ -1,0 +1,18 @@
+[
+    {
+        "content": "\u53ea\u9700\u8981\u6700\u7ec8\u7684\u5e8f\u5217\u6ee1\u8db3\u6240\u6709\u6570\u7684\u5f02\u6216\u548c\u4e0d\u4e3a $0$\u3002\n\n\u8bbe $f(x)=\\sum_{i=1}^Kx^{A_i}$\uff0c\u9898\u76ee\u5373\u6c42 \n\n$$\n\\sum_{w>0}[x^w]\\sum_{i=1}^N\\left(f(x)\\right)^i\n$$\n\u5176\u4e2d $x^a\\times x^b=x^{a\\text{ xor }b}$\u3002\n\n\u6ce8\u610f\u5230 FWT \u5177\u6709\u7ebf\u6027\u6027\uff0c\u56e0\u6b64\u7b97\u51fa $\\text{FWT}(f)$ \u7136\u540e\u5bf9\u6bcf\u4e00\u9879 $x\\leftarrow \\sum_{i=1}^Nx^i$ \u518d IFWT \u5373\u53ef\u3002\n\n\u65f6\u95f4\u590d\u6742\u5ea6 $O(K\\log K+K\\log N)$\u3002\n\n```cpp\n#include<bits/stdc++.h>\n\n#define int long long\n\nusing namespace std;\n\ninline int read(){\n\tint x=0,f=1;char c=getchar();\n\tfor(;(c<'0'||c>'9');c=getchar()){if(c=='-')f=-1;}\n\tfor(;(c>='0'&&c<='9');c=getchar())x=x*10+(c&15);\n\treturn x*f;\n}\n\nconst int mod=998244353;\nint ksm(int x,int y,int p=mod){\n\tint ans=1;x%=p;\n\tfor(int i=y;i;i>>=1,x=1ll*x*x%p)if(i&1)ans=1ll*ans*x%p;\n\treturn ans%p;\n}\nint inv(int x,int p=mod){return ksm(x,p-2,p)%p;}\nint randint(int l,int r){return rand()*rand()%(r-l+1)+l;}\nvoid add(int &x,int v){x+=v;if(x>=mod)x-=mod;}\nvoid Mod(int &x){if(x>=mod)x-=mod;}\n\nconst int N=1e5+5;\nint n,k,a[N];\nvector<int>f;\n\nvoid FWT(vector<int>&A,int k,int tag){\n\tfor(int i=0;i<k;i++){\n\t\tfor(int S=0;S<(1<<k);S++){\n\t\t\tif(!(S&(1<<i)))continue;\n\t\t\tint x=A[S^(1<<i)],y=A[S];\n\t\t\tMod(A[S^(1<<i)]=x+y),Mod(A[S]=x+mod-y);\n\t\t}\n\t}\n\tif(tag==-1){\n\t\tint iv=inv(1<<k);\n\t\tfor(int S=0;S<(1<<k);S++)A[S]=1ll*A[S]*iv%mod;\n\t}\n}\n\nconst int D=16;\n\nsigned main(void){\n\n#ifdef YUNQIAN\n\tfreopen(\"in.in\",\"r\",stdin);\n#endif\n\n\tn=read(),k=read();f.resize(1<<D);\n\tfor(int i=1;i<=k;i++)f[read()]++;\n\tFWT(f,D,1);\n\tfor(int i=0;i<(1<<D);i++){\n\t\tif(f[i]==1){f[i]=n;continue;}\n\t\tf[i]=1ll*(ksm(f[i],n+1)+mod-1)*inv(f[i]+mod-1)%mod;\n\t\tadd(f[i],mod-1);\n\t}\n\tFWT(f,D,-1);int ans=0;\n\tfor(int i=1;i<(1<<D);i++)add(ans,f[i]);\n\tcout<<ans<<endl;\n\n\treturn 0;\n}\n```",
+        "postTime": 1681973152,
+        "uid": 307453,
+        "name": "\u4e91\u6d45\u77e5\u5904",
+        "ccfLevel": 6,
+        "title": "Nim Counting"
+    },
+    {
+        "content": "Nim \u6e38\u620f\u7684\u7ed3\u8bba\u662f $a_1\\oplus a_2 \\oplus \\dots \\oplus a_m \\not= 0$ \u5219\u5148\u624b\u5fc5\u80dc.\r\n\r\n\u8fd9\u9898\u5b9e\u9645\u4e0a\u5c31\u662f, \u6211\u4eec\u53ef\u4ee5\u6839\u636e $a$ \u6570\u7ec4\u5f97\u5230\u4e00\u4e2a\u96c6\u5408\u5e42\u7ea7\u6570, $F(x)=\\sum\\limits_{i=1}^{n}{x^{a_i}}$.\r\n\r\n\u7136\u540e\u6211\u4eec\u9700\u8981\u8ba1\u7b97 $[x^{\\varnothing}]\\sum\\limits_{i=1}^{n}{F^i}$ , \u8ba1\u7b97\u5148\u624b\u5fc5\u80dc\u548c\u5148\u624b\u5fc5\u8d25\u662f\u4e00\u4e2a\u9053\u7406, \u8003\u8651\u600e\u4e48\u8ba1\u7b97 $F^k$ , \u76f4\u63a5\u5bf9 $F$ \u505a $FWT$ , \u7136\u540e\u628a\u6bcf\u4e00\u9879 $k$ \u6b21\u65b9\u518d $IFWT$ \u56de\u53bb.\r\n\r\n\u53c8\u6709 $FWT(A+B)=FWT(A)+FWT(B)$ , \u6240\u4ee5\u5982\u679c\u8981\u8ba1\u7b97 $F^u+F^v$ , \u5c31\u5148\u5bf9 $F$ \u505a $FWT$ \u518d\u5bf9\u6bcf\u4e00\u9879\u7b97\u51fa\u5176 $u$ \u6b21\u65b9\u52a0 $v$ \u6b21\u65b9, \u5728 $IFWT$ \u56de\u53bb.\r\n\r\n\u56de\u5230\u539f\u9898\u5c31\u662f\u6bcf\u4e00\u9879\u53d8\u6210 $F\\dfrac{1-F^n}{1-F}$ , \u65f6\u95f4\u590d\u6742\u5ea6 $\\mathcal{O}(n\\log{v}+v\\log{v})$.",
+        "postTime": 1675860873,
+        "uid": 152997,
+        "name": "demonlover923",
+        "ccfLevel": 0,
+        "title": "\u3010\u9898\u89e3\u3011[ABC212H]Nim Counting"
+    }
+]

@@ -1,0 +1,50 @@
+[
+    {
+        "content": "\u4ed4\u7ec6\u89c2\u5bdf\uff0c\u5176\u5b9e\u5c31\u662f1~n\u7684\u6570\u5b57\u3002\n```\n#include<cstdio>\nint n;\nint main(){\n    scanf(\"%d\",&n);\n    for(int i=1;i<=n;i++)printf(\"%d \",i);\n    puts(\"\");\n}\n```",
+        "postTime": 1531917194,
+        "uid": 50092,
+        "name": "da32s1da",
+        "ccfLevel": 8,
+        "title": "\u9898\u89e3 AT2823 \u3010\u30bd\u30fc\u30c8\u3011"
+    },
+    {
+        "content": "## \u9898\u610f\n\n\u7ed9\u5b9a\u4e00\u4e2a\u6570\u5217 $a$ \u4e0e\u5176\u4e2a\u6570 $n$\uff0c\u4fdd\u8bc1 $a$ \u4e2d\u542b\u6709 $1-n$ \u7684\u7684\u6240\u6709\u6b63\u6574\u6570\uff0c\u8f93\u51fa\u5c06 $a$ \u7528\u9012\u589e\u5e8f\u6392\u597d\u540e\u7684\u6570\u5217\u3002\n\n## \u601d\u8def\n\n- \u7531\u4e8e $a$ \u4e2d\u53ea\u542b\u6709 $1-n$\uff0c\u6240\u4ee5\u9012\u589e\u5e8f\u540e\u6392\u597d\u7684\u6570\u5217\u5fc5\u7136\u5728 $1-n$ \u91cc\uff0c\u6240\u4ee5\u663e\u7136\u53ea\u8981\u5c06 $1-n$ \u987a\u5e8f\u8f93\u51fa\u5373\u53ef\u3002\n\n- \u7531\u4e8e\u53ea\u662f\u8981\u6c42 $a$ \u7684\u9012\u589e\u5e8f\uff0c\u8003\u8651\u4e00\u822c\u505a\u6cd5\uff0c\u53ea\u9700\u5c06 $a$ \u6392\u5e8f\u5373\u53ef\uff0c\u9009\u62e9\u8f83\u5e73\u7a33\u7684\u5f52\u5e76\u6392\u5e8f\uff0c\u65f6\u95f4\u590d\u6742\u5ea6\u4f1a\u5341\u5206\u7a33\u5b9a\u3002\n\n## \u4ee3\u7801\n\n\u8fd9\u91cc\u53ea\u7ed9\u51fa\u601d\u8def $2$ \u7684\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\n#define N 1000005\nusing namespace std;\nint a[N],tmp[N],n;\nvoid mergesort(int lt,int rt){\n    if(lt==rt) return ;\n    int mid=(lt+rt)/2;\n    mergesort(lt,mid);//\u6392\u5de6\u534a\u8fb9\n    mergesort(mid+1,rt);//\u6392\u53f3\u534a\u8fb9\n    int i=lt,j=mid+1,p=lt;\n    while(i<=mid&&j<=rt){\n    \tif(a[i]<a[j]) tmp[p++]=a[i++];\n    \telse tmp[p++]=a[j++];\n    }\n    while(i<=mid){//\u5982\u679c\u5de6\u534a\u8fb9\u8fd8\u6709\u6570\n    \ttmp[p++]=a[i++];\n    }\n    while(j<=rt){//\u5982\u679c\u53f3\u534a\u8fb9\u8fd8\u6709\u6570\n    \ttmp[p++]=a[j++];\n    }\n    for(int k=lt;k<=rt;k++) a[k]=tmp[k];\n    return ;\n}\nint main(){\n    cin>>n;\n    for(int i=1;i<=n;i++){\n    \tcin>>a[i];\n    }\n    mergesort(1,n);//\u6392\u5e8f\u8fb9\u754c\n    for(int i=1;i<=n;i++){\n    \tcout<<a[i]<<\" \";\n    }\n    return 0;\n}\n```",
+        "postTime": 1666604429,
+        "uid": 360083,
+        "name": "\u521d\u96ea_matt",
+        "ccfLevel": 5,
+        "title": "\u30bd\u30fc\u30c8 \u9898\u89e3"
+    },
+    {
+        "content": "\u867d\u7136\u8fd9\u662f\u9053\u6bd4\u5feb\u6392\u6a21\u677f\u8fd8\u6c34\u7684\u9898\uff0c\uff08~\u54ea\u91cc\u6c34\uff09\u4f46\u662f\uff0c\u8fd8\u662f\u8981\u597d\u597d\u505a\u4e00\u4e0b~\n\u6211\u4eec\u6765\u624b\u5199\u5feb\u6392\uff0c\u62b5\u5236sort\uff01\n```\n#include<stdio.h>\nint a[100001];//\u6570\u636e\u597d\u50cf\u53ea\u6709\u2014\u2014\u2014\u2014100...\nvoid abcd(int l,int r)//\u5de6\u7aef\u53f3\u7aef\u4e0d\u89e3\u91ca\n{int i=l,j=r,t;\nint p=a[(l+r)/2];//\u8fd9\u4e2a\u5417\uff0c\u597d\u50cf\u662f\u2014\u2014\u2014\u2014\u4e2d\u70b9\uff08\u5f53\u6211\u6ca1\u8bf4\uff09\u8c8c\u4f3c\u662f\u4e8c\u5206\uff1f\nwhile(i<=j)\n{\n\twhile(a[i]<p)\n\t{i++;}\n\twhile(a[j]>p)\n\t{j--;}//\u904d\u5386\uff08\u4ece\u5de6\u5230\u4e2d\u70b9p\u548c\u4ece\u53f3\u5230\u4e2d\u70b9p\uff09\n\tif(i<=j)\n\t{t=a[i]; \n\ta[i]=a[j]; \n\ta[j]=t;\n\ti++; \n\tj--;}//\u4ea4\u6362\n\t}\n\tif(l<j)\n\tabcd(l,j);\n\tif(i<r)\n\tabcd(i,r); }\n\tint main()\n\t{\t\n\tint i,n;\t\n \tscanf(\"%d\",&n);   \n  \tfor(i=1;i<=n;i++)   \n    scanf(\"%d\",&a[i]);   \n    abcd(1,n);//\u8c03\u7528\u51fd\u6570  \n    for(i=1;i<=n;i++)   \n    printf(\"%d \",a[i]);  \n    return 0;   \n    }\n```",
+        "postTime": 1533644355,
+        "uid": 47482,
+        "name": "\u4e0d\u5230\u524d10\u4e0d\u6539\u540d",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT2823 \u3010\u30bd\u30fc\u30c8\u3011"
+    },
+    {
+        "content": "## \u672c\u4eba\u7684\u7b2c\u4e00\u7bc7\u9898\u89e3\uff0c\u5927\u4f6c\u52ff\u55b7\n### ~~\u660e\u660e\u5c31\u662f\u4e00\u9053\u6392\u5e8f\u9898\uff0c\u4e3a\u4f55\u6709\u4eba\u7f16\u4e86\u6ca1\u8fc7\uff1f~~\n\n```\n#include<iostream>\n#include<algorithm>\nusing namespace std;\nint main()\n{\n\tint n,i,a[100];\n\tcin>>n;\n\tfor(i=0;i<n;i++)\n\tcin>>a[i];\n\tsort(a,a+n);//\u6211\u597d\u50cf\u8bb0\u5f97\u6709\u4e00\u4e2a\u6392\u5e8f\u51fd\u6570\u53ebsort\n\tfor(i=0;i<n;i++)\n\tcout<<a[i]<<\" \";\n\treturn 0;\n}\n```\n\n\u6b64\u4e3a\u6ee1\u5206\u4ee3\u7801\uff0c\u8bf7\u52ff\u6284\u88ad\u3002",
+        "postTime": 1532223922,
+        "uid": 68717,
+        "name": "jiangzhenghao",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT2823 \u3010\u30bd\u30fc\u30c8\u3011"
+    },
+    {
+        "content": "\u7531\u9898\u9762\u53ef\u77e5\uff0c\u8fd9\u662f\u4e00\u9053\u6392\u5e8f\u7684\u6a21\u677f\u4f53\n\n\u56e0\u6b64\uff0c\u6211\u4eec\u53ef\u4ee5\u4f7f\u7528\u5404\u79cd\u6392\u5e8f\u65b9\u6cd5\n\n\u6bd4\u5982\u8bf4\u4ec0\u4e48\u5feb\u6392\uff0c\u5806\u6392\uff0c\u6876\u6392\uff0c\u6ce1\u6392\u7b49\u7b49\n\n\u8fd9\u91cc\u6765\u4e00\u4e2a\u5bf9\u65b0\u624b\u6700\u53cb\u597d\u7684--stl\u5feb\u6392\n\n\u5b9e\u73b0\u89c1\u6211\u7684\u535a\u5ba2\uff1a[ztz11](https://www.cnblogs.com/ztz11/p/9296584.html)\n\n\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include<iostream>\n#include<cstdio>\n#include<algorithm>\nusing namespace std;\nint n,x[105];\nint main()\n{\n\tscanf(\"%d\",&n);\n\tfor(register int i=1;i<=n;i++)\n\t{\n\t\tscanf(\"%d\",&x[i]);\n\t}\n\tsort(x+1,x+n+1);\n\tfor(register int i=1;i<=n;i++)\n\t{\n\t\tcout<<x[i]<<\" \";\n\t}\n\tcout<<endl;\n}\n```",
+        "postTime": 1531918180,
+        "uid": 52176,
+        "name": "ztz11",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 AT2823 \u3010\u30bd\u30fc\u30c8\u3011"
+    },
+    {
+        "content": "\u5176\u5b9e\u8fd9\u9053\u9898\u5c31\u662f\u975e\u5e38\u88f8\u7684\u6392\u5e8f\u9898~~\uff08\u56e0\u4e3a\u76f4\u63a5\u5c31\u662f\u88f8\u7684\uff09~~\n\u6211\u4eec\u53ef\u4ee5\u7528\u5192\u6ce1\u6392\u5e8f\uff0c\u5f88\u5bb9\u6613\u7406\u89e3\uff0c\u9002\u5408\u65b0\u624b\u4eec\u3002\n\u4e0aC++\u4ee3\u7801\n```cpp\n#include<iostream>\n#include<fstream>\n#include<algorithm>\nusing namespace std;\nint n ,num[999999];\nint main()\n{\n     cin>>n;\n\t for(int i=1;i<=n;i++)\n\t\t cin>>num[i];\n\t for(int i=n;i>=1;i--)\n\t\t if(num[i]<num[i-1])swap(num[i],num[i-1]); //\u5192\u6ce1\u6392\u5e8f\uff0c\u5c0f\u7684\u5f80\u4e0b\u5192\n     for(int i=1;i<=n;i++)\n\t\t cout<<num[i]<<\" \";\n    return 0;\n}\n```",
+        "postTime": 1532096721,
+        "uid": 69922,
+        "name": "goodlearndaydayup",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT2823 \u3010\u30bd\u30fc\u30c8\u3011"
+    }
+]

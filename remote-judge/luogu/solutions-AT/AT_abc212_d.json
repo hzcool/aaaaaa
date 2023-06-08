@@ -1,0 +1,50 @@
+[
+    {
+        "content": "\u4e00\u773c\u9898\u3002\n\n### \u5206\u6790\n\n\u7ef4\u62a4\u4e00\u4e2a\u5c0f\u6839\u5806\u3002\n\n\u6bd4\u8f83\u8ba8\u538c\u7684\u4e3b\u8981\u5c31\u662f\u64cd\u4f5c $2$ \u4e86\uff0c\u9700\u8981\u7ed9\u5806\u4e2d\u6240\u6709\u5143\u7d20\u52a0 $X$\u3002\u4e0d\u96be\u60f3\u5230\u4e0d\u6539\u53d8\u5806\u4e2d\u7684\u5143\u7d20\uff0c\u800c\u662f\u7ed9\u4e4b\u540e\u63d2\u5165\u7684\u6240\u6709\u5143\u7d20\u51cf\u53bb $X$\uff0c\u76f8\u5bf9\u5dee\u4e0d\u6539\u53d8\u3002\n\n\u6267\u884c\u64cd\u4f5c $1$ \u65f6\u53ef\u4ee5\u7ed9\u5f53\u524d\u63d2\u5165\u7684\u5143\u7d20\u51cf\u53bb\u4e4b\u524d\u6240\u6709 $X$ \u7684\u548c\uff0c\u6267\u884c\u64cd\u4f5c $3$ \u65f6\u518d\u7ed9\u5f53\u524d\u53d6\u51fa\u7684\u5143\u7d20\u52a0\u4e0a\u4e4b\u524d\u6240\u6709\u7684 $X$\uff0c\u53ef\u4ee5\u7c7b\u4f3c\u5730\u770b\u505a\u4e00\u4e2a\u5dee\u5206\u3002\n\n\u6700\u540e\u63d0\u9192\u4e00\u53e5\u4e0d\u5f00 `long long` \u89c1\u7956\u5b97\u3002\n\n### \u4ee3\u7801\n\n```c++\n#include <bits/stdc++.h>\n#define int long long\nusing namespace std;\npriority_queue <int,vector<int>,greater<int> > q;\nsigned main(){\n\tios::sync_with_stdio(0);\n\tint t,p,x,k=0,a;\n\tcin>>t;\n\tfor(int temp=0;temp<t;temp++){\n\t\tcin>>p;\n\t\tif(p==1){\n\t\t\tcin>>x;\n\t\t\ta=x-k;\n\t\t\tq.push(a);\n\t\t}\n\t\telse if(p==2){\n\t\t\tcin>>x;\n\t\t\tk=k+x;\n\t\t}\n\t\telse{\n\t\t\ta=q.top();\n\t\t\tq.pop();\n\t\t\tcout<<a+k<<'\\n';\n\t\t}\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1674227487,
+        "uid": 744687,
+        "name": "Coffee_zzz",
+        "ccfLevel": 0,
+        "title": "Querying Multiset \u9898\u89e3"
+    },
+    {
+        "content": "# [\u9898\u76ee](https://www.luogu.com.cn/problem/AT_abc212_d)\u5927\u610f\n\n- \u7ed9\u5b9a\u6574\u6570 $x$\uff0c\u5c06 $x$ \u653e\u5165\u96c6\u5408\uff1b\n\n- \u7ed9\u5b9a\u6574\u6570 $x$\uff0c\u5c06\u96c6\u5408\u7684\u6570\u5206\u522b\u52a0\u4e0a $x$\uff1b\n\n- \u5c06\u96c6\u5408\u6700\u5c0f\u7684\u6570\u8f93\u51fa\u5e76\u5220\u9664\uff1b\n\n# \u601d\u8def\n\u7531\u7b2c\u4e09\u4e2a\u64cd\u4f5c\u53ef\u4ee5\u5f97\u51fa\u7ed3\u8bba\uff1a\u8981\u7ef4\u62a4\u4e00\u4e2a\u5c0f\u6839\u5806\n\n\u8003\u8651\u7b2c\u4e8c\u4e2a\u64cd\u4f5c\uff0c\u60f3\u5230\u52a0\u6cd5\u7ed3\u5408\u5f8b\uff0c\u5f97\u51fa\u5728\u8f93\u51fa\u65f6\u53ef\u4ee5\u628a\u524d\u9762\u7684\u6240\u6709\u4e8c\u64cd\u4f5c\u7684 $x$ \u603b\u548c\u76f8\u52a0\u3002\n\n\u6211\u4eec\u8981\u8003\u8651\u540e\u52a0\u5165\u7684\u4e0d\u7528\u518d\u6b21\u52a0\u5165\u524d\u9762\u7684\u6240\u6709\u4e8c\u64cd\u4f5c\u7684 $x$ \u603b\u548c\uff0c\u53ef\u4ee5\u52a0\u5165\u96c6\u5408\u65f6\u51cf\u53bb $x$ \u603b\u548c\uff0c\u8f93\u51fa\u65f6\u7528\u6700\u65b0 $x$ \u603b\u548c\u76f8\u52a0\n\n```cpp\nif(opt==1)\n\tq.push(read()-add);\nif(opt==2)\n\tadd+=read();\nif(opt==3){\n\tcout<<q.top()+add<<\"\\n\";\n\tq.pop();\n}\n```",
+        "postTime": 1682163658,
+        "uid": 730883,
+        "name": "zhanghao233",
+        "ccfLevel": 0,
+        "title": "[ABC212D] Querying Multiset"
+    },
+    {
+        "content": "$\\sf{Statement}$\n---\n\n\u7ed9\u5b9a\u4e00\u4e2a\u96c6\u5408\u548c $t$ \u6b21\u64cd\u4f5c\uff0c\u6bcf\u4e2a\u64cd\u4f5c\u53ef\u80fd\u662f\u4ee5\u4e0b\u64cd\u4f5c\u4e4b\u4e00\uff1a\n\n- \u7b2c\u4e00\u4e2a\u64cd\u4f5c\u7ed9\u5b9a\u6574\u6570 $x$\uff0c\u8868\u793a\u5c06 $x$ \u653e\u5165\u96c6\u5408\u3002\n\n- \u7b2c\u4e8c\u4e2a\u64cd\u4f5c\u7ed9\u5b9a\u6574\u6570 $x$\uff0c\u8868\u793a\u5c06\u96c6\u5408\u7684\u6570\u5206\u522b\u52a0\u4e0a $x$\u3002\n\n- \u7b2c\u4e09\u4e2a\u64cd\u4f5c\u5c06\u96c6\u5408\u6700\u5c0f\u7684\u6570\u5220\u9664\u3002\n\n\u5bf9\u4e8e\u6bcf\u4e2a\u7b2c\u4e09\u4e2a\u64cd\u4f5c\uff0c\u8f93\u51fa\u4f60\u5220\u53bb\u7684\u6570\u3002\n\n$\\sf{solution}$\n---\n\n\u8fd9\u9898\u552f\u4e00\u7684\u96be\u5ea6\u5728\u4e8e\u5904\u7406\u7b2c\u4e8c\u4e2a\u64cd\u4f5c\u3002\n\n\u5f88\u5bb9\u6613\u60f3\u5230\u5bf9\u4e8e\u6bcf\u4e2a\u7b2c\u4e8c\u4e2a\u64cd\u4f5c\uff0c\u96c6\u5408\u5185\u7684\u6570\u76f8\u5bf9\u5927\u5c0f\u4e0d\u53d8\u3002\n\n\u4ee4\u540e\u52a0\u5165\u7684\u6570\u4e3a $a$\uff0c\u6700\u65e9\u52a0\u5165\u7684\u6570\u4e3a $b$\uff0c\u7b2c\u4e8c\u6b21\u64cd\u4f5c\u52a0\u4e0a\u7684\u6570\u7684\u603b\u548c\u4e3a $\\Delta$\u3002\n\n\u90a3\u4e48\u5c31\u662f $a$ \u4e0e $b+\\Delta$ \u4f5c\u6bd4\u8f83\uff0c\u7b49\u4ef7\u4e3a $a-\\Delta$ \u4e0e $b$ \u4f5c\u6bd4\u8f83\u3002\n\n\u505a\u5b8c\u4e86\u3002\n\n$\\sf{Code}$\n---\n```cpp\nint t,op;\nLL k,delta;\nmultiset<LL> S;\nsigned main(){\n\tread(t);\n\twhile(t--){\n\t\tread(op);\n\t\tif(op==1)read(k),S.insert(k-delta);\n\t\tif(op==2)read(k),delta+=k;\n\t\tif(op==3)printf(\"%lld\\n\",*S.begin()+delta),S.erase(S.begin());\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1679721710,
+        "uid": 357163,
+        "name": "shyr",
+        "ccfLevel": 6,
+        "title": "ABC212D"
+    },
+    {
+        "content": "## \u9898\u610f\n\n\u7ed9\u51fa\u4e09\u79cd\u64cd\u4f5c\uff1a\n- $1\\;X_i$ \u8868\u793a\u5411\u5e8f\u5217\u91cc\u9762\u52a0\u5165\u4e00\u4e2a\u5927\u5c0f\u4e3a $X_i$ \u7684\u5143\u7d20\u3002\n- $2\\;X_i$ \u8868\u793a\u5e8f\u5217\u91cc\u9762\u6240\u6709\u7684\u5143\u7d20\u52a0\u4e0a $X_i$\u3002\n- $3$ \u8f93\u51fa\u5e8f\u5217\u91cc\u9762\u6700\u5c0f\u7684\u5143\u7d20\u3002\n\n## \u601d\u8def\n\n\u7528\u4e00\u4e2a\u4f18\u5148\u961f\u5217\u59cb\u7ec8\u7ef4\u62a4\u6700\u5c0f\u503c\u3002\n\n\u518d\u7ef4\u62a4\u4e00\u4e2a $add$ \u8868\u793a\u5e8f\u5217\u91cc\u7684\u5143\u7d20\u9700\u8981\u52a0\u7684\uff0c\u65b0\u52a0\u5165\u7684\u51cf\u53bb $add$\u3002\n\n## \u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\n#define int long long\nusing namespace std;\npriority_queue<int,vector<int>,greater<int>>q;\nsigned main(){\n\tint n,add=0;\n\tcin>>n;\n\tfor(int i=1;i<=n;i++){\n\t\tint op,x;\n\t\tcin>>op;\n\t\tif(op==1){\n\t\t\tcin>>x;\n\t\t\tx-=add;\n\t\t\tq.push(x);\n\t\t}\n\t\tif(op==2){\n\t\t\tcin>>x;\n\t\t\tadd+=x;\n\t\t}\n\t\tif(op==3){\n\t\t\tcout<<q.top()+add<<\"\\n\";\n\t\t\tq.pop();\n\t\t}\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1678254528,
+        "uid": 715244,
+        "name": "zhangzhengyan0831",
+        "ccfLevel": 0,
+        "title": "AT_abc212_d [ABC212D] Querying Multiset \u9898\u89e3"
+    },
+    {
+        "content": "## \u601d\u8def\n\u663e\u7136\uff0c\u5bf9\u4e8e\u6bcf\u4e00\u4e2a\u6570\uff0c\u6211\u4eec\u4e0d\u53ef\u80fd\u6bcf\u6b21\u6267\u884c\u52a0\u7684\u64cd\u4f5c\u90fd\u62ff\u51fa\u6765\u52a0\uff0c\u90a3\u6837\u4e00\u5b9a\u4f1a\u8d85\u65f6\uff0c\u90a3\u4e48\u6211\u4eec\u4e0d\u59a8\u6700\u540e\u8f93\u51fa\u65f6\u518d\u52a0\u3002\u8fd9\u6837\uff0c\u6211\u4eec\u7ef4\u62a4\u4e00\u4e2a\u5c0f\u6839\u5806\uff0c\u6bcf\u6b21\u62ff\u5806\u9876\u5373\u53ef\u3002\u4f46\u662f\uff0c\u6211\u4eec\u8fd8\u9700\u8981\u6ce8\u610f\u4e00\u4e2a\u4e8b\uff0c\u90a3\u5c31\u662f\u5bf9\u4e8e\u52a0\u64cd\u4f5c\uff0c\u4e0d\u662f\u6240\u6709\u6570\u90fd\u80fd\u52a0\u5230\u7684\uff0c\u90a3\u4e48\u6211\u4eec\u600e\u4e48\u4fdd\u8bc1\u8fd9\u6837\u7684\u60c5\u51b5\u5462\uff1f\u4e8b\u5b9e\u4e0a\uff0c\u53ea\u9700\u8981\u52a0\u5165\u65f6\u51cf\u53bb\u524d\u9762\u52a0\u8fc7\u7684\u6570\u503c\uff0c\u4fdd\u6301\u4ed6\u4eec\u7684\u76f8\u5bf9\u5927\u5c0f\u5c31\u597d\u4e86\u3002\n#### Code\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n#define F(i,a,b) for(int i=a;i<=(b);i++)\n#define int long long\nconst int Maxn=4e6;\nint a,b,n,m,k,q,opt,ans;\npriority_queue<int,vector<int>,greater<int> > Q;\n \nsigned main(){\n\tcin>>n;\n\tF(i,1,n){\n\t\tcin>>opt;\n\t\tif(opt!=3){\n\t\t\tcin>>k;\n\t\t\tif(opt==1) Q.push(k-ans);\n\t\t\telse ans+=k;\n\t\t}\n\t\telse {\n\t\t\tcout<<Q.top()+ans<<endl;\n\t\t\tQ.pop();\n\t\t}\n\t}\n\treturn 0;\n}\n```\n\u8fd9\u91cc\u518d\u63a8\u8350[\u4e00\u9053\u9898](https://www.luogu.com.cn/problem/P2827)\uff0c\u662f\u8fd9\u9053\u9898\u7684\u52a0\u5f3a\u7248\u3002\n",
+        "postTime": 1673150934,
+        "uid": 754856,
+        "name": "_zexal_",
+        "ccfLevel": 3,
+        "title": "ABC212D"
+    },
+    {
+        "content": "\u5982\u679c\u6ca1\u6709 $ 2 $ \u64cd\u4f5c\uff0c\u6734\u7d20\u4f18\u5148\u961f\u5217\u5373\u53ef\u3002\n\n\u5176\u5b9e\u52a0\u5165 $ 2 $ \u64cd\u4f5c\u540e\u4e5f\u5927\u4f53\u7c7b\u4f3c\uff0c\u7ef4\u62a4\u4e00\u4e2a\u5168\u5c40\u53d8\u5316\u503c $ delta $\uff0c\u5728\u52a0\u64cd\u4f5c\u65f6\u76f4\u63a5\u52a0 $ delta $ \u5373\u53ef\uff0c\u5219\u5bf9\u4e8e $ 3 $ \u64cd\u4f5c\u8bbe\u961f\u5217\u5185\u6700\u5c0f\u503c\u4e3a $ x $\uff0c\u5219\u7b54\u6848\u663e\u7136\u4e3a $ x+delta $\uff0c\u56e0\u4e3a\u5168\u5c40\u52a0\u4e0d\u4f1a\u6539\u53d8\u5143\u7d20\u76f8\u5bf9\u5927\u5c0f\u3002\u63d2\u5165\u64cd\u4f5c\u7c7b\u4f3c\uff0c\u63d2\u5165 $ x-delta $ \u5373\u53ef\u62b5\u6d88\u5f71\u54cd\u3002\n\n\u65f6\u95f4\u590d\u6742\u5ea6 $ \\mathcal{O}(q\\log{q}) $\uff0c\u53ef\u4ee5\u901a\u8fc7\u3002\u8fd9\u91cc\u4f7f\u7528 STL \u7684\u4f18\u5148\u961f\u5217\u5b9e\u73b0\uff0c\u6ce8\u610f\u8981\u5f00 long long\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#import <bits/stdc++.h>\n#define int long long\nusing namespace std;\npriority_queue<int,vector<int>,greater<int> >p;\nsigned main()\n{\nint q,delta=0;\ncin>>q;\nwhile(q--)\n{\nint op;\ncin>>op;\nif(op==1)\n{\nint x;\ncin>>x;\np.push(x-delta);\n}\nelse if(op==2)\n{\nint x;\ncin>>x;\ndelta+=x;\n}\nelse\ncout<<(p.top()+delta)<<'\\n',p.pop();\n}\n}\n```\n",
+        "postTime": 1671191351,
+        "uid": 714821,
+        "name": "loser_seele",
+        "ccfLevel": 4,
+        "title": "ABC212D\u9898\u89e3"
+    }
+]

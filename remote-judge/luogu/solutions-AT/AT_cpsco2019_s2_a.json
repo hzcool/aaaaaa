@@ -1,0 +1,74 @@
+[
+    {
+        "content": "\u601d\u8def\uff1a\n-\n\u8fd9\u9053\u9898\u5e76\u4e0d\u96be\uff0c\u7b80\u5355\u7684\u5730\u65b9\u90fd\u4e0d\u7528\u8fc7\u591a\u8bb2\u4e86\uff0c\u91cd\u70b9\u662f\uff1a\u56db\u820d\u4e94\u5165\uff01\n\n\u8bbe\u8981\u56db\u820d\u4e94\u5165\u7684\u6570\u4e3a $ans$\u3002\n\n**\u65b9\u6cd5\u4e00**\uff1a\u5f53\u8981\u56db\u820d\u65f6\uff0c\u53ef\u4ee5\u76f4\u63a5\u8ba9 $ans$ \u51cf\u53bb\u81ea\u5df1\u6c42\u4f59 $1$ \u540e\u7684\u6570\u3002\n\n**\u65b9\u6cd5\u4e8c**\uff1a\u5f53\u8981\u4e94\u5165\u65f6\uff0c\u53ef\u4ee5\u5148\u8ba9 $ans$ \u51cf\u53bb\u81ea\u5df1\u6c42\u4f59 $1$ \u540e\u7684\u6570\uff0c\u518d\u8ba9\u5b83\u52a0\u4e0a $1$\u3002\n\n\u4ee3\u7801\uff1a\n-\n```cpp\n#include<bits/stdc++.h>\n#define int long long//\u5f00long long\u662f\u4e2a\u597d\u4e60\u60ef\nusing namespace std;\nsigned main()\n{\n    int m , n , sum = 0;\n    cin >> m >> n;\n    int ans = m / n;//\u5148\u8bbe\u4e00\u4e2a\u53d8\u91cf\uff0c\u8ba9\u4ed6\u7b49\u4e8em/n\uff0c\u8fd9\u6837\u5b50\uff0c\u540e\u9762\u7684\u5224\u65ad\u53ef\u4ee5\u65b9\u4fbf\u70b9\n    if(ans % 1 <= 4)\n    {\n    \tans -= ans % 1;//\u65b9\u6cd51\n\t}\n\telse if(ans % 1 == 0)\n\t{\n\t\tans = ans;\n\t}\n\telse\n\t{\n\t\tans -= ans % 1;//\u65b9\u6cd52\n\t\tans += 1;\n\t}\n\tfor(int i = 1;i <= n - 1;i++)\n\t{\n\t\tsum += ans;//\u6c42\u5728n-1\u5929\u524d\u8fd8\u4e86\u591a\u5c11\u94b1\n\t}\n\tcout << m - sum << endl;\n    return 0;\n}\n```",
+        "postTime": 1679480134,
+        "uid": 794893,
+        "name": "liangyujia45",
+        "ccfLevel": 0,
+        "title": "AT_cpsco2019_s2_a \u9898\u89e3"
+    },
+    {
+        "content": "##  AT_cpsco2019_s2_a Scholarship Repayment \u984c\u89e3\n\n### \u9898\u76ee\u5927\u610f\n\n\u4f60\u6b20\u4e86 $m$ \u4e07\u5143\uff0c\u5206 $n$ \u4e2a\u6708\u8fd8\u6e05\uff0c\u5728 $n-1$ \u4e2a\u6708\u4e4b\u524d\uff0c\u4f60\u6bcf\u4e2a\u6708\u8981 $\\dfrac{m}{n}$ \u56db\u820d\u4e94\u5165\u540e\u7684\u4e07\u5143\u6570\uff0c\u5728\u7b2c $n$ \u4e2a\u6708\u8fd8\u5269\u4e0b\u6240\u6709\u6ca1\u8fd8\u7684\u94b1\uff0c\u95ee\u7b2c $n$ \u4e2a\u6708\u4f60\u8981\u8fd8\u591a\u5c11\u4e07\u5143\u3002\n\n### \u89e3\u6790\n\n\u5728 $n-1$ \u4e2a\u6708\u524d\uff0c\u6bcf\u5929\u8fd8\u56db\u820d\u4e94\u5165\u540e\u7684 $\\dfrac{m}{n}$ \u5143\uff0c\u6240\u4ee5\u5728\u8fd9 $n-1$ \u4e2a\u6708\u4e00\u5171\u8981\u8fd8 $(n-1)  \\text{round} \\dfrac{m}{n}$\u3002\n\n\u90a3\u4e48\u600e\u4e48\u7b97\u4e00\u4e2a\u6570\u7684\u56db\u820d\u4e94\u5165\u5462\uff0c\u6700\u597d\u7684\u529e\u6cd5\u5c31\u662f\u5c06\u8fd9\u4e2a\u5c0f\u6570\u52a0\u4e0a $0.5$ \u540e\u5f3a\u5236\u7c7b\u578b\u8f6c\u6362 `int`\u3002\u6211\u4eec\u77e5\u9053\u5982\u679c\u4e00\u4e2a\u6570\u7684\u5c0f\u6570\u90e8\u5206\u5c0f\u4e8e $0.5$ \u5219\u820d\u53bb\u5c0f\u6570\u90e8\u5206\uff0c\u5927\u4e8e\u7b49\u4e8e $0.5$ \u65f6\u820d\u53bb\u5c0f\u6570\u90e8\u5206\u540e\u52a0 $1$\uff0c\u6240\u4ee5\uff1a\n\n- \u5982\u679c\u5c0f\u6570\u90e8\u5206\u5c0f\u4e8e $0.5$\uff0c\u90a3\u4e48\u52a0\u4e0a $0.5$ \u540e\u4ed6\u7684\u5c0f\u6570\u90e8\u5206\u4e00\u5b9a\u5c0f\u4e8e $1$\uff1b\n- \u5982\u679c\u5c0f\u6570\u90e8\u5206\u5927\u4e8e\u7b49\u4e8e $0.5$\uff0c\u90a3\u4e48\u52a0\u4e0a $0.5$ \u540e\u6574\u6570\u90e8\u5206\u4e00\u5b9a\u52a0\u4e0a\u4e86 $1$\u3002\n\n\u6839\u636e C++ \u5bf9\u6d6e\u70b9\u6570\u5230\u6574\u6570\u7684\u5904\u7406\uff08\u9ed8\u8ba4\u5411\u4e0b\u53d6\u6574\uff09\uff0c\u5c31\u80fd\u5b9e\u73b0\u56db\u820d\u4e94\u5165\u7684\u8fc7\u7a0b\u3002\n\n\u5f97\u5230\u6bcf\u4e2a\u6708\u8981\u8fd8\u7684\u94b1\uff0c\u7528\u603b\u94b1\u51cf\u53bb\u8fd9 $n-1$ \u4e2a\u6708\u8981\u8fd8\u7684\u94b1\u5373\u4e3a\u7b54\u6848\u3002\n\n### \u6838\u5fc3\u4ee3\u7801\n\n```cpp\nm=__read(); n=__read();\nint d=(int)m*1.0/n+0.5;\nint ans=m-(n-1)*d;\n__writeln(ans);\n```",
+        "postTime": 1673229406,
+        "uid": 408019,
+        "name": "Shan_Creeper",
+        "ccfLevel": 0,
+        "title": "AT_cpsco2019_s2_a Scholarship Repayment \u984c\u89e3"
+    },
+    {
+        "content": "[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/AT_cpsco2019_s2_a)\n\n### \u5206\u6790\n\n\u5b9e\u9645\u4e0a\uff0c\u672c\u9898\u7684\u7b54\u6848\u5c31\u662f $m$ \u51cf\u53bb\u524d $n-1$ \u4e2a\u6708\u603b\u5171\u8fd8\u7684\u94b1\u3002\u6ce8\u610f\u5230\u6bcf\u6708\u8fd8**\u56db\u820d\u4e94\u5165** $\\dfrac{m}{n}$ \u4e07\u5143\uff0c\u56db\u820d\u4e94\u5165\u51fd\u6570\u53ef\u4ee5\u7528 c++ \u7684 cmath \u5934\u6587\u4ef6\u5b9e\u73b0\uff0c\u6240\u4ee5\u4ee3\u7801\u4e3a\uff1a`round(m/n)`\u3002\n\n### \u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n    int m,n;\n    cin>>m>>n;\n    int ans=0; \n    for(int i=1;i<n;i++)\n\t{\n        ans+=round(m/n);\n    }\n    cout<<m-ans<<endl;\n    return 0;\n}\n```\n",
+        "postTime": 1685166111,
+        "uid": 706859,
+        "name": "maomao233",
+        "ccfLevel": 0,
+        "title": "AT_cpsco2019_s2_a Scholarship Repayment \u9898\u89e3"
+    },
+    {
+        "content": "#### [\u539f\u9898\u4f20\u9001](https://www.luogu.com.cn/problem/AT_cpsco2019_s2_a)\n\u8fd9\u9053\u9898\u6bd4\u8f83\u7b80\u5355\uff0c\u552f\u4e00\u7684\u96be\u70b9\u5c31\u662f\u56db\u820d\u4e94\u5165\u662f\u5565\u3002\n\n\u6211\u4eec\u4e3a\u4e86\u65b9\u4fbf\u5c31\u5b9a\u4e49\u4e00\u4e2a\u53d8\u91cf $x$\uff0c$x$ \u7b49\u4e8e $m$ \u9664\u4ee5 $n$\u3002 \n\n\u5982\u679c $x$ \u6a21 $1$ \u5c0f\u4e8e\u7b49\u4e8e $4$\uff0c\u90a3\u4e48\u5c31\u56db\u820d\uff0c\u51cf\u53bb $x$ \u6a21 $1$ \u5373\u53ef\uff0c\u7a0b\u5e8f\u662f```x-=x%1;```\u3002\n\n\u5982\u679c $x$ \u7684\u4e2a\u4f4d\u5927\u4e8e $4$\uff0c\u90a3\u4e48\u5c31\u4e94\u5165\uff0c\u4f9d\u65e7\u662f\u51cf\u53bb $x$ \u6a21 $1$\uff0c\u4e0d\u8fc7  $x$ \u8fd8\u8981\u518d\u52a0 $1$\u3002\n#### \u4ee3\u7801\uff1a\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n\tint m,n,x;\n\tcin>>m>>n;\n\tx=m/n;\n\tif(x%1<=4)x-=x%1;//\u56db\u820d\n\telse{//\u4e94\u5165\n\t\tx-=x%1;\n\t\tx++;//\u8fdb\u4f4d\n\t}\n\tcout<<m-x*(n-1)<<endl;\n\treturn 0;\n}\n```\n",
+        "postTime": 1685159170,
+        "uid": 559442,
+        "name": "GWBailang",
+        "ccfLevel": 3,
+        "title": "AT_cpsco2019_s2_a Scholarship Repayment \u9898\u89e3"
+    },
+    {
+        "content": "[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/AT_cpsco2019_s2_a)\n\n------------\n\n\u5728 ```cmath``` \u5934\u6587\u4ef6\u91cc\u6709\u4e00\u4e2a\u795e\u5947\u7684\u51fd\u6570\u53eb $\\texttt{round}$\uff0c\u53ef\u4ee5\u81ea\u52a8\u5b8c\u6210\u56db\u820d\u4e94\u5165\u3002\n\n\u7528\u6b64\u51fd\u6570\u5bf9\u6bcf\u6708\u8981\u8fd8\u7684\u94b1\u8fdb\u884c\u8ba1\u7b97\uff0c\u7ed3\u679c\u5c31\u662f $m$ \u51cf\u53bb\u7d2f\u52a0\u7684\u94b1\u3002\n\n### AC Code\n\n```cpp\n#include<iostream>\n#include<cmath>\nusing namespace std;\n\nint main(){\n\tint m,n,cnt=0;\n\tcin>>m>>n;\n\tfor(int i=1;i<n;i++){\n\t\tcnt+=round(m/n);\n\t}\n\tcout<<m-cnt;\n\treturn 0;\n}\n\n```",
+        "postTime": 1685154073,
+        "uid": 453759,
+        "name": "wangyinghao",
+        "ccfLevel": 0,
+        "title": "AT_cpsco2019_s2_a Scholarship Repayment \u9898\u89e3"
+    },
+    {
+        "content": "\u633a\u7b80\u5355\u7684\u4e00\u9053\u9898\uff0c\u987a\u4fbf\u63d0\u4e00\u53e5\uff1a\u5efa\u8bae\u8bc4\u7ea2\u3002\n\n\u8fd9\u9898\u56e0\u4e3a\u6bcf\u4e2a\u6708\u8fd8\u7684\u94b1\u4e00\u6837\uff0c\u6240\u4ee5\u76f4\u63a5\u7528 $n-1$ \u4e58\u6bcf\u4e2a\u6708\u8fd8\u7684\u94b1\u5c31\u884c\u4e86\u3002\n\n\u4e58\u5b8c\u540e\u76f8\u51cf\u5373\u53ef\uff0c\u6ce8\u610f\u7cbe\u5ea6\u95ee\u9898\u3002\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int m,n; cin >> m >> n;\n    int ans = (n-1)*floor(1.0*m/n);//\u4e581.0\u662f\u4e3a\u4e86\u5f97\u5230\u5c0f\u6570\u7ed3\u679c\u5728\u5411\u4e0b\u53d6\u6574\uff0c\u66f4\u7cbe\u786e\u3002ans\u8868\u793a\u524dn-1\u4e2a\u6708\u8fd8\u7684\u94b1\u3002\n    cout << m - ans << endl;\n    return 0;\n}\n```",
+        "postTime": 1685152547,
+        "uid": 741244,
+        "name": "Eason_cyx",
+        "ccfLevel": 0,
+        "title": "AT_cpsco2019_s2_a Scholarship Repayment \u9898\u89e3"
+    },
+    {
+        "content": "## \u9898\u76ee\u5927\u610f \n\n\u6709 $m$ \u4e07\u5143\u6ca1\u8fd8\uff0c\u73b0\u5728\u6709 $n$ \u6708\u7684\u65f6\u95f4\u6765\u8fd8\u3002\u5728\u524d $n-1$ \u4e2a\u6708\uff0c\u6bcf\u4e2a\u6708\u8981\u8fd8 $\\dfrac{m}{n}$ \u56db\u820d\u4e94\u5165\u540e\u7684\u4e07\u5143\u6570\u3002\u95ee\u6700\u540e\u4e00\u4e2a\u6708\u8981\u8fd8\u591a\u5c11\u4e07\u5143\uff1f\n\n## \u9898\u76ee\u89e3\u7b54\n\n\u5f88\u7b80\u5355\u3002\n\n\u6211\u4eec\u8f93\u5165\u540e\u3002\n\n\u7b2c\u4e00\u6b65\uff1a\u7b97 $\\dfrac{m}{n}$\uff0c\u5176\u5b9e\u4e0d\u7528\u5355\u72ec if \u8bed\u53e5\u6765\u5224\u65ad\u662f\u4e94\u5165\u8fd8\u662f\u56db\u820d\uff0c\u7528 double \u7c7b\u578b\u6765\u5b58 $\\dfrac{m}{n}$ \u5c31\u53ef\u4ee5\u4e86\u3002\n\n\u7b2c\u4e8c\u6b65\uff1afor \u5faa\u73af\u3002\u628a\u524d $n-1$ \u4e2a\u6708\u603b\u5171\u8fd8\u7684\u94b1\u7b97\u51fa\u6765\u3002\n\n\u6700\u540e\u628a\u603b\u5171\u8981\u8fd8\u7684\u94b1 $m$ \u51cf\u53bb\u524d $n-1$ \u4e2a\u6708\u603b\u5171\u8fd8\u7684\u94b1\u8f93\u51fa\u5c31\u53ef\u4ee5\u4e86\u3002\n\n## \u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint m,n,i,sum;/*sum\u5b58\u524dn-1\u4e2a\u6708\u8981\u8fd8\u7684\u94b1*/double a;\nint main(){\n\tcin>>m>>n;\n\ta=(double)(m/n);//\u8fd9\u662f\u524dn-1\u4e2a\u6708\u8981\u8fd8\u7684\u94b1\uff08\u5373m/n\uff09 \n\tfor(i=1;i<=n-1;i++){\n\t\tsum+=a;//\u8fd9\u91cc\u5c31\u662f\u628a\u524dn-1\u4e2a\u6708\u7684\u6bcf\u4e00\u4e2a\u6708\u8981\u8fd8\u7684\u94b1\u52a0\u8d77\u6765 \n\t}\n\tcout<<m-sum<<endl;\n\treturn 0;\n}\n\n```\n",
+        "postTime": 1685148251,
+        "uid": 740350,
+        "name": "fangshi",
+        "ccfLevel": 0,
+        "title": "AT_cpsco2019_s2_a\u9898\u89e3"
+    },
+    {
+        "content": "### \u9898\u76ee\u601d\u8def\n\n\u8fd9\u9053\u9898\u53ea\u9700\u6309\u7167\u9898\u610f\u7b97\u5373\u53ef\uff0c\u91cd\u70b9\u662f\u5728\u56db\u820d\u4e94\u5165\u7684\u4e07\u5143\u6570\u3002\n\n\u6211\u4eec\u53ef\u4ee5\u7528\u4e00\u4e2a `int` \u548c\u4e00\u4e2a `double` \u5b58 $\\dfrac{m}{n}$\uff0c\u540c\u65f6\u7528\u4e00\u4e2a `ans` \u5b58\u6700\u540e\u7684\u7ed3\u679c\uff0c\u5982\u679c\u8fd9\u4e2a `int` \u51cf\u53bb `double` \u5927\u4e8e\u7b49\u4e8e $0.5$\uff0c\u90a3\u4e48 `ans` \u52a0 $1$\u3002\n\n### \u4ee3\u7801\u73af\u8282\n```cpp\n#include<iostream>\nusing namespace std;\nint n,m;\nint t=1;\nint a[1005],b[1005];\nint main(){\n    cin>>m>>n;\n    double tmp=m/n/1.0;\n    int cnt=m/n;\n    int ans=m/n;\n    if(tmp-cnt*1.0>=0.5){\n        ans++;\n    }\n    int sum=0;\n    for(int i = 1;i <= n - 1;i++){\n\t\t sum += ans;\n    }\n    cout << m - sum << endl;\n    return 0;\n}\n```\n",
+        "postTime": 1684123485,
+        "uid": 757409,
+        "name": "Gym_Jack",
+        "ccfLevel": 0,
+        "title": "AT_cpsco2019_s2_a\u9898\u89e3"
+    },
+    {
+        "content": "# \u9898\u76ee\u601d\u8def\n\u9898\u76ee\u4e2d\u8bf4\uff0c\u4f60\u6b20\u4e0b $m$ \u4e07\u5143\uff0c\u4f60\u5206 $n$ \u6708\u4ed8\u6e05\uff0c\u6240\u4ee5\u4f60\u6bcf\u6708\u8981\u8fd8 $\\dfrac{m}{n}$ \u56db\u820d\u4e94\u5165\u540e\u7684\u4e07\u5143\u6570\uff0c\u4f46\u56db\u820d\u4e94\u5165\u96be\u514d\u6709\u8bef\u5dee\uff0c\u6240\u4ee5\u6700\u540e\u4e00\u6708\u6362\u7684\u94b1\u8981\u52a0\u4e0a\u8fd9\u4e9b\u8bef\u5dee\u3002\n\n# code\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint m,n,c;\nint main(){\n    cin>>m>>n;\n    c=m/n;\n    cout<<m-c*(n-1);\n    return 0;\n}\n```\n# \u4ee3\u7801\u89e3\u91ca\n$c$ \u4ee3\u8868\u4f60\u6bcf\u6708\u8981\u4ed8\u7684\u94b1\uff0c\u4e5f\u5c31\u662f $\\dfrac{m}{n}$ \u7684\u503c\uff0c\u4f1a\u81ea\u52a8\u820d\u53bb\u5c0f\u6570\u90e8\u5206\u3002\n\n\u6700\u540e\u8f93\u51fa\u7684\u662f\u6700\u540e\u4e00\u4e2a\u6708\uff0c\u4e5f\u5c31\u662f\u7b2c $n$ \u4e2a\u6708\u7684\u5269\u4f59\u94b1\u6570\uff0c\u6240\u4ee5\u6211\u4eec\u77e5\u9053\uff0c\u524d\u51e0\u4e2a\u6708\u603b\u5171\u4ed8\u4e86 $c\\times(n-1)$ \u5143\uff0c\u53ea\u8981\u7528 $m$ \u51cf\u53bb $c\\times(n-1)$ \u5c31\u53ef\u4ee5\u4e86\u3002",
+        "postTime": 1683012647,
+        "uid": 796825,
+        "name": "FDOI",
+        "ccfLevel": 0,
+        "title": "Scholarship Repayment"
+    }
+]

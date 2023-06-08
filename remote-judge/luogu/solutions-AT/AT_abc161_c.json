@@ -1,0 +1,82 @@
+[
+    {
+        "content": "\u5927\u6c34\u9898\uff01\uff01\uff01\n\n\u5bf9\u4e8e $n$ \uff0c \u6211\u4eec\u8ba9\u5176\u4e0d\u65ad\u5730\u51cf\u53bb $k$ \u4f1a\u6709\u4ee5\u4e0b\u8fc7\u7a0b\uff1a\n\n$n$ $\\Rrightarrow$ $n-k$ $\\Rrightarrow$ $n-2\\times k$ $\\Rrightarrow$ ...... $\\Rrightarrow$ $n \\% k$ $\\Rrightarrow$ $k- n\\%k$ $\\Rrightarrow$ $n\\%k$ $\\Rrightarrow$......\n\n\u89c2\u5bdf\u5f97\u5230\u6700\u5c0f\u503c\u5fc5\u4e3a $n\\%k$ \u548c $k-n\\%k$ \u5f53\u4e2d\u8f83\u5c0f\u7684\u4e00\u4e2a\u3002\n\n## _Code_\n```cpp\n#include<iostream>\nusing namespace std;\nlong long n,k;\nint main(){\n    cin>>n>>k;\n    cout<<min(n%k,k-n%k);\n}\n```\n",
+        "postTime": 1618759012,
+        "uid": 248400,
+        "name": "Inaba_Meguru",
+        "ccfLevel": 7,
+        "title": "AT4896 [ABC161C] Replacing Integer \u9898\u89e3"
+    },
+    {
+        "content": "\u6211\u53c8\u6765\u5199\u53cb\u597d\u9898\u5566~~\n\n\u770b\u5230\u9898\u76ee\u7684\u7b2c\u4e00\u773c\uff1a~~\u770b\u4e0d\u61c2~~\u7528$while$\u4e00\u4e0b\u5c31\u597d\u4e86~~\n\n\u4e8e\u662f\u6709\u4e86\u8fd9\u4efd\u4ee3\u7801\uff1a\n\n```\n#include<algorithm>\n#include<bitset>\n#include<cmath>\n#include<cstdio>\n#include<cstring>\n#include<map>\n#include<iostream>\n#include<queue>\n#include<set>\n#include<stack>\n#include<string>\n#include<vector>\nusing namespace std;\n#define ll long long\n#define f(i,a,b) for(int i=a;i<=b;i++)\ninline ll read(){\n   int s=0,w=1;\n   char ch=getchar();\n   while(ch<'0'||ch>'9'){if(ch=='-')w=-1;ch=getchar();}\n   while(ch>='0'&&ch<='9') s=s*10+ch-'0',ch=getchar();\n   return s*w;\n}\n#define d read()\nll n,k;\nll ans=1000000000000000000;\nint main(){\n\tscanf(\"%lld %lld\",&n,&k);\n\twhile(1){\n\t\tn=abs(n-k);\n\t\tif(n<ans)ans=n;\n\t\telse break;\n\t}\n\tcout<<ans;\n\treturn 0;\n}\n\n```\n$TLE$#$3$\u4e86\u545c\u545c\u545c~~~\n\n\u4e0d\u8981\u4f24\u5fc3\uff0c\u4e0d\u8981\u96be\u8fc7\uff01\uff01\uff01\u8ba9\u6211\u4eec\u770b\u770b\uff01\n\n\u6bd4\u5982\u8fd9\u7ec4\u6570\u636e\uff1a\n\n$n=1000000000000000000$\uff08\u522b\u6570\u4e86\uff0c18\u4e2a0\uff09\uff0c$k=1$\n\n\u90a3\u4e48\u4f60$while$\u7684\u65f6\u5019\u5faa\u73af$10^{18}$\u6b21\u4f60\u6709\u6ca1\u6709\u8003\u8651\u8fc7\u8bc4\u6d4b\u673a\u7684\u611f\u53d7\uff01\uff01\uff01\n\n\u4e8e\u662f\uff0c\u8bc4\u6d4b\u673a\u4f24\u5fc3\u7684\u7ed9\u4f60\u4e86\u4e00\u4e2a$TLE$\n\n\u4e8e\u662f\u6211\u4eec\u7ee7\u7eed\u5206\u6790\uff1a\n\n\u5176\u5b9e\u771f\u6b63\u53ef\u80fd\u6210\u4e3a\u6700\u5c0f\u503c\u7684\u6709\u5f88\u591a\u5417\uff1f$1000000000000000000$\u53ef\u80fd\u5417\uff1f$999999999999999999$\u53ef\u80fd\u5417\uff1f\n\n\u6240\u4ee5\u771f\u6b63\u4e89\u593a\u7b54\u6848\u5e2d\u4f4d\u7684\u53ea\u6709\u4e24\u4e2a\u6570\uff1a$n$%$k$\u4e0e$-$($n$%$k-k$),\u8fd9\u4e24\u4e2a\u6570\uff0c\u53ea\u76f8\u5deek\uff08\u4e0d\u52a0\u7edd\u5bf9\u503c\uff09\uff0c\u4f46\u4e00\u4e2a\u662f\u81ea\u7136\u6570\uff0c\u53e6\u4e00\u4e2a\u662f\u8d1f\u6570\u3002\u6240\u4ee5\u52a0\u4e0a\u7edd\u5bf9\u4e4b\u540e\uff0c\u7b54\u6848\u7edd\u5bf9\u662f\u4ed6\u4eec\u4fe9\u7684$min$\n\n\u4e8e\u662f\u4e3b\u7a0b\u5e8f\u53ea\u67092\u884c\u7684\u4ee3\u7801\u5199\u597d\u4e86\u3002\u3002\u3002\n\n```\n#include<algorithm>\n#include<bitset>\n#include<cmath>\n#include<cstdio>\n#include<cstring>\n#include<map>\n#include<iostream>\n#include<queue>\n#include<set>\n#include<stack>\n#include<string>\n#include<vector>\nusing namespace std;\n#define ll long long\n#define f(i,a,b) for(int i=a;i<=b;i++)\ninline ll read(){\n   int s=0,w=1;\n   char ch=getchar();\n   while(ch<'0'||ch>'9'){if(ch=='-')w=-1;ch=getchar();}\n   while(ch>='0'&&ch<='9') s=s*10+ch-'0',ch=getchar();\n   return s*w;\n}\n#define d read()\nll n,k;\nll ans;\nint main(){\n\tscanf(\"%lld %lld\",&n,&k);\n\tprintf(\"%lld\",min(n-n/k*k,-(n-n/k*k-k)));\n\treturn 0;\n}\n\n```\n\u6492\u82b1\u82b1\u5566\uff01\uff01\uff01",
+        "postTime": 1586582501,
+        "uid": 90706,
+        "name": "_jimmywang_",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT4896 \u3010[ABC161C] Replacing Integer\u3011"
+    },
+    {
+        "content": "\u6211\u4eec\u53ef\u4ee5\u4ece\u9898\u76ee\u4e2d\u83b7\u53d6\u4e00\u4e2a\u7ed3\u8bba\uff1a\n\n$ans\\in\\{ans|n+pk,p\\in Z\\}$\n\n\u90a3\u4e48\u5c31\u53ef\u4ee5\u5f97\u5230\u4e00\u4e2a while \u505a\u6cd5\u3002\n\n\u6211\u4eec\u5148\u4ee5 $n=7,k=3$ \u4e3a\u4f8b:\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/5vlxio4b.png)\n\n\u6709\u56fe\u6613\u89c1\uff0c\u6b64\u65f6\u7684\u7b54\u6848\u4e3a $1$\uff0c\u4e5f\u5c31\u662f$n\\bmod k$\u3002\n\n\u4f46\u5982\u679c\u5c06\u56fe\u4e0a\u8fd9\u79cd\u65b9\u6cd5\u66b4\u529b\u7528 while \u5b9e\u73b0\uff0c\u90a3\u4e48\u65f6\u95f4\u590d\u6742\u5ea6\u53ef\u4ee5\u8fbe\u5230 $O(\\frac{n}{k})$\uff0c\u6700\u591a\u53ef\u4ee5\u8fbe\u5230 $10^{18}$\uff0c\u8d85\u65f6\u662f\u5fc5\u7136\u7684\uff0c\u56e0\u6b64\u6211\u4eec\u8981\u5bfb\u627e\u4e00\u4e2a\u66f4\u4f18\u79c0\u7684\u65b9\u6cd5\u3002\n\n\u6211\u4eec\u518d\u4e3e\u4e00\u7ec4\u4f8b\u5b50 $n=7,k=4$\uff1a\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/84dycnl3.png)\n\n\u7531\u56fe\u53ef\u89c1\uff0c\u6b64\u65f6\u7684\u7b54\u6848\u4e3a $1$\uff0c\u4f46\u662f\u6b64\u65f6\u7684 $1$ \u5b9e\u9645\u4e0a\u662f $|n\\bmod k-k|$\u3002\n\n\u7efc\u4e0a\u663e\u800c\u6613\u89c1\uff0c\u7b54\u6848 $ans$ \u53ea\u80fd\u662f\u8fd9\u4e24\u79cd\u60c5\u51b5\u4e2d\u7684\u6700\u5c0f\u503c\uff0c\u5373:\n1. $n\\bmod k$\n\n2. $ |n\\bmod k -k| $\n\n\u8fd9\u6837\u624d\u80fd\u4f7f $ans$ \u66f4\u63a5\u8fd1 $0$\u3002\n\n\u90a3\u4e48\u5c31\u53ef\u4ee5\u5f97\u51fa\uff1a$ans=\\min(n\\bmod k,|n\\bmod k -k|)$\n\n\u4ee3\u7801\u5c31\u5f88\u7b80\u5355\u4e86\uff1a\n\n```cpp\n#include<bits/stdc++.h>\n#define I long long\n#define il inline\n#define rt return\nusing namespace std;\nil I d(){\n\tI x=0,f=1;\n\tchar c=0;\n\twhile(!isdigit(c=getchar()))f-=(c=='-')*2;\n\twhile(isdigit(c)){x=(x<<1)+(x<<3)+f*(c-48);c=getchar();}\n\trt x;\n}\nsigned main()\n{\n\tI a,b;\n\ta=d();b=d();\n\tcout<<min(a%b,-(a%b-b));\n\trt 0;\n}\n```\n",
+        "postTime": 1617025181,
+        "uid": 171295,
+        "name": "WHJ___",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 AT4896 [ABC161C] Replacing Integer"
+    },
+    {
+        "content": "\u5df2\u77e5\u4e24\u4e2a\u6570 $n$ \u548c $k$\uff0c\u7ecf\u8fc7\u82e5\u5e72\u6b21\u8ba9 $n$ \u53d8\u6210 $|n - k|$ \u7684\u64cd\u4f5c\uff0c\u6c42 $n$ \u7684\u6700\u5927\u503c\u3002\n\n\u6211\u4eec\u4e00\u4e0b\u5b50\u5c31\u4f1a\u60f3\u5230\u66b4\u529b\uff0c\u53ef\u662f $1\u2264n,k\u226410^{18}$\uff0c\u66b4\u529b\u80af\u5b9aTLE\u3002\u6240\u4ee5\uff0c\u6211\u4eec\u8981\u627e\u66f4\u4f18\u7684\u89e3\u6cd5\u3002\n\n\u6211\u4eec\u5148\u522b\u770b\u7edd\u5bf9\u503c\uff0c\u4e0d\u96be\u53d1\u73b0\uff0c\u5728\u5b83\u4eec\u76f8\u51cf\u5230\u6700\u5c0f\u7684\u6b63\u6574\u6570\u65f6\uff0c\u90a3\u4e2a\u6700\u5c0f\u7684\u6b63\u6574\u6570\u5c31\u662f $n\\mod k$\u3002\u53ef\u662f\uff0c\u52a0\u4e0a\u7edd\u5bf9\u503c\uff0c\u6211\u4eec\u53ef\u4ee5\u5f97\u5230\uff0c\u518d\u51cf\u4e00\u6b21\u5c31\u6210\u4e86 $n - (n \\mod k)$\u3002\u7ee7\u7eed\u51cf\uff0c\u53c8\u6210\u4e86 $n \\mod k$\uff0c\u4e00\u76f4\u8fd9\u6837\u4e0b\u53bb\u3002\u6240\u4ee5\uff0c\u6211\u4eec\u53ea\u8981\u5728 $n \\mod k$ \u548c $n - (n \\mod k)$ \u4e2d\u6bd4\u4e2a\u5c0f\uff0c\u518d\u628a\u5b83\u8f93\u51fa\u5c31\u884c\u4e86\u3002\n\n## Code:\n\n\u5bf9\uff0c\u60a8\u6ca1\u770b\u9519\uff0c\u5c31\u8fd9\u4e48\u77ed\uff01\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main(){\n    long long a, b;\n    cin >> a >> b;\n    cout << min(a % b, b - (a % b));\n    return 0;\n}\n```",
+        "postTime": 1613187993,
+        "uid": 302356,
+        "name": "Eric_Cui",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT4896 \u3010[ABC161C] Replacing Integer\u3011"
+    },
+    {
+        "content": "\u5f88\u663e\u7136\uff0c$10^{18}$\u7684\u6570\u636e\u66b4\u529b\u662f\u8fc7\u4e0d\u4e86\u7684\u3002\u6240\u4ee5\u8981\u60f3\u53e6\u4e00\u79cd\u65b9\u6cd5\u3002\n\n\u56e0\u4e3a$n$\u5982\u679c\u60f3\u8ba9\u5b83\u6700\u5c0f\uff0c\u4e00\u5b9a\u8ba9\u5b83\u4e0d\u65ad\u7684\u51cf\u53bb$k$\uff0c\u6240\u4ee5\u6700\u540e\u7684$n$\u603b\u662f\u4f1a\u7b49\u4e8e$n \\bmod k$\u3002\n\n\u6240\u4ee5\u8fd9\u9053\u9898\u6c42\u7684\u5c31\u662f$n \\% k$\u548c$\\operatorname{abs}(n \\% k-k)$\u4e2d\u7684\u6700\u5c0f\u503c\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main()\n{\n    long long n,k;\n    cin>>n>>k;\n    n=min(n%k,abs(n%k-k));\n    cout<<n<<endl;\n    return 0;\n}\n```\n\n[\u4eb2\u6d4bAC](https://www.luogu.com.cn/record/45396353)",
+        "postTime": 1611456943,
+        "uid": 335799,
+        "name": "ljm1621",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT4896 \u3010[ABC161C] Replacing Integer\u3011"
+    },
+    {
+        "content": "\u601d\u8def\uff1a\u8fd9\u9053\u9898\u53ef\u4ee5\u5148\u7528n%k\u53ef\u4ee5\u7701\u65f6\u95f4\uff0c\u56e0\u4e3an\u51cfm\u6700\u7ec8\u4f1a\u51cf\u5230n%k\u4e86\u3002\u6700\u540e\u8f93\u51fan\u548cn-k\u7684\u7edd\u5bf9\u503c\u4e2d\u5c0f\u7684\u4e00\u4e2a\u3002\n\n\u4ee3\u7801\u3002\n```c\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n\tunsigned long long n,k;\n\tcin>>n>>k;\n\tn%=k;\n\tn=min(n,abs(n-k));\n\tcout<<n;\n}\n```\n",
+        "postTime": 1595303267,
+        "uid": 230662,
+        "name": "TLMPEX",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT4896 \u3010[ABC161C] Replacing Integer\u3011"
+    },
+    {
+        "content": "# ~~\u6c34\u9898\u4e00\u4e2a~~\n\n\u6211\u4eec\u53ea\u8981\u6c42\u51fan%k,k-n%k\u7684\u6700\u5c0f\u503c\uff0c\u5c31\u662f\u8fd9\u9898\u7684\u7b54\u6848\u3002\n\n\u5176\u5b9e\u5f88\u7b80\u5355\uff0c\u6211\u5c31\u4e0d\u591a\u8bf4\u4e86\u3002\n\n\u4e0a\u4ee3\u7801\u3002\n\n _Code->_\n \n ```\n#include<bits/stdc++.h>\n#define rep(i,n) for(int i=0;i<n;i++)\n#define forn(i,a,b) for(int i=a;i<=b;i++)\n#define INF 2147483647\n#define LLINF 9223372036854775807\nusing namespace std;\nint main(){\n\tlong long n,k;\n\tcin>>n>>k;\n\tcout<<min(n%k,k-n%k)<<endl;\n\treturn 0;\n}\n```\n",
+        "postTime": 1592811660,
+        "uid": 194902,
+        "name": "iiawaKL",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT4896 \u3010[ABC161C] Replacing Integer\u3011"
+    },
+    {
+        "content": "\u672c\u9898\u6709\u4ee5\u4e0b\u9009\u9879\uff1a\n\n - \u5f53 $n\\leq m$ \u65f6\uff0c\u7b54\u6848\u4e3a $\\min(n,m-n)$\u3002\n - \u5f53 $n\\geq m$ \u65f6\uff0c$n$ \u5c06\u51cf\u53bb\u591a\u4e2a $m$ \u76f4\u5230 $n\\leq m$\uff0c\u5373 $n$ \u7684\u503c\u53d8\u4e3a $n \\bmod m$\uff0c\u6545\u7b54\u6848\u4e3a $\\min(n \\bmod m,m-n \\bmod m)$\u3002\n\n\u4f46\u7531\u4e8e $n \\bmod m$ \u5728 $n\\leq m$ \u65f6\u4ecd\u7136\u7b49\u4e8e $n$\uff0c\u6545\u6211\u4eec\u53ef\u4ee5\u4e0d\u7528\u7279\u5224\uff0c\u76f4\u63a5\u5c06\u6bd4\u8f83\u4ee3\u7801\u7edf\u4e00\u8868\u793a\u4e3a $\\min(n \\bmod m,m-n \\bmod m)$\uff0c\u5c06\u4ee3\u7801\u7f29\u77ed\u3002\n\n\u5982\u4e0b\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nlong long n,m;\nint main()\n{\n\tcin>>n>>m;\n\tn%=m;\n\tn=min(n,m-n);\n\tcout<<n<<endl;\n\treturn 0;\n}\n```\n",
+        "postTime": 1586097073,
+        "uid": 255381,
+        "name": "C171501",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 AT4896 \u3010[ABC161C] Replacing Integer\u3011"
+    },
+    {
+        "content": "## \u9898\u610f\n\u7ed9\u5b9a $N,K$\uff0c\u6bcf\u6b21\u64cd\u4f5c\u628a $N$ \u53d8\u6210 $|N-K|$\uff0c\u6c42 $N$ \u7684\u6700\u5c0f\u503c\u3002  \u6570\u636e\u8303\u56f4\uff1a$0 \\leq N \\leq 10^{18},1 \\leq K \\leq 10^{18}$\n## \u601d\u8def\uff1a\n\u5206\u7c7b\u8ba8\u8bba\u3002  \n- \u5f53 $N=K$ \u65f6\uff0c\u7b54\u6848\u4e3a $0$\u3002\n- \u5f53 $N<K$ \u65f6\uff0c$N$ \u7684\u503c\u5728$N,N-K$\u4e4b\u95f4\u5f98\u5f8a\uff0c\u7b54\u6848\u4e3a $\\max(N,N-K)$\u3002\n- \u5f53 $N>K$ \u65f6\uff0c$N$ \u7684\u503c\u4f1a\u964d\u5230 $N \\bmod K$\uff0c\u7b54\u6848\u4e3a $\\max(N \\bmod K,K-N \\bmod K)$\n## Code\uff1a\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main()\n{\n\tlong long x,k,ans;\n\tcin>>x>>k;\n\tif (x==k)ans=0;\n\telse if (x<k)ans=min(x,k-x);\n\telse if (x>k)\n\t{\n\t\tx=x%k;\n  \t\tans=min(x,k-x);\n\t}\n\tcout<<ans<<endl;\n}\n```",
+        "postTime": 1586048799,
+        "uid": 279743,
+        "name": "1n1c5c5z",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 AT4896 \u3010[ABC161C] Replacing Integer\u3011"
+    },
+    {
+        "content": "\u9898\u76ee\u5927\u610f\uff1a\u7ed9\u51fa $n, k$\uff0c\u6bcf\u6b21\u53ef\u4ee5\u5c06 $n$ \u53d8\u4e3a $|n - k|$\uff0c\u6c42 $n$ \u7684\u6700\u5c0f\u503c\u3002$0 \\le n \\le 10^{18}, 1 \\le k \\le 10^{18}$\u3002\n\n\u8fdb\u884c\u5206\u7c7b\u8ba8\u8bba\u3002\u5982\u679c $n \\le k$\uff0c\u90a3\u4e48 $n$ \u7684\u53d6\u503c\u53ea\u4f1a\u6709\u4e24\u79cd\uff0c\u5206\u522b\u4e3a $n$ \u548c $k - n$\uff0c\u8f93\u51fa\u8f83\u5c0f\u7684\u5373\u53ef\u3002\n\n\u5982\u679c $n > k$\uff0c\u5bb9\u6613\u53d1\u73b0\u64cd\u4f5c\u4f1a\u4e0d\u65ad\u4ece $n$ \u51cf\u53bb $k$ \u76f4\u5230 $n \\le k$\uff0c\u6700\u540e\u7684 $n$ \u5219\u4e3a $n \\bmod k$\uff0c\u6240\u4ee5\u53d6 $n \\bmod k$ \u548c $k - (n \\bmod k)$ \u7684\u6700\u5c0f\u503c\u5373\u53ef\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\nread(n), read(k);\nif (n <= k) {\n    printf(\"%lld\\n\", std::min(n, k - n));\n} else {\n    LL m = n % k;\n    printf(\"%lld\\n\", std::min(m, k - m));\n}\n```",
+        "postTime": 1586035103,
+        "uid": 124152,
+        "name": "AmamiyaYuuko",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT4896 \u3010[ABC161C] Replacing Integer\u3011"
+    }
+]

@@ -1,0 +1,10 @@
+[
+    {
+        "content": "# \u9898\u89e3\n\n## \u9898\u76ee\u5927\u610f\n\n\u7ed9\u5b9a\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u5e8f\u5217\uff0c\u8fd9\u4e2a\u5e8f\u5217\u663e\u7136\u6709 $2^{n - 1}$ \u4e2a\u975e\u7a7a\u5b50\u5e8f\u5217\uff0c\u5b9a\u4e49\u6bcf\u4e2a\u5b50\u5e8f\u5217\u7684\u8d21\u732e\u4e3a\u8fd9\u4e2a\u5b50\u5e8f\u5217\u7684\u6700\u5927\u503c\u548c\u6700\u5c0f\u503c\u7684\u4e58\u79ef\uff0c \u6c42\u6240\u6709\u975e\u7a7a\u5b50\u5e8f\u5217\u7684\u6743\u503c\u548c\uff0c\u5bf9 $998244353$ \u53d6\u6a21\u3002\n\n## \u6570\u636e\u9650\u5236\n\n$ n \\le 2 \\times 10 ^ 5$ \uff0c $0 \\le a_i \\le 998244353$ \u3002\n\n## \u89e3\u6cd5\n\n\u53ef\u4ee5\u5148\u5c06\u5e8f\u5217\u4ece\u5c0f\u5230\u5927\u6392\u5e8f\u56fa\u5b9a\u7136\u540e\u56fa\u5b9a\u4f4f\u6700\u5927\u503c\uff0c\u76f4\u63a5\u7edf\u8ba1\u8d21\u732e\u5373\u53ef\uff0c\u6bd4\u5982\u6392\u5e8f\u540e\u56fa\u5b9a\u4f4f\u6700\u5c0f\u503c\u4e3a $a_i$ \uff0c \u6700\u5927\u503c\u4e3a $a_j (i < j)$ \uff0c \u8d21\u732e\u5373\u4e3a $a_i a_j 2 ^ {i - j - 1}$ \u3002\n\n## Code\n\n```cpp\n#include <bits/stdc++.h>\n\nusing namespace std;\n\n#define ll long long\n\nconst int N = 2e5 + 10;\nconst int mod = 998244353;\nconst int INF = 1e9;\n\nint n, a[N];\n\nint main()\n{\n    scanf(\"%d\", &n);\n    for(int i = 1; i <= n; i++)\n        scanf(\"%d\", &a[i]);\n    sort(a + 1, a + n + 1);\n    ll ans = 0, sum = 0;\n    for(int i = 1; i <= n; i++)\n    {\n        ans = (ans + a[i] * (sum + a[i]) % mod) % mod;\n        sum = sum * 2ll % mod; sum = (sum + a[i]) % mod;\n    }\n    printf(\"%lld\", ans);\n    return 0;\n}\n```\n",
+        "postTime": 1670849175,
+        "uid": 239160,
+        "name": "Jekyll_Y",
+        "ccfLevel": 0,
+        "title": "[ARC116B] Products of Min-Max \u9898\u89e3"
+    }
+]

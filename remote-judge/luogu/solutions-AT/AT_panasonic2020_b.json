@@ -1,0 +1,42 @@
+[
+    {
+        "content": "$Solution:$\n\n\u8fd9\u9053\u9898\u7684\u8003\u70b9\u5176\u5b9e\u5c31\u662f~~\u56fd\u9645\u8c61\u68cb~~\u63a8\u516c\u5f0f\uff0c\u53ea\u8981~~\u9893\u5e9f\u7684\u65f6\u95f4\u591f\u957f~~\u4f1a\u73a9\u56fd\u9645\u8c61\u68cb\u7684\u90fd\u77e5\u9053\u600e\u4e48\u8d70\uff0c\u6240\u4ee5\u6211\u5c31\u4e0d\u7ed9\u5927\u5bb6\u4ecb\u7ecd\u4e86(\u5e76\u4e14\u9898\u76ee\u91cc\u9762\u7684\u56fe\u63cf\u7ed8\u5f97\u975e\u5e38\u6e05\u695a\uff0c\u7ecf\u8fc7~~\u7384\u5b66\u7684\u7b97\u6cd5~~\u53cd\u590d\u63a8\u6572\uff0c\u6211\u4eec\u5f97\u77e5\u516c\u5f0f\u4e3a $\\frac{n*m+1}{2}$\uff0c\u4ece\u4f55\u5f97\u6765\uff0c\u4f60\u53ea\u9700\u8981\u7528\u4e00\u4e2a\u6837\u4f8b\u628a\u6240\u6709\u80fd\u7ecf\u8fc7\u7684\u5730\u65b9\u6570\u4e00\u904d\uff0c\u5c31\u77e5\u9053\u4e86\uff0c\u4f46\u662f\u8fd9\u9053\u9898\u53c8\u4e00\u4e2a\u5751\uff0c\u5c31\u662f\u5f53 $n=1$ \u6216 $m=1$ \u65f6\uff0c\u8fd9\u4e2a\u516c\u5f0f\u662f\u4e0d\u6210\u7acb\u7684(\u6bd5\u7adf\u6709\u4e9b\u65f6\u5019\u4f1a\u6709\u4f8b\u5916\uff0c\u6240\u4ee5\u8fd9\u91cc\u6211\u4eec\u9700\u8981\u7279\u5224\u4e00\u4e0b\uff0c\u8f93\u51fa 1 \u5373\u53ef\n\n\u65e2\u7136\u8bb2\u5f97\u8fd9\u4e48\u6e05\u695a\u4e86(\u81ea\u5927\uff0c\u5c31\u4e0d\u7528\u653e\u4ee3\u7801\u4e86\u5427\uff0c\u81ea\u5df1\u53bb\u5b9e\u73b0\u4e00\u4e0b\u5427\u3002\n\n~~ps:\u4e0d\u5f00 longlong \u89c1\u7956\u5b97~~\n\n\u5982\u679c\u8fd9\u7bc7\u6587\u7ae0\u7ed9\u4e88\u4e86\u4f60\u5e2e\u52a9\uff0c\u90a3\u4f60\u5c31\u70b9\u4e2a\u8d5e\u518d\u8d70\u5427\uff0cThanks\u266a(\uff65\u03c9\uff65)\uff89",
+        "postTime": 1584335179,
+        "uid": 123808,
+        "name": "\u5e7b\u4e4b\u9668\u68a6",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT5805 \u3010Bishop\u3011"
+    },
+    {
+        "content": "~~\u56fd\u9645\u8c61\u68cb\u7684\u4e00\u4e2a\u5947\u602a\u7684\u7248\u672c\u3002~~\n\n\u7ecf\u8fc7~~\u5728\u7f51\u4e0a\u67e5\u7684~~\u63a8\u5bfc\uff0c\u53d1\u73b0\u5f53 $H \\times W$ \u662f\u5076\u6570\u65f6\uff0c\u5bf9\u89d2\u7ebf\u548c\u975e\u5bf9\u89d2\u7ebf\u7684\u80fd\u8d70\u5230\u683c\u5b50\u76f8\u540c\uff0c\u6240\u4ee5\u7b54\u6848\u662f $H \\times W \\div 2$\u3002\n\n\u5f53\u5b83\u662f\u5947\u6570\u65f6\uff0c\u5bf9\u89d2\u7ebf\u6bd4\u975e\u5bf9\u89d2\u7ebf\u591a\u4e00\u4e2a\u6240\u4ee5\u7b54\u6848\u662f $(H \\times W+1) \\div 2$\u3002\n\n\u7279\u5224\uff1a\u5f53 $H=1$ \u6216 $W=1$ \u65f6\uff0c\u4e3b\u6559\u4e0d\u80fd\u79fb\u52a8\uff0c\u6240\u4ee5\u7b54\u6848\u662f $1$\u3002\n\n\uff08\u6ce8\uff1a\u4e0d\u5f00 longlong \u89c1\u7956\u5b97\u3002\uff09\n\n\uff08\u518d\u6ce8\uff1aAT \u9898\u4e2d\u4e0d\u6362\u884c\uff0c\u542c\u53d6 WA \u58f0\u4e00\u7247\u3002\uff09\n\n\u4ee3\u7801\uff1a\n```cpp\n#include <cstdio>\n#include <iostream>\n#include <cmath>\n#include <algorithm>\n#include <string>\n#include <cstring>\n#include <queue>\nusing namespace std;\nint main()\n{\n\tlong long H,W;\n\tcin>>H>>W;\n\tif(H==1||W==1)\n\t{\n\t\tcout<<\"1\"<<endl;\n\t}\n\telse if(H*W%2==0)\n\t{\n\t\tcout<<H*W/2<<endl;\n\t}\n\telse\n\t{\n\t\tcout<<(H*W+1)/2<<endl;\n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1584508400,
+        "uid": 191868,
+        "name": "monstersqwq",
+        "ccfLevel": 8,
+        "title": "\u9898\u89e3 AT5805 \u3010Bishop\u3011"
+    },
+    {
+        "content": "\u8003\u8651\u5bf9\u4e00\u4e2a\u68cb\u76d8\u8fdb\u884c\uff08\u50cf\u56fd\u9645\u8c61\u68cb\u90a3\u6837\uff09\u4ea4\u9519\u67d3\u8272\uff0c\u6211\u4eec\u53d1\u73b0\u4e00\u4e2a\u4e3b\u6559\u53ea\u80fd\u8d70\u5230\u4e0e\u5f53\u524d\u683c\u5b50\u989c\u8272\u76f8\u540c\u7684\u7684\u683c\u5b50\u3002\n\n\u4e8e\u662f\u6211\u4eec\u628a\u8fd9\u4e00\u7247\u683c\u5b50\u6309\u987a\u5e8f\u62fc\u6210\u4e00\u6392\uff0c\u53d1\u73b0\u8fd9\u6392\u683c\u5b50\u4e2d\uff1a\n\n1. \u683c\u5b50\u53ea\u6709\u4e24\u79cd\u989c\u8272\uff08\u5e9f\u8bdd\uff09\u3002\n2. \u76f8\u90bb\u683c\u5b50\u989c\u8272\u4e0d\u540c\u3002\n\n\u4e8e\u662f\u6211\u4eec\u5c31\u53ef\u4ee5\u5f97\u5230\u7b54\u6848\u5f0f $ans=\\lfloor\\frac{H*W+1}{2}\\rfloor$\n\n\u6ce8\u610f\u7279\u5224 $H=1$ \u6216 $W=1$ \u7684\u60c5\u51b5\u3002\n\n\u8fd9\u9898\u867d\u7136\u6c34\u662f\u6c34\u4e86\u70b9\uff0c\u4f46\u4e5f\u8981\u8003\u9a8c\u7ec6\u5fc3\u80fd\u529b\uff0c\u6bd4\u5982\u535a\u4e3b\u7b2c\u4e00\u6b21\u63a8\u5f0f\u5b50\u5c31\u63a8\u9519\u4e862333\n\n\u4ee3\u7801\u592a\u4e11\u5c31\u4e0d\u653e\u4e86\u3002\u3002",
+        "postTime": 1584508260,
+        "uid": 106140,
+        "name": "e3c12195e3beef64f29a",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 AT5805 \u3010Bishop\u3011"
+    },
+    {
+        "content": "\u5728\u4e00\u4e2a $n\\times m$ \u7684\u68cb\u76d8\u4e0a\uff0c\u4e00\u4e2a\u8c61\u4ece\u5de6\u4e0a\u89d2\u5f00\u59cb\u80fd\u8d70\u5230\u7684\u683c\u5b50\u6570\u4e3a $\\dfrac{n\\times m+1}{2}$\uff0c\u4f46\u9700\u8981\u7279\u5224 $n=1$ \u6216 $m=1$ \u7684\u60c5\u51b5\uff0c\u56e0\u4e3a\u8fd9\u65f6\u8c61\u53ea\u80fd\u5728\u539f\u5730\u4e0d\u52a8\u3002\n\n```\n#include<bits/stdc++.h>\n#define re register\nusing namespace std;\ninline int read(){\n\tre int t=0;\n\tre char v=getchar();\n\twhile(v<'0')v=getchar();\n\twhile(v>='0'){\n\t\tt=(t<<3)+(t<<1)+v-48;\n\t\tv=getchar();\n\t}\n\treturn t;\n}\nlong long n,m;\nint main(){\n\tn=read();m=read();\n\tif(n>1&&m>1)\n\tprintf(\"%lld\",(n*m+1)/2);\n\telse puts(\"1\");\n}\n\n\n```\n",
+        "postTime": 1584411969,
+        "uid": 41476,
+        "name": "gyh20",
+        "ccfLevel": 10,
+        "title": "\u9898\u89e3 AT5805 \u3010Bishop\u3011"
+    },
+    {
+        "content": "# Bishop\n\n\u9898\u76ee\u5927\u610f:\u7ed9\u4f60\u4e00\u4e2a$n$\u884c$m$\u5217\u7684\u68cb\u76d8\uff0c\u5e76\u4e14\u6709$1$\u4e2a\u8c61\u5728$(1,1)$\u8fd9\u4e2a\u4f4d\u7f6e\uff0c\u95ee\u8fd9\u4e2a\u8c61\u6700\u591a\u80fd\u8d70\u5230\u591a\u5c11\u4e2a\u683c\u5b50(\u5305\u62ec$(1,1)$\u8fd9\u4e2a\u683c\u5b50)\u3002\n\n\u9996\u5148\uff0c\u6211\u4eec\u8981\u770b\u4e00\u4e0b\u8c61\u662f\u600e\u4e48\u8d70\u7684:\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/py6aufee.png?x-oss-process=image/resize,m_lfit,h_170,w_225)\n\n\u901a\u8fc7\u8ba1\u7b97\uff0c\u6211\u4eec\u53d1\u73b0\u7ed3\u679c\u662f$\\frac{n\\times m+1}{2}$(\u81ea\u884c\u8ba1\u7b97\uff0c\u8fd9\u91cc\u4e0d\u518d\u8d58\u8ff0)\u3002\n\n\u4f46\u8fd9\u6837\u771f\u7684\u53ef\u4ee5\u5417\uff1f\n\n\u6211\u5c31\u662f\u8fd9\u6837\u5199\u7684\u3002$So$\uff0c\u5c31\u83b7\u5f97\u4e86\u6700\u540e$3$\u4e2a\u6570\u636e\u70b9\u5168$\\color{white}\\colorbox{red}{Wrong Answer}$\u7684\u6210\u7ee9\u3002\n\n\u8fd8\u6709\u4e00\u79cd\u7279\u6b8a\u60c5\u51b5:\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/hxim3ln1.png?x-oss-process=image/resize,m_lfit,h_170,w_225)\n\n$So$\uff0c\u5224\u65ad\u4e00\u4e0b$n$\u6216$m$\u662f\u5426\u4e3a$1$\u5373\u53ef$\\color{white}\\colorbox{green}{Accepted}$\u3002\n\n\u63a5\u4e0b\u6765\u770b\u770b\u5b9e\u73b0:\n\n### Code:\n\n```cpp\n#include <bits/stdc++.h>\n#define ll long long\nusing namespace std;\n\nll n, m;\n\ninline ll read(){\t\t\t\t\t\t\t//\u5feb\u8bfb \n\tll s = 0, w = 1;\n\tchar ch = getchar();\n\tfor (; ch < '0' || ch > '9'; ch = getchar()) w *= ch == '-' ? -1 : 1;\n\tfor (; ch >= '0' && ch <= '9'; ch = getchar()) s = s * 10 + ch - '0';\n\treturn s * w;\n}\n\ninline void work(){\n\tn = read(), m = read();\n\tif (n == 1 || m == 1) puts(\"1\");\t\t//\u7279\u5224n\u6216m\u662f\u5426\u4e3a1 \n\telse printf(\"%lld\\n\", (n * m + 1) / 2);\t//\u5426\u5219\u8f93\u51fa\u7b54\u6848 \n}\n\nint main(){\n\twork();\n\treturn 0;\n}\n```\n\n",
+        "postTime": 1584313797,
+        "uid": 124527,
+        "name": "leoair",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT5805 \u3010Bishop\u3011"
+    }
+]

@@ -1,0 +1,34 @@
+[
+    {
+        "content": "**\u9898\u76ee\u5927\u610f**\n\n\u7ed9\u5b9a\u4e00\u4e2a\u957f\u65b9\u4f53\u7684\u957f\u3001\u5bbd\u3001\u9ad8\uff0c\u6c42\u957f\u65b9\u4f53\u7684\u4f53\u79ef $\\mod 10^9 + 7$\u3002\n\n**\u89e3\u9898\u601d\u8def**\n\n\u76f4\u63a5\u8f93\u51fa $[(x \\times y) \\mod 10^9 + 7] \\times z \\mod 10^9 + 7$\u3002\n\n**AC \u4ee3\u7801\uff0c\u8bf7\u52ff\u6284\u88ad**\n\n```cpp\n#include<bits/stdc++.h>\n#define mod 1000000007\nusing namespace std;\nlong long a, b, c;\nint main(){\n\tcin >> a >> b >> c;\n\tcout << ((a * b) % mod) * c % mod;\n\treturn 0;\n}\n\n```",
+        "postTime": 1666690179,
+        "uid": 482592,
+        "name": "cyfqwq",
+        "ccfLevel": 4,
+        "title": "AT_abc041_b [ABC041B] \u76f4\u65b9\u4f53 \u9898\u89e3"
+    },
+    {
+        "content": "# \u601d\u8def\n\n\u5c31\u662f\u4f9d\u9760$(a\u00d7b)\\%c=[(a\\%c)\u00d7(b\\%c)]\\%c$\u8fd9\u4e00\u516c\u5f0f\u3002\n\n# \u4ee3\u7801\n\n\u4ee3\u7801\u5982\u4e0b\uff1a\n\n```cpp\n#include<stdio.h>//\u5934\u6587\u4ef6\n#define MOD 1000000007ll//\u6570\u5b57\u540e\u9762\u8981\u52a0ll\n\nlong long a,b,c,V;//\u5168\u90e8\u4f7f\u7528\u8d85\u957f\u6574\u5f62\u9632\u6b62\u6ea2\u51fa\n\nint main(void){\n\tscanf(\"%lld%lld%lld\",&a,&b,&c);//\u8bfb\u5165\n\tV=((a*b)%MOD)*c%MOD;//\u8fd0\u7528\u516c\u5f0f\u8ba1\u7b97\n\tprintf(\"%lld\\n\",V);//\u8f93\u51fa\u7b54\u6848\uff0c\u8bb0\u5f97\u6362\u884c\n\treturn 0;//\u7ed3\u675f\n}\n```",
+        "postTime": 1532093773,
+        "uid": 38502,
+        "name": "agicy",
+        "ccfLevel": 9,
+        "title": "\u9898\u89e3 AT1962 \u3010\u76f4\u65b9\u4f53\u3011"
+    },
+    {
+        "content": "# \u8fd9\u662f\u4e00\u9053\u6c34\u9898\uff01\uff01\uff01\n\n#### \u867d\u7136\u9898\u76ee\u5f88~~\u56a3\u5f20~~\uff0c\u8bf4\u6570\u636e\u5f88~~\u5927~~\u3002\u4f46\u662f\u8fd8\u662f\u4e0d\u7528\u9ad8\u7cbe\u5ea6\u3002\n\n\u8bdd\u4e0d\u591a\u8bf4\uff0c\u4e0b\u9644\u4ee3\u7801\u3002\n\n```cpp\n#include<bits/stdc++.h>//\u4e07\u80fd\u5934\u6587\u4ef6\u4e07\u5c81\uff01\uff01\uff01\nusing namespace std;\n\nlong long mod = 1000000007;\n\nint main(){\n\tlong long a, b, c;\n\tcin >> a >> b >> c;\n\tcout << a % mod * b % mod * c % mod << endl;//\u8fb9\u4e58\u8fb9\u53d6\u6a21\u4e0d\u4f1a\u7206long long\uff01\uff01\uff01\n\treturn 0;\n}\n//\u5b8c\u7f8eAC\n```",
+        "postTime": 1532048980,
+        "uid": 65975,
+        "name": "Eric_hoo",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT1962 \u3010\u76f4\u65b9\u4f53\u3011"
+    },
+    {
+        "content": "\u672c\u9898\u4e0d\u96be\uff0c\u4f46\u662f\u6709\u5751\uff01\uff01\uff01\n\n\u4e0d\u53ef\u4ee5\u7b97\u51fa\u4f53\u79ef\u5728%1000000007\uff0c\u4f1a\u6ea2\u51fa\u3002\n\n\u9700\u8981\u7528\u5230\u540c\u4f59\u7684\u6027\u8d28\n\n$(a*b)mod$ $c$ = $((a$ $mod$ $c)$ * $(b$ $mod$ $c))$ $mod$ $c$ \n\n\u4e8e\u662f\u8fd9\u9053\u9898\u5c31\u53d8\u6210\u6c34\u9898\u4e86\n\n\u4ee3\u7801\u5982\u4e0b\n\n```cpp\n#include<cstdio>\n#include<iostream>\n#include<cstring>\n#include<cctype>\n#include<algorithm>\n#include<cstring>\nusing namespace std;\nconst int MOD=1000000007;\nint main()\n{\n\tlong long a,b,c;\n\tcin>>a>>b>>c;\n\tlong long c1=a%MOD*b%MOD*c%MOD;//\u6253\u661f\u53f7 \n\tcout<<c1<<endl;\n\treturn 0;\n}\n\n```",
+        "postTime": 1532091566,
+        "uid": 51645,
+        "name": "zybnxy",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT1962 \u3010\u76f4\u65b9\u4f53\u3011"
+    }
+]

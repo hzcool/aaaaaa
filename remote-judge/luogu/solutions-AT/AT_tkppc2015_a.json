@@ -1,0 +1,42 @@
+[
+    {
+        "content": "## Part 1 \u9898\u610f\n\u8fd9\u9053\u9898\u9898\u76ee\u5927\u610f\u5c31\u662f\uff1a\u7ed9\u4f60\u51e0\u7ec4\u6570\u636e\u8ba9\u4f60\u53bb\u6c42\u4ed6\u4eec\u7684\u548c\u3002\u770b\u5230\u8fd9\u91cc\uff0c\u6211\u4eec\u5c31\u53ef\u4ee5\u7528\u5faa\u73af\u7ed3\u6784\uff0c\u4e14\u5728\u5faa\u73af\u91cc\u505a\u52a0\u6cd5\u3002\u8fd8\u6709\u4e00\u4e2a\u6ce8\u610f\u4e8b\u9879\uff1a$N$ \u7684\u4e0a\u9650\u662f ${10^{5}}$ \uff0c\u6570\u7ec4\u5f00\u5c0f\u4e86\u4f1aRE\u3002\n\nAC\u4ee3\u7801\u5982\u4e0b\uff1a\n\n## Part 2 \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n\tint n,a[100010],b[100010];\n\tcin>>n;\n\tfor(int i=1;i<=n;i++){\n\t\tcin>>a[i]>>b[i];\n\t}for(int i=1;i<=n;i++){//N\u6b21\u5faa\u73af\uff0c\u5728\u5faa\u73af\u4e2d\u5bf9\u52a0\u6570\u76f8\u52a0\u3002\n\t\tcout<<a[i]+b[i]<<endl;//\u522b\u5fd8\u4e86\u6362\u884c\u3002\n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1666494694,
+        "uid": 762010,
+        "name": "Mr__AC",
+        "ccfLevel": 0,
+        "title": "AT_tkppc2015_a \u9898\u89e3"
+    },
+    {
+        "content": "\u4e00\u9053\u6c34\u9898\uff0c\u76f4\u63a5\u732e\u4e0a\u4ee3\u7801\uff1a\n```\n#include <iostream>\nusing namespace std;\nint main()\n{\n  \tint n,a,b;\n  \tcin>>n; //\u8f93\u5165n\n  \tfor(int i=0;i<n;i++) //\u603b\u5171\u5faa\u73afn\u6b21\n  \t{\n  \t\tcin>>a>>b; //\u8f93\u5165\u4e24\u4e2a\u6570\n  \t\tcout<<a+b<<endl; //\u8f93\u51fa\u4ed6\u4eec\u7684\u548c\uff0c\u7136\u540e\u6362\u884c\n    }\n  \treturn 0;\n}\n```",
+        "postTime": 1520933442,
+        "uid": 39848,
+        "name": "\u9648\u6d0b\u741b",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT1391 \u3010\u8db3\u3057\u7b97\u306e\u5bbf\u984c (A + B Home work)\u3011"
+    },
+    {
+        "content": "\u7b80\u5355\u6a21\u62df\u3002\n\n\u5bf9\u4e8e\u8f93\u5165\u7684 $n$\uff0c\u8fdb\u5165\u51fd\u6570 $f(n)$\uff0c\u5176\u8868\u793a\u8fd8\u6709 $n$ \u6b21\u8f93\u5165\u672a\u64cd\u4f5c\u3002\n\n\u5bf9\u4e8e\u6bcf\u6b21\u7684\u8f93\u5165\uff0c\u8f93\u5165\u540e\u76f4\u63a5\u8f93\u51fa\uff0c\u7136\u540e\u8fdb\u5165 $f(n-1)$\uff0c\u76f4\u5230 $f(0)$ \u505c\u6b62\u3002\n\nAC Code\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n\nvoid f(int x)\n{\n\tif(x<1) return;//\u8fb9\u754c\n\tint a,b;\n\tcin>>a>>b;\n\tcout<<a+b<<endl;\n\tf(--x);\n}\n\nint main()\n{\n\tint n;\n\tcin>>n;\n\tf(n);\n \treturn 0;\n}\n```",
+        "postTime": 1666478473,
+        "uid": 400269,
+        "name": "_JYqwq_",
+        "ccfLevel": 0,
+        "title": "AT_tkppc2015_a \u8db3\u3057\u7b97\u306e\u5bbf\u984c (A + B Home work)\u3000\u9898\u89e3"
+    },
+    {
+        "content": "\u7b2c\u4e00\u79cd\u65b9\u6cd5\uff1a\u8001\u8001\u5b9e\u5b9e\u5730\u8bfb$n+1$\u884c\uff0c\u8ba9\u540e\u628a\u540e$n$\u884c\u7684\u6570\u52a0\u8d77\u6765:\n```c\n#include<stdio.h>\nint readint(void){int x;scanf(\"%d\",&x);return x;}\nint main(void)\n{\n    int n=readint();\n    for(int i=0;i<n;++i)\n    {\n        int a=readint(),b=readint();\n        printf(\"%d\\n\",a+b);\n    }\n    return 0;\n}\n```\n\u7b2c\u4e8c\u79cd\u65b9\u6cd5\uff1a\u5148\u628a\u7b2c\u4e00\u4e2a\u6570\u7ed9\u5403\u6389\uff0c\u7136\u540e\u4e00\u76f4\u8bfb\u5230\u6ca1\u6709\u6570\u636e\u53ef\u8bfb\u4e3a\u6b62\uff1a\n```c\n#include<stdio.h>\nint readint(void){int x;scanf(\"%d\",&x);return x;}\nint main(void)\n{\n\tint n=readint(),a,b;\n\twhile(scanf(\"%d%d\",&a,&b)==2)printf(\"%d\\n\",a+b);\n\treturn 0;\n}\n```",
+        "postTime": 1522885657,
+        "uid": 43047,
+        "name": "Macrohard",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT1391 \u3010\u8db3\u3057\u7b97\u306e\u5bbf\u984c (A + B Home work)\u3011"
+    },
+    {
+        "content": "\u8fd9\u662f\u4e00\u9053\u6a21\u62df\u9898\uff0c\u5c31\u662f\u8f93\u5165A\u3001B\u8f93\u51faA+B\u3002\u4e0d\u9700\u8981\u4f7f\u7528\u9ad8\u7cbe\u5ea6\u7b97\u6cd5\u3002\n\n\u6ce8\u610f: \u8f93\u51fa\u522b\u5fd8\u4e86\u6362\u884c\u3002\n\n\u4ee3\u7801:\n```cpp\n#include <bits/stdc++.h>\nusing namespace std; //\u5934\u6587\u4ef6\u4e0e\u547d\u540d\u7a7a\u95f4\nint main(){\n    ios::sync_with_stdio(false); //\u8f93\u5165\u8f93\u51fa\u52a0\u901f\n    long long nCount,iNum1,iNum2; //\u95ee\u9898\u4e2a\u6570\u4e0e\u4e24\u4e2a\u52a0\u6570\n    register long long i; //\u5faa\u73af\u8ba1\u6570\u5668\n    cin>>nCount; //\u8bfb\u5165\u95ee\u9898\u4e2a\u6570\n    for (i=1;i<=nCount;++i){ //\u8bfb\u5165\u95ee\u9898\n        cin>>iNum1>>iNum2; //\u8bfb\u5165\u52a0\u6570\n        cout<<iNum1+iNum2<<endl; //\u6c42\u548c\uff0c\u52ff\u5fd8\u6362\u884c\n    }\n    return 0; //\u7ed3\u675f\n}\n```",
+        "postTime": 1520699567,
+        "uid": 74038,
+        "name": "PC_DOS",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT1391 \u3010\u8db3\u3057\u7b97\u306e\u5bbf\u984c (A + B Home work)\u3011"
+    }
+]

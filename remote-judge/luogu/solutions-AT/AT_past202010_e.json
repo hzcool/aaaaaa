@@ -1,0 +1,10 @@
+[
+    {
+        "content": "[\u30a2\u30ca\u30b0\u30e9\u30e0\u306e\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/AT_past202010_e#submit)\n\n\u9996\u5148\u53ef\u4ee5\u5c06 $s$ \u6392\u5e8f\uff0c\u518d\u7528 `next_permutation` \u4e0d\u65ad\u627e\u6ee1\u8db3 $t \\neq s$ \u7684 $t$\uff0c\u518d\u7528 `reverse` \u7ffb\u8f6c $t$ \u5e76\u5224\u65ad\u53cd\u8f6c\u540e\u7684 $t$ \u662f\u5426\u6ee1\u8db3 $tx \\neq s$\uff0c\u5982\u679c\u662f\uff0c\u90a3\u4e48\u76f4\u63a5\u8f93\u51fa\u5373\u53ef\uff1b\u5982\u679c\u4e0d\u662f\uff0c\u5219\u7ee7\u7eed\u5224\u65ad\u3002\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nconst int N=1e5+5;\nint n;\nstring s,t,tx;\nsigned main() {\n\tios::sync_with_stdio(false);cin.tie(0);cout.tie(0);\n\tcin>>n>>s;\n\tt=s;sort(t.begin(),t.end());\n\tdo {\n\t\ttx=t;\treverse(tx.begin(),tx.end());\n\t\tif(t!=s&&tx!=s) {cout<<t;\treturn 0;}\n\t}while(next_permutation(t.begin(),t.end()));\n\tcout<<\"None\";\n\treturn 0;\n}\n```",
+        "postTime": 1679148474,
+        "uid": 688783,
+        "name": "NM_ljy",
+        "ccfLevel": 0,
+        "title": "\u30a2\u30ca\u30b0\u30e9\u30e0"
+    }
+]

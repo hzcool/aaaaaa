@@ -1,0 +1,66 @@
+[
+    {
+        "content": "### AT4810 [ABC133C] Remainder Minimization 2019\n\n\u8fd9\u9898\u672c\u8d28\u4e0a\u8003\u5bdf\u7684\u662f**\u6a21\u62df**\u7b97\u6cd5\u3002\n\n\n\u9898\u610f\uff1a \u7ed9\u51fa $L$ \u548c $R$\uff0c\u5728\u5176\u4e2d\u627e\u51fa $i$ \u548c $j$\uff0c\u4f7f\u5f97 $i\u00d7j\\;mod\\;2019$ \u6700\u5c0f\u3002\n\n\u4f46\u662f\u5176\u4e2d\u4f9d\u65e7\u6709\u5e94\u8be5\u6ce8\u610f\u7684\u5730\u65b9\uff1a\n\n\u9996\u5148\u7531\u4e8e\u8303\u56f4\u4e3a $10^8$,\u6240\u4ee5\u5fc5\u987b\u5f00 long long\u3002\n\n2.\u5982\u679c\u5728\u5176\u4e2d\n\n```cpp\nif(ans==0)\n\tbreak;\n```\n\u56e0\u4e3a $0$ \u5df2\u7ecf\u662f\u6700\u5c0f\u7684\uff0c\u6240\u4ee5\u663e\u800c\u6613\u89c1\uff0c\u6211\u4eec\u5c31\u6ca1\u6709\u5fc5\u8981\u7ee7\u7eed\u5faa\u73af\u4e0b\u53bb\u4e86\uff0c\u6240\u4ee5\u76f4\u63a5\u8df3\u51fa\u5c31\u53ef\u4ee5\u4e86\u3002\n\n~~\uff08\u5982\u679c\u4e0d\u52a0\u8fd9\u91cc\u7b2c\u4e09\u4e2a\u70b9\u4f1a $T$\uff09~~\n\n\u6240\u4ee5\u4ee3\u7801\u5c31\u662f\u8fd9\u6837\u4e86\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n#define int long long \nsigned main()\n{\n\tint n,m;\n\tcin>>n>>m;\n\tint ans=1e6+10;\n\tfor(int i=n;i<=m;i++)\n\t{\n\t\tfor(int j=i+1;j<=m;j++)\n\t\t{\n\t\t\tans=min(ans,(i*j)%2019);\n\t\t\tif(ans==0)\n\t\t\t\tbreak;\n\t\t}\n\t\tif(ans==0)\n\t\t\tbreak;\n\t}\n\tcout<<ans<<endl;\n}\n```\n\n",
+        "postTime": 1653097693,
+        "uid": 361141,
+        "name": "_JF_",
+        "ccfLevel": 0,
+        "title": "AT4810 [ABC133C] Remainder Minimization 2019"
+    },
+    {
+        "content": "# \u601d\u8def\uff1a\n\n\u4e00\u770b\u5230\u8fd9\u9053\u9898\u60f3\u5230\u7684\u5c31\u662f\u66b4\u529b\u679a\u4e3e\u4e86\uff0c\u4f46\u4e00\u770b $0\u2264L<R\u22642\u00d710^9$\uff0c$O((R-L+1)^2)$ \u7684\u65f6\u95f4\u590d\u6742\u5ea6\u663e\u7136\u662f\u4e0d\u591f\u7684\u3002 \n\n\u4f46\u6211\u4eec\u4e0d\u8981\u88ab\u8ff7\u60d1\u4e86\uff0c\u56e0\u4e3a\u9898\u76ee\u91cc\u8bf4\u4e86\u662f$\\mod 2019$ \u540e\u7684\u7ed3\u679c\u3002\u5982\u679c\u5f53 $L$ \u548c $R$ \u7279\u522b\u5927\u7684\u65f6\u5019\uff0c\u6211\u4eec $i$ \u548c $j$ \u6700\u591a\u53ea\u9700\u5206\u522b\u8003\u8651 $2019$ \u4e2a\u6570\u5c31\u884c\u4e86\uff0c\u56e0\u4e3a $(i\u00d7j)\\mod 2019$ \u7684\u7ed3\u679c\u5fc5\u7136\u5728 $0 - 2018$ \u8fd9  $2019$ \u4e2a\u6570\u91cc\u3002\n\n\u90a3\u4e48\uff0c\u73b0\u5728\u7684\u65f6\u95f4\u590d\u6742\u5ea6\u5c31\u964d\u6210\u4e86 $O ( 2019^2 )$  \uff0c\u8fdc\u5c0f\u4e8e\u65f6\u95f4\u9650\u5236\u3002\n\n**~~reader : Talks are cheap , show me the code !!!~~**\n\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nlong long L,R,ans=2019;\nint main(){\n\tscanf(\"%lld%lld\",&L,&R);\n\tfor(long long i=L;i<=R;i++){\n\t\tfor(long long j=i+1;j<=R;j++){\n\t\t\tans=min(ans,(i*j)%2019);\n\t\t\tif(ans==0){\t\t\t\t\t\n\t\t\t\tprintf(\"0\\n\");\n\t\t\t\treturn 0;\n\t\t\t}\n\t\t}\n\t}\n\tprintf(\"%lld\\n\",ans);\n\treturn 0;\n}\n```\n\u518d\u8bf4\u51e0\u4e2a\u53ef\u80fd\u9519\u7684\u70b9\u5427\uff1a\n\n- \u7531\u4e8e $0\u2264L<R\u22642\u00d710^9$ \uff0c\u7a0b\u5e8f\u91cc\u9762\u7684\u4e00\u4e9b\u53d8\u91cf\u8bb0\u5f97\u8981\u5f00 ```long long``` \u3002\n\n- \u7531\u4e8e $L\u2264i<j\u2264R$ \uff0c$j$ \u5fc5\u987b\u4ece $i+1$ \u5f00\u59cb\u679a\u4e3e\uff0c\u5426\u5219\u8fde\u6837\u4f8b\u90fd\u8fc7\u4e0d\u53bb\u3002\n\n[\u5b8c\u7ed3\u6492\u82b1\uff01\uff01\uff01](https://www.luogu.com.cn/record/76595853)\n",
+        "postTime": 1653809034,
+        "uid": 585962,
+        "name": "Deamer",
+        "ccfLevel": 4,
+        "title": "AT4810\u9898\u89e3"
+    },
+    {
+        "content": "### \u89e3\u9898\u601d\u8def\uff1a\n\u7b2c\u4e00\u773c\u770b\u5230\u8fd9\u4e00\u9053\u9898\u7684\u611f\u89c9\u5c31\u662f\u679a\u4e3e\u3002\u4f46\u662f\u9700\u8981\u6ce8\u610f\uff1a\n- \u53d8\u91cf\u5f97\u5f00 `long long` \u3002\u56e0\u4e3a\u5355\u4e2a\u533a\u95f4\u6700\u5927\u5df2\u7ecf\u662f $ 10^9 $ \u4e86\uff0c\u518d\u505a\u4e58\u6cd5\u7edd\u5bf9\u4f1a\u7206 `int` \uff0c\u6240\u4ee5\u6211\u4eec\u5f97\u5f00 `long long`\u3002\n\n\u6211\u4eec\u53ef\u4ee5\u7528 $ i $ \u548c $ j $ \u6a21\u62df\u6bcf\u4e00\u4e2a\u533a\u95f4\u5185\u7684\u6570\u5e76\u627e\u51fa\u4e58\u79ef $\\bmod$ (\u53d6\u4f59) $ 2019 $ \u6700\u5c0f\u7684\u4e24\u4e2a\u6570\u3002\u5e76\u4e14\u4e3a\u4e86\u4e0d\u8d85\u65f6\uff0c\u6211\u4eec\u53ef\u4ee5\u7279\u5224 $ ans=0 $ \u65f6\u76f4\u63a5\u8df3\u51fa\u5faa\u73af\u3002\n### \u4ee3\u7801\uff1a\n```cpp\n#include<iostream>\nusing namespace std;\nint main() {\n    long long l,r;//\u5f00long long\n    long long ans=2019;\n    cin>>l>>r;\n    for(long long i=l;i<=r;++i){\n        for(long long j=i+1;j<=r;++j){\n            ans=min(ans,(i*j)%2019);//\u5224\u65ad\u6700\u5c0f\u503c\n            if(ans==0)break;//\u5982\u679c\u4e3a0\u90a3\u4e48\u80af\u5b9a\u662f\u6700\u5c0f\uff0c\u76f4\u63a5\u8df3\u51fa\u5faa\u73af\u3002\n        }\n        if(ans==0)break;//\u540c\u4e0a\u3002\n    }\n    cout<<ans;//\u8f93\u51fa\u6700\u5c0f\u503c\n    return 0;\n}\n\n```\n\n",
+        "postTime": 1647061254,
+        "uid": 517086,
+        "name": "Anclogy",
+        "ccfLevel": 3,
+        "title": "AT4810"
+    },
+    {
+        "content": "## 1 \u9898\u610f\n\u5728 $[l,r]$ \u7684\u8303\u56f4\u5185\u9009\u62e9\u4e24\u4e2a\u6570 $i,j(i<j)$\uff0c\u4f7f\u5f97 $(i \\times b)\\mod 2019$ \u6700\u5c0f\u3002\n## 2 \u601d\u8def\n\u4e4d\u4e00\u770b $l,r\\leq 2 \\times 10^9$\uff0c$O((r-l+1)^2)$ \u7684\u65f6\u95f4\u590d\u6742\u5ea6\u80af\u5b9a\u4f1a\u70b8\u3002\u3001\n\n\u4f46\u662f\u6211\u4eec\u53d1\u73b0\uff0c\u53ea\u8981\u6211\u4eec\u627e\u5230 $i\\mod 2019=0$ \u6216\u8005 $j\\mod 2019=0$\uff0c\u90a3\u4e48\u7b54\u6848\u80af\u5b9a\u5c31\u662f $0$\u3002\n\n\u6240\u4ee5\u66b4\u529b\u7684\u65f6\u95f4\u590d\u6742\u5ea6\u5c31\u964d\u6210\u4e86 $O(2019^2)$\u3002\n\n\u76f4\u63a5\u66b4\u529b\u5373\u53ef\u3002\n## 3 code\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n#define ll long long\nll l,r;\nll ans,now;\nint main(){\n\tcin>>l>>r;\n\tans=2022;\n\tfor(ll i=l;i<r;i++){//\u679a\u4e3ei\n\t\tfor(ll j=i+1;j<=r;j++){//\u679a\u4e3ej\n\t\t\tans=min(ans,(i*j)%2019);//\u53d6\u6700\u5c0f\u503c\n\t\t\tif(ans==0) break;//\u5df2\u7ecf\u8fbe\u5230\u6700\u5c0f\u503c\n\t\t}\n\t\tif(ans==0) break;\n\t}\n\tcout<<ans;\n\treturn 0;\n}\n```\n",
+        "postTime": 1645421272,
+        "uid": 343251,
+        "name": "heaksicn",
+        "ccfLevel": 5,
+        "title": "AT4810 [ABC133C] Remainder Minimization 2019"
+    },
+    {
+        "content": "## \u601d\u8def\n\n\u76f4\u63a5\u66b4\u529b\u679a\u4e3e\u3002\n\n\u6709\u4e24\u70b9\u8981\u6ce8\u610f\uff1a\n\n1. \u5982\u679c\u5f53\u524d\u6c42\u5f97\u7684\u6700\u5c0f\u503c\u4e3a0\uff0c\u76f4\u63a5\u8f93\u51fa\u5e76\u9000\u51fa\u7a0b\u5e8f\uff1b~~\u6211\u7b2c\u4e00\u904d\u5c31\u662f\u8fd9\u4e48TLE\u7684\u3002~~\n\n2. \u6570\u636e\u8303\u56f4\u662f $2 \\times {10^9}$\uff0c \u518d\u4e00\u4e58\u5fc5\u7136\u4f1a\u7206 $\\texttt{int}$\uff0c\u6240\u4ee5\u8981\u5f00 $\\texttt{long long}$\u3002\n\n## \u4e0a\u4ee3\u7801\n\n```cpp\n#include<cstdio>\n#include<iostream>\n#include<algorithm>\n#define ll long long\nusing namespace std;\nll l,r;\nll ans=2020;//ans\u7684\u521d\u59cb\u503c\u53ea\u8981\u5c0f\u4e8e mod2019 \u4e5f\u5c31\u662f2018 \u5c31\u53ef\u4ee5\nint main()\n{\n\tscanf(\"%lld%lld\",&l,&r);\n\tfor(ll i=l;i<=r;i++)\n\t{\n\t\tfor(ll j=i+1;j<=r;j++)\n\t\t{\n\t\t\tans=min(ans,(i*j)%2019);\n\t\t\tif(ans==0)//\u5982\u679c\u4e3a0\u76f4\u63a5\u8f93\u51fa\u5e76\u9000\u51fa\u7a0b\u5e8f\uff0c\u5426\u5219\u4f1a\u8d85\u65f6\n\t\t\t{\n\t\t\t\tprintf(\"0\\n\");\n\t\t\t\treturn 0;\n\t\t\t}\n\t\t}\n\t}\n\tprintf(\"%lld\\n\",ans);\n\treturn 0;\n}\n\n```\n\n**\u5c9b\u56fd\u7684\u9898\u4e00\u5b9a\u8981\u884c\u672b\u6362\u884c**",
+        "postTime": 1643198566,
+        "uid": 335621,
+        "name": "makerlife",
+        "ccfLevel": 4,
+        "title": "AT4810 \u9898\u89e3"
+    },
+    {
+        "content": "### AT4810 [ABC133C] Remainder Minimization 2019\u9898\u89e3\n\n\n------------\n#### \u9898\u610f\u7406\u89e3\n\n\u9898\u76ee\u7684\u5927\u81f4\u610f\u601d\u662f\uff1a\u7ed9\u5b9a $L-R$ \u7684\u533a\u95f4\uff0c\u8ba9\u4f60\u4efb\u610f\u9009\u62e9\u4e24\u4e2a\u6570\u4f7f\u5176\u4e58\u79ef\u6a21 $2019$  \u7684\u4f59\u6570\u6700\u5c0f\uff0c\u8f93\u51fa\u4f59\u6570\u3002\n\n\n\n------------\n#### \u89e3\u9898\u601d\u8def\n\n\u679a\u4e3e\u3002\n\n\u53cc\u91cd\u5faa\u73af\u679a\u4e3e\u533a\u95f4\u8303\u56f4\uff0c\u5982\u679c\u5f53\u524d\u7684\u6700\u5c0f\u503c\u4e3a\u96f6\uff0c\u5219\u9000\u51fa\u5faa\u73af\u5373\u53ef\u3002\n\n\u5982\u679c\u533a\u95f4\u8303\u56f4\u8d85\u8fc7 $2019$ \uff0c\u5219\u4e00\u5b9a\u4f1a\u6709 $0$ \u7684\u60c5\u51b5\uff0c\u53cd\u5219\u4e0d\u4f1a\u8d85\u65f6\uff0c\u6240\u4ee5\u65f6\u95f4\u590d\u6742\u5ea6\u662f\u975e\u5e38\u5c0f\u7684\u3002\n\n\u552f\u4e00\u8981\u6ce8\u610f\u7684\u662f\uff0c\u533a\u95f4\u6700\u5927\u4f1a\u8fbe\u5230 $10^9$ \uff0c\u8fd9\u662f\u4e58\u8d77\u6765\u518d\u53d6\u6a21\u4f1a\u7206 $int$ \uff0c\u6211\u4eec\u9700\u8981\u5f00 $long\\ long$ \u3002\n\n\n------------\n#### \u4e3b\u8981\u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std; \n#define R register\nint main(){\n\tR long long n,m,ans;//\u9700\u8981\u5f00long long\u3002\n\tcin>>n>>m;\n\tfor(R long long i=n;i<=m;i++)\n\tfor(R long long j=i+1;j<=m;j++){\n\tans=min(ans,i*j%2019);\n\tif(ans==0){//\u5982\u679c\u67090\u7684\u60c5\u51b5\u51fa\u73b0\uff0c\u76f4\u63a5\u9000\u51fa\u3002\n\t    return cout<<0<<endl,0;\n\t}\n\t}\n\tcout<<ans;\n}\n```\n\n\n------------\n\u5b8c\u7ed3\u6492\u82b1\uff01![qq](https://cdn.luogu.com.cn/upload/pic/62224.png)",
+        "postTime": 1625202414,
+        "uid": 303025,
+        "name": "zjyqwq",
+        "ccfLevel": 5,
+        "title": "AT4810 [ABC133C] Remainder Minimization 2019\u9898\u89e3"
+    },
+    {
+        "content": "\n## \u601d\u8def\n\u770b\u5230\u8fd9\u9898\uff0c\u6211\u5c31\u60f3\u5230\u4e86\u66b4\u529b\u679a\u4e3e\n\n\u7528\u4e24\u4e2a\u5faa\u73af\u6765\u6a21\u62df\u533a\u95f4\u4e2d\u7684\u6bcf\u4e00\u4e2a\u6570\u4e2d\u7684\u4e24\u4e2a\uff0c\u6765\u5bf9\u5176\u7ed3\u679c\u53d6min\uff0c\u4e3a\u4e86\u8282\u7701\u65f6\u95f4\uff0c\u6211\u8fd8\u52a0\u4e86\u4e2a\u7279\u5224\uff0c\u5c31\u662f\u5982\u82e5\u4f59\u6570\u4e3a0\u5c31\u4e0d\u7528\u5728\u7ee7\u7eed\u5224\u65ad\uff0c\u76f4\u63a5\u8f93\u51fa\u7136\u540e\u8df3\u51fa\u5373\u53ef\n\n\u7528i\u548cj\u6a21\u62df\u6bcf\u4e00\u4e2a\u533a\u95f4\u5185\u7684\u6570\u5e76\u627e\u51fa\u4e58\u79ef\u53d6\u4f592019\u6700\u5c0f\u7684\u4e24\u4e2a\u6570\n\n### CODE\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nlong long l,r;//\u8f93\u5165\u7684\u4e24\u4e2a\u6570\uff0c\u5fc5\u987b\u5f00long long \nlong long ans=2018;//\u7b54\u6848\uff0c\u56e0\u4e3amod2019\u6700\u591a\u4e3a2018 \nint main(){\n\tcin>>l>>r;\n\tfor(long long i=l;i<=r;++i){\n\t\tfor(long long j=i+1;j<=r;++j){\n\t\t\t//\u5728l~r\u533a\u95f4\u4e2d\u6a21\u62df\u4e58\u79ef\u4e0e2019\u6700\u5c0f\u7684\u4e24\u4e2a\u6570\n\t\t\tans=min(ans,(long long)(i*j%2019));//\u53d6\u6700\u5c0f\u503c\n\t\t\tif(ans==0){//\u5982\u679c\u4f59\u6570\u5df2\u7ecf\u4e3a0\uff0c\u5c31\u4e0d\u7528\u518d\u5224\u65ad\u4e86\uff0c\u56e0\u4e3a0\u5df2\u7ecf\u662f\u6700\u5c0f\u7684\u4e86 \n\t\t\t\tcout<<ans;\n\t\t\t\treturn 0;\n\t\t\t} \n\t\t}\n\t}\n\tcout<<ans;//\u8f93\u51fa\u7b54\u6848\n\treturn 0;//\u4e0d\u80fd\u5fd8\u4e86 \n}\n```\n",
+        "postTime": 1614241139,
+        "uid": 368851,
+        "name": "Accteped",
+        "ccfLevel": 4,
+        "title": "AT4810 [ABC133C] Remainder Minimization 2019"
+    },
+    {
+        "content": "\u9898\u76ee\u5927\u610f\uff1a\u7ed9\u4f60$L$,$R$\u4e24\u6570\uff0c\u9009\u62e9$i$,$j$\u6ee1\u8db3$L \\leq i,j\\leq r$,$i $<$j$,\u6c42\u51fa$i \\times$$j$ $mod$ $2019$ \u7684\u6700\u5c0f\u503c\u3002\n\n\u601d\u8def\uff1a\u66b4\u529b\u6a21\u62df\u5373\u53ef\u3002    \n\u4e0a\u4ee3\u7801\n```c\n#include<bits/stdc++.h>//\u4e07\u80fd\u5934\u6587\u4ef6\nusing namespace std;//\u547d\u540d\u7a7a\u95f4\n#define rd read()\n#define gc getchar()\n#define ll long long\n#define pu puts(\" \")\nint read() {\n\tint x=0,f=1;char ch=gc;\n\twhile(!isdigit(ch)) {\n  if(ch=='-')f=-1;ch=gc;}\n\twhile(isdigit(ch))x=x*10+ch-48,ch=gc;\n\treturn x*f;//\u5feb\u8bfb\n}\nvoid print(int x) {\n\tif(x>9)print(x/10);\n\tputchar(x%10+48);//\u5feb\u8f93\n}\nll ans=2018;//\u4e0d\u8d85\u8fc72019\nint main() {\n   ll l=rd,r=rd;//\u8f93\u5165l,r\n   for(ll i=l;i<=r;i++)//\u5faa\u73af\u679a\u4e3e\n   {\n   \tfor(ll j=i+1;j<=r;j++)//\u4ecei+1\u5f00\u59cb\u5faa\u73af\n   {\n   \t\tans=min(ans,i*j%2019);//\u66f4\u65b0\u7b54\u6848\n   \t\tif(ans==0)\n   \t\t{\n   \t\t\tputs(\"0\");return 0;//\u7279\u5224\u7b49\u4e8e0\u7684\u60c5\u51b5\uff0c\u76f4\u63a5\u7ed3\u675f\n\t\t   }\n\t   }\n\t} \n\tprint(ans),pu;//\u8f93\u51fa\u7b54\u6848\n\treturn 0;\n}\n```\n",
+        "postTime": 1586435132,
+        "uid": 181434,
+        "name": "\u9526\u96332006",
+        "ccfLevel": 3,
+        "title": "\u9898\u89e3 AT4810 \u3010[ABC133C] Remainder Minimization 2019\u3011"
+    }
+]

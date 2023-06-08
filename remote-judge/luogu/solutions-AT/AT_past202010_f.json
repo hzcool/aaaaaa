@@ -1,0 +1,10 @@
+[
+    {
+        "content": "[\u69cb\u6587\u89e3\u6790\u306e\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/AT_past202010_f)\n\n\u8f93\u5165\u65f6\u7528 `map` \u8bb0\u5f55 $s_i$ \u7684\u51fa\u73b0\u6b21\u6570\u3002\n\n\u518d\u5c06\u6240\u6709 $s_i$ \u6392\u5e8f\uff0c\u5e76\u53bb\u91cd\u3002\n\n\u7136\u540e\u6309\u51fa\u73b0\u6b21\u6570\u964d\u5e8f\u6392\u5e8f\u3002\n\n\u6700\u540e\u5224\u65ad\u5982\u679c\u7b2c $k$ \u540d\u7684\u4e0a\u4e00\u4e2a\u6216\u4e0b\u4e00\u4e2a\u51fa\u73b0\u6b21\u6570\u4e00\u6837\uff0c\u5c31\u8f93\u51fa `AMBIGUOUS`\uff0c\u5426\u5219\u5c31\u76f4\u63a5\u8f93\u51fa\u7b2c $k$ \u540d\u7684\u5b57\u7b26\u4e32\u3002\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nconst int N=1e5+5;\nint n,k,id[N];\nstring a[N];\nmap<string,int> t;\ninline bool xmp(int x,int y) {return t[a[x]]>t[a[y]];}\nsigned main() {\n\tios::sync_with_stdio(false);cin.tie(0);cout.tie(0);\n\tcin>>n>>k;\n\tfor(int i=1;i<=n;++i) {cin>>a[i];\t++t[a[i]];}\n\tsort(a+1,a+n+1);\n\tint nz=unique(a+1,a+n+1)-a-1;\n\tfor(int i=1;i<=nz;++i)\tid[i]=i;\n\tsort(id+1,id+nz+1,xmp);\n\tif(t[a[id[k]]]==t[a[id[k+1]]]||\n\tt[a[id[k]]]==t[a[id[k-1]]])\tcout<<\"AMBIGUOUS\";\n\telse\tcout<<a[id[k]];\n\treturn 0;\n}\n```",
+        "postTime": 1679147265,
+        "uid": 688783,
+        "name": "NM_ljy",
+        "ccfLevel": 0,
+        "title": "\u69cb\u6587\u89e3\u6790"
+    }
+]

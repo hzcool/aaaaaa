@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u9898\u610f\uff1a\u7ed9\u4e00\u5f20\u65e0\u5411\u56fe\uff0c\u7ed9\u5b9a\u4e00\u4e9b\u70b9\uff0c\u6c42\u8d70\u8fc7\u5168\u90e8\u7ed9\u5b9a\u7684\u70b9\u7684\u6700\u5c0f\u4ee3\u4ef7\u3002\n\nn<=8\uff0c\u76f4\u63a5\u5168\u6392\u5217\u7136\u540e\u6bd4\u5927\u5c0f\u5c31\u884c\u4e86\uff0cfloyd n^3\u7684\u590d\u6742\u5ea6\u5728n!\u9762\u524d\u663e\u5f97\u5fae\u4e0d\u8db3\u9053\u3002\n\n```cpp\n#include<iostream>\n#include<cstring>\n#include<algorithm>\nusing namespace std;\n\nint n,m,R,dist[300][300],r[10];\n\nint main()\n{\n    memset(dist,0x3f,sizeof dist);\n    int Min,ans;\n    cin>>n>>m>>R;\n    for(int i=0;i<R;i++)\n        cin>>r[i];\n    for(int i=0;i<m;i++)\n    {\n        int x,y,z;\n        cin>>x>>y>>z;\n        dist[x][y]=dist[y][x]=z;\n    }\n    for(int k=1;k<=n;k++)\n        for(int i=1;i<=n;i++)\n            for(int j=1;j<=n;j++)\n                if(dist[i][k]+dist[k][j]<dist[i][j])\n                    dist[i][j]=dist[i][k]+dist[k][j];\n    sort(r,r+R);\n    ans=0x3f3f3f3f;\n    do\n    {\n        Min=0;\n        for(int i=0;i<R-1;i++)\n            Min+=dist[r[i]][r[i+1]];\n        ans=min(Min,ans);\n    }while(next_permutation(r,r+R));\n    cout<<ans;\n}\n```",
+        "postTime": 1558836644,
+        "uid": 27950,
+        "name": "fly20040720",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 AT3531 \u3010joisino&#039;s travel\u3011"
+    }
+]

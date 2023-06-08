@@ -1,0 +1,26 @@
+[
+    {
+        "content": "\u6ce8\u610f\u5230\u4ee5\u4e0b\u4e24\u79cd\u64cd\u4f5c\u662f\u7b49\u4ef7\u7684\uff1a\n\n- \u628a $N - 1$ \u540d\u9009\u624b\uff08\u9664\u4e86\u56de\u7b54\u51fa\u6b63\u786e\u7b54\u6848\u7684\u9009\u624b\uff09\u7684\u5206\u6570\u51cf $1$\u3002\n- \u628a\u6240\u6709\u4eba\u5206\u6570\u51cf $1$\uff0c\u518d\u628a\u56de\u7b54\u5bf9\u7684\u4eba\u52a0 $1$\u3002\n\n\u6240\u4ee5\u6211\u4eec\u53ef\u4ee5\u8fd9\u6837\u64cd\u4f5c\uff1a\n\n1. \u5c06\u6240\u6709\u9009\u624b\u90fd\u6263\u6389 $Q$ \u5206\uff1b\n2. \u5bf9\u4e8e\u6240\u6709\u6b63\u786e\u7b54\u6848\uff0c\u5c06\u8fd9\u4e9b\u56de\u7b54\u51fa\u6b63\u786e\u7b54\u6848\u7684\u4eba\u7684\u5206\u6570\u52a0\u4e0a $1$\u3002\n\n\u90a3\u4f60\u53d1\u73b0\u7b2c\u4e00\u6b65\u5176\u5b9e\u5c31\u662f\u8ba9\u6240\u6709\u4eba\u5206\u6570\u521d\u59cb\u5316\u4e3a $K-Q$\uff0c\u4e8e\u662f\u5c31\u505a\u5b8c\u4e86\u3002\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n\n#define rep(i, l, r) for(auto i = (l); i <= (r); i ++)\n#define per(i, r, l) for(auto i = (r); i >= (l); i --)\n\nconst int N = 1000010;\nint n, k, q;\nint a[N], s[N], b[N];\n\nint main() {\n  cin >> n >> k >> q;\n  rep (i, 1, q) cin >> a[i];\n  rep (i, 1, n) s[i] = k - q;\n  rep (i, 1, q) s[a[i]]++;\n  rep (i, 1, n) printf(s[i] <= 0 ? \"No\\n\" : \"Yes\\n\");\n}\n```",
+        "postTime": 1658823955,
+        "uid": 219791,
+        "name": "tZERO\u3061\u3083\u3093",
+        "ccfLevel": 0,
+        "title": "AT4870 ABC141C"
+    },
+    {
+        "content": "## \u9898\u76ee\u5927\u610f\n\n\u81ea\u884c\u7ffb\u8bd1\uff0c ~~\u673a\u7ffb\u5927\u6cd5\u597d~~\n\n## \u601d\u8def\n\n\u8fd9\u9053\u9898\u7684\u5173\u952e\u5728\u4e0e\u7406\u89e3\u9898\u610f\uff0c\u5f53\u5176\u4ed6\u4eba\u7b54\u5bf9\u95ee\u9898\u65f6\u5019\uff0c\u5176\u4f59\u7684\u4eba\u8981 $-1$ ,\u6240\u4ee5\u4e00\u4e2a\u4eba\u6700\u540e\u7684\u5206\u6570\u4e3a $k - (q - n) $ \uff08 $n$ \u4e3a\u6b63\u786e\u95ee\u9898\u7684\u6570\u91cf \uff09\u3002\n\n\u6240\u4ee5\u8fd9\u4e2a\u95ee\u9898\u7684\u4e3b\u8981\u4efb\u52a1\u662f\u8ba1\u7b97\u6bcf\u4e2a\u73a9\u5bb6\u7684\u6b63\u786e\u95ee\u9898\u6570\u91cf\u3002 \n\n\u6240\u4ee5\u6211\u4eec\u7528\u4e00\u4e2a\u6876\u6765\u5b58\u50a8\u5373\u53ef\u3002\n\n## \u4ee3\u7801\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nmap<int , int> Mp;\nint N , K , Q , T;\n\nint main() \n{\n\tcin >> N >> K >> Q;\n\tfor(int i = 1; i <= Q; i++) \n\t{\n\t\tcin >> T;\n\t\tMp[T]++;\n\t}\n\tfor(int i = 1; i <= N; i++) \n\t{\n\t\tif(K - (Q - Mp[i]) > 0) puts(\"Yes\");\n\t\telse puts(\"No\");\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1638774381,
+        "uid": 461426,
+        "name": "CmsMartin",
+        "ccfLevel": 6,
+        "title": "AT4870 [ABC141C] Attack Survival"
+    },
+    {
+        "content": "# Attack Survival\n\n\u9898\u76ee\u5927\u610f:\u6709$n$\u4e2a\u73a9\u5bb6\uff0c\u6bcf\u4e2a\u73a9\u5bb6\u521a\u5f00\u59cb\u6709$k$\u5206\uff0c\u7136\u540e\u8fdb\u884c$q$\u8f6e\uff0c\u6bcf\u8f6e\u90fd\u6709\u4e00\u540d\u73a9\u5bb6\u83b7\u80dc\uff0c\u8ba9\u5269\u4e0b\u7684$n-1$\u4e2a\u73a9\u5bb6\u7684\u5206\u6570$-1$\u3002\u5982\u679c\u7b2c$i$\u4e2a\u73a9\u5bb6\u7684\u5206\u6570$\\leq 0$\uff0c\u8f93\u51fa$No$\uff0c\u53cd\u4e4b\u5219\u8f93\u51fa$Yes$\u3002\n\n\u8fd9\u9053\u9898\u5148\u5b9a\u4e49\u4e00\u4e2a\u6570\u7ec4\u8bb0\u5f55\u6bcf\u4e2a\u73a9\u5bb6\u7684\u5206\u6570\uff0c\u521d\u59cb\u5316\u4e3a$k$\u3002\u7136\u540e\u5982\u679c\u7b2c$i$\u4e2a\u73a9\u5bb6\u83b7\u80dc\uff0c\u5219\u8ba9TA\u7684\u5206\u6570$+1$\u3002\u6700\u540e\u518d\u5224\u65ad\u8fd9\u4e2a\u4eba\u7684\u5206\u6570$-q$\u662f\u5426$\\leq 0$(**\u56e0\u4e3a\u8fdb\u884c\u4e86$q$\u8f6e**)\uff0c\u662f\u5219\u8f93\u51fa$No$\uff0c\u53cd\u4e4b\u5219\u8f93\u51fa$Yes$\u3002\n\n\u63a5\u4e0b\u6765\u770b\u770b\u5b9e\u73b0:\n\n### Code:\n\n```cpp\n#include <bits/stdc++.h>\n#define REP(i, a, b) for (long long i = a; i <= b; ++i)\n#define ll long long\n#define N 100010\nusing namespace std;\n\nll n, k, q, a[N];\n\ninline ll read(){\t\t\t\t\t\t\t\t\t\t\t\t//\u5feb\u8bfb \n\tll s = 0, w = 1;\n\tchar ch = getchar();\n\twhile (ch < '0' || ch > '9'){\n\t\tif (ch == '-') w *= -1;\n\t\tch = getchar();\n\t}\n\twhile (ch >= '0' && ch <= '9'){\n\t\ts = s * 10 + ch - '0';\n\t\tch = getchar();\n\t}\n\treturn s * w;\n}\n\ninline void work(){\n\tn = read(), k = read(), q = read();\t\t\t\t\t\t\t//n\u4e2a\u73a9\u5bb6k\u5206\u6570\uff0c\u4e00\u5171\u8fdb\u884cq\u8f6e\n\tREP(i, 1, n) a[i] = k;\t\t\t\t\t\t\t\t\t\t//\u521d\u59cb\u5316\n\tREP(i, 1, q){\t\t\t\t\t\t\t\t\t\t\t\t//q\u8f6e\n\t\tll x = read();\t\t\t\t\t\t\t\t\t\t\t//\u7b2cx\u4e2a\u4eba\u83b7\u80dc\n\t\ta[x]++;\t\t\t\t\t\t\t\t\t\t\t\t\t//\u589e\u52a0\u5206\u6570\n\t}\n\tREP(i, 1, n){\t\t\t\t\t\t\t\t\t\t\t\t//\u4f9d\u6b21\u67e5\u8be2\n\t\tif (a[i] - q > 0) puts(\"Yes\");\t\t\t\t\t\t\t//\u5982\u679c\u5206\u6570>0\u8f93\u51faYes\n\t\telse puts(\"No\");\t\t\t\t\t\t\t\t\t\t//\u5426\u5219\u8f93\u51faNo\n\t}\n}\n\nint main(){\n\twork();\n\treturn 0;\n}\n```",
+        "postTime": 1583234627,
+        "uid": 124527,
+        "name": "leoair",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT4870 \u3010[ABC141C] Attack Survival\u3011"
+    }
+]

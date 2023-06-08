@@ -1,0 +1,66 @@
+[
+    {
+        "content": "\u8fd9\u9053\u9898\u597d\u50cf\u6ca1\u6709\u4e0a\u9762\u7684dalao\u60f3\u5f97\u90a3\u4e48\u590d\u6742\uff0cn<=100\uff0c\u5c31\u662f\u679a\u4e3e\u90fd\u53ea\u8981\u51e0\u5343\u6b21\uff0c\u53ea\u8981\u66b4\u529b\u6a21\u62df\uff0c\u6c42\u51fa\u6bcf\u4e24\u4e2a\u70b9\u95f4\u7684\u8ddd\u79bb\uff0c\u627e\u5230\u6700\u5927\u503c\u5373\u53ef\u3002\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint a[105],b[105],n;\ndouble t=0;//t\u8bb0\u5f55\u6700\u5927\u8ddd\u79bb\nint main()\n{cin>>n;//\u8bfb\u5165\u70b9\u4e2a\u6570\n for(int i=1;i<=n;i++) cin>>a[i]>>b[i];//\u8bfb\u5165\u70b9\u5750\u6807\n for(int i=1;i<=n-1;i++)\n   for(int j=i+1;j<=n;j++)//\u679a\u4e3e\u4efb\u610f\u4e24\u4e2a\u70b9 \n     t=max(t,sqrt((a[i]-a[j])*(a[i]-a[j])+(b[i]-b[j])*(b[i]-b[j])));//\u4f7f\u7528\u8ddd\u79bb\u516c\u5f0f\n printf(\"%.3lf\",t);//\u8f93\u51fa\nreturn 0;\n}\n```",
+        "postTime": 1547796265,
+        "uid": 171250,
+        "name": "sxtm12138",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT184 \u30102\u70b9\u9593\u8ddd\u96e2\u306e\u6700\u5927\u5024 ( The longest distance )\u3011"
+    },
+    {
+        "content": "### \u4e00\u9053\u7b80\u5355\u7684\u6570\u8bba\u9898\u3002\n\n\u5e73\u9762\u4e0a\u4e24\u70b9\u8ddd\u79bb\u516c\u5f0f\uff1a$dis=\\sqrt{(x_1-x_2)^2+(y_1-y_2)^2}$\n\n\u56e0\u4e3a$\\ N$\u7684\u8303\u56f4\u5f88\u5c0f\uff0c\u56e0\u6b64\u679a\u4e3e\u6240\u6709\u70b9\u5373\u53ef\uff0c\u82e5\u53d1\u73b0\u8ddd\u79bb\u5c0f\u4e8e\u5f53\u524d\u5df2\u77e5\u7b54\u6848\uff0c\u5219\u66f4\u65b0\u7b54\u6848\u3002\n\n```cpp\n#include<cstdio>\n#include<cmath>\nusing namespace std;\n \nint n,x[101],y[101];\ndouble ans;\n \ninline double dis(const int i,const int j)\n{\n    int xx=x[i]-x[j],yy=y[i]-y[j];\n    return sqrt(xx*xx+yy*yy);\n}\ninline double max(const double a,const double b)\n{\n    return a>b?a:b;\n}\nint main()\n{\n    scanf(\"%d\",&n);\n    for(register int i=1;i<=n;i++)\n        scanf(\"%d%d\",&x[i],&y[i]);\n    for(register int i=1;i<n;i++)\n        for(register int j=i+1;j<=n;j++)\n            ans=max(ans,dis(i,j));\n    printf(\"%.6f\",ans);\n    return 0;\n}\n```",
+        "postTime": 1520423943,
+        "uid": 49725,
+        "name": "Siyuan",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 AT184 \u30102\u70b9\u9593\u8ddd\u96e2\u306e\u6700\u5927\u5024 ( The longest distance )\u3011"
+    },
+    {
+        "content": "#### \u5e9f\u8bdd\n\n\u5907\u6218\u521d\u8d5b\uff0c\u8003\u5b8c\u4e00\u767b\u6d1b\u8c37\u5c31\u770b\u5230\u6211\u6389\u84dd\u4e86\u2026\u2026\u96be\u53d7\uff0c\u8d76\u5feb\u5199\u9898\u89e3\u8865\u56de\u53bb\u2026\u2026\n\n#### \u9898\u76ee\u63cf\u8ff0\n\n\u7ffb\u8bd1\u627e\u90fd\u627e\u4e0d\u5230\u2026\u2026\n\n\u6ca1\u6709\u6837\u4f8b\u5417\uff1f\n\n\u7ed9\u51fa\u4e00\u5806\u70b9\uff0c\u6c42\u5b83\u4eec\u4e4b\u95f4\u7684\u6b27\u51e0\u91cc\u5f97\u8ddd\u79bb\u4e2d\u7684\u6700\u5c0f\u503c\n\n#### \u601d\u8def\u7b80\u4ecb\n\n\u8fd9\u91cc\u4e3b\u8981\u662f\u7ed9\u5927\u5bb6\u4ecb\u7ecd\u4e00\u4e0bcmath\u5e93\u7684\u51e0\u4e2a\u6709\u610f\u601d\u7684\u51fd\u6570:`pow(a,b)`\u7528\u6765\u6c42$a^b$\u4e0e`sqrt(a)`\u7528\u6765\u6c42$\\sqrt{a}$\n\n\u7136\u540e\u5c31\u5f88\u7b80\u5355\u4e86\uff0c\u679a\u4e3e\u4e24\u70b9\u4e4b\u95f4\u8ddd\u79bb\uff0c\u53d6\u6700\u5927\u503c\u8f93\u51fa\u5373\u53ef\n\n\u89e3\u91ca\u770b\u4ee3\u7801\u3002\n\n#### \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\ntypedef long long ll;\ndouble x[1000],y[1000],ans=0;\nll n;\ninline double dis(int a,int b){//\u6c42\u8ddd\u79bb\u51fd\u6570\n\treturn sqrt(pow(x[a]-x[b],2)+pow(y[a]-y[b],2));//\u4f7f\u7528\u4e86sqrt\u4e0epow\u51fd\u6570\n}\nint main(){\n\tscanf(\"%lld\",&n);//\u8f93\u5165\n\tfor(int i=0;i<n;i++) scanf(\"%lf%lf\",&x[i],&y[i]);\n\tfor(int i=0;i<n;i++){\n\t\tfor(int j=0;j<n;j++){\n\t\t\tans=fmax(ans,dis(i,j));//\u6c42\u6700\u5927\u8ddd\u79bb\n\t\t}\n\t}\n\tprintf(\"%.03lf\",ans);//\u8f93\u51fa\u7b54\u6848\uff0c\u6ce8\u610f\u53d63\u4f4d\u5c0f\u6570\n\treturn 0;\n}\n```",
+        "postTime": 1571754828,
+        "uid": 149872,
+        "name": "\u5c0f\u5c0f\u5c0f\u670b\u53cb",
+        "ccfLevel": 5,
+        "title": "AT184 2\u70b9\u9593\u8ddd\u96e2\u306e\u6700\u5927\u5024"
+    },
+    {
+        "content": "\u65cb\u8f6c\u5361\u58f3\u7684\u88f8\u9898\u3002\n\n\u663e\u7136\u6700\u8fdc\u70b9\u5bf9\u4e00\u5b9a\u5728\u8986\u76d6n\u4e2a\u70b9\u7684\u51f8\u5305\u4e0a\u3002Graham\u6c42\u51fa\u51f8\u5305\u540e\u4e00\u904d\u65cb\u8f6c\u5361\u58f3\u5373\u53ef\u3002\n\n~~n<=100\u4e0d\u662f\u968f\u4fbf\u8fc7\u5417\uff1f~~\n\n\u4ee3\u7801\uff1a\n\n```\n\n#include<iostream>\n#include<cstdio>\n#include<cstdlib>\n#include<cstring>\n#include<string>\n#include<algorithm>\n#include<math.h>\nusing namespace std;\n\nconst double eps=1e-6;\nint N,top;\nstruct node\n{\n\tdouble x,y;\n};\nnode n[100005],dot[100005];\n\ndouble dis(node a,node b)\n{\n\treturn sqrt((a.x-b.x)*(a.x-b.x)+(a.y-b.y)*(a.y-b.y));\n}\n\ndouble S(node a,node b,node c)\n{\n\tnode X,Y;\n\tX.x=b.x-a.x;\n\tX.y=b.y-a.y;\n\tY.x=c.x-a.x;\n\tY.y=c.y-a.y;\n\treturn fabs(X.x*Y.y-X.y*Y.x);\n}\n\nbool my_comp(node a,node b)\n{\n\tdouble X=(a.x-n[1].x)*(b.y-n[1].y);\n\tdouble Y=(a.y-n[1].y)*(b.x-n[1].x);\n\tdouble Z=X-Y;\n\tif(fabs(Z)<=eps)\n\t\tif(dis(n[1],a)<dis(n[1],b)) return true;\n\t\telse return false;\n\telse\n\t\treturn Z>0?true:false;\n}\n\nvoid init()\n{\n\tint i;\n\tscanf(\"%d\",&N);\n\tfor(i=1;i<=N;++i) scanf(\"%lf%lf\",&n[i].x,&n[i].y);\n}\n\nbool ok(int i)\n{\n\tdouble X=(dot[top].x-dot[top-1].x)*(n[i].y-dot[top-1].y);\n\tdouble Y=(dot[top].y-dot[top-1].y)*(n[i].x-dot[top-1].x);\n\tif(X-Y<eps) return true;\n\telse return false;\n}\n\nvoid graham()\n{\n\tint i,j;\n\t\n\tfor(i=2;i<=N;++i)\n\t\tif(n[i].y-n[1].y<eps||fabs(n[i].y-n[1].y)<eps&&n[i].x-n[1].x<eps)\n\t\t{\n\t\t\tswap(n[i].x,n[1].x);\n\t\t\tswap(n[i].y,n[1].y);\n\t\t}\n\tsort(n+2,n+N+1,my_comp);\n\n\tdot[0]=n[1],dot[1]=n[2];\n\ttop=1;\n\tfor(i=3;i<=N;++i)\n\t{\n\t\twhile(top>0&&ok(i)) --top;\n\t\tdot[++top]=n[i];\n\t}\n}\n\ndouble rotate()\n{\n\tdouble ret=0.0;\n\tint i,j;\n\t\n\tj=2;++top;\n\tfor(i=0;i<top;++i)\n\t{\n\t\twhile(S(dot[i],dot[(i+1)%top],dot[j])<S(dot[i],dot[(i+1)%top],dot[(j+1)%top]))\n\t\t\tj=(j+1)%top;\n\t\tret=max(ret,dis(dot[j],dot[i]));\n\t\tret=max(ret,dis(dot[j],dot[(i+1)%top]));\n\t}\n\t\n\treturn ret;\n}\nint main()\n{\n//\tfreopen(\"dotfar.in\",\"r\",stdin);\n//\tfreopen(\"dotfar.out\",\"w\",stdout);\n\t\n\tinit();\n\tgraham();\n\tprintf(\"%.6lf\\n\",rotate());\n\t\n\tfclose(stdin);\n\tfclose(stdout);\n\treturn 0;\n}\n\n```",
+        "postTime": 1543761278,
+        "uid": 31435,
+        "name": "hwk0518",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT184 \u30102\u70b9\u9593\u8ddd\u96e2\u306e\u6700\u5927\u5024 ( The longest distance )\u3011"
+    },
+    {
+        "content": "## description\uff1a\n\u7ed9\u5b9an\u4e2a\u70b9\uff0c\u6c42\u51fa\u4e24\u70b9\u4e4b\u95f4\u6700\u77ed\u8ddd\u79bb\n\n## solution\uff1a\n\u89c2\u5bdf\u6570\u636e\u8303\u56f4\uff0c\u53d1\u73b0$n\\leq100$\uff0c\u6240\u4ee5\u4e4b\u95f4$O(n^2)$\u66b4\u529b\u5373\u53ef\u3002\n\n\u8fd9\u91cc\u8981\u6ce8\u610f\u4e0d\u8981\u4e22\u5931\u7cbe\u5ea6\uff0c\u4e8e\u662f\u5c31\u5168\u5f00double\uff0c\u6700\u540e\u8f93\u51fa6\u4f4d\u5c31\u884c\u4e86\n\n```cpp\n#include<cstdio>\n#include<iostream>\n#include<cmath>\nusing namespace std;\ndouble sqr(double x)\n{\n\treturn x*x; \n}\ndouble x[1005],y[1005];\nint main()\n{\n\tdouble n;\n\tdouble ans=0;\n\tscanf(\"%lf\",&n);\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tscanf(\"%lf%lf\",&x[i],&y[i]);\n\t}\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tfor(int j=1;j<=n;j++)\n\t\t{\n\t\t\tans=max(ans,sqrt(sqr(x[i]-x[j])+sqr(y[i]-y[j])));\n\t\t}\n\t} \n\tprintf(\"%.6lf\\n\",ans);\n\treturn 0;\n} \n```",
+        "postTime": 1569631130,
+        "uid": 45475,
+        "name": "ShineEternal",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT184 \u30102\u70b9\u9593\u8ddd\u96e2\u306e\u6700\u5927\u5024 ( The longest distance )\u3011"
+    },
+    {
+        "content": "\u66b4\u529b\u679a\u4e3e\u7eaf\u7cb9c\u98ce\u683c\uff0c\u5df2\u7ecf\u52a0\u4e0a\u9632\u4f2a\u6807\u8bc6\n```\n#include<stdio.h>\nint n,srx[101],sry[101],i,j;\ndouble lhy;\ndouble lgx(int i,int j)\n{\n    int mzy=srx[i]-srx[j],zjq=sry[i]-sry[j];//mzy\uff0czjq\u5206\u522b\u4e3a\u4e09\u89d2\u5f62\u4e24\u8fb9\u957f\n    return sqrt(mzy*mzy+zjq*zjq);//\u56e0\u4e3a\u5728\u5750\u6807\u7cfb\u4e2d\uff0c\u6240\u4ee5\u662f\u76f4\u89d2\u4e09\u89d2\u5f62\uff0c\u5229\u7528\u52fe\u80a1\u5b9a\u7406\uff0c\u6613\u5f97\u7b2c\u4e09\u8fb9\uff0c\u4e5f\u5c31\u662f\u4e24\u70b9\u4e4b\u95f4\u7684\u8ddd\u79bb\n}\ndouble max(double a,double b)\n{\n    return a>b?a:b;//\u4e09\u76ee\u4e00\u5143\u8fd0\u7b97\u7b26\n}\nint main()\n{\n    scanf(\"%d\",&n);\n    for(i=1;i<=n;i++)\n    scanf(\"%d%d\",&srx[i],&sry[i]);\n    for(i=1;i<n;i++)\n    for(j=i+1;j<=n;j++)\n    lhy=max(lhy,lgx(i,j));//\u8fde\u4e2amax\u90fd\u8981\u624b\u6253\u7684\u7eafc\u515a\n    printf(\"%.1f\",lhy);//\u6ce8\u610f\u4f4d\u6570\n    return 0;\n}\n```",
+        "postTime": 1540106300,
+        "uid": 47482,
+        "name": "\u4e0d\u5230\u524d10\u4e0d\u6539\u540d",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT184 \u30102\u70b9\u9593\u8ddd\u96e2\u306e\u6700\u5927\u5024 ( The longest distance )\u3011"
+    },
+    {
+        "content": "\u548c\u697c\u4e0b\u601d\u60f3\u4e00\u6837\uff0c\u90fd\u662f\u7528\u7684\u5e73\u9762\u4e0a\u4e24\u70b9\u95f4\u8ddd\u79bb\u516c\u5f0fsqrt((x1\u2212x2)2+(y1\u2212y2)2)\n\n*pas\u4ee3\u7801\uff1a*\n```pascal\nvar\n    i,j,n:longint;\n    x,y:array[1..100]of longint;\n    ans:real;\nbegin\n    readln(n);\n    for i:=1 to n do\n        readln(x[i],y[i]);\n    for i:=1 to n-1 do\n        for j:=i+1 to n do\n            if sqrt((x[i]-x[j])*(x[i]-x[j])+(y[i]-y[j])*(y[i]-y[j]))>ans then ans:=sqrt((x[i]-x[j])*(x[i]-x[j])+(y[i]-y[j])*(y[i]-y[j]));\n    writeln(ans:0:6);//\u53ea\u80fd\u67090.001\u7684\u8bef\u5dee\uff0c\u6ce8\u610f\u5f00\u573a\u5bbd\nend.\n```",
+        "postTime": 1521286225,
+        "uid": 62014,
+        "name": "Soyilieber",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 AT184 \u30102\u70b9\u9593\u8ddd\u96e2\u306e\u6700\u5927\u5024 ( The longest distance )\u3011"
+    },
+    {
+        "content": "**\u6c42\u5e73\u9762\u4e0a\u7684\u4e24\u70b9\u7684\u8ddd\u79bb\u516c\u5f0f\uff1adis = sqrt(\uff08x1 - x2\uff09^2 + (y1 - y2) ^ 2)//sqrt\u5e73\u65b9\u6839**\n\n**\u7136\u540e\u53ea\u8981\u4efb\u610f\u4e24\u70b9\u6c42\u8ddd\u79bb\u7136\u540e\u4fdd\u5b58\u6700\u5927\u503c\uff0c\u6700\u540e\u8f93\u51fa\u5373\u53ef\uff0c\u4e0a\u4ee3\u7801\uff01\u6ce8\u610f\uff1a\u6570\u636e\u7c7b\u578bdouble**\n\n```\n#include <iostream>\n#include <cmath>\nusing namespace std;\nint main() \n{\n\tint n,a[105],b[105];\n\tdouble ans = 0;\n\tcin>>n;\n\tfor(int i = 1;i <= n;i++) cin>>a[i]>>b[i];\n\tfor(int i = 1;i <= n;i++)\n\t\tfor(int j = 1;j <= i;j++) \n\t\t\tans = max(ans,sqrt(pow(a[i] - a[j],2) + pow(b[i] - b[j],2)));\n\tcout<<ans<<endl;\n\treturn 0;\n}\n```\n",
+        "postTime": 1575617003,
+        "uid": 183603,
+        "name": "SUNCHAOYI",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 AT184 \u30102\u70b9\u9593\u8ddd\u96e2\u306e\u6700\u5927\u5024 ( The longest distance )\u3011"
+    }
+]

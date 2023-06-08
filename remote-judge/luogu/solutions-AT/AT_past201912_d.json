@@ -1,0 +1,26 @@
+[
+    {
+        "content": "[\u91cd\u8907\u691c\u67fb \u306e \u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/AT_past201912_d)\n\n\u5148\u7528\u6876\u8bb0\u4e0b\u6bcf\u4e00\u4e2a\u6570\u5b57\u51fa\u73b0\u7684\u6b21\u6570\u3002\n\n\u7136\u540e\u4e00\u4e2a\u4e00\u4e2a\u679a\u4e3e\u54ea\u4e2a\u6570\u5b57\u51fa\u73b0\u4e86 $0$ \u6b21\uff0c\u54ea\u4e2a\u6570\u5b57\u51fa\u73b0\u4e86 $2$ \u6b21\uff0c\u628a\u90a3\u4e2a\u6570\u5b57\u7528\u53d8\u91cf\u5b58\u8d77\u6765\u3002\n\n\u6700\u540e\u8f93\u51fa\u5373\u53ef\u3002\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n#define N 200005\nint n,a[N],l,r;\nint lt[N],rt[N];\nmap<int,int> mp; \nsigned main() {\n\tcin>>n;\n\tfor(int i=1;i<=n;++i) {\n\t\tcin>>a[i];\n\t\t++mp[a[i]];\n\t}\n\tfor(int i=1;i<=n;++i)\n\t\tif(mp[i]==0) l=i;\n\t\telse if(mp[i]==2) r=i;\n\tif(l==0) {puts(\"Correct\");\treturn 0;}\n\tcout<<r<<' '<<l;\n\treturn 0;\n}\n```",
+        "postTime": 1680516531,
+        "uid": 688783,
+        "name": "NM_ljy",
+        "ccfLevel": 0,
+        "title": "\u91cd\u8907\u691c\u67fb"
+    },
+    {
+        "content": "\u8fd9\u9898\u5148\u7528\u4e0b\u6807\u8ba1\u6570\u6765\u8bb0\u6bcf\u4e00\u4e2a\u6570\u5b57\u51fa\u73b0\u7684\u6b21\u6570\uff0c\u7136\u540e\u4e00\u4e2a\u4e2a\u5224\u65ad\u54ea\u4e2a\u6570\u5b57\u51fa\u73b0\u4e86 $0$ \u6b21\u6216 $2$ \u6b21\uff0c\u628a\u90a3\u4e2a\u6570\u5b57\u7528\u53d8\u91cf\u5b58\u8d77\u6765\u3002\u6700\u540e\u8f93\u51fa\u5373\u53ef\u3002\n\n**_AC code_**\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,m,a[200005],x,y;\nint main(){\n\tcin>>n;\n\tfor(int i=1;i<=n;i++){\n\t\tcin>>m;\n\t\ta[m]++;\n\t}\n\tfor(int i=1;i<=n;i++){\n\t\tif(a[i]==0) x=i;\n\t\tif(a[i]==2) y=i;\n\t}\n\tif(x==0) cout<<\"Correct\\n\";\n\telse cout<<y<<\" \"<<x;\n\treturn 0;\n} \n```\n",
+        "postTime": 1668080154,
+        "uid": 686445,
+        "name": "NOI_AK_dreeeam",
+        "ccfLevel": 0,
+        "title": "AT_past201912_d \u91cd\u8907\u691c\u67fb \u9898\u89e3"
+    },
+    {
+        "content": "\u6876\u6392\u5e8f\u6a21\u7248\u9898\u3002\n\n\u672c\u9898\u5148\u7528\u4e0b\u6807\u8ba1\u6570\u6765\u8bb0\u6bcf\u4e00\u4e2a\u6570\u5b57\u51fa\u73b0\u7684\u6b21\u6570\uff0c\u7136\u540e\u5224\u65ad\u54ea\u4e2a\u6570\u5b57\u51fa\u73b0\u4e86 $0$ \u6b21\u6216 $2$ \u6b21\uff0c\u628a\u90a3\u4e2a\u6570\u5b57\u7528\u53d8\u91cf $l$ \u548c $r$ \u5b58\u8d77\u6765\u3002\u6700\u540e\u8f93\u51fa\u5373\u53ef\u3002\n\n\u8ba1\u6570\u4ee3\u7801\uff1a\n\n```cpp\nfor( int i = 1; i <= n; i++ )\n{\n\tint t;\n\tscanf( \"%d\" , &t );\n\ta[t]++;\n}\n```\n\n\u5168\u90e8\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint a[200001];\nint main()\n{\n    int n , l = 0 , r = 0;\n\tscanf( \"%d\" , &n );\n\tfor( int i = 1; i <= n; i++ )\n\t{\n\t    int t;\n\t\tscanf( \"%d\" , &t );\n\t\ta[t]++;\n\t}\n\tfor( int i = 1; i <= n; i++ )\n\t{\n\t\tif( a[i] == 0 )\n\t\t{\n\t\t    l = i;\n\t\t}\n\t\tif( a[i] == 2 )\n\t\t{\n\t\t    r = i;\n\t\t}\n\t}\n\tif( l == 0 )\n\t{\n\t    printf( \"Correct\" );\n\t}\n\telse\n\t{\n\t    printf( \"%d %d\" , r , l );\n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1680096081,
+        "uid": 925577,
+        "name": "ULSG_XBaiC",
+        "ccfLevel": 0,
+        "title": "AT_past201912_d \u91cd\u8907\u691c\u67fb \u9898\u89e3"
+    }
+]

@@ -1,0 +1,58 @@
+[
+    {
+        "content": "\u8d85\u7ea7\u5927\u6c34\u9898\u3002\n\n\u672c\u9898\u5efa\u8bae\u8bc4\u7ea2\u3002\n### \u9898\u76ee\u5927\u610f\n\u6709 $n$ \u79cd\u86cb\u7cd5\uff0c\u7b2c $i$ \u79cd\u86cb\u7cd5\u9700\u8981 $a_i$ \u514b\u9762\u7c89\uff0c\u73b0\u5728\u6709 $x$ \u514b\u9762\u7c89\uff0c\u6bcf\u79cd\u86cb\u7cd5\u90fd\u81f3\u5c11\u8981\u505a\u4e00\u4e2a\uff0c\u6c42\u6700\u591a\u80fd\u505a\u591a\u5c11\u86cb\u7cd5\u3002\n### \u601d\u8def\n\u65e2\u7136\u9898\u76ee\u4e2d\u8bf4\u4e86\uff0c\u6bcf\u4e2a\u86cb\u7cd5\u5fc5\u987b\u90fd\u505a\u4e00\u904d\uff0c\u6240\u4ee5\u5148\u628a\u8fd9 $n$ \u4e2a\u86cb\u7cd5\u6240\u7528\u7684 $a_i$ \u514b\u9762\u52a0\u5230 $sum$ \u91cc\u6765\uff0c\u518d\u7528 $x-sum$\uff0c\u7b97\u51fa\u5269\u4f59\u9762\u7c89\u7684\u514b\u6570\uff0c\u6700\u540e\u5728\u627e\u5230\u7528\u7684\u9762\u7c89\u6700\u5c11\u7684\u4e00\u4e2a\u86cb\u7cd5(\u8bbe\u8fd9\u4e2a\u86cb\u7cd5\u7684\u7528\u9762\u91cf\u4e3a $m$) \uff0c\u518d\u7528\u5b83\u9664\u53bb $x-sum$ \u7684\u5dee,\u6700\u540e\u52a0\u4e0a $n$ \u5c31\u884c\u4e86\u3002\u5373\u7b54\u6848\u5c31\u662f\uff1a\n$$n+(x-sum)\u00f7m$$\n\u8fd9\u6837\u5c31\u505a\u5b8c\u4e86\u3002\n### AC code\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,x,a;\nint sum=0,m=191981023;\nint main()\n{\n\tcin>>n>>x;\n\tfor(int i=1;i<=n;i++)\n\t{\n\t    cin>>a;\n\t    sum+=a;\n\t    m=min(m,a);\n\t}\n\tcout<<n+(x-sum)/m;\n\treturn 0;\n}\n\n```",
+        "postTime": 1651204283,
+        "uid": 675646,
+        "name": "Dyousks",
+        "ccfLevel": 0,
+        "title": "AT4116 \u9898\u89e3"
+    },
+    {
+        "content": "\u5927\u6c34\u9898\n\n\u6211\u4eec\u5b9a\u4e49\u4e09\u4e2a\u53d8\u91cf\u540d\u53eb $n$ , $m$ \u548c $ans$ ,\u5206\u522b\u8868\u793a\u8981\u505a\u591a\u5c11\u79cd\u86cb\u7cd5\uff0c\u6709\u591a\u5c11\u514b\u9762\u56e2 ~~\uff08\u8bdd\u8bf4\u505a\u86cb\u7cd5\u4e0d\u662f\u7528\u9e21\u86cb\u5417\uff09~~ \u548c\u6700\u591a\u80fd\u591f\u505a\u591a\u5c11\u4e2a\u86cb\u7cd5\uff08\u5373\u7b54\u6848\uff09\u3002\n\n\u9996\u5148\uff0c\u56e0\u4e3a\u6bcf\u4e00\u79cd\u86cb\u7cd5\u90fd\u8981\u505a\u81f3\u5c11\u4e00\u4e2a\uff0c\u6240\u4ee5 $ans$ \u8981\u52a0\u4e0a $n$ \uff08\u56e0\u4e3a\u6bcf\u79cd\u90fd\u8981\u505a\u7684\uff09\n\n\u5176\u6b21\uff0c\u6ce8\u610f\u5230\u6bcf\u79cd\u86cb\u7cd5\u9700\u8981\u7684\u9762\u56e2\u514b\u6570\u4e0d\u4e00\u6837\uff0c\u6240\u4ee5\u6211\u4eec\u4e3a\u4e86\u7701\u9762\u56e2\u4f18\u5148\u9009\u6700\u5c11\u7684\u9762\u56e2\u3002\n\n\u6700\u540e\uff0c\u6211\u4eec\u53ea\u505a\u7528\u9762\u7c89\u6700\u5c11\u7684\u9762\u5305\u5c31\u884c\u4e86\u3002\u5047\u8bbe\u7528\u9762\u7c89\u6700\u5c11\u7684\u9762\u5305\u9700\u9762\u7c89 $minn$ \u514b\uff0c\u90a3\u4e48 $ans$ \u5c31\u662f $n+(m-sum)/min$ \u3002\n\n\u8bf6\u54c8\u54c8\u54c8,\u4ee3\u7801\u6765\u54af~~\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nconst int N = 4e5 + 10;\nint n, m, a, sum;\nint minn = N;\nint main()\n{\n\tcin >> n >> m;\n\tfor(int i = 0;i < n;i++)\n\t{\n\t    cin >> a;\n\t    sum += a; \n\t    //\u5c06\u9762\u7c89\u514b\u6570\u52a0\u5165sum\uff08\u6bcf\u4e00\u79cd\u5148\u505a\u4e00\u4e2a\uff09\n\t    minn = min(minn, a); \n\t    //\u627e\u6700\u5c0f\u503c\uff08\u4e4b\u540e\u5c31\u5236\u4f5c\u8fd9\u79cd\u86cb\u7cd5\uff09\n\t}\n\tcout << n + (m - sum) / minn;\n\t//\u8fd0\u7528\u516c\u5f0fn + (m - sum) / minn\u6c42\u51faans\n  \treturn 0;\n}\n```\n~~\u4e0d\u8981\u6284\u88ad\u9e2d~~~",
+        "postTime": 1655864398,
+        "uid": 378313,
+        "name": "wjk2020",
+        "ccfLevel": 0,
+        "title": "tijie"
+    },
+    {
+        "content": "[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/AT4116)\n\n# \u601d\u8def\uff1a\n\n\u6bcf\u4e2a\u86cb\u7cd5\u90fd\u81f3\u5c11\u505a\u4e00\u4e2a\uff0c\u90a3\u4e48\u5c31\u5148\u505a $n$ \u4e2a\uff0c\u63a5\u4e0b\u6765\u5c31\u8003\u8651\u600e\u4e48\u8ba9\u505a\u7684\u86cb\u7cd5\u6700\u591a\u3002\n\n\u5f88\u663e\u7136\uff0c\u63a5\u4e0b\u6765\u6211\u4eec\u53ea\u505a\u7528\u9762\u7c89\u6700\u5c11\u7684\u9762\u5305\u5c31\u884c\u4e86\u3002\u5982\u679c\u4e00\u5171\u6709 $m$ \u514b\u9762\u7c89\uff0c\u505a $n$ \u4e2a\u86cb\u7cd5\u8981\u7528 $sum$ \u514b\u9762\u7c89\uff0c\u7528\u9762\u7c89\u6700\u5c11\u7684\u9762\u5305\u9700\u9762\u7c89 $minn$ \u514b\uff0c\u90a3\u4e48\u7b54\u6848\u5c31\u662f $n+(m-sum)/minn$ \u3002\n\n**~~reader : Talks are cheap , show me the code !!!~~**\n\n#  _Code:_ \n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,m,x;\nint sum,minn=0x7f7f7f7f;\nint main(){\n\tscanf(\"%d%d\",&n,&m);\n\tfor(int i=1;i<=n;i++){\n\t\tscanf(\"%d\",&x);\n\t\tsum+=x;\n\t\tminn=min(minn,x);\n\t}\n\tprintf(\"%d\\n\",n+(m-sum)/minn);\n\treturn 0;\n}\n```\n\n[\u5b8c\u7ed3\u6492\u82b1\uff01\uff01\uff01](https://www.luogu.com.cn/record/76693711)",
+        "postTime": 1653972299,
+        "uid": 585962,
+        "name": "Deamer",
+        "ccfLevel": 4,
+        "title": "AT4116\u9898\u89e3"
+    },
+    {
+        "content": "# \u9898\u76ee\u5927\u610f\n\n\u6709 $n$ \u79cd\u86cb\u7cd5\uff0c\u7b2c $i$ \u79cd\u86cb\u7cd5\u9700\u8981 $a_i$ \u514b\u9762\u7c89\uff0c\u73b0\u5728\u6709 $m$ \u514b\u9762\u7c89\uff0c\u6bcf\u79cd\u86cb\u7cd5\u90fd\u81f3\u5c11\u8981\u505a\u4e00\u4e2a\uff0c\u6c42\u6700\u591a\u80fd\u505a\u591a\u5c11\u86cb\u7cd5\u3002\n\n# \u601d\u8def\n\n\u8bbe $sum=\\sum{a_i}$\uff0c\u7528\u9762\u7c89\u91cf\u6700\u5c11\u7684\u86cb\u7cd5\u7684\u6240\u7528\u9762\u7c89\u91cf\u4e3a $min$ \u3002\n\n\u6bcf\u4e2a\u86cb\u7cd5\u5fc5\u987b\u90fd\u505a\u4e00\u904d\uff0c\u6240\u4ee5\u5148\u7528 $m-sum$ \u7b97\u51fa\u5269\u4f59\u9762\u7c89\u7684\u514b\u6570\uff0c$\\lfloor \\frac{m-sum}{min} \\rfloor$ \u5373\u4e3a\u5269\u4e0b\u9762\u7c89\u6700\u591a\u80fd\u505a\u7684\u86cb\u7cd5\u6570\uff0c\u6700\u540e\u5f97\u51fa\u7b54\u6848\uff1a\n\n$$ans=\\lfloor \\frac{m-sum}{min} \\rfloor+n$$\n\n# \u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,m,a,sum,minn=1<<30;\nsigned main(){\n\tscanf (\"%d%d\",&n,&m);\n\tfor (int i=1;i<=n;++i){scanf (\"%d\",&a);sum+=a;minn=min (minn,a);}\n\tprintf (\"%d\\n\",n+(m-sum)/minn);\n\treturn 0;\n}\n```\n",
+        "postTime": 1653918919,
+        "uid": 366254,
+        "name": "dxy2020",
+        "ccfLevel": 0,
+        "title": "AT4116"
+    },
+    {
+        "content": "\u672c\u9898\u63a8\u4e2a\u67ff\u5b50\u5c31\u5b8c\u4e8b\u3002\n### \u601d\u8def\uff1a\n\u6211\u4eec\u8bbe\u86cb\u7cd5\u603b\u6570\u4e3a $ n $\uff0c\u56e0\u4e3a\u6bcf\u4e2a\u86cb\u7cd5\u90fd\u8981\u505a\u4e00\u904d\uff0c\u6240\u4ee5\u5148\u628a\u8fd9\u51e0\u4e2a\u86cb\u7cd5\u7684\u6240\u7528\u7684 $ a_i $ \u514b\u9762\u7c89\u52a0\u5165 $ sum $ \u4e2d\uff0c\u518d\u7b97\u51fa\u5269\u4f59\u7684\u9762\u7c89\u514b\u6570\uff0c\u516c\u5f0f\u4e3a $ x-sum $\uff0c\u7136\u540e\u627e\u5230\u7528\u9762\u7c89\u6700\u5c11\u7684\u86cb\u7cd5\u7684\u7528\u9762\u7c89\u91cf $ m $ \u514b\uff0c\u518d\u7528\u5b83\u9664\u4ee5 $ x-sum $ \u7684\u5dee\uff0c\u6700\u540e\u52a0\u4e0a $ n $ \u79cd\u86cb\u7cd5\u6570\u5c31\u597d\u4e86\u3002\n### \u4ee3\u7801\uff1a\n```cpp\n#include<iostream>\nusing namespace std;\nconst int N=4e5+10;\nint n,x,a,sum;\nint m=N;\nint main(){\n\tcin>>n>>x;//\u8f93\u5165\n\tfor(int i=0;i<n;i++){\n\t    cin>>a;\n\t    sum+=a;//\u5c06\u9762\u7c89\u514b\u6570\u52a0\u5165sum\n\t    m=min(m,a);//\u627e\u6700\u5c0f\u503c\n\t}\n\tcout<<n+(x-sum)/m;//\u8fd0\u7528\u516c\u5f0f\n  \treturn 0;\n}\n```\n",
+        "postTime": 1653916960,
+        "uid": 517086,
+        "name": "Anclogy",
+        "ccfLevel": 3,
+        "title": "AT4116"
+    },
+    {
+        "content": "\u505a\u9898\u505a\u7d2f\u4e86\uff0c\u5199\u4e2a\u9898\u89e3\u2026\u2026\n\n\u9996\u5148\u6240\u6709\u7684\u4e1c\u897f\u90fd\u8981\u4e70\uff0c\u6240\u4ee5\u8bb0 $s$ \u4e3a\u6240\u6709\u5546\u54c1\u7684\u603b\u4ef7\u503c\uff0c\u7ed9\u81ea\u5df1\u53e3\u888b\u91cc\u7684\u94b1 $x$ \u51cf\u53bb $s$\u3002\n\n\u63a5\u4e0b\u6765\u4fbf\u662f\u80fd\u4e70\u591a\u5c11\u4e70\u591a\u5c11\uff0c\u6240\u4ee5\u6211\u4eec\u80af\u5b9a\u4f1a\u4e0d\u505c\u4e70\u6700\u4fbf\u5b9c\u7684\u3002\u6211\u4eec\u8bb0 $m$ \u4e3a\u6700\u4fbf\u5b9c\u7684\u5546\u54c1\u4ef7\u683c\uff0c\u5219\u6211\u4eec\u53ef\u4ee5\u518d\u4e70\u5230 $\\frac{s}{m}$ \uff08\u4e0b\u53d6\u6574\uff09\u4e2a\u5546\u54c1\u3002\n\n\u603b\u7684\u4e2a\u6570\u662f $n+\\frac{x-s}{m}$\uff08\u4e0b\u53d6\u6574\uff09\u3002\n\n\u4ee3\u7801\uff1a\n\n```c++\n#include<bits/stdc++.h>\n#define rep(i,x,y) for(int i=x;i<=y;++i)\nusing namespace std;\nint n,x,a,s,m=INT_MAX;\n\nint rd(){\n   int shu=0;char ch=getchar();\n   while(!isdigit(ch))ch=getchar();\n   while(isdigit(ch))shu=(shu<<1)+(shu<<3)+(ch^48),ch=getchar();\n   return shu;\n}\n\nint main(){\n\tn=rd(),x=rd();\n\trep(i,1,n)a=rd(),s+=a,m=min(m,a);\n\tprintf(\"%d\\n\",n+(x-s)/m);\n\treturn 0;\n}\n```",
+        "postTime": 1612447473,
+        "uid": 99623,
+        "name": "BlankAo",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT4116 \u3010[ABC095B] Bitter Alchemy\u3011"
+    },
+    {
+        "content": "\u9898\u76ee\u5927\u610f\uff1a\u6709$n$\u4e2a\u5546\u54c1\uff0c$x$\u5143\u94b1,\u5546\u54c1\u4ef7\u683c\u4e3a$m[i]$,\u6c42\u51fa\u5728\u628a\u6240\u6709\u5546\u54c1\u90fd\u4e70\u8fc7\u7684\u524d\u63d0\u4e0b\uff0c\u6700\u591a\u80fd\u4e70\u591a\u5c11\u5546\u54c1\u3002\n\n\u6240\u4ee5\u7b80\u5355\u6a21\u62df\u5373\u53ef\u3002  \n\u4e0a\u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>//\u4e07\u80fd\u5934\u6587\u4ef6\nusing namespace std;//\u547d\u540d\u7a7a\u95f4\n\n#define maxn 500010\n#define fo(i,a,b) for(register int (i)=(a);(i)<=(b);++(i))\n#define rd read()\n\nint read() {\n\tint x=0,f=1;\n\tchar c=getchar();\n\twhile(c<'0'||c>'9') {\n\t\tif(c=='-')f=-1;\n\t\tc=getchar();\n\t}\n\twhile(c>='0'&&c<='9') x=x*10+c-'0',c=getchar();\n\treturn x*f;\n}//\u5feb\u8bfb\nint sum,a[maxn];\nint main() {\n\tint n=rd,x=rd;//\u8f93\u5165\n\tfo(i,1,n) {\n\t\ta[i]=rd;\n\t\tsum+=a[i];//\u5148\u7b97\u51fa\u603b\u548c\n\t}\n\tsort(a+1,a+n+1);//\u6392\u5e8f\u6c42\u51fa\u6700\u5c0f\u503c\n\tint m=x-sum;//\u5269\u4e0b\u7684\u94b1\n\tprintf(\"%d\\n\",m/a[1]+n);//\u522b\u5fd8\u4e86\u52a0\u4e0an\u4e2a\u5fc5\u4e70\u7269\u54c1\n\treturn 0;//\u7ed3\u675f\n}\n```\n\u6700\u540e\u63d0\u9192\u4e00\u53e5\uff1aAT\u8f93\u51fa\u8981\u6362\u884c\uff01\uff01\n",
+        "postTime": 1584703037,
+        "uid": 181434,
+        "name": "\u9526\u96332006",
+        "ccfLevel": 3,
+        "title": "\u9898\u89e3 AT4116 \u3010[ABC095B] Bitter Alchemy\u3011"
+    }
+]

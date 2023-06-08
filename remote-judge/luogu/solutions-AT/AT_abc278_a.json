@@ -1,0 +1,26 @@
+[
+    {
+        "content": "## \u9898\u76ee\u5927\u610f\r\n\u7ed9\u5b9a\u4e00\u4e2a\u957f\u5ea6\u4e3a $N$ \u7684\u5e8f\u5217 $A_i$\uff0c\u4f60\u9700\u8981\u6267\u884c\u4ee5\u4e0b\u64cd\u4f5c $K$ \u6b21\uff1a\r\n\r\n- \u5c06\u5e8f\u5217 $A$ \u7684\u7b2c\u4e00\u4e2a\u5143\u7d20\u5220\u53bb\uff0c\u5e76\u5728\u6700\u540e\u8865 $0$\u3002\r\n\r\n\u8f93\u51fa $K$ \u6b21\u64cd\u4f5c\u540e\u7684 $A_i$\uff0c\u5176\u4e2d $1\\le N,K,A_i\\le 100$\u3002\r\n\r\n## \u5927\u4f53\u601d\u8def\r\n\u5f53 $N\\le K$ \u65f6\uff0c\u6240\u6709\u5143\u7d20\u5747\u88ab\u5220\u53bb\u5e76\u8865 $0$\uff0c\u56e0\u6b64\u8f93\u51fa $N$ \u4e2a $0$ \u5373\u53ef\u3002\r\n\r\n\u5f53 $N>K$ \u65f6\uff0c\u539f\u5e8f\u5217\u7684\u7b2c $K+1\\sim N$ \u4e2a\u5143\u7d20\u53d8\u6210\u73b0\u5728\u7684\u524d $N-K$ \u4e2a\u5143\u7d20\uff0c\u540e\u9762\u6709 $K$ \u4e2a $0$\u3002\r\n\r\n## \u5b8c\u6574\u4ee3\u7801\r\n```cpp\r\n#include <bits/stdc++.h>\r\nusing namespace std;\r\n#define rep(ii,aa,bb) for(re int ii = aa; ii <= bb; ii++)\r\n#define Rep(ii,aa,bb) for(re int ii = aa; ii >= bb; ii--)\r\ntypedef long long ll;\r\ntypedef unsigned long long ull;\r\ntypedef double db;\r\ntypedef pair<int, int> PII;\r\nconst int maxn = 105;\r\nnamespace IO_ReadWrite {\r\n\t#define re register\r\n\t#define gg (p1 == p2 && (p2 = (p1 = _buf) + fread(_buf, 1, 1<<21, stdin), p1 == p2) ? EOF :*p1++)\r\n\tchar _buf[1<<21], *p1 = _buf, *p2 = _buf;\r\n\ttemplate <typename T>\r\n\tinline void read(T &x){\r\n\t\tx = 0; re T f=1; re char c = gg;\r\n\t\twhile(c > 57 || c < 48){if(c == '-') f = -1;c = gg;}\r\n\t\twhile(c >= 48 &&c <= 57){x = (x<<1) + (x<<3) + (c^48);c = gg;}\r\n\t\tx *= f;return;\r\n\t}\r\n\tinline void ReadChar(char &c){\r\n\t\tc = gg;\r\n\t\twhile(!isalpha(c)) c = gg;\r\n\t}\r\n\ttemplate <typename T>\r\n\tinline void write(T x){\r\n\t\tif(x < 0) putchar('-'), x = -x;\r\n\t\tif(x > 9) write(x/10);\r\n\t\tputchar('0' + x % 10);\r\n\t}\r\n\ttemplate <typename T>\r\n\tinline void writeln(T x){write(x); putchar('\\n');}\r\n}\r\nusing namespace IO_ReadWrite;\r\nint n, k, a[maxn];\r\nint main () {\r\n\tread(n); read(k);\r\n\trep(i, 1, n) read(a[i]);\r\n\tif(k <= n) {\r\n\t\trep(i, k + 1, n) write(a[i]), putchar(' ');\r\n\t\trep(i, 1, k) write(0), putchar(' ');\r\n\t} else {\r\n\t\trep(i, 1, n) write(0), putchar(' ');\r\n\t}\r\n\t\r\n\treturn 0;\r\n}\r\n```",
+        "postTime": 1669010816,
+        "uid": 279197,
+        "name": "Mars_Dingdang",
+        "ccfLevel": 6,
+        "title": "ABC278A"
+    },
+    {
+        "content": "### 1.\u601d\u8def\r\n\r\n\u76f4\u63a5\u6309\u7167\u9898\u610f\u6a21\u62df\u3002\r\n\r\n\u5982\u679c $k \\le n$\uff0c\u90a3\u4e48\u524d\u51e0\u4e2a\u7684\u7167\u5e38\u8f93\u51fa\uff0c\u5269\u4f59\u7684\u8f93\u51fa $0$\u3002\r\n\r\n\u5982\u679c $k > n$\uff0c\u76f4\u63a5\u8f93\u51fa $n$ \u4e2a $0$\u3002\r\n\r\n### 2.\u4ee3\u7801\r\n\r\n```cpp\r\n#include<bits/stdc++.h>\r\nusing namespace std;\r\nint a[105];\r\nint main(){\r\n\tint n,k;\r\n\tcin>>n>>k;\r\n\tfor(int i=1;i<=n;i++) cin>>a[i];\r\n\tfor(int i=k+1;i<=n;i++) cout<<a[i]<<\" \";\r\n\tfor(int i=1;i<=min(n,k);i++) cout<<0<<\" \";\r\n\treturn 0;\r\n} \r\n```\r\n",
+        "postTime": 1669001219,
+        "uid": 229366,
+        "name": "Fast_IO",
+        "ccfLevel": 4,
+        "title": "ABC278A"
+    },
+    {
+        "content": "### \u9898\u76ee\u5927\u610f\r\n\u6709\u4e00\u4e2a\u5e8f\u5217 $a$ \uff0c\u9700\u8981\u6267\u884c $k$ \u6b21\u64cd\u4f5c\uff1a\u5c06 $a$ \u7684\u7b2c\u4e00\u4e2a\u5143\u7d20\u5220\u9664\uff0c\u5e76\u5728\u672b\u5c3e\u63d2\u5165\u4e00\u4e2a 0\u3002\r\n\r\n### \u601d\u8def\r\n\u7531\u4e8e\u6570\u636e\u8303\u56f4\u5947\u5c0f\u65e0\u6bd4\uff0c\u76f4\u63a5\u65e0\u8111\u6a21\u62df\u90fd\u80fd\u8fc7\u3002\r\n\r\n\u4f46\u6211\u4eec\u8981\u60f3\u7801\u8d77\u6765\u66f4\u7b80\u5355\u7684\u505a\u6cd5\u3002\r\n\u9996\u5148\uff0c\u5982\u679c $k \\ge n$ \u90a3\u4e48 $a$ \u6570\u7ec4\u5168\u662f 0\u3002\r\n\u800c\u5982\u679c $k<n$\uff0c\u90a3\u4e48 $a$ \u4e2d\u53ea\u5269\u4e0b\u4e86\u539f\u6765\u7684\u540e $n-k$ \u4e2a\u5143\u7d20\uff0c\u5148\u8f93\u51fa\u8fd9\u4e9b\u3002\u672b\u5c3e\u63d2\u5165\u4e86 $k$ \u4e2a 0\uff0c\u5728\u8f93\u51fa\u8fd9\u4e9b 0\u3002\r\n\r\n### Code\r\n```\r\n#include<bits/stdc++.h>\r\nusing namespace std;\r\nint n,k,a;\r\nsigned main(){\r\n    cin>>n>>k;k=min(k,n);\r\n    for(int i=1;i<=n;i++){\r\n        cin>>a;\r\n        if(i>k)cout<<a<<' ';\r\n    }\r\n    for(int i=1;i<=k;i++)cout<<\"0 \";\r\n    return 0;\r\n}\r\n```",
+        "postTime": 1668999629,
+        "uid": 548999,
+        "name": "As_Snow",
+        "ccfLevel": 0,
+        "title": "[ABC278A] Shift \u9898\u89e3"
+    }
+]

@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u9898\u76ee\u4e2d\u6ca1\u6709\u6837\u4f8b \uff08~~\u5176\u5b9e\u70b9\u5230AT2486\u91cc\u9762\u5c31\u80fd\u770b\u5230\u4e86~~\uff09\uff0c\u90a3\u5c31\u7ed9\u4e00\u4e2a\u5427\u3002\n```\nInput\n\n11\n8 3 2 4 8 7 2 4 0 8 8\n\nOutput\n\n10\n```\n\u5bf9\u4e8e\u8fd9\u4e2a\u6837\u4f8b\uff0c\u6709\u4ee5\u4e0b10\u79cd\u65b9\u6cd5\u4f7f\u7b49\u5f0f\u6210\u7acb\n```\n    8+3\u22122\u22124+8\u22127\u22122\u22124\u22120+8=8\n    8+3\u22122\u22124+8\u22127\u22122\u22124+0+8=8\n    8+3+2+4\u22128\u22127+2\u22124\u22120+8=8\n    8+3+2+4\u22128\u22127+2\u22124+0+8=8\n    8+3+2\u22124+8\u22127+2+4\u22120\u22128=8\n    8+3+2\u22124+8\u22127+2+4+0\u22128=8\n    8\u22123+2+4\u22128+7+2+4\u22120\u22128=8\n    8\u22123+2+4\u22128+7+2+4+0\u22128=8\n    8\u22123+2\u22124+8+7+2\u22124\u22120\u22128=8\n    8\u22123+2\u22124+8+7+2\u22124+0\u22128=8\n```\n\u770b\u5230\u65f6\u95f4\u9650\u5236\u7684\u65f6\u5019\u60f3\u7684\u662f\u9012\u5f52\uff0c\u7ed3\u679c\u8fd8\u662fTLE\uff08~~\u662f\u6211\u592a\u84bb\u4e86~~\uff09\u3002\u6240\u4ee5\u8fd8\u662f\u8001\u8001\u5b9e\u5b9e\u7528DP\u5427\u3002\n\ndp[i][j] \u8f6c\u79fb\u524di\u4e2a\u6570\u5f97\u5230\u7ed3\u679cj\u65b9\u6848\u6570\n\n\u53ef\u4ee5\u5f97\u5230\u8f6c\u79fb\u5f0f(\u8fd9\u91cc\u5c06\u8f93\u5165\u6570\u636e\u8bb0\u4e3aa[i])\n\n```cpp\n\tdp[i][j-a[i]]+=dp[i-1][j]\n\tdp[i][j+a[i]]+=dp[i-1][j]\n```\n\u6700\u540e\u8f93\u51fa dp[n-1][a[n]]\u5373\u53ef\n\n\u4e0a\u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\ntypedef long long int ll;\n\nll dp[110][21];\n\nint main(){\n\tint n; cin >> n;\n\tvector<int> a(n+1);\n\tfor(int i=1;i<=n;i++){\n\t\tcin >> a[i];\n\t}\n\tdp[1][a[1]]=1;\n\tfor(int i=1;i<n-1;i++){\n\t\tfor(int j=0;j<=20;j++){\n\t\t\tif(dp[i][j]==0)continue;\n\t\t\tif(j+a[i+1]<=20){\n\t\t\t\tdp[i+1][j+a[i+1]]+=dp[i][j];\n\t\t\t}\n\t\t\tif(j-a[i+1]>=0){\n\t\t\t\tdp[i+1][j-a[i+1]]+=dp[i][j];\n\t\t\t}\n\t\t}\n\t}\n\tcout << dp[n-1][a[n]] << endl;\n}\n```\n",
+        "postTime": 1572246240,
+        "uid": 248219,
+        "name": "Yexuaj",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 AT2486 \u30101\u5e74\u751f\u3011"
+    }
+]

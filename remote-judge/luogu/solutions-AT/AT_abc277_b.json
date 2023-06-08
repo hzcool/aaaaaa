@@ -1,0 +1,58 @@
+[
+    {
+        "content": "##  AT_abc277_b [ABC277B] Playing Cards Validation \u984c\u89e3\n\n### \u9898\u610f\n\n\u5224\u65ad $n$ \u4e2a\u957f\u5ea6\u4e3a $2$ \u7684\u5b57\u7b26\u4e32\uff0c\u82e5\u6bcf\u4e2a\u5b57\u7b26\u7684\u7b2c\u4e00\u4e2a\u5b57\u7b26\u800c\u7b2c\u4e8c\u4e2a\u5b57\u7b26\u90fd\u5206\u522b\u5728\u9898\u76ee\u8981\u6c42\u7684\u5b57\u7b26\u96c6\u4e2d\u4e14\u6bcf\u4e2a\u5b57\u7b26\u4e0d\u76f8\u540c\u8f93\u51fa `Yes`\uff0c\u5426\u5219\u8f93\u51fa `No`\u3002\n\n### \u89e3\u6790\n\n\u6211\u4eec\u53ef\u4ee5\u8bfb\u5165\u4e00\u4e2a\u5b57\u7b26\u4e32\u5224\u65ad\u8fd9\u4e2a\u5b57\u7b26\u4e32\u662f\u5426\u6ee1\u8db3\u8981\u6c42\uff0c\u5982\u679c\u4e0d\u7b26\u5408\u8981\u6c42\u6211\u4eec\u4fbf\u53ef\u4ee5\u76f4\u63a5\u8f93\u51fa `No` \u4fbf\u7ed3\u675f\u7a0b\u5e8f\u3002\n\n\u663e\u7136\uff0c\u82e5\u5faa\u73af\u7ed3\u675f\uff0c\u8bf4\u660e\u6ca1\u6709\u6ee1\u8db3\u8f93\u51fa `No` \u7684\u8981\u6c42\uff0c\u4fbf\u76f4\u63a5\u8f93\u51fa `Yes` \u5373\u53ef\u3002\n\n\u5982\u4f55\u5224\u65ad\u5b57\u7b26\u4e0d\u76f8\u540c\u5462\uff0c\u6211\u4eec\u53ef\u4ee5\u628a\u8fd9\u51e0\u4e2a\u5b57\u7b26\u4e32\u7684 ASCII \u503c\u5b58\u5165 `int` \u7684\u6876\u6570\u7ec4\uff0c\u901a\u8fc7\u67e5\u91cd\u5bfb\u627e\u3002\n\n",
+        "postTime": 1668345576,
+        "uid": 408019,
+        "name": "Shan_Creeper",
+        "ccfLevel": 0,
+        "title": "AT_abc277_b [ABC277B] Playing Cards Validation \u984c\u89e3"
+    },
+    {
+        "content": "\u80fd\u66b4\u529b\uff0c\u4e3a\u4ec0\u4e48\u8981\u7528 `map`\uff1f\n\n\u4ecb\u7ecd\u4e00\u4e0b\u5b57\u7b26\u4e32\u6570\u7ec4\u7684\u7528\u6cd5\uff1a\u53ef\u4ee5\u5f53\u505a\u4e00\u4e2a\u4e8c\u7ef4\u7684\u5b57\u7b26\u6570\u7ec4\u6765\u7528\uff0c\u7528\u6cd5\u548c\u4e8c\u7ef4\u5b57\u7b26\u6570\u7ec4\u4e00\u6837\u3002\n\n\u6570\u636e\u8303\u56f4 $N \\leq 52$\uff0c\u66b4\u529b\u53ef\u8fc7\u3002\n\n```cpp\n#include<iostream>\nusing namespace std;\nint n;\nstring a[55];\nint main(){\n    cin>>n;\n    for(int i=1;i<=n;i++){\n        cin>>a[i];\n        if(a[i][0]!='H'&&a[i][0]!='D'&&a[i][0]!='C'&&a[i][0]!='S'){\n            cout<<\"No\";\n            return 0;\n        }\n        if(a[i][1]!='A'&&a[i][1]!='2'&&a[i][1]!='3'&&a[i][1]!='4'&&a[i][1]!='5'&&a[i][1]!='6'&&a[i][1]!='7'&&a[i][1]!='8'&&a[i][1]!='9'&&a[i][1]!='T'&&a[i][1]!='J'&&a[i][1]!='Q'&&a[i][1]!='K'){\n            cout<<\"No\";\n            return 0;\n        }\n        for(int j=i-1;j>=1;j--){\n            if(a[j]==a[i]){\n                cout<<\"No\";\n                return 0;\n            }\n        }\n    }\n    cout<<\"Yes\";\n    return 0;\n}\n```\n",
+        "postTime": 1668345166,
+        "uid": 578029,
+        "name": "ivyjiao",
+        "ccfLevel": 3,
+        "title": "AT_abc277_b [ABC277B] Playing Cards Validation \u9898\u89e3"
+    },
+    {
+        "content": "\u672c\u9898\u601d\u8def\u5c31\u662f\u6a21\u62df\uff0c\u9996\u5148 `map` \u5224\u65ad\u662f\u5426\u6709\u91cd\u590d\u5b57\u7b26\u4e32\uff0c\u7136\u540e\u6839\u636e\u9898\u4e00\u6a21\u62df\u3002\n```cpp\n#include<iostream>\n#include<map>\n#include<cstdio>\nstd::map<std::string,int>mp;\nint main(){\n\tbool flag=1;\n\tint t;\n  \tstd::string s;\n\tstd::cin>>t;\n\twhile(t--){\n\t\tstd::cin>>s;\n\t\tif(s[0]!='H'&&s[0]!='D'&&s[0]!='C'&&s[0]!='S')\n\t\t\tflag=0;\n        else if(s[1]!='A'&&!(s[1]>='2'&&s[1]<='9')&&s[1]!='T'&&s[1]!='J'&&s[1]!='Q'&&s[1]!='K')\n\t\t\tflag=0;\n        else if(mp.count(s))\n\t\t\tflag=0;\n\t\tmp[s]=1;\n\t}\n\tif(flag)\n        puts(\"Yes\");\n\telse \n        puts(\"No\");\n\treturn 0;\n}\n\n\n```\n",
+        "postTime": 1668343170,
+        "uid": 517086,
+        "name": "Anclogy",
+        "ccfLevel": 3,
+        "title": "ABC277B"
+    },
+    {
+        "content": "**\u9898\u610f**\n\n\u7ed9\u5b9a $N$ \u4e2a\u53ea\u5305\u542b $2$ \u4e2a\u5b57\u7b26\u7684\u5b57\u7b26\u4e32\uff0c\u7b2c $i$ \u884c\u7684\u5b57\u7b26\u4e32\u662f $S_i$\u3002\n\n\u4ee5\u4e0b\u4e09\u4e2a\u6761\u4ef6\u662f\u5224\u65ad\u5b57\u7b26\u4e32\u662f\u5426\u5408\u6cd5\u7684\u6761\u4ef6\uff1a\n\n1. \u5b57\u7b26\u4e32\u7684\u7b2c\u4e00\u4f4d\u53ea\u80fd\u5305\u542b `D,C,H,S` \u8fd9\u56db\u4e2a\u5927\u5199\u5b57\u6bcd\u3002\n2. \u5b57\u7b26\u4e32\u7684\u7b2c\u4e8c\u4f4d\u53ea\u80fd\u5305\u542b `A,2,3,4,5,6,7,8,9,T,J,Q,K` \u8fd9 $13$ \u4e2a\u5b57\u7b26\u3002\n3. \u5bf9\u4e8e\u6240\u6709\u5b57\u7b26\u4e32\uff0c\u5982\u679c $i \\neq j$\uff0c\u5219 $S_i \\neq S_j$\u3002\uff08\u5373\u6ca1\u6709\u91cd\u590d\u7684\u5b57\u7b26\u4e32\uff09\n\n\u5982\u679c\u6240\u6709\u5b57\u7b26\u4e32\u90fd\u6ee1\u8db3\u8fd9\u7b2c\u4e09\u4e2a\u6761\u4ef6\uff0c\u5219\u8f93\u51fa `Yes`\uff0c\u5426\u5219\uff0c\u8f93\u51fa `No`\u3002\n\n**\u505a\u6cd5**\n\n\u7528 `map` \u6765\u6807\u8bb0\u5f53\u524d\u5b57\u7b26\u4e32\u662f\u5426\u51fa\u73b0\u8fc7\uff0c\u7136\u540e\u518d\u6309\u7167 $1,2$ \u4e24\u6761\u6761\u4ef6\u6a21\u62df\uff0c\u4e0d\u5408\u6cd5\u76f4\u63a5\u8f93\u51fa `No`\u3002\n\n\u5982\u679c\u5b83\u80fd\u8fd0\u884c\u5230\u8f93\u51fa `Yes` \u90a3\u884c\uff0c\u8bf4\u660e\u6240\u6709\u7684\u5b57\u7b26\u4e32\u90fd\u5408\u6cd5\u3002\n\nCode:\n\n```cpp\n#include<iostream>\n#include<map>\nusing namespace std;\nmap<string, int> mp;\nstring k; \nint main()\n{\n  int n;\n  cin >> n;\n  for (int i = 1;i <= n;i ++)\n  {\n    cin >> k;\n    if (mp[k]) //\u662f\u5426\u91cd\u590d\u51fa\u73b0\n    {\n      cout << \"No\\n\";\n      return 0;\n    }\n    if (k[0] != 'D' && k[0] != 'H' && k[0] != 'C' && k[0] != 'S')//\u7b2c\u4e00\u4e2a\u6761\u4ef6\n    {\n      cout << \"No\\n\";\n      return 0;\n    }\n    if (k[1] != 'A' && k[1] != '2' && k[1] != '3' && k[1] != '4' && k[1] != '5' && k[1] != '6' && k[1] != '7' && k[1] != '8' && k[1] != '9' && k[1] != 'T' && k[1] != 'J' && k[1] != 'Q' && k[1] != 'K')//\u7b2c\u4e8c\u4e2a\u6761\u4ef6\n    {\n      cout << \"No\\n\";\n      return 0;\n    }\n    mp[k] = 1;//\u6807\u8bb0\u8be5\u5b57\u7b26\u4e32\n  }\n  cout << \"Yes\\n\";\n  return 0;\n}\n```\n~~\u7801\u98ce\u4e0d\u597d\uff0c\u8f7b\u55b7~~",
+        "postTime": 1668299999,
+        "uid": 462003,
+        "name": "tommyfj",
+        "ccfLevel": 0,
+        "title": "[ABC277B] Playing Cards Validation"
+    },
+    {
+        "content": "# \u601d\u8def\n\u5efa\u7acb\u4e00\u4e2a\u5b57\u7b26\u4e32\u6570\u7ec4\uff0c\u5faa\u73af\u5224\u65ad\u662f\u5426\u6ee1\u8db3\u6761\u4ef6\uff0c\u5982\u679c\u4e09\u4e2a\u6761\u4ef6\u90fd\u6ee1\u8db3\u5c31\u8f93\u51fa `Yes` \uff0c\u5426\u5219\u8f93\u51fa `No` \u3002\n# code\n```cpp\n#include<iostream>\n#include<cstring>\nusing namespace std;\nstring a[105];\nint main(){\n\tint n,f1=1,f2=1,f3=1;\n\tcin>>n;\n\tfor(int i=1;i<=n;i++){\n\t\tcin>>a[i];\n\t\tif(!(a[i][0]=='H'||a[i][0]=='D'||a[i][0]=='C'||a[i][0]=='S'))f1=0;\n\t\tif(!(a[i][1]=='A'||(a[i][1]>='2'&&a[i][1]<='9')||a[i][1]=='T'||a[i][1]=='J'||a[i][1]=='Q'||a[i][1]=='K'))f2=0;\n\t}\n\tfor(int i=1;i<=n;i++){\n\t\tfor(int j=1;j<=n;j++){\n\t\t\tif(i!=j&&a[i]==a[j]) f3=0;\n\t\t}\n\t}\n\tif(f1==1&&f2==1&&f3==1)cout<<\"Yes\"<<endl;\n\telse cout<<\"No\"<<endl;\n\treturn 0;\n}\n```",
+        "postTime": 1668343380,
+        "uid": 759710,
+        "name": "OIer1030",
+        "ccfLevel": 0,
+        "title": "AT_abc277_b [ABC277B] Playing Cards Validation \u9898\u89e3"
+    },
+    {
+        "content": "[$\\color{red}\\text{\u9898\u76ee\u4f20\u9001\u95e8}$](https://www.luogu.com.cn/problem/AT_abc277_b)\n\n[$\\color{red}\\text{\u66f4\u597d\u7684\u9605\u8bfb\u4f53\u9a8c}$](https://www.luogu.com.cn/blog/Alex-ZJY/solution-at-abc277-b)\n\n## \u9898\u610f\n\u7ed9\u51fa $n$ \u4e2a\u957f\u5ea6\u4e3a $2$ \u7684\u5b57\u7b26\u4e32\uff0c\n\u8981\u6c42\uff1a\n- \u7b2c\u4e00\u4e2a\u5b57\u7b26\u5fc5\u987b\u662f`HDCS` \u4e2d\u7684\u4e00\u4e2a\uff1b\n- \u7b2c\u4e8c\u4e2a\u5b57\u7b26\u5fc5\u987b\u662f`A23456789TJQK`\u4e2d\u7684\u4e00\u4e2a\uff1b\n- \u6ca1\u6709\u91cd\u590d\u7684\u5b57\u7b26\u4e32\n\n\u7b26\u5408\u6761\u4ef6\u8f93\u51fa`Yes`\uff0c\u4e0d\u7b26\u5408\u8f93\u51fa`No`\u3002\n\n## \u5206\u6790\n\u7528 $flag$ \u6807\u8bb0\u662f\u5426\u7b26\u5408\u6761\u4ef6\uff0c\u521d\u503c\u4e3a $0$\u3002\n- \u5bf9\u4e8e\u524d\u4e24\u4e2a\u6761\u4ef6\uff0c\u7528`if`\u8bed\u53e5\u5224\u65ad\u5373\u53ef\uff0c\u4e0d\u7b26\u5408\u5c06 $flag$ \u6807\u8bb0\u4e3a $1$\uff1b\n- \u5bf9\u4e8e\u7b2c\u4e09\u4e2a\u6761\u4ef6\uff0c\u53ef\u4ee5\u7528`map`\u5f00\u4e00\u4e2a\u6876\uff0c\u6bcf\u6b21\u5224\u65ad\u8f93\u5165\u7684\u5b57\u7b26\u4e32\u7684\u6876\u662f\u5426\u4e3a\u7a7a\uff0c\u5982\u679c\u4e3a\u7a7a\uff0c\u5c06\u6876\u53d8\u4e3a $1$\uff1b\u5982\u679c\u4e0d\u4e3a\u7a7a\uff0c\u8bf4\u660e\u5b57\u7b26\u4e32\u91cd\u590d\u4e86\uff0c\u5c06 $flag$ \u6807\u8bb0\u4e3a $1$\u3002\n\n\u6700\u540e\u5224\u65ad $flag$ \u662f\u5426\u4e3a $0$\uff0c\u4e3a $0$ \u8f93\u51fa `Yes`\uff0c\u4e0d\u4e3a $0$ \u8f93\u51fa `No`\u3002\n## $\\text{AC code}$\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nmap<string,int>a;\nint main()\n{\n\tint n;\n\tstring s[55];\n\tcin>>n;\n\tbool flag=0;\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tcin>>s[i];\n\t\tif(s[i][0]!='H'&&s[i][0]!='D'&&s[i][0]!='C'&&s[i][0]!='S') flag=1;\n\t\tif(s[i][1]!='A'&&s[i][1]!='2'&&s[i][1]!='3'&&s[i][1]!='4'&&s[i][1]!='5'&&s[i][1]!='6'&&s[i][1]!='7'&&s[i][1]!='8'&&s[i][1]!='9'&&s[i][1]!='T'&&s[i][1]!='J'&&s[i][1]!='Q'&&s[i][1]!='K') flag=1;\n\t\tif(a[s[i]]==1) flag=1;\n\t\telse a[s[i]]=1;\n\t}\n\tif(flag==1) cout<<\"No\"<<endl;\n\telse cout<<\"Yes\"<<endl;\n\treturn 0;\n}\n```\n",
+        "postTime": 1668322525,
+        "uid": 841648,
+        "name": "Alex_ZJY",
+        "ccfLevel": 0,
+        "title": "[ABC277B] Playing Cards Validation \u9898\u89e3"
+    },
+    {
+        "content": "B \u9898\uff0c\u6a21\u62df\u5373\u53ef\u3002\n\n## \u601d\u8def\n\n\u6570\u636e\u8303\u56f4\u5f88\u5c0f\uff0c\u76f4\u63a5\u66b4\u529b\u5c31\u884c\u4e86\u3002\n\n\u5224\u65ad\u9996\u4f4d\u662f\u5426\u662f $\\texttt{H, D, C, S}$ \u4e2d\u7684\u4e00\u4e2a\u3002\u5982\u679c\u4e0d\u662f\uff0c\u76f4\u63a5\u7ed3\u675f\u7a0b\u5e8f\u5373\u53ef\u3002\n\n\u5224\u65ad\u7b2c\u4e8c\u4f4d\u65f6\uff0c\u6709\u4e00\u4e2a\u6280\u5de7\uff1a\u6211\u4eec\u53ef\u4ee5\u5224\u65ad\u8fd9\u4e2a\u6570\u662f\u5426\u5728 $2 \\sim 9$ \u91cc\u9762\u3002\u8fd9\u6837\u5c31\u53ef\u4ee5\u7701\u53bb\u4e00\u4e9b `if` \u4e86\u3002\n\n\u7136\u540e\uff0c\u66b4\u529b $O(n^2)$ \u770b\u662f\u5426\u6709\u5b57\u7b26\u4e32\u76f8\u7b49\u5373\u53ef\u3002\n\n## \u4ee3\u7801\n\n\u7701\u53bb\u4e86\u5927\u6bb5\u7684\u7f3a\u7701\u6e90\u3002\n\n```cpp\nconst int N = 60;\nstring c[N];\nvoid solve()\n{\n    bool ans = true;\n    int n;\n    scanf(\"%d\", &n);\n    for (int i = 1; i <= n; i++)\n    {\n        string s;\n        cin >> s;\n        c[i] = s;\n        if (s[0] != 'H' && s[0] != 'D' && s[0] != 'C' && s[0] != 'S')\n        {\n            puts(\"No\");\n            return;\n        }\n        if (s[1] != 'A' && !('2' <= s[1] && s[1] <= '9') && s[1] != 'T' && s[1] != 'J' && s[1] != 'Q' && s[1] != 'K')\n        {\n            puts(\"Yes\");\n            return;\n        }\n    }\n    for (int i = 1; i <= n; i++)\n        for (int j = i + 1; j <= n; j++)\n            if (c[i] == c[j])\n            {\n                puts(\"No\");\n                return;\n            }\n    puts(\"Yes\");\n}\n```",
+        "postTime": 1668305097,
+        "uid": 687698,
+        "name": "_dijkstra_",
+        "ccfLevel": 0,
+        "title": "ABC277B \u9898\u89e3"
+    }
+]

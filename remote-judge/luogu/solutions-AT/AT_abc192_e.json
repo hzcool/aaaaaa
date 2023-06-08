@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u770b\u5230\u8fd9\u7c7b\u5957\u8def\u9898\uff0c\u4e00\u822c\u5148\u8003\u8651\u4e24\u70b9\u4e4b\u95f4\u7684\u60c5\u51b5\u600e\u4e48\u505a\u3002\n\n\u4e8e\u662f\u95ee\u9898\u8f6c\u5316\u4e3a\uff1a\u5047\u8bbe\u4ece $ A $ \u51fa\u53d1\u7684\u65f6\u523b\u4e3a $ T $\uff0c\u4e14 $ A,B $ \u4e24\u70b9\u95f4\u7684\u8fb9\u6743\u4e3a $ W $\uff0c\u65f6\u95f4\u95f4\u9694\u4e3a $ K $\uff0c\u90a3\u4e48\u4ece $ A $ \u5230 $ B $ \u7684\u65f6\u523b\u6700\u65e9\u662f\u591a\u5c11\u3002\n\n\u663e\u7136\u6700\u4f18\u7b56\u7565\u662f\u7b49\u5230\u80fd\u51fa\u53d1\u7684\u6700\u65e9\u65f6\u523b\u4e4b\u540e\u76f4\u63a5\u8dd1\u8def\uff0c\u7b54\u6848\u5373\u4e3a $ \\lceil \\frac{T}{K} \\rceil + W $\u3002\n\n\u7528\u6734\u7d20 Dijkstra \u5373\u53ef\u89e3\u51b3\uff0c\u65f6\u95f4\u590d\u6742\u5ea6\u540c Dijkstra\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n#define int long long\nint n,m,u,v;\nstruct edge\n{\n\tint to,dis,k;\n};\nvector<edge> edg[100005];\nqueue<int> wk;\nint d[100005];\nsigned main()\n{\n\tcin>>n>>m>>u>>v;\n\tlong long t1,t2,t3,t4;\n\tfor(int i=1;i<=m;i++)\n\t{\n\t\tcin>>t1>>t2>>t3>>t4;\n\t\tedg[t1].push_back({t2,t3,t4});\n\t\tedg[t2].push_back({t1,t3,t4});\n\t}\n\tfor(int i=1;i<=n;i++)\n\td[i]=-1;\n\td[u]=0;\n\twk.push(u);\n\twk.push(0);\n\tint s;\n\twhile(!wk.empty())\n\t{\n\t\ts=wk.front();\n\t\twk.pop();\n\t\tif(wk.front()!=d[s])\n\t\t{\n\t\t\twk.pop();\n\t\t\tcontinue;\n\t\t}\n\t\twk.pop();\n\t\tfor(auto x:edg[s])\n\t\t{\n\t\t\tif(d[x.to]==-1||d[x.to]>d[s]-(d[s]+x.k-1)%x.k+x.k-1+x.dis)\n\t\t\t{\n\t\t\t\td[x.to]=d[s]-(d[s]+x.k-1)%x.k+x.k-1+x.dis;\n\t\t\t\twk.push(x.to);\n\t\t\t\twk.push(d[x.to]);\n\t\t\t}\n\t\t}\n\t}\n\tcout<<d[v];\n}\n```\n",
+        "postTime": 1674310397,
+        "uid": 714821,
+        "name": "loser_seele",
+        "ccfLevel": 4,
+        "title": "ABC192E\u9898\u89e3"
+    }
+]

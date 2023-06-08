@@ -1,0 +1,34 @@
+[
+    {
+        "content": "\u8fd9\u4e0d\u5c31\u662f\u6590\u6ce2\u90a3\u5951\u5417\uff1f\n\n\n------------\n\n\n```cpp\n#include<bits/stdc++.h>//\u4e07\u80fd\u5e93\nusing namespace std;\nint n;\nlong long f[87];//\u5f00longlong\uff0c\u9632\u7206\nint main()\n{\n\tcin>>n;\n\tf[0]=2;//\u521d\u59cb\u5316\n\tf[1]=1;\n\tfor(int i=2;i<=n;i++)\n\t\tf[i]=f[i-1]+f[i-2];//\u5957\u7528\u516c\u5f0f\n\tcout<<f[n];//\u8f93\u51fa\u7b2cn\u4e2a\n}\n\n```",
+        "postTime": 1524281523,
+        "uid": 65735,
+        "name": "yuzhechuan",
+        "ccfLevel": 8,
+        "title": "\u9898\u89e3 AT3675 \u3010Lucas Number\u3011"
+    },
+    {
+        "content": "# \u704c\u6c34\u533a\uff1a\n1\u3001\u849f\u84bb\u521a\u521a\u624d\u77e5\u9053\u9012\u63a8\uff0c\u5927\u4f6c\u52ff\u55b7\u3002\n\n~~2\u3001\u7136\u800c\u6211\u4e0d\u786e\u5b9a\u6211\u7684\u4ee3\u7801\u662f\u4e0d\u662f\u9012\u63a8\u3002~~\n\n3\u3001\u6c42\u8def\u8d5e\u3002\n\n4\u3001\u7ba1\u7406\u5927\u5927\u6c42\u8fc7\u3002\n\n\n------------\n\n# \u7b97\u6cd5\u533a\uff1a\n\n\u9012\u5f52\u548c\u9012\u63a8\u90fd\u53ef\u4ee5\u7528\uff0c\u4f46\u9012\u5f52\u9047\u5230\u5927\u6570\u636e\u5c31\u6302\u4e86\uff0c\u6240\u4ee5\u8981\u7528\u9012\u63a8\u3002\u9012\u63a8\u4e2d\u56e0\u4e3a\u53ea\u6d89\u53ca\u5230\u5f53\u524d\u3001\u5f53\u524d-1\u548c\u5f53\u524d-2\u4e09\u4e2a\u72b6\u6001\uff0c\u6240\u4ee5\u8bf4\u7528a b c\u4e09\u4e2a\u53d8\u91cf\u5373\u53ef\u3002\n\n###  \u521d\u59cb\u72b6\u6001\uff1aa=2,b=1;\n\n\u56e0\u4e3a\u7b2c0\u9879\u548c\u7b2c1\u9879\u90fd\u5df2\u7ecf\u7b97\u4e86\uff0c\u6240\u4ee5\u4ece2\u5faa\u73af\u5230n\u3002\n\n## \u6280\u5de7\u5206\u533a\uff1a\n\n1\u3001\u5982\u679c\u95ee\u4f60\u7b2c0\uff0c1\u9879\uff0c\u53ef\u4ee5\u76f4\u63a5\u8f93\u51fa\u7ed3\u679c\u7136\u540e\u8df3\u51fa\u7a0b\u5e8f\u3002\n\n2\u3001a b c\u5faa\u73af\u5229\u7528\u65f6\uff0c\u8d4b\u503c\u7684\u987a\u5e8f\u8981\u6ce8\u610f\u3002\u8981\u4e0d\u7136\u4f1a\u6539\u53d8\u672c\u610f\u3002\n\n3\u3001long long \u7684\u8303\u56f4\u662f19\u4f4d\uff0c\u9898\u76ee\u6240\u8ff0\u662f10^18\uff0c\u6240\u4ee5\u5f00long long\u3002\n\n#### 4\u3001\u8f93\u51fa\u672b\u5c3e\u4e00\u5b9a\u8981\u6362\u884c\uff01\uff01\uff01\n\n------------\n\n# \u4ee3\u7801\u533a\n```\n#include<cstdio>\nusing namespace std;\nint n;\nlong long a,b,c;\nint main()\n{\n    scanf(\"%d\",&n);\n    a=2;\n    b=1;\n    if(n==1)\n    {\n    \tprintf(\"1\\n\");\n    \treturn 0;\n    }\n    if(n==0)\n    {\n    \tprintf(\"2\\n\");\n    \treturn 0;\n    }//\u4e24\u4e2a\u7279\u5224\n    for(int i=2;i<=n;i++)\n    {\n    \tc=a+b;\n    \ta=b;\n    \tb=c;//\u6b64\u5904\u987a\u5e8f\u591a\u52a0\u6ce8\u610f\n    \t\n    }//\u6838\u5fc3\u90e8\u5206\n    printf(\"%lld\\n\",c);//\u522b\u5fd8\u6362\u884c\n    return 0;\n}\n```\n",
+        "postTime": 1532674345,
+        "uid": 45475,
+        "name": "ShineEternal",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT3675 \u3010Lucas Number\u3011"
+    },
+    {
+        "content": "\u76d7\u7248\u6590\u6ce2\u90a3\u5951\n\nl0=2\n\nl1=1\n\nl2=l0+l1=2+1=3\n\n\u2026\u2026\n\nl[i]=l[i-1]+l[i-2]\n\n\u4ee5\u4e0b\u4e3apascal\u4ee3\u7801\uff1a\n```pascal\nvar\n    i,n:longint;\n    l:array[0..86]of int64;\nbegin\n    readln(n);\n    l[0]:=2;\n    l[1]:=1;\n    for i:=2 to n do l[i]:=l[i-1]+l[i-2];//\u5faa\u73af\n    writeln(l[n]);\nend.\n```",
+        "postTime": 1525961329,
+        "uid": 62014,
+        "name": "Soyilieber",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 AT3675 \u3010Lucas Number\u3011"
+    },
+    {
+        "content": "\u770b\u5230\u9019\u9053\u984c\u7684\u7ffb\u8b6f\uff1a\u5b9e\u9645\u5c31\u662f\u6590\u6ce2\u90a3\u5951\u6570\u5217\u2026\u2026\n\n\u6211\uff1a\u9019\u4e0d\u7c21\u55ae\uff01\u76f4\u63a5\u679a\u8209\u5c31\u597d\u4e86\uff01\u53cd\u6b63\u6700\u5927\u4e00\u9805\u6c92\u6709\u8d85\u904elong long \u7bc4\u570d\n\n\u4e00\u958b\u59cb\u7684\u4ee3\u78bc\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n;\nlong long a[87];\nint main()\n{\n    cin>>n;\n    a[0]=1;//\u7b2c\u4e00\u9805\u3001\u7b2c\u4e8c\u9805\u90fd\u70ba\u4e00\n    a[1]=1;\n    for(int i=2;i<=n;i++)\n        a[i]=a[i-1]+a[i-2];//\u679a\u8209\n    cout<<a[n];\n    return 0;\n}\n```\n\u7d50\u679c\u4ea4\u4e0a\u53bb\uff1a\u53ea\u6709\u4e00\u500b\u9edeAC\uff0c\u6211\u4f5b\u4e86\n\n\u65bc\u662f\u6211\u53ea\u597d\u91cd\u65b0\u5be9\u984c\u3002\n\n\u984c\u76ee\u539f\u4f86\u8aaa\u7684\u662f\uff1a\u5b9e\u9645\u5c31\u662f\u6590\u6ce2\u90a3\u5951\u6570\u5217\u7684**\u7a0d\u5fae\u6539\u52a8**\n,a[0]=2,a[1]=1;\n \n\u6211\u604d\u7136\u5927\u609f\uff01\n\n\u65bc\u662f\u6539\u4e86\u4e00\u4e0b\u4ee3\u78bc\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n;\nlong long a[87];\nint main()\n{\n    cin>>n;\n    a[0]=2;//\u7b2c\u4e00\u9805\u70ba2\u3001\u7b2c\u4e8c\u9805\u70ba1\n    a[1]=1;\n    for(int i=2;i<=n;i++)\n        a[i]=a[i-1]+a[i-2];//\u679a\u8209\n    cout<<a[n];\n    return 0;\n}\n```\n\nAC\uff01\n\n\u7db2\u7ba1\u7406\u54e1\u6c42\u904e\uff01qwq",
+        "postTime": 1583116285,
+        "uid": 205199,
+        "name": "fx_05",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 AT3675 \u3010[ABC079B] Lucas Number\u3011"
+    }
+]

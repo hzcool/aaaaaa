@@ -1,0 +1,18 @@
+[
+    {
+        "content": "# AT4350 [ARC101A] Candles\n\n\n\u5bf9\u4e8e\u6bcf\u4e00\u4e2a\u70b9\uff0c\u6709\u4e24\u79cd\u60c5\u51b5\uff0c\u5206\u522b\u662f\uff1a\n\n- \u4ece\u539f\u70b9\u5230\u8fd9\u4e2a\u70b9\u518d\u5411\u5de6\u8d70 $m$ \u4e2a\uff0c\u53ef\u5f97\u4ee3\u7801\uff1a\n\n```cpp\nans=abs(arr[i])+abs(arr[i]-arr[i-m]);\n```\n\n- \u4ece\u539f\u70b9\u5230\u8fd9\u4e2a\u70b9\u518d\u5411\u53f3\u8d70 $m$ \u4e2a\uff0c\u53ef\u5f97\u4ee3\u7801\uff1a\n\n```cpp\nans=abs(arr[i])+abs(arr[i]-arr[i+m]);\n```\n\n\u4e3a\u4ec0\u4e48\u6ca1\u6709\u5148\u8d70\u5230\u4e00\u534a\uff0c\u518d\u8f6c\u5f2f\u5462?\n\n\u6211\u4eec\u6765\u770b\u4e00\u7ec4\u6837\u4f8b\uff1a\n\n```\n5 3\n-30 -10 10 20 50\n```\n\n\u5f53\u8d77\u70b9\u4e3a $10$ \u65f6\uff0c\u5982\u679c\u5148\u5230 $20$ \u5728\u5230 $-10$\uff0c\u5219\u7b97\u51fa\u7ed3\u679c\u4e3a $10+10+30=50$\uff0c\u800c\u4ece $-10$ \u5230 $20$ \u7684\u6548\u679c\u662f\u4e00\u6837\u7684\uff0c\u4e14\u7ed3\u679c\u4e3a $10+30=40$\uff0c\u4e0d\u5b58\u5728\u6b64\u60c5\u51b5\u3002\n\n\u6700\u540e\u5f97\u5230 AC \u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,m;\nint arr[100005]={};\nint main() {\n\tcin>>n>>m; \n\tfor(int i=1; i<=n; i++)\n\t\tcin>>arr[i];\n\tint ans=1e9;\n\tm--;\n\tfor(int i=1;i<=n;i++){\n\t\tif(i+m<=n&&i-m>0){\n\t\t\tint cnt=min(abs(arr[i])+abs(arr[i]-arr[i+m]),abs(arr[i])+abs(arr[i]-arr[i-m]));\n\t\t\tans=min(ans,cnt);\n\t\t}\n\t\telse if(i+m<=n){\n\t\t\tans=min(ans,abs(arr[i])+abs(arr[i]-arr[i+m]));\n\t\t}\n\t\telse if(i-m>0){\n\t\t\tans=min(ans,abs(arr[i])+abs(arr[i]-arr[i-m]));\n\t\t}\n\t}\n\tcout<<ans;\n\treturn 0;\n}\n```",
+        "postTime": 1608274701,
+        "uid": 301817,
+        "name": "QZJ666",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 AT4350 \u3010[ARC101A] Candles\u3011"
+    },
+    {
+        "content": "**\u5206\u7c7b\u8ba8\u8bba\u77e5\u771f\u77e5**\uff0c\u7528\u5de6\u7aef\u70b9\u548c\u53f3\u7aef\u70b9\u7684\u6b63\u8d1f\u60c5\u51b5\u6765\u5206\u7c7b\u8ba8\u8bba\n\n\u2460$left<=0,right<=0,$\u6b64\u65f6\u5e94\u8be5\u8981\u8d70$-l$\uff08\u8fd9\u91cc\u548c\u4e0b\u6587\u7684$l$\u6307\u5de6\u7aef\u70b9\uff0c$r$\u6307\u53f3\u7aef\u70b9\uff09\u5355\u4f4d\u957f\u5ea6\n\n\u2461$left<=0,right>0,$\u6b64\u65f6\u5e94\u8be5\u8981\u8d70$min(r-2l,2r-l)$\u5355\u4f4d\u957f\u5ea6\n\n\u8fd9\u4e2a\u5c31\u662f\u8bf4$Lin$\uff0c**\u5148\u8d70\u5230\u70b9r\u518d\u8d70\u5230\u70b9l\u7684\u8def\u7a0b**\u8fd8\u662f**\u5148\u8d70\u5230\u70b9l\u518d\u8d70\u5230\u70b9r\u7684\u8def\u7a0b**\u77ed\n\n\u2462$left>=0,right>=0,$\u6b64\u65f6\u5e94\u8be5\u8981\u8d70$r$\u5355\u4f4d\u957f\u5ea6\n```\n#include<bits/stdc++.h>\nusing namespace std;\nlong long a,n,k[100005],ans=999999999999999;\nint main()\n{\n\tcin>>a>>n;\n\tfor(int s=1;s<=a;s++)\n\t{\n\t\tcin>>k[s];\n\t\tif(s>=n)\n\t\t{\n\t\t\tif(k[s]<=0&&k[s-n+1]<=0)\n\t\t\tans=min(ans,-k[s-n+1]);\n\t\t\tif(k[s]>0&&k[s-n+1]<=0)\n\t\t\tans=min(ans,k[s]-k[s-n+1]*2);\n\t\t\tif(k[s]>=0&&k[s-n+1]>=0)\n\t\t\tans=min(ans,k[s]);\n\t\t}\n\t}\n\tcout<<ans<<endl;\n}\n```",
+        "postTime": 1587830797,
+        "uid": 58543,
+        "name": "RioBlu",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 AT4350 \u3010[ARC101A] Candles\u3011"
+    }
+]

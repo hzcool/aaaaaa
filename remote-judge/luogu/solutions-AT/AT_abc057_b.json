@@ -1,0 +1,74 @@
+[
+    {
+        "content": "\u8fd9\u4e0d\u662f\u4e2a $O(nm)$ \u66b4\u529b\u4e48\u3002\n\n### $\\sf{Solution}$\n\n- \u4e24\u70b9\u4e4b\u95f4\u66fc\u54c8\u987f\u8ddd\u79bb\u516c\u5f0f\uff1a $|x_1-x_2|-|y_1-y_2|$ \uff08 $x$ \u4e3a\u6a2a\u5750\u6807\uff0c $y$ \u4e3a\u7eb5\u5750\u6807\uff09\u3002\n\n\u5957\u4e2a\u4e24\u91cd\u5faa\u73af\u6c42 min \u5c31\u5b8c\u4e8b\u4e86\u3002\n\n### $\\sf{Code}$\n\n```cpp\n#include<iostream>\n#include<cmath>\nusing namespace std;\nint n,m,a[55],b[55],c[55],d[55];\nint main()\n{\n\tios::sync_with_stdio(false);\n\tcin>>n>>m;\n\tfor(int i=1;i<=n;++i)\n\t\tcin>>a[i]>>b[i];//student\n\tfor(int i=1;i<=m;++i)\n\t\tcin>>c[i]>>d[i];\n\tfor(int i=1;i<=n;++i)\n\t{\n\t\tint minn=1e9,t=0;//\u521d\u59cb\u5316\n\t\tfor(int j=1;j<=m;++j)\n\t\t{\n\t\t\tint p=abs(a[i]-c[j])+abs(b[i]-d[j]);//\u66fc\u54c8\u987f\u8ddd\u79bb\n\t\t\tif(p<minn)\n\t\t\t\tminn=p,t=j;//\u6c42 min\n\t\t}\n\t\tcout<<t<<\"\\n\";\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1604233240,
+        "uid": 186034,
+        "name": "Callous_Murder",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT2522 \u3010[ABC057B] Checkpoints\u3011"
+    },
+    {
+        "content": "\u8fd9\u9898\u4e00\u770b $n,m\\le50$ \u5c31\u77e5\u9053\u66b4\u529b\u4e00\u5b9a\u80fd\u8fc7\u3002\n\n\u90a3\u4e48\u6211\u4eec\u5f00\u4e00\u4e2a ans \u6570\u7ec4\u548c edg \u6570\u7ec4\uff08\u4e5f\u53ef\u4ee5\u5f00\u4e00\u4e2a\u7ed3\u6784\u4f53\uff09\uff0c\u5206\u522b\u8bb0\u5f55\u8ddd\u79bb i \u8fd9\u4e2a\u5b66\u751f\u6700\u8fd1\u7684\u68c0\u67e5\u7ad9\u7684\u7f16\u53f7\u548c\u76f8\u5bf9\u4e8e\u6bcf\u4e2a\u70b9\u7684\u6700\u8fd1\u66fc\u54c8\u987f\u8ddd\u79bb\uff0c\u7136\u540e\u6bcf\u4e2a\u70b9\u90fd\u4e0e\u6bcf\u4e2a\u68c0\u67e5\u7ad9\u603b\u5171\u7528 $\\Theta(nm)$ \u7684\u65f6\u95f4\u590d\u6742\u5ea6\u626b\u4e00\u904d\uff0c\u601d\u8def\u5c31\u662f\u8fd9\u6837\u3002\n\n\u6ce8\u610f\uff1a\u8981\u628a edg \u6570\u7ec4\u8d4b\u6210\u4e00\u4e2a\u5f88\u5927\u7684\u503c\uff0c\u4e0d\u7136\u5c31\u9519\u4e86\u3002\n\n\u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\n#define maxn 1000010\nusing namespace std;\ntypedef long long ll;\nll n,m,ans[maxn],x[maxn],y[maxn],edg[maxn],ax[maxn],ay[maxn];\ninline ll fr(){\n\tll s=0,k=1;\n\tchar ch=getchar();\n\twhile(!isdigit(ch)){\n\t\tif(ch=='-') k=-1;\n\t\tch=getchar();\n\t} \n\twhile(isdigit(ch)){\n\t\ts=(s<<3)+(s<<1)+ch-'0';\n\t\tch=getchar();\n\t}\n\treturn s*k;\n}\ninline void write(ll x){\n\tif(x<0) putchar('-'),x=-x;\n\tif(x>9) write(x/10);\n\tputchar(x%10+'0');\n}\nint main(){\n\tn=fr(),m=fr();\n\tfor(ll i=1;i<=50;i++){\n\t\tedg[i]=99999999999;\n\t}\n\tfor(ll i=1;i<=n;i++){\n\t\tx[i]=fr(),y[i]=fr();\n\t}\n\tfor(ll i=1;i<=m;i++){\n\t\tax[i]=fr(),ay[i]=fr();\n\t}\n\tfor(ll i=1;i<=n;i++){\n\t\tfor(ll j=1;j<=m;j++){\n\t\t\tif(edg[i]>(abs(x[i]-ax[j])+abs(y[i]-ay[j]))){\n\t\t\t\tedg[i]=abs(x[i]-ax[j])+abs(y[i]-ay[j]);\n\t\t\t\tans[i]=j;\n\t\t\t}\n\t\t}\n\t}\n\tfor(ll i=1;i<=n;i++){\n\t\twrite(ans[i]);\n\t\tprintf(\"\\n\");\n\t}\n\treturn 0;\n}\n```\n\u597d\u4e86\uff0c\u4e0a\u9762\u5c31\u662f\u8fd9\u7bc7\u9898\u89e3\u7684\u5185\u5bb9\uff0c\u5e0c\u671b\u80fd\u5e2e\u52a9\u5230\u4f60 qwq",
+        "postTime": 1655982646,
+        "uid": 554803,
+        "name": "After_light",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3AT2522 [ABC057B] Checkpoints"
+    },
+    {
+        "content": "\u8d85\u7ea7\u5927\u66b4\u529b\n\n~~\u4e0d\u77e5\u9053\u4e3a\u5565\u4f1a\u8bc4\u4e3a\u9ec4\u9898~~\n\n\u4ee5\u4e0a\u7eaf\u5c5e\u4e2a\u4eba\u5410\u69fd\n\n------------\n\u6765\u8bb2\u8bb2\u6b63\u89e3\u3002\n\n\u5176\u5b9e\u8fd9\u9898\u5c31\u662f\u66b4\u529b\u3002\n\n\u5bf9\u4e8e\u6bcf\u4e2a\u5b66\u751f\u66b4\u529b\u627e\u5230\u79bb\u4ed6\u6700\u8fd1\u7684\u68c0\u67e5\u7ad9\uff0c\u7136\u540e\u8f93\u51fa\u5c31\u53ef\u4ee5\u4e86\u3002\n\n- \u6ce8\u610f\u8ddd\u79bb\u662f\u66fc\u54c8\u987f\u8ddd\u79bb\uff0c\u4e0d\u662f\u6b27\u51e0\u91cc\u5f97\u8ddd\u79bb\u3002\n- \u6ce8\u610fAT\u8f93\u51fa\u8981\u6362\u884c\n\n### code\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n#define int long long\nint a[55], b[55], c[55], d[55];\ninline int read(){\n\tint x = 0, m = 1;\n\tchar ch = getchar();\n\twhile(!isdigit(ch)){\n\t\tif(ch == '-') m = -1;\n\t\tch = getchar();\n\t}\n\twhile(isdigit(ch)){\n\t\tx = x * 10 + ch - 48;\n\t\tch = getchar();\n\t}\n\treturn x * m;\n}\ninline void write(int x){\n\tif(x < 0){\n\t\tputchar('-');\n\t\twrite(-x);\n\t\treturn;\n\t}\n\tif(x >= 10) write(x / 10);\n\tputchar(x % 10 + '0');\n}\nsigned main(){\n\tint n = read(), m = read();\n\tfor(int i = 1; i <= n; i++){\n\t\ta[i] = read(), b[i] = read();\n\t}\n\tfor(int i = 1; i <= m; i++){\n\t\tc[i] = read(), d[i] = read();\n\t}\n\tint mi;\n\tfor(int i = 1; i <= n; i++){\n\t\tmi = 1;\n\t\tfor(int j = 2; j <= m; j++){\n\t\t\tif(abs(a[i] - c[j]) + abs(b[i] - d[j]) < abs(a[i] - c[mi]) + abs(b[i] - d[mi])) mi = j;\n\t\t}\n\t\twrite(mi);\n\t\tputchar('\\n');\n\t}\n}\n```\n\u5b8c\u6bd5\u3002\n",
+        "postTime": 1615869506,
+        "uid": 188286,
+        "name": "cjZYZtcl",
+        "ccfLevel": 6,
+        "title": "AT2522 [ABC057B] Checkpoints \u9898\u89e3"
+    },
+    {
+        "content": "\u6b64\u9898\u6bd4\u8f83\u7b80\u5355\uff0c\u53ea\u9700\u5faa\u73af\u6c42\u6700\u5c0f\u503c\u5373\u53ef.\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n\tint n,m,a[55],b[55],c[55],d[55],i,j,minv=1e9,minn;//a,b\u6570\u7ec4\u5b58\u50a8\u5b66\u751f\u5750\u6807;c,d\u6570\u7ec4\u5b58\u50a8\u68c0\u67e5\u7ad9\u5750\u6807.minv\u5b58\u6700\u5c0f\u503c,minn\u5b58\u50a8\u6700\u8fd1\u7684\u68c0\u67e5\u7ad9\u7f16\u53f7\n\tcin>>n>>m;\n\tfor(i=1;i<=n;i++)\n\t\tcin>>a[i]>>b[i];\n\tfor(i=1;i<=m;i++)\n\t\tcin>>c[i]>>d[i];\n\tfor(i=1;i<=n;i++){\n\t\tminv=1e9;\n\t\tfor(j=1;j<=m;j++)\n\t\t\tif(abs(c[j]-a[i])+abs(d[j]-b[i])<minv){//\u5982\u679c\u7b2cj\u4e2a\u68c0\u67e5\u7ad9\u79bb\u7b2ci\u4e2a\u5b66\u751f\u7684\u8ddd\u79bb\u6bd4\u539f\u6765\u7684\u8fd1,\u5c31\u66f4\u65b0\u6700\u5c0f\u503c\u548c\u6700\u8fd1\u7684\u68c0\u67e5\u7ad9\u7f16\u53f7\n\t\t\t\tminv=abs(c[j]-a[i])+abs(d[j]-b[i]);\n\t\t\t\tminn=j;\n\t\t\t}\n\t\tcout<<minn<<endl;\n        //\u5faa\u73af\u5b8c\u4e00\u6b21\u5c31\u8f93\u51fa\u8fd9\u6b21\u7684\u6700\u5c0f\u503c\n\t}\n\treturn 0;\n} \n```\n",
+        "postTime": 1566020937,
+        "uid": 207520,
+        "name": "zfn07",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT2522 \u3010Checkpoints\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u6570\u636e\u8303\u56f4\u5f88\u5c0f\uff0c\u53ef\u4ee5\u76f4\u63a5\u679a\u4e3e\u3002\n\n\u6839\u636e\u9898\u76ee\u91cc\u7ed9\u7684\u516c\u5f0f\u8ba1\u7b97\u6bcf\u4e00\u4e2a\u5b66\u751f\u5230\u6bcf\u4e00\u4e2a\u68c0\u67e5\u7ad9\u7684\u66fc\u54c8\u987f\u8ddd\u79bb\uff0c\u7136\u540e\u6328\u4e2a\u6bd4\u8f83\u627e\u51fa\u6700\u5c0f\u7684\u5c31\u597d\u4e86\u3002\n\n\u6ce8\u610f minn \u7684\u521d\u503c\u4e00\u5b9a\u8981\u5927\uff0c\u5426\u5219\u4f60\u5c31\u4f1a\u548c[\u6211](https://www.luogu.com.cn/record/list?pid=AT2522&user=wwwaax&page=1)\u4e00\u6837\u3002\n\n\u6838\u5fc3\u4ee3\u7801\uff1a\n```cpp\nfor(int i=1;i<=n;i++)\n\t{\n\t\tint minn=9999999999,k;//minn\u8d4b\u4e2a\u5927\u4e00\u70b9\u7684\u521d\u503c\u5b58\u5f53\u524d\u7684\u6700\u77ed\u66fc\u54c8\u987f\u8ddd\u79bb\uff0ck\u5b58\u7b2c\u51e0\u4e2a\u68c0\u67e5\u7ad9 \n\t\tfor(int j=1;j<=m;j++)//\u5f00\u59cb\u679a\u4e3e\u68c0\u67e5\u7ad9 \n\t    {\n\t    \tint o=abs(x[i]-xx[j])+abs(y[i]-yy[j]);//\u8ba1\u7b97\u5f53\u524d\u5b66\u751f\u5230\u6b64\u68c0\u67e5\u7ad9\u7684\u66fc\u54c8\u987f\u8ddd\u79bb \n\t    \tif(minn>o)//\u6bd4\u8f83 \n\t    \tminn=o,k=j;//\u66ff\u6362 \n\t\t}\n\t\tcout<<k<<endl;//\u8f93\u51fa \n\t}\n```\n",
+        "postTime": 1655641738,
+        "uid": 526519,
+        "name": "Aisaka_Taiga",
+        "ccfLevel": 0,
+        "title": "AT2522\u9898\u89e3"
+    },
+    {
+        "content": "### Solution:\n-----\n\u6570\u636e\u8303\u56f4\uff1a $1\\leqq N,M\\leqq 50$\uff0c\u4fbf\u80fd\u60f3\u5230\u8fd9\u9898\u66b4\u529b $O(nm)$ \u4e5f\u80fd\u8fc7\u3002\n\n\u90a3\u4e48\u53ea\u9700\u904d\u5386\u6bcf\u4e00\u4e2a\u5b66\u751f\uff0c\u518d\u66b4\u529b\u5bfb\u627e\u66fc\u54c8\u987f\u8ddd\u79bb\u6700\u8fd1\u7684\u68c0\u67e5\u70b9\uff0c\u7136\u540e\u8f93\u51fa\u5373\u53ef\u3002\n### Code:\n-----\n```c++\n#include<bits/stdc++.h>\n#define ll long long\n#define un unsigned\n#define re register\nusing namespace std;\ninline ll read(){//\u5feb\u8bfb \n\tll x=0,y=1;\n\tchar ch=getchar();\n\twhile(ch<'0'||ch>'9'){\n\t\tif(ch=='-')y=-1;\n\t\tch=getchar();\n\t}\n\twhile(ch>='0'&&ch<='9')x=(x<<3)+(x<<1)+ch-'0',ch=getchar();\n\treturn x*y;\n}\ninline void wr(ll x){//\u5feb\u8f93 \n\tif(x<0) putchar('-'),x=-x;\n\tif(x>9) wr(x/10);\n\tputchar(x%10+48);\n\treturn;\n}\ninline void write(ll x,char y){wr(x),putchar(y);}\n\nint n,m,a[100],b[100],c[100],d[100],ans;\nint mhd(int x1,int y1,int x2,int y2){//\u66fc\u54c8\u987f\u8ddd\u79bb\u51fd\u6570 \n\treturn abs(x1-x2)+abs(y1-y2);\n}\nint main(){  \n\tn=read(),m=read();\n\tfor(int i=1;i<=n;i++)a[i]=read(),b[i]=read();\n\tfor(int i=1;i<=m;i++)c[i]=read(),d[i]=read();\n\tfor(int i=1;i<=n;i++){//\u66b4\u529b \n\t\tans=1;\n\t\tfor(int j=1;j<=m;j++)\n\t\t\tif(mhd(a[i],b[i],c[ans],d[ans])>mhd(a[i],b[i],c[j],d[j]))//\u627e\u5230\u6bd4ans\u5c0f\u7684\u5c31\u66f4\u65b0ans \n\t\t\t\tans=j;\n\t\twrite(ans,'\\n');//\u6700\u540e\u8f93\u51fa \n\t}\n    return 0;\n}\n```",
+        "postTime": 1652785966,
+        "uid": 519734,
+        "name": "zct_sky",
+        "ccfLevel": 5,
+        "title": "AT2522 [ABC057B] Checkpoints \u9898\u89e3"
+    },
+    {
+        "content": "## \u9898\u76ee\u5206\u6790\n\u6b64\u9898\u56e0\u4e3a\u6570\u636e\u8303\u56f4\u8f83\u5c0f\uff0c\u6240\u4ee5\u6211\u4eec\u53ef\u4ee5\u76f4\u63a5\u66b4\u529b\u679a\u4e3e\u6bcf\u4e2a\u5b66\u751f\u4e0e\u6bcf\u4e2a\u68c0\u67e5\u70b9\uff0c\u6c42\u5b83\u4eec\u66fc\u54c8\u987f\u8ddd\u79bb\u7684\u6700\u5c0f\u503c\uff0c\u6bcf\u627e\u5230\u4e00\u4e2a\u6700\u5c0f\u503c\u5c31\u66f4\u65b0\u4e0b\u6807\uff0c\u6700\u540e\u8f93\u51fa\u8fd9\u4e2a\u6700\u5c0f\u503c\u7684\u4e0b\u6807\u5c31\u662f\u8be5\u5b66\u751f\u5e94\u8be5\u53bb\u7684\u68c0\u67e5\u70b9\uff0c\u6ce8\u610f\u66fc\u54c8\u987f\u8ddd\u79bb\u5e94\u53d6\u7edd\u5bf9\u503c\uff0c\u6211\u4eec\u53ef\u4ee5\u76f4\u63a5\u4f7f\u7528\u81ea\u5e26\u51fd\u6570\u3002\n## \u4ee3\u7801\u5b9e\u73b0\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,m,a[60],b[60],c[60],d[60];\nint main(){\n\tcin>>n>>m;\n\tfor(int i=1;i<=n;i++)\n\t\tcin>>a[i]>>b[i];\n\tfor(int i=1;i<=m;i++)\n\t\tcin>>c[i]>>d[i];\n\tfor(int i=1;i<=n;i++){\n\t\tint mini=1e9,id=0;\n\t\tfor(int j=1;j<=m;j++)\n\t\t\tif(abs(a[i]-c[j])+abs(b[i]-d[j])<mini){\n\t\t\t\tmini=abs(a[i]-c[j])+abs(b[i]-d[j]);//\u66fc\u54c8\u987f\u8ddd\u79bb\n\t\t\t\tid=j;//\u66f4\u65b0\u4e0b\u6807\n\t\t\t}\n\t\tcout<<id<<endl;\n\t}\t\n\treturn 0;\n}\n```\n",
+        "postTime": 1626167418,
+        "uid": 359581,
+        "name": "\u00b7\u7cef\u00b7",
+        "ccfLevel": 5,
+        "title": "AT2522"
+    },
+    {
+        "content": "\u6211\u4eec\u53d1\u73b0 $n\\le 50$ \uff0c\u4e8e\u662f\u8003\u8651\u66b4\u529b $O(nm)$ \u7b97\u6cd5\u6c42\u89e3\u3002\n\n\u601d\u8def\uff1a\u679a\u4e3e\u6bcf\u4e00\u4e2a\u5b66\u751f $i$ \uff0c\u518d\u679a\u4e3e\u6bcf\u4e2a\u68c0\u67e5\u7ad9 $j$ \uff0c\u8ba1\u7b97\u4ed6\u4eec\u7684\u8ddd\u79bb\u3002\n\n\u5927\u81f4\u6d41\u7a0b\u5c31\u5982\u6b64\u4e86\u3002\n\n```cpp\nfor(i=1,minp;i<=n;++i)//\u679a\u4e3e\u6bcf\u4e2a\u5b66\u751f\n{\n\tfor(j=2,minn=DIST(i,1);j<=m;++j)//\u679a\u4e3e\u6bcf\u4e2a\u68c0\u67e5\u7ad9\n    \tif(DIST(i,j)<minn)\n        \tminp=j,minn=DIST(i,j);\n\tprintf(\"%d\\n\",minp);\n}\n\t\n```\n\n`DIST` \u51fd\u6570\u4e3a\u8ba1\u7b97\u5b66\u751f\u548c\u68c0\u67e5\u7ad9\u7684\u8ddd\u79bb\u3002",
+        "postTime": 1601720844,
+        "uid": 121995,
+        "name": "SmallTualatin",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT2522 \u3010[ABC057B] Checkpoints\u3011"
+    },
+    {
+        "content": "\u8bf4\u6765\u60ed\u6127\uff0c\u7b2c\u4e00\u53cd\u5e94\u5c45\u7136\u662f\u5e7f\u641c\uff0c\u4f46\u6570\u636e\u8303\u56f4\u80af\u5b9a\u662fGG\u7684\uff0c\u540e\u6765\u53d1\u73b0\u95ee\u7684\u53ea\u662f\u53bb\u54ea\u4e2a\u7ad9\u800c\u5df2\uff0c\u6ca1\u8bf4\u8d70\u51e0\u6b65\uff0c\u90a3\u5faa\u73af\u4e00\u6ce2\u6c42\u6700\u5c0f\u503c\u5c31\u53ef\u4ee5\u4e86\u3002\n\n```cpp\n#include<bits/stdc++.h>\n\nusing namespace std;\n\nint a[60],b[60],c[60],d[60];\n\n\nint main(){\n\tint n,m;\n\tcin>>n>>m;\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tcin>>a[i]>>b[i];\n\t}\n\tfor(int i=1;i<=m;i++)\n\t{\n\t\tcin>>c[i]>>d[i];\n\t}\n\t\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tint ans=1000000000;\n\t\tint k;\n\t\tfor(int j=1;j<=m;j++)\n\t\t{\n\t\t\tint t=abs(a[i]-c[j])+abs(b[i]-d[j]);\n\t\t\tif(t<ans){\n\t\t\t\tans=t;\n\t\t\t\tk=j;\n\t\t\t}\n\t\t}\n\t\tcout<<k<<endl;\n\t}\n\treturn 0;\n} \n```",
+        "postTime": 1521934528,
+        "uid": 60136,
+        "name": "chengni",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT2522 \u3010Checkpoints\u3011"
+    }
+]

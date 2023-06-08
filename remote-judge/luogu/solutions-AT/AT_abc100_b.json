@@ -1,0 +1,98 @@
+[
+    {
+        "content": "\u6ca1\u6709java\u9898\u89e3\uff0c\u672c\u849f\u84bb\u6c35\u4e00\u53d1\u3002\n\n\u8fd9\u9053\u9898\u672c\u8d28\u4e0a\u662f\u4e00\u9053\u6570\u5b66\u9898\uff0c\u7b54\u6848\u5c31\u662f$n\\cdot100^d$\uff0c\u4f46\u662f\u5982\u679c$n=100$\uff0c$100\\times100^d=100^{d+1}$\uff0c\u5c31\u53ef\u4ee5\u88ab$100$\u6574\u9664$d+1$\u6b21\u4e86\uff0c\u4e0d\u7b26\u5408\u9898\u76ee\u8981\u6c42\uff0c\u6240\u4ee5\u6b64\u65f6\u8981\u8ba9$n\\gets n+1$\uff0c\u7b54\u6848\u5c31\u662f$(n+1)\\times100^d$\n\n\u4ee3\u7801\u5982\u4e0b\uff1a\n\n```java\nimport java.util.Scanner;\npublic class Main {\n\tpublic static void main(String[] args) {\n\t\tScanner scan=new Scanner(System.in);\n\t\tint d=scan.nextInt(),n=scan.nextInt();\n\t\tif\t(n==100)\t++n;\n\t\tfor (int i=1;i<=d;++i)\n\t\t\tn*=100;\n\t\tSystem.out.println(n);\n\t}\n}\n\n```",
+        "postTime": 1588680355,
+        "uid": 297433,
+        "name": "Brian_WBY",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 AT4155 \u3010[ABC100B] Ringo's Favorite Numbers\u3011"
+    },
+    {
+        "content": "\u76f4\u63a5\u770b\u9898\uff1a\u6211\u4eec\u8981\u8f93\u51fa\u7684\u6570\u9996\u5148\u8981\u6ee1\u8db3\u201c**\u80fd\u521a\u597d\u88ab100\u6574\u9664D\u6b21**\u201d\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u2460\n\n\u7136\u540e\u5c31\u662f\u201c**\u7b2cN\u4e2a\u6ee1\u8db3\u6b64\u6761\u4ef6\u7684\u6570**\u201d\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u2461\n\n\u5148\u89e3\u51b3\u2460\u5f0f\uff1a\u88ab100\u6574\u9664D\u6b21\uff0c\u53ef\u4ee5\u7528100\u7684D\u6b21\u65b9\u6765\u8868\u793a\uff08\u5343\u4e07\u4e0d\u8981\u8ba4\u4e3a\u8fd9\u662f10*D\uff09\n\n\u7136\u540e\u5c31\u662f\u2461\u5f0f\uff1a\u7b2cN\u4e2a\u6ee1\u8db3\u6b64\u6761\u4ef6\u7684\u6570\uff0c\u6240\u4ee5\u662fN\u00d7100\u7684D\u6b21\u65b9\n\n\u8fd8\u6709\u7279\u5224\uff01\u9898\u76ee\u8bf4\u4e86\uff0c1<=N<=100\uff0c\u6240\u4ee5N\u6709\u53ef\u80fd\u4e3a100\uff0c\u9700\u8981\u5728\u539f\u6709\u57fa\u7840\u4e0a\u518d\u52a0\u4e0a\u4e00\u4e2a10\u7684D\u6b21\u65b9\n## **\u4ee3\u7801\u5982\u4e0b**\n```\n#include <bits/stdc++.h>\nusing namespace std;\nint N,D,pro=1,result=0;//\u5176\u4e2dpro\u7528\u6765\u7b97\u4e58\u65b9,result\u7528\u6765\u50a8\u5b58\u6700\u540e\u8f93\u51fa\u7684\u6570\nint main()\n{\n    cin>>D>>N;\n    for(int i=1;i<=D;i++)//for\u5faa\u73af\n    {\n        pro=pro*100;//\u8ba1\u7b97\u4e58\u65b9\n    }\n    if(N==100)//\u7279\u5224\uff0c\u5f53N\u4e3a100\u7684\u65f6\u5019\n    {\n        result=result+pro;//\u6700\u7ec8\u7ed3\u679c\u8981\u518d\u52a0\u4e0a\u4e00\u4e2a100\u7684D\u6b21\u65b9\n    }\n    cout<<result+pro*N<<endl;//\u8f93\u51fa\uff0c\u8bb0\u5f97\u6362\u884c\n    return 0;\n}\n\n```\n\n\n",
+        "postTime": 1588748286,
+        "uid": 332907,
+        "name": "BeetyX",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT4155 \u3010[ABC100B] Ringo's Favorite Numbers\u3011"
+    },
+    {
+        "content": "## \u9898\u610f\uff1a\n\n\u80fd\u88ab100\u6574\u9664D\u6b21\u5c31\u662f $100^D$\n\n\u53c8\u662f\u7b2c $N$ \u5c0f\uff0c\u6240\u4ee5\u662f $100^D\\times N$\n \n\u4f46\u662f\u6709\u4e00\u4e2a\u9700\u8981\u6ce8\u610f\u7684\u5730\u65b9\uff0c\u5c31\u662f\u5f53 $N=100$ \u7684\u65f6\u5019\uff0c\u9700\u8981\u7279\u5224\uff01\n\n\u7b54\u6848\u5c31\u53d8\u6210\u4e86\uff1a\n\n $ans=100\\times 100^D$\n \n\u8fd9\u5c31\u660e\u663e\u4e0d\u7b26\u5408\u9898\u610f\uff0c\u6240\u4ee5\u6211\u4eec\u5e94\u8be5\u5f80\u540e\u632a\u4e00\u4e2a\u6570\uff0c\u628a $N$ \u53d8\u6210 $N+1$\uff0c\u8fd9\u6837\u7684\u8bdd\u5c31\u662f $101\\times100^D$\uff0c\u4f1a\u88ab $100$ \u6574\u9664 $D$ \u6b21\u3002\n\n\n\n\u4e0b\u9762\u662f\u6211\u7684\u4ee3\u7801\uff1a\n\n\n------------\n```C\n#include<bits/stdc++.h>\nusing namespace std;\nint main() {\n\tint d,n;\n\tscanf(\"%d%d\",&d,&n);\n\tint ans=pow(100,d)*n;//\u7528pow\u51fd\u6570\n\tif(n==100)\n\t\tans+=pow(100,d);//\u5982\u4e0a\u6587\u6240\u8ff0\n\tprintf(\"%d\",ans);//\u5c9b\u56fd\u9898\u6700\u597d\u6362\u884c\n\treturn 0;\n}\n```\n---------------------------",
+        "postTime": 1614849307,
+        "uid": 403084,
+        "name": "Meika_Hime",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3AT4155 [ABC100B] Ringo's Favorite Numbers"
+    },
+    {
+        "content": "[AT4155](https://www.luogu.com.cn/problem/AT4155)\n\n  \u8f93\u5165 $D,N$ ( $D$ \u4e3a $0,1$ \u6216 $2$ , $1\u2264N\u2264100$ )\n  \u95ee\u4ece $1$ \u5f00\u59cb\u7b2c $N$ \u5c0f\uff0c\u80fd\u521a\u597d\u88ab $100$ \u6574\u9664 $D$ \u6b21\u7684\u6570\u5b57\u662f\u4ec0\u4e48\uff1f\n  \n## \u601d\u8def\n\u770b\u6837\u4f8b\n\n\n### \u8f93\u5165 #1\n\n0 5\n\n### \u8f93\u51fa #1\n\n5\n\n### \u8f93\u5165 #2\n\n1 11\n\n### \u8f93\u51fa #2\n\n1100\n\n### \u8f93\u5165 #3\n\n2 85\n\n### \u8f93\u51fa #3\n\n850000\n\n\u660e\u663e\uff0c\u8f93\u51fa\u662f $100$ \u7684 $D$ \u6b21\u65b9\n\n\u6240\u4ee5\uff0c\u5173\u952e\u516c\u5f0f\u81ea\u7136\u63d0\u51fa\n\n$$100^D*N$$\n\n\u4f46\u662f\uff0c\u56e0\u4e3a $N\u2264100$ ,\u6240\u4ee5\u6211\u4eec\u8981\u8003\u8651 $N=100$ \u7684\u60c5\u51b5\n\n\u6bd4\u5982 $D=1,N=100$ \u7684\u60c5\u51b5\uff0c\u5982\u679c\u6309\u7167 $100^D*N$ \u7684\u516c\u5f0f\uff0c\u90a3\u4e48\u5e94\u8be5\u662f   $10000$ \uff0c\u4f46\u4e8b\u5b9e\u4e0a\u662f $10100$ \n\n\u6240\u4ee5\uff0c\u516c\u5f0f\u5e94\u8be5\u662f\n$$100^D*(N+(int)(N==100))$$\n\n## Code\n```cpp\n#include<bits/stdc++.h>//\u5934\u6587\u4ef6 \nusing namespace std;\nint main() {\n\tint D,N;//\u5b9a\u4e49 \n\tcin>>D>>N;//\u8f93\u5165 \n\tprintf(\"%.0f\",pow(100,D)*(N+(int)(N==100)));//\u7528%f\u662f\u56e0\u4e3apow\u4f1a\u4f7f\u7528\u79d1\u5b66\u8ba1\u6570\u6cd5\uff0c\u7528\u4e86%f\u53ef\u4ee5\u907f\u514d \n\treturn 0;\n}\n\n```\n",
+        "postTime": 1614854764,
+        "uid": 373979,
+        "name": "efgh123",
+        "ccfLevel": 0,
+        "title": "AT4155 [ABC100B] Ringo's Favorite Numbers"
+    },
+    {
+        "content": "~~C\u515a\u7ed9Py\u515a\u5199\u4ee3\u7801\u4e0d\u592a\u591f\u610f\u601d\u5427QwQ~~\n\n\u7279\u6c34\u7684\u9898\uff0c\u679a\u4e3e\u5c31\u597d\n\n\u6ce8\u610f\u5566\uff08\u7ed9Py\u515a\u65b0\u624b\uff09\uff1a`range()`\u51fd\u6570\u5982\u679c\u4f60\u586b\u4e00\u4e2a\u6570\u5b57\uff0c\u5b83\u4f1a\u4ece$1$\n\u679a\u4e3e\u5230\u8fd9\u4e2a\u6570\u7684\u524d\u4e00\u4e2a\uff01\u6240\u4ee5\u6211\u5728\u4e0b\u9762\u586b\u4e86$d+1$\u624d\u5bf9awa\n\n```python\nd = input() # \u8f93\u5165\nd = int(d)\nn = input()\nn = int(n)\nmul = 1\nmul = int(mul)\nans = 0\nans = int(ans)\nfor i in range(d + 1): mul *= 100 # \u5077\u61d2\u7684python\u538b\u884c/kk\nif n == 100: ans += mul #  \u7279\u6b8a\u306e100\uff01\nprint(ans + mul * n)\n```\n\n\u5495\u5495\u7ba1\u7406\u6c42\u8fc7qwq\u5495\u5495\n\nupdate:2021.2.20\uff0c\u53d1\u73b0\u672c\u84bb\u849f\u591a\u52a0\u4e86\u4fe9\u5206\u53f7\uff0c\u5b9e\u5728\u62b1\u6b49\u3002\u3002\u3002qwq",
+        "postTime": 1613715731,
+        "uid": 341353,
+        "name": "_6872_",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3AT4155\uff08ABC100B\uff09"
+    },
+    {
+        "content": "~~\u9664\u5915\u9898\u89e3~~\n\n\u4ed6\u7684\u9898\u76ee\u662f $100^D$ \u80fd\u88ab\u4ec0\u4e48\u6570\u6574\u9664\u3002\n\n\u6211\u4eec\u53ef\u4ee5\u5217\u51fa\u4e00\u4e2a\u5f0f\u5b50\u3002\n\n$$\\large ans=100^D \\times n$$\n\n\u4f46\u662f\u5f53 $n=100$ \u65f6\u3002\n\n$$\\large 100^{D}\\times n \\not= ans$$\n\n\u6211\u4eec\u8fd8\u5f97\u52a0\u4e0a\u4e00\u4e2a $100^D$\n\n\u63a5\u4e0b\u6765\u5c31\u53ef\u4ee5\u5199\u51fa\u4ee3\u7801\u3002\n\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint main() {\n\tint d,n;\n\tscanf(\"%d%d\",&d,&n);\n\tint ans=pow(100,d)*n;//\u521a\u624d\u7684\u5f0f\u5b50.\n\tif(n==100)\n\t\tans+=pow(100,d);//\u7279\u5224\u3002\n\tprintf(\"%d\",ans);\n\treturn 0;\n}\n```\n",
+        "postTime": 1612999171,
+        "uid": 162084,
+        "name": "thomas_zjl",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 AT4155 \u3010[ABC100B] Ringo's Favorite Numbers\u3011"
+    },
+    {
+        "content": "\u7531\u9898\u610f\u4e0d\u96be\u5f97\u5230\n$$\nans = 100^D\\times N\n$$\n\u53c8\u56e0\u4e3a\u5f53\n$$\nN=100\n$$\n\u65f6\u8981**\u7279\u5224**\uff0c\u518d\u52a0\u4e0a\u4e00\u4e2a$100^D$.\n****\n$AC$\u4ee3\u7801\u5982\u4e0b:\n```cpp\n#include <bits/stdc++.h>\ntypedef long long ll;\nusing namespace std;\n\nint n,d; \nint main()\n{\n    scanf(\"%d %d\",&d,&n);\n    int ans = pow(100, d) * n;\n    if (n==100) \n        ans += pow(100, d);\n    printf(\"%d\\n\",ans); // \u8bb0\u5f97\u8981\u6362\u884c\n    return 0;\n}\n```\n\u5f53\u7136\u4f60\u4e5f\u53ef\u4ee5\u7528$Ruby$\u4e00\u904d\u6c34\u8fc7\uff1a\n```ruby\nd,n = gets.split.map(&:to_i) # \u540c\u65f6\u8bfb\u5165\u4e24\u6570\nans = (100**d)*n\nif n == 100\n    ans += 100**d\nend\nprint ans\nputs \"\\n\"\n```\n$Python$\u4ea6\u53ef\uff1a\n```python\nfrom math import pow\nd,n = map(int,input().split()) # \u8bfb\u5165\u4e24\u6570\nans = pow(100,d)*n\nif n==100:\n\tans += pow(100,d)\nprint (int(ans))\n```\n",
+        "postTime": 1589294873,
+        "uid": 312489,
+        "name": "hero_brine",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT4155 \u3010[ABC100B] Ringo's Favorite Numbers\u3011"
+    },
+    {
+        "content": "\u7b54\u6848\u662f\u5f88\u663e\u7136\u7684\uff0c$N\\times100^D$\u3002\n\n## \u9519\n\n\u4e3a\u4ec0\u4e48\u5462\uff1f\u6211\u4eec\u5e94\u5f53\u8003\u8651\u5230**\u5408\u5e76\u6027**\uff0c\u5373 $N$ \u548c $100^D$ \u662f\u5426\u6709\u53ef\u80fd\u5408\u5e76\u3002\u5f53 $N=100$ \u65f6\uff0c\u5bb9\u6613\u53d1\u73b0\u8fd9\u4e2a\u6570\u53d8\u6210\u4e86 $100^{D+1}$\uff0c\u4f1a\u88ab\u6574\u9664 $D+1$ \u6b21\uff0c\u4e0d\u7b26\u5408\u8981\u6c42\u3002\u53c8\u56e0\u4e3a\u9898\u76ee\u8981\u6c42\u7684\u6b63\u597d\u662f\u7b2c $N$ \u4e2a\uff0c\u6240\u4ee5\u5c31\u53ea\u597d\u53d8\u6210 $(N+1)100^D$\u3002\n\n\u8f93\u51fa\u6709\u591a\u79cd\u529e\u6cd5\uff0c\u53ea\u5c55\u793a 2 \u79cd\uff1a\n\n```cpp\n//Method 1\n#include <bits/stdc++.h>\nusing namespace std;\nint d,n;\nint main(void) {\n    scanf(\"%d%d\",&d,&n);\n    if(n==100) ++n;\n    printf(\"%d\",n);\n    for(int i=1;i<=d;++i) printf(\"00\");\n    return 0;\n}\n```\n\n```cpp\n//Method 2\n#include <bits/stdc++.h>\nusing namespace std;\nint d,n;\nint main(void) {\n    scanf(\"%d%d\",&d,&n);\n    if(n==100) ++n;\n    int ans=pow(100,d);\n    printf(\"%d\",n*ans);\n    return 0;\n}\n```\n\n\u5b8c\u7ed3\u6492\u82b1~",
+        "postTime": 1622965679,
+        "uid": 372299,
+        "name": "\u8d85\u7ea7\u739b\u4e3d\u738b\u5b50",
+        "ccfLevel": 5,
+        "title": "AT4155 - \u7279\u5224"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u5c31\u662f\u6c42$100^D\u00d7n$\u4e86\uff0c\u4f46\u8981\u6ce8\u610f$n=100$\u7684\u65f6\u5019\u8f93\u51fa$100^D\u00d7(n+1)$\u5373\u53ef\u3002\n\n\u4ee3\u7801\uff1a\n```c\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n\tint N,D,z;\n\tcin>>N>>D;\n\tz=pow(100,N);//\u6c42100^D\n\tif(D==100)cout<<z*(D+1);\n\telse cout<<z*D;\n}\n```\n",
+        "postTime": 1619174272,
+        "uid": 230662,
+        "name": "TLMPEX",
+        "ccfLevel": 0,
+        "title": "AT4155 [ABC100B] Ringo's Favorite Numbers\u3010\u9898\u89e3\u3011"
+    },
+    {
+        "content": "\n\u849f\u84bb\u53c8\u6765\u53d1\u9898\u89e3\u4e86\uff01\n\n\u8fd9\u9053\u9898\u5176\u5b9e\u5c31\u53ea\u662f\u4e00\u9053\u975e\u5e38\u7b80\u5355\u7684\u6570\u5b66\u9898\uff0c\u88ab100\u6574\u9664D\u6b21\uff0c\u4e5f\u5c31\u662f100\u7684D\u6b21\u65b9\uff0c\u7b2cN\u4e2a\u6ee1\u8db3\u6761\u4ef6\u7684\u6570\uff0c\u4e5f\u5c31\u662fN\u4e58100\u7684D\u6b21\u65b9\u3002\u5f53\u7136\uff0c\u8fd9\u9053\u9898\u4e5f\u6709\u4e00\u4e2a\u5751\u70b9\uff0c\u5c31\u662f\u5f53N\u662f100\u7684\u65f6\u5019\uff0c\u5728\u539f\u6709\u7ed3\u679c\u4e0a\u518d\u591a\u4e00\u4e2a100\u7684D\u6b21\u65b9\u5373\u53ef\u3002\n\n\u601d\u8def\u5982\u4e0a\uff0c\u4ee3\u7801\u5982\u4e0b\uff1a\n\n```cpp\n#include<iostream>\n#include<cstring>\n#include<cstdio>\n#include<cmath>\n#include<vector>\n#include<cstdlib>\n#include<algorithm>//\u6587\u4ef6\u5934\u4e0d\u89e3\u91ca\nusing namespace std;\nint n,d,shu,ans;//\u5b9a\u4e49\u53d8\u91cf\nint main()\n{\n    cin>>d>>n;\n    shu=pow(100,d);//\u6c42100\u7684D\u6b21\u65b9\n    if(n==100)cout<<shu*n+shu<<endl;//\u7279\u5224\n    else cout<<shu*n<<endl;//\u4e00\u822c\u60c5\u51b5\n    return 0;//\u826f\u597d\u4e60\u60ef\n}\n```\n\n\u597d\u4e86\uff0c\u672c\u849f\u84bb\u5c31\u8bb2\u5230\u8fd9\u91cc\uff0c\u5e0c\u671b\u5bf9\u8bfb\u8005\u6709\u6240\u5e2e\u52a9\u3002",
+        "postTime": 1619070356,
+        "uid": 210844,
+        "name": "Cambridge",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT4155 [ABC100B] Ringo's Favorite Numbers"
+    },
+    {
+        "content": "# **\u6b63\u6587\uff1a**\n## \u9898\u610f\uff1a\n\u672c\u9898\u6570\u636e\u89c4\u5b9a $N\u2264100$ \u4e5f\u5c31\u662f\u53ea\u6709 $N=100$ \u4e00\u79cd\u60c5\u51b5\u9700\u8981\u7279\u5224\uff0c\u5176\u5b83\u7b54\u6848\u53ef\u4ee5\u76f4\u63a5\u8f93\u51fa $100^D \\times N$ \u3002\u5f53 $N=100$ \u65f6\uff0c\u5982\u679c\u8fd8\u662f\u8f93\u51fa $100^D \\times N$ \u7684\u8bdd\u5c31\u4e0d\u7b26\u5408\u53ea\u80fd\u9664 $D$ \u6b21\u7684\u8fd9\u4e2a\u6761\u4ef6\uff0c\u4e5f\u5c31\u9700\u8981\u5c06 $N$ \u589e\u52a0 $1$ \u6765\u4f7f\u5176\u4e0d\u80fd\u7ee7\u7eed\u88ab $100^D$ \u6574\u9664\u3002\n## \u7a0b\u5e8f\u8bf4\u660e\uff1a\n\u4ee5\u4e0b\u4e3a\u672c\u9898\u7684\u6781\u7b80\u7ea6\u4ee3\u7801\uff1a\n```cpp\n#include<iostream>\n#include<cmath>         //\u7528\u5230\u4e86pow()\u51fd\u6570\nusing namespace std;\nint main(){\n    int d,n,ans;\n    cin>>d>>n;\n    if(n==100)n++;      //\u524d\u6587\u4e2d\u63d0\u5230\u7684\u7279\u5224\n    ans=pow(100,d)*n;\n    cout<<ans<<endl;\n    return 0;\n}\n```\n# **THE END**\n### P.S.\n\u4e0a\u6587\u4e2d\u9700\u8981\u7528\u5230\u4e00\u4e2a\u53d8\u91cf $ans$ \u800c\u4e0d\u662f\u76f4\u63a5\u8f93\u51fa\u662f\u56e0\u4e3aC++\u8bed\u8a00\u4e2d\uff0c\u76f4\u63a5\u8f93\u51fa\u7684\u4e00\u4e2a\u7b54\u6848\u5982\u679c\u672b\u5c3e\u5305\u542b\u592a\u591a\u7684 $0$ \uff0c\u5c31\u4f1a\u8f93\u51fa\u4e3a\u79d1\u5b66\u8ba1\u6570\u6cd5\u7684\u5f62\u5f0f\uff0c\u6bd4\u5982 $1010000$ \u4f1a\u8f93\u51fa\u4e3a $1e6 \\times 1.01$ \u7684\u5f62\u5f0f\uff0c\u8fd9\u6837\u5728\u8f93\u51fa\u4e2d\u662f\u4e0d\u88ab\u8ba4\u53ef\u7684\uff0c\u4f46\u662f\u5982\u679c\u8f93\u51fa\u4e3a\u4e00\u4e2a\u53d8\u91cf\uff0c\u5219\u4e0d\u4f1a\u51fa\u73b0\u79d1\u5b66\u8ba1\u6570\u6cd5\u7684\u5f62\u5f0f\u3002\u6240\u4ee5\u6b64\u9898\u4e2d\u7684\u5751\u4e0e[T23806](https://www.luogu.com.cn/problem/T23806)\u8fd9\u4e00\u9053\u6d1b\u8c37\u5b98\u65b9\u56e2\u961f\u51fa\u7684\u611a\u4eba\u8282\u9898\u76ee\u76f8\u540c\u3002",
+        "postTime": 1607607138,
+        "uid": 299883,
+        "name": "HYdroKomide",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 AT4155 \u3010[ABC100B] Ringo's Favorite Numbers\u3011"
+    },
+    {
+        "content": "\u8003\u53e4\u53d1\u73b0ABC\u7684B\u9898\u5c45\u7136\u8fd8\u6709\u5982\u6b64\u5c0f\u5965\u6c14\u606f\u6d53\u91cd\u7684\u9898\u76ee\u3002\n\n\u6211\u4eec\u7531\u9898\u4e0d\u96be\u5f97 $ans=100^D\u00d7N$\n\n\u8fd9\u91cc\u8981\u6ce8\u610f\u7684\u662f$N$\u7684\u53d6\u503c\u8303\u56f4\uff0c\u5373$N$\u6709\u53ef\u80fd\u7b49\u4e8e$100$ \n\n\u6545\u5728$N=100$\u65f6\u8981\u7279\u5224\uff0c\u518d\u52a0\u4e0a\u4e00\u4e2a$100^D$\n\n\u4ee3\u7801\uff1a\n\n```\n#include <bits/stdc++.h>\n#define ll long long\nusing namespace std;\n\nint n, d; \nint main()\n{\n    cin >> d >> n;\n    int ans = pow(100, d) * n;\n    if (n == 100) \n        ans += pow(100, d);\n    cout << ans << endl;\n\treturn 0;\n}\n",
+        "postTime": 1588559126,
+        "uid": 200060,
+        "name": "Magia",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 AT4155 \u3010[ABC100B] Ringo's Favorite Numbers\u3011"
+    }
+]

@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u770b\u5230 $ N \\leq 17 $ \u679c\u65ad\u72b6\u538b\u3002\n\n\u7c7b\u4f3c\u65c5\u884c\u5546\u95ee\u9898\u7684\u601d\u8def\uff0c\u8003\u8651\u7b97\u51fa\u4e24\u4e24\u4e4b\u95f4\u7684\u6700\u77ed\u8def\u4e4b\u540e\u76f4\u63a5\u76f8\u52a0\u5373\u53ef\u3002\n\n\u6bcf\u4e2a\u70b9\u51fa\u73b0\u6b21\u6570\u7684\u5947\u5076\u6027\u53ef\u4ee5\u89c6\u4e3a\u5f02\u6216\uff0c\u56e0\u4e3a\u5f02\u6216\u6ee1\u8db3\u5076\u6570\u6b21\u64cd\u4f5c\u62b5\u6d88\u7684\u6027\u8d28\u3002\n\n\u4e8e\u662f\u8bb0\u5f55\u4e24\u4e2a\u72b6\u6001\uff1a\u5f53\u524d\u96c6\u5408\u548c\u6700\u540e\u70b9\u7684\u7f16\u53f7\uff0c\u5219\u663e\u7136\u5bf9\u4e8e\u6bcf\u4e00\u6761\u8fde\u8fb9 $ (u,v) $ \u90fd\u53ef\u4ee5\u4ece $ dp_{S,u} $ \u8f6c\u79fb\u5230 $ dp_{S \\oplus 2^v,v} $\uff0c\u7136\u540e\u76f4\u63a5\u66b4\u529b bfs \u9884\u5904\u7406\u8ddd\u79bb\uff0c\u6700\u540e\u76f4\u63a5\u53d6\u6240\u6709\u8ddd\u79bb\u7684\u6700\u5c0f\u503c\u5373\u53ef\u3002\n\n\u603b\u65f6\u95f4\u590d\u6742\u5ea6 $ \\mathcal{O}(2^N \\times N^2) $\uff0c\u53ef\u4ee5\u901a\u8fc7\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#import <bits/stdc++.h>\nusing namespace std;\nvector<int>g[18];\nint n, m, u, v;\nint dp[1 << 17 + 1][18];\nqueue<pair<int, int>>q;\nint main() \n{\n\tcin>>n>>m;\n\twhile(m--) \n    {\n\t\tcin>>u>>v;\n\t\tu--,v--; \n\t\tg[u].push_back(v);\n\t\tg[v].push_back(u);\n\t}\n\tint N=1<<n;\n\tfor(int i=0;i<=N;i++)\n    for(int j=0;j<=n;j++)\n    dp[i][j]=1e9;\n\tfor(int i=0;i<n;i++) \n    {\n\t\tdp[1<<i][i]=1;\n\t\tq.push({1<<i,i});\n\t}\n\twhile(q.size()) \n    {\n\t\tauto [s, u]=q.front(); \n        q.pop();\n\t\tfor (auto v:g[u]) \n        {\n\t\t\tint ns=s ^ (1 << v);\n\t\t\tif (dp[ns][v]!=1e9)\n            continue;\n\t\t\tdp[ns][v]=dp[s][u]+1;\n\t\t\tq.push({ns,v});\n\t\t}\n\t}\n\tlong long ans=0;\n\tfor(int s=1;s<N;s++) \n    {\n\t\tint temp=1e9;\n\t\tfor(int u=0;u<n;u++) \n\t\ttemp=min(temp,dp[s][u]);\n\t\tans+=temp;\n\t}\n\tcout<<ans;\n}\n```\n",
+        "postTime": 1672145573,
+        "uid": 714821,
+        "name": "loser_seele",
+        "ccfLevel": 4,
+        "title": "ABC244F\u9898\u89e3"
+    }
+]

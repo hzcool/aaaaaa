@@ -1,0 +1,50 @@
+[
+    {
+        "content": "### \u9898\u610f\u7b80\u8ff0\n------------\n\n\u8f93\u5165\u4e00\u4e2a\u5b57\u7b26\u4e32 $S$\uff0c\u67e5\u627e\u53ef\u4ee5\u901a\u8fc7\u4ece $S$ \u7684\u672b\u5c3e\u5220\u9664\u4e00\u4e2a\u6216\u591a\u4e2a\u5b57\u7b26\u83b7\u5f97\u7684\u6700\u957f\u5076\u6570\u5b57\u7b26\u4e32\u7684\u957f\u5ea6\u3002\n\n\u8f93\u51fa\u8fd9\u4e2a\u975e\u7a7a\u5b57\u7b26\u4e32\u7684\u957f\u5ea6\u3002\n\n### \u89e3\u9898\u601d\u8def\n------------\n\n\u6ce8\u610f\u5230\u8303\u56f4\uff1a$2 \\leqslant |s| \\leqslant 200$\u3002\u679c\u65ad\u9009\u62e9\u66b4\u529b\u3002\n\n\u5916\u5c42 $for$ \u4ece\u5927\u5230\u5c0f\u5faa\u73af\u679a\u4e3e\u957f\u5ea6\uff0c\u518d\u7528\u5185\u5c42 $for$ \u5faa\u73af\u679a\u4e3e\u4e24\u4e2a\u5b57\u7b26\u4e32\u662f\u5426\u4e00\u81f4\u3002\n\n\u5c0f\u5fc3\uff0c\u957f\u5ea6\u4e0d\u80fd\u4ece $\\dfrac{len}{2}$ \u5f00\u59cb\u679a\u4e3e\uff0c\u56e0\u4e3a\u5fc5\u987b\u8981\u5220\u53bb\u4e00\u4e9b\u5b57\u7b26\uff0c\u6240\u4ee5\u6211\u7684\u4ee3\u7801\u4ece $\\dfrac{len}{2}-1$ \u5f00\u59cb\u679a\u4e3e\uff0c\u4ece $\\dfrac{len-1}{2}$ \u540c\u7406\u3002\n\n### \u4ee3\u7801\u5b9e\u73b0\n------------\n\n``` cpp\n#include<bits/stdc++.h>\nusing namespace std;\nstring str; int len;\nint main() {\n\tcin>>str; len=str.size();\n\tfor(int i=len/2-1;i>=1;i--) {\n\t\tbool pd=false;\n\t\tfor(int j=0;j<i;j++)  {\n\t\t\tif(str[j]!=str[i+j])  {\n\t\t\t\tpd=true; break;\n\t\t\t}\n\t\t}\n\t\tif(!pd) {\n\t\t\tprintf(\"%d\",i*2);\n\t\t\treturn 0;\n\t\t}\n\t}\n\treturn 0;\n}\n//code by TheCedar\n```",
+        "postTime": 1656637342,
+        "uid": 564864,
+        "name": "TheCedar",
+        "ccfLevel": 0,
+        "title": "AT2647 [ABC066B] ss \u9898\u89e3"
+    },
+    {
+        "content": "**\u5e7f\u544a\uff1a**[**\u535a\u5ba2**](https://www.luogu.com.cn/blog/fgxseven/)**\u6548\u679c\u66f4\u52a0\u54e6\uff0c\u5feb\u6233\u4e00\u6233**\n\n------------\n\n# \u4e00\u3001\u601d\u8def\n\n\u6ce8\u610f\u770b**Constraints**\uff1a$2 \u2264 |S|< 200$\n\n\u770b\u5b8c\u540e\uff0c\u6211\u4eec\u5475\u5475\u4e00\u7b11\uff0c**\u66b4\u529b\u4e0d\u5c31\u5b8c\u4e86\u4e48**\u3002\n\n\u6240\u4ee5\u76f4\u63a5\u679a\u4e3e\u6bcf\u4e00\u4e2a\u53ef\u80fd\u7684\u7b54\u6848\uff0c\u770b\u4e00\u770b\u6ee1\u4e0d\u6ee1\u8db3\u6761\u4ef6\u3002\n\n\u600e\u4e48\u505a\u5462\uff1f\n\n\u8bbe $ss$ \u4e3a\u6ee1\u8db3\u7684\u5b57\u7b26\u4e32\uff0c$ss = s + s$\uff0c$|s|$ \u8868\u793a $s$ \u7684\u957f\u5ea6\uff0c\u540c\u7406\u5b9a\u4e49 $|ss|$\n\n\u5219\u5bf9\u4e8e $0 \u2264 i < |s| $ \uff0c $ ss_{i} = ss_{i+|s|}$\n\n\u6240\u4ee5\u904d\u5386 $s$ \u7684\u6240\u6709\u5b57\u7b26\uff0c\u68c0\u6d4b\u5373\u53ef\u3002\n\n------------\n\n# \u4e8c\u3001AC\u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nstring s;\nint l;\nint main(){\n    cin>>s,l=s.length();\n    //\u5148\u5199\u4e0b s \u7684\u957f\u5ea6\uff0c\u6ce8\u610f\u8fd9\u91cc s \u4e0e\u4e0a\u9762 s \u4e0d\u540c\n    for(int i=(l-1)/2;i>=1;i--){\n    \t//\u6ce8\u610f\u5751\u70b9\uff1a\u5fc5\u987b\u5f97\u5220\n        bool flag=true;\n        for(int j=0;j<i;j++)\n\t\t\tif(s[j]!=s[i+j]){\n\t\t\t\tflag=false;\n\t\t\t\tbreak;\n\t\t\t}\n        if(flag==true){\n            cout<<i*2<<endl;\n            break;\n        }\n        //\u4e0a\u9762\u4ecb\u7ecd\u4e86\uff0c\u4e0d\u591a\u8bf4\n    }\n    return 0;\n}\n```\n",
+        "postTime": 1652096488,
+        "uid": 531746,
+        "name": "fengguangxi",
+        "ccfLevel": 0,
+        "title": "AT2647 [ABC066B] ss \u9898\u89e3"
+    },
+    {
+        "content": "[\u9898\u76ee\u4f20\u9001\u95e8\u3002](https://www.luogu.com.cn/problem/AT2647)\n\n**STL \u5927\u6cd5\u597d\u554a\uff01**\n\n## \u9898\u76ee\u601d\u8def\n\u6bcf\u6b21\u4ece\u7b2c $0$ \u4e2a\u5b57\u7b26\u5f00\u59cb\u622a\u53d6\u5b57\u7b26\u4e32\u957f\u5ea6\u9664\u4ee5 $2$ \u4e2a\u5b57\u7b26\uff0c\u7136\u540e\u4e0e\u81ea\u5df1\u62fc\u63a5\uff0c\u770b\u662f\u5426\u4e0e\u539f\u5b57\u7b26\u4e32\u76f8\u7b49\uff0c\u82e5\u76f8\u7b49\uff0c\u8f93\u51fa\u5b57\u7b26\u4e32\u957f\u5ea6\u5e76\u7ed3\u675f\u7a0b\u5e8f\u3002\n\n\u540e\u9762\u9644\u4e00\u4e9b `string` \u7c7b\u7684\u7528\u6cd5\u3002\n\n## Code\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nbool is_doublestring(string s){\n    string p=s.substr(0,s.length()/2);\n    return (p+p==s);\n}\nint main(){\n    string s;\n    getline(cin,s);\n    for(int i=s.length()-2;i>=0;--i){\n        s=s.substr(0,i+1);\n        if(is_doublestring(s)&&s.length()%2==0){\n            cout<<s.length()<<endl;\n            return 0;\n        }\n    }\n}\n```\n[\u5176\u5b83 string \u7c7b\u7528\u6cd5\u3002](https://jpb.blog.luogu.org/how-to-use-string)",
+        "postTime": 1656401377,
+        "uid": 678965,
+        "name": "EXCRT",
+        "ccfLevel": 0,
+        "title": "AT2647 [ABC066B] ss \u9898\u89e3"
+    },
+    {
+        "content": "\u6211\u4eec\u53ef\u4ee5\u5229\u7528 STL \u4e2d\u7684 substr \u51fd\u6570\u6765\u8fdb\u884c\u5b57\u7b26\u4e32\u622a\u53d6\\\n substr \u51fd\u6570\u5728 oracle \u4e2d\u4f7f\u7528\u8868\u793a\u88ab\u622a\u53d6\u7684\u5b57\u7b26\u4e32\u6216\u5b57\u7b26\u4e32\u8868\u8fbe\u5f0f\u3002\u548c instr() \u51fd\u6570\u4e0d\u540c\uff0c instr() \u51fd\u6570\u662f\u8981\u622a\u53d6\u7684\u5b57\u7b26\u4e32\u5728\u6e90\u5b57\u7b26\u4e32\u4e2d\u7684\u201c\u4f4d\u7f6e\u201d\uff0c substr() \u51fd\u6570\u662f\u622a\u53d6\u5b57\u7b26\u4e32\u7684\u201c\u5185\u5bb9\u201d\u3002\\\n \u4ee3\u7801\u5982\u4e0b\uff1a\n ```\n if(s.substr(0,i>>1)==s.substr(i>>1,i>>1))//\u4f4d\u8fd0\u7b97\u52a0\u5feb\n {\n            num=i;\n            break;\n}\n ```\n\u8fd9\u91cc\u662f[substr\u7684\u8be6\u7ec6\u7528\u6cd5\u3002](https://baike.baidu.com/item/substr/10685875)\n```\n#include<bits/stdc++.h>\nusing namespace std;\n#define ll long long\nconst ll maxn=14e4;\nstring s;\nint num;\nint main()\n{\n    cin>>s;\n    for(int i=s.length()-2;i>=0;i-=2)\n    {\n        if(s.substr(0,i>>1)==s.substr(i>>1,i>>1))//STL\u5927\u6cd5\n        {\n            num=i;//\u6ee1\u8db3\u76f4\u63a5\u9000\u51fa\u5faa\u73af\u5e76\u8f93\u51fa\n            break;\n        }\n    }\n    cout<<num;\n    return 0;\n}\n```",
+        "postTime": 1650098358,
+        "uid": 674120,
+        "name": "WA_AW",
+        "ccfLevel": 0,
+        "title": "AT2647\u9898\u89e3"
+    },
+    {
+        "content": "# **\u6b63\u6587\uff1a**\n## \u9898\u610f\uff1a\n\u6211\u4eec\u4e0d\u59a8\u8fdb\u884c\u679a\u4e3e\uff0c\u56e0\u4e3a\u6240\u6709\u7b26\u5408\u8981\u6c42\u7684\u5b57\u7b26\u4e32\u5fc5\u987b\u6709\u5076\u6570\u4e2a\u5b57\u7b26\uff0c\u6240\u4ee5\u6211\u4eec\u53ef\u4ee5\u4ece $a.length() \\div 2$ \u5f00\u59cb\u4ece\u9ad8\u4f4d\u5411\u4f4e\u4f4d\u4f7f\u7528 $i$ \u8fdb\u884c\u679a\u4e3e\uff0c\u76f4\u5230\u53d1\u73b0\u4e00\u4e2a\u7b26\u5408\u8981\u6c42\u7684\u5b57\u7b26\u4e32\u540e\u8f93\u51fa\u90a3\u4e2a\u5b57\u7b26\u4e32\u7684\u4f4d\u6570\uff0c\u4e5f\u5c31\u662f $i \\times 2$\u3002\u4e3a\u6b64\u6211\u4eec\u53ef\u4ee5\u5c06 $i$ \u548c $j$ \u5b9a\u4e49\u4e3a\u5168\u5c40\u53d8\u91cf\uff0c\u8fd9\u6837\u5c31\u80fd\u591f\u5728\u51fd\u6570\u5185\u8c03\u7528\u5b83\u4eec\u3002\n\n\u4e0b\u9762\u662f\u5b57\u7b26\u4e32\u5224\u65ad\u51fd\u6570\uff1a\n```cpp\nbool ss(string s){\n\tfor(j=0;j<i;j++){\n\t\tif(s[j]!=s[i+j]){    //\u5f53\u5b57\u7b26\u4e32\u7684\u524d\u540e\u4e24\u90e8\u5206\u4e0d\u76f8\u540c\u65f6\uff0c\u4ee3\u8868\u5b57\u7b26\u4e32\u4e0d\u7b26\u5408\u8981\u6c42\n\t\t\treturn false;\n\t\t}\n\t}\n\treturn true;         //\u5faa\u73af\u5230\u6700\u540e\u5c31\u4ee3\u8868\u5b57\u7b26\u4e32\u7b26\u5408\u8981\u6c42\n}\n```\n## \u7a0b\u5e8f\u5982\u4e0b\uff1a\n```cpp\n#include<iostream>\n#include<cstring>\nusing namespace std;\nint i,j;                    //\u5c06i\uff0cj\u5b9a\u4e49\u4e3a\u5168\u5c40\u53d8\u91cf\nbool ss(string s){\n\tfor(j=0;j<i;j++){\n\t\tif(s[j]!=s[i+j]){\n\t\t\treturn false;\n\t\t}\n\t}\n\treturn true;\n}\nint main()\n{\n\tstring s;\n\tcin>>s;\n\tfor(i=s.length()-1;i>=1;i-=2){\n\t\tif(ss(s)){\n\t\t\tcout<<i+1<<endl;\n\t\t\treturn 0;\n\t\t}\n\t}\n\tcout<<1<<endl;\n\treturn 0;\n}\n```\n# **THE END**",
+        "postTime": 1608819262,
+        "uid": 299883,
+        "name": "HYdroKomide",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 AT2647 \u3010[ABC066B] ss\u3011"
+    },
+    {
+        "content": "## \u57fa\u672c\u601d\u8def\n\u9996\u5148\u770bs\u7684\u8303\u56f4\n>$2\\leqslant s\\leqslant 200$\n\n\u66b4\u529b\u679a\u4e3e\u91cd\u590d\u7684\u957f\u5ea6 $i$,$ans=i\\times2$\u3002  \n\u6ce8\u610f\u9898\u76ee\u91cc\u7684\u7ec6\u8282\uff0c**\u5fc5\u987b\u5220\u9664\u4e00\u4e2a\u6216\u591a\u4e2a\u5b57\u7b26**\uff0c\u5c31\u7b97\u4f60\u539f\u6765\u7684\u5b57\u7b26\u4e32\u5df2\u7ecf\u662f\u201c\u5076\u4e32\u201d\uff0c\u4e5f\u5fc5\u987b\u5220\u6389\u4e00\u4e9b\u5b57\u7b26\u3002\n\u4e0b\u9762\u662f\u53c2\u8003\u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n\tstring s;\n\tcin>>s;\n\tint ds=s.size();\n\tfor(int i=(ds-1)/2;i>=1;i--)//\u5fc5\u987b\u5220\u9664\u4e00\u70b9\uff0c\u6240\u4ee5\u4eceds-1\u5f00\u59cb\u679a\u4e3e\n\t{\n\t\tbool ok=1;\n\t\tfor(int j=0;j<i;j++)//\u5224\u65ad\u5b57\u7b26\u4e32\u662f\u5426\u91cd\u590d\n\t\t\tif(s[j]!=s[i+j])\n\t\t\t{\n\t\t\t\tok=0;\n\t\t\t\tbreak;\n\t\t\t}\n\t\tif(ok)//\u7531\u5927\u5230\u5c0f\u679a\u4e3e\uff0c\u627e\u5230\u5c31\u76f4\u63a5\u7ed3\u675f\u7a0b\u5e8f\n\t\t{\n\t\t\tprintf(\"%d\",i*2);\n\t\t\treturn 0;\n\t\t}\n\t}\n\tprintf(\"1\");\n\treturn 0;\n}//made by dshzsh\n```\n",
+        "postTime": 1596072985,
+        "uid": 200116,
+        "name": "dshzsh",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 AT2647 \u3010[ABC066B] ss\u3011"
+    }
+]

@@ -1,0 +1,74 @@
+[
+    {
+        "content": "### ~~\u76f8\u4fe1\u5404\u4f4d\u5927\u4f6c\u4eec\u6570\u5b66\u597d\u7684\u4f1a\u4f4d\u503c\u539f\u7406\u5427\uff1f~~\n\n\n------------\n~~\u6211\u6765\u4e3a\u5927\u5bb6\u4ecb\u7ecd\u4e00\u4e0b\u4f4d\u503c\u539f\u7406~~[\u770b\u8fc7\u6765](https://wenku.baidu.com/view/07c1010f03020740be1e650e52ea551810a6c9a0.html)\n\n\u4e24\u4e2a\u6570\u8fde\u8d77\u6765\u5c31\u662fa*10^b\u7684\u4f4d\u6570+b\n\n\u5e73\u65b9\u6570\u5c31\u662fsqrt\u81ea\u5df1\u518d\u5e73\u65b9\u4ee5\u4e0b\u8fd8\u662f\u81ea\u5df1\u7684\u6570\u5c31\u662f**\u5e73\u65b9\u6570**\u3002\n\n\u8bb0\u5f97\u8f93\u51fa\u540e\u8981\u6362\u884c\u54df\uff01\n\n```cpp\n//100\u5206\u5c0f\u5b66\u751f\u4ee3\u7801\u3002\n#include<iostream>\n#include <cmath>\nusing namespace std;\nint beishu(int cifang,int shu)//\u5c31\u662f\u4e0d\u559c\u6b22\u7528pow\u51fd\u6570\u3002\n{\n    long long int sum=1;\n    for (int i=1;i<=cifang;i++)\n        sum*=shu;\n    return sum;\n}\nint weishu(int x)\n{\n    int num=0;\n    while (x)\n    {\n        num++;\n        x/=10;\n    }\n    return num;\n}\nint main()\n{\n    int a,b;\n    cin>>a>>b;\n    long long int s;\n    s=a*beishu(weishu(b),10);//\u4f4d\u503c\u539f\u7406\u3002\n    s+=b;\n    int g=sqrt(s);\n    if (g*g==s)//\u5224\u65ad\u662f\u5426\u4e3a\u5e73\u65b9\u6570\u3002\n    \tcout<<\"Yes\\n\";//\u8981\u6362\u884c\u3002\n    else\n    \tcout<<\"No\\n\";//\u8981\u6362\u884c\u3002\n    return 0;//\u5b8c\u7f8e100AC\u7684\u7ed3\u675f\u4e86\u3002\n} \n```\n(\u3003'\u25bd'\u3003)\n",
+        "postTime": 1523459157,
+        "uid": 84987,
+        "name": "LJY_ljy",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 AT3874 \u30101 21\u3011"
+    },
+    {
+        "content": "~~\u8fd8\u6ca1\u5b66\u8fc7\u5b57\u7b26\u4e32 \u51fa\u95e8\u5de6\u62d0\u8bd5\u7ec3\u573a~~\n\n\u5927\u5bb6\u771f\u5f3a\uff0c\u8fd9\u9898pas\u515a\u771f\u7684\u5360\u4f18\u52bf(\u6211\u4e5f\u662f)\n\n\u6309\u9898\u610f\uff0c\u4e00\u4e2a\u8bfb\u5165\u5904\u7406\u52a0\u5224\u65ad\u5c31\u53ef\u4ee5\u5b8c\u6210\u7684\u4e8b\n\n\u4f46\u662f\n\n\u6211\u4f5c\u4e3a\u4e00\u540d\u60f3\u8981\u52aa\u529b\u6210\u4e3a\u662f\u795e\u7287\u7684\u849f\u84bb\uff0c\n\n\u600e\u53ef\u6c34\u8fd9\u79cd\u7ea2\u9898\n\n\u4e8e\u662f\u624b\u75d2\u6253\u4e86\u4e2a\u6253\u4e86\u4e2a\u4e8c\u5206\u7ec3\u7ec3\u624b\n\n\u4e0d\u77e5\u9053\u7684\u849f\u84bb\u53ef\u4ee5\u5b66\u4e00\u5b66\uff08\u5b9e\u7528\u53c8\u7701\u65f6\uff09\n\n\u4e8c\u5206\u6574\u4f53\u601d\u60f3\u6709\u70b9\u50cf\u8a79\u5929\u4f51** \u4e24\u7aef\u540c\u65f6\u5411\u4e2d\u95f4\u51ff\u8fdb **\u7684\u529e\u6cd5\n\n\u5177\u4f53\u89c1\u4ee3\u7801\u2193\n\n```cpp\nvar\n  n,m,i,t:longint;\n  s,ss:string;\n  \n function poss:boolean;//\u4e8c\u5206\n  var\n    m,head,tail:longint;\n  begin\n    head:=1;\n    tail:=t;//\u5b9a\u4e49\u4e8c\u5206\u67e5\u627e\u7684\u8303\u56f4\n    while head<=tail do//\u5982\u679c'\u5c71\u88ab\u51ff\u901a\u4e86'\u5c31\u9000\u51fa\n    begin\n      m:=(head+tail) div 2;//\u53d6\u4e00\u4e2a\u4ed6\u4eec\u7684\u4e2d\u95f4\u6570\n      if m=sqrt(t) then exit(true);//\u5982\u679c\u627e\u5230\u5e73\u65b9\u6839\u6570\uff0c\u8a79\u5929\u4f51\u5c31\u53ef\u4ee5\u56de\u53bb\u4f11\u606f\u4e86\n      if m<sqrt(t) then head:=m+1//\u5982\u679c\u4e2d\u95f4\u6570\u6bd4\u5e73\u65b9\u6839\u6570\u5c0f\uff0c\u8a79\u5929\u4f51\u5c31\u8981\u4ece\u5de6\u4e00\u8def\u6316\u5230\u4e2d\u95f4\u6570\u7684\u524d\u9762\n      else tail:=m-1;//\u5426\u5219\u8a79\u5929\u4f51\u5c31\u8981\u4ece\u53f3\u4e00\u8def\u6316\u5230\u4e2d\u95f4\u6570\u7684\u540e\u9762\n    end;\n    exit(false);//\u5982\u679c'\u5c71\u88ab\u51ff\u901a\u4e86'\uff0c\u8a79\u5929\u4f51\u8fd8\u662f\u6ca1\u6316\u5230\u5e73\u65b9\u6839\u6570\uff0c\u90a3\u8fd9\u4e2a\u6570\u5c31\u4e0d\u662f\u5e73\u65b9\u6570\n  end;\n  \nbegin\n  read(n,m);\n  str(n,s);\n  str(m,ss);\n  s:=s+ss;\n  val(s,t);//\u8bfb\u5165\u5904\u7406\uff0c\n  if poss then write('Yes')\n     else write('No');//\u5224\u65ad\u627e\u4e0d\u627e\u5230\nend.\n```\n~~(\u6211\u4e0d\u80fd\u8bef\u5bfc\u65b0\u4eba\u554a)~~\u5f53\u7136\u4e0b\u9762\u8fd9\u6bb5\u8bdd\u4e5f\u53ef\u4ee5\u6709\u5176\u4ed6\u7684\u5199\u6cd5\n```cpp\nif poss then write('Yes')\n     else write('No');\n```\n\u6bd4\u5982\u5224\u65ad\u4ed6\u7684\u5e73\u65b9\u6709\u6ca1\u6709\u5c0f\u6570\n```cpp\nif trunc(sqrt(t))=sqrt(t) then *****\n   else *****\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nif turnc(sqrt(t))*trunc(sqrt(t))=t **** *****\n   **** *****\n\u7b80\u77ed\u4e00\u70b9\u2195\nif sqr(turnc(sqrt(t)))=t\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n```\n\u6216\u662f\u66b4\u529b\u679a\u4e3e\u4e5f\u884c\n```cpp\nfor i:=1 to t do\nif i*i=t then begin write('yes');exit;end;\nwrite('no');\n```\n\u300a\u8a79\u5929\u4f51\u300b\u8fd9\u7bc7\u6587\u7ae0\u5c0f\u5b66\u8bed\u6587\u5e94\u8be5\u6709\u5b66\u8fc7\u7684\u5427(.=^\u30fb\u30a7\u30fb^=)",
+        "postTime": 1534252877,
+        "uid": 92401,
+        "name": "Gu_Ren",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 AT3874 \u30101 21\u3011"
+    },
+    {
+        "content": "~~\u5176\u5b9e\u5c31\u662f\u6a21\u62df~~\n\n\n------------\n\n```cpp\n#include <bits/stdc++.h>//\u4e00\u4e2a\u4e07\u80fd\u5e93\nusing namespace std;\n\nint a,b,c,len;\n\nint main()\n{\n\tscanf(\"%d%d\",&a,&b);//\u8bfb\u5165~~\n\tc=b;//\u5907\u4efd\u4e00\u4e2ab\n\twhile(c>0)//\u7528\u4e00\u4e2awhile\u6c42\u51fab\u7684\u4f4d\u6570\n\t{\n\t\tc/=10;//\u5220\u6389\u672b\u5c3e\n\t\tlen++;//\u4f4d\u6570\u52a01\n\t}\n\ta=a*pow(10,len)+b;//pow()\u51fd\u6570\u7528\u4e8e\u6c42\u5e42\n    \t\t\t\t  //\u81f3\u4e8e\u4e3a\u4ec0\u4e48\u662f10\u7684\u4f4d\u6570\u6b21\u65b9\n                      //\u55ef...\u597d\u50cf\u662f\u56e0\u4e3a\u4f4d\u503c\u539f\u7406...\n\tif(sqrt(a)==floor(sqrt(a)))printf(\"Yes\");//\u5224\u65ad\u90e8\u5206\u6bd4\u8f83a\u7684\u5e73\u65b9\u548c\u5b83\u5e73\u65b9\u7684\u6574\u6570\u90e8\u5206\uff0c\u5982\u76f8\u7b49\uff0c\u5c31\u662f\u5b8c\u5168\u5e73\u65b9\u6570\uff0c\u8f93\u51faYes\n\telse printf(\"No\");//\u5426\u5219\u8f93\u51faNo\n}\n```",
+        "postTime": 1520667147,
+        "uid": 65735,
+        "name": "yuzhechuan",
+        "ccfLevel": 8,
+        "title": "\u6765\u4e2a\u6734\u7d20\u70b9\u7684\u7b97\u6cd5\u5427~~~"
+    },
+    {
+        "content": "\u9996\u5148\uff0c\u5982\u679c\u8981\u5408\u5e76\uff0c\u90a3\u80af\u5b9a\u662f\u5b57\u7b26\u4e32\uff08\u5927\u795e\uff1a\u5e9f\u8bdd\uff09\uff1b-->\uff08\u522b\u95ee\u6211\u4e3a\u4ec0\u8981\u7528\u5206\u53f7233\uff09\n\u732e\u4e0a\u6211\u7684\u7b2c\u4e00\u6b21\u9519\u8bef\u4ee3\u7801\uff1a\n```pascal\nvar\n    nm,i:longint;\n    n,m:string;\nbegin\n    readln(n,m);\n    val(n+m,nm);\n    for i:=1 to trunc(sqrt(nm)) do\n    if(sqr(i)=nm)then\n    begin\n        writeln('Yes');\n        exit;\n    end;\n    writeln('No'); \nend.\n\n```\n\u5927\u795e\u4eec\u770b\u51fa\u6765\u4e86\u4e48\uff0c\u6211\u5ffd\u7565\u4e86\u7a7a\u683c\uff1b~~\u4f46\u6211\u5c45\u7136A\u4e86\u56db\u4e2a\u70b9~~\nWA\u4e4b\u540e\uff0c\u6539\u6b63\u4e86\u4ee3\u7801\uff1a\n```pascal\nvar\n    nm,i,x:longint;\n    n:string;\nbegin\n    readln(n);\n    x:=pos(' ',n);//\u627e\u7a7a\u683c\n    delete(n,x,1);//\u628a\u7a7a\u683c\u5220\u53bb\uff0c\u5373\u4e3a\u5408\u5e76\n    val(n,nm);\n    for i:=1 to trunc(sqrt(nm)) do//\u4e3a\u4f18\u5316\uff0c\u4f18\u5316\u65f6\u95f4\uff0c\u867d\u8bf4\u6709\u5f88\u591a\u849f\u84bb\u4f1a\u76f4\u63a5\u5199\uff08\u6bd5\u7adf...\u4f60\u89c1\u8fc7\u9664\u4e00\u4ee5\u5916\u7684\u6570\u7684\u5e73\u65b9\u7b49\u4e8e\u8fd9\u4e2a\u6570\u4e48\uff09\n    if(sqr(i)=nm)then//\u5224\u65ad\u4e0d\u89e3\u91ca\u54e6\n    begin\n        writeln('Yes');\n        exit;//\u8fd9\u4e2a\u5176\u5b9e\u53ef\u4ee5\u4e0d\u7528\uff0c\u56e0\u4e3a\u6ca1\u6709\u4e00\u4e2a\u6570\u662f\u4e24\u4e2a\u6216\u4e24\u4e2a\u4ee5\u4e0a\u5f97\u6570\u7684\u5e73\u65b9\u6570\n    end;\n    writeln('No');\nend.\n\n```\n\u6492fafa\u5b8c\u7ed3   \n~~\u8bdd\u8bf4\u6211\u633a\u559c\u6b223874\u8fd9\u4e2a\u6570\u5b57\u7684~~",
+        "postTime": 1525870621,
+        "uid": 95436,
+        "name": "\u4e00\u6761\u5c0f\u9c7c",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT3874 \u30101 21\u3011"
+    },
+    {
+        "content": "\u6211\u7528\u7684\u5b57\u7b26\u4e32\n\n\n```pascal\nvar a,b:integer;\ns1,s:string;\nbegin\nread(a,b);\nstr(a,s1);\nstr(b,s);\ns:=s1+s;\nval(s,a);\nif trunc(sqrt(a))=sqrt(a) then writeln('Yes') else writeln('No');\nend.\n```",
+        "postTime": 1524650296,
+        "uid": 95638,
+        "name": "xyn0901",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT3874 \u30101 21\u3011"
+    },
+    {
+        "content": "```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n\tbool flag=false;//\u5c06\u6765\u5224\u65ad\u662f\u5426\u662f\u5e73\u65b9\u6570\u8981\u7528\n\tstring A,B;//\u4e24\u4e2a\u6570\n\tint a,b,k,b1;\n\tcin>>A>>B;//\u8f93\u5165\u4e24\u4e2a\u6570\n\tb1=B.length();//B\u7684\u957f\u5ea6\uff0c\u4e5f\u5c31\u662f\u4f4d\u6570\uff0c\u548cA\u62fc\u4e00\u8d77\u65f6\u8981\u7528\n\ta=atoi(A.c_str());\n\tb=atoi(B.c_str());//\u628aA\uff0cB\u8f6c\u4e3a\u6570\u5b57\n\tk=(pow(10,b1))*a+b;//\u5408\u8d77\u6765\u7684\u6570\uff1aA\u4e58\u4ee5\u540e\u9762\u7ed9\u5b83\u7559\u7684\u4f4d\u6570\n\tfor(int i=1;i<=k;i++)\n\t\tif(i*i==k) flag=true;//\u5224\u65ad\u662f\u5426\u4e3a\u5e73\u65b9\u6570\n\tif(flag==true) cout<<\"Yes\"<<endl;\n\telse cout<<\"No\"<<endl;/\u8f93\u51fa\n\treturn 0;//\u7ed3\u675f\n}\n```",
+        "postTime": 1533893339,
+        "uid": 94398,
+        "name": "durbin\u4e2d\u5c06",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT3874 \u30101 21\u3011"
+    },
+    {
+        "content": "## ~~JAPAN\u7684\u6c34\u9898~~\n#### \u7528\u4e86$stringstream$\uff08\u611f\u89c9\u597d\u65e0\u804a\uff09\n~~\u5224\u65ad\u4e00\u4e2a\u6570\u662f\u4e0d\u662f\u6574\u6570\u5c45\u7136\u4e0d\u80fd\u7528if(n%1==0)\uff08\u6211\u771f\u65e0\u77e5\uff09~~\n```cpp\n#include<bits/stdc++.h>//\u5934\u6587\u4ef6\nusing namespace std;\nstring b;//\u5b57\u7b26\u4e32\uff08\u5176\u5b9e\u662f\u7b2c\u4e8c\u4e2a\u6570\uff09\nint a,c;//a\u662f\u7b2c\u4e00\u4e2a\u6570\uff0cc\u662f\u8f6c\u6210int\u7684\u7b2c\u4e8c\u4e2a\u6570\ndouble d;\nstringstream ss;//stringstream\u5927\u6cd5\nint main(){\n    cin>>a>>b;\n    ss<<b;ss>>c;//\u5c06\u7b2c\u4e8c\u4e2a\u6570\u8f6c\u6210int\u7c7b\u578b\n    d=sqrt(a*pow(10,b.length())+c);//\u773c\u82b1\u7f2d\u4e71\u7684\u4e00\u884c\n    if(d-(int)d==0)cout<<\"Yes\"<<endl;//\u5224\u65ad\u662f\u5426\u662f\u5b8c\u5168\u5e73\u65b9\u6570\n    else cout<<\"No\"<<endl;//\u8bf7\u533a\u5206\u5927\u5c0f\u5199\n    return 0;//\u5b8c\u7f8e\u7ed3\u675f\n}\n```",
+        "postTime": 1528123457,
+        "uid": 58546,
+        "name": "CZQ_King",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 AT3874 \u30101 21\u3011"
+    },
+    {
+        "content": "\u51e0\u884cac\n\u5468\u77e5\uff0c\u221a\uffe3121\uffe3=11\uff0c11^2=121\n\n\u4f46\u662f\uff0c \u221a\uffe3122\uffe3\uff08\u53d6\u6574\uff09=11\uff0c11^2=121\u2260122\n\n\u6240\u4ee5\u53ef\u4ee5\u7531\u8fd9\u6761\u5f0f\u5b50\u662f\u5426\u53ef\u80fd\u76f8\u7b49\u6765\u5224\u65ad\n- trunc(sqrt(a))*trunc(sqrt(a))=a\n\n\n------------\n\u4ee3\u7801\uff1a\n\n```pascal\nvar\n    s:string;\n    a,p:longint;\nbegin\n    readln(s);//\u8bfb\u5165\u5b57\u7b26\u4e32\n    p:=pos(' ',s);//\u627e\u7a7a\u683c\n    delete(s,p,1);//\u5220\u7a7a\u683c\n    val(s,a);//\u5b57\u7b26\u8f6c\u6570\u5b57\n    if trunc(sqrt(a))*trunc(sqrt(a))=a then//\u5f00\u65b9\u53bb\u6574\u518d^2\u662f\u5426=\u539f\u6570\n    \twriteln('Yes') else writeln('No');\nend.\n```",
+        "postTime": 1521293767,
+        "uid": 62014,
+        "name": "Soyilieber",
+        "ccfLevel": 4,
+        "title": "\u9898\u89e3 AT3874 \u30101 21\u3011"
+    },
+    {
+        "content": "\u8fd9\u662f\u4e00\u9053\u6a21\u62df\u9898\uff0c\u552f\u4e00\u8981\u5904\u7406\u7684\u5c31\u662f\u5c06\u4e24\u4e2a\u6570\u5b57\u62fc\u63a5\uff0c\u867d\u8bf4\u6211\u4eec\u53ef\u4ee5\u4f7f\u7528\u6570\u5b66\u65b9\u6cd5(iNum1\u4e58\u4e0a10^len(iNum2)\u518d\u52a0\u4e0aiNum2)\uff0c\u4f46\u662f\u6211\u4eec\u4e5f\u53ef\u4ee5\u901a\u8fc7\u5b57\u7b26\u4e32\u5b9e\u73b0\u6570\u5b57\u7684\u5408\u5e76\u3002\n\nSTL\u63d0\u4f9b\u4e86\u540d\u4e3a\u5b57\u7b26\u4e32\u6d41(StringStream)\u7684\u7c7b\uff0c\u901a\u8fc7\u8be5\u7c7b\u6211\u4eec\u53ef\u4ee5\u50cf\u4f7f\u7528cin/cout\u4e00\u6837\u5b9e\u73b0\u5b57\u7b26\u4e32(string)\u548c\u5176\u4ed6\u7c7b\u578b\u4e4b\u95f4\u7684\u4e92\u76f8\u8f6c\u5316\u3002\n\n\u4f7f\u7528StringStream\u524d\uff0c\u9700\u8981\u5f15\u5165\u5934\u6587\u4ef6sstream\u5e76\u5b9e\u4f8b\u5316\u4e00\u4e2astd::stringstream\u5bf9\u8c61\u3002\n\nStringStream\u7684\u7b80\u5355\u4f7f\u7528:\n\n\u63d2\u5165\u6d41:\n\n```\nssStringStream << source;\n```\n\n\u8f93\u51fa\u6d41:\n\n```\nssStringStream >> target;\n```\n\n\u5efa\u8bae\u6bcf\u6b21\u63d2\u5165\u6d41\u4e4b\u524d\u8c03\u7528ssStringStream.clear()\u65b9\u6cd5\u4ee5\u6e05\u7a7a\u6d41\u4e2d\u4e0d\u518d\u9700\u8981\u7684\u6570\u636e\u3002\n\n\u4f46\u662f\u8bf7\u6ce8\u610f\uff0c\u7531\u4e8e\u79cd\u79cd\u5c01\u88c5\u3001\u62bd\u8c61\u5316\u3001\u5177\u4f53\u5316\u3001\u5b9e\u4f8b\u5316\u3001\u5b89\u5168\u68c0\u67e5\u7b49\u7684\u5b58\u5728string\u76f8\u6bd4C\u98ce\u683c\u5b57\u7b26\u4e32\u8981\u6162\uff0c\u800cStingStream\u66f4\u6162\u3002\n\n\u4ee3\u7801:\n```\n#include <iostream>\n#include <cstdlib>\n#include <iomanip>\n#include <cmath>\n#include <string>\n#include <sstream>\nusing namespace std; //\u5934\u6587\u4ef6\u548c\u547d\u540d\u7a7a\u95f4\nint main(){ \n\tios::sync_with_stdio(false); //\u8f93\u5165\u8f93\u51fa\u52a0\u901f\n\tlong long iSqrt,iNum; //iSqrt-\u53d6\u6574\u540e\u7684\u7b97\u672f\u5e73\u65b9\u6839\uff1biNum-\u539f\u59cb\u6570\n\tstring sNum1, sNum2; //\u4e24\u4e2a\u5206\u5f00\u7684\u6570\n\tstringstream ssStringStream; //\u5b57\u7b26\u4e32\u6d41\n\twhile (cin >> sNum1 >> sNum2){ //\u8bfb\u5165\u6570\n\t\tsNum1 += sNum2; //\u5408\u5e76\n\t\tssStringStream << sNum1; //\u4ece\u6e90\u63d2\u5165\u6d41\n\t\tssStringStream >> iNum; //\u4ece\u6d41\u8fdb\u5165\u76ee\u6807\n\t\tiSqrt = sqrt(iNum); //\u5f00\u6839\u53f7\u5e76\u53d6\u6574\n\t\tif (iSqrt*iSqrt == iNum) //\u5224\u65ad\u662f\u4e0d\u662f\u5b8c\u5168\u5e73\u65b9\n\t\t\tcout << \"Yes\\n\"; //\u662f\n\t\telse\n\t\t\tcout << \"No\\n\"; //\u4e0d\u662f\n\t\tssStringStream.clear(); //\u6e05\u7a7a\u6d41\n\t}\n\treturn 0; //\u7ed3\u675f\n}\n```",
+        "postTime": 1520664889,
+        "uid": 74038,
+        "name": "PC_DOS",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT3874 \u30101 21\u3011"
+    }
+]

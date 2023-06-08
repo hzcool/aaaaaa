@@ -1,0 +1,66 @@
+[
+    {
+        "content": "\u4e0d\u8981\u770b\u5230\u8fd9\u9898$\\color{DarkOrchid}\\colorbox{White}{\u7701\u9009/NOI-}$\u7684\u96be\u5ea6\u5c31\u6002\u4e86\u3002\n\u5b9e\u9645\u4e0a\u8fd9\u9898\u4e5f\u662f\u6076\u610f\u8bc4\u5206\u3002\n\n---\n# \u5206\u6790\u9898\u610f\n\u9996\u5148\uff0c\u6211\u4eec\u53ef\u4ee5\u660e\u663e\u7684\u5f97\u5230\u7ed3\u8bba\uff1a\n$$f(n)>f(n-1)(f(n),f(n-1)!=-1)$$\n\u6211\u4eec\u53ef\u4ee5\u77e5\u9053\uff1a\u5f53$n<=9$\u65f6\uff0c$f(n)$\u65e0\u89e3\u3002\n\n\u7136\u540e\u9898\u76ee\u5f88\u53cb\u597d\u7684\u7ed9\u51fa\u4e86$f(10^{16})$\u7684\u503c$10000$\u3002\n\n\u6240\u4ee5\uff0c\u6211\u4eec\u53ef\u4ee5\u4ece$10$\u679a\u4e3e\u5230$10000$\u5f53\u76f8\u7b49\u65f6\u8f93\u51fa\u3002\n\n### \u6807\u7a0b\n\n```cpp\n#include<iostream>\nusing namespace std;\nint main()\n{\n\tlong long a,b,c,d,e,f,g;\n\tcin>>a;\n\tfor(b=10;b<=10000;b++)\n\t{\n\t\td=b;\n\t\te=1;\n\t\tf=0;\n\t\twhile(d)\n\t\t{\n\t\t\tf+=d%10*e;\n\t\t\te*=b;\n\t\t\td/=10;\n\t\t}\n\t\tif(f==a){cout<<b;return 0;}\n\t}\n\tcout<<-1;\n}\n```\n",
+        "postTime": 1575680329,
+        "uid": 239358,
+        "name": "Velix",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 AT1089 \u3010N\u9032\u6570\u3011"
+    },
+    {
+        "content": "\u8fd9\u9898\u7528~~\u6253\u8868~~\u6a21\u62df\u662f\u53ef\u4ee5\u8fc7\u7684\n\n\u7ffb\u8bd1\uff1a\n\n> $f(n)$\u8fd4\u56de$n$\u8fdb\u5236\u4e0b\u7684$n$\u8fd4\u56de\u7684\u5341\u8fdb\u5236\u7684\u6570\u3002\n\n> \u4f8b\u5982$f(23)$\u5c31\u662f\u628a$23$\u5f53\u6210$23$\u8fdb\u5236\u6765\u7b97\uff0c\u8f6c\u6210$10$\u8fdb\u5236\u3002\n\n> $f(23)=2\u00d723^1+3\u00d723^0$\n\n> $f(125)=1\u00d7125^2+2\u00d7125^1+5\u00d7125^0$\n\n> \u73b0\u5728\u544a\u8bc9\u4f60$f(n)$\u7684\u503c\uff0c\u6c42$n$\u3002\u5982\u679c\u6ca1\u6709\u8f93\u51fa$-1$\u3002\n\n\n----------\n\u505a\u6cd5\uff1a\n\n\u4ece$10$\u5230$10000$\u679a\u4e3e$f(n)$\u7684\u503c\uff0c\u5982\u679c\u6709\u4e00\u4e2a\u662f$n$\uff0c\u90a3\u4e48\u8f93\u51fa\u5e76\u7ed3\u675f\u3002\u5982\u679c\u6ca1\u6709\u5c31\u8f93\u51fa$-1$\u3002\n\n\u4e3a\u4ec0\u4e48\u8981\u679a\u4e3e\u5230$10000$\u5462\uff1f\n\n\u901a\u8fc7\u9898\u76ee\u53ef\u77e5$N\\le10^{16}$\uff0c\u7136\u540e\u6837\u4f8b\u4e09\u4e2d\u53c8\u7ed9\u51fa$f(10000)=10^{16}$\uff0c\u6240\u4ee5\u5982\u679c$a>10000$\u90a3\u4e48$f(a)$\u5c31\u4f1a\u5927\u4e8e$10^{16}$\u3002\u6240\u4ee5\u679a\u4e3e\u5230$10000$\u5c31\u884c\u4e86\u3002\n\n----------\n\u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\n#define L long long//\u5b8f\u5b9a\u4e49\u6bd4\u8f83\u597d\u770b\nusing namespace std;\nL f(int n){//\u6c42f(n)\n    L m=n,p=1,ans=0;//p\u4e00\u5b9a\u8981\u7f6e1\n    while(n){//\u8f6c\u8fdb\u5236\u8fc7\u7a0b\n        ans+=(n%10)*p;\n        p*=m;\n        n/=10;\n    }\n    return ans;\n}\nint main(){\n    L N;\n    cin>>N;\n    for(int i=10;i<=10000;i++){//\u4ece10\u679a\u4e3e\u523010000\n        if(f(i)==N){//\u5982\u679c\u6709\u4e00\u4e2a\u76f8\u7b49\n            cout<<i<<endl;//\u8f93\u51fa\n            return 0;//\u5e76\u7ed3\u675f\n        }\n    }\n    puts(\"-1\");//\u6ca1\u6709\n    return 0;\n}\n```",
+        "postTime": 1561179300,
+        "uid": 58546,
+        "name": "CZQ_King",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 AT1089 \u3010N\u9032\u6570\u3011"
+    },
+    {
+        "content": "\u770b\u5230\u4e0b\u9762\u5927\u4f6c\u7684\u9898\u89e3\u90fd\u975e\u5e38\u597d\uff08\u6211\u592a\u849f\u4e86\uff09\uff0c\u4e0d\u8fc7\u4ed6\u4eec\u6709\u51e0\u70b9\u6ca1\u6709\u8bf4\u6e05\u695a\n\n$1.$\u4e3a\u4ec0\u4e48\u8f93\u5165\u5c0f\u4e8e10\u5c31\u65e0\u89e3\uff1f\n\n\u8fd9\u662f\u56e0\u4e3a\u5982\u679c\u8f93\u5165\u7684\u6570\u53ea\u6709\u4e00\u4f4d\uff08\u4f8b\u59829\uff09\uff0c\u90a3\u4e48\u4ee5\u8f93\u5165\u4e3a\u8fdb\u5236\u7684\u6570\u53ea\u80fd\u4e3a$10$\uff0c\u81ea\u7136\u6ca1\u6709\u7b26\u5408\u8981\u6c42\u7684\u6570\u5b57\n\n$2.$long long\u95ee\u9898\n\n~~\u5341\u5e74OI\u4e00\u573a\u7a7a\uff0c\u4e0d\u5f00longlong\u89c1\u7956\u5b97~~\uff08\u4e0d\u505a\u8fc7\u591a\u89e3\u91ca\uff09\n\n$3.$\u8fdb\u5236\u8f6c\u6362\u95ee\u9898\n\n\u8fdb\u5236\u8f6c\u6362\u867d\u7136\u7b80\u5355\uff0c\u4f46\u662f\u5982\u679c\u7ec6\u8282\u51fa\u9519\u5f88\u96be\u53d1\u73b0\n\n\u5c40\u90e8\u53d8\u91cf\u8981\u8d4b\u503c\uff0c\u4e0d\u7136\u76f4\u63a5\u968f\u673a\u6570\n\nwhile\u5faa\u73af\u8981\u966410\uff0c\u4e0d\u7136\u76f4\u63a5\u6b7b\u5faa\u73af\n\n\u5b57\u7b26\u533a\u5206\u8981\u6e05\u695a\uff0c\u4e0d\u7136\u95ee\u9898\u627e\u4e0d\u5230\n\n**\u4e0b\u9762\u662f\u4e3b\u4f53\u601d\u8def\uff1a**\n\n\u4ece10\u5230\u6700\u5927\u503c10000\u66b4\u529b\uff0c\u9047\u5230\u7b26\u5408\u6761\u4ef6\u7684\u76f4\u63a5\u8f93\u51fa\uff0c\u5faa\u73af\u5230\u6700\u540e\u8f93\u51fa\u65e0\u89e3\uff08\u8fb9\u754c\u534a\u6bb5\u8981\u5199$i<=10000$\uff09\n\n\u4ee3\u7801\uff1a\n\n```\n#include<iostream>\n#include<cstdio>\n#include<cmath>\n#include<algorithm>\nusing namespace std;\nlong long n; //\u8981\u5f00longlong\nint main()\n{\n\tcin>>n;\n\tfor(long long i=10;i<=10000;i++){\n\t\tlong long p=0,q,pp=1;\n\t\tq=i;//\u4e00\u5b9a\u8981\u7528\u4e00\u4e2a\u53d8\u91cf\u53d6\u4ee3i\n\t\twhile(q){//\u8fdb\u5236\u8f6c\u6362\n\t\t\tp=p+pp*(q%10);\n\t\t\tpp*=i;\n\t\t\tq=q/10;\n\t\t}\n\t\tif(p==n){\n\t\t\tcout<<i;//\u7b54\u6848\n\t\t\treturn 0;\n\t\t}\n\t}\n\tcout<<-1; //\u65e0\u89e3\n\treturn 0;\n}\n\n\n```\n\u8c22\u8c22\u5927\u5bb6\uff01",
+        "postTime": 1586233355,
+        "uid": 253738,
+        "name": "\u542c\u53d6MLE\u58f0\u4e00\u7247",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 AT1089 \u3010N\u9032\u6570\u3011"
+    },
+    {
+        "content": "~~CNM\u4f60\u544a\u8bc9\u6211\u662f$\\color{purple}{\\text{\u7d2b\u9898}}$\uff1f\uff01~~\n\n$SJFW$\u544a\u8bc9\u6211\u4eec\uff0c\u6b63\u89e3\u679a\u4e3e~~23333~~\n\n\u9996\u5148\uff0c\u80af\u5b9a\u6709\u5982\u4e0b\u7ed3\u8bba\uff1af(n)>f(n\u22121)(f(n),f(n\u22121)!=\u22121)\n\n\u90a3\u4e48\u2026\u2026\n\n\u5982\u679c$n<9$\uff0c$f(n)$\u65e0\u89e3QAQ\n\n\u56e0\u4e3a$f(10^{16})=10000$\uff0c\u53c8\u56e0\u4e3a$10^{16}<10^{18},$ \u6240\u4ee5\uff0c\u679a\u4e3e23333\n\n\u6211\u4eec\u53ef\u4ee5\u679a\u4e3e$10$\u5230$10000,$\u76f8\u540c\u65f6\u8f93\u51faans\u3002\n\n\u590d\u6742\u5ea6\uff1a$O(10000\\times4)=O(1)$\u3002\n\n$code\uff1a$\n```cpp\n#include<bits/stdc++.h>\n#define ll long long \nusing namespace std;\nll n,b,tst,chen,fn;\nint main(){\n    cin>>n;\n    for(b=10;b<=10000;b++){\n        tst=b;\n        chen=1;\n        fn=0;\n        while(tst){\n            fn+=tst%10*chen;\n            chen*=b;\n            tst/=10;\n        }\n        if(fn==n){\n            cout<<b<<'\\n';\n            return 0;\n        }\n    }\n    cout<<-1<<'\\n';\n    return 0;\n}\n```",
+        "postTime": 1578048615,
+        "uid": 126471,
+        "name": "inoichi_lim",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT1089 \u3010N\u9032\u6570\u3011"
+    },
+    {
+        "content": "## $\\large \\texttt {Step 1. \u9898\u610f\u7b80\u8ff0} $\n\n\u6c42 $n$ \u6ee1\u8db3 $f(n)=A$.\n\n## $\\large \\texttt {Step 2. \u601d\u8def\u7b80\u8ff0} $\n\n\u66b4\u529b\u679a\u4e3e $10$ \u81f3 $1000$ \u5224\u65ad\u5408\u6cd5\u4e0e\u5426\u3002\n\n\u6ce8\u610f $f(n)=-1 (1\\le n\\le 9)$ \uff08\u597d\u597d\u60f3\u60f3\u4e3a\u4f55\uff09\n\n\u8bb0\u5f97\u5f00 $\\texttt {long long}$\n\n## $\\large \\texttt {Step 3. \u6838\u5fc3\u4ee3\u7801} $\n\n\u5224\u65ad\u51fd\u6570\u5982\u4e0b:\n\n```cpp\n#define ie inline\n#define int long long\nie int work(int n){\n\tint k=n;\n\tint query=1;\n\tint ans=0;\n\twhile(k){\n\t\tans+=k%10*query;\n\t\tquery*=n;\n\t\tk/=10;\n\t}\n\treturn ans;\n}\n```\n\n\n#### \u7ba1\u7406\u5458\u5927\u5927\u6c42\u8fc7\n\n#### \u6c42\u8d5e\uff01",
+        "postTime": 1614318755,
+        "uid": 142548,
+        "name": "int32",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT1089 N\u8fdb\u5236\u6570"
+    },
+    {
+        "content": "23\u8fdb\u5236\uff0c\u65b9\u6cd5\u4e0e2\u8fdb\u5236\u7684\u505a\u6cd5\u4e00\u6837\uff0c\u597d\u5fc3\u7684\u51fa\u9898\u4eba\u7ed9\u4f60\u4e3e\u4e86\u4e24\u4e2a\u4f8b\u5b50\n\n$f(23)=2\u00d723^1+3\u00d723^0$\n\n$f(125)=1\\times125^2+2\\times125^1+5\\times125^0$\n\n\u662f\u4e0d\u662f\u8fd8\u662f\u5f88\u61f5\uff0c\u6ca1\u9519\uff0c\u6211\u4e5f\u4e00\u6837\u3002\n\n\u4f46\u662f\uff0c\u8fd9\u4e5f\u662f\u6709\u4e00\u4e2a\u7ed3\u8bba\u7684\uff0c\u65f6\u5019\u3001\u4ec0\u4e48\uff1f\n\n\u662f\u8fd9\u4e2a\n\nf(n)>f(n\u22121)(f(n),f(n\u22121)!=\u22121)\n\n\u90a3\u4e48\u53ea\u8981$n=9$,\u5c31\u65e0\u89e3\n\n\u8fd8\u6709A\u7684\u503c\u5f88\u5927\uff0c\u8981\u7528\u4ec0\u4e48\uff0c\u4f60\u61c2\u5f97\u3002\n\n\u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nlong long n,b,t,c,f;\nint main(){\n    cin>>n;\n    for(b=10;b<=10000;b++){\n        t=b;\n        c=1;\n        f=0;\n        while(t){\n            f+=t%10*c;\n            c*=b;\n            t/=10;\n        }\n        if(f==n){\n            cout<<b<<'\\n';\n            return 0;\n        }\n    }\n    cout<<-1<<'\\n';\n    return 0;\n}\n```\n",
+        "postTime": 1612150450,
+        "uid": 412169,
+        "name": "\u51e0\u65f6\u660e\u6708",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT1089 \u3010N\u9032\u6570\u3011"
+    },
+    {
+        "content": "\u6a21\u62df\u8fd8\u884c\u3002\n```cpp\n#include <bits/stdc++.h>\n#define l long long\n//define\u597d\u770b\nusing namespace std;\nl n;\nl f(l n) {//\u6c42f(n)\n    l m = n, p = 1, a = 0;\n    while (n) a += (n % 10) * p, p *= m, n /= 10;\n    return a;\n}\nint main() {\n    cin >> n;\n    for (l i = 10; i <= 10000; i++)\n        if (f(i) == n) {\n            cout << i;\n            return 0;\n        }\n    cout << -1;\n    return 0;\n}\n```\n## Attention\n1. \u4e3a\u4ec0\u4e48\u4e0d\u679a\u4e3e $n<10$\uff1f\n\n\u624b\u7b97\u53ef\u4ee5\u77e5\u9053\uff0c\u8fd9 $n<10$ \u90fd\u662f\u4e0d\u53ef\u80fd\u7684\u3002~~\u5f53\u7136\u4e5f\u53ef\u4ee5\u679a\u4e3e\u3002~~\u4e5f\u53ef\u4ee5\u53bb\u53c2\u8003\u9694\u58c1\u5927\u4f6c@\u542c\u53d6MLE\u58f0\u4e00\u7247 \u7684\u5206\u6790\u3002\n\n2. long long\n\n\u4e07\u4e00 $n=10^{16}$\uff1f",
+        "postTime": 1604315120,
+        "uid": 296967,
+        "name": "ksdq",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT1089 \u3010N\u9032\u6570\u3011"
+    },
+    {
+        "content": "###### \u672c\u849f\u84bb\u4e5f\u662f\u5728\u770b\u4e86\u7b2c\u4e00\u7bc7\u5927\u4f6c\u7684\u9898\u89e3\u540e\u624d\u53cd\u5e94\u8fc7\u6765\u7684\n## \u4f46\u662f\u4ee3\u7801\u7eaf\u624b\u6253\uff0c\u6ca1\u6709\u6284\u9898\u89e3QWQ\n\n### \u6839\u636e\u9898\u76ee\n```\nf(n)\u8fd4\u56denn\u8fdb\u5236\u4e0b\u7684nn\u8fd4\u56de\u7684\u5341\u8fdb\u5236\u7684\u6570\u3002\n\n\u4f8b\u5982f(23)f(23)\u5c31\u662f\u628a2323\u5f53\u62102323\u8fdb\u5236\u6765\u7b97\uff0c\u8f6c\u62101010\u8fdb\u5236\n \n```\n### \u5f97\u51fa\u7ed3\u8bba\n## important\uff1a\n# f(n)>f(n\u22121)(f(n),f(n\u22121)!=\u22121)\n\u6211\u4eec\u53ef\u4ee5\u7528\u679a\u4e3e\u4e5f\u53ef\u4ee5\u7528\u4e8c\u5206\n\u4f46\u662f\u4e8c\u5206\u7684\u4ee3\u7801\u5f88\u957f\n\n\u679a\u4e3e\u6bd4\u8f83\u7b80\u5355\uff08\u53ea\u8981\u4ece10\u679a\u4e3e\u523010000\uff09\n\n\u4e0d\u8981\u5fd8\u4e86\u5f00 long long\n\u5426\u5219\u53ea\u542cWA\u58f0\u4e00\u7247\n\u800c\u4e14\u8fd9\u9898\u4f3c\u4e4e\u8f93\u5165<10\u5c31\u4f1a\n# ~~\u7206\u70b8~~\n\n------------\n\n# \u4ee3\u7801\uff1a\n```\n/*\nBY\n\u94f6\u72d0\u4e4b\u773c\n*/\n#include<bits/stdc++.h> //\u4e07\u80fd\u5934\u6587\u4ef6\n#include <iostream>\n#include <cmath>\n#include <cstdio>\n#include <cstring>\n#include <algorithm>\nusing namespace std;\nint main()\n{\n  long long int n , l , k , j; //long long\n  cin >> n ;\n  for( int i = 10 ; i < = 10000 ; i++ ) //\u5faa\u73af\u5d4c\u5957\n  {\n    l = i , k = 1 , j = 0;\n    while ( l )\n    {\n      j = j + l % 10 * k , k = k * i , l = l / 10 ;\n      if( j == n ) //\u7b5b\n      {\n        cout << i ;\n        return 0 ;\n      }\n    }\n  }\n  cout << \"-1\" ;\n  return 0;//\u7ed3\u675f\n}\n```\n\n",
+        "postTime": 1602747759,
+        "uid": 379940,
+        "name": "_Empty",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT1089 \u3010N\u9032\u6570\u3011"
+    }
+]

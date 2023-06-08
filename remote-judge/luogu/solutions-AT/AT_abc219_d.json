@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u53d8\u79cd 01 \u80cc\u5305\uff0c\u4f46\u5927\u4f53\u601d\u8def\u662f\u76f8\u540c\u7684\u3002\n\n\u5c06 $ dp_{i,j} $ \u89c6\u4e3a\u5f53\u62ff\u5230 $ i $ \u4e2a A \u7269\u54c1\u548c $ j $ \u4e2a B \u7269\u54c1\u7684\u65f6\u5019\u7684\u6700\u5c0f\u7269\u54c1\u4e2a\u6570\uff0c\u521d\u59cb\u65f6\u6240\u6709 $ dp $ \u503c\u90fd\u8bbe\u4e3a\u65e0\u7a77\u5927\uff0c\u521d\u59cb\u72b6\u6001 $ dp_{0,0} $ \u4e3a $ 0 $\uff0c\u7136\u540e\u679a\u4e3e\u7269\u54c1\u79cd\u7c7b\u548c\u4ef7\u503c\uff0c\u6bcf\u6b21\u53d6 $ dp{i,j} $ \u548c $ dp_{i-A_now,j-B_now} $ \u4e2d\u7684\u6700\u5c0f\u503c\u66f4\u65b0\u7b54\u6848\uff0c\u6700\u540e $ dp{X,Y} $ \u663e\u7136\u4e3a\u6700\u540e\u7b54\u6848\uff0c\u5982\u679c\u662f\u65e0\u7a77\u5927\u5219\u65e0\u89e3\u3002\n\n\u72b6\u6001\u6570 $ \\mathcal{O}(XY) $ \u4e2a\uff0c\u6bcf\u6b21\u8f6c\u79fb $ \\mathcal{O}(N) $\uff0c\u603b\u65f6\u95f4\u590d\u6742\u5ea6 $ \\mathcal{O}(NXY) $\uff0c\u53ef\u4ee5\u901a\u8fc7\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#import <bits/stdc++.h>\n#define N 1010\n#define INF 0x3f3f3f3f\nusing namespace std;\nint m,n,k,a[N],b[N],c[N],dp[N][N]; \nint main()\n{\n\tcin>>k>>m>>n;\n\tfor(int i=1;i<=k;i++) \n    cin>>a[i]>>b[i],c[i]=1;\n\tmemset(dp,INF,sizeof(dp));\n\tdp[0][0]=0;\n\tfor(int i=1;i<=k;i++)\n    {\n\t\tfor(int x=m;x>=0;x--)\n        {\n\t\t\tfor(int y=n;y>=0;y--)\n            {\n\t\t\t\tif(dp[x][y]==INF) \n                continue;\n\t\t\t\tint u=min(m,x+a[i]);\n\t\t\t\tint v=min(n,y+b[i]);\n\t\t\t\tdp[u][v]=min(dp[u][v],dp[x][y]+c[i]);\n\t\t\t}\n\t\t}\n\t}\n    if(dp[m][n]!=INF)\n\tcout<<dp[m][n];\n    else\n    cout<<-1;\n}\n```\n",
+        "postTime": 1672049071,
+        "uid": 714821,
+        "name": "loser_seele",
+        "ccfLevel": 4,
+        "title": "ABC219D\u9898\u89e3"
+    }
+]

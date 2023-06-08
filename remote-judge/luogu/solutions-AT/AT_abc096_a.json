@@ -1,0 +1,50 @@
+[
+    {
+        "content": "\u6ca1\u6709java\u9898\u89e3\u554a\uff0c\u672c\u849f\u84bb\u6c35\u4e00\u4e0b\u3002\n\n\u8fd9\u5e94\u8be5\u7b97\u662f\u4e00\u9053\u7ea2\u9898\u5427\uff0c\u601d\u7ef4\u96be\u5ea6\u5e76\u4e0d\u5927\u3002\n\n\u9898\u610f\uff1a\u95ee\u4ece$1$\u6708$1$\u65e5\u5230$x$\u6708$y$\u65e5\u5171\u6709\u591a\u5c11\u5929\u7684\u6708\u4efd\u548c\u65e5\u671f\u76f8\u7b49\u3002\n\n\u6211\u4eec\u6bd4\u8f83\u5bb9\u6613\u5f97\u51fa\uff0c\u4ece$1$\u6708\u5230$x-1$\u6708\u90fd\u4e00\u5b9a\u6709\u7b26\u5408\u8981\u6c42\u7684\u65e5\u671f\uff0c\u53ea\u9700\u5224\u65ad\u7b2c$x$\u6708\u662f\u5426\u6709\u6ee1\u8db3\u8981\u6c42\u7684\u6708\u4efd\u5373\u53ef\u3002\n\n\u5982\u4f55\u5224\u65ad\u5462\uff1f\u4e5f\u5f88\u7b80\u5355\uff0c\u5982\u679c$x\\leq y$\uff0c\u90a3\u4e48\u8bf4\u660e\u4e00\u5b9a\u7ecf\u8fc7\u4e86$x$\u6708$x$\u65e5\uff0c\u6240\u4ee5\u4e00\u5b9a\u6709\u6ee1\u8db3\u8981\u6c42\u7684\u65e5\u671f\uff0c\u5171$x$\u5929\uff0c\u5426\u5219\u5c31\u6ca1\u6709\uff0c\u5171$x-1$\u5929\u3002\n\n\u4ee3\u7801\u5982\u4e0b\uff1a\n\n```java\nimport java.util.Scanner;//\u5bfc\u5165Scanner\u6a21\u5757\npublic class Main {\n\tpublic static void main(String[] args)\t{\n\t\tScanner scan=new Scanner(System.in);//\u65b9\u4fbf\u8f93\u5165\n\t\tint x=scan.nextInt(),y=scan.nextInt();//\u8f93\u5165\n\t\tSystem.out.println(x<=y?x:x-1);//\u76f4\u63a5\u5224\u65ad\u5e76\u8f93\u51fa\u7ed3\u679c\n\t}\n}\n```\n",
+        "postTime": 1587967087,
+        "uid": 297433,
+        "name": "Brian_WBY",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 AT4124 \u3010[ABC096A] Day of Takahashi\u3011"
+    },
+    {
+        "content": "\u795e\u5947\uff0c\u9898\u89e3\u533a\u5c45\u7136\u6ca1\u6709\u548c\u6211\u4e00\u6837\u7684\u89e3\u6cd5\u3002\n\n----\n\n## solution\n\n\u6211\u4eec\u53d1\u73b0\u5f53\u6708\u548c\u65e5\u60f3\u5230\u7b49\u7684\u65f6\u5019\u5c31\u662f\u9ad8\u6865\u65e5\u3002\u90a3\u4e48\u6211\u4eec\u6709\u4e00\u4e2a\u6574\u6708\u5c31\u6709\u4e00\u4e2a\u9ad8\u6865\u65e5\u3002\u53ea\u9700\u8981\u5224\u65ad\u6700\u540e\u4e00\u4e2a\u6708\u80fd\u4e0d\u80fd\u8d21\u732e\u4e00\u4e2a\u9ad8\u6865\u65e5\u5c31\u884c\u4e86\u3002\n\n## code\n\n\n```cpp\n#include<cstdio>\nusing namespace std;\nint main()\n{\n\tint a,b;\n\tscanf(\"%d%d\",&a,&b);\n\tif(b<a)\n\t{\n\t\tprintf(\"%d\\n\",a-1);\n\t}\n\telse\n\t{\n\t\tprintf(\"%d\\n\",a);\n\t}\n\treturn 0;\n} \n\n```",
+        "postTime": 1587128861,
+        "uid": 45475,
+        "name": "ShineEternal",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT4124 \u3010[ABC096A] Day of Takahashi\u3011"
+    },
+    {
+        "content": "### **\u9898\u76ee**\n\u6211\u4eec\u628a\u5e74\u548c\u6708\u76f8\u540c\u7684\u65e5\u5b50\u6210\u4e3a\u201c\u5e78\u8fd0\u65e5\u201d\u3002\n\n\u6c42$1$\u6708$1$\u65e5\u5230$x$\u6708$y$\u65e5\u4e2d\uff0c\u603b\u5171\u6709\u591a\u5c11\u4e2a\u201c\u5e78\u8fd0\u65e5\u201d\u3002\n\n### **\u601d\u8def**\n\u56e0\u4e3a\u201c\u5e78\u8fd0\u65e5\u201d\u6bcf\u4e2a\u6708\u53ea\u6709\u4e00\u6b21\uff0c\u6240\u4ee5$s$\u7684\u503c\u5148\u4e3a$x$\u3002\n\n\u4f46\u662f\u8fd9x\u4e2a\u6708\u91cc\uff0c\u6700\u540e\u4e00\u4e2a\u6708\u53ef\u80fd\u4e0d\u662f\uff0c\u56e0\u4e3a\u5982\u679cy<x\uff0c\u90a3\u6700\u540e\u4e00\u4e2a\u6708\u5c31\u4e0d\u662f\u201c\u5e78\u8fd0\u65e5\u201d\u4e86\u3002\n\n\u6240\u4ee5\u8fd8\u8981\u5224\u65ad\uff1a$if$ $y<x$ $then$ $s:=s-1;$\n\n\u7b80\u5316\u5f97\uff1a$if$ $y<x$ $then$ $writeln(x-1)$ $else$ $writeln(x);$ \n### **\u4ee3\u7801**\n~~\u4e0d\u8d34\u3002~~",
+        "postTime": 1591186611,
+        "uid": 324103,
+        "name": "Franka",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT4124 \u3010[ABC096A] Day of Takahashi\u3011"
+    },
+    {
+        "content": "\u9898\u610f\uff1a\u8f93\u5165\u4e00\u4e2a\u65e5\u671f\uff0c1\u67081\u65e5\u5230\u8fd9\u4e2a\u65e5\u671f\u4e2d\u95f4\u7684\u9ad8\u6865\u65e5\u6709\u591a\u5c11\uff1f\n\n\u56e0\u4e3a\u4e00\u4e2a\u6708\u53ea\u6709\u4e00\u5929\u662f\u9ad8\u6865\u65e5\uff0c\u800c\u4e14\u662f\u4ece1\u67081\u65e5\u5f00\u59cb\u7b97\u7684\uff0c\u6240\u4ee5\u8f93\u5165\u7684\u6708\u4efd\u4ee3\u8868\u9ad8\u6865\u65e5\u6709\u591a\u5c11\n\n\u6ce8\u610f\uff01\u8981\u5206\u7c7b\u8ba8\u8bba\uff1a\n\n\u2460\u6708\u4efd\u5927\u4e8e\u5929\u6570\uff0c\u5373\u8fd8\u6ca1\u6709\u5230\u8fd9\u4e2a\u6708\u91cc\u7684\u9ad8\u6865\u65e5\n\n\u2461\u6708\u4efd\u5c0f\u4e8e\u6216\u7b49\u4e8e\u5929\u6570\uff0c\u5373\u521a\u597d\u5230\u6216\u8005\u5df2\u7ecf\u8fc7\u4e86\u8fd9\u4e2a\u6708\u7684\u9ad8\u6865\u65e5\n\n\n## **\u4ee3\u7801\u5982\u4e0b**\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n    int a,b;\n    cin>>a>>b;//\u8f93\u5165\u65e5\u671f\n    for(int i=1;i<=2;i++)//\u5faa\u73af\u4e24\u6b21\u6765\u5224\u65ad\n    {\n\tif(a<=b)//\u5f53\u6708\u4efd\u5c0f\u4e8e\u6216\u7b49\u4e8e\u5929\u6570\u65f6\n   \t{\n        \tcout<<a<<endl;//\u76f4\u63a5\u8f93\u51faa\uff0c\u56e0\u4e3a1\u67081\u65e5\u5230a\u6708a\u65e5\u6709a\u4e2a\u9ad8\u6865\u65e5\n        \tbreak;\n    \t}\n    \tif(a>b)//\u5f53\u6708\u4efd\u5927\u4e8e\u5929\u6570\u65f6\n    \t{\n        \tcout<<a-1<<endl;//\u8f93\u51faa-1\uff0c\u56e0\u4e3a\u8fd8\u6ca1\u5230\u8fd9\u4e2a\u6708\u7684\u9ad8\u6865\u65e5\n        \tbreak;\n    \t}\n    }\n    return 0;\n}\n```\n\n",
+        "postTime": 1586831584,
+        "uid": 332907,
+        "name": "BeetyX",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT4124 \u3010[ABC096A] Day of Takahashi\u3011"
+    },
+    {
+        "content": "\u4e00\u9053\u6c34\u9898\uff0c\u4f9d\u9898\u610f\u6a21\u62df\u5373\u53ef\n\n\u4e0a\u4ee3\u7801\n```c\n#include<iostream>//\u5934\u6587\u4ef6\nusing namespace std;//\u547d\u540d\u7a7a\u95f4\nint a,b;\nint main()\n{\ncin>>a>>b;//\u8f93\u5165\nfor(int i=1;i<=12;i++){//\u4ece\u4e00\u6708\u5230\u5341\u4e8c\u6708 \u5faa\u73af\nif(a==i)\n{\nif(b<i)cout<<i-1<<endl;//\u5982\u679c\u6ca1\u5230i\u6708i\u65e5\u8f93\u51fai-1\nelse cout<<i<<endl;//\u5426\u5219\u8f93\u51fai\n}\n}\nreturn 0;\n}\n```\n\u6700\u540e\u63d0\u9192\u4e00\u53e5:AT\u9898\u8f93\u51fa\u8981\u6362\u884c\uff01\n",
+        "postTime": 1583892519,
+        "uid": 181434,
+        "name": "\u9526\u96332006",
+        "ccfLevel": 3,
+        "title": "\u9898\u89e3 AT4124 \u3010[ABC096A] Day of Takahashi\u3011"
+    },
+    {
+        "content": "$LateX$\u53ef\u80fd\u65e0\u6cd5\u6b63\u5e38\u663e\u793a\uff0c\u8bf7\u5728\u6211\u7684blog\u67e5\u770b\uff1a[myblog](https://hero-brine.blog.luogu.org/solution-at4124)\n\n**\u9898\u610f\uff1a\u95ee\u4ece$1$\u6708$1$\u65e5\u5230$x$\u6708$y$\u65e5\u5171\u6709\u591a\u5c11\u5929\u7684\u6708\u4efd\u548c\u65e5\u671f\u76f8\u7b49\uff0c\u66b4\u529b\u6a21\u62df\u5373\u53ef\uff1a**\n\n$Python$:\n```python\na,b = map(int,input().split())\nif a<=b:\n    print(a)\nelse:\n    print(a-1)\n```\n$C++$:\n```cpp\n#include <cstdio>\nint a,b;\nint main(){\n    scanf(\"%d %d\",&a,&b);\n    printf(\"%d\\n\",(a<=b)?a:(a-1));\n    return 0;\n}\n```\n$Java$:\n```java\nimport java.util.Scanner;\npublic class Main {\n    static int a,b;\n    static Scanner scan = new Scanner(System.in);\n    public static void main(final String[] args)  \n    {\n        x=scan.nextInt(),y=scan.nextInt();\n        System.out.println(x<=y?x:x-1);\n        scan.close();\n    }\n}\n```",
+        "postTime": 1588076606,
+        "uid": 312489,
+        "name": "hero_brine",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT4124 \u3010[ABC096A] Day of Takahashi\u3011"
+    }
+]

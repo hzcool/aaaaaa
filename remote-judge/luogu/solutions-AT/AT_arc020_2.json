@@ -1,0 +1,18 @@
+[
+    {
+        "content": "\u6ce8\u610f\u5230\uff0c\u201c\u6761\u7eb9\u56fe\u6848\u201d\u662f\u6709\u4e24\u4e2a\u989c\u8272\u5faa\u73af\u7ec4\u6210\u7684\uff0c\u800c\u6bcf\u4e2a\u989c\u8272\u53ea\u6709 $10$ \u79cd\u53d6\u503c\uff0c\u6240\u4ee5\u679a\u4e3e\u5373\u53ef\u3002\n\n\u65f6\u95f4\u590d\u6742\u5ea6\uff1a$O(100n)$\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nconst int N = 1e5 + 5;\nint a[N], n, m, ans = 114514;\nint main() {\n\tcin >> n >> m;\n\tfor (int i = 1; i <= n; i ++)\n\t\tcin >> a[i];\n\tfor (int i = 1; i <= 10; i ++)\n\t\tfor (int j = 1; j <= 10; j ++)\n\t\t\tif (i != j) {\n\t\t\t\tint sum = 0;\n\t\t\t\tfor (int k = 1; k <= n; k ++)\n\t\t\t\t\tif (a[k] != (k % 2 ? i : j))\n\t\t\t\t\t\tsum += m;\n\t\t\t\tans = min(ans, sum);\n\t\t\t}\n\tcout << ans << '\\n';\n\treturn 0;\n}\n```",
+        "postTime": 1657008185,
+        "uid": 560516,
+        "name": "\u55b5\u4ed4\u725b\u5976",
+        "ccfLevel": 0,
+        "title": "AT833 \u7e1e\u6a21\u69d8\u9898\u89e3"
+    },
+    {
+        "content": "\u5440\uff0c\u7b2c\u4e00\u7bc7\u9898\u89e3\uff0c\uff08\u867d\u7136\u6709\u70b9\u665a\uff0c\u90fd\u5df2\u7ecf\u5927\u4e00\u4e86\u624d\u5199\u4e86\u4e2a\u5165\u95e8\u9898\u7684\u9898\u89e3\uff09\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n\tint a,b,pi[1000],sum = 0, ans = 9999999;\n\tcin>>a>>b;\n\tfor(int i = 0;i<a;i++){\n\t\tcin>>pi[i];\n\t}\n\tfor(int x = 1;x<=10;x++){\n\t\tfor(int y = 1;y<=10;y++){\n\t\t\tint c[1000];\n\t\t\tfor(int i = 0;i<a;i++){\n\t\t\t\tc[i]=pi[i];\n\t\t\t}\n\t\t\tsum = 0;\n\t\t\tif(x==y) continue;\n\t\t\tif(c[0]!=x) {\n\t\t\t\tc[0] = x;\n\t\t\t\tsum++;\n\t\t\t\tif(sum>ans) continue;\n\t\t\t}\n\t\t\tfor(int i = 1;i<a;i++){\n\t\t\t\tif(c[i-1]==x&&c[i]==y) {\n\t\t\t\t\tcontinue;\n\t\t\t\t}\n\t\t\t\telse if(c[i-1]==y&&c[i]==x) {\n\t\t\t\t\tcontinue;\n\t\t\t\t}\n\t\t\t\telse{\n\t\t\t\t\tif(c[i-1]==x) c[i] = y;\n\t\t\t\t\telse if(c[i-1]==y) c[i] = x;\n\t\t\t\t\tsum++;\n\t\t\t\t\tif(sum>ans) break;\n\t\t\t\t}\n\t\t\t} \n\t\t\tans = min(sum,ans);\n\t\t}\n\t}\n\tcout<<ans*b<<endl;\n\t\n}\n```\n\u8fd9\u4e2a\u9898\u53ef\u4ee5\u7528\u66b4\u529b\u679a\u4e3e\u641e\u5b9a\uff0c\u6ca1\u5565\u6280\u672f\u542b\u91cf\uff0c\u63a7\u5236\u597d\u903b\u8f91\uff0c\u8bb0\u5f97\u52a0\u56de\u8f66",
+        "postTime": 1586365405,
+        "uid": 276658,
+        "name": "AdminJoker",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT833 \u3010\u7e1e\u6a21\u69d8\u3011"
+    }
+]

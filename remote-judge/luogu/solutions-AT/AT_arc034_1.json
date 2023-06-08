@@ -1,0 +1,18 @@
+[
+    {
+        "content": "### \u8fd9\u9898\u53ef\u4ee5\u4e0d\u7528\u7ed3\u6784\u4f53\uff0c\u56e0\u4e3a\u6ca1\u6709\u6392\u5e8f~~(\u6211\u53ea\u77e5\u9053\u7ed3\u6784\u4f53\u80fd\u62ff\u6765\u6392\u5e8f~~\n\u505a\u6cd5\uff1a\u8f93\u5165\u524d$4$\u79d1\uff0c\u589e\u52a0\u5230\u603b\u5206\u53bb\uff0c\u518d\u8f93\u5165\u7f8e\u672f\uff0c\u628a\u7f8e\u672f$*0.1\\dot{2}$\uff0c\u518d\u589e\u52a0\u5230\u603b\u5206\u3002\u6700\u540e\u6bd4\u8f83\u662f\u5426\u4e3a\u6700\u9ad8\u7684\u5206\u6570\u3002\n\n\n------------\n\u4ee3\u7801\uff1a\n```cpp\n#include<bits/stdc++.h>//\u5934\u6587\u4ef6\nusing namespace std;\ndouble a,b,g,maxx=-1;//\u5c0f\u6570\nint main(){\n    cin>>a;//\u8f93\u5165\u4eba\u6570\n    for(int i=0;i<a;i++){\n        g=0;//\u5f52\u96f6\n        for(int i=0;i<4;i++){//\u524d\u56db\u79d1\n            cin>>b;\n            g+=b;//\u52a0\u8d77\u6765\n        }\n        cin>>b;//\u7f8e\u672f\n        g+=b*110/900;\n        if(g>maxx)maxx=g;//\u5224\u65ad\u662f\u5426\u4e3a\u6700\u9ad8\u5206\n    }\n    cout<<fixed<<maxx<<setprecision(10)<<endl;//\u8f93\u51fa\u6700\u9ad8\u5206\n    return 0;//\u5b8c\u7f8e\u7ed3\u675f\n}\n```",
+        "postTime": 1535882923,
+        "uid": 58546,
+        "name": "CZQ_King",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 AT1193 \u3010\u9996\u5e2d\u3011"
+    },
+    {
+        "content": "\u9898\u610f\uff1a\u6709N\u4e2a\u5b66\u751f\uff0c\u6bcf\u4e2a\u5b66\u751f\u67095\u4e2a\u79d1\u76ee\u7684\u6210\u7ee9\uff0c\u5176\u603b\u5206\u4e3a\u524d\u56db\u79d1\u6210\u7ee9\u52a0\u4e0a (11/90)\\*(\u7b2c\u4e94\u79d1\u6210\u7ee9) \uff0c\u5373 (11\\*\u7b2c\u4e94\u79d1\u6210\u7ee9)/90 \u3002\u8f93\u51fa\u6700\u9ad8\u5206\u3002\n\n\u7528\u4e00\u4e2astruct\u7ed3\u6784\u4f53\u6765\u5b58\u6bcf\u4e2a\u5b66\u751f\u7684\u4fe1\u606f\uff0c\u6839\u636e\u5f0f\u5b50\u5f97\u51fa\u603b\u5206\uff0c\u518d\u53d6\u6700\u9ad8\u5373\u53ef\u3002\n\nstruct\u90e8\u5206\u53ef\u4ee5\u8fd9\u6837\u5b9a\u4e49\uff1a\n\n```cpp\nstruct student{\n    int a,b,c,d,e;//\u4e94\u79d1\u6210\u7ee9\n    double score;//\u603b\u5206\n}s[4000];//\u5b66\u751f\u6700\u591a3000+\u4eba\n```\n\n\u6ce8\u610f\uff1a\u7cbe\u5ea6\u6709\u9650\u5236\uff0c**\u8bef\u5dee0.0001\u4ee5\u4e0b\uff01\uff01\uff01**\n\n\u4e8e\u662f\u6211\u4eec\u53ef\u4ee5\u5f00\u59cb\u5199\u7a0b\u5e8f\u4e86\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nstruct student{\n    int a,b,c,d,e;\n    double score;\n}s[4000];//\u5b9a\u4e49\u7ed3\u6784\u4f53\nint n;//\u4eba\u6570\ndouble ans=0;//\u6700\u9ad8\u5206\nint main(){\n    cin>>n;\n    for(int i=0;i<n;++i){//\u8f93\u5165\u6bcf\u4e2a\u4eba\u7684\u4fe1\u606f\u5e76\u7b97\u51fa\u603b\u5206\n        cin>>s[i].a>>s[i].b>>s[i].c>>s[i].d>>s[i].e;\n        //\u8f93\u5165\uff0c\u6709\u70b9\u5c0f\u7e41\u7410\n        s[i].score=s[i].a+s[i].b+s[i].c+s[i].d+(double)s[i].e*(11.0/90.0);\n        //\u770b\u4e0d\u60ef\u6324\u5728\u4e00\u884c\u5c31\u4e00\u4e2a\u4e2a\u52a0\uff0c\u6253\u90a3\u4e48\u591a\u4e5f\u9ebb\u70e6\n        ans=max(s[i].score,ans);//\u53d6\u5f53\u524d\u6700\u9ad8\u5206\n    }\n    printf(\"%.10f\\n\",ans);\n    //\u7cbe\u5ea6\u9650\u5236\u8bef\u5dee0.0001\u4ee5\u4e0b\uff0c\u7528cout\u53ef\u80fd\u51fa\u73b0\u7cbe\u5ea6\u4e0d\u591f\u800cWA\u7684\u60c5\u51b5\n    return 0;\n}\n```",
+        "postTime": 1521251264,
+        "uid": 37539,
+        "name": "_Qer",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT1193 \u3010\u9996\u5e2d\u3011"
+    }
+]

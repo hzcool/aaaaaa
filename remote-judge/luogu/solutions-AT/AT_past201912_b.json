@@ -1,0 +1,26 @@
+[
+    {
+        "content": "## \u601d\u8def\n\n\u7531\u4e8e $N \\leq 100000$\uff0c\u663e\u7136\u8fd9\u9898\u53ef\u4ee5\u6253\u4e00\u4e2a\u590d\u6742\u5ea6 $O(N)$ \u7684\u66b4\u529b\u3002\u76f4\u63a5\u6a21\u62df\u6bcf\u4e00\u6b21\u804c\u4f4d\u7684\u4e0a\u6da8\u548c\u4e0b\u964d\u5c31\u597d\u4e86\u3002\n\n## \u4ee3\u7801\n\n```cpp\n#include <iostream>\n#include <cstdio>\n#include <cstring>\n#define int long long\nusing namespace std;\n#define f(W, X, Y, Z) for(int W = X; W <= Y; W += Z)\n#define F(W, X, Y, Z) for(int W = X; W >= Y; W -= Z)\n#define debug puts(\"QAQ\")\nsigned main(){\n\tint q, now;\n\tscanf(\"%lld%lld\",&q,&now);\n\tf(i, 2, q, 1){\n\t\tint change;\n\t\tscanf(\"%lld\", &change);\n\t\tif(change == now) puts(\"stay\");\n\t\telse if(change > now) printf(\"up %lld\\n\", change - now);\n\t\telse printf(\"down %lld\\n\", now - change);\n\t\tnow = change;\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1678696690,
+        "uid": 852144,
+        "name": "Saint_ying_xtf",
+        "ccfLevel": 0,
+        "title": "AT_past201912_b \u5897\u6e1b\u7ba1\u7406 \u9898\u89e3"
+    },
+    {
+        "content": "\u672c\u9898\u53ef\u4ee5\u76f4\u63a5\u6a21\u62df\u8fc7\u7a0b\uff0c\u5f88\u5bb9\u6613\u5c31\u80fd\u5199\u51fa\u5982\u4e0b\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,a[100005];\nint main(){\n\tscanf(\"%d\",&n);\n\tfor(int i=0;i<n;i++)scanf(\"%d\",&a[i]);\n\tfor(int i=1;i<n;i++){\n\t\tif(a[i]==a[i-1])printf(\"stay\\n\");\n\t\telse if(a[i]>a[i-1])printf(\"up %d\\n\",a[i]-a[i-1]);\n\t\telse printf(\"down %d\\n\",abs(a[i]-a[i-1]));//\u6c42\u7edd\u5bf9\u503c  \n\t} \n}\n```\n\n\u4f46\u8fd9\u660e\u663e\u4e0d\u662f\u6700\u4f18\u89e3\uff0c\u7a7a\u95f4\u590d\u6742\u5ea6\u53ef\u4ee5\u964d\u4f4e\u4e3a $O(1)$\u3002\n\n\u53ef\u4ee5\u8fd9\u6837\u5199\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,x,q;\nint main(){\n\tscanf(\"%d%d\",&n,&q);\n\tfor(int i=1;i<n;i++){\n\t\tscanf(\"%d\",&x);\n\t\tif(x==q)printf(\"stay\\n\");\n\t\telse if(x>q)printf(\"up %d\\n\",x-q);\n\t\telse printf(\"down %d\\n\",abs(q-x));//\u6c42\u7edd\u5bf9\u503c \n\t\tx+=q;q=x-q;x=x-q;\n\t}\n}\n```\n\n\u8fd9\u6837\u6a21\u62df\u53ef\u4ee5\u4f7f\u7a7a\u95f4\u4ece\u7b2c\u4e00\u4e2a\u4ee3\u7801\u7684 `4.06MB` \u53d8\u6210 `3.70MB`\u3002\u5982\u679c\u6570\u636e\u8303\u56f4\u589e\u5927\uff0c\u4f1a\u6709\u66f4\u663e\u8457\u7684\u5dee\u8ddd\u3002",
+        "postTime": 1675770597,
+        "uid": 482610,
+        "name": "tlxjy",
+        "ccfLevel": 0,
+        "title": "AT_past201912_b\u9898\u89e3"
+    },
+    {
+        "content": "\u8fd9\u9898\u9996\u5148\u8f93\u5165\uff0c\u7136\u540e `for` \u5faa\u73af\u904d\u5386\u6574\u4e2a\u6570\u5217\uff08\u8bb0\u4f4f $i$ \u8981\u4ece $1$ \u5f00\u59cb\uff01\uff09\u3002\u5728\u5faa\u73af\u91cc\u5224\u65ad $a_i$ \u548c $a_{i-1}$ \u7684\u5927\u5c0f\u5173\u7cfb\uff1a\u5982\u679c $a_i > a_{i-1}$ \uff0c\u8f93\u51fa `up` \u548c\u4ed6\u4eec\u7684\u5dee\uff1b\u5982\u679c $a_i < a_{i-1}$ \uff0c\u8f93\u51fa `down` \u548c\u5dee\uff1b\u5982\u679c $a_i = a_{i-1}$ \uff0c\u8f93\u51fa `stay` \u3002\n\n**_AC code_**\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,a[100005],b,c;\nint main(){\n    cin>>n;\n    for(int i=1;i<=n;i++) cin>>a[i];\n    for(int i=2;i<=n;i++){\n        if(a[i]>a[i-1]) cout<<\"up \"<<a[i]-a[i-1]<<\"\\n\";\n        else if(a[i]<a[i-1]) cout<<\"down \"<<a[i-1]-a[i]<<\"\\n\";\n        else cout<<\"stay\\n\";\n    }\n    return 0;\n}\n```\n",
+        "postTime": 1667975651,
+        "uid": 686445,
+        "name": "NOI_AK_dreeeam",
+        "ccfLevel": 0,
+        "title": "AT_past201912_b \u5897\u6e1b\u7ba1\u7406 \u9898\u89e3 \u8fd4\u56de\u9898\u76ee"
+    }
+]

@@ -1,0 +1,18 @@
+[
+    {
+        "content": "\u9996\u5148\uff0c\u8fd9\u9053\u9898\u66b4\u529b\u65b9\u6cd5\u65f6\u95f4\u590d\u6742\u5ea6\u4e3a $O(NQ)$ \u4e0d\u8fc7\u8fd9\u79cd\u65b9\u6cd5\u4f1a\u7a33\u7a33\u5730\u8d85\u65f6\u3002\n\n\u4ecb\u7ecd\u4e00\u4e0b\u5dee\u5206\u7684\u65b9\u6cd5\u3002\n\n\u8003\u8651\u5176\u7ffb\u8f6c\u8303\u56f4\u4e3a\u4e00\u4e2a\u8fde\u7eed\u7684\u533a\u95f4\uff0c\u53ef\u4ee5\u4f7f\u7528\u5dee\u5206\u3002\n\n\u7528 $a_i$ \u6765\u8bb0\u5f55\u7b2c $i$ \u5f20\u724c\u4e0e\u7b2c $i-1$ \u5f20\u724c\u6240\u8868\u793a\u6570\u5b57\u662f\u5426\u76f8\u540c\u3002\n\n\u5728\u8fdb\u884c\u64cd\u4f5c\u65f6\u76f4\u63a5\u628a $a_l$ \u4e0e $a_{r+1}$ \u7684\u6570\u503c\u7ffb\u8f6c ($0 \\leftrightharpoons 1$)\n\n\u6700\u540e\u76f4\u63a5\u8ba1\u7b97\u7b54\u6848\u5373\u53ef\u3002\n\n## _code_\n\n```cpp\n#include<iostream>\nusing namespace std;\nconst int MAXN=2e5+5;\nint n,q,l,r;\nbool a[MAXN];\nbool t;\nint main(){\n\tcin>>n>>q;\n\twhile(q--){\n\t\tcin>>l>>r;\n\t\ta[l]=!a[l];\n\t\ta[r+1]=!a[r+1];\n\t}\n\tfor(int i=1;i<=n;i++){\n\t\tif(a[i])\n\t\t\tt=!t;\n\t\tcout<<t;\n\t}\n\tcout<<endl;\n}\n```\n",
+        "postTime": 1623107573,
+        "uid": 248400,
+        "name": "Inaba_Meguru",
+        "ccfLevel": 7,
+        "title": "AT1814 \u30aa\u30bb\u30ed \u9898\u89e3"
+    },
+    {
+        "content": "\u8fd9\u9898\u4e0d\u5c31\u8ddf [P5057](https://www.luogu.com.cn/problem/P5057) \u5dee\u4e0d\u591a\u4e48\u3002\u3002\u3002\n\n\u7531\u4e8e\u533a\u95f4\u5f02\u6216\u6ee1\u8db3\u533a\u95f4\u52a0\u6cd5\u539f\u5219\uff0c\u53ef\u4ee5\u4f7f\u7528\u6811\u72b6\u6570\u7ec4\uff0c\u628a\u4e24\u4e2a\u51fd\u6570\u6539\u52a8\u4e00\u4e0b\uff0c\u5c31\u53ef\u4ee5 AC \u4e86\u3002\u5728\u4ee3\u7801\u91cc\u6709\u6807\u51fa\u6539\u52a8\u5904\u3002\n\n## Code\n```\n#include <bits/stdc++.h>\nusing namespace std;\nint n;\nbool c[500005];\ninline int lowbit(int n){\n\treturn n&(-n);\n}\nvoid update(int x){\n\twhile(x<=n){\n\t\tc[x]^=1;//\u2460\n\t\tx+=lowbit(x);\n\t}\n}\nbool getsum(int x){\n\tbool ans=0;\n\twhile(x){\n\t\tans^=c[x];//\u2461\n\t\tx-=lowbit(x);\n\t}\n\treturn ans;\n}\nint main(){\n\tint m,op,x\uff0cy;\n\tscanf(\"%d%d\",&n,&m);\n\tfor(int i=1;i<=m;i++){\n\t\tscanf(\"%d%d\",&x,&y);\n\t\tupdate(x);\n\t\tupdate(y+1);\n\t}\n\tfor(int i=1\uff1bi<=n\uff1bi++)printf(\"%d\",getsum(i));\n\tputchar('\\n');\n\treturn 0;\n}\n```\n\u7136\u540e\uff0c\u5c31\uff1a\n[![](https://www.luogu.com.cn/images/congratulation.png)](https://www.luogu.com.cn/record/68988324)",
+        "postTime": 1644486676,
+        "uid": 521592,
+        "name": "\u5e84nnnn\u989d",
+        "ccfLevel": 0,
+        "title": "\u6c34\u9898AT1814\u9898\u89e3"
+    }
+]

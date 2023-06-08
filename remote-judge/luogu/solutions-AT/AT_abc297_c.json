@@ -1,0 +1,74 @@
+[
+    {
+        "content": "\u7b97\u662f\u6bd4\u8f83\u7b80\u5355\u7684 C \u9898\u4e86\u3002\n## \u9898\u76ee\u601d\u8def\n\u76f4\u63a5\u53cc\u91cd\u5faa\u73af\uff0c\u679a\u4e3e $0\\le i<n$ \u548c $0\\le j< m$\uff0c\u6bcf\u6b21\u5224\u65ad\u7b2c $(i,j)$ \u4e2a\u5b57\u7b26\u548c\u7b2c $(i,j+1)$ \u4e2a\u5b57\u7b26\u662f\u5426\u90fd\u4e3a `T`\uff0c\u5982\u679c\u6210\u7acb\uff0c\u76f4\u63a5\u8f93\u51fa `PC`\uff0c\u4e0b\u6807 $j+1$\u3002\u5426\u5219\u8f93\u51fa\u7b2c $(i,j)$ \u4e2a\u5b57\u7b26\u3002\n\n## \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n    int n,m;cin>>n>>m;\n    char a[105][105];\n    for(int i=0;i<n;i++)for(int j=0;j<m;j++)cin>>a[i][j];\n    for(int i=0;i<n;i++){\n        for(int j=0;j<m;j++){\n            if(a[i][j]=='T'&&a[i][j+1]=='T')cout<<\"PC\",j++;\n            else cout<<a[i][j];\n        }\n\t\tcout<<endl;\n    }\n}\n```\n",
+        "postTime": 1679931263,
+        "uid": 592684,
+        "name": "Jasoncwx",
+        "ccfLevel": 0,
+        "title": "AT_abc297_c \u9898\u89e3"
+    },
+    {
+        "content": "[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/AT_abc297_c)\n\n# \u601d\u8def\n\n\u7528\u7c7b\u4f3c**\u8d2a\u5fc3**\u7684\u601d\u8def\u3002\n\n\u8bfb\u5165\u77e9\u9635\u540e\u5faa\u73af\u904d\u5386\uff0c\u53ea\u8981\u627e\u5230\u8fde\u7eed\u7684\u4e24\u4e2a ``T`` \u5c31\u66ff\u6362\u4e3a ``PC``\uff0c\u8f93\u51fa\u6539\u53d8\u540e\u7684\u77e9\u9635\u5373\u53ef\u3002\n\n# \u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nconst int N=110;\nint n,m;\nstring s[N];\nint main(){\n\tcin>>n>>m;\n\tfor(int i=1;i<=n;++i){\n\t\tcin>>s[i];\n\t\ts[i]=\" \"+s[i];//\u52a0\u5165\u7a7a\u683c\u65b9\u4fbf\u679a\u4e3e\u3002\n\t}\n\tfor(int i=1;i<=n;++i){\n\t\tfor(int j=1;j<=m;++j){\n\t\t\tif(s[i][j]=='T'&&s[i][j+1]=='T'){//\u53ef\u4ee5\u66ff\u6362\u5c31\u66ff\u6362\u3002\n\t\t\t\ts[i][j]='P';\n\t\t\t\ts[i][j+1]='C';\n\t\t\t\t++j;//\u522b\u5fd8 +1.\n\t\t\t}\n\t\t}\n\t}\n\tfor(int i=1;i<=n;++i){\n\t\ts[i].erase(0,1);//\u522b\u5fd8\u5220\u6389\u591a\u4f59\u7a7a\u683c\u3002\n\t\tcout<<s[i]<<endl;\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1681522803,
+        "uid": 583186,
+        "name": "2c_s",
+        "ccfLevel": 0,
+        "title": "[ABC297C] PC on the Table"
+    },
+    {
+        "content": "## \u9c9c\u82b1\n\u5173\u4e8e\u6211\u5728\u8d5b\u573a\u4e0a\u6ca1\u770b\u89c1\u6709\u591a\u89e3\u8f93\u51fa\u4efb\u610f\u89e3\u800c\u803d\u8bef $10$ min \u8fd9\u4ef6\u4e8b\u3002\u8b66\u949f\u957f\u9e23\u3002\n## \u9898\u610f\n\u6bcf\u6b21\u9047\u5230\u4e00\u4e2a\u8fde\u7740\u7684 $\\tt{TT}$\uff0c\u5c06\u5176\u6539\u4e3a $\\tt{PC}$\u3002\u95ee\u6539\u8fc7\u7684\u77e9\u9635\u3002\n## \u89e3\u9898\u601d\u8def\n\u76f4\u63a5\u6a21\u62df\u5c31\u597d\u3002\u5bf9\u4e8e\u6bcf\u4e00\u6b21\u5f53\u524d\u5b57\u6bcd\u662f $\\tt{T}$\uff0c\u5e76\u4e14\u524d\u4e00\u4e2a\u5b57\u6bcd\u4e5f\u662f $\\tt{T}$ \u7684\u5b57\u7b26\u4e32\uff0c\u5c31\u76f4\u63a5\u6539\u3002\n## AC \u4ee3\u7801\n```cpp\n/*\nwritten by : zjs123\n*/\n#include<bits/stdc++.h>\nusing namespace std;\n#define int long long  \n#pragma GCC optimize(1)\n#pragma GCC optimize(2)\n#pragma GCC optimize(3)\nint n,m;\nchar a[101][101];\nmain(){\n    ios::sync_with_stdio(false);\n    cin.tie(0);\n    cout.tie(0);\n    cin>>n>>m;\n    for(int i=1;i<=n;i++){\n        for(int j=1;j<=m;j++){\n            cin>>a[i][j];\n        }\n    }\n    for(int i=1;i<=n;i++){\n        for(int j=1;j<m;j++){\n            if(a[i][j]=='T'&&a[i][j+1]=='T'){\n                a[i][j]='P';\n                a[i][j+1]='C';\n            }\n        }\n    }\n    for(int i=1;i<=n;i++){\n        for(int j=1;j<=m;j++){\n            cout<<a[i][j];\n        }cout<<\"\\n\";\n    }\n    return 0;\n}\n\n```",
+        "postTime": 1681636494,
+        "uid": 754000,
+        "name": "_JSYX_",
+        "ccfLevel": 5,
+        "title": "abc297_c"
+    },
+    {
+        "content": "# AT_abc297_c \u9898\u89e3\n\n### \u9898\u76ee\u5927\u610f\n\n\u9ad8\u6865\u541b\u6709\u4e00\u5757 $ H $ \u884c $ W $ \u5217\u7684\u5730\u65b9\uff0c\u5176\u4e2d ``` T ``` \u4ee3\u8868\u7a7a\u5730\uff0c``` . ``` \u4ee3\u8868\u969c\u788d\u3002\u73b0\u5728\u9ad8\u6865\u541b\u8981\u5f80\u8fd9\u7247\u5730\u65b9\u91cc\u653e\u7535\u8111\uff0c\u6bcf\u4e2a\u7535\u8111\u8868\u793a\u4e3a ```PC```\uff0c\u5360\u4e00\u4e2a $ 1 \\times 2 $ \u7684\u7a7a\u95f4\u4e14\u7535\u8111\u53ea\u80fd\u6a2a\u7740\u653e\u3002\u8f93\u51fa\u653e\u7535\u8111\u6570\u6700\u591a\u7684\u60c5\u51b5\u3002\n\n### \u9898\u76ee\u5206\u6790\n\n\u65e2\u7136\u53ea\u80fd\u6a2a\u7740\u653e\uff0c\u4e5f\u5c31\u53ef\u4ee5\u4e00\u884c\u4e00\u884c\u7684\u679a\u4e3e\uff0c\u6bcf\u884c\u4e4b\u95f4\u4e92\u76f8\u72ec\u7acb\uff0c\u6bcf\u6b21\u5224\u65ad\u76f8\u90bb\u7684\u4e24\u4e2a\u5730\u65b9\u662f\u4e0d\u662f\u90fd\u662f ``` T ```\uff0c\u5982\u679c\u662f\u5c31\u6362\u6210 ``` PC ```\uff0c\u5426\u5219\u7ee7\u7eed\u679a\u4e3e\u3002\n\n### \u4ee3\u7801\u65f6\u95f4\n\n```cpp\n#include<iostream>\nusing namespace std;\n#define cin(a) cin >> a; //\u7b80\u5316 cin \u8f93\u5165\u65f6\u7684\u4ee3\u7801 \n#define cout(a) cout << a; //\u7b80\u5316 cout \u8f93\u51fa\u65f6\u7684\u4ee3\u7801 \n#define jia(a , b , c , d) for(int (a) = (b) ; (a) <= (c) ; (a) += (d))\n#define jian(a , b , c , d) for(int (a) = (b) ; (a) >= (c) ; (a) -= (d))\nint fr() //int \u7c7b\u578b\u7684\u5feb\u8bfb \n{\n\tint x = 0;\n\tbool sign = 0;\n\tchar ch = getchar();\n\twhile(!(ch >= 48 && ch <= 57) && ch != EOF)\n\t{\n\t\tif(ch == '-')\n\t\t{\n\t\t\tsign = 1;\n\t\t}\n\t\tch = getchar();\n\t}\n\twhile(ch >= 48 && ch <= 57)\n\t{\n\t\tx = (x << 1) + (x << 3) + (ch - 48);\n\t\tch = getchar();\n\t}\n\tif(sign == 1)\n\t{\n\t\treturn -x;\n\t}\n\telse\n\t{\n\t\treturn x;\n\t}\n}\nchar a[105][105]; \nsigned main()\n{\n\tint h = fr() , w = fr(); //\u8f93\u5165 \n\tjia(i , 1 , h , 1)\n\t{\n\t\tjia(j , 1 , w , 1)\n\t\t{\n\t\t\tcin >> a[i][j];\n\t\t}\n\t}\n\tjia(i , 1 , h , 1)\n\t{\n\t\tjia(j , 1 , w - 1 , 1) //\u6ce8\u610f\u4e0d\u662f\u679a\u4e3e\u5230 w \u56e0\u4e3a\u4e0b\u9762\u6709\u4e00\u4e2a\u5730\u65b9\u7528\u5230\u4e86 j + 1\uff0c\u5982\u679c\u662f\u679a\u4e3e\u5230 w \u53ef\u80fd\u4ea7\u751f\u4e0d\u5fc5\u8981\u7684\u9ebb\u70e6 \n\t\t{\n\t\t\tif(a[i][j] == 'T' && a[i][j + 1] == 'T') //\u8fde\u7eed\u4e24\u4e2a\u683c\u5b50\u90fd\u662f\u7a7a\u5730 \n\t\t\t{\n\t\t\t\ta[i][j] = 'P';\n\t\t\t\ta[i][j + 1] = 'C'; \n\t\t\t}\n\t\t}\n\t}\n\tjia(i , 1 , h , 1) //\u8f93\u51fa \n\t{\n\t\tjia(j , 1 , w , 1)\n\t\t{\n\t\t\tcout(a[i][j]);\n\t\t}\n\t\tcout(endl);\n\t}\n    return 0;\n}\n```\n",
+        "postTime": 1681569168,
+        "uid": 765452,
+        "name": "I_am_kunzi",
+        "ccfLevel": 0,
+        "title": "abc297c \u9898\u89e3"
+    },
+    {
+        "content": "[$\\color{orangered}\\text{\u9898\u76ee\u4f20\u9001\u95e8}$](https://www.luogu.com.cn/problem/AT_abc297_c)\n## \u9898\u610f\n\u7ed9\u51fa\u4e00\u4e2a $h\\times w$ \u7684\u5b57\u7b26\u77e9\u9635\uff0c\u5982\u679c\u4e00\u884c\u4e2d\u6709\u4e24\u4e2a\u8fde\u7eed\u7684 `T`\uff0c\u5373\u51fa\u73b0\u4e86 `TT` \u8fd9\u4e2a\u5b57\u7b26\u4e32\uff0c\u5c06 `TT` \u66ff\u6362\u4e3a `PC`\uff0c\u8f93\u51fa\u66ff\u6362\u540e\u7684\u77e9\u9635\u3002\n## \u5206\u6790\n\u5f00\u4e00\u4e2a `char` \u7c7b\u578b\u7684\u4e8c\u7ef4\u6570\u7ec4\uff0c\u7136\u540e\u6a21\u62df\u5373\u53ef\u3002\n\n\u5bf9\u4e8e\u6bcf\u4e00\u4e2a $(i,j)$\uff0c\u5982\u679c $a_{i.j}$ \u548c $a_{i,j+1}$ \u90fd\u4e3a `T`\uff0c\u5219\u5c06 $a_{i.j}$ \u66ff\u6362\u4e3a `P`\uff0c\u5c06 $a_{i,j+1}$ \u66ff\u6362\u4e3a `C`\u3002\n\n\u6700\u540e\u8f93\u51fa\u6574\u4e2a\u5b57\u7b26\u77e9\u9635\u3002\n## \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint h,w;\nchar a[110][110];\nint main()\n{\n\tcin>>h>>w;\n\tfor(int i=1;i<=h;i++)\n\t\tfor(int j=1;j<=w;j++)\n\t\t\tcin>>a[i][j];\n\tfor(int i=1;i<=h;i++)\n\t{\n\t\tfor(int j=1;j<=w-1;j++)\n\t\t{\n\t\t\tif(a[i][j]=='T'&&a[i][j+1]=='T')//\u5224\u65ad\u662f\u5426\u8981\u66ff\u6362\n\t\t\t{\n\t\t\t\ta[i][j]='P';\n\t\t\t\ta[i][j+1]='C';\n\t\t\t\tj++;\n\t\t\t}\n\t\t}\n\t}\n\tfor(int i=1;i<=h;i++)\n\t{\n\t\tfor(int j=1;j<=w;j++)\n\t\t{\n\t\t\tcout<<a[i][j];\n\t\t}\n\t\tcout<<endl;\n\t}\n    return 0;\n}\n```\n",
+        "postTime": 1681567918,
+        "uid": 880187,
+        "name": "PineappleSummer",
+        "ccfLevel": 0,
+        "title": "[ABC297C] PC on the Table \u9898\u89e3"
+    },
+    {
+        "content": "[\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/AT_abc297_c)       \n\u4e00\u4e2a\u7b80\u5355\u6a21\u62df\u3002             \n\u5bf9\u4e8e\u6bcf\u4e00\u4e2a $s$\uff0c\u6211\u4eec\u5728\u7ebf\u5904\u7406\u3002     \n\u6211\u4eec\u53ef\u4ee5\u626b\u4e00\u904d $s$\uff0c\u5982\u679c\u6709 $i$ \u4f7f\u5f97 $s_i=s_{i+1}$ \u4e14 $s_i$ \u4e3a `T`\uff0c\u90a3\u4e48\u6211\u4eec\u5c31\u5f80\u91cc\u586b `PC`\u3002        \n\u65f6\u95f4\u590d\u6742\u5ea6 $O(HW)$\uff0c\u80fd\u8fc7\u3002     \n[CODE](https://www.luogu.com.cn/paste/yyymqb16)",
+        "postTime": 1681561573,
+        "uid": 592238,
+        "name": "__dest__ruct__or__",
+        "ccfLevel": 0,
+        "title": "AT_abc297_c [ABC297C] PC on the Table \u9898\u89e3"
+    },
+    {
+        "content": "**\u9898\u610f**\n \n\u7ed9\u5b9a\u4e00\u4e2a\u957f $h$ \u5bbd $w$ \u7684\u77e9\u9635 $S$\uff0c$S$ \u4e2d\u6240\u6709\u5143\u7d20\u4e3a `.` \u6216 `T`\u3002\n\n\u8bf7\u4f60\u5c3d\u53ef\u80fd\u591a\u5730\u9009\u62e9\u4e24\u4e2a\u683c\u5b50 $S_{i,j},S_{i,j+1}$\uff0c\u6ee1\u8db3 $1\\le i\\le h,1\\le j<w,S_{i,j}=S_{i,j+1}=$`T`\uff0c\u5c06 $S_{i,j}$ \u53d8\u6210 `P`\uff0c\u5c06 $S_{i,j+1}$ \u53d8\u6210 `C`\u3002\n\n\u8f93\u51fa\u5c3d\u53ef\u80fd\u591a\u6b21\u64cd\u4f5c\u540e\u7684\u77e9\u9635\u3002\n\n**\u5206\u6790**\n\n\u5927\u6c34\u9898\u3002\n\n\u6211\u4eec\u76f4\u63a5\u66b4\u641c\u6240\u6709 `T`\uff0c\u53ea\u8981\u5b83\u53f3\u8fb9\u8fd8\u6709\u8fde\u7740\u7684 `T`\uff0c\u5c31\u6309\u9898\u76ee\u8981\u6c42\u66ff\u6362\u5b57\u6bcd\uff0c\u7531\u4e8e\u6211\u4eec\u66ff\u6362\u4e86\u5b57\u6bcd\uff0c\u6240\u4ee5\u5e76\u4e0d\u4f1a\u91cd\u590d\u9009\u62e9\u3002\n\n**AC Code**\n```\n#include <iostream>\nusing namespace std;\nstring s[101];\nint main()\n{\n\tint h,w;\n\tcin>>h>>w;\n\tfor(int i=0;i<h;i++) cin>>s[i];\n\tfor(int i=0;i<h;i++)\n\tfor(int j=1;j<w;j++)//\u66b4\u641c\n\t{\n\t\tif(s[i][j]=='T'&&s[i][j-1]=='T')\n\t\t{\n\t\t\ts[i][j]='C';\n\t\t\ts[i][j-1]='P';\n\t\t}\n\t}\n\tfor(int i=0;i<h;i++)\n\t{\n\t\tfor(int j=0;j<w;j++)\n\t\tcout<<s[i][j];\n\t\tcout<<endl;\n\t}\n\treturn 0;\n}\n```\n",
+        "postTime": 1681555597,
+        "uid": 766339,
+        "name": "Crazyouth",
+        "ccfLevel": 3,
+        "title": "AT_abc297_c \u9898\u89e3"
+    },
+    {
+        "content": "## \u9898\u610f\uff1a\n\u7ed9\u5b9a $H$ \u4e2a\u957f\u5ea6\u4e3a $W$ \u7684\u5b57\u7b26\u4e32\uff0c\u628a `TT` \u53d8\u6210 `PC`\u3002\n\n## \u5206\u6790\uff1a\n\u76f4\u63a5\u6309\u9898\u610f\u6a21\u62df\u5373\u53ef\uff0c\u9700\u8981\u6ce8\u610f\u7684\u662f\uff0c\u8bfb\u5165\u5b57\u7b26\u4e32\u53ef\u80fd\u4f1a\u8bfb\u5165\u8f93\u5165 $H$ \u548c $W$ \u65f6\u7ed3\u5c3e\u7684\u7a7a\u683c\uff0c\u5bf9\u4e8e\u8fd9\u79cd\u60c5\u51b5\uff0c\u52a0\u4e0a\u4e00\u53e5 `cin.ignore();` \u5373\u53ef\u3002\n\n## \u4ee3\u7801\uff1a\n```cpp\nsigned main() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n \n    int H, W;\n    cin >> H >> W;\n    cin.ignore();\n \n    vector<string> a;\n \n    while (H--) {\n        string s;\n        cin >> s;\n \n        for (int i = 0; i < W - 1; i++) {\n            if (s[i] == 'T' && s[i + 1] == 'T') {\n                s[i] = 'P', s[i + 1] = 'C';\n                i++;\n            }\n        }\n \n        a.push_back(s);\n    }\n \n    for (auto i : a) {\n        cout << i << '\\n';\n    }\n \n    return 0;\n}\n```\n",
+        "postTime": 1681551593,
+        "uid": 706290,
+        "name": "NOI365",
+        "ccfLevel": 0,
+        "title": "ABC297C\u9898\u89e3"
+    },
+    {
+        "content": "\u76f4\u63a5\u6309\u7167\u9898\u610f\u6a21\u62df\u5373\u53ef\u3002\u4e00\u884c\u4e00\u884c\u5904\u7406\uff0c\u6bcf\u4e00\u884c\u4ece\u7b2c\u4e8c\u4e2a\u5b57\u7b26\u5f00\u59cb\u5faa\u73af\uff0c\u5982\u679c $s_i$ \u548c $s_{i-1}$ \u5747\u4e3a `T`\uff0c\u5219\u5c06 $s_{i-1}$ \u66ff\u6362\u4e3a `P`\uff0c$s_i$ \u66ff\u6362\u4e3a `C`\u3002\u8fd9\u6837\u53ef\u4ee5\u4f7f\u64cd\u4f5c\u6b21\u6570\u6700\u591a\u3002\n\n## Code\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nconst int N = 105;\nchar a[N][N];\nint main()\n{\n\tint n, m;\n\tcin >> n >> m;\n\tfor (int i = 1; i <= n; i++)\n\t\tfor (int j = 1; j <= m; j++)\n\t\t\tcin >> a[i][j];\n\tfor (int i = 1; i <= n; i++)\n\t{\n\t\tfor (int j = 1; j <= m; j++)\n\t\t{\n\t\t\tif (a[i][j] == 'T' && a[i][j - 1] == 'T')\n\t\t\t\ta[i][j] = 'C', a[i][j - 1] = 'P';\n\t\t}\n\t}\n\tfor (int i = 1; i <= n; i++)\n\t{\n\t\tfor (int j = 1; j <= m; j++)\n\t\t\tcout << a[i][j];\n\t\tcout << endl;\n\t}\n\t\t\n\treturn 0;\n}\n```\n",
+        "postTime": 1681536815,
+        "uid": 731925,
+        "name": "happy_zero",
+        "ccfLevel": 0,
+        "title": "ABC297C \u9898\u89e3"
+    }
+]

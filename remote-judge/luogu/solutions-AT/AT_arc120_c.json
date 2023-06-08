@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u597d\u96be\u554a\uff0c\u4f1a\u4e5f\u4e0d\u4f1a\n\n\u8bbe $a_i=x,a_{i+1}=y$\uff0c\u90a3\u4e48\u4ea4\u6362\u540e $a_i=y+1,a_{i+1}=x-1$\uff0c\u53d1\u73b0\u4ea4\u6362\u540e\u5c31\u662f $a_i+i$ \u548c $a_{i+1}+i+1$ \u8fd9\u4e24\u4e2a\u503c\u8fdb\u884c\u4e86\u4ea4\u6362\u3002  \n\u90a3\u5c31\u628a\u6240\u6709 $a_i$ \u53d8\u6210 $a_i+i$\uff0c\u628a\u6240\u6709 $b_i$ \u53d8\u6210 $b_i+i$\uff0c\u90a3\u5c31\u662f\u8fdb\u884c\u6700\u5c11\u7684\u64cd\u4f5c\u628a $a$ \u53d8\u6210 $b$\uff0c\u90a3\u5c31\u76f4\u63a5\u9006\u5e8f\u5bf9\u8ba1\u7b97\u6570\u91cf\u3002  \n\u6ce8\u610f\uff0c\u5982\u679c\u6709\u76f8\u540c\u7684\u503c\uff0c\u5e94\u8be5\u628a\u8fd9\u4e9b\u653e\u5230 `queue` \u4e2d\uff0c\u8ba9\u524d\u9762\u7684\u548c\u524d\u9762\u7684\u53bb\u5339\u914d\uff0c\u8fd9\u6837\u6700\u4f18\u3002\n```cpp\n//\u4e0d\u5411\u7126\u8651\u4e0e\u6291\u90c1\u6295\u964d\uff0c\u8fd9\u4e2a\u4e16\u754c\u7ec8\u4f1a\u6709\u6211\u4eec\u5b58\u5728\u7684\u5730\u65b9\u3002\n#include<iostream>\n#include<cstdio>\n#include<algorithm>\n#include<cstring>\n#include<map>\n#include<queue>\nusing std::cin;using std::cout;\nusing loli=long long;\nconstexpr bool ying=false,yang=true;\nconstexpr int N=4e5+1;\nstd::map<int,std::queue<int>>mp;\nint n,a[N],b[N],c[N];\nloli sum=0;\nstruct{\n\tint d[N];\n\tvoid add(int x){for(;x<=n;x+=x&-x)d[x]++;}\n\tloli ask(int x){loli k=0;for(;x;x-=x&-x)k+=d[x];return k;}\n}tr;\nsigned main(){\n//\tfreopen(\".in\",\"r\",stdin);\n//\tfreopen(\".out\",\"w\",stdout);\n\tstd::ios::sync_with_stdio(false);cin.tie(nullptr);\n\tcin>>n;\n\tfor(int i=1;i<=n;i++)\n\t\tcin>>a[i],a[i]+=i,mp[a[i]].push(i);\n\tfor(int i=1;i<=n;i++)\n\t\tcin>>b[i],b[i]+=i;\n\tfor(int i=1;i<=n;i++)\n\t\tif(!mp.count(b[i]))return cout<<\"-1\",0;\n\t\telse c[i]=mp[b[i]].front(),mp[b[i]].pop();\n\tfor(int i=1;i<=n;i++)\n\t\tsum+=i-1-tr.ask(c[i]),tr.add(c[i]);\n\tcout<<sum;\n\treturn 0;\n}\n```",
+        "postTime": 1676381158,
+        "uid": 310818,
+        "name": "\u849f\u9171",
+        "ccfLevel": 7,
+        "title": "ARC120C Swaps 2 \u9898\u89e3"
+    }
+]

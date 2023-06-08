@@ -1,0 +1,74 @@
+[
+    {
+        "content": "[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/AT_joi2022_yo1a_d)\n\n#### \u9898\u76ee\u5927\u610f\n\n\u7ed9\u5b9a\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u6570\u7ec4 $a$ \u548c\u4e00\u4e2a\u957f\u5ea6\u4e3a $m$ \u7684\u6570\u7ec4 $b$\uff0c\u6c42 $a$ \u4e2d\u6709\u591a\u5c11\u4e2a\u6570\u5728 $b$ \u4e2d\u51fa\u73b0\u8fc7\u3002\n\n#### \u89e3\u9898\u601d\u8def\n\n\u6570\u636e\u6bd4\u8f83\u5c0f\uff0c\u53ef\u4ee5\u76f4\u63a5\u66b4\u529b\uff1a\n\n\u4ece\u6570\u7ec4 $a$ \u4e2d\u67e5\u627e \u662f\u5426\u6709 $b_i$\uff0c\u6709\u8ba1\u6570\u5668\u52a0\u4e00\uff0c\u4e3a\u4e86\u907f\u514d\u91cd\u590d\uff0c\u53ea\u8981\u51fa\u73b0\u4e00\u6b21\uff0c\u5c31\u8981\u8df3\u51fa\u5faa\u73af\uff1b\u65f6\u95f4\u590d\u6742\u5ea6 $O(nm)$\u3002\n\n#### \u4ee3\u7801\n\n[AC\u8bb0\u5f55](https://www.luogu.com.cn/record/97434627)\n\n\n```cpp\n#include<bits/stdc++.h>\n#define ri register int\nusing namespace std;\nint n,m,a[1001],b[1001],ans=0;\nvoid cmp(int ans);\nint main() {\n\tcin>>n>>m;\n\tfor(ri i=1; i<=n; i++) cin>>a[i];\n\tfor(ri i=1; i<=m; i++) cin>>b[i];\n\tcmp(ans);\n\treturn 0;\n}\nvoid cmp(int sum) {\n\tfor(ri i=1; i<=n; i++)\n\t\tfor(int j=1; j<=m; j++)\n\t\t\tif(a[i]==b[j]){sum++;break;}\n\tcout<<sum<<'\\n';\n}\n```\n\n",
+        "postTime": 1671151826,
+        "uid": 677671,
+        "name": "Ggsddu_zzy",
+        "ccfLevel": 0,
+        "title": "AT_joi2022_yo1a_d \u7bb1\u3068\u9375 (Boxes and Keys) \u9898\u89e3"
+    },
+    {
+        "content": "[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/AT_joi2022_yo1a_d)\n\n~~\u4e3a\u4ec0\u4e48\u8fd9\u4e48\u591a\u4eba\u7528 $O(n^2)$ \u7684\u505a\u6cd5\uff0c\u6211\u4e00\u60f3\u90fd\u662f\u6876~~\n\n\u770b\u4e86\u770b\u597d\u50cf\u6ca1\u6709\u4eba\u7528`map`\u505a\u7684\uff0c\u4e8e\u662f\u6765\u4e00\u53d1\u3002\n## \u9898\u610f\n\n- \u7ed9\u5b9a\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u6570\u7ec4 $a$ \u548c\u4e00\u4e2a\u957f\u5ea6\u4e3a $m$ \u7684\u6570\u7ec4 $b$\uff0c\u6c42 $a$ \u4e2d\u6709\u591a\u5c11\u4e2a\u6570\u5728 $b$ \u4e2d\u51fa\u73b0\u8fc7\u3002\n\n- $1 \\le n, m \\le 100, 1 \\le a_i, b_j \\le 2000$\u3002\n\n## \u5206\u6790\n\u7528`map`\u5f00\u4e00\u4e2a\u6876\uff0c\u5728\u8f93\u5165 $b$ \u7684\u65f6\u5019\u8bb0\u5f55\u662f\u5426\u51fa\u73b0\u8fc7\u3002\u7136\u540e\u518d\u904d\u5386 $a$ \u4e2d\u6bcf\u4e2a\u6570\uff0c\u5982\u679c\u8fd9\u4e2a\u6570\u5728 $b$ \u4e2d\u51fa\u73b0\u8fc7\uff0c$ans$ \u5c31\u52a0 $1$\uff0c\u6700\u540e\u8f93\u51fa $ans$\u3002\n\n## \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,m;\nint a[110],b[110];\nint ans=0;\nmap<int,int>x;\nint main()\n{\n\tcin>>n>>m;\n\tfor(int i=1;i<=n;i++) cin>>a[i];\n\tfor(int i=1;i<=m;i++)\n\t{\n\t\tcin>>b[i];\n\t\tx[b[i]]=1;\n\t}\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tif(x[a[i]]==1) ans++;\n\t}\n\tcout<<ans<<endl;\n   \treturn 0;\n}\n```\n",
+        "postTime": 1670381315,
+        "uid": 755759,
+        "name": "zhujiangyuan",
+        "ccfLevel": 0,
+        "title": "[AT_joi2022_yo1a_d] \u7bb1\u3068\u9375 (Boxes and Keys) \u9898\u89e3"
+    },
+    {
+        "content": "## AT_joi2022_yo1a_d \u7bb1\u3068\u9375 (Boxes and Keys) \u9898\u89e3\n\n### \u9898\u610f\uff1a\n\n\u7ed9\u5b9a\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u6570\u7ec4 $a$ \u548c\u4e00\u4e2a\u957f\u5ea6\u4e3a $m$ \u7684\u6570\u7ec4 $b$\uff0c\u6c42 $a$ \u4e2d\u6709\u591a\u5c11\u4e2a\u6570\u5728 $b$ \u4e2d\u51fa\u73b0\u8fc7\u3002\n\n### \u6570\u636e\uff1a\n\n$1\\leq n\\leq 100$\n\n$1\\leq m\\leq 100$\n\n$1\\leq a_i\\leq 2000$\n\n$1\\leq b_i\\leq 2000$\n\n### \u601d\u8def\uff1a\n\n\u66b4\u529b $O(n^2)$ \u65b9\u6cd5\u697c\u4e0b\u5df2\u7ecf\u8bb2\u5f97\u5f88\u6e05\u695a\u4e86\uff0c\u6211\u5728\u8fd9\u91cc\u4e3a\u5927\u5bb6\u4ecb\u7ecd $O(n)$ \u7684\u53cc\u6307\u9488\u3002\u9996\u5148\u5b9a\u4e49\u4e00\u4e2a\u5faa\u73af\u53d8\u91cf $i$\uff0c$i$ \u7684\u8303\u56f4\u4e3a $1$ \u81f3 $n$\uff0c\u518d\u5b9a\u4e49\u4e00\u4e2a $j$\u3002\u6709\u4ee5\u4e0b\u51e0\u79cd\u60c5\u51b5\uff1a\n\n+ \u5faa\u73af\u4e2d\u5982\u679c $a_i=b_j$\uff0c\u90a3\u4e48 $i$ \u52a0\u4e00\uff0c$j$ \u56de\u5230 $1$\uff0c\u8868\u793a $b$ \u4e2d\u6709 $a_i$\u3002\n\n+ \u5982\u679c $j=m+1$\uff0c\u8868\u793a $b$ \u4e2d\u6ca1\u6709 $a_i$\uff0c\u6240\u4ee5 $i$ \u52a0\u4e00\uff0c$j$ \u56de\u5230\u4e00\u3002 \n\n+ \u5982\u679c\u4e0a\u8ff0\u4e24\u79cd\u6761\u4ef6\u90fd\u4e0d\u6ee1\u8db3\uff0c\u90a3\u4e48 $j$ \u52a0\u4e00\u3002\n\n### Code:\n\n```cpp\n#include <bits/stdc++.h>\n\nusing namespace std;\n\nconst int MAXN = 101;\n\nint a[MAXN], b[MAXN], n, m, ans;\n\nint main() {\n  cin >> n >> m;\n  for (int i = 1; i <= n; i++) {\n    cin >> a[i];\n  }\n  for (int i = 1; i <= m; i++) {\n    cin >> b[i];\n  }\n  for (int i = 1, j = 1; i <= n; ) {\n    if (j == m + 1) {      // \u7b2c\u4e8c\u79cd\u60c5\u51b5\n      i++;\n      j = 1;\n    } else {\n      if (a[i] == b[j]) {  // \u7b2c\u4e00\u79cd\u60c5\u51b5\n        ans++;\n        i++, j = 1;\n      } else {         // \u7b2c\u4e09\u79cd\u60c5\u51b5\n        j++;\n      }\n    }\n  }\n  cout << ans << '\\n';\n  return 0;\n}\n\n```\n",
+        "postTime": 1669642634,
+        "uid": 672281,
+        "name": "ydq1101",
+        "ccfLevel": 4,
+        "title": "AT_joi2022_yo1a_d \u7bb1\u3068\u9375 (Boxes and Keys) \u9898\u89e3"
+    },
+    {
+        "content": "# \u9898\u610f\n[\u9898\u76ee\u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/AT_joi2022_yo1a_d)\n\n\u7b2c\u4e00\u884c\u8f93\u5165\u4e24\u4e2a\u6b63\u6574\u6570 $n, m(1\\le n,m \\le 100)$\u3002\n\n\u7b2c\u4e8c\u884c\u8f93\u5165\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u6570\u7ec4 $a(1\\le a_i \\le 2000)$\u3002\n\n\u7b2c\u4e09\u884c\u8f93\u5165\u4e00\u4e2a\u957f\u5ea6\u4e3a $m$ \u7684\u6570\u7ec4 $b(1\\le b_i \\le 2000)$\u3002\n\n\u8f93\u51fa $a$ \u6570\u7ec4\u4e2d\u6709\u591a\u5c11\u4e2a\u6570\u5728 $b$ \u6570\u7ec4\u4e2d\u51fa\u73b0\u8fc7\u3002\n\n# \u5206\u6790\n\n\u56e0\u4e3a $(1\\le n,m \\le 100)$\uff0c\u6240\u4ee5\u66b4\u529b\u679a\u4e3e\u5224\u65ad\u3002\n\n\u65f6\u95f4\u590d\u6742\u5ea6\uff1a$O(n\\times m)$\u3002\n\n# Code\n\n```cpp\n#include<bits/stdc++.h>\n\nusing namespace std;\nint n, m, a[105], b[105], ans;\nint main(){\n  cin >> n >> m;\n  for (int i = 1; i <= n; i++){\n    cin >> a[i];\n  }\n  for (int i = 1; i <= m; i++){\n    cin >> b[i];\n  }//\u4e0a\u4e3a\u8f93\u5165\u3002\n  for (int i = 1; i <= n; i++){//\u6328\u4e2a\u679a\u4e3e\u8fdb\u884c\u5224\u65ad\u3002\n    for (int j = 1; j <= m; j++){//\u6328\u4e2a\u5224\u65ad\u3002\n      if (a[i] == b[j]){//\u5982\u679c\u51fa\u73b0\u8fc7\u3002\n        ans++;//\u7b54\u6848 ++\uff0c\u9000\u51fa\u5faa\u73af\u3002\n        break;\n      }\n    }\n  }\n  cout << ans << \"\\n\";//\u8f93\u51fa\u7b54\u6848\u5e76\u6362\u884c\u3002\n  return 0;\n}\n```",
+        "postTime": 1668784276,
+        "uid": 752485,
+        "name": "tianbiandeshenghuo11",
+        "ccfLevel": 4,
+        "title": "AT_joi2022_yo1a_d \u7bb1\u3068\u9375 (Boxes and Keys) \u9898\u89e3"
+    },
+    {
+        "content": "# \u89e3\u6790\n\n\u66b4\u529b\u679a\u4e3e\u4e24\u4e2a\u6570\u7ec4\u91cc\u7684\u6570\u662f\u5426\u76f8\u540c\uff0c\u5982\u679c\u76f8\u540c\uff0c\u7b54\u6848\u52a0\u4e00\uff0c\u7ed3\u675f\u8be5\u5faa\u73af\u3002\u6700\u540e\u8f93\u51fa\u7b54\u6848\u5373\u53ef\u3002\u7531\u4e8e\u6570\u636e\u8303\u56f4\u8fc7\u5c0f\uff0c\u65f6\u95f4\u590d\u6742\u5ea6 $O(nm)$ \u662f\u53ef\u4ee5\u8fc7\u7684\u3002\n\n# \u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\n#define QwQprintQwQ(ans) printf(\"%lld\",ans)\nusing namespace std;\nlong long n,m;\nlong long a[114514];\nlong long b[114514];\nint eee(){\n\tint sum=0;\n\tfor(int i=1;i<=n;i++){\n    \tfor(int j=1;j<=m;j++){\n    \t\tif(a[i]==b[j]){\n                sum++;\n                break;\n            }\n\t\t} \n\t} \n\treturn sum;\n}\nint main(){\n    cin>>n>>m;\n    for(int i=1;i<=n;i++){\n    \tcin>>a[i];\n\t}\n    for(int i=1;i<=m;i++){\n    \tcin>>b[i];\n\t} \n    long long ans=eee();\n    QwQprintQwQ(ans);\n    return 0;\n}\n\n```\n",
+        "postTime": 1668611457,
+        "uid": 735763,
+        "name": "_oHAMBURGERo_",
+        "ccfLevel": 4,
+        "title": "AT_joi2022_yo1a_d \u7bb1\u3068\u9375 (Boxes and Keys) \u9898\u89e3"
+    },
+    {
+        "content": "\u8fd9\u9898\u56e0\u4e3a $n$ \u548c $m$ \u6bd4\u8f83\u5c0f\uff0c\u6240\u4ee5\u76f4\u63a5\u53cc\u91cd\u5faa\u73af\u66b4\u529b\u627e\u51fa $a$ \u6570\u7ec4\u4e2d\u54ea\u51e0\u4e2a\u6570\u51fa\u73b0\u5728 $b$ \u6570\u7ec4\u3002\n\n**_AC code_**\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n,m,a[105],b[105],cnt;\nint main(){\n    cin>>n>>m;\n    for(int i=1;i<=n;i++) cin>>a[i];\n    for(int i=1;i<=m;i++) cin>>b[i];\n    for(int i=1;i<=n;i++)\n        for(int j=1;j<=m;j++)\n            if(a[i]==b[j]){\n                cnt++;\n                break;\n            }\n    cout<<cnt<<\"\\n\";\n}\n```\n",
+        "postTime": 1668345158,
+        "uid": 686445,
+        "name": "NOI_AK_dreeeam",
+        "ccfLevel": 0,
+        "title": "AT_joi2022_yo1a_d \u7bb1\u3068\u9375 (Boxes and Keys) \u9898\u89e3"
+    },
+    {
+        "content": "[\u6d1b\u8c37 \u4f20\u9001\u95e8](https://www.luogu.com.cn/problem/AT_joi2022_yo1a_d) | [AtCoder \u4f20\u9001\u95e8](https://atcoder.jp/contests/joi2022yo1a/tasks/joi2022_yo1a_d)\n\n[\u66f4\u597d\u7684\u9605\u8bfb\u4f53\u9a8c](https://www.luogu.com.cn/blog/sunrize/solution-at-joi2022-yo1a-d)\n\n\u9898\u76ee\u5927\u610f\uff1a\n\n- \u7ed9\u5b9a\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u6570\u7ec4 $a$ \u548c\u4e00\u4e2a\u957f\u5ea6\u4e3a $m$ \u7684\u6570\u7ec4 $b$\uff0c\u6c42 $a$ \u4e2d\u6709\u591a\u5c11\u4e2a\u6570\u5728 $b$ \u4e2d\u51fa\u73b0\u8fc7\u3002\n\n- $1 \\le n, m \\le 100, 1 \\le a_i, b_j \\le 2000$\u3002\n\n---\n\n### \u5206\u6790\n\n\u6211\u4eec\u53ef\u4ee5\u628a\u6bcf\u4e2a\u8f93\u5165\u7684 $b_j$ \u6807\u8bb0\u4e00\u4e0b\uff0c\u5982\u679c\u51fa\u73b0\u4e86\u5c31\u4e3a $1$\uff0c\u521d\u59cb\u65f6\u5168\u90e8\u7f6e\u4e3a $0$\u3002\n\n\u7531\u4e8e\u6570\u636e\u53ea\u6709 $2000$\uff0c\u6240\u4ee5\u5f00\u6570\u7ec4\u6807\u8bb0\u3002\n\n\u6700\u540e\u518d\u626b\u4e00\u904d $a_i$\uff0c\u7edf\u8ba1\u6709\u591a\u5c11\u4e2a $a_i$ \u5728 $b$ \u4e2d\u51fa\u73b0\u8fc7\u5373\u53ef\u3002\n\n---\n\n\u65f6\u95f4 $O(n + m)$\u3002\n\n```cpp\n#include <bits/stdc++.h>\n#define _for(i, a, b)  for (int i = (a); i <= (b); i ++ )\nusing namespace std;\nconst int N = 105, M = 2005;\nint n, m, a[N], x, vis[M];\nint main() {\n    cin >> n >> m;\n    _for (i, 1, n)  cin >> a[i];\n    _for (i, 1, m)  cin >> x, vis[x] = 1;\n    x = 0;\n    _for (i, 1, n)  if (vis[a[i]])  x ++ ;\n    cout << x << endl;\n    return 0;\n}\n```",
+        "postTime": 1668219554,
+        "uid": 502658,
+        "name": "Sunrize",
+        "ccfLevel": 0,
+        "title": "[AT_joi2022_yo1a_d] \u7bb1\u3068\u9375 \u9898\u89e3"
+    },
+    {
+        "content": "\u9898\u610f\uff1a\u7ed9\u4f60\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u5e8f\u5217 $a$ \u548c\u4e00\u4e2a\u957f\u5ea6\u4e3a $m$ \u7684\u5e8f\u5217 $b$\uff0c\u6c42 $a$ \u4e2d\u6709\u51e0\u4e2a\u5143\u7d20\u5728 $b$ \u6570\u7ec4\u91cc\u4e5f\u6709\u3002\n\n\u601d\u8def\uff1a$n\\leq 100,m\\leq 100$ \u679c\u65ad\u66b4\u529b\uff0c\u65f6\u95f4\u590d\u6742\u5ea6\uff1a$O(nm)$\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include<iostream>\nusing namespace std;\nint n,m,a[1001],b[1001],ans;\nint main(){\n    cin>>n>>m;\n    for(int i=1;i<=n;i++) cin>>a[i];\n    for(int i=1;i<=m;i++) cin>>b[i];\n    for(int i=1;i<=n;i++){\n        for(int j=1;j<=m;j++){\n            if(a[i]==b[j]){\n                ans++;\n                break;\n            }\n        }\n    }\n    cout<<ans<<endl;\n}\n```\n",
+        "postTime": 1668000726,
+        "uid": 578029,
+        "name": "ivyjiao",
+        "ccfLevel": 3,
+        "title": "AT_joi2022_yo1a_d \u7bb1\u3068\u9375 (Boxes and Keys) \u9898\u89e3"
+    },
+    {
+        "content": "# \u9898\u76ee\u5927\u610f\n\u7ed9\u4f60\u4e00\u4e2a\u957f\u5ea6\u4e3a $n$ \u7684\u5e8f\u5217 $a$ \u548c\u4e00\u4e2a\u957f\u5ea6\u4e3a $m$ \u7684\u5e8f\u5217 $b$\uff0c\u6c42 $a$ \u4e2d\u6709\u51e0\u4e2a\u5143\u7d20\u5728 $b$ \u6570\u7ec4\u91cc\u4e5f\u6709\u3002\n# \u89e3\u6790\n\u6570\u636e\u8303\u56f4\u4e0d\u5927\uff0c\u53ef\u4ee5\u7528\u6876\u3002\u628a $a$ \u5e8f\u5217\u4e2d\u7684\u5143\u7d20\u5168\u90e8\u653e\u5728\u6876\u91cc\u9762\uff0c\u4e4b\u540e\u6bcf\u626b\u5230\u4e00\u4e2a $b_i$ \u5c31\u628a\u7b54\u6848\u52a0\u4e0a\uff0c\u6ce8\u610f\u8981\u53bb\u91cd\u54e6\uff01\n# \u4ee3\u7801\n~~~cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint book[2005],a[105],b[105];//\u539f\u6570\u636e\u548c\u6876\nint main()\n{\n\tint n,m,ans=0;\n\tcin>>n>>m;\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tcin>>a[i];\n\t\tbook[a[i]]++;\n\t}\n\tfor(int i=1;i<=m;i++)\n\t{\n\t\tcin>>b[i];\n\t\tans+=book[b[i]];//\u52a0\u7b54\u6848\n\t\tbook[b[i]]=0;//\u53bb\u91cd\n\t}\n\tcout<<ans<<endl;\n\treturn 0;\n}\n~~~",
+        "postTime": 1666860788,
+        "uid": 555798,
+        "name": "lyh0217",
+        "ccfLevel": 0,
+        "title": "AT_joi2022_yo1a_d\u7bb1\u3068\u9375 (Boxes and Keys)\u9898\u89e3"
+    }
+]

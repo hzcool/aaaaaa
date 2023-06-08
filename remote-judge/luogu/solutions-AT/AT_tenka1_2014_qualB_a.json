@@ -1,0 +1,18 @@
+[
+    {
+        "content": "## \u524d\u8a00\n\n\u8fd9\u662f\u4e00\u9053\u5f88\u7b80\u5355\u7684\u6a21\u62df\u9898\u3002\n\n## \u7b80\u8ff0\u9898\u610f\n\n\u7ed9\u51fa\u4e00\u4e2a\u5b57\u7b26\u4e32 $S$\uff0c\u5176\u4e2d\u6709\u4e00\u4e2a\u5b50\u5b57\u7b26\u4e32 ```HAGIYA```\uff0c\u627e\u5230\u8fd9\u4e2a\u5b57\u7b26\u4e32\u5e76\u5c06\u5176\u6539\u4e3a ```HAGIXILE``` \u540e\u8f93\u51fa\u5373\u53ef\u3002\n\n\u6570\u636e\u8303\u56f4\uff1a$6 \\le |S| \\le 10^3$\u3002\n\n## \u601d\u8def\u5206\u6790\n\n\u4ece\u524d\u5f80\u540e\u6a21\u62df\u5373\u53ef\u3002\n\n\u6bcf\u4e00\u6b21\u5224\u65ad\u540e $6$ \u4e2a\u5b57\u7b26\u5f62\u6210\u7684\u5b57\u7b26\u4e32\u662f\u5426\u4e3a\u9898\u76ee\u4e2d\u7ed9\u7684\u5b50\u5b57\u7b26\u4e32\u3002\n\n\u4e14\u9700\u8981\u7528\u5230 ```cstring``` \u5e93\u4e2d\u7684 ```substr``` \u51fd\u6570\u3002\n\n## Ac Code\n```cpp\n#include <iostream>\n#include <cstring>\nusing namespace std;\n\nint main (){\n\tstring s;\n\tcin >> s;\n\tint lo=s.length (); // \u957f\u5ea6\u3002\n\tfor (int i=0; i<lo; i++) {\n\t\tif (s.substr (i, 6)==\"HAGIYA\"){ // \u5224\u65ad\u3002\n\t\t\tcout << \"HAGIXILE\";\n\t\t\ti+=5; // \u52a0 6 \u6b21\uff0cfor \u5faa\u73af\u4e2d\u4f1a\u52a0\u4e00\u6b21\u3002\n    \t} \n\t\telse cout << s[i];\n\t}\t\n\tcout << endl;\n\treturn 0;\n}\n```",
+        "postTime": 1666455171,
+        "uid": 667808,
+        "name": "HarryKane",
+        "ccfLevel": 0,
+        "title": "AT_tenka1_2014_qualB_a-\u9898\u89e3"
+    },
+    {
+        "content": "### AT_tenka1_2014_qualB_a \u9898\u89e3\n\n\n------------\n\n\n#### \u601d\u8def\u5206\u6790\n\n\u6839\u636e\u9898\u610f\uff0c\u4ee4 HAGIYA \u7684\u8d77\u59cb\u4e0b\u6807\u4e3a $t$\uff08\u56e0\u4e3a\u53ea\u6709\u4e00\u4e2a HAGIYA\uff0c\u6240\u4ee5\u53ea\u6709\u4e00\u4e2a\u8d77\u59cb\u4e0b\u6807\uff09\uff0c\u539f\u5b57\u7b26\u4e32\u957f\u5ea6\u4e3a $n$ \u3002\u6211\u4eec\u53ef\u4ee5\u628a\u539f\u5b57\u7b26\u4e32 $s$ \u5206\u4e3a\u4ee5\u4e0b\u4e09\u4e2a\u90e8\u5206\uff1a(\u4e0b\u6807\u4ece\u96f6\u5f00\u59cb)\n\n1. 0 \u5230 $t - 1$\n\n2. $t$ \u5230 $t + 5$\uff08\u5373\u5b50\u5b57\u7b26\u4e32 HAGIYA\uff09\n\n3. $t$ \u5230 $n - 1$\n\n\u5176\u4e2d\uff0c\u7b2c\u4e00\u90e8\u5206\u548c\u7b2c\u4e09\u90e8\u5206\u539f\u5c01\u4e0d\u52a8\u5730\u8f93\u51fa\uff0c\u7b2c\u4e8c\u90e8\u5206\u8f93\u51fa HAGIXILE \u5373\u53ef\u8fbe\u5230\u66ff\u6362\u7684\u76ee\u7684\u3002\u6ce8\u610f\u672b\u5c3e\u8981\u8f93\u51fa\u6362\u884c\u3002\n\n#### \u5173\u952e\u4ee3\u7801\n\n```cpp\nint t = s.find(\"HAGIYA\");\nfor(int i = 0;i <= (t - 1);i++) //\u7b2c\u4e00\u90e8\u5206\n{\n\tcout << s[i];\n}\ncout << \"HAGIXILE\"; //\u7b2c\u4e8c\u90e8\u5206\nfor(int i = (t + 6);i < s.size();i++) //\u7b2c\u4e09\u90e8\u5206\n{\n\tcout << s[i]; \n} \ncout << endl;\n```\n\n",
+        "postTime": 1666504400,
+        "uid": 430133,
+        "name": "liangbob",
+        "ccfLevel": 4,
+        "title": "\u3010\u9898\u89e3\u3011 AT_tenka1_2014_qualB_a\u9898\u89e3"
+    }
+]

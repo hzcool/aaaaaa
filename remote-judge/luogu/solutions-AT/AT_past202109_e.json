@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u601d\u8def\uff1a\n-\n\u6211\u4eec\u5bf9\u603b\u4f53\u6392\u5e8f\uff0c\u5148\u7528\u4e00\u4e2a\u6876\u5bf9\u989c\u8272\u53bb\u91cd\u6765\u7edf\u8ba1\u989c\u8272\u4e2a\u6570\uff0c\u5c0f\u4e8e $k$ \u5c31\u8f93\u51fa  $-1$\uff0c\u7136\u540e\u7528\u53e6\u4e00\u4e2a\u6876\u9650\u5236\u6bcf\u79cd\u989c\u8272\u53ea\u80fd\u9009\u4e00\u4e2a\uff0c\u4ece\u5c0f\u5230\u5927\u5f00\u9009\u5373\u53ef\u3002\u8be6\u60c5\u8bf7\u89c1\u4ee3\u7801\u3002\n\n\u4ee3\u7801\uff1a\n-\n```cpp\n#include <bits/stdc++.h>\n#define int long long\nusing namespace std;\nvector<pair<int , int> > Tshirt;\nunordered_map <int , bool > bookA , bookB;\nsigned main()\n{\n    int n , k , ans = 0 , cnt = 0;\n    cin >> n >> k;\n    Tshirt.resize(n);\n    for(int i = 0; i < n; i++) \n\t{\n\t\tcin >> Tshirt[i] . first;\n\t}\n    for(int i = 0; i < n; i++) \n\t{\n\t\tcin >> Tshirt[i] . second;\n\t}\n    for(int i = 0; i < n; i++)\n\t{\n        if(bookA[Tshirt[i] . first] == false) \n\t\t{\n\t\t\tcnt++;\n\t\t}\n        bookA[Tshirt[i] . first] = true;\n    }\n    if(cnt < k)\n\t{\n\t\tputs(\"-1\"); \n\t\treturn 0;\n\t}\n    sort(Tshirt . begin() , Tshirt . end() , [](auto a , auto b) -> bool{return a . second < b . second;});\n    for(int i = 0, p = 0; i < k; p++)\n\t{\n        if(bookB[Tshirt[p].first] == false)\n\t\t{\n            ans += Tshirt[p] . second;\n            bookB[Tshirt[p] . first] = true;\n            i++;\n        }\n    }\n    cout << ans << endl;\n    return 0;\n}\n\n```\n\u611f\u8c22 @[L1uT1any0u](/user/950268) \u63d0\u4f9b\u7684\u5e2e\u52a9\u3002\n\n",
+        "postTime": 1678969319,
+        "uid": 794893,
+        "name": "liangyujia45",
+        "ccfLevel": 0,
+        "title": "AT_past202109_e\u9898\u89e3"
+    }
+]

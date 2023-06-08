@@ -1,0 +1,58 @@
+[
+    {
+        "content": "\u9898\u9762\u4e0d\u518d\u8bf4\u660e\u3002\n\n\u53ef\u4ee5\u5f88\u5bb9\u6613\u5199\u51fa\u4e00\u4e2a\u6a21\u62df\u602a\u517d\u7684\u51fd\u6570\u3002\n\n- \u5982\u679c\u8fd9\u4e2a\u602a\u517d\u7684\u8840\u91cf $H$ \u4e3a $1$\uff0c\u90a3\u4e48\u6211\u4eec\u5c31\u8fd4\u56de $1$\u3002\n- \u5982\u679c\u8fd9\u4e2a\u602a\u517d\u7684\u8840\u91cf\u4e3a\u4e00\u4e2a\u5927\u4e8e $1$ \u7684\u6570\uff0c\u6211\u4eec\u5c31\u9012\u5f52\u8ba1\u7b97\u653b\u51fb $\\left\\lfloor\\frac{H}{2}\\right\\rfloor$ \u8840\u91cf\u7684\u602a\u517d\u9700\u8981\u591a\u5c11\u3002\u56e0\u4e3a\u602a\u517d\u5206\u88c2\u4e86\uff0c\u6211\u4eec\u5c31\u9700\u8981\u5c06\u6b64\u503c\u4e58\u4ee5\u4e8c\u3002 \u518d\u52a0\u4e0a\u8fd9\u6b21\u653b\u51fb\u7684 $1$ \u6b21\u8fd4\u56de\u5373\u53ef\u3002\n\n\u7b97\u4e00\u7b97\u65f6\u95f4\u590d\u6742\u5ea6\u3002\u6bcf\u6b21\u9012\u5f52\u5982\u679c $H\\not=1$ \u5c31\u4f1a\u5206\u88c2\uff0c\u6240\u4ee5\u65f6\u95f4\u590d\u6742\u5ea6\u4e3a $\\operatorname{O}(\\log{H})$\u3002\u9898\u76ee\u4e2d $H$ \u4ec5\u6709 $10^{12}$\uff0c\u5f88\u5bb9\u6613\u901a\u8fc7\u3002\n\n> \u5341\u5e74OI\u4e00\u573a\u7a7a\uff0c\u4e0d\u5f00long long\u89c1\u7956\u5b97\u3002\n\n\u4ee3\u7801\u5f88\u7b80\u5355\u3002\n\n```cpp\n#include<iostream>\nusing namespace std;\n#define int long long\nint kill(int h){\n    if(h==1)\n        return 1;\n    return kill(h/2)*2+1;\n}\nsigned main(){\n    int h;\n    cin>>h;\n    cout<<kill(h)<<endl;\n    return 0;\n}\n```",
+        "postTime": 1619478737,
+        "uid": 317899,
+        "name": "oimaster",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT5337\u3010[ABC153D] Caracal vs Monster"
+    },
+    {
+        "content": "\uff08\u611f\u89c9\u90fd\u6bd4C\u7b80\u5355\uff0cemm\uff09  \n\n\u4e24\u79cd\u65b9\u6cd5\uff1a\n\n 1. \u6253\u8868\u627e\u89c4\u5f8b\uff0c\u53d1\u73b0\u5bf9\u4e0e\u4e00\u4e2a\u8f93\u5165 $N$\uff0c\u7b54\u6848\u597d\u50cf\u80af\u5b9a\u662f $N$ \u7684\u4e8c\u8fdb\u5236\u8868\u8fbe\u5f0f\u91cc\u6240\u6709\u4f4d\u7f6e\u8bbe\u4e3a1\uff0c\u4f46\u662f\u4e0d\u77e5\u9053\u548b\u8bc1\uff0c\u4f46\u662f\u63d0\u4ea4\u8fc7\u4e86\uff1b\n 2. \u76f4\u63a5\u4f7f\u7528\u9898\u76ee\u7684 $f(x)$ \u5b9a\u4e49\uff1b$f(1)=1$ \u5e76\u4e14 $f(x\\neq 1)=f(\\lfloor\\frac{x}{2}\\rfloor)+1$\n\n\u5728\u6bd4\u8d5b\u5f53\u4e2d\u53ea\u60f3\u51fa\u6765\u65b9\u6cd51\uff0c\u4ee3\u7801\u5982\u4e0b\uff1a\n\n```cpp\n// writer: w33z8kqrqk8zzzx33\n#include <bits/stdc++.h>\nusing namespace std;\n \n#define iter(i, a, b) for(int i=(a); i<(b); i++)\n#define rep(i, a) iter(i, 0, a)\n#define rep1(i, a) iter(i, 1, (a)+1)\n#define log(a) cerr<<\"\\033[32m[DEBUG] \"<<#a<<'='<<(a)<<\" @ line \"<<__LINE__<<\"\\033[0m\"<<endl\n#define all(a) a.begin(), a.end()\n#define fi first\n#define se second\n#define pb push_back\n#define mp make_pair\n \nusing ll=long long;\nusing pii=pair<int, int>;\n//#define int ll\nconst int MOD = 1000000007;\n\nsigned main() {\n    ios_base::sync_with_stdio(false); cin.tie(0);\n    ll N; cin >> N;\n\tint mbit = -1; rep(i, 63) if(N & (1ull<<i)) mbit = i;\n\trep(i, 63) if(i <= mbit) N |= (1ull<<i);\n\tcout << N << endl;\n}\n\n\n```\n",
+        "postTime": 1581835860,
+        "uid": 220037,
+        "name": "w33z8kqrqk8zzzx33",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 AT5337"
+    },
+    {
+        "content": "\u6211\u7b2c\u4e00\u773c\u770b\u5230\u8fd9\u9053\u9898\u65f6\uff1a\n\n\u73b0\u5728\u9012\u63a8\u9898\u8fd9\u4e48\u6c34\u4e86\u5417\uff1f\u8fde\u5f0f\u5b50\u90fd\u7ed9\u4e86\u3002\n\n\u6211\u4eec\u8bbe $dp_{i}$ \u4e3a\u602a\u517d\u8840\u91cf\u4e3a $i$ \u65f6\u9700\u8981\u7684\u653b\u51fb\u6b21\u6570\uff0c\u521d\u59cb\u5316\u4e3a $dp_1 = 1$ \u3002\n\n\u901a\u8fc7\u8bfb\u9898\u5c31\u53ef\u4ee5\u4ee5\u5f97\u5230\u9012\u63a8\u5f0f\uff1a\n\n$$ \\large dp_i = dp_{i/2} + 1 $$\n\n\u7136\u540e\u770b\u4e86\u4e00\u773c\u6570\u636e\u8303\u56f4\uff0c\u521a\u624d\u7684\u601d\u8def $MLE \\ \\& \\ Re$ \u4e86\u3002\n\n\u521a\u624d\u7684\u7b97\u6cd5\u867d\u7136\u6b7b\u4e86\uff0c\u4f46\u6211\u4eec\u4ecd\u7136\u80fd\u5229\u7528\u5b83\u6253\u4e00\u4e2a\u8868\uff0c\u7136\u540e\u6211\u4eec\u5c31\u53d1\u73b0\uff1a\n\n\u8bbe $2^n$ \u4e3a\u5c0f\u4e8e\u7b49\u4e8e $H$ \u7684\u6700\u5927\u7684 $2$ \u7684\u6b63\u6574\u6570\u6b21\u5e42\uff0c\u6240\u9700\u7684\u653b\u51fb\u6b21\u6570\u5c31\u4e3a $ 2^{n+1} - 1$\u3002\n\n\u800c c++ \u4e2d\u53c8\u6709 $log_2(n)$ \u8fd9\u4e2a\u51fd\u6570\uff0c\u732e\u4e0a\u4e11\u964b\u7684\u4ee3\u7801\uff1a\n```cpp\n#include <cstdio>\n#include <cmath>\n\nlong long n;\n\nint main(){\n\tscanf(\"%lld\",&n);\n\tprintf(\"%lld\\n\", (long long)pow(2, (int)log2(n) + 1) - 1);\n\treturn 0;\n}\n```\n\n\u4f46\u662f\u5e93\u91cc\u7684 $pow$ \u5b9e\u5728\u6162\u7684\u4ee4\u4eba\u5acc\u5f03\uff0c\u6240\u4ee5\u6211\u4eec\u624b\u5199\u4e00\u4e2a\u5feb\u901f\u5e42\uff0c\u76f4\u63a5\u5c31\u6700\u4f18\u89e3 $rk1$ \u4e86\u3002\n",
+        "postTime": 1618736879,
+        "uid": 287868,
+        "name": "_Emiria_",
+        "ccfLevel": 0,
+        "title": "AT5337 Caracal vs Monster"
+    },
+    {
+        "content": "\u53d1\u73b0\u6bcf\u4e00\u6b21\u7ecf\u8fc7\u653b\u51fb2\u540e\u602a\u7269\u603b\u80fd\u53d8\u6210\u4e24\u4e2a\u8840\u91cf\u4e00\u6837\u7684\u602a\u7269\uff0c\u53ef\u4ee5\u76f4\u63a5\u8003\u8651\u9012\u63a8\uff0c\u8f6c\u79fb\u5982\u4e0b\uff1a\n\n$$f(x)=\\begin{cases}2 \\times f(x/2) +1 &x\\ne 1 \\\\ 1 &x=1\\end{cases}$$\n\n\u53ef\u4ee5\u8fd9\u4e2a\u8f6c\u79fb\u65b9\u7a0b\u65f6\u95f4\u590d\u6742\u5ea6\u662f $O(\\log n)$ \t\u6545\u53ef\u4ee5\u8003\u8651\u3002\n\n## _code_\n\n```cpp\n#include<iostream>\n#include<queue>\nusing namespace std;\n#define ll long long\nll h;\nll ans=0;\nll dfs(ll x){\n\tif(x==1) return 1;\n\treturn 2*dfs(x/2)+1;\n}\nint main(){\n\tcin>>h;\n\tcout<<dfs(h);\n}\n```\n",
+        "postTime": 1617749395,
+        "uid": 248400,
+        "name": "Inaba_Meguru",
+        "ccfLevel": 7,
+        "title": "AT5337 [ABC153D] Caracal vs Monster \u9898\u89e3"
+    },
+    {
+        "content": "\u663e\u7136\u5bf9\u4e8e $H$ \u76f8\u7b49\u7684\u602a\u517d,\u9700\u8981\u653b\u51fb\u7684\u6b21\u6570\u662f\u76f8\u540c\u7684.\n\n\u8fd9\u5b8c\u7f8e\u5730\u7b26\u5408\u4e86\u51fd\u6570\u7684\u5b9a\u4e49,\u56e0\u6b64\u6211\u4eec\u53ef\u4ee5\u7528 $f(H)$ \u8868\u793a\u6740\u6b7b\u4e00\u53ea\u751f\u547d\u503c\u4e3a $H$ \u7684\u602a\u517d\u9700\u8981\u653b\u51fb\u7684\u6b21\u6570.\n\n\u7531\u9898\u610f\u76f4\u63a5\u5f97\u5230\u51fd\u6570\u5f0f:\n$$\nf(H)=\n\\begin{cases}\n1 &(H=1)\\\\\n2f(\\lfloor \\frac{H}2\\rfloor)+1 &(H>1)\n\\end{cases}\n$$\n\u8fd9\u4e2a\u51fd\u6570\u7684\u590d\u6742\u5ea6\u663e\u7136\u662f $O(\\log n)$ \u7684,\u53ef\u4ee5\u76f4\u63a5\u901a\u8fc7.\n\n```cpp\nint f(int x)\n{\n    return x==1?1:f(x>>1)<<1|1;\n}\n```\n\n\u73b0\u5728\u6211\u4eec\u6765\u6df1\u5165\u63a2\u8ba8\u4e00\u4e0b $f$ \u7684\u672c\u8d28.\n\n\u770b\u5230\u8fd9\u91cc`f(x>>1)<<1|1`,\u6211\u4eec\u4e0d\u96be\u60f3\u5230,\u6bcf\u6b21\u9012\u5f52\u8fd4\u56de\u7684\u6570\u5b57\u90fd\u662f\u5947\u6570,\u81ea\u7136\u5c31\u60f3\u5230\u4e8c\u8fdb\u5236\u4e0a,\u8fd9\u4e2a\u6570\u5b57\u7684\u6bcf\u4e00\u4f4d\u90fd\u662f`1`.\n\n\u7531\u4e8e\u4f1a\u9012\u5f52 $\\lceil \\log n\\rceil$ \u6b21,\u90a3\u4e48\u8fd9\u4e2a\u7b54\u6848\u7684\u4e8c\u8fdb\u5236\u4f4d\u6570\u5c31\u662f $\\lceil\\log n\\rceil$ ,\u76f4\u63a5\u5f97\u5230\u7b54\u6848\u4e3a`0b1...111`.\n\n\u6216\u8005\u8bf4,\u6211\u4eec\u628a\u5b83\u60f3\u8c61\u6210\u4e00\u68f5\u6df1\u5ea6\u4e3a $\\lceil \\log n\\rceil$ \u7684\u6ee1\u4e8c\u53c9\u6811,\u70b9\u6743\u4e3a $x(x>1)$ \u7684\u70b9\u90fd\u6709\u4e24\u4e2a\u70b9\u6743\u4e3a $\\lfloor \\frac{x}2\\rfloor$ \u7684\u8282\u70b9,\u56e0\u6b64\u5176\u603b\u8282\u70b9\u4e2a\u6570\u4e3a $2^{\\lceil \\log n\\rceil}-1$ \u5373\u7b54\u6848.\n\n**\u6ce8\u610f\u8981\u5f00`long long`!**\n\n$Code$:\n\n```cpp\n//This code was made by Chinese_zjc_.\n#include<iostream>\n#include<cstdio>\n#include<algorithm>\n#include<cmath>\n#include<string>\n#define int long long\n#define INF 0x3fffffffffffffff\nusing namespace std;\nint h,ans=1;\nsigned main()\n{\n\tstd::ios::sync_with_stdio(false);\n\tcin>>h;\n\twhile(ans<=h)\n\t{\n\t\tans<<=1;\n\t}\n\tcout<<ans-1;\n\treturn 0;\n}\n```\n\n",
+        "postTime": 1603889563,
+        "uid": 118239,
+        "name": "Chinese_zjc_",
+        "ccfLevel": 0,
+        "title": "ABC153D \u9898\u89e3"
+    },
+    {
+        "content": "\u6253\u8fd9\u573a\u6bd4\u8d5b\u7684\u65f6\u5019\u6211\u65e2\u4e0d\u4f1a\u4e8c\u53c9\u6811\u53c8\u4e0d\u4f1a\u4e8c\u8fdb\u5236\u3002\u4e8e\u662f\u4e4e\uff0c\u6211\u7528\u4e86\u7279\u88ab\u597d\u60f3\u7684\u66b4\u529b\u6c42\u6cd5\uff08\u4f46\u73b0\u5728\u6765\u770b\u8fd8\u662f\u5f88\u50cf\u4e8c\u8fdb\u5236\u7684\uff09\u3002\n\n\u601d\u8def\u4e0a\uff0c\u6211\u4eec\u4e0d\u59a8\u5047\u8bbe\u602a\u7269\u6709\u4e0d\u540c\u7684\u7ea7\u522b\u3002\u521d\u59cb\u7684\u602a\u7269\u4e3a$0$\u7ea7\uff0c\u5b83\u6bcf\u88ab\u51fb\u6740\u5206\u88c2\u4e00\u6b21\u540e\uff0c\u5c31\u589e\u52a0$1$\u7ea7\uff0c\u76f4\u5230\u8840\u91cf\u5c0f\u4e8e$1$\u4e3a\u6b62\u3002\u800c\u6839\u636e\u8fd9\u4e2a\u7ea7\u522b\u6211\u4eec\u4e0d\u96be\u5f97\u51fa\u7b2c$n$\u6b21\u64cd\u4f5c\u540e\u602a\u7269\u7684\u6570\u91cf\u4e3a$2$\u7684$n$\u6b21\u65b9\u3002\n\n\u8be6\u7ec6\u505a\u6cd5\u89c1\u4ee3\u7801\uff1a\n```\n#include<bits/stdc++.h>\nusing namespace std;\nlong long a[200001];\nint main()\n{\n\tlong long n;\n\tcin>>n;\n\tlong long ans=0;\n\tlong long lot=n;//\u8fd9\u4e2alot\u4ee3\u8868\u6bcf\u4e2a\u602a\u7269\u5269\u4f59\u7684\u8840\u91cf\n\tint k=0;//\u8fd9\u4e2ak\u5c31\u662f\u7ea7\u6570\n\twhile(1)\n\t{\n\t\t lot/=2;//\u4ee4\u6240\u6709\u602a\u7269\u7684\u8840\u91cf\u90fd\u6210\u4e3a\u539f\u6765\u7684\u4e00\u534a\n\t\t ans+=pow(2,k);//\u4e0a\u9762\u5df2\u7ecf\u89e3\u91ca\u8fc7\u4e86\n\t\t k++;//\u7ea7\u6570++\n\t\t if(lot<1)//\u5982\u679c\u8840\u91cf\u5df2\u7ecf\u5c0f\u4e8e1\u4e86 \u90a3\u4e48\u5c31\u7ed3\u675f\u4e86\n\t\t break;\n\t}\n\tcout<<ans<<endl;//\u8f93\u51fa\u7b54\u6848\n   return 0;\n}",
+        "postTime": 1585013073,
+        "uid": 200060,
+        "name": "Magia",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 AT5337 \u3010[ABC153D] Caracal vs Monster\u3011"
+    },
+    {
+        "content": "### \u9898\u76ee\u63cf\u8ff0\n\n\u6253\u602a\uff0c\u602a\u4f1a\u5206\u6210\u4e24\u4e2a\uff0c\u6253\u52301\u7684\u65f6\u5019\u5c31\u6ca1\u4e86\n\n\u539f\u5148\u8fd9\u7bc7\u9898\u89e3\u6709\u70b9\u590d\u6742\u554a\u2026\u2026\n\n### \u601d\u8def\n\n\u770b\u770b\u6837\u4f8b\uff0c\u53d1\u73b0\u4e86\u4ec0\u4e48\u4e0d\u5f97\u4e86\u7684\u4e8b\n\n\u7b54\u6848\u5f88\u7b80\u5355\uff0c\u5c31\u662f2\u7684\u7b2c\u4e00\u4e2a\u6bd4h\u5927\u7684\u6b21\u5e42\u51cf1\n\n\u4f46\u4e3a\u4ec0\u4e48\u5462\uff1f\n\n\u53ef\u7ed9\u51fa\u4e00\u79cd\u76f4\u89c2\u7684\u89e3\u91ca\uff0c\u4f60\u53ef\u4ee5\u628a\u5b83\u5206\u88c2\u7684\u8fc7\u7a0b\u770b\u505a\u4e00\u68f5\u4e8c\u53c9\u6811\uff0c\u4e8c\u53c9\u6811\u7684\u8282\u70b9\u6570\u5c31\u662f\u8981\u653b\u51fb\u7684\u6b21\u6570\u4e86\n\n\u8fd9\u4e2aD\u9898\u6bd4C\u9898\u7b80\u5355\u591a\u4e86\uff0c\u5c45\u7136\u76f4\u63a5\u9012\u5f52\u90fd\u53ef\u8fc7\u2026\u2026\n\n### \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nunsigned long long p,cnt=1;\nint main(){\n    cin>>p;\n    while(p>=cnt) cnt<<=1;//\u6c422\u7684\u7b2c\u4e00\u4e2a\u6bd4h\u5927\u7684\u6b21\u5e42\n    cout<<cnt-1;\n    return 0;\n}\n```",
+        "postTime": 1582554903,
+        "uid": 149872,
+        "name": "\u5c0f\u5c0f\u5c0f\u670b\u53cb",
+        "ccfLevel": 5,
+        "title": "AT5337 [ABC153D] Caracal vs Monster"
+    }
+]

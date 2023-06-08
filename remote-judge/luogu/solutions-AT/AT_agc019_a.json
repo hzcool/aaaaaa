@@ -1,0 +1,66 @@
+[
+    {
+        "content": "# \u4e00\u9053\u7b80\u5355\u7684\u8d2a\u5fc3\u601d\u7ef4\u9898\n\n\u8fd9\u9898\u7ea2\u662f\u7ea2\uff0c\u4e5f\u8981\u60f3\u4e00\u60f3\u624d\u80fd\u60f3\u51fa\u89e3\u6cd5\u3002\n\n\u9996\u5148\uff0cDP\u7684\u7a7a\u95f4\u6709\u70b9\u60ac\uff0c\u5305\u62ec\u65f6\u95f4\u4e5f\u4e0d\u548b\u5730\u3002\n\n\u666e\u901a\u679a\u4e3e\u66f4\u662f\u4e0d\u884c\uff0c\u5c31\u60f3\u5230\u8d2a\u5fc3\u6570\u5b66\u65b9\u9762\u3002\n\n\u8fd9\u9898\u53ef\u4ee5\u5148\u6c42\u51fa$q,h,s$\u4e2d\u54ea\u4e2a\u6700\u4fbf\u5b9c\uff0c\u6700\u5c0f\u503c\u8bbe\u4e3a$minv$\u3002\n\n\u7136\u540e\u518d\u4e0e$d$\u6bd4\u8f83\u3002\n\n\u82e5$minv$\u5c0f\u4e00\u4e9b\uff08\u5f53\u7136\u7b49\u4e8e\u4e5f\u884c\uff09\uff0c\u90a3\u5c31\u76f4\u63a5\u8f93\u51fa$minv*n$\n\n\u5426\u5219\uff0c\u5148\u8ba9$d$\u53bb\u51d1\u53cc\u6570\uff0c\u518d\u7528\u5269\u4e0b\u6765\u7684\u51d1\u96f6\u5934\u3002\n\n\u4e0b\u65b9\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\n#define int long long\nusing namespace std;\nsigned main() {\n\tint q,h,s,d,n;\n\tcin>>q>>h>>s>>d>>n;\n\tint minv=min(min(q*4,h*2),s);\n\tif(minv*2<=d){\n\t\tcout<<minv*n;\n\t}\n\telse{\n\t\tcout<<(n%2)*minv+n/2*d;\n\t}\n\treturn 0;\n}\n```\n\u8fd9\u9053\u9898\u8fd8\u6709\u4e00\u4e2a\u79d8\u5bc6\uff0c\u5c31\u662f\u5173\u4e8e$q,h,s,d$\u7684\uff1a\n```\nq quater\nh half\ns single\nd double\n```\n\u6709\u8da3QwQ\u3002",
+        "postTime": 1600418661,
+        "uid": 116664,
+        "name": "Daniel_lele",
+        "ccfLevel": 8,
+        "title": "\u9898\u89e3 AT2700 \u3010[AGC019A] Ice Tea Store\u3011"
+    },
+    {
+        "content": "\u505a\u6cd5\uff1a\u627e\u51fa\u6700\u4fbf\u5b9c\u7684\u676f\u5b50\uff0c\u7136\u540e\u8f93\u51fa\u676f\u5b50\u7684\u603b\u4ef7\u683c\u3002\n**\u6ce8\u610f\uff1a\u5982\u679c\u51c9\u8336\u7684\u5347\u6570\u4e3a\u5947\u6570\uff0c\u8981\u518d\u627e\u51fa\u96642\u5347\u5916\u7684\u676f\u5b50\u7684\u6700\u4fbf\u5b9c\u7684\u65b9\u6848**\n### ~~$($\u95ee\u53f7\u8fd0\u7b97\u7b26\u771f\u662f\u4e2a\u597d\u4e1c\u897f$)$~~\n\n------------\n\n\u5076\u6570\u65b9\u6848\uff1a$\\min(\\min(\\min(Q*8,H*4),S*2),D)*N/2;$\n\u5947\u6570\u65b9\u6848\uff1a$\\min(\\min(Q*4,H*2),S)+\\min(\\min(\\min(Q*8,H*4),S*2),D)*(N-1)/2$\n\n\n------------\n\u4ee3\u7801(\u8d85\u957f\u8b66\u544a)\uff1a\n```cpp\n#include<bits/stdc++.h>//\u5934\u6587\u4ef6\nusing namespace std;\nlong long Q,H,S,D,N,ans;//\u4e00\u5b9a\u8981long long\nint main(){\n    cin>>Q>>H>>S>>D>>N;\n    ans=(N%2==0)?(min(min(min(Q*8,H*4),S*2),D)*N/2):(min(min(Q*4,H*2),S)+min(min(min(Q*8,H*4),S*2),D)*(N-1)/2);//\u4e3a\u4ec0\u4e48\u4e0d\u80fd\u76f4\u63a5\u8f93\u51fa\uff0c\u662f\u6211\u7684\u95ee\u9898\u5417\n    cout<<ans<<endl;//\u53ef\u4ee5\u4e0d\u6253\u56de\u8f66\n\treturn 0;\n}\n```",
+        "postTime": 1535856076,
+        "uid": 58546,
+        "name": "CZQ_King",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 AT2700 \u3010Ice Tea Store\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\uff0c\u8fd8\u7b97\u7b80\u5355\u3002\n\n\u6211\u4eec\u8981\u6ce8\u610f\u7684\u662f\u8981\u7528long long\uff01\u5426\u5219\u4f1a\u6210\u8d1f\u6570\u3002\n\n\u8fd9\u662f\u601d\u8def\uff1a\n\n* \u8f93\u5165\uff1a5\u4e2a\u6570\uff08\u4e0d\u8be6\u7ec6\u8bb2\uff09\n* \u8fc7\u7a0b1\uff1a\u5224\u65ad\u8c01\u82b1\u94b1\u5c11\uff1a\n\n#### \uff081/0.25\uff094* 0.25->\u5355\u4ef7 \n#### ------------\u6bd4\u5c0f-----------\n#### \uff081/0.50\uff092* 0.50->\u5355\u4ef7\n####  ------------\u6bd4\u5c0f-----------\n#### \uff081/1.00\uff091* 1.00->\u5355\u4ef7\n\n\n* \u8f93\u51famin(ma* n,(n/2* d+n%2* ma))+'\\n'\uff08\u6362\u884c\u7b26\uff0cAT\u4e13\u6709\uff09\u3002\n\n\u8fd9\u662f\u7a0b\u5e8f\uff1a\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nlong long n,x,y,z,d,ma;\nint main()\n{\n    \n    scanf(\"%d%d%d%d%d\",&x,&y,&z,&d,&n);ma=min(min(4*x,2*y),z);\n    \n    \n    cout<<min(ma*n,(n/2*d+n%2*ma))<<endl;\n\n    return 0;\n}\n```\n",
+        "postTime": 1572501537,
+        "uid": 140848,
+        "name": "I_will",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT2700 \u3010Ice Tea Store\u3011"
+    },
+    {
+        "content": "\u4e00\u70b9\u5c0f\u8d2a\u5fc3\u5c31AC\u4e86\uff1a\n```\n#include<bits/stdc++.h>\nusing namespace std;\nlong long Q,H,S,D,N,ans,k,kk,kkk;\nint main()\n{\n    cin>>Q>>H>>S>>D>>N;\n    k=min(Q*4,min(H*2,S));//\u6c42Q,H,S \u54ea\u4e2a\u4fbf\u5b9c\n    if(k*2<=D)//K\u4fbf\u5b9c\n    {\n    \tcout<<k*N<<endl;\n\t}\n\telse//D\u4fbf\u5b9c\n\t{\n\t\tcout<<((N%2)*k)+N/2*D<<endl;\n\t}\n\treturn 0;\n}\n```",
+        "postTime": 1535371858,
+        "uid": 58543,
+        "name": "RioBlu",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 AT2700 \u3010Ice Tea Store\u3011"
+    },
+    {
+        "content": "Python\u9898\u89e3\uff01\n\n\u6b64\u9898\u662f\u4e2a\u660e\u663e\u7684\u8d2a\u5fc3\uff0c\u7531\u4e8en\u662f\u6574\u6570\uff0c\u6240\u4ee5\u6211\u4eec\u53ea\u8981\u5c06\u4e0d\u52301L\u7684\u8f6c\u62101L\u7684\uff0c\u7136\u540e\u7279\u52242L\u7684\u5c31\u884c\u4e86\u3002\u8bf4\u7684\u660e\u767d\u70b9\uff0c\u5c31\u662f\u5c060.25L\u7684\u4ef7\u683c\u4e58\u4e0a4,0.5\u7684\u4e58\u4e0a2\uff0c\u4e0d\u52301\u7684\u4e58\u52301\uff0c\u7136\u540e\u5728\u8fd9\u51e0\u4e2a\u4ef7\u683c\u4e2d\u53d6\u6700\u5c0f\u7684\uff0c\u5206N\u662f\u5947\u5076\u548c2L\u7684\u4ef7\u683c\u6bd4\u8f83\u4e00\u4e0b\uff0c\u5f53N\u65f6\u5076\u6570\u662f\uff0c\u53ea\u8981\u6bd4\u8f83\u8fd9\u4e2a\u6700\u5c0f\u503c\u548c2L\u7684\u4ef7\u683c\u9664\u4ee52\u54ea\u4e2a\u5c0f\uff0c\u5947\u6570\u7684\u5dee\u4e0d\u591a\uff0c\u53ea\u662f\u5982\u679cD//2\u5c0f\u7684\u8bdd\u6700\u540e\u5269\u76841L\u8fd8\u8981\u5224\u65ad\u7528\u54ea\u4e2a\u66f4\u5c0f\n\n\u66f4\u8be6\u7ec6\u7684\u7684\u770b\u4ee3\u7801\uff1a\n```\nQ, H, S, D = input().split()\nN = int(input())#\u8f93\u5165\nQ, H, S, D, N = int(Q) * 4, int(H) * 0.5, int(S), int(D), int(N)#\u4e0d\u5230\u7684*\u4e0a\nans = min(Q, H, S)#\u53d6\u6700\u5c0f\u7684\nif N % 2 == 0:#\u5982\u679cN\u80fd\u88ab2\u6574\u9664\n    print(N * min(ans, D // 2))#\u9009\u4e24\u4e2a\u4e2d\u6700\u5c0f\u7684\nelse:\n    if ans > D // 2:#\u9009D\n        print(N * D // 2 + min(ans, D))#\u524d\u9762\u9009D\uff0c\u6700\u540e\u4e00\u4e2a1L\u9009D\u548cans\u4e2d\u5c0f\u7684\n    else:\n        print(N * ans)#\u9009ans\u5c31\u76f4\u63a5\u8f93\u51fa\n\n```\n\n\u795d\u5927\u5bb6\u5f00\u5b66\u5feb\u4e50\u554a",
+        "postTime": 1598876283,
+        "uid": 220426,
+        "name": "\u8840\u8272\u9ec4\u660f",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 AT2700 \u3010[AGC019A] Ice Tea Store\u3011"
+    },
+    {
+        "content": "### \u8d2a\u5fc3\u89e3\u6cd5\n\n\u8d2a\u5fc3\u3002\u5148\u7528 `min` \u51fd\u6570\u6c42\u51fa $q,h,s$ \u4e2d\u7684\u6700\u5c0f\u503c\uff0c\u7136\u540e\u7279\u5224 $d$\uff0c\u6700\u540e\u8f93\u51fa\u5c31\u884c\u4e86\u3002\n\n**\u6ce8\u610f\u8fd9\u91cc\u53d8\u91cf\u4e00\u5b9a\u8981\u5f00 `long long`\uff01**\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nlong long q,h,s,d,n,minn;\nint main()\n{\n    cin>>q>>h>>s>>d>>n;\n    minn=min(q*4,min(h*2,s));\n    if(minn*2<=d) cout<<minn*n<<endl;\n\telse cout<<((n%2)*minn)+n/2*d<<endl;\n\treturn 0;\n}\n```",
+        "postTime": 1590297145,
+        "uid": 304378,
+        "name": "lnlhm_",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT2700 \u3010[AGC019A] Ice Tea Store\u3011"
+    },
+    {
+        "content": "## \u76ee\u524d\u6700\u4e3a\u8be6\u7ec6\u7684\u9898\u89e3\uff08\u4e0d\u662f\u6807\u9898\u515a\uff09\n\n### 1\u3001\u7406\u89e3\u9898\u76ee\n\n\u6709\u56db\u4e2a\u676f\u5b50\uff0c\u5206\u522b\u53ef\u4ee5\u88c50.25\u5347\u30010.5\u5347\u30011\u5347\u30012\u5347\u90a3\u4e48\u591a\u7684\u996e\u6599\uff0c\u800c\u6bcf\u79cd\u676f\u5b50\u5404\u81ea\u6709\u5355\u4ef7\uff0c\u7136\u540e\u7ed9\u4f60\u996e\u6599\u603b\u5347\u6570\uff0c\u8ba9\u4f60\u6c42\u88c5\u5b8c\u5b83\u9700\u8981\u7684\u6700\u5c0f\u4ef7\u94b1\u3002\n\n\u6ce8\u610f:\u6240\u6709\u7684\u6570\u636e\u5747\u4e3a\u6574\u6570\u3002\n\n### 2\u3001\u7a81\u7834\u70b9&\u660e\u786e\u601d\u8def\n\n\u7a81\u7834\u70b9\uff1a\u6ce8\u610f\u6ce8\u610f\uff01\u6240\u6709\u7684\u6570\u5747\u4e3a\u6574\u6570\uff0c\u4e5f\u5c31\u662f\u8bf4\uff0c\u8981\u88c5\u7684\u996e\u6599\u4e5f\u662f\u6574\u5347\u6574\u5347\u7684\u3002\u800c\u6211\u4eec\u90a3\u4e9b0.25\u5347\u30010.5\u5347\u7684\u996e\u6599\u74f6\u7684\u5355\u4ef7\u5168\u90e8\u53ef\u4ee5\u5316\u4e3a1\u5347\u7684\u3002\n\n- 0.25\u5347\u7684\uff1a\u56db\u4e2a\u9876\u4e00\u4e2a\u4e00\u5347\u7684\u676f\u5b50\uff0c\u6545\u5982\u679c\u628a\u5b83\u770b\u505a\u4e00\u5347\u7684\u676f\u5b50\uff0c\u5355\u4ef7\u5e94\u4e584\u3002\n\n- 0.5\u5347\u7684\uff1a\u4e24\u4e2a\u9876\u4e00\u4e2a\u4e00\u5347\u7684\u676f\u5b50\uff0c\u6545\u5982\u679c\u628a\u5b83\u770b\u505a\u4e00\u5347\u7684\u676f\u5b50\uff0c\u5355\u4ef7\u5e94\u4e582\u3002\n\n**\u63a5\u7740\uff0c\u6211\u4eec\u4fbf\u53ef\u4ee5\u628a\u6240\u6709\u7684\u5355\u4ef7\u6392\u5e8f\uff0c\uff08\u4e24\u5347\u90a3\u4e2a\u4e0d\u8981\u6025\uff0c\u63a5\u7740\u770b\uff09\u7136\u540e\u5c3d\u53ef\u80fd\u5730\u591a\u7528\u5355\u4ef7\u6700\u4fbf\u5b9c\u7684\u53bb\u88c5\u5373\u53ef\u3002**\n\n\u90a3\u4e24\u5347\u7684\u90a3\u4e2a\u600e\u4e48\u529e\uff1f\u6ca1\u4e8b\uff0c\u5148\u7528\u4e00\u4e2a\u53d8\u91cf\u628a\u5b83\u5b58\u4e0b\u6765\uff0c\u63a5\u7740\u9664\u4ee52\u52a0\u8fdb\u53bb\u6392\u5e8f\u5373\u53ef\u3002\n\n- \u5982\u679c\u6700\u4fbf\u5b9c\u7684\u662f\u4e24\u5347\u7684\u90a3\u4e2a\uff0c\u90a3\u6211\u4eec\u5c31\u5148\u7528n/2\u53bb\u4e58\u4e0a\u539f\u4ef7\uff08\u4e24\u5347\u539f\u6765\u7684\u5355\u4ef7\uff09\u7136\u540e\u518d\u52a0\u4e0a\uff08n mod 2\uff09\u4e58\u7b2c\u4e8c\u4fbf\u5b9c\u7684\u3002\n\n- \u5426\u5219\u5c31\u76f4\u63a5\u7528\u7b2c\u4e00\u4fbf\u5b9c\u7684\u5355\u4ef7\u4e58n\u5373\u53ef\u3002\n\n### 3\u3001\u6ce8\u610f\u4e8b\u9879\n\n1\u3001\u5c9b\u56fd\u9898\u8f93\u51fa\u672b\u5c3e\u8981\u6362\u884c\uff01\uff01\uff01\n\n2\u3001\u7531\u4e8e\u53d8\u91cf\u5f88\u201c\u611f\u4eba\u201d\uff0c\u6240\u4ee5\u8981\u7528long long\u3002\n\n### 4\u3001\u6784\u5efa\u4ee3\u7801\n\n\u5c31\u77e5\u9053\u4f60\u4eec\u60f3\u770b~~\n\n```cpp\n#include<iostream>\n#include<algorithm>\n#include<cmath>\n#include<cstdio>\n#include<string>\n#include<cstring>\n#include<cstdlib>\nusing namespace std;\nlong long a[5];\nlong long f[5],n,ss;\nint main()\n{\n  cin>>a[1]>>a[2]>>a[3]>>a[4]>>n;\n  f[4]=1;\n  ss=a[4];\n  a[1]*=4,a[2]*=2,a[4]/=2;\n  for(int i=1;i<4;i++)\n    for(int j=i;j<=4;j++)\n      if(a[j]<a[i]){swap(a[i],a[j]);swap(f[i],f[j]);}\n  if(f[1]==1)\n    cout<<ss*(n/2)+(n%2)*a[2]<<endl;\n  else\n    cout<<a[1]*n<<endl;\n  return 0;\n}//\u5199\u6cd5\u4e0d\u662f\u592a\u597d\uff0c\u5927\u4f6c\u4eec\u52ff\u55b7QWQ\n\n```\n\n### 5\u3001\u672c\u9898\u6536\u83b7\n\n\u65e0\u8bba\u9047\u5230\u4ec0\u4e48\u6837\u4f8b\uff0c\u90fd\u4e0d\u8981\u6015\uff0c\u5fae\u7b11\u7684\u9762\u5bf9\u5b83\uff0c\u6218\u80dc\u6837\u4f8b\u7684\u6700\u597d\u529e\u6cd5\u5c31\u662f\u5f00long long\uff0c\u575a\u6301\u624d\u662f\u80dc\u5229\uff0c\u52a0\u6cb9\uff0c\u5965\u5229\u7ed9\uff01\n\n\u3010\u6ed1\u7a3d",
+        "postTime": 1589016251,
+        "uid": 90971,
+        "name": "\u667a\u5b50\u00b7\u8d77\u6e90",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT2700 \u3010[AGC019A] Ice Tea Store\u3011"
+    },
+    {
+        "content": "\t\u6c34+\u51fd\u6570(\u5176\u5b9e\u662f\u81ea\u5df1\u968f\u4fbf\u7528\u7684+\u516c\u5f0f+long long+AC!\n    \n\u76f4\u63a5\u5957\u4e24\u4e2a\u516c\u5f0f\u5c31AC\u4e86\n    \n**\u6bd4\u8f83\u5751\u7684\u5c31\u662flong long \u4e86**\n\n\u543e\u66fe\u4e3a\u6b64WA\u58f0\u4e00\u7247QAQ\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nlong long N,A,B,C,D,ans;\n//\u5b9a\u4e49\nvoid AC(long long Q,long long W,long long E,long long R,long long T)\n//\u4e00\u5b9a\u8981long long!!!\n{\n\tlong long X=min(min(4*Q,2*W),E);\n   \t//\u516c\u5f0f1\n\tlong long Y=min(X*T,(T/2*R+T%2*X));\n   \t//\u516c\u5f0f2\n\tcout<<Y<<\"\\n\";\n   \t//\u8f93\u51fa\n} \nint main()\n{\n    scanf(\"%d%d%d%d%d\",&A,&B,&C,&D,&N);\n    //\u8f93\u5165\n    AC(A,B,C,D,N);\n    //\u8fdb\u5165\u51fd\u6570\u4e2d\n    return 0;\n}\n```\n",
+        "postTime": 1573266717,
+        "uid": 90316,
+        "name": "\u6797\u5bb6\u4e09\u5c11",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT2700 \u3010Ice Tea Store\u3011"
+    }
+]

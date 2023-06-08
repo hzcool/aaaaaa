@@ -1,0 +1,106 @@
+[
+    {
+        "content": "# \u4e00\u9053\u975e\u5e38\u7b80\u5355\u7684\u5206\u652f\u7ec3\u4e60\u9898\n\n## \u9898\u610f\u6982\u62ec\n\t\n\u8f93\u5165\u4e24\u573a\u6bd4\u8d5b\u6240\u83b7\u5956\u9879\n\n\u4e00\u7b4930\u4e07\u5143\n\n\u4e8c\u7b4920\u4e07\u5143\n\n\u4e09\u7b4910\u4e07\u5143\n\n## \u9898\u76ee\u5206\u6790\n\n\u76f8\u4fe1\u53ea\u8981\u638c\u63e1\u4e86c++\u8bed\u6cd5\u57fa\u7840\u7684\u90fd\u80fd\u8f7b\u677e\u770b\u51fa\n\n\u672c\u9898\u8981\u7528\u5230\u5206\u652f\u7ed3\u6784\n\n\u800c\u5e38\u7528\u7684\u5206\u652f\u8bed\u53e5\u65e0\u975e\u5c31\u662f`if`\u548c`switch`\n\n\u53ea\u9700\u8981\u5bf9\u8f93\u5165\u6570\u636e\u8fdb\u884c\u5224\u65ad\u5c31\u884c\u4e86\n\n\u8fd9\u91cc\u7ed9\u51fa\u4e24\u79cd\u4ee3\u7801\n\n## AC code\n\n### if\u8bed\u53e5\u5199\u6cd5\n\n```cpp\n#include<iostream>\nusing namespace std;\nint x,y,ans;\nint main()\n{\n    cin>>x>>y;//\u8bfb\u5165\u83b7\u5f97\u5956\u9879 \n    if(x==1)\n\t\tans+=300000;\n    else if(x==2)\n\t\tans+=200000;\n    else if(x==3)\n\t\tans+=100000;\n    if(y==1)\n\t\tans+=300000;\n    else if(y==2)\n\t\tans+=200000;\n    else if(y==3)\n\t\tans+=100000;\n\t\t\n    if(x==1&&y==1)//\u5f53\u4e24\u5956\u9879\u90fd\u662f\u4e00\u7b49\uff0c\u989d\u5916\u589e\u52a0400000 \n\t\tans+=400000;\n\t\t\n    cout<<ans<<endl;\n    return 0;//\u597d\u4e60\u60ef \n}\n```\n### switch\u8bed\u53e5\u5199\u6cd5\n\n```cpp\n#include<iostream>\nusing namespace std;\nint x,y,ans;\nint main()\n{\n\tcin>>a>>b;\n\tswitch(x)//\u5224\u65ada\uff0c\u6ce8\u610f\u6bcf\u4e2a\u6761\u4ef6\u4e2d\u7684break\u8bed\u53e5\u4e0d\u8981\u5fd8\u8bb0 \n\t{ \n\t\tcase 1:ans+=300000;\n\t\t\tbreak;\n\t\tcase 2:ans+=200000;\n\t\t\tbreak;\n\t\tcase 3:ans+=100000;\n\t\t\tbreak;\n\t}\n\tswitch(y)//\u5224\u65adb\n\t{ \n\t\tcase 1:ans+=300000;\n\t\t\tbreak;\n\t\tcase 2:ans+=200000;\n\t\t\tbreak;\n\t\tcase 3:ans+=100000;\n\t\t\tbreak;\n\t}\n\tif (x==1&&y==1)//\u5f53\u4e24\u5956\u9879\u90fd\u662f\u4e00\u7b49\uff0c\u989d\u5916\u589e\u52a0400000 \n\t\tans+=400000;\n\t\n\tcout<<ans<<endl;\n\treturn 0;\n} \n```\n~~\u597d\u8036\uff01\uff01\uff01\uff01~~",
+        "postTime": 1609062644,
+        "uid": 311038,
+        "name": "juun07",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT5665 \u3010DDCC Finals\u3011"
+    },
+    {
+        "content": "## \u9898\u610f\n\n\u4e24\u573a\u6bd4\u8d5b\uff0c\u83b7\u5f97\u7b2c\u4e00\u3001\u4e8c\u3001\u4e09\u540d\u7684\u9009\u624b\u53ef\u5206\u522b\u83b7\u5f97 $10$ \u4e07\u3001$20$ \u4e07\u3001$30$ \u4e07\u7684 $\\texttt{money}$\u3002\u4e24\u573a\u6bd4\u8d5b**\u540c\u65f6**\u83b7\u5f97\u7b2c\u4e00\u540d\u7684\u53ef\u5f97 $40$ \u4e07\u3002\n\n## $Sol$\n\n\u672c\u9898\u8003\u67e5\u4e86\u6211\u4eec\u5bf9 $\\texttt{if}$ \u8bed\u53e5 \u548c $\\texttt{switch}$ \u8bed\u53e5\u7684\u5b9e\u73b0\u548c\u5e94\u7528\u3002\n\n\u5982\u679c\u662f\u53d6\u503c\u8303\u56f4\u7684\u8bdd\uff0c\u7528 $\\texttt{if else}$ \u5224\u65ad\uff0c\u5982\u679c\u9009\u9879\u8d85\u8fc7\u4e24\u4e2a\uff0c\u4e14\u56fa\u5b9a\uff0c\u4f7f\u7528 $\\texttt{switch}$ \u8bed\u53e5\u66f4\u52a0**\u7b80\u5355\u660e\u4e86**\u3002\n\n**\u6ce8\u610f\uff1a** \u7a0b\u5e8f\u8df3\u5230switch\u4e2d\u7279\u5b9a\u4ee3\u7801\u540e\uff0c\u5c06\u4f9d\u6b21\u6267\u884c\u4e4b\u540e**\u6240\u6709\u8bed\u53e5**\uff0c\u9664\u975e\u6709\u660e\u786e\u5176\u4ed6\u6307\u793a $break$\uff0c\u90fd\u5c06**\u4e00\u76f4**\u6267\u884c\u4e0b\u53bb\u3002\n\n\u90a3\u4e48\u8fd9\u9898\u663e\u7136\u7528 $\\texttt{switch}$ \u8bed\u53e5\u66f4\u52a0\u7b80\u6d01\u6613\u61c2\u3002\n\n## $Code$\n\n```cpp\n#include <bits/stdc++.h> //\u4e07\u80fd\u5934\nusing namespace std;\nint a, b;\nint ans;\nint main() {\n\tcin >> a >> b;\n\tswitch(a) { //\u5224\u65ada\n\t\tcase 1: //\u5982\u679ca=1\n\t\t\tans += 300000;\n\t\t\tbreak; //\u5343\u4e07\u6ce8\u610f\u52a0break!!!\n\t\tcase 2: //\u5982\u679ca=2\n\t\t\tans += 200000;\n\t\t\tbreak;\n\t\tcase 3: //...\n\t\t\tans += 100000;\n\t\t\tbreak;\n\t}\n\tswitch(b) { //\u5224\u65adb\uff0c\u64cd\u4f5c\u540c\u4e0a\n\t\tcase 1:\n\t\t\tans += 300000;\n\t\t\tbreak;\n\t\tcase 2:\n\t\t\tans += 200000;\n\t\t\tbreak;\n\t\tcase 3:\n\t\t\tans += 100000;\n\t\t\tbreak;\n\t}\n\tif (a == 1 && b == 1) ans += 400000; //\u5982\u679c\u4e24\u8005\u90fd\u662f\u7b2c\u4e00\u540d\n\tcout << ans << endl; //\u8f93\u51fa\u5956\u91d1\n\treturn 0;\n} \n```\n\n## $\\mathcal{The}$ $\\mathcal{End}$",
+        "postTime": 1608439854,
+        "uid": 159548,
+        "name": "Zachary_Cloud",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 AT5665 \u3010DDCC Finals\u3011"
+    },
+    {
+        "content": "**\u4e00\u9053\u5178\u578b\u7684\u57fa\u7840\u5206\u652f\u7ed3\u6784\u7ec3\u4e60**\n# **\u6b63\u6587\uff1a**\n\u672c\u9898\u6709\u4e24\u79cd\u65b9\u6cd5\u3002\n## \u6cd5\u4e00\uff1a\n\u6211\u4eec\u5c06\u7ed3\u679c\u8fdb\u884c\u5206\u7c7b\uff0c\u82e5 $x=1$ \uff0c\u5219\u4f7f\u7b54\u6848 $ans$ \u589e\u52a0 $300000$ \uff0c\u82e5 $x=2$ \uff0c\u7b54\u6848 $ans$ \u589e\u52a0 $200000$ \uff0c\u82e5 $x=3$ \u7b54\u6848 $ans$ \u589e\u52a0 $100000$ \u3002\u5bf9\u4e8e $y$ \u6211\u4eec\u4e5f\u662f\u4ee5\u6b64\u7c7b\u63a8\uff0c\u6700\u540e\u7279\u5224\u82e5 $x=1$ \u4e14 $y=1$ \u5c06 $ans$ \u518d\u589e\u52a0 $400000$ \u5373\u53ef\u3002\n### \u7a0b\u5e8f\u5982\u4e0b\uff1a\n```cpp\n#include<iostream>\nusing namespace std;\nint x,y,ans;\nint main(){\n    cin>>x>>y;\n    if(x==1)ans+=300000;\n    if(x==2)ans+=200000;\n    if(x==3)ans+=100000;\n    \n    if(y==1)ans+=300000;\n    if(y==2)ans+=200000;\n    if(y==3)ans+=100000;\n    \n    if(x==1&&y==1)ans+=400000;\n    cout<<ans<<endl;\n    return 0;\n}\n```\n## \u6cd5\u4e8c\uff1a\n\u6211\u4eec\u5c06 $x$ \uff0c $y$ \u76f4\u63a5\u5e26\u5165\u8fd0\u7b97\uff0c\u56e0\u4e3a\u82e5 $x\u22643$ \uff0c\u6211\u4eec\u53ef\u4ee5\u5c06 $ans$ \u589e\u52a0 $(4-x) \\times 100000$ \uff0c \u5bf9\u4e8e $y$ \u4e5f\u662f\u540c\u6837\u3002\u6700\u540e\u518d\u7279\u5224 $x=1$ \u4e14 $y=1$ \u7684\u60c5\u51b5\u5373\u53ef\u3002\n### \u7a0b\u5e8f\u5982\u4e0b\uff1a\n```cpp\n#include<iostream>\nusing namespace std;\nint x,y,ans;\nint main(){\n    cin>>x>>y;\n    if(x<=3)ans+=(4-x)*100000;\n    if(y<=3)ans+=(4-y)*100000;\n    if(x==1&&y==1)ans+=400000;\n    cout<<ans<<endl;\n    return 0;\n}\n```\n# **THE END**",
+        "postTime": 1608211351,
+        "uid": 299883,
+        "name": "HYdroKomide",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 AT5665 \u3010DDCC Finals\u3011"
+    },
+    {
+        "content": "\u6839\u636e\u9898\u610f**if**\u5224\u65ad\u5c31\u53ef\u4ee5\u4e86  \nAC\u4ee3\u7801\u5982\u4e0b\u2193\n```\n#include<bits/stdc++.h>\nusing namespace std;\nint a,b;\nint sum=0;\nint main(){\n\tcin>>a>>b;\n\tif(a==1)sum+=300000;\n\tif(a==2)sum+=200000;\n\tif(a==3)sum+=100000;\n\tif(b==1)sum+=300000;\n\tif(b==2)sum+=200000;\n\tif(b==3)sum+=100000;\n\tif(a==1&&b==1)sum+=400000;\n\tprintf(\"%d\\n\",sum);\n\treturn 0;\n}\n```\n# \u8bb0\u5f97\u6362\u884c\uff01\u4e0d\u7136\u5c31WA\u4e86\u2026\u2026",
+        "postTime": 1608040777,
+        "uid": 410283,
+        "name": "\u5343\u5e74\u9648\u76ae\u7cbe",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT5665 \u3010DDCC Finals\u3011"
+    },
+    {
+        "content": "\u6b64\u9898\u4e3b\u8981\u601d\u8def\uff1a$if$\u3002\n\n\u5bf9\u4e8e\u8f93\u5165\u7684\u4e24\u4e2a\u6570 $x,y$\uff0c\u6211\u4eec\u53ef\u4ee5\u5206\u522b\u5224\u5b9a\u5b83\u4eec\u662f\u5426\u4e3a\u7b2c\u4e00\u540d\uff0c\u7b2c\u4e8c\u540d\uff0c\u7b2c\u4e09\u540d\u3002\u7136\u540e\u518d\u5b9a\u4e49\u4e00\u4e2a\u7d2f\u52a0\u5668\uff0c\u52a0\u4e0a\u5b83\u4eec\u5206\u522b\u5bf9\u5e94\u7684\u5956\u91d1\u3002\n\n\u6700\u540e\u5224\u65ad\u4e00\u4e0b\uff0c\u4e24\u4e2a\u6570\u662f\u5426\u90fd\u4e3a $1$\uff0c\u5982\u679c\u662f\u7684\u8bdd\u7d2f\u52a0\u5668\u5c31\u518d\u52a0\u4e0a$400000$\uff0c\u8f93\u51fa\u5373\u53ef\u3002\n\n\u4e0a\u4ee3\u7801\u3002\n```cpp\n#include <iostream>\n#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n\tint x,y;\n\tint sum=0;\n\tcin >> x >> y;\n\tif (x==1) {\n\t\tsum+=300000;\n\t} if (x==2) {\n\t\tsum+=200000;\n\t} if (x==3) {\n\t\tsum+=100000;\n\t}\n\tif (y==1) {\n\t\tsum+=300000;\n\t} if (y==2) {\n\t\tsum+=200000;\n\t} if (y==3) {\n\t\tsum+=100000;\n\t}\n\tif (x==1 and y==1) {\n\t\tsum+=400000;\n\t}\n\tcout << sum;\n\treturn 0; \n}\n```",
+        "postTime": 1608968261,
+        "uid": 326248,
+        "name": "Contemptuous",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT5665 \u3010DDCC Finals\u3011"
+    },
+    {
+        "content": "~~\u672c\u9898\u5b9e\u9645\u4e0a\u662f\u4e00\u9053\u5f88\u6c34\u7684\u9898~~\n# \u6b63\u6587\n\u9996\u5148\uff0c\u8fd9\u9053\u9898\u9700\u8981\u8ba9\u6211\u4eec\u6c42\u7684\u662f\u6700\u7ec8\u83b7\u5f97\u7684\u94b1\u6570\u3002\n\n\u9898\u76ee\u7ed9\u51fa\u4e86  $ X $   \uff0c $ Y $ \u4e24\u4e2a\u6570\uff0c\u5373\u4e3a\u4e24\u573a\u6bd4\u8d5b\u5206\u522b\u7684\u540d\u6b21\u3002\n\n\u5728\u6bcf\u573a\u6bd4\u8d5b\u4e2d\uff0c\u83b7\u5f97\u7b2c\u4e09\u540d\u3001\u7b2c\u4e8c\u540d\u548c\u7b2c\u4e00\u540d\u7684\u9009\u624b\u5206\u522b\u83b7\u5f97 10 \u4e07\u65e5\u5143\u3001 20 \u4e07\u65e5\u5143\u548c 30 \u4e07\u65e5\u5143(\u65e5\u672c\u8d27\u5e01)\u3002\u6b64\u5916\uff0c\u5728\u4e24\u9879\u6bd4\u8d5b\u4e2d\u83b7\u5f97\u7b2c\u4e00\u540d\u7684\u9009\u624b\u5c06\u83b7\u5f97\u989d\u5916\u768440\u4e07\u65e5\u5143\u3002\n\n\u6240\u4ee5\u6211\u4eec\u9700\u8981\u7528\u5230if\u8bed\u53e5\u6765\u7b97\u3002\n\n# AC\u4ee3\u7801\n\n\u672c\u849f\u84bb\u5c06\u7528\u4e00\u79cd\u7c7b\u4f3c\u4e8e\u6253\u8868\u7684\u601d\u8def\u6765\u7b97\u3002\n```c\n//\n#include<bits/stdc++.h>\nusing namespace std;\nint x,y,ans=0;\nint main(){\n\tcin>>x>>y;\n\tif(x==1){\n\t\tans+=300000;\n\t}\n\tif(x==2){\n\t\tans+=200000;\n\t}\n\tif(x==3){\n\t\tans+=100000;\n\t}\n\t//\u5224\u65ad\u540d\u6b21 \n\tif(y==1){\n\t\tans+=300000;\n\t}\n\tif(y==2){\n\t\tans+=200000;\n\t}\n\tif(y==3){\n\t\tans+=100000;\n\t}\n\t//\u5224\u65ad\u540d\u6b21 \n\tif(x==1&&y==1){\n\t\tans+=400000;\n\t}\n\t//\u82e5\u4e24\u4e2a\u90fd\u662f\u7b2c\u4e00\u540d \n\tcout<<ans;\n\treturn 0;\n}\n```\n# \u672c\u9898\u7ed3\u675f",
+        "postTime": 1608532027,
+        "uid": 427331,
+        "name": "Chenjingyi0703",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT5665 \u3010DDCC Finals\u3011"
+    },
+    {
+        "content": "### ~~\u70ed\u4e4e\u7684\u6c34\u4f53\u9898\u89e3~~\n\u4e3a\u4e86\u793e\u533a\u8d21\u732e\u4e0d\u6389......\n\n### \u9898\u610f\uff1a\n```java\n\u66fe\u7ecf\u6709\u4e24\u6b21\u7ade\u8d5b:\u7f16\u7801\u7ade\u8d5b\u548c\u673a\u5668\u4eba\u64cd\u4f5c\u3002\n\n\u5728\u6bcf\u573a\u6bd4\u8d5b\u4e2d\uff0c\u83b7\u5f97\u7b2c\u4e09\u540d\u3001\u7b2c\u4e8c\u540d\u548c\u7b2c\u4e00\u540d\u7684\u9009\u624b\u5206\u522b\u83b7\u5f97 10 \u4e07\u65e5\u5143\u3001 20 \u4e07\u65e5\u5143\u548c 30 \u4e07\u65e5\u5143(\u65e5\u672c\u8d27\u5e01)\u3002\u6b64\u5916\uff0c\u5728\u4e24\u9879\u6bd4\u8d5b\u4e2d\u83b7\u5f97\u7b2c\u4e00\u540d\u7684\u9009\u624b\u5c06\u83b7\u5f97\u989d\u5916\u768440\u4e07\u65e5\u5143\u3002\n\n\u6709\u4e00\u4e2a\u4eba\u5728\u7f16\u7801\u6bd4\u8d5b\u4e2d\u83b7\u5f97\u7b2c x \u540d\uff0c\u5728\u673a\u5668\u4eba\u64cd\u4f5c\u6bd4\u8d5b\u4e2d\u83b7\u5f97\u7b2c yy \u540d\u3002\u6c42\u51fa\u4ed6\u8d5a\u7684\u94b1\u7684\u603b\u6570\u3002\n```\n\n\u6478\u6e05\u4e86\u9898\u610f\uff0c\u6211\u7b2c\u4e00\u4e2a\u60f3\u6cd5\u5c31\u662f\u76f4\u63a5if\u89e3\u51b3\u6ca1\u60f3\u5230\u8fd8\u771f\u8fc7\u4e86\n\n\u771f\u7b80\u5355\u554a\uff01\n# code\uff1a\n```\n#include<bits/stdc++.h>//\u61d2\u4eba\u5934\u6587\u4ef6\u4e0d\u505a\u89e3\u91ca\nusing namespace std;\nlong long a,b,sum;//\u5b9a\u4e49\u53d8\u91cfa,b,sum\nint main(){\n    cin>>a>>b;//\u8f93\u5165\u53d8\u91cf\n    if(a==1)\tsum+=300;//\u6839\u636e\u9898\u610f\u6a21\u62df\n    if(a==2)\tsum+=200;//\u6839\u636e\u9898\u610f\u6a21\u62df\n    if(a==3)\tsum+=100;//\u6839\u636e\u9898\u610f\u6a21\u62df\n    if(b==1)\tsum+=300;//\u6839\u636e\u9898\u610f\u6a21\u62df\n    if(b==2)\tsum+=200;//\u6839\u636e\u9898\u610f\u6a21\u62df\n    if(b==3)\tsum+=100;//\u6839\u636e\u9898\u610f\u6a21\u62df\n    if(b==1&&a==1)\tsum+=400;//\u6700\u540e\u6839\u636e\u9898\u610f+400000\u5143\n    cout<<sum*1000;//\u6700\u540e\u8f93\u51fasum\uff0c\u4e3a\u4e86\u5c11\u6253\u51e0\u4e2a\u96f6\uff0c\u6700\u540e*1000\uff0c\u4e0a\u9762/1000\n    return 0;\n}\n```\n# *THE END*\n\u8dea\u6c42\u7ba1\u7406\u901a\u8fc7",
+        "postTime": 1608422847,
+        "uid": 379940,
+        "name": "_Empty",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT5665 \u3010DDCC Finals\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u76ee\u771f\u662f\u7ea2\uff01\u800c\u6211\u6ca1\u7528if\uff0c\u56e0\u4e3a\u5bf9\u4e8e\u6bcf\u79cd\u6bd4\u8d5b\u800c\u8a00\uff0c\u8bbe$\\large rank\\,$ = \u6392\u540d\uff0c\u53ea\u8981\u6392\u540d\u524d3\u4ee5\u5185\uff0c\u5176\u83b7\u5f97\u5956\u91d1\u4e3a\uff1a\n\n$\\Large (3\\, -\\, rank\\, + \\,1) \\,* \\,100000)$\n\n\u90a3\u4e48\uff0c\u5982\u679c$\\large \\,rank\\,>\\,3$\uff0c\u90a3\u4e48\u6211\u4eec\u7684\u7ed3\u679c\u4e3a0\uff0c\u4e3a\u4e86\u62b5\u6d88\uff0c\u6211\u4eec\u5c06$\\large \\,rank\\,$\u8bbe\u4e3a4\uff0c\u5219$\\large \\, 3 \\, - \\, rank \\, + \\, 1 \\, = \\, 0$\uff0c$\\large 0\\, * \\,100000\\, = \\,0$\uff0c\u62b5\u6d88\u6389\u3002\n\n\u4ee3\u7801\uff08\u4f7f\u7528new\u4e0edelete\uff0c\u5176\u5b9e\u6ca1\u6709\u5fc5\u8981\uff09\uff1a\n\n```cpp\n#include <iostream>\nusing namespace std;\n\nconst int N = 1e5;\n\nint main()\n{\n    ios::sync_with_stdio(false);\n    cin.tie(0);\n    cout.tie(0);\n    int *a = new int(), *b = new int(); // new int()\uff0c\u62ec\u53f7\u4e2d\u53ef\u4ee5\u586b\u5199\u4e5f\u53ef\u4ee5\u4e0d\u586b\u5199\n    cin >> *a >> *b;\n    if(*a > 3) *a = 4;\n    if(*b > 3) *b = 4;\n    cout << (3 - *a + 1) * N + (3 - *b + 1) * N + (*a == 1 && *b == 1 ? 4 * N : 0) << endl;\n    delete a;\n    delete b;\n    return 0;\n}\n```\n",
+        "postTime": 1607865277,
+        "uid": 332914,
+        "name": "happybob",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 AT5665 \u3010DDCC Finals\u3011"
+    },
+    {
+        "content": "\u597d\u4e45\u6ca1\u5199\u9898\u89e3\u4e86\uff0c\u4f30\u8ba1\u662f\u6211\u751f\u6daf\u91cc\u9762\u6700\u540e\u4e00\u6b21\u5199\u9898\u89e3\u5427\u3002\u3002~~\u679c\u7136\u53ea\u4f1a\u6311\u6c34\u9898\u5199\u5462~~\n\n\u6211\u4eec\u6309\u9898\u76ee\u6a21\u62df\u5373\u53ef\uff0c\u6ce8\u610f\u6700\u540e\u7b54\u6848\u7684\u5355\u4f4d\u662f\u5143\uff0c\u4e0d\u662f\u4e07\u5143\uff0c\u6700\u540e$ *10 $ \u5373\u53ef\n\n\u8bb0\u4f4f\u6362\u884c\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint x,y;\nint ans;\nint main()\n{\n\tcin>>x>>y;\n\tif(x==3)ans+=10;\n\tif(x==2)ans+=20;\n\tif(x==1)ans+=30;\n\tif(y==3)ans+=10;\n\tif(y==2)ans+=20;\n\tif(y==1)ans+=30;\n\tif(x==1&&y==1)ans+=40;\n\tcout<<ans*10000<<endl;\n\treturn 0;\n}\n```\n",
+        "postTime": 1604152356,
+        "uid": 46354,
+        "name": "\u8ff7\u6b8b\u4e91",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT5665 \u3010DDCC Finals\u3011"
+    },
+    {
+        "content": "\u8fd9\u9053\u9898\u53ea\u8981\u7b80\u5355\u7528 if \u5224\u65ad\u4e00\u4e0b\u5c31\u53ef\u4ee5\u4e86\u3002\n\n\u5224\u65ad\u4e24\u6b21\u83b7\u5956\u7684\u540d\u6b21\uff0c\u5982\u679c\u662f1\u5956\u91d1\u52a030\u4e07\uff0c\u5176\u4ed6\u540d\u6b21\u4ee5\u6b64\u7c7b\u63a8\u3002\n\n\u6ce8\u610f\uff0c\u5982\u679c\u83b7\u5f97\u4e24\u4e2a\u7b2c\u4e00\u540d\uff0c\u5956\u91d1\u8fd8\u4f1a\u52a040\u4e07\u3002\n\n\u4e3a\u4e86\u65b9\u4fbf\u8d77\u89c1\u6211\u4eec\u53ef\u4ee5\u5148\u628a\u5355\u6b21\u52a0\u7684\u5956\u91d1\u5148\u53d8\u62101\u4f4d\u6570\uff0c\u6700\u540e\u603b\u5956\u91d1\u518d\u4e58\u4e0a100000\u5c31\u884c\u4e86\u3002\n\nCODE\uff1a\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n\tint x,y;//\u4e24\u4e2a\u6392\u540d\n\tcin>>x>>y;\n\tint sum=0;//\u603b\u5956\u91d1\n\tif(x==1)sum+=3;//\u7b2c\u4e00\u540d\u5956\u91d1+3\n\tif(x==2)sum+=2;//\u7b2c\u4e8c\u540d\u5956\u91d1+2\n\tif(x==3)sum+=1;//\u7b2c\u4e09\u540d\u5956\u91d1+1\n\tif(y==1)sum+=3;//\u548c\u4e0a\u9762\u4e00\u6837\n\tif(y==2)sum+=2;\n\tif(y==3)sum+=1;\n\tif(x==1&&y==1)sum+=4;//\u5982\u679c\u4e24\u4e2a\u7b2c\u4e00\u540d\u5956\u91d1\u8fd8\u80fd\u518d+4\n\tcout<<sum*100000<<endl;//\u628a\u5c11\u4e58\u7684\u90e8\u5206\u4e58\u56de\u6765\u518d\u8f93\u51fa\n\treturn 0;\n}\n```\n",
+        "postTime": 1588163836,
+        "uid": 242193,
+        "name": "DeepSkyBlue__",
+        "ccfLevel": 5,
+        "title": "\u9898\u89e3 AT5665 \u3010DDCC Finals\u3011"
+    },
+    {
+        "content": "\u9898\u610f\u7b80\u8ff0\uff1a\n```\n\u66fe\u7ecf\u6709\u4e24\u6b21\u7ade\u8d5b:\u7f16\u7801\u7ade\u8d5b\u548c\u673a\u5668\u4eba\u64cd\u4f5c\u3002\n\n\u5728\u6bcf\u573a\u6bd4\u8d5b\u4e2d\uff0c\u83b7\u5f97\u7b2c\u4e09\u540d\u3001\u7b2c\u4e8c\u540d\u548c\u7b2c\u4e00\u540d\u7684\u9009\u624b\u5206\u522b\u83b7\u5f97 10 \u4e07\u65e5\u5143\u3001 20 \u4e07\u65e5\u5143\u548c 30\u4e07\u65e5\u5143(\u65e5\u672c\u8d27\u5e01)\u3002\u6b64\u5916\uff0c\u5728\u4e24\u9879\u6bd4\u8d5b\u4e2d\u83b7\u5f97\u7b2c\u4e00\u540d\u7684\u9009\u624b\u5c06\u83b7\u5f97\u989d\u5916\u768440\u4e07\u65e5\u5143\u3002\n\n\u6709\u4e00\u4e2a\u4eba\u5728\u7f16\u7801\u6bd4\u8d5b\u4e2d\u83b7\u5f97\u7b2c x \u540d\uff0c\u5728\u673a\u5668\u4eba\u64cd\u4f5c\u6bd4\u8d5b\u4e2d\u83b7\u5f97\u7b2c y \u540d\u3002\u6c42\u51fa\u4ed6\u8d5a\u7684\u94b1\u7684\u603b\u6570\u3002\n```\n\n\n------------\n\n\u601d\u8def\uff1a\u9010\u4e2a\u5224\u65ad $x$ \u4e0e $y$ \u662f\u5426\u6ee1\u8db3\u4e0a\u8ff0\u83b7\u5f97\u5956\u91d1\u7684\u8981\u6c42\uff0c\u5982\u6ee1\u8db3\u5219\u5c06\u83b7\u5956\u91d1\u989d\u7d2f\u52a0\u5373\u53ef\u3002\n\n\u5224\u65ad\u5f88\u597d\u5199\uff0c$6$ \u6761 $\\operatorname{if}$ \u8bed\u53e5\u5c31\u53ef\u4ee5\u4e86\u3002**\u522b\u5fd8\u4e86**\uff01\u5728 $x$ \u548c $y$ \u90fd\u7b49\u4e8e $1$ \u65f6\u8fd8\u8981\u589e\u52a0 $40$ \u4e07\uff01\n\n\u4e0b\u9762\u662f\u4ee3\u7801\uff0c\u6211\u7528\u4e86\u4e00\u70b9\u5c0f\u6280\u5de7\uff1a\u53ea\u9700\u8981\u8ba1\u7b97\u51fa $ans$ \u7684\u7b2c\u4e00\u4f4d\u5373\u53ef\uff0c\u8f93\u51fa\u65f6\u53ea\u9700\u8981\u4e58\u4e2a $100000$ \u5c31\u884c\u4e86\u3002\n\n```cpp\n#include<stdio.h>\nint main() {\n    int x, y, ans = 0;\n    scanf(\"%d%d\", &x, &y);\n    if(x == 3) ans += 1;\n    if(x == 2) ans += 2;\n    if(x == 1) ans += 3;\n    if(y == 3) ans += 1;\n    if(y == 2) ans += 2;\n    if(y == 1) ans += 3;\n    if(x == 1 && y == 1) ans += 4;\n    printf(\"%d\\n\", ans * 100000);\n    return 0;\n} \n```\n\n\u5b8c\u7ed3",
+        "postTime": 1584358851,
+        "uid": 222865,
+        "name": "\u8fdf\u66ae\u5929\u590d\u660e",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 AT5665 \u3010DDCC Finals\u3011"
+    },
+    {
+        "content": "~~\u8fd9\u662f\u4e00\u9053\u975e\u5e38\u6c34\u7684\u9898~~\u8fd9\u5b66\u4e86\u4e24\u5929\u5c31\u53ef\u4ee5\u505a\u4e86\uff0c\u975e\u5e38\u9002\u5408\u5bf9\u4e8e~~\u521a\u5b66\u4e86if\u8bed\u53e5\u7684~~\u725b\u726a\u7287\u4eba\u4eec\u6765\u505a\u53ea\u8981\u4e0d\u65ad\u7684\u5224\u65ad\uff0c\u5224\u65ad\uff0c\u5224\u65ad......\u7136\u540e\u4e0d\u65ad\u5730\u52a0\uff0c\u52a0\uff0c\u52a0......\u6700\u7ec8\u8f93\u51fa\u8fd9\u4e2a\u7d2f\u52a0\u7684\u6570\u5c31\u5f97\u4e86\u3002\n\u6700\u540e\u7684\u6700\u540e\u76f4\u63a5\u9001\u4e0a\u4ee3\u7801\uff1a\n###### \u6284\u88ad\u4f1a\u68d5\u540d\u54e6\n```cpp\n#include<iostream>\nusing namespace std;\nint ans;\nint main()\n{\n    int x,y;cin>>x>>y;\n        if(x==1)ans+=300000;\n        if(y==1)ans+=300000;\n        if(x==2)ans+=200000;\n        if(y==2)ans+=200000;\n        if(x==3)ans+=100000;\n        if(y==3)ans+=100000;\n        if(x==1&&y==1)ans+=400000;\n    cout<<ans;\n    return 0;\n}\n```\n",
+        "postTime": 1609400254,
+        "uid": 375633,
+        "name": "Fun_Hunter",
+        "ccfLevel": 0,
+        "title": "\u9898\u89e3 AT5665 \u3010DDCC Finals\u3011"
+    },
+    {
+        "content": "## \u5206\u6790\n\u6309\u7167\u9898\u610f\u6a21\u62df\u5373\u53ef\n\n\u5982\u679c\u8be5\u4eba\u5728\u4efb\u610f\u4e00\u573a\u6bd4\u8d5b\u4e2d\u540d\u6b21\u5927\u4e8e $3$\uff0c\u90a3\u4e48\u4ed6\u4e0d\u4f1a\u83b7\u5f97\u5956\u91d1\n\n\u5426\u5219\u83b7\u5f97\u7684\u5956\u91d1\u6570\u4e3a $(3-rank+1) \\times 100000$\n\n\u5982\u679c\u4e24\u6b21\u90fd\u83b7\u5f97\u4e86\u7b2c $1$ \u540d\uff0c\u8fd8\u8981\u52a0\u4e0a $400000$ \u7684\u5956\u91d1\n## \u4ee3\u7801\n``` cpp\n#include<cstdio>\nint aa,bb,ans;\nint main(){\n\tscanf(\"%d%d\",&aa,&bb);\n\tif(aa<=3) ans+=(3-aa+1)*10;\n\tif(bb<=3) ans+=(3-bb+1)*10;\n\tif(aa==1 && bb==1) ans+=40;\n\tprintf(\"%d\\n\",ans*10000);\n\treturn 0;\n}\n```",
+        "postTime": 1605141192,
+        "uid": 316322,
+        "name": "hzoi_liuchang",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 AT5665 \u3010DDCC Finals\u3011"
+    }
+]

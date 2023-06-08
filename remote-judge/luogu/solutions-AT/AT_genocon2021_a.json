@@ -1,0 +1,10 @@
+[
+    {
+        "content": "# \u9898\u610f\n\n\u7ed9\u5b9a $n$ \u4e2a\u5b57\u7b26\u4e32\uff0c\u5bf9\u4e8e\u6bcf\u4e2a\u5b57\u7b26\u4e32 $s_i$ \uff0c\u4f60\u9700\u8981\u6267\u884c\u4e0b\u9762\u4e24\u6761\u64cd\u4f5c\uff1a\n\n1. \u5c06\u5b57\u7b26\u4e32\u7ffb\u8f6c\n\n2. \u5c06\u5b57\u7b26\u4e32\u4e2d\u6240\u6709\u7684 `A` \u6539\u4e3a `T` \uff0c `T` \u6539\u4e3a `A` \uff0c `C` \u6539\u4e3a `G` \uff0c `G` \u6539\u4e3a `C` \u3002\n\n# \u5206\u6790\n\n- \u5bf9\u4e8e\u7b2c\u4e00\u4e2a\u64cd\u4f5c\uff0c\u6211\u4eec\u76f4\u63a5\u4f7f\u7528 $\\text{STL}$ \u4e2d\u7684  $\\texttt{reverse}$ \u51fd\u6570\u5b9e\u73b0\u5373\u53ef\u3002\n\n- \u5bf9\u4e8e\u7b2c\u4e8c\u4e2a\u64cd\u4f5c\uff0c\u4e00\u4e2a\u5b57\u7b26\u4e00\u4e2a\u5b57\u7b26\u7684\u5224\u65ad\u5373\u53ef\u3002\n\n# \u4ee3\u7801\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n\nstring op1(string s){ // \u64cd\u4f5c1\n    reverse(s.begin(), s.end());\n    return s;\n}\n\nstring op2(string s){ // \u64cd\u4f5c2\n    for(int i = 0; i < s.size(); i++){\n        if(s[i] == 'A') s[i] = 'T';\n        else if(s[i] == 'T') s[i] = 'A';\n        else if(s[i] == 'C') s[i] = 'G';\n        else if(s[i] == 'G') s[i] = 'C';\n    }\n    return s;\n}\n\nint main() {\n    int n;\n    cin >> n;\n    while(n--){\n        string s;\n        cin >> s;\n        s = op1(s);\n        s = op2(s);\n        cout << s << endl;\n    }\n    return 0;\n}\n```\n",
+        "postTime": 1672057514,
+        "uid": 663295,
+        "name": "ruruo",
+        "ccfLevel": 0,
+        "title": "AT_genocon2021_a \u9898\u89e3"
+    }
+]

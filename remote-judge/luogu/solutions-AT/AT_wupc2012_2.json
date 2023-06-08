@@ -1,0 +1,18 @@
+[
+    {
+        "content": "\u770b\u5230\u5404\u4f4d\u5927\u4f6c\u90fd\u662f\u624b\u52a8\u6a21\u62df\u6bd4\u8f83\u5b57\u7b26\u4e32\u3002\u3002\u3002\n\n\u624b\u52a8\u6bd4\u8f83\u5e72\u561b\u554a\u3002\u3002\u3002string\u4e0d\u662f\u81ea\u5e26\u4e86\u6bd4\u8f83\u529f\u80fd\u5417\uff1f\uff01\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n;\nstring s[51],ans;\nint main(){\n\tcin>>n;\n\tfor(int i=1;i<=n;i++)cin>>s[i];\n\tans=s[1]+s[2];//\u9996\u5148\u8981\u7ed9ans\u8d4b\u521d\u503c\uff0c\u56e0\u4e3a\u7cfb\u7edf\u7ed9ans\u8d4b\u7684\u521d\u503c\u4e3a\u7a7a\u4e32\n\tfor(int i=1;i<=n;i++)\n\t    for(int j=1;j<=n;j++)\n\t        if(i!=j&&ans>s[i]+s[j])//\u8981\u8f93\u51fa\u6700\u5c0f\u7684\u6240\u4ee5\u4e0d\u80fd\u5fcd\u53d7ans\u6bd4\u522b\u4eba\u66f4\u5927\n\t            ans=s[i]+s[j];//\u66f4\u65b0\n\tcout<<ans<<endl;\n\treturn 0;\n}\n```\n",
+        "postTime": 1582432855,
+        "uid": 305027,
+        "name": "Tarantula",
+        "ccfLevel": 6,
+        "title": "\u9898\u89e3 AT167 \u3010\u30d1\u30b9\u30ef\u30fc\u30c9\u3011"
+    },
+    {
+        "content": "# AT167 \u3010\u30d1\u30b9\u30ef\u30fc\u30c9\u3011\uff08\u9898\u89e3\uff09\n\n### PS.\n\u770b\u5230\u8fd9\u4e2a\u6570\u636e\u8303\u56f4$\\texttt{n<=50}$\u5c31\u77e5\u9053\u8fd9\u662f\u4e00\u9053\u6a21\u62df\u9898\u3002  \n\n### \u5177\u4f53\u89e3\u9898\u8fc7\u7a0b\n~~\u7565~~  \n\u770b\u4ee3\u7801\u6ce8\u91ca\n\n### \u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint n;\nstring ans,s[55];\ninline char cmp(string s1,string s2)\t//\u8fd9\u4e2a\u662f\u5224\u65ad\u51fd\u6570\n{\n\tfor(int i=0,e=min(s1.size(),s2.size());i<e;i++)\t\t//\u679a\u4e3e\u6bcf\u4e00\u4f4d\n\t\tif(s1[i]!=s2[i])\t//\u5982\u679c\u4e0d\u76f8\u540c\u76f4\u63a5\u8fd4\u56de\n\t\t\treturn s1[i]<s2[i];\n\treturn s1.size()<s2.size();\t//\u8fd4\u56de\u5b57\u4e32\u957f\u7684\u5927\u5c0f\u5173\u7cfb\n}\nint main()\n{\n\tios::sync_with_stdio(false),cin>>n;\t\t//\u5168\u5c4fcin,cout\uff0c\u5f53\u7136\u8981\u5f00\u8bfb\u4f18\n\tfor(int i=1;i<=n;i++) cin>>s[i];\t//\u8f93\u5165\n\tans=s[1]+s[2];\t\t//\u8d4b\u521d\u503c\n\tfor(int i=1;i<=n;i++) for(int j=1;j<=n;j++) if(i!=j&&cmp(s[i]+s[j],ans)) ans=s[i]+s[j];\t\t//\u679a\u4e3e\u7b2c\u4e00\u4e2a\u5b57\u4e32\u4e0e\u7b2c\u4e8c\u4e2a\u5b57\u4e32\n\treturn cout<<ans<<endl,0;\t//\u8f93\u51fa\u7b54\u6848\u5e76\u5b8c\u7f8e\u7684\u7ed3\u675f\n}\n```",
+        "postTime": 1565252380,
+        "uid": 44805,
+        "name": "Leap_Frog",
+        "ccfLevel": 7,
+        "title": "AT167 \u3010\u30d1\u30b9\u30ef\u30fc\u30c9\u3011\uff08\u9898\u89e3\uff09"
+    }
+]

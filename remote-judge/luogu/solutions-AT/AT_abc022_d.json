@@ -1,0 +1,10 @@
+[
+    {
+        "content": "# Description\n\u7565\u3002\n\n# Solution\n\u6211\u4eec\u53ea\u60f3\u77e5\u9053\u653e\u5927\u4e86\u591a\u5c11\u500d\u800c\u4e0d\u662f\u76f8\u4f3c\u7684\u7ed3\u679c\uff0c\u6240\u4ee5\u53ea\u9700\u8981\u6c42\u51fa\u4e24\u4e2a\u56fe\u5f62\u7684\u91cd\u5fc3\u5230\u5404\u81ea\u4e2a\u70b9\u6b27\u51e0\u91cc\u5f97\u8ddd\u79bb\u7684\u548c\uff0c\u518d\u7528\u7b2c\u4e8c\u6b21\u7ed3\u679c\u6bd4\u4e0a\u7b2c\u4e00\u6b21\u7ed3\u679c\u5c31\u662f\u81a8\u80c0\u7684\u500d\u6570\u4e86\u3002\n\n\u65f6\u95f4\u590d\u6742\u5ea6 $\\Theta(n)$\u3002\n\n```cpp\n/*\n\nby L1rs1ngzN1sLyr\n\n*/\nstd::pair<int,int>a[KI],b[KI];\nint n=read();\ndouble sumxa,sumxb,sumya,sumyb,ansa,ansb;\ndouble dis(int x,int y,int sa,int sb)\n{\n    return std::sqrt((sa-x)*(sa-x)+(sb-y)*(sb-y));\n}\nint main()\n{\n    for(int i=1;i<=n;i++) a[i].first=read(),a[i].second=read();\n    for(int i=1;i<=n;i++) b[i].first=read(),b[i].second=read();\n    for(int i=1;i<=n;i++) sumxa+=a[i].first,sumxb+=b[i].first,sumya+=a[i].second,sumyb+=b[i].second;\n    double s1=sumxa/n,s2=sumxb/n,s3=sumya/n,s4=sumyb/=n;\n    for(int i=1;i<=n;i++)\n    {\n        ansa+=std::sqrt((s1-a[i].first)*(s1-a[i].first)+(s3-a[i].second)*(s3-a[i].second));\n        ansb+=std::sqrt((s2-b[i].first)*(s2-b[i].first)+(s4-b[i].second)*(s4-b[i].second));\n    }\n    printf(\"%.12lf\\n\",ansb/ansa);\n}\n```",
+        "postTime": 1679486148,
+        "uid": 529262,
+        "name": "L1rs1ngzN1sLyr",
+        "ccfLevel": 0,
+        "title": "\u6ca1\u5927\u5bb6\u7684\u4efd\u513f"
+    }
+]

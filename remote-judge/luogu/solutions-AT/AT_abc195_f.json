@@ -1,0 +1,10 @@
+[
+    {
+        "content": "\u90e8\u5206\u5185\u5bb9\u53c2\u8003\u81ea\u5b98\u65b9\u9898\u89e3\u3002\n\n\u89c2\u5bdf\u5230 $ B-A $ \u5f88\u5c0f\uff0c\u542f\u53d1\u6211\u4eec\u53ef\u4ee5\u7528\u4e00\u4e9b\u5de7\u5999\u7684\u529e\u6cd5\u3002\n\n\u9996\u5148\u5982\u679c $ n > m $ \u4e14\u5728\u533a\u95f4 $ [A,B] $ \u5185\uff0c\u5219 $ \\gcd(n,m)=\\gcd(n-m,m) \\leq n-m \\leq B-A $\uff0c\u8fd9\u4e2a\u662f\u663e\u7136\u7684\u3002\n\n\u90a3\u4e48\u5982\u679c $ n,m $ \u4e0d\u4e92\u8d28\uff0c\u4e00\u5b9a\u5b58\u5728\u4e00\u4e2a\u516c\u8d28\u56e0\u5b50\u5728 $ [2,B-A] $ \u4ee5\u5185\u3002\n\n\u4e8e\u662f\u7b26\u5408\u6761\u4ef6\u7684\u96c6\u5408\u4e00\u5b9a\u5bf9\u4e8e\u4e00\u4e2a $ [2,B-A] $ \u5185\u7684\u8d28\u6570\uff0c\u6ee1\u8db3\u96c6\u5408\u5185\u6700\u591a\u6709\u4e00\u4e2a\u6574\u6570\u6574\u9664\u5b83\u3002\u7531\u4e8e $ B-A \\leq 72 $\uff0c\u800c $ 72 $ \u4ee5\u5185\u7684\u8d28\u6570\u53ea\u6709 $ 20 $ \u4e2a\uff0c\u6240\u4ee5\u53ef\u4ee5\u66b4\u529b\u72b6\u538b\u8f6c\u79fb\u5373\u53ef\u3002\n\n\u65f6\u95f4\u590d\u6742\u5ea6 $ \\mathcal{O}(Kn) $\uff0c\u5176\u4e2d $ K \\leq 2^{20} $ \u4e3a\u72b6\u538b\u7684\u590d\u6742\u5ea6\uff0c\u53ef\u4ee5\u901a\u8fc7\u3002\n\n\u4ee3\u7801\uff1a\n\n```cpp\n#import <bits/stdc++.h>\n#define int long long\nusing namespace std;\nconst int N=3000010;\nint l,r,w,ans,f[N],b[N],prime[N];\nbool vis[N];\nint tot=0;\nvoid pre(int n)\n{\nfor(int i=2;i<n;i++)\n{\n    if(!vis[i])\n    prime[tot++]=i;\n    for(int j=0;j<tot;++j)\n    {\n    if(i*prime[j]>n)\n    break;\n    vis[i*prime[j]]=1;\n    if(i%prime[j]==0)\n    break;\n    }\n}\n}\nsigned main()\n{\n    cin>>l>>r;\n    pre(r-l+1);\n    f[0]=1;\n    for(int i=l;i<=r;i++)\n    {\n    \tint s=0;\n    \tfor(int j=0;j<tot;j++)\n    \ts|=(i%prime[j]==0)<<j;\n    \tfor(int j=0;j<(1<<tot);j++)\n    \tf[s|j]+=s&j?0:f[j];\n    }\n    for(int i=0;i<(1<<tot);i++)\n    ans+=f[i];\n    cout<<ans<<\"\\n\";\n}\n```\n",
+        "postTime": 1670829088,
+        "uid": 714821,
+        "name": "loser_seele",
+        "ccfLevel": 4,
+        "title": "ABC195F\u9898\u89e3"
+    }
+]

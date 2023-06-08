@@ -1,0 +1,34 @@
+[
+    {
+        "content": "# AT2555 \u9898\u89e3\n\n\u9898\u76ee\u6307\u6807 [[ARC073A] Sentou](https://www.luogu.com.cn/problem/AT2555) .\n\n\u8be5\u6587\u7ae0\u540c\u6b65\u53d1\u8868\u4e8e [\u6211\u7684\u535a\u5ba2](https://www.luogu.com.cn/blog/Kingson123456/) \u5185\u3002\n\n\u5ba1\u6838\u4e00\u7ecf\u901a\u8fc7\uff0c\u4ed6\u4eba\u4e0d\u5f97\u76d7\u7528\u535a\u5ba2\u3002\u82e5\u672a\u901a\u8fc7\uff0c\u5f15\u7528\u65f6\u9700\u6ce8\u660e\u51fa\u5904\uff0c\u5e76\u79c1\u4fe1\u4f5c\u8005\u3002\n\n### \u6b63\u89e3\n\n\u5176\u5b9e\u8fd9\u9898\u5c31\u662f\u4e00\u9053\u975e\u5e38\u9002\u5408\u521d\u5b66\u8005\u505a\u7684\u5927\u6a21\u62df\u3002\n\n\u6211\u4eec\u53ef\u4ee5\u5c06 $p_i$ \u8bbe\u4e3a\u7b2c $i$ \u4e2a\u4eba\u5bf9\u6c34\u4ea7\u751f\u5f71\u54cd\u7684\u65f6\u523b\u3002\n\n\u4e8e\u662f\u6211\u4eec\u56de\u5230\u6587\u7ae0\u4e2d\u8fdb\u884c\u9605\u8bfb\uff0c\u53ef\u4ee5\u53d1\u73b0\uff1a\n\n$$p_i=t_i+T$$\n\n\u540c\u6837\u7684\uff0c\u5bf9\u5176\u8fdb\u884c\u5206\u7c7b\u8ba8\u8bba\u5373\u53ef\u3002\n\n1. \u5982\u679c\u6c34\u5df2\u7ecf\u505c\u4e86\uff0c\u5219\u7528\u6237\u5bf9\u6c34\u7684\u8d21\u732e\u4e3a $T$ .\n\n2. \u5982\u679c\u6c34\u8fd8\u6ca1\u6709\u505c\uff0c\u6211\u4eec\u8981\u8fdb\u884c\u53bb\u91cd\u64cd\u4f5c\uff1a\n\n$$t_i-(p_{i-1}-T)$$ \n\n### \u4ee3\u7801\n\n```\n#include<iostream>\n#include<cstdio>\n#include<algorithm>\nusing namespace std;\nlong long n,q,t,s,p;\nint main()\n{\n\tscanf(\"%lld%lld\",&n,&t);\n\tfor(int i=1;i<=n;i++)\n\t{\n\t\tscanf(\"%lld\",&q);\n\t\tif(q<=p) s+=t+q-p;\n\t\telse s+=t;\n\t\tp=t+q;\n\t}\n\treturn !printf(\"%lld\",s);\n}\n```\n",
+        "postTime": 1643280762,
+        "uid": 548748,
+        "name": "wimg6_",
+        "ccfLevel": 0,
+        "title": "AT2555 \u9898\u89e3"
+    },
+    {
+        "content": "## \u601d\u8def\n\u8f93\u5165\u540e\u6392\u5e8f\u4e00\u904d\uff0c\u7136\u540e\u6839\u636e\u9898\u610f\u8fdb\u884c\u6a21\u62df\u3002\n#### \u5982\u4f55\u8fdb\u884c\u6a21\u62df\u5462\n\u8bb0\u5f55\u4e0b\u4e0a\u4e00\u4e2a\u4eba\u6309\u4e0b\u5f00\u5173\u540e\u6dcb\u6d74\u5668\u5173\u95ed\u7684\u65f6\u95f4\uff0c\u5982\u679c\u4e0e\u8fd9\u6b21\u5f00\u59cb\u7684\u65f6\u95f4\u6709\u51b2\u7a81\uff08\u5f00\u59cb\u65f6\uff0c\u6dcb\u6d74\u5668\u8fd8\u5904\u4e8e\u5f00\u7740\u7684\u72b6\u6001\uff09\u7684\u8bdd\uff0c\u53ea\u52a0\u4e0a\u6ca1\u91cd\u590d\uff08\u591a\u51fa\u6765\uff09\u7684\u90e8\u5206\u3002\u5426\u5219\u7684\u8bdd\uff0c\u5c31\u76f4\u63a5\u52a0\u4e0a $T$\uff08\u6dcb\u6d74\u5668\u6bcf\u6b21\u6d41\u51fa\u6c34\u65f6\u95f4\uff09\u3002\n#### \u5982\u4f55\u8ba1\u7b97\u6ca1\u91cd\u590d\u7684\u90e8\u5206\n\u6211\u4eec\u8bb0\u4e0a\u4e00\u6b21\u6dcb\u6d74\u5668\u5173\u95ed\u7684\u65f6\u95f4\u4e3a $sum$\uff0c\u6dcb\u6d74\u5668\u6bcf\u6b21\u6d41\u51fa\u6c34\u7684\u65f6\u95f4\u4e3a $T$\uff0c\u6b64\u6b21\u5f00\u59cb\u7684\u65f6\u95f4\u4e3a $t_i$\u3002\n\n\u6211\u4eec\u4fbf\u53ef\u4ee5\u63a8\u51fa\u6ca1\u91cd\u590d\u7684\u90e8\u5206\u4e3a\uff1a $T-(sum-t_i)$\u3002\n\n\u5176\u4e2d $sum-t_i$ \u8868\u793a\u91cd\u590d\u7684\u90e8\u5206\uff0c\u5c06\u6dcb\u6d74\u5668\u6bcf\u6b21\u6d41\u51fa\u6c34\u7684\u65f6\u95f4 $T$ \u51cf\u53bb\u91cd\u590d\u7684\u90e8\u5206\u4fbf\u662f\u6ca1\u91cd\u590d\u7684\u90e8\u5206\u3002\n## \u65e0\u6ce8\u91ca\u4ee3\u7801\n```cpp\n#include<bits/stdc++.h>\n#define ll long long\nusing namespace std;\nint n,t,ans,sum,a[200001];\nint main(){\n\tcin>>n>>t;\n\tfor(int i=1;i<=n;i++)cin>>a[i];\n\tsort(a+1,a+n+1);\n\tans=t;\n\tsum=t+a[1];\n\tfor(int i=2;i<=n;i++){\n\t\tif(a[i]<sum)ans+=t-(sum-a[i]);\n\t\telse ans+=t;\n\t\tsum=a[i]+t;\n\t}\n\tcout<<ans<<endl;\n\treturn 0;\n}\n```",
+        "postTime": 1647237514,
+        "uid": 569578,
+        "name": "little_rubbish",
+        "ccfLevel": 0,
+        "title": "AT2555"
+    },
+    {
+        "content": "\u76f4\u63a5\u5b9a\u4e49\u4e00\u4e2a\u8ba1\u6570\u5668\u7d2f\u52a0\u65f6\u95f4\uff0c\u6a21\u62df\u5373\u53ef\u3002\n\n\u5982\u679c\u6c34\u505c\u4e86\uff0c\u8ba1\u6570\u5668\u7d2f\u52a0 $T$\u3002\n\n\u5982\u679c\u6c34\u6ca1\u505c\uff0c\u8ba1\u6570\u5668\u7d2f\u52a0 $T-finish+a_i$\uff0c\u5176\u4e2d $finish$ \u662f\u5728\u6ca1\u6309\u7684\u60c5\u51b5\u4e0b\uff0c\u6c34\u5e94\u8be5\u505c\u7684\u65f6\u95f4\u3002\n\nAC Code:\n\n```cpp\n#include <bits/stdc++.h>\n#define int long long //\u5176\u5b9e\u4e0d\u5f00 long long \u4e5f\u6ca1\u4e8b\nusing namespace std;\n\nint a[200001];\n\nsigned main()\n{\n    int n,t;\n    cin >> n >> t;\n    for(int i=1; i<=n; i++) cin >> a[i];\n    int sum = 0; //\u8ba1\u6570\u5668\n    int finish = 0; //finish\n    for(int i=1; i<=n; i++)\n    {\n        if(finish <= a[i]) sum += t; //\u505c\u4e86\n        else sum += (t-finish+a[i]); //\u6ca1\u6709\n        finish = a[i] + t; //finish \u66f4\u65b0\n    }\n    cout << sum << endl;\n}\n```",
+        "postTime": 1644121535,
+        "uid": 514470,
+        "name": "hyc1026",
+        "ccfLevel": 0,
+        "title": "AT2555 \u9898\u89e3"
+    },
+    {
+        "content": "### \u89e3\u9898\u601d\u8def\uff1a\n\n\u8fd9\u9898\u771f\u5c31\u5feb\u4e50\u6a21\u62df\u5c31\u884c\u4e86\u3002\u6bcf\u6b21\u6309\u5f00\u5173\u7684\u65f6\u5019\u518d\u8986\u76d6\u5c31\u884c\u4e86\u3002\u5177\u4f53\u4e00\u4e9b\u7ec6\u8282\u89c1\u4ee3\u7801\n\n### \u4ee3\u7801\u5b9e\u73b0\uff1a\n```\n#include <iostream>\nusing namespace std;\n\nconst int N = 5100;\nint n, t;\n\nint a[N];\n\nint main()\n{\n    cin >> n >> t;\n    for(int i = 0; i < n; i++)\n        cin >> a[i];\n    int ans = t, k = t;//ans\u8868\u793a\u7b54\u6848 \n    //k\u8868\u793a\u4e0a\u4e00\u4e2a\u4eba\u6309\u4e0b\u6309\u94ae\u4e4b\u540e\u6c34\u4f1a\u6301\u7eed\u5230\u4ec0\u4e48\u65f6\u5019\u505c\n    for(int i = 1; i < n; i++)\n    {\n        if(a[i] <= k)//\u5982\u679c\u8fd9\u65f6\u5019\u6c34\u8fd8\u6ca1\u505c\n        {\n            ans += t - (k - a[i]);//\u5c31\u52a0\u4e0a\u6ca1\u6709\u91cd\u5408\u7684\u90e8\u5206\n            k = a[i] + t;\n        }\n\n        else//\u5426\u5219\u5c31\u76f4\u63a5\u52a0\u4e0a\u65f6\u95f4\n        {\n            ans += t;\n            k = a[i] + t;\n        }\n    }\n    cout << ans << endl;\n\n    return 0;\n}\n",
+        "postTime": 1601784569,
+        "uid": 200060,
+        "name": "Magia",
+        "ccfLevel": 7,
+        "title": "\u9898\u89e3 AT2555 \u3010[ARC073A] Sentou\u3011"
+    }
+]
