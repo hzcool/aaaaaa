@@ -296,13 +296,13 @@ function get_account_info(user) {
     nickname: user.nickname,
     luogu_account: user.luogu_account,
     codeforces_account: user.codeforces_account,
-    atcoder_account: user.atcoder_account
+    atcoder_account: user.atcoder_account,
+    other_OJ_AC_problems: user.other_OJ_AC_problems
   }
 }
 
 app.get('/user/account/:id', async (req, res) => {
   try {
-    if (!res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
     let id = parseInt(req.params.id);
     if (id) {
       let user = await User.findById(id);
