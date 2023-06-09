@@ -168,7 +168,7 @@ app.get('/user/:id', async (req, res) => {
       show_user: user,
       statistics: statistics,
       ratingHistories: ratingHistories
-    });
+		});
   } catch (e) {
     syzoj.log(e);
     res.render('error', {
