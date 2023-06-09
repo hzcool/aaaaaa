@@ -36,7 +36,7 @@ async function getLuoguACProblems(uid) {
     if (!uid) return [];
     let res = await getjson(`https://www.luogu.com.cn/user/${uid}?_contentOnly`);
     if (res.code != 200) throw '请检查 UID！';
-    if (!res.currentData.passedProblems) throw "请关闭完全隐私保护！";
+    if (!res.currentData.passedProblems) throw "请关闭完全隐私保护！更新后可重新开启。";
     return res.currentData.passedProblems.map(x => x.pid);
   } catch (e) {
     console.log(e);
