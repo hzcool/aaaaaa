@@ -103,7 +103,7 @@ const tta = (_39ce7) => {
 
 class Handler {
     constructor(handleOrEmail="", password="") {
-        this.req = new req.Request('https://codeforces.com/')
+        this.req = new req.Request('https://codeforc.es/')
         this.xCsrfToken = ''
         this.account = handleOrEmail
         this.password = password
@@ -158,7 +158,7 @@ class Handler {
         let cookies = this.req.cookie.cookies
         for (const name in cookies) {
             const value = cookies[name]
-            await page.setCookie({ name, value, domain: 'codeforces.com' });
+            await page.setCookie({ name, value, domain: 'codeforc.es' });
         }
         return page;
     }
