@@ -81,9 +81,9 @@ async function getOtherOJACproblems(luogu_uids, cf_usernames, at_usernames) {
   let codeforces_problems = cf_usernames.mapAsync(x => getCodeforcesACProblems(x));
   let atcoder_problems = at_usernames.mapAsync(x => getAtcoderACProblems(x));
   [luogu_problems, codeforces_problems, atcoder_problems] = await Promise.all([luogu_problems, codeforces_problems, atcoder_problems]);
-  luogu_problems = [].concat(...luogu_problems);
-  codeforces_problems = [].concat(...codeforces_problems);
-  atcoder_problems = [].concat(...atcoder_problems);
+  luogu_problems = unique([].concat(...luogu_problems));
+  codeforces_problems = unique([].concat(...codeforces_problems));
+  atcoder_problems = unique([].concat(...atcoder_problems));
   codeforces_problems.push(...luogu_problems.filter(x => x.startsWith('CF')));
   codeforces_problems = unique(codeforces_problems);
   atcoder_problems.push(...luogu_problems.filter(x => x.startsWith('AT_')).map(x => x.substring(3)));
