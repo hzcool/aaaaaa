@@ -25,7 +25,16 @@
           <img style="margin-top: -100%; " src="<%= syzoj.utils.gravatar(show_user.email, 1000) %>">
         </div>
         <div class="content">
-          <div class="header"><%= show_user.username %><% if (show_user.nameplate) { %><%- show_user.nameplate %><% } %> <% if (show_user.sex == 1) { %><i class="man icon"></i><% } else if (show_user.sex == -1) { %><i class="woman icon"></i><% } %></div>
+          <div class="header"><%= show_user.username %>
+						<% if (show_user.nameplate) { %>
+							<%- show_user.nameplate %>
+						<% } %> 
+						<% if (show_user.sex == 1) { %>
+							<i class="man icon"></i>
+						<% } else if (show_user.sex == -1) { %>
+							<i class="woman icon"></i>
+						<% } %>
+					</div>
           <div class="meta">
             <a class="group"><%= show_user.is_admin ? '管理员' : '普通用户' %></a>
           </div>
@@ -35,6 +44,69 @@
           <a style="float: right; "><i class="star icon"></i>积分 <%= show_user.rating %></a>
         </div>
       </div>
+
+			<% if (res.locals.user && (res.locals.user.is_admin || res.locals.user.id == show_user.id)) { %>
+				<div class="ui card" style="width: 100%; " id="other_OJ_AC_problems">
+					<div class="ui grid">
+						<div class="row">
+							<div class="column">
+								<div class="ui top attached block header">
+									<h4>
+										其它OJ通过的题目
+										<a href='javascript:void(0);' id='update_other_OJ_AC_problems' title="<%= '上次更新时间：' + (show_user.last_update_time ? show_user.last_update_time.toDateString() : '尚未更新') %>">
+											<i class="sync icon"></i>
+										</a>
+									</h4>
+								</div>
+								<div class="ui bottom attached basic segment accordion">
+									<% if (show_user.luogu_account) { %>
+										<div class="title" title="<%= '共计'+(show_user.other_OJ_AC_problems ? show_user.other_OJ_AC_problems.luogu_problems.length : 0)+'题' %>">
+											<h5 style="font-weight:bold">
+												<i class="dropdown icon"></i>
+												洛谷
+												<a href="<%= 'https://www.luogu.com.cn/user/'+show_user.luogu_account%>"> <%= show_user.luogu_account %> </a>
+											</h5>
+										</div>
+										<div class="content">
+											<% if (show_user.other_OJ_AC_problems) for (let problem of show_user.other_OJ_AC_problems.luogu_problems) { %>
+												<span> <%= problem %> </span>
+											<% } %>
+										</div>
+									<% } %>
+									<% if (show_user.codeforces_account) { %>
+										<div class="title" title="<%= '共计'+(show_user.other_OJ_AC_problems ? show_user.other_OJ_AC_problems.codeforces_problems.length : 0)+'题' %>">
+											<h5>
+												<i class="dropdown icon"></i>
+												Codeforces
+												<a href="<%= 'https://codeforces.com/profile/'+show_user.codeforces_account%>"> <%= show_user.codeforces_account %> </a>
+											</h5>
+										</div>
+										<div class="content">
+											<% if (show_user.other_OJ_AC_problems) for (let problem of show_user.other_OJ_AC_problems.codeforces_problems) { %>
+												<span> <%= problem %> </span>
+											<% } %>
+										</div>
+									<% } %>
+									<% if (show_user.atcoder_account) { %>
+										<div class="title" title="<%= '共计'+(show_user.other_OJ_AC_problems ? show_user.other_OJ_AC_problems.atcoder_problems.length : 0)+'题' %>">
+											<h5>
+												<i class="dropdown icon"></i>
+												Atcoder
+												<a href="<%= 'https://atcoder.jp/users/'+show_user.atcoder_account%>"> <%= show_user.atcoder_account %> </a>
+											</h5>
+										</div>
+										<div class="content">
+											<% if (show_user.other_OJ_AC_problems) for (let problem of show_user.other_OJ_AC_problems.atcoder_problems) { %>
+												<span> <%= problem %> </span>
+											<% } %>
+										</div>
+									<% } %>
+								</div>									
+							</div>
+						</div>
+					</div>	
+				</div>	
+			<% }%>
 
     </div>
     <div class="eleven wide column">
@@ -179,7 +251,7 @@
                   <% } %>
                 </tbody>
               </table>
-													  <% } %>
+							<% } %>
             </div>
           </div>
         </div>
@@ -224,6 +296,7 @@ $(function () {
   $('#user_card .image').dimmer('show');
 <% } %>
 
+	
   var pie = new Chart(document.getElementById('pie_chart').getContext('2d'), {
   aspectRatio: 1,
   type: 'pie',
@@ -287,6 +360,15 @@ $(function () {
   });
 
   document.getElementById('pie_chart_legend').innerHTML = pie.generateLegend();
+	$('.ui.accordion').accordion();
+
+	$('#update_other_OJ_AC_problems').click(function(){
+		$.post("<%= syzoj.utils.makeUrl(['user', show_user.id, 'update_problems']) %>",{},
+		function(data,status){
+			if (data.success) location.reload();
+			else alert("更新失败！");
+		});
+	});
 });
 </script>
 <% include footer %>

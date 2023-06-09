@@ -10,7 +10,9 @@ function gethtml(url) {
       let html = '';
       res.on('data', chunk => html += chunk);
       res.on('end', () => resolve(html));
-    });
+    }).on('error', (error) => {
+			reject(`Error: Failed to get ${url}`);
+		});
   });
 };
 async function getjson(url) {
@@ -73,6 +75,7 @@ app.post('/user/:id/update_problems', async (req, res) => {
     let allowedEdit = await user.isAllowedEditBy(res.locals.user);
     if (!allowedEdit) throw new ErrorMessage('您没有权限进行此操作。');
     user.other_OJ_AC_problems = await getOtherOJACproblems(user.luogu_account.split(','), user.codeforces_account.split(','), user.atcoder_account.split(','));
+		user.last_update_time = new Date();
     await user.save();
     res.send({success: true});
   } catch (e) {

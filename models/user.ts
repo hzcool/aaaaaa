@@ -90,6 +90,9 @@ export default class User extends Model {
   @TypeORM.Column({ nullable: true, type: "json" })
   other_OJ_AC_problems: any;
 
+  @TypeORM.Column({ nullable: true, type: "datetime" })
+  last_update_time: Date;
+
   static async fromEmail(email): Promise<User> {
     return User.findOne({
       where: {
