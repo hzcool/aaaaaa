@@ -1,4 +1,5 @@
-const https = require('https');
+const request = require('request');
+const zlib = require('zlib');
 const User = syzoj.model('user');
 
 function unique(arr) {
@@ -6,47 +7,74 @@ function unique(arr) {
 }
 function gethtml(url) {
   return new Promise((resolve, reject) => {
-    https.get(url, function(res) {
-      let html = '';
-      res.on('data', chunk => html += chunk);
-      res.on('end', () => resolve(html));
-    }).on('error', (error) => {
-			reject(`Error: Failed to get ${url}`);
-		});
+    request({
+      url,
+      proxy: 'http://192.168.188.88:7890',
+      headers: {
+        'Accept-Encoding': 'gzip',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.41'
+      },
+      encoding: null
+    }, (err1, res, body) => {
+      if (err1) reject(err1);
+      else if (res.headers['content-encoding'] && res.headers['content-encoding'] != 'gzip') reject('Unknown coding');
+      else if (!res.headers['content-encoding']) resolve(body.toString());
+      else zlib.unzip(body, (err2, buffer) => {
+        if (err2) reject(err2);
+        else resolve(buffer.toString());
+      });
+    });
   });
 };
 async function getjson(url) {
+  console.log(url);
   let html = await gethtml(url);
   return JSON.parse(html);
 };
 async function getLuoguACProblems(uid) {
-  if (!uid) return [];
-  let res = await getjson(`https://www.luogu.com.cn/user/${uid}?_contentOnly`);
-  if (!res.currentData.passedProblems) return [];
-  return res.currentData.passedProblems.map(x => x.pid);
+  try {
+    if (!uid) return [];
+    let res = await getjson(`https://www.luogu.com.cn/user/${uid}?_contentOnly`);
+    if (res.code != 200) throw '请检查 UID！';
+    if (!res.currentData.passedProblems) throw "请关闭完全隐私保护！";
+    return res.currentData.passedProblems.map(x => x.pid);
+  } catch (e) {
+    console.log(e);
+    throw '洛谷更新失败！' + e.toString();
+  }
 }
 async function getCodeforcesACProblems(username) {
-  if (!username) return [];
-  let res = await getjson(`https://codeforc.es/api/user.status?handle=${username}&from=1&count=20000`);
-  res = res.result.filter(x => x.verdict == 'OK');
-  res = res.map(x => (x.problem.contestId < 100000 ? 'CF' : 'Gym') + x.problem.contestId + x.problem.index);
-  res = unique(res);
-  return res;
+  try {
+    if (!username) return [];
+    let res = await getjson(`https://codeforces.com/api/user.status?handle=${username}&from=1&count=20000`);
+    if (res.status != 'OK') throw '请检查用户名！';
+    res = res.result.filter(x => x.verdict == 'OK');
+    res = res.map(x => (x.problem.contestId < 100000 ? 'CF' : 'Gym') + x.problem.contestId + x.problem.index);
+    res = unique(res);
+    return res;
+  } catch (e) {
+    console.log(e);
+    throw 'Codeforces 更新失败！' + e.toString();
+  }
 }
 async function getAtcoderACProblems(username) {
-  return [];
-  // if (!username) return [];
-  // let pids = [];
-  // for (let st = 0;;) {
-  //   console.log(st);
-  //   let res = await getjson(`https://kenkoooo.com/atcoder/atcoder-api/v3/user/submissions?user=${username}&from_second=${st}`);
-  //   if (!res.length) break;
-  //   st = res[res.length - 1].epoch_second + 1;
-  //   res = res.filter(x => x.result == 'AC');
-  //   res = res.map(x => x.problem_id);
-  //   pids += res;
-  // }
-  // pids = unique(pids);
+  try {
+    if (!username) return [];
+    let pids = [];
+    for (let st = 0;;) {
+      let res = await getjson(`https://kenkoooo.com/atcoder/atcoder-api/v3/user/submissions?user=${username}&from_second=${st}`);
+      if (!res.length) break;
+      st = res[res.length - 1].epoch_second + 1;
+      res = res.filter(x => x.result == 'AC');
+      res = res.map(x => x.problem_id);
+      pids.push(...res);
+    }
+    pids = unique(pids);
+    return pids;
+  } catch (e) {
+    console.log(e);
+    throw 'AtCoder 更新失败！' + e.toString();
+  }
 }
 async function getOtherOJACproblems(luogu_uids, cf_usernames, at_usernames) {
   let luogu_problems = luogu_uids.mapAsync(x => getLuoguACProblems(x));
@@ -75,11 +103,11 @@ app.post('/user/:id/update_problems', async (req, res) => {
     let allowedEdit = await user.isAllowedEditBy(res.locals.user);
     if (!allowedEdit) throw new ErrorMessage('您没有权限进行此操作。');
     user.other_OJ_AC_problems = await getOtherOJACproblems(user.luogu_account.split(','), user.codeforces_account.split(','), user.atcoder_account.split(','));
-		user.last_update_time = new Date();
+    user.last_update_time = new Date();
     await user.save();
     res.send({success: true});
   } catch (e) {
     syzoj.log(e);
-    res.send({success: false, err: e});
+    res.send({success: false, err: e.toString()});
   }
 });

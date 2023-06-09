@@ -26,15 +26,15 @@
         </div>
         <div class="content">
           <div class="header"><%= show_user.username %>
-						<% if (show_user.nameplate) { %>
-							<%- show_user.nameplate %>
-						<% } %> 
-						<% if (show_user.sex == 1) { %>
-							<i class="man icon"></i>
-						<% } else if (show_user.sex == -1) { %>
-							<i class="woman icon"></i>
-						<% } %>
-					</div>
+            <% if (show_user.nameplate) { %>
+              <%- show_user.nameplate %>
+            <% } %> 
+            <% if (show_user.sex == 1) { %>
+              <i class="man icon"></i>
+            <% } else if (show_user.sex == -1) { %>
+              <i class="woman icon"></i>
+            <% } %>
+          </div>
           <div class="meta">
             <a class="group"><%= show_user.is_admin ? '管理员' : '普通用户' %></a>
           </div>
@@ -45,68 +45,80 @@
         </div>
       </div>
 
-			<% if (res.locals.user && (res.locals.user.is_admin || res.locals.user.id == show_user.id)) { %>
-				<div class="ui card" style="width: 100%; " id="other_OJ_AC_problems">
-					<div class="ui grid">
-						<div class="row">
-							<div class="column">
-								<div class="ui top attached block header">
-									<h4>
-										其它OJ通过的题目
-										<a href='javascript:void(0);' id='update_other_OJ_AC_problems' title="<%= '上次更新时间：' + (show_user.last_update_time ? show_user.last_update_time.toDateString() : '尚未更新') %>">
-											<i class="sync icon"></i>
-										</a>
-									</h4>
-								</div>
-								<div class="ui bottom attached basic segment accordion">
-									<% if (show_user.luogu_account) { %>
-										<div class="title" title="<%= '共计'+(show_user.other_OJ_AC_problems ? show_user.other_OJ_AC_problems.luogu_problems.length : 0)+'题' %>">
-											<h5 style="font-weight:bold">
-												<i class="dropdown icon"></i>
-												洛谷
-												<a href="<%= 'https://www.luogu.com.cn/user/'+show_user.luogu_account%>"> <%= show_user.luogu_account %> </a>
-											</h5>
-										</div>
-										<div class="content">
-											<% if (show_user.other_OJ_AC_problems) for (let problem of show_user.other_OJ_AC_problems.luogu_problems) { %>
-												<span> <%= problem %> </span>
-											<% } %>
-										</div>
-									<% } %>
-									<% if (show_user.codeforces_account) { %>
-										<div class="title" title="<%= '共计'+(show_user.other_OJ_AC_problems ? show_user.other_OJ_AC_problems.codeforces_problems.length : 0)+'题' %>">
-											<h5>
-												<i class="dropdown icon"></i>
-												Codeforces
-												<a href="<%= 'https://codeforces.com/profile/'+show_user.codeforces_account%>"> <%= show_user.codeforces_account %> </a>
-											</h5>
-										</div>
-										<div class="content">
-											<% if (show_user.other_OJ_AC_problems) for (let problem of show_user.other_OJ_AC_problems.codeforces_problems) { %>
-												<span> <%= problem %> </span>
-											<% } %>
-										</div>
-									<% } %>
-									<% if (show_user.atcoder_account) { %>
-										<div class="title" title="<%= '共计'+(show_user.other_OJ_AC_problems ? show_user.other_OJ_AC_problems.atcoder_problems.length : 0)+'题' %>">
-											<h5>
-												<i class="dropdown icon"></i>
-												Atcoder
-												<a href="<%= 'https://atcoder.jp/users/'+show_user.atcoder_account%>"> <%= show_user.atcoder_account %> </a>
-											</h5>
-										</div>
-										<div class="content">
-											<% if (show_user.other_OJ_AC_problems) for (let problem of show_user.other_OJ_AC_problems.atcoder_problems) { %>
-												<span> <%= problem %> </span>
-											<% } %>
-										</div>
-									<% } %>
-								</div>									
-							</div>
-						</div>
-					</div>	
-				</div>	
-			<% }%>
+      <% if (res.locals.user && (res.locals.user.is_admin || res.locals.user.id == show_user.id)) { %>
+        <div class="ui card" style="width: 100%; " id="other_OJ_AC_problems">
+          <div class="ui grid">
+            <div class="row">
+              <div class="column">
+                <div class="ui top attached block header">
+                  <h4>
+                    其它 OJ 通过的题目【<%= show_user.last_update_time ? syzoj.utils.formatDate(show_user.last_update_time / 1000, 'L') : '尚未更新' %>】
+                    <a href="javascript:void(0);" id="update_other_OJ_AC_problems" title="请关闭洛谷的完全隐私保护">
+                      <i class="sync icon"></i>
+                    </a>
+                  </h4>
+                </div>
+                <div class="ui bottom attached basic segment accordion">
+                  <% if (show_user.luogu_account) { %>
+                    <div class="title">
+                      <h5 style="font-weight:bold">
+                        <i class="dropdown icon"></i>
+                        洛谷
+                        <% for (let arr = show_user.luogu_account.split(','), i = 0; i < arr.length; i++) { %>
+                          <% if (i) { %>,<% } %>
+                          <a href="https://www.luogu.com.cn/user/<%= arr[i] %>"> <%= arr[i] %> </a>
+                        <% } %>
+                        （<%= show_user.other_OJ_AC_problems ? show_user.other_OJ_AC_problems.luogu_problems.length : 0 %> 题）
+                      </h5>
+                    </div>
+                    <div class="content">
+                      <% if (show_user.other_OJ_AC_problems) for (let problem of show_user.other_OJ_AC_problems.luogu_problems) { %>
+                        <span> <%= problem %> </span>
+                      <% } %>
+                    </div>
+                  <% } %>
+                  <% if (show_user.codeforces_account) { %>
+                    <div class="title">
+                      <h5>
+                        <i class="dropdown icon"></i>
+                        CF
+                        <% for (let arr = show_user.codeforces_account.split(','), i = 0; i < arr.length; i++) { %>
+                          <% if (i) { %>,<% } %>
+                          <a href="https://codeforces.com/profile/<%= arr[i] %>"> <%= arr[i] %> </a>
+                        <% } %>
+                        （<%= show_user.other_OJ_AC_problems ? show_user.other_OJ_AC_problems.codeforces_problems.length : 0 %> 题）
+                      </h5>
+                    </div>
+                    <div class="content">
+                      <% if (show_user.other_OJ_AC_problems) for (let problem of show_user.other_OJ_AC_problems.codeforces_problems) { %>
+                        <span> <%= problem %> </span>
+                      <% } %>
+                    </div>
+                  <% } %>
+                  <% if (show_user.atcoder_account) { %>
+                    <div class="title">
+                      <h5>
+                        <i class="dropdown icon"></i>
+                        AT
+                        <% for (let arr = show_user.atcoder_account.split(','), i = 0; i < arr.length; i++) { %>
+                          <% if (i) { %>,<% } %>
+                          <a href="https://atcoder.jp/users/<%= arr[i] %>"> <%= arr[i] %> </a>
+                        <% } %>
+                        （<%= show_user.other_OJ_AC_problems ? show_user.other_OJ_AC_problems.atcoder_problems.length : 0 %> 题）
+                      </h5>
+                    </div>
+                    <div class="content">
+                      <% if (show_user.other_OJ_AC_problems) for (let problem of show_user.other_OJ_AC_problems.atcoder_problems) { %>
+                        <span> <%= problem %> </span>
+                      <% } %>
+                    </div>
+                  <% } %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% }%>
 
     </div>
     <div class="eleven wide column">
@@ -234,7 +246,7 @@
           <div class="column">
             <h4 class="ui top attached block header">帖子</h4>
             <div class="ui bottom attached <% if (!show_user.articles.length) { %>center aligned <% } %>segment">
-													  <% if (!show_user.articles.length) { %>该用户从未发表帖子<% } else { %>
+                            <% if (!show_user.articles.length) { %>该用户从未发表帖子<% } else { %>
               <table class="ui very basic table">
                 <thead>
                   <tr>
@@ -245,13 +257,13 @@
                 <tbody>
                   <% for (let article of show_user.articles) { %>
                   <tr>
-																			  <td><a href="<%= syzoj.utils.makeUrl(['article', article.id]) %>"><%= article.title %></a></td>
+                                        <td><a href="<%= syzoj.utils.makeUrl(['article', article.id]) %>"><%= article.title %></a></td>
                     <td><%= syzoj.utils.formatDate(article.public_time) %></td>
                   </tr>
                   <% } %>
                 </tbody>
               </table>
-							<% } %>
+              <% } %>
             </div>
           </div>
         </div>
@@ -296,7 +308,7 @@ $(function () {
   $('#user_card .image').dimmer('show');
 <% } %>
 
-	
+  
   var pie = new Chart(document.getElementById('pie_chart').getContext('2d'), {
   aspectRatio: 1,
   type: 'pie',
@@ -336,39 +348,40 @@ $(function () {
     display: false
     },
     legendCallback: function (chart) {
-  			var text = [];
-  			text.push('<ul style="list-style: none; padding-left: 20px; margin-top: 0; " class="' + chart.id + '-legend">');
+        var text = [];
+        text.push('<ul style="list-style: none; padding-left: 20px; margin-top: 0; " class="' + chart.id + '-legend">');
 
-  			var data = chart.data;
-  			var datasets = data.datasets;
-  			var labels = data.labels;
+        var data = chart.data;
+        var datasets = data.datasets;
+        var labels = data.labels;
 
-  			if (datasets.length) {
-  				for (var i = 0; i < datasets[0].data.length; ++i) {
-  					text.push('<li style="font-size: 12px; width: 50%; display: inline-block; color: #666; "><span style="width: 10px; height: 10px; display: inline-block; border-radius: 50%; margin-right: 5px; background-color: ' + datasets[0].backgroundColor[i] + '; "></span>');
-  					if (labels[i]) {
-  						text.push(labels[i]);
-  					}
-  					text.push('</li>');
-  				}
-  			}
+        if (datasets.length) {
+          for (var i = 0; i < datasets[0].data.length; ++i) {
+            text.push('<li style="font-size: 12px; width: 50%; display: inline-block; color: #666; "><span style="width: 10px; height: 10px; display: inline-block; border-radius: 50%; margin-right: 5px; background-color: ' + datasets[0].backgroundColor[i] + '; "></span>');
+            if (labels[i]) {
+              text.push(labels[i]);
+            }
+            text.push('</li>');
+          }
+        }
 
-  			text.push('</ul>');
-  			return text.join('');
-  		}
+        text.push('</ul>');
+        return text.join('');
+      }
   },
   });
 
   document.getElementById('pie_chart_legend').innerHTML = pie.generateLegend();
-	$('.ui.accordion').accordion();
+  $('.ui.accordion').accordion();
 
-	$('#update_other_OJ_AC_problems').click(function(){
-		$.post("<%= syzoj.utils.makeUrl(['user', show_user.id, 'update_problems']) %>",{},
-		function(data,status){
-			if (data.success) location.reload();
-			else alert("更新失败！");
-		});
-	});
+  $('#update_other_OJ_AC_problems').click(function(){
+    $.post("<%= syzoj.utils.makeUrl(['user', show_user.id, 'update_problems']) %>",{},
+    function(data, status){
+      console.log(data, status);
+      if (data.success) location.reload();
+      else alert(data.err.toString());
+    });
+  });
 });
 </script>
 <% include footer %>
