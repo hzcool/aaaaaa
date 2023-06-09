@@ -235,6 +235,10 @@ app.post('/user/:id/edit', async (req, res) => {
         user.email = req.body.email;
         user.nickname = req.body.nickname;
 
+        user.luogu_account = req.body.luogu_account;
+        user.codeforces_account = req.body.codeforces_account;
+        user.atcoder_account = req.body.atcoder_account;
+
         if (!req.body.privileges) {
           req.body.privileges = [];
         } else if (!Array.isArray(req.body.privileges)) {
@@ -254,10 +258,6 @@ app.post('/user/:id/edit', async (req, res) => {
       user.information = req.body.information;
       user.sex = req.body.sex;
       user.prefer_formatted_code = (req.body.prefer_formatted_code === 'on');
-
-      user.luogu_account = req.body.luogu_account;
-      user.codeforces_account = req.body.codeforces_account;
-      user.atcoder_account = req.body.atcoder_account;
 
       await user.save();
 

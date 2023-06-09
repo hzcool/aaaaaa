@@ -15,6 +15,20 @@
                     <input type="text" placeholder="" id="nickname">
                 </div>
                 <div class="field">
+                  <label> OJ 账号（如有多个用逗号隔开）</label>
+                    <div class="three fields">
+                      <div class="field">
+                        <input type="text" placeholder="洛谷 UID" id="luogu_account">
+                      </div>
+                      <div class="field">
+                        <input type="text" placeholder="Codeforces 用户名" id="codeforces_account">
+                      </div>
+                      <div class="field">
+                        <input type="text" placeholder="AtCoder 用户名" id="atcoder_account">
+                      </div>
+                    </div>
+                </div>
+                <div class="field">
                     <label for="email">邮箱</label>
                     <input type="email" placeholder="" id="email">
                 </div>
@@ -66,6 +80,9 @@ function submit() {
           username: $("#username").val(),
           nickname: $("#nickname").val(),
           password: password,
+          luogu_account: $("#luogu_account").val(),
+          codeforces_account: $("#codeforces_account").val(),
+          atcoder_account: $("#atcoder_account").val(),
           email: $("#email").val(),
           prevUrl: <%- serializejs(req.query.url || '/') %>
         },
