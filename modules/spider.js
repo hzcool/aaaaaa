@@ -1,12 +1,14 @@
 const request = require('request');
 const zlib = require('zlib');
+const Jszip = require('jszip');
 const User = syzoj.model('user');
 
 function unique(arr) {
   return Array.from(new Set(arr));
 }
-function gethtml(url) {
-  return new Promise((resolve, reject) => {
+async function getjson(url) {
+  console.log(url);
+  let data = await new Promise((resolve, reject) => {
     request({
       url,
       proxy: 'http://192.168.188.88:7890',
@@ -25,11 +27,7 @@ function gethtml(url) {
       });
     });
   });
-};
-async function getjson(url) {
-  console.log(url);
-  let html = await gethtml(url);
-  return JSON.parse(html);
+  return JSON.parse(data);
 };
 async function getLuoguACProblems(uid) {
   try {
@@ -109,5 +107,46 @@ app.post('/user/:id/update_problems', async (req, res) => {
   } catch (e) {
     syzoj.log(e);
     res.send({success: false, err: e.toString()});
+  }
+});
+
+async function getCFTestdata(submission_id) {
+  let data = await new Promise((resolve, reject) => {
+    request({
+      url: `https://codeforces.com/data/submitSource?submissionId=${submission_id}`,
+      method: 'POST',
+      proxy: 'http://192.168.188.88:7890',
+    }, (err, res, body) => {
+      if (err) reject(err);
+      else resolve(body);
+    });
+  });
+  data = JSON.parse(data);
+  let zip = new Jszip();
+  for (let i = 1; ; i++) {
+    if (data["accepted#" + i] != "true") break;
+    let input = data["input#" + i], output = data["answer#" + i];
+    if (input.slice(-3) != '...' && output.slice(-3) != '...') {
+      zip.file(`${i}.in`, input);
+      zip.file(`${i}.ans`, output);
+    }
+  }
+  let buffer = await zip.generateAsync({
+    type: 'nodebuffer',
+    compression: 'DEFLATE'
+  });
+  return buffer;
+}
+
+app.get('/codeforces/testdata/:submission_id', async (req, res) => {
+  try {
+    let file = await getCFTestdata(req.params.submission_id);
+    console.log(file);
+    res.end(file);
+  } catch (e) {
+    syzoj.log(e);
+    res.render('error', {
+      err: e
+    });
   }
 });
