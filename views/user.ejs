@@ -59,7 +59,7 @@
                   </h4>
                 </div>
                 <div class="ui bottom attached basic segment accordion">
-                  <% if (show_user.luogu_account) { %>
+                  <% if (show_user.luogu_account || (show_user.other_OJ_AC_problems && show_user.other_OJ_AC_problems.luogu_problems)) { %>
                     <div class="title">
                       <h5 style="font-weight:bold">
                         <i class="dropdown icon"></i>
@@ -72,12 +72,14 @@
                       </h5>
                     </div>
                     <div class="content">
-                      <% if (show_user.other_OJ_AC_problems) for (let problem of show_user.other_OJ_AC_problems.luogu_problems) { %>
-                        <span> <%= problem %> </span>
-                      <% } %>
+                      <span>
+                        <% if (show_user.other_OJ_AC_problems) for (let problem of show_user.other_OJ_AC_problems.luogu_problems) { %>
+                          <span> <%= problem %> </span>
+                        <% } %>
+                      </span>
                     </div>
                   <% } %>
-                  <% if (show_user.codeforces_account) { %>
+                  <% if (show_user.codeforces_account || (show_user.other_OJ_AC_problems && show_user.other_OJ_AC_problems.codeforces_problems)) { %>
                     <div class="title">
                       <h5>
                         <i class="dropdown icon"></i>
@@ -90,12 +92,14 @@
                       </h5>
                     </div>
                     <div class="content">
-                      <% if (show_user.other_OJ_AC_problems) for (let problem of show_user.other_OJ_AC_problems.codeforces_problems) { %>
-                        <span> <%= problem %> </span>
-                      <% } %>
+                      <span>
+                        <% if (show_user.other_OJ_AC_problems) for (let problem of show_user.other_OJ_AC_problems.codeforces_problems) { %>
+                          <span> <%= problem %> </span>
+                        <% } %>
+                      </span>
                     </div>
                   <% } %>
-                  <% if (show_user.atcoder_account) { %>
+                  <% if (show_user.atcoder_account || (show_user.other_OJ_AC_problems && show_user.other_OJ_AC_problems.atcoder_problems)) { %>
                     <div class="title">
                       <h5>
                         <i class="dropdown icon"></i>
@@ -108,9 +112,11 @@
                       </h5>
                     </div>
                     <div class="content">
-                      <% if (show_user.other_OJ_AC_problems) for (let problem of show_user.other_OJ_AC_problems.atcoder_problems) { %>
-                        <span> <%= problem %> </span>
-                      <% } %>
+                      <span>
+                        <% if (show_user.other_OJ_AC_problems) for (let problem of show_user.other_OJ_AC_problems.atcoder_problems) { %>
+                          <span> <%= problem %> </span>
+                        <% } %>
+                      </span>
                     </div>
                   <% } %>
                 </div>
