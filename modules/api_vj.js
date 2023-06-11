@@ -100,18 +100,38 @@ app.post('/luogu/problems/:type/search', async (req, res) => {
     }
 });
 
+async function getLuoguSolutions(type, pid) {
+    let helper = syzoj.newLuoguHelper(type);
+    let sol = helper.getSolutions(pid);
+    let solutions = "";
+    for (let i = 0; i < sol.length; i++) {
+        if (i) solutions += '\n\n<div class="el-divider el-divider--horizontal" role="separator" style="--el-border-style: solid;"></div>\n\n';
+        solutions += `### ${i+1}. ${sol[i].name}&nbsp;&nbsp;&nbsp;${sol[i].title}&nbsp;&nbsp;&nbsp;${syzoj.utils.formatDate(sol[i].postTime)}\n\n`;
+        solutions += sol[i].content;
+    }
+    solutions = await syzoj.utils.markdown(solutions);
+    return solutions;
+}
+
+app.get('/luogu/problems/:type/:pid', async (req, res) => {
+    try {
+        if(!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
+        let solutions = await getLuoguSolutions(req.params.type, req.params.type + req.params.pid);
+        res.render('luogu_solutions', {
+            solutions
+        });
+    } catch (e) {
+        syzoj.log(e);
+        res.render('error', {
+            err: e
+        });
+    }
+});
+
 app.get('/luogu/problems/:type/solutions/:pid', async (req, res) => {
     try {
         if(!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
-        let helper = syzoj.newLuoguHelper(req.params.type);
-        let sol = helper.getSolutions(req.params.pid);
-        let solutions = "";
-        for (let i = 0; i < sol.length; i++) {
-            if (i) solutions += '\n\n<div class="el-divider el-divider--horizontal" role="separator" style="--el-border-style: solid;"></div>\n\n';
-            solutions += `### ${i+1}. ${sol[i].name}&nbsp;&nbsp;&nbsp;${sol[i].title}&nbsp;&nbsp;&nbsp;${syzoj.utils.formatDate(sol[i].postTime)}\n\n`;
-            solutions += sol[i].content;
-        }
-        solutions = await syzoj.utils.markdown(solutions);
+        let solutions = await getLuoguSolutions(req.params.type, req.params.pid);
         res.send({solutions});
     } catch (e) {
         syzoj.log(e);
