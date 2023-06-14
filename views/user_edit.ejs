@@ -12,7 +12,7 @@
     <div class="ui form">
       <div class="field">
           <label for="username">用户名</label>
-          <input type="text" id="username" name="username" value="<%= edited_user.username %>"<% if (!user.allowedManage) { %> readonly <% } %> >
+          <input type="text" id="username" name="username" value="<%= edited_user.username %>"<% if (!user.allowedManage) { %> readonly <% } %> />
       </div>
 
       <% if(is_admin){ %>
@@ -39,13 +39,13 @@
         <label> OJ 账号（如有多个用逗号隔开）</label>
         <div class="three fields">
           <div class="field">
-            <input type="text" placeholder="洛谷 UID" name="luogu_account" id="luogu_account" value="<%= edited_user.luogu_account %>" />
+            <input type="text" placeholder="洛谷 UID" name="luogu_account" id="luogu_account" value="<%= edited_user.luogu_account %>"<% if (!user.allowedManage) { %> readonly <% } %> />
           </div>
           <div class="field">
-            <input type="text" placeholder="Codeforces 用户名" name="codeforces_account" id="codeforces_account" value="<%= edited_user.codeforces_account %>" />
+            <input type="text" placeholder="Codeforces 用户名" name="codeforces_account" id="codeforces_account" value="<%= edited_user.codeforces_account %>"<% if (!user.allowedManage) { %> readonly <% } %> />
           </div>
           <div class="field">
-            <input type="text" placeholder="AtCoder 用户名" name="atcoder_account" id="atcoder_account" value="<%= edited_user.atcoder_account %>" />
+            <input type="text" placeholder="AtCoder 用户名" name="atcoder_account" id="atcoder_account" value="<%= edited_user.atcoder_account %>"<% if (!user.allowedManage) { %> readonly <% } %> />
           </div>
         </div>
       </div>
