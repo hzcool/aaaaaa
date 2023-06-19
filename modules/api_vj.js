@@ -57,7 +57,7 @@ app.get('/api/vj/flush/time_memroy/:id', async (req, res) => {
 
 app.get('/luogu/problems/:type', async (req, res) => {
     try {
-        if(!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
+        if(!res.locals.user || !await res.locals.user.hasPrivilege('manage_problem')) throw new ErrorMessage('您没有权限进行此操作。');
         let helper = syzoj.newLuoguHelper(req.params.type)
         let x = helper.findByTags()
         res.render('luogu_problems', {
@@ -79,7 +79,7 @@ app.get('/luogu/problems/:type', async (req, res) => {
 
 app.post('/luogu/problems/:type/search', async (req, res) => {
     try {
-        if(!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
+        if(!res.locals.user || !await res.locals.user.hasPrivilege('manage_problem')) throw new ErrorMessage('您没有权限进行此操作。');
         let helper = syzoj.newLuoguHelper(req.params.type)
         let tags =  req.body.tags ? req.body.tags.map(x => parseInt(x)) : []
         let difficulty = tags.filter(x => x <= -1000).map(x => -x - 1000)
@@ -115,7 +115,7 @@ async function getLuoguSolutions(type, pid) {
 
 app.get('/luogu/problems/:type/:pid', async (req, res) => {
     try {
-        if(!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
+        if(!res.locals.user || !await res.locals.user.hasPrivilege('manage_problem')) throw new ErrorMessage('您没有权限进行此操作。');
         let solutions = await getLuoguSolutions(req.params.type, req.params.type + req.params.pid);
         res.render('luogu_solutions', {
             solutions
@@ -130,7 +130,7 @@ app.get('/luogu/problems/:type/:pid', async (req, res) => {
 
 app.get('/luogu/problems/:type/solutions/:pid', async (req, res) => {
     try {
-        if(!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
+        if(!res.locals.user || !await res.locals.user.hasPrivilege('manage_problem')) throw new ErrorMessage('您没有权限进行此操作。');
         let solutions = await getLuoguSolutions(req.params.type, req.params.pid);
         res.send({solutions});
     } catch (e) {
@@ -141,7 +141,7 @@ app.get('/luogu/problems/:type/solutions/:pid', async (req, res) => {
 
 app.get('/luogu/problems/:type/statement/:pid', async (req, res) => {
     try {
-        if(!res.locals.user || !res.locals.user.is_admin) throw new ErrorMessage('您没有权限进行此操作。');
+        if(!res.locals.user || !await res.locals.user.hasPrivilege('manage_problem')) throw new ErrorMessage('您没有权限进行此操作。');
         let helper = syzoj.newLuoguHelper(req.params.type)
         let x = helper.getStatement(req.params.pid)
         let statement = x.description;
