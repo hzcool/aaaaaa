@@ -198,33 +198,46 @@ module.exports = {
           score: st.score,
           type: st.type,
           cases: st.cases.map(c => {
-            function getFileNames(template, id, mustExist) {
-              let s = template.split('#').join(String(id));
-              let reg = new RegExp(s);
-              let p = [];
-              for (let file of list) {
-                if (reg.test(file) && file.match(reg)[0] === file) p.push(file);
-              }
-              if (mustExist && p.length == 0) throw `找不到文件 ${s}`;
-              return p;
-            }
+						if (answer || config.interactor) {
+							function getFileName(template, id, mustExist) {
+								let s = template.split('#').join(String(id));
+								if (mustExist && !list.includes(s)) throw `找不到文件 ${s}`;
+								return s;
+							}
 
-            let o = {};
-            if (input) o.input = getFileNames(input, c, true);
-            if (output) o.output = getFileNames(output, c, true);
-            if (answer) o.answer = getFileNames(answer, c, false);
+							let o = {};
+							if (input) o.input = getFileName(input, c, true);
+							if (output) o.output = getFileName(output, c, true);
+							if (answer) o.answer = getFileName(answer, c, false);
 
-            if (o.input.length != o.output.length || (answer && o.input.length != o.answer.length)) throw `${c} 匹配到的输入和输出文件个数不一致`;
-            var len = o.input.length;
-            let p = [];
-            for (let i=0; i<len; i++) {
-              let d = {};
-              d.input = o.input[i];
-              d.output = o.output[i];
-              if (answer) d.answer = o.answer[i];
-              p.push(d);
-            }
-            return p;
+							return o;
+						} else {
+							function getFileNames(template, id, mustExist) {
+								let s = template.split('#').join(String(id));
+								let reg = new RegExp(s);
+								let p = [];
+								for (let file of list) {
+									if (reg.test(file) && file.match(reg)[0] === file) p.push(file);
+								}
+								if (mustExist && p.length == 0) throw `找不到文件 ${s}`;
+								return p;
+							}
+
+							let o = {};
+							if (input) o.input = getFileNames(input, c, true);
+							if (output) o.output = getFileNames(output, c, true);
+
+							if (o.input.length != o.output.length) throw `${c} 匹配到的输入和输出文件个数不一致`;
+							var len = o.input.length;
+							let p = [];
+							for (let i=0; i<len; i++) {
+								let d = {};
+								d.input = o.input[i];
+								d.output = o.output[i];
+								p.push(d);
+							}
+							return p;
+						}
           }).reduce(
             (cases, c) => cases.concat(c),
             []
