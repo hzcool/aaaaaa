@@ -1,12 +1,10 @@
 Array.prototype.forEachAsync = Array.prototype.mapAsync = async function (fn) {
   return Promise.all(this.map(fn));
 };
-
 Array.prototype.filterAsync = async function (fn) {
   let a = await this.mapAsync(fn);
   return this.filter((x, i) => a[i]);
 };
-
 global.ErrorMessage = class ErrorMessage {
   constructor(message, nextUrls, details) {
     this.message = message;
@@ -14,7 +12,6 @@ global.ErrorMessage = class ErrorMessage {
     this.details = details;
   }
 };
-
 let Promise = require('bluebird');
 let path = require('path');
 let fs = Promise.promisifyAll(require('fs-extra'));
@@ -27,7 +24,6 @@ let filesize = require('file-size');
 let AsyncLock = require('async-lock');
 let JSDOM = require('jsdom').JSDOM;
 let renderer = require('./libs/renderer');
-
 module.exports = {
   resolvePath(s) {
     let a = Array.from(arguments);
@@ -37,20 +33,16 @@ module.exports = {
   markdown(obj, keys, noReplaceUI) {
     let replaceUI = s => {
       if (noReplaceUI) return s;
-
       s = s.split('<pre>').join('<div class="ui existing segment"><pre style="margin-top: 0; margin-bottom: 0; ">').split('</pre>').join('</pre></div>')
            .split('<table>').join('<table class="ui structured celled table">')
            .split('<blockquote>').join('<div class="ui message">').split('</blockquote>').join('</div>');
-
       let jsdom = new JSDOM(), document = jsdom.window.document;
       document.body.innerHTML = s;
-
       let a = document.querySelectorAll('p > img:only-child');
       for (let img of Array.from(a)) {
         img.style.display = 'block';
         img.style.margin = '0 auto';
       }
-
       return document.body.innerHTML;
     };
     return new Promise((resolve, reject) => {
@@ -144,11 +136,9 @@ module.exports = {
   },
   async parseTestdata(dir, submitAnswer) {
     if (!await syzoj.utils.isDir(dir)) return null;
-
     try {
       // Get list of *files*
       let list = await (await fs.readdirAsync(dir)).filterAsync(async x => await syzoj.utils.isFile(path.join(dir, x)));
-
       let res = [];
       if (!list.includes('data.yml')) {
         res[0] = {};
@@ -164,7 +154,6 @@ module.exports = {
               if (submitAnswer) o.answer = `${parsedName.name}.out`;
               res[0].cases.push(o);
             }
-
             if (list.includes(`${parsedName.name}.ans`)) {
               let o = {
                 input: file,
@@ -175,7 +164,6 @@ module.exports = {
             }
           }
         }
-
         res[0].type = 'sum';
         res[0].score = 100;
         res[0].cases.forEach((e) => { e.key = (e.input.match(/\d+/g) || []).map((x) => parseInt(x)).concat(e.input); });
@@ -187,55 +175,32 @@ module.exports = {
           }
           return 0;
         });
-
         res.spj = list.some(s => s.startsWith('spj_'));
       } else {
         let config = require('js-yaml').load((await fs.readFileAsync(dir + '/data.yml')));
-
         let input = config.inputFile, output = config.outputFile, answer = config.userOutput;
-
         res = config.subtasks.map(st => ({
           score: st.score,
           type: st.type,
           cases: st.cases.map(c => {
-            function getFileNames(template, id, mustExist) {
+            function getFileName(template, id, mustExist) {
               let s = template.split('#').join(String(id));
-              let reg = new RegExp(s);
-              let p = [];
-              for (let file of list) {
-                if (reg.test(file) && file.match(reg)[0] === file) p.push(file);
-              }
-              if (mustExist && p.length == 0) throw `找不到文件 ${s}`;
-              return p;
+              if (mustExist && !list.includes(s)) throw `找不到文件 ${s}`;
+              return s;
             }
 
             let o = {};
-            if (input) o.input = getFileNames(input, c, true);
-            if (output) o.output = getFileNames(output, c, true);
-            if (answer) o.answer = getFileNames(answer, c, false);
+            if (input) o.input = getFileName(input, c, true);
+            if (output) o.output = getFileName(output, c, true);
+            if (answer) o.answer = getFileName(answer, c, false);
 
-            if (o.input.length != o.output.length || (answer && o.input.length != o.answer.length)) throw `${c} 匹配到的输入和输出文件个数不一致`;
-            var len = o.input.length;
-            let p = [];
-            for (let i=0; i<len; i++) {
-              let d = {};
-              d.input = o.input[i];
-              d.output = o.output[i];
-              if (answer) d.answer = o.answer[i];
-              p.push(d);
-            }
-            return p;
-          }).reduce(
-            (cases, c) => cases.concat(c),
-            []
-          )
+            return o;
+          })
         }));
 
         res = res.filter(x => x.cases && x.cases.length !== 0);
-
         res.spj = !!config.specialJudge;
       }
-
       return res;
     } catch (e) {
       console.log(e);
@@ -250,10 +215,8 @@ module.exports = {
   paginate(count, currPage, perPage) {
     currPage = parseInt(currPage);
     if (!currPage || currPage < 1) currPage = 1;
-
     let pageCnt = Math.ceil(count / perPage);
     if (currPage > pageCnt) currPage = pageCnt;
-
     return {
       currPage: currPage,
       perPage: perPage,
@@ -270,7 +233,6 @@ module.exports = {
       if (typeof x !== 'number' || isNaN(x)) return null;
       return x;
     }
-
     return {
       currPageTop: parseIntOrNull(currPageTop),
       currPageBottom: parseIntOrNull(currPageBottom),
@@ -343,7 +305,6 @@ module.exports = {
     if (hostOnly) return host;
     else return host + req.originalUrl;
   },
-
   makeRecordsMap(records) {
       let records_map = {}
       for(let item of records) {
